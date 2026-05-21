@@ -13,7 +13,7 @@ export function PrivacyPolicyDocument() {
       </h2>
 
       <p>
-        {'Welcome to Bades.id.com PBC (“'}
+        {'Welcome to Bades.id PBC (“'}
         <strong>{'Bades.id'}</strong>
         {'”, “'}
         <strong>{'Company'}</strong>
@@ -79,7 +79,7 @@ export function PrivacyPolicyDocument() {
               {'https://bades.id'}
             </a>
             {
-              ') and any related services or applications operated by Bades.id.com PBC.'
+              ') and any related services or applications operated by Bades.id PBC.'
             }
           </p>
         </li>

@@ -6,15 +6,15 @@ export function TermsDocument() {
       <h2>Introduction</h2>
       <p>
         Herein are the Terms of Service that govern the use of products created
-        by Bades.id.com PBC (&quot;Company&quot;, &quot;we&quot;, &quot;our&quot;,
+        by Bades.id PBC (&quot;Company&quot;, &quot;we&quot;, &quot;our&quot;,
         &quot;us&quot;). The estimated reading time for the full content is
         approximately 20 minutes.
       </p>
       <p>
         These Terms of Service (&quot;Terms&quot;, &quot;Terms of Service&quot;)
-        govern the use of our main website on Bades.id.com and any of its
+        govern the use of our main website on bades.id and any of its
         sub-domain, as well as any mobile application (together or individually
-        &quot;Service&quot;) operated by Bades.id.com PBC.
+        &quot;Service&quot;) operated by Bades.id PBC.
       </p>
       <p>
         Our Privacy Policy also governs your use of our Service and explains how
@@ -95,22 +95,22 @@ export function TermsDocument() {
       </p>
       <p>
         At the end of each Billing Cycle, your Subscription will automatically
-        renew under the exact same conditions unless you cancel it or Bades.id.com
+        renew under the exact same conditions unless you cancel it or bades.id
         PBC cancels it. You may cancel your Subscription renewal either through
-        your online account management page or by contacting Bades.id.com PBC
+        your online account management page or by contacting Bades.id PBC
         customer support team.
       </p>
       <p>
         A valid payment method, including credit card, is required to process
-        the payment for your subscription. You shall provide Bades.id.com PBC with
+        the payment for your subscription. You shall provide Bades.id PBC with
         accurate and complete billing information including full name, address,
         state, zip code, telephone number, and a valid payment method
         information. By submitting such payment information, you automatically
-        authorize Bades.id.com PBC to charge all Subscription fees incurred
+        authorize Bades.id PBC to charge all Subscription fees incurred
         through your account to any such payment instruments.
       </p>
       <p>
-        Should automatic billing fail to occur for any reason, Bades.id.com PBC
+        Should automatic billing fail to occur for any reason, Bades.id PBC
         will issue an electronic invoice indicating that you must proceed
         manually, within a certain deadline date, with the full payment
         corresponding to the billing period as indicated on the invoice.
@@ -118,7 +118,7 @@ export function TermsDocument() {
 
       <h2>Free Trial</h2>
       <p>
-        Bades.id.com PBC may, at its sole discretion, offer a Subscription with a
+        Bades.id PBC may, at its sole discretion, offer a Subscription with a
         free trial for a limited period of time (&quot;Free Trial&quot;).
       </p>
       <p>
@@ -127,25 +127,25 @@ export function TermsDocument() {
       </p>
       <p>
         If you do enter your billing information when signing up for Free Trial,
-        you will not be charged by Bades.id.com PBC until Free Trial has expired.
+        you will not be charged by Bades.id PBC until Free Trial has expired.
         On the last day of Free Trial period, unless you canceled your
         Subscription, you will be automatically charged the applicable
         Subscription fees for the type of Subscription you have selected.
       </p>
       <p>
-        At any time and without notice, Bades.id.com PBC reserves the right to (i)
+        At any time and without notice, Bades.id PBC reserves the right to (i)
         modify Terms of Service of Free Trial offer, or (ii) cancel such Free
         Trial offer.
       </p>
 
       <h2>Fee changes</h2>
       <p>
-        Bades.id.com PBC, in its sole discretion and at any time, may modify
+        Bades.id PBC, in its sole discretion and at any time, may modify
         Subscription fees for the Subscriptions. Any Subscription fee change
         will become effective at the end of the then-current Billing Cycle.
       </p>
       <p>
-        Bades.id.com PBC will provide you with a reasonable prior notice of any
+        Bades.id PBC will provide you with a reasonable prior notice of any
         change in Subscription fees to give you an opportunity to terminate your
         Subscription before such change becomes effective.
       </p>
@@ -190,7 +190,7 @@ export function TermsDocument() {
         of Service, who may also use your Content subject to these Terms.
       </p>
       <p>
-        Bades.id.com PBC has the right but not the obligation to monitor and edit
+        Bades.id PBC has the right but not the obligation to monitor and edit
         all Content provided by users.
       </p>
 
@@ -335,10 +335,10 @@ export function TermsDocument() {
       <p>
         Service and its original content (excluding Content provided by users),
         features and functionality are and will remain the exclusive property of
-        Bades.id.com PBC and its licensors. Service is protected by copyright,
+        Bades.id PBC and its licensors. Service is protected by copyright,
         trademark, and other laws of the United States. Our trademarks and trade
         dress may not be used in connection with any product or service without
-        the prior written consent of Bades.id.com PBC.
+        the prior written consent of Bades.id PBC.
       </p>
 
       <h2>Error Reporting and Feedback</h2>
@@ -381,16 +381,16 @@ export function TermsDocument() {
       <h2>Links To Other Websites</h2>
       <p>
         Our Service may contain links to third party websites or services that
-        are not owned or controlled by Bades.id.com PBC.
+        are not owned or controlled by Bades.id PBC.
       </p>
       <p>
-        Bades.id.com PBC has no control over, and assumes no responsibility for
+        Bades.id PBC has no control over, and assumes no responsibility for
         the content, privacy policies, or practices of any third party web sites
         or services. We do not warrant the offerings of any of these
         entities/individuals or their websites.
       </p>
       <p>
-        YOU ACKNOWLEDGE AND AGREE THAT TWENTY.COM PBC SHALL NOT BE RESPONSIBLE
+        YOU ACKNOWLEDGE AND AGREE THAT BADES.ID PBC SHALL NOT BE RESPONSIBLE
         OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR
         ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY
         SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD

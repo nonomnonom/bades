@@ -5,7 +5,7 @@ import path from 'path';
 import { loadLocalArticlesFromDirectory } from '../load-local-articles';
 
 function createTempDirectory(): string {
-  return fs.mkdtempSync(path.join(os.tmpdir(), 'twenty-articles-'));
+  return fs.mkdtempSync(path.join(os.tmpdir(), 'bades-articles-'));
 }
 
 function writePost(directoryPath: string, fileName: string, content: string) {
