@@ -116,7 +116,7 @@ connection returned for the Slack provider is used (see
 ## Development
 
 ```bash
-cd packages/twenty-apps/internal/twenty-slack
+cd packages/apps/internal/twenty-slack
 yarn install
 yarn lint
 yarn test

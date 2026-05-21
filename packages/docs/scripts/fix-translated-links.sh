@@ -6,8 +6,8 @@
 
 set -e
 
-if [ -d "packages/twenty-docs" ]; then
-  DOCS_DIR="packages/twenty-docs/l"
+if [ -d "packages/docs" ]; then
+  DOCS_DIR="packages/docs/l"
 elif [ -d "l" ]; then
   DOCS_DIR="l"
 else

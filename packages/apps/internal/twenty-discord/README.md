@@ -152,7 +152,7 @@ for the underlying reason bot users authenticate via static tokens.
 If you're working on this app rather than installing the published version:
 
 ```bash
-cd packages/twenty-apps/internal/twenty-discord
+cd packages/apps/internal/twenty-discord
 
 # Day-to-day development (publish + install + watch in one):
 yarn twenty dev

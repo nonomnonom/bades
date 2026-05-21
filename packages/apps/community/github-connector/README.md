@@ -87,7 +87,7 @@ Use this when you want every code change to be re-synced into your local
 Twenty server automatically.
 
 ```bash
-cd packages/twenty-apps/community/github-connector
+cd packages/apps/community/github-connector
 yarn install
 
 # Register your local Twenty server as a remote (interactive prompt).
@@ -105,7 +105,7 @@ watching `src/`. Edit any file and the change is re-synced within seconds.
 ### Option B — One-shot install
 
 ```bash
-cd packages/twenty-apps/community/github-connector
+cd packages/apps/community/github-connector
 yarn install
 yarn twenty remote:add        # same prompts as above
 yarn twenty app:install       # builds and installs once
@@ -245,7 +245,7 @@ The app ships with a small integration test suite that runs against a local
 docker run -d --name twenty-app-dev-test \
   -p 2021:2021 twentycrm/twenty-app-dev:v2.0.3
 
-cd packages/twenty-apps/community/github-connector
+cd packages/apps/community/github-connector
 yarn test
 ```
 

@@ -205,7 +205,7 @@ than keep extending this app.
 If you're working on this app rather than installing the published version:
 
 ```bash
-cd packages/twenty-apps/internal/twenty-fireflies
+cd packages/apps/internal/twenty-fireflies
 
 # Day-to-day development (publish + install + watch in one):
 yarn twenty dev

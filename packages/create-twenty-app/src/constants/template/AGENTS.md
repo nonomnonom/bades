@@ -35,7 +35,7 @@
   - https://docs.twenty.com/developers/extend/apps/operations/cli.md
   - https://docs.twenty.com/developers/extend/apps/operations/testing.md
   - https://docs.twenty.com/developers/extend/apps/operations/publishing.md
-- Rich app example: https://github.com/twentyhq/twenty/tree/main/packages/twenty-apps/examples/postcard
+- Rich app example: https://github.com/twentyhq/twenty/tree/main/packages/apps/examples/postcard
 
 ## UUID requirement
 
