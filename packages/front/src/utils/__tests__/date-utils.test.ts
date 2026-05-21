@@ -1,9 +1,9 @@
 import { i18n } from '@lingui/core';
 import { addDays, format, formatDistanceToNow, subDays } from 'date-fns';
-import { fr } from 'date-fns/locale';
+import { id } from 'date-fns/locale';
 import { SOURCE_LOCALE } from 'shared/translations';
 import { messages as enMessages } from '~/locales/generated/en';
-import { messages as frMessages } from '~/locales/generated/fr-FR';
+import { messages as idMessages } from '~/locales/generated/id-ID';
 
 import {
   beautifyDateDiff,
@@ -291,11 +291,11 @@ describe('beautifyDateDiff', () => {
   });
 });
 
-describe('French locale tests', () => {
+describe('Indonesian locale tests', () => {
   beforeAll(() => {
-    // Setup French i18n for these tests
-    i18n.load('fr-FR', frMessages);
-    i18n.activate('fr-FR');
+    // Setup Indonesian i18n for these tests
+    i18n.load('id-ID', idMessages);
+    i18n.activate('id-ID');
   });
 
   afterAll(() => {
@@ -304,69 +304,69 @@ describe('French locale tests', () => {
     i18n.activate('en');
   });
 
-  describe('beautifyPastDateRelativeToNow with French locale', () => {
-    it('should format very recent dates as "now" in French', () => {
+  describe('beautifyPastDateRelativeToNow with Indonesian locale', () => {
+    it('should format very recent dates as "now" in Indonesian', () => {
       const pastDate = '2023-12-31T23:59:45.000Z'; // 15 seconds ago
-      const result = beautifyPastDateRelativeToNow(pastDate, fr);
-      expect(result).toBe('maintenant'); // French for "now"
+      const result = beautifyPastDateRelativeToNow(pastDate, id);
+      expect(result).toBe('sekarang'); // Indonesian for "now"
     });
 
-    it('should format 30 seconds ago in French', () => {
+    it('should format 30 seconds ago in Indonesian', () => {
       const pastDate = '2023-12-31T23:59:30.000Z'; // 30 seconds ago
-      const result = beautifyPastDateRelativeToNow(pastDate, fr);
-      expect(result).toBe('il y a 30 secondes'); // French for "30 seconds ago"
+      const result = beautifyPastDateRelativeToNow(pastDate, id);
+      expect(result).toBe('30 detik yang lalu'); // Indonesian for "30 seconds ago"
     });
 
-    it('should format minutes ago in French', () => {
+    it('should format minutes ago in Indonesian', () => {
       const pastDate = '2023-12-31T23:57:00.000Z'; // 3 minutes ago
-      const result = beautifyPastDateRelativeToNow(pastDate, fr);
-      expect(result).toContain('minute'); // Should contain French minute formatting
+      const result = beautifyPastDateRelativeToNow(pastDate, id);
+      expect(result).toContain('menit'); // Should contain Indonesian minute formatting
     });
 
-    it('should format hours ago in French', () => {
+    it('should format hours ago in Indonesian', () => {
       const pastDate = '2023-12-31T21:00:00.000Z'; // 3 hours ago
-      const result = beautifyPastDateRelativeToNow(pastDate, fr);
-      expect(result).toContain('heure'); // Should contain French hour formatting
+      const result = beautifyPastDateRelativeToNow(pastDate, id);
+      expect(result).toContain('jam'); // Should contain Indonesian hour formatting
     });
 
-    it('should format days ago in French', () => {
+    it('should format days ago in Indonesian', () => {
       const pastDate = '2023-12-29T00:00:00.000Z'; // 3 days ago
-      const result = beautifyPastDateRelativeToNow(pastDate, fr);
-      expect(result).toContain('jour'); // Should contain French day formatting
+      const result = beautifyPastDateRelativeToNow(pastDate, id);
+      expect(result).toContain('hari'); // Should contain Indonesian day formatting
     });
   });
 
-  describe('beautifyDateDiff with French locale', () => {
-    it('should use date-fns formatDistance for French when not short', () => {
+  describe('beautifyDateDiff with Indonesian locale', () => {
+    it('should use date-fns formatDistance for Indonesian when not short', () => {
       const date = '2025-01-01T00:00:00.000Z';
       const dateToCompareWith = '2024-01-01T00:00:00.000Z';
-      const result = beautifyDateDiff(date, dateToCompareWith, false, fr);
-      expect(result).toContain('an'); // French for year
+      const result = beautifyDateDiff(date, dateToCompareWith, false, id);
+      expect(result).toContain('tahun'); // Indonesian for year
     });
 
     it('should fall back to manual implementation for short format', () => {
       const date = '2025-01-01T00:00:00.000Z';
       const dateToCompareWith = '2024-01-01T00:00:00.000Z';
-      const result = beautifyDateDiff(date, dateToCompareWith, true, fr);
-      // Manual implementation with Lingui translations returns French
-      expect(result).toContain('an'); // French for year (singular)
+      const result = beautifyDateDiff(date, dateToCompareWith, true, id);
+      // Manual implementation with Lingui translations returns Indonesian
+      expect(result).toContain('tahun'); // Indonesian for year (singular)
     });
 
-    it('should handle mixed years and days in French', () => {
+    it('should handle mixed years and days in Indonesian', () => {
       const date = '2025-01-05T00:00:00.000Z';
       const dateToCompareWith = '2024-01-01T00:00:00.000Z';
-      const result = beautifyDateDiff(date, dateToCompareWith, false, fr);
-      // Should use date-fns which handles French properly
+      const result = beautifyDateDiff(date, dateToCompareWith, false, id);
+      // Should use date-fns which handles Indonesian properly
       expect(result).toBeTruthy();
       expect(result.length).toBeGreaterThan(0);
     });
   });
 
-  describe('beautifyExactDate with French locale', () => {
-    it('should translate "Today" to French', () => {
+  describe('beautifyExactDate with Indonesian locale', () => {
+    it('should translate "Today" to Indonesian', () => {
       const today = new Date('2024-01-01T12:00:00.000Z');
       const result = beautifyExactDate(today);
-      expect(result).toBe("Aujourd'hui"); // French for "Today"
+      expect(result).toBe('Hari ini'); // Indonesian for "Today"
     });
   });
 });

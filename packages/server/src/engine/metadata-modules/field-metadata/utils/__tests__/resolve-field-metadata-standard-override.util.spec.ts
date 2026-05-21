@@ -33,7 +33,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -94,7 +94,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'icon',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -111,7 +111,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'fr-FR': {
+            'id-ID': {
               label: 'Libellé traduit',
               description: 'Description traduite',
             },
@@ -123,7 +123,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         resolveFieldMetadataStandardOverride(
           fieldMetadata,
           'label',
-          'fr-FR',
+          'id-ID',
           mockI18n,
         ),
       ).toBe('Libellé traduit');
@@ -131,7 +131,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         resolveFieldMetadataStandardOverride(
           fieldMetadata,
           'description',
-          'fr-FR',
+          'id-ID',
           mockI18n,
         ),
       ).toBe('Description traduite');
@@ -145,7 +145,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'es-ES': {
+            'id-ID': {
               label: 'Etiqueta en español',
             },
           },
@@ -158,7 +158,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -173,7 +173,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'fr-FR': {
+            'id-ID': {
               label: 'Libellé traduit',
             },
           },
@@ -186,7 +186,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'description',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -201,7 +201,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'fr-FR': {
+            'id-ID': {
               label: 'Libellé traduit',
             },
           },
@@ -279,7 +279,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -353,7 +353,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -379,7 +379,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -397,7 +397,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
         standardOverrides: {
           label: 'Source Override',
           translations: {
-            'fr-FR': {
+            'id-ID': {
               label: 'Translation Override',
             },
           },
@@ -407,7 +407,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -454,7 +454,7 @@ describe('resolveFieldMetadataStandardOverride', () => {
       const result = resolveFieldMetadataStandardOverride(
         fieldMetadata,
         'label',
-        'de-DE',
+        'id-ID',
         mockI18n,
       );
 
