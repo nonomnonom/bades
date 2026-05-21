@@ -12,7 +12,7 @@ export class AppUninstallCommand {
     appPath?: string;
     askForConfirmation: boolean;
   }): Promise<ApiResponse<any>> {
-    console.log(chalk.blue('🚀 Uninstall Twenty Application'));
+    console.log(chalk.blue('🚀 Uninstall Bades Application'));
     console.log(chalk.gray(`📁 App Path: ${appPath}\n`));
 
     if (askForConfirmation && !(await this.confirmationPrompt())) {

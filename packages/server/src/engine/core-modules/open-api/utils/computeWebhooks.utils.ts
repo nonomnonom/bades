@@ -31,13 +31,13 @@ export const computeWebhooks = (
       parameters: [
         {
           in: 'header',
-          name: 'X-Twenty-Webhook-Signature',
+          name: 'X-Bades-Webhook-Signature',
           schema: {
             type: 'string',
           },
           description:
             'HMAC SHA256 signature of the request payload using the webhook secret. To compute the signature:\n' +
-            '1. Concatenate `X-Twenty-Webhook-Timestamp`, a colon (:), and the JSON string of the request payload.\n' +
+            '1. Concatenate `X-Bades-Webhook-Timestamp`, a colon (:), and the JSON string of the request payload.\n' +
             '2. Compute the HMAC SHA256 hash using the shared secret as the key.\n' +
             '3. Send the resulting hex digest as this header value.\n' +
             'Example (Node.js):\n```javascript\n' +
@@ -51,7 +51,7 @@ export const computeWebhooks = (
         },
         {
           in: 'header',
-          name: 'X-Twenty-Webhook-Timestamp',
+          name: 'X-Bades-Webhook-Timestamp',
           schema: {
             type: 'string',
           },
@@ -61,7 +61,7 @@ export const computeWebhooks = (
         },
         {
           in: 'header',
-          name: 'X-Twenty-Webhook-Nonce',
+          name: 'X-Bades-Webhook-Nonce',
           schema: {
             type: 'string',
           },

@@ -69,7 +69,7 @@ export class RoleTargetService {
       );
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -138,7 +138,7 @@ export class RoleTargetService {
 
   async delete({ id, workspaceId }: DeleteRoleTargetInput): Promise<void> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

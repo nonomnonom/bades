@@ -56,7 +56,7 @@ export class ViewService {
     createdByUserWorkspaceId?: string;
   }): Promise<ViewDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -138,7 +138,7 @@ export class ViewService {
     userWorkspaceId?: string;
   }): Promise<ViewDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -221,7 +221,7 @@ export class ViewService {
     workspaceId: string;
   }): Promise<ViewDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -289,7 +289,7 @@ export class ViewService {
     workspaceId: string;
   }): Promise<ViewDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

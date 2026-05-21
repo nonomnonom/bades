@@ -75,7 +75,7 @@ export default async function NetZeroCaseStudyPage({
           msg`NetZero works with the agro-industry, serving clients from multinationals to smallholder farmers. They sell carbon credits, agricultural products, and franchised industrial systems across three different product lines, multiple countries, and multiple company sizes. When Olivier Reinaud, co-founder of NetZero, started looking at CRMs in late 2024, he was not chasing the most feature-rich platform. He wanted the right foundation.`,
         ],
         callout:
-          '"Bades.id delivers on what CRMs should have always been: fairly priced software with a fully modular and customizable model, a clean and modern UI, granular permissions, automations, enterprise features. A compelling solution with high potential to rightfully disrupt the CRM market." - Olivier Reinaud, co-founder of NetZero',
+          '"Bades.id delivers on what village administration software should have always been: fairly priced software with a fully modular and customizable model, a clean and modern UI, granular permissions, automations, village-scale features. A compelling solution with high potential to rightfully improve how Indonesian villages manage their data." - Olivier Reinaud, co-founder of NetZero',
       },
       {
         type: 'text',

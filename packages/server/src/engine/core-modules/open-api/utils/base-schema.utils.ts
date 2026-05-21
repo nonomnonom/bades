@@ -11,7 +11,7 @@ export const baseSchema = (
   return {
     openapi: '3.1.1',
     info: {
-      title: 'Twenty Api',
+      title: 'Bades API',
       description: `Use this page to explore and call the **REST API**.
 
 ## Authentication
@@ -105,7 +105,7 @@ order_by=id[AscNullsFirst],createdAt[DescNullsLast]
 ## Usage with LLMs
 
 The recommended way to give an LLM agent (Claude Desktop, Cursor, Windsurf, …)
-access to your workspace is the **Twenty MCP server**, not this OpenAPI schema.
+access to your workspace is the **Bades MCP server**, not this OpenAPI schema.
 The MCP server exposes typed tools the agent can call directly with proper
 header-based auth (OAuth or API key), no tokens in URLs.
 
@@ -125,12 +125,12 @@ curl -H 'Authorization: Bearer <token>' \\
 \`\`\`
 `,
       termsOfService:
-        'https://github.com/twentyhq/twenty?tab=coc-ov-file#readme',
+        'https://bades.id/terms',
       contact: {
         email: 'support@bades.id',
       },
       license: {
-        url: 'https://github.com/twentyhq/twenty?tab=License-1-ov-file#readme',
+        url: 'https://bades.id/license',
       },
       version: API_Version,
     },

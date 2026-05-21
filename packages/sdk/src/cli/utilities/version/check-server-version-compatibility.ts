@@ -22,7 +22,7 @@ export const checkServerVersionCompatibility = async (
 
   console.warn(
     chalk.yellow(
-      `⚠ Local Twenty server is v${info.localServerVersion} (${info.daysBehind} days behind v${info.latestServerVersion}).`,
+      `⚠ Local Bades server is v${info.localServerVersion} (${info.daysBehind} hari di belakang v${info.latestServerVersion}).`,
     ),
   );
   console.warn(chalk.dim('  Update with: yarn bades docker:upgrade'));

@@ -24,6 +24,9 @@ terkait administrasi warga.
 - Ubah seluruh bahasa produk dari konteks CRM umum menjadi konteks
   pemerintahan desa, layanan warga, administrasi, keuangan desa, dan program
   sosial.
+- Bades tetap diposisikan sebagai **produk SaaS swasta** yang modern dan
+  terkelola, bukan software engineer-centric dan bukan platform extensibility
+  teknis untuk end user.
 - Arah produk Bades adalah **produk operasional untuk pengguna non-teknis**.
   Karena target utamanya perangkat desa dan operator administrasi, pengalaman
   akhir tidak boleh bergantung pada konsep developer platform.
@@ -39,6 +42,17 @@ terkait administrasi warga.
   sample, atau terminologi seed bawaan Twenty.
 - Refactor penuh example data, demo records, dan default objects agar terasa
   seperti sistem operasional desa Indonesia.
+- Migrasikan layer pembayaran dan billing dari **Stripe** ke **Midtrans**
+  sebagai arah default Bades, agar pengalaman pembayaran, metode bayar,
+  settlement, dan notifikasi transaksi lebih selaras dengan konteks Indonesia.
+- Target akhir billing publik adalah **Midtrans-first**: checkout, payment
+  status, notifikasi pembayaran, konfigurasi merchant, dan dokumentasi
+  operasional tidak lagi bergantung pada narasi atau surface Stripe.
+- Sistem **application/app extensibility** tidak perlu dihapus dari engine,
+  tetapi harus diubah konsep dan arsitekturnya: bukan lagi kapabilitas
+  developer-platform untuk end user, melainkan **kapabilitas internal tim
+  Bades** untuk membangun, mengelola, dan merilis modul/aplikasi resmi yang
+  dibutuhkan produk atau implementasi klien.
 - Hapus atau keluarkan dari pengalaman produk utama semua surface ekosistem
   developer seperti API key, webhook, app platform, SDK exposure, GraphQL/REST
   playground, automation builder teknis, dan menu developer lain yang
@@ -46,12 +60,22 @@ terkait administrasi warga.
 - Rebrand codebase harus dibantu **script/audit replacement** untuk menemukan
   dan mengganti semua brand `Twenty` pada copy, asset reference, metadata,
   email template, docs, title, env example, dan sample data.
+- Program transformasi Bades bukan sekadar rebrand visual. Ini juga merupakan
+  program **clean up surface warisan** dan **refactor arsitektur produk** agar
+  codebase tidak lagi berpikir seperti produk Twenty lama pada layer yang
+  terlihat user, admin, dan repo publik.
 
 ## Branding Rollout
 
 - Gunakan `bd.svg` sebagai source of truth logo Bades.
 - Buat script atau tooling untuk scan string `Twenty`, `twenty`, nama asset lama,
   dan referensi branding lain agar tidak ada brand lama yang tertinggal.
+- Karena Bades dikelola sebagai **private repository** dan produk privat milik
+  swasta, tidak ada keharusan untuk mempertahankan **narasi sejarah awal
+  Bades/Twenty** pada surface publik, docs utama, metadata repo, release note,
+  README, atau onboarding.
+- Riwayat asal-usul produk boleh tetap ada hanya pada catatan internal teknis,
+  konteks migrasi, atau boundary kompatibilitas yang memang memerlukannya.
 - Target rollout bukan sekadar menyamarkan asal-usul produk, tetapi **menghapus
   seluruh istilah `Twenty`** dari pengalaman Bades hingga pengguna tidak lagi
   berinteraksi dengan nama lama itu di produk akhir.
@@ -60,6 +84,47 @@ terkait administrasi warga.
 - Jika ada nama teknis internal yang belum aman diubah, pisahkan antara
   **branding publik** dan **identifier internal sementara**, tetapi target akhir
   tetap eliminasi penuh brand lama pada surface user-facing.
+
+## Cleanup Dan Refactor
+
+- Perlakukan **clean up** dan **refactor** sebagai goal inti, bukan pekerjaan
+  kosmetik belakangan.
+- `Clean up` berarti membereskan surface yang salah arah, termasuk:
+  branding lama, istilah CRM generik, narasi self-hosting/open-source,
+  settings developer-first, docs yang salah audience, workflow GitHub lama,
+  seed/demo legacy, dan wording billing yang masih Stripe-first.
+- `Refactor` berarti memetakan ulang arsitektur produk agar capability engine
+  tetap ada, tetapi audience, akses, dan surface-nya berubah mengikuti arah
+  Bades.
+- Prioritas clean up harus dimulai dari surface dengan dampak publik tertinggi:
+  repo metadata, `.github`, README, website, docs utama, onboarding, settings,
+  email, billing, dan sample data.
+- Refactor tidak harus selalu berarti rename besar-besaran. Jika rename teknis
+  berisiko, dahulukan pemisahan boundary, pengurangan surface, perubahan alur,
+  dan reposisi capability.
+
+## Target Refactor Arsitektur
+
+- Bades harus bergerak ke model tiga lapisan:
+  1. **Lapisan operator desa** untuk pekerjaan harian yang sederhana dan
+     administratif.
+  2. **Lapisan admin terkontrol** untuk konfigurasi operasional dan integrasi
+     yang memang diperlukan.
+  3. **Lapisan internal tim Bades** untuk capability platform, publishing,
+     release, app system, dan extensibility engine.
+- Capability engine Twenty boleh tetap dipertahankan, tetapi surface-nya harus
+  dipetakan ulang agar tidak semua user melihat semua kekuatan platform.
+- Fitur yang terlalu platform-centric jangan otomatis dihapus; nilai dulu
+  apakah fitur itu:
+  - tetap public tapi perlu disederhanakan,
+  - dipindah ke admin-only,
+  - atau dipindah ke internal-team-only.
+- App system, application registry, publishing flow, dan capability sejenis
+  harus diarahkan sebagai **platform internal/terkurasi**, bukan marketplace
+  terbuka atau builder bebas untuk pengguna akhir.
+- Release center, update center, dan capability operasional serupa harus
+  diperlakukan sebagai kandidat kuat untuk dipindah dari surface user ke
+  workflow internal tim Bades.
 
 ## Bades SID Standard Seed
 
@@ -99,16 +164,48 @@ Relasi kunci:
 ## Non-Technical Product Focus
 
 - Anggap perangkat desa sebagai **pengguna administratif non-teknis**.
+- Pertahankan karakter **SaaS** seperti multi-user, dashboard, role, billing,
+  dan operasi produk terkelola, selama semua itu tetap mudah dipakai oleh user
+  administratif.
 - Fitur yang membutuhkan pemahaman engineering, integrasi manual, kredensial
   API, webhook endpoint, token, schema, query language, atau deployment app
   bukan target utama produk akhir Bades.
 - Jika kemampuan teknis seperti itu masih ada di codebase untuk alasan warisan
   engine, fitur tersebut harus dihapus dari surface produk atau minimal
   dipisahkan total dari pengalaman pengguna utama.
+- Jika sistem aplikasi/extensibility tetap dipertahankan, posisikan itu sebagai
+  workflow **internal team**, bukan fitur self-service untuk perangkat desa
+  atau pengguna akhir.
 - Navigasi, onboarding, settings, dan dokumentasi pengguna tidak boleh
   mendorong pengguna desa masuk ke workflow developer.
 - Prinsip utama: **produk harus terasa seperti alat kerja administrasi desa,
   bukan platform untuk developer**.
+
+## Model Distribusi
+
+- Bades diarahkan sebagai **private repository** dan produk terkelola milik
+  swasta, bukan distribusi komunitas yang berpusat pada self-hosting.
+- **Self-hosting bukan fokus utama produk**. Dokumentasi, onboarding,
+  positioning, dan surface operasional harus berasumsi penggunaan layanan
+  terkelola, bukan instalasi mandiri oleh pengguna akhir.
+- Jika masih ada artefak self-hosting atau open-source distribution dari warisan
+  engine, perlakukan itu sebagai debt arah produk, terutama pada docs, website,
+  workflow, dan metadata repo.
+
+## Pembayaran Indonesia
+
+- Prioritaskan Midtrans sebagai gateway pembayaran utama untuk Bades.
+- Metode pembayaran yang diutamakan harus cocok untuk konteks Indonesia, seperti
+  Virtual Account, QRIS, e-wallet, dan metode lokal lain yang tersedia melalui
+  Midtrans.
+- Billing, checkout, redirect, dan notifikasi pembayaran harus dirancang dengan
+  asumsi merchant Indonesia dan transaksi `IDR`.
+- Surface publik seperti halaman billing, settings pembayaran, env example,
+  workflow docs, dan email terkait pembayaran harus berhenti memakai bahasa
+  Stripe-first dan beralih ke Midtrans-first.
+- Jika ada flow subscription atau enterprise billing warisan Stripe yang belum
+  bisa diganti total sekaligus, perlakukan itu sebagai migrasi bertahap dengan
+  target akhir eliminasi surface Stripe pada pengalaman utama Bades.
 
 ## Language Rules
 
@@ -149,9 +246,23 @@ Relasi kunci:
   harus dihabiskan bertahap.
 - Untuk layer **seed dan sample data**, jangan pertahankan warisan Twenty sama
   sekali. Semua seed harus native Bades/SID.
+- Jangan pertahankan Stripe sebagai asumsi pembayaran utama pada produk final,
+  docs final, settings final, atau workflow operasional final jika Midtrans
+  sudah dapat menggantikan use case yang sama.
+- Jangan memposisikan Bades sebagai produk self-hosting-first atau
+  open-source-distribution-first pada surface publik, docs utama, workflow
+  utama, atau repo metadata utama.
+- Jangan mempertahankan cerita “Bades berasal dari Twenty” atau histori
+  branding lama sebagai bagian dari narasi utama produk, repo, docs, atau
+  onboarding publik.
 - Jangan pertahankan menu, halaman, docs, atau settings yang berfokus pada
   API key, webhook, app framework, developer platform, atau extensibility
   teknis sebagai bagian dari produk utama Bades.
+- Jika app system masih ada, jangan memposisikannya sebagai marketplace,
+  builder, atau platform ekstensi terbuka untuk user akhir; arahkan itu
+  sebagai kapabilitas internal tim Bades.
+- Jangan memperlakukan clean up sebagai sekadar translasi copy; jika struktur,
+  nav, docs, atau boundary produknya salah, perbaiki lewat refactor.
 - Jangan jadikan instance surat, tahun, atau RT tertentu sebagai object baru jika
   cukup menjadi record/field.
 - Privasi data warga harus mengikuti UU PDP, termasuk masking NIK untuk role

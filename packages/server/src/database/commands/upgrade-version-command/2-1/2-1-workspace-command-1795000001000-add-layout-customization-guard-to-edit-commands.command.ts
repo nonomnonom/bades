@@ -47,7 +47,7 @@ export class AddLayoutCustomizationGuardToEditCommandsCommand extends ActiveOrSu
     );
 
     const { twentyStandardFlatApplication, workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

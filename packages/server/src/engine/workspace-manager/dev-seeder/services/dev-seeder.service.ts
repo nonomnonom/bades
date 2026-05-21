@@ -107,7 +107,7 @@ export class DevSeederService {
     });
 
     const { workspaceCustomFlatApplication, twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -243,7 +243,7 @@ export class DevSeederService {
     }
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

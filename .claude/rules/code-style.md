@@ -6,6 +6,7 @@
 - Prefer `type` over `interface` unless extending third-party interfaces.
 - Avoid `any`.
 - Prefer descriptive names over abbreviations.
+- Do not leave unused locals, unused parameters, or dead imports in edited code.
 - Keep comments short and explain intent, not syntax.
 
 ## Repo-Specific Patterns
@@ -18,6 +19,8 @@
   reimplementation.
 - Comments, test names, fixtures, docs internal, and business-domain naming
   should default to Bahasa Indonesia.
+- Follow `naming-conventions.md` for file naming, symbol naming, and suffix
+  patterns.
 
 ```typescript
 import { isDefined } from 'shared/utils';

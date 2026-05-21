@@ -3,7 +3,7 @@ import type { ExplorerNode } from '../types/editor-data.types';
 export const EXPLORER_NODES: ExplorerNode[] = [
   {
     id: 'root',
-    name: 'my-twenty-app',
+    name: 'my-bades-app',
     depth: 0,
     kind: 'folder',
     expanded: true,

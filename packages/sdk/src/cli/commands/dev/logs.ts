@@ -51,7 +51,7 @@ export class LogicFunctionLogsCommand {
     functionUniversalIdentifier?: string;
     functionName?: string;
   }): void {
-    const appPath = appName ?? 'Twenty Application';
+    const appPath = appName ?? 'Bades Application';
 
     const functionIdentifier =
       functionUniversalIdentifier || functionName

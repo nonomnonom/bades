@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getServerUrl } from '@/cli/__tests__/constants/server-url.constant';
 
-describe('Twenty Server Health Check (E2E)', () => {
+describe('Bades Server Health Check (E2E)', () => {
   let healthEndpoint: string;
 
   beforeAll(async () => {

@@ -28,7 +28,7 @@ export class TwentyStandardApplicationService {
     workspaceId: string;
   }) {
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

@@ -170,7 +170,7 @@ export class RoleService {
     const resolvedOwnerFlatApplication =
       ownerFlatApplication ??
       (
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         )
       ).workspaceCustomFlatApplication;
@@ -267,7 +267,7 @@ export class RoleService {
     const resolvedOwnerFlatApplication =
       ownerFlatApplication ??
       (
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         )
       ).workspaceCustomFlatApplication;

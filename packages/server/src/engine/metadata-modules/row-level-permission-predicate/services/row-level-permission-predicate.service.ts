@@ -165,7 +165,7 @@ export class RowLevelPermissionPredicateService {
     const { roleId, objectMetadataId, predicates, predicateGroups } = input;
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -511,7 +511,7 @@ export class RowLevelPermissionPredicateService {
     groupsToDelete: FlatRowLevelPermissionPredicateGroup[];
   }): Promise<void> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

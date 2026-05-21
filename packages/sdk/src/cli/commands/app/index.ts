@@ -12,7 +12,7 @@ export const registerAppCommands = (program: Command): void => {
   program
     .command('app:publish [appPath]')
     .description('Build and publish to npm (default) or server registry')
-    .option('--private', "Push to a Twenty server's registry instead of npm")
+    .option('--private', "Push to a Bades server's registry instead of npm")
     .option(
       '-r, --remote <name>',
       'Publish to a specific remote (with --private)',

@@ -11,8 +11,8 @@ import { CaseStudyPageLayout } from '@/app/[locale]/customers/_components/CaseSt
 const PLACEHOLDER_HERO =
   'https://images.unsplash.com/photo-1758873269035-aae0e1fd3422?w=1600&q=80';
 
-const META_TITLE = msg`Bades.id as the API backbone of a go-to-market stack | Elevate Consulting`;
-const META_DESCRIPTION = msg`How Elevate Consulting moved off documents and spreadsheets to Bades.id as the API-connected CRM at the center of their stack.`;
+const META_TITLE = msg`Bades.id sebagai tulang punggung API untuk sistem administrasi desa | Elevate Consulting`;
+const META_DESCRIPTION = msg`How Elevate Consulting moved off documents and spreadsheets to Bades.id as the API-connected administration system at the center of their village services stack.`;
 
 export const generateMetadata = buildLocalizedMetadata({
   path: '/customers/elevate-consulting',
@@ -46,7 +46,7 @@ export default async function ElevateConsultingCaseStudyPage({
             {i18n._(msg`API backbone`)}
           </HeadingPart>{' '}
           <HeadingPart fontFamily="serif">
-            {i18n._(msg`of a go-to-market stack`)}
+            {i18n._(msg`of a village administration stack`)}
           </HeadingPart>
         </Heading>
       ),

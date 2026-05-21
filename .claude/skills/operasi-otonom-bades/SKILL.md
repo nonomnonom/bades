@@ -22,6 +22,8 @@ secara semi-otonom.
 - Bare `/loop` sudah memakai `.claude/loop.md`.
 - Prompt default itu memprioritaskan task aktif, PR/CI aktif, dan audit terhadap
   `GOAL.md`.
+- Default ini juga boleh melanjutkan clean up + refactor terarah satu area per
+  iterasi ketika arah transformasi sudah jelas dari transcript dan `GOAL.md`.
 
 ## Prompt yang disarankan
 
@@ -51,7 +53,9 @@ hijau dan siap ditinjau
 ## Guardrail
 
 - `/loop` bersifat session-scoped dan butuh sesi tetap hidup.
-- Jangan gunakan `/loop` untuk memulai proyek baru saat Anda tidur.
-- Batasi ke branch, PR, dan task yang sudah diotorisasi di transcript.
+- Jangan gunakan `/loop` untuk memulai proyek baru di luar arah repo yang sudah
+  diotorisasi.
+- Batasi ke branch, PR, dan transformasi Bades yang sudah didukung transcript
+  serta `GOAL.md`.
 - Jika pekerjaan menyentuh area besar, pecah dulu dengan `orkestrasi-tim-bades`
   lalu gunakan `/loop` untuk maintenance lanjutan.

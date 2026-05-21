@@ -66,7 +66,7 @@ export class ViewFieldService {
     }
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -141,7 +141,7 @@ export class ViewFieldService {
     updateViewFieldInput: UpdateViewFieldInput;
   }): Promise<ViewFieldDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -217,7 +217,7 @@ export class ViewFieldService {
     workspaceId: string;
   }): Promise<ViewFieldDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -286,7 +286,7 @@ export class ViewFieldService {
     workspaceId: string;
   }): Promise<ViewFieldDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

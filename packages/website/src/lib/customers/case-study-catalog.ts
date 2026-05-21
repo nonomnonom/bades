@@ -162,19 +162,19 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
       { value: msg`API-first`, label: msg`Tool integration` },
     ],
     quote: {
-      text: msg`It is just such a nicer experience than dealing with a Salesforce or a HubSpot. My mission has been to get every tool API-accessible, so everything talks to each other.`,
+      text: msg`It is just such a nicer experience than dealing with complex village databases or legacy government software. My mission has been to get every tool API-accessible, so everything talks to each other.`,
       author: 'Justin Beadle',
       role: msg`Director of Digital and Information, Elevate Consulting`,
     },
     hero: {
       readingTime: '8 min',
-      title: msg`Bades.id as the API backbone of a go-to-market stack`,
+      title: msg`Bades.id as the API backbone of a village administration stack`,
       author: 'Justin Beadle',
       clientIcon: 'elevate-consulting',
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`Elevate Consulting uses Bades.id as the API backbone connecting billing, Teams, resourcing, and a custom front end around client and opportunity data.`,
+      summary: msg`Elevate Consulting uses Bades.id as the API backbone connecting billing, Teams, resourcing, and a custom front end around village service data.`,
       date: msg`Jun 2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1758873269035-aae0e1fd3422?w=1600&q=80',

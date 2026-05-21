@@ -8,13 +8,13 @@ import { getConfigPath } from '@/cli/utilities/config/get-config-path';
 const testConfigPath = getConfigPath(true);
 
 beforeAll(async () => {
-  const apiUrl = process.env.TWENTY_API_URL;
-  const token = process.env.TWENTY_API_KEY;
+  const apiUrl = process.env.BADES_API_URL;
+  const token = process.env.BADES_API_KEY;
 
   if (!apiUrl || !token) {
     throw new Error(
-      'TWENTY_API_URL and TWENTY_API_KEY must be set.\n' +
-        'Run: twenty docker:start --test\n' +
+      'BADES_API_URL and BADES_API_KEY must be set.\n' +
+        'Run: bades docker:start --test\n' +
         'Or set them in vitest env config.',
     );
   }
@@ -23,8 +23,8 @@ beforeAll(async () => {
 
   if (!response?.ok) {
     throw new Error(
-      `Twenty server not reachable at ${apiUrl}. ` +
-        'Run: twenty docker:start --test',
+      `Bades server not reachable at ${apiUrl}. ` +
+        'Run: bades docker:start --test',
     );
   }
 

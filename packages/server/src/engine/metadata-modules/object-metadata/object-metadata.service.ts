@@ -75,7 +75,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     ownerFlatApplication?: FlatApplication;
   }): Promise<FlatObjectMetadata> {
     const { workspaceCustomFlatApplication, twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -303,7 +303,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     const resolvedOwnerFlatApplication =
       ownerFlatApplication ??
       (
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         )
       ).workspaceCustomFlatApplication;
@@ -465,7 +465,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     ownerFlatApplication?: FlatApplication;
   }): Promise<FlatObjectMetadata> {
     const { workspaceCustomFlatApplication, twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

@@ -24,7 +24,7 @@ export const prefillWorkflowCommandMenuItems = async ({
   workspaceMigrationValidateBuildAndRunService: WorkspaceMigrationValidateBuildAndRunService;
 }): Promise<void> => {
   const { workspaceCustomFlatApplication } =
-    await applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+    await applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
       { workspaceId },
     );
 

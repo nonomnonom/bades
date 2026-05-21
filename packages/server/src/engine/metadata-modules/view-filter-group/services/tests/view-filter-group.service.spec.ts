@@ -56,7 +56,7 @@ describe('ViewFilterGroupService', () => {
         {
           provide: ApplicationService,
           useValue: {
-            findWorkspaceTwentyStandardAndCustomApplicationOrThrow: jest.fn(),
+            findWorkspaceBadesStandardAndCustomApplicationOrThrow: jest.fn(),
           },
         },
       ],

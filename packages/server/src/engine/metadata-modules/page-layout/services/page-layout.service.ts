@@ -186,7 +186,7 @@ export class PageLayoutService {
     }
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -256,7 +256,7 @@ export class PageLayoutService {
     updateData: UpdatePageLayoutInput;
   }): Promise<Omit<PageLayoutDTO, 'tabs'>> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -341,7 +341,7 @@ export class PageLayoutService {
     isLinkedDashboardAlreadyDestroyed?: boolean;
   }): Promise<boolean> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -408,7 +408,7 @@ export class PageLayoutService {
     }
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

@@ -1396,7 +1396,7 @@ export const EXPECTED_MANIFEST: Manifest = {
       canSoftDeleteAllObjectRecords: false,
       canUpdateAllObjectRecords: false,
       canUpdateAllSettings: false,
-      description: 'Default role for function Twenty client',
+      description: 'Peran default untuk fungsi Bades client',
       fieldPermissions: [
         {
           universalIdentifier: 'dbc86ced-bd2c-5874-93f1-1f72c5111991',

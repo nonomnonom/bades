@@ -85,7 +85,7 @@ export class ApplicationManifestMigrationService {
     const now = new Date().toISOString();
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -169,7 +169,7 @@ export class ApplicationManifestMigrationService {
     const now = new Date().toISOString();
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

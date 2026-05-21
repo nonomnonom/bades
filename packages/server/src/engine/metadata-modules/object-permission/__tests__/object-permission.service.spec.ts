@@ -54,7 +54,7 @@ describe('ObjectPermissionService', () => {
         {
           provide: ApplicationService,
           useValue: {
-            findWorkspaceTwentyStandardAndCustomApplicationOrThrow: jest
+            findWorkspaceBadesStandardAndCustomApplicationOrThrow: jest
               .fn()
               .mockResolvedValue({
                 workspaceCustomFlatApplication: {

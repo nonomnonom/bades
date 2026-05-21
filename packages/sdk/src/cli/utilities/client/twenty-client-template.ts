@@ -31,10 +31,10 @@ declare class GenqlError extends Error {
 }
 // __STRIPPED_DURING_INJECTION_END__
 
-const APP_ACCESS_TOKEN_ENV_KEY = 'TWENTY_APP_ACCESS_TOKEN';
-const API_KEY_ENV_KEY = 'TWENTY_API_KEY';
+const APP_ACCESS_TOKEN_ENV_KEY = 'BADES_APP_ACCESS_TOKEN';
+const API_KEY_ENV_KEY = 'BADES_API_KEY';
 
-type TwentyGeneratedClientOptions = ClientOptions;
+type BadesGeneratedClientOptions = ClientOptions;
 
 type ProcessEnvironment = Record<string, string | undefined>;
 
@@ -130,14 +130,14 @@ const hasAuthenticationErrorInGraphqlPayload = (
   });
 };
 
-const defaultOptions: TwentyGeneratedClientOptions = {
-  url: '__TWENTY_DEFAULT_URL__',
+const defaultOptions: BadesGeneratedClientOptions = {
+  url: '__BADES_DEFAULT_URL__',
   headers: {
     'Content-Type': 'application/json',
   },
 };
 
-export class TwentyGeneratedClient {
+export class BadesGeneratedClient {
   private client: Client;
   private url: string;
   private requestOptions: RequestInit;
@@ -146,8 +146,8 @@ export class TwentyGeneratedClient {
   private authorizationToken: string | null;
   private refreshAccessTokenPromise: Promise<string | null> | null = null;
 
-  constructor(options?: TwentyGeneratedClientOptions) {
-    const merged: TwentyGeneratedClientOptions = {
+  constructor(options?: BadesGeneratedClientOptions) {
+    const merged: BadesGeneratedClientOptions = {
       ...defaultOptions,
       ...options,
     };
@@ -303,7 +303,7 @@ export class TwentyGeneratedClient {
     if (!this.fetchImplementation) {
       throw new Error(
         'Global `fetch` function is not available, ' +
-          'pass a fetch implementation to the Twenty client',
+          'pass a fetch implementation to the Bades client',
       );
     }
 
@@ -412,7 +412,7 @@ export class TwentyGeneratedClient {
           return refreshedAccessToken;
         })
         .catch((refreshError: unknown) => {
-          console.error('Twenty client: token refresh failed', refreshError);
+          console.error('Bades client: token refresh failed', refreshError);
 
           return null;
         })

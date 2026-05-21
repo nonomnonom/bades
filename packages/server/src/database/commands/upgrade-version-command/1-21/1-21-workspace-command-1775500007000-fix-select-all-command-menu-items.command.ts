@@ -44,7 +44,7 @@ export class FixSelectAllCommandMenuItemsCommand extends ActiveOrSuspendedWorksp
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

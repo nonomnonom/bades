@@ -68,7 +68,7 @@ export class PermissionFlagService {
     workspaceId: string,
   ): Promise<PermissionFlagDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -123,7 +123,7 @@ export class PermissionFlagService {
     workspaceId: string,
   ): Promise<PermissionFlagDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -182,7 +182,7 @@ export class PermissionFlagService {
 
   async delete(id: string, workspaceId: string): Promise<PermissionFlagDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

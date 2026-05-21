@@ -79,7 +79,7 @@ export class SetCalendarEventDescriptionDisplayedMaxRowsCommand extends ActiveOr
     }
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

@@ -82,7 +82,7 @@ export const mockCurrentWorkspace = {
   isMicrosoftAuthBypassEnabled: false,
   workspaceUrls: {
     customUrl: undefined,
-    subdomainUrl: 'twenty.bades.id',
+    subdomainUrl: 'acme.bades.id',
   },
   featureFlags: [],
   createdAt: '2023-04-26T10:23:42.33625+00:00',

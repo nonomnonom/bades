@@ -33,6 +33,14 @@ Gunakan skill ini saat ingin membagi kerja Bades ke beberapa agent Claude Code.
 - `lokalisasi-bades`
 - `verifikator-bades`
 
+### Refactor platform menjadi internal Bades
+
+- `pelaksana-front-bades`
+- `pelaksana-server-bades`
+- `operator-github-bades`
+- `penjaga-goal-bades`
+- `verifikator-bades`
+
 ### Audit dan perapian bahasa
 
 - `lokalisasi-bades`
@@ -46,6 +54,9 @@ Gunakan skill ini saat ingin membagi kerja Bades ke beberapa agent Claude Code.
 - Untuk kerja besar, targetkan 5-6 task per teammate agar lead bisa reassign.
 - Minta lead **menunggu teammate selesai** sebelum mengambil alih pekerjaan
   mereka.
+- Untuk kerja refactor Bades, pecah menurut lapisan:
+  repo/docs publik, settings/navigasi, billing, seed/demo, dan platform
+  internal.
 
 ## Prompt awal yang disarankan
 

@@ -20,14 +20,14 @@ describe('SdkClientGenerationService', () => {
   let applicationService: jest.Mocked<
     Pick<
       ApplicationService,
-      'findWorkspaceTwentyStandardAndCustomApplicationOrThrow'
+      'findWorkspaceBadesStandardAndCustomApplicationOrThrow'
     >
   >;
   let messageQueueService: jest.Mocked<Pick<MessageQueueService, 'add'>>;
 
   beforeEach(async () => {
     applicationService = {
-      findWorkspaceTwentyStandardAndCustomApplicationOrThrow: jest.fn(),
+      findWorkspaceBadesStandardAndCustomApplicationOrThrow: jest.fn(),
     };
     messageQueueService = {
       add: jest.fn().mockResolvedValue(undefined),
@@ -74,7 +74,7 @@ describe('SdkClientGenerationService', () => {
     };
 
     it('enqueues one job per application with dedup id and retry limit', async () => {
-      applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow.mockResolvedValue(
+      applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow.mockResolvedValue(
         apps as never,
       );
 
@@ -110,7 +110,7 @@ describe('SdkClientGenerationService', () => {
     });
 
     it('propagates errors thrown by the message queue service', async () => {
-      applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow.mockResolvedValue(
+      applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow.mockResolvedValue(
         apps as never,
       );
       const failure = new Error('Redis unavailable');

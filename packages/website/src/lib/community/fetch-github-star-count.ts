@@ -14,7 +14,7 @@ export const fetchGithubStarCount = unstable_cache(
       }
 
       const response = await axios.get(
-        'https://api.github.com/repos/twentyhq/twenty',
+        'https://api.github.com/repos/badesid/bades',
         { headers },
       );
 

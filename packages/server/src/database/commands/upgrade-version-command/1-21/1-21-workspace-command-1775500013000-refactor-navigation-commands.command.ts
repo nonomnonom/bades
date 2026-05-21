@@ -127,7 +127,7 @@ export class RefactorNavigationCommandsCommand extends ActiveOrSuspendedWorkspac
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

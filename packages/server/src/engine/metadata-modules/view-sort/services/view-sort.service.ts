@@ -39,7 +39,7 @@ export class ViewSortService {
     workspaceId: string;
   }): Promise<ViewSortDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -108,7 +108,7 @@ export class ViewSortService {
     updateViewSortInput: UpdateViewSortInput;
   }): Promise<ViewSortDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -177,7 +177,7 @@ export class ViewSortService {
     workspaceId: string;
   }): Promise<ViewSortDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -248,7 +248,7 @@ export class ViewSortService {
     workspaceId: string;
   }): Promise<ViewSortDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

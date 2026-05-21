@@ -12,7 +12,7 @@ export async function fetchLatestGithubReleaseTag(): Promise<string | null> {
     }
 
     const response = await axios.get(
-      'https://api.github.com/repos/twentyhq/twenty/releases/latest',
+      'https://api.github.com/repos/badesid/bades/releases/latest',
       { headers },
     );
 

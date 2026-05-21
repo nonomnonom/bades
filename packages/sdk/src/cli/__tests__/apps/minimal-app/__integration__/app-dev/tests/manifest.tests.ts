@@ -8,14 +8,14 @@ import { pathExists, readJson } from '@/cli/utilities/file/fs-utils';
 export const defineManifestTests = (appPath: string): void => {
   describe('manifest', () => {
     it('should have generated manifest.json', async () => {
-      const manifestPath = join(appPath, '.twenty/output/manifest.json');
+      const manifestPath = join(appPath, '.bades/output/manifest.json');
       const exists = await pathExists(manifestPath);
 
       expect(exists).toBe(true);
     });
 
     it('should have correct manifest content', async () => {
-      const manifestPath = join(appPath, '.twenty/output/manifest.json');
+      const manifestPath = join(appPath, '.bades/output/manifest.json');
       const manifest = normalizeManifestForComparison(
         await readJson<Manifest>(manifestPath),
       );

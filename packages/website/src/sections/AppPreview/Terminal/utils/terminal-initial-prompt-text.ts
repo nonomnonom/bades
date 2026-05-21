@@ -1,2 +1,2 @@
 export const INITIAL_PROMPT_TEXT =
-  'Scaffold a launch-ops CRM in my workspace with rockets, launches, payloads, customers, and launch sites, with relevant actions for each.';
+  'Bangun modul data penduduk dan keluarga untuk sistem administrasi desa Indonesia dengan fitur pencarian, kategorisasi RW, dan laporan bulanan.';

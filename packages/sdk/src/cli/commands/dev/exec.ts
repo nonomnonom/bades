@@ -81,7 +81,7 @@ export class LogicFunctionExecuteCommand {
           } else {
             console.log(
               chalk.yellow(
-                'No functions found for this application. Have you synced your app with `twenty dev`?',
+                'No functions found for this application. Have you synced your app with `bades dev`?',
               ),
             );
           }

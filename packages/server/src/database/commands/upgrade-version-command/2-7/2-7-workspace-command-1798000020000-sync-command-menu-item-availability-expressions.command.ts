@@ -37,7 +37,7 @@ export class SyncCommandMenuItemAvailabilityExpressionsCommand extends ActiveOrS
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

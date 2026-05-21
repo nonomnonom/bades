@@ -41,7 +41,7 @@ export class FileEmailAttachmentService {
     const name = `${fileId}${isNonEmptyString(ext) ? `.${ext}` : ''}`;
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

@@ -30,7 +30,7 @@ const partitionDefineExports = (
   return { factories, any };
 };
 
-export const TWENTY_SDK_DEFINE_STUBBED_EXPORTS = partitionDefineExports(
+export const BADES_SDK_DEFINE_STUBBED_EXPORTS = partitionDefineExports(
   twentySdkDefine as unknown as Record<string, unknown>,
 );
 
@@ -64,17 +64,17 @@ const __anyStub = new Proxy(() => undefined, __anyHandler);
 const buildStubModuleSource = (): string => {
   const exportLines: string[] = [];
 
-  for (const name of TWENTY_SDK_DEFINE_STUBBED_EXPORTS.factories) {
+  for (const name of BADES_SDK_DEFINE_STUBBED_EXPORTS.factories) {
     exportLines.push(`export const ${name} = __defineFactoryStub;`);
   }
-  for (const name of TWENTY_SDK_DEFINE_STUBBED_EXPORTS.any) {
+  for (const name of BADES_SDK_DEFINE_STUBBED_EXPORTS.any) {
     exportLines.push(`export const ${name} = __anyStub;`);
   }
 
   return `${STUB_PRELUDE}\n${exportLines.join('\n')}\n`;
 };
 
-export const createStubTwentySdkDefinePlugin = (): esbuild.Plugin => ({
+export const createStubBadesSdkDefinePlugin = (): esbuild.Plugin => ({
   name: 'twenty-sdk-define-stub',
   setup(build) {
     build.onResolve({ filter: /^twenty-sdk\/define$/ }, () => ({

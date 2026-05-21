@@ -35,7 +35,7 @@ const tx = (value: string): DiffToken => ({ kind: 'text', value });
 export const DIFF_FILES: DiffFile[] = [
   {
     id: 'schema-identifiers',
-    path: '…my-twenty-app/src/constants/schema-identifiers.ts',
+    path: '…my-bades-app/src/constants/schema-identifiers.ts',
     added: 84,
     removed: 0,
     chunks: [
@@ -113,7 +113,7 @@ export const DIFF_FILES: DiffFile[] = [
   },
   {
     id: 'launch-object',
-    path: '…my-twenty-app/src/objects/launch.object.ts',
+    path: '…my-bades-app/src/objects/launch.object.ts',
     added: 237,
     removed: 0,
     chunks: [
@@ -246,7 +246,7 @@ export const DIFF_FILES: DiffFile[] = [
   },
   {
     id: 'payload-object',
-    path: '…my-twenty-app/src/objects/payload.object.ts',
+    path: '…my-bades-app/src/objects/payload.object.ts',
     added: 198,
     removed: 0,
     chunks: [
@@ -328,7 +328,7 @@ export const DIFF_FILES: DiffFile[] = [
   },
   {
     id: 'rocket-object',
-    path: '…my-twenty-app/src/objects/rocket.object.ts',
+    path: '…my-bades-app/src/objects/rocket.object.ts',
     added: 28,
     removed: 32,
     chunks: [
@@ -395,7 +395,7 @@ export const DIFF_FILES: DiffFile[] = [
   },
   {
     id: 'upcoming-launches-view',
-    path: '…my-twenty-app/src/views/upcoming-launches.view.ts',
+    path: '…my-bades-app/src/views/upcoming-launches.view.ts',
     added: 82,
     removed: 0,
     chunks: [
@@ -482,7 +482,7 @@ export const DIFF_FILES: DiffFile[] = [
   },
   {
     id: 'schema-integration-test',
-    path: '…my-twenty-app/src/__tests__/schema.integration-test.ts',
+    path: '…my-bades-app/src/__tests__/schema.integration-test.ts',
     added: 412,
     removed: 40,
     chunks: [

@@ -37,7 +37,7 @@ export class BackfillStandardSkillsCommand extends ActiveOrSuspendedWorkspaceCom
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

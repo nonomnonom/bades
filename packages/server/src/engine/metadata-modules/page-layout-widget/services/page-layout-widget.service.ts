@@ -72,7 +72,7 @@ export class PageLayoutWidgetService {
     errorMessage: string;
   }): Promise<void> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -219,7 +219,7 @@ export class PageLayoutWidgetService {
       : input;
 
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
@@ -335,7 +335,7 @@ export class PageLayoutWidgetService {
           ],
         },
       ),
-      this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       ),
     ]);

@@ -246,7 +246,7 @@ const innerServerStart = async (
     }
   }
 
-  onProgress?.('Waiting for Twenty to be ready...');
+  onProgress?.('Waiting for Bades server to be ready...');
 
   const healthy = await waitForHealthy(port, containerName);
 

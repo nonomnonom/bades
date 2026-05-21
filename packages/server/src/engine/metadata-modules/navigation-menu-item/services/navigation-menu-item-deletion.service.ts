@@ -35,7 +35,7 @@ export class NavigationMenuItemDeletionService {
     workspaceId: string,
   ): Promise<void> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

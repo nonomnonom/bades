@@ -85,7 +85,7 @@ export class FrontComponentService {
     const resolvedOwnerFlatApplication =
       ownerFlatApplication ??
       (
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         )
       ).workspaceCustomFlatApplication;
@@ -153,7 +153,7 @@ export class FrontComponentService {
     const resolvedOwnerFlatApplication =
       ownerFlatApplication ??
       (
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         )
       ).workspaceCustomFlatApplication;
@@ -228,7 +228,7 @@ export class FrontComponentService {
     const resolvedOwnerFlatApplication =
       ownerFlatApplication ??
       (
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         )
       ).workspaceCustomFlatApplication;

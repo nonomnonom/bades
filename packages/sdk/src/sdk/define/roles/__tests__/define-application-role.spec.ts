@@ -4,7 +4,7 @@ describe('defineApplicationRole', () => {
   const validConfig = {
     universalIdentifier: 'b648f87b-1d26-4961-b974-0908fd991061',
     label: 'Default function role',
-    description: 'Default role for function Twenty client',
+    description: 'Peran default untuk fungsi Bades client',
   };
 
   it('should return successful validation result when valid', () => {

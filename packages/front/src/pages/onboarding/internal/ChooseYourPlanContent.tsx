@@ -18,7 +18,7 @@ import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { Loader } from 'ui/feedback';
 import { CardPicker, MainButton } from 'ui/input';
-import { CAL_LINK, ClickToActionLink } from 'ui/navigation';
+import { BADES_CAL_LINK, ClickToActionLink } from 'ui/navigation';
 import { themeCssVariables } from 'ui/theme-constants';
 import { BillingPlanKey, type Billing } from '~/generated-metadata/graphql';
 
@@ -268,7 +268,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
         </ClickToActionLink>
         <span />
         <ClickToActionLink
-          href={calendarBookingPageId ? AppPath.BookCall : CAL_LINK}
+          href={calendarBookingPageId ? AppPath.BookCall : BADES_CAL_LINK}
           target={calendarBookingPageId ? '_self' : '_blank'}
           rel={calendarBookingPageId ? '' : 'noreferrer'}
         >

@@ -321,7 +321,7 @@ export class CodeInterpreterTool implements Tool {
 
     try {
       const { workspaceCustomFlatApplication } =
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         );
 

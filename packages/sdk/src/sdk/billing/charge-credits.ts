@@ -12,9 +12,9 @@ export type ChargeCreditsParams = {
   resourceContext?: string;
 };
 
-// Records credit usage against the running application via the Twenty
-// server's `/app/billing/charge` endpoint. Reads `TWENTY_API_URL` and
-// `TWENTY_APP_ACCESS_TOKEN` from the execution env (injected by the
+// Records credit usage against the running application via the Bades
+// server's `/app/billing/charge` endpoint. Reads `BADES_API_URL` and
+// `BADES_APP_ACCESS_TOKEN` from the execution env (injected by the
 // logic-function runtime). No-ops silently when either is missing so
 // local/test runs don't crash. Failures are non-fatal — a billing error
 // never surfaces as a tool failure.

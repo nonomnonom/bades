@@ -44,7 +44,7 @@ export class GateExportImportCommandMenuItemsByPermissionFlagCommand extends Act
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

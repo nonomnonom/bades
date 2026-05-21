@@ -46,6 +46,19 @@ Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan
 | "a CRM they'll love" | "sistem yang akan mereka sukai" | **FIXED** |
 | "They are the real sales" | "Mereka adalah pengguna sebenarnya" | **FIXED** |
 
+### 5. Website GitHub API & Terminal Brand Fixes
+
+| File | Sebelum | Sesudah | Status |
+|------|---------|---------|--------|
+| `fetch-github-star-count.ts` | `twentyhq/twenty` | `badesid/bades` | **FIXED** |
+| `fetch-latest-release-tag.ts` | `twentyhq/twenty` | `badesid/bades` | **FIXED** |
+| `AppWindow.tsx` | `twenty-app-window` | `bades-app-window` | **FIXED** |
+| `TerminalPromptFooter.tsx` | `~/code/my-twenty-app` | `~/code/my-bades-app` | **FIXED** |
+| `diff-data.ts` (6x) | `my-twenty-app/...` | `my-bades-app/...` | **FIXED** |
+| `terminal-traffic-light-constants.ts` | `twenty-traffic-lights-escape` | `bades-traffic-lights-escape` | **FIXED** |
+| `editor-explorer-nodes.ts` | `my-twenty-app` | `my-bades-app` | **FIXED** |
+| `AssistantResponseSegments.tsx` | `yarn twenty dev --once` | `yarn bades dev --once` | **FIXED** |
+
 ---
 
 ## Area yang Sudah Dibersihkan
@@ -224,14 +237,15 @@ Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan
 | Package.json metadata | DONE | - | |
 | Seed CRM removal (objects) | PARTIAL | Pet, Rocket, Survey, Pet-care objects belum di-hapus dari seeder | |
 | Website Homepage | PARTIAL | Headline sudah Bades, tapi ada CRM terms lain di page.tsx dan app-preview data | |
-| GitHub API references | REMAINING | fetch-github-star-count.ts, fetch-latest-release-tag.ts | Brand leak |
-| Terminal/UI brand strings | REMAINING | `twenty-app-window`, `my-twenty-app`, `twenty-traffic-lights-escape` | Brand leak |
+| GitHub API references | **DONE** | fetch-github-star-count.ts, fetch-latest-release-tag.ts → badesid/bades | Brand leak FIXED |
+| Terminal/UI brand strings | **DONE** | `twenty-app-window` → `bades-app-window`, `my-twenty-app` → `my-bades-app` | Brand leak FIXED |
 | AI prompt translations | REMAINING | pipeline, deal, leads, Closed Won → perlu konversi SID | |
 | Impersonation translations | REMAINING | Half-translated, beberapa still English | |
 | English names in seeds | REMAINING | James, Mary, John... → perlu nama Indonesia | |
 | Case study CRM copy | REMAINING | "opportunity", "prospect", "lead" di case studies | |
 | Docs filenames | REMAINING | what-is-twenty.mdx → what-is-bades.mdx | |
 | Pipeline terminology | REMAINING | "pipeline" di website content | |
+| Non-SID seed objects | REMAINING | Pet, Rocket, Survey objects perlu dihapus dari seeder | |
 
 ---
 
@@ -239,15 +253,8 @@ Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan
 
 ### CRITICAL (harus selesai besok):
 
-1. **GitHub API URLs** - Ganti `twentyhq/twenty` → `badesid/bades` di:
-   - `lib/community/fetch-github-star-count.ts`
-   - `lib/releases/fetch-latest-release-tag.ts`
-
-2. **Terminal/UI Brand Strings** - Ganti SEMUA referensi `twenty`:
-   - `twenty-app-window` → `bades-app-window`
-   - `my-twenty-app` → `my-bades-app`
-   - `twenty-traffic-lights-escape` → nama baru
-
+1. ~~GitHub API URLs~~ - **DONE** ✓
+2. ~~Terminal/UI Brand Strings~~ - **DONE** ✓
 3. **Non-SID Seed Deletion** - Hapus dari dev-seeder:
    - Pet, Rocket, Survey, Pet-care agreement data + custom objects
    - Atau disable seeding-nya saja jika tidak来得及 hapus
@@ -256,8 +263,6 @@ Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan
    - `generate-random-users.util.ts` - nama Indonesia
    - `calendar-event-participant-data-seeds.constant.ts`
    - `message-participant-data-seeds.constant.ts`
-
-### HIGH (delegasi besok):
 
 5. **AI Prompt Translations** - Konversi CRM terms ke SID:
    - "pipeline" → "alur layanan"
@@ -278,6 +283,12 @@ Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan
 8. **Docs Filename Rename** -:
    - `what-is-twenty.mdx` → `what-is-bades.mdx`
    - Update redirect di `docs.json`
+
+### HIGH (delegasi besok):
+
+- AI prompt translations: "pipeline" → "alur layanan", "deal" → "permohonan", "Closed Won" → "Disetujui"
+- Impersonation translations: `Cannot impersonate selected user`, `Impersonate workspace users`, dll
+- Workspace ID constants rename
 
 ### MEDIUM (minggu ini):
 

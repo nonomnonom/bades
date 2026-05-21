@@ -41,7 +41,7 @@ export class PrefillFrontComponentService {
       );
 
     const { workspaceCustomFlatApplication: ownerFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

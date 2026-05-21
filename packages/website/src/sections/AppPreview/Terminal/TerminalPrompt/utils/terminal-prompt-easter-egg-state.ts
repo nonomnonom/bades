@@ -1,13 +1,13 @@
 const TRAFFIC_LIGHTS_ESCAPE_THRESHOLD = 5;
 
 export const TERMINAL_PROMPT_EASTER_EGG_MESSAGES = [
-  'Ask me to do something your CRM should have done years ago',
+  'Ask me to do something your village system should have done years ago',
   'Build the thing your admin said was impossible',
-  'Turn this CRM into something actually useful',
+  'Turn this system into something actually useful',
   'Ask for a workflow. Not a miracle.',
   'Describe the app you wish you already had',
-  'Create a spaceship. Or a sales workflow.',
-  'Make Salesforce nervous',
+  'Create a warga card. Or a letter workflow.',
+  'Make the old ledger nervous',
   'Still here? Type the impossible',
   'Describe the tool you were not supposed to have.',
   'Build the thing hidden behind a paywall elsewhere.',

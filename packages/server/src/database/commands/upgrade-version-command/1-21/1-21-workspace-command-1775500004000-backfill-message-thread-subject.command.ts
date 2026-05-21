@@ -204,7 +204,7 @@ export class BackfillMessageThreadSubjectCommand extends ActiveOrSuspendedWorksp
     }
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

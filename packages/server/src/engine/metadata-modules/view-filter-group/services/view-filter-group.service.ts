@@ -39,7 +39,7 @@ export class ViewFilterGroupService {
     workspaceId: string;
   }): Promise<ViewFilterGroupDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -116,7 +116,7 @@ export class ViewFilterGroupService {
     updateViewFilterGroupInput: UpdateViewFilterGroupInput;
   }): Promise<ViewFilterGroupDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -187,7 +187,7 @@ export class ViewFilterGroupService {
     workspaceId: string;
   }): Promise<ViewFilterGroupDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
@@ -260,7 +260,7 @@ export class ViewFilterGroupService {
     workspaceId: string;
   }): Promise<ViewFilterGroupDTO> {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

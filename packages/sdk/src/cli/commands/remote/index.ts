@@ -121,7 +121,7 @@ const addAction = async (options: {
       if (!detectedUrl) {
         console.error(
           chalk.red(
-            'No local Twenty server found.\n' +
+            'No local Bades server found.\n' +
               'Start one with: yarn bades docker:start',
           ),
         );
@@ -137,7 +137,7 @@ const addAction = async (options: {
             {
               type: 'input',
               name: 'serverUrl',
-              message: 'Twenty server URL:',
+              message: 'Bades server URL:',
               validate: (input: string) => {
                 try {
                   new URL(input);
@@ -174,7 +174,7 @@ const listAction = async () => {
 
   if (remotes.length === 0) {
     console.log('No remotes configured.');
-    console.log("Use 'twenty remote:add' to add one.");
+    console.log("Use 'bades remote:add' to add one.");
 
     return;
   }
@@ -201,7 +201,7 @@ const listAction = async () => {
 
   console.log(
     '\n',
-    chalk.gray("Use 'twenty remote:use <name>' to change default"),
+    chalk.gray("Use 'bades remote:use <name>' to change default"),
   );
 };
 
@@ -285,7 +285,7 @@ export const registerRemoteCommands = (program: Command): void => {
     .option('--api-key <apiKey>', 'API key for non-interactive auth')
     .option('--url <url>', 'Server URL')
     .option('--api-url <apiUrl>', '[deprecated: use --url]')
-    .option('--local', 'Connect to a local Twenty server (auto-detect)')
+    .option('--local', 'Connect to a local Bades server (auto-detect)')
     .option('--test', 'Write to config.test.json (for integration tests)')
     .action(addAction);
 
@@ -312,12 +312,12 @@ export const registerRemoteCommands = (program: Command): void => {
   // Deprecated: `remote <subcommand>` forwarding to `remote:<subcommand>`
   const remote = program
     .command('remote', { hidden: true })
-    .description('Manage remote Twenty servers');
+    .description('Manage remote Bades servers');
 
   const deprecate = (oldCmd: string, newCmd: string) =>
     console.warn(
       chalk.yellow(
-        `⚠ \`twenty remote ${oldCmd}\` is deprecated. Use \`twenty ${newCmd}\` instead.`,
+        `⚠ \`bades remote ${oldCmd}\` is deprecated. Use \`bades ${newCmd}\` instead.`,
       ),
     );
 
@@ -327,7 +327,7 @@ export const registerRemoteCommands = (program: Command): void => {
     .option('--api-key <apiKey>', 'API key for non-interactive auth')
     .option('--url <url>', 'Server URL')
     .option('--api-url <apiUrl>', '[deprecated: use --url]')
-    .option('--local', 'Connect to a local Twenty server (auto-detect)')
+    .option('--local', 'Connect to a local Bades server (auto-detect)')
     .option('--test', 'Write to config.test.json (for integration tests)')
     .action(
       async (options: {

@@ -1,14 +1,14 @@
 import * as twentySdkDefine from '@/sdk/define';
 import {
-  TWENTY_SDK_DEFINE_STUBBED_EXPORTS,
+  BADES_SDK_DEFINE_STUBBED_EXPORTS,
   isDefineFactoryExportName,
-} from '@/cli/utilities/build/common/plugins/stub-twenty-sdk-define.plugin';
+} from '@/cli/utilities/build/common/plugins/stub-bades-sdk-define.plugin';
 
-describe('stub-twenty-sdk-define plugin', () => {
+describe('stub-bades-sdk-define plugin', () => {
   const realExports = Object.keys(twentySdkDefine).sort();
   const stubbedExports = [
-    ...TWENTY_SDK_DEFINE_STUBBED_EXPORTS.factories,
-    ...TWENTY_SDK_DEFINE_STUBBED_EXPORTS.any,
+    ...BADES_SDK_DEFINE_STUBBED_EXPORTS.factories,
+    ...BADES_SDK_DEFINE_STUBBED_EXPORTS.any,
   ].sort();
 
   it('classifies every sdk/define value-export', () => {
@@ -20,13 +20,13 @@ describe('stub-twenty-sdk-define plugin', () => {
       .filter(isDefineFactoryExportName)
       .sort();
 
-    expect([...TWENTY_SDK_DEFINE_STUBBED_EXPORTS.factories].sort()).toEqual(
+    expect([...BADES_SDK_DEFINE_STUBBED_EXPORTS.factories].sort()).toEqual(
       expectedFactories,
     );
   });
 
   it('every factory is callable in the real module (would-be misclassification guard)', () => {
-    for (const name of TWENTY_SDK_DEFINE_STUBBED_EXPORTS.factories) {
+    for (const name of BADES_SDK_DEFINE_STUBBED_EXPORTS.factories) {
       const actual = (twentySdkDefine as unknown as Record<string, unknown>)[
         name
       ];
@@ -37,6 +37,6 @@ describe('stub-twenty-sdk-define plugin', () => {
   // Snapshot to surface new exports in PR review. Update with
   // `npx vitest -u` when intentional.
   it('matches the recorded export partition', () => {
-    expect(TWENTY_SDK_DEFINE_STUBBED_EXPORTS).toMatchSnapshot();
+    expect(BADES_SDK_DEFINE_STUBBED_EXPORTS).toMatchSnapshot();
   });
 });

@@ -48,7 +48,7 @@ const innerAppDevOnce = async (
       error: {
         code: APP_ERROR_CODES.SYNC_FAILED,
         message:
-          'Cannot reach Twenty server.\n\n' +
+          'Cannot reach Bades server.\n\n' +
           '  Start a local server:\n' +
           '    yarn bades docker:start\n\n' +
           '  Check server status:\n' +

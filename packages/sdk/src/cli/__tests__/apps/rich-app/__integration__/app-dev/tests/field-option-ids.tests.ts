@@ -17,7 +17,7 @@ const POST_CARD_CATEGORY_FIELD_UNIVERSAL_IDENTIFIER =
   'b602dbd9-e511-49ce-b6d3-b697218dc69c';
 
 export const defineFieldOptionIdsTests = (appPath: string): void => {
-  const manifestOutputPath = join(appPath, '.twenty/output/manifest.json');
+  const manifestOutputPath = join(appPath, '.bades/output/manifest.json');
 
   let manifest: Manifest;
 

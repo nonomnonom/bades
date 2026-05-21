@@ -95,7 +95,7 @@ export class BackfillImageIdentifierFieldMetadataIdCommand extends ActiveOrSuspe
     }
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

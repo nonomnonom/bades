@@ -14,7 +14,7 @@ import { AppUninstallCommand } from './app/uninstall';
 const deprecate = (oldCmd: string, newCmd: string) =>
   console.warn(
     chalk.yellow(
-      `⚠ \`twenty ${oldCmd}\` is deprecated. Use \`twenty ${newCmd}\` instead.`,
+      `⚠ \`bades ${oldCmd}\` is deprecated. Use \`bades ${newCmd}\` instead.`,
     ),
   );
 

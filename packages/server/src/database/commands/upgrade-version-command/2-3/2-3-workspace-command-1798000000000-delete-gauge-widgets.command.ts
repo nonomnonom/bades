@@ -78,7 +78,7 @@ export class DeleteGaugeWidgetsCommand extends ActiveOrSuspendedWorkspaceCommand
     }
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

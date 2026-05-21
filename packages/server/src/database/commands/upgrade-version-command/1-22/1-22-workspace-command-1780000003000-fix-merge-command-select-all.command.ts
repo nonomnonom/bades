@@ -42,7 +42,7 @@ export class FixMergeCommandSelectAllCommand extends ActiveOrSuspendedWorkspaceC
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

@@ -25,7 +25,12 @@ packages/server/src/
 
 ## Naming and Exports
 
-- Use kebab-case for files and directories.
+- Use `kebab-case` for directories.
+- Follow repo naming conventions for files:
+  React component files in `front`, `ui`, and `website` are commonly
+  `PascalCase.tsx`, while hooks commonly use `camelCase` with a `use*` prefix.
+  Non-component technical files often use suffix patterns such as
+  `*.service.ts`, `*.constant.ts`, and `*.util.ts`.
 - Prefer named exports.
 - Keep related tests close to the package conventions already in use:
   frontend commonly uses `*.test.ts(x)`, backend commonly uses `*.spec.ts`,

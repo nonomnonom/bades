@@ -55,7 +55,7 @@ export class SdkClientGenerationService {
     workspaceId: string,
   ): Promise<void> {
     const { twentyStandardFlatApplication, workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

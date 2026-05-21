@@ -105,11 +105,11 @@ export default async function ArticlesPage({ params }: ArticlesPageProps) {
             <HeadingPart fontFamily="serif">Ideas on</HeadingPart>
             <br />
             <HeadingPart fontFamily="serif">open-source</HeadingPart>{' '}
-            <HeadingPart fontFamily="sans">CRM</HeadingPart>
+            <HeadingPart fontFamily="sans">SISDEG</HeadingPart>
           </Hero.Heading>
           <Hero.Body page={Pages.Articles}>
-            Ideas from the team building Bades.id on open source CRM, GTM systems,
-            and building software that lasts.
+            Ideas from the team building Bades.id on village administration systems,
+            open infrastructure, and building software that lasts.
           </Hero.Body>
         </Hero.Root>
         <TrustedBy.Root

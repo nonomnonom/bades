@@ -54,7 +54,7 @@ export class ViewFieldGroupResolver {
     const i18n = this.i18nService.getI18nInstance(context.req.locale);
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspace },
       );
 

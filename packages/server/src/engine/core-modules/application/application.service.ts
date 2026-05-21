@@ -67,7 +67,7 @@ export class ApplicationService {
     return application.defaultRoleId;
   }
 
-  async findWorkspaceTwentyStandardAndCustomApplicationOrThrow({
+  async findWorkspaceBadesStandardAndCustomApplicationOrThrow({
     workspace: workspaceInput,
     workspaceId,
   }:
@@ -287,7 +287,7 @@ export class ApplicationService {
     }
 
     const { twentyStandardFlatApplication } =
-      await this.findWorkspaceTwentyStandardAndCustomApplicationOrThrow({
+      await this.findWorkspaceBadesStandardAndCustomApplicationOrThrow({
         workspace,
       });
 

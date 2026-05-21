@@ -46,7 +46,7 @@ export class LogicFunctionFromSourceService {
     workspaceId: string;
   }): Promise<LogicFunctionDTO> {
     const { workspaceCustomFlatApplication: ownerFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

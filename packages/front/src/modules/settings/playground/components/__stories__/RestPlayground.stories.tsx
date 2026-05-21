@@ -21,9 +21,9 @@ const PlaygroundApiKeySetterEffect = () => {
 const openApiSpec = {
   openapi: '3.1.1',
   info: {
-    title: 'Twenty Api',
+    title: 'Bades API',
     description:
-      'This is a **Twenty REST/API** playground based on the **OpenAPI 3.1 specification**.',
+      'Ini adalah **REST/API Bades** playground berdasarkan **spesifikasi OpenAPI 3.1**.',
     version: '1.0.0',
   },
   servers: [

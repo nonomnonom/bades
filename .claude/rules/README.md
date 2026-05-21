@@ -19,10 +19,13 @@ Autonomous workflow helpers for this repo also live in:
 - `architecture.md` - Current monorepo structure and technical boundaries
 - `code-style.md` - Shared coding conventions
 - `file-structure.md` - Package and directory layout guidance
+- `naming-conventions.md` - File naming, symbol naming, suffixes, and unused-code hygiene
 - `nx-rules.md` - Nx targets and workspace patterns
 - `server-migrations.md` - Upgrade command workflow for the server package
 - `front-user-surface.md` - Path-scoped guidance for UI, settings, and navigation surfaces
 - `docs-and-website-branding.md` - Path-scoped branding guidance for docs and website work
+- `midtrans-first-billing.md` - Path-scoped billing and payment guidance for Midtrans-first migration work
+- `platform-internal-bades.md` - Path-scoped guidance for app system, marketplace, API/webhook, and internal-platform boundaries
 - `seed-desa-indonesia.md` - Path-scoped rules for seed data, fixtures, stories, and examples
 - `translations.md` - Lingui and Indonesian-first localization workflow
 - `testing-guidelines.md` - Practical unit/integration test guidance
@@ -41,7 +44,7 @@ Autonomous workflow helpers for this repo also live in:
   guidance whenever work touches user-facing behavior, branding, docs, or seed
   data.
 - `goal-gatekeeping-workflow.md` defines how to apply `GOAL.md` per active
-  task and when to stop on conflict instead of implementing.
+  task while staying autonomous when the direction is already clear.
 - `bahasa-indonesia-total.md`, `anti-brand-leak.md`, and
   `non-technical-product.md` are the core Bades identity rules and should win
   over stale upstream habits.

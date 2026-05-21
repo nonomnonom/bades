@@ -18,14 +18,14 @@ export type { AssetManifest } from './assetManifestType';
 export type { ConnectionProviderManifest } from './connectionProviderManifestType';
 export type { ConnectionProviderType } from './connectionProviderType';
 export { ASSETS_DIR } from './constants/AssetDirectory';
+export { BADES_STANDARD_APPLICATION_NAME } from './constants/BadesStandardApplicationName';
+export { BADES_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER } from './constants/BadesStandardApplicationUniversalIdentifier';
 export { DEFAULT_API_KEY_NAME } from './constants/DefaultApiKeyName';
 export { DEFAULT_API_URL_NAME } from './constants/DefaultApiUrlName';
 export { DEFAULT_APP_ACCESS_TOKEN_NAME } from './constants/DefaultAppAccessTokenName';
 export { GENERATED_DIR } from './constants/GeneratedDirectory';
 export { NODE_ESM_CJS_BANNER } from './constants/NodeEsmCjsBanner';
 export { OUTPUT_DIR } from './constants/OutputDirectory';
-export { BADES_STANDARD_APPLICATION_NAME } from './constants/BadesStandardApplicationName';
-export { BADES_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER } from './constants/BadesStandardApplicationUniversalIdentifier';
 export { SyncableEntity } from './enums/syncable-entities.enum';
 export type {
   RegularFieldManifest,

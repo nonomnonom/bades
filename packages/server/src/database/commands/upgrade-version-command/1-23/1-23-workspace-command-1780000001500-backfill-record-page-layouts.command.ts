@@ -68,7 +68,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
     }
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

@@ -14,6 +14,8 @@ Twenty engine. Treat this repository as **Bades-first**:
 - Bahasa default proyek adalah **Bahasa Indonesia native** untuk produk,
   dokumentasi, komentar, test, fixture, seed, contoh data, dan penamaan
   konsep bisnis.
+- Bades diposisikan sebagai **produk SaaS swasta terkelola** untuk konteks
+  Indonesia, bukan self-hosting-first product untuk end user.
 - Internal compatibility layers may still reference legacy Twenty naming, but
   those identifiers must not leak into user-visible surfaces unless the task is
   explicitly about migration or upstream compatibility.
@@ -184,6 +186,9 @@ packages/
    risky regression.
 8. If the task changes React UI files in `front`, `ui`, or `website`, use the
    `react-doctor` workflow as part of closing verification.
+9. If the task touches billing, checkout, payment notifications, enterprise
+   billing APIs, or Stripe cleanup, use the `migrasi-midtrans` skill and the
+   `midtrans-first-billing.md` rule as the default workflow.
 
 ### Localization Rules
 - User-facing Bades UI should be Bahasa Indonesia native by default.

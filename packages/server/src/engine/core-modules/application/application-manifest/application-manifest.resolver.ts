@@ -42,7 +42,7 @@ export class ApplicationManifestResolver {
     @AuthWorkspace() { id: workspaceId }: WorkspaceEntity,
   ) {
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

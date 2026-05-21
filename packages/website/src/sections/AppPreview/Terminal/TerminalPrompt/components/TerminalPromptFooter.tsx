@@ -71,7 +71,7 @@ export const TerminalPromptFooter = ({
     <ChipRow>
       <TerminalPromptChip
         icon={<IconFolder size={13} stroke={1.8} />}
-        label="~/code/my-twenty-app"
+        label="~/code/my-bades-app"
       />
       <TerminalPromptChip
         icon={<IconGitBranch size={13} stroke={1.8} />}

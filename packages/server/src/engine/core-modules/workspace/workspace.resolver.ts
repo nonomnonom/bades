@@ -243,7 +243,7 @@ export class WorkspaceResolver {
   ): Promise<ApplicationDTO | null> {
     try {
       const { workspaceCustomFlatApplication } =
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           {
             workspace,
           },

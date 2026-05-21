@@ -13,7 +13,7 @@ import { useWindowOrder } from '../WindowOrder/use-window-order';
 import { WINDOW_SHADOWS } from '../Shared/utils/window-shadows';
 import { MacWindowBar } from './MacWindowBar';
 
-const WINDOW_ID = 'twenty-app-window';
+const WINDOW_ID = 'bades-app-window';
 const MIN_WIDTH = 640;
 const MIN_HEIGHT = 420;
 const MIN_EDGE_GAP = 0;

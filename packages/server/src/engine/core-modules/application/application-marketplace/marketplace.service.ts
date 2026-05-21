@@ -55,7 +55,7 @@ export class MarketplaceService {
 
     try {
       const { data } = await axios.get(url, {
-        headers: { 'User-Agent': 'Twenty-Marketplace' },
+        headers: { 'User-Agent': 'Bades-Marketplace' },
         timeout: 5_000,
       });
 
@@ -87,7 +87,7 @@ export class MarketplaceService {
 
     try {
       const { data } = await axios.get(url, {
-        headers: { 'User-Agent': 'Twenty-Marketplace' },
+        headers: { 'User-Agent': 'Bades-Marketplace' },
         timeout: 5_000,
         responseType: 'text',
       });
@@ -113,7 +113,7 @@ export class MarketplaceService {
       const { data } = await axios.get(
         `${registryUrl}/-/v1/search?text=keywords:twenty-app&size=250`,
         {
-          headers: { 'User-Agent': 'Twenty-Marketplace' },
+          headers: { 'User-Agent': 'Bades-Marketplace' },
           timeout: 10_000,
         },
       );

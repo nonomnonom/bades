@@ -18,6 +18,8 @@ Untuk aturan yang lebih spesifik, baca juga:
   provenance.
 - Prefer the Bades and village-administration mental model over generic CRM
   language.
+- Position Bades as a managed private SaaS product for Indonesia, not as a
+  self-hosting-first distribution.
 
 ## User-Facing Language
 
@@ -58,3 +60,5 @@ Untuk aturan yang lebih spesifik, baca juga:
   in legacy form if changing them would be risky.
 - Those exceptions must stay behind technical boundaries and should not leak
   into product copy, release notes, email subjects, or docs screenshots.
+- Legacy self-hosting or open-source distribution artifacts may temporarily
+  remain internally, but they should not dominate public product positioning.

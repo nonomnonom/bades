@@ -12,7 +12,7 @@ import { esbuildOneShotBuild } from '@/cli/utilities/build/common/esbuild-one-sh
 import { LOGIC_FUNCTION_EXTERNAL_MODULES } from '@/cli/utilities/build/common/esbuild-watcher';
 import { getBaseFrontComponentBuildOptions } from '@/cli/utilities/build/common/front-component-build/utils/get-base-front-component-build-options';
 import { getFrontComponentBuildPlugins } from '@/cli/utilities/build/common/front-component-build/utils/get-front-component-build-plugins';
-import { createStubTwentySdkDefinePlugin } from '@/cli/utilities/build/common/plugins/stub-twenty-sdk-define.plugin';
+import { createStubBadesSdkDefinePlugin } from '@/cli/utilities/build/common/plugins/stub-bades-sdk-define.plugin';
 import { type OnFileBuiltCallback } from '@/cli/utilities/build/common/restartable-watcher-interface';
 import { type EntityFilePaths } from '@/cli/utilities/build/manifest/manifest-extract-config';
 import {
@@ -80,7 +80,7 @@ export const buildApplication = async (
       metafile: true,
       logLevel: 'silent',
       banner: NODE_ESM_CJS_BANNER,
-      plugins: [createStubTwentySdkDefinePlugin()],
+      plugins: [createStubBadesSdkDefinePlugin()],
     },
     onFileBuilt: collectFileBuilt,
   });
@@ -99,7 +99,7 @@ export const buildApplication = async (
       logLevel: 'silent',
       plugins: [
         ...getFrontComponentBuildPlugins(),
-        createStubTwentySdkDefinePlugin(),
+        createStubBadesSdkDefinePlugin(),
       ],
     },
     onFileBuilt: collectFileBuilt,

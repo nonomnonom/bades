@@ -1,1 +1,1 @@
-export const CAL_LINK = 'https://cal.com/team/twenty/talk-to-us';
+export const BADES_CAL_LINK = 'https://cal.com/team/bades/talk-to-us';

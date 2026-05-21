@@ -68,7 +68,7 @@ export class FixMessageThreadViewAndLabelIdentifierCommand extends ActiveOrSuspe
     const isDryRun = options.dryRun ?? false;
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

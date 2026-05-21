@@ -162,24 +162,24 @@ export const getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions
     return [
       {
         id: extractDomainLogicFunctionId,
-        name: 'Extract domain from email',
+        name: 'Ekstrak domain dari email',
         description:
-          'Extracts a normalized company domain and URL from a person email address.',
+          'Mengekstrak domain dan URL yang dinormalisasi dari alamat email penduduk.',
         sourceHandlerCode: EXTRACT_DOMAIN_LOGIC_FUNCTION_SOURCE,
       },
       {
         id: findMatchingCompanyByDomainLogicFunctionId,
-        name: 'Find matching company by domain',
+        name: 'Cari lembaga berdasarkan domain',
         description:
-          'Finds an existing company whose website matches a normalized registrable domain.',
+          'Mencari lembaga yang sudah ada dengan domain yang cocok.',
         sourceHandlerCode:
           FIND_MATCHING_COMPANY_BY_DOMAIN_LOGIC_FUNCTION_SOURCE,
       },
       {
         id: isPersonalEmailLogicFunctionId,
-        name: 'Is this a personal email?',
+        name: 'Cek email pribadi?',
         description:
-          'Detects whether an email address belongs to a common personal email provider.',
+          'Mendeteksi apakah alamat email milik penyedia email pribadi umum.',
         sourceHandlerCode: IS_PERSONAL_EMAIL_LOGIC_FUNCTION_SOURCE,
       },
     ];

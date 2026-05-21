@@ -96,7 +96,7 @@ export const prefillWorkflows = async (
     .values([
       {
         id: QUICK_LEAD_WORKFLOW_ID,
-        name: 'Quick Lead',
+        name: 'Pendaftaran Warga Baru',
         lastPublishedVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
         statuses: ['ACTIVE'],
         position: 1,
@@ -110,7 +110,7 @@ export const prefillWorkflows = async (
       },
       {
         id: CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_ID,
-        name: 'Create company when adding a new person',
+        name: 'Buat lembaga saat menambah penduduk baru',
         lastPublishedVersionId:
           CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_VERSION_ID,
         statuses: ['ACTIVE'],
@@ -145,7 +145,7 @@ export const prefillWorkflows = async (
         id: QUICK_LEAD_WORKFLOW_VERSION_ID,
         name: 'v1',
         trigger: JSON.stringify({
-          name: 'Launch manually',
+          name: 'Jalankan manual',
           type: 'MANUAL',
           settings: {
             outputSchema: {},
@@ -157,7 +157,7 @@ export const prefillWorkflows = async (
         steps: JSON.stringify([
           {
             id: '6e089bc9-aabd-435f-865f-f31c01c8f4a7',
-            name: 'Quick Lead Form',
+            name: 'Formulir Pendaftaran',
             type: 'FORM',
             valid: false,
             settings: {
@@ -166,43 +166,43 @@ export const prefillWorkflows = async (
                   id: '14d669f0-5249-4fa4-b0bb-f8bd408328d5',
                   name: 'firstName',
                   type: 'TEXT',
-                  label: 'First name',
-                  placeholder: 'Tim',
+                  label: 'Nama depan',
+                  placeholder: 'Wayan',
                 },
                 {
                   id: '4eb6ce85-d231-4aef-9837-744490c026d0',
                   name: 'lastName',
                   type: 'TEXT',
-                  label: 'Last Name',
-                  placeholder: 'Apple',
+                  label: 'Nama belakang',
+                  placeholder: 'Putra',
                 },
                 {
                   id: 'adbf0e9f-1427-49be-b4fb-092b34d97350',
                   name: 'email',
                   type: 'TEXT',
                   label: 'Email',
-                  placeholder: 'timapple@apple.com',
+                  placeholder: 'wayan@bades.id',
                 },
                 {
                   id: '4ffc7992-9e65-4a4d-9baf-b52e62f2c273',
                   name: 'jobTitle',
                   type: 'TEXT',
-                  label: 'Job title',
-                  placeholder: 'CEO',
+                  label: 'Pekerjaan',
+                  placeholder: 'Petani',
                 },
                 {
                   id: '42f11926-04ea-4924-94a4-2293cc748362',
                   name: 'companyName',
                   type: 'TEXT',
-                  label: 'Company name',
-                  placeholder: 'Apple',
+                  label: 'Nama lembaga/instansi',
+                  placeholder: 'Badan Pusat Statistik',
                 },
                 {
                   id: 'd6ca80ee-26cd-466d-91bf-984d7205451c',
                   name: 'companyDomain',
                   type: 'TEXT',
-                  label: 'Company domain',
-                  placeholder: 'https://www.apple.com',
+                  label: 'Domain lembaga',
+                  placeholder: 'https://www.bps.go.id',
                 },
               ],
               outputSchema: {
@@ -214,31 +214,31 @@ export const prefillWorkflows = async (
                 },
                 jobTitle: {
                   type: 'TEXT',
-                  label: 'Job title',
+                  label: 'Pekerjaan',
                   value: 'My text',
                   isLeaf: true,
                 },
                 lastName: {
                   type: 'TEXT',
-                  label: 'Last Name',
+                  label: 'Nama belakang',
                   value: 'My text',
                   isLeaf: true,
                 },
                 firstName: {
                   type: 'TEXT',
-                  label: 'First name',
+                  label: 'Nama depan',
                   value: 'My text',
                   isLeaf: true,
                 },
                 companyName: {
                   type: 'TEXT',
-                  label: 'Company name',
+                  label: 'Nama lembaga/instansi',
                   value: 'My text',
                   isLeaf: true,
                 },
                 companyDomain: {
                   type: 'TEXT',
-                  label: 'Company domain',
+                  label: 'Domain lembaga',
                   value: 'My text',
                   isLeaf: true,
                 },
@@ -253,7 +253,7 @@ export const prefillWorkflows = async (
           },
           {
             id: '0715b6cd-7cc1-4b98-971b-00f54dfe643b',
-            name: 'Create Company',
+            name: 'Buat Lembaga/Instansi',
             type: 'CREATE_RECORD',
             valid: false,
             settings: {
@@ -271,8 +271,8 @@ export const prefillWorkflows = async (
               outputSchema: {
                 object: {
                   icon: 'IconBuildingSkyscraper',
-                  label: 'Company',
-                  value: 'A company',
+                  label: 'Lembaga/Instansi',
+                  value: 'Sebuah lembaga',
                   isLeaf: true,
                   fieldIdName: 'id',
                   nameSingular: 'company',
@@ -296,7 +296,7 @@ export const prefillWorkflows = async (
           },
           {
             id: '6f553ea7-b00e-4371-9d88-d8298568a246',
-            name: 'Create Person',
+            name: 'Buat Penduduk',
             type: 'CREATE_RECORD',
             valid: false,
             settings: {
@@ -362,7 +362,7 @@ export const prefillWorkflows = async (
         steps: JSON.stringify([
           {
             id: 'c30d7cbe-00e0-4966-bc1a-99b0a11a2cca',
-            name: 'Is this a personal email?',
+            name: 'Cek apakah email pribadi?',
             type: 'CODE',
             valid: false,
             position: {
@@ -399,7 +399,7 @@ export const prefillWorkflows = async (
           },
           {
             id: '01f3db05-aae5-4e4b-b361-96684f09c704',
-            name: 'If business email',
+            name: 'Jika email instansi',
             type: 'FILTER',
             valid: false,
             position: {
@@ -443,7 +443,7 @@ export const prefillWorkflows = async (
           },
           {
             id: '1b01193b-8300-4d79-940b-44464bf45505',
-            name: 'Extract domain from email',
+            name: 'Ekstrak domain dari email',
             type: 'CODE',
             valid: false,
             position: {
@@ -487,7 +487,7 @@ export const prefillWorkflows = async (
           },
           {
             id: 'becb3acf-79bb-4672-8a42-3696e94957b5',
-            name: 'Search Company',
+            name: 'Cari Lembaga/Instansi',
             type: 'FIND_RECORDS',
             valid: false,
             position: {
@@ -537,7 +537,7 @@ export const prefillWorkflows = async (
           },
           {
             id: '9d0b6ef2-aad2-4853-92e1-95f2abf10d5b',
-            name: 'Find exact company match',
+            name: 'Cocokkan lembaga',
             type: 'CODE',
             valid: false,
             position: {
@@ -580,7 +580,7 @@ export const prefillWorkflows = async (
           },
           {
             id: '0c99a900-656a-40e8-977e-5a7357be33b9',
-            name: 'If a company already exists',
+            name: 'Jika lembaga sudah ada',
             type: 'IF_ELSE',
             valid: false,
             position: {
@@ -634,7 +634,7 @@ export const prefillWorkflows = async (
           },
           {
             id: 'ffdd4271-75d4-4805-b1f8-2167a113c3b2',
-            name: 'Attach person to existing company',
+            name: 'Hubungkan penduduk ke lembaga',
             type: 'UPDATE_RECORD',
             valid: false,
             position: {
@@ -665,7 +665,7 @@ export const prefillWorkflows = async (
           },
           {
             id: 'ddafb9db-a94f-40b9-a5c9-becce857edf7',
-            name: 'Create a new company',
+            name: 'Buat lembaga baru',
             type: 'CREATE_RECORD',
             valid: false,
             position: {
@@ -700,7 +700,7 @@ export const prefillWorkflows = async (
           },
           {
             id: 'd5d5d6e1-391f-4142-83c1-670f7087f079',
-            name: 'Attach person to this company',
+            name: 'Hubungkan penduduk ke lembaga ini',
             type: 'UPDATE_RECORD',
             valid: false,
             position: {

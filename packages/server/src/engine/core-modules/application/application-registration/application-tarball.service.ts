@@ -183,7 +183,7 @@ export class ApplicationTarballService {
       }
 
       const { workspaceCustomFlatApplication } =
-        await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId: params.ownerWorkspaceId },
         );
 

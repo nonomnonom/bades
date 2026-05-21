@@ -62,7 +62,7 @@ export class DropFavoriteObjectsCommand extends ActiveOrSuspendedWorkspaceComman
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

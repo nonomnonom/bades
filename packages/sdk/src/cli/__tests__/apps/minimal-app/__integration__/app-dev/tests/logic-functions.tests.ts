@@ -4,7 +4,7 @@ import { join } from 'path';
 export const defineLogicFunctionsTests = (appPath: string): void => {
   describe('logicFunctions', () => {
     it('should have built logicFunctions at root level', async () => {
-      const outputDir = join(appPath, '.twenty/output');
+      const outputDir = join(appPath, '.bades/output');
       const files = await readdir(outputDir, { recursive: true });
       const functionFiles = files
         .map((f) => f.toString())

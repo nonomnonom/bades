@@ -57,7 +57,7 @@ export class DeduplicateEngineCommandsCommand extends ActiveOrSuspendedWorkspace
     );
 
     const { twentyStandardFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 

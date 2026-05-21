@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 
-const FIXTURES_ROOT = resolve(__dirname, '../../../../../twenty-apps/fixtures');
+const FIXTURES_ROOT = resolve(__dirname, '../../../../../bades-apps/fixtures');
 
 export const RICH_APP_PATH = resolve(FIXTURES_ROOT, 'rich-app');
 export const MINIMAL_APP_PATH = resolve(FIXTURES_ROOT, 'minimal-app');

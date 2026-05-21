@@ -149,7 +149,7 @@ describe('TwoFactorAuthenticationResolver', () => {
         mockUser as unknown as UserEntity,
       );
       twoFactorAuthenticationService.initiateStrategyConfiguration.mockResolvedValue(
-        'otpauth://totp/Twenty:test@example.com?secret=SECRETKEY&issuer=Twenty',
+        'otpauth://totp/Bades:test@example.com?secret=SECRETKEY&issuer=Bades',
       );
     });
 
@@ -157,7 +157,7 @@ describe('TwoFactorAuthenticationResolver', () => {
       const result = await resolver.initiateOTPProvisioning(mockInput, origin);
 
       expect(result).toEqual({
-        uri: 'otpauth://totp/Twenty:test@example.com?secret=SECRETKEY&issuer=Twenty',
+        uri: 'otpauth://totp/Bades:test@example.com?secret=SECRETKEY&issuer=Bades',
       });
       expect(loginTokenService.verifyLoginToken).toHaveBeenCalledWith(
         mockInput.loginToken,
@@ -228,7 +228,7 @@ describe('TwoFactorAuthenticationResolver', () => {
   describe('initiateOTPProvisioningForAuthenticatedUser', () => {
     beforeEach(() => {
       twoFactorAuthenticationService.initiateStrategyConfiguration.mockResolvedValue(
-        'otpauth://totp/Twenty:test@example.com?secret=SECRETKEY&issuer=Twenty',
+        'otpauth://totp/Bades:test@example.com?secret=SECRETKEY&issuer=Bades',
       );
     });
 
@@ -239,7 +239,7 @@ describe('TwoFactorAuthenticationResolver', () => {
       );
 
       expect(result).toEqual({
-        uri: 'otpauth://totp/Twenty:test@example.com?secret=SECRETKEY&issuer=Twenty',
+        uri: 'otpauth://totp/Bades:test@example.com?secret=SECRETKEY&issuer=Bades',
       });
       expect(
         twoFactorAuthenticationService.initiateStrategyConfiguration,

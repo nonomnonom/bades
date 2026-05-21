@@ -15,9 +15,9 @@ export { RawLink } from './link/components/RawLink';
 export { RoundedLink } from './link/components/RoundedLink';
 export { LinkType, SocialLink } from './link/components/SocialLink';
 export { UndecoratedLink } from './link/components/UndecoratedLink';
-export { CAL_LINK } from './link/constants/Cal';
-export { GITHUB_LINK } from './link/constants/GithubLink';
-export { TWENTY_PRICING_LINK } from './link/constants/TwentyPricingLink';
+export { BADES_PRICING_LINK } from './link/constants/BadesPricingLink';
+export { BADES_CAL_LINK } from './link/constants/Cal';
+export { BADES_GITHUB_LINK } from './link/constants/GithubLink';
 export type { MenuPickerProps } from './menu/components/MenuPicker';
 export { MenuPicker } from './menu/components/MenuPicker';
 export type {

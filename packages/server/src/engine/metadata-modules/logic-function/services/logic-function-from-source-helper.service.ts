@@ -37,7 +37,7 @@ export class LogicFunctionFromSourceHelperService {
           workspaceId,
           flatMapsKeys: ['flatLogicFunctionMaps'],
         }),
-        this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+        this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
           { workspaceId },
         ),
       ]);

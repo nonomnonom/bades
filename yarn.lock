@@ -28683,6 +28683,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bades@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "bades@workspace:."
+  dependencies:
+    "@nx/jest": "npm:22.5.4"
+    "@nx/js": "npm:22.5.4"
+    "@nx/react": "npm:22.5.4"
+    "@nx/storybook": "npm:22.5.4"
+    "@nx/vite": "npm:22.5.4"
+    "@nx/web": "npm:22.5.4"
+    "@types/react": "npm:^18.2.39"
+    "@types/react-dom": "npm:^18.2.15"
+    "@yarnpkg/types": "npm:^4.0.0"
+    concurrently: "npm:^8.2.2"
+    http-server: "npm:^14.1.1"
+    nx: "npm:22.5.4"
+    tsx: "npm:^4.17.0"
+    verdaccio: "npm:^6.3.1"
+  languageName: unknown
+  linkType: soft
+
 "bail@npm:^2.0.0":
   version: 2.0.2
   resolution: "bail@npm:2.0.2"
@@ -31714,6 +31735,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"create-bades-app@workspace:packages/create-twenty-app":
+  version: 0.0.0-use.local
+  resolution: "create-bades-app@workspace:packages/create-twenty-app"
+  dependencies:
+    "@genql/cli": "npm:^3.0.3"
+    "@swc/core": "npm:^1.15.11"
+    "@swc/jest": "npm:^0.2.39"
+    "@types/fs-extra": "npm:^11.0.0"
+    "@types/jest": "npm:^30.0.0"
+    "@types/lodash.camelcase": "npm:^4.3.7"
+    "@types/lodash.kebabcase": "npm:^4.1.7"
+    "@types/lodash.startcase": "npm:^4"
+    "@types/node": "npm:^20.0.0"
+    chalk: "npm:^5.3.0"
+    commander: "npm:^12.0.0"
+    fs-extra: "npm:^11.2.0"
+    jest: "npm:29.7.0"
+    jest-environment-node: "npm:^29.4.1"
+    lodash.camelcase: "npm:^4.3.0"
+    lodash.kebabcase: "npm:^4.1.1"
+    lodash.startcase: "npm:^4.4.0"
+    sdk: "workspace:*"
+    shared: "workspace:*"
+    typescript: "npm:^5.9.2"
+    uuid: "npm:^13.0.0"
+    vite: "npm:^7.0.0"
+    vite-plugin-dts: "npm:^4.5.4"
+    vite-tsconfig-paths: "npm:^4.2.1"
+  bin:
+    create-bades-app: dist/cli.cjs
+  languageName: unknown
+  linkType: soft
+
 "create-ecdh@npm:^4.0.0":
   version: 4.0.4
   resolution: "create-ecdh@npm:4.0.4"
@@ -31774,39 +31828,6 @@ __metadata:
   checksum: 10c0/157cbc59b2430ae9a90034a5f3a1b398b6738bf510f713edc4d4e45e169bc514d3d99dd34d8d01ca7ae7830b5b8b537e46ae8f3c8f932371b0875c0151d7ec91
   languageName: node
   linkType: hard
-
-"create-twenty-app@workspace:packages/create-twenty-app":
-  version: 0.0.0-use.local
-  resolution: "create-twenty-app@workspace:packages/create-twenty-app"
-  dependencies:
-    "@genql/cli": "npm:^3.0.3"
-    "@swc/core": "npm:^1.15.11"
-    "@swc/jest": "npm:^0.2.39"
-    "@types/fs-extra": "npm:^11.0.0"
-    "@types/jest": "npm:^30.0.0"
-    "@types/lodash.camelcase": "npm:^4.3.7"
-    "@types/lodash.kebabcase": "npm:^4.1.7"
-    "@types/lodash.startcase": "npm:^4"
-    "@types/node": "npm:^20.0.0"
-    chalk: "npm:^5.3.0"
-    commander: "npm:^12.0.0"
-    fs-extra: "npm:^11.2.0"
-    jest: "npm:29.7.0"
-    jest-environment-node: "npm:^29.4.1"
-    lodash.camelcase: "npm:^4.3.0"
-    lodash.kebabcase: "npm:^4.1.1"
-    lodash.startcase: "npm:^4.4.0"
-    sdk: "workspace:*"
-    shared: "workspace:*"
-    typescript: "npm:^5.9.2"
-    uuid: "npm:^13.0.0"
-    vite: "npm:^7.0.0"
-    vite-plugin-dts: "npm:^4.5.4"
-    vite-tsconfig-paths: "npm:^4.2.1"
-  bin:
-    create-twenty-app: dist/cli.cjs
-  languageName: unknown
-  linkType: soft
 
 "crelt@npm:^1.0.0, crelt@npm:^1.0.5":
   version: 1.0.6
@@ -52693,7 +52714,7 @@ __metadata:
     wait-on: "npm:^7.2.0"
     zod: "npm:^4.1.11"
   bin:
-    twenty: dist/cli.cjs
+    bades: dist/cli.cjs
   languageName: unknown
   linkType: soft
 
@@ -56504,27 +56525,6 @@ __metadata:
   checksum: 10c0/4612772653512c7bc19e61923fbf42903f5e0389ec76a4a1f17195859d114671ea4aa3b734c2029ce7e1fa7e5cc8b80580f67b071ecf0b46b5636d030a0102a2
   languageName: node
   linkType: hard
-
-"twenty@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "twenty@workspace:."
-  dependencies:
-    "@nx/jest": "npm:22.5.4"
-    "@nx/js": "npm:22.5.4"
-    "@nx/react": "npm:22.5.4"
-    "@nx/storybook": "npm:22.5.4"
-    "@nx/vite": "npm:22.5.4"
-    "@nx/web": "npm:22.5.4"
-    "@types/react": "npm:^18.2.39"
-    "@types/react-dom": "npm:^18.2.15"
-    "@yarnpkg/types": "npm:^4.0.0"
-    concurrently: "npm:^8.2.2"
-    http-server: "npm:^14.1.1"
-    nx: "npm:22.5.4"
-    tsx: "npm:^4.17.0"
-    verdaccio: "npm:^6.3.1"
-  languageName: unknown
-  linkType: soft
 
 "twoslash-protocol@npm:0.3.4":
   version: 0.3.4

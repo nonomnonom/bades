@@ -7,7 +7,7 @@ import { NavigationMenuItemType } from 'shared/types';
 import { EXPECTED_MANIFEST } from '../expected-manifest';
 
 export const defineManifestTests = (appPath: string): void => {
-  const manifestOutputPath = join(appPath, '.twenty/output/manifest.json');
+  const manifestOutputPath = join(appPath, '.bades/output/manifest.json');
 
   let manifest: Manifest;
 

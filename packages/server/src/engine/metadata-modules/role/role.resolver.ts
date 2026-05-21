@@ -170,7 +170,7 @@ export class RoleResolver {
   ): Promise<RoleDTO> {
     const { id: workspaceId } = workspace;
     const { workspaceCustomFlatApplication } =
-      await this.applicationService.findWorkspaceTwentyStandardAndCustomApplicationOrThrow(
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },

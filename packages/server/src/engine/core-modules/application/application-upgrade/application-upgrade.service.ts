@@ -51,7 +51,7 @@ export class ApplicationUpgradeService {
       const { data } = await axios.get(
         `${registryUrl}/${encodedPackage}/latest`,
         {
-          headers: { 'User-Agent': 'Twenty-AppUpgrade' },
+          headers: { 'User-Agent': 'Bades-AppUpgrade' },
           timeout: 10_000,
         },
       );
