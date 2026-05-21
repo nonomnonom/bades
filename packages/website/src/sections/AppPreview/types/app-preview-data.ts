@@ -109,7 +109,7 @@ export type WorkflowNodeDef = {
   x: number;
   y: number;
   width: number;
-  label: 'Trigger' | 'Action';
+  label: 'Trigger' | 'Action' | 'Pemicu' | 'Tindakan';
   title: string;
   iconName: string;
   iconColor?: string;

@@ -2,9 +2,7 @@ import { type AppLocale } from 'shared/translations';
 
 import { WEBSITE_LOCALE_LIST } from './website-locale-list';
 
-const URL_SEGMENT_OVERRIDES: Partial<Record<AppLocale, string>> = {
-  'fr-FR': 'fr',
-};
+const URL_SEGMENT_OVERRIDES: Partial<Record<AppLocale, string>> = {};
 
 export const localeToUrlSegment = (locale: AppLocale): string =>
   URL_SEGMENT_OVERRIDES[locale] ?? locale;

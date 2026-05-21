@@ -31,13 +31,13 @@ describe('LocaleSwitcher', () => {
     expect(html).toContain('>English<');
   });
 
-  it('shows the native French label when the active locale is French', () => {
-    mockUsePathname.mockReturnValue('/fr/pricing');
-    mockUseLocale.mockReturnValue('fr-FR');
+  it('shows the native Indonesian label when the active locale is Indonesian', () => {
+    mockUsePathname.mockReturnValue('/id-ID/pricing');
+    mockUseLocale.mockReturnValue('id-ID');
 
     const html = renderToStaticMarkup(<LocaleSwitcher />);
 
-    expect(html).toContain('>Français<');
+    expect(html).toContain('>Indonesia<');
   });
 
   it('renders the trigger as a real button so it is keyboard-focusable and screen-reader-discoverable', () => {
@@ -62,6 +62,6 @@ describe('LocaleSwitcher', () => {
     const html = renderToStaticMarkup(<LocaleSwitcher />);
 
     expect(html).not.toContain('href="/pricing"');
-    expect(html).not.toContain('href="/fr/pricing"');
+    expect(html).not.toContain('href="/id-ID/pricing"');
   });
 });

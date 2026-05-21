@@ -123,18 +123,6 @@ const nextConfig: LinariaConfig = {
         destination: 'https://bades.id/:path*',
         permanent: true,
       },
-      {
-        source: '/',
-        has: [{ type: 'host', value: 'www.twenty-main.com' }],
-        destination: 'https://bades.id/',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.twenty-main.com' }],
-        destination: 'https://bades.id/:path*',
-        permanent: true,
-      },
       // Strip the source-locale prefix: /en/foo → /foo (301). Mirrors proxy.ts Rule 1.
       { source: '/en', destination: '/', statusCode: 301 },
       { source: '/en/:path*', destination: '/:path*', statusCode: 301 },
@@ -201,11 +189,6 @@ const nextConfig: LinariaConfig = {
       {
         source: '/ui/:slug',
         destination: 'https://docs.bades.id/ui/:slug',
-        permanent: true,
-      },
-      {
-        source: '/resources/why-twenty',
-        destination: '/why-bades',
         permanent: true,
       },
       {

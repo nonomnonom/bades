@@ -22,7 +22,7 @@ const ARTICLES_DIRECTORY_CANDIDATES = [
   path.join(
     process.cwd(),
     'packages',
-    'twenty-website',
+    'website',
     'src',
     'content',
     'articles',

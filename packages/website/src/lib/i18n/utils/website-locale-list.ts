@@ -8,5 +8,5 @@ import {
 // Keep this allowlist small until Crowdin sync, SEO signals, and QA are proven.
 export const WEBSITE_LOCALE_LIST = [
   SOURCE_LOCALE,
-  APP_LOCALES['fr-FR'],
+  APP_LOCALES['id-ID'],
 ] as const satisfies readonly AppLocale[];

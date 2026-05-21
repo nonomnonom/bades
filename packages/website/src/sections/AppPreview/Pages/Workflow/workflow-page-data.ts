@@ -14,7 +14,7 @@ export type WorkflowNodeDefinition = {
   Icon: typeof IconPlug;
   id: string;
   iconColor: string;
-  label: 'Trigger' | 'Action';
+  label: 'Trigger' | 'Action' | 'Pemicu' | 'Tindakan';
   title: string;
   width: number;
   x: number;

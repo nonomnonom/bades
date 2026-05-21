@@ -4,6 +4,7 @@ import type { MessageDescriptor } from '@lingui/core';
 
 export type WebsiteRouteId =
   | 'home'
+  | 'whyBades'
   | 'whyBades.id'
   | 'product'
   | 'pricing'
