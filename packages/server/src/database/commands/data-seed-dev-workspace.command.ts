@@ -3,10 +3,10 @@ import { Logger } from '@nestjs/common';
 import { Command, CommandRunner, Option } from 'nest-commander';
 
 import {
-  SEED_APPLE_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
   SEED_EMPTY_WORKSPACE_3_ID,
   SEED_EMPTY_WORKSPACE_4_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
   SeededEmptyWorkspacesIds,
   SeededWorkspacesIds,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
@@ -46,8 +46,8 @@ export class DataSeedWorkspaceCommand extends CommandRunner {
     // YCombinator and the Empty3/Empty4 fixtures consumed by upgrade-sequence
     // integration tests.
     const workspaceIds: SeededWorkspacesIds[] = options.light
-      ? [SEED_APPLE_WORKSPACE_ID]
-      : [SEED_APPLE_WORKSPACE_ID, SEED_YCOMBINATOR_WORKSPACE_ID];
+      ? [SEED_SUKAMAJU_WORKSPACE_ID]
+      : [SEED_SUKAMAJU_WORKSPACE_ID, SEED_MEKARSARI_WORKSPACE_ID];
 
     const emptyWorkspaceIds: SeededEmptyWorkspacesIds[] = options.light
       ? []

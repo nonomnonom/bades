@@ -19,13 +19,13 @@ jobs:
     uses: ./.github/workflows/changed-files.yaml
     with:
       files: |
-        packages/twenty-apps/examples/hello-world/**
-        packages/twenty-sdk/**
-        packages/twenty-client-sdk/**
-        packages/twenty-shared/**
-        !packages/twenty-sdk/package.json
-        !packages/twenty-client-sdk/package.json
-        !packages/twenty-shared/package.json
+        packages/apps/examples/hello-world/**
+        packages/sdk/**
+        packages/client-sdk/**
+        packages/shared/**
+        !packages/sdk/package.json
+        !packages/client-sdk/package.json
+        !packages/shared/package.json
 
   example-app-hello-world:
     needs: changed-files-check
@@ -60,10 +60,10 @@ jobs:
         uses: ./.github/actions/yarn-install
 
       - name: Build SDK packages
-        run: npx nx build twenty-sdk
+        run: npx nx build sdk
 
       - name: Setup server environment
-        run: npx nx reset:env:e2e-testing-server twenty-server
+        run: npx nx reset:env:e2e-testing-server server
 
       - name: Create databases
         run: |
@@ -71,16 +71,16 @@ jobs:
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
 
       - name: Setup database
-        run: npx nx run twenty-server:database:reset
+        run: npx nx run server:database:reset
 
       - name: Start server
-        run: nohup npx nx start:ci twenty-server &
+        run: nohup npx nx start:ci server &
 
       - name: Wait for server to be ready
         run: npx wait-on http://localhost:3000/healthz --timeout 120000 --interval 1000
 
       - name: Run integration tests
-        working-directory: packages/twenty-apps/examples/hello-world
+        working-directory: packages/apps/examples/hello-world
         run: npx vitest run
 
   ci-example-app-hello-world-status-check:

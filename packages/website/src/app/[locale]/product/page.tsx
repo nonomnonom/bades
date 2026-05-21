@@ -56,25 +56,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
     {
       icon: 'users',
       heading: (
-        <HeadingPart fontFamily="sans">{i18n._(msg`Data model`)}</HeadingPart>
+        <HeadingPart fontFamily="sans">{i18n._(msg`Model data`)}</HeadingPart>
       ),
-      body: msg`Add objects and fields`,
+      body: msg`Tambahkan objek dan field sesuai kebutuhan desa`,
       visual: DataModelVisual,
     },
     {
       icon: 'check',
       heading: (
-        <HeadingPart fontFamily="sans">{i18n._(msg`Automation`)}</HeadingPart>
+        <HeadingPart fontFamily="sans">{i18n._(msg`Otomasi`)}</HeadingPart>
       ),
-      body: msg`Create a workflow`,
+      body: msg`Buat alur kerja otomatis`,
       visual: WorkflowVisual,
     },
     {
       icon: 'eye',
       heading: (
-        <HeadingPart fontFamily="sans">{i18n._(msg`Layout`)}</HeadingPart>
+        <HeadingPart fontFamily="sans">{i18n._(msg`Tata letak`)}</HeadingPart>
       ),
-      body: msg`Tailor record pages, menus, and views`,
+      body: msg`Sesuaikan halaman rekaman, menu, dan tampilan`,
       visual: LayoutVisual,
     },
   ];
@@ -104,38 +104,38 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       <Hero.HeroVisualScroll
         aiBody={i18n._(
-          msg`Ask questions, automate tasks, and get insights. All powered by AI that understands your data.`,
+          msg`Ajukan pertanyaan, otomasi tugas, dan dapatkan wawasan. Semua didukung AI yang memahami data desa Anda.`,
         )}
         aiHeading={
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`AI that actually`)}
+              {i18n._(msg`AI yang benar-benar`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`helps you`)}
+              {i18n._(msg`membantu Anda`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`work faster`)}
+              {i18n._(msg`bekerja lebih cepat`)}
             </HeadingPart>
           </Heading>
         }
         ctaHref="https://bades.id/masuk"
-        ctaLabel={i18n._(msg`Get started`)}
+        ctaLabel={i18n._(msg`Mulai sekarang`)}
         introBody={i18n._(
-          msg`Track citizen relationships, manage village service pipelines, and take action quickly with a Village Information System that feels intuitive from day one.`,
+          msg`Kelola data warga, tangani alur permohonan layanan desa, dan ambil tindakan cepat dengan Sistem Informasi Desa yang terasa intuitif sejak hari pertama.`,
         )}
         introHeading={
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`A Village Information System`)}
+              {i18n._(msg`Sistem Informasi Desa`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`that`)}
+              {i18n._(msg`yang`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`move fast`)}
+              {i18n._(msg`bergerak cepat`)}
             </HeadingPart>
           </Heading>
         }
@@ -144,24 +144,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
       />
 
       <TrustedBy.Root
-        separator={i18n._(msg`trusted by`)}
+        separator={i18n._(msg`dipercaya oleh`)}
         logos={TRUSTED_BY_LOGOS}
-        clientCount={i18n._(msg`+10k others`)}
+        clientCount={i18n._(msg`+10rb desa lainnya`)}
       />
 
       <Feature.Root scheme="light">
         <Feature.Intro align="center" page={Pages.Product}>
           <Eyebrow>
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Core Features`)}
+              {i18n._(msg`Fitur Utama`)}
             </HeadingPart>
           </Eyebrow>
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`Everything you need,`)}
+              {i18n._(msg`Semua yang Anda butuhkan,`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`out of the box`)}
+              {i18n._(msg`langsung siap pakai`)}
             </HeadingPart>
           </Heading>
         </Feature.Intro>
@@ -172,15 +172,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <ThreeCards.Intro page={Pages.Product} align="left">
           <Eyebrow>
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Stop settling for trade-offs.`)}
+              {i18n._(msg`Hentikan kompromi yang tidak perlu.`)}
             </HeadingPart>
           </Eyebrow>
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`A modern Village Information System with`)}
+              {i18n._(msg`Sistem Informasi Desa yang modern dengan`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`an intuitive interface`)}
+              {i18n._(msg`antarmuka yang intuitif`)}
             </HeadingPart>
           </Heading>
         </ThreeCards.Intro>
@@ -189,37 +189,37 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       <ProductStepper.Flow
         body={i18n._(
-          msg`Need a quick change? Skip the engineering ticket. Customize your workspace in minutes.`,
+          msg`Perlu perubahan cepat? Tidak perlu menunggu tim teknis. Kustomisasi sistem desa Anda dalam hitungan menit.`,
         )}
-        eyebrow={i18n._(msg`Customization`)}
+        eyebrow={i18n._(msg`Kustomisasi`)}
         steps={PRODUCT_STEPS}
       >
         <HeadingPart fontFamily="serif">
-          {i18n._(msg`Go the extra mile`)}
+          {i18n._(msg`Lakukan lebih banyak`)}
         </HeadingPart>{' '}
-        <HeadingPart fontFamily="sans">{i18n._(msg`with no-code`)}</HeadingPart>
+        <HeadingPart fontFamily="sans">{i18n._(msg`tanpa koding`)}</HeadingPart>
       </ProductStepper.Flow>
 
       <Demo.Root>
         <Eyebrow>
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`Try it live`)}
+            {i18n._(msg`Coba langsung`)}
           </HeadingPart>
         </Eyebrow>
         <Heading size="lg" weight="light">
           <HeadingPart fontFamily="serif">
-            {i18n._(msg`A demo worth a`)}
+            {i18n._(msg`Demo yang bernilai`)}
           </HeadingPart>
           <br />
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`thousand words`)}
+            {i18n._(msg`seribu kata`)}
           </HeadingPart>
         </Heading>
         <Demo.Cta>
           <LinkButton
             color="secondary"
             href="https://bades.id/masuk"
-            label={i18n._(msg`Try Bades.id Cloud`)}
+            label={i18n._(msg`Coba Bades.id Cloud`)}
             variant="contained"
           />
         </Demo.Cta>
@@ -230,28 +230,28 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <Faq.Intro>
           <Eyebrow colorScheme="secondary">
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Any Questions?`)}
+              {i18n._(msg`Ada pertanyaan?`)}
             </HeadingPart>
           </Eyebrow>
           <Faq.Heading>
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`Stop fighting custom.`)}
+              {i18n._(msg`Jangan terhambat pilihan yang terbatas.`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Bades.id`)}
+              {i18n._(msg`Mulai bangun sistem desa dengan Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
               href="https://bades.id/masuk"
-              label={i18n._(msg`Get started`)}
+              label={i18n._(msg`Mulai sekarang`)}
               variant="contained"
             />
             <TalkToUsButton
               color="primary"
-              label={msg`Talk to us`}
+              label={msg`Hubungi kami`}
               variant="outlined"
             />
           </Faq.Cta>

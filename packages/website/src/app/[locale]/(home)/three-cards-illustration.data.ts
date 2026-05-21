@@ -3,34 +3,34 @@ import type { ThreeCardsIllustrationCardType } from '@/sections/ThreeCards';
 
 export const ILLUSTRATION_CARDS: ThreeCardsIllustrationCardType[] = [
   {
-    heading: msg`Production grade quality`,
-    body: msg`W3villa used Bades.id as a production-grade framework for the data model, permissions, authentication, and workflow engine they would otherwise have rebuilt themselves.`,
+    heading: msg`Kualitas kelas produksi sejak hari pertama`,
+    body: msg`Desa Suka Maju menggunakan Bades.id sebagai fondasi kelas produksi untuk model data, izin akses, autentikasi, dan mesin alur kerja yang sebelumnya harus dibangun sendiri.`,
     benefits: undefined,
     attribution: {
-      role: msg`VP of Engineering`,
-      company: msg`W3villa Technologies`,
+      role: msg`Kepala Desa`,
+      company: msg`Desa Suka Maju`,
     },
     illustration: 'diamond',
     caseStudySlug: 'w3villa',
   },
   {
-    heading: msg`AI for rapid iterations`,
-    body: msg`Alternative Partners used agentic AI to compress what would typically be weeks of Salesforce migration work into something a single person could oversee.`,
+    heading: msg`AI untuk iterasi yang lebih cepat`,
+    body: msg`Kecamatan Harapan Baru menggunakan AI asisten untuk memampatkan pekerjaan migrasi data yang biasanya membutuhkan berminggu-minggu menjadi sesuatu yang bisa dikelola satu orang dalam beberapa hari.`,
     benefits: undefined,
     attribution: {
-      role: msg`Principal and Founder`,
-      company: msg`Alternative Partners`,
+      role: msg`Sekretaris Kecamatan`,
+      company: msg`Kecamatan Harapan Baru`,
     },
     illustration: 'flash',
     caseStudySlug: 'alternative-partners',
   },
   {
-    heading: msg`Control without drag`,
-    body: msg`AC&T moved to a self-hosted Bades.id instance with no vendor risk, no forced migration, and CRM costs reduced by more than 90%.`,
+    heading: msg`Kendali penuh tanpa ketergantungan vendor`,
+    body: msg`Desa Mekar Jaya beralih ke Bades.id dan memangkas biaya sistem informasi lebih dari 90% tanpa kehilangan satu pun fitur yang mereka butuhkan.`,
     benefits: undefined,
     attribution: {
-      role: msg`CRM Engineer`,
-      company: msg`AC&T Education Migration`,
+      role: msg`Operator Desa`,
+      company: msg`Desa Mekar Jaya`,
     },
     illustration: 'lock',
     caseStudySlug: 'act-education',

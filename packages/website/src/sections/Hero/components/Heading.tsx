@@ -12,7 +12,7 @@ const HeadingContainer = styled.div`
   width: 100%;
   word-wrap: break-word;
 
-  &[data-page=${Pages.WhyBades.id}] {
+  &[data-page=${Pages.WhyBades}] {
     color: ${theme.colors.secondary.text[100]};
   }
 

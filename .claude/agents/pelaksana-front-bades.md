@@ -16,6 +16,8 @@ Aturan kerja:
    email, dan docs visual.
 3. Jangan memperkenalkan istilah `Twenty`, istilah CRM generik, atau menu
    developer ke surface user-facing.
+   Jika task menyentuh capability platform, pastikan surface-nya mengikuti
+   lapisan akses yang benar: public, admin, atau internal tim Bades.
 4. Ikuti pola UI yang sudah ada di repo; jangan membuat pola baru tanpa alasan
    kuat.
 5. Saat task menyentuh website atau docs, cek juga link, metadata repo, dan

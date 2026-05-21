@@ -45,16 +45,16 @@ export const CALENDAR_EVENT_PARTICIPANT_DATA_SEED_IDS =
   GENERATE_CALENDAR_EVENT_PARTICIPANT_IDS();
 
 const FAKE_PARTICIPANTS = [
-  { name: 'Alex Johnson', email: 'alex.johnson@company.com' },
-  { name: 'Sarah Williams', email: 'sarah.williams@company.com' },
-  { name: 'Michael Chen', email: 'michael.chen@company.com' },
-  { name: 'Emily Davis', email: 'emily.davis@company.com' },
-  { name: 'David Rodriguez', email: 'david.rodriguez@company.com' },
-  { name: 'Lisa Anderson', email: 'lisa.anderson@company.com' },
-  { name: 'James Wilson', email: 'james.wilson@company.com' },
-  { name: 'Jennifer Martinez', email: 'jennifer.martinez@company.com' },
-  { name: 'Robert Taylor', email: 'robert.taylor@company.com' },
-  { name: 'Maria Garcia', email: 'maria.garcia@company.com' },
+  { name: 'Budi Santoso', email: 'budi.santoso@gmail.com' },
+  { name: 'Siti Rahmawati', email: 'siti.rahmawati@gmail.com' },
+  { name: 'Agus Wijaya', email: 'agus.wijaya@gmail.com' },
+  { name: 'Dewi Lestari', email: 'dewi.lestari@gmail.com' },
+  { name: 'Eko Prasetyo', email: 'eko.prasetyo@gmail.com' },
+  { name: 'Rina Handayani', email: 'rina.handayani@gmail.com' },
+  { name: 'Joko Susanto', email: 'joko.susanto@gmail.com' },
+  { name: 'Sri Wahyuni', email: 'sri.wahyuni@gmail.com' },
+  { name: 'Bambang Hidayat', email: 'bambang.hidayat@gmail.com' },
+  { name: 'Nurul Aini', email: 'nurul.aini@gmail.com' },
 ];
 
 type EventParticipantData = {
@@ -106,8 +106,8 @@ const CREATE_PERSON_EVENT_PARTICIPANT = (
   const PERSON_INDEX = personIds.indexOf(PERSON_ID) + 1;
 
   return {
-    handle: `person${PERSON_INDEX}@company.com`,
-    displayName: `Person ${PERSON_INDEX}`,
+    handle: `warga${PERSON_INDEX}@gmail.com`,
+    displayName: `Warga ${PERSON_INDEX}`,
     personId: PERSON_ID,
     workspaceMemberId: null,
   };
@@ -150,8 +150,8 @@ const CREATE_WORKSPACE_MEMBER_EVENT_PARTICIPANT = (
       };
     default:
       return {
-        handle: 'member@company.com',
-        displayName: 'Workspace Member',
+        handle: 'perangkat@sukamaju.desa.id',
+        displayName: 'Perangkat Desa',
         personId: null,
         workspaceMemberId: WORKSPACE_MEMBER_ID,
       };

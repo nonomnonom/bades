@@ -4,22 +4,22 @@ import type { HeadingCardType } from '@/sections/Helped';
 export const HELPED_CARDS: HeadingCardType[] = [
   {
     icon: 'w3villa',
-    heading: msg`Dirikan produk di Bades.id`,
-    body: msg`W3villa membangun W3Grads untuk wawancara mock AI dalam skala besar, dengan Bades.id sebagai tulang punggung operasional.`,
+    heading: msg`Bangun sistem layanan di atas Bades.id`,
+    body: msg`Desa Suka Maju membangun sistem pelayanan warga berbasis AI dalam skala besar, dengan Bades.id sebagai tulang punggung operasional administrasi desa.`,
     illustration: 'target',
     href: '/customers/w3villa',
   },
   {
     icon: 'act-education',
-    heading: msg`Kuasai CRM Anda dari hulu ke hilir`,
-    body: msg`AC&T mengganti CRM vendor yang sudah tidak dilanjutkan dengan Bades.id yang di-host sendiri dan memangkas biaya CRM hingga lebih dari 90%.`,
+    heading: msg`Kuasai sistem informasi desa dari hulu ke hilir`,
+    body: msg`Desa Mekar Jaya mengganti sistem lama yang tidak lagi didukung dengan Bades.id dan memangkas biaya operasional sistem informasi hingga lebih dari 90%.`,
     illustration: 'spaceship',
     href: '/customers/act-education',
   },
   {
     icon: 'netzero',
     heading: msg`Tumbuh dengan fondasi yang fleksibel`,
-    body: msg`NetZero menjalankan setup Bades.id modular di seluruh kredit karbon, produk pertanian, dan sistem industri.`,
+    body: msg`Kecamatan Harapan Baru menjalankan Bades.id secara modular di seluruh layanan administrasi, program bantuan sosial, dan sistem pemantauan aset wilayah.`,
     illustration: 'money',
     href: '/customers/netzero',
   },

@@ -147,7 +147,7 @@ function getStandaloneThreeImports(
   return imports.join('\n      ');
 }
 
-function getBades.idReactHeaderComment(
+function getBadesReactHeaderComment(
   componentName: string,
   registryKey: string,
   assetUrl?: string,
@@ -1154,7 +1154,7 @@ export function generateReactComponent(
   const defaultImageUrl = assetUrl ?? `./${defaultImageFilename}`;
   const importBlock = getReactImportBlock(exportSettings, isImageMode, shape);
   const headerComment = exportSettings.includeRegistryComment
-    ? getBades.idReactHeaderComment(
+    ? getBadesReactHeaderComment(
         normalizedComponentName,
         toIllustrationRegistryKey(normalizedComponentName),
         isImageMode || shape.kind === 'imported'

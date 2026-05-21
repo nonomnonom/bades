@@ -7,9 +7,9 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened, labeled]
     paths:
-      - packages/twenty-docker/**
-      - packages/twenty-server/**
-      - packages/twenty-front/**
+      - packages/docker/**
+      - packages/server/**
+      - packages/front/**
       - .github/workflows/preview-env-dispatch.yaml
       - .github/workflows/preview-env-keepalive.yaml
 

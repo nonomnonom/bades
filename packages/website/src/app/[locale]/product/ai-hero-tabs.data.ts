@@ -4,19 +4,19 @@ import type { TabType } from '@/sections/Tabs';
 
 export const AI_HERO_TABS: TabType[] = [
   {
-    body: msg`Show me all deals closing this month`,
+    body: msg`Tampilkan semua permohonan layanan yang belum diselesaikan bulan ini`,
     icon: 'search',
   },
   {
-    body: msg`Create follow-up tasks for my top 10 accounts`,
+    body: msg`Buat agenda tindak lanjut untuk 10 warga yang permohonannya menunggu verifikasi`,
     icon: 'check',
   },
   {
-    body: msg`Summarize this customer's history`,
+    body: msg`Ringkaskan riwayat layanan warga ini`,
     icon: 'edit',
   },
   {
-    body: msg`Create a workflow that sends an email sequence`,
+    body: msg`Buat alur kerja yang mengirimkan notifikasi saat surat selesai diterbitkan`,
     icon: 'code',
   },
 ];

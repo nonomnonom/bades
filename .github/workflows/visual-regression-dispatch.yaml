@@ -28,15 +28,15 @@ jobs:
           script: |
             const workflowName = context.payload.workflow_run.name;
             if (workflowName === 'CI Front') {
-              core.setOutput('project', 'twenty-front');
+              core.setOutput('project', 'front');
               core.setOutput('artifact_name', 'storybook-static');
-              core.setOutput('tarball_name', 'storybook-twenty-front-tarball');
-              core.setOutput('tarball_file', 'storybook-twenty-front.tar.gz');
+              core.setOutput('tarball_name', 'storybook-front-tarball');
+              core.setOutput('tarball_file', 'storybook-front.tar.gz');
             } else if (workflowName === 'CI UI') {
-              core.setOutput('project', 'twenty-ui');
-              core.setOutput('artifact_name', 'storybook-twenty-ui');
-              core.setOutput('tarball_name', 'storybook-twenty-ui-tarball');
-              core.setOutput('tarball_file', 'storybook-twenty-ui.tar.gz');
+              core.setOutput('project', 'ui');
+              core.setOutput('artifact_name', 'storybook-ui');
+              core.setOutput('tarball_name', 'storybook-ui-tarball');
+              core.setOutput('tarball_file', 'storybook-ui.tar.gz');
             } else {
               core.setFailed(`Unexpected workflow: ${workflowName}`);
             }

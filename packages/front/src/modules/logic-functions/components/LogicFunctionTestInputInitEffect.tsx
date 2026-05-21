@@ -14,7 +14,7 @@ export const LogicFunctionTestInputInitEffect = ({
 }) => {
   const { logicFunction } = useLogicFunctionForm({ logicFunctionId });
 
-  // Prefer the workflow action schema (already in Twenty's InputSchema form)
+  // Prefer the workflow action schema (already in Bades' InputSchema form)
   // and fall back to converting the AI tool's JSON Schema when only that
   // surface is configured.
   const workflowInputSchema =

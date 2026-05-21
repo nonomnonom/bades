@@ -9,8 +9,8 @@ import {
 } from 'shared/types';
 
 import {
-  SEED_APPLE_WORKSPACE_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { USER_WORKSPACE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-user-workspaces.util';
 import { CALENDAR_CHANNEL_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-channel-data-seeds.constant';
@@ -73,7 +73,7 @@ type WorkspaceSeedIds = {
 };
 
 const getSeedIds = (workspaceId: string): WorkspaceSeedIds => {
-  if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
+  if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
     return {
       userWorkspaceIds: {
   KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME,
@@ -108,8 +108,8 @@ export const seedMetadataEntities = async ({
   workspaceId,
 }: SeedMetadataEntitiesArgs) => {
   if (
-    workspaceId !== SEED_APPLE_WORKSPACE_ID &&
-    workspaceId !== SEED_YCOMBINATOR_WORKSPACE_ID
+    workspaceId !== SEED_SUKAMAJU_WORKSPACE_ID &&
+    workspaceId !== SEED_MEKARSARI_WORKSPACE_ID
   ) {
     return;
   }

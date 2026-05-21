@@ -16,6 +16,8 @@ Twenty engine. Treat this repository as **Bades-first**:
   konsep bisnis.
 - Bades diposisikan sebagai **produk SaaS swasta terkelola** untuk konteks
   Indonesia, bukan self-hosting-first product untuk end user.
+- AI user-facing di Bades harus terasa seperti **satu model operasional**,
+  tanpa pemilih model atau label provider yang diekspos ke user akhir.
 - Internal compatibility layers may still reference legacy Twenty naming, but
   those identifiers must not leak into user-visible surfaces unless the task is
   explicitly about migration or upstream compatibility.
@@ -189,6 +191,9 @@ packages/
 9. If the task touches billing, checkout, payment notifications, enterprise
    billing APIs, or Stripe cleanup, use the `migrasi-midtrans` skill and the
    `midtrans-first-billing.md` rule as the default workflow.
+10. If the task touches AI chat, AI settings, agent surfaces, or model
+    selection/routing, use the `ai-single-model.md` rule and keep the user
+    experience single-model.
 
 ### Localization Rules
 - User-facing Bades UI should be Bahasa Indonesia native by default.

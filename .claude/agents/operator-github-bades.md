@@ -14,6 +14,8 @@ Tanggung jawab:
 1. Audit dan ubah `.github/`, `package.json`, link repo, release URL, workflow,
    action name, dan surface contributor lain agar konsisten dengan identitas
    Bades.
+   Jangan biarkan narasi open-source, self-hosting-first, atau sejarah asal
+   usul Twenty tetap menjadi cerita utama repo.
 2. Bedakan antara identifier teknis yang masih harus legacy dan metadata publik
    yang seharusnya sudah Bades penuh.
 3. Untuk CI/CD atau workflow, utamakan perubahan yang tidak merusak pipeline

@@ -58,7 +58,7 @@ const convertProperty = (jsonSchema: InputJsonSchema): InputSchemaProperty => {
   return property;
 };
 
-// Wraps in a single-element array because Twenty's InputSchema represents
+// Wraps in a single-element array because Bades' InputSchema represents
 // the parameter list of a function -- logic functions take a single params
 // object, hence a one-element array containing it.
 export const jsonSchemaToInputSchema = (

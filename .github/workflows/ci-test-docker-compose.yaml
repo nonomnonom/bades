@@ -17,7 +17,7 @@ jobs:
     uses: ./.github/workflows/changed-files.yaml
     with:
       files: |
-        packages/twenty-docker/**
+        packages/docker/**
         docker-compose.yml
   test-compose:
     needs: changed-files-check
@@ -37,7 +37,7 @@ jobs:
           echo "Patching docker-compose.yml..."
           yq eval 'del(.services.server.image)' -i docker-compose.yml
           yq eval '.services.server.build.context = "../../"' -i docker-compose.yml
-          yq eval '.services.server.build.dockerfile = "./packages/twenty-docker/twenty/Dockerfile"' -i docker-compose.yml
+          yq eval '.services.server.build.dockerfile = "./packages/docker/twenty/Dockerfile"' -i docker-compose.yml
           yq eval '.services.server.build.target = "twenty"' -i docker-compose.yml
           yq eval '.services.server.restart = "no"' -i docker-compose.yml
 
@@ -93,7 +93,7 @@ jobs:
               fi
               echo "Still waiting for server... (${count}/300s)"
           done
-        working-directory: ./packages/twenty-docker/
+        working-directory: ./packages/docker/
   test-app-dev:
     needs: changed-files-check
     if: needs.changed-files-check.outputs.any_changed == 'true'
@@ -109,13 +109,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create frontend placeholder
         run: |
-          mkdir -p packages/twenty-front/build
-          echo '<html><body>CI placeholder</body></html>' > packages/twenty-front/build/index.html
+          mkdir -p packages/front/build
+          echo '<html><body>CI placeholder</body></html>' > packages/front/build/index.html
       - name: Build app-dev image
         run: |
           docker build \
             --target twenty-app-dev \
-            -f packages/twenty-docker/twenty/Dockerfile \
+            -f packages/docker/twenty/Dockerfile \
             -t twenty-app-dev-ci \
             .
       - name: Start container

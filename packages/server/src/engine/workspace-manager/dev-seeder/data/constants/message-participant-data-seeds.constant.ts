@@ -51,21 +51,21 @@ export const MESSAGE_PARTICIPANT_DATA_SEED_IDS =
   GENERATE_MESSAGE_PARTICIPANT_IDS();
 
 const FAKE_EMAIL_PARTICIPANTS = [
-  { name: 'Alex Johnson', email: 'alex.johnson@company.com' },
-  { name: 'Sarah Williams', email: 'sarah.williams@company.com' },
-  { name: 'Michael Chen', email: 'michael.chen@company.com' },
-  { name: 'Emily Davis', email: 'emily.davis@company.com' },
-  { name: 'David Rodriguez', email: 'david.rodriguez@company.com' },
-  { name: 'Lisa Anderson', email: 'lisa.anderson@company.com' },
-  { name: 'James Wilson', email: 'james.wilson@company.com' },
-  { name: 'Jennifer Martinez', email: 'jennifer.martinez@company.com' },
-  { name: 'Robert Taylor', email: 'robert.taylor@company.com' },
-  { name: 'Maria Garcia', email: 'maria.garcia@company.com' },
-  { name: 'John Smith', email: 'john.smith@external.com' },
-  { name: 'Emma Johnson', email: 'emma.johnson@external.com' },
-  { name: 'Oliver Brown', email: 'oliver.brown@external.com' },
-  { name: 'Sophia Davis', email: 'sophia.davis@external.com' },
-  { name: 'William Miller', email: 'william.miller@external.com' },
+  { name: 'Budi Santoso', email: 'budi.santoso@gmail.com' },
+  { name: 'Siti Rahmawati', email: 'siti.rahmawati@gmail.com' },
+  { name: 'Agus Wijaya', email: 'agus.wijaya@gmail.com' },
+  { name: 'Dewi Lestari', email: 'dewi.lestari@gmail.com' },
+  { name: 'Eko Prasetyo', email: 'eko.prasetyo@gmail.com' },
+  { name: 'Rina Handayani', email: 'rina.handayani@gmail.com' },
+  { name: 'Joko Susanto', email: 'joko.susanto@gmail.com' },
+  { name: 'Sri Wahyuni', email: 'sri.wahyuni@gmail.com' },
+  { name: 'Bambang Hidayat', email: 'bambang.hidayat@gmail.com' },
+  { name: 'Nurul Aini', email: 'nurul.aini@gmail.com' },
+  { name: 'Hendra Gunawan', email: 'hendra.gunawan@gmail.com' },
+  { name: 'Maya Anggraini', email: 'maya.anggraini@gmail.com' },
+  { name: 'Rudi Hartono', email: 'rudi.hartono@gmail.com' },
+  { name: 'Fitri Yuliana', email: 'fitri.yuliana@gmail.com' },
+  { name: 'Wahyu Nugroho', email: 'wahyu.nugroho@gmail.com' },
 ];
 
 type ParticipantData = {
@@ -120,8 +120,8 @@ const CREATE_PERSON_PARTICIPANT = (
   return {
     workspaceMemberId: defaultWorkspaceMemberId,
     personId: PERSON_ID,
-    displayName: `Person ${PERSON_INDEX}`,
-    handle: `person${PERSON_INDEX}@example.com`,
+    displayName: `Warga ${PERSON_INDEX}`,
+    handle: `warga${PERSON_INDEX}@gmail.com`,
   };
 };
 
@@ -165,7 +165,7 @@ const CREATE_WORKSPACE_MEMBER_PARTICIPANT = (
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[0],
-        displayName: 'Workspace Member',
+        displayName: 'Perangkat Desa',
         handle: 'perangkat@sukamaju.desa.id',
       };
   }

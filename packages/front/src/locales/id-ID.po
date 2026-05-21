@@ -679,10 +679,10 @@ msgid "Add Widget"
 msgstr "Tambah Widget"
 
 msgid "Add widget above"
-msgstr "Tambah widget di atas
+msgstr "Tambah widget di atas"
 
 msgid "Add widget below"
-msgstr "Tambah widget di bawah
+msgstr "Tambah widget di bawah"
 
 msgid "Add your first {objectLabel}"
 msgstr "Tambah {objectLabel} pertama Anda"
@@ -4372,7 +4372,7 @@ msgid "Hungarian"
 msgstr "Hungaria"
 
 msgid "I need a dashboard for lead conversion: number of new leads by source this month, how many moved to opportunity, and conversion rate by source. Include a simple table and a bar chart."
-msgstr "Saya butuh dashboard untuk konversi lead: jumlah lead baru berdasarkan sumber bulan ini, berapa yang pindah ke permohonan, dan rasio konversi berdasarkan sumber. Sertakan tabel sederhana dan grafik batang."
+msgstr "Saya butuh dashboard untuk konversi prospek: jumlah prospek baru berdasarkan sumber bulan ini, berapa yang menjadi permohonan, dan rasio konversi berdasarkan sumber. Sertakan tabel sederhana dan grafik batang."
 
 msgid "IAM credentials"
 msgstr "Kredensial IAM"
@@ -4459,7 +4459,7 @@ msgid "Impersonate"
 msgstr "Meniru"
 
 msgid "Impersonate workspace users"
-msgstr "Meniru workspace users"
+msgstr "Meniru pengguna workspace"
 
 msgid "Impersonation is disabled for this workspace"
 msgstr "Peniruan dinonaktifkan untuk workspace ini"
@@ -4849,10 +4849,10 @@ msgid "Last 1 Hour (oldest → newest)"
 msgstr "Terakhir "1 Hour (oldest → newest)"
 
 msgid "Last 10 users created. Click to impersonate."
-msgstr "Terakhir "10 users created. Click to impersonate."
+msgstr "10 pengguna terakhir yang dibuat. Klik untuk meniru."
 
 msgid "Last 10 users created. Click to manage feature flags or impersonate."
-msgstr "Terakhir "10 users created. Click to manage feature flags or impersonate."
+msgstr "10 pengguna terakhir yang dibuat. Klik untuk mengelola feature flag atau meniru."
 
 msgid "Last 12 hours"
 msgstr "Terakhir "12 hours"
@@ -5119,7 +5119,7 @@ msgid "Log retention"
 msgstr "Log "retention"
 
 msgid "Logged in as {impersonatedUser}"
-msgstr "Logged in as {impersonatedUser}"
+msgstr "Masuk sebagai {impersonatedUser}"
 
 msgid "Logic"
 msgstr "Logic"
@@ -5617,64 +5617,64 @@ msgid "No"
 msgstr "Tidak"
 
 msgid "No {clearLabel}"
-msgstr "Tidak ada {clearLabel}
+msgstr "Tidak ada {clearLabel}"
 
 msgid "No {fieldLabel}"
-msgstr "Tidak ada {fieldLabel}
+msgstr "Tidak ada {fieldLabel}"
 
 msgid "No {label}"
-msgstr "Tidak ada {label}
+msgstr "Tidak ada {label}"
 
 msgid "No {objectLabelSingular} found"
-msgstr "Tidak ada {objectLabelSingular} ditemukan
+msgstr "Tidak ada {objectLabelSingular} ditemukan"
 
 msgid "No active subscription."
-msgstr "Tidak ada langganan aktif.
+msgstr "Tidak ada langganan aktif."
 
 msgid "No activity yet"
-msgstr "Belum ada aktivitas
+msgstr "Belum ada aktivitas"
 
 msgid "No agents assigned"
-msgstr "Tidak ada agen yang ditugaskan
+msgstr "Tidak ada agen yang ditugaskan"
 
 msgid "No agents available"
-msgstr "Tidak ada agen tersedia
+msgstr "Tidak ada agen tersedia"
 
 msgid "No agents match your search"
-msgstr "Tidak ada agen yang cocok dengan pencarian Anda
+msgstr "Tidak ada agen yang cocok dengan pencarian Anda"
 
 msgid "No AI consumption recorded for this user."
-msgstr "Tidak ada konsumsi AI tercatat untuk pengguna ini.
+msgstr "Tidak ada konsumsi AI tercatat untuk pengguna ini."
 
 msgid "No AI usage data recorded yet."
-msgstr "Belum ada data penggunaan AI tercatat.
+msgstr "Belum ada data penggunaan AI tercatat."
 
 msgid "No API keys assigned"
-msgstr "Tidak ada kunci API yang ditugaskan
+msgstr "Tidak ada kunci API yang ditugaskan"
 
 msgid "No API keys available"
-msgstr "Tidak ada kunci API tersedia
+msgstr "Tidak ada kunci API tersedia"
 
 msgid "No API keys match your search"
-msgstr "Tidak ada kunci API yang cocok dengan pencarian Anda
+msgstr "Tidak ada kunci API yang cocok dengan pencarian Anda"
 
 msgid "No application found"
-msgstr "Tidak ada aplikasi ditemukan
+msgstr "Tidak ada aplikasi ditemukan"
 
 msgid "No applications available"
-msgstr "Tidak ada aplikasi tersedia
+msgstr "Tidak ada aplikasi tersedia"
 
 msgid "No available fields to select"
-msgstr "Tidak ada kolom tersedia untuk dipilih
+msgstr "Tidak ada kolom tersedia untuk dipilih"
 
 msgid "No available tabs"
-msgstr "Tidak ada tab tersedia
+msgstr "Tidak ada tab tersedia"
 
 msgid "No billing data is available for this workspace."
-msgstr "Tidak ada data billing tersedia untuk workspace ini.
+msgstr "Tidak ada data billing tersedia untuk workspace ini."
 
 msgid "No body"
-msgstr "Tidak ada body
+msgstr "Tidak ada body"
 
 msgid "No calling code"
 msgstr "Tidak ada kode panggilan"
@@ -5692,268 +5692,268 @@ msgid "No compatible fields"
 msgstr "Tidak ada kolom yang kompatibel"
 
 msgid "No config variables match your current filters. Try adjusting your filters or search criteria."
-msgstr "Tidak ada variabel konfigurasi yang cocok dengan filter Anda. Coba sesuaikan filter atau kriteria pencarian.
+msgstr "Tidak ada variabel konfigurasi yang cocok dengan filter Anda. Coba sesuaikan filter atau kriteria pencarian."
 
 msgid "No context was provided for this request"
-msgstr "Tidak ada konteks yang disediakan untuk permintaan ini
+msgstr "Tidak ada konteks yang disediakan untuk permintaan ini"
 
 msgid "No country"
-msgstr "Tidak ada negara
+msgstr "Tidak ada negara"
 
 msgid "No credentials"
-msgstr "Tidak ada kredensial
+msgstr "Tidak ada kredensial"
 
 msgid "No credit consumption recorded for this user."
-msgstr "Tidak ada konsumsi kredit tercatat untuk pengguna ini.
+msgstr "Tidak ada konsumsi kredit tercatat untuk pengguna ini."
 
 msgid "No currency"
-msgstr "Tidak ada mata uang
+msgstr "Tidak ada mata uang"
 
 msgid "No custom views available"
-msgstr "Tidak ada tampilan kustom tersedia
+msgstr "Tidak ada tampilan kustom tersedia"
 
 msgid "No data"
 msgstr "Tidak ada data"
 
 msgid "No Data"
-msgstr "Tidak ada Data
+msgstr "Tidak ada Data"
 
 msgid "No Data Available for Remote Table"
-msgstr "Tidak Ada Data Tersedia untuk Tabel Remote
+msgstr "Tidak Ada Data Tersedia untuk Tabel Remote"
 
 msgid "No data available. Click edit to configure this widget."
-msgstr "Tidak ada data tersedia. Klik edit untuk mengkonfigurasi widget ini.
+msgstr "Tidak ada data tersedia. Klik edit untuk mengkonfigurasi widget ini."
 
 msgid "No data containing errors"
-msgstr "Tidak ada data yang mengandung error
+msgstr "Tidak ada data yang mengandung error"
 
 msgid "No data found"
-msgstr "Tidak ada data ditemukan
+msgstr "Tidak ada data ditemukan"
 
 msgid "No Date field"
-msgstr "Tidak ada kolom Tanggal
+msgstr "Tidak ada kolom Tanggal"
 
 msgid "No default configuration available for this tab"
-msgstr "Tidak ada konfigurasi default tersedia untuk tab ini
+msgstr "Tidak ada konfigurasi default tersedia untuk tab ini"
 
 msgid "No default configuration available for this widget"
-msgstr "Tidak ada konfigurasi default tersedia untuk widget ini
+msgstr "Tidak ada konfigurasi default tersedia untuk widget ini"
 
 msgid "No Deleted {objectLabelSingular} found"
-msgstr "Tidak ada {objectLabelSingular} yang dihapus ditemukan
+msgstr "Tidak ada {objectLabelSingular} yang dihapus ditemukan"
 
 msgid "No deleted records matching the filter criteria were found."
-msgstr "Tidak ada rekaman yang dihapus yang cocok dengan kriteria filter ditemukan.
+msgstr "Tidak ada rekaman yang dihapus yang cocok dengan kriteria filter ditemukan."
 
 msgid "No description available for this application"
-msgstr "Tidak ada deskripsi tersedia untuk aplikasi ini
+msgstr "Tidak ada deskripsi tersedia untuk aplikasi ini"
 
 msgid "No email exchange has occurred with this record yet."
-msgstr "Belum ada pertukaran email yang terjadi dengan rekaman ini.
+msgstr "Belum ada pertukaran email yang terjadi dengan rekaman ini."
 
 msgid "No evaluation inputs yet. Add your first test input above."
-msgstr "Belum ada input evaluasi. Tambahkan input test pertama Anda di atas.
+msgstr "Belum ada input evaluasi. Tambahkan input test pertama Anda di atas."
 
 msgid "No evaluations yet for this turn"
-msgstr "Belum ada evaluasi untuk giliran ini
+msgstr "Belum ada evaluasi untuk giliran ini"
 
 msgid "No event logs found"
-msgstr "Tidak ada log acara ditemukan
+msgstr "Tidak ada log acara ditemukan"
 
 msgid "No Events"
-msgstr "Tidak ada Acara
+msgstr "Tidak ada Acara"
 
 msgid "No events have been scheduled with this {objectName} yet."
-msgstr "Belum ada acara yang dijadwalkan dengan {objectName} ini.
+msgstr "Belum ada acara yang dijadwalkan dengan {objectName} ini."
 
 msgid "No featured applications found. {nonFeaturedCount} non-featured result(s) available — "
 msgstr "Tidak ada aplikasi andalan ditemukan. {nonFeaturedCount} hasil non-andalan tersedia."
 
 msgid "No field configured"
-msgstr "Tidak ada kolom dikonfigurasi
+msgstr "Tidak ada kolom dikonfigurasi"
 
 msgid "No fields available"
-msgstr "Tidak ada kolom tersedia
+msgstr "Tidak ada kolom tersedia"
 
 msgid "No fields selected"
-msgstr "Tidak ada kolom dipilih
+msgstr "Tidak ada kolom dipilih"
 
 msgid "No fields to display"
-msgstr "Tidak ada kolom untuk ditampilkan
+msgstr "Tidak ada kolom untuk ditampilkan"
 
 msgid "No Files"
-msgstr "Tidak ada File
+msgstr "Tidak ada File"
 
 msgid "No folder"
-msgstr "Tidak ada folder
+msgstr "Tidak ada folder"
 
 msgid "No folders available"
-msgstr "Tidak ada folder tersedia
+msgstr "Tidak ada folder tersedia"
 
 msgid "No folders found for this account"
-msgstr "Tidak ada folder ditemukan untuk akun ini
+msgstr "Tidak ada folder ditemukan untuk akun ini"
 
 msgid "No input"
-msgstr "Tidak ada input
+msgstr "Tidak ada input"
 
 msgid "No input fields for this action"
-msgstr "Tidak ada kolom input untuk aksi ini
+msgstr "Tidak ada kolom input untuk aksi ini"
 
 msgid "No jobs found"
-msgstr "Tidak ada pekerjaan ditemukan
+msgstr "Tidak ada pekerjaan ditemukan"
 
 msgid "No jobs were deleted{errorDetails}"
-msgstr "Tidak ada pekerjaan dihapus{errorDetails}
+msgstr "Tidak ada pekerjaan dihapus{errorDetails}"
 
 msgid "No jobs were retried{errorDetails}"
-msgstr "Tidak ada pekerjaan dicoba ulang{errorDetails}
+msgstr "Tidak ada pekerjaan dicoba ulang{errorDetails}"
 
 msgid "No latest version found"
-msgstr "Tidak ada versi terbaru ditemukan
+msgstr "Tidak ada versi terbaru ditemukan"
 
 msgid "No logs yet"
-msgstr "Belum ada log
+msgstr "Belum ada log"
 
 msgid "No members"
-msgstr "Tidak ada anggota
+msgstr "Tidak ada anggota"
 
 msgid "No members assigned"
-msgstr "Tidak ada anggota ditugaskan
+msgstr "Tidak ada anggota ditugaskan"
 
 msgid "No members match your search"
-msgstr "Tidak ada anggota yang cocok dengan pencarian Anda
+msgstr "Tidak ada anggota yang cocok dengan pencarian Anda"
 
 msgid "No messages found for this turn"
-msgstr "Tidak ada pesan ditemukan untuk giliran ini
+msgstr "Tidak ada pesan ditemukan untuk giliran ini"
 
 msgid "No messages found."
-msgstr "Tidak ada pesan ditemukan.
+msgstr "Tidak ada pesan ditemukan."
 
 msgid "No metrics data available"
-msgstr "Tidak ada data metrik tersedia
+msgstr "Tidak ada data metrik tersedia"
 
 msgid "No models available. Please configure AI models in your workspace settings."
-msgstr "Tidak ada model tersedia. Harap konfigurasi model AI di pengaturan workspace Anda.
+msgstr "Tidak ada model tersedia. Harap konfigurasi model AI di pengaturan workspace Anda."
 
 msgid "No notes"
-msgstr "Tidak ada catatan
+msgstr "Tidak ada catatan"
 
 msgid "No object found"
-msgstr "Tidak ada objek ditemukan
+msgstr "Tidak ada objek ditemukan"
 
 msgid "No objects with views found"
-msgstr "Tidak ada objek dengan tampilan ditemukan
+msgstr "Tidak ada objek dengan tampilan ditemukan"
 
 msgid "No option found"
-msgstr "Tidak ada opsi ditemukan
+msgstr "Tidak ada opsi ditemukan"
 
 msgid "No output"
-msgstr "Tidak ada output
+msgstr "Tidak ada output"
 
 msgid "No output available"
-msgstr "Tidak ada output tersedia
+msgstr "Tidak ada output tersedia"
 
 msgid "No parameters"
-msgstr "Tidak ada parameter
+msgstr "Tidak ada parameter"
 
 msgid "No payment method found. Please update your billing details."
-msgstr "Tidak ada metode pembayaran ditemukan. Harap perbarui detail billing Anda.
+msgstr "Tidak ada metode pembayaran ditemukan. Harap perbarui detail billing Anda."
 
 msgid "No permission defined for this application"
-msgstr "Tidak ada izin yang ditentukan untuk aplikasi ini
+msgstr "Tidak ada izin yang ditentukan untuk aplikasi ini"
 
 msgid "No permissions configured for this application."
-msgstr "Tidak ada izin yang dikonfigurasi untuk aplikasi ini.
+msgstr "Tidak ada izin yang dikonfigurasi untuk aplikasi ini."
 
 msgid "No permissions have been set for individual objects."
-msgstr "Izin telah diatur untuk objek individual.
+msgstr "Izin telah diatur untuk objek individual."
 
 msgid "No record"
-msgstr "Tidak ada rekaman
+msgstr "Tidak ada rekaman"
 
 msgid "No record is required to trigger this workflow"
-msgstr "Rekaman diperlukan untuk memicu workflow ini
+msgstr "Rekaman diperlukan untuk memicu workflow ini"
 
 msgid "No record selected"
-msgstr "Tidak ada rekaman dipilih
+msgstr "Tidak ada rekaman dipilih"
 
 msgid "No records found"
 msgstr "Tidak ada rekaman ditemukan"
 
 msgid "No records matching the filter criteria were found."
-msgstr "Tidak ada rekaman yang cocok dengan kriteria filter ditemukan.
+msgstr "Tidak ada rekaman yang cocok dengan kriteria filter ditemukan."
 
 msgid "No results"
 msgstr "Tidak ada hasil"
 
 msgid "No Results"
-msgstr "Tidak ada Hasil
+msgstr "Tidak ada Hasil"
 
 msgid "No results found"
-msgstr "Tidak ada hasil ditemukan
+msgstr "Tidak ada hasil ditemukan"
 
 msgid "No role assigned to this member"
-msgstr "Tidak ada peran ditugaskan ke anggota ini
+msgstr "Tidak ada peran ditugaskan ke anggota ini"
 
 msgid "No roles found"
-msgstr "Tidak ada peran ditemukan
+msgstr "Tidak ada peran ditemukan"
 
 msgid "No rows with errors"
-msgstr "Tidak ada baris dengan error
+msgstr "Tidak ada baris dengan error"
 
 msgid "No Select field"
-msgstr "Pilih kolom
+msgstr "Pilih kolom"
 
 msgid "No system objects available"
-msgstr "Tidak ada objek sistem tersedia
+msgstr "Tidak ada objek sistem tersedia"
 
 msgid "No system objects with views found"
-msgstr "Tidak ada objek sistem dengan tampilan ditemukan
+msgstr "Tidak ada objek sistem dengan tampilan ditemukan"
 
 msgid "No trigger is configured for this function."
-msgstr "Trigger sudah dikonfigurasi untuk fungsi ini.
+msgstr "Trigger sudah dikonfigurasi untuk fungsi ini."
 
 msgid "No trigger is enabled. Toggle one of the options above to choose how this function gets invoked."
-msgstr "Trigger sudah diaktifkan. Aktifkan salah satu opsi di atas untuk memilih bagaimana fungsi ini dipanggil.
+msgstr "Trigger sudah diaktifkan. Aktifkan salah satu opsi di atas untuk memilih bagaimana fungsi ini dipanggil."
 
 msgid "No usage data"
-msgstr "Tidak ada data penggunaan
+msgstr "Tidak ada data penggunaan"
 
 msgid "No usage data yet"
-msgstr "Belum ada data penggunaan
+msgstr "Belum ada data penggunaan"
 
 msgid "No users found matching your search criteria."
-msgstr "Tidak ada pengguna ditemukan yang cocok dengan kriteria pencarian Anda.
+msgstr "Tidak ada pengguna ditemukan yang cocok dengan kriteria pencarian Anda."
 
 msgid "No value"
-msgstr "Tidak ada nilai
+msgstr "Tidak ada nilai"
 
 msgid "No variables available"
-msgstr "Tidak ada variabel tersedia
+msgstr "Tidak ada variabel tersedia"
 
 msgid "No variables found"
-msgstr "Tidak ada variabel ditemukan
+msgstr "Tidak ada variabel ditemukan"
 
 msgid "No variables to set for this application"
-msgstr "Tidak ada variabel untuk diatur untuk aplikasi ini
+msgstr "Tidak ada variabel untuk diatur untuk aplikasi ini"
 
 msgid "No workflow runs yet"
-msgstr "Belum ada workflow runs
+msgstr "Belum ada workflow runs"
 
 msgid "No workflow versions yet"
-msgstr "Belum ada versi workflow
+msgstr "Belum ada versi workflow"
 
 msgid "No workspace behind"
-msgstr "Tidak ada workspace tertinggal
+msgstr "Tidak ada workspace tertinggal"
 
 msgid "No workspace failed"
-msgstr "Tidak ada workspace gagal
+msgstr "Tidak ada workspace gagal"
 
 msgid "No workspace selected"
-msgstr "Tidak ada workspace dipilih
+msgstr "Tidak ada workspace dipilih"
 
 msgid "No workspaces found matching your search criteria."
-msgstr "Tidak ada workspace ditemukan yang cocok dengan kriteria pencarian Anda.
+msgstr "Tidak ada workspace ditemukan yang cocok dengan kriteria pencarian Anda."
 
 msgid "Node"
 msgstr "Tidakde"
@@ -5965,31 +5965,31 @@ msgid "Norwegian"
 msgstr "Tidakrwegian"
 
 msgid "Not all columns matched"
-msgstr "Semua kolom cocok
+msgstr "Semua kolom cocok"
 
 msgid "Not available for default view"
-msgstr "Tersedia untuk tampilan default
+msgstr "Tersedia untuk tampilan default"
 
 msgid "Not available on Default View"
-msgstr "Tersedia di Tampilan Default
+msgstr "Tersedia di Tampilan Default"
 
 msgid "Not empty"
-msgstr "Kosong
+msgstr "Kosong"
 
 msgid "Not Found"
-msgstr "Tidak ditemukan
+msgstr "Tidak ditemukan"
 
 msgid "Not set"
-msgstr "Tidak diatur
+msgstr "Tidak diatur"
 
 msgid "Not shared"
-msgstr "Tidak dibagikan
+msgstr "Tidak dibagikan"
 
 msgid "Not shared by {notSharedByFullName}"
-msgstr "Dibagikan oleh {notSharedByFullName}
+msgstr "Dibagikan oleh {notSharedByFullName}"
 
 msgid "Not synced"
-msgstr "Tidak disinkronkan
+msgstr "Tidak disinkronkan"
 
 msgid "Nothing to configure for this application"
 msgstr "Tidak ada to configure for this application"
@@ -7879,7 +7879,7 @@ msgid "Step filter options"
 msgstr "tep filter options"
 
 msgid "Stop impersonating"
-msgstr "top impersonating"
+msgstr "Berhenti meniru"
 
 msgid "Stored in database"
 msgstr "tored in database"
@@ -9282,7 +9282,7 @@ msgid "When a deal's stage changes to Closed Won, create a task assigned to the 
 msgstr "Ketika tahapan permohonan berubah menjadi Disetujui, buat tugas yang ditugaskan ke pemilik permohonan, jatuh tempo 7 hari setelah tanggal persetujuan, dengan judul \"Ceklis pasca-layanan\" dan nama instansi di deskripsi."
 
 msgid "When a new lead is created with source \"Website\", assign it to the sales rep whose territory (by region/country) matches the lead's address; if no match, assign to the team lead."
-msgstr "hen a new lead is created with source \"Website\", assign it to the sales rep whose territory (by region/country) matches the lead's address; if no match, assign to the team lead."
+msgstr "Ketika prospek baru dibuat dengan sumber \"Situs Web\", tugaskan ke petugas layanan yang wilayah kerjanya (berdasarkan RT/RW/dusun) sesuai dengan alamat prospek; jika tidak ada yang cocok, tugaskan ke koordinator layanan."
 
 msgid "When any deal with amount over $100,000 has its stage or amount updated, send a notification to the sales channel with the deal name, company, new stage, amount and owner."
 msgstr "Ketika permohonan dengan jumlah di atas Rp 1,5 miliar mengalami perubahan tahapan atau jumlah, kirim notifikasi ke channel penjualan dengan nama permohonan, instansi, tahapan baru, jumlah dan pemilik."

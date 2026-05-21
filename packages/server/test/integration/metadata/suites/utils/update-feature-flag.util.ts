@@ -4,12 +4,12 @@ import { warnIfErrorButNotExpectedToFail } from 'test/integration/metadata/utils
 import { warnIfNoErrorButExpectedToFail } from 'test/integration/metadata/utils/warn-if-no-error-but-expected-to-fail.util';
 import { type FeatureFlagKey } from 'shared/types';
 
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
 export const updateFeatureFlag = async ({
   featureFlag,
   value,
-  workspaceId = SEED_APPLE_WORKSPACE_ID,
+  workspaceId = SEED_SUKAMAJU_WORKSPACE_ID,
   expectToFail,
 }: {
   featureFlag: FeatureFlagKey;

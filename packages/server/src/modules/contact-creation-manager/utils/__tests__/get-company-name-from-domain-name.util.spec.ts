@@ -12,30 +12,30 @@ describe('getCompanyNameFromDomainName', () => {
     {
       title: 'should extract and capitalize company name from simple domain',
       context: {
-        input: 'twenty.dev',
-        expected: 'Twenty',
+        input: 'bades.id',
+        expected: 'Bades',
       },
     },
     {
       title: 'should extract and capitalize company name from subdomain',
       context: {
-        input: 'app.twenty.dev',
-        expected: 'Twenty',
+        input: 'app.bades.id',
+        expected: 'Bades',
       },
     },
     {
       title:
         'should extract and capitalize company name from multiple subdomains',
       context: {
-        input: 'test.app.twenty.dev',
-        expected: 'Twenty',
+        input: 'test.app.bades.id',
+        expected: 'Bades',
       },
     },
     {
       title: 'should handle domain with multiple parts',
       context: {
-        input: 'twenty.co.uk',
-        expected: 'Twenty',
+        input: 'bades.co.uk',
+        expected: 'Bades',
       },
     },
     {

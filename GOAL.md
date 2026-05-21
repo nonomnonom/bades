@@ -35,6 +35,11 @@ terkait administrasi warga.
   untuk pengguna balai desa Indonesia.
 - Target kualitas bahasa adalah **native Indonesia penuh**: tidak ada campuran
   English yang terasa "produk luar yang diterjemahkan setengah jadi".
+- Semua fitur AI, skill, agent prompt, helper text AI, nama asisten, nama
+  workflow otomatis, dan output yang terlihat user harus memakai Bahasa
+  Indonesia native. Jika istilah teknis perlu tetap Inggris untuk kontrak
+  model atau API, istilah itu tidak boleh menjadi bahasa utama yang dilihat
+  pengguna.
 - Jadikan **Bades SID Standard Seed** sebagai pengalaman default saat instalasi
   pertama, bukan seed CRM generik.
 - **Seed harus diganti total**, bukan sekadar rename. Jangan sisakan default
@@ -206,6 +211,45 @@ Relasi kunci:
 - Jika ada flow subscription atau enterprise billing warisan Stripe yang belum
   bisa diganti total sekaligus, perlakukan itu sebagai migrasi bertahap dengan
   target akhir eliminasi surface Stripe pada pengalaman utama Bades.
+
+## Goal Billing Utama
+
+- Goal billing utama Bades adalah **top up credit** dan **billing bulanan**
+  berbasis Midtrans.
+- Sistem pembayaran boleh mendukung dua pola utama:
+  1. **Top up credit** untuk saldo/pemakaian yang dikelola di backend Bades.
+  2. **Billing bulanan** untuk paket langganan, tagihan rutin, atau biaya
+     berulang yang sesuai model SaaS swasta.
+- Midtrans berperan sebagai payment rail untuk charge, checkout, invoice,
+  notifikasi, dan settlement.
+- Ledger pemakaian, perhitungan credit, status saldo, dan aturan konsumsi harus
+  tetap dikelola di backend Bades, bukan dipindahkan ke payment gateway.
+- Jika ada fitur metered usage, fitur itu harus dihitung di Bades dulu lalu
+  ditagihkan melalui alur Midtrans yang sesuai.
+
+## Goal AI Satu Model
+
+- Goal AI Bades adalah **satu model operasional saja** untuk pengalaman produk
+  utama, bukan daftar model yang bisa dipilih user.
+- Model default operasional harus mengarah ke `tencent/hy3-preview` via
+  OpenRouter sebagai model utama yang dipakai oleh fitur AI, agent, dan
+  workflow otomatis.
+- User-facing UI **tidak boleh menampilkan pemilihan model**, daftar model,
+  dropdown model, label provider, atau pembandingan model apa pun.
+- User-facing AI juga **tidak perlu diberitahu** model apa yang dipakai,
+  kecuali ada kebutuhan operasional internal yang benar-benar khusus dan tidak
+  tampil ke user akhir.
+- Jika secara teknis ada routing, fallback, atau konfigurasi provider di
+  belakang layar, itu harus dianggap detail implementasi internal tim Bades,
+  bukan surface produk.
+- Pada sisi produk, AI harus terasa seperti satu kapabilitas yang konsisten:
+  satu pengalaman, satu gaya jawaban, satu baseline perilaku.
+- Halaman settings, admin panel, atau tooling internal yang masih menyentuh AI
+  harus diarahkan untuk operasi tim Bades, bukan untuk memilih model oleh user
+  akhir.
+- Jika ada sisa arsitektur multi-model warisan Twenty, itu harus dianggap debt
+  migrasi dan dibersihkan bertahap sampai user-facing surface benar-benar
+  single-model.
 
 ## Language Rules
 

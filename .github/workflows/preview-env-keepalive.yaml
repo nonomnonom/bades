@@ -27,30 +27,30 @@ jobs:
         run: |
           echo "Patching docker-compose.yml..."
           # change image to localbuild using yq
-          yq eval 'del(.services.server.image)' -i packages/twenty-docker/docker-compose.yml
-          yq eval '.services.server.build.context = "../../"' -i packages/twenty-docker/docker-compose.yml
-          yq eval '.services.server.build.dockerfile = "./packages/twenty-docker/twenty/Dockerfile"' -i packages/twenty-docker/docker-compose.yml
-          yq eval '.services.server.build.target = "twenty"' -i packages/twenty-docker/docker-compose.yml
+          yq eval 'del(.services.server.image)' -i packages/docker/docker-compose.yml
+          yq eval '.services.server.build.context = "../../"' -i packages/docker/docker-compose.yml
+          yq eval '.services.server.build.dockerfile = "./packages/docker/twenty/Dockerfile"' -i packages/docker/docker-compose.yml
+          yq eval '.services.server.build.target = "twenty"' -i packages/docker/docker-compose.yml
 
-          yq eval 'del(.services.worker.image)' -i packages/twenty-docker/docker-compose.yml
-          yq eval '.services.worker.build.context = "../../"' -i packages/twenty-docker/docker-compose.yml
-          yq eval '.services.worker.build.dockerfile = "./packages/twenty-docker/twenty/Dockerfile"' -i packages/twenty-docker/docker-compose.yml
-          yq eval '.services.worker.build.target = "twenty"' -i packages/twenty-docker/docker-compose.yml
+          yq eval 'del(.services.worker.image)' -i packages/docker/docker-compose.yml
+          yq eval '.services.worker.build.context = "../../"' -i packages/docker/docker-compose.yml
+          yq eval '.services.worker.build.dockerfile = "./packages/docker/twenty/Dockerfile"' -i packages/docker/docker-compose.yml
+          yq eval '.services.worker.build.target = "twenty"' -i packages/docker/docker-compose.yml
 
           echo "Adding SIGN_IN_PREFILLED environment variable to server service..."
-          yq eval '.services.server.environment.SIGN_IN_PREFILLED = "${SIGN_IN_PREFILLED}"' -i packages/twenty-docker/docker-compose.yml
+          yq eval '.services.server.environment.SIGN_IN_PREFILLED = "${SIGN_IN_PREFILLED}"' -i packages/docker/docker-compose.yml
 
           echo "Setting up .env file..."
-          cp packages/twenty-docker/.env.example packages/twenty-docker/.env
+          cp packages/docker/.env.example packages/docker/.env
 
           echo "Generating secrets..."
-          echo "" >> packages/twenty-docker/.env
-          echo "# === Randomly generated secrets ===" >> packages/twenty-docker/.env
-          echo "APP_SECRET=$(openssl rand -base64 32)" >> packages/twenty-docker/.env
-          echo "PG_DATABASE_PASSWORD=$(openssl rand -hex 16)" >> packages/twenty-docker/.env
-          echo "SIGN_IN_PREFILLED=true" >> packages/twenty-docker/.env
+          echo "" >> packages/docker/.env
+          echo "# === Randomly generated secrets ===" >> packages/docker/.env
+          echo "APP_SECRET=$(openssl rand -base64 32)" >> packages/docker/.env
+          echo "PG_DATABASE_PASSWORD=$(openssl rand -hex 16)" >> packages/docker/.env
+          echo "SIGN_IN_PREFILLED=true" >> packages/docker/.env
           echo "Docker compose build..."
-          cd packages/twenty-docker/
+          cd packages/docker/
           docker compose build
         working-directory: ./
 
@@ -109,7 +109,7 @@ jobs:
         env:
           TUNNEL_URL: ${{ steps.expose-tunnel.outputs.tunnel-url }}
         run: |
-          cd packages/twenty-docker/
+          cd packages/docker/
 
           echo "Setting SERVER_URL to $TUNNEL_URL"
           sed -i '/SERVER_URL=/d' .env
@@ -142,7 +142,7 @@ jobs:
 
       - name: Seed Dev Workspace
         run: |
-          cd packages/twenty-docker/
+          cd packages/docker/
           echo "Seeding light dev workspace (Apple only)..."
           if ! docker compose exec -T server yarn command:prod workspace:seed:dev --light; then
             echo "❌ Seeding light dev workspace failed. Dumping server logs..."
@@ -181,6 +181,6 @@ jobs:
           if [ -f "$RUNNER_TEMP/cloudflared.pid" ]; then
             kill "$(cat "$RUNNER_TEMP/cloudflared.pid")" 2>/dev/null || true
           fi
-          cd packages/twenty-docker/
+          cd packages/docker/
           docker compose down -v
         working-directory: ./

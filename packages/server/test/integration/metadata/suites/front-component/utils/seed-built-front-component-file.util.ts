@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
 const STORAGE_LOCAL_PATH = join(process.cwd(), '.local-storage');
 
@@ -17,7 +17,7 @@ const getWorkspaceCustomApplicationUniversalIdentifier = async (
 };
 
 export const seedBuiltFrontComponentFile = async ({
-  workspaceId = SEED_APPLE_WORKSPACE_ID,
+  workspaceId = SEED_SUKAMAJU_WORKSPACE_ID,
   builtComponentPath,
 }: {
   workspaceId?: string;

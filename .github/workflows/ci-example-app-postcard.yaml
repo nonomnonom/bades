@@ -19,15 +19,15 @@ jobs:
     uses: ./.github/workflows/changed-files.yaml
     with:
       files: |
-        packages/twenty-apps/examples/postcard/**
-        packages/twenty-sdk/**
-        packages/twenty-client-sdk/**
-        packages/twenty-shared/**
-        packages/twenty-server/**
-        !packages/twenty-sdk/package.json
-        !packages/twenty-client-sdk/package.json
-        !packages/twenty-shared/package.json
-        !packages/twenty-server/package.json
+        packages/apps/examples/postcard/**
+        packages/sdk/**
+        packages/client-sdk/**
+        packages/shared/**
+        packages/server/**
+        !packages/sdk/package.json
+        !packages/client-sdk/package.json
+        !packages/shared/package.json
+        !packages/server/package.json
 
   example-app-postcard:
     needs: changed-files-check
@@ -62,10 +62,10 @@ jobs:
         uses: ./.github/actions/yarn-install
 
       - name: Build SDK packages
-        run: npx nx build twenty-sdk
+        run: npx nx build sdk
 
       - name: Setup server environment
-        run: npx nx reset:env:e2e-testing-server twenty-server
+        run: npx nx reset:env:e2e-testing-server server
 
       - name: Create databases
         run: |
@@ -73,16 +73,16 @@ jobs:
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
 
       - name: Setup database
-        run: npx nx run twenty-server:database:reset
+        run: npx nx run server:database:reset
 
       - name: Start server
-        run: nohup npx nx start:ci twenty-server &
+        run: nohup npx nx start:ci server &
 
       - name: Wait for server to be ready
         run: npx wait-on http://localhost:3000/healthz --timeout 120000 --interval 1000
 
       - name: Run integration tests
-        working-directory: packages/twenty-apps/examples/postcard
+        working-directory: packages/apps/examples/postcard
         run: npx vitest run
 
       - name: Configure remote for SDK CLI
@@ -103,12 +103,12 @@ jobs:
           EOF
 
       - name: Deploy postcard app (registry install path)
-        working-directory: packages/twenty-apps/examples/postcard
-        run: node ${{ github.workspace }}/packages/twenty-sdk/dist/cli.cjs deploy --remote target
+        working-directory: packages/apps/examples/postcard
+        run: node ${{ github.workspace }}/packages/sdk/dist/cli.cjs deploy --remote target
 
       - name: Install postcard app (registry install path)
-        working-directory: packages/twenty-apps/examples/postcard
-        run: node ${{ github.workspace }}/packages/twenty-sdk/dist/cli.cjs install --remote target
+        working-directory: packages/apps/examples/postcard
+        run: node ${{ github.workspace }}/packages/sdk/dist/cli.cjs install --remote target
 
   ci-example-app-postcard-status-check:
     if: always() && !cancelled()

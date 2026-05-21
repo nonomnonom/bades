@@ -23,9 +23,9 @@ jobs:
     with:
       files: |
         package.json
-        packages/twenty-server/**
-        packages/twenty-emails/**
-        packages/twenty-shared/**
+        packages/server/**
+        packages/emails/**
+        packages/shared/**
         .github/workflows/ci-breaking-changes.yaml
 
   api-breaking-changes:
@@ -102,11 +102,11 @@ jobs:
 
       - name: Build shared dependencies
         run: |
-          npx nx build twenty-shared
-          npx nx build twenty-emails
+          npx nx build shared
+          npx nx build emails
 
       - name: Build current branch server
-        run: npx nx build twenty-server
+        run: npx nx build server
 
       - name: Setup databases
         run: |
@@ -114,18 +114,18 @@ jobs:
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "main_branch";'
 
       - name: Run ClickHouse migrations
-        run: npx nx clickhouse:migrate twenty-server
+        run: npx nx clickhouse:migrate server
         env:
           CLICKHOUSE_URL: http://default:clickhousePassword@localhost:8123/twenty
           CLICKHOUSE_PASSWORD: clickhousePassword
 
       - name: Setup current branch database
         run: |
-          npx nx reset:env twenty-server
+          npx nx reset:env server
           set_env_var() {
             local var_name="$1"
             local var_value="$2"
-            local env_file="packages/twenty-server/.env"
+            local env_file="packages/server/.env"
 
             echo "" >> "$env_file"
 
@@ -142,18 +142,18 @@ jobs:
           set_env_var "CLICKHOUSE_URL" "http://default:clickhousePassword@localhost:8123/twenty"
           set_env_var "CLICKHOUSE_PASSWORD" "clickhousePassword"
 
-          npx nx run twenty-server:database:init:prod
+          npx nx run server:database:init:prod
 
       - name: Seed current branch database with test data
         run: |
-          npx nx command-no-deps twenty-server -- workspace:seed:dev
+          npx nx command-no-deps server -- workspace:seed:dev
 
       - name: Start current branch server in background
         run: |
           echo "=== Current branch .env file contents ==="
-          cat packages/twenty-server/.env
+          cat packages/server/.env
           echo "=== Starting current branch server ==="
-          nohup npx nx run twenty-server:start:prod > /tmp/current-server.log 2>&1 &
+          nohup npx nx run server:start:prod > /tmp/current-server.log 2>&1 &
           echo $! > /tmp/current-server.pid
           echo "Current server PID: $(cat /tmp/current-server.pid)"
 
@@ -164,7 +164,7 @@ jobs:
           interval=5
           elapsed=0
 
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/server/test/integration/constants/test-tokens.json)
 
           while [ $elapsed -lt $timeout ]; do
             GRAPHQL_RESPONSE=$(curl -s -X POST "http://localhost:${{ env.CURRENT_SERVER_PORT }}/graphql" \
@@ -193,10 +193,10 @@ jobs:
       - name: Download GraphQL and REST responses from current branch
         run: |
           # Read admin token from shared test tokens file (single source of truth)
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/server/test/integration/constants/test-tokens.json)
 
           # Load introspection query from file
-          INTROSPECTION_QUERY=$(cat packages/twenty-utils/graphql-introspection-query.graphql)
+          INTROSPECTION_QUERY=$(cat packages/utils/graphql-introspection-query.graphql)
 
           # Prepare the query payload
           QUERY_PAYLOAD=$(echo "$INTROSPECTION_QUERY" | tr '\n' ' ' | sed 's/"/\\"/g')
@@ -280,19 +280,19 @@ jobs:
       - name: Build main branch dependencies
         run: |
           npx nx reset
-          npx nx build twenty-shared
-          npx nx build twenty-emails
+          npx nx build shared
+          npx nx build emails
 
       - name: Build main branch server
-        run: npx nx build twenty-server
+        run: npx nx build server
 
       - name: Setup main branch database
         run: |
-          npx nx reset:env twenty-server
+          npx nx reset:env server
           set_env_var() {
             local var_name="$1"
             local var_value="$2"
-            local env_file="packages/twenty-server/.env"
+            local env_file="packages/server/.env"
 
             echo "" >> "$env_file"
 
@@ -309,18 +309,18 @@ jobs:
           set_env_var "CLICKHOUSE_URL" "http://default:clickhousePassword@localhost:8123/twenty"
           set_env_var "CLICKHOUSE_PASSWORD" "clickhousePassword"
 
-          npx nx run twenty-server:database:init:prod
+          npx nx run server:database:init:prod
 
       - name: Seed main branch database with test data
         run: |
-          npx nx command-no-deps twenty-server -- workspace:seed:dev
+          npx nx command-no-deps server -- workspace:seed:dev
 
       - name: Start main branch server in background
         run: |
           echo "=== Main branch .env file contents ==="
-          cat packages/twenty-server/.env
+          cat packages/server/.env
           echo "=== Starting main branch server ==="
-          nohup npx nx run twenty-server:start:prod > /tmp/main-server.log 2>&1 &
+          nohup npx nx run server:start:prod > /tmp/main-server.log 2>&1 &
           echo $! > /tmp/main-server.pid
           echo "Main server PID: $(cat /tmp/main-server.pid)"
 
@@ -331,7 +331,7 @@ jobs:
           interval=5
           elapsed=0
 
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/server/test/integration/constants/test-tokens.json)
 
           while [ $elapsed -lt $timeout ]; do
             GRAPHQL_RESPONSE=$(curl -s -X POST "http://localhost:${{ env.MAIN_SERVER_PORT }}/graphql" \
@@ -360,10 +360,10 @@ jobs:
       - name: Download GraphQL and REST responses from main branch
         run: |
           # Read admin token from shared test tokens file (single source of truth)
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/server/test/integration/constants/test-tokens.json)
 
           # Load introspection query from file
-          INTROSPECTION_QUERY=$(cat packages/twenty-utils/graphql-introspection-query.graphql)
+          INTROSPECTION_QUERY=$(cat packages/utils/graphql-introspection-query.graphql)
 
           # Prepare the query payload
           QUERY_PAYLOAD=$(echo "$INTROSPECTION_QUERY" | tr '\n' ' ' | sed 's/"/\\"/g')

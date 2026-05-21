@@ -21,6 +21,9 @@ Gunakan rule ini untuk website, docs, release notes, README, dan konten publik.
   mandiri.
 - Asal-usul teknis dari Twenty boleh disebut hanya jika konteksnya memang
   migrasi, provenance, atau kompatibilitas upstream.
+- Karena repo ini private, jangan pertahankan cerita sejarah awal Bades/Twenty
+  sebagai narasi utama pada README, docs utama, release note, atau metadata
+  publik.
 - Jangan menulis narasi yang membuat pembaca merasa ini hanya "Twenty versi
   rename".
 - Jangan jadikan setup infra, deployment manual, atau workflow engineer sebagai

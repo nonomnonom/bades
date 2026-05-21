@@ -19,10 +19,10 @@ import { UpgradeStatusService } from 'src/engine/core-modules/upgrade/services/u
 import { WorkspaceCommandRunnerService } from 'src/engine/core-modules/upgrade/services/workspace-command-runner.service';
 import { UpgradeMigrationEntity } from 'src/engine/core-modules/upgrade/upgrade-migration.entity';
 import {
-  SEED_APPLE_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
   SEED_EMPTY_WORKSPACE_3_ID,
   SEED_EMPTY_WORKSPACE_4_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { WorkspaceVersionService } from 'src/engine/workspace-manager/workspace-version/services/workspace-version.service';
 
@@ -33,8 +33,8 @@ config({
   override: true,
 });
 
-export const WS_1 = SEED_APPLE_WORKSPACE_ID;
-export const WS_2 = SEED_YCOMBINATOR_WORKSPACE_ID;
+export const WS_1 = SEED_SUKAMAJU_WORKSPACE_ID;
+export const WS_2 = SEED_MEKARSARI_WORKSPACE_ID;
 export const WS_3 = SEED_EMPTY_WORKSPACE_3_ID;
 export const WS_4 = SEED_EMPTY_WORKSPACE_4_ID;
 

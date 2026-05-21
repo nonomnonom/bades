@@ -10,7 +10,7 @@ on:
   push:
     branches: ['main']
     paths:
-      - 'packages/twenty-website/**'
+      - 'packages/website/**'
       - '.github/crowdin-website.yml'
       - '.github/workflows/website-i18n-push.yaml'
 
@@ -38,17 +38,17 @@ jobs:
         uses: ./.github/actions/yarn-install
 
       - name: Build dependencies
-        run: npx nx build twenty-shared
+        run: npx nx build shared
 
       - name: Extract website translations
-        run: npx nx run twenty-website:lingui:extract
+        run: npx nx run website:lingui:extract
 
       - name: Check and commit extracted files
         id: check_extract_changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@twenty.com'
-          git add packages/twenty-website/src/locales
+          git add packages/website/src/locales
           if ! git diff --staged --quiet --exit-code; then
             git commit -m "chore: extract website translations"
             echo "changes_detected=true" >> $GITHUB_OUTPUT
@@ -57,14 +57,14 @@ jobs:
           fi
 
       - name: Compile website translations
-        run: npx nx run twenty-website:lingui:compile
+        run: npx nx run website:lingui:compile
 
       - name: Check and commit compiled files
         id: check_compile_changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@twenty.com'
-          git add packages/twenty-website/src/locales/generated
+          git add packages/website/src/locales/generated
           if ! git diff --staged --quiet --exit-code; then
             git commit -m "chore: compile website translations"
             echo "changes_detected=true" >> $GITHUB_OUTPUT

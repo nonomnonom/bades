@@ -18,6 +18,10 @@ Fokus utama:
    - istilah `Twenty` atau CRM generik bocor ke surface user-facing,
    - Bahasa Indonesia terasa campur atau tidak natural,
    - surface developer-first muncul untuk pengguna desa,
+   - capability platform salah lapisan dan seharusnya admin/internal-only,
+   - narasi self-hosting, open-source, atau sejarah asal-usul produk masih
+     muncul pada surface publik,
+   - surface billing masih terasa Stripe-first,
    - repo metadata, docs, workflow GitHub, atau release surface masih membawa
      identitas lama.
 4. Laporkan temuan dengan urutan severity, referensi file, dan alasan kenapa

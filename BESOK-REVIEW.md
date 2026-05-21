@@ -301,3 +301,147 @@ Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan
 *Report generated dari autonomous team session + eksplorasi mendalam 2026-05-21*
 *Tim eksplorasi: explorer-website, explorer-seed, explorer-translations, explorer-config, explorer-front-docs*
 *Team work sebelumnya: operator-github-bades, pelaksana-front-bades, pelaksana-server-bades, lokalisasi-bades, penjaga-goal-bades, verifikator-bades*
+
+---
+
+# NIGHT SHIFT — 2026-05-21 (sesi otonom lanjutan)
+
+Sesi ini melanjutkan clean up + refactor terarah. Semua perubahan **belum
+di-commit** (kecuali yang sudah tergabung di commit `83d8feb2` oleh proses lain).
+
+## 1. `.github` & metadata repo — SELESAI (dengan debt terdokumentasi)
+
+Masalah inti yang ditemukan: **direktori dan nama proyek nx sudah di-rename**
+(`packages/twenty-front` → `packages/front`, proyek `twenty-front` → `front`,
+dst.), tetapi seluruh workflow `.github/workflows/*` masih memakai path dan
+nama proyek lama. **CI praktis rusak total** sebelum sesi ini.
+
+Diterapkan:
+- Semua workflow (`ci-*.yaml`, `cd-*.yaml`, dll.) diperbaiki: path filter
+  `packages/twenty-X/**` → `packages/X/**` dan referensi nx project
+  `twenty-X` → `X` untuk front, server, shared, emails, ui, sdk, client-sdk,
+  website, docs, zapier, e2e-testing, utils, front-component-renderer, docker,
+  apps.
+- `crowdin-app.yml`, `crowdin-docs.yml`, `crowdin-website.yml` — path package
+  diperbaiki.
+- `verdaccio-config.yaml` — nama package publish `twenty-sdk`/`twenty-client-sdk`/
+  `create-twenty-app` → `sdk`/`client-sdk`/`create-bades-app`.
+- `ci-create-app*.yaml` — CLI `npx twenty` → `npx bades`, npm package
+  `create-twenty-app` → `create-bades-app`.
+- `ci-test-docker-compose.yaml` — path docker diperbaiki.
+- Semua file YAML divalidasi (0 invalid).
+- File sampah `nul` (artefak Windows) dihapus.
+
+Debt yang sengaja TIDAK disentuh (butuh verifikasi CI / berisiko):
+- `twentyhq/twenty-infra` di `cd-deploy-*.yaml` & `i18n-*.yaml` — repo infra
+  eksternal, kontrak teknis, tidak diubah.
+- Identifier docker internal (`twenty-db-1`, `twenty-server-1`, target
+  `twenty`, image `twenty-app-dev`) — tergantung konfigurasi docker-compose /
+  Dockerfile, tidak user-facing.
+- Email bot CI (`ci@twenty.com`, `github-action-deploy@twenty.com`),
+  `twenty.api.crowdin.com` — kontrak akun eksternal.
+- **PENTING**: direktori `packages/create-twenty-app` GAGAL di-rename ke
+  `packages/create-bades-app` (Permission denied / file lock Windows).
+  Akibatnya nama proyek nx (`create-bades-app`) ≠ nama direktori
+  (`create-twenty-app`). Workflow `ci-create-app*` belum 100% konsisten sampai
+  direktori ini di-rename. **Aksi besok**: rename direktori +
+  update `package.json` workspaces, `project.json` cwd, oxlint
+  `enforce-module-boundaries.ts`, config internal package.
+
+## 2. README & metadata — SELESAI
+
+- `README.md` ditulis ulang total. Sebelumnya: judul "SID Open Source",
+  bagian besar berbahasa **Spanyol** (terjemahan rusak), framing developer
+  platform (CLI scaffold, `bades-sdk/define`, `app:publish`), section
+  Self-hosting menonjol. Sekarang: Bahasa Indonesia native, posisi sebagai
+  layanan terkelola untuk perangkat desa non-teknis, tanpa narasi
+  open-source/self-hosting-first, tanpa SDK sebagai pengalaman utama.
+- `TERMINOLOGY.md` — perbaikan typo ("dariAjuan", "konteksagenda").
+
+## 3. Seed data — SEBAGIAN SELESAI
+
+- `generate-random-users.util.ts` — `FIRST_NAMES`/`LAST_NAMES` (nama Amerika)
+  diganti daftar nama Indonesia (Jawa, Sunda, Batak). `locale: 'en'` → `'id-ID'`.
+- `calendar-event-participant-data-seeds.constant.ts` &
+  `message-participant-data-seeds.constant.ts` — `FAKE_PARTICIPANTS` /
+  `FAKE_EMAIL_PARTICIPANTS` (Alex Johnson, Sarah Williams, dll.) diganti nama
+  warga Indonesia + email wajar. `Workspace Member` → `Perangkat Desa`,
+  `Person N` → `Warga N`.
+- Konstanta `SEED_APPLE_WORKSPACE_ID` → `SEED_SUKAMAJU_WORKSPACE_ID` dan
+  `SEED_YCOMBINATOR_WORKSPACE_ID` → `SEED_MEKARSARI_WORKSPACE_ID` di-rename
+  konsisten di 19 file (src + test).
+
+Debt seed yang masih tersisa:
+- File seed non-SID (pet, rocket, survey, pet-care) — sudah tidak diimpor
+  (terverifikasi), tetapi file constant-nya masih ada sebagai dead code. Aman
+  dihapus pada sesi terfokus.
+
+## 4. Terjemahan (`packages/front/src/locales/id-ID.po`)
+
+Diperbaiki:
+- 5 entri impersonation rusak/setengah-terjemah (termasuk yang punya quote
+  liar / kata terpotong: `"top impersonating"`, `"Terakhir "10 users...`).
+- Entri prompt AI dengan istilah `lead` → `prospek` + 1 entri otomasi yang
+  sebelumnya tidak diterjemahkan sama sekali.
+- **115 entri** dengan `msgstr` tanpa tanda kutip penutup → diperbaiki.
+
+## ⚠️ TEMUAN KRITIS — `id-ID.po` RUSAK PARAH
+
+`packages/front/src/locales/id-ID.po` mengalami **korupsi struktural skala
+besar**: **389 entri** berpola `msgstr "Kata "sisa teks inggris"` — tanda
+kutip dalam tidak di-escape DAN copy hanya diterjemahkan sebagian (kata
+pertama saja, mis. `msgstr "Buat "a dashboard"`). Pola ini hampir pasti hasil
+script terjemahan yang buruk.
+
+Dampak: `lingui:compile` untuk frontend kemungkinan besar **gagal** → katalog
+terjemahan Bahasa Indonesia tidak terbangun.
+
+**Tidak diperbaiki pada sesi ini** karena: (a) butuh re-terjemah per entri,
+bukan sekadar escape kutip; (b) mass-edit buta berisiko memperparah. **Aksi
+besok**: sesi terfokus rebuild 389 entri dari `en.po` sebagai sumber, pakai
+skill `lokalisasi-native-indonesia` / `rapikan-bahasa-indonesia`. Catatan:
+`packages/emails/.../id-ID.po` dan `packages/server/.../i18n/locales/id-ID.po`
+**bersih** (0 entri rusak) — masalah hanya di front.
+
+## Area belum disentuh (debt besar, perlu sesi terfokus)
+
+- **Docs (`packages/docs`)** — `docs.json` 6664 baris + ~15 mirror locale
+  `l/<locale>/` + docs developer/self-host. Banyak slug `*-from-twenty`,
+  `what-is-twenty`. Transformasi besar; rename slug harus serentak dengan
+  semua mirror locale agar link tidak putus. Belum disentuh agar tidak
+  meninggalkan link rusak.
+- **Website content** — sedang dikerjakan agen background terpisah (home,
+  product, why-bades). Customer case studies, release notes `.mdx`,
+  `salesforce.data.ts` masih penuh istilah CRM — belum disentuh.
+- **Settings & navigasi user-facing**, **billing Midtrans-first**,
+  **platform surface (API key/webhook/app) → admin/internal** — belum
+  disentuh sesi ini.
+- Direktori nested aneh `packages/front/packages/front/src/locales/`
+  (3 file tracked: `generated/en.ts`, `generated/id-ID.ts`, `translate.py`) —
+  kemungkinan artefak salah copy saat rename. Perlu dikonfirmasi & dihapus.
+
+## 5. Website — konten home/product (agen background) — SELESAI
+
+Agen `pelaksana-front-bades` membersihkan terminologi CRM jadi konteks SID di
+7 file: `(home)/app-preview.data.ts`, `(home)/page.tsx`,
+`(home)/three-cards-illustration.data.ts`, `(home)/helped.data.ts`,
+`product/feature.data.ts`, `product/ai-hero-tabs.data.ts`, `product/page.tsx`,
+`why-bades/page.tsx`. Data demo CRM (Apple, Anthropic, Stripe, sales pipeline)
+diganti data desa (Desa Suka Maju, warga + NIK, alur permohonan layanan).
+Narasi open-source dihapus → "layanan terkelola". `tsc --noEmit` bersih untuk
+file yang disentuh.
+
+Bug rebrand yang ditemukan & diperbaiki sesi ini: find-replace
+`Twenty` → `Bades.id` yang ceroboh menghasilkan **identifier tidak valid**:
+- `getBades.idReactHeaderComment` → `getBadesReactHeaderComment`
+  (`exporters.ts`, error kompilasi).
+- `Pages.WhyBades.id` → `Pages.WhyBades` (`Heading.tsx`, error kompilasi).
+
+Debt website tersisa (di luar scope agen):
+- `product/three-cards.data.ts`, `sections/Faq` (`FAQ_QUESTIONS`),
+  `(home)/testimonials.data.ts` — kemungkinan masih copy CRM/Inggris.
+- `terms/_components/TermsDocument.tsx` — banyak `Bades.id.com PBC` (hasil
+  replace ceroboh dari `twenty.com PBC`); butuh nama entitas hukum yang benar.
+- Customer case studies & release notes `.mdx` — masih penuh istilah CRM.
+
+*Night shift report — 2026-05-21, sesi otonom Claude Code.*

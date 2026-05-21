@@ -17,10 +17,10 @@ jobs:
     uses: ./.github/workflows/changed-files.yaml
     with:
       files: |
-        packages/twenty-sdk/**
-        packages/twenty-server/**
+        packages/sdk/**
+        packages/server/**
         .github/workflows/ci-sdk.yaml
-        !packages/twenty-sdk/package.json
+        !packages/sdk/package.json
   sdk-test:
     needs: changed-files-check
     if: needs.changed-files-check.outputs.any_changed == 'true'
@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/yarn-install
       - name: Build
-        run: npx nx build twenty-sdk
+        run: npx nx build sdk
       - name: Run ${{ matrix.task }} task
         uses: ./.github/actions/nx-affected
         with:
@@ -76,25 +76,25 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/yarn-install
       - name: Build SDK
-        run: npx nx build twenty-sdk
+        run: npx nx build sdk
       - name: Setup server environment
-        run: npx nx reset:env:e2e-testing-server twenty-server
+        run: npx nx reset:env:e2e-testing-server server
       - name: Create databases
         run: |
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "default";'
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
       - name: Setup database
-        run: npx nx run twenty-server:database:reset
+        run: npx nx run server:database:reset
       - name: Start server
-        run: nohup npx nx start:ci twenty-server > /tmp/twenty-server.log 2>&1 &
+        run: nohup npx nx start:ci server > /tmp/server.log 2>&1 &
       - name: Wait for server to be ready
         run: npx wait-on http://localhost:3000/healthz --timeout 120000 --interval 1000
       - name: SDK / Run e2e Tests
         run: NODE_ENV=test npx vitest run --config ./vitest.e2e.config.ts
-        working-directory: packages/twenty-sdk
+        working-directory: packages/sdk
       - name: Server / Dump logs on failure
         if: failure()
-        run: tail -100 /tmp/twenty-server.log || echo "No server log file found"
+        run: tail -100 /tmp/server.log || echo "No server log file found"
   ci-sdk-status-check:
     if: always() && !cancelled()
     timeout-minutes: 5

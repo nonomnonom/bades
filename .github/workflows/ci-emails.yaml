@@ -20,7 +20,7 @@ jobs:
     with:
       files: |
         package.json
-        packages/twenty-emails/**
+        packages/emails/**
   emails-test:
     needs: changed-files-check
     if: needs.changed-files-check.outputs.any_changed == 'true'
@@ -33,12 +33,12 @@ jobs:
           fetch-depth: 10
       - name: Install dependencies
         uses: ./.github/actions/yarn-install
-      - name: Build twenty-emails
-        run: npx nx build twenty-emails
+      - name: Build emails
+        run: npx nx build emails
       - name: Run email tests
         run: |
           # Start the email server in the background
-          npx nx run twenty-emails:start &
+          npx nx run emails:start &
           SERVER_PID=$!
 
           # Wait for server to start

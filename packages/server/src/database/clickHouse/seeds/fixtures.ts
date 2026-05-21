@@ -5,7 +5,7 @@ import { CUSTOM_DOMAIN_ACTIVATED_EVENT } from 'src/engine/core-modules/audit/uti
 import { CUSTOM_DOMAIN_DEACTIVATED_EVENT } from 'src/engine/core-modules/audit/utils/events/workspace-event/custom-domain/custom-domain-deactivated';
 import { type GenericTrackEvent } from 'src/engine/core-modules/audit/utils/events/workspace-event/track';
 import { formatDateTimeForClickHouse } from 'src/database/clickHouse/clickHouse.util';
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { USER_WORKSPACE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-user-workspaces.util';
 
 export type ObjectEventFixture = GenericTrackEvent & {
@@ -36,7 +36,7 @@ export const workspaceEventFixtures: Array<GenericTrackEvent> = [
     timestamp: '2024-10-24T15:55:35.177',
     version: '1',
     userId: '20202020-3957-45c9-be39-337dc4d9100a',
-    workspaceId: SEED_APPLE_WORKSPACE_ID,
+    workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
     properties: {},
   },
   {
@@ -45,7 +45,7 @@ export const workspaceEventFixtures: Array<GenericTrackEvent> = [
     timestamp: '2024-10-24T15:55:35.177',
     version: '1',
     userId: '20202020-3957-45c9-be39-337dc4d9100a',
-    workspaceId: SEED_APPLE_WORKSPACE_ID,
+    workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
     properties: {},
   },
 ];
@@ -57,7 +57,7 @@ export const objectEventFixtures: Array<ObjectEventFixture> = [
     timestamp: '2024-10-24T15:55:35.177',
     version: '1',
     userId: '20202020-3957-45c9-be39-337dc4d9100a',
-    workspaceId: SEED_APPLE_WORKSPACE_ID,
+    workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
     properties: {},
     recordId: '20202020-c21e-4ec2-873b-de4264d89025',
     objectMetadataId: '20202020-1f76-4e46-b33b-58a70e007ba0',
@@ -68,7 +68,7 @@ export const objectEventFixtures: Array<ObjectEventFixture> = [
     timestamp: '2024-10-24T15:55:35.177',
     version: '1',
     userId: '20202020-3957-45c9-be39-337dc4d9100a',
-    workspaceId: SEED_APPLE_WORKSPACE_ID,
+    workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
     properties: {},
     recordId: '20202020-c21e-4ec2-873b-de4264d89025',
     objectMetadataId: '20202020-1f76-4e46-b33b-58a70e007ba0',
@@ -79,7 +79,7 @@ export const objectEventFixtures: Array<ObjectEventFixture> = [
     timestamp: '2024-10-24T15:55:35.177',
     version: '1',
     userId: '20202020-3957-45c9-be39-337dc4d9100a',
-    workspaceId: SEED_APPLE_WORKSPACE_ID,
+    workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
     properties: {},
     recordId: '20202020-c21e-4ec2-873b-de4264d89025',
     objectMetadataId: '20202020-1f76-4e46-b33b-58a70e007ba0',
@@ -217,7 +217,7 @@ const buildUsageEventFixtures = (): UsageEventFixture[] => {
 
           fixtures.push({
             timestamp: formatDateTimeForClickHouse(eventDate),
-            workspaceId: SEED_APPLE_WORKSPACE_ID,
+            workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
             periodStart: formatDateTimeForClickHouse(
               new Date(
                 Date.UTC(

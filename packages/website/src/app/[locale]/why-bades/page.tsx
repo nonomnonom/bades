@@ -103,7 +103,7 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
         </Hero.Heading>
         <Hero.Body page={Pages.WhyBades}>
           {i18n._(
-            msg`Village administration systems were databases you filled on Fridays. AI turned them into systems that run village governance. To differentiate, you have to build what your competitors can't buy.`,
+            msg`Sistem administrasi desa dulu hanya database yang diisi setiap Jumat. AI mengubahnya menjadi sistem yang menjalankan tata kelola desa secara aktif. Untuk unggul, Anda harus membangun apa yang tidak bisa dibeli pesaing.`,
           )}
         </Hero.Body>
         <Hero.WhyBadesVisual />
@@ -125,10 +125,10 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
         </Editorial.Intro>
         <Editorial.Body layout="two-column-left">
           {i18n._(
-            msg`For twenty years, village administration meant the same thing: a place to log activities, track permits, and pull reports on Friday. The real work happened in people's heads, in WhatsApp threads, in hallway conversations. The system kept score. Nobody expected more from it.`,
+            msg`Selama dua puluh tahun, administrasi desa berarti hal yang sama: tempat mencatat kegiatan, melacak izin, dan menarik laporan setiap Jumat. Pekerjaan nyata terjadi di kepala orang, di grup WhatsApp, di obrolan lorong balai desa. Sistem hanya menjadi papan skor. Tidak ada yang mengharapkan lebih darinya.`,
           )}
           {i18n._(
-            msg`AI agents are starting to draft announcements, score applications, research residents, write follow-ups, update permit stages. Every one of these actions reads from and writes to the system. The scoreboard became the playbook. The database became the brain.`,
+            msg`Agen AI kini mulai menyusun pengumuman, menilai permohonan, meneliti data warga, menulis tindak lanjut, memperbarui tahapan layanan. Setiap tindakan ini membaca dari dan menulis ke sistem. Papan skor menjadi buku panduan. Database menjadi otak operasional.`,
           )}
         </Editorial.Body>
       </Editorial.Root>
@@ -149,10 +149,10 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
         </Editorial.Intro>
         <Editorial.Body layout="two-column-right">
           {i18n._(
-            msg`You don't buy your deployment pipeline off the shelf. You don't rent your data warehouse from a vendor who decides the schema. You build it, you own it, you iterate on it every week. Village administration is going the same way. The villages that treat it as infrastructure they own will compound an advantage every quarter.`,
+            msg`Anda tidak membeli alur layanan dari toko. Anda tidak menyewa gudang data dari vendor yang menentukan skemanya. Anda membangunnya, memilikinya, mengiterasinya setiap minggu. Administrasi desa sedang menuju ke arah yang sama. Desa-desa yang memperlakukannya sebagai infrastruktur yang mereka miliki akan mengakumulasi keunggulan setiap triwulan.`,
           )}
           {i18n._(
-            msg`Wednesday your team learns that permits with a technical champion close 3x faster. Thursday you add the field, wire up the scoring, adjust the workflow. By Friday your agents are acting on it. That feedback loop is the edge. And it only works if the system is yours.`,
+            msg`Rabu tim Anda menemukan bahwa permohonan dengan pendampingan teknis selesai 3x lebih cepat. Kamis Anda tambahkan field, hubungkan penilaian, sesuaikan alur kerja. Jumat agen Anda sudah bertindak berdasarkan itu. Putaran umpan balik itulah keunggulannya. Dan itu hanya berjalan jika sistemnya milik Anda.`,
           )}
         </Editorial.Body>
       </Editorial.Root>
@@ -173,10 +173,10 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
         </Editorial.Intro>
         <Editorial.Body layout="two-column-left">
           {i18n._(
-            msg`A year ago, customizing your village system meant hiring a consultant, learning the schema, waiting months. The gap between "I want this" and "it's live" was measured in quarters and invoices. So people settled. They bent their process to fit the tool and called it adoption.`,
+            msg`Setahun lalu, menyesuaikan sistem desa berarti menyewa konsultan, mempelajari skema, menunggu berbulan-bulan. Jarak antara "saya ingin ini" dan "sudah berjalan" diukur dalam triwulan dan tagihan. Jadi orang-orang menyerah. Mereka membengkokkan prosesnya agar cocok dengan alat yang ada, dan menyebutnya adopsi.`,
           )}
           {i18n._(
-            msg`Now a developer can describe what they want to Claude Code and have a working app in an afternoon. A custom object, a scoring workflow, a new view, an integration. The bottleneck isn't building anymore. It's whether your platform lets you.`,
+            msg`Kini satu petugas bisa menggambarkan apa yang diinginkan dan mendapatkan sistem yang berfungsi dalam satu sore. Objek khusus, alur penilaian, tampilan baru, integrasi. Hambatannya bukan lagi soal membangun. Hambatannya adalah apakah platform Anda mengizinkannya.`,
           )}
         </Editorial.Body>
       </Editorial.Root>
@@ -184,9 +184,9 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
       <Marquee.Root
         scheme="dark"
         segments={[
-          { fontFamily: 'serif', text: i18n._(msg`Same system`) },
-          { fontFamily: 'sans', text: i18n._(msg`Same output`) },
-          { fontFamily: 'serif', text: i18n._(msg`Same results`) },
+          { fontFamily: 'serif', text: i18n._(msg`Sistem yang sama`) },
+          { fontFamily: 'sans', text: i18n._(msg`Hasil yang sama`) },
+          { fontFamily: 'serif', text: i18n._(msg`Dampak yang sama`) },
         ]}
       />
 
@@ -198,13 +198,13 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
           <HeadingPart fontFamily="sans">{i18n._(msg`can't buy.`)}</HeadingPart>
         </Signoff.Heading>
         <Signoff.Body page={Pages.WhyBades}>
-          {i18n._(msg`Open-source, AI-ready, and yours to shape.`)}
+          {i18n._(msg`Layanan terkelola, siap AI, dan sepenuhnya untuk Anda kembangkan.`)}
         </Signoff.Body>
         <Signoff.Cta>
           <LinkButton
             color="primary"
             href="https://bades.id/masuk"
-            label={i18n._(msg`Get started`)}
+            label={i18n._(msg`Mulai sekarang`)}
             variant="contained"
           />
         </Signoff.Cta>

@@ -22,13 +22,13 @@ jobs:
       files: |
         package.json
         yarn.lock
-        packages/twenty-server/**
-        packages/twenty-front/src/generated/**
-        packages/twenty-front/src/generated-metadata/**
-        packages/twenty-front/src/generated-admin/**
-        packages/twenty-client-sdk/**
-        packages/twenty-emails/**
-        packages/twenty-shared/**
+        packages/server/**
+        packages/front/src/generated/**
+        packages/front/src/generated-metadata/**
+        packages/front/src/generated-admin/**
+        packages/client-sdk/**
+        packages/emails/**
+        packages/shared/**
 
   server-build:
     needs: changed-files-check
@@ -47,12 +47,12 @@ jobs:
         uses: ./.github/actions/restore-cache
         with:
           key: ${{ env.SERVER_BUILD_CACHE_KEY }}
-      - name: Build twenty-shared
-        run: npx nx build twenty-shared
+      - name: Build shared
+        run: npx nx build shared
       - name: Server / Write .env
-        run: npx nx reset:env twenty-server
+        run: npx nx reset:env server
       - name: Server / Build
-        run: npx nx build twenty-server
+        run: npx nx build server
       - name: Save server build cache
         uses: ./.github/actions/save-cache
         with:
@@ -70,8 +70,8 @@ jobs:
           fetch-depth: 10
       - name: Install dependencies
         uses: ./.github/actions/yarn-install
-      - name: Build twenty-shared
-        run: npx nx build twenty-shared
+      - name: Build shared
+        run: npx nx build shared
       - name: Server / Run lint & typecheck
         uses: ./.github/actions/nx-affected
         with:
@@ -91,13 +91,13 @@ jobs:
         uses: tj-actions/changed-files@48d8f15b2aaa3d255ca5af3eba4870f807ce6b3c # v45.0.9
         with:
           files: |
-            packages/twenty-server/src/database/commands/upgrade-version-command/**
+            packages/server/src/database/commands/upgrade-version-command/**
       - name: Check upgrade version commands are in current version only
         if: >
           steps.changed-files.outputs.any_changed == 'true' &&
           !contains(github.event.pull_request.labels.*.name, 'ci:allow-previous-version-upgrade-mutation')
         run: |
-          VERSION_CONSTANT_FILE="packages/twenty-server/src/engine/core-modules/upgrade/constants/twenty-current-version.constant.ts"
+          VERSION_CONSTANT_FILE="packages/server/src/engine/core-modules/upgrade/constants/twenty-current-version.constant.ts"
 
           CURRENT_VERSION=$(sed -n "s/.*TWENTY_CURRENT_VERSION = '\([0-9.]*\)'.*/\1/p" "$VERSION_CONSTANT_FILE")
 
@@ -187,27 +187,27 @@ jobs:
         uses: ./.github/actions/restore-cache
         with:
           key: ${{ env.SERVER_BUILD_CACHE_KEY }}
-      - name: Build twenty-shared
-        run: npx nx build twenty-shared
+      - name: Build shared
+        run: npx nx build shared
       - name: Server / Write .env
-        run: npx nx reset:env twenty-server
+        run: npx nx reset:env server
       - name: Server / Build
-        run: npx nx build twenty-server
+        run: npx nx build server
       - name: Server / Create DB
         run: |
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "default";'
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
-          npx nx run twenty-server:database:init:prod
+          npx nx run server:database:init:prod
       - name: Worker / Run
         run: |
-          timeout 30s npx nx run twenty-server:worker || exit_code=$?
+          timeout 30s npx nx run server:worker || exit_code=$?
           if [ $exit_code -eq 124 ]; then
             exit 0
           elif [ $exit_code -ne 0 ]; then
             exit $exit_code
           fi
       - name: Server / Start
-        run: npx nx start:ci twenty-server &
+        run: npx nx start:ci server &
       - name: Waiting for server starting...
         run: |
           for i in {1..10}; do
@@ -222,10 +222,10 @@ jobs:
           exit 1
       - name: Server / Check for Pending Migrations
         run: |
-          npx nx database:migrate:generate twenty-server -- --name pending-migration-check || true
+          npx nx database:migrate:generate server -- --name pending-migration-check || true
 
           if ! git diff --quiet; then
-            echo "::error::Unexpected migration files were generated. Please run 'npx nx database:migrate:generate twenty-server -- --name <migration-name>' and commit the result."
+            echo "::error::Unexpected migration files were generated. Please run 'npx nx database:migrate:generate server -- --name <migration-name>' and commit the result."
             echo ""
             echo "The following migration changes were detected:"
             echo "==================================================="
@@ -241,29 +241,29 @@ jobs:
         run: |
           HAS_ERRORS=false
 
-          npx nx run twenty-front:graphql:generate
-          npx nx run twenty-front:graphql:generate --configuration=metadata
-          npx nx run twenty-front:graphql:generate --configuration=admin
+          npx nx run front:graphql:generate
+          npx nx run front:graphql:generate --configuration=metadata
+          npx nx run front:graphql:generate --configuration=admin
 
-          if ! git diff --quiet -- packages/twenty-front/src/generated packages/twenty-front/src/generated-metadata packages/twenty-front/src/generated-admin; then
+          if ! git diff --quiet -- packages/front/src/generated packages/front/src/generated-metadata packages/front/src/generated-admin; then
             echo "::error::GraphQL schema changes detected. Please run the three graphql:generate configurations ('data', 'metadata', 'admin') and commit the changes."
             echo ""
             echo "The following GraphQL schema changes were detected:"
             echo "==================================================="
-            git diff -- packages/twenty-front/src/generated packages/twenty-front/src/generated-metadata packages/twenty-front/src/generated-admin
+            git diff -- packages/front/src/generated packages/front/src/generated-metadata packages/front/src/generated-admin
             echo "==================================================="
             echo ""
             HAS_ERRORS=true
           fi
 
-          npx nx run twenty-client-sdk:generate-metadata-client
+          npx nx run client-sdk:generate-metadata-client
 
-          if ! git diff --quiet -- packages/twenty-client-sdk/src/metadata/generated; then
-            echo "::error::SDK metadata client changes detected. Please run 'npx nx run twenty-client-sdk:generate-metadata-client' and commit the changes."
+          if ! git diff --quiet -- packages/client-sdk/src/metadata/generated; then
+            echo "::error::SDK metadata client changes detected. Please run 'npx nx run client-sdk:generate-metadata-client' and commit the changes."
             echo ""
             echo "The following SDK metadata client changes were detected:"
             echo "==================================================="
-            git diff -- packages/twenty-client-sdk/src/metadata/generated
+            git diff -- packages/client-sdk/src/metadata/generated
             echo "==================================================="
             echo ""
             HAS_ERRORS=true
@@ -287,8 +287,8 @@ jobs:
         uses: ./.github/actions/restore-cache
         with:
           key: ${{ env.SERVER_BUILD_CACHE_KEY }}
-      - name: Build twenty-shared
-        run: npx nx build twenty-shared
+      - name: Build shared
+        run: npx nx build shared
       - name: Server / Run Tests
         uses: ./.github/actions/nx-affected
         with:
@@ -359,18 +359,18 @@ jobs:
         with:
           key: ${{ env.SERVER_BUILD_CACHE_KEY }}
       - name: Server / Build
-        run: npx nx build twenty-server
+        run: npx nx build server
       - name: Build dependencies
         run: |
-          npx nx build twenty-shared
-          npx nx build twenty-emails
+          npx nx build shared
+          npx nx build emails
       - name: Server / Create Test DB
         run: |
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
       - name: Run ClickHouse migrations
-        run: npx nx clickhouse:migrate twenty-server
+        run: npx nx clickhouse:migrate server
       - name: Run ClickHouse seeds
-        run: npx nx clickhouse:seed twenty-server
+        run: npx nx clickhouse:seed server
       - name: Server / Run Integration Tests
         uses: ./.github/actions/nx-affected
         with:

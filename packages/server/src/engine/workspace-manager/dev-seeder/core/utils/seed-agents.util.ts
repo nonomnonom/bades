@@ -2,8 +2,8 @@ import { type QueryRunner } from 'typeorm';
 
 import { AgentMessageRole } from 'src/engine/metadata-modules/ai/ai-agent-execution/entities/agent-message.entity';
 import {
-  SEED_APPLE_WORKSPACE_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { USER_WORKSPACE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-user-workspaces.util';
 
@@ -58,10 +58,10 @@ const seedChatThreads = async ({
   let threadId: string;
   let userWorkspaceId: string;
 
-  if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
+  if (workspaceId === SEED_SUKAMAJU_WORKSPACE_ID) {
     threadId = AGENT_CHAT_THREAD_DATA_SEED_IDS.SUKAMAJU_DEFAULT_THREAD;
     userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES;
-  } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
+  } else if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
     threadId = AGENT_CHAT_THREAD_DATA_SEED_IDS.MEKAR_SARI_DEFAULT_THREAD;
     userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME;
   } else {
@@ -134,7 +134,7 @@ const seedChatMessages = async ({
   const now = new Date();
   const baseTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
-  if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
+  if (workspaceId === SEED_SUKAMAJU_WORKSPACE_ID) {
     messageIds = [
       AGENT_CHAT_MESSAGE_DATA_SEED_IDS.SUKAMAJU_MESSAGE_1,
       AGENT_CHAT_MESSAGE_DATA_SEED_IDS.SUKAMAJU_MESSAGE_2,
@@ -227,7 +227,7 @@ const seedChatMessages = async ({
         createdAt: new Date(baseTime.getTime() + 15 * 60 * 1000),
       },
     ];
-  } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
+  } else if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
     messageIds = [
       AGENT_CHAT_MESSAGE_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_1,
       AGENT_CHAT_MESSAGE_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_2,
@@ -389,7 +389,7 @@ export const seedAgents = async ({
   schemaName,
   workspaceId,
 }: SeedAgentsArgs) => {
-  if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
+  if (workspaceId === SEED_SUKAMAJU_WORKSPACE_ID) {
     return;
   }
 

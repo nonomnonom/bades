@@ -369,15 +369,15 @@ export const successfulInputsByFieldMetadataType: {
       input: {
         linksField: {
           primaryLinkUrl: 'https://twenty.com',
-          primaryLinkLabel: 'Twenty',
-          secondaryLinks: [{ url: 'twenty.com', label: 'Twenty' }],
+          primaryLinkLabel: 'Bades',
+          secondaryLinks: [{ url: 'bades.id', label: 'Bades' }],
         },
       },
       expectedOutput: {
         linksField: {
           primaryLinkUrl: 'https://twenty.com',
-          primaryLinkLabel: 'Twenty',
-          secondaryLinks: '[{"url":"twenty.com","label":"Twenty"}]',
+          primaryLinkLabel: 'Bades',
+          secondaryLinks: '[{"url":"bades.id","label":"Bades"}]',
         },
       },
     },

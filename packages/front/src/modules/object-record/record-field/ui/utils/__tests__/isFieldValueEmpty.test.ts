@@ -141,8 +141,8 @@ describe('isFieldValueEmpty', () => {
       isFieldValueEmpty({
         fieldDefinition: linksFieldDefinition,
         fieldValue: {
-          primaryLinkUrl: 'https://www.twenty.com',
-          primaryLinkLabel: 'Twenty Website',
+          primaryLinkUrl: 'https://www.bades.id',
+          primaryLinkLabel: 'Bades',
           secondaryLinks: [],
         },
       }),
@@ -181,8 +181,8 @@ describe('isFieldValueEmpty', () => {
       isFieldValueEmpty({
         fieldDefinition: linksFieldDefinition,
         fieldValue: {
-          primaryLinkUrl: 'https://www.twenty.com',
-          primaryLinkLabel: 'Twenty Website',
+          primaryLinkUrl: 'https://www.bades.id',
+          primaryLinkLabel: 'Bades',
           secondaryLinks: [{ url: 'wikipedia', label: 'Invalid URL' }],
         },
       }),

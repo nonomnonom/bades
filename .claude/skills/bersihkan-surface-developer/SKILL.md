@@ -16,9 +16,10 @@ Gunakan skill ini untuk cleanup surface produk yang terlalu teknis.
 
 1. Temukan surface yang masih mengasumsikan user paham konsep teknis.
 2. Tentukan tindakan paling aman:
-   - hapus dari surface utama,
-   - sembunyikan,
-   - pindahkan ke area teknis terpisah,
+   - sederhanakan untuk public/admin,
+   - pindahkan ke admin-only,
+   - pindahkan ke internal-team-only,
+   - sembunyikan dari surface utama,
    - atau tulis ulang copy agar lebih non-teknis.
 3. Cek dampaknya ke navigasi, permission, empty state, dan docs yang terkait.
 
@@ -27,5 +28,7 @@ Gunakan skill ini untuk cleanup surface produk yang terlalu teknis.
 - Pengguna utama adalah perangkat desa non-teknis.
 - Jika sebuah flow terasa lebih cocok untuk developer daripada operator desa,
   perlakukan itu sebagai debt pada produk utama.
+- Tidak semua capability teknis harus dihapus; sebagian bisa tetap hidup bila
+  dipetakan ulang ke lapisan admin terkontrol atau internal tim Bades.
 - Saat cleanup, utamakan tugas administratif desa di atas extensibility
   platform.

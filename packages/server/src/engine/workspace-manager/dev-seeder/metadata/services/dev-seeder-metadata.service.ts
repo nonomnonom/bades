@@ -12,8 +12,8 @@ import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object
 import { buildObjectIdByNameMaps } from 'src/engine/metadata-modules/flat-object-metadata/utils/build-object-id-by-name-maps.util';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import {
-  SEED_APPLE_WORKSPACE_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penduduk-custom-field-seeds.constant';
 import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/keluarga-custom-field-seeds.constant';
@@ -86,7 +86,7 @@ export class DevSeederMetadataService {
   ) {}
 
   private readonly workspaceConfigs: Record<string, WorkspaceSeedConfig> = {
-    [SEED_APPLE_WORKSPACE_ID]: {
+    [SEED_SUKAMAJU_WORKSPACE_ID]: {
       objects: [
         // Bades SID Objects - 6 Domain GOAL.md
         { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },
@@ -138,7 +138,7 @@ export class DevSeederMetadataService {
       ],
       junctionConfigs: [],
     },
-    [SEED_YCOMBINATOR_WORKSPACE_ID]: {
+    [SEED_MEKARSARI_WORKSPACE_ID]: {
       objects: [
         // Bades SID Objects - only the core ones for second workspace
         { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },

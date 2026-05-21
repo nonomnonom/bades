@@ -23,7 +23,7 @@ import {
 } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { AuthProviderEnum } from 'src/engine/core-modules/workspace/types/workspace.type';
 import { API_KEY_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/api-key-data-seeds.constant';
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
 const buildAccessTokenPayload = (payload: AccessTokenJwtPayload) => ({
   sub: payload.sub,
@@ -230,7 +230,7 @@ describe('JWT Legacy HS256 no-kid fallback (integration)', () => {
 
 describe('JWT Legacy HS256 no-kid fallback - seeded-workspace tokens (integration)', () => {
   const seededApiKeyId = API_KEY_DATA_SEED_IDS.ID_1;
-  const seededWorkspaceId = SEED_APPLE_WORKSPACE_ID;
+  const seededWorkspaceId = SEED_SUKAMAJU_WORKSPACE_ID;
   let seededApplicationId: string;
 
   beforeAll(async () => {

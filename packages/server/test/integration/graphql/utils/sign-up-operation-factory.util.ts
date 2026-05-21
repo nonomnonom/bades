@@ -1,4 +1,4 @@
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
 export const signUpOperationFactory = ({
   email,
@@ -17,7 +17,7 @@ export const signUpOperationFactory = ({
             email: "${email}"
             password: "${password}"
             workspaceInviteHash: "${workspaceInviteHash ?? 'sukamaju.dev-invite-hash'}"
-            workspaceId: "${workspaceId ?? SEED_APPLE_WORKSPACE_ID}"
+            workspaceId: "${workspaceId ?? SEED_SUKAMAJU_WORKSPACE_ID}"
         ) {
           workspace { id }
         }

@@ -121,7 +121,7 @@ hand the file to your tool — never paste a tokenized URL into a chat:
 
 \`\`\`bash
 curl -H 'Authorization: Bearer <token>' \\
-  ${serverUrl}/rest/open-api/${schemaName} > twenty-${schemaName}.json
+  ${serverUrl}/rest/open-api/${schemaName} > bades-${schemaName}.json
 \`\`\`
 `,
       termsOfService:

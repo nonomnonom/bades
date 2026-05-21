@@ -18,13 +18,15 @@ Bades.
 2. Nilai apakah surface itu membantu pekerjaan administratif desa atau justru
    mendorong workflow developer.
 3. Tandai mana yang harus:
-   - dihapus dari surface utama,
-   - disembunyikan,
-   - dipindah ke area teknis terpisah,
+   - tetap public tetapi harus disederhanakan,
+   - dipindah ke area admin terkontrol,
+   - dipindah ke internal tim Bades,
+   - disembunyikan dari surface utama,
    - atau diubah bahasanya agar non-teknis.
 
 ## Output yang diharapkan
 
 - Ringkasan risiko produk non-teknis.
 - Daftar surface yang masih developer-centric.
+- Rekomendasi lapisan akses yang benar: public, admin, atau internal.
 - Rekomendasi pembersihan paling prioritas.

@@ -30,7 +30,7 @@ describe('computeGmailExcludeSearchFilter', () => {
           },
           {
             externalId: 'Label_2',
-            name: 'Twenty visible',
+            name: 'Bades visible',
             isSynced: true,
             parentFolderId: null,
           },

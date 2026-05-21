@@ -7,13 +7,13 @@ uplinks:
   npmjs:
     url: https://registry.npmjs.org/
 packages:
-  'twenty-sdk':
+  'sdk':
     access: $all
     publish: $all
-  'twenty-client-sdk':
+  'client-sdk':
     access: $all
     publish: $all
-  'create-twenty-app':
+  'create-bades-app':
     access: $all
     publish: $all
   '**':

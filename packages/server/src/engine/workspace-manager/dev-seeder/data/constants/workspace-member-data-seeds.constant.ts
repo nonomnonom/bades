@@ -1,6 +1,6 @@
 import {
-  SEED_APPLE_WORKSPACE_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { generateRandomUsers } from 'src/engine/workspace-manager/dev-seeder/core/utils/generate-random-users.util';
 import { USER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-users.util';
@@ -92,10 +92,10 @@ export const getWorkspaceMemberDataSeeds = (
     return originalWorkspaceMembers;
   }
 
-  if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
+  if (workspaceId === SEED_SUKAMAJU_WORKSPACE_ID) {
     // Sukamaju workspace gets all workspace members (original + random)
     return WORKSPACE_MEMBER_DATA_SEEDS;
-  } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
+  } else if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
     // Mekar Sari workspace gets all 4 original workspace members
     return originalWorkspaceMembers;
   }

@@ -2,8 +2,8 @@ import { type QueryRunner } from 'typeorm';
 
 import { type UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import {
-  SEED_APPLE_WORKSPACE_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import { generateRandomUsers } from 'src/engine/workspace-manager/dev-seeder/core/utils/generate-random-users.util';
 import { USER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-users.util';
@@ -44,7 +44,7 @@ export const seedUserWorkspaces = async ({
     'id' | 'userId' | 'workspaceId'
   >[] = [];
 
-  if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
+  if (workspaceId === SEED_SUKAMAJU_WORKSPACE_ID) {
     const originalUserWorkspaces = [
       {
         id: USER_WORKSPACE_DATA_SEED_IDS.KADES,
@@ -71,7 +71,7 @@ export const seedUserWorkspaces = async ({
     userWorkspaces = [...originalUserWorkspaces, ...randomUserWorkspaces];
   }
 
-  if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
+  if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
     userWorkspaces = [
       {
         id: USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME,

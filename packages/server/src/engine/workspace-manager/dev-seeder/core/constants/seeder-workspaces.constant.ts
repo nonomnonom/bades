@@ -18,23 +18,23 @@ export type CreateWorkspaceInput = Pick<
   (typeof WORKSPACE_FIELDS_TO_SEED)[number]
 >;
 
-export const SEED_APPLE_WORKSPACE_ID = '20202020-1c25-4d02-bf25-6aeccf7ea419';
-export const SEED_YCOMBINATOR_WORKSPACE_ID =
+export const SEED_SUKAMAJU_WORKSPACE_ID = '20202020-1c25-4d02-bf25-6aeccf7ea419';
+export const SEED_MEKARSARI_WORKSPACE_ID =
   '3b8e6458-5fc1-4e63-8563-008ccddaa6db';
 export const SEED_EMPTY_WORKSPACE_3_ID = '506915ec-21ca-431b-a04a-257eb216865e';
 export const SEED_EMPTY_WORKSPACE_4_ID = 'aa8fdcb1-8ee1-4012-98af-44a97caa7411';
 
 export type SeededWorkspacesIds =
-  | typeof SEED_APPLE_WORKSPACE_ID
-  | typeof SEED_YCOMBINATOR_WORKSPACE_ID;
+  | typeof SEED_SUKAMAJU_WORKSPACE_ID
+  | typeof SEED_MEKARSARI_WORKSPACE_ID;
 
 export type SeededEmptyWorkspacesIds =
   | typeof SEED_EMPTY_WORKSPACE_3_ID
   | typeof SEED_EMPTY_WORKSPACE_4_ID;
 
 export const SEEDER_CREATE_WORKSPACE_INPUT = {
-  [SEED_APPLE_WORKSPACE_ID]: {
-    id: SEED_APPLE_WORKSPACE_ID,
+  [SEED_SUKAMAJU_WORKSPACE_ID]: {
+    id: SEED_SUKAMAJU_WORKSPACE_ID,
     displayName: 'Desa Sukamaju',
     subdomain: 'sukamaju',
     inviteHash: 'sukamaju.dev-invite-hash',
@@ -42,8 +42,8 @@ export const SEEDER_CREATE_WORKSPACE_INPUT = {
     activationStatus: WorkspaceActivationStatus.PENDING_CREATION, // will be set to active after default role creation
     isTwoFactorAuthenticationEnforced: false,
   },
-  [SEED_YCOMBINATOR_WORKSPACE_ID]: {
-    id: SEED_YCOMBINATOR_WORKSPACE_ID,
+  [SEED_MEKARSARI_WORKSPACE_ID]: {
+    id: SEED_MEKARSARI_WORKSPACE_ID,
     displayName: 'Desa Mekar Sari',
     subdomain: 'mekar-sari',
     inviteHash: 'mekar-sari.dev-invite-hash',

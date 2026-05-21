@@ -23,7 +23,7 @@ describe('getFieldLinkDefinedLinks', () => {
       expect(
         getFieldLinkDefinedLinks({
           primaryLinkUrl: null,
-          primaryLinkLabel: 'Twenty',
+          primaryLinkLabel: 'Bades',
           secondaryLinks: [],
         }),
       ).toEqual([]);
@@ -33,7 +33,7 @@ describe('getFieldLinkDefinedLinks', () => {
       expect(
         getFieldLinkDefinedLinks({
           primaryLinkUrl: '',
-          primaryLinkLabel: 'Twenty',
+          primaryLinkLabel: 'Bades',
           secondaryLinks: [],
         }),
       ).toEqual([]);
@@ -42,13 +42,13 @@ describe('getFieldLinkDefinedLinks', () => {
     it('should return primary link when primaryLinkUrl is defined but primaryLinkLabel is null', () => {
       expect(
         getFieldLinkDefinedLinks({
-          primaryLinkUrl: 'https://twenty.com',
+          primaryLinkUrl: 'https://bades.id',
           primaryLinkLabel: null,
           secondaryLinks: [],
         }),
       ).toEqual([
         {
-          url: 'https://twenty.com',
+          url: 'https://bades.id',
           label: null,
         },
       ]);
@@ -73,19 +73,19 @@ describe('getFieldLinkDefinedLinks', () => {
           primaryLinkLabel: '',
           secondaryLinks: [
             {
-              url: null,
-              label: 'Twenty',
+            url: null,
+            label: 'Bades',
             },
             {
-              url: 'https://docs.twenty.com',
-              label: 'Documentation',
+            url: 'https://docs.bades.id',
+            label: 'Dokumentasi',
             },
           ],
         }),
       ).toEqual([
         {
-          url: 'https://docs.twenty.com',
-          label: 'Documentation',
+          url: 'https://docs.bades.id',
+          label: 'Dokumentasi',
         },
       ]);
     });
@@ -97,19 +97,19 @@ describe('getFieldLinkDefinedLinks', () => {
           primaryLinkLabel: '',
           secondaryLinks: [
             {
-              url: '',
-              label: 'Twenty',
+            url: '',
+            label: 'Bades',
             },
             {
-              url: 'https://docs.twenty.com',
-              label: 'Documentation',
+            url: 'https://docs.bades.id',
+            label: 'Dokumentasi',
             },
           ],
         }),
       ).toEqual([
         {
-          url: 'https://docs.twenty.com',
-          label: 'Documentation',
+          url: 'https://docs.bades.id',
+          label: 'Dokumentasi',
         },
       ]);
     });
@@ -121,14 +121,14 @@ describe('getFieldLinkDefinedLinks', () => {
           primaryLinkLabel: '',
           secondaryLinks: [
             {
-              url: 'https://twenty.com',
+              url: 'https://bades.id',
               label: null,
             },
           ],
         }),
       ).toEqual([
         {
-          url: 'https://twenty.com',
+          url: 'https://bades.id',
           label: null,
         },
       ]);
@@ -137,7 +137,7 @@ describe('getFieldLinkDefinedLinks', () => {
     it('should correctly combine primary and secondary links with edge cases', () => {
       expect(
         getFieldLinkDefinedLinks({
-          primaryLinkUrl: 'https://twenty.com',
+          primaryLinkUrl: 'https://bades.id',
           primaryLinkLabel: null,
           secondaryLinks: [
             {
@@ -145,8 +145,8 @@ describe('getFieldLinkDefinedLinks', () => {
               label: 'Invalid Link',
             },
             {
-              url: 'https://docs.twenty.com',
-              label: null,
+            url: 'https://docs.bades.id',
+            label: null,
             },
             {
               url: null,
@@ -156,11 +156,11 @@ describe('getFieldLinkDefinedLinks', () => {
         }),
       ).toEqual([
         {
-          url: 'https://twenty.com',
+          url: 'https://bades.id',
           label: null,
         },
         {
-          url: 'https://docs.twenty.com',
+          url: 'https://docs.bades.id',
           label: null,
         },
       ]);
@@ -191,15 +191,15 @@ describe('getFieldLinkDefinedLinks', () => {
               label: 'Missing Protocol',
             },
             {
-              url: 'https://twenty.com',
-              label: 'Valid URL',
+            url: 'https://bades.id',
+            label: 'URL Valid',
             },
           ],
         }),
       ).toEqual([
         {
-          url: 'https://twenty.com',
-          label: 'Valid URL',
+          url: 'https://bades.id',
+          label: 'URL Valid',
         },
       ]);
     });

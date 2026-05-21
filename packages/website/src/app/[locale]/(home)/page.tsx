@@ -105,18 +105,18 @@ export default async function HomePage({ params }: HomePageProps) {
     {
       heading: (
         <HeadingPart fontFamily="sans">
-          {i18n._(msg`The Giant Monolith`)}
+          {i18n._(msg`Sistem Warisan Yang Kaku`)}
         </HeadingPart>
       ),
-      body: msg`Proprietary languages, slow deployment cycles, and "black box" logic.`,
+      body: msg`Bahasa proprietary, siklus pembaruan lambat, dan logika "kotak hitam" yang sulit dipahami petugas desa.`,
     },
     {
       heading: (
         <HeadingPart fontFamily="sans">
-          {i18n._(msg`The In-house Burden`)}
+          {i18n._(msg`Beban Pengembangan Mandiri`)}
         </HeadingPart>
       ),
-      body: msg`It's fragile. V1 ships quickly, but maintaining and making changes is a long term burden.`,
+      body: msg`Sistem buatan sendiri mudah rapuh. Versi awal cepat selesai, tetapi pemeliharaan dan perubahan menjadi beban jangka panjang.`,
     },
   ];
 
@@ -125,40 +125,40 @@ export default async function HomePage({ params }: HomePageProps) {
       heading: (
         <Heading size="lg" weight="light">
           <HeadingPart fontFamily="serif">
-            {i18n._(msg`Begin with production-grade`)}
+            {i18n._(msg`Mulai dengan fondasi`)}
           </HeadingPart>{' '}
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`building blocks`)}
+            {i18n._(msg`kelas produksi`)}
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Bangun aplikasi dan layanan desa dengan seperangkat alat yang fleksibel. Model data, tata letak, dan alur kerja.`,
+      body: msg`Bangun sistem dan layanan desa dengan seperangkat alat yang fleksibel. Model data, tata letak, dan alur kerja sudah tersedia.`,
     },
     {
       heading: (
         <Heading size="lg" weight="light">
           <HeadingPart fontFamily="serif">
-            {i18n._(msg`Continue iteration`)}
+            {i18n._(msg`Lanjutkan iterasi`)}
           </HeadingPart>{' '}
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`without friction`)}
+            {i18n._(msg`tanpa hambatan`)}
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Kustomisasi tanpa batas sesuai kebutuhan desa Anda. Mudah digunakan, cepat beradaptasi.`,
+      body: msg`Kustomisasi tanpa batas sesuai kebutuhan desa Anda. Mudah digunakan, cepat beradaptasi terhadap perubahan regulasi.`,
     },
     {
       heading: (
         <Heading size="lg" weight="light">
           <HeadingPart fontFamily="serif">
-            {i18n._(msg`Stay in control with our`)}
+            {i18n._(msg`Kendalikan data Anda dengan`)}
           </HeadingPart>{' '}
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`open-source software`)}
+            {i18n._(msg`layanan terkelola`)}
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Jangan terkunci di ekosistem orang lain. Bades.id mudah disetup, dengan data asli, pengujian langsung, dan tanpa tool proprietary.`,
+      body: msg`Jangan bergantung pada ekosistem yang tidak Anda kendalikan. Bades.id siap pakai, dengan data nyata, dukungan langsung, dan tanpa ketergantungan pada vendor asing.`,
     },
   ];
   const menuSocialLinks = mergeSocialLinkLabels(MENU_DATA.socialLinks, stats);
@@ -225,12 +225,12 @@ export default async function HomePage({ params }: HomePageProps) {
             <LinkButton
               color="secondary"
               href="https://bades.id/masuk"
-              label={i18n._(msg`Get started`)}
+              label={i18n._(msg`Mulai sekarang`)}
               variant="contained"
             />
             <TalkToUsButton
               color="secondary"
-              label={msg`Talk to us`}
+              label={msg`Hubungi kami`}
               variant="outlined"
             />
           </Hero.Cta>
@@ -239,9 +239,9 @@ export default async function HomePage({ params }: HomePageProps) {
       </Hero.Root>
 
       <TrustedBy.Root
-        separator={i18n._(msg`trusted by`)}
+        separator={i18n._(msg`dipercaya oleh`)}
         logos={TRUSTED_BY_LOGOS}
-        clientCount={i18n._(msg`+10k others`)}
+        clientCount={i18n._(msg`+10rb desa lainnya`)}
       />
 
       <Problem.Root>
@@ -257,13 +257,13 @@ export default async function HomePage({ params }: HomePageProps) {
               {i18n._(msg`Sistem Informasi Desa memberi keunggulan,`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`but building one`)}
+              {i18n._(msg`namun membangunnya`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`comes with`)}
+              {i18n._(msg`selalu disertai`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`tradeoffs`)}
+              {i18n._(msg`kompromi`)}
             </HeadingPart>
           </Problem.Heading>
           <Problem.Points points={PROBLEM_POINTS} />
@@ -276,7 +276,7 @@ export default async function HomePage({ params }: HomePageProps) {
             <ThreeCardsIllustrationIntroHeader>
               <Eyebrow>
                 <HeadingPart fontFamily="sans">
-                  {i18n._(msg`Stop settling for trade-offs.`)}
+                  {i18n._(msg`Hentikan kompromi yang tidak perlu.`)}
                 </HeadingPart>
               </Eyebrow>
               <Heading
@@ -285,16 +285,16 @@ export default async function HomePage({ params }: HomePageProps) {
                 weight="light"
               >
                 <HeadingPart fontFamily="serif">
-                  {i18n._(msg`Rakit, iterasi, dan sesuaikan sistem yang robust,`)}
+                  {i18n._(msg`Rakit, iterasi, dan sesuaikan sistem yang kokoh,`)}
                 </HeadingPart>{' '}
                 <HeadingPart fontFamily="sans">
-                  {i18n._(msg`that's quick to flex`)}
+                  {i18n._(msg`yang cepat beradaptasi`)}
                 </HeadingPart>
               </Heading>
             </ThreeCardsIllustrationIntroHeader>
             <Body className={threeCardsIllustrationBodyClassName} size="sm">
               {i18n._(
-                msg`Compose your CRM and internal apps with a single extensibility toolkit.`,
+                msg`Susun sistem informasi dan modul layanan desa dengan satu platform yang fleksibel dan terintegrasi.`,
               )}
             </Body>
           </ThreeCardsIllustrationIntroContent>
@@ -308,16 +308,16 @@ export default async function HomePage({ params }: HomePageProps) {
         <ThreeCards.Intro page={Pages.Home} align="center">
           <Eyebrow>
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Skip the clunky UX that always comes with custom.`)}
+              {i18n._(msg`Tinggalkan antarmuka yang rumit dan tidak ramah pengguna.`)}
             </HeadingPart>
           </Eyebrow>
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`Buat tim operasional Anda puas`)}
+              {i18n._(msg`Buat tim perangkat desa Anda puas`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`with`)}
+              {i18n._(msg`dengan`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
               {i18n._(msg`sistem yang akan mereka sukai`)}
@@ -333,7 +333,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       <Testimonials.Root scheme="muted">
         <Testimonials.Carousel
-          eyebrow={i18n._(msg`Mereka adalah pengguna sebenarnya`)}
+          eyebrow={i18n._(msg`Kata mereka yang sudah menggunakannya`)}
           testimonials={HOME_TESTIMONIALS}
         >
           <Testimonials.HourglassVisual />
@@ -344,28 +344,28 @@ export default async function HomePage({ params }: HomePageProps) {
         <Faq.Intro>
           <Eyebrow colorScheme="secondary">
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Any Questions?`)}
+              {i18n._(msg`Ada pertanyaan?`)}
             </HeadingPart>
           </Eyebrow>
           <Faq.Heading>
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`Stop fighting custom.`)}
+              {i18n._(msg`Jangan terhambat pilihan yang terbatas.`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Bades.id`)}
+              {i18n._(msg`Mulai bangun sistem desa dengan Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
               href="https://bades.id/masuk"
-              label={i18n._(msg`Get started`)}
+              label={i18n._(msg`Mulai sekarang`)}
               variant="contained"
             />
             <TalkToUsButton
               color="primary"
-              label={msg`Talk to us`}
+              label={msg`Hubungi kami`}
               variant="outlined"
             />
           </Faq.Cta>

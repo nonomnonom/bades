@@ -7,7 +7,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed, labeled]
     paths:
-      - packages/twenty-website/**
+      - packages/website/**
       - .github/workflows/website-preview-dispatch.yaml
 
 concurrency:

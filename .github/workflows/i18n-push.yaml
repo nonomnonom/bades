@@ -34,13 +34,13 @@ jobs:
         uses: ./.github/actions/yarn-install
 
       - name: Build dependencies
-        run: npx nx build twenty-shared
+        run: npx nx build shared
 
       - name: Extract translations
         run: |
-          npx nx run twenty-server:lingui:extract
-          npx nx run twenty-emails:lingui:extract
-          npx nx run twenty-front:lingui:extract
+          npx nx run server:lingui:extract
+          npx nx run emails:lingui:extract
+          npx nx run front:lingui:extract
 
       - name: Check and commit extracted files
         id: check_extract_changes
@@ -57,9 +57,9 @@ jobs:
 
       - name: Compile translations
         run: |
-          npx nx run twenty-server:lingui:compile
-          npx nx run twenty-emails:lingui:compile
-          npx nx run twenty-front:lingui:compile
+          npx nx run server:lingui:compile
+          npx nx run emails:lingui:compile
+          npx nx run front:lingui:compile
 
       - name: Check and commit compiled files
         id: check_compile_changes

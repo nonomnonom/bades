@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/yarn-install
       - name: Build
-        run: npx nx build create-twenty-app
+        run: npx nx build create-bades-app
       - name: Run ${{ matrix.task }} task
         uses: ./.github/actions/nx-affected
         with:

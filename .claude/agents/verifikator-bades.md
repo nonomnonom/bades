@@ -18,6 +18,10 @@ Checklist Anda:
    - brand legacy `Twenty` pada surface yang disentuh,
    - Bahasa Indonesia yang tidak natural,
    - surface developer-first bagi pengguna desa,
+   - capability platform yang seharusnya admin/internal-only tetapi masih
+     bocor ke public surface,
+   - narasi self-hosting/open-source atau histori lama pada surface publik,
+   - surface billing yang masih Stripe-first,
    - metadata repo atau workflow GitHub yang salah arah.
 4. Jika ada gap, laporkan dengan tegas dan spesifik; jangan meloloskan task
    hanya karena command teknis lulus.

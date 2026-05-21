@@ -7,9 +7,9 @@
 | `Company` | `Penduduk` atau `Warga` | Entry utama - orang penduduk dengan NIK |
 | `People` / `Contact` | `Warga` | Alias untuk penduduk yang memiliki relasi |
 | `Opportunity` | `Permohonan Layanan` | Ketika warga mengajukan surat/layanan |
-| `Pipeline` | `Alur Layanan` | Flow permohonan dariAjuan → approve → terbit |
+| `Pipeline` | `Alur Layanan` | Alur permohonan dari ajuan → persetujuan → terbit |
 | `Deal` | `Layanan` | Instance permohonan yang sedang diproses |
-| `Task` | `Tugas` atau `Agenda` | Bisa tetap Tugas di konteksagenda rapat dll |
+| `Task` | `Tugas` atau `Agenda` | Bisa tetap Tugas di konteks agenda rapat dll |
 | `Workspace` | `Desa` | Instance/unit pemerintahan |
 | `Account` | `Kartu Keluarga` atau `Keluarga` | Rekening keluarga (KK) |
 | `Note` | `Catatan` | Catatan umum warga |

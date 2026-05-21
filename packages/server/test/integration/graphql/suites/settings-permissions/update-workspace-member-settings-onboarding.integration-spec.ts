@@ -8,7 +8,7 @@ import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graph
 import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/make-metadata-api-request.util';
 
 import { OnboardingStatus } from 'src/engine/core-modules/onboarding/enums/onboarding-status.enum';
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
 const SUKAMAJU_WORKSPACE_INVITE_HASH = 'sukamaju.dev-invite-hash';
 
@@ -137,7 +137,7 @@ describe('updateWorkspaceMemberSettings and profile onboarding', () => {
           email: uniqueEmail,
           password,
           workspaceInviteHash: SUKAMAJU_WORKSPACE_INVITE_HASH,
-          workspaceId: SEED_APPLE_WORKSPACE_ID,
+          workspaceId: SEED_SUKAMAJU_WORKSPACE_ID,
         },
       },
       undefined,

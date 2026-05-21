@@ -15,8 +15,8 @@ import { RoleEntity } from 'src/engine/metadata-modules/role/role.entity';
 import { RoleService } from 'src/engine/metadata-modules/role/role.service';
 import { UserRoleService } from 'src/engine/metadata-modules/user-role/user-role.service';
 import {
-  SEED_APPLE_WORKSPACE_ID,
-  SEED_YCOMBINATOR_WORKSPACE_ID,
+  SEED_SUKAMAJU_WORKSPACE_ID,
+  SEED_MEKARSARI_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 import {
   RANDOM_USER_WORKSPACE_IDS,
@@ -82,7 +82,7 @@ export class DevSeederPermissionsService {
     let limitedUserWorkspaceId: string | undefined;
     let guestUserWorkspaceId: string | undefined;
 
-    if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
+    if (workspaceId === SEED_SUKAMAJU_WORKSPACE_ID) {
       if (light) {
         // In light mode, Tim is admin (prefilled login user needs full
         // access for SDK development). No demo permission roles needed.
@@ -126,7 +126,7 @@ export class DevSeederPermissionsService {
           roleId: limitedRole.id,
         });
       }
-    } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
+    } else if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
       adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME;
       memberUserWorkspaceIds = [
         USER_WORKSPACE_DATA_SEED_IDS.SEKDES_ACME,

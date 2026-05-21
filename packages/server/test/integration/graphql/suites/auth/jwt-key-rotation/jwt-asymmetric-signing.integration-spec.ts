@@ -21,7 +21,7 @@ import {
   JwtTokenTypeEnum,
 } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { API_KEY_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/api-key-data-seeds.constant';
-import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
+import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
 import {
   PREVIOUS_KID,
@@ -231,7 +231,7 @@ describe('JWT Asymmetric Signing - new ES256 + kid implementation (integration)'
 
 describe('JWT Asymmetric Signing - seeded-workspace tokens (integration)', () => {
   const seededApiKeyId = API_KEY_DATA_SEED_IDS.ID_1;
-  const seededWorkspaceId = SEED_APPLE_WORKSPACE_ID;
+  const seededWorkspaceId = SEED_SUKAMAJU_WORKSPACE_ID;
   let seededCurrentKid: string;
   let seededApplicationId: string;
 
