@@ -638,3 +638,42 @@ Catatan: pola "test meng-assert label Inggris" kemungkinan ada di test front
 lain. Dicatat sebagai debt untuk sisir terpisah.
 
 *Night shift iterasi 5 — 2026-05-22, sesi otonom Claude Code.*
+
+---
+
+# RENCANA PRODUCTION-READY — FASE 1 SELESAI
+
+Rencana lengkap 7 fase ada di
+`C:\Users\hi\.claude\plans\aku-mau-anda-bekerja-clever-truffle.md`.
+Target: codebase deployable + GOAL inti user-facing tuntas; billing migrasi
+penuh ke Midtrans; docs ditunda.
+
+## Fase 1 — SELESAI & TER-PUSH (commit `2271ee0b`, `d4de4a2c`)
+
+- Rename `twenty-orm` → `sid-orm` di server dituntaskan & di-commit.
+- **83 error typecheck server diperbaiki** (pre-existing, akibat rebrand seed
+  tak tuntas): nama member seed `JANE/JONY/PHIL/TIM` → `KADES/SEKDES/KAUR/KASI`
+  di ~21 file; locale test `fr-FR/de-DE/es-ES` → `id-ID`; perbaikan tipe
+  `ClientConfig`, `LicenseObject`, `person-data-seeds`.
+- Verifikasi: `nx typecheck server` **lulus**, `nx typecheck front` **lulus**.
+- Seluruh baseline (145 file) di-commit dalam 2 commit logis & di-push ke
+  `rebrand-bades`.
+
+## Sisa fase (belum dikerjakan)
+
+- **Fase 2 — Migrasi billing Stripe → Midtrans**: pekerjaan TERBESAR
+  (modul Midtrans baru, SDK Snap, entity + migrasi DB, webhook
+  `/webhooks/midtrans`, feature flag, frontend billing). Estimasi besar
+  (setara berminggu-minggu); butuh akun/kredensial Midtrans sandbox untuk
+  verifikasi end-to-end.
+- **Fase 3 — Docker & CI**: path `twenty-server` di `docker-compose.yml`,
+  label Dockerfile.
+- **Fase 4 — Brand/CRM/self-hosting leak user-facing**: `asset-paths.ts`,
+  `next.config.ts`, narasi self-hosting di website locale, istilah CRM di
+  `id-ID.po`, hapus seed legacy pet/rocket/survey.
+- **Fase 5 — Perbaikan test front**: jalankan `nx test front`, perbaiki test
+  usang (assert label Inggris) vs regresi.
+- **Fase 6 — Developer surface**: konfirmasi nav, dll.
+- **Fase 7 — Verifikasi penuh & push final**.
+
+*Fase 1 production-ready — 2026-05-22, sesi otonom Claude Code.*
