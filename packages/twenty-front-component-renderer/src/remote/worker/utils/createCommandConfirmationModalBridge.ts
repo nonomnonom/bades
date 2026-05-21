@@ -1,5 +1,6 @@
 import {
   type CommandConfirmationModalResult,
+  type CommandConfirmationModalAccent,
   type OpenCommandConfirmationModalFunction,
 } from 'twenty-sdk/front-component';
 import { type FrontComponentHostCommunicationApi } from '../../../types/FrontComponentHostCommunicationApi';
@@ -22,7 +23,12 @@ export const createOpenCommandConfirmationModalAdapter = (
     'openCommandConfirmationModal'
   >,
 ): OpenCommandConfirmationModalFunction => {
-  return async (params) => {
+  return async (params: {
+    title: string;
+    subtitle: string;
+    confirmButtonText?: string;
+    confirmButtonAccent?: CommandConfirmationModalAccent;
+  }) => {
     if (pendingCommandConfirmationModalPromiseCallbacks !== null) {
       throw new Error(
         'A confirmation modal is already pending for this front component',

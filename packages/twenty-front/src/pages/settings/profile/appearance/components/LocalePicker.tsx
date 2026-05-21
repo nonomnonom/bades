@@ -139,6 +139,10 @@ export const LocalePicker = () => {
       value: APP_LOCALES['hu-HU'],
     },
     {
+      label: t`Indonesian`,
+      value: APP_LOCALES['id-ID'],
+    },
+    {
       label: t`Italian`,
       value: APP_LOCALES['it-IT'],
     },

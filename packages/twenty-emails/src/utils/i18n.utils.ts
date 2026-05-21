@@ -14,6 +14,7 @@ import { messages as fiMessages } from '@/locales/generated/fi-FI';
 import { messages as frMessages } from '@/locales/generated/fr-FR';
 import { messages as heMessages } from '@/locales/generated/he-IL';
 import { messages as huMessages } from '@/locales/generated/hu-HU';
+import { messages as idMessages } from '@/locales/generated/id-ID';
 import { messages as itMessages } from '@/locales/generated/it-IT';
 import { messages as jaMessages } from '@/locales/generated/ja-JP';
 import { messages as koMessages } from '@/locales/generated/ko-KR';
@@ -48,6 +49,7 @@ const messages: Record<keyof typeof APP_LOCALES, Messages> = {
   'fr-FR': frMessages,
   'he-IL': heMessages,
   'hu-HU': huMessages,
+  'id-ID': idMessages,
   'it-IT': itMessages,
   'ja-JP': jaMessages,
   'ko-KR': koMessages,

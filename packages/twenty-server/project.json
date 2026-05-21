@@ -13,7 +13,8 @@
         "commands": [
           "rimraf dist",
           "nest build --path ./tsconfig.build.json",
-          "mkdir -p dist/assets/twenty-client-sdk && cp ../twenty-client-sdk/package.json dist/assets/twenty-client-sdk/ && cp -r ../twenty-client-sdk/dist dist/assets/twenty-client-sdk/dist"
+          "node -e \"const fs=require('fs'),path=require('path');const s='../twenty-client-sdk',d='dist/assets/twenty-client-sdk';fs.mkdirSync(d,{recursive:true});fs.copyFileSync(path.join(s,'package.json'),path.join(d,'package.json'));fs.cpSync(path.join(s,'dist'),path.join(d,'dist'),{recursive:true})\"",
+          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/core-modules/application/application-package/constants/seed-dependencies',d='dist/engine/core-modules/application/application-package/constants/seed-dependencies';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\""
         ]
       },
       "dependsOn": ["^build"]
@@ -54,14 +55,14 @@
       "dependsOn": ["^build"],
       "options": {
         "cwd": "packages/twenty-server",
-        "command": "rimraf dist && NODE_ENV=development nest start --watch"
+        "command": "rimraf dist && nest start --watch"
       }
     },
     "start:ci": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/twenty-server",
-        "command": "NODE_ENV=development nest start"
+        "command": "nest start"
       }
     },
     "start:ci-if-needed": {
@@ -77,7 +78,7 @@
       "dependsOn": ["^build"],
       "options": {
         "cwd": "packages/twenty-server",
-        "command": "rimraf dist && NODE_ENV=development nest start --watch --debug"
+        "command": "rimraf dist && nest start --watch --debug"
       }
     },
     "reset:env": {
@@ -120,7 +121,7 @@
       "dependsOn": ["^build"],
       "options": {
         "cwd": "packages/twenty-server",
-        "command": "NODE_ENV=development nest start --watch --entryFile queue-worker/queue-worker"
+        "command": "nest start --watch --entryFile queue-worker/queue-worker"
       }
     },
     "ts-node": {

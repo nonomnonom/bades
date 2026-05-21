@@ -11,6 +11,7 @@ describe('normalizeLocale', () => {
     expect(normalizeLocale('en')).toBe('en');
     expect(normalizeLocale('fr-FR')).toBe('fr-FR');
     expect(normalizeLocale('es-ES')).toBe('es-ES');
+    expect(normalizeLocale('id-ID')).toBe('id-ID');
   });
 
   it('should handle case-insensitive matches', () => {
@@ -25,6 +26,7 @@ describe('normalizeLocale', () => {
     expect(normalizeLocale('fr')).toBe('fr-FR');
     expect(normalizeLocale('es')).toBe('es-ES');
     expect(normalizeLocale('de')).toBe('de-DE');
+    expect(normalizeLocale('id')).toBe('id-ID');
   });
 
   it('should handle language codes that might map to multiple locales', () => {
