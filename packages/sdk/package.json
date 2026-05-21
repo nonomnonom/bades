@@ -3,7 +3,7 @@
   "version": "2.7.0",
   "sideEffects": false,
   "bin": {
-    "twenty": "dist/cli.cjs"
+    "bades": "dist/cli.cjs"
   },
   "files": [
     "dist",
@@ -14,10 +14,10 @@
     "build": "npx rimraf dist && npx vite build"
   },
   "keywords": [
-    "twenty",
+    "bades",
     "cli",
     "sdk",
-    "crm",
+    "desa",
     "application",
     "development"
   ],

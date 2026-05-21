@@ -1,5 +1,5 @@
 {
-  "name": "call-recording",
+  "name": "bades-call-recording",
   "version": "0.1.0",
   "license": "MIT",
   "engines": {
@@ -9,7 +9,7 @@
   },
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "twenty": "twenty",
+    "bades": "bades",
     "lint": "oxlint -c .oxlintrc.json .",
     "lint:fix": "oxlint --fix -c .oxlintrc.json ."
   },
@@ -18,7 +18,7 @@
     "@emotion/styled": "^11.11.0",
     "react-loading-skeleton": "^3.5.0",
     "react-markdown": "^10.1.0",
-    "twenty-sdk": "0.6.3-alpha"
+    "bades-sdk": "0.6.3-alpha"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",

@@ -1,17 +1,17 @@
-resource "kubernetes_deployment" "twentycrm_db" {
+resource "kubernetes_deployment" "bades_db" {
   metadata {
-    name      = "${var.twentycrm_app_name}-db"
-    namespace = kubernetes_namespace.twentycrm.metadata.0.name
+    name      = "${var.bades_app_name}-db"
+    namespace = kubernetes_namespace.bades.metadata.0.name
     labels = {
-      app = "${var.twentycrm_app_name}-db"
+      app = "${var.bades_app_name}-db"
     }
   }
 
   spec {
-    replicas = var.twentycrm_db_replicas
+    replicas = var.bades_db_replicas
     selector {
       match_labels = {
-        app = "${var.twentycrm_app_name}-db"
+        app = "${var.bades_app_name}-db"
       }
     }
 
@@ -26,14 +26,14 @@ resource "kubernetes_deployment" "twentycrm_db" {
     template {
       metadata {
         labels = {
-          app = "${var.twentycrm_app_name}-db"
+          app = "${var.bades_app_name}-db"
         }
       }
 
       spec {
         container {
-          image = var.twentycrm_db_image
-          name  = var.twentycrm_app_name
+          image = var.bades_db_image
+          name  = var.bades_app_name
           stdin = true
           tty   = true
           security_context {
@@ -42,7 +42,7 @@ resource "kubernetes_deployment" "twentycrm_db" {
 
           env {
             name  = "POSTGRES_PASSWORD"
-            value = var.twentycrm_pgdb_admin_password
+            value = var.bades_pgdb_admin_password
           }
           env {
             name  = "BITNAMI_DEBUG"

@@ -1,18 +1,18 @@
-resource "kubernetes_deployment" "twentycrm_redis" {
+resource "kubernetes_deployment" "bades_redis" {
   metadata {
-    name      = "${var.twentycrm_app_name}-redis"
-    namespace = kubernetes_namespace.twentycrm.metadata.0.name
+    name      = "${var.bades_app_name}-redis"
+    namespace = kubernetes_namespace.bades.metadata.0.name
 
     labels = {
-      app = "${var.twentycrm_app_name}-redis"
+      app = "${var.bades_app_name}-redis"
     }
   }
 
   spec {
-    replicas = var.twentycrm_redis_replicas
+    replicas = var.bades_redis_replicas
     selector {
       match_labels = {
-        app = "${var.twentycrm_app_name}-redis"
+        app = "${var.bades_app_name}-redis"
       }
     }
 
@@ -27,13 +27,13 @@ resource "kubernetes_deployment" "twentycrm_redis" {
     template {
       metadata {
         labels = {
-          app = "${var.twentycrm_app_name}-redis"
+          app = "${var.bades_app_name}-redis"
         }
       }
 
       spec {
         container {
-          image = var.twentycrm_redis_image
+          image = var.bades_redis_image
           name  = "redis"
 
           port {

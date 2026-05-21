@@ -54,5 +54,5 @@ export { RESERVED_SUBDOMAINS } from './ReservedSubdomains';
 export { STANDARD_OBJECT_RECORDS_UNDER_OBJECT_RECORDS_PERMISSIONS } from './StandardObjectRecordsUnderObjectRecordsPermissions';
 export { SUBDOMAIN_PATTERN } from './SubdomainPattern';
 export { SystemPermissionFlag } from './SystemPermissionFlag';
-export { BADES_COMPANIES_BASE_URL } from './TwentyCompaniesBaseUrl';
+export { BADES_COMPANIES_BASE_URL } from './BadesCompaniesBaseUrl';
 export { VIEW_GROUP_VISIBLE_OPTIONS_MAX } from './ViewGroupVisibleOptionsMax';

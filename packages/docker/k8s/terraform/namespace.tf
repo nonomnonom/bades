@@ -1,9 +1,9 @@
-resource "kubernetes_namespace" "twentycrm" {
+resource "kubernetes_namespace" "bades" {
   metadata {
     annotations = {
-      name = var.twentycrm_namespace
+      name = var.bades_namespace
     }
 
-    name = var.twentycrm_namespace
+    name = var.bades_namespace
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "self-hosting",
+  "name": "bades-self-hosting",
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
@@ -9,15 +9,15 @@
   },
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "twenty": "twenty",
+    "bades": "bades",
     "lint": "oxlint -c .oxlintrc.json .",
     "lint:fix": "oxlint --fix -c .oxlintrc.json .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "dependencies": {
-    "twenty-client-sdk": "1.22.0-canary.6",
-    "twenty-sdk": "1.22.0-canary.6"
+    "bades-client-sdk": "1.22.0-canary.6",
+    "bades-sdk": "1.22.0-canary.6"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",

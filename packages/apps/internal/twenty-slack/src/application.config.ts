@@ -7,18 +7,18 @@ import {
 
 export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
-  displayName: 'Twenty Slack',
+  displayName: 'Bades Slack',
   description:
-    'Connect Slack to Twenty. Each workspace member (or a shared workspace connection) can authenticate Slack; workflow steps then post messages, ephemerals, updates, deletes, and reactions on behalf of that connection.',
-  logoUrl: 'public/twenty-slack.svg',
-  author: 'Twenty',
+    'Connect Slack to Bades. Each workspace member (or a shared workspace connection) can authenticate Slack; workflow steps then post messages, ephemerals, updates, deletes, and reactions on behalf of that connection.',
+  logoUrl: 'public/bades-slack.svg',
+  author: 'Bades',
   category: 'Communication',
   aboutDescription:
     'Official Slack connector for Bades.id. Install a Slack app on api.slack.com, add the OAuth client ID and secret as server variables, then connect Slack per member or as a shared workspace connection. Use workflow actions to post, update, or delete messages, send ephemeral notes, and add reactions using the connected account.',
-  websiteUrl: 'https://docs.twenty.com/developers/extend/apps/getting-started',
-  termsUrl: 'https://www.twenty.com/terms',
-  emailSupport: 'contact@twenty.com',
-  issueReportUrl: 'https://github.com/twentyhq/twenty/issues',
+  websiteUrl: 'https://docs.bades.id/developers/extend/apps/getting-started',
+  termsUrl: 'https://www.bades.id/terms',
+  emailSupport: 'contact@bades.id',
+  issueReportUrl: 'https://github.com/bades-id/bades/issues',
   defaultRoleUniversalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
   serverVariables: {
     SLACK_CLIENT_ID: {

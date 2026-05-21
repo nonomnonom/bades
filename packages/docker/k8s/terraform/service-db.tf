@@ -1,11 +1,11 @@
-resource "kubernetes_service" "twentycrm_db" {
+resource "kubernetes_service" "bades_db" {
   metadata {
-    name      = "${var.twentycrm_app_name}-db"
-    namespace = kubernetes_namespace.twentycrm.metadata.0.name
+    name      = "${var.bades_app_name}-db"
+    namespace = kubernetes_namespace.bades.metadata.0.name
   }
   spec {
     selector = {
-      app = "${var.twentycrm_app_name}-db"
+      app = "${var.bades_app_name}-db"
     }
     session_affinity = "ClientIP"
     port {

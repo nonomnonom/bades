@@ -155,7 +155,7 @@ export class CreateAppCommand {
         syncSucceeded = await this.syncApplication(appDirectory);
 
         if (!syncSucceeded) {
-          this.logDetail('Sync failed. Run `yarn twenty dev --once` manually.');
+          this.logDetail('Sync failed. Run `yarn bades dev --once` manually.');
           return;
         }
       } else {
@@ -318,7 +318,7 @@ export class CreateAppCommand {
     try {
       const configService = new ConfigService();
       const config = await configService.getConfig();
-      const token = config.twentyCLIAccessToken ?? config.apiKey;
+      const token = config.badesCLIAccessToken ?? config.apiKey;
 
       if (!token) {
         return;
@@ -486,9 +486,9 @@ export class CreateAppCommand {
   }
 
   private async syncApplication(appDirectory: string): Promise<boolean> {
-    this.logDetail('Running `yarn twenty dev --once`...');
+    this.logDetail('Running `yarn bades dev --once`...');
     return new Promise((resolve) => {
-      const child = spawn('yarn', ['twenty', 'dev', '--once'], {
+      const child = spawn('yarn', ['bades', 'dev', '--once'], {
         cwd: appDirectory,
         stdio: ['inherit', 'pipe', 'pipe'],
       });
@@ -572,7 +572,7 @@ export class CreateAppCommand {
 
       console.log(
         chalk.yellow(
-          '  Authentication failed. Run `yarn twenty remote:add --local` manually.',
+          '  Authentication failed. Run `yarn bades remote:add --local` manually.',
         ),
       );
 
@@ -580,7 +580,7 @@ export class CreateAppCommand {
     } catch {
       console.log(
         chalk.yellow(
-          '  Authentication failed. Run `yarn twenty remote:add --local` manually.',
+          '  Authentication failed. Run `yarn bades remote:add --local` manually.',
         ),
       );
 
@@ -618,7 +618,7 @@ export class CreateAppCommand {
       console.log(
         chalk.yellow(
           `  OAuth failed: ${result.error.message}\n` +
-            `  Run \`yarn twenty remote:add --url ${serverUrl}\` manually.`,
+            `  Run \`yarn bades remote:add --url ${serverUrl}\` manually.`,
         ),
       );
 
@@ -626,7 +626,7 @@ export class CreateAppCommand {
     } catch {
       console.log(
         chalk.yellow(
-          `  Authentication failed. Run \`yarn twenty remote:add --url ${serverUrl}\` manually.`,
+          `  Authentication failed. Run \`yarn bades remote:add --url ${serverUrl}\` manually.`,
         ),
       );
 
@@ -654,13 +654,13 @@ export class CreateAppCommand {
     if (!authSucceeded) {
       console.log(chalk.white(`  ${stepNumber}. Connect to a Bades instance`));
       console.log(
-        chalk.cyan('     yarn twenty remote:add --url <your-instance-url>\n'),
+        chalk.cyan('     yarn bades remote:add --url <your-instance-url>\n'),
       );
       stepNumber++;
     }
 
     console.log(chalk.white(`  ${stepNumber}. Start developing`));
-    console.log(chalk.cyan('     yarn twenty dev\n'));
+    console.log(chalk.cyan('     yarn bades dev\n'));
     stepNumber++;
 
     console.log(chalk.white(`  ${stepNumber}. Open your bades instance`));

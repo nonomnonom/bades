@@ -27,7 +27,7 @@ spec:
             claimName: bades-db-pvc
       containers:
         - name: bades
-          image: twentycrm/twenty-postgres-spilo:latest
+          image: badesid/bades-postgres-spilo:latest
           imagePullPolicy: Always
           env:
             - name: PGUSER_SUPERUSER

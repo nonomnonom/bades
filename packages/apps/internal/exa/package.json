@@ -1,7 +1,7 @@
 {
-  "name": "twenty-exa",
+  "name": "bades-exa",
   "version": "0.1.0",
-  "description": "Structured web search powered by Exa, exposed to Twenty AI agents as a tool.",
+  "description": "Structured web search powered by Exa, exposed to Bades AI agents as a tool.",
   "license": "MIT",
   "engines": {
     "node": "^24.5.0",
@@ -9,11 +9,11 @@
     "yarn": ">=4.0.2"
   },
   "keywords": [
-    "twenty-app"
+    "bades-app"
   ],
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "twenty": "twenty",
+    "bades": "bades",
     "lint": "oxlint -c .oxlintrc.json .",
     "lint:fix": "oxlint --fix -c .oxlintrc.json .",
     "test": "vitest run",
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "exa-js": "^2.12.1",
-    "twenty-client-sdk": "2.0.0",
-    "twenty-sdk": "2.1.0"
+    "bades-client-sdk": "2.0.0",
+    "bades-sdk": "2.1.0"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",

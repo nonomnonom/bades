@@ -9,13 +9,13 @@
   },
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "twenty": "twenty",
+    "bades": "bades",
     "lint": "oxlint -c .oxlintrc.json .",
     "lint:fix": "oxlint --fix -c .oxlintrc.json ."
   },
   "dependencies": {
-    "twenty-sdk": "latest",
-    "twenty-client-sdk": "latest"
+    "bades-sdk": "latest",
+    "bades-client-sdk": "latest"
   },
   "devDependencies": {
     "typescript": "^5.9.3",

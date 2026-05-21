@@ -1,17 +1,17 @@
-resource "kubernetes_deployment" "twentycrm_server" {
+resource "kubernetes_deployment" "bades_server" {
   metadata {
-    name      = "${var.twentycrm_app_name}-server"
-    namespace = kubernetes_namespace.twentycrm.metadata.0.name
+    name      = "${var.bades_app_name}-server"
+    namespace = kubernetes_namespace.bades.metadata.0.name
     labels = {
-      app = "${var.twentycrm_app_name}-server"
+      app = "${var.bades_app_name}-server"
     }
   }
 
   spec {
-    replicas = var.twentycrm_server_replicas
+    replicas = var.bades_server_replicas
     selector {
       match_labels = {
-        app = "${var.twentycrm_app_name}-server"
+        app = "${var.bades_app_name}-server"
       }
     }
 
@@ -26,14 +26,14 @@ resource "kubernetes_deployment" "twentycrm_server" {
     template {
       metadata {
         labels = {
-          app = "${var.twentycrm_app_name}-server"
+          app = "${var.bades_app_name}-server"
         }
       }
 
       spec {
         container {
-          image = var.twentycrm_server_image
-          name  = var.twentycrm_app_name
+          image = var.bades_server_image
+          name  = var.bades_app_name
           stdin = true
           tty   = true
 
@@ -44,16 +44,16 @@ resource "kubernetes_deployment" "twentycrm_server" {
 
           env {
             name  = "SERVER_URL"
-            value = var.twentycrm_app_hostname
+            value = var.bades_app_hostname
           }
 
           env {
             name  = "PG_DATABASE_URL"
-            value = "postgres://twenty:${var.twentycrm_pgdb_admin_password}@${kubernetes_service.twentycrm_db.metadata.0.name}.${kubernetes_namespace.twentycrm.metadata.0.name}.svc.cluster.local/default"
+            value = "postgres://twenty:${var.bades_pgdb_admin_password}@${kubernetes_service.bades_db.metadata.0.name}.${kubernetes_namespace.bades.metadata.0.name}.svc.cluster.local/default"
           }
           env {
             name  = "REDIS_URL"
-            value = "redis://${kubernetes_service.twentycrm_redis.metadata.0.name}.${kubernetes_namespace.twentycrm.metadata.0.name}.svc.cluster.local:6379"
+            value = "redis://${kubernetes_service.bades_redis.metadata.0.name}.${kubernetes_namespace.bades.metadata.0.name}.svc.cluster.local:6379"
           }
           env {
             name  = "DISABLE_DB_MIGRATIONS"
@@ -100,12 +100,12 @@ resource "kubernetes_deployment" "twentycrm_server" {
 
           volume_mount {
             name       = "server-data"
-            mount_path = var.twentycrm_server_data_mount_path
+            mount_path = var.bades_server_data_mount_path
           }
 
           volume_mount {
             name       = "docker-data"
-            mount_path = var.twentycrm_docker_data_mount_path
+            mount_path = var.bades_docker_data_mount_path
           }
         }
 
@@ -131,8 +131,8 @@ resource "kubernetes_deployment" "twentycrm_server" {
     }
   }
   depends_on = [
-    kubernetes_deployment.twentycrm_db,
-    kubernetes_deployment.twentycrm_redis,
-    kubernetes_secret.twentycrm_tokens
+    kubernetes_deployment.bades_db,
+    kubernetes_deployment.bades_redis,
+    kubernetes_secret.bades_tokens
   ]
 }

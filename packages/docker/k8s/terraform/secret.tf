@@ -13,10 +13,10 @@ resource "random_bytes" "this" {
   length = 32
 }
 
-resource "kubernetes_secret" "twentycrm_tokens" {
+resource "kubernetes_secret" "bades_tokens" {
   metadata {
     name      = "tokens"
-    namespace = kubernetes_namespace.twentycrm.metadata.0.name
+    namespace = kubernetes_namespace.bades.metadata.0.name
   }
 
   data = {

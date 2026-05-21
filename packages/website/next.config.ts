@@ -113,13 +113,13 @@ const nextConfig: LinariaConfig = {
       // when the parameter matches empty against an absolute destination.
       {
         source: '/',
-        has: [{ type: 'host', value: 'www.twenty.com' }],
+        has: [{ type: 'host', value: 'www.bades.id' }],
         destination: 'https://bades.id/',
         permanent: true,
       },
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'www.twenty.com' }],
+        has: [{ type: 'host', value: 'www.bades.id' }],
         destination: 'https://bades.id/:path*',
         permanent: true,
       },

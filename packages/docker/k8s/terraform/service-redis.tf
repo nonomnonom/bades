@@ -1,11 +1,11 @@
-resource "kubernetes_service" "twentycrm_redis" {
+resource "kubernetes_service" "bades_redis" {
   metadata {
-    name      = "${var.twentycrm_app_name}-redis"
-    namespace = kubernetes_namespace.twentycrm.metadata.0.name
+    name      = "${var.bades_app_name}-redis"
+    namespace = kubernetes_namespace.bades.metadata.0.name
   }
   spec {
     selector = {
-      app = "${var.twentycrm_app_name}-redis"
+      app = "${var.bades_app_name}-redis"
     }
     session_affinity = "ClientIP"
     port {

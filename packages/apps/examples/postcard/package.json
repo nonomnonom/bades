@@ -8,19 +8,19 @@
     "yarn": ">=4.0.2"
   },
   "keywords": [
-    "twenty-app"
+    "bades-app"
   ],
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "twenty": "twenty",
+    "bades": "bades",
     "lint": "oxlint -c .oxlintrc.json .",
     "lint:fix": "oxlint --fix -c .oxlintrc.json .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "dependencies": {
-    "twenty-client-sdk": "2.2.0",
-    "twenty-sdk": "2.2.0"
+    "bades-client-sdk": "2.2.0",
+    "bades-sdk": "2.2.0"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",

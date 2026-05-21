@@ -10,17 +10,17 @@ export default defineApplication({
   logoUrl: 'public/linear-logomark.svg',
   aboutDescription: ABOUT_DESCRIPTION,
   applicationVariables: undefined,
-  author: 'Twenty',
+  author: 'Bades',
   category: 'Product management',
-  emailSupport: 'contact@twenty.com',
+  emailSupport: 'contact@bades.id',
   screenshots: [
     'public/gallery/command-menu-item-1.png',
     'public/gallery/command-menu-item-2.png',
     'public/gallery/command-menu-item-3.png',
     'public/gallery/command-menu-item-4.png',
   ],
-  termsUrl: 'https://github.com/twentyhq/twenty?tab=License-1-ov-file#readme',
-  websiteUrl: 'https://www.twenty.com',
+  termsUrl: 'https://github.com/bades-id/bades?tab=License-1-ov-file#readme',
+  websiteUrl: 'https://www.bades.id',
   serverVariables: {
     LINEAR_CLIENT_ID: {
       description:

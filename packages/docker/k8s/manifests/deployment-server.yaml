@@ -30,7 +30,7 @@ spec:
             claimName: bades-docker-data-pvc
       containers:
         - name: bades
-          image: twentycrm/twenty:latest
+          image: badesid/bades:latest
           imagePullPolicy: Always
           env:
             - name: NODE_PORT

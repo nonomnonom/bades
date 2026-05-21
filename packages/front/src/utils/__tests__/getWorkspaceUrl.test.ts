@@ -21,7 +21,7 @@ describe('getWorkspaceUrl', () => {
 
     const result = getWorkspaceUrl(workspaceUrls);
 
-    expect(result).toBe('https://subdomain.twenty.com');
+    expect(result).toBe('https://subdomain.bades.id');
   });
 
   it('should return subdomainUrl when customUrl is undefined', () => {
@@ -32,13 +32,13 @@ describe('getWorkspaceUrl', () => {
 
     const result = getWorkspaceUrl(workspaceUrls);
 
-    expect(result).toBe('https://subdomain.twenty.com');
+    expect(result).toBe('https://subdomain.bades.id');
   });
 
   it('should return customUrl when both customUrl and subdomainUrl are defined', () => {
     const workspaceUrls: WorkspaceUrls = {
       customUrl: 'https://my-company.com',
-      subdomainUrl: 'https://mycompany.twenty.com',
+      subdomainUrl: 'https://mycompany.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);
@@ -65,6 +65,6 @@ describe('getWorkspaceUrl', () => {
 
     const result = getWorkspaceUrl(workspaceUrls);
 
-    expect(result).toBe('https://subdomain.twenty.com');
+    expect(result).toBe('https://subdomain.bades.id');
   });
 });
