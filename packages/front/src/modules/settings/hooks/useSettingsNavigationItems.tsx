@@ -143,7 +143,7 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           label: t`APIs & Webhooks`,
           path: SettingsPath.ApiWebhooks,
           Icon: IconApi,
-          isHidden: !permissionMap[PermissionFlagType.API_KEYS_AND_WEBHOOKS],
+          isHidden: true,
         },
         // TODO: Re-enable when integrations page is ready
         // {

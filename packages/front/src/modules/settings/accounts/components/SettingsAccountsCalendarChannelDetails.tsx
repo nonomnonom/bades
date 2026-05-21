@@ -57,8 +57,8 @@ export const SettingsAccountsCalendarChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Contact auto-creation`}
-          description={t`Automatically create contacts for people you've participated in an event with.`}
+          title={t`Pembuatan kontak otomatis`}
+          description={t`Otomatis membuat kontak untuk orang yang berpartisipasi dalam acara kalender Anda.`}
         />
         <Card rounded>
           <SettingsOptionCardContentToggle

@@ -126,8 +126,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Contact auto-creation`}
-          description={t`Automatically create People records when receiving or sending emails`}
+          title={t`Pembuatan kontak otomatis`}
+          description={t`Otomatis membuat kontak saat menerima atau mengirim email`}
         />
         <SettingsAccountsMessageAutoCreationCard
           value={messageChannel.contactAutoCreationPolicy}
