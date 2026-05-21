@@ -170,7 +170,7 @@ export const PrimaryLinkOnly: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryLink = await canvas.findByText('Twenty Website');
+    const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
 
     const addButton = await canvas.findByText('Add URL');
@@ -200,7 +200,7 @@ export const WithSecondaryLinks: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryLink = await canvas.findByText('Twenty Website');
+    const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
 
     await waitFor(() => {
@@ -223,9 +223,9 @@ export const CreatePrimaryLink: Story = {
     const canvas = within(canvasElement);
 
     const input = await canvas.findByPlaceholderText('URL');
-    await userEvent.type(input, 'https://www.twenty.com{enter}');
+    await userEvent.type(input, 'https://www.bades.id{enter}');
 
-    const linkDisplay = await canvas.findByText('twenty.com');
+    const linkDisplay = await canvas.findByText('bades.id');
     expect(linkDisplay).toBeVisible();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
@@ -239,7 +239,7 @@ export const TrimInput: Story = {
     const input = await canvas.findByPlaceholderText('URL');
     await userEvent.type(input, '  https://www.twenty.com  {enter}');
 
-    const linkDisplay = await canvas.findByText('twenty.com');
+    const linkDisplay = await canvas.findByText('bades.id');
     expect(linkDisplay).toBeVisible();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
@@ -257,7 +257,7 @@ export const AddSecondaryLink: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryLink = await canvas.findByText('Twenty Website');
+    const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
@@ -266,9 +266,9 @@ export const AddSecondaryLink: Story = {
     await userEvent.click(addButton);
 
     const input = await canvas.findByPlaceholderText('URL');
-    await userEvent.type(input, 'https://docs.twenty.com{enter}');
+    await userEvent.type(input, 'https://docs.bades.id{enter}');
 
-    const secondaryLink = await canvas.findByText('docs.twenty.com');
+    const secondaryLink = await canvas.findByText('docs.bades.id');
     expect(secondaryLink).toBeVisible();
   },
 };
@@ -284,7 +284,7 @@ export const DeletePrimaryLink: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const listItemToDelete = await canvas.findByText('Twenty Website');
+    const listItemToDelete = await canvas.findByText('Bades.id Website');
     expect(listItemToDelete).toBeVisible();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
@@ -321,7 +321,7 @@ export const DeletePrimaryLinkAndUseSecondaryLinkAsTheNewPrimaryLink: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const listItemToDelete = await canvas.findByText('Twenty Website');
+    const listItemToDelete = await canvas.findByText('Bades.id Website');
     expect(listItemToDelete).toBeVisible();
 
     await waitFor(() => {
@@ -340,7 +340,7 @@ export const DeletePrimaryLinkAndUseSecondaryLinkAsTheNewPrimaryLink: Story = {
 
     const newPrimaryLink = await canvas.findByText('Documentation');
     expect(newPrimaryLink).toBeVisible();
-    const oldPrimaryLink = canvas.queryByText('Twenty Website');
+    const oldPrimaryLink = canvas.queryByText('Bades.id Website');
     expect(oldPrimaryLink).not.toBeInTheDocument();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
@@ -380,7 +380,7 @@ export const DeleteSecondaryLink: Story = {
     ).findByText('Delete');
     await userEvent.click(deleteOption);
 
-    const primaryLink = await canvas.findByText('Twenty Website');
+    const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
     const secondaryLink = canvas.queryByText('Documentation');
     expect(secondaryLink).not.toBeInTheDocument();
@@ -466,7 +466,7 @@ export const MakeSecondaryLinkPrimary: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryLink = await canvas.findByText('Twenty Website');
+    const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
 
     const secondaryLink = await canvas.findByText('Documentation');
@@ -501,7 +501,7 @@ export const CanNotSetPrimaryLinkAsPrimaryLink: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryLink = await canvas.findByText('Twenty Website');
+    const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();

@@ -26,7 +26,7 @@ This step comes after types and constants.
 
 - Reuse existing migration helpers rather than inventing a parallel transform
   layer.
-- Use shared helpers from `shared/*` instead of stale `twenty-shared/*`
-  imports.
+- Use current shared import surfaces such as `shared/*` instead of resurrecting
+  legacy package naming.
 - Preserve deterministic transformations so validation and action building can
   compare entities reliably.

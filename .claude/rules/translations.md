@@ -23,6 +23,9 @@ paths:
 - Avoid mixed-language copy that still feels like an imported CRM product.
 - Do not add new public-facing references to Twenty unless the task is
   explicitly about technical compatibility or migration.
+- Untuk pekerjaan Bades-first, anggap Bahasa Indonesia sebagai bahasa sumber
+  utama untuk wording produk baru kecuali task secara eksplisit menyatakan
+  sebaliknya.
 
 ## Patterns
 
@@ -63,3 +66,5 @@ npx nx run server:lingui:compile
   states.
 - If a string is clearly user-facing, translate it in the same change unless
   there is a documented reason not to.
+- Jika harus memilih antara istilah Inggris dan Indonesia untuk konsep bisnis,
+  pilih Indonesia kecuali kontrak teknis eksternal memaksa Inggris.

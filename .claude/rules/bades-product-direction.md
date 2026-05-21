@@ -3,6 +3,13 @@
 Use this rule for any task that affects branding, copy, onboarding, docs,
 navigation, defaults, demo data, seeds, or screenshots.
 
+Untuk aturan yang lebih spesifik, baca juga:
+
+- `bahasa-indonesia-total.md`
+- `anti-brand-leak.md`
+- `non-technical-product.md`
+- `seed-desa-indonesia.md`
+
 ## Identity
 
 - Treat this project as **Bades**, not "Twenty with a rename".
@@ -22,6 +29,20 @@ navigation, defaults, demo data, seeds, or screenshots.
 - Do not introduce new public-facing mentions of `Twenty`, `twenty`, or legacy
   CRM naming such as `company`, `deal`, `opportunity`, or `pipeline` unless the
   task explicitly requires technical disclosure.
+
+## Code and Internal Writing Language
+
+- Prefer Bahasa Indonesia for comments, internal docs, test names, fixtures,
+  seed data, contoh record, dan identifier domain bisnis.
+- Jika ada konsep bisnis baru, beri nama Indonesia kecuali ada alasan teknis
+  kuat untuk mempertahankan nama Inggris.
+- Hindari menulis code baru dengan istilah bisnis Inggris generik jika ada
+  padanan Indonesia yang lebih cocok untuk konteks Bades.
+- Bahasa Inggris hanya boleh dipakai untuk:
+  - syntax/keyword bahasa pemrograman,
+  - nama API framework/library,
+  - kontrak teknis eksternal,
+  - identifier legacy yang belum aman diubah.
 
 ## Data and Defaults
 

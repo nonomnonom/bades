@@ -166,6 +166,37 @@ export class DevSeederMetadataService {
           targetFieldLabel: 'Pet',
           targetFieldIcon: 'IconCat',
         },
+        // Bades SID Relations
+        // Keluarga -> Penduduk (satu KK punya banyak anggota)
+        {
+          sourceObjectName: KELUARGA_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'anggota',
+          label: 'Anggota Keluarga',
+          icon: 'IconUsers',
+          targetObjectName: PENDUDUK_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Kartu Keluarga',
+          targetFieldIcon: 'IconHome',
+        },
+        // Penduduk -> Permohonan Surat (satu penduduk bisa punya banyak permohonan)
+        {
+          sourceObjectName: PENDUDUK_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'permohonan',
+          label: 'Permohonan Surat',
+          icon: 'IconFileText',
+          targetObjectName: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Pemohon',
+          targetFieldIcon: 'IconUser',
+        },
+        // Jenis Surat -> Permohonan Surat (satu jenis surat bisa dipakai banyak permohonan)
+        {
+          sourceObjectName: JENIS_SURAT_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'permohonan',
+          label: 'Permohonan',
+          icon: 'IconFileText',
+          targetObjectName: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Jenis Surat',
+          targetFieldIcon: 'IconFileText',
+        },
       ],
       junctionConfigs: [
         // Employment History junction configs

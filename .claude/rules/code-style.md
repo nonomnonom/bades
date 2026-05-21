@@ -16,6 +16,8 @@
   wrappers.
 - When shared helpers already exist, prefer those imports over custom local
   reimplementation.
+- Comments, test names, fixtures, docs internal, and business-domain naming
+  should default to Bahasa Indonesia.
 
 ```typescript
 import { isDefined } from 'shared/utils';
@@ -27,3 +29,10 @@ import { isDefined } from 'shared/utils';
   wording and Indonesian-first copy.
 - Treat new public-facing Twenty references as regressions unless the task is
   explicitly technical.
+
+## Language Constraint
+
+- Use English only when required by language syntax, framework APIs, external
+  schemas, or unavoidable compatibility surfaces.
+- If an English identifier must remain for compatibility, keep surrounding
+  comments, docs, tests, and examples in Bahasa Indonesia.

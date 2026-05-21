@@ -11,18 +11,18 @@
 
 ```text
 packages/
-├── front
-├── server
-├── shared
-├── ui
-├── emails
-├── website
-├── docs
-├── sdk
-├── client-sdk
-├── e2e-testing
-├── utils
-└── claude-skills
+- front
+- server
+- shared
+- ui
+- emails
+- website
+- docs
+- sdk
+- client-sdk
+- e2e-testing
+- utils
+- claude-skills
 ```
 
 ## Core Boundaries

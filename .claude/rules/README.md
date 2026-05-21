@@ -7,11 +7,17 @@ product direction in `GOAL.md`.
 ## Rule Set
 
 - `bades-product-direction.md` - Always-on product identity and anti-leak rules
+- `bahasa-indonesia-total.md` - Always-on Indonesia-first writing rules
+- `anti-brand-leak.md` - Always-on forbidden brand and CRM term guardrails
+- `non-technical-product.md` - Always-on product guardrails for non-technical users
 - `architecture.md` - Current monorepo structure and technical boundaries
 - `code-style.md` - Shared coding conventions
 - `file-structure.md` - Package and directory layout guidance
 - `nx-rules.md` - Nx targets and workspace patterns
 - `server-migrations.md` - Upgrade command workflow for the server package
+- `front-user-surface.md` - Path-scoped guidance for UI, settings, and navigation surfaces
+- `docs-and-website-branding.md` - Path-scoped branding guidance for docs and website work
+- `seed-desa-indonesia.md` - Path-scoped rules for seed data, fixtures, stories, and examples
 - `translations.md` - Lingui and Indonesian-first localization workflow
 - `testing-guidelines.md` - Practical unit/integration test guidance
 - `changelog-process.md` - Release content workflow for `packages/website`
@@ -27,6 +33,9 @@ product direction in `GOAL.md`.
 - Product direction in `bades-product-direction.md` should be treated as global
   guidance whenever work touches user-facing behavior, branding, docs, or seed
   data.
+- `bahasa-indonesia-total.md`, `anti-brand-leak.md`, and
+  `non-technical-product.md` are the core Bades identity rules and should win
+  over stale upstream habits.
 
 ## Maintenance Standard
 

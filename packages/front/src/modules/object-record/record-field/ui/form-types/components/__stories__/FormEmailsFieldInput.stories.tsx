@@ -29,7 +29,7 @@ export const Default: Story = {
 
     await canvas.findByText('Emails');
     await canvas.findByText('Primary Email');
-    await canvas.findByText('tim@twenty.com');
+    await canvas.findByText('tim@bades.id');
   },
 };
 
@@ -77,7 +77,7 @@ export const Disabled: Story = {
       throw new Error('Editor element not found');
     }
 
-    const defaultValue = await canvas.findByText('tim@twenty.com');
+    const defaultValue = await canvas.findByText('tim@bades.id');
     expect(defaultValue).toBeVisible();
 
     await userEvent.type(editor, 'hello@gmail.com');

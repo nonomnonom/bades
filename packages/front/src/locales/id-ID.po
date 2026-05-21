@@ -247,7 +247,7 @@ msgid "{roleLabel} can't {humanReadableAction} {objectLabel} records"
 msgstr "{roleLabel} tidak dapat {humanReadableAction} rekaman {objectLabel}"
 
 msgid "{roleTargetName} will be assigned to the \"{newRoleName}\" role."
-msgstr ""{roleTargetName} will be assigned to the \"{newRoleName}\" role."
+msgstr "{roleTargetName} akan ditugaskan ke peran \"{newRoleName}\"."
 
 msgid "{scopeCount} scopes"
 msgstr "{scopeCount} cakupan"
@@ -8307,19 +8307,19 @@ msgid "This action can return up to {maxRecordsFormatted} records."
 msgstr "his action can return up to {maxRecordsFormatted} records."
 
 msgid "This action cannot be undone."
-msgstr "his action cannot be undone."
+msgstr "Tindakan ini tidak dapat dibatalkan."
 
 msgid ""
 "This action cannot be undone. This will permanently delete your\n"
 "            entire account."
 msgstr ""
-"This action cannot be undone. This will permanently delete your\n"
-"            entire account."
+"Tindakan ini tidak dapat dibatalkan. Ini akan menghapus\n"
+"            akun Anda secara permanen."
 msgid "This action cannot be undone. This will permanently delete your agent.<0/>Please type in the agent name to confirm."
-msgstr "his action cannot be undone. This will permanently delete your agent.<0/>Please type in the agent name to confirm."
+msgstr "Tindakan ini tidak dapat dibatalkan. Ini akan menghapus agen Anda secara permanen.<0/>Silakan ketik nama agen untuk konfirmasi."
 
 msgid "This action cannot be undone. This will permanently delete your entire workspace. <0/> Please type in your email to confirm."
-msgstr "his action cannot be undone. This will permanently delete your entire workspace. <0/> Please type in your email to confirm."
+msgstr "Tindakan ini tidak dapat dibatalkan. Ini akan menghapus seluruh workspace Anda secara permanen. <0/> Silakan ketik email Anda untuk konfirmasi."
 
 msgid "This action cannot be undone. This will permanently remove this member from this workspace and remove them from all their assignments."
 msgstr "his action cannot be undone. This will permanently remove this member from this workspace and remove them from all their assignments."
@@ -8487,7 +8487,7 @@ msgid "Title"
 msgstr "Judul"
 
 msgid "To"
-msgstr "o"
+msgstr "Ke"
 
 msgid "Today"
 msgstr "Hari ini"
@@ -8808,7 +8808,7 @@ msgid "Unused credits from the previous period. Expired at the end of the period
 msgstr "nused credits from the previous period. Expired at the end of the period."
 
 msgid "Up to date"
-msgstr "p to date"
+msgstr "Sudah terkini"
 
 msgid "Upcoming execution time ({timeZone})"
 msgstr "pcoming execution time ({timeZone})"
@@ -9198,43 +9198,43 @@ msgid "was restored by"
 msgstr "dipulihkan oleh"
 
 msgid "We encountered an issue verifying"
-msgstr "e encountered an issue verifying"
+msgstr "Kami menemukan masalah saat memverifikasi"
 
 msgid "We match on these fields. If a {objectLabelSingular} already exists, we update it. Otherwise, we create a new one."
 msgstr "Kami mencocokkan field ini. Jika {objectLabelSingular} sudah ada, kami memperbarui. Jika tidak, kami membuat yang baru."
 
 msgid "We support your square PNGs, JPEGs and GIFs under 10MB"
-msgstr "e support your square PNGs, JPEGs and GIFs under 10MB"
+msgstr "Kami mendukung PNG, JPEG, dan GIF persegi di bawah 10MB"
 
 msgid "We will activate your paid plan. Do you want to proceed?"
-msgstr "e will activate your paid plan. Do you want to proceed?"
+msgstr "Kami akan mengaktifkan paket berbayar Anda. Apakah Anda ingin melanjutkan?"
 
 msgid "We will send a POST request to this endpoint for each new event in application/json format"
-msgstr "e will send a POST request to this endpoint for each new event in application/json format"
+msgstr "Kami akan mengirim permintaan POST ke endpoint ini untuk setiap peristiwa baru dalam format application/json"
 
 msgid "We will send a POST request to this endpoint for each new event in application/json format."
-msgstr "e will send a POST request to this endpoint for each new event in application/json format."
+msgstr "Kami akan mengirim permintaan POST ke endpoint ini untuk setiap peristiwa baru dalam format application/json."
 
 msgid "We will send your a link to verify domain ownership"
-msgstr "e will send your a link to verify domain ownership"
+msgstr "Kami akan mengirimkan tautan untuk memverifikasi kepemilikan domain"
 
 msgid ""
 "We're waiting for a confirmation from our payment provider (Stripe).\n"
 "Please try again in a few seconds, sorry."
 msgstr ""
-"We're waiting for a confirmation from our payment provider (Stripe).\n"
-"Please try again in a few seconds, sorry."
+"Kami menunggu konfirmasi dari penyedia pembayaran kami (Stripe).\n"
+"Mohon coba lagi dalam beberapa detik, maaf atas ketidaknyamanannya."
 msgid "Web Search"
-msgstr "eb Search"
+msgstr "Pencarian Web"
 
 msgid "webhook"
 msgstr "webhook"
 
 msgid "Webhook"
-msgstr "ebhook"
+msgstr "Webhook"
 
 msgid "Webhook {targetUrl} created successfully"
-msgstr "ebhook {targetUrl} created successfully"
+msgstr "Webhook {targetUrl} berhasil dibuat"
 
 msgid "Webhook {targetUrl} updated successfully"
 msgstr "ebhook {targetUrl} updated successfully"
@@ -9495,20 +9495,20 @@ msgid "You will lose all your mappings."
 msgstr "Anda "will lose all your mappings."
 
 msgid "You're about to change your workspace subdomain. This action will log out all users."
-msgstr "Anda're about to change your workspace subdomain. This action will log out all users."
+msgstr "Anda akan mengubah subdomain workspace. Tindakan ini akan mengeluarkan semua pengguna."
 
 msgid ""
 "You've hit your usage limit. \n"
 "Reach to our support team to upgrade."
 msgstr ""
-"You've hit your usage limit. \n"
-"Reach to our support team to upgrade."
+"Anda telah mencapai batas penggunaan. \n"
+"Hubungi tim dukungan kami untuk meningkatkan paket."
 msgid ""
 "You've hit your usage limit. \n"
 "Upgrade to {nextResourceCreditsAmount} credits for ${nextResourceCreditPrice}/{nextTierInterval}."
 msgstr ""
-"You've hit your usage limit. \n"
-"Upgrade to {nextResourceCreditsAmount} credits for ${nextResourceCreditPrice}/{nextTierInterval}."
+"Anda telah mencapai batas penggunaan. \n"
+"Tingkatkan ke {nextResourceCreditsAmount} kredit seharga Rp{nextResourceCreditPrice}/{nextTierInterval}."
 msgid "You've hit your usage limit. Subscribe for more usage."
 msgstr "Anda've hit your usage limit. Subscribe for more usage."
 

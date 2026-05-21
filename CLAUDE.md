@@ -2,14 +2,18 @@
 
 This file provides guidance to Claude Code when working in this repository.
 
+Project-level Claude settings live in `.claude/settings.json`, and the response
+language for this repository is intentionally set to Indonesian.
+
 ## Project Overview
 
 Bades is an Indonesian village information system built on top of a forked
 Twenty engine. Treat this repository as **Bades-first**:
 
 - Public-facing product identity is **Bades**, not Twenty.
-- User-facing copy should prefer **natural Bahasa Indonesia** for village
-  administration workflows.
+- Bahasa default proyek adalah **Bahasa Indonesia native** untuk produk,
+  dokumentasi, komentar, test, fixture, seed, contoh data, dan penamaan
+  konsep bisnis.
 - Internal compatibility layers may still reference legacy Twenty naming, but
   those identifiers must not leak into user-visible surfaces unless the task is
   explicitly about migration or upstream compatibility.
@@ -103,19 +107,19 @@ npx nx run server:lingui:compile
 ### Key Packages
 ```text
 packages/
-├── front                  # Main Bades frontend
-├── server                 # Main API, worker, commands, migrations
-├── shared                 # Shared types, metadata, helpers
-├── ui                     # Shared UI primitives
-├── emails                 # Email rendering/templates
-├── website                # Marketing website and release content
-├── docs                   # Documentation sources
-├── sdk                    # App SDK and CLI support
-├── client-sdk             # Generated/API client assets
-├── e2e-testing            # End-to-end tests
-├── utils                  # Repo utilities and scripts
-├── claude-skills          # Additional Claude-facing assets
-└── create-twenty-app      # Scaffolding package still carrying legacy naming
+- front                  # Main Bades frontend
+- server                 # Main API, worker, commands, migrations
+- shared                 # Shared types, metadata, helpers
+- ui                     # Shared UI primitives
+- emails                 # Email rendering/templates
+- website                # Marketing website and release content
+- docs                   # Documentation sources
+- sdk                    # App SDK and CLI support
+- client-sdk             # Generated/API client assets
+- e2e-testing            # End-to-end tests
+- utils                  # Repo utilities and scripts
+- claude-skills          # Additional Claude-facing assets
+- create-twenty-app      # Scaffolding package still carrying legacy naming
 ```
 
 ### Product Direction Rules
@@ -123,6 +127,8 @@ packages/
   deliberate engine change.
 - Prefer Bades terminology and village-administration concepts over CRM/SaaS
   language in user-facing work.
+- Treat Bahasa Indonesia as the default language for comments, tests, fixtures,
+  docs, examples, and business-domain identifiers whenever practical.
 - For seed data, demo content, docs screenshots, onboarding copy, and examples,
   treat old Twenty defaults as debt to be removed.
 - When technical identifiers still use legacy names, isolate them to internal
@@ -140,6 +146,9 @@ packages/
   do not introduce `styled-components`.
 - Use the Jotai helper utilities already in the repo such as
   `createAtomState`, `createAtomSelector`, and `createAtomFamilyState`.
+- Use Bahasa Indonesia for business-facing identifiers, comments, test names,
+  fixtures, and examples unless English is required by an external API,
+  framework convention, or compatibility constraint.
 
 ## Backend Conventions
 
@@ -157,16 +166,19 @@ packages/
 1. Read `GOAL.md` for product-facing work.
 2. Check for an existing `.claude/rules/*` rule or `.claude/skills/*` skill that
    applies to the area you are touching.
+   Prioritize the Bades core rules: `bahasa-indonesia-total.md`,
+   `anti-brand-leak.md`, and `non-technical-product.md`.
 3. Prefer diff-based linting and focused test runs before broader suites.
 4. Regenerate GraphQL or localization artifacts when the change requires it.
 5. Avoid introducing new public-facing references to Twenty unless the task is
    specifically about migration, provenance, or upstream compatibility.
 
 ### Localization Rules
-- User-facing Bades UI should trend toward Indonesian-first wording.
-- Avoid mixed-language copy that feels like an unfinished translation.
-- If a surface is intentionally still English for compatibility, keep the scope
-  narrow and document why.
+- User-facing Bades UI should be Bahasa Indonesia native by default.
+- Avoid mixed-language copy, comments, tests, or examples that feel like an
+  unfinished translation.
+- Use English only for language keywords, framework/library APIs, external
+  contracts, or unavoidable legacy compatibility.
 
 ## Dev Environment Setup
 
