@@ -679,7 +679,16 @@ penuh ke Midtrans; docs ditunda.
   `/webhooks/midtrans`, feature flag, frontend billing). Estimasi besar
   (setara berminggu-minggu); butuh akun/kredensial Midtrans sandbox untuk
   verifikasi end-to-end.
-- **Fase 4 — Brand/CRM/self-hosting leak user-facing**: `asset-paths.ts`,
+- **Fase 4 — SEBAGIAN SELESAI (commit `b6864bed`)**:
+  - Brand leak diperbaiki: `asset-paths.ts` (key logo `twenty`→`bades`),
+    `next.config.ts` (hapus redirect domain lama `twenty-main.com` &
+    `why-twenty`), `load-local-*.ts` (path paket `twenty-website`→`website`).
+  - **~25 error typecheck website pre-existing diperbaiki**: locale
+    dipersempit ke `en/id-ID` (peta/list/segment/test), route id `whyBades`,
+    tipe label workflow node. `nx typecheck website` kini **lulus**.
+  - SISA Fase 4: narasi self-hosting/open-source di katalog website,
+    istilah CRM di `id-ID.po`, hapus seed legacy pet/rocket/survey.
+- **Fase 4 (sisa) — Brand/CRM/self-hosting leak user-facing**: `asset-paths.ts`,
   `next.config.ts`, narasi self-hosting di website locale, istilah CRM di
   `id-ID.po`, hapus seed legacy pet/rocket/survey.
 - **Fase 5 — Perbaikan test front**: jalankan `nx test front`, perbaiki test
