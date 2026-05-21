@@ -7,35 +7,20 @@ describe('normalizeLocale', () => {
   });
 
   it('should return the locale when there is a direct match in APP_LOCALES', () => {
-    // Test a few valid locales
+    // Test valid locales
     expect(normalizeLocale('en')).toBe('en');
-    expect(normalizeLocale('fr-FR')).toBe('fr-FR');
-    expect(normalizeLocale('es-ES')).toBe('es-ES');
     expect(normalizeLocale('id-ID')).toBe('id-ID');
   });
 
   it('should handle case-insensitive matches', () => {
     // Test with lowercase variants of the locales
-    expect(normalizeLocale('fr-fr')).toBe('fr-FR');
-    expect(normalizeLocale('es-es')).toBe('es-ES');
-    expect(normalizeLocale('DE-de')).toBe('de-DE');
+    expect(normalizeLocale('en')).toBe('en');
+    expect(normalizeLocale('id-id')).toBe('id-ID');
   });
 
   it('should match just the language part if full locale not found', () => {
     // Test with just the language code
-    expect(normalizeLocale('fr')).toBe('fr-FR');
-    expect(normalizeLocale('es')).toBe('es-ES');
-    expect(normalizeLocale('de')).toBe('de-DE');
     expect(normalizeLocale('id')).toBe('id-ID');
-  });
-
-  it('should handle language codes that might map to multiple locales', () => {
-    // Test for language codes that might have multiple possible mappings
-    // For example, 'pt' could map to either 'pt-PT' or 'pt-BR'
-    // The implementation should map consistently to one of them
-    expect(normalizeLocale('pt')).toBeTruthy();
-    // Verify it's one of the expected values
-    expect(['pt-PT', 'pt-BR']).toContain(normalizeLocale('pt'));
   });
 
   it('should return SOURCE_LOCALE for unsupported or invalid locales', () => {

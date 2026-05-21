@@ -79,12 +79,12 @@ export const LocalePicker = () => {
     value: (typeof APP_LOCALES)[keyof typeof APP_LOCALES];
   }> = [
     {
-      label: t`English`,
-      value: APP_LOCALES.en,
+      label: t`Indonesia`,
+      value: APP_LOCALES['id-ID'],
     },
     {
-      label: t`Indonesian`,
-      value: APP_LOCALES['id-ID'],
+      label: t`English`,
+      value: APP_LOCALES.en,
     },
   ];
 
