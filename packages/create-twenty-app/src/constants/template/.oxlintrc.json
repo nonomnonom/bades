@@ -25,8 +25,8 @@
           {
             "patterns": [
               {
-                "group": ["twenty-shared", "twenty-shared/*"],
-                "message": "Logic functions must not import from twenty-shared directly. Import runtime types and helpers from `twenty-sdk/logic-function` instead so the logic-function bundle stays minimal."
+                "group": ["bades-shared", "bades-shared/*"],
+                "message": "Logic functions must not import from bades-shared directly. Import runtime types and helpers from `bades-sdk/logic-function` instead so the logic-function bundle stays minimal."
               }
             ]
           }

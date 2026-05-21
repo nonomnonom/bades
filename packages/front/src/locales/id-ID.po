@@ -505,7 +505,7 @@ msgid "Add"
 msgstr "Tambah"
 
 msgid "Add \"{trimmedName}\" to options"
-msgstr "Tambah "\"{trimmedName}\" to options"
+msgstr "Tambah \"{trimmedName}\" ke opsi"
 
 msgid "Add a {objectLabelSingular}"
 msgstr "Tambah {objectLabelSingular}"
@@ -787,61 +787,61 @@ msgid "AI"
 msgstr "AI"
 
 msgid "AI Chat"
-msgstr "AI Chat"
+msgstr "Obrolan AI"
 
 msgid "AI chat threads for this workspace"
-msgstr "AI chat threads for this workspace"
+msgstr "Utas obrolan AI untuk ruang kerja ini"
 
 msgid "AI consumption across all workspaces."
-msgstr "AI consumption across all workspaces."
+msgstr "Konsumsi AI di semua ruang kerja."
 
 msgid "AI consumption over time."
-msgstr "AI consumption over time."
+msgstr "Konsumsi AI dari waktu ke waktu."
 
 msgid "AI Model"
-msgstr "AI Model"
+msgstr "Model AI"
 
 msgid "AI not configured. Set OPENAI_API_KEY, ANTHROPIC_API_KEY, or XAI_API_KEY in your environment."
-msgstr "AI not configured. Set OPENAI_API_KEY, ANTHROPIC_API_KEY, or XAI_API_KEY in your environment."
+msgstr "AI tidak dikonfigurasi. Atur OPENAI_API_KEY, ANTHROPIC_API_KEY, atau XAI_API_KEY di lingkungan Anda."
 
 msgid "AI request prep"
-msgstr "AI request prep"
+msgstr "Persiapan permintaan AI"
 
 msgid "AI tool"
-msgstr "AI tool"
+msgstr "Alat AI"
 
 msgid "AI Usage"
-msgstr "AI Usage"
+msgstr "Penggunaan AI"
 
 msgid "AI usage analytics across workspaces is available with an Enterprise key."
-msgstr "AI usage analytics across workspaces is available with an Enterprise key."
+msgstr "Analitik penggunaan AI di semua ruang kerja tersedia dengan kunci Enterprise."
 
 msgid "AI usage analytics is available with an Enterprise key."
-msgstr "AI usage analytics is available with an Enterprise key."
+msgstr "Analitik penggunaan AI tersedia dengan kunci Enterprise."
 
 msgid "AI usage analytics requires ClickHouse. Contact your administrator."
-msgstr "AI usage analytics requires ClickHouse. Contact your administrator."
+msgstr "Analitik penggunaan AI memerlukan ClickHouse. Hubungi administrator Anda."
 
 msgid "AI usage analytics will appear here once you start using AI features."
-msgstr "AI usage analytics will appear here once you start using AI features."
+msgstr "Analitik penggunaan AI akan muncul di sini setelah Anda mulai menggunakan fitur AI."
 
 msgid "AI Usage by Model"
-msgstr "AI Usage by Model"
+msgstr "Penggunaan AI per Model"
 
 msgid "AI Usage by Type"
-msgstr "AI Usage by Type"
+msgstr "Penggunaan AI per Tipe"
 
 msgid "AI Usage by User"
-msgstr "AI Usage by User"
+msgstr "Penggunaan AI per Pengguna"
 
 msgid "AI Usage by Workspace"
-msgstr "AI Usage by Workspace"
+msgstr "Penggunaan AI per Ruang Kerja"
 
 msgid "AI User Usage"
-msgstr "AI User Usage"
+msgstr "Penggunaan AI Pengguna"
 
 msgid "AI Workflow"
-msgstr "AI Workflow"
+msgstr "Alur Kerja AI"
 
 msgid "AKIA..."
 msgstr "AKIA..."
@@ -853,7 +853,7 @@ msgid "All"
 msgstr "Semua"
 
 msgid "All ({relationRecordsCount})"
-msgstr "Semua "({relationRecordsCount})"
+msgstr "Semua ({relationRecordsCount})"
 
 msgid "All Actions Access"
 msgstr "Semua Akses Aksi"
@@ -1021,43 +1021,43 @@ msgid "And"
 msgstr "Dan"
 
 msgid "Any {fieldLabel} field"
-msgstr "Apa pun "{fieldLabel} field"
+msgstr "Bidang {fieldLabel} apa pun"
 
 msgid "Any device"
-msgstr "Apa pun "device"
+msgstr "Perangkat apa pun"
 
 msgid "Any field"
-msgstr "Apa pun "field"
+msgstr "Bidang apa pun"
 
 msgid "Anyone in this workspace can use this credential."
-msgstr "Siapa pun in this workspace can use this credential."
+msgstr "Siapa pun di ruang kerja ini dapat menggunakan kredensial ini."
 
 msgid "Anyone with an email address at these domains is allowed to sign up for this workspace."
-msgstr "Siapa pun with an email address at these domains is allowed to sign up for this workspace."
+msgstr "Siapa pun dengan alamat email di domain ini diizinkan mendaftar untuk ruang kerja ini."
 
 msgid "API"
 msgstr "API"
 
 msgid "API & Webhooks"
-msgstr "API "& Webhooks"
+msgstr "API & Webhook"
 
 msgid "API Key"
 msgstr "Kunci API"
 
 msgid "API key configured"
-msgstr "API "key configured"
+msgstr "Kunci API terkonfigurasi"
 
 msgid "API Key copied to clipboard"
-msgstr "API "Key copied to clipboard"
+msgstr "Kunci API disalin ke clipboard"
 
 msgid "API key is required"
 msgstr "API key wajib diisi"
 
 msgid "API key name cannot be empty"
-msgstr "API "key name cannot be empty"
+msgstr "Nama kunci API tidak boleh kosong"
 
 msgid "API key roles"
-msgstr "API "key roles"
+msgstr "Peran kunci API"
 
 msgid "API keys"
 msgstr "API keys"
@@ -1066,22 +1066,22 @@ msgid "API Keys"
 msgstr "Kunci API"
 
 msgid "API Keys - Settings"
-msgstr "API "Keys - Settings"
+msgstr "Kunci API - Pengaturan"
 
 msgid "API Keys & Webhooks"
-msgstr "API "Keys & Webhooks"
+msgstr "Kunci API & Webhook"
 
 msgid "API Name"
 msgstr "Nama API"
 
 msgid "API Name (Plural)"
-msgstr "API "Name (Plural)"
+msgstr "Nama API (Jamak)"
 
 msgid "API Name (Singular)"
-msgstr "API "Name (Singular)"
+msgstr "Nama API (Tunggal)"
 
 msgid "API values"
-msgstr "API "values"
+msgstr "Nilai API"
 
 msgid "APIs"
 msgstr "API"
@@ -1093,40 +1093,40 @@ msgid "Apostrophe and dot"
 msgstr "Tanda kutip dan titik"
 
 msgid "App"
-msgstr "App"
+msgstr "Aplikasi"
 
 msgid "App deleted successfully"
-msgstr "App deleted successfully"
+msgstr "Aplikasi berhasil dihapus"
 
 msgid "Appearance"
-msgstr "Appearance"
+msgstr "Tampilan"
 
 msgid "Apple"
 msgstr "Apple"
 
 msgid "Applicability"
-msgstr "Applicability"
+msgstr "Keterlakuan"
 
 msgid "Application"
 msgstr "Aplikasi"
 
 msgid "Application details"
-msgstr "Aplikasi "details"
+msgstr "Detail aplikasi"
 
 msgid "Application installed successfully."
-msgstr "Aplikasi "installed successfully."
+msgstr "Aplikasi berhasil diinstal."
 
 msgid "Application Logs"
-msgstr "Aplikasi "Logs"
+msgstr "Log Aplikasi"
 
 msgid "Application not listed on the marketplace. It was shared via a direct link"
-msgstr "Aplikasi "not listed on the marketplace. It was shared via a direct link"
+msgstr "Aplikasi tidak terdaftar di marketplace. Dibagikan melalui tautan langsung"
 
 msgid "Application successfully uninstalled."
-msgstr "Aplikasi "successfully uninstalled."
+msgstr "Aplikasi berhasil dihapus."
 
 msgid "Application upgraded successfully."
-msgstr "Aplikasi "upgraded successfully."
+msgstr "Aplikasi berhasil ditingkatkan."
 
 msgid "application variable"
 msgstr "variabel aplikasi"
@@ -1135,28 +1135,28 @@ msgid "Applications"
 msgstr "Aplikasi"
 
 msgid "Applications - Developer"
-msgstr "Aplikasi" - Developer"
+msgstr "Aplikasi - Pengembang"
 
 msgid "Apply"
 msgstr "Terapkan"
 
 msgid "Apply{progressText}"
-msgstr "Apply{progressText}"
+msgstr "Terapkan{progressText}"
 
 msgid "Approved access domain validated"
-msgstr "Approved access domain validated"
+msgstr "Domain akses yang disetujui divalidasi"
 
 msgid "Approved Domains"
-msgstr "Approved Domains"
+msgstr "Domain Disetujui"
 
 msgid "Apps"
-msgstr "Apps"
+msgstr "Aplikasi-aplikasi"
 
 msgid "Apps made by other developers published on npm"
-msgstr "App made by other developers published on npm"
+msgstr "Aplikasi buatan pengembang lain yang dipublikasikan di npm"
 
 msgid "Apps you're the developer of"
-msgstr "App you're the developer of"
+msgstr "Aplikasi yang Anda kembangkan"
 
 msgid "Arabic"
 msgstr "Arab"
@@ -1165,7 +1165,7 @@ msgid "Archive"
 msgstr "Arsip"
 
 msgid "Archive files cannot be previewed. Please download the file to access its contents."
-msgstr "Arsip files cannot be previewed. Please download the file to access its contents."
+msgstr "File arsip tidak dapat dippratinjau. Unduh file untuk melihat isinya."
 
 msgid "Archived"
 msgstr "Diarsipkan"
@@ -1174,16 +1174,16 @@ msgid "Are you sure you want to delete {sourceHandle}? Forwarded emails will no 
 msgstr "Apakah Anda yakin ingin menghapus {sourceHandle}? Email yang diteruskan tidak akan lagi masuk ke ruang kerja ini."
 
 msgid "Are you sure you want to delete this evaluation input?"
-msgstr "Adalah "you sure you want to delete this evaluation input?"
+msgstr "Apakah Anda yakin ingin menghapus input evaluasi ini?"
 
 msgid "Are you sure you want to delete this related {relationObjectMetadataNameSingular}?<0/>This action will break all its relationships with other objects."
-msgstr "Adalah "you sure you want to delete this related {relationObjectMetadataNameSingular}?<0/>This action will break all its relationships with other objects."
+msgstr "Apakah Anda yakin ingin menghapus {relationObjectMetadataNameSingular} yang terkait ini?<0/>Tindakan ini akan memutuskan semua hubungannya dengan objek lain."
 
 msgid "Are you sure you want to delete this skill? This action cannot be undone."
-msgstr "Adalah "you sure you want to delete this skill? This action cannot be undone."
+msgstr "Apakah Anda yakin ingin menghapus skill ini? Tindakan ini tidak dapat dibatalkan."
 
 msgid "Are you sure you want to delete this tool? This action cannot be undone."
-msgstr "Adalah "you sure you want to delete this tool? This action cannot be undone."
+msgstr "Apakah Anda yakin ingin menghapus alat ini? Tindakan ini tidak dapat dibatalkan."
 
 msgid "Are you sure you want to destroy these {0}? They won't be recoverable anymore."
 msgstr "Apakah Anda yakin ingin menghancurkan {0} ini? Tidak dapat dipulihkan lagi."
@@ -1192,22 +1192,22 @@ msgid "Are you sure you want to destroy this {0}? It cannot be recovered anymore
 msgstr "Apakah Anda yakin ingin menghancurkan {0} ini? Tidak dapat dipulihkan lagi."
 
 msgid "Are you sure you want to reset this variable?"
-msgstr "Adalah "you sure you want to reset this variable?"
+msgstr "Apakah Anda yakin ingin mereset variabel ini?"
 
 msgid "Are you sure you want to restore these {0}?"
-msgstr "Adalah "you sure you want to restore these {0}?"
+msgstr "Apakah Anda yakin ingin memulihkan {0} ini?"
 
 msgid "Are you sure you want to restore this {0}?"
-msgstr "Adalah "you sure you want to restore this {0}?"
+msgstr "Apakah Anda yakin ingin memulihkan {0} ini?"
 
 msgid "Are you sure you want to update the role of this user from \"{oldRoleLabel}\" to \"{newRoleLabel}\"?"
-msgstr "Adalah "you sure you want to update the role of this user from \"{oldRoleLabel}\" to \"{newRoleLabel}\"?"
+msgstr "Apakah Anda yakin ingin mengubah peran pengguna ini dari \"{oldRoleLabel}\" ke \"{newRoleLabel}\"?"
 
 msgid "Are you sure? Your current information will not be saved."
 msgstr "Apakah Anda yakin? Informasi Anda saat ini tidak akan disimpan."
 
 msgid "As it will be displayed in the workspace"
-msgstr "Sebagai it will be displayed in the workspace"
+msgstr "Sebagaimana akan ditampilkan di ruang kerja"
 
 msgid "ascending"
 msgstr "meningkat"
@@ -1222,16 +1222,16 @@ msgid "Ask, search or make anything..."
 msgstr "Tanya, cari atau buat apa saja..."
 
 msgid "Assign {roleTargetName}?"
-msgstr "Tugaskan "{roleTargetName}?"
+msgstr "Tugaskan {roleTargetName}?"
 
 msgid "Assign roles to specify access permissions"
-msgstr "Tugaskan "roles to specify access permissions"
+msgstr "Tetapkan peran untuk menentukan izin akses"
 
 msgid "Assign to agent"
-msgstr "Tugaskan "to agent"
+msgstr "Tugaskan ke agen"
 
 msgid "Assign to API key"
-msgstr "Tugaskan "to API key"
+msgstr "Tugaskan ke kunci API"
 
 msgid "Assign to member"
 msgstr "Tugaskan ke anggota"
@@ -1255,7 +1255,7 @@ msgid "Assigned to users who join via invite link, approved domain, or SSO, and 
 msgstr "Ditugaskan ke pengguna yang bergabung melalui tautan undangan, domain yang disetujui, atau SSO, dan digunakan sebagai fallback ketika peran yang ditugaskan dihapus"
 
 msgid "Assignment"
-msgstr "Tugaskanment"
+msgstr "Penugasan"
 
 msgid "Assistant"
 msgstr "Asisten"
@@ -1381,7 +1381,7 @@ msgid "Available tools"
 msgstr "Tersedia tools"
 
 msgid "Avatar file field not found for person object"
-msgstr "Avatar "file field not found for person object"
+msgstr "Kolom file avatar tidak ditemukan untuk objek orang"
 
 msgid "Average"
 msgstr "Rata-rata"
@@ -1459,19 +1459,19 @@ msgid "Blue"
 msgstr "Biru"
 
 msgid "Body"
-msgstr "Body"
+msgstr "Isi"
 
 msgid "Body Input"
-msgstr "Body Input"
+msgstr "Input Isi"
 
 msgid "Book a Call"
-msgstr "Buku "a Call"
+msgstr "Pesan Telepon"
 
 msgid "Book onboarding"
-msgstr "Buku "onboarding"
+msgstr "Pesan Orientasi"
 
 msgid "Book your onboarding"
-msgstr "Buku "your onboarding"
+msgstr "Pesan orientasi Anda"
 
 msgid "Boolean"
 msgstr "Boolean"
@@ -1567,28 +1567,28 @@ msgid "Calendar Event"
 msgstr "Acara Kalender"
 
 msgid "Calendar event not found"
-msgstr "Kalender "event not found"
+msgstr "Acara kalender tidak ditemukan"
 
 msgid "Calendar settings"
-msgstr "Kalender "settings"
+msgstr "Pengaturan kalender"
 
 msgid "Calendar start day"
-msgstr "Kalender "start day"
+msgstr "Hari mulai kalender"
 
 msgid "Calendar Sync"
-msgstr "Kalender "Sync"
+msgstr "Sinkronisasi Kalender"
 
 msgid "Calendar Sync is not available because the service is down"
-msgstr "Kalender "Sync is not available because the service is down"
+msgstr "Sinkronisasi Kalender tidak tersedia karena layanan sedang turun"
 
 msgid "Calendar view"
-msgstr "Kalender "view"
+msgstr "Tampilan kalender"
 
 msgid "Calendar View"
-msgstr "Kalender "View"
+msgstr "Tampilan Kalender"
 
 msgid "Calendars"
-msgstr "Kalenders"
+msgstr "Kalender"
 
 msgid "Calling Code"
 msgstr "Kode Panggilan"
@@ -1603,7 +1603,7 @@ msgid "Cancel"
 msgstr "Batalkan"
 
 msgid "Cancel credit pack switching"
-msgstr "Batal" credit pack switching"
+msgstr "Batalkan peralihan paket kredit"
 
 msgid "Cancel credit pack switching?"
 msgstr "Batalkan beralih paket kredit?"
@@ -1624,40 +1624,40 @@ msgid "Cancel plan switching?"
 msgstr "Batalkan beralih paket?"
 
 msgid "Cancel reply"
-msgstr "Batal" reply"
+msgstr "Batalkan balasan"
 
 msgid "Cancel your subscription"
-msgstr "Batal" your subscription"
+msgstr "Batalkan langganan Anda"
 
 msgid "Canceled"
-msgstr "Batal"ed"
+msgstr "Dibatalkan"
 
 msgid "Canceled at"
-msgstr "Batal"ed at"
+msgstr "Dibatalkan pada"
 
 msgid "Cancelling"
-msgstr "Batal"ling"
+msgstr "Membatalkan"
 
 msgid "Cancels at"
-msgstr "Batal"s at"
+msgstr "Berakhir pada"
 
 msgid "Cancels at period end"
-msgstr "Batal"s at period end"
+msgstr "Berakhir pada akhir periode"
 
 msgid "Cancels on"
-msgstr "Batal"s on"
+msgstr "Berakhir pada"
 
 msgid "Cannot delete the only view"
-msgstr "Tidak dapat "delete the only view"
+msgstr "Tidak dapat menghapus satu-satunya tampilan"
 
 msgid "Cannot display message"
-msgstr "Tidak dapat "display message"
+msgstr "Tidak dapat menampilkan pesan"
 
 msgid "Cannot impersonate selected user"
-msgstr "Tidak dapat "impersonate selected user"
+msgstr "Tidak dapat meniru pengguna yang dipilih"
 
 msgid "Cannot upload more than {maxNumberOfValues} files"
-msgstr "Tidak dapat "upload more than {maxNumberOfValues} files"
+msgstr "Tidak dapat mengunggah lebih dari {maxNumberOfValues} file"
 
 msgid "Captcha (anti-bot check) is still loading, try again"
 msgstr "Captcha (periksa anti-bot) masih memuat, coba lagi"
@@ -1681,37 +1681,37 @@ msgid "Cc/Bcc"
 msgstr "Cc/Bcc"
 
 msgid "Change Color"
-msgstr "Ubah "Color"
+msgstr "Ubah Warna"
 
 msgid "Change email"
-msgstr "Ubah "email"
+msgstr "Ubah email"
 
 msgid "Change node type"
-msgstr "Ubah "node type"
+msgstr "Ubah tipe node"
 
 msgid "Change password"
 msgstr "Ubah kata sandi"
 
 msgid "Change Password"
-msgstr "Ubah "Password"
+msgstr "Ubah Kata Sandi"
 
 msgid "Change subdomain?"
-msgstr "Ubah "subdomain?"
+msgstr "Ubah subdomain?"
 
 msgid "Change to Monthly?"
-msgstr "Ubah "to Monthly?"
+msgstr "Ubah ke Bulanan?"
 
 msgid "Change to Organization Plan?"
-msgstr "Ubah "to Organization Plan?"
+msgstr "Ubah ke Paket Organisasi?"
 
 msgid "Change to Pro Plan?"
-msgstr "Ubah "to Pro Plan?"
+msgstr "Ubah ke Paket Pro?"
 
 msgid "Change to Yearly?"
-msgstr "Ubah "to Yearly?"
+msgstr "Ubah ke Tahunan?"
 
 msgid "Change visibility?"
-msgstr "Ubah "visibility?"
+msgstr "Ubah visibilitas?"
 
 msgid "Changing visibility requires reconnecting this OAuth connection. You will be redirected to authorize it again."
 msgstr "Mengubah visibilitas memerlukan menyambungkan ulang koneksi OAuth ini. Anda akan diarahkan untuk mengotorisasinya lagi."
@@ -1720,40 +1720,40 @@ msgid "Chart"
 msgstr "Grafik"
 
 msgid "Chat"
-msgstr "Chat"
+msgstr "Obrolan"
 
 msgid "Chat actions"
-msgstr "Obrolan "actions"
+msgstr "Tindakan obrolan"
 
 msgid "Chat conversation"
-msgstr "Obrolan "conversation"
+msgstr "Percakapan obrolan"
 
 msgid "Chat name"
-msgstr "Obrolan "name"
+msgstr "Nama obrolan"
 
 msgid "Chat Sessions"
-msgstr "Obrolan "Sessions"
+msgstr "Sesi Obrolan"
 
 msgid "Chat with AI agents and use AI features"
-msgstr "Obrolan "with AI agents and use AI features"
+msgstr "Berbincang dengan agen AI dan menggunakan fitur AI"
 
 msgid "Chats"
-msgstr "Chats"
+msgstr "Obrolan-obrolan"
 
 msgid "Check out our latest releases"
-msgstr "Periksa "out our latest releases"
+msgstr "Lihat rilis terbaru kami"
 
 msgid "Check verification"
-msgstr "Periksa "verification"
+msgstr "Periksa verifikasi"
 
 msgid "Check your Emails"
-msgstr "Periksa "your Emails"
+msgstr "Periksa Email Anda"
 
 msgid "Check your inbox to verify your new email address."
-msgstr "Periksa "your inbox to verify your new email address."
+msgstr "Periksa kotak masuk Anda untuk memverifikasi alamat email baru Anda."
 
 msgid "Checkout session error. Please retry or contact Bades.id team"
-msgstr "Cekout session error. Please retry or contact Bades.id team"
+msgstr "Kesalahan sesi checkout. Silakan coba lagi atau hubungi tim Bades.id"
 
 msgid "Chinese — Simplified"
 msgstr "Cina - Disederhanakan"
@@ -1762,37 +1762,37 @@ msgid "Chinese — Traditional"
 msgstr "Cina - Tradisional"
 
 msgid "Choose a Workspace"
-msgstr "Pilih "a Workspace"
+msgstr "Pilih Ruang Kerja"
 
 msgid "Choose between OIDC and SAML protocols"
-msgstr "Pilih "between OIDC and SAML protocols"
+msgstr "Pilih antara protokol OIDC dan SAML"
 
 msgid "Choose between Short and Full"
-msgstr "Pilih "between Short and Full"
+msgstr "Pilih antara Pendek dan Panjang"
 
 msgid "Choose the default currency that will apply"
-msgstr "Pilih "the default currency that will apply"
+msgstr "Pilih mata uang standar yang akan diterapkan"
 
 msgid "Choose the fields that will identify your records"
-msgstr "Pilih "the fields that will identify your records"
+msgstr "Pilih bidang yang akan mengidentifikasi rekaman Anda"
 
 msgid "Choose the format used to display date value"
-msgstr "Pilih "the format used to display date value"
+msgstr "Pilih format yang digunakan untuk menampilkan nilai tanggal"
 
 msgid "Choose what happens when you click a link"
-msgstr "Pilih "what happens when you click a link"
+msgstr "Pilih apa yang terjadi ketika Anda mengklik tautan"
 
 msgid "Choose what happens when you click a phone number"
-msgstr "Pilih "what happens when you click a phone number"
+msgstr "Pilih apa yang terjadi ketika Anda mengklik nomor telepon"
 
 msgid "Choose what happens when you click an email"
-msgstr "Pilih "what happens when you click an email"
+msgstr "Pilih apa yang terjadi ketika Anda mengklik email"
 
 msgid "Choose which profile fields users with the Edit Profile permission can modify"
-msgstr "Pilih "which profile fields users with the Edit Profile permission can modify"
+msgstr "Pilih bidang profil mana yang dapat diubah pengguna dengan izin Edit Profil"
 
 msgid "Choose your Trial"
-msgstr "Pilih "your Trial"
+msgstr "Pilih Uji Coba Anda"
 
 msgid "City"
 msgstr "Kota"
@@ -1801,49 +1801,49 @@ msgid "Clear"
 msgstr "Hapus"
 
 msgid "Clear filters"
-msgstr "Hapus "filters"
+msgstr "Hapus filter"
 
 msgid "Clear the field or \"X\" to revert to environment/default value."
-msgstr "Hapus "the field or \"X\" to revert to environment/default value."
+msgstr "Hapus bidang atau \"X\" untuk kembali ke nilai lingkungan/bawaan."
 
 msgid "Click a user to see their daily breakdown."
-msgstr "Klik "a user to see their daily breakdown."
+msgstr "Klik pengguna untuk melihat rincian harian mereka."
 
 msgid "Click on \"Add Field\" below to add the first input to your form. The form will pop up on the user's screen when the workflow is launched from a manual trigger. For other types of triggers, it will be displayed in the Workflow run record page."
-msgstr "Klik "on \"Add Field\" below to add the first input to your form. The form will pop up on the user's screen when the workflow is launched from a manual trigger. For other types of triggers, it will be displayed in the Workflow run record page."
+msgstr "Klik \"Tambah Bidang\" di bawah untuk menambahkan input pertama ke formulir Anda. Formulir akan muncul di layar pengguna saat alur kerja dimulai dari pemicu manual. Untuk tipe pemicu lain, formulir akan ditampilkan di halaman rekaman jalannya alur kerja."
 
 msgid "Click on \"Add Output Field\" below to define the structure of your AI agent's response. These fields will be used to format and validate the AI's output when the workflow is executed, and can be referenced by subsequent workflow steps."
-msgstr "Klik "on \"Add Output Field\" below to define the structure of your AI agent's response. These fields will be used to format and validate the AI's output when the workflow is executed, and can be referenced by subsequent workflow steps."
+msgstr "Klik \"Tambah Output Field\" di bawah untuk menentukan struktur respons agen AI Anda. Bidang-bidang ini akan digunakan untuk memformat dan memvalidasi output AI saat alur kerja dijalankan, dan dapat dirujuk oleh langkah alur kerja berikutnya."
 
 msgid "Click on the checkmark to apply your changes."
-msgstr "Klik "on the checkmark to apply your changes."
+msgstr "Klik centang untuk menerapkan perubahan Anda."
 
 msgid "Click to add your first widget"
-msgstr "Klik "to add your first widget"
+msgstr "Klik untuk menambah widget pertama Anda"
 
 msgid "Click to see data"
-msgstr "Klik "to see data"
+msgstr "Klik untuk melihat data"
 
 msgid "Click to select icon {iconAriaLabel}"
-msgstr "Klik "to select icon {iconAriaLabel}"
+msgstr "Klik untuk memilih ikon {iconAriaLabel}"
 
 msgid "ClickHouse is required for audit logs. Contact your administrator."
-msgstr "KlikHouse is required for audit logs. Contact your administrator."
+msgstr "ClickHouse diperlukan untuk log audit. Hubungi administrator Anda."
 
 msgid "ClickHouse Not Configured"
-msgstr "KlikHouse Not Configured"
+msgstr "ClickHouse Tidak Dikonfigurasi"
 
 msgid "Client ID"
-msgstr "Klien "ID"
+msgstr "ID Klien"
 
 msgid "Client Secret"
-msgstr "Klien "Secret"
+msgstr "Rahasia Klien"
 
 msgid "Client secret rotated. Copy it now — it won't be shown again."
-msgstr "Klien "secret rotated. Copy it now — it won't be shown again."
+msgstr "Rahasia klien telah dirotasi. Salin sekarang juga — rahasia ini tidak akan ditampilkan lagi."
 
 msgid "Client Settings"
-msgstr "Klien "Settings"
+msgstr "Pengaturan Klien"
 
 msgid "Clipboard requires a secure connection (HTTPS). Please access this app over HTTPS to enable copying."
 msgstr "Clipboard memerlukan koneksi aman (HTTPS). Silakan akses aplikasi ini melalui HTTPS untuk mengaktifkan salin."
@@ -1852,37 +1852,37 @@ msgid "Close"
 msgstr "Tutup"
 
 msgid "Close banner"
-msgstr "Tutup "banner"
+msgstr "Tutup spanduk"
 
 msgid "Close menu"
-msgstr "Tutup "menu"
+msgstr "Tutup menu"
 
 msgid "Close side panel"
-msgstr "Tutup "side panel"
+msgstr "Tutup panel samping"
 
 msgid "Code"
 msgstr "Kode"
 
 msgid "Code Editor"
-msgstr "Kode "Editor"
+msgstr "Editor Kode"
 
 msgid "Code Execution"
-msgstr "Kode "Execution"
+msgstr "Eksekusi Kode"
 
 msgid "Code your function"
-msgstr "Kode "your function"
+msgstr "Tulis fungsi Anda"
 
 msgid "Collapse"
 msgstr "Ciutkan"
 
 msgid "Collapse folder"
-msgstr "Tutup "folder"
+msgstr "Tutup folder"
 
 msgid "Color"
 msgstr "Warna"
 
 msgid "Color code"
-msgstr "Warna "code"
+msgstr "Kode warna"
 
 msgid "Colors"
 msgstr "Warna"
@@ -1945,130 +1945,130 @@ msgid "Completed"
 msgstr "Selesai"
 
 msgid "Completed jobs kept for {completedDuration}, failed jobs kept for {failedDuration} (max {maxCount} each)"
-msgstr "Selesai "jobs kept for {completedDuration}, failed jobs kept for {failedDuration} (max {maxCount} each)"
+msgstr "Pekerjaan selesai disimpan selama {completedDuration}, pekerjaan gagal disimpan selama {failedDuration} (maks {maxCount} masing-masing)"
 
 msgid "Component name"
 msgstr "Nama komponen"
 
 msgid "Computed at"
-msgstr "Hitungd at"
+msgstr "Dihitung pada"
 
 msgid "Conditional availability"
-msgstr "Kondisial availability"
+msgstr "Ketersediaan bersyarat"
 
 msgid "Conditions"
-msgstr "Kondisis"
+msgstr "Kondisi"
 
 msgid "Conditions applied to records before they appear in this view"
-msgstr "Kondisi applied to records before they appear in this view"
+msgstr "Kondisi diterapkan pada rekaman sebelum muncul di tampilan ini"
 
 msgid "Config"
 msgstr "Konfigurasi"
 
 msgid "Config Variables"
-msgstr "Konfigurasi "Variables"
+msgstr "Variabel Konfigurasi"
 
 msgid "Configuration"
-msgstr "Konfigurasi""
+msgstr "Konfigurasi"
 
 msgid "Configuration of this command menu item"
-msgstr "Konfigurasi "of this command menu item"
+msgstr "Konfigurasi item menu perintah ini"
 
 msgid "Configure"
 msgstr "Konfigurasi"
 
 msgid "Configure an SSO connection"
-msgstr "Konfigurasi "an SSO connection"
+msgstr "Konfigurasi koneksi SSO"
 
 msgid "Configure and customize your calendar preferences."
-msgstr "Konfigurasi "and customize your calendar preferences."
+msgstr "Konfigurasi dan sesuaikan preferensi kalender Anda."
 
 msgid "Configure and verify domains for emailing from this workspace."
-msgstr "Konfigurasi "and verify domains for emailing from this workspace."
+msgstr "Konfigurasi dan verifikasi domain untuk pengiriman email dari ruang kerja ini."
 
 msgid "Configure CalDAV settings to sync your calendar events."
-msgstr "Konfigurasi "CalDAV settings to sync your calendar events."
+msgstr "Konfigurasi pengaturan CalDAV untuk menyinkronkan acara kalender Anda."
 
 msgid "Configure date, time, number, timezone, and calendar start day"
-msgstr "Konfigurasi "date, time, number, timezone, and calendar start day"
+msgstr "Konfigurasi tanggal, waktu, angka, zona waktu, dan hari mulai kalender"
 
 msgid "Configure fallback login methods for users with SSO bypass permissions"
-msgstr "Konfigurasi "fallback login methods for users with SSO bypass permissions"
+msgstr "Konfigurasi metode login cadangan untuk pengguna dengan izin SSO bypass"
 
 msgid "Configure how this object appears in search results"
-msgstr "Konfigurasi "how this object appears in search results"
+msgstr "Konfigurasi bagaimana objek ini muncul di hasil pencarian"
 
 msgid "Configure how we should display your events in your calendar"
-msgstr "Konfigurasi "how we should display your events in your calendar"
+msgstr "Konfigurasi bagaimana kami harus menampilkan acara Anda di kalender Anda"
 
 msgid "Configure IMAP settings to receive and sync your emails."
-msgstr "Konfigurasi "IMAP settings to receive and sync your emails."
+msgstr "Konfigurasi pengaturan IMAP untuk menerima dan menyinkronkan email Anda."
 
 msgid "Configure SMTP settings to send emails from your account."
-msgstr "Konfigurasi "SMTP settings to send emails from your account."
+msgstr "Konfigurasi pengaturan SMTP untuk mengirim email dari akun Anda."
 
 msgid "Configure the default AI models for all workspaces"
-msgstr "Konfigurasi "the default AI models for all workspaces"
+msgstr "Konfigurasi model AI bawaan untuk semua ruang kerja"
 
 msgid "Configure these DNS records with your domain provider"
-msgstr "Konfigurasi "these DNS records with your domain provider"
+msgstr "Konfigurasi rekaman DNS ini dengan penyedia domain Anda"
 
 msgid "Configure this widget to display fields"
-msgstr "Konfigurasi "this widget to display fields"
+msgstr "Konfigurasi widget ini untuk menampilkan bidang"
 
 msgid "Configure your default AI model"
-msgstr "Konfigurasi "your default AI model"
+msgstr "Konfigurasi model AI bawaan Anda"
 
 msgid "Configure your emails and calendar settings."
-msgstr "Konfigurasi "your emails and calendar settings."
+msgstr "Konfigurasi email dan pengaturan kalender Anda."
 
 msgid "Configured"
-msgstr "Konfigurasiured"
+msgstr "Terkonfigurasi"
 
 msgid "Confirm"
 msgstr "Konfirmasi"
 
 msgid "Confirm changing your current resource credit allocation."
-msgstr "Konfirmasi "changing your current resource credit allocation."
+msgstr "Konfirmasi perubahan alokasi kredit sumber daya Anda saat ini."
 
 msgid "Confirm deletion of {roleName} role? This cannot be undone. All members will be reassigned to the default role."
-msgstr "Konfirmasi "deletion of {roleName} role? This cannot be undone. All members will be reassigned to the default role."
+msgstr "Konfirmasi penghapusan peran {roleName}? Ini tidak dapat dibatalkan. Semua anggota akan ditugaskan ulang ke peran bawaan."
 
 msgid "Confirm downgrade"
-msgstr "Konfirmasi "downgrade"
+msgstr "Konfirmasi penuruan"
 
 msgid "Confirm role update"
-msgstr "Konfirmasi "role update"
+msgstr "Konfirmasi pembaruan peran"
 
 msgid "Confirm upgrade"
-msgstr "Konfirmasi "upgrade"
+msgstr "Konfirmasi peningkatan"
 
 msgid "Connect {appName} to your account"
-msgstr "Sambungkan "{appName} to your account"
+msgstr "Sambungkan {appName} ke akun Anda"
 
 msgid "Connect {providerDisplayName}"
-msgstr "Sambungkan "{providerDisplayName}"
+msgstr "Sambungkan {providerDisplayName}"
 
 msgid "Connect a new account to your workspace"
-msgstr "Sambungkan "a new account to your workspace"
+msgstr "Sambungkan akun baru ke ruang kerja Anda"
 
 msgid "Connect via IMAP/SMTP"
-msgstr "Sambungkan "via IMAP/SMTP"
+msgstr "Sambungkan via IMAP/SMTP"
 
 msgid "Connect with Google"
-msgstr "Sambungkan "with Google"
+msgstr "Sambungkan dengan Google"
 
 msgid "Connect with Microsoft"
-msgstr "Sambungkan "with Microsoft"
+msgstr "Sambungkan dengan Microsoft"
 
 msgid "Connected"
 msgstr "Terhubung"
 
 msgid "Connected accounts"
-msgstr "Tersambung accounts"
+msgstr "Akun yang tersambung"
 
 msgid "Connection"
-msgstr "Sambungkanion"
+msgstr "Koneksi"
 
 msgid "Connection not found"
 msgstr "Koneksi tidak ditemukan"
@@ -2098,7 +2098,7 @@ msgid "Contact auto-creation"
 msgstr "Pembuatan otomatis kontak"
 
 msgid "Contact your admin to continue using Workflow or AI features."
-msgstr "Hubungi administrator Anda untuk continue menggunakan Workflow atau fitur AI."
+msgstr "Hubungi administrator Anda untuk melanjutkan menggunakan Workflow atau fitur AI."
 
 msgid "Contains"
 msgstr "Mengandung"
@@ -2158,49 +2158,49 @@ msgid "Copy"
 msgstr "Salin"
 
 msgid "Copy code"
-msgstr "Salin "code"
+msgstr "Salin kode"
 
 msgid "Copy command"
-msgstr "Salin "command"
+msgstr "Salin perintah"
 
 msgid "Copy commands"
-msgstr "Salin "commands"
+msgstr "Salin perintah"
 
 msgid "Copy invitation link"
-msgstr "Salin "invitation link"
+msgstr "Salin tautan undangan"
 
 msgid "Copy key ID"
-msgstr "Salin "key ID"
+msgstr "Salin ID kunci"
 
 msgid "Copy link"
 msgstr "Salin tautan"
 
 msgid "Copy link to view"
-msgstr "Salin "link to view"
+msgstr "Salin tautan ke tampilan"
 
 msgid "Copy output"
-msgstr "Salin "output"
+msgstr "Salin output"
 
 msgid "Copy paste the code below"
-msgstr "Salin "paste the code below"
+msgstr "Salin dan tempel kode di bawah"
 
 msgid "Copy Setup Key"
-msgstr "Salin "Setup Key"
+msgstr "Salin Kunci Pengaturan"
 
 msgid "Copy sharing link"
-msgstr "Salin "sharing link"
+msgstr "Salin tautan berbagi"
 
 msgid "Copy this key as it will not be visible again"
-msgstr "Salin "this key as it will not be visible again"
+msgstr "Salin kunci ini karena tidak akan terlihat lagi"
 
 msgid "Copy this secret as it will not be visible again"
-msgstr "Salin "this secret as it will not be visible again"
+msgstr "Salin rahasia ini karena tidak akan terlihat lagi"
 
 msgid "Copy to clipboard"
 msgstr "Salin ke clipboard"
 
 msgid "Copy to Clipboard"
-msgstr "Salin "to Clipboard"
+msgstr "Salin ke Clipboard"
 
 msgid "Copy view link"
 msgstr "Salin "view link"
@@ -2224,16 +2224,16 @@ msgid "Cost per million tokens for cached input (USD)"
 msgstr "Biaya "per million tokens for cached input (USD)"
 
 msgid "Could not delete approved access domain"
-msgstr "Bisa "not delete approved access domain"
+msgstr "Tidak dapat menghapus domain akses yang disetujui"
 
 msgid "Could not open billing portal. Please check your enterprise key is present, or contact support."
 msgstr "Bisa "not open billing portal. Please check your enterprise key is present, or contact support."
 
 msgid "Could not open Stripe. Please contact support."
-msgstr "Bisa "not open Stripe. Please contact support."
+msgstr "Tidak dapat membuka Stripe. Hubungi dukungan."
 
 msgid "Could not refresh validity token. Please contact support."
-msgstr "Bisa "not refresh validity token. Please contact support."
+msgstr "Tidak dapat menyegarkan token validitas. Hubungi dukungan."
 
 msgid "Couldn't copy to clipboard"
 msgstr "Tidak dapat menyalin ke clipboard"
@@ -2332,19 +2332,19 @@ msgid "Create view"
 msgstr "Buat tampilan"
 
 msgid "Create webhook"
-msgstr "Buat "webhook"
+msgstr "Buat webhook"
 
 msgid "Create Webhook"
-msgstr "Buat "Webhook"
+msgstr "Buat Webhook"
 
 msgid "Create Workspace"
-msgstr "Buat "Workspace"
+msgstr "Buat Ruang Kerja"
 
 msgid "Create your workspace"
-msgstr "Buat "your workspace"
+msgstr "Buat ruang kerja Anda"
 
 msgid "Create, edit, and delete workspace views"
-msgstr "Buat, edit, and delete workspace views"
+msgstr "Buat, edit, dan hapus tampilan ruang kerja"
 
 msgid "Created"
 msgstr "Dibuat"
@@ -2371,16 +2371,16 @@ msgid "Credentials and scopes for OAuth authorization flows"
 msgstr "Kredensial and scopes for OAuth authorization flows"
 
 msgid "Credit balance"
-msgstr "Kredit "balance"
+msgstr "Saldo kredit"
 
 msgid "Credit consumption over time."
-msgstr "Kredit "consumption over time."
+msgstr "Konsumsi kredit dari waktu ke waktu."
 
 msgid "Credit pack switching has been cancelled."
-msgstr "Kredit "pack switching has been cancelled."
+msgstr "Peralihan paket kredit telah dibatalkan."
 
 msgid "Credit plan upgraded."
-msgstr "Kredit "plan upgraded."
+msgstr "Paket kredit telah ditingkatkan."
 
 msgid "Credit Usage"
 msgstr "Penggunaan Kredit"
@@ -2446,46 +2446,46 @@ msgid "Current"
 msgstr "Saat ini"
 
 msgid "Current period"
-msgstr "Saat ini "period"
+msgstr "Periode saat ini"
 
 msgid "Current subscription state and line items"
-msgstr "Saat ini "subscription state and line items"
+msgstr "Status langganan saat ini dan item baris"
 
 msgid "Current value from server environment. Set a custom value to override."
 msgstr "Saat ini "value from server environment. Set a custom value to override."
 
 msgid "Current version"
-msgstr "Saat ini "version"
+msgstr "Versi saat ini"
 
 msgid "Current workspace member not found."
-msgstr "Saat ini "workspace member not found."
+msgstr "Anggota ruang kerja saat ini tidak ditemukan."
 
 msgid "Custom"
 msgstr "Kustom"
 
 msgid "Custom AI Models"
-msgstr "Kustom "AI Models"
+msgstr "Model AI Kustom"
 
 msgid "Custom Domain"
-msgstr "Kustom "Domain"
+msgstr "Domain Kustom"
 
 msgid "Custom domain updated"
 msgstr "Kustom "domain updated"
 
 msgid "Custom model ID"
-msgstr "Kustom "model ID"
+msgstr "ID model kustom"
 
 msgid "Custom objects"
-msgstr "Kustom "objects"
+msgstr "Objek kustom"
 
 msgid "Custom provider"
-msgstr "Kustom "provider"
+msgstr "Penyedia kustom"
 
 msgid "Custom Providers"
-msgstr "Kustom "Providers"
+msgstr "Penyedia Kustom"
 
 msgid "Custom View"
-msgstr "Kustom "View"
+msgstr "Tampilan Kustom"
 
 msgid "Customer"
 msgstr "Kustomer"
@@ -2494,7 +2494,7 @@ msgid "Customise the fields available in the {objectLabelSingular} views and the
 msgstr "Kustomise the fields available in the {objectLabelSingular} views and their display order in the {objectLabelSingular} detail view and menus."
 
 msgid "Customization"
-msgstr "Kustomization"
+msgstr "Kustomisasi"
 
 msgid "Customize"
 msgstr "Sesuaikan"
@@ -2509,16 +2509,16 @@ msgid "Customize page layouts and UI structure"
 msgstr "Kustomisasi "page layouts and UI structure"
 
 msgid "Customize record page"
-msgstr "Kustomisasi "record page"
+msgstr "Kustomisasi halaman record"
 
 msgid "Customize the layout for this role"
-msgstr "Kustomisasi "the layout for this role"
+msgstr "Kustomisasi tata letak untuk peran ini"
 
 msgid "Customize what this user can view and perform"
-msgstr "Kustomisasi "what this user can view and perform"
+msgstr "Kustomisasi apa yang dapat dilihat dan dilakukan pengguna ini"
 
 msgid "Customize your workspace security"
-msgstr "Kustomisasi "your workspace security"
+msgstr "Kustomisasi keamanan ruang kerja Anda"
 
 msgid "Cyan"
 msgstr "Sian"
@@ -2533,7 +2533,7 @@ msgid "Daily Usage"
 msgstr "Penggunaan Harian"
 
 msgid "Danger zone"
-msgstr "Bahaya zone"
+msgstr "Zona berbahaya"
 
 msgid "Danish"
 msgstr "Denmark"
@@ -2590,28 +2590,28 @@ msgid "Date"
 msgstr "Tanggal"
 
 msgid "Date field"
-msgstr "Tanggal "field"
+msgstr "Bidang tanggal"
 
 msgid "Date format"
-msgstr "Tanggal "format"
+msgstr "Format tanggal"
 
 msgid "Date granularity"
-msgstr "Tanggal "granularity"
+msgstr "Granularitas tanggal"
 
 msgid "Date Granularity"
-msgstr "Tanggal "Granularity"
+msgstr "Granularitas Tanggal"
 
 msgid "Date Granularity X"
-msgstr "Tanggal "Granularity X"
+msgstr "Granularitas Tanggal X"
 
 msgid "Date Granularity Y"
-msgstr "Tanggal "Granularity Y"
+msgstr "Granularitas Tanggal Y"
 
 msgid "Day"
 msgstr "Hari"
 
 msgid "Day of the week"
-msgstr "Hari "of the week"
+msgstr "Hari dalam seminggu"
 
 msgid "days"
 msgstr "hari"
@@ -2620,7 +2620,7 @@ msgid "Days"
 msgstr "Hari-hari"
 
 msgid "Days between triggers"
-msgstr "Hari "between triggers"
+msgstr "Hari antara pemicu"
 
 msgid "Deactivate"
 msgstr "Nonaktifkan"
@@ -2641,7 +2641,7 @@ msgid "Deactivate this field"
 msgstr "Nonaktifkan "this field"
 
 msgid "Deactivated"
-msgstr "Nonaktifkand"
+msgstr "Dinonaktifkan"
 
 msgid "Debug Info"
 msgstr "Debug "Info"
@@ -2662,46 +2662,46 @@ msgid "Default Country Code"
 msgstr "Kode Negara Bawaan"
 
 msgid "Default model for chats and complex reasoning"
-msgstr "Default "model for chats and complex reasoning"
+msgstr "Model bawaan untuk obrolan dan penalaran kompleks"
 
 msgid "Default model for lightweight tasks"
-msgstr "Default "model for lightweight tasks"
+msgstr "Model bawaan untuk tugas ringan"
 
 msgid "Default Models"
-msgstr "Default "Models"
+msgstr "Model Bawaan"
 
 msgid "Default palette"
-msgstr "Default "palette"
+msgstr "Palet bawaan"
 
 msgid "Default role"
-msgstr "Default "role"
+msgstr "Peran bawaan"
 
 msgid "Default Role"
-msgstr "Default "Role"
+msgstr "Peran Bawaan"
 
 msgid "Default value"
-msgstr "Default "value"
+msgstr "Nilai bawaan"
 
 msgid "Default Value"
-msgstr "Default "Value"
+msgstr "Nilai Bawaan"
 
 msgid "Default View"
-msgstr "Default "View"
+msgstr "Tampilan Bawaan"
 
 msgid "Define the name and description of your object"
-msgstr "Definisikan "the name and description of your object"
+msgstr "Tentukan nama dan deskripsi objek Anda"
 
 msgid "Define the name and instructions for this skill"
-msgstr "Definisikan "the name and instructions for this skill"
+msgstr "Tentukan nama dan instruksi untuk skill ini"
 
 msgid "Define user roles and access levels"
-msgstr "Definisikan "user roles and access levels"
+msgstr "Tentukan peran pengguna dan tingkat akses"
 
 msgid "Define what this tool does"
-msgstr "Definisikan "what this tool does"
+msgstr "Tentukan apa yang dilakukan alat ini"
 
 msgid "Define what will be visible to other users in your workspace"
-msgstr "Definisikan "what will be visible to other users in your workspace"
+msgstr "Tentukan apa yang akan terlihat oleh pengguna lain di ruang kerja Anda"
 
 msgid "Delay until date"
 msgstr "Tunda sampai tanggal"
@@ -2725,7 +2725,7 @@ msgid "Delete {objectLabelPlural}"
 msgstr "Hapus {objectLabelPlural}"
 
 msgid "Delete {relationObjectTypeName}"
-msgstr "Hapus "{relationObjectTypeName}"
+msgstr "Hapus {relationObjectTypeName}"
 
 msgid "Delete account"
 msgstr "Hapus akun"
@@ -2770,16 +2770,16 @@ msgid "Delete or transfer this app registration"
 msgstr "Hapus "or transfer this app registration"
 
 msgid "Delete Records on All Objects"
-msgstr "Hapus "Records on All Objects"
+msgstr "Hapus Rekaman pada Semua Objek"
 
 msgid "Delete Related {relationObjectTypeName}"
-msgstr "Hapus "Related {relationObjectTypeName}"
+msgstr "Hapus Terkait {relationObjectTypeName}"
 
 msgid "Delete role"
 msgstr "Hapus peran"
 
 msgid "Delete Role Permanently"
-msgstr "Hapus "Role Permanently"
+msgstr "Hapus Peran Secara Permanen"
 
 msgid "Delete Skill"
 msgstr "Hapus "Skill"
@@ -2788,7 +2788,7 @@ msgid "Delete this agent"
 msgstr "Hapus agen ini"
 
 msgid "Delete this integration"
-msgstr "Hapus "this integration"
+msgstr "Hapus integrasi ini"
 
 msgid "Delete this role and assign a new role to its members"
 msgstr "Hapus peran ini dan tetapkan peran baru untuk anggotanya"
@@ -2797,13 +2797,13 @@ msgid "Delete this tool"
 msgstr "Hapus alat ini"
 
 msgid "Delete this webhook"
-msgstr "Hapus "this webhook"
+msgstr "Hapus webhook ini"
 
 msgid "Delete Tool"
 msgstr "Hapus "Tool"
 
 msgid "Delete Two-Factor Authentication Method"
-msgstr "Hapus "Two-Factor Authentication Method"
+msgstr "Hapus Metode Autentikasi Dua Faktor"
 
 msgid "Delete view"
 msgstr "Hapus tampilan"
@@ -2824,10 +2824,10 @@ msgid "Deleted"
 msgstr "Dihapus"
 
 msgid "Deleted record"
-msgstr "Dihapus record"
+msgstr "Rekaman dihapus"
 
 msgid "Deleting this method will remove it permanently from your account."
-msgstr "Menghapus this method will remove it permanently from your account."
+msgstr "Menghapus metode ini akan menghapusnya secara permanen dari akun Anda."
 
 msgid "Deprecated"
 msgstr "Tidak digunakan lagi"
@@ -2857,13 +2857,13 @@ msgid "Destroy {objectLabelPlural}"
 msgstr "Hancurkan {objectLabelPlural}"
 
 msgid "Destroy Records on All Objects"
-msgstr "Hancurkan Records on All Objects"
+msgstr "Hancurkan Rekaman pada Semua Objek"
 
 msgid "Detach"
 msgstr "Lepas"
 
 msgid "Detail per workspace"
-msgstr "Detail "per workspace"
+msgstr "Detail per ruang kerja"
 
 msgid "Details"
 msgstr "Detail"
@@ -2923,7 +2923,7 @@ msgid "Do not import"
 msgstr "Lakukan not import"
 
 msgid "Documentation"
-msgstr "Dokumenation"
+msgstr "Dokumentasi"
 
 msgid "Doesn't contain"
 msgstr "Tidak mengandung"
@@ -2977,16 +2977,16 @@ msgid "Download sample"
 msgstr "Unduh "sample"
 
 msgid "Drag and Drop Here"
-msgstr "Seret and Drop Here"
+msgstr "Seret dan Letakkan di Sini"
 
 msgid "Drag to add to navbar"
-msgstr "Seret to add to navbar"
+msgstr "Seret untuk menambah ke navbar"
 
 msgid "Drop fields here"
-msgstr "Drop" fields here"
+msgstr "Letakkan bidang di sini"
 
 msgid "Drop file here..."
-msgstr "Drop" file here..."
+msgstr "Letakkan file di sini..."
 
 msgid "Duplicate"
 msgstr "Gandakan"
@@ -3055,13 +3055,13 @@ msgid "Earliest date"
 msgstr "Tanggal paling awal"
 
 msgid "Early access"
-msgstr "Awal access"
+msgstr "Akses awal"
 
 msgid "eddy@gmail.com, @apple.com"
 msgstr "eddy@gmail.com, @apple.com"
 
 msgid "Edit"
-msgstr "Edit"
+msgstr "Sunting"
 
 msgid "Edit {objectLabelPlural}"
 msgstr "Edit {objectLabelPlural}"
@@ -3094,10 +3094,10 @@ msgid "Edit link"
 msgstr "Edit "link"
 
 msgid "Edit own profile information"
-msgstr "Edit "own profile information"
+msgstr "Sunting informasi profil Anda sendiri"
 
 msgid "Edit payment method, see your invoices and more"
-msgstr "Edit "payment method, see your invoices and more"
+msgstr "Sunting metode pembayaran, lihat tagihan Anda dan lainnya"
 
 msgid "Edit Profile"
 msgstr "Edit "Profile"
@@ -3115,7 +3115,7 @@ msgid "Edit your subdomain name or set a custom domain."
 msgstr "Edit "your subdomain name or set a custom domain."
 
 msgid "Editable Profile Fields"
-msgstr "Editable Profile Fields"
+msgstr "Bidang Profil yang Dapat Disunting"
 
 msgid "Editor"
 msgstr "Editor"
@@ -3142,43 +3142,43 @@ msgid "Email copied to clipboard"
 msgstr "Email disalin ke clipboard"
 
 msgid "Email Editor"
-msgstr "Email "Editor"
+msgstr "Editor Email"
 
 msgid "Email Groups"
-msgstr "Email "Groups"
+msgstr "Grup Email"
 
 msgid "Email integration"
-msgstr "Email "integration"
+msgstr "Integrasi Email"
 
 msgid "Email is required"
 msgstr "Email wajib diisi"
 
 msgid "Email must be a valid email"
-msgstr "Email "must be a valid email"
+msgstr "Email harus berupa email yang valid"
 
 msgid "Email or domain is already in blocklist"
-msgstr "Email "or domain is already in blocklist"
+msgstr "Email atau domain sudah ada di daftar blokir"
 
 msgid "Email sent successfully"
-msgstr "Email "sent successfully"
+msgstr "Email berhasil dikirim"
 
 msgid "Email support"
-msgstr "Email "support"
+msgstr "Dukungan Email"
 
 msgid "Email verification"
-msgstr "Email "verification"
+msgstr "Verifikasi Email"
 
 msgid "Email verification failed"
-msgstr "Email "verification failed"
+msgstr "Verifikasi email gagal"
 
 msgid "Email Verification Failed"
-msgstr "Email "Verification Failed"
+msgstr "Verifikasi Email Gagal"
 
 msgid "Email verification link resent!"
-msgstr "Email "verification link resent!"
+msgstr "Tautan verifikasi email terkirim kembali!"
 
 msgid "Email verified."
-msgstr "Email "verified."
+msgstr "Email terverifikasi."
 
 msgid "Email/Domain"
 msgstr "Email/Domain"
@@ -3229,25 +3229,25 @@ msgid "Empty tab"
 msgstr "Kosong "tab"
 
 msgid "Enable bypass options"
-msgstr "Aktifkan "bypass options"
+msgstr "Aktifkan opsi bypass"
 
 msgid "Enable model-specific features"
-msgstr "Aktifkan "model-specific features"
+msgstr "Aktifkan fitur khusus model"
 
 msgid "End date"
-msgstr "Akhir "date"
+msgstr "Tanggal akhir"
 
 msgid "End Date"
-msgstr "Akhir "Date"
+msgstr "Tanggal Akhir"
 
 msgid "End date must be after start date."
-msgstr "Akhir "date must be after start date."
+msgstr "Tanggal akhir harus setelah tanggal mulai."
 
 msgid "End Trial Period"
-msgstr "Akhir "Trial Period"
+msgstr "Akhiri Periode Uji Coba"
 
 msgid "End trial period to continue using Workflow or AI features."
-msgstr "Akhir "trial period to continue using Workflow or AI features."
+msgstr "Akhiri periode uji coba untuk melanjutkan menggunakan Workflow atau fitur AI."
 
 msgid "Endpoint URL"
 msgstr "Endpoint "URL"
@@ -3268,22 +3268,22 @@ msgid "Enjoy a 30-day free trial"
 msgstr "Nikmati "a 30-day free trial"
 
 msgid "Enter a JSON object"
-msgstr "Masukkan "a JSON object"
+msgstr "Masukkan objek JSON"
 
 msgid "Enter a new secret value"
-msgstr "Masukkan "a new secret value"
+msgstr "Masukkan nilai rahasia baru"
 
 msgid "Enter a number"
-msgstr "Masukkan "a number"
+msgstr "Masukkan angka"
 
 msgid "Enter a UUID"
-msgstr "Masukkan "a UUID"
+msgstr "Masukkan UUID"
 
 msgid "Enter a value to store in database"
-msgstr "Masukkan "a value to store in database"
+msgstr "Masukkan nilai untuk disimpan di database"
 
 msgid "Enter agent name*"
-msgstr "Masukkan "agent name*"
+msgstr "Masukkan nama agen*"
 
 msgid "Enter amount x 1 000 000 (e.g. $3.21 → 3210000)"
 msgstr "Masukkan "amount x 1 000 000 (e.g. $3.21 → 3210000)"
@@ -3382,22 +3382,22 @@ msgid "Enter values, comma-separated"
 msgstr "Masukkan "values, comma-separated"
 
 msgid "Enter your API key"
-msgstr "Masukkan" API key"
+msgstr "Masukkan kunci API"
 
 msgid "Enterprise"
-msgstr "Masukkanprise"
+msgstr "Enterprise"
 
 msgid "Enterprise feature"
-msgstr "Enterprise "feature"
+msgstr "Fitur Enterprise"
 
 msgid "Enterprise Feature"
-msgstr "Enterprise "Feature"
+msgstr "Fitur Enterprise"
 
 msgid "Enterprise License"
-msgstr "Enterprise "License"
+msgstr "Lisensi Enterprise"
 
 msgid "Enterprise license activated successfully"
-msgstr "Enterprise "license activated successfully"
+msgstr "Lisensi enterprise berhasil diaktifkan"
 
 msgid "Entity ID"
 msgstr "Entitas "ID"
@@ -3418,28 +3418,28 @@ msgid "Error"
 msgstr "Kesalahan"
 
 msgid "Error activating enterprise license"
-msgstr "Kesalahan "activating enterprise license"
+msgstr "Kesalahan mengaktifkan lisensi enterprise"
 
 msgid "Error deleting api key."
-msgstr "Kesalahan "deleting api key."
+msgstr "Kesalahan menghapus kunci API."
 
 msgid "Error deleting app"
-msgstr "Kesalahan "deleting app"
+msgstr "Kesalahan menghapus aplikasi"
 
 msgid "Error deleting invitation"
-msgstr "Kesalahan "deleting invitation"
+msgstr "Kesalahan menghapus undangan"
 
 msgid "Error deleting SSO Identity Provider"
-msgstr "Kesalahan "deleting SSO Identity Provider"
+msgstr "Kesalahan menghapus Penyedia Identitas SSO"
 
 msgid "Error editing SSO Identity Provider"
-msgstr "Kesalahan "editing SSO Identity Provider"
+msgstr "Kesalahan mengedit Penyedia Identitas SSO"
 
 msgid "Error illustration"
-msgstr "Kesalahan "illustration"
+msgstr "Ilustrasi kesalahan"
 
 msgid "Error Loading Audit Logs"
-msgstr "Kesalahan "Loading Audit Logs"
+msgstr "Kesalahan Memuat Log Audit"
 
 msgid "Error loading calendar event"
 msgstr "Gagal memuat acara kalender"
@@ -3448,67 +3448,67 @@ msgid "Error loading message"
 msgstr "Gagal memuat pesan"
 
 msgid "Error Message"
-msgstr "Kesalahan "Message"
+msgstr "Pesan Kesalahan"
 
 msgid "Error opening billing portal"
-msgstr "Kesalahan "opening billing portal"
+msgstr "Kesalahan membuka portal penagihan"
 
 msgid "Error opening Stripe"
-msgstr "Kesalahan "opening Stripe"
+msgstr "Kesalahan membuka Stripe"
 
 msgid "Error parsing additional phones: {error}"
-msgstr "Kesalahan "parsing additional phones: {error}"
+msgstr "Kesalahan mengurai telepon tambahan: {error}"
 
 msgid "Error refreshing validity token. Please contact support."
-msgstr "Kesalahan "refreshing validity token. Please contact support."
+msgstr "Kesalahan menyegarkan token validitas. Hubungi dukungan."
 
 msgid "Error regenerating api key."
-msgstr "Kesalahan "regenerating api key."
+msgstr "Kesalahan menghasilkan ulang kunci API."
 
 msgid "Error resending invitation"
-msgstr "Kesalahan "resending invitation"
+msgstr "Kesalahan mengirim ulang undangan"
 
 msgid "Error resetting variable"
-msgstr "Kesalahan "resetting variable"
+msgstr "Kesalahan mereset variabel"
 
 msgid "Error rotating client secret"
-msgstr "Kesalahan "rotating client secret"
+msgstr "Kesalahan merotasi rahasia klien"
 
 msgid "Error uninstalling application."
-msgstr "Kesalahan "uninstalling application."
+msgstr "Kesalahan menghapus aplikasi."
 
 msgid "Error updating redirect URIs"
-msgstr "Kesalahan "updating redirect URIs"
+msgstr "Kesalahan memperbarui URI redirect"
 
 msgid "Error updating role"
-msgstr "Kesalahan "updating role"
+msgstr "Kesalahan memperbarui peran"
 
 msgid "Error updating variable"
-msgstr "Kesalahan "updating variable"
+msgstr "Kesalahan memperbarui variabel"
 
 msgid "Error validating approved access domain"
-msgstr "Kesalahan "validating approved access domain"
+msgstr "Kesalahan memvalidasi domain akses yang disetujui"
 
 msgid "Error while cancelling credit pack switching."
-msgstr "Kesalahan "while cancelling credit pack switching."
+msgstr "Kesalahan saat membatalkan peralihan paket kredit."
 
 msgid "Error while cancelling interval switching."
-msgstr "Kesalahan "while cancelling interval switching."
+msgstr "Kesalahan saat membatalkan peralihan interval."
 
 msgid "Error while cancelling plan switching."
-msgstr "Kesalahan "while cancelling plan switching."
+msgstr "Kesalahan saat membatalkan peralihan paket."
 
 msgid "Error while ending trial period. Please contact Bades.id team."
-msgstr "Kesalahan "while ending trial period. Please contact Bades.id team."
+msgstr "Kesalahan mengakhiri periode trial. Silakan hubungi tim Bades.id."
 
 msgid "Error while saving the name"
 msgstr "Gagal menyimpan nama"
 
 msgid "Error while switching subscription to {oppositPlan} Plan."
-msgstr "Kesalahan "while switching subscription to {oppositPlan} Plan."
+msgstr "Kesalahan saat beralih langganan ke Paket {oppositPlan}."
 
 msgid "Error while switching subscription."
-msgstr "Kesalahan "while switching subscription."
+msgstr "Kesalahan saat beralih langganan."
 
 msgid "Establish Webhook endpoints for notifications on asynchronous events."
 msgstr "Buat endpoint Webhook untuk notifikasi pada event asynchronous."
@@ -3529,10 +3529,10 @@ msgid "Event"
 msgstr "Acara"
 
 msgid "Event Type"
-msgstr "Acara "Type"
+msgstr "Tipe Acara"
 
 msgid "Event visibility"
-msgstr "Acara "visibility"
+msgstr "Visibilitas acara"
 
 msgid "Events you participated in are displayed in red."
 msgstr "Acara yang Anda ikuti ditampilkan dalam warna merah."
@@ -3637,16 +3637,16 @@ msgid "Expiration Date"
 msgstr "Kedaluwarsa Date"
 
 msgid "Expired"
-msgstr "Kedaluwarsad"
+msgstr "Kedaluwarsa"
 
 msgid "Expires"
 msgstr "Kedaluwarsa"
 
 msgid "Expires in"
-msgstr "Kedaluwarsas in"
+msgstr "Kedaluwarsa dalam"
 
 msgid "Expires in {dateDiff}"
-msgstr "Kedaluwarsas in {dateDiff}"
+msgstr "Kedaluwarsa dalam {dateDiff}"
 
 msgid "Export"
 msgstr "Ekspor"
@@ -3676,154 +3676,154 @@ msgid "Failed Jobs"
 msgstr "Gagal "Jobs"
 
 msgid "Failed to {translatedOperationType} {translatedMetadataName}. Please try again."
-msgstr "Gagal" {translatedOperationType} {translatedMetadataName}. Please try again."
+msgstr "Gagal {translatedOperationType} {translatedMetadataName}. Silakan coba lagi."
 
 msgid "Failed to {translatedOperationType} {translatedMetadataName}. Related {relatedEntityNames} validation failed. Please check your configuration and try again."
-msgstr "Gagal" {translatedOperationType} {translatedMetadataName}. Related {relatedEntityNames} validation failed. Please check your configuration and try again."
+msgstr "Gagal {translatedOperationType} {translatedMetadataName}. Validasi {relatedEntityNames} terkait gagal. Harap periksa konfigurasi Anda dan coba lagi."
 
 msgid "Failed to activate enterprise license. Please check your key or contact support."
-msgstr "Gagal" activate enterprise license. Please check your key or contact support."
+msgstr "Gagal mengaktifkan lisensi enterprise. Periksa kunci Anda atau hubungi dukungan."
 
 msgid "Failed to activate skill"
-msgstr "Gagal" activate skill"
+msgstr "Gagal mengaktifkan skill"
 
 msgid "Failed to add model"
-msgstr "Gagal" add model"
+msgstr "Gagal menambah model"
 
 msgid "Failed to add provider"
-msgstr "Gagal" add provider"
+msgstr "Gagal menambah penyedia"
 
 msgid "Failed to create email group channel. Email group may not be configured on this server."
-msgstr "Gagal" create email group channel. Email group may not be configured on this server."
+msgstr "Gagal membuat saluran grup email. Grup email mungkin tidak dikonfigurasi di server ini."
 
 msgid "Failed to create tool"
-msgstr "Gagal" create tool"
+msgstr "Gagal membuat alat"
 
 msgid "Failed to delete email group channel."
-msgstr "Gagal" delete email group channel."
+msgstr "Gagal menghapus saluran grup email."
 
 msgid "Failed to delete jobs. Please try again later."
-msgstr "Gagal" delete jobs. Please try again later."
+msgstr "Gagal menghapus pekerjaan. Silakan coba lagi nanti."
 
 msgid "Failed to delete skill"
-msgstr "Gagal" delete skill"
+msgstr "Gagal menghapus skill"
 
 msgid "Failed to delete tool"
-msgstr "Gagal" delete tool"
+msgstr "Gagal menghapus alat"
 
 msgid "Failed to duplicate dashboard"
-msgstr "Gagal" duplicate dashboard"
+msgstr "Gagal menduplikasi dashboard"
 
 msgid "Failed to duplicate workflow"
-msgstr "Gagal" duplicate workflow"
+msgstr "Gagal menduplikasi alur kerja"
 
 msgid "Failed to evaluate turn"
-msgstr "Gagal" evaluate turn"
+msgstr "Gagal mengevaluasi giliran"
 
 msgid "Failed to execute evaluation input"
-msgstr "Gagal" execute evaluation input"
+msgstr "Gagal mengeksekusi input evaluasi"
 
 msgid "Failed to get response"
-msgstr "Gagal" get response"
+msgstr "Gagal mendapatkan respons"
 
 msgid "Failed to install the application."
-msgstr "Gagal" install the application."
+msgstr "Gagal menginstal aplikasi."
 
 msgid "Failed to load front component: {errorMessage}"
-msgstr "Gagal" load front component: {errorMessage}"
+msgstr "Gagal memuat komponen depan: {errorMessage}"
 
 msgid "Failed to load webhook"
-msgstr "Gagal" load webhook"
+msgstr "Gagal memuat webhook"
 
 msgid "Failed to merge records. Please try again."
-msgstr "Gagal" merge records. Please try again."
+msgstr "Gagal menggabungkan rekaman. Silakan coba lagi."
 
 msgid "Failed to parse context: {contextValue}"
-msgstr "Gagal" parse context: {contextValue}"
+msgstr "Gagal mengurai konteks: {contextValue}"
 
 msgid "Failed to refresh upgrade status"
-msgstr "Gagal" refresh upgrade status"
+msgstr "Gagal menyegarkan status peningkatan"
 
 msgid "Failed to remove model"
-msgstr "Gagal" remove model"
+msgstr "Gagal menghapus model"
 
 msgid "Failed to remove picture"
-msgstr "Gagal" remove picture"
+msgstr "Gagal menghapus gambar"
 
 msgid "Failed to remove provider"
-msgstr "Gagal" remove provider"
+msgstr "Gagal menghapus penyedia"
 
 msgid "Failed to retry jobs. Please try again later."
-msgstr "Gagal" retry jobs. Please try again later."
+msgstr "Gagal mencoba ulang pekerjaan. Silakan coba lagi nanti."
 
 msgid "Failed to revoke signing key. Please try again later."
-msgstr "Gagal" revoke signing key. Please try again later."
+msgstr "Gagal mencabut kunci penandatanganan. Silakan coba lagi nanti."
 
 msgid "Failed to save layout customization"
-msgstr "Gagal" save layout customization"
+msgstr "Gagal menyimpan kustomisasi tata letak"
 
 msgid "Failed to save role permissions: {errorMessage}"
-msgstr "Gagal" save role permissions: {errorMessage}"
+msgstr "Gagal menyimpan izin peran: {errorMessage}"
 
 msgid "Failed to save workspace instructions"
-msgstr "Gagal" save workspace instructions"
+msgstr "Gagal menyimpan instruksi ruang kerja"
 
 msgid "Failed to send email"
-msgstr "Gagal" send email"
+msgstr "Gagal mengirim email"
 
 msgid "Failed to set maintenance mode."
-msgstr "Gagal" set maintenance mode."
+msgstr "Gagal mengatur mode pemeliharaan."
 
 msgid "Failed to transfer ownership. Check that the subdomain is correct."
-msgstr "Gagal" transfer ownership. Check that the subdomain is correct."
+msgstr "Gagal mengalihkan kepemilikan. Periksa apakah subdomain benar."
 
 msgid "Failed to update default model"
-msgstr "Gagal" update default model"
+msgstr "Gagal memperbarui model bawaan"
 
 msgid "Failed to update model"
-msgstr "Gagal" update model"
+msgstr "Gagal memperbarui model"
 
 msgid "Failed to update model availability"
-msgstr "Gagal" update model availability"
+msgstr "Gagal memperbarui ketersediaan model"
 
 msgid "Failed to update model recommendation"
-msgstr "Gagal" update model recommendation"
+msgstr "Gagal memperbarui rekomendasi model"
 
 msgid "Failed to update model recommendations"
-msgstr "Gagal" update model recommendations"
+msgstr "Gagal memperbarui rekomendasi model"
 
 msgid "Failed to update model selection mode"
-msgstr "Gagal" update model selection mode"
+msgstr "Gagal memperbarui mode pemilihan model"
 
 msgid "Failed to update records. Please try again."
-msgstr "Gagal" update records. Please try again."
+msgstr "Gagal memperbarui rekaman. Silakan coba lagi."
 
 msgid "Failed to update resource credits."
-msgstr "Gagal" update resource credits."
+msgstr "Gagal memperbarui kredit sumber daya."
 
 msgid "Failed to update role"
-msgstr "Gagal" update role"
+msgstr "Gagal memperbarui peran"
 
 msgid "Failed to upgrade credit plan."
-msgstr "Gagal" upgrade credit plan."
+msgstr "Gagal meningkatkan paket kredit."
 
 msgid "Failed to upgrade the application."
-msgstr "Gagal" upgrade the application."
+msgstr "Gagal meningkatkan aplikasi."
 
 msgid "Failed to upload \"{fileNameForError}\""
-msgstr "Gagal" upload \"{fileNameForError}\""
+msgstr "Gagal mengunggah \"{fileNameForError}\""
 
 msgid "Failed to upload file \"{fileNameForError}\": {errorMessage}"
-msgstr "Gagal" upload file \"{fileNameForError}\": {errorMessage}"
+msgstr "Gagal mengunggah file \"{fileNameForError}\": {errorMessage}"
 
 msgid "Failed to upload file: {fileName}"
-msgstr "Gagal" upload file: {fileName}"
+msgstr "Gagal mengunggah file: {fileName}"
 
 msgid "Failed to upload picture"
-msgstr "Gagal" upload picture"
+msgstr "Gagal mengunggah gambar"
 
 msgid "Failure Rate"
-msgstr "Kegagalan Rate"
+msgstr "Tingkat Kegagalan"
 
 msgid "Fallback"
 msgstr "Fallback"
@@ -4699,19 +4699,19 @@ msgid "Is"
 msgstr "Adalah"
 
 msgid "Is after or equal"
-msgstr "Adalah "after or equal"
+msgstr "Adalah setelah atau sama dengan"
 
 msgid "Is before"
-msgstr "Adalah "before"
+msgstr "Adalah sebelum"
 
 msgid "Is empty"
-msgstr "Adalah "empty"
+msgstr "Adalah kosong"
 
 msgid "Is in future"
-msgstr "Adalah "in future"
+msgstr "Adalah di masa depan"
 
 msgid "Is in past"
-msgstr "Adalah "in past"
+msgstr "Adalah di masa lalu"
 
 msgid "Is not"
 msgstr "Bukan"
@@ -4756,7 +4756,7 @@ msgid "Is relative"
 msgstr "Adalah relatif"
 
 msgid "Is today{timeZoneAbbreviationSuffix}"
-msgstr "Adalah hari ini{timeZoneAbbreviationSuffix}"
+msgstr "Hari ini{timeZoneAbbreviationSuffix}""
 
 msgid "Issuer URI"
 msgstr "URI Issuer"
@@ -5182,10 +5182,10 @@ msgid "Manage favorite"
 msgstr "Kelola "favorite"
 
 msgid "Manage feature flags for this workspace"
-msgstr "Kelola "feature flags for this workspace"
+msgstr "Kelola tanda fitur untuk ruang kerja ini"
 
 msgid "Manage Members"
-msgstr "Kelola "Members"
+msgstr "Kelola Anggota"
 
 msgid "Manage security policies"
 msgstr "Kelola "security policies"
@@ -5215,7 +5215,7 @@ msgid "Manual"
 msgstr "Manual"
 
 msgid "Marketplace"
-msgstr "Tandaietplace"
+msgstr "Marketplace"
 
 msgid "Match {fieldLabel} ({unmatchedCount} Unmatched)"
 msgstr "Cocokkan {fieldLabel} ({unmatchedCount} Unmatched)"

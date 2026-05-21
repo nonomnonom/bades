@@ -46,23 +46,23 @@ if (process.env.EXCEPTION_HANDLER_DRIVER === ExceptionHandlerDriver.SENTRY) {
     sendDefaultPii: true,
     debug: process.env.NODE_ENV === NodeEnvironment.DEVELOPMENT,
     beforeSendSpan: (span) => {
-      const twentyContext = Sentry.getIsolationScope().getScopeData().contexts
-        ?.twenty as
+      const badesContext = Sentry.getIsolationScope().getScopeData().contexts
+        ?.bades as
         | {
             workspace_id?: string;
             user_workspace_id?: string;
           }
         | undefined;
 
-      if (!twentyContext?.workspace_id) {
+      if (!badesContext?.workspace_id) {
         return span;
       }
 
       span.data = {
         ...span.data,
-        'twenty.workspace.id': twentyContext.workspace_id,
-        ...(twentyContext.user_workspace_id && {
-          'twenty.user_workspace.id': twentyContext.user_workspace_id,
+        'bades.workspace.id': badesContext.workspace_id,
+        ...(badesContext.user_workspace_id && {
+          'bades.user_workspace.id': badesContext.user_workspace_id,
         }),
       };
 

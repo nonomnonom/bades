@@ -241,7 +241,7 @@ export function CaseStudySectionNav({
       <SocialRow>
         <SocialLink
           aria-label="Discord"
-          href="https://discord.gg/twenty"
+          href="https://discord.gg/bades"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -249,7 +249,7 @@ export function CaseStudySectionNav({
         </SocialLink>
         <SocialLink
           aria-label="X"
-          href="https://x.com/twentycrm"
+          href="https://x.com/bades_id"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -257,7 +257,7 @@ export function CaseStudySectionNav({
         </SocialLink>
         <SocialLink
           aria-label="LinkedIn"
-          href="https://www.linkedin.com/company/twenty"
+          href="https://www.linkedin.com/company/bades"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -265,7 +265,7 @@ export function CaseStudySectionNav({
         </SocialLink>
         <SocialLink
           aria-label="Threads"
-          href="https://www.threads.net/@twentycrm"
+          href="https://www.threads.net/@bades_id"
           rel="noopener noreferrer"
           target="_blank"
         >

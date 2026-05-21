@@ -4,9 +4,15 @@ These rules are the project-scoped guidance Claude Code should follow in this
 repository. They are written to match the current Bades codebase and the
 product direction in `GOAL.md`.
 
+Autonomous workflow helpers for this repo also live in:
+
+- `.claude/agents/` - reusable subagent and agent-team teammate roles
+- `.claude/loop.md` - default maintenance prompt for bare `/loop`
+
 ## Rule Set
 
 - `bades-product-direction.md` - Always-on product identity and anti-leak rules
+- `goal-gatekeeping-workflow.md` - Always-on workflow rule for checking each active task against `GOAL.md`
 - `bahasa-indonesia-total.md` - Always-on Indonesia-first writing rules
 - `anti-brand-leak.md` - Always-on forbidden brand and CRM term guardrails
 - `non-technical-product.md` - Always-on product guardrails for non-technical users
@@ -33,9 +39,13 @@ product direction in `GOAL.md`.
 - Product direction in `bades-product-direction.md` should be treated as global
   guidance whenever work touches user-facing behavior, branding, docs, or seed
   data.
+- `goal-gatekeeping-workflow.md` defines how to apply `GOAL.md` per active
+  task and when to stop on conflict instead of implementing.
 - `bahasa-indonesia-total.md`, `anti-brand-leak.md`, and
   `non-technical-product.md` are the core Bades identity rules and should win
   over stale upstream habits.
+- `goal-gatekeeping-workflow.md` is the core workflow rule that prevents drift
+  when a task is technically valid but product-directionally wrong.
 
 ## Maintenance Standard
 

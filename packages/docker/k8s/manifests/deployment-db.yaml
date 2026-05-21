@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: twentycrm-db
-  name: twentycrm-db
-  namespace: twentycrm
+    app: bades-db
+  name: bades-db
+  namespace: bades
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -15,18 +15,18 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: twentycrm-db
+      app: bades-db
   template:
     metadata:
       labels:
-        app: twentycrm-db
+        app: bades-db
     spec:
       volumes:
-        - name: twentycrm-db-data
+        - name: bades-db-data
           persistentVolumeClaim:
-            claimName: twentycrm-db-pvc
+            claimName: bades-db-pvc
       containers:
-        - name: twentycrm
+        - name: bades
           image: twentycrm/twenty-postgres-spilo:latest
           imagePullPolicy: Always
           env:
@@ -53,6 +53,6 @@ spec:
           tty: true
           volumeMounts:
             - mountPath: /home/postgres/pgdata
-              name: twentycrm-db-data
+              name: bades-db-data
       dnsPolicy: ClusterFirst
       restartPolicy: Always

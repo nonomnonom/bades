@@ -1,66 +1,61 @@
-# Contributing to Twenty
+# Berkontribusi ke Bades.id
 
-Thanks for considering contributing to Twenty!
+Terima kasih sudah mempertimbangkan untuk berkontribusi ke Bades.id!
 
-Please make sure to go through the [documentation](https://docs.twenty.com) before.
+Silakan lihat [dokumentasi](https://docs.bades.id) terlebih dahulu.
 
-<br>
-
+<br />
 
 ## Good first issues
 
-Good first issues are a great way to start contributing and get familiar with the codebase. You can find them on by filtering on the [good first issue](https://github.com/twentyhq/twenty/labels/good%20first%20issue) label.
+Good first issues adalah cara yang bagus untuk mulai berkontribusi dan mengenal codebase. Anda bisa menemukannya dengan filter [good first issue](https://github.com/badesid/bades/labels/good%20first%20issue) di repositori kami.
 
-## Issue assignment
+## Assignment isu
 
-To avoid conflicts, we follow these guidelines:
+Untuk menghindari konflik, kami mengikuti panduan berikut:
 
-1. For `Good First Issue` and `Experienced Contributor` issues without `size: long` labels, we'll merge the first PRs that meet our [code quality standards](https://docs.twenty.com/developers). **We don't assign contributors to these issues**. For `priority: high` issues, our core team will step in within days if no adequate contributions are received.
-2. For `size: long` Issues, assigned contributors have one week to submit their first draft PR.
+1. Untuk isu `Good First Issue` dan `Experienced Contributor` tanpa label `size: long`, kami akan menggabungkan PR pertama yang memenuhi [standar kualitas kode kami](https://docs.bades.id/developers). **Kami tidak menugaskan kontributor untuk isu-isu ini**. Untuk isu `priority: high`, tim inti kami akan turun tangan dalam beberapa hari jika tidak ada kontribusi yang memadai.
+2. Untuk isu `size: long`, kontributor yang ditugaskan memiliki waktu satu minggu untuk mengirimkan draft PR pertama.
 
-## How to Contribute
+## Cara Berkontribusi
 
-1. **Fork the Repository:** Click on the 'Fork' button in the upper right corner of the repository's GitHub page. This will create a copy of the repository in your GitHub account.
+1. **Fork Repositori:** Klik tombol 'Fork' di pojok kanan atas halaman GitHub repositori. Ini akan membuat salinan repositori di akun GitHub Anda.
 
-2. **Clone the Repository:** Clone your forked repository to your local machine using `git clone`.
-
-```shell
-git clone https://github.com/yourusername/twenty.git
-cd twenty
-```
-
-3. **Create a New Branch:** Create a new branch for your changes instead of using the main branch.
+2. **Clone Repositori:** Clone repositori fork Anda ke mesin lokal menggunakan `git clone`.
 
 ```shell
-git checkout -b your-branch-name
+git clone https://github.com/namapenggunaanda/bades.git
+cd bades
 ```
 
-4. **Make Changes:** Make your desired changes and ensure that your code adheres to Twenty's coding standards.
-
-
-5. **Test Locally:** Test your changes locally to ensure they work as expected.
-
-
-6. **Commit Changes:** Commit your changes with a clear and concise commit message.
+3. **Buat Branch Baru:** Buat branch baru untuk perubahan Anda, jangan menggunakan branch utama.
 
 ```shell
-git commit -m "Add your detailed description here"
+git checkout -b nama-branch-anda
 ```
 
-7. **Push Changes:** Push your changes to your forked repository.
+4. **Lakukan Perubahan:** Lakukan perubahan yang diinginkan dan pastikan kode Anda mematuhi standar pengkodean Bades.id.
+
+5. **Uji Secara Lokal:** Uji perubahan Anda secara lokal untuk memastikan semuanya berjalan sesuai harapan.
+
+6. **Commit Perubahan:** Commit perubahan Anda dengan pesan commit yang jelas dan ringkas.
 
 ```shell
-git push origin your-branch-name
+git commit -m "Tambahkan deskripsi detail Anda di sini"
 ```
 
-8. **Create a Pull Request:** Go to the original Twenty repository and create a pull request. Please provide a detailed description of your changes. Submitting a PR means you agree to the CLA.
+7. **Push Perubahan:** Push perubahan Anda ke repositori fork Anda.
 
-9. **Code Review:** Your pull request will undergo a code review.
+```shell
+git push origin nama-branch-anda
+```
 
-10. **Merge:** Once approved, maintainers will merge your pull request into the main repository.
+8. **Buat Pull Request:** Buka repositori Bades.id asli dan buat pull request. Berikan deskripsi detail tentang perubahan Anda. Mengirimkan PR berarti Anda menyetujui CLA.
 
+9. **Review Kode:** Pull request Anda akan menjalani review kode.
 
+10. **Merge:** Setelah disetujui, maintainer akan menggabungkan pull request Anda ke repositori utama.
 
-## Reporting Issues
+## Melaporkan Isu
 
-If you face any issues or have suggestions, please feel free to [create an issue on Twenty's GitHub repository](https://github.com/twentyhq/twenty/issues/new). Please provide as much detail as possible.
+Jika Anda mengalami masalah atau memiliki saran, silakan [buat isu di repositori GitHub Bades.id](https://github.com/badesid/bades/issues/new). Berikan informasi sebanyak mungkin.

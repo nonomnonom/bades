@@ -21,7 +21,7 @@
     "npm": "please-use-yarn",
     "yarn": ">=4.0.2"
   },
-  "name": "twenty",
+  "name": "bades",
   "packageManager": "yarn@4.13.0",
   "resolutions": {
     "graphql": "16.8.1",

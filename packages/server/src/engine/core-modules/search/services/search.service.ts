@@ -614,7 +614,7 @@ export class SearchService {
 
     if (
       flatObjectMetadata.nameSingular === 'company' &&
-      this.twentyConfigService.get('ALLOW_REQUESTS_TO_TWENTY_ICONS')
+      this.twentyConfigService.get('ALLOW_REQUESTS_TO_FAVICON_SERVICE')
     ) {
       return getLogoUrlFromDomainName(record.domainNamePrimaryLinkUrl) || '';
     }

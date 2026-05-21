@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { type AxiosInstance } from 'axios';
 import uniqBy from 'lodash.uniqby';
-import { TWENTY_COMPANIES_BASE_URL } from 'shared/constants';
+import { BADES_COMPANIES_BASE_URL } from 'shared/constants';
 import {
   type ConnectedAccountProvider,
   type FieldActorSource,
@@ -38,7 +38,7 @@ export class CreateCompanyService {
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {
     this.httpService = this.secureHttpClientService.getHttpClient({
-      baseURL: TWENTY_COMPANIES_BASE_URL,
+      baseURL: BADES_COMPANIES_BASE_URL,
     });
   }
 

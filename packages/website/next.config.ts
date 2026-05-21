@@ -49,7 +49,7 @@ const nextConfig: LinariaConfig = {
         protocol: 'https',
       },
       {
-        hostname: 'twenty-icons.com',
+        hostname: 'icons.bades.id',
         pathname: '/**',
         protocol: 'https',
       },

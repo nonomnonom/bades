@@ -2,17 +2,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "twenty.fullname" . }}-worker
-  namespace: {{ include "twenty.namespace" . }}
+  name: {{ include "bades.fullname" . }}-worker
+  namespace: {{ include "bades.namespace" . }}
   labels:
-    app.kubernetes.io/name: {{ include "twenty.name" . }}
+    app.kubernetes.io/name: {{ include "bades.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/component: worker
 spec:
   replicas: {{ .Values.worker.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "twenty.name" . }}
+      app.kubernetes.io/name: {{ include "bades.name" . }}
       app.kubernetes.io/component: worker
   strategy:
     type: RollingUpdate
@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "twenty.name" . }}
+        app.kubernetes.io/name: {{ include "bades.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/component: worker
     spec:
@@ -35,39 +35,39 @@ spec:
             - sh
             - -c
             - |
-              until pg_isready -h {{ if .Values.db.enabled }}{{ include "twenty.fullname" . }}-db{{ else }}{{ .Values.db.external.host }}{{ end }} \
+              until pg_isready -h {{ if .Values.db.enabled }}{{ include "bades.fullname" . }}-db{{ else }}{{ .Values.db.external.host }}{{ end }} \
                                -p {{ if .Values.db.enabled }}5432{{ else }}{{ .Values.db.external.port | default 5432 }}{{ end }} \
                                -U postgres; do
-                echo "Waiting for database socket..."
+                echo "Waiting for database | default "bades"socket..."
                 sleep 2
               done
               echo "Database socket is ready!"
       containers:
         - name: worker
-          {{- $img := include "twenty.worker.image" . }}
-          image: {{ include "twenty.image.repository" $img }}:{{ include "twenty.image.tag" $img }}
-          imagePullPolicy: {{ include "twenty.image.pullPolicy" $img }}
+          {{- $img := include "bades.worker.image" . }}
+          image: {{ include "bades.image.repository" $img }}:{{ include "bades.image.tag" $img }}
+          imagePullPolicy: {{ include "bades.image.pullPolicy" $img }}
           command:
 {{- toYaml .Values.worker.command | nindent 12 }}
           env:
             - name: SERVER_URL
-              value: {{ include "twenty.serverUrl" . | quote }}
-            {{- if eq (include "twenty.db.useExternalSecret" .) "true" }}
+              value: {{ include "bades.serverUrl" . | quote }}
+            {{- if eq (include "bades.db.useExternalSecret" .) "true" }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "twenty.dbPassword.secretName" . }}
-                  key: {{ include "twenty.dbPassword.secretKey" . }}
+                  name: {{ include "bades.dbPassword.secretName" . }}
+                  key: {{ include "bades.dbPassword.secretKey" . }}
             - name: PG_DATABASE_URL
-              value: {{ include "twenty.dbUrl.template" . | quote }}
+              value: {{ include "bades.dbUrl.template" . | quote }}
             {{- else }}
             - name: PG_DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "twenty.dbUrl.secretName" . }}
+                  name: {{ include "bades.dbUrl.secretName" . }}
                   key: url
             {{- end }}
-            {{- if eq (include "twenty.redis.useExternalSecret" .) "true" }}
+            {{- if eq (include "bades.redis.useExternalSecret" .) "true" }}
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -78,18 +78,18 @@ spec:
               value: {{ .Values.redis.external.password | quote }}
             {{- end }}
             - name: REDIS_URL
-              value: {{ include "twenty.redisUrl" . | quote }}
+              value: {{ include "bades.redisUrl" . | quote }}
             - name: STORAGE_TYPE
-              value: {{ include "twenty.storageType" . | quote }}
+              value: {{ include "bades.storageType" . | quote }}
             - name: APP_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "twenty.secret.tokens.name" . }}
+                  name: {{ include "bades.secret.tokens.name" . }}
                   key: accessToken
             {{- with .Values.worker.extraEnv }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
-            {{- $storageEnv := (include "twenty.storageEnv" .) }}
+            {{- $storageEnv := (include "bades.storageEnv" .) }}
             {{- if $storageEnv }}
             {{- $storageEnv | nindent 12 }}
             {{- end }}

@@ -21,7 +21,7 @@ export class AdminPanelVersionService {
       const httpClient = this.secureHttpClientService.getHttpClient();
 
       const rawResponse = await httpClient.get<unknown>(
-        'https://hub.docker.com/v2/repositories/twentycrm/twenty/tags?page_size=100',
+        'https://hub.docker.com/v2/repositories/badesid/bades/tags?page_size=100',
       );
       const response = z
         .object({

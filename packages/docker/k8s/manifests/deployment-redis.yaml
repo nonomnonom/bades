@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: twentycrm-redis
-  name: twentycrm-redis
-  namespace: twentycrm
+    app: bades-redis
+  name: bades-redis
+  namespace: bades
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -15,11 +15,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: twentycrm-redis
+      app: bades-redis
   template:
     metadata:
       labels:
-        app: twentycrm-redis
+        app: bades-redis
     spec:
       containers:
         - name: redis

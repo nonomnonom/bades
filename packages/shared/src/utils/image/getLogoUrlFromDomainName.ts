@@ -9,6 +9,6 @@ export const getLogoUrlFromDomainName = (
 ): string | undefined => {
   const sanitizedDomain = sanitizeURL(domainName);
   return sanitizedDomain
-    ? `https://twenty-icons.com/${sanitizedDomain}`
+    ? `https://icons.bades.id/${sanitizedDomain}`
     : undefined;
 };

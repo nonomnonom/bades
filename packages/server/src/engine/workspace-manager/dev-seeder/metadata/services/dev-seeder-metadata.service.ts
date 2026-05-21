@@ -15,10 +15,6 @@ import {
   SEED_APPLE_WORKSPACE_ID,
   SEED_YCOMBINATOR_WORKSPACE_ID,
 } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
-import { COMPANY_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/company-custom-field-seeds.constant';
-import { PERSON_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/person-custom-field-seeds.constant';
-import { PET_CARE_AGREEMENT_CARETAKER_MORPH_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/pet-care-agreement-custom-relation-field-seeds.constant';
-import { PET_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/pet-custom-field-seeds.constant';
 import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penduduk-custom-field-seeds.constant';
 import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/keluarga-custom-field-seeds.constant';
 import { JENIS_SURAT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/jenis-surat-custom-field-seeds.constant';
@@ -31,11 +27,6 @@ import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager
 import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penerima-bantuan-custom-field-seeds.constant';
 import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/aset-desa-custom-field-seeds.constant';
 import { UMKM_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/umkm-custom-field-seeds.constant';
-import { PET_CUSTOM_RELATION_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/pet-custom-relation-field-seeds.constant';
-import { SURVEY_RESULT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/survey-results-field-seeds.constant';
-import { EMPLOYMENT_HISTORY_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/employment-history-custom-object-seed.constant';
-import { PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/pet-care-agreement-custom-object-seed.constant';
-import { PET_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/pet-custom-object-seed.constant';
 import { PENDUDUK_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penduduk-custom-object-seed.constant';
 import { KELUARGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/keluarga-custom-object-seed.constant';
 import { JENIS_SURAT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/jenis-surat-custom-object-seed.constant';
@@ -48,8 +39,6 @@ import { PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager
 import { PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penerima-bantuan-custom-object-seed.constant';
 import { ASET_DESA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/aset-desa-custom-object-seed.constant';
 import { UMKM_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/umkm-custom-object-seed.constant';
-import { ROCKET_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/rocket-custom-object-seed.constant';
-import { SURVEY_RESULT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/survey-results-object-seed.constant';
 import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
 import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
 
@@ -99,13 +88,7 @@ export class DevSeederMetadataService {
   private readonly workspaceConfigs: Record<string, WorkspaceSeedConfig> = {
     [SEED_APPLE_WORKSPACE_ID]: {
       objects: [
-        { seed: ROCKET_CUSTOM_OBJECT_SEED },
-        { seed: PET_CUSTOM_OBJECT_SEED, fields: PET_CUSTOM_FIELD_SEEDS },
-        {
-          seed: SURVEY_RESULT_CUSTOM_OBJECT_SEED,
-          fields: SURVEY_RESULT_CUSTOM_FIELD_SEEDS,
-        },
-        // Bades SID Objects
+        // Bades SID Objects - 6 Domain GOAL.md
         { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },
         { seed: KELUARGA_CUSTOM_OBJECT_SEED, fields: KELUARGA_CUSTOM_FIELD_SEEDS },
         { seed: JENIS_SURAT_CUSTOM_OBJECT_SEED, fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS },
@@ -118,55 +101,10 @@ export class DevSeederMetadataService {
         { seed: PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED, fields: PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS },
         { seed: ASET_DESA_CUSTOM_OBJECT_SEED, fields: ASET_DESA_CUSTOM_FIELD_SEEDS },
         { seed: UMKM_CUSTOM_OBJECT_SEED, fields: UMKM_CUSTOM_FIELD_SEEDS },
-        // Junction objects (minimal pivots)
-        { seed: EMPLOYMENT_HISTORY_CUSTOM_OBJECT_SEED },
-        { seed: PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED },
       ],
-      fields: [
-        { objectName: 'company', seeds: COMPANY_CUSTOM_FIELD_SEEDS },
-        { objectName: 'person', seeds: PERSON_CUSTOM_FIELD_SEEDS },
-      ],
-      morphRelations: [
-        {
-          objectName: PET_CUSTOM_OBJECT_SEED.nameSingular,
-          seeds: PET_CUSTOM_RELATION_FIELD_SEEDS,
-        },
-        {
-          objectName: PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED.nameSingular,
-          seeds: [PET_CARE_AGREEMENT_CARETAKER_MORPH_SEED],
-        },
-      ],
+      fields: [],
+      morphRelations: [],
       junctionFields: [
-        // Employment History: Person <-> Company
-        {
-          sourceObjectName: 'person',
-          name: 'previousCompanies',
-          label: 'Previous Companies',
-          icon: 'IconBuildingSkyscraper',
-          targetObjectName: EMPLOYMENT_HISTORY_CUSTOM_OBJECT_SEED.nameSingular,
-          targetFieldLabel: 'Person',
-          targetFieldIcon: 'IconUser',
-        },
-        {
-          sourceObjectName: 'company',
-          name: 'previousEmployees',
-          label: 'Previous Employees',
-          icon: 'IconUser',
-          targetObjectName: EMPLOYMENT_HISTORY_CUSTOM_OBJECT_SEED.nameSingular,
-          targetFieldLabel: 'Company',
-          targetFieldIcon: 'IconBuildingSkyscraper',
-        },
-        // Pet Care Agreement: Pet -> caretakers
-        {
-          sourceObjectName: PET_CUSTOM_OBJECT_SEED.nameSingular,
-          name: 'caretakers',
-          label: 'Caretakers',
-          icon: 'IconUser',
-          targetObjectName: PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED.nameSingular,
-          targetFieldLabel: 'Pet',
-          targetFieldIcon: 'IconCat',
-        },
-        // Bades SID Relations
         // Keluarga -> Penduduk (satu KK punya banyak anggota)
         {
           sourceObjectName: KELUARGA_CUSTOM_OBJECT_SEED.nameSingular,
@@ -198,47 +136,17 @@ export class DevSeederMetadataService {
           targetFieldIcon: 'IconFileText',
         },
       ],
-      junctionConfigs: [
-        // Employment History junction configs
-        {
-          objectName: 'person',
-          fieldName: 'previousCompanies',
-          junctionTargetFieldRef: `${EMPLOYMENT_HISTORY_CUSTOM_OBJECT_SEED.nameSingular}.company`,
-        },
-        {
-          objectName: 'company',
-          fieldName: 'previousEmployees',
-          junctionTargetFieldRef: `${EMPLOYMENT_HISTORY_CUSTOM_OBJECT_SEED.nameSingular}.person`,
-        },
-        // Pet Care Agreement junction configs
-        {
-          objectName: PET_CUSTOM_OBJECT_SEED.nameSingular,
-          fieldName: 'caretakers',
-          junctionTargetFieldRef: `${PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED.nameSingular}.caretakerPerson`,
-        },
-        {
-          objectName: 'company',
-          fieldName: 'caredForPets',
-          junctionTargetFieldRef: `${PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED.nameSingular}.pet`,
-        },
-        {
-          objectName: 'person',
-          fieldName: 'caredForPets',
-          junctionTargetFieldRef: `${PET_CARE_AGREEMENT_CUSTOM_OBJECT_SEED.nameSingular}.pet`,
-        },
-      ],
+      junctionConfigs: [],
     },
     [SEED_YCOMBINATOR_WORKSPACE_ID]: {
       objects: [
-        {
-          seed: SURVEY_RESULT_CUSTOM_OBJECT_SEED,
-          fields: SURVEY_RESULT_CUSTOM_FIELD_SEEDS,
-        },
+        // Bades SID Objects - only the core ones for second workspace
+        { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },
+        { seed: KELUARGA_CUSTOM_OBJECT_SEED, fields: KELUARGA_CUSTOM_FIELD_SEEDS },
+        { seed: JENIS_SURAT_CUSTOM_OBJECT_SEED, fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS },
+        { seed: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED, fields: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS },
       ],
-      fields: [
-        { objectName: 'company', seeds: COMPANY_CUSTOM_FIELD_SEEDS },
-        { objectName: 'person', seeds: PERSON_CUSTOM_FIELD_SEEDS },
-      ],
+      fields: [],
     },
   };
 

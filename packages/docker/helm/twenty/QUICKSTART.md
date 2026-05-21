@@ -7,8 +7,8 @@ Set your domain and install:
 ```bash
 export DOMAIN=crm.example.com
 
-helm install my-twenty ./packages/twenty-docker/helm/twenty \
-  --namespace twentycrm --create-namespace --wait \
+helm install my-bades ./packages/twenty-docker/helm/bades \
+  --namespace bades --create-namespace --wait \
   --set "server.ingress.hosts[0].host=$DOMAIN" \
   --set "server.ingress.tls[0].hosts[0]=$DOMAIN"
 ```
@@ -29,7 +29,7 @@ Sign up to create your admin account through the web UI.
 
 App secret token (for configuration/integrations):
 ```bash
-kubectl get secret tokens -n twentycrm -o jsonpath='{.data.accessToken}' | base64 --decode && echo
+kubectl get secret tokens -n bades -o jsonpath='{.data.accessToken}' | base64 --decode && echo
 ```
 
 Internal PostgreSQL credentials are managed by the chart and not exposed by default. If you need direct access, create your own user in the database pod or use an external PostgreSQL instance.
@@ -46,6 +46,6 @@ See [full README](README.md) for:
 ## Uninstall
 
 ```bash
-helm uninstall my-twenty -n twentycrm
-kubectl delete namespace twentycrm
+helm uninstall my-bades -n bades
+kubectl delete namespace bades
 ```

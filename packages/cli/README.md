@@ -1,8 +1,8 @@
-# Deprecated: twenty-cli
+# Deprecated: bades-cli
 
-This package is deprecated. Please install and use [twenty-sdk](https://www.npmjs.com/package/twenty-sdk) instead:
+Package ini sudah tidak digunakan lagi. Silakan instal dan gunakan [bades-sdk](https://www.npmjs.com/package/twenty-sdk) sebagai gantinya:
 
 ```bash
-npm uninstall twenty-cli
-npm install -g twenty-sdk
+npm uninstall bades-cli
+npm install -g bades-sdk
 ```

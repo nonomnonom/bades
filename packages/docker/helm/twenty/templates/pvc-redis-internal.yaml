@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "twenty.fullname" . }}-redis
-  namespace: {{ include "twenty.namespace" . }}
+  name: {{ include "bades.fullname" . }}-redis
+  namespace: {{ include "bades.namespace" . }}
   labels:
-    app.kubernetes.io/name: {{ include "twenty.name" . }}
+    app.kubernetes.io/name: {{ include "bades.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/component: redis
 spec:

@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: twentycrm-redis
-  namespace: twentycrm
+  name: bades-redis
+  namespace: bades
 spec:
   internalTrafficPolicy: Cluster
   ports:
@@ -10,7 +10,7 @@ spec:
       protocol: TCP
       targetPort: 6379
   selector:
-    app: twentycrm-redis
+    app: bades-redis
   sessionAffinity: ClientIP
   sessionAffinityConfig:
     clientIP:

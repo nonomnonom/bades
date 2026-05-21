@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: twentycrm-docker-data-pvc
-  namespace: twentycrm
+  name: bades-docker-data-pvc
+  namespace: bades
 spec:
   storageClassName: default
-  volumeName: twentycrm-docker-data-pv
+  volumeName: bades-docker-data-pv
   accessModes:
     - ReadWriteOnce
   resources:

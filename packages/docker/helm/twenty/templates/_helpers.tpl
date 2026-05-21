@@ -1,8 +1,8 @@
-{{- define "twenty.name" -}}
+{{- define "bades.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "twenty.fullname" -}}
+{{- define "bades.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -11,12 +11,12 @@
 {{- end -}}
 {{- end -}}
 
-{{- define "twenty.namespace" -}}
+{{- define "bades.namespace" -}}
 {{ .Release.Namespace }}
 {{- end -}}
 
 {{/* Server image fields merged with globals */}}
-{{- define "twenty.server.image" -}}
+{{- define "bades.server.image" -}}
 {{- $repo := default $.Values.image.repository (index $.Values.server.image "repository" | default "") -}}
 {{- $tag := default (default $.Chart.AppVersion $.Values.image.tag) (index $.Values.server.image "tag" | default "") -}}
 {{- $pp := default $.Values.image.pullPolicy (index $.Values.server.image "pullPolicy" | default "") -}}
@@ -24,7 +24,7 @@
 {{- end -}}
 
 {{/* Worker image fields merged with globals */}}
-{{- define "twenty.worker.image" -}}
+{{- define "bades.worker.image" -}}
 {{- $repo := default $.Values.image.repository (index $.Values.worker.image "repository" | default "") -}}
 {{- $tag := default (default $.Chart.AppVersion $.Values.image.tag) (index $.Values.worker.image "tag" | default "") -}}
 {{- $pp := default $.Values.image.pullPolicy (index $.Values.worker.image "pullPolicy" | default "") -}}
@@ -32,18 +32,18 @@
 {{- end -}}
 
 {{/* Extract parts of image helper */}}
-{{- define "twenty.image.repository" -}}
+{{- define "bades.image.repository" -}}
 {{- regexFind "^([^:|]+)" . -}}
 {{- end -}}
-{{- define "twenty.image.tag" -}}
+{{- define "bades.image.tag" -}}
 {{- regexFind ":([^|]+)" . | trimPrefix ":" -}}
 {{- end -}}
-{{- define "twenty.image.pullPolicy" -}}
+{{- define "bades.image.pullPolicy" -}}
 {{- regexFind "\\|(.+)$" . | trimPrefix "|" -}}
 {{- end -}}
 
-{{/* Check if using external secret for database password */}}
-{{- define "twenty.db.useExternalSecret" -}}
+{{/* Check if using external secret for database | default "bades"password */}}
+{{- define "bades.db.useExternalSecret" -}}
 {{- if and (not .Values.db.enabled) .Values.db.external.secretName .Values.db.external.passwordKey -}}
 true
 {{- else -}}
@@ -52,22 +52,22 @@ false
 {{- end -}}
 
 {{/* Database URL secret name */}}
-{{- define "twenty.dbUrl.secretName" -}}
-{{- printf "%s-db-url" (include "twenty.fullname" .) -}}
+{{- define "bades.dbUrl.secretName" -}}
+{{- printf "%s-db-url" (include "bades.fullname" .) -}}
 {{- end -}}
 
 {{/* Database password secret name */}}
-{{- define "twenty.dbPassword.secretName" -}}
-{{- if eq (include "twenty.db.useExternalSecret" .) "true" -}}
+{{- define "bades.dbPassword.secretName" -}}
+{{- if eq (include "bades.db.useExternalSecret" .) "true" -}}
 {{- .Values.db.external.secretName -}}
 {{- else -}}
-{{- include "twenty.dbUrl.secretName" . -}}
+{{- include "bades.dbUrl.secretName" . -}}
 {{- end -}}
 {{- end -}}
 
 {{/* Database password secret key */}}
-{{- define "twenty.dbPassword.secretKey" -}}
-{{- if eq (include "twenty.db.useExternalSecret" .) "true" -}}
+{{- define "bades.dbPassword.secretKey" -}}
+{{- if eq (include "bades.db.useExternalSecret" .) "true" -}}
 {{- .Values.db.external.passwordKey -}}
 {{- else if .Values.db.enabled -}}
 appPassword
@@ -77,20 +77,20 @@ password
 {{- end -}}
 
 {{/* Database URL template for external secret (will be evaluated at runtime) */}}
-{{- define "twenty.dbUrl.template" -}}
-{{- if eq (include "twenty.db.useExternalSecret" .) "true" -}}
+{{- define "bades.dbUrl.template" -}}
+{{- if eq (include "bades.db.useExternalSecret" .) "true" -}}
 {{- $scheme := "postgres" -}}
 {{- $host := .Values.db.external.host -}}
 {{- $port := .Values.db.external.port | default 5432 -}}
 {{- $user := .Values.db.external.user | default "postgres" -}}
-{{- $db := .Values.db.external.database | default "twenty" -}}
+{{- $db := .Values.db.external.database | default "bades"| default "bades" -}}
 {{- $qs := ternary "?sslmode=require" "" (eq .Values.db.external.ssl true) -}}
 {{- printf "%s://%s:$(DB_PASSWORD)@%s:%v/%s%s" $scheme $user $host $port $db $qs -}}
 {{- end -}}
 {{- end -}}
 
 {{/* Check if using external secret for redis password */}}
-{{- define "twenty.redis.useExternalSecret" -}}
+{{- define "bades.redis.useExternalSecret" -}}
 {{- if and (not .Values.redisInternal.enabled) .Values.redis.external.secretName .Values.redis.external.passwordKey -}}
 true
 {{- else -}}
@@ -99,16 +99,16 @@ false
 {{- end -}}
 
 {{/* Compose Redis URL */}}
-{{- define "twenty.redisUrl" -}}
+{{- define "bades.redisUrl" -}}
 {{- if .Values.server.env.REDIS_URL -}}
 {{- .Values.server.env.REDIS_URL -}}
 {{- else if .Values.redisInternal.enabled -}}
-{{- $host := printf "%s-redis" (include "twenty.fullname" .) -}}
-{{- printf "redis://%s.%s.svc.cluster.local:6379" $host (include "twenty.namespace" .) -}}
+{{- $host := printf "%s-redis" (include "bades.fullname" .) -}}
+{{- printf "redis://%s.%s.svc.cluster.local:6379" $host (include "bades.namespace" .) -}}
 {{- else -}}
 {{- $host := .Values.redis.external.host | default "redis" -}}
 {{- $port := .Values.redis.external.port | default 6379 -}}
-{{- if or (eq (include "twenty.redis.useExternalSecret" .) "true") (.Values.redis.external.password) -}}
+{{- if or (eq (include "bades.redis.useExternalSecret" .) "true") (.Values.redis.external.password) -}}
 {{- $auth := ":$(REDIS_PASSWORD)@" -}}
 {{- printf "redis://%s%s:%v" $auth $host $port -}}
 {{- else -}}
@@ -118,7 +118,7 @@ false
 {{- end -}}
 
 {{/* Compose Server URL from override, ingress, or service */}}
-{{- define "twenty.serverUrl" -}}
+{{- define "bades.serverUrl" -}}
 {{- if .Values.server.env.SERVER_URL -}}
 {{- .Values.server.env.SERVER_URL -}}
 {{- else if and .Values.server.ingress.enabled (gt (len .Values.server.ingress.hosts) 0) -}}
@@ -128,22 +128,22 @@ false
 {{- $port := ternary 443 80 $tls -}}
 {{- printf "%s://%s:%v" $scheme $host $port -}}
 {{- else -}}
-{{- $svc := printf "%s-server" (include "twenty.fullname" .) -}}
-{{- $ns := include "twenty.namespace" . -}}
+{{- $svc := printf "%s-server" (include "bades.fullname" .) -}}
+{{- $ns := include "bades.namespace" . -}}
 {{- $port := .Values.server.service.port | default 3000 -}}
 {{- printf "http://%s.%s.svc.cluster.local:%v" $svc $ns $port -}}
 {{- end -}}
 {{- end -}}
 
 {{/* Tokens secret name */}}
-{{- define "twenty.secret.tokens.name" -}}
+{{- define "bades.secret.tokens.name" -}}
 {{- .Values.secrets.tokens.name | default "tokens" -}}
 {{- end -}}
 
 {{/* Access token value: reuse existing secret if present, else provided value, else generated */}}
-{{- define "twenty.secret.tokens.access" -}}
-{{- $name := include "twenty.secret.tokens.name" . -}}
-{{- $ns := include "twenty.namespace" . -}}
+{{- define "bades.secret.tokens.access" -}}
+{{- $name := include "bades.secret.tokens.name" . -}}
+{{- $ns := include "bades.namespace" . -}}
 {{- $existing := lookup "v1" "Secret" $ns $name -}}
 {{- if and $existing $existing.data.accessToken -}}
 {{- b64dec $existing.data.accessToken -}}
@@ -155,12 +155,12 @@ false
 {{- end -}}
 
 {{/* Server container port */}}
-{{- define "twenty.server.containerPort" -}}
+{{- define "bades.server.containerPort" -}}
 {{- .Values.server.service.port | default 3000 -}}
 {{- end -}}
 
 {{/* Storage type: prefer top-level storage.type, else legacy server.env.STORAGE_TYPE, else local */}}
-{{- define "twenty.storageType" -}}
+{{- define "bades.storageType" -}}
 {{- if .Values.storage.type -}}
 {{- .Values.storage.type -}}
 {{- else if .Values.server.env.STORAGE_TYPE -}}
@@ -171,8 +171,8 @@ local
 {{- end -}}
 
 {{/* Additional storage env vars (e.g., S3) */}}
-{{- define "twenty.storageEnv" -}}
-{{- if eq (include "twenty.storageType" .) "s3" -}}
+{{- define "bades.storageEnv" -}}
+{{- if eq (include "bades.storageType" .) "s3" -}}
 {{- with .Values.storage.s3.bucket }}
 - name: STORAGE_S3_NAME
   value: {{ . | quote }}

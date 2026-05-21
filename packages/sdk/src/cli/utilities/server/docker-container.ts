@@ -1,8 +1,8 @@
 import { execSync } from 'node:child_process';
 
-export const CONTAINER_NAME = 'twenty-app-dev';
-export const TEST_CONTAINER_NAME = 'twenty-app-dev-test';
-export const IMAGE = 'twentycrm/twenty-app-dev:latest';
+export const CONTAINER_NAME = 'bades-app-dev';
+export const TEST_CONTAINER_NAME = 'bades-app-dev-test';
+export const IMAGE = 'badesid/bades-app-dev:latest';
 export const DEFAULT_PORT = 2020;
 export const DEFAULT_TEST_PORT = 2021;
 
@@ -50,7 +50,7 @@ export const containerExists = (containerName = CONTAINER_NAME): boolean => {
 };
 
 export const getImageForVersion = (version = 'latest'): string =>
-  `twentycrm/twenty-app-dev:${version}`;
+  `badesid/bades-app-dev:${version}`;
 
 export const getContainerDigest = (
   containerName = CONTAINER_NAME,

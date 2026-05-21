@@ -32,7 +32,7 @@ export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
           async_insert: 1,
           wait_for_async_insert: 1,
         },
-        application: 'twenty',
+        application: 'bades',
         log: { level: ClickHouseLogLevel.OFF },
       });
     }

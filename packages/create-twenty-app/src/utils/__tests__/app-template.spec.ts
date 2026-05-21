@@ -44,7 +44,7 @@ describe('copyBaseApplicationProject', () => {
   beforeEach(async () => {
     testAppDirectory = join(
       tmpdir(),
-      `test-twenty-app-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      `test-bades-app-${Date.now()}-${Math.random().toString(36).slice(2)}`,
     );
     await fs.ensureDir(testAppDirectory);
 

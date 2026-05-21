@@ -1,7 +1,6 @@
 # Kubernetes for Bades.id (Helm)
 DISCLAIMER: The k8s and podman deployments are not maintained by the core team.
-These files are provided and maintained by the community. Twenty core team
-maintains support for docker deployment.
+These files are provided and maintained by the community. Tim inti Bades memelihara dukungan untuk deployment docker.
 
 ## Overview
 
@@ -22,8 +21,8 @@ Before using these files, ensure you have the following installed and configured
 **Quick install:**
 ```bash
 export DOMAIN=your-domain.com
-helm install my-twenty packages/twenty-docker/helm/twenty \
-  --namespace twentycrm --create-namespace --wait \
+helm install my-bades packages/twenty-docker/helm/bades \
+  --namespace bades --create-namespace --wait \
   --set server.ingress.hosts[0].host=$DOMAIN \
   --set server.ingress.hosts[0].paths[0].path=/ \
   --set server.ingress.hosts[0].paths[0].pathType=Prefix \
@@ -39,8 +38,8 @@ See [QUICKSTART](../helm/twenty/QUICKSTART.md) and [chart README](../helm/twenty
 Clone the repository to your local machine:
 
 ``` bash
-git clone https://github.com/twentyhq/twenty.git
-cd twenty/packages/twenty-docker/k8s
+git clone https://github.com/bades-id/bades.git
+cd bades/packages/twenty-docker/k8s
 ```
 
 ### Step 2: Customize the Manifests and Terraform Files
@@ -86,7 +85,7 @@ cd twenty/packages/twenty-docker/k8s
 2. Create Server Secret
 
     ``` bash
-    kubectl create secret generic -n twentycrm tokens --from-literal accessToken=changeme --from-literal loginToken="changeme" --from-literal refreshToken="changeme" --from-literal fileToken="changeme"
+    kubectl create secret generic -n bades tokens --from-literal accessToken=changeme --from-literal loginToken="changeme" --from-literal refreshToken="changeme" --from-literal fileToken="changeme"
     ```
 
 3. Apply the manifests:
@@ -125,7 +124,7 @@ cd twenty/packages/twenty-docker/k8s
 
 ## Conclusion
 
-This setup provides a basic structure for deploying the TwentyCRM application using Kubernetes and Terraform. Ensure you thoroughly customize the manifests and Terraform files to suit your specific needs. For any issues or questions, please refer to the official documentation of Kubernetes and Terraform or seek support from your cloud provider.
+This setup provides a basic structure for deploying the Bades application using Kubernetes and Terraform. Ensure you thoroughly customize the manifests and Terraform files to suit your specific needs. For any issues or questions, please refer to the official documentation of Kubernetes and Terraform or seek support from your cloud provider.
 
 ---
 

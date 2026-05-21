@@ -101,7 +101,7 @@ describe('ClientConfigService', () => {
             CALENDAR_BOOKING_PAGE_ID: 'team/twenty/talk-to-us',
             CLOUDFLARE_API_KEY: undefined,
             CLOUDFLARE_ZONE_ID: undefined,
-            ALLOW_REQUESTS_TO_TWENTY_ICONS: false,
+            ALLOW_REQUESTS_TO_FAVICON_SERVICE: false,
             CLICKHOUSE_URL: undefined,
           };
 
@@ -144,7 +144,7 @@ describe('ClientConfigService', () => {
         isMultiWorkspaceEnabled: true,
         isEmailVerificationRequired: true,
         defaultSubdomain: 'app',
-        frontDomain: 'app.twenty.com',
+        frontDomain: 'app.bades.id',
         support: {
           supportDriver: 'FRONT',
           supportFrontChatId: 'chat-123',
@@ -172,7 +172,7 @@ describe('ClientConfigService', () => {
         isConfigVariablesInDbEnabled: false,
         isImapSmtpCaldavEnabled: false,
         isEmailGroupEnabled: false,
-        allowRequestsToTwentyIcons: false,
+        allowRequestsToFaviconService: false,
         calendarBookingPageId: 'team/twenty/talk-to-us',
         isCloudflareIntegrationEnabled: false,
         isClickHouseConfigured: false,

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 
 import { msg } from '@lingui/core/macro';
-import { TWENTY_ICONS_BASE_URL } from 'shared/constants';
+import { FAVICON_SERVICE_BASE_URL } from 'shared/constants';
 import { isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 import { Repository, type DataSource, type QueryRunner } from 'typeorm';
@@ -534,7 +534,7 @@ export class SignInUpService {
             );
 
           if (isWorkEmailFound) {
-            const logoUrl = `${TWENTY_ICONS_BASE_URL}/${getDomainNameByEmail(email)}`;
+            const logoUrl = `${FAVICON_SERVICE_BASE_URL}/${getDomainNameByEmail(email)}`;
             const logoFile =
               await this.fileCorePictureService.uploadWorkspaceLogoFromUrl({
                 imageUrl: logoUrl,

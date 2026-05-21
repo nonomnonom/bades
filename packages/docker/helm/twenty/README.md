@@ -20,14 +20,14 @@ See [QUICKSTART.md](QUICKSTART.md) for a simple 2-line install with your domain.
 
 Internal DB + Redis (default):
 ```bash
-helm install my-twenty ./packages/twenty-docker/helm/twenty \
-  --namespace twentycrm --create-namespace
+helm install my-bades ./packages/twenty-docker/helm/bades \
+  --namespace bades --create-namespace
 ```
 
 External DB/Redis:
 ```bash
-helm install my-twenty ./packages/twenty-docker/helm/twenty \
-  --namespace twentycrm --create-namespace \
+helm install my-bades ./packages/twenty-docker/helm/bades \
+  --namespace bades --create-namespace \
   --set db.enabled=false \
   --set db.external.host=db.example.com \
   --set redisInternal.enabled=false
@@ -41,7 +41,7 @@ See `values.yaml` for a comprehensive list.
 ## Notes
 
 - Database URL and Redis URL are composed automatically from chart settings
-- Database `twenty` and schema `core` are created automatically by server init container
+- Database `bades` and schema `core` are created automatically by server init container
 - No optional jobs: the chart no longer provides separate Jobs for DB or migrations.
 - Access token auto-generated (32 chars) if not provided; reuses existing secret if present
   - For production, provide a strong `secrets.tokens.accessToken` value via a secure values file; the auto-generated token is a convenience fallback.
@@ -50,10 +50,10 @@ See `values.yaml` for a comprehensive list.
 ## Testing
 
 ```bash
-helm lint ./packages/twenty-docker/helm/twenty
-helm template my-twenty ./packages/twenty-docker/helm/twenty
+helm lint ./packages/twenty-docker/helm/bades
+helm template my-bades ./packages/twenty-docker/helm/bades
 helm plugin install https://github.com/quintush/helm-unittest
-helm unittest ./packages/twenty-docker/helm/twenty
+helm unittest ./packages/twenty-docker/helm/bades
 ```
 
 ## Storage
@@ -76,7 +76,7 @@ helm unittest ./packages/twenty-docker/helm/twenty
 #     # accessKeyIdKey: accessKeyId
 #     # secretAccessKeyKey: secretAccessKey
 
-helm install my-twenty ./packages/twenty-docker/helm/twenty -f values-secrets.yaml
+helm install my-bades ./packages/twenty-docker/helm/bades -f values-secrets.yaml
 ```
 
 ## Production Tips

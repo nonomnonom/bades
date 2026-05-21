@@ -454,7 +454,7 @@ const HEADER_ICON_PATHS: Record<string, string> = {
 
 function Favicon({ domain, name }: { domain: string; name: string }) {
   const [failed, setFailed] = useState(false);
-  const url = `https://twenty-icons.com/${domain}`;
+  const url = `https://icons.bades.id/${domain}`;
 
   if (failed) {
     return <FaviconFallback>{name[0]}</FaviconFallback>;

@@ -190,7 +190,7 @@ export class ConfigVariables {
       "Enable or disable requests to icon services to get company icons",
     type: ConfigVariableType.BOOLEAN,
   })
-  ALLOW_REQUESTS_TO_TWENTY_ICONS = true;
+  ALLOW_REQUESTS_TO_FAVICON_SERVICE = true;
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.MICROSOFT_AUTH,

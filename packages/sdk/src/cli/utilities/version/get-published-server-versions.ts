@@ -9,13 +9,13 @@ import { type PublishedServerVersion } from '@/cli/utilities/version/published-s
 
 const CACHE_FILE = path.join(
   os.homedir(),
-  '.twenty',
+  '.bades',
   'version-check-cache.json',
 );
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 3000;
 const DOCKER_HUB_TAGS_URL =
-  'https://hub.docker.com/v2/repositories/twentycrm/twenty-app-dev/tags?page_size=100';
+  'https://hub.docker.com/v2/repositories/badesid/bades-app-dev/tags?page_size=100';
 
 type CacheFile = {
   fetchedAt: number;

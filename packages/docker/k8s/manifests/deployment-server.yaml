@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: twentycrm-server
-  name: twentycrm-server
-  namespace: twentycrm
+    app: bades-server
+  name: bades-server
+  namespace: bades
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -15,21 +15,21 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: twentycrm-server
+      app: bades-server
   template:
     metadata:
       labels:
-        app: twentycrm-server
+        app: bades-server
     spec:
       volumes:
-        - name: twentycrm-server-data
+        - name: bades-server-data
           persistentVolumeClaim:
-            claimName: twentycrm-server-pvc
-        - name: twentycrm-docker-data
+            claimName: bades-server-pvc
+        - name: bades-docker-data
           persistentVolumeClaim:
-            claimName: twentycrm-docker-data-pvc
+            claimName: bades-docker-data-pvc
       containers:
-        - name: twentycrm
+        - name: bades
           image: twentycrm/twenty:latest
           imagePullPolicy: Always
           env:
@@ -38,9 +38,9 @@ spec:
             - name: SERVER_URL
               value: "https://crm.example.com:443"
             - name: "PG_DATABASE_URL"
-              value: "postgres://postgres:postgres@twentycrm-db.twentycrm.svc.cluster.local/default"
+              value: "postgres://postgres:postgres@bades-db.bades.svc.cluster.local/default"
             - name: "REDIS_URL"
-              value: "redis://twentycrm-redis.twentycrm.svc.cluster.local:6379"
+              value: "redis://bades-redis.bades.svc.cluster.local:6379"
             - name: SIGN_IN_PREFILLED
               value: "false"
             - name: STORAGE_TYPE
@@ -69,8 +69,8 @@ spec:
           tty: true
           volumeMounts:
             - mountPath: /app/docker-data
-              name: twentycrm-docker-data
+              name: bades-docker-data
             - mountPath: /app/packages/twenty-server/.local-storage
-              name: twentycrm-server-data
+              name: bades-server-data
       dnsPolicy: ClusterFirst
       restartPolicy: Always

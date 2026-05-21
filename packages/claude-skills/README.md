@@ -1,8 +1,8 @@
-# twenty-claude-skills
+# bades-claude-skills
 
 Claude skills for working with Bades.id.
 
-Add skills under `skills/<skill-name>/SKILL.md`.
+Tambahkan skills di bawah `skills/<skill-name>/SKILL.md`.
 
 ## Skills
 

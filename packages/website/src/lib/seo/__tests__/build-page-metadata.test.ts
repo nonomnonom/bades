@@ -34,7 +34,7 @@ describe('buildPageMetadata', () => {
     expect(metadata.twitter).toMatchObject({
       card: 'summary_large_image',
       title: 'Product | Bades.id',
-      site: '@twentycrm',
+      site: '@bades_id',
     });
   });
 
@@ -190,8 +190,8 @@ describe('buildPageMetadata', () => {
     expect(metadata.twitter).toMatchObject({
       card: 'summary',
       title: 't',
-      site: '@twentycrm',
-      creator: '@twentycrm',
+      site: '@bades_id',
+      creator: '@bades_id',
       images: ['https://example.test/og/x.png'],
     });
   });

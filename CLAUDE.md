@@ -19,6 +19,9 @@ Twenty engine. Treat this repository as **Bades-first**:
   explicitly about migration or upstream compatibility.
 
 Read [GOAL.md](D:/bades/GOAL.md) before making product-facing changes.
+Treat `GOAL.md` as the primary product source of truth for any task that can
+affect branding, language, seed data, user-facing behavior, docs, or domain
+terminology.
 
 ## Key Commands
 
@@ -165,13 +168,20 @@ packages/
 ### Before Making Changes
 1. Read `GOAL.md` for product-facing work.
 2. Check for an existing `.claude/rules/*` rule or `.claude/skills/*` skill that
-   applies to the area you are touching.
+   applies to the area you are touching. For parallel or autonomous work, also
+   check `.claude/agents/*` and `.claude/loop.md`.
    Prioritize the Bades core rules: `bahasa-indonesia-total.md`,
-   `anti-brand-leak.md`, and `non-technical-product.md`.
+   `anti-brand-leak.md`, `non-technical-product.md`, and
+   `goal-gatekeeping-workflow.md`.
 3. Prefer diff-based linting and focused test runs before broader suites.
 4. Regenerate GraphQL or localization artifacts when the change requires it.
 5. Avoid introducing new public-facing references to Twenty unless the task is
    specifically about migration, provenance, or upstream compatibility.
+6. Evaluate the task against `GOAL.md` on the files and surfaces being touched.
+   Do not treat that as permission to do unrelated repo-wide cleanup.
+7. Default to autonomous execution when the goal direction is clear. Raise a
+   question only when ambiguity materially changes the approach or could cause a
+   risky regression.
 
 ### Localization Rules
 - User-facing Bades UI should be Bahasa Indonesia native by default.
@@ -203,3 +213,5 @@ and copy `.env` files for `front` and `server`.
 - `.mcp.json` - Project-scoped MCP servers
 - `.claude/rules/` - Project rules for Claude Code
 - `.claude/skills/` - Project-specific Claude Code skills
+- `.claude/agents/` - Project subagents and teammate role definitions
+- `.claude/loop.md` - Default autonomous maintenance prompt for bare `/loop`

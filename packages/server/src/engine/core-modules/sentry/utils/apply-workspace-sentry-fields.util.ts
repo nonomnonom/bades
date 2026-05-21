@@ -12,12 +12,12 @@ export const applyWorkspaceSentryFields = (
     id: fields.userWorkspaceId ?? fields.workspaceId,
   });
 
-  Sentry.setTag('twenty.workspace.id', fields.workspaceId);
+  Sentry.setTag('bades.workspace.id', fields.workspaceId);
   if (fields.userWorkspaceId) {
-    Sentry.setTag('twenty.user_workspace.id', fields.userWorkspaceId);
+    Sentry.setTag('bades.user_workspace.id', fields.userWorkspaceId);
   }
 
-  Sentry.setContext('twenty', {
+  Sentry.setContext('bades', {
     workspace_id: fields.workspaceId,
     ...(fields.userWorkspaceId && {
       user_workspace_id: fields.userWorkspaceId,

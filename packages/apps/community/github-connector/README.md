@@ -243,7 +243,7 @@ The app ships with a small integration test suite that runs against a local
 
 ```bash
 docker run -d --name twenty-app-dev-test \
-  -p 2021:2021 twentycrm/twenty-app-dev:v2.0.3
+  -p 2021:2021 badesid/bades-app-dev:v2.0.3
 
 cd packages/apps/community/github-connector
 yarn test

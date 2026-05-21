@@ -12,7 +12,7 @@ const program = new Command(packageJson.name)
   .version(
     packageJson.version,
     '-v, --version',
-    'Output the current version of create-twenty-app.',
+    'Output the current version of create-bades-app.',
   )
   .argument('[directory]')
   .option('-n, --name <name>', 'Application name')

@@ -1,6 +1,6 @@
 # Default image used by all components
 image:
-  repository: twentycrm/twenty
+  repository: badesid/bades
   tag: ""  # defaults to Chart.yaml appVersion
   pullPolicy: IfNotPresent
 
@@ -76,7 +76,7 @@ server:
           - path: /
             pathType: Prefix
     tls:
-      - secretName: twenty-tls
+      - secretName: bades-tls
         hosts:
           - crm.example.com
 
@@ -119,11 +119,11 @@ worker:
 db:
   enabled: true
   internal:
-    database: twenty
-    appUser: twenty_app_user
+    database: bades
+    appUser: bades_app_user
     appPassword: ""  # random if empty
     image:
-      repository: twentycrm/twenty-postgres-spilo
+      repository: badesid/bades-postgres-spilo
       tag: 3.3-p2
     resources:
       requests:
@@ -148,9 +148,9 @@ db:
   external:
     host: ""
     port: 5432
-    user: twenty_app_user
+    user: bades_app_user
     password: ""
-    database: twenty
+    database: bades
     ssl: false
     secretName: ""
     passwordKey: ""

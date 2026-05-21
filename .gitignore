@@ -8,7 +8,12 @@
 !.claude/rules/**
 !.claude/skills/
 !.claude/skills/**
+!.claude/agents/
+!.claude/agents/**
+!.claude/hooks/
+!.claude/hooks/**
 !.claude/settings.json
+!.claude/loop.md
 .claude/settings.local.json
 .cursor/debug-*.log
 **/**/node_modules/

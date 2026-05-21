@@ -1619,8 +1619,8 @@ export const APP_PREVIEW_DATA: { visual: AppPreviewConfig } = {
         href: 'https://cal.com/forms/f7841033-0a20-4958-8c92-4e34ec128a81',
         icon: {
           kind: 'brand',
-          brand: 'twenty',
-          imageSrc: '/images/home/hero/twenty-demo-logo.webp',
+          brand: 'bades',
+          imageSrc: '/images/home/hero/bades-demo-logo.webp',
           overlay: 'link',
         },
       },

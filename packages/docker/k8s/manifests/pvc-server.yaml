@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: twentycrm-server-pvc
-  namespace: twentycrm
+  name: bades-server-pvc
+  namespace: bades
 spec:
   storageClassName: default
-  volumeName: twentycrm-server-pv
+  volumeName: bades-server-pv
   accessModes:
     - ReadWriteOnce
   resources:

@@ -11,8 +11,8 @@ inspect.defaultOptions.depth = 10;
 const program = new Command();
 
 program
-  .name('twenty')
-  .description('CLI for Twenty application development')
+  .name('bades')
+  .description('CLI for Bades application development')
   .version(packageJson.version);
 
 program.option(

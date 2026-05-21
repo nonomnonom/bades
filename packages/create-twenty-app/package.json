@@ -1,7 +1,7 @@
 {
-  "name": "create-twenty-app",
+  "name": "create-bades-app",
   "version": "2.7.0",
-  "description": "Command-line interface to create Twenty application",
+  "description": "Command-line interface to create Bades application",
   "main": "dist/cli.cjs",
   "bin": "dist/cli.cjs",
   "files": [
@@ -13,9 +13,9 @@
     "build": "npx rimraf dist && npx vite build"
   },
   "keywords": [
-    "twenty",
+    "bades",
     "cli",
-    "crm",
+    "desa",
     "application",
     "development"
   ],

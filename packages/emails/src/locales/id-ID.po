@@ -186,7 +186,7 @@ msgstr "Bades adalah Sistem Informasi Desa (SID) yang membantu mengelola data da
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Website"
-msgstr "Website"
+msgstr "Situs Web"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
@@ -196,7 +196,7 @@ msgstr "Kunjungi website Bades"
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Github"
-msgstr "Github"
+msgstr "GitHub"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
