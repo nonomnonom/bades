@@ -1,6 +1,6 @@
 import { CurrentApplicationContext } from '@/applications/contexts/CurrentApplicationContext';
 import { useResolvedApplicationDescription } from '@/applications/hooks/useResolvedApplicationDescription';
-import { isTwentyStandardApplication } from '@/applications/utils/isTwentyStandardApplication';
+import { isBadesStandardApplication } from '@/applications/utils/isBadesStandardApplication';
 import { isWorkspaceCustomApplication } from '@/applications/utils/isWorkspaceCustomApplication';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useUpgradeApplication } from '@/marketplace/hooks/useUpgradeApplication';
@@ -81,7 +81,7 @@ export const SettingsApplicationDetails = () => {
   const manifest = detail?.manifest as Manifest | undefined;
   const app = manifest?.application;
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
-  const isStandardApplication = isTwentyStandardApplication(application);
+  const isStandardApplication = isBadesStandardApplication(application);
   const isCustomApplication = isWorkspaceCustomApplication(
     application,
     currentWorkspace,

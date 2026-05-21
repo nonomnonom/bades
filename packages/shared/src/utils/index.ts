@@ -215,7 +215,7 @@ export { isLabelIdentifierFieldMetadataTypes } from './validation/isLabelIdentif
 export type { SearchableFieldType } from './validation/isSearchableFieldType';
 export { isSearchableFieldType } from './validation/isSearchableFieldType';
 export { isValidLocale } from './validation/isValidLocale';
-export { isValidTwentySubdomain } from './validation/isValidTwentySubdomain';
+export { isValidBadesSubdomain } from './validation/isValidBadesSubdomain';
 export { isValidUuid } from './validation/isValidUuid';
 export { isValidVariable } from './validation/isValidVariable';
 export { normalizeLocale } from './validation/normalizeLocale';

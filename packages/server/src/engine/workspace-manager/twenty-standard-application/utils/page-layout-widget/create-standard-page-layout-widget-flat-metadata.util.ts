@@ -10,7 +10,7 @@ import { type FlatPageLayoutWidget } from 'src/engine/metadata-modules/flat-page
 import { type WidgetType } from 'src/engine/metadata-modules/page-layout-widget/enums/widget-type.enum';
 import { type AllPageLayoutWidgetConfiguration } from 'src/engine/metadata-modules/page-layout-widget/types/all-page-layout-widget-configuration.type';
 import { STANDARD_PAGE_LAYOUTS } from 'src/engine/workspace-manager/twenty-standard-application/constants/standard-page-layout.constant';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 import { type StandardObjectMetadataRelatedEntityIds } from 'src/engine/workspace-manager/twenty-standard-application/utils/get-standard-object-metadata-related-entity-ids.util';
 import { type StandardPageLayoutMetadataRelatedEntityIds } from 'src/engine/workspace-manager/twenty-standard-application/utils/get-standard-page-layout-metadata-related-entity-ids.util';
 import {
@@ -94,7 +94,7 @@ export const createStandardPageLayoutWidgetFlatMetadata = ({
     universalIdentifier: widgetDef.universalIdentifier,
     applicationId: twentyStandardApplicationId,
     applicationUniversalIdentifier:
-      TWENTY_STANDARD_APPLICATION.universalIdentifier,
+      BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,
     pageLayoutTabId: tabIds.id,
     pageLayoutTabUniversalIdentifier: tabDefinition.universalIdentifier,

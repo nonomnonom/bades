@@ -5,7 +5,7 @@ import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/typ
 import { findFlatEntityByUniversalIdentifier } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-universal-identifier.util';
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
 import { STANDARD_COMMAND_MENU_ITEMS } from 'src/engine/workspace-manager/twenty-standard-application/constants/standard-command-menu-item.constant';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 
 export const createStandardCommandMenuItemFlatMetadata = ({
   commandMenuItemName,
@@ -52,7 +52,7 @@ export const createStandardCommandMenuItemFlatMetadata = ({
     universalIdentifier: definition.universalIdentifier,
     applicationId: twentyStandardApplicationId,
     applicationUniversalIdentifier:
-      TWENTY_STANDARD_APPLICATION.universalIdentifier,
+      BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,
     label: definition.label,
     shortLabel: definition.shortLabel,

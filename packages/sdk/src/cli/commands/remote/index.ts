@@ -122,7 +122,7 @@ const addAction = async (options: {
         console.error(
           chalk.red(
             'No local Twenty server found.\n' +
-              'Start one with: yarn twenty docker:start',
+              'Start one with: yarn bades docker:start',
           ),
         );
         process.exit(1);

@@ -3583,13 +3583,13 @@ msgid "Exclude group emails"
 msgstr "Exclude group emails"
 
 msgid "Exclude non-professional emails"
-msgstr "Exclude non-professional emails"
+msgstr "Kecualikan email non-profesional"
 
 msgid "Exclude the following people and domains from my email sync."
-msgstr "Exclude the following people and domains from my email sync."
+msgstr "Kecualikan orang dan domain berikut dari sinkronisasi email saya."
 
 msgid "Exclude the following people and domains from my email sync. Internal conversations will not be imported"
-msgstr "Exclude the following people and domains from my email sync. Internal conversations will not be imported"
+msgstr "Kecualikan orang dan domain berikut dari sinkronisasi email saya. Percakapan internal tidak akan diimpor"
 
 msgid "Execution ID"
 msgstr "ID Eksekusi"
@@ -6529,16 +6529,16 @@ msgid "Pre-install"
 msgstr "Pra-install"
 
 msgid "Pre-installed only"
-msgstr "Pra-installed only"
+msgstr "Hanya pra-instal"
 
 msgid "Prefilling your workspace data..."
-msgstr "Prafilling your workspace data..."
+msgstr "Mengisi data ruang kerja Anda..."
 
 msgid "Prefix"
-msgstr "Prafix"
+msgstr "Prefik"
 
 msgid "Prevent from assigning the same value to different records"
-msgstr "Pravent from assigning the same value to different records"
+msgstr "Cegah penugasan nilai yang sama ke record yang berbeda"
 
 msgid "Preview"
 msgstr "Pratinjau"

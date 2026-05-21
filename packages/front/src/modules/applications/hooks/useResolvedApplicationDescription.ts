@@ -1,6 +1,6 @@
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { isTwentyStandardApplication } from '@/applications/utils/isTwentyStandardApplication';
+import { isBadesStandardApplication } from '@/applications/utils/isBadesStandardApplication';
 import { isWorkspaceCustomApplication } from '@/applications/utils/isWorkspaceCustomApplication';
 import { getCustomApplicationDescription } from '~/pages/settings/applications/utils/getCustomApplicationDescription';
 import { getStandardApplicationDescription } from '~/pages/settings/applications/utils/getStandardApplicationDescription';
@@ -16,7 +16,7 @@ export const useResolvedApplicationDescription = (
 ): string => {
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
-  if (isTwentyStandardApplication(application)) {
+  if (isBadesStandardApplication(application)) {
     return getStandardApplicationDescription();
   }
 

@@ -1,4 +1,4 @@
-import { TWENTY_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER } from 'shared/application';
+import { BADES_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER } from 'shared/application';
 import { PermissionFlagType } from 'shared/constants';
 import { DataSource, QueryRunner } from 'typeorm';
 
@@ -67,7 +67,7 @@ export class BackfillRolePermissionFlagPermissionFlagIdSlowInstanceCommand
           definition.description,
           definition.icon,
           definition.permissionType,
-          TWENTY_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER,
+          BADES_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER,
         ],
       );
     }

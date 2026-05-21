@@ -318,7 +318,7 @@ export class CreateAppCommand {
     try {
       const configService = new ConfigService();
       const config = await configService.getConfig();
-      const token = config.badesCLIAccessToken ?? config.apiKey;
+      const token = config.twentyCLIAccessToken ?? config.apiKey;
 
       if (!token) {
         return;

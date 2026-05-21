@@ -1,5 +1,5 @@
 import { areFlatObjectMetadataNamesSyncedWithLabels } from 'src/engine/metadata-modules/flat-object-metadata/utils/are-flat-object-metadata-names-synced-with-labels.util';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 import { type WorkspaceMigrationBuilderOptions } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/types/workspace-migration-builder-options.type';
 
 const THIRD_PARTY_BUILD_OPTIONS: WorkspaceMigrationBuilderOptions = {
@@ -10,7 +10,7 @@ const THIRD_PARTY_BUILD_OPTIONS: WorkspaceMigrationBuilderOptions = {
 const TWENTY_STANDARD_BUILD_OPTIONS: WorkspaceMigrationBuilderOptions = {
   isSystemBuild: false,
   applicationUniversalIdentifier:
-    TWENTY_STANDARD_APPLICATION.universalIdentifier,
+    BADES_STANDARD_APPLICATION.universalIdentifier,
 };
 
 describe('areFlatObjectMetadataNamesSyncedWithLabels', () => {

@@ -1,20 +1,20 @@
-name: Spawn Twenty Docker Image
+name: Spawn Bades Docker Image
 description: >
-  Starts a full Twenty instance (server, worker, database, redis) using Docker
+  Starts a full Bades instance (server, worker, database, redis) using Docker
   Compose. The server is available at http://localhost:3000 for subsequent steps
   in the caller's job.
   Accepts "latest" (pulls the latest Docker Hub image, checks out main) or a
   semver tag (e.g., v0.40.0).
-  Designed to be consumed from external repositories (e.g., twenty-app).
+  Designed to be consumed from external repositories.
 
 inputs:
-  twenty-version:
-    description: 'Twenty Docker Hub image tag — either "latest" or a semver tag (e.g., v0.40.0).'
+  bades-version:
+    description: 'Bades Docker Hub image tag — either "latest" or a semver tag (e.g., v0.40.0).'
     required: true
-  twenty-repository:
-    description: 'Twenty repository to checkout docker compose files from.'
+  bades-repository:
+    description: 'Bades repository to checkout docker compose files from.'
     required: false
-    default: 'twentyhq/twenty'
+    default: 'badesid/bades'
   github-token:
     description: 'GitHub token for cross-repo checkout. Required when calling from an external repository.'
     required: false
@@ -22,10 +22,10 @@ inputs:
 
 outputs:
   server-url:
-    description: 'URL where the Twenty server can be reached'
+    description: 'URL where the Bades server can be reached'
     value: http://localhost:3000
   access-token:
-    description: 'Admin access token for the Twenty instance'
+    description: 'Admin access token for the Bades instance'
     value: ${{ steps.admin-token.outputs.access-token }}
 
 runs:
@@ -35,7 +35,7 @@ runs:
       id: resolve
       shell: bash
       run: |
-        VERSION="${{ inputs.twenty-version }}"
+        VERSION="${{ inputs.bades-version }}"
         if [ "$VERSION" = "latest" ]; then
           echo "docker-tag=latest" >> "$GITHUB_OUTPUT"
           echo "git-ref=main" >> "$GITHUB_OUTPUT"
@@ -43,24 +43,24 @@ runs:
           echo "docker-tag=$VERSION" >> "$GITHUB_OUTPUT"
           echo "git-ref=$VERSION" >> "$GITHUB_OUTPUT"
         else
-          echo "::error::twenty-version must be \"latest\" or a semver tag (e.g., v0.40.0). Got: '$VERSION'"
+          echo "::error::bades-version must be \"latest\" or a semver tag (e.g., v0.40.0). Got: '$VERSION'"
           exit 1
         fi
 
     - name: Checkout docker compose files
       uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       with:
-        repository: ${{ inputs.twenty-repository }}
+        repository: ${{ inputs.bades-repository }}
         ref: ${{ steps.resolve.outputs.git-ref }}
         token: ${{ inputs.github-token }}
         sparse-checkout: |
-          packages/twenty-docker
+          packages/bades-docker
         sparse-checkout-cone-mode: false
-        path: .twenty-spawn
+        path: .bades-spawn
 
     - name: Prepare environment
       shell: bash
-      working-directory: ./.twenty-spawn/packages/twenty-docker
+      working-directory: ./.bades-spawn/packages/bades-docker
       run: |
         cp .env.example .env
         echo "" >> .env
@@ -68,16 +68,16 @@ runs:
         echo "APP_SECRET=replace_me_with_a_random_string" >> .env
         echo "SERVER_URL=http://localhost:3000" >> .env
 
-    - name: Start Twenty instance
+    - name: Start Bades instance
       shell: bash
-      working-directory: ./.twenty-spawn/packages/twenty-docker
+      working-directory: ./.bades-spawn/packages/bades-docker
       run: |
         docker compose up -d --wait || {
           echo "::error::Docker compose failed to start or health checks timed out"
           docker compose logs
           exit 1
         }
-        echo "Twenty instance is ready at http://localhost:3000"
+        echo "Bades instance is ready at http://localhost:3000"
 
     - name: Set admin access token
       id: admin-token

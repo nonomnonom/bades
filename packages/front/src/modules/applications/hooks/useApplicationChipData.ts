@@ -2,7 +2,7 @@ import {
   type ApplicationAvatarColors,
   useApplicationAvatarColors,
 } from '@/applications/hooks/useApplicationAvatarColors';
-import { isTwentyStandardApplication } from '@/applications/utils/isTwentyStandardApplication';
+import { isBadesStandardApplication } from '@/applications/utils/isBadesStandardApplication';
 import { isWorkspaceCustomApplication } from '@/applications/utils/isWorkspaceCustomApplication';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -53,7 +53,7 @@ export const useApplicationChipData = ({
     };
   }
 
-  const isStandard = isTwentyStandardApplication(application);
+  const isStandard = isBadesStandardApplication(application);
 
   const isCustom = isWorkspaceCustomApplication(application, currentWorkspace);
 

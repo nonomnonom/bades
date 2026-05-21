@@ -53,7 +53,7 @@ const loadSources = async (appPath: string): Promise<string[]> => {
   return await glob(['**/*.ts', '**/*.tsx'], {
     cwd: appPath,
     absolute: true,
-    ignore: ['**/node_modules/**', '**/*.d.ts', '**/dist/**', '**/.twenty/**'],
+    ignore: ['**/node_modules/**', '**/*.d.ts', '**/dist/**', '**/.bades/**'],
     onlyFiles: true,
   });
 };

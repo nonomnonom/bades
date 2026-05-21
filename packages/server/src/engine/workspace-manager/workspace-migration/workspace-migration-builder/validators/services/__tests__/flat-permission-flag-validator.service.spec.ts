@@ -9,7 +9,7 @@ import { type FlatRolePermissionFlag } from 'src/engine/metadata-modules/flat-ro
 import { type FlatPermissionFlag } from 'src/engine/metadata-modules/flat-permission-flag/types/flat-permission-flag.type';
 import { type PermissionFlagPermissionType } from 'src/engine/metadata-modules/permission-flag/constants/permission-flag-permission-type.constant';
 import { PermissionFlagExceptionCode } from 'src/engine/metadata-modules/permission-flag/permission-flag.exception';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 import { FlatPermissionFlagValidatorService } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/validators/services/flat-permission-flag-validator.service';
 
 const buildFlatDefinition = (
@@ -216,7 +216,7 @@ describe('FlatPermissionFlagValidatorService', () => {
     it('rejects updating a standard definition from a custom application', () => {
       const existing = buildFlatDefinition({
         applicationUniversalIdentifier:
-          TWENTY_STANDARD_APPLICATION.universalIdentifier,
+          BADES_STANDARD_APPLICATION.universalIdentifier,
       });
       const optimisticMaps = buildEmptyMaps();
       optimisticMaps.byUniversalIdentifier[existing.universalIdentifier] =
@@ -310,7 +310,7 @@ describe('FlatPermissionFlagValidatorService', () => {
     it('rejects deleting a standard definition from a custom application', () => {
       const existing = buildFlatDefinition({
         applicationUniversalIdentifier:
-          TWENTY_STANDARD_APPLICATION.universalIdentifier,
+          BADES_STANDARD_APPLICATION.universalIdentifier,
       });
       const optimisticMaps = buildEmptyMaps();
       optimisticMaps.byUniversalIdentifier[existing.universalIdentifier] =

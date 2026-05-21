@@ -2,7 +2,7 @@ import { v4 } from 'uuid';
 
 import { type FlatRole } from 'src/engine/metadata-modules/flat-role/types/flat-role.type';
 import { STANDARD_ROLE } from 'src/engine/workspace-manager/twenty-standard-application/constants/standard-role.constant';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 import { type AllStandardRoleName } from 'src/engine/workspace-manager/twenty-standard-application/types/all-standard-role-name.type';
 import { type StandardBuilderArgs } from 'src/engine/workspace-manager/twenty-standard-application/types/metadata-standard-buillder-args.type';
 
@@ -69,7 +69,7 @@ export const createStandardRoleFlatMetadata = ({
     workspaceId,
     applicationId: twentyStandardApplicationId,
     applicationUniversalIdentifier:
-      TWENTY_STANDARD_APPLICATION.universalIdentifier,
+      BADES_STANDARD_APPLICATION.universalIdentifier,
     createdAt: now,
     updatedAt: now,
     rolePermissionFlagIds: [],

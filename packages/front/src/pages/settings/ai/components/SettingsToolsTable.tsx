@@ -36,7 +36,7 @@ import {
   SettingsToolTableRow,
   TOOL_TABLE_ROW_GRID_TEMPLATE_COLUMNS,
 } from './SettingsToolTableRow';
-import { TWENTY_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER } from 'shared/application';
+import { BADES_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER } from 'shared/application';
 
 type ToolItem = {
   identifier: string;
@@ -131,7 +131,7 @@ export const SettingsToolsTable = () => {
       currentWorkspace?.installedApplications?.find(
         (app) =>
           app.universalIdentifier ===
-          TWENTY_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER,
+          BADES_STANDARD_APPLICATION_UNIVERSAL_IDENTIFIER,
       )?.id ?? ''
     );
   };

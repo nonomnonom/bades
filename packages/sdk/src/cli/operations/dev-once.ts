@@ -50,9 +50,9 @@ const innerAppDevOnce = async (
         message:
           'Cannot reach Twenty server.\n\n' +
           '  Start a local server:\n' +
-          '    yarn twenty docker:start\n\n' +
+          '    yarn bades docker:start\n\n' +
           '  Check server status:\n' +
-          '    yarn twenty docker:status',
+          '    yarn bades docker:status',
       },
     };
   }
@@ -63,7 +63,7 @@ const innerAppDevOnce = async (
       error: {
         code: APP_ERROR_CODES.SYNC_FAILED,
         message:
-          'Authentication failed. Run `yarn twenty remote:add --local` to authenticate.',
+          'Authentication failed. Run `yarn bades remote:add --local` to authenticate.',
       },
     };
   }

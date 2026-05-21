@@ -29,6 +29,7 @@ Autonomous workflow helpers for this repo also live in:
 - `changelog-process.md` - Release content workflow for `packages/website`
 - `react-general-guidelines.md` - React component patterns
 - `react-state-management.md` - Jotai patterns used in the frontend
+- `react-doctor-workflow.md` - Path-scoped React quality check workflow with the `react-doctor` skill
 - `typescript-guidelines.md` - TypeScript expectations
 - `sdk-esm-dependencies.md` - Dual-format package dependency guidance
 

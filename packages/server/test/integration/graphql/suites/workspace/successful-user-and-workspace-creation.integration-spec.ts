@@ -13,7 +13,7 @@ import { jestExpectToBeDefined } from 'test/utils/jest-expect-to-be-defined.util
 import { isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 
 describe('Successful user and workspace creation', () => {
   let createdUserAccessToken: string | undefined;
@@ -107,7 +107,7 @@ describe('Successful user and workspace creation', () => {
     const twentyStandardApp = findManyApplicationsData.find(
       (application) =>
         application.universalIdentifier ===
-        TWENTY_STANDARD_APPLICATION.universalIdentifier,
+        BADES_STANDARD_APPLICATION.universalIdentifier,
     );
 
     jestExpectToBeDefined(twentyStandardApp);
@@ -115,7 +115,7 @@ describe('Successful user and workspace creation', () => {
       sourcePath: _sourcePath,
       sourceType: _sourceType,
       ...expectedStandardTwentyApplication
-    } = TWENTY_STANDARD_APPLICATION;
+    } = BADES_STANDARD_APPLICATION;
 
     expect(twentyStandardApp).toMatchObject(expectedStandardTwentyApplication);
 

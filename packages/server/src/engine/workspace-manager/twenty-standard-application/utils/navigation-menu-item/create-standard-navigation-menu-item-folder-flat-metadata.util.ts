@@ -3,7 +3,7 @@ import { NavigationMenuItemType } from 'src/engine/metadata-modules/navigation-m
 import { findFlatEntityByUniversalIdentifier } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-universal-identifier.util';
 import { type FlatNavigationMenuItem } from 'src/engine/metadata-modules/flat-navigation-menu-item/types/flat-navigation-menu-item.type';
 import { type FlatView } from 'src/engine/metadata-modules/flat-view/types/flat-view.type';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 
 export const createStandardNavigationMenuItemFolderFlatMetadata = ({
   universalIdentifier,
@@ -29,7 +29,7 @@ export const createStandardNavigationMenuItemFolderFlatMetadata = ({
   universalIdentifier,
   applicationId: twentyStandardApplicationId,
   applicationUniversalIdentifier:
-    TWENTY_STANDARD_APPLICATION.universalIdentifier,
+    BADES_STANDARD_APPLICATION.universalIdentifier,
   workspaceId,
   userWorkspaceId: null,
   targetRecordId: null,
@@ -92,7 +92,7 @@ export const createStandardNavigationMenuItemFolderItemFlatMetadata = ({
     universalIdentifier,
     applicationId: twentyStandardApplicationId,
     applicationUniversalIdentifier:
-      TWENTY_STANDARD_APPLICATION.universalIdentifier,
+      BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,
     userWorkspaceId: null,
     targetRecordId: null,

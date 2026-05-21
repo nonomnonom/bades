@@ -132,7 +132,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Compose your CRM and internal apps with a single extensibility toolkit. Data model, layout, and automation.`,
+      body: msg`Bangun aplikasi dan layanan desa dengan seperangkat alat yang fleksibel. Model data, tata letak, dan alur kerja.`,
     },
     {
       heading: (
@@ -145,7 +145,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Enjoy unlimited customization using the AI coding tools you already love. Adapt your CRM to fit the way your business grows and wins.`,
+      body: msg`Kustomisasi tanpa batas sesuai kebutuhan desa Anda. Mudah digunakan, cepat beradaptasi.`,
     },
     {
       heading: (
@@ -158,7 +158,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Don't get locked into someone else's ecosystem. Bades.id's developer experience looks like normal software, with local setup, real data, live testing, and no proprietary tooling.`,
+      body: msg`Jangan terkunci di ekosistem orang lain. Bades.id mudah disetup, dengan data asli, pengujian langsung, dan tanpa tool proprietary.`,
     },
   ];
   const menuSocialLinks = mergeSocialLinkLabels(MENU_DATA.socialLinks, stats);
@@ -209,15 +209,15 @@ export default async function HomePage({ params }: HomePageProps) {
           <HeroHeadingGroup>
             <Hero.Heading page={Pages.Home}>
               <HeadingPart fontFamily="serif">
-                {i18n._(msg`Build your Enterprise CRM`)}
+                {i18n._(msg`Sistem Informasi Desa`)}
               </HeadingPart>{' '}
               <HeadingPart fontFamily="sans">
-                {i18n._(msg`at\u00A0AI\u00A0Speed`)}
+                {i18n._(msg`untuk Indonesia`)}
               </HeadingPart>
             </Hero.Heading>
             <Hero.Body page={Pages.Home} size="sm">
               {i18n._(
-                msg`Bades.id gives technical teams the building blocks for a custom CRM that meets complex business needs and quickly adapts as the business evolves.`,
+                msg`Bades.id menyediakan blok bangunan untuk sistem informasi desa yang memenuhi kebutuhan admin desa Indonesia dan cepat beradaptasi.`,
               )}
             </Hero.Body>
           </HeroHeadingGroup>
@@ -254,7 +254,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </Eyebrow>
           <Problem.Heading>
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`A custom CRM gives your org an edge,`)}
+              {i18n._(msg`Sistem Informasi Desa memberi keunggulan,`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
               {i18n._(msg`but building one`)}
@@ -285,7 +285,7 @@ export default async function HomePage({ params }: HomePageProps) {
                 weight="light"
               >
                 <HeadingPart fontFamily="serif">
-                  {i18n._(msg`Assemble, iterate and adapt a robust CRM,`)}
+                  {i18n._(msg`Rakit, iterasi, dan sesuaikan sistem yang robust,`)}
                 </HeadingPart>{' '}
                 <HeadingPart fontFamily="sans">
                   {i18n._(msg`that's quick to flex`)}
@@ -313,14 +313,14 @@ export default async function HomePage({ params }: HomePageProps) {
           </Eyebrow>
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`Make your GTM team happy`)}
+              {i18n._(msg`Buat tim operasional Anda puas`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="serif">
               {i18n._(msg`with`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`a CRM they'll love`)}
+              {i18n._(msg`sistem yang akan mereka sukai`)}
             </HeadingPart>
           </Heading>
         </ThreeCards.Intro>
@@ -333,7 +333,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       <Testimonials.Root scheme="muted">
         <Testimonials.Carousel
-          eyebrow={i18n._(msg`They are the real sales`)}
+          eyebrow={i18n._(msg`Mereka adalah pengguna sebenarnya`)}
           testimonials={HOME_TESTIMONIALS}
         >
           <Testimonials.HourglassVisual />

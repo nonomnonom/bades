@@ -182,6 +182,8 @@ packages/
 7. Default to autonomous execution when the goal direction is clear. Raise a
    question only when ambiguity materially changes the approach or could cause a
    risky regression.
+8. If the task changes React UI files in `front`, `ui`, or `website`, use the
+   `react-doctor` workflow as part of closing verification.
 
 ### Localization Rules
 - User-facing Bades UI should be Bahasa Indonesia native by default.

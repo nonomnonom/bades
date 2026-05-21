@@ -1,9 +1,9 @@
-name: Install Twenty App
-description: Install (or upgrade) a Twenty app on a specific workspace
+name: Install Bades App
+description: Install (or upgrade) a Bades application on a specific workspace
 
 inputs:
   api-url:
-    description: Base URL of the target Twenty instance (e.g. https://my.twenty.instance)
+    description: Base URL of the target Bades instance (e.g. https://my.bades.id)
     required: true
   api-key:
     description: API key or access token for the target workspace
@@ -35,10 +35,10 @@ runs:
     - name: Configure remote
       shell: bash
       run: |
-        mkdir -p ~/.twenty
+        mkdir -p ~/.bades
         node -e "
           const fs = require('fs'), path = require('path'), os = require('os');
-          fs.writeFileSync(path.join(os.homedir(), '.twenty', 'config.json'), JSON.stringify({
+          fs.writeFileSync(path.join(os.homedir(), '.bades', 'config.json'), JSON.stringify({
             version: 1,
             remotes: { target: { apiUrl: process.env.API_URL, apiKey: process.env.API_KEY } }
           }, null, 2));
@@ -50,4 +50,4 @@ runs:
     - name: Install
       shell: bash
       working-directory: ${{ inputs.app-path }}
-      run: yarn twenty app:install --remote target
+      run: yarn bades app:install --remote target

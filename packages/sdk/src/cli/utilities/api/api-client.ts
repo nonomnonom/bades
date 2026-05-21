@@ -51,7 +51,7 @@ export class ApiClient {
         if (error.response?.status === 401) {
           console.error(
             chalk.red(
-              'Authentication failed. Run `yarn twenty remote:add` to authenticate.',
+              'Authentication failed. Run `yarn bades remote:add` to authenticate.',
             ),
           );
         } else if (error.response?.status === 403) {
@@ -62,7 +62,7 @@ export class ApiClient {
           );
         } else if (error.code === 'ECONNREFUSED') {
           console.error(
-            chalk.red('Cannot connect to Twenty server. Is it running?'),
+            chalk.red('Cannot connect to Bades server. Is it running?'),
           );
         }
         throw error;

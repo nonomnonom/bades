@@ -80,7 +80,7 @@ const innerAppBuild = async (
 
   await writeManifestToOutput(appPath, updatedManifest);
 
-  const outputDir = path.join(appPath, '.twenty', 'output');
+  const outputDir = path.join(appPath, '.bades', 'output');
 
   const result: AppBuildResult = {
     outputDir,

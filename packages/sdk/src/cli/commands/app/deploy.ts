@@ -90,6 +90,6 @@ export class DeployCommand {
     console.log(
       chalk.green(`\n✓ Published ${appName} v${appVersion} to ${remoteName}\n`),
     );
-    console.log('  To install deployed application: `yarn twenty app:install`');
+    console.log('  To install deployed application: `yarn bades app:install`');
   }
 }

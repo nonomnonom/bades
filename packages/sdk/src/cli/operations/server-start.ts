@@ -141,7 +141,7 @@ const innerServerStart = async (
 
     const port = new URL(existingUrl).port;
 
-    onProgress?.(`Twenty server detected on ${existingUrl}`);
+    onProgress?.(`Bades server detected on ${existingUrl}`);
 
     return {
       success: true,
@@ -151,8 +151,8 @@ const innerServerStart = async (
 
   if (!checkDockerRunning()) {
     const retryCommand = isTest
-      ? 'yarn twenty docker:start --test'
-      : 'yarn twenty docker:start';
+      ? 'yarn bades docker:start --test'
+      : 'yarn bades docker:start';
 
     return {
       success: false,
@@ -176,8 +176,8 @@ const innerServerStart = async (
         error: {
           code: SERVER_ERROR_CODES.HEALTH_TIMEOUT,
           message:
-            'Twenty server did not become healthy in time.\n' +
-            "Check: 'yarn twenty docker:logs'",
+            'Bades server did not become healthy in time.\n' +
+            "Check: 'yarn bades docker:logs'",
         },
       };
     }
@@ -202,7 +202,7 @@ const innerServerStart = async (
 
     if (existingPort !== port) {
       onProgress?.(
-        `Existing container uses port ${existingPort}. Run 'yarn twenty docker:reset${isTest ? ' --test' : ''}' first to change ports.`,
+        `Existing container uses port ${existingPort}. Run 'yarn bades docker:reset${isTest ? ' --test' : ''}' first to change ports.`,
       );
     }
 
@@ -211,7 +211,7 @@ const innerServerStart = async (
     onProgress?.('Starting existing container...');
     execSync(`docker start ${containerName}`, { stdio: 'ignore' });
   } else {
-    onProgress?.('Pulling Docker image and starting Twenty container...');
+    onProgress?.('Pulling Docker image and starting Bades container...');
 
     const runResult = spawnSync(
       'docker',
@@ -240,7 +240,7 @@ const innerServerStart = async (
         success: false,
         error: {
           code: SERVER_ERROR_CODES.CONTAINER_START_FAILED,
-          message: 'Failed to start Twenty container.',
+          message: 'Failed to start Bades container.',
         },
       };
     }
@@ -256,8 +256,8 @@ const innerServerStart = async (
       error: {
         code: SERVER_ERROR_CODES.HEALTH_TIMEOUT,
         message:
-          'Twenty server did not become healthy in time.\n' +
-          "Check: 'yarn twenty docker:logs'",
+          'Bades server did not become healthy in time.\n' +
+          "Check: 'yarn bades docker:logs'",
       },
     };
   }

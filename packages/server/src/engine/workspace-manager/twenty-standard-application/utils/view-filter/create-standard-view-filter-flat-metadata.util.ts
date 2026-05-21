@@ -4,7 +4,7 @@ import { isDefined } from 'shared/utils';
 import { v4 } from 'uuid';
 
 import { type FlatViewFilter } from 'src/engine/metadata-modules/flat-view-filter/types/flat-view-filter.type';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 import { type AllStandardObjectFieldName } from 'src/engine/workspace-manager/twenty-standard-application/types/all-standard-object-field-name.type';
 import { type AllStandardObjectName } from 'src/engine/workspace-manager/twenty-standard-application/types/all-standard-object-name.type';
 import { type AllStandardObjectViewFilterName } from 'src/engine/workspace-manager/twenty-standard-application/types/all-standard-object-view-filter-name.type';
@@ -83,7 +83,7 @@ export const createStandardViewFilterFlatMetadata = <
     universalIdentifier: viewFilterDefinition.universalIdentifier,
     applicationId: twentyStandardApplicationId,
     applicationUniversalIdentifier:
-      TWENTY_STANDARD_APPLICATION.universalIdentifier,
+      BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,
     viewId:
       standardObjectMetadataRelatedEntityIds[objectName].views[viewName].id,

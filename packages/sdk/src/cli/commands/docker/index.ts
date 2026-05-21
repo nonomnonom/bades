@@ -40,20 +40,20 @@ const stopAction = (options: { test?: boolean }) => {
   const containerName = options.test ? TEST_CONTAINER_NAME : CONTAINER_NAME;
 
   if (!containerExists(containerName)) {
-    console.log(chalk.yellow('No Twenty server container found.'));
+    console.log(chalk.yellow('No Bades server container found.'));
 
     return;
   }
 
   execSync(`docker stop ${containerName}`, { stdio: 'ignore' });
-  console.log(chalk.green('Twenty server stopped.'));
+  console.log(chalk.green('Bades server stopped.'));
 };
 
 const logsAction = (options: { lines: string; test?: boolean }) => {
   const containerName = options.test ? TEST_CONTAINER_NAME : CONTAINER_NAME;
 
   if (!containerExists(containerName)) {
-    console.log(chalk.yellow('No Twenty server container found.'));
+    console.log(chalk.yellow('No Bades server container found.'));
 
     return;
   }
@@ -77,7 +77,7 @@ const statusAction = async (options: { test?: boolean }) => {
     console.log(`  Status:  ${chalk.gray('not created')}`);
     console.log(
       chalk.gray(
-        `  Run 'yarn twenty docker:start${options.test ? ' --test' : ''}' to create one.`,
+        `  Run 'yarn bades docker:start${options.test ? ' --test' : ''}' to create one.`,
       ),
     );
 
@@ -129,10 +129,10 @@ const resetAction = (options: { test?: boolean }) => {
     // Volumes may not exist
   }
 
-  console.log(chalk.green('Twenty server data reset.'));
+  console.log(chalk.green('Bades server data reset.'));
   console.log(
     chalk.gray(
-      `Run 'yarn twenty docker:start${options.test ? ' --test' : ''}' to start a fresh instance.`,
+      `Run 'yarn bades docker:start${options.test ? ' --test' : ''}' to start a fresh instance.`,
     ),
   );
 };
@@ -165,7 +165,7 @@ const upgradeAction = async (
   if (data.containerRecreated) {
     console.log(
       chalk.gray(
-        `  Run 'yarn twenty docker:start${options.test ? ' --test' : ''}' to wait for the server to be ready.`,
+        `  Run 'yarn bades docker:start${options.test ? ' --test' : ''}' to wait for the server to be ready.`,
       ),
     );
   }
@@ -174,14 +174,14 @@ const upgradeAction = async (
 export const registerServerCommands = (program: Command): void => {
   program
     .command('docker:start')
-    .description('Start the local Twenty container')
+    .description('Start the local Bades container')
     .option('-p, --port <port>', 'HTTP port')
     .option('--test', 'Start a separate test instance (port 2021)')
     .action(startAction);
 
   program
     .command('docker:stop')
-    .description('Stop the local Twenty container')
+    .description('Stop the local Bades container')
     .option('--test', 'Stop the test instance')
     .action(stopAction);
 
@@ -214,13 +214,13 @@ export const registerServerCommands = (program: Command): void => {
   const server = program
     .command('server', { hidden: true })
     .description(
-      'Manage a Twenty server (local instance and server-side actions)',
+      'Manage a Bades server (local instance and server-side actions)',
     );
 
   const deprecate = (oldCmd: string, newCmd: string) =>
     console.warn(
       chalk.yellow(
-        `⚠ \`twenty server ${oldCmd}\` is deprecated. Use \`twenty ${newCmd}\` instead.`,
+        `⚠ \`bades server ${oldCmd}\` is deprecated. Use \`bades ${newCmd}\` instead.`,
       ),
     );
 

@@ -9,7 +9,7 @@ import {
   STANDARD_NAVIGATION_MENU_ITEM_DEFAULT_COLORS,
   STANDARD_NAVIGATION_MENU_ITEMS,
 } from 'src/engine/workspace-manager/twenty-standard-application/constants/standard-navigation-menu-item.constant';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 
 export const createStandardNavigationMenuItemFlatMetadata = ({
   workspaceId,
@@ -61,7 +61,7 @@ export const createStandardNavigationMenuItemFlatMetadata = ({
     universalIdentifier: navigationMenuItemDefinition.universalIdentifier,
     applicationId: twentyStandardApplicationId,
     applicationUniversalIdentifier:
-      TWENTY_STANDARD_APPLICATION.universalIdentifier,
+      BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,
     userWorkspaceId: null,
     targetRecordId: null,

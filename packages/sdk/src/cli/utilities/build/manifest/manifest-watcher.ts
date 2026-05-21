@@ -9,7 +9,7 @@ export type ManifestWatcherOptions = {
   verbose?: boolean;
 };
 
-const IGNORED_DIRECTORY_NAMES = new Set(['node_modules', 'dist', '.twenty']);
+const IGNORED_DIRECTORY_NAMES = new Set(['node_modules', 'dist', '.bades']);
 
 export class ManifestWatcher {
   private appPath: string;

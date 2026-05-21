@@ -1,6 +1,6 @@
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { isTwentyStandardApplication } from '@/applications/utils/isTwentyStandardApplication';
+import { isBadesStandardApplication } from '@/applications/utils/isBadesStandardApplication';
 import { isWorkspaceCustomApplication } from '@/applications/utils/isWorkspaceCustomApplication';
 import { useContext } from 'react';
 import { ThemeContext } from 'ui/theme-constants';
@@ -28,7 +28,7 @@ export const useApplicationAvatarColors = (
     return undefined;
   }
 
-  if (isTwentyStandardApplication(application)) {
+  if (isBadesStandardApplication(application)) {
     return {
       backgroundColor: theme.color.blue3,
       borderColor: theme.color.blue4,

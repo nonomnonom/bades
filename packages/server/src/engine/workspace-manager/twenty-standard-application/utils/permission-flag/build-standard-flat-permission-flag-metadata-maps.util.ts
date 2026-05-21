@@ -5,7 +5,7 @@ import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/typ
 import { addFlatEntityToFlatEntityMapsOrThrow } from 'src/engine/metadata-modules/flat-entity/utils/add-flat-entity-to-flat-entity-maps-or-throw.util';
 import { type FlatPermissionFlag } from 'src/engine/metadata-modules/flat-permission-flag/types/flat-permission-flag.type';
 import { STANDARD_PERMISSION_FLAG_DEFINITIONS } from 'src/engine/metadata-modules/permission-flag/constants/standard-permission-flag-definitions.constant';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 
 export const buildStandardFlatPermissionFlagMetadataMaps = ({
   now,
@@ -27,7 +27,7 @@ export const buildStandardFlatPermissionFlagMetadataMaps = ({
         applicationId: twentyStandardApplicationId,
         universalIdentifier: permissionFlagDefinition.universalIdentifier,
         applicationUniversalIdentifier:
-          TWENTY_STANDARD_APPLICATION.universalIdentifier,
+          BADES_STANDARD_APPLICATION.universalIdentifier,
         rolePermissionFlagIds: [],
         rolePermissionFlagUniversalIdentifiers: [],
         createdAt: now,

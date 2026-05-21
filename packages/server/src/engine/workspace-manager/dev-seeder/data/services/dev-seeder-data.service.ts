@@ -149,7 +149,7 @@ import { TimelineActivitySeederService } from 'src/engine/workspace-manager/dev-
 import { prefillFrontComponentCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-command-menu-items.util';
 import { prefillWorkflowCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-command-menu-items.util';
 import { prefillWorkflows } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
-import { TWENTY_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 type RecordSeedConfig = {
@@ -547,7 +547,7 @@ export class DevSeederDataService {
     const fieldUniversalIdentifier =
       STANDARD_OBJECTS.attachment.fields.file.universalIdentifier;
     const applicationUniversalIdentifier =
-      TWENTY_STANDARD_APPLICATION.universalIdentifier;
+      BADES_STANDARD_APPLICATION.universalIdentifier;
 
     for (const metadata of fileSeedMetadata) {
       const resourcePath = `${metadata.fileId}.${metadata.extension}`;
