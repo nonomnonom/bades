@@ -215,7 +215,7 @@ export const SignInUpGlobalScopeForm = () => {
                     <IconPlus size={theme.icon.size.lg} />
                   </StyledWorkspaceLogo>
                   <StyledWorkspaceTextContainer>
-                    <StyledWorkspaceName>{t`Create a workspace`}</StyledWorkspaceName>
+                    <StyledWorkspaceName>{t`Buat desa baru`}</StyledWorkspaceName>
                   </StyledWorkspaceTextContainer>
                   <StyledChevronIcon>
                     <IconChevronRight size={theme.icon.size.md} />
@@ -226,7 +226,7 @@ export const SignInUpGlobalScopeForm = () => {
           </StyledWorkspaceContainer>
           <StyledActionLinkContainer>
             <ClickToActionLink onClick={signOut}>
-              <Trans>Log out</Trans>
+              <Trans>Keluar</Trans>
             </ClickToActionLink>
           </StyledActionLinkContainer>
         </>
@@ -257,7 +257,7 @@ export const SignInUpGlobalScopeForm = () => {
               <ClickToActionLink
                 onClick={handleResetPassword(form.getValues('email'))}
               >
-                <Trans>Forgot your password?</Trans>
+                <Trans>Lupa kata sandi?</Trans>
               </ClickToActionLink>
             </StyledForgotPasswordLinkContainer>
           )}

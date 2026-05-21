@@ -11,8 +11,8 @@ import { CaseStudyPageLayout } from '@/app/[locale]/customers/_components/CaseSt
 const PLACEHOLDER_HERO =
   'https://images.unsplash.com/photo-1756830231350-3b501f63c5c1?w=1600&q=80';
 
-const META_TITLE = msg`When your CRM is the product: W3Grads on Twenty | W3villa Technologies`;
-const META_DESCRIPTION = msg`How W3villa Technologies shipped W3Grads, an AI mock interview platform for institutions, on Twenty as the operational backbone.`;
+const META_TITLE = msg`When your CRM is the product: W3Grads on Bades.id | W3villa Technologies`;
+const META_DESCRIPTION = msg`How W3villa Technologies shipped W3Grads, an AI mock interview platform for institutions, on Bades.id as the operational backbone.`;
 
 export const generateMetadata = buildLocalizedMetadata({
   path: '/customers/w3villa',
@@ -88,8 +88,8 @@ export default async function W3villaCaseStudyPage({
           </Heading>
         ),
         paragraphs: [
-          msg`W3villa built W3Grads (w3grads.com), an AI-powered mock interview platform for universities and training institutes, using Twenty as its operational backbone.`,
-          msg`The key decision was not to build everything from scratch. Twenty covers the data model, permissions, authentication, and workflow engine, the parts that would have taken months to rebuild, so the team could focus on product-specific logic.`,
+          msg`W3villa built W3Grads (w3grads.com), an AI-powered mock interview platform for universities and training institutes, using Bades.id as its operational backbone.`,
+          msg`The key decision was not to build everything from scratch. Bades.id covers the data model, permissions, authentication, and workflow engine, the parts that would have taken months to rebuild, so the team could focus on product-specific logic.`,
           msg`When a student registers via QR at a campus event, the system assigns a plan, generates an interview session, and sends a link. The AI conducts the interview, scores the candidate, and classifies the result. Faculty see where each student stands without manually reviewing every session. Building and iterating on these workflows was faster with AI in the loop.`,
         ],
       },
@@ -108,7 +108,7 @@ export default async function W3villaCaseStudyPage({
           msg`Because the foundation is solid, W3Grads is architected for what comes next, including a payment layer for future paid interview plans and nationwide scale without structural rewrites.`,
         ],
         callout:
-          '"Twenty gave us the flexibility to model the entire interview lifecycle as custom objects and workflows. We could build something genuinely complex without fighting the platform to do it." - Piyush Khandelwal, Director, W3villa Technologies, Partner',
+          '"Bades.id gave us the flexibility to model the entire interview lifecycle as custom objects and workflows. We could build something genuinely complex without fighting the platform to do it." - Piyush Khandelwal, Director, W3villa Technologies, Partner',
       },
       {
         type: 'text',
@@ -125,7 +125,7 @@ export default async function W3villaCaseStudyPage({
         ),
         paragraphs: [
           msg`Programs that previously needed heavy manual coordination now run end-to-end with automation. Institutions get a scalable, intelligent system; students get faster preparation for interviews that matter; W3villa shipped a product institutions can build revenue around.`,
-          msg`Zero manual work at the core. Full automation. Built on Twenty.`,
+          msg`Zero manual work at the core. Full automation. Built on Bades.id.`,
         ],
       },
     ],
@@ -136,7 +136,7 @@ export default async function W3villaCaseStudyPage({
       msg`The result`,
     ],
     catalogCard: {
-      summary: msg`W3villa shipped W3Grads on Twenty for AI interviews, scoring, and institution-scale workflows without rebuilding CRM plumbing.`,
+      summary: msg`W3villa shipped W3Grads on Bades.id for AI interviews, scoring, and institution-scale workflows without rebuilding CRM plumbing.`,
       date: msg`2025`,
     },
   };

@@ -11,8 +11,8 @@ import { CaseStudyPageLayout } from '@/app/[locale]/customers/_components/CaseSt
 const PLACEHOLDER_HERO =
   'https://images.unsplash.com/photo-1702047149248-a6049168a2a8?w=1600&q=80';
 
-const META_TITLE = msg`From Salesforce to self-hosted Twenty, powered by AI | Alternative Partners`;
-const META_DESCRIPTION = msg`How Alternative Partners migrated from Salesforce to self-hosted Twenty using agentic AI in the implementation loop: fast migration, durable ownership.`;
+const META_TITLE = msg`From Salesforce to self-hosted Bades.id, powered by AI | Alternative Partners`;
+const META_DESCRIPTION = msg`How Alternative Partners migrated from Salesforce to self-hosted Bades.id using agentic AI in the implementation loop: fast migration, durable ownership.`;
 
 export const generateMetadata = buildLocalizedMetadata({
   path: '/customers/alternative-partners',
@@ -43,7 +43,7 @@ export default async function AlternativePartnersCaseStudyPage({
           </HeadingPart>
           <br />
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`self-hosted Twenty`)}
+            {i18n._(msg`self-hosted Bades.id`)}
           </HeadingPart>
         </Heading>
       ),
@@ -73,7 +73,7 @@ export default async function AlternativePartnersCaseStudyPage({
           </Heading>
         ),
         paragraphs: [
-          msg`Alternative Partners is a consulting firm that moved from Salesforce to a self-hosted Twenty instance. Benjamin Reynolds led the migration. He had already become a Twenty expert implementing Twenty for one of Twenty's first cloud customers.`,
+          msg`Alternative Partners is a consulting firm that moved from Salesforce to a self-hosted Bades.id instance. Benjamin Reynolds led the migration. He had already become a Bades.id expert implementing Bades.id for one of Bades.id's first cloud customers.`,
           msg`His approach was unconventional. Instead of mapping fields manually, scripting transforms, and validating data step by step, he handed the job to agentic AI tools with a brief: where the data lives, the GitHub repo for the target platform, and the Railway deployment. Start, and only return if something breaks beyond a 70% confidence fix.`,
           msg`It worked. This is AI-assisted iteration in practice: not AI as a product feature, but as part of implementation work, compressing what would typically be weeks into something one person can oversee without being the bottleneck.`,
         ],
@@ -101,7 +101,7 @@ export default async function AlternativePartnersCaseStudyPage({
       msg`Self-hosted means control`,
     ],
     catalogCard: {
-      summary: msg`Alternative Partners replaced Salesforce with self-hosted Twenty, using agentic AI to compress migration work.`,
+      summary: msg`Alternative Partners replaced Salesforce with self-hosted Bades.id, using agentic AI to compress migration work.`,
       date: msg`2025`,
     },
   };

@@ -235,7 +235,7 @@ export function MenuDrawer({ navItems, scheme, socialLinks }: MenuDrawerProps) {
           <CtaContainer>
             <LinkButton
               color={buttonColor}
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Log in`)}
               variant="outlined"
             />

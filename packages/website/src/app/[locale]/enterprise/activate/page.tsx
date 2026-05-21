@@ -92,7 +92,7 @@ export default async function EnterpriseActivatePage({
         </Hero.Heading>
         <Hero.Body page={Pages.Pricing}>
           {i18n._(
-            msg`Your checkout is complete. Follow the steps below to copy your license key into your Twenty instance.`,
+            msg`Your checkout is complete. Follow the steps below to copy your license key into your Bades.id instance.`,
           )}
         </Hero.Body>
       </Hero.Root>

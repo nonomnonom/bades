@@ -9,10 +9,10 @@ import type {
 
 const FALLBACK_RELEASES_PREVIEW: MenuNavChildPreview = {
   image: '/images/releases/1.23/1.23.0-easier-layouts.webp',
-  imageAlt: 'Bades.id latest release',
+  imageAlt: 'Rilis terbaru Bades.id',
   imageScale: 1.04,
-  title: msg`See the latest release`,
-  description: msg`Track every release with changelogs, highlights and demos of the newest features.`,
+  title: msg`Lihat rilis terbaru`,
+  description: msg`Pantau setiap rilis dengan changelog, highlight, dan demo fitur terbaru.`,
 };
 
 function buildNavItems(): MenuNavItemType[] {
@@ -20,75 +20,75 @@ function buildNavItems(): MenuNavItemType[] {
     getLatestReleasePreview() ?? FALLBACK_RELEASES_PREVIEW;
 
   return [
-    { label: msg`Why`, href: '/why-bades' },
+    { label: msg`Mengapa Bades`, href: '/why-bades' },
     {
-      label: msg`Resources`,
+      label: msg`Sumber`,
       children: [
         {
-          label: msg`User Guide`,
-          description: msg`Learn how to use Bades.id`,
+          label: msg`Panduan Pengguna`,
+          description: msg`Pelajari cara menggunakan Bades.id`,
           href: 'https://docs.bades.id/user-guide/introduction',
           external: true,
           icon: 'book',
           preview: {
             image: '/images/shared/menu/user-guide-preview.webp',
-            imageAlt: 'Bades.id user guide preview',
-            title: msg`Master every corner of Bades.id`,
-            description: msg`Step-by-step guides and playbooks to help your team get the most out of their village administration system.`,
+            imageAlt: 'Pratinjau panduan pengguna Bades.id',
+            title: msg`Kuasai setiap sudut Bades.id`,
+            description: msg`Panduan langkah demi langkah dan playbook untuk membantu tim Anda memaksimalkan sistem administrasi desa mereka.`,
           },
         },
         {
-          label: msg`Developers`,
-          description: msg`Create apps on Bades.id`,
+          label: msg`Developer`,
+          description: msg`Buat aplikasi di Bades.id`,
           href: 'https://docs.bades.id/developers/introduction',
           external: true,
           icon: 'code',
           preview: {
             image: '/images/shared/menu/developers-preview.webp',
-            imageAlt: 'Blue developer illustration with branching arrows',
+            imageAlt: 'Ilustrasi developer biru dengan panah bercabang',
             imagePosition: 'center',
             imageScale: 1.6,
-            title: msg`Build on an open platform`,
-            description: msg`APIs, SDKs and webhooks to extend Bades.id and ship apps on top of your village data.`,
+            title: msg`Bangun di platform terbuka`,
+            description: msg`API, SDK, dan webhook untuk memperluas Bades.id dan mengirim aplikasi di atas data desa Anda.`,
           },
         },
         {
-          label: msg`Partners`,
-          description: msg`Find a Bades.id partner`,
+          label: msg`Partner`,
+          description: msg`Temukan partner Bades.id`,
           href: '/partners',
           icon: 'users',
           preview: {
             image: '/images/partner/hero/hero.webp',
-            imageAlt: 'Bades.id partner ecosystem',
+            imageAlt: 'Ekosistem partner Bades.id',
             imagePosition: 'center',
-            title: msg`Team up with a Bades.id expert`,
-            description: msg`Meet the certified agencies and consultants implementing Bades.id for villages across Indonesia.`,
+            title: msg`Berkolaborasi dengan ahli Bades.id`,
+            description: msg`Temukan agen dan konsultan bersertifikat yang mengimplementasikan Bades.id untuk desa-desa di Indonesia.`,
           },
         },
         {
-          label: msg`Releases`,
-          description: msg`Discover what's new`,
+          label: msg`Rilis`,
+          description: msg`Temukan apa yang baru`,
           href: '/releases',
           icon: 'tag',
           preview: releasesPreview,
         },
       ],
     },
-    { label: msg`Customers`, href: '/customers' },
-    { label: msg`Pricing`, href: '/pricing' },
+    { label: msg`Pelanggan`, href: '/customers' },
+    { label: msg`Harga`, href: '/pricing' },
   ];
 }
 
 const SOCIAL_LINKS: MenuSocialLinkType[] = [
   {
-    ariaLabel: 'GitHub (opens in new tab)',
+    ariaLabel: 'GitHub (buka di tab baru)',
     href: 'https://github.com/badesid/bades',
     icon: 'github',
     showInDesktop: true,
     showInDrawer: true,
   },
   {
-    ariaLabel: 'Discord (opens in new tab)',
+    ariaLabel: 'Discord (buka di tab baru)',
     className: 'discord-link',
     href: 'https://discord.gg/badesid',
     icon: 'discord',
@@ -96,14 +96,14 @@ const SOCIAL_LINKS: MenuSocialLinkType[] = [
     showInDrawer: true,
   },
   {
-    ariaLabel: 'LinkedIn (opens in new tab)',
+    ariaLabel: 'LinkedIn (buka di tab baru)',
     href: 'https://www.linkedin.com/company/badesid',
     icon: 'linkedin',
     showInDesktop: false,
     showInDrawer: true,
   },
   {
-    ariaLabel: 'X (opens in new tab)',
+    ariaLabel: 'X (buka di tab baru)',
     href: 'https://x.com/badesid',
     icon: 'x',
     showInDesktop: false,

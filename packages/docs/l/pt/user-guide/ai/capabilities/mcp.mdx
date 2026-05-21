@@ -1,19 +1,19 @@
 ---
 title: Servidor MCP
-description: Conecte assistentes de IA ao seu espaço de trabalho do Twenty usando o Model Context Protocol.
+description: Conecte assistentes de IA ao seu espaço de trabalho do Bades.id usando o Model Context Protocol.
 ---
 
 <Warning>
 O MCP está atualmente em **alfa** e está disponível apenas em alguns espaços de trabalho. O MCP pode ainda não estar ativado no seu espaço de trabalho.
 </Warning>
 
-O Twenty expõe um servidor [MCP](https://modelcontextprotocol.io/) para que assistentes de IA — Claude Desktop, Claude Code, Cursor, ChatGPT e outros — possam ler e escrever seus dados de CRM por meio de linguagem natural.
+O Bades.id expõe um servidor [MCP](https://modelcontextprotocol.io/) para que assistentes de IA — Claude Desktop, Claude Code, Cursor, ChatGPT e outros — possam ler e escrever seus dados de CRM por meio de linguagem natural.
 
-Use o **URL do espaço de trabalho** (o URL que você usa para acessar o Twenty) como o endpoint do MCP. Na Twenty Cloud, o URL do seu espaço de trabalho pode ser `https://{mycompany}.twenty.com` ou um domínio personalizado. O servidor está disponível em:
+Use o **URL do espaço de trabalho** (o URL que você usa para acessar o Bades.id) como o endpoint do MCP. Na Bades.id Cloud, o URL do seu espaço de trabalho pode ser `https://{mycompany}.bades.id` ou um domínio personalizado. O servidor está disponível em:
 
 | Ambiente           | Endpoint do MCP                                                                      |
 | ------------------ | ------------------------------------------------------------------------------------ |
-| **Nuvem**          | `https://{your-workspace-url}/mcp` (por exemplo, `https://mycompany.twenty.com/mcp`) |
+| **Nuvem**          | `https://{your-workspace-url}/mcp` (por exemplo, `https://mycompany.bades.id/mcp`) |
 | **Auto-hospedado** | `https://{your-domain}/mcp`                                                          |
 
 ## Métodos de autenticação
@@ -28,7 +28,7 @@ Com o OAuth, seu cliente MCP abre uma janela do navegador para você fazer login
 O OAuth requer um cliente MCP que ofereça suporte à [especificação de Autorização MCP](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization). Claude Desktop, Claude Code, Cursor e ChatGPT oferecem suporte.
 </Note>
 
-Adicione isto à configuração do seu cliente MCP, substituindo `{your-workspace-url}` pelo host do seu espaço de trabalho (por exemplo, `mycompany.twenty.com`):
+Adicione isto à configuração do seu cliente MCP, substituindo `{your-workspace-url}` pelo host do seu espaço de trabalho (por exemplo, `mycompany.bades.id`):
 
 ```json
 {
@@ -43,7 +43,7 @@ Adicione isto à configuração do seu cliente MCP, substituindo `{your-workspac
 
 É isso — nenhuma chave de API é necessária. Quando o cliente se conectar pela primeira vez, ele irá:
 
-1. Descobrir os metadados de OAuth do Twenty por meio de `/.well-known/oauth-protected-resource` e `/.well-known/oauth-authorization-server`
+1. Descobrir os metadados de OAuth do Bades.id por meio de `/.well-known/oauth-protected-resource` e `/.well-known/oauth-authorization-server`
 2. Registrar-se como um cliente OAuth por meio de registro dinâmico de cliente (RFC 7591)
 3. Abrir seu navegador para autorizar o acesso
 4. Receber tokens e conectar-se ao servidor MCP
@@ -78,7 +78,7 @@ Para criar uma chave de API, vá em **Settings > APIs & Webhooks > + Create key*
 
 ### 1. Copie a configuração
 
-Vá até **Settings > AI > More > MCP Server** no Twenty. Escolha seu método de autenticação (OAuth ou Chave de API), copie o trecho de JSON (ele já usará o URL do seu espaço de trabalho) e cole-o no arquivo de configuração do seu cliente MCP.
+Vá até **Settings > AI > More > MCP Server** no Bades.id. Escolha seu método de autenticação (OAuth ou Chave de API), copie o trecho de JSON (ele já usará o URL do seu espaço de trabalho) e cole-o no arquivo de configuração do seu cliente MCP.
 
 | Cliente            | Local do arquivo de configuração                                                                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,7 +89,7 @@ Vá até **Settings > AI > More > MCP Server** no Twenty. Escolha seu método de
 
 ### 2. Conectar
 
-Reinicie seu cliente MCP (ou recarregue a configuração). Se estiver usando OAuth, você será redirecionado ao Twenty para autorizar o acesso. Se estiver usando uma chave de API, a conexão é imediata.
+Reinicie seu cliente MCP (ou recarregue a configuração). Se estiver usando OAuth, você será redirecionado ao Bades.id para autorizar o acesso. Se estiver usando uma chave de API, a conexão é imediata.
 
 ### 3. Comece a usá-lo
 
@@ -101,7 +101,7 @@ Peça ao seu assistente de IA para interagir com seu CRM:
 
 ## Ferramentas disponíveis
 
-Depois de conectado, o servidor MCP expõe ferramentas que refletem a API do Twenty. O fluxo de trabalho recomendado é:
+Depois de conectado, o servidor MCP expõe ferramentas que refletem a API do Bades.id. O fluxo de trabalho recomendado é:
 
 1. **`get_tool_catalog`** — descobrir todas as ferramentas disponíveis
 2. **`learn_tools`** — obter o esquema de entrada para ferramentas específicas
@@ -118,7 +118,7 @@ As conexões MCP herdam as permissões do usuário autenticado (OAuth) ou da fun
 
 ## Configuração auto-hospedada
 
-Para instâncias auto-hospedadas, substitua `{your-workspace-url}` pelo URL do seu servidor. Certifique-se de que `SERVER_URL` no seu ambiente corresponda ao URL público da sua instância do Twenty — isso é usado para gerar os metadados de descoberta do OAuth.
+Para instâncias auto-hospedadas, substitua `{your-workspace-url}` pelo URL do seu servidor. Certifique-se de que `SERVER_URL` no seu ambiente corresponda ao URL público da sua instância do Bades.id — isso é usado para gerar os metadados de descoberta do OAuth.
 
 ```bash
 SERVER_URL=https://twenty.yourcompany.com

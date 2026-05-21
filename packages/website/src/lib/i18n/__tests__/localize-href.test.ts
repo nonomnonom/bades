@@ -44,20 +44,20 @@ describe('localizeHref', () => {
   });
 
   it('passes external https URLs through unchanged', () => {
-    expect(localizeHref('en', 'https://docs.twenty.com')).toBe(
-      'https://docs.twenty.com',
+    expect(localizeHref('en', 'https://docs.bades.id')).toBe(
+      'https://docs.bades.id',
     );
   });
 
   it('passes protocol-relative URLs through unchanged', () => {
-    expect(localizeHref('en', '//cdn.twenty.com/asset.png')).toBe(
-      '//cdn.twenty.com/asset.png',
+    expect(localizeHref('en', '//cdn.bades.id/asset.png')).toBe(
+      '//cdn.bades.id/asset.png',
     );
   });
 
   it('passes mailto and tel links through unchanged', () => {
-    expect(localizeHref('en', 'mailto:contact@twenty.com')).toBe(
-      'mailto:contact@twenty.com',
+    expect(localizeHref('en', 'mailto:contact@bades.id')).toBe(
+      'mailto:contact@bades.id',
     );
     expect(localizeHref('en', 'tel:+1234567890')).toBe('tel:+1234567890');
   });

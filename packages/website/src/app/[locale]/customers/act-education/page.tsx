@@ -11,8 +11,8 @@ import { CaseStudyPageLayout } from '@/app/[locale]/customers/_components/CaseSt
 const PLACEHOLDER_HERO =
   'https://images.unsplash.com/photo-1687600154329-150952c73169?w=1600&q=80';
 
-const META_TITLE = msg`Burned by vendor lock-in, AC&T built a CRM they actually own | Twenty`;
-const META_DESCRIPTION = msg`How AC&T Education Migration and Flycoder replaced a shuttered vendor CRM with self-hosted Twenty, with 90%+ lower cost and full ownership.`;
+const META_TITLE = msg`Burned by vendor lock-in, AC&T built a CRM they actually own | Bades.id`;
+const META_DESCRIPTION = msg`How AC&T Education Migration and Flycoder replaced a shuttered vendor CRM with self-hosted Bades.id, with 90%+ lower cost and full ownership.`;
 
 export const generateMetadata = buildLocalizedMetadata({
   path: '/customers/act-education',
@@ -91,7 +91,7 @@ export default async function ActEducationCaseStudyPage({
         ),
         paragraphs: [
           msg`They evaluated Salesforce, Zoho, Pipedrive, and SuiteCRM. Each came with the same tradeoffs: too expensive, too rigid, or too generic, and none fixed the underlying problem. They were still renting a structure they did not control.`,
-          msg`Flycoder, a full-stack development partner, helped them set up Twenty as a self-hosted instance shaped around how AC&T actually operates. The data model centers on students, not a generic contact-and-deal pipeline. Statuses update automatically: a workflow runs nightly to keep enrollment records current. Automated email reminders cover important dates. Adding a new record takes under a minute.`,
+          msg`Flycoder, a full-stack development partner, helped them set up Bades.id as a self-hosted instance shaped around how AC&T actually operates. The data model centers on students, not a generic contact-and-deal pipeline. Statuses update automatically: a workflow runs nightly to keep enrollment records current. Automated email reminders cover important dates. Adding a new record takes under a minute.`,
           msg`The result is a system that fits how AC&T already worked, instead of the other way around.`,
         ],
       },
@@ -110,7 +110,7 @@ export default async function ActEducationCaseStudyPage({
         ),
         paragraphs: [
           msg`Self-hosted means AC&T carries no vendor risk: no pricing model that can change, no platform that can disappear, no forced migration. The system is theirs.`,
-          msg`Because everything is built on Twenty's open foundation, Flycoder could wire the exact logic AC&T needed without fighting the platform.`,
+          msg`Because everything is built on Bades.id's open foundation, Flycoder could wire the exact logic AC&T needed without fighting the platform.`,
         ],
       },
       {
@@ -137,7 +137,7 @@ export default async function ActEducationCaseStudyPage({
       msg`The result`,
     ],
     catalogCard: {
-      summary: msg`AC&T and Flycoder moved from a dead vendor export to self-hosted Twenty, with over 90% lower CRM cost and full control.`,
+      summary: msg`AC&T and Flycoder moved from a dead vendor export to self-hosted Bades.id, with over 90% lower CRM cost and full control.`,
       date: msg`2025`,
     },
   };

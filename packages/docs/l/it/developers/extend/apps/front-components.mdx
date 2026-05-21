@@ -1,14 +1,14 @@
 ---
 title: Componenti front-end
-description: Crea componenti React che vengono renderizzati all'interno della UI di Twenty con isolamento in sandbox.
+description: Crea componenti React che vengono renderizzati all'interno della UI di Bades.id con isolamento in sandbox.
 icon: window-maximize
 ---
 
-I componenti front-end sono componenti React che vengono renderizzati direttamente all'interno della UI di Twenty. Vengono eseguiti in un **Web Worker** isolato utilizzando Remote DOM — il tuo codice è in sandbox ma viene renderizzato in modo nativo nella pagina, non in un iframe.
+I componenti front-end sono componenti React che vengono renderizzati direttamente all'interno della UI di Bades.id. Vengono eseguiti in un **Web Worker** isolato utilizzando Remote DOM — il tuo codice è in sandbox ma viene renderizzato in modo nativo nella pagina, non in un iframe.
 
 ## Dove possono essere utilizzati i componenti front.
 
-I componenti front possono essere renderizzati in due posizioni all'interno di Twenty:
+I componenti front possono essere renderizzati in due posizioni all'interno di Bades.id:
 
 * **Pannello laterale** — I componenti front non headless si aprono nel pannello laterale destro. Questo è il comportamento predefinito quando un componente front viene avviato dal menu comandi.
 * **Widget (dashboard e pagine dei record)** — I componenti front possono essere incorporati come widget all'interno dei layout di pagina. Quando si configura una dashboard o il layout di una pagina record, gli utenti possono aggiungere un widget del componente front.
@@ -24,7 +24,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -100,7 +100,7 @@ export default defineFrontComponent({
 });
 ```
 
-Poiché il componente restituisce `null`, Twenty evita di renderizzare un contenitore per esso — non appare alcuno spazio vuoto nel layout. Il componente ha comunque accesso a tutti gli hook e all'API di comunicazione con l'host.
+Poiché il componente restituisce `null`, Bades.id evita di renderizzare un contenitore per esso — non appare alcuno spazio vuoto nel layout. Il componente ha comunque accesso a tutti gli hook e all'API di comunicazione con l'host.
 
 ## Componenti Command dell'SDK
 
@@ -391,7 +391,7 @@ Vedi la [sezione sugli asset pubblici](/l/it/developers/extend/apps/cli-and-test
 I componenti front-end supportano diversi approcci di styling. Puoi usare:
 
 * **Stili inline** — `style={{ color: 'red' }}`
-* **Componenti Twenty UI** — importali da `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar e altro)
+* **Componenti Bades.id UI** — importali da `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar e altro)
 * **Emotion** — CSS-in-JS con `@emotion/react`
 * **Styled-components** — pattern `styled.div`
 * **Tailwind CSS** — classi di utilità

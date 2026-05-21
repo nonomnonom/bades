@@ -1,6 +1,6 @@
 ---
 title: Datový model
-description: Definujte objekty, pole, role a metadata aplikace pomocí Twenty SDK.
+description: Definujte objekty, pole, role a metadata aplikace pomocí Bades.id SDK.
 icon: database
 ---
 
@@ -75,8 +75,8 @@ import { DEFAULT_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/default-role';
 
 export default defineApplication({
   universalIdentifier: '39783023-bcac-41e3-b0d2-ff1944d8465d',
-  displayName: 'My Twenty App',
-  description: 'My first Twenty app',
+  displayName: 'My Bades.id App',
+  description: 'My first Bades.id app',
   icon: 'IconWorld',
   applicationVariables: {
     DEFAULT_RECIPIENT_NAME: {
@@ -133,7 +133,7 @@ export const DEFAULT_ROLE_UNIVERSAL_IDENTIFIER =
 export default defineRole({
   universalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'Default function role',
-  description: 'Default role for function Twenty client',
+  description: 'Default role for function Bades.id client',
   canReadAllObjectRecords: true,
   canUpdateAllObjectRecords: false,
   canSoftDeleteAllObjectRecords: false,
@@ -241,7 +241,7 @@ Hlavní body:
 * Nové objekty můžete vygenerovat pomocí `yarn twenty add`, který vás provede pojmenováním, poli a vztahy.
 
 <Note>
-**Základní pole jsou vytvořena automaticky.** Když definujete vlastní objekt, Twenty automaticky přidá standardní pole
+**Základní pole jsou vytvořena automaticky.** Když definujete vlastní objekt, Bades.id automaticky přidá standardní pole
 jako `id`, `name`, `createdAt`, `updatedAt`, `createdBy`, `updatedBy` a `deletedAt`.
 Nemusíte je definovat v poli `fields` — přidejte pouze svá vlastní pole.
 Výchozí pole můžete přepsat definováním pole se stejným názvem v poli `fields`,
@@ -251,7 +251,7 @@ ale to se nedoporučuje.
 </Accordion>
 <Accordion title="defineField — Standardní pole" description="Rozšiřte existující objekty o další pole">
 
-Pomocí `defineField()` přidejte pole k objektům, které nevlastníte — například ke standardním objektům Twenty (Person, Company atd.). nebo k objektům z jiných aplikací. Na rozdíl od inline polí v `defineObject()` vyžadují samostatná pole `objectUniversalIdentifier` k určení, který objekt rozšiřují:
+Pomocí `defineField()` přidejte pole k objektům, které nevlastníte — například ke standardním objektům Bades.id (Person, Company atd.). nebo k objektům z jiných aplikací. Na rozdíl od inline polí v `defineObject()` vyžadují samostatná pole `objectUniversalIdentifier` k určení, který objekt rozšiřují:
 
 ```ts src/fields/company-loyalty-tier.field.ts
 import { defineField, FieldType } from 'twenty-sdk/define';
@@ -279,7 +279,7 @@ Hlavní body:
 </Accordion>
 <Accordion title="defineField — Relační pole" description="Propojte objekty obousměrnými relacemi">
 
-Relace propojují objekty. Ve Twenty jsou relace vždy obousměrné — definujete obě strany a každá strana odkazuje na tu druhou.
+Relace propojují objekty. Ve Bades.id jsou relace vždy obousměrné — definujete obě strany a každá strana odkazuje na tu druhou.
 
 Existují dva typy relací:
 
@@ -363,7 +363,7 @@ export default defineField({
 
 #### Vazby na standardní objekty
 
-Chcete-li vytvořit relaci s vestavěným objektem Twenty (Person, Company atd.), použijte `STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS`:
+Chcete-li vytvořit relaci s vestavěným objektem Bades.id (Person, Company atd.), použijte `STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS`:
 
 ```ts src/fields/person-on-self-hosting-user.field.ts
 import {

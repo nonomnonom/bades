@@ -1,14 +1,14 @@
 ---
 title: Ön uç bileşenleri
-description: Twenty'nin UI'si içinde, korumalı alan (sandbox) izolasyonu ile görüntülenen React bileşenleri oluşturun.
+description: Bades.id'nin UI'si içinde, korumalı alan (sandbox) izolasyonu ile görüntülenen React bileşenleri oluşturun.
 icon: window-maximize
 ---
 
-Ön uç bileşenler, Twenty'nin UI'si içinde doğrudan görüntülenen React bileşenleridir. Remote DOM kullanan izole bir Web Worker içinde çalışırlar — kodunuz izole bir ortamda (sandbox) çalışır ancak bir iframe içinde değil, sayfada yerel olarak işlenir.
+Ön uç bileşenler, Bades.id'nin UI'si içinde doğrudan görüntülenen React bileşenleridir. Remote DOM kullanan izole bir Web Worker içinde çalışırlar — kodunuz izole bir ortamda (sandbox) çalışır ancak bir iframe içinde değil, sayfada yerel olarak işlenir.
 
 ## Ön uç bileşenlerinin kullanılabileceği yerler
 
-Ön uç bileşenler, Twenty içinde iki konumda işlenebilir:
+Ön uç bileşenler, Bades.id içinde iki konumda işlenebilir:
 
 * **Yan panel** — Headless olmayan ön uç bileşenler, sağ taraftaki yan panelde açılır. Bir ön uç bileşeni komut menüsünden tetiklendiğinde varsayılan davranış budur.
 * **Widget'lar (panolar ve kayıt sayfaları)** — Ön uç bileşenler, sayfa düzenlerine widget olarak gömülebilir. Bir pano veya kayıt sayfası düzeni yapılandırılırken kullanıcılar bir ön uç bileşen widget'ı ekleyebilir.
@@ -24,7 +24,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -105,7 +105,7 @@ export default defineFrontComponent({
 });
 ```
 
-Bileşen `null` döndürdüğü için, Twenty bunun için bir kapsayıcı oluşturmayı atlar — düzende boş alan görünmez. Bileşen yine de tüm hook'lara ve host iletişim API'sine erişime sahiptir.
+Bileşen `null` döndürdüğü için, Bades.id bunun için bir kapsayıcı oluşturmayı atlar — düzende boş alan görünmez. Bileşen yine de tüm hook'lara ve host iletişim API'sine erişime sahiptir.
 
 ## SDK Command bileşenleri
 
@@ -461,7 +461,7 @@ Ayrıntılar için [genel varlıklar bölümüne](/l/tr/developers/extend/apps/c
 Ön uç bileşenleri birden fazla biçimlendirme yaklaşımını destekler. Şunları kullanabilirsiniz:
 
 * **Satır içi stiller** — `style={{ color: 'red' }}`
-* **Twenty UI bileşenleri** — `twenty-sdk/ui` içinden içe aktarın (Button, Tag, Status, Chip, Avatar ve daha fazlası)
+* **Bades.id UI bileşenleri** — `twenty-sdk/ui` içinden içe aktarın (Button, Tag, Status, Chip, Avatar ve daha fazlası)
 * **Emotion** — `@emotion/react` ile CSS-in-JS
 * **Styled-components** — `styled.div` kalıpları
 * **Tailwind CSS** — yardımcı sınıflar

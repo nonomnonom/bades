@@ -127,21 +127,21 @@ const CREATE_WORKSPACE_MEMBER_EVENT_PARTICIPANT = (
   usedWorkspaceMemberIds.add(WORKSPACE_MEMBER_ID);
 
   switch (WORKSPACE_MEMBER_ID) {
-    case WORKSPACE_MEMBER_DATA_SEED_IDS.TIM:
+    case WORKSPACE_MEMBER_DATA_SEED_IDS.KADES:
       return {
         handle: 'tim@apple.com',
-        displayName: 'Tim Apple',
+        displayName: 'Drs. H. Abdullah',
         personId: null,
         workspaceMemberId: WORKSPACE_MEMBER_ID,
       };
-    case WORKSPACE_MEMBER_DATA_SEED_IDS.JONY:
+    case WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES:
       return {
         handle: 'jony.ive@apple.com',
         displayName: 'Jony Ive',
         personId: null,
         workspaceMemberId: WORKSPACE_MEMBER_ID,
       };
-    case WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL:
+    case WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR:
       return {
         handle: 'phil.schiller@apple.com',
         displayName: 'Phil Schiller',

@@ -1,10 +1,10 @@
 ---
 title: Mimari
-description: Twenty uygulamaları nasıl çalışır — korumalı alan, yaşam döngüsü ve yapı taşları.
+description: Bades.id uygulamaları nasıl çalışır — korumalı alan, yaşam döngüsü ve yapı taşları.
 icon: sitemap
 ---
 
-Twenty uygulamaları, çalışma alanınızı özel nesneler, mantık, UI bileşenleri ve yapay zekâ yetenekleriyle genişleten TypeScript paketleridir. Tam korumalı alan ve izin kontrolleriyle Twenty platformunda çalışırlar.
+Bades.id uygulamaları, çalışma alanınızı özel nesneler, mantık, UI bileşenleri ve yapay zekâ yetenekleriyle genişleten TypeScript paketleridir. Tam korumalı alan ve izin kontrolleriyle Bades.id platformunda çalışırlar.
 
 ## Uygulamalar nasıl çalışır
 
@@ -41,7 +41,7 @@ your-app/
 | **Object**               | Alanlara sahip özel veri tabloları                            | [Veri Modeli](/l/tr/developers/extend/apps/data-model)                     |
 | **Alan**                 | Mevcut nesneleri genişletme, ilişkileri tanımlama             | [Veri Modeli](/l/tr/developers/extend/apps/data-model)                     |
 | **Mantık İşlevi**        | Tetikleyicilerle sunucu tarafı TypeScript                     | [Mantıksal İşlevler](/l/tr/developers/extend/apps/logic-functions)         |
-| **Ön Uç Bileşeni**       | Twenty'nin sayfasında korumalı alanda React kullanıcı arayüzü | [Ön Uç Bileşenleri](/l/tr/developers/extend/apps/front-components)         |
+| **Ön Uç Bileşeni**       | Bades.id'nin sayfasında korumalı alanda React kullanıcı arayüzü | [Ön Uç Bileşenleri](/l/tr/developers/extend/apps/front-components)         |
 | **Beceri**               | Yeniden kullanılabilir yapay zekâ temsilcisi yönergeleri      | [Beceriler ve Temsilciler](/l/tr/developers/extend/apps/skills-and-agents) |
 | **Temsilci**             | Özel istemlere sahip yapay zekâ asistanları                   | [Beceriler ve Temsilciler](/l/tr/developers/extend/apps/skills-and-agents) |
 | **Görünüm**              | Önceden yapılandırılmış kayıt listesi görünümleri             | [Düzen](/l/tr/developers/extend/apps/layout)                               |
@@ -51,7 +51,7 @@ your-app/
 ## Korumalı alan
 
 * **Mantık işlevleri** sunucuda yalıtılmış Node.js işlemlerinde çalışır. Verilere yalnızca, kapsamı uygulamanın rol izinleriyle sınırlandırılmış tipli API istemcisi üzerinden erişirler.
-* **Ön uç bileşenleri**, Remote DOM kullanan Web Worker'larda çalışır — ana sayfadan yalıtılmıştır ancak yerel DOM öğelerini (iframe'ler değil) oluşturur. Twenty ile mesaj iletimi yapan bir ana makine API'si aracılığıyla iletişim kurarlar.
+* **Ön uç bileşenleri**, Remote DOM kullanan Web Worker'larda çalışır — ana sayfadan yalıtılmıştır ancak yerel DOM öğelerini (iframe'ler değil) oluşturur. Bades.id ile mesaj iletimi yapan bir ana makine API'si aracılığıyla iletişim kurarlar.
 * **İzinler**, API düzeyinde uygulanır. Çalışma zamanı belirteci (`TWENTY_APP_ACCESS_TOKEN`), `defineApplication()` içinde tanımlanan rolden türetilir.
 
 ## Uygulama yaşam döngüsü
@@ -59,7 +59,7 @@ your-app/
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ Development                                             │
-│   npx create-twenty-app → yarn twenty dev (live sync)   │
+│   npx create-bades-app → yarn twenty dev (live sync)   │
 ├─────────────────────────────────────────────────────────┤
 │ Build & Deploy                                          │
 │   yarn twenty build → yarn twenty deploy                │
@@ -69,11 +69,11 @@ your-app/
 │   generate SDK → [post-install]                         │
 ├─────────────────────────────────────────────────────────┤
 │ Publish                                                 │
-│   npm publish → appears in Twenty marketplace           │
+│   npm publish → appears in Bades.id marketplace           │
 └─────────────────────────────────────────────────────────┘
 ```
 
-* **`yarn twenty dev`** — kaynak dosyalarınızı izler ve bağlı bir Twenty sunucusuna değişiklikleri canlı olarak senkronize eder. Şema değiştiğinde tipli API istemcisi otomatik olarak yeniden oluşturulur.
+* **`yarn twenty dev`** — kaynak dosyalarınızı izler ve bağlı bir Bades.id sunucusuna değişiklikleri canlı olarak senkronize eder. Şema değiştiğinde tipli API istemcisi otomatik olarak yeniden oluşturulur.
 * **`yarn twenty build`** — TypeScript'i derler, mantık işlevlerini ve ön uç bileşenlerini esbuild ile paketler ve bir manifest üretir.
 * **Kurulum öncesi/sonrası kancaları** — kurulum sırasında çalışan isteğe bağlı mantık işlevleri. Ayrıntılar için [Mantık İşlevleri](/l/tr/developers/extend/apps/logic-functions) bölümüne bakın.
 
@@ -87,7 +87,7 @@ your-app/
     HTTP, cron ve olay tetikleyicilerine sahip sunucu tarafı işlevler.
   </Card>
   <Card title="Ön uç bileşenleri" icon="window-maximize" href="/l/tr/developers/extend/apps/front-components">
-    Twenty'nin kullanıcı arayüzünde korumalı alanda React bileşenleri.
+    Bades.id'nin kullanıcı arayüzünde korumalı alanda React bileşenleri.
   </Card>
   <Card title="Düzen" icon="table-columns" href="/l/tr/developers/extend/apps/layout">
     Görünümler, gezinme öğeleri ve kayıt sayfası düzenleri.

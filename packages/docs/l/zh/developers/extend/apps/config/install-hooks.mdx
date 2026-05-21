@@ -56,7 +56,7 @@ yarn twenty dev:function:exec --postInstall
   * `shouldRunSynchronously: false` *(默认)* — 该钩子会**加入消息队列**，设置 `retryLimit: 3`，并在工作线程中异步运行。 作业一入列，安装响应即返回，因此缓慢或失败的处理程序不会阻塞调用方。 工作线程最多会重试三次。 **将其用于长时间运行的作业**——预填充大型数据集、调用缓慢的第三方 API、预配外部资源，以及任何可能超出合理 HTTP 响应窗口的任务。
   * `shouldRunSynchronously: true` — 该钩子会在安装流程中**内联执行**（与安装前使用相同的执行器）。 安装请求将阻塞直至处理程序完成；若抛出异常，安装调用方将收到 `POST_INSTALL_ERROR`。 不进行自动重试。 **用于需要在响应前完成的快速工作**——例如向用户返回验证错误，或进行安装调用返回后客户端将立即依赖的快速设置。 请注意，运行安装后时，元数据迁移已应用完成，因此同步模式下的失败**不会**回滚架构更改——它只会暴露错误。
 * 确保你的处理程序是幂等的。 在异步模式下，队列最多可重试三次；在任一模式下，当 `shouldRunOnVersionUpgrade: true` 时，该钩子在升级时可能再次运行。
-* 在处理程序内可使用环境变量 `APPLICATION_ID`、`APP_ACCESS_TOKEN` 和 `API_URL`（与其他逻辑函数相同），因此你可以使用作用域限定到你应用的应用访问令牌调用 Twenty API。
+* 在处理程序内可使用环境变量 `APPLICATION_ID`、`APP_ACCESS_TOKEN` 和 `API_URL`（与其他逻辑函数相同），因此你可以使用作用域限定到你应用的应用访问令牌调用 Bades.id API。
 * 每个应用仅允许一个安装后函数。 如果检测到多个，清单构建将报错。
 * 构建期间，函数的 `universalIdentifier`、`shouldRunOnVersionUpgrade` 和 `shouldRunSynchronously` 会自动附加到应用清单的 `postInstallLogicFunction` 字段下——你无需在 [`defineApplication()`](/l/zh/developers/extend/apps/config/application) 中引用它们。
 * 默认超时时间设置为 300 秒（5 分钟），以便支持更长的设置任务，如数据填充。

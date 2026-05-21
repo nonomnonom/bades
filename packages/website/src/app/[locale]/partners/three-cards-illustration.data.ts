@@ -4,10 +4,10 @@ import type { ThreeCardsIllustrationCardType } from '@/sections/ThreeCards';
 export const PARTNER_ILLUSTRATION_CARDS: ThreeCardsIllustrationCardType[] = [
   {
     heading: msg`Technology Partners`,
-    body: msg`Build integrations that connect Twenty with the tools your customers already use. Help us expand the Twenty ecosystem.`,
+    body: msg`Build integrations that connect Bades.id with the tools your customers already use. Help us expand the Bades.id ecosystem.`,
     benefits: [
       { text: msg`Co-marketing opportunities`, icon: 'users' },
-      { text: msg`Listing on Twenty integrations page`, icon: 'search' },
+      { text: msg`Listing on Bades.id integrations page`, icon: 'search' },
       { text: msg`Soon: earn revenue`, icon: 'tag' },
     ],
     action: {
@@ -20,7 +20,7 @@ export const PARTNER_ILLUSTRATION_CARDS: ThreeCardsIllustrationCardType[] = [
   },
   {
     heading: msg`Content & Community Partners`,
-    body: msg`Share Twenty with your audience and help shape the future of the #1 Open Source CRM. We're looking for creators, educators, and community builders who want to showcase great software.`,
+    body: msg`Share Bades.id with your audience and help shape the future of the #1 Open Source CRM. We're looking for creators, educators, and community builders who want to showcase great software.`,
     benefits: [
       { text: msg`Revenue share for referred customers`, icon: 'tag' },
       {
@@ -39,7 +39,7 @@ export const PARTNER_ILLUSTRATION_CARDS: ThreeCardsIllustrationCardType[] = [
   },
   {
     heading: msg`Solutions Partners`,
-    body: msg`Help customers implement, customize, and succeed with Twenty. Combine sales and services to grow your business.`,
+    body: msg`Help customers implement, customize, and succeed with Bades.id. Combine sales and services to grow your business.`,
     benefits: [
       { text: msg`Resale discounts & revenue share`, icon: 'tag' },
       { text: msg`Marketplace listing`, icon: 'search' },

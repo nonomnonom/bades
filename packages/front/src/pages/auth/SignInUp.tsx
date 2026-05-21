@@ -110,11 +110,11 @@ export const SignInUp = () => {
   const title = useMemo(() => {
     if (isDefined(workspaceInviteHash)) {
       const workspaceName = workspaceFromInviteHash?.displayName ?? '';
-      return t`Join ${workspaceName} team`;
+      return t`Bergabung dengan tim ${workspaceName}`;
     }
 
     if (signInUpStep === SignInUpStep.WorkspaceSelection) {
-      return t`Choose a Workspace`;
+      return t`Pilih Desa`;
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationProvision) {
@@ -126,7 +126,7 @@ export const SignInUp = () => {
     }
 
     if (isGlobalScope) {
-      return t`Welcome to Twenty`;
+      return t`Welcome to Bades.id`;
     }
 
     const workspaceName = workspacePublicData?.displayName;

@@ -1,19 +1,19 @@
 ---
 title: MCP-Server
-description: Verbinden Sie KI-Assistenten mit Ihrem Twenty-Workspace über das Model Context Protocol.
+description: Verbinden Sie KI-Assistenten mit Ihrem Bades.id-Workspace über das Model Context Protocol.
 ---
 
 <Warning>
 MCP befindet sich derzeit in **alpha** und ist nur in einigen Workspaces verfügbar. Möglicherweise ist es für Ihren Workspace noch nicht aktiviert.
 </Warning>
 
-Twenty stellt einen [MCP](https://modelcontextprotocol.io/)-Server bereit, damit KI-Assistenten — Claude Desktop, Claude Code, Cursor, ChatGPT und andere — Ihre CRM-Daten in natürlicher Sprache lesen und schreiben können.
+Bades.id stellt einen [MCP](https://modelcontextprotocol.io/)-Server bereit, damit KI-Assistenten — Claude Desktop, Claude Code, Cursor, ChatGPT und andere — Ihre CRM-Daten in natürlicher Sprache lesen und schreiben können.
 
-Verwenden Sie Ihre **Workspace-URL** (die URL, mit der Sie auf Twenty zugreifen) als MCP-Endpunkt. In Twenty Cloud kann Ihre Workspace-URL `https://{mycompany}.twenty.com` oder eine benutzerdefinierte Domain sein. Der Server ist verfügbar unter:
+Verwenden Sie Ihre **Workspace-URL** (die URL, mit der Sie auf Bades.id zugreifen) als MCP-Endpunkt. In Bades.id Cloud kann Ihre Workspace-URL `https://{mycompany}.bades.id` oder eine benutzerdefinierte Domain sein. Der Server ist verfügbar unter:
 
 | Umgebung          | MCP-Endpunkt                                                                  |
 | ----------------- | ----------------------------------------------------------------------------- |
-| **Cloud**         | `https://{your-workspace-url}/mcp` (z. B. `https://mycompany.twenty.com/mcp`) |
+| **Cloud**         | `https://{your-workspace-url}/mcp` (z. B. `https://mycompany.bades.id/mcp`) |
 | **Selbsthosting** | `https://{your-domain}/mcp`                                                   |
 
 ## Authentifizierungsmethoden
@@ -28,7 +28,7 @@ Mit OAuth öffnet Ihr MCP-Client ein Browserfenster, damit Sie sich anmelden kö
 OAuth erfordert einen MCP-Client, der die [MCP-Autorisierungsspezifikation](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization) unterstützt. Claude Desktop, Claude Code, Cursor und ChatGPT unterstützen dies.
 </Note>
 
-Fügen Sie dies zu Ihrer MCP-Client-Konfiguration hinzu und ersetzen Sie `{your-workspace-url}` durch den Host Ihrer Workspace-URL (z. B. `mycompany.twenty.com`):
+Fügen Sie dies zu Ihrer MCP-Client-Konfiguration hinzu und ersetzen Sie `{your-workspace-url}` durch den Host Ihrer Workspace-URL (z. B. `mycompany.bades.id`):
 
 ```json
 {
@@ -43,7 +43,7 @@ Fügen Sie dies zu Ihrer MCP-Client-Konfiguration hinzu und ersetzen Sie `{your-
 
 Das ist alles — kein API-Schlüssel erforderlich. Wenn der Client sich zum ersten Mal verbindet, wird er:
 
-1. Die OAuth-Metadaten von Twenty über `/.well-known/oauth-protected-resource` und `/.well-known/oauth-authorization-server` ermitteln
+1. Die OAuth-Metadaten von Bades.id über `/.well-known/oauth-protected-resource` und `/.well-known/oauth-authorization-server` ermitteln
 2. Sich über die dynamische Client-Registrierung (RFC 7591) als OAuth-Client registrieren
 3. Ihren Browser öffnen, um den Zugriff zu autorisieren
 4. Token empfangen und eine Verbindung zum MCP-Server herstellen
@@ -78,7 +78,7 @@ Um einen API-Schlüssel zu erstellen, gehen Sie zu **Settings > APIs & Webhooks 
 
 ### 1. Konfiguration kopieren
 
-Gehen Sie in Twenty zu **Settings > AI > More > MCP Server**. Wählen Sie Ihre Authentifizierungsmethode (OAuth oder API-Schlüssel), kopieren Sie das JSON-Snippet (es verwendet bereits Ihre Workspace-URL) und fügen Sie es in die Konfigurationsdatei Ihres MCP-Clients ein.
+Gehen Sie in Bades.id zu **Settings > AI > More > MCP Server**. Wählen Sie Ihre Authentifizierungsmethode (OAuth oder API-Schlüssel), kopieren Sie das JSON-Snippet (es verwendet bereits Ihre Workspace-URL) und fügen Sie es in die Konfigurationsdatei Ihres MCP-Clients ein.
 
 | Client             | Speicherort der Konfigurationsdatei                                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -89,7 +89,7 @@ Gehen Sie in Twenty zu **Settings > AI > More > MCP Server**. Wählen Sie Ihre A
 
 ### 2. Verbinden
 
-Starten Sie Ihren MCP-Client neu (oder laden Sie die Konfiguration neu). Bei Verwendung von OAuth werden Sie zu Twenty weitergeleitet, um den Zugriff zu autorisieren. Bei Verwendung eines API-Schlüssels wird die Verbindung sofort hergestellt.
+Starten Sie Ihren MCP-Client neu (oder laden Sie die Konfiguration neu). Bei Verwendung von OAuth werden Sie zu Bades.id weitergeleitet, um den Zugriff zu autorisieren. Bei Verwendung eines API-Schlüssels wird die Verbindung sofort hergestellt.
 
 ### 3. Jetzt loslegen
 
@@ -101,7 +101,7 @@ Bitten Sie Ihren KI-Assistenten, mit Ihrem CRM zu interagieren:
 
 ## Verfügbare Tools
 
-Nach der Verbindung stellt der MCP-Server Tools bereit, die die Twenty-API widerspiegeln. Der empfohlene Workflow ist:
+Nach der Verbindung stellt der MCP-Server Tools bereit, die die Bades.id-API widerspiegeln. Der empfohlene Workflow ist:
 
 1. **`get_tool_catalog`** — alle verfügbaren Tools entdecken
 2. **`learn_tools`** — das Eingabeschema für bestimmte Tools abrufen
@@ -118,7 +118,7 @@ MCP-Verbindungen erben die Berechtigungen des authentifizierten Benutzers (OAuth
 
 ## Selbstgehostete Konfiguration
 
-Für selbstgehostete Instanzen ersetzen Sie `{your-workspace-url}` durch die URL Ihres Servers. Stellen Sie sicher, dass `SERVER_URL` in Ihrer Umgebung der öffentlichen URL Ihrer Twenty-Instanz entspricht — dieser Wert wird verwendet, um die OAuth-Discovery-Metadaten zu generieren.
+Für selbstgehostete Instanzen ersetzen Sie `{your-workspace-url}` durch die URL Ihres Servers. Stellen Sie sicher, dass `SERVER_URL` in Ihrer Umgebung der öffentlichen URL Ihrer Bades.id-Instanz entspricht — dieser Wert wird verwendet, um die OAuth-Discovery-Metadaten zu generieren.
 
 ```bash
 SERVER_URL=https://twenty.yourcompany.com

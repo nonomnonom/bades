@@ -1,21 +1,21 @@
 ---
 title: Hızlı Başlangıç
 icon: rocket
-description: İlk Twenty uygulamanızı dakikalar içinde oluşturun.
+description: İlk Bades.id uygulamanızı dakikalar içinde oluşturun.
 ---
 
 ## Ön Gereksinimler
 
 * **Node.js 24+** — [Buradan indirin](https://nodejs.org/)
 * **Yarn 4** — Corepack aracılığıyla Node ile birlikte gelir. Etkinleştirin: `corepack enable`
-* **Docker** — [Buradan indirin](https://www.docker.com/products/docker-desktop/). Yerel bir Twenty sunucusunu çalıştırmak için gereklidir. Zaten başka bir yerde Twenty çalıştırıyorsanız atlayın.
+* **Docker** — [Buradan indirin](https://www.docker.com/products/docker-desktop/). Yerel bir Bades.id sunucusunu çalıştırmak için gereklidir. Zaten başka bir yerde Bades.id çalıştırıyorsanız atlayın.
 
-Bir Twenty uygulaması oluşturmanın üç aşaması vardır. İskelet oluşturucu bunları tek bir sorunsuz akış komutuna indirger, ancak her aşama ayrı bir kavramdır — bir şeyler başarısız olduğunda hangi aşamada olduğunuzu bilmek neyi düzeltmeniz gerektiğini söyler.
+Bir Bades.id uygulaması oluşturmanın üç aşaması vardır. İskelet oluşturucu bunları tek bir sorunsuz akış komutuna indirger, ancak her aşama ayrı bir kavramdır — bir şeyler başarısız olduğunda hangi aşamada olduğunuzu bilmek neyi düzeltmeniz gerektiğini söyler.
 
 | Aşama                        | Ne yaparsınız                                     | Araç                          | Sonuç                              |
 | ---------------------------- | ------------------------------------------------- | ----------------------------- | ---------------------------------- |
-| **1. İskelet Oluşturma**     | Uygulamanın kaynak kodunu oluşturun               | `npx create-twenty-app`       | Diskte bir TypeScript projesi      |
-| **2. Bir sunucu çalıştırma** | Eşitleme yapacağınız bir Twenty sunucusu başlatın | Docker + `yarn twenty server` | Çalışan bir Twenty örneği          |
+| **1. İskelet Oluşturma**     | Uygulamanın kaynak kodunu oluşturun               | `npx create-bades-app`       | Diskte bir TypeScript projesi      |
+| **2. Bir sunucu çalıştırma** | Eşitleme yapacağınız bir Bades.id sunucusu başlatın | Docker + `yarn twenty server` | Çalışan bir Bades.id örneği          |
 | **3. Eşitleme**              | Kodunuzu sunucuya canlı olarak eşitleyin          | `yarn twenty dev`             | Değişiklikleriniz arayüzde görünür |
 
 ---
@@ -25,7 +25,7 @@ Bir Twenty uygulaması oluşturmanın üç aşaması vardır. İskelet oluşturu
 Şablondan yeni bir uygulama oluşturun:
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 ```
 
 Sizden bir ad ve açıklama istenir — varsayılanlar için **Enter** tuşuna basın. Bu, `my-twenty-app/` içinde bir başlangıç `application-config.ts`, varsayılan bir rol, bir CI iş akışı ve bir entegrasyon testi ile bir TypeScript projesi oluşturur.
@@ -34,16 +34,16 @@ Sizden bir ad ve açıklama istenir — varsayılanlar için **Enter** tuşuna b
 
 ---
 
-## Aşama 2 — Yerel bir Twenty sunucusu çalıştırın
+## Aşama 2 — Yerel bir Bades.id sunucusu çalıştırın
 
-Uygulamanızın eşitleme yapacağı bir Twenty sunucusuna ihtiyacı vardır. Sunucu, Docker içinde yerel olarak çalışan tam bir Twenty örneğidir — UI, GraphQL API, PostgreSQL. Yerel kodunuz tanımlarını bu sunucuya yükler; bu da onların arayüzde görünmesini sağlar.
+Uygulamanızın eşitleme yapacağı bir Bades.id sunucusuna ihtiyacı vardır. Sunucu, Docker içinde yerel olarak çalışan tam bir Bades.id örneğidir — UI, GraphQL API, PostgreSQL. Yerel kodunuz tanımlarını bu sunucuya yükler; bu da onların arayüzde görünmesini sağlar.
 
 İskelet oluşturucu sizin için bir tane başlatmayı teklif eder:
 
-> **Yerel bir Twenty örneği kurmak ister misiniz?**
+> **Yerel bir Bades.id örneği kurmak ister misiniz?**
 
 * **Evet (önerilir)** — `twentycrm/twenty-app-dev` Docker imajını çeker ve `2020` portunda başlatır. Önce Docker'ın çalıştığından emin olun.
-* **Hayır** — Zaten bağlanmak istediğiniz bir Twenty sunucunuz varsa bunu seçin. Bunu daha sonra `yarn twenty remote:add` ile bağlayabilirsiniz.
+* **Hayır** — Zaten bağlanmak istediğiniz bir Bades.id sunucunuz varsa bunu seçin. Bunu daha sonra `yarn twenty remote:add` ile bağlayabilirsiniz.
 
 <div style={{textAlign: 'center'}}>
   <img src="/images/docs/developers/extends/apps/start-instance.png" alt="Yerel örnek başlatılsın mı?" />
@@ -55,13 +55,13 @@ Sunucu çalışır duruma geldiğinde, oturum açmak için bir tarayıcı açıl
 * **Parola:** `tim@apple.dev`
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/login.png" alt="Twenty oturum açma ekranı" />
+  <img src="/images/docs/developers/extends/apps/login.png" alt="Bades.id oturum açma ekranı" />
 </div>
 
 Sonraki ekranda **Authorize**'a tıklayın — bu işlem CLI'nin çalışma alanınıza erişmesine izin verir.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Twenty CLI yetkilendirme ekranı" />
+  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Bades.id CLI yetkilendirme ekranı" />
 </div>
 
 Terminaliniz her şeyin kurulduğunu onaylayacaktır.
@@ -70,7 +70,7 @@ Terminaliniz her şeyin kurulduğunu onaylayacaktır.
   <img src="/images/docs/developers/extends/apps/scaffolded.png" alt="Uygulama iskeleti başarıyla oluşturuldu" />
 </div>
 
-**Bu aşamadan sonra:** [http://localhost:2020](http://localhost:2020) adresinde çalışan bir Twenty sunucunuz ve ona eşitleme yapmak için yetkilendirilmiş bir CLI'ınız olur.
+**Bu aşamadan sonra:** [http://localhost:2020](http://localhost:2020) adresinde çalışan bir Bades.id sunucunuz ve ona eşitleme yapmak için yetkilendirilmiş bir CLI'ınız olur.
 
 <Note>
 Docker yüklü değilse veya çalışmıyorsa, iskelet oluşturucu işletim sisteminiz için doğru başlatma komutunu söyleyecektir. Docker çalışır duruma geldiğinde, `yarn twenty docker:start` ile devam edebilirsiniz — yeniden iskelet oluşturmaya gerek yok.
@@ -146,7 +146,7 @@ Uygulamalar **varlıklardan** oluşur — her biri tek bir `export default` içe
 | ------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **Nesneler ve Alanlar**   | Özel veri modelleri (Post Card, Invoice vb.) tiplendirilmiş alanlarla                                     |
 | **Mantıksal işlevler**    | HTTP rotaları, cron zamanlamaları veya veritabanı olayları tarafından tetiklenen sunucu tarafı TypeScript |
-| **Ön uç bileşenleri**     | Twenty'nin arayüzünde görüntülenen React bileşenleri (yan panel, widget'lar, komut menüsü)                |
+| **Ön uç bileşenleri**     | Bades.id'nin arayüzünde görüntülenen React bileşenleri (yan panel, widget'lar, komut menüsü)                |
 | **Beceriler ve Aracılar** | Yapay zeka yetenekleri — yeniden kullanılabilir yönergeler ve otonom asistanlar                           |
 | **Görünümler ve Gezinme** | Önceden yapılandırılmış liste görünümleri ve kenar çubuğu menü öğeleri                                    |
 | **Sayfa düzenleri**       | Sekmeler ve widget'lar içeren özel kayıt ayrıntı sayfaları                                                |

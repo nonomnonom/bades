@@ -4,7 +4,7 @@ description: Sunucu tarafı TypeScript işlevlerini HTTP, cron ve veritabanı ol
 icon: bolt
 ---
 
-Mantık işlevleri, Twenty platformunda çalışan sunucu tarafı TypeScript işlevleridir. HTTP istekleri, cron zamanlamaları veya veritabanı olayları tarafından tetiklenebilirler — ve ayrıca yapay zekâ ajanları için araçlar olarak sunulabilirler.
+Mantık işlevleri, Bades.id platformunda çalışan sunucu tarafı TypeScript işlevleridir. HTTP istekleri, cron zamanlamaları veya veritabanı olayları tarafından tetiklenebilirler — ve ayrıca yapay zekâ ajanları için araçlar olarak sunulabilirler.
 
 <AccordionGroup>
 <Accordion title="defineLogicFunction" description="Mantık fonksiyonlarını ve tetikleyicilerini tanımlayın">
@@ -146,8 +146,8 @@ Başlık adları küçük harfe normalize edilir. Onlara küçük harfli anahtar
 
 Mantık işlevleri, her birinin kendi tetikleyicisi olacak şekilde iki yerde kullanılabilir hâle getirilebilir:
 
-* **`toolTriggerSettings`** — işlevi Twenty'nin yapay zekâ özellikleri (sohbet, MCP, işlev çağırma) tarafından bulunabilir hâle getirir. Standart JSON Şeması'nı kullanır; LLM'lerin doğal olarak anladığı biçimdir.
-* **`workflowActionTriggerSettings`** — işlevin görsel iş akışı oluşturucusunda bir adım olarak görünmesini sağlar. Oluşturucunun uygun alan düzenleyicilerini, değişken seçicilerini ve etiketleri oluşturabilmesi için Twenty'nin zengin `InputSchema`'sını kullanır.
+* **`toolTriggerSettings`** — işlevi Bades.id'nin yapay zekâ özellikleri (sohbet, MCP, işlev çağırma) tarafından bulunabilir hâle getirir. Standart JSON Şeması'nı kullanır; LLM'lerin doğal olarak anladığı biçimdir.
+* **`workflowActionTriggerSettings`** — işlevin görsel iş akışı oluşturucusunda bir adım olarak görünmesini sağlar. Oluşturucunun uygun alan düzenleyicilerini, değişken seçicilerini ve etiketleri oluşturabilmesi için Bades.id'nin zengin `InputSchema`'sını kullanır.
 
 Bir işlev bunlardan birini, diğerini veya her ikisini de tercih edebilir. Bunlar, `cronTriggerSettings`, `databaseEventTriggerSettings` ve `httpRouteTriggerSettings` ile birlikte yer alır — aynı desen, aynı biçim.
 
@@ -186,7 +186,7 @@ export default defineLogicFunction({
 Önemli noktalar:
 
 * Bir işlev yüzeyleri karıştırabilir — onu sohbette VE iş akışı oluşturucusunda kullanıma sunmak için hem `toolTriggerSettings` hem de `workflowActionTriggerSettings` bildirin.
-* `toolTriggerSettings.inputSchema` ve `workflowActionTriggerSettings.inputSchema` ikisi de isteğe bağlıdır. Atlandığında, manifest oluşturucu bunları işleyici kaynak kodundan çıkarır (yapay zekâ aracı için JSON Şeması, iş akışı eylemi için Twenty'nin `InputSchema`'sı). Daha zengin tipleme istediğinizde birini açıkça belirtin — örneğin, iş akışı oluşturucu için `FieldMetadataType`'ı bilen `CURRENCY` veya `RELATION` gibi alanlarla ya da yapay zekâ aracısının okuyabileceği `description` alanlarıyla:
+* `toolTriggerSettings.inputSchema` ve `workflowActionTriggerSettings.inputSchema` ikisi de isteğe bağlıdır. Atlandığında, manifest oluşturucu bunları işleyici kaynak kodundan çıkarır (yapay zekâ aracı için JSON Şeması, iş akışı eylemi için Bades.id'nin `InputSchema`'sı). Daha zengin tipleme istediğinizde birini açıkça belirtin — örneğin, iş akışı oluşturucu için `FieldMetadataType`'ı bilen `CURRENCY` veya `RELATION` gibi alanlarla ya da yapay zekâ aracısının okuyabileceği `description` alanlarıyla:
 
 ```ts
 export default defineLogicFunction({
@@ -251,7 +251,7 @@ yarn twenty exec --postInstall
   * `shouldRunSynchronously: false` *(varsayılan)* — kanca, `retryLimit: 3` ile **mesaj kuyruğuna alınır** ve bir worker içinde eşzamansız çalışır. İş kuyruğa alınır alınmaz kurulum yanıtı döner; dolayısıyla yavaşlayan veya hata veren bir işleyici çağıranı engellemez. Worker en fazla üç kez yeniden deneyecektir. **Bunu uzun süre çalışan işler için kullanın** — büyük veri kümelerini tohumlama, yavaş üçüncü taraf API'lerini çağırma, harici kaynakları sağlama; makul bir HTTP yanıt süresini aşabilecek her şey.
   * `shouldRunSynchronously: true` — kanca **kurulum akışı sırasında satır içi** olarak yürütülür (kurulum öncesi ile aynı yürütücü). İşleyici bitene kadar kurulum isteği engellenir; hata fırlatırsa, kurulum çağıranı bir `POST_INSTALL_ERROR` alır. Otomatik yeniden deneme yok. **Bunu, yanıt dönmeden mutlaka tamamlanması gereken hızlı işler için kullanın** — örneğin, kullanıcıya bir doğrulama hatası iletmek veya kurulum çağrısı döner dönmez istemcinin ihtiyaç duyacağı hızlı bir kurulum yapmak. Kurulum sonrası çalıştığında, üstveri (metadata) geçişinin zaten uygulanmış olduğunu unutmayın; bu nedenle, senkron moddaki bir hata şema değişikliklerini **geri almaz** — yalnızca hatayı görünür kılar.
 * İşleyicinizin idempotent olduğundan emin olun. Eşzamansız modda kuyruk en fazla üç kez yeniden deneyebilir; her iki modda da `shouldRunOnVersionUpgrade: true` iken yükseltmelerde kanca tekrar çalışabilir.
-* Ortam değişkenleri `APPLICATION_ID`, `APP_ACCESS_TOKEN` ve `API_URL` işleyici içinde kullanılabilir (diğer mantık işlevlerinde olduğu gibi), böylece uygulamanıza özel kapsamda bir uygulama erişim belirteciyle Twenty API'sini çağırabilirsiniz.
+* Ortam değişkenleri `APPLICATION_ID`, `APP_ACCESS_TOKEN` ve `API_URL` işleyici içinde kullanılabilir (diğer mantık işlevlerinde olduğu gibi), böylece uygulamanıza özel kapsamda bir uygulama erişim belirteciyle Bades.id API'sini çağırabilirsiniz.
 * Uygulama başına yalnızca bir kurulum sonrası işlevine izin verilir. Birden fazla tespit edilirse manifest oluşturma hataya düşer.
 * İşlevin `universalIdentifier`, `shouldRunOnVersionUpgrade` ve `shouldRunSynchronously` değerleri, derleme sırasında uygulama manifestine `postInstallLogicFunction` alanı altında otomatik olarak eklenir — bunlara `defineApplication()` içinde atıfta bulunmanıza gerek yoktur.
 * Varsayılan zaman aşımı, veri tohumlama gibi daha uzun kurulum görevlerine izin vermek için 300 saniye (5 dakika) olarak ayarlanmıştır.
@@ -413,7 +413,7 @@ Emin değilseniz, varsayılan olarak **kurulum sonrası**nı tercih edin. Yalnı
 
 ## Tipli API istemcileri (twenty-client-sdk)
 
-`twenty-client-sdk` paketi, mantık fonksiyonlarınızdan ve ön uç bileşenlerinizden Twenty API ile etkileşim kurmak için tip tanımlı iki GraphQL istemcisi sağlar.
+`twenty-client-sdk` paketi, mantık fonksiyonlarınızdan ve ön uç bileşenlerinizden Bades.id API ile etkileşim kurmak için tip tanımlı iki GraphQL istemcisi sağlar.
 
 | İstemci             | İçe Aktar                    | Uç nokta                                                      | Oluşturuldu mu?                         |
 | ------------------- | ---------------------------- | ------------------------------------------------------------- | --------------------------------------- |
@@ -557,9 +557,9 @@ console.log(uploadedFile);
 </AccordionGroup>
 
 <Note>
-  Kodunuz Twenty üzerinde çalıştığında (mantık işlevleri veya ön uç bileşenleri), platform kimlik bilgilerini ortam değişkenleri olarak enjekte eder:
+  Kodunuz Bades.id üzerinde çalıştığında (mantık işlevleri veya ön uç bileşenleri), platform kimlik bilgilerini ortam değişkenleri olarak enjekte eder:
 
-  * `TWENTY_API_URL` — Twenty API'nin temel URL'si
+  * `TWENTY_API_URL` — Bades.id API'nin temel URL'si
   * `TWENTY_APP_ACCESS_TOKEN` — Uygulamanızın varsayılan işlev rolü kapsamında kısa ömürlü bir anahtar
 
   Bunları istemcilere iletmeniz gerekmez — otomatik olarak `process.env`'den okurlar. API anahtarının izinleri, `application-config.ts` içinde `defaultRoleUniversalIdentifier` ile referans verilen role göre belirlenir.

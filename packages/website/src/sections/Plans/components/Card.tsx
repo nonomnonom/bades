@@ -206,7 +206,7 @@ export function Card({ card, highlighted = false, maxBullets }: CardProps) {
       <CtaWrapper>
         <LinkButton
           color="secondary"
-          href="https://app.twenty.com/welcome"
+          href="https://bades.id/masuk"
           label={i18n._(msg`Start for free`)}
           variant={highlighted ? 'contained' : 'outlined'}
         />

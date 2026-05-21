@@ -60,114 +60,58 @@ const GENERATE_OPPORTUNITY_IDS = (): Record<string, string> => {
 
 export const OPPORTUNITY_DATA_SEED_IDS = GENERATE_OPPORTUNITY_IDS();
 
-// Credible opportunity names for Apple selling to various companies
+// Template permohonan layanan desa
 const OPPORTUNITY_TEMPLATES = [
-  { name: 'Enterprise iPad Deployment', amount: 2500000, stage: 'PROPOSAL' },
-  { name: 'MacBook Pro Fleet Upgrade', amount: 1800000, stage: 'MEETING' },
-  { name: 'iPhone Corporate Program', amount: 3200000, stage: 'NEW' },
-  { name: 'Apple TV+ Enterprise License', amount: 450000, stage: 'SCREENING' },
-  { name: 'Mac Studio Creative Suite', amount: 890000, stage: 'PROPOSAL' },
-  { name: 'iPad Pro Design Team Setup', amount: 670000, stage: 'MEETING' },
-  { name: 'Apple Watch Corporate Wellness', amount: 320000, stage: 'NEW' },
-  {
-    name: 'iMac Office Workstation Refresh',
-    amount: 1200000,
-    stage: 'CUSTOMER',
-  },
-  { name: 'Apple One Business Bundle', amount: 180000, stage: 'PROPOSAL' },
-  { name: 'MacBook Air Remote Work Package', amount: 950000, stage: 'MEETING' },
-  { name: 'Apple Pencil Educational License', amount: 85000, stage: 'NEW' },
-  {
-    name: 'Mac Pro Video Production Setup',
-    amount: 2100000,
-    stage: 'SCREENING',
-  },
-  { name: 'iPhone SE Frontline Workers', amount: 780000, stage: 'PROPOSAL' },
-  { name: 'Apple CarPlay Integration', amount: 1500000, stage: 'MEETING' },
-  { name: 'iPad Air Retail Deployment', amount: 620000, stage: 'NEW' },
-  { name: 'Apple Music Business License', amount: 95000, stage: 'CUSTOMER' },
-  { name: 'Mac mini Server Infrastructure', amount: 430000, stage: 'PROPOSAL' },
-  { name: 'Apple Arcade Enterprise Gaming', amount: 75000, stage: 'SCREENING' },
-  { name: 'iPhone 15 Pro Executive Program', amount: 540000, stage: 'MEETING' },
-  { name: 'Apple Fitness+ Corporate Wellness', amount: 125000, stage: 'NEW' },
-  { name: 'iPad Mini Field Operations', amount: 380000, stage: 'PROPOSAL' },
-  {
-    name: 'Apple News+ Business Subscription',
-    amount: 45000,
-    stage: 'CUSTOMER',
-  },
-  { name: 'MacBook Pro M3 Developer Team', amount: 1600000, stage: 'MEETING' },
-  {
-    name: 'Apple Vision Pro Prototype Lab',
-    amount: 850000,
-    stage: 'SCREENING',
-  },
-  { name: 'iPhone Photography Workshop', amount: 65000, stage: 'NEW' },
-  { name: 'Apple Store Corporate Training', amount: 155000, stage: 'PROPOSAL' },
-  { name: 'iPad Kiosk Solution Deployment', amount: 290000, stage: 'MEETING' },
-  {
-    name: 'Apple Pay Enterprise Integration',
-    amount: 720000,
-    stage: 'CUSTOMER',
-  },
-  { name: 'Mac Studio Animation Pipeline', amount: 1350000, stage: 'PROPOSAL' },
-  { name: 'Apple Configurator MDM Setup', amount: 210000, stage: 'SCREENING' },
-  {
-    name: 'iPhone Accessibility Features Training',
-    amount: 85000,
-    stage: 'NEW',
-  },
-  { name: 'Apple Business Manager License', amount: 180000, stage: 'MEETING' },
-  { name: 'iPad Pro AR Development Kit', amount: 490000, stage: 'PROPOSAL' },
-  { name: 'Apple School Manager Education', amount: 320000, stage: 'CUSTOMER' },
-  { name: 'MacBook Air Student Program', amount: 750000, stage: 'MEETING' },
-  { name: 'Apple Watch Health Monitoring', amount: 280000, stage: 'SCREENING' },
-  { name: 'iPhone Security Audit Services', amount: 195000, stage: 'NEW' },
-  {
-    name: 'Apple TV Digital Signage Solution',
-    amount: 340000,
-    stage: 'PROPOSAL',
-  },
-  { name: 'Mac Pro Rendering Farm Setup', amount: 2800000, stage: 'MEETING' },
-  {
-    name: 'Apple Pencil Digital Art License',
-    amount: 120000,
-    stage: 'CUSTOMER',
-  },
-  { name: 'iPad Point of Sale Integration', amount: 580000, stage: 'PROPOSAL' },
-  {
-    name: 'Apple Maps Business Integration',
-    amount: 165000,
-    stage: 'SCREENING',
-  },
-  { name: 'iPhone App Development Workshop', amount: 95000, stage: 'NEW' },
-  {
-    name: 'Apple Silicon Migration Consulting',
-    amount: 420000,
-    stage: 'MEETING',
-  },
-  {
-    name: 'iPad Inventory Management System',
-    amount: 350000,
-    stage: 'PROPOSAL',
-  },
-  {
-    name: 'Apple Podcast Enterprise Hosting',
-    amount: 75000,
-    stage: 'CUSTOMER',
-  },
-  {
-    name: 'MacBook Pro Creative Cloud Bundle',
-    amount: 1100000,
-    stage: 'MEETING',
-  },
-  { name: 'Apple ID Enterprise SSO Setup', amount: 240000, stage: 'SCREENING' },
-  { name: 'iPhone Field Service Optimization', amount: 680000, stage: 'NEW' },
-  {
-    name: 'Apple Retail Partnership Program',
-    amount: 1950000,
-    stage: 'PROPOSAL',
-  },
+  { name: 'Permohonan Surat Keterangan Tidak Mampu', amount: 0, stage: 'NEW' },
+  { name: 'Pembuatan KTP Baru', amount: 0, stage: 'PROPOSAL' },
+  { name: 'Penerbitan Akta Kelahiran', amount: 0, stage: 'MEETING' },
+  { name: 'Permohonan Surat Domisili Usaha', amount: 150000, stage: 'SCREENING' },
+  { name: 'Pengajuan Kartu Keluarga Baru', amount: 0, stage: 'PROPOSAL' },
+  { name: 'Pembuatan Surat Pengantar SKCK', amount: 0, stage: 'MEETING' },
+  { name: 'Permohonan Surat Keterangan Usaha', amount: 50000, stage: 'NEW' },
+  { name: 'Penerbitan Surat Izin Membangun', amount: 500000, stage: 'CUSTOMER' },
+  { name: 'Pembuatan Surat Pengantar Nikah', amount: 0, stage: 'PROPOSAL' },
+  { name: 'Permohonan Surat Keterangan Pindah', amount: 0, stage: 'MEETING' },
+  { name: 'Pengajuan Bantuan PKH', amount: 2400000, stage: 'NEW' },
+  { name: 'Permohonan Surat Keterangan Waris', amount: 0, stage: 'SCREENING' },
+  { name: 'Pembuatan Akta Kematian', amount: 0, stage: 'PROPOSAL' },
+  { name: 'Permohonan Dispensasi Nikah', amount: 0, stage: 'MEETING' },
+  { name: 'Pengajuan Perbaikan Rumah RTLH', amount: 17500000, stage: 'CUSTOMER' },
+  { name: 'Surat Keterangan Beda Nama', amount: 0, stage: 'NEW' },
+  { name: 'Permohonan Izin Keramaian', amount: 100000, stage: 'PROPOSAL' },
+  { name: 'Pengajuan Bantuan Modal UMKM', amount: 5000000, stage: 'SCREENING' },
+  { name: 'Permohonan Surat Pengantar SIM', amount: 0, stage: 'MEETING' },
+  { name: 'Pembuatan Surat Keterangan Tanah', amount: 200000, stage: 'NEW' },
+  { name: 'Pengajuan Beasiswa Bidikmisi', amount: 0, stage: 'PROPOSAL' },
+  { name: 'Permohonan Surat Izin Usaha Warung', amount: 75000, stage: 'CUSTOMER' },
+  { name: 'Pembaruan Data Kartu Keluarga', amount: 0, stage: 'MEETING' },
+  { name: 'Pengajuan Sambungan Listrik', amount: 450000, stage: 'SCREENING' },
+  { name: 'Permohonan Surat Rekomendasi Usaha', amount: 0, stage: 'NEW' },
+  { name: 'Pembuatan Surat Pengantar Berobat', amount: 0, stage: 'PROPOSAL' },
+  { name: 'Pengajuan Program Jamban Sehat', amount: 3000000, stage: 'MEETING' },
+  { name: 'Permohonan Surat Keterangan Gakin', amount: 0, stage: 'CUSTOMER' },
+  { name: 'Penerbitan Surat Keterangan Belum Menikah', amount: 0, stage: 'NEW' },
+  { name: 'Pengajuan Kredit KUR Mikro', amount: 25000000, stage: 'PROPOSAL' },
+  { name: 'Permohonan Surat Izin Galian', amount: 300000, stage: 'SCREENING' },
+  { name: 'Pembuatan Surat Pernyataan Ahli Waris', amount: 0, stage: 'MEETING' },
+  { name: 'Pengajuan Bantuan Sembako', amount: 0, stage: 'NEW' },
+  { name: 'Permohonan Surat Keterangan Penghasilan', amount: 0, stage: 'CUSTOMER' },
+  { name: 'Pembuatan Surat Kuasa Tanah', amount: 100000, stage: 'PROPOSAL' },
+  { name: 'Pengajuan BPNT (Bansos Pangan)', amount: 2400000, stage: 'MEETING' },
+  { name: 'Permohonan Surat Domisili Organisasi', amount: 0, stage: 'SCREENING' },
+  { name: 'Pembuatan Surat Keterangan Kelakuan Baik', amount: 0, stage: 'NEW' },
+  { name: 'Pengajuan Rehab Jalan Lingkungan', amount: 45000000, stage: 'PROPOSAL' },
+  { name: 'Permohonan Surat Rekomendasi Beasiswa', amount: 0, stage: 'CUSTOMER' },
+  { name: 'Pembuatan Surat Pengantar Pindah Sekolah', amount: 0, stage: 'MEETING' },
+  { name: 'Pengajuan Kartu Indonesia Pintar', amount: 0, stage: 'NEW' },
+  { name: 'Permohonan Legalisir Dokumen', amount: 25000, stage: 'SCREENING' },
+  { name: 'Pembuatan Surat Keterangan Bangunan', amount: 150000, stage: 'PROPOSAL' },
+  { name: 'Pengajuan Pemasangan PDAM', amount: 750000, stage: 'MEETING' },
+  { name: 'Permohonan Surat Keterangan Janda/Duda', amount: 0, stage: 'CUSTOMER' },
+  { name: 'Pembuatan Surat Izin Penggunaan Balai Desa', amount: 50000, stage: 'NEW' },
+  { name: 'Pengajuan Bantuan Alat Pertanian', amount: 8000000, stage: 'PROPOSAL' },
+  { name: 'Permohonan Surat Keterangan Numpang Nikah', amount: 0, stage: 'SCREENING' },
+  { name: 'Pembuatan Rekomendasi SIUP Kecil', amount: 100000, stage: 'MEETING' },
 ];
 
 const GENERATE_OPPORTUNITY_SEEDS = (): OpportunityDataSeed[] => {
@@ -177,7 +121,7 @@ const GENERATE_OPPORTUNITY_SEEDS = (): OpportunityDataSeed[] => {
     const TEMPLATE_INDEX = (INDEX - 1) % OPPORTUNITY_TEMPLATES.length;
     const TEMPLATE = OPPORTUNITY_TEMPLATES[TEMPLATE_INDEX];
 
-    const DAYS_AHEAD = Math.floor(Math.random() * 90) + 1;
+    const DAYS_AHEAD = Math.floor(Math.random() * 30) + 1;
     const CLOSE_DATE = new Date();
 
     CLOSE_DATE.setDate(CLOSE_DATE.getDate() + DAYS_AHEAD);
@@ -190,13 +134,13 @@ const GENERATE_OPPORTUNITY_SEEDS = (): OpportunityDataSeed[] => {
     );
     const workspaceMemberName = isDefined(workspaceMember)
       ? `${workspaceMember?.nameFirstName} ${workspaceMember?.nameLastName}`
-      : 'Unkonwn';
+      : 'Tidak Diketahui';
 
     const rawSeed: OpportunityDataSeed = {
       id: OPPORTUNITY_DATA_SEED_IDS[`ID_${INDEX}`],
       name: TEMPLATE.name,
       amountAmountMicros: TEMPLATE.amount * 1000000,
-      amountCurrencyCode: 'USD',
+      amountCurrencyCode: 'IDR',
       closeDate: CLOSE_DATE,
       stage: TEMPLATE.stage,
       position: INDEX,
@@ -208,7 +152,7 @@ const GENERATE_OPPORTUNITY_SEEDS = (): OpportunityDataSeed[] => {
         COMPANY_DATA_SEED_IDS[
           `ID_${Math.ceil(INDEX / 2)}` as keyof typeof COMPANY_DATA_SEED_IDS
         ] || COMPANY_DATA_SEED_IDS.ID_1,
-      ownerId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+      ownerId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
       createdBySource: 'MANUAL',
       updatedBySource: 'MANUAL',
       createdByWorkspaceMemberId: workspaceMemberId,

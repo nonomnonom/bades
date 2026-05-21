@@ -26,7 +26,7 @@ describe('buildOrganizationJsonLd', () => {
     expect(data).toMatchObject({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Twenty',
+      name: 'Bades.id',
       url: 'https://example.test',
       logo: 'https://example.test/images/core/logo.svg',
     });
@@ -34,7 +34,7 @@ describe('buildOrganizationJsonLd', () => {
 });
 
 describe('buildSoftwareApplicationJsonLd', () => {
-  it('declares Twenty as a CRM SoftwareApplication with the pricing page as its Offer URL', () => {
+  it('declares Bades.id as a CRM SoftwareApplication with the pricing page as its Offer URL', () => {
     const data = buildSoftwareApplicationJsonLd() as Record<string, unknown>;
 
     expect(data['@type']).toBe('SoftwareApplication');
@@ -132,13 +132,13 @@ describe('buildReleaseListJsonLd', () => {
         '@type': 'TechArticle',
         '@id': 'https://example.test/releases#1.18.0',
         headline: 'Highlight one',
-        name: 'Twenty 1.18.0',
+        name: 'Bades.id 1.18.0',
         datePublished: '2026-04-01',
       },
     });
   });
 
-  it('falls back to "Twenty <release>" as the headline when the body has no h1', () => {
+  it('falls back to "Bades.id <release>" as the headline when the body has no h1', () => {
     const data = buildReleaseListJsonLd([
       {
         slug: '0.1.0',
@@ -148,7 +148,7 @@ describe('buildReleaseListJsonLd', () => {
       },
     ]) as { itemListElement: Array<Record<string, { headline: string }>> };
 
-    expect(data.itemListElement[0].item.headline).toBe('Twenty 0.1.0');
+    expect(data.itemListElement[0].item.headline).toBe('Bades.id 0.1.0');
   });
 
   it('omits datePublished when the frontmatter date is missing', () => {
@@ -169,7 +169,7 @@ describe('buildReleaseListJsonLd', () => {
 
 describe('articles JSON-LD', () => {
   const post = {
-    author: 'Twenty',
+    author: 'Bades.id',
     content: 'Body',
     date: '2026-05-06',
     description: 'A practical CRM article.',
@@ -188,7 +188,7 @@ describe('articles JSON-LD', () => {
 
     expect(data).toMatchObject({
       '@type': 'Blog',
-      name: 'Twenty Articles',
+      name: 'Bades.id Articles',
       url: 'https://example.test/articles',
     });
     expect(data.blogPost[0]).toMatchObject({
@@ -198,7 +198,7 @@ describe('articles JSON-LD', () => {
       datePublished: '2026-05-06',
       author: {
         '@type': 'Organization',
-        name: 'Twenty',
+        name: 'Bades.id',
       },
     });
   });
@@ -215,11 +215,11 @@ describe('articles JSON-LD', () => {
       datePublished: '2026-05-06',
       author: {
         '@type': 'Organization',
-        name: 'Twenty',
+        name: 'Bades.id',
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Twenty',
+        name: 'Bades.id',
         url: 'https://example.test',
       },
     });

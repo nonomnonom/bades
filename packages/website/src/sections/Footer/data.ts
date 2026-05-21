@@ -8,14 +8,14 @@ export const FOOTER_DATA: FooterDataType = {
   navGroups: [
     {
       id: 'footer-sitemap',
-      title: msg`Sitemap`,
+      title: msg`Peta Situs`,
       ctas: [],
       links: [
-        { label: msg`Home`, href: '/', external: false },
-        { label: msg`Pricing`, href: '/pricing', external: false },
-        { label: msg`Partners`, href: '/partners', external: false },
+        { label: msg`Beranda`, href: '/', external: false },
+        { label: msg`Harga`, href: '/pricing', external: false },
+        { label: msg`Partner`, href: '/partners', external: false },
         {
-          label: msg`Why Bades`,
+          label: msg`Mengapa Bades`,
           href: '/why-bades',
           external: false,
         },
@@ -23,22 +23,22 @@ export const FOOTER_DATA: FooterDataType = {
     },
     {
       id: 'footer-help',
-      title: msg`Help`,
+      title: msg`Bantuan`,
       ctas: [],
       links: [
         {
-          label: msg`Developers`,
+          label: msg`Developer`,
           href: 'https://docs.bades.id/developers/introduction',
           external: true,
         },
         {
-          label: msg`User Guide`,
+          label: msg`Panduan Pengguna`,
           href: 'https://docs.bades.id/getting-started/introduction',
           external: true,
         },
-        { label: msg`Release Notes`, href: '/releases', external: false },
+        { label: msg`Catatan Rilis`, href: '/releases', external: false },
         {
-          label: msg`Halftone generator`,
+          label: msg`Generator Halftone`,
           href: '/halftone',
           external: false,
         },
@@ -50,28 +50,28 @@ export const FOOTER_DATA: FooterDataType = {
       ctas: [],
       links: [
         {
-          label: msg`Privacy Policy`,
+          label: msg`Kebijakan Privasi`,
           href: '/privacy-policy',
           external: false,
         },
-        { label: msg`Terms and Conditions`, href: '/terms', external: false },
+        { label: msg`Syarat dan Ketentuan`, href: '/terms', external: false },
       ],
     },
     {
       id: 'footer-connect',
-      title: msg`Connect`,
+      title: msg`Terhubung`,
       ctas: [
         {
           color: 'secondary',
           kind: 'contactModal',
-          label: msg`Talk to us`,
+          label: msg`Hubungi kami`,
           variant: 'contained',
         },
         {
           color: 'secondary',
           href: 'https://app.bades.id/welcome',
           kind: 'link',
-          label: msg`Get started`,
+          label: msg`Mulai`,
           variant: 'outlined',
         },
       ],
@@ -88,22 +88,22 @@ export const FOOTER_DATA: FooterDataType = {
     {
       href: 'https://github.com/badesid/bades',
       icon: 'github',
-      ariaLabel: 'GitHub (opens in new tab)',
+      ariaLabel: 'GitHub (buka di tab baru)',
     },
     {
       href: 'https://discord.gg/badesid',
       icon: 'discord',
-      ariaLabel: 'Discord (opens in new tab)',
+      ariaLabel: 'Discord (buka di tab baru)',
     },
     {
       href: 'https://www.linkedin.com/company/bades',
       icon: 'linkedin',
-      ariaLabel: 'LinkedIn (opens in new tab)',
+      ariaLabel: 'LinkedIn (buka di tab baru)',
     },
     {
       href: 'https://x.com/badesid',
       icon: 'x',
-      ariaLabel: 'X (opens in new tab)',
+      ariaLabel: 'X (buka di tab baru)',
     },
   ],
 };

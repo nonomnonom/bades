@@ -61,8 +61,8 @@ import {
 const STATUS_CLEAR_DELAY_MS = 2000;
 
 const DEFAULT_PREVIEW_DISTANCE = 6;
-const DEFAULT_IMAGE_ASSET_PATH = '/images/shared/halftone/twenty-logo.svg';
-const DEFAULT_IMAGE_FILENAME = 'twenty-logo.svg';
+const DEFAULT_IMAGE_ASSET_PATH = '/images/shared/halftone/bades-logo.svg';
+const DEFAULT_IMAGE_FILENAME = 'bades-logo.svg';
 type PendingFilePicker = {
   resolve: (file: File | null) => void;
 };
@@ -278,7 +278,7 @@ export function HalftoneStudio() {
   const defaultExportName = useMemo(() => {
     if (state.settings.sourceMode === 'image') {
       if (!imageFile || imageFile.name === DEFAULT_IMAGE_FILENAME) {
-        return 'TwentyImage';
+        return 'Bades.idImage';
       }
 
       return deriveExportComponentName(undefined, imageFile);

@@ -1,6 +1,6 @@
 ---
-title: Twenty 앱
-description: Twenty 맞춤설정을 코드로 구축하고 관리하세요.
+title: Bades.id 앱
+description: Bades.id 맞춤설정을 코드로 구축하고 관리하세요.
 ---
 
 <Warning>
@@ -9,7 +9,7 @@ description: Twenty 맞춤설정을 코드로 구축하고 관리하세요.
 
 ## 앱이란 무엇인가요?
 
-앱을 사용하면 Twenty 맞춤설정을 **코드로** 구축하고 관리할 수 있습니다. 모든 것을 UI에서 구성하는 대신, 데이터 모델과 로직 함수를 코드로 정의합니다 — 이를 통해 더 빠르게 구축·유지 관리하고 여러 워크스페이스에 배포할 수 있습니다.
+앱을 사용하면 Bades.id 맞춤설정을 **코드로** 구축하고 관리할 수 있습니다. 모든 것을 UI에서 구성하는 대신, 데이터 모델과 로직 함수를 코드로 정의합니다 — 이를 통해 더 빠르게 구축·유지 관리하고 여러 워크스페이스에 배포할 수 있습니다.
 
 **현재 가능한 작업:**
 
@@ -24,7 +24,7 @@ description: Twenty 맞춤설정을 코드로 구축하고 관리하세요.
 ## 사전 준비
 
 * Node.js 24+ 및 Yarn 4
-* Twenty 워크스페이스와 API 키(https://app.twenty.com/settings/api-webhooks에서 생성)
+* Bades.id 워크스페이스와 API 키(https://app.bades.id/settings/api-webhooks에서 생성)
 
 ## 시작하기
 
@@ -32,7 +32,7 @@ description: Twenty 맞춤설정을 코드로 구축하고 관리하세요.
 
 ```bash filename="Terminal"
 # 새 앱 초기 구조 생성
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 cd my-twenty-app
 
 # yarn@4를 사용하지 않는 경우
@@ -65,11 +65,11 @@ yarn app:uninstall
 yarn help
 ```
 
-참고: [create-twenty-app](https://www.npmjs.com/package/create-twenty-app) 및 [twenty-sdk CLI](https://www.npmjs.com/package/twenty-sdk)의 CLI 참고 페이지도 확인하세요.
+참고: [create-bades-app](https://www.npmjs.com/package/create-bades-app) 및 [twenty-sdk CLI](https://www.npmjs.com/package/twenty-sdk)의 CLI 참고 페이지도 확인하세요.
 
 ## 프로젝트 구조(스캐폴딩됨)
 
-`npx create-twenty-app@latest my-twenty-app`를 실행하면, 스캐폴더가 다음을 수행합니다:
+`npx create-bades-app@latest my-twenty-app`를 실행하면, 스캐폴더가 다음을 수행합니다:
 
 * `my-twenty-app/`에 최소한의 기본 애플리케이션을 복사합니다
 * 로컬 `twenty-sdk` 종속성과 Yarn 4 구성을 추가합니다
@@ -170,7 +170,7 @@ src/
 
 이후 명령을 실행하면 더 많은 파일과 폴더가 추가됩니다:
 
-* `yarn app:dev`는 `node_modules/twenty-sdk/generated`에 타입드 Twenty 클라이언트를 자동으로 생성합니다.
+* `yarn app:dev`는 `node_modules/twenty-sdk/generated`에 타입드 Bades.id 클라이언트를 자동으로 생성합니다.
 * `yarn entity:add`는 사용자 정의 객체, 함수, 프런트 컴포넌트 또는 역할에 대한 엔티티 정의 파일을 `src/` 아래에 추가합니다.
 
 ## 인증
@@ -305,7 +305,7 @@ export default defineObject({
 * `yarn entity:add`를 사용하여 새 객체를 스캐폴딩할 수 있으며, 이름, 필드, 관계 설정 과정을 안내합니다.
 
 <Note>
-  **기본 필드는 자동으로 생성됩니다.** 사용자 정의 객체를 정의하면 Twenty가 `name`, `createdAt`, `updatedAt`, `createdBy`, `position`, `deletedAt` 등의 표준 필드를 자동으로 추가합니다. 이 필드들은 `fields` 배열에 정의할 필요가 없습니다. 사용자 정의 필드만 추가하세요.
+  **기본 필드는 자동으로 생성됩니다.** 사용자 정의 객체를 정의하면 Bades.id가 `name`, `createdAt`, `updatedAt`, `createdBy`, `position`, `deletedAt` 등의 표준 필드를 자동으로 추가합니다. 이 필드들은 `fields` 배열에 정의할 필요가 없습니다. 사용자 정의 필드만 추가하세요.
 </Note>
 
 ### 애플리케이션 구성(application.config.ts)
@@ -325,8 +325,8 @@ import { DEFAULT_ROLE_UNIVERSAL_IDENTIFIER } from './default-function.role';
 
 export default defineApplication({
   universalIdentifier: '4ec0391d-18d5-411c-b2f3-266ddc1c3ef7',
-  displayName: 'My Twenty App',
-  description: 'My first Twenty app',
+  displayName: 'My Bades.id App',
+  description: 'My first Bades.id app',
   icon: 'IconWorld',
   applicationVariables: {
     DEFAULT_RECIPIENT_NAME: {
@@ -368,7 +368,7 @@ export const DEFAULT_ROLE_UNIVERSAL_IDENTIFIER =
 export default defineRole({
   universalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'Default function role',
-  description: 'Default role for function Twenty client',
+  description: 'Default role for function Bades.id client',
   canReadAllObjectRecords: false,
   canUpdateAllObjectRecords: false,
   canSoftDeleteAllObjectRecords: false,
@@ -418,10 +418,10 @@ The `universalIdentifier` of this role is then referenced in `application.config
 // src/app/createPostCard.function.ts
 import { defineFunction } from 'twenty-sdk';
 import type { DatabaseEventPayload, ObjectRecordCreateEvent, CronPayload, RoutePayload } from 'twenty-sdk';
-import Twenty, { type Person } from '~/generated';
+import Bades.id, { type Person } from '~/generated';
 
 const handler = async (params: RoutePayload) => {
-  const client = new Twenty(); // generated typed client
+  const client = new Bades.id(); // generated typed client
   const name = 'name' in params.queryStringParameters
     ? params.queryStringParameters.name ?? process.env.DEFAULT_RECIPIENT_NAME ?? 'Hello world'
     : 'Hello world';
@@ -582,12 +582,12 @@ const handler = async (event: RoutePayload) => {
 
 ### 생성된 타입드 클라이언트
 
-`yarn app:dev`는 `node_modules/twenty-sdk/generated`에 타입드 Twenty 클라이언트를 자동으로 생성합니다. 함수에서 사용하세요:
+`yarn app:dev`는 `node_modules/twenty-sdk/generated`에 타입드 Bades.id 클라이언트를 자동으로 생성합니다. 함수에서 사용하세요:
 
 ```typescript
-import Twenty from '~/generated';
+import Bades.id from '~/generated';
 
-const client = new Twenty();
+const client = new Bades.id();
 const { me } = await client.query({ me: { id: true, displayName: true } });
 ```
 
@@ -595,9 +595,9 @@ const { me } = await client.query({ me: { id: true, displayName: true } });
 
 #### 로직 함수의 런타임 자격 증명
 
-함수가 Twenty에서 실행될 때, 플랫폼은 코드가 실행되기 전에 자격 증명을 환경 변수로 주입합니다:
+함수가 Bades.id에서 실행될 때, 플랫폼은 코드가 실행되기 전에 자격 증명을 환경 변수로 주입합니다:
 
-* `TWENTY_API_URL`: 앱이 대상으로 하는 Twenty API의 기본 URL.
+* `TWENTY_API_URL`: 앱이 대상으로 하는 Bades.id API의 기본 URL.
 * `TWENTY_API_KEY`: 애플리케이션의 기본 함수 역할 범위로 제한된 단기 키.
 
 노트:
@@ -612,7 +612,7 @@ const { me } = await client.query({ me: { id: true, displayName: true } });
 
 ## 수동 설정(스캐폴더 없이)
 
-최적의 시작 경험을 위해 `create-twenty-app` 사용을 권장하지만, 프로젝트를 수동으로 설정할 수도 있습니다. CLI를 전역으로 설치하지 마세요. 대신 `twenty-sdk`를 로컬 종속성으로 추가하고 package.json에 스크립트를 연결하세요:
+최적의 시작 경험을 위해 `create-bades-app` 사용을 권장하지만, 프로젝트를 수동으로 설정할 수도 있습니다. CLI를 전역으로 설치하지 마세요. 대신 `twenty-sdk`를 로컬 종속성으로 추가하고 package.json에 스크립트를 연결하세요:
 
 ```bash filename="Terminal"
 yarn add -D twenty-sdk
@@ -643,7 +643,7 @@ yarn add -D twenty-sdk
 ## 문제 해결
 
 * 인증 오류: `yarn auth:login`를 실행하고 API 키에 필요한 권한이 있는지 확인하세요.
-* 서버에 연결할 수 없음: API URL과 Twenty 서버에 접근 가능한지 확인하세요.
+* 서버에 연결할 수 없음: API URL과 Bades.id 서버에 접근 가능한지 확인하세요.
 * 타입 또는 클라이언트가 없거나 오래된 경우: `yarn app:dev`를 다시 시작하세요.
 * 개발 모드가 동기화되지 않음: `yarn app:dev`가 실행 중인지, 환경에서 변경 사항을 무시하지 않는지 확인하세요.
 

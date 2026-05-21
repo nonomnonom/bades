@@ -43,8 +43,8 @@ export async function generateMetadata({
     locale,
     path: `/articles/${post.slug}`,
     title: {
-      id: `${post.title} | Twenty Articles`,
-      message: `${post.title} | Twenty Articles`,
+      id: `${post.title} | Bades.id Articles`,
+      message: `${post.title} | Bades.id Articles`,
     },
     description: { id: post.description, message: post.description },
     locales: [SOURCE_LOCALE],

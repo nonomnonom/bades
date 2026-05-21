@@ -20,9 +20,9 @@ export const DEFAULT_SUGGESTED_PROMPTS: SuggestedPrompt[] = [
     label: msg`Create a dashboard`,
     Icon: IconLayoutDashboard,
     prefillPrompts: [
-      msg`Create a dashboard with a chart of deal value by pipeline stage (New, Meeting, Proposal, Negotiation, Closed Won/Lost) for the current quarter, and a table of my top 10 open opportunities with amount, stage and expected close date.`,
-      msg`Build a dashboard that shows: (1) total pipeline value by stage for the last 3 months, (2) count of deals won vs lost per month, (3) average deal size. Use our standard pipeline stages.`,
-      msg`I need a dashboard for lead conversion: number of new leads by source this month, how many moved to opportunity, and conversion rate by source. Include a simple table and a bar chart.`,
+      msg`Create a dashboard with a chart of service requests by stage (Menunggu, Diproses, Selesai, Ditolak) for the current month, and a table of my top 10 open requests with applicant name, service type and expected completion date.`,
+      msg`Build a dashboard that shows: (1) total service requests by stage for the last 3 months, (2) count of services completed vs rejected per month, (3) average processing time. Use our standard service stages.`,
+      msg`I need a dashboard for resident services: number of new requests by type this month, how many were processed, and completion rate by type. Include a simple table and a bar chart.`,
     ],
   },
   {
@@ -30,9 +30,9 @@ export const DEFAULT_SUGGESTED_PROMPTS: SuggestedPrompt[] = [
     label: msg`Create a workflow`,
     Icon: IconSettingsAutomation,
     prefillPrompts: [
-      msg`When a deal's stage changes to Closed Won, create a task assigned to the deal owner, due 7 days after the close date, with title "Post-sale check-in" and the company name in the description.`,
-      msg`When a new lead is created with source "Website", assign it to the sales rep whose territory (by region/country) matches the lead's address; if no match, assign to the team lead.`,
-      msg`When any deal with amount over $100,000 has its stage or amount updated, send a notification to the sales channel with the deal name, company, new stage, amount and owner.`,
+      msg`When a service request's stage changes to Completed, create a task assigned to the officer handling the request, due 7 days after the completion date, with title "Follow-up satisfaction check" and the resident name in the description.`,
+      msg`When a new service request is created with type "Surat Keterangan Domisili", assign it to the village officer whose sector matches the resident's RT; if no match, assign to the village secretary.`,
+      msg`When any service request with priority "Urgent" has its stage or priority updated, send a notification to the admin channel with the request name, resident name, new stage, priority and officer.`,
     ],
   },
   {
@@ -40,9 +40,9 @@ export const DEFAULT_SUGGESTED_PROMPTS: SuggestedPrompt[] = [
     label: msg`Create a record`,
     Icon: IconPlus,
     prefillPrompts: [
-      msg`Add a new company we're in touch with (e.g. name, website, industry). Details: `,
-      msg`Create a new contact and link them to a company. Details: `,
-      msg`Log a new deal (company, amount, stage, expected close). Details: `,
+      msg`Add a new resident we are processing documents for (e.g. name, NIK, address). Details: `,
+      msg`Create a new service request and link them to a resident. Details: `,
+      msg`Log a new service request (resident name, service type, status, expected completion). Details: `,
     ],
   },
 ];

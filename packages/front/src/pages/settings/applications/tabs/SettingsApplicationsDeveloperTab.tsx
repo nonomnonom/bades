@@ -108,9 +108,9 @@ export const SettingsApplicationsDeveloperTab = () => {
 
   const createCommands = [
     // oxlint-disable-next-line lingui/no-unlocalized-strings
-    'npx create-twenty-app@latest my-twenty-app',
+    'npx create-bades-app@latest my-bades-app',
     // oxlint-disable-next-line lingui/no-unlocalized-strings
-    'cd my-twenty-app',
+    'cd my-bades-app',
   ];
 
   const createCopyButton = (

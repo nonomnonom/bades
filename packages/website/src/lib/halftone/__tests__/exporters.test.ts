@@ -37,7 +37,7 @@ describe('halftone export naming', () => {
     });
   });
 
-  it('sanitizes generated React component identifiers for the default Twenty export', () => {
+  it('sanitizes generated React component identifiers for the default Bades.id export', () => {
     const output = generateReactComponent(
       DEFAULT_HALFTONE_SETTINGS,
       undefined,
@@ -115,7 +115,7 @@ describe('halftone export naming', () => {
 });
 
 describe('halftone react export presets', () => {
-  it('emits a Twenty-ready GLB export with Draco support and no torus fallback', () => {
+  it('emits a Bades.id-ready GLB export with Draco support and no torus fallback', () => {
     const output = generateReactComponent(
       DEFAULT_HALFTONE_SETTINGS,
       IMPORTED_GLB_SHAPE,
@@ -140,7 +140,7 @@ describe('halftone react export presets', () => {
     expect(output).not.toContain("createBuiltinGeometry('torusKnot')");
   });
 
-  it('emits a Twenty-ready image export without model loaders', () => {
+  it('emits a Bades.id-ready image export without model loaders', () => {
     const imageSettings = normalizeHalftoneStudioSettings({
       ...DEFAULT_HALFTONE_SETTINGS,
       sourceMode: 'image',
@@ -189,7 +189,7 @@ describe('halftone react export presets', () => {
     );
   });
 
-  it('parses Twenty exports with header comments and named/default exports', () => {
+  it('parses Bades.id exports with header comments and named/default exports', () => {
     const output = generateReactComponent(
       DEFAULT_HALFTONE_SETTINGS,
       IMPORTED_GLB_SHAPE,

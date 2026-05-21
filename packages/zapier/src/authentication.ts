@@ -22,7 +22,7 @@ export default {
       label: 'Api Key',
       type: 'string',
       helpText:
-        'Create an API key in [your twenty workspace](https://app.twenty.com/settings/apis)',
+        'Create an API key in [your Bades workspace](https://app.bades.id/settings/apis)',
     },
     {
       computed: false,
@@ -30,8 +30,8 @@ export default {
       required: false,
       label: 'Self hosted instance url',
       type: 'string',
-      placeholder: 'https://crm.custom-url.com',
-      helpText: 'Set this only if you self-host Twenty',
+      placeholder: 'https://bades.custom-url.com',
+      helpText: 'Set this only if you self-host Bades',
     },
   ],
   connectionLabel: '{{data.currentWorkspace.displayName}}',

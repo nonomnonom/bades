@@ -1,14 +1,14 @@
 ---
 title: Componente front-end
-description: Construiți componente React care se afișează în interfața Twenty, cu izolare în sandbox.
+description: Construiți componente React care se afișează în interfața Bades.id, cu izolare în sandbox.
 icon: window-maximize
 ---
 
-Componentele front-end sunt componente React care se afișează direct în interfața Twenty. Rulează într-un **Web Worker** izolat folosind Remote DOM — codul este izolat (sandboxed), dar se redă nativ în pagină, nu într-un iframe.
+Componentele front-end sunt componente React care se afișează direct în interfața Bades.id. Rulează într-un **Web Worker** izolat folosind Remote DOM — codul este izolat (sandboxed), dar se redă nativ în pagină, nu într-un iframe.
 
 ## Unde pot fi utilizate componentele front-end
 
-Componentele front-end pot fi afișate în două locații în cadrul Twenty:
+Componentele front-end pot fi afișate în două locații în cadrul Bades.id:
 
 * **Panou lateral** — Componentele front-end care nu sunt headless se deschid în panoul lateral din dreapta. Acesta este comportamentul implicit atunci când o componentă front-end este declanșată din meniul de comenzi.
 * **Widgeturi (tablouri de bord și pagini de înregistrare)** — Componentele frontale pot fi încorporate ca widgeturi în [machetele de pagină](/l/ro/developers/extend/apps/layout/page-layouts). La configurarea unui tablou de bord sau a machetei unei pagini de înregistrare, utilizatorii pot adăuga un widget de componentă front-end.
@@ -29,7 +29,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -110,7 +110,7 @@ export default defineFrontComponent({
 });
 ```
 
-Deoarece componenta returnează `null`, Twenty omite redarea unui container pentru ea — nu apare spațiu gol în layout. Componenta are în continuare acces la toate hook-urile și la API-ul de comunicare cu gazda.
+Deoarece componenta returnează `null`, Bades.id omite redarea unui container pentru ea — nu apare spațiu gol în layout. Componenta are în continuare acces la toate hook-urile și la API-ul de comunicare cu gazda.
 
 ## Componentele Command din SDK
 
@@ -268,7 +268,7 @@ Următoarele variabile de sistem sunt întotdeauna disponibile prin `process.env
 
 | Variabilă                 | Descriere                                                |
 | ------------------------- | -------------------------------------------------------- |
-| `TWENTY_API_URL`          | URL de bază al API-ului Twenty                           |
+| `TWENTY_API_URL`          | URL de bază al API-ului Bades.id                           |
 | `TWENTY_APP_ACCESS_TOKEN` | Token cu durată scurtă, limitat la rolul aplicației dvs. |
 
 ## API-ul de comunicare cu gazda
@@ -409,7 +409,7 @@ Consultați [secțiunea despre resurse publice](/l/ro/developers/extend/apps/con
 Componentele front-end acceptă mai multe abordări de stilizare. Puteți folosi:
 
 * **Stiluri inline** — `style={{ color: 'red' }}`
-* **Componente Twenty UI** — import din `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar și altele)
+* **Componente Bades.id UI** — import din `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar și altele)
 * **Emotion** — CSS-in-JS cu `@emotion/react`
 * **Styled-components** — pattern-uri `styled.div`
 * **Tailwind CSS** — clase utilitare

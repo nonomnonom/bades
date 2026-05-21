@@ -1,7 +1,8 @@
 # Rebrand Bades - Audit Report
 
-**Branch**: `rebrand-bades`  
+**Branch**: `rebrand-bades`
 **Baseline commit**: `3af534c9` - "refactor: set Indonesian as primary language, English as secondary"
+**Last Updated**: 2026-05-21
 
 ## User-Facing Packages
 
@@ -16,55 +17,69 @@
 | `shared` | Common types/utilities | Internal |
 | `create-twenty-app` | CLI scaffolding | ✅ Yes |
 
-## Internal Packages
+## Completed Actions ✅
 
-| Package | Role |
-|--------|------|
-| `companion` | Internal tooling |
-| `oxlint-rules` | Linting rules |
-| `utils` | Utility functions |
-| `zapier` | Zapier integration |
-| `claude-skills` | Claude integrations |
-| `e2e-testing` | E2E tests |
-| `front-component-renderer` | Component rendering |
-| `client-sdk` | Client SDK |
-| `sdk` | SDK |
-| `cli` | CLI tools |
-| `apps/*` | Internal apps |
+### Email Templates (Phase 1)
+- [x] `packages/emails/src/components/Logo.tsx` - Updated logo URL to bades.id
+- [x] `packages/emails/src/components/Footer.tsx` - Rewritten with Bades branding and Indonesian text
+- [x] `packages/emails/src/components/WhatIsTwenty.tsx` - Deleted, replaced with `WhatIsBades.tsx`
+- [x] `packages/emails/src/constants/DefaultWorkspaceLogo.ts` - Updated placeholder URL
+- [x] All 8 email templates updated with Indonesian content and bades.id references
+- [x] `packages/emails/src/locales/id-ID.po` - Updated with Indonesian translations
+- [x] `lingui compile` ran successfully
 
-## Browser Title (Warisan Twenty)
+### Localization (Phase 2)
+- [x] `packages/front/src/modules/settings/data-model/fields/forms/utils/errorMessages.ts` - Translated to Indonesian
 
-**File**: `packages/front/index.html` line 40
-```html
-<title>Twenty</title>
-```
+### Seed Data (Phase 3 - Partial)
+- [x] `packages/server/src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant.ts`
+  - Apple → Desa Sukamaju
+  - YCombinator → Desa Mekar Sari
+  - Logo URLs updated to bades.id
+  - Empty workspaces renamed to Desa empty3/empty4
 
-**File**: `packages/front/src/utils/title-utils.ts` line 57
-```typescript
-return 'Twenty'; // fallback default
-```
+### Website Marketing (Phase 5 - In Progress)
+- [x] `packages/website/src/sections/Footer/data.ts` - Full rebrand
+- [x] `packages/website/src/sections/Menu/data.ts` - Updated links and text
+- [x] `packages/website/src/sections/Hero/components/ProductVisual/product-visual.data.tsx` - Village admin content
+- [x] `packages/website/src/app/[locale]/why-bades/page.tsx` - Fixed illustration path
+- [x] `packages/website/src/app/[locale]/releases/page.tsx` - Updated CRM → SID, GitHub links
+- [x] Halftone tool defaults: twenty-logo.svg → bades-logo.svg
 
-**Action**: Ganti ke "Bades" atau "Bades.id - Sistem Informasi Desa"
+### Other
+- [x] `packages/zapier/src/authentication.ts` - Updated workspace links
 
-## Favicon & App Icons
+## Remaining Work
 
-**Current locations**:
-- `/images/icons/android/android-launchericon-48-48.png` (referenced in index.html)
-- `packages/docs/favicon.png`
-- `packages/website/src/app/favicon.ico`
-- Example app icons di `packages/apps/examples/*/public/favicon.png`
+### Critical (User-Facing)
+1. [ ] **Seed data full replacement** - company/person/opportunity → Penduduk/Keluarga/Surat (large effort)
+2. [ ] **Website product visual data** - More CRM references to replace
+3. [ ] **Frontend validation schemas** - More error messages to translate
+4. [ ] **Documentation paths** - docs.json has 50+ "twenty" references in URLs
 
-**Source of truth**: `bd.svg` (root repo)
+### Medium Priority
+1. [ ] **Test files** - client-config.service.spec.ts, two-factor-authentication.resolver.spec.ts
+2. [ ] **Story/mock files** - Various story files with hardcoded URLs
+3. [ ] **Apps/internal configs** - Internal dev configs
 
-## SEO Metadata (index.html)
+### Lower Priority
+1. [ ] **Halftone tool** - Needs bades-logo.svg asset created
+2. [ ] **Website SEO tests** - build-page-metadata.test.ts references
 
-```html
-<meta name="description" content="A modern open-source CRM" />
-<meta property="og:description" content="A modern open-source CRM" />
-<meta property="og:title" content="Twenty" />
-<meta name="twitter:title" content="Twenty" />
-<meta name="twitter:description" content="A modern open-source CRM" />
-```
+## Branding Strings Status
+
+- 250+ files contain `Twenty` (pre-rebrand count)
+- Critical user-facing files mostly updated
+- Remaining work is scattered across many files
+
+## URLs Replaced
+
+| From | To |
+|------|-----|
+| `app.twenty.com` | `app.bades.id` |
+| `docs.twenty.com` | `docs.bades.id` |
+| `github.com/twentyhq/twenty` | `github.com/badesid/bades` |
+| `twenty.com` | `bades.id` |
 
 ## Entry Points
 
@@ -73,20 +88,3 @@ return 'Twenty'; // fallback default
 - **Emails**: `packages/emails/src/`
 - **Website**: `packages/website/src/app/[locale]/`
 - **Docs**: `packages/docs/`
-
-## Branding Strings Found
-
-- 250+ files mengandung `Twenty`
-- Files critical user-facing:
-  - `packages/front/index.html` - title, meta description, og tags
-  - `packages/front/src/utils/title-utils.ts` - default title fallback
-  - `packages/website/src/sections/Hero/` - Hero section
-  - `packages/website/src/sections/Footer/data.ts` - Footer
-  - `packages/emails/src/locales/*.po` - Email translations
-
-## Next Steps
-
-1. Ganti `<title>Twenty</title>` → `<title>Bades.id</title>` di index.html
-2. Ganti meta description CRM → Deskripsi SID
-3. Buat favicon dari `bd.svg`
-4. Update OG/Twitter tags

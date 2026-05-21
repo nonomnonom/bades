@@ -1,15 +1,15 @@
 ---
 title: 发布
 icon: 上传
-description: 将你的 Twenty 应用分发到应用市场，或进行内部部署。
+description: 将你的 Bades.id 应用分发到应用市场，或进行内部部署。
 ---
 
 ## 概览
 
 一旦你的应用已[在本地构建并完成测试](/l/zh/developers/extend/apps/building)，你可以通过两种方式进行分发：
 
-* **部署 tar 包** — 直接将你的应用上传到特定的 Twenty 服务器，以供内部或私有使用。
-* **发布到 npm** — 将你的应用在 Twenty 应用市场上架，供任何工作区发现并安装。
+* **部署 tar 包** — 直接将你的应用上传到特定的 Bades.id 服务器，以供内部或私有使用。
+* **发布到 npm** — 将你的应用在 Bades.id 应用市场上架，供任何工作区发现并安装。
 
 两种路径都从同一个**构建**步骤开始。
 
@@ -25,7 +25,7 @@ This compiles TypeScript sources, transpiles logic functions and front component
 
 ## 部署到服务器（tar 包）
 
-对于你不希望公开的应用（专有工具、仅供企业使用的集成或实验性构建），你可以将 tar 包直接部署到某台 Twenty 服务器。
+对于你不希望公开的应用（专有工具、仅供企业使用的集成或实验性构建），你可以将 tar 包直接部署到某台 Bades.id 服务器。
 
 ### 先决条件
 
@@ -79,7 +79,7 @@ yarn twenty deploy
 
 ### 服务器版本兼容性
 
-如果你的应用使用了特定 Twenty 服务器版本中引入的功能（例如在 v2.3.0 中新增的 OAuth 提供方），应当在 `package.json` 的 `engines.twenty` 字段中声明应用所需的最低服务器版本：
+如果你的应用使用了特定 Bades.id 服务器版本中引入的功能（例如在 v2.3.0 中新增的 OAuth 提供方），应当在 `package.json` 的 `engines.twenty` 字段中声明应用所需的最低服务器版本：
 
 ```json filename="package.json"
 {
@@ -112,7 +112,7 @@ yarn twenty deploy
 
 ## 自动化 CI/CD（脚手架生成的工作流）
 
-使用 `create-twenty-app` 生成的应用开箱即带有两个 GitHub Actions 工作流，位于 `.github/workflows/`。 当你将仓库推送到 GitHub 后即可运行——CI 无需额外设置，CD 只需要一个机密。
+使用 `create-bades-app` 生成的应用开箱即带有两个 GitHub Actions 工作流，位于 `.github/workflows/`。 当你将仓库推送到 GitHub 后即可运行——CI 无需额外设置，CD 只需要一个机密。
 
 ### CI — `ci.yml`
 
@@ -121,20 +121,20 @@ yarn twenty deploy
 **作用:**
 
 1. 检出你的应用源代码。
-2. 使用 `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` 组合 action 启动一个隔离的 Twenty 测试实例（相当于 CI 中的 `yarn twenty server start --test`）。
+2. 使用 `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` 组合 action 启动一个隔离的 Bades.id 测试实例（相当于 CI 中的 `yarn twenty server start --test`）。
 3. 启用 Corepack，从你的 `.nvmrc` 设置 Node.js，并使用 `yarn install --immutable` 安装依赖。
 4. 运行 `yarn test`，并从启动的实例传入 `TWENTY_API_URL` 和 `TWENTY_API_KEY`，以便你的测试可以与真实服务器通信。
 
 **配置选项:**
 
-* `TWENTY_VERSION`（环境变量，默认 `latest`）— 通过在 `ci.yml` 中编辑它来固定 CI 使用的 Twenty 服务器版本。
+* `TWENTY_VERSION`（环境变量，默认 `latest`）— 通过在 `ci.yml` 中编辑它来固定 CI 使用的 Bades.id 服务器版本。
 * 并发按 `github.ref` 分组，并会在有新的推送时取消进行中的运行。
 
 不需要任何机密——测试实例是临时的，只在作业持续期间存在。
 
 ### CD — `cd.yml`
 
-在每次向 `main` 推送时将你的应用部署到已配置的 Twenty 服务器；当为拉取请求添加 `deploy` 标签时，也可从该拉取请求进行部署。
+在每次向 `main` 推送时将你的应用部署到已配置的 Bades.id 服务器；当为拉取请求添加 `deploy` 标签时，也可从该拉取请求进行部署。
 
 **作用:**
 
@@ -146,7 +146,7 @@ yarn twenty deploy
 
 | 设置                      | 位置                                                       | 目的                                       |
 | ----------------------- | -------------------------------------------------------- | ---------------------------------------- |
-| `TWENTY_DEPLOY_URL`     | `cd.yml` 中的 `env`（默认值为 `http://localhost:3000`）          | 要部署到的 Twenty 服务器。 首次使用前将其更改为你真实的服务器 URL。 |
+| `TWENTY_DEPLOY_URL`     | `cd.yml` 中的 `env`（默认值为 `http://localhost:3000`）          | 要部署到的 Bades.id 服务器。 首次使用前将其更改为你真实的服务器 URL。 |
 | `TWENTY_DEPLOY_API_KEY` | GitHub 仓库 **Settings → Secrets and variables → Actions** | 在目标服务器上具有部署权限的 API 密钥。                   |
 
 <Note>
@@ -163,12 +163,12 @@ yarn twenty deploy
 
 ## 发布到 npm
 
-发布到 npm 可让你的应用在 Twenty 应用市场中被发现。 任何 Twenty 工作区都可以直接通过 UI 浏览、安装和升级应用市场中的应用。
+发布到 npm 可让你的应用在 Bades.id 应用市场中被发现。 任何 Bades.id 工作区都可以直接通过 UI 浏览、安装和升级应用市场中的应用。
 
 ### 要求
 
 * 一个 [npm](https://www.npmjs.com) 账户
-* 你在 `package.json` 的 `keywords` 数组中的 `twenty-app` 关键字（需要手动添加 — 在 `create-twenty-app` 模板中默认不包含）
+* 你在 `package.json` 的 `keywords` 数组中的 `twenty-app` 关键字（需要手动添加 — 在 `create-bades-app` 模板中默认不包含）
 
 ```json filename="package.json"
 {
@@ -220,7 +220,7 @@ yarn twenty publish --tag beta
 
 ### 应用市场的发现机制如何运作
 
-The Twenty server syncs its marketplace catalog from the npm registry **every hour**.
+The Bades.id server syncs its marketplace catalog from the npm registry **every hour**.
 
 You can trigger the sync immediately instead of waiting:
 
@@ -233,7 +233,7 @@ yarn twenty server catalog-sync
 The metadata shown in the marketplace comes from your `defineApplication()` config — fields like `displayName`, `description`, `author`, `category`, `logoUrl`, `screenshots`, `aboutDescription`, `websiteUrl`, and `termsUrl`.
 
 <Note>
-如果您的应用未在 `defineApplication()` 中定义 `aboutDescription`，市场将自动使用 npm 上您的软件包的 `README.md` 作为关于页面内容。 这意味着您可以为 npm 和 Twenty 市场维护同一个 README。 如果您希望在市场中使用不同的描述，请显式设置 `aboutDescription`。
+如果您的应用未在 `defineApplication()` 中定义 `aboutDescription`，市场将自动使用 npm 上您的软件包的 `README.md` 作为关于页面内容。 这意味着您可以为 npm 和 Bades.id 市场维护同一个 README。 如果您希望在市场中使用不同的描述，请显式设置 `aboutDescription`。
 </Note>
 
 ### CI 发布
@@ -275,7 +275,7 @@ jobs:
 
 Once an app is published (npm) or deployed (tarball), workspaces can install it through the UI.
 
-Go to the **Settings > Applications** page in Twenty, where both marketplace and tarball-deployed apps can be browsed and installed.
+Go to the **Settings > Applications** page in Bades.id, where both marketplace and tarball-deployed apps can be browsed and installed.
 
 {/* TODO: add screenshot of the UI when the app is registered */}
 

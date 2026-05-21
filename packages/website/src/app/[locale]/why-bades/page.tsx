@@ -77,7 +77,7 @@ export default async function WhyBadesPage({ params }: WhyBadesPageProps) {
        */}
       <link
         as="fetch"
-        href="/illustrations/why-twenty/hero/hero.glb"
+        href="/illustrations/why-bades/hero/hero.glb"
         rel="preload"
       />
       <Menu.Root

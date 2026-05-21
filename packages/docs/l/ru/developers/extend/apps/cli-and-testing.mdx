@@ -120,7 +120,7 @@ export default defineFrontComponent({
 
 ## Тестирование вашего приложения
 
-SDK предоставляет программные API, которые позволяют собирать, разворачивать, устанавливать и удалять ваше приложение из тестового кода. В сочетании с [Vitest](https://vitest.dev/) и типизированными клиентами API вы можете писать интеграционные тесты, которые проверяют, что ваше приложение работает сквозным образом на реальном сервере Twenty.
+SDK предоставляет программные API, которые позволяют собирать, разворачивать, устанавливать и удалять ваше приложение из тестового кода. В сочетании с [Vitest](https://vitest.dev/) и типизированными клиентами API вы можете писать интеграционные тесты, которые проверяют, что ваше приложение работает сквозным образом на реальном сервере Bades.id.
 
 ### Настройка
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### Запуск тестов
 
-Убедитесь, что ваш локальный сервер Twenty запущен, затем:
+Убедитесь, что ваш локальный сервер Bades.id запущен, затем:
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Это отличается от `yarn twenty server logs`, который показывает логи контейнера Docker. `yarn twenty logs` показывает журналы выполнения функций вашего приложения с сервера Twenty.
+Это отличается от `yarn twenty server logs`, который показывает логи контейнера Docker. `yarn twenty logs` показывает журналы выполнения функций вашего приложения с сервера Bades.id.
 </Note>
 
 ### Удаление приложения (`yarn twenty uninstall`)
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## Управление удалёнными серверами
 
-**Remote** — это сервер Twenty, к которому подключается ваше приложение. Во время настройки скэффолдер автоматически создаст его для вас. Вы можете в любой момент добавлять новые удалённые серверы или переключаться между ними.
+**Remote** — это сервер Bades.id, к которому подключается ваше приложение. Во время настройки скэффолдер автоматически создаст его для вас. Вы можете в любой момент добавлять новые удалённые серверы или переключаться между ними.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ yarn twenty remote switch <name>
 Рабочий процесс:
 
 1. Извлекает ваш код
-2. Поднимает временный сервер Twenty с помощью экшена `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
+2. Поднимает временный сервер Bades.id с помощью экшена `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
 3. Устанавливает зависимости с помощью `yarn install --immutable`
 4. Запускает `yarn test` с `TWENTY_API_URL` и `TWENTY_API_KEY`, переданными из выходных данных экшена
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Вам не нужно настраивать секреты — экшен `spawn-twenty-docker-image` запускает эфемерный сервер Twenty прямо в раннере и выводит данные для подключения. Секрет `GITHUB_TOKEN` предоставляется GitHub автоматически.
+Вам не нужно настраивать секреты — экшен `spawn-twenty-docker-image` запускает эфемерный сервер Bades.id прямо в раннере и выводит данные для подключения. Секрет `GITHUB_TOKEN` предоставляется GitHub автоматически.
 
-Чтобы закрепить конкретную версию Twenty вместо `latest`, измените переменную окружения `TWENTY_VERSION` в начале рабочего процесса.
+Чтобы закрепить конкретную версию Bades.id вместо `latest`, измените переменную окружения `TWENTY_VERSION` в начале рабочего процесса.

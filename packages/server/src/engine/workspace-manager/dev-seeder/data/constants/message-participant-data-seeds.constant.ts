@@ -140,21 +140,21 @@ const CREATE_WORKSPACE_MEMBER_PARTICIPANT = (
   usedWorkspaceMemberIds.add(WORKSPACE_MEMBER_ID);
 
   switch (WORKSPACE_MEMBER_ID) {
-    case WORKSPACE_MEMBER_DATA_SEED_IDS.TIM:
+    case WORKSPACE_MEMBER_DATA_SEED_IDS.KADES:
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[0],
-        displayName: 'Tim Apple',
+        displayName: 'Drs. H. Abdullah',
         handle: 'tim@apple.dev',
       };
-    case WORKSPACE_MEMBER_DATA_SEED_IDS.JONY:
+    case WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES:
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[1] || personIds[0],
         displayName: 'Jony Ive',
         handle: 'jony@apple.dev',
       };
-    case WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL:
+    case WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR:
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[2] || personIds[0],

@@ -57,116 +57,116 @@ const GENERATE_TASK_IDS = (): Record<string, string> => {
 
 export const TASK_DATA_SEED_IDS = GENERATE_TASK_IDS();
 
-// Sample credible task titles and contents for person-related tasks
+// Tugas perangkat desa terkait warga/penduduk
 const PERSON_TASK_TEMPLATES = [
   {
-    title: 'Schedule follow-up call',
-    body: 'Arrange a follow-up call to discuss project details and next steps.',
+    title: 'Verifikasi data KTP warga',
+    body: 'Periksa kelengkapan dan keabsahan data KTP warga sesuai data kependudukan.',
     status: 'TODO',
     daysFromNow: 3,
   },
   {
-    title: 'Send project proposal',
-    body: 'Prepare and send the project proposal document with timeline and deliverables.',
+    title: 'Proses surat keterangan domisili',
+    body: 'Siapkan dan tandatangani surat keterangan domisili untuk keperluan warga.',
     status: 'IN_PROGRESS',
-    daysFromNow: 5,
-  },
-  {
-    title: 'Review contract terms',
-    body: 'Review the contract terms and conditions before final approval.',
-    status: 'TODO',
-    daysFromNow: 7,
-  },
-  {
-    title: 'Prepare meeting agenda',
-    body: 'Create detailed agenda for upcoming strategy meeting.',
-    status: 'TODO',
     daysFromNow: 2,
   },
   {
-    title: 'Update contact information',
-    body: 'Verify and update contact details in the system.',
+    title: 'Verifikasi data kartu keluarga',
+    body: 'Cek data anggota keluarga dan validasi dengan data di sistem.',
+    status: 'TODO',
+    daysFromNow: 5,
+  },
+  {
+    title: 'Pembaruan status perkawinan',
+    body: 'Update data status perkawinan warga berdasarkan akta nikah/cerai yang diserahkan.',
+    status: 'TODO',
+    daysFromNow: 4,
+  },
+  {
+    title: 'Konfirmasi data pendidikan warga',
+    body: 'Verifikasi tingkat pendidikan terakhir warga untuk keperluan statistik desa.',
     status: 'DONE',
     daysFromNow: null,
   },
   {
-    title: 'Conduct reference check',
-    body: 'Complete reference verification for background check process.',
+    title: 'Proses pindah datang',
+    body: 'Rekam data warga pindah datang dari desa lain ke dalam sistem.',
     status: 'IN_PROGRESS',
-    daysFromNow: 4,
+    daysFromNow: 3,
   },
   {
-    title: 'Share portfolio samples',
-    body: 'Send portfolio examples and case studies for review.',
+    title: 'Penerbitan surat pengantar SKCK',
+    body: 'Buat surat pengantar dari kepala desa untuk keperluan pembuatan SKCK di kepolisian.',
+    status: 'TODO',
+    daysFromNow: 1,
+  },
+  {
+    title: 'Update data pekerjaan warga',
+    body: 'Perbarui informasi pekerjaan warga dalam database kependudukan desa.',
+    status: 'TODO',
+    daysFromNow: 7,
+  },
+];
+
+// Tugas perangkat desa terkait lembaga/organisasi
+const COMPANY_TASK_TEMPLATES = [
+  {
+    title: 'Koordinasi dengan BPD',
+    body: 'Jadwalkan rapat koordinasi dengan Badan Permusyawaratan Desa untuk pembahasan anggaran.',
+    status: 'IN_PROGRESS',
+    daysFromNow: 7,
+  },
+  {
+    title: 'Laporan bulanan BUMDES',
+    body: 'Kumpulkan dan verifikasi laporan keuangan bulanan Badan Usaha Milik Desa.',
+    status: 'TODO',
+    daysFromNow: 10,
+  },
+  {
+    title: 'Koordinasi Posyandu',
+    body: 'Koordinasi jadwal dan kebutuhan logistik Posyandu bulan berikutnya.',
+    status: 'TODO',
+    daysFromNow: 5,
+  },
+  {
+    title: 'Persiapan musyawarah desa',
+    body: 'Siapkan agenda, undangan, dan dokumen pendukung untuk musyawarah desa.',
+    status: 'IN_PROGRESS',
+    daysFromNow: 14,
+  },
+  {
+    title: 'Review proposal bantuan sosial',
+    body: 'Telaah dan validasi daftar penerima bantuan sosial dari lembaga terkait.',
     status: 'TODO',
     daysFromNow: 6,
   },
   {
-    title: 'Set up onboarding process',
-    body: 'Prepare onboarding materials and schedule orientation session.',
-    status: 'TODO',
-    daysFromNow: 8,
-  },
-];
-
-// Sample credible task titles and contents for company-related tasks
-const COMPANY_TASK_TEMPLATES = [
-  {
-    title: 'Conduct vendor evaluation',
-    body: 'Complete comprehensive evaluation of vendor capabilities and pricing.',
-    status: 'IN_PROGRESS',
-    daysFromNow: 10,
-  },
-  {
-    title: 'Negotiate contract terms',
-    body: 'Review and negotiate contract terms for upcoming partnership.',
-    status: 'TODO',
-    daysFromNow: 14,
-  },
-  {
-    title: 'Schedule demo presentation',
-    body: 'Arrange product demonstration for stakeholder review.',
-    status: 'TODO',
-    daysFromNow: 7,
-  },
-  {
-    title: 'Prepare RFP response',
-    body: 'Draft comprehensive response to Request for Proposal.',
-    status: 'IN_PROGRESS',
-    daysFromNow: 12,
-  },
-  {
-    title: 'Update compliance documentation',
-    body: 'Review and update all compliance and certification documents.',
-    status: 'TODO',
-    daysFromNow: 21,
-  },
-  {
-    title: 'Analyze market research',
-    body: 'Review market analysis report and competitive landscape.',
+    title: 'Koordinasi PKK',
+    body: 'Sinkronisasi program PKK dengan agenda pemberdayaan masyarakat desa.',
     status: 'DONE',
     daysFromNow: null,
   },
   {
-    title: 'Plan integration strategy',
-    body: 'Develop technical integration plan and implementation timeline.',
+    title: 'Evaluasi program PNPM',
+    body: 'Evaluasi pelaksanaan program pemberdayaan masyarakat dan capaian target.',
     status: 'TODO',
-    daysFromNow: 15,
+    daysFromNow: 21,
   },
   {
-    title: 'Review financial statements',
-    body: 'Analyze latest financial reports and performance metrics.',
+    title: 'Audit anggaran desa',
+    body: 'Persiapkan dokumen untuk audit penggunaan Dana Desa dan APBDes.',
     status: 'IN_PROGRESS',
-    daysFromNow: 5,
+    daysFromNow: 12,
   },
 ];
 
 // Helper function to get random workspace member
 const GET_RANDOM_ASSIGNEE = (): string => {
   const MEMBERS = [
-    WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-    WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
-    WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+    WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+    WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
+    WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
   ];
 
   return MEMBERS[Math.floor(Math.random() * MEMBERS.length)];
@@ -214,11 +214,11 @@ const GENERATE_TASK_SEEDS = (): TaskDataSeed[] => {
       dueAt: FORMAT_DUE_DATE(TEMPLATE.daysFromNow),
       assigneeId: GET_RANDOM_ASSIGNEE(),
       createdBySource: 'MANUAL',
-      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      createdByName: 'Tim A',
+      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      createdByName: 'Drs. H. Abdullah',
       updatedBySource: 'MANUAL',
-      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      updatedByName: 'Tim A',
+      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      updatedByName: 'Drs. H. Abdullah',
     });
   }
 
@@ -249,11 +249,11 @@ const GENERATE_TASK_SEEDS = (): TaskDataSeed[] => {
       dueAt: FORMAT_DUE_DATE(TEMPLATE.daysFromNow),
       assigneeId: GET_RANDOM_ASSIGNEE(),
       createdBySource: 'MANUAL',
-      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      createdByName: 'Tim A',
+      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      createdByName: 'Drs. H. Abdullah',
       updatedBySource: 'MANUAL',
-      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      updatedByName: 'Tim A',
+      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      updatedByName: 'Drs. H. Abdullah',
     });
   }
 

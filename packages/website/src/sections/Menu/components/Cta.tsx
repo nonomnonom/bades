@@ -30,14 +30,14 @@ export function Cta({ scheme }: CtaProps) {
     <CtaContainer>
       <LinkButton
         color={buttonColor}
-        href="https://app.twenty.com/welcome"
+        href="https://bades.id/masuk"
         label={i18n._(msg`Log in`)}
         size="small"
         variant="outlined"
       />
       <LinkButton
         color={buttonColor}
-        href="https://app.twenty.com/welcome"
+        href="https://bades.id/masuk"
         label={i18n._(msg`Get started`)}
         size="small"
         variant="contained"

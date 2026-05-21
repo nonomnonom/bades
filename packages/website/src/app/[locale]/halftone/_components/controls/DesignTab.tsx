@@ -29,8 +29,8 @@ import {
   UploadButton,
 } from './controls-ui';
 
-const DEFAULT_IMAGE_FILE_NAME = 'twenty-logo.svg';
-const DEFAULT_IMAGE_OPTION_LABEL = 'Twenty image';
+const DEFAULT_IMAGE_FILE_NAME = 'bades-logo.svg';
+const DEFAULT_IMAGE_OPTION_LABEL = 'Bades.id image';
 const IMAGE_SOURCE_VALUE = '__image__';
 
 const ColorSectionHeader = styled(ColorControlRow)`

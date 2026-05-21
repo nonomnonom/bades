@@ -120,7 +120,7 @@ Ambos os ambientes têm `twenty-client-sdk/core` e `twenty-client-sdk/metadata` 
 
 ## Testando seu aplicativo
 
-O SDK fornece APIs programáticas que permitem compilar, implantar, instalar e desinstalar seu aplicativo a partir de código de teste. Em conjunto com [Vitest](https://vitest.dev/) e os clientes de API tipados, você pode escrever testes de integração que verificam que seu aplicativo funciona de ponta a ponta em um servidor Twenty real.
+O SDK fornece APIs programáticas que permitem compilar, implantar, instalar e desinstalar seu aplicativo a partir de código de teste. Em conjunto com [Vitest](https://vitest.dev/) e os clientes de API tipados, você pode escrever testes de integração que verificam que seu aplicativo funciona de ponta a ponta em um servidor Bades.id real.
 
 ### Configuração
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### Executando testes
 
-Certifique-se de que seu servidor Twenty local esteja em execução e, em seguida:
+Certifique-se de que seu servidor Bades.id local esteja em execução e, em seguida:
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Isso é diferente de `yarn twenty server logs`, que mostra os logs do contêiner Docker. `yarn twenty logs` mostra os logs de execução de funções do seu aplicativo a partir do servidor Twenty.
+Isso é diferente de `yarn twenty server logs`, que mostra os logs do contêiner Docker. `yarn twenty logs` mostra os logs de execução de funções do seu aplicativo a partir do servidor Bades.id.
 </Note>
 
 ### Desinstalando um aplicativo (`yarn twenty uninstall`)
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## Gerenciando remotos
 
-Um **remoto** é um servidor Twenty ao qual seu aplicativo se conecta. Durante a configuração, o gerador de scaffold cria um para você automaticamente. Você pode adicionar mais remotos ou alternar entre eles a qualquer momento.
+Um **remoto** é um servidor Bades.id ao qual seu aplicativo se conecta. Durante a configuração, o gerador de scaffold cria um para você automaticamente. Você pode adicionar mais remotos ou alternar entre eles a qualquer momento.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ O gerador de scaffold cria um workflow do GitHub Actions pronto para uso em `.gi
 O workflow:
 
 1. Faz checkout do seu código
-2. Inicializa um servidor Twenty temporário usando a ação `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
+2. Inicializa um servidor Bades.id temporário usando a ação `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
 3. Instala as dependências com `yarn install --immutable`
 4. Executa `yarn test` com `TWENTY_API_URL` e `TWENTY_API_KEY` injetados a partir das saídas da ação
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Você não precisa configurar nenhum segredo — a ação `spawn-twenty-docker-image` inicia um servidor Twenty efêmero diretamente no runner e fornece os detalhes de conexão. O segredo `GITHUB_TOKEN` é fornecido automaticamente pelo GitHub.
+Você não precisa configurar nenhum segredo — a ação `spawn-twenty-docker-image` inicia um servidor Bades.id efêmero diretamente no runner e fornece os detalhes de conexão. O segredo `GITHUB_TOKEN` é fornecido automaticamente pelo GitHub.
 
-Para fixar uma versão específica do Twenty em vez de `latest`, altere a variável de ambiente `TWENTY_VERSION` no topo do workflow.
+Para fixar uma versão específica do Bades.id em vez de `latest`, altere a variável de ambiente `TWENTY_VERSION` no topo do workflow.

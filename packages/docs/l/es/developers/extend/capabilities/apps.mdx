@@ -1,6 +1,6 @@
 ---
-title: Aplicaciones de Twenty
-description: Crea y gestiona personalizaciones de Twenty como código.
+title: Aplicaciones de Bades.id
+description: Crea y gestiona personalizaciones de Bades.id como código.
 ---
 
 <Warning>
@@ -9,7 +9,7 @@ description: Crea y gestiona personalizaciones de Twenty como código.
 
 ## ¿Qué son las aplicaciones?
 
-Las aplicaciones te permiten crear y administrar personalizaciones de Twenty **como código**. En lugar de configurar todo a través de la interfaz de usuario, defines tu modelo de datos y funciones de lógica en código, lo que hace más rápido crear, mantener y desplegar en múltiples espacios de trabajo.
+Las aplicaciones te permiten crear y administrar personalizaciones de Bades.id **como código**. En lugar de configurar todo a través de la interfaz de usuario, defines tu modelo de datos y funciones de lógica en código, lo que hace más rápido crear, mantener y desplegar en múltiples espacios de trabajo.
 
 **Lo que puedes hacer hoy:**
 
@@ -24,7 +24,7 @@ Las aplicaciones te permiten crear y administrar personalizaciones de Twenty **c
 ## Prerrequisitos
 
 * Node.js 24+ y Yarn 4
-* Un espacio de trabajo de Twenty y una clave de API (créala en https://app.twenty.com/settings/api-webhooks)
+* Un espacio de trabajo de Bades.id y una clave de API (créala en https://app.bades.id/settings/api-webhooks)
 
 ## Primeros pasos
 
@@ -32,7 +32,7 @@ Crea una aplicación nueva usando el generador oficial, luego autentícate y com
 
 ```bash filename="Terminal"
 # Crear la estructura de una nueva aplicación
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 cd my-twenty-app
 
 # Si no usas yarn@4
@@ -65,11 +65,11 @@ yarn app:uninstall
 yarn help
 ```
 
-Consulta también: las páginas de referencia de la CLI para [create-twenty-app](https://www.npmjs.com/package/create-twenty-app) y [twenty-sdk CLI](https://www.npmjs.com/package/twenty-sdk).
+Consulta también: las páginas de referencia de la CLI para [create-bades-app](https://www.npmjs.com/package/create-bades-app) y [twenty-sdk CLI](https://www.npmjs.com/package/twenty-sdk).
 
 ## Estructura del proyecto (generada)
 
-Cuando ejecutas `npx create-twenty-app@latest my-twenty-app`, el generador:
+Cuando ejecutas `npx create-bades-app@latest my-twenty-app`, el generador:
 
 * Copia una aplicación base mínima en `my-twenty-app/`
 * Añade una dependencia local de `twenty-sdk` y la configuración de Yarn 4
@@ -170,7 +170,7 @@ A grandes rasgos:
 
 Comandos posteriores añadirán más archivos y carpetas:
 
-* `yarn app:dev` genera automáticamente el cliente Twenty tipado en `node_modules/twenty-sdk/generated`.
+* `yarn app:dev` genera automáticamente el cliente Bades.id tipado en `node_modules/twenty-sdk/generated`.
 * `yarn entity:add` añadirá archivos de definición de entidades en `src/` para tus objetos, funciones, componentes de interfaz o roles personalizados.
 
 ## Autenticación
@@ -305,7 +305,7 @@ Puntos clave:
 * Puedes generar nuevos objetos usando `yarn entity:add`, que te guía por el nombrado, los campos y las relaciones.
 
 <Note>
-  **Los campos base se crean automáticamente.** Cuando defines un objeto personalizado, Twenty añade automáticamente campos estándar como `name`, `createdAt`, `updatedAt`, `createdBy`, `position` y `deletedAt`. No necesitas definir estos en tu matriz `fields` — solo agrega tus campos personalizados.
+  **Los campos base se crean automáticamente.** Cuando defines un objeto personalizado, Bades.id añade automáticamente campos estándar como `name`, `createdAt`, `updatedAt`, `createdBy`, `position` y `deletedAt`. No necesitas definir estos en tu matriz `fields` — solo agrega tus campos personalizados.
 </Note>
 
 ### Configuración de la aplicación (application.config.ts)
@@ -325,8 +325,8 @@ import { DEFAULT_ROLE_UNIVERSAL_IDENTIFIER } from './default-function.role';
 
 export default defineApplication({
   universalIdentifier: '4ec0391d-18d5-411c-b2f3-266ddc1c3ef7',
-  displayName: 'My Twenty App',
-  description: 'My first Twenty app',
+  displayName: 'My Bades.id App',
+  description: 'My first Bades.id app',
   icon: 'IconWorld',
   applicationVariables: {
     DEFAULT_RECIPIENT_NAME: {
@@ -368,7 +368,7 @@ export const DEFAULT_ROLE_UNIVERSAL_IDENTIFIER =
 export default defineRole({
   universalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'Default function role',
-  description: 'Default role for function Twenty client',
+  description: 'Default role for function Bades.id client',
   canReadAllObjectRecords: false,
   canUpdateAllObjectRecords: false,
   canSoftDeleteAllObjectRecords: false,
@@ -418,10 +418,10 @@ Cada archivo de función usa `defineFunction()` para exportar una configuración
 // src/app/createPostCard.function.ts
 import { defineFunction } from 'twenty-sdk';
 import type { DatabaseEventPayload, ObjectRecordCreateEvent, CronPayload, RoutePayload } from 'twenty-sdk';
-import Twenty, { type Person } from '~/generated';
+import Bades.id, { type Person } from '~/generated';
 
 const handler = async (params: RoutePayload) => {
-  const client = new Twenty(); // generated typed client
+  const client = new Bades.id(); // generated typed client
   const name = 'name' in params.queryStringParameters
     ? params.queryStringParameters.name ?? process.env.DEFAULT_RECIPIENT_NAME ?? 'Hello world'
     : 'Hello world';
@@ -582,12 +582,12 @@ Puedes crear funciones nuevas de dos maneras:
 
 ### Cliente tipado generado
 
-`yarn app:dev` genera automáticamente el cliente Twenty tipado en `node_modules/twenty-sdk/generated`. Úsalo en tus funciones:
+`yarn app:dev` genera automáticamente el cliente Bades.id tipado en `node_modules/twenty-sdk/generated`. Úsalo en tus funciones:
 
 ```typescript
-import Twenty from '~/generated';
+import Bades.id from '~/generated';
 
-const client = new Twenty();
+const client = new Bades.id();
 const { me } = await client.query({ me: { id: true, displayName: true } });
 ```
 
@@ -595,9 +595,9 @@ El cliente se regenera automáticamente durante la ejecución de `app:dev`. Rein
 
 #### Credenciales en tiempo de ejecución en funciones de lógica
 
-Cuando tu función se ejecuta en Twenty, la plataforma inyecta credenciales como variables de entorno antes de que tu código se ejecute:
+Cuando tu función se ejecuta en Bades.id, la plataforma inyecta credenciales como variables de entorno antes de que tu código se ejecute:
 
-* `TWENTY_API_URL`: URL base de la API de Twenty a la que apunta tu aplicación.
+* `TWENTY_API_URL`: URL base de la API de Bades.id a la que apunta tu aplicación.
 * `TWENTY_API_KEY`: Clave de corta duración con alcance al rol de función predeterminado de tu aplicación.
 
 Notas:
@@ -612,7 +612,7 @@ Explora un ejemplo mínimo de extremo a extremo que demuestra objetos, funciones
 
 ## Configuración manual (sin el generador)
 
-Aunque recomendamos usar `create-twenty-app` para la mejor experiencia de inicio, también puedes configurar un proyecto manualmente. No instales la CLI globalmente. En su lugar, agrega `twenty-sdk` como dependencia local y conecta scripts en tu package.json:
+Aunque recomendamos usar `create-bades-app` para la mejor experiencia de inicio, también puedes configurar un proyecto manualmente. No instales la CLI globalmente. En su lugar, agrega `twenty-sdk` como dependencia local y conecta scripts en tu package.json:
 
 ```bash filename="Terminal"
 yarn add -D twenty-sdk
@@ -643,7 +643,7 @@ Ahora puedes ejecutar los mismos comandos mediante Yarn, p. ej., `yarn app:dev`,
 ## Solución de problemas
 
 * Errores de autenticación: ejecuta `yarn auth:login` y asegúrate de que tu clave de API tenga los permisos necesarios.
-* No se puede conectar al servidor: verifica la URL de la API y que el servidor de Twenty sea accesible.
+* No se puede conectar al servidor: verifica la URL de la API y que el servidor de Bades.id sea accesible.
 * Tipos o cliente faltantes/obsoletos: reinicia `yarn app:dev`.
 * El modo de desarrollo no sincroniza: asegúrate de que `yarn app:dev` esté ejecutándose y de que los cambios no sean ignorados por tu entorno.
 

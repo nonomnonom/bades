@@ -1,6 +1,6 @@
 ---
-title: App di Twenty
-description: Crea e gestisci le personalizzazioni di Twenty come codice.
+title: App di Bades.id
+description: Crea e gestisci le personalizzazioni di Bades.id come codice.
 ---
 
 <Warning>
@@ -9,25 +9,25 @@ Le app sono attualmente in fase alfa. La funzionalità funziona ma è ancora in 
 
 ## Cosa sono le app?
 
-Le app ti consentono di estendere Twenty con oggetti, campi, funzioni logiche, componenti front-end, competenze IA e altro ancora — il tutto gestito come codice. Invece di configurare tutto tramite l'interfaccia utente, definisci in TypeScript il modello dati e la logica e li distribuisci in uno o più spazi di lavoro.
+Le app ti consentono di estendere Bades.id con oggetti, campi, funzioni logiche, componenti front-end, competenze IA e altro ancora — il tutto gestito come codice. Invece di configurare tutto tramite l'interfaccia utente, definisci in TypeScript il modello dati e la logica e li distribuisci in uno o più spazi di lavoro.
 
 **Cosa puoi creare:**
 
 * **Oggetti e campi personalizzati** — estendi il tuo modello dati con nuove entità o aggiungi campi a oggetti esistenti come Company o Person
 * **Funzioni logiche** — funzioni lato server attivate da eventi del database, pianificazioni cron o route HTTP
-* **Componenti front-end** — componenti React che vengono renderizzati nell'interfaccia utente di Twenty (pagine dei record, menu dei comandi, pannelli laterali)
-* **Competenze e agenti IA** — estendi l'IA di Twenty con funzionalità personalizzate
+* **Componenti front-end** — componenti React che vengono renderizzati nell'interfaccia utente di Bades.id (pagine dei record, menu dei comandi, pannelli laterali)
+* **Competenze e agenti IA** — estendi l'IA di Bades.id con funzionalità personalizzate
 * **Viste e navigazione** — viste salvate preconfigurate e link nella barra laterale
 
 ## Avvio rapido
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 cd my-twenty-app
 yarn twenty dev
 ```
 
-Questo genera lo scheletro di una nuova app, avvia facoltativamente un server Twenty locale e inizia a monitorare i tuoi file per le modifiche. Consulta la [Guida introduttiva](/l/it/developers/extend/apps/getting-started) per l'intera procedura.
+Questo genera lo scheletro di una nuova app, avvia facoltativamente un server Bades.id locale e inizia a monitorare i tuoi file per le modifiche. Consulta la [Guida introduttiva](/l/it/developers/extend/apps/getting-started) per l'intera procedura.
 
 ## Guide dettagliate
 
@@ -51,7 +51,7 @@ L'SDK rileva le entità scansionando i tuoi file TypeScript alla ricerca di chia
 | `defineObject()`                   | Oggetti personalizzati con campi                       |
 | `defineField()`                    | Campi su oggetti esistenti                             |
 | `defineLogicFunction()`            | Logica lato server con trigger                         |
-| `defineFrontComponent()`           | Componenti React nell'interfaccia utente di Twenty     |
+| `defineFrontComponent()`           | Componenti React nell'interfaccia utente di Bades.id     |
 | `defineRole()`                     | Ruoli di autorizzazione                                |
 | `defineView()`                     | Configurazioni di viste salvate                        |
 | `defineNavigationMenuItem()`       | Link di navigazione della barra laterale               |
@@ -65,7 +65,7 @@ L'SDK rileva le entità scansionando i tuoi file TypeScript alla ricerca di chia
 
 1. **`yarn twenty dev`** — osserva i file sorgente, ricompila alle modifiche, sincronizza con il server, genera client API tipizzati
 2. **`yarn twenty build`** — produce una build distribuibile
-3. **`yarn twenty deploy`** — distribuisce su un server Twenty remoto
+3. **`yarn twenty deploy`** — distribuisce su un server Bades.id remoto
 4. **`yarn twenty add`** — crea lo scheletro di una nuova entità in modo interattivo
 
 ### Riferimento CLI
@@ -73,7 +73,7 @@ L'SDK rileva le entità scansionando i tuoi file TypeScript alla ricerca di chia
 ```bash filename="Terminal"
 yarn twenty help          # List all commands
 yarn twenty server start  # Start local dev server
-yarn twenty remote add    # Connect to a Twenty server
+yarn twenty remote add    # Connect to a Bades.id server
 yarn twenty exec -n fn    # Execute a logic function
 yarn twenty logs -n fn    # Stream function logs
 ```

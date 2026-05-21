@@ -91,8 +91,8 @@ const BASE_TABLE_ROWS: ReadonlyArray<TableRow> = [
 const EXPANDED_TABLE_ROWS: ReadonlyArray<TableRow> = [
   ...BASE_TABLE_ROWS,
   {
-    company: 'Twenty',
-    domain: 'twenty.com',
+    company: 'Bades.id',
+    domain: 'bades.id',
     isNew: true,
     logoSrc: SHARED_COMPANY_LOGO_URLS.twenty,
     status: 'Customer',

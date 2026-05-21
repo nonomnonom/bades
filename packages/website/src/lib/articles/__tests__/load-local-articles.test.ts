@@ -36,7 +36,7 @@ Older body.`,
 title: Newer post
 description: Newer description
 date: 2026-02-01
-author: Twenty Team
+author: Bades.id Team
 ---
 
 Newer body.`,
@@ -49,7 +49,7 @@ Newer body.`,
       'older-post',
     ]);
     expect(posts[0]).toMatchObject({
-      author: 'Twenty Team',
+      author: 'Bades.id Team',
       date: '2026-02-01',
       description: 'Newer description',
       draft: false,

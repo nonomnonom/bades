@@ -127,7 +127,7 @@ curl -H 'Authorization: Bearer <token>' \\
       termsOfService:
         'https://github.com/twentyhq/twenty?tab=coc-ov-file#readme',
       contact: {
-        email: 'felix@twenty.com',
+        email: 'support@bades.id',
       },
       license: {
         url: 'https://github.com/twentyhq/twenty?tab=License-1-ov-file#readme',
@@ -158,8 +158,8 @@ curl -H 'Authorization: Bearer <token>' \\
       },
     ],
     externalDocs: {
-      description: 'Find out more about **Twenty**',
-      url: 'https://twenty.com',
+      description: 'Find out more about **Bades**',
+      url: 'https://bades.id',
     },
     paths: { [`/open-api/${schemaName}`]: computeOpenApiPath(serverUrl) },
   };

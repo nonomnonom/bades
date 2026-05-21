@@ -118,7 +118,7 @@ function parseArticle(fileName: string, raw: string): Article {
     author:
       typeof frontmatter.author === 'string' && frontmatter.author.trim()
         ? frontmatter.author
-        : 'Twenty',
+        : 'Bades.id',
     content,
     date: normalizeDate(frontmatter.date, fileName),
     description: requireString(

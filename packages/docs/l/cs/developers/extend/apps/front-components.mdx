@@ -1,14 +1,14 @@
 ---
 title: Frontendové komponenty
-description: Vytvářejte komponenty Reactu, které se vykreslují uvnitř uživatelského rozhraní Twenty se sandboxovou izolací.
+description: Vytvářejte komponenty Reactu, které se vykreslují uvnitř uživatelského rozhraní Bades.id se sandboxovou izolací.
 icon: window-maximize
 ---
 
-Frontendové komponenty jsou React komponenty, které se vykreslují přímo v uživatelském rozhraní Twenty. Běží v **izolovaném Web Workeru** s využitím Remote DOM — váš kód je sandboxovaný, ale vykresluje se nativně na stránce, nikoli v iframu.
+Frontendové komponenty jsou React komponenty, které se vykreslují přímo v uživatelském rozhraní Bades.id. Běží v **izolovaném Web Workeru** s využitím Remote DOM — váš kód je sandboxovaný, ale vykresluje se nativně na stránce, nikoli v iframu.
 
 ## Kde lze použít frontendové komponenty
 
-Frontendové komponenty se mohou vykreslovat na dvou místech v rámci Twenty:
+Frontendové komponenty se mohou vykreslovat na dvou místech v rámci Bades.id:
 
 * **Postranní panel** — Frontendové komponenty, které nejsou headless, se otevírají v pravém postranním panelu. Toto je výchozí chování, když je frontendová komponenta vyvolána z příkazového menu.
 * **Widgety (nástěnky a stránky záznamů)** — Frontendové komponenty lze vkládat jako widgety do rozložení stránek. Při konfiguraci nástěnky nebo rozložení stránky záznamu mohou uživatelé přidat widget frontendové komponenty.
@@ -24,7 +24,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -100,7 +100,7 @@ export default defineFrontComponent({
 });
 ```
 
-Protože komponenta vrací `null`, Twenty přeskočí vykreslení kontejneru — v rozvržení se neobjeví žádné prázdné místo. Komponenta má však stále přístup ke všem hookům a API komunikace s hostitelem.
+Protože komponenta vrací `null`, Bades.id přeskočí vykreslení kontejneru — v rozvržení se neobjeví žádné prázdné místo. Komponenta má však stále přístup ke všem hookům a API komunikace s hostitelem.
 
 ## Komponenty SDK Command
 
@@ -391,7 +391,7 @@ Podrobnosti viz [sekci veřejných souborů](/l/cs/developers/extend/apps/cli-an
 Frontendové komponenty podporují více přístupů ke stylování. Můžete použít:
 
 * **Inline styly** — `style={{ color: 'red' }}`
-* **Komponenty Twenty UI** — import z `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar a další)
+* **Komponenty Bades.id UI** — import z `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar a další)
 * **Emotion** — CSS-in-JS s `@emotion/react`
 * **Styled-components** — vzory `styled.div`
 * **Tailwind CSS** — utilitní třídy

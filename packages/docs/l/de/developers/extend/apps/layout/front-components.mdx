@@ -1,14 +1,14 @@
 ---
 title: Frontend-Komponenten
-description: Erstellen Sie React-Komponenten, die innerhalb der Twenty-UI gerendert werden und durch eine Sandbox isoliert sind.
+description: Erstellen Sie React-Komponenten, die innerhalb der Bades.id-UI gerendert werden und durch eine Sandbox isoliert sind.
 icon: window-maximize
 ---
 
-Front-Komponenten sind React-Komponenten, die direkt innerhalb der Twenty-UI gerendert werden. Sie laufen in einem **isolierten Web Worker** unter Verwendung von Remote DOM — Ihr Code wird in einer Sandbox ausgeführt, rendert jedoch nativ auf der Seite, nicht in einem iframe.
+Front-Komponenten sind React-Komponenten, die direkt innerhalb der Bades.id-UI gerendert werden. Sie laufen in einem **isolierten Web Worker** unter Verwendung von Remote DOM — Ihr Code wird in einer Sandbox ausgeführt, rendert jedoch nativ auf der Seite, nicht in einem iframe.
 
 ## Wo Front-Komponenten verwendet werden können
 
-Front-Komponenten können an zwei Stellen innerhalb von Twenty gerendert werden:
+Front-Komponenten können an zwei Stellen innerhalb von Bades.id gerendert werden:
 
 * **Seitenpanel** — Nicht-Headless-Front-Komponenten werden im rechten Seitenpanel geöffnet. Dies ist das Standardverhalten, wenn eine Front-Komponente über das Befehlsmenü ausgelöst wird.
 * **Widgets (Dashboards und Datensatzseiten)** — Front-Komponenten können als Widgets in [Seitenlayouts](/l/de/developers/extend/apps/layout/page-layouts) eingebettet werden. Beim Konfigurieren eines Dashboards oder eines Datensatzseiten-Layouts können Benutzer ein Front-Komponenten-Widget hinzufügen.
@@ -29,7 +29,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -110,7 +110,7 @@ export default defineFrontComponent({
 });
 ```
 
-Da die Komponente `null` zurückgibt, überspringt Twenty das Rendern eines Containers dafür — im Layout entsteht kein Leerraum. Die Komponente hat dennoch Zugriff auf alle Hooks und die Host-Kommunikations-API.
+Da die Komponente `null` zurückgibt, überspringt Bades.id das Rendern eines Containers dafür — im Layout entsteht kein Leerraum. Die Komponente hat dennoch Zugriff auf alle Hooks und die Host-Kommunikations-API.
 
 ## SDK-Command-Komponenten
 
@@ -268,7 +268,7 @@ Die folgenden Systemvariablen sind immer über `process.env` verfügbar:
 
 | Variable                  | Beschreibung                                                  |
 | ------------------------- | ------------------------------------------------------------- |
-| `TWENTY_API_URL`          | Basis-URL der Twenty API                                      |
+| `TWENTY_API_URL`          | Basis-URL der Bades.id API                                      |
 | `TWENTY_APP_ACCESS_TOKEN` | Kurzlebiges Token mit dem Geltungsbereich der Rolle Ihrer App |
 
 ## Host-Kommunikations-API
@@ -409,7 +409,7 @@ Details finden Sie im Abschnitt [Öffentliche Assets](/l/de/developers/extend/ap
 Front-Komponenten unterstützen mehrere Styling-Ansätze. Sie können verwenden:
 
 * **Inline-Styles** — `style={{ color: 'red' }}`
-* **Twenty-UI-Komponenten** — Import aus `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar und mehr)
+* **Bades.id-UI-Komponenten** — Import aus `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar und mehr)
 * **Emotion** — CSS-in-JS mit `@emotion/react`
 * **Styled-components** — `styled.div`-Muster
 * **Tailwind CSS** — Utility-Klassen

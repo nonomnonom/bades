@@ -1,6 +1,6 @@
 ---
-title: Aplikace Twenty
-description: Vytvářejte a spravujte přizpůsobení Twenty jako kód.
+title: Aplikace Bades.id
+description: Vytvářejte a spravujte přizpůsobení Bades.id jako kód.
 ---
 
 <Warning>
@@ -9,25 +9,25 @@ Aplikace jsou aktuálně v alfa fázi. Funkce funguje, ale stále se vyvíjí.
 
 ## Co jsou aplikace?
 
-Aplikace vám umožňují rozšířit Twenty o vlastní objekty, pole, logické funkce, front-endové komponenty, AI schopnosti a další — vše je spravováno jako kód. Místo konfigurace všeho přes uživatelské rozhraní definujete v TypeScriptu svůj datový model a logiku a nasadíte je do jednoho nebo více pracovních prostorů.
+Aplikace vám umožňují rozšířit Bades.id o vlastní objekty, pole, logické funkce, front-endové komponenty, AI schopnosti a další — vše je spravováno jako kód. Místo konfigurace všeho přes uživatelské rozhraní definujete v TypeScriptu svůj datový model a logiku a nasadíte je do jednoho nebo více pracovních prostorů.
 
 **Co můžete vytvořit:**
 
 * **Vlastní objekty a pole** — rozšiřte svůj datový model o nové entity nebo přidejte pole k existujícím objektům, jako jsou Společnost nebo Osoba
 * **Logické funkce** — serverové funkce spouštěné událostmi v databázi, plány cronu nebo HTTP routami
-* **Front-endové komponenty** — komponenty Reactu, které se vykreslují v uživatelském rozhraní Twenty (stránky záznamů, příkazová nabídka, postranní panely)
-* **Dovednosti AI a agenti** — rozšiřte AI v Twenty o vlastní možnosti
+* **Front-endové komponenty** — komponenty Reactu, které se vykreslují v uživatelském rozhraní Bades.id (stránky záznamů, příkazová nabídka, postranní panely)
+* **Dovednosti AI a agenti** — rozšiřte AI v Bades.id o vlastní možnosti
 * **Zobrazení a navigace** — předkonfigurovaná uložená zobrazení a odkazy v postranním panelu
 
 ## Rychlý start
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 cd my-twenty-app
 yarn twenty dev
 ```
 
-Tímto se vytvoří kostra nové aplikace, volitelně se spustí lokální server Twenty a začne sledovat změny ve vašich souborech. Podrobný postup najdete v průvodci [Začínáme](/l/cs/developers/extend/apps/getting-started).
+Tímto se vytvoří kostra nové aplikace, volitelně se spustí lokální server Bades.id a začne sledovat změny ve vašich souborech. Podrobný postup najdete v průvodci [Začínáme](/l/cs/developers/extend/apps/getting-started).
 
 ## Podrobné návody
 
@@ -51,7 +51,7 @@ SDK detekuje entity prohledáváním vašich souborů TypeScript a hledá volán
 | `defineObject()`                   | Vlastní objekty s poli                           |
 | `defineField()`                    | Pole u existujících objektů                      |
 | `defineLogicFunction()`            | Serverová logika se spouštěči                    |
-| `defineFrontComponent()`           | Komponenty Reactu v uživatelském rozhraní Twenty |
+| `defineFrontComponent()`           | Komponenty Reactu v uživatelském rozhraní Bades.id |
 | `defineRole()`                     | Role oprávnění                                   |
 | `defineView()`                     | Konfigurace uložených zobrazení                  |
 | `defineNavigationMenuItem()`       | Odkazy postranní navigace                        |
@@ -65,7 +65,7 @@ SDK detekuje entity prohledáváním vašich souborů TypeScript a hledá volán
 
 1. **`yarn twenty dev`** — sleduje zdrojové soubory, při změně znovu sestaví, synchronizuje se serverem a generuje typované klienty API
 2. **`yarn twenty build`** — vytvoří distribuovatelný build
-3. **`yarn twenty deploy`** — nasadí na vzdálený server Twenty
+3. **`yarn twenty deploy`** — nasadí na vzdálený server Bades.id
 4. **`yarn twenty add`** — interaktivně vytvoří kostru nové entity
 
 ### Referenční dokumentace CLI
@@ -73,7 +73,7 @@ SDK detekuje entity prohledáváním vašich souborů TypeScript a hledá volán
 ```bash filename="Terminal"
 yarn twenty help          # List all commands
 yarn twenty server start  # Start local dev server
-yarn twenty remote add    # Connect to a Twenty server
+yarn twenty remote add    # Connect to a Bades.id server
 yarn twenty exec -n fn    # Execute a logic function
 yarn twenty logs -n fn    # Stream function logs
 ```

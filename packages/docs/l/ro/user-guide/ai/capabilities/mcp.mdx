@@ -1,19 +1,19 @@
 ---
 title: Server MCP
-description: Conectați asistenți AI la spațiul dvs. de lucru Twenty folosind Model Context Protocol.
+description: Conectați asistenți AI la spațiul dvs. de lucru Bades.id folosind Model Context Protocol.
 ---
 
 <Warning>
 MCP este în prezent în **alpha** și este disponibil doar în unele spații de lucru. Este posibil să nu fie activat încă pentru spațiul dvs. de lucru.
 </Warning>
 
-Twenty expune un server [MCP](https://modelcontextprotocol.io/) astfel încât asistenții AI — Claude Desktop, Claude Code, Cursor, ChatGPT și alții — să poată citi și scrie datele tale din CRM prin limbaj natural.
+Bades.id expune un server [MCP](https://modelcontextprotocol.io/) astfel încât asistenții AI — Claude Desktop, Claude Code, Cursor, ChatGPT și alții — să poată citi și scrie datele tale din CRM prin limbaj natural.
 
-Folosește **URL-ul spațiului de lucru** (URL-ul pe care îl folosești pentru a accesa Twenty) drept punct final MCP. Pe Twenty Cloud, URL-ul spațiului tău de lucru poate fi `https://{mycompany}.twenty.com` sau un domeniu personalizat. Serverul este disponibil la:
+Folosește **URL-ul spațiului de lucru** (URL-ul pe care îl folosești pentru a accesa Bades.id) drept punct final MCP. Pe Bades.id Cloud, URL-ul spațiului tău de lucru poate fi `https://{mycompany}.bades.id` sau un domeniu personalizat. Serverul este disponibil la:
 
 | Mediu                | Punct final MCP                                                                |
 | -------------------- | ------------------------------------------------------------------------------ |
-| **Cloud**            | `https://{your-workspace-url}/mcp` (de ex. `https://mycompany.twenty.com/mcp`) |
+| **Cloud**            | `https://{your-workspace-url}/mcp` (de ex. `https://mycompany.bades.id/mcp`) |
 | **Găzduire proprie** | `https://{your-domain}/mcp`                                                    |
 
 ## Metode de autentificare
@@ -28,7 +28,7 @@ Cu OAuth, clientul tău MCP deschide o fereastră de browser pentru a te autenti
 OAuth necesită un client MCP care suportă [specificația MCP Authorization](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization). Claude Desktop, Claude Code, Cursor și ChatGPT o suportă.
 </Note>
 
-Adaugă asta în configurația clientului tău MCP, înlocuind `{your-workspace-url}` cu gazda spațiului tău de lucru (de ex. `mycompany.twenty.com`):
+Adaugă asta în configurația clientului tău MCP, înlocuind `{your-workspace-url}` cu gazda spațiului tău de lucru (de ex. `mycompany.bades.id`):
 
 ```json
 {
@@ -43,7 +43,7 @@ Adaugă asta în configurația clientului tău MCP, înlocuind `{your-workspace-
 
 Atât — nu este necesară nicio cheie API. Când clientul se conectează pentru prima dată, acesta va:
 
-1. Va descoperi metadatele OAuth ale Twenty prin `/.well-known/oauth-protected-resource` și `/.well-known/oauth-authorization-server`
+1. Va descoperi metadatele OAuth ale Bades.id prin `/.well-known/oauth-protected-resource` și `/.well-known/oauth-authorization-server`
 2. Se va înregistra ca un client OAuth prin înregistrare dinamică a clientului (RFC 7591)
 3. Îți va deschide browserul pentru a autoriza accesul
 4. Va primi tokenurile și se va conecta la serverul MCP
@@ -78,7 +78,7 @@ Pentru a crea o cheie API, mergi la **Settings > APIs & Webhooks > + Create key*
 
 ### 1. Copiază configurația
 
-Mergi la **Settings > AI > More > MCP Server** în Twenty. Alege metoda de autentificare (OAuth sau Cheie API), copiază fragmentul JSON (va folosi deja URL-ul spațiului tău de lucru) și lipește-l în fișierul de configurare al clientului tău MCP.
+Mergi la **Settings > AI > More > MCP Server** în Bades.id. Alege metoda de autentificare (OAuth sau Cheie API), copiază fragmentul JSON (va folosi deja URL-ul spațiului tău de lucru) și lipește-l în fișierul de configurare al clientului tău MCP.
 
 | Client             | Locația fișierului de configurare                                                                                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,7 +89,7 @@ Mergi la **Settings > AI > More > MCP Server** în Twenty. Alege metoda de auten
 
 ### 2. Conectează-te
 
-Repornește clientul tău MCP (sau reîncarcă configurația). Dacă folosești OAuth, vei fi redirecționat către Twenty pentru a autoriza accesul. Dacă folosești o cheie API, conexiunea este imediată.
+Repornește clientul tău MCP (sau reîncarcă configurația). Dacă folosești OAuth, vei fi redirecționat către Bades.id pentru a autoriza accesul. Dacă folosești o cheie API, conexiunea este imediată.
 
 ### 3. Începe să-l folosești
 
@@ -101,7 +101,7 @@ Roagă-ți asistentul AI să interacționeze cu CRM-ul tău:
 
 ## Instrumente disponibile
 
-După conectare, serverul MCP expune instrumente care oglindesc API-ul Twenty. Fluxul de lucru recomandat este:
+După conectare, serverul MCP expune instrumente care oglindesc API-ul Bades.id. Fluxul de lucru recomandat este:
 
 1. **`get_tool_catalog`** — descoperă toate instrumentele disponibile
 2. **`learn_tools`** — obține schema de intrare pentru instrumente specifice
@@ -118,7 +118,7 @@ Conexiunile MCP moștenesc permisiunile utilizatorului autentificat (OAuth) sau 
 
 ## Configurație pentru auto-găzduire
 
-Pentru instanțele auto-găzduite, înlocuiește `{your-workspace-url}` cu URL-ul serverului tău. Asigură-te că `SERVER_URL` din mediul tău corespunde URL-ului public al instanței tale Twenty — acesta este folosit pentru a genera metadatele de descoperire OAuth.
+Pentru instanțele auto-găzduite, înlocuiește `{your-workspace-url}` cu URL-ul serverului tău. Asigură-te că `SERVER_URL` din mediul tău corespunde URL-ului public al instanței tale Bades.id — acesta este folosit pentru a genera metadatele de descoperire OAuth.
 
 ```bash
 SERVER_URL=https://twenty.yourcompany.com

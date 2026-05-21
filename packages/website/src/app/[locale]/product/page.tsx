@@ -120,15 +120,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </HeadingPart>
           </Heading>
         }
-        ctaHref="https://app.twenty.com/welcome"
+        ctaHref="https://bades.id/masuk"
         ctaLabel={i18n._(msg`Get started`)}
         introBody={i18n._(
-          msg`Track relationships, manage pipelines, and take action quickly with a CRM that feels intuitive from day one.`,
+          msg`Track citizen relationships, manage village service pipelines, and take action quickly with a Village Information System that feels intuitive from day one.`,
         )}
         introHeading={
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`A CRM for teams`)}
+              {i18n._(msg`A Village Information System`)}
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="serif">
@@ -177,7 +177,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Eyebrow>
           <Heading size="lg" weight="light">
             <HeadingPart fontFamily="serif">
-              {i18n._(msg`A modern CRM with`)}
+              {i18n._(msg`A modern Village Information System with`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
               {i18n._(msg`an intuitive interface`)}
@@ -218,8 +218,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <Demo.Cta>
           <LinkButton
             color="secondary"
-            href="https://app.twenty.com/welcome"
-            label={i18n._(msg`Try Twenty Cloud`)}
+            href="https://bades.id/masuk"
+            label={i18n._(msg`Try Bades.id Cloud`)}
             variant="contained"
           />
         </Demo.Cta>
@@ -239,13 +239,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Twenty`)}
+              {i18n._(msg`Start building, with Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Get started`)}
               variant="contained"
             />

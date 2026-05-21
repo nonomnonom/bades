@@ -11,8 +11,8 @@ import { CaseStudyPageLayout } from '@/app/[locale]/customers/_components/CaseSt
 const PLACEHOLDER_HERO =
   'https://images.unsplash.com/photo-1744830343976-ce690ba2a67c?w=1600&q=80';
 
-const META_TITLE = msg`A CRM that grows with you | NetZero & Twenty`;
-const META_DESCRIPTION = msg`How NetZero uses Twenty across carbon credits, agricultural products, and franchised industrial systems with a modular CRM and a roadmap toward AI-assisted workflows.`;
+const META_TITLE = msg`A CRM that grows with you | NetZero & Bades.id`;
+const META_DESCRIPTION = msg`How NetZero uses Bades.id across carbon credits, agricultural products, and franchised industrial systems with a modular CRM and a roadmap toward AI-assisted workflows.`;
 
 export const generateMetadata = buildLocalizedMetadata({
   path: '/customers/netzero',
@@ -75,7 +75,7 @@ export default async function NetZeroCaseStudyPage({
           msg`NetZero works with the agro-industry, serving clients from multinationals to smallholder farmers. They sell carbon credits, agricultural products, and franchised industrial systems across three different product lines, multiple countries, and multiple company sizes. When Olivier Reinaud, co-founder of NetZero, started looking at CRMs in late 2024, he was not chasing the most feature-rich platform. He wanted the right foundation.`,
         ],
         callout:
-          '"Twenty delivers on what CRMs should have always been: fairly priced software with a fully modular and customizable model, a clean and modern UI, granular permissions, automations, enterprise features. A compelling solution with high potential to rightfully disrupt the CRM market." - Olivier Reinaud, co-founder of NetZero',
+          '"Bades.id delivers on what CRMs should have always been: fairly priced software with a fully modular and customizable model, a clean and modern UI, granular permissions, automations, enterprise features. A compelling solution with high potential to rightfully disrupt the CRM market." - Olivier Reinaud, co-founder of NetZero',
       },
       {
         type: 'text',
@@ -90,7 +90,7 @@ export default async function NetZeroCaseStudyPage({
         ),
         paragraphs: [
           msg`What convinced Olivier was the flexibility of the platform and where it was headed. Even when initial needs were basic record-keeping, he still needed a custom data model with granular permissions to manage the wide range of NetZero activities. He also needed a system that could adapt quickly to a fast-iteration company.`,
-          msg`With Twenty, when a new need appears, he can address it himself: no developer required, no support ticket.`,
+          msg`With Bades.id, when a new need appears, he can address it himself: no developer required, no support ticket.`,
         ],
         callout:
           '"The flexibility is really what made the difference. Our needs evolve very fast. I discover a new need and in two clicks I can address it. That is a real advantage when you are moving quickly." - Olivier Reinaud, co-founder of NetZero',
@@ -107,8 +107,8 @@ export default async function NetZeroCaseStudyPage({
           </Heading>
         ),
         paragraphs: [
-          msg`Olivier recognizes that NetZero's current use of Twenty is still relatively simple: workflows and integrations are not yet as deep as he eventually wants, because he prioritized getting foundations right first.`,
-          msg`What is planned is significant. NetZero has a data lake, online forms, and multiple internal systems that he wants to connect to Twenty. The pipes are there; the next step is automations that tie them together.`,
+          msg`Olivier recognizes that NetZero's current use of Bades.id is still relatively simple: workflows and integrations are not yet as deep as he eventually wants, because he prioritized getting foundations right first.`,
+          msg`What is planned is significant. NetZero has a data lake, online forms, and multiple internal systems that he wants to connect to Bades.id. The pipes are there; the next step is automations that tie them together.`,
           msg`What is coming in April 2026 is what he has been waiting for: AI-assisted workflow creation, describing what he needs and iterating from there instead of building complex logic from scratch. For a founder who runs the CRM himself, that changes what is realistically possible.`,
         ],
       },
@@ -126,7 +126,7 @@ export default async function NetZeroCaseStudyPage({
           </Heading>
         ),
         paragraphs: [
-          msg`While NetZero still runs a second CRM in parallel for WhatsApp-heavy operations with farmers in Brazil, they expect to migrate all of it to Twenty as features and the ecosystem grow. Already, their structured, multinational pipeline is powered by Twenty.`,
+          msg`While NetZero still runs a second CRM in parallel for WhatsApp-heavy operations with farmers in Brazil, they expect to migrate all of it to Bades.id as features and the ecosystem grow. Already, their structured, multinational pipeline is powered by Bades.id.`,
           msg`The early bet on the architecture is holding, and upcoming AI features are expected to make it even more relevant.`,
         ],
       },
@@ -138,7 +138,7 @@ export default async function NetZeroCaseStudyPage({
       msg`The bet is paying off`,
     ],
     catalogCard: {
-      summary: msg`NetZero uses Twenty as a modular CRM across product lines and countries, with a roadmap into AI-assisted workflows.`,
+      summary: msg`NetZero uses Bades.id as a modular CRM across product lines and countries, with a roadmap into AI-assisted workflows.`,
       date: msg`2025`,
     },
   };

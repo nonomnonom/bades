@@ -11,18 +11,18 @@ export function CustomersCaseStudySignoff() {
     <Signoff.Root scheme="muted" page={Pages.Partners}>
       <Signoff.Heading page={Pages.Partners}>
         <HeadingPart fontFamily="serif">
-          {i18n._(msg`Ready to grow\nwith Twenty?`)}
+          {i18n._(msg`Ready to grow\nwith Bades.id?`)}
         </HeadingPart>
       </Signoff.Heading>
       <Signoff.Body page={Pages.Partners}>
         {i18n._(
-          msg`Join the teams that chose to own their CRM.\nStart building with Twenty today.`,
+          msg`Join the teams that chose to own their CRM.\nStart building with Bades.id today.`,
         )}
       </Signoff.Body>
       <Signoff.Cta>
         <LinkButton
           color="secondary"
-          href="https://app.twenty.com/welcome"
+          href="https://bades.id/masuk"
           label={i18n._(msg`Get started`)}
           variant="contained"
         />

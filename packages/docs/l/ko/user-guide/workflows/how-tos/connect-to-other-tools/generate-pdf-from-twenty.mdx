@@ -1,16 +1,16 @@
 ---
-title: Twenty에서 PDF 생성
+title: Bades.id에서 PDF 생성
 description: "레코드에 PDF(예: 견적서)를 생성해 첨부하는 워크플로우를 만드세요."
 ---
 
-Twenty에서 PDF를 자동으로 생성하거나 가져와 레코드에 첨부합니다. 이는 Company, Opportunity 또는 기타 객체에 연결된 견적서, 송장, 보고서를 생성할 때 흔히 사용됩니다.
+Bades.id에서 PDF를 자동으로 생성하거나 가져와 레코드에 첨부합니다. 이는 Company, Opportunity 또는 기타 객체에 연결된 견적서, 송장, 보고서를 생성할 때 흔히 사용됩니다.
 
 ## 개요
 
 이 워크플로우는 **수동 트리거**를 사용하므로 사용자가 선택한 레코드에 대해 필요할 때 PDF를 생성할 수 있습니다. **로직 함수**가 다음을 처리합니다:
 
 1. URL에서 PDF를 다운로드(PDF 생성 서비스에서 제공)
-2. 파일을 Twenty에 업로드
+2. 파일을 Bades.id에 업로드
 3. 레코드에 연결된 첨부 파일 생성
 
 ## 사전 준비
@@ -56,10 +56,10 @@ export const main = async (
 ) => {
   const { companyId } = params;
 
-  // Replace with your Twenty GraphQL endpoint
-  // Cloud: https://api.twenty.com/graphql
+  // Replace with your Bades.id GraphQL endpoint
+  // Cloud: https://api.bades.id/graphql
   // Self-hosted: https://your-domain.com/graphql
-  const graphqlEndpoint = 'https://api.twenty.com/graphql';
+  const graphqlEndpoint = 'https://api.bades.id/graphql';
 
   // Replace with your API key from Settings → APIs
   const authToken = 'YOUR_API_KEY';
@@ -225,4 +225,4 @@ export const main = async (
 
 * [워크플로우 트리거](/l/ko/user-guide/workflows/capabilities/workflow-triggers)
 * [로직 함수](/l/ko/user-guide/workflows/capabilities/workflow-actions#code)
-* [Twenty에서 견적서 또는 송장 생성](/l/ko/user-guide/workflows/how-tos/connect-to-other-tools/generate-quote-or-invoice-from-twenty)
+* [Bades.id에서 견적서 또는 송장 생성](/l/ko/user-guide/workflows/how-tos/connect-to-other-tools/generate-quote-or-invoice-from-twenty)

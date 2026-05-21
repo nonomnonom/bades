@@ -188,7 +188,7 @@ export function EnterpriseActivateClient() {
             </Heading>
             <Body size="sm" variant="body-paragraph">
               {i18n._(
-                msg`Copy this key and paste it into your Twenty self-hosted instance settings.`,
+                msg`Copy this key and paste it into your Bades.id self-hosted instance settings.`,
               )}
             </Body>
 
@@ -227,7 +227,7 @@ export function EnterpriseActivateClient() {
               <li className={nextStepItemClassName}>
                 <Body size="sm">
                   {i18n._(
-                    msg`Open your Twenty self-hosted instance Settings → Enterprise.`,
+                    msg`Open your Bades.id self-hosted instance Settings → Enterprise.`,
                   )}
                 </Body>
               </li>

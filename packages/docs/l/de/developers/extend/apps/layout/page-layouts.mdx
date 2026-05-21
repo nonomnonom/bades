@@ -4,7 +4,7 @@ description: Passen Sie Detailseiten von Datensätzen an – Tabs, Widgets und d
 icon: table-columns
 ---
 
-Ein **Seitenlayout** steuert, wie die Detailseite eines Datensatzes angeordnet ist: welche Tabs angezeigt werden und welche Widgets sie enthalten. Verwenden Sie `definePageLayout()`, um ein Layout für ein Objekt zu deklarieren, das Sie besitzen, oder `definePageLayoutTab()`, um einen einzelnen Tab zu einem Layout hinzuzufügen, das bereits existiert (Ihr eigenes oder ein standardmäßiges Twenty-Layout).
+Ein **Seitenlayout** steuert, wie die Detailseite eines Datensatzes angeordnet ist: welche Tabs angezeigt werden und welche Widgets sie enthalten. Verwenden Sie `definePageLayout()`, um ein Layout für ein Objekt zu deklarieren, das Sie besitzen, oder `definePageLayoutTab()`, um einen einzelnen Tab zu einem Layout hinzuzufügen, das bereits existiert (Ihr eigenes oder ein standardmäßiges Bades.id-Layout).
 
 | Anwendungsfall                                                                                  | Entität               |
 | ----------------------------------------------------------------------------------------------- | --------------------- |
@@ -96,7 +96,7 @@ export default definePageLayoutTab({
 
 ### Hauptpunkte
 
-* `pageLayoutUniversalIdentifier` ist **erforderlich** und muss auf ein Seitenlayout verweisen, das zum Installationszeitpunkt bereits existiert – entweder ein standardmäßiges Twenty-Layout oder eines, das von Ihrer eigenen App definiert wurde. App-übergreifende Verweise auf Layouts, die einer anderen installierten App gehören, werden derzeit nicht unterstützt. Wenn das übergeordnete Layout fehlt, schlägt die Installation mit einem eindeutigen Validierungsfehler fehl.
+* `pageLayoutUniversalIdentifier` ist **erforderlich** und muss auf ein Seitenlayout verweisen, das zum Installationszeitpunkt bereits existiert – entweder ein standardmäßiges Bades.id-Layout oder eines, das von Ihrer eigenen App definiert wurde. App-übergreifende Verweise auf Layouts, die einer anderen installierten App gehören, werden derzeit nicht unterstützt. Wenn das übergeordnete Layout fehlt, schlägt die Installation mit einem eindeutigen Validierungsfehler fehl.
 * `widgets` sind ausschließlich auf diesen Tab beschränkt – sie verweisen auf [Frontend-Komponenten](/l/de/developers/extend/apps/layout/front-components), Ansichten usw., genau wie Widgets, die inline in `definePageLayout` definiert sind.
 * `position` steuert die Reihenfolge im Zielseitenlayout relativ zu den vorhandenen Registerkarten. Wählen Sie einen Wert, der Ihre Registerkarte relativ zu integrierten Registerkarten an die gewünschte Position bringt.
 * Verwenden Sie dies anstelle von `definePageLayout`, wenn Sie einem vorhandenen Layout nur etwas hinzufügen möchten. Verwenden Sie `definePageLayout`, wenn Sie das gesamte Layout besitzen.

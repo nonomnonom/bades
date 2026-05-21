@@ -86,12 +86,12 @@ export default async function CaseStudiesCatalogPage({
               {i18n._(msg`build`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`on Twenty`)}
+              {i18n._(msg`on Bades.id`)}
             </HeadingPart>
           </Hero.Heading>
           <Hero.Body page={Pages.CaseStudies}>
             {i18n._(
-              msg`Real stories from real teams about how they shaped Twenty to fit their workflow and accelerated their growth.`,
+              msg`Real stories from real teams about how they shaped Bades.id to fit their workflow and accelerated their growth.`,
             )}
           </Hero.Body>
         </Hero.Root>
@@ -118,13 +118,13 @@ export default async function CaseStudiesCatalogPage({
         </Signoff.Heading>
         <Signoff.Body page={Pages.Partners}>
           {i18n._(
-            msg`Join the teams that chose to own their CRM.\nStart building with Twenty today.`,
+            msg`Join the teams that chose to own their CRM.\nStart building with Bades.id today.`,
           )}
         </Signoff.Body>
         <Signoff.Cta>
           <LinkButton
             color="secondary"
-            href="https://app.twenty.com/welcome"
+            href="https://bades.id/masuk"
             label={i18n._(msg`Get started`)}
             variant="contained"
           />
@@ -149,13 +149,13 @@ export default async function CaseStudiesCatalogPage({
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Twenty`)}
+              {i18n._(msg`Start building, with Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Get started`)}
               variant="contained"
             />

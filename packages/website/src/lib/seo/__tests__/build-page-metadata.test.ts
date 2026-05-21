@@ -17,23 +17,23 @@ describe('buildPageMetadata', () => {
     const metadata = buildPageMetadata({
       locale: 'en',
       path: '/product',
-      title: descriptor('Product | Twenty'),
+      title: descriptor('Product | Bades.id'),
       description: descriptor('Product page description.'),
     });
 
-    expect(metadata.title).toEqual({ absolute: 'Product | Twenty' });
+    expect(metadata.title).toEqual({ absolute: 'Product | Bades.id' });
     expect(metadata.alternates).toMatchObject({ canonical: '/product' });
     expect(metadata.openGraph).toMatchObject({
-      title: 'Product | Twenty',
+      title: 'Product | Bades.id',
       description: 'Product page description.',
       url: '/product',
-      siteName: 'Twenty',
+      siteName: 'Bades.id',
       locale: 'en',
       type: 'website',
     });
     expect(metadata.twitter).toMatchObject({
       card: 'summary_large_image',
-      title: 'Product | Twenty',
+      title: 'Product | Bades.id',
       site: '@twentycrm',
     });
   });
@@ -56,7 +56,7 @@ describe('buildPageMetadata', () => {
       path: '/',
       title: {
         id: 'seo.test.title',
-        message: 'Twenty | #1 Open Source CRM',
+        message: 'Bades.id | #1 Open Source CRM',
       },
       description: {
         id: 'seo.test.description',
@@ -65,13 +65,13 @@ describe('buildPageMetadata', () => {
     });
 
     expect(metadata.title).toEqual({
-      absolute: 'Twenty | #1 Open Source CRM',
+      absolute: 'Bades.id | #1 Open Source CRM',
     });
     expect(metadata.description).toBe(
       'The #1 Open Source CRM for modern teams.',
     );
     expect(metadata.openGraph).toMatchObject({
-      title: 'Twenty | #1 Open Source CRM',
+      title: 'Bades.id | #1 Open Source CRM',
       description: 'The #1 Open Source CRM for modern teams.',
     });
   });
@@ -170,7 +170,7 @@ describe('buildPageMetadata', () => {
       title: 'Override OG title',
       description: 'Default description',
       url: '/x',
-      siteName: 'Twenty',
+      siteName: 'Bades.id',
       images: [{ url: 'https://example.test/og/default.png' }],
     });
   });

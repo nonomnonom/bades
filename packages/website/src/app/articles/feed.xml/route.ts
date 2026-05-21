@@ -21,9 +21,9 @@ export function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Twenty Articles</title>
+    <title>Bades.id Articles</title>
     <link>${siteUrl}/articles</link>
-    <description>Articles and insights from the Twenty team</description>
+    <description>Articles and insights from the Bades.id team</description>
     <language>en</language>
     <atom:link href="${siteUrl}/articles/feed.xml" rel="self" type="application/rss+xml"/>
 ${items}

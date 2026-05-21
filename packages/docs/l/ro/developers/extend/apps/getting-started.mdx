@@ -1,21 +1,21 @@
 ---
 title: Începeți
 icon: rocket
-description: Creați prima dvs. aplicație Twenty în câteva minute.
+description: Creați prima dvs. aplicație Bades.id în câteva minute.
 ---
 
 ## Cerințe
 
 * **Node.js 24+** — [Descărcați](https://nodejs.org/)
 * **Yarn 4** — vine împreună cu Node prin Corepack. Activați-l: `corepack enable`
-* **Docker** — [Descărcați](https://www.docker.com/products/docker-desktop/). Necesar pentru a rula un server Twenty local. Omiteți dacă rulați deja Twenty în altă parte.
+* **Docker** — [Descărcați](https://www.docker.com/products/docker-desktop/). Necesar pentru a rula un server Bades.id local. Omiteți dacă rulați deja Bades.id în altă parte.
 
-Crearea unei aplicații Twenty are trei faze. Generatorul de schelet le reduce la o singură comandă pe happy path, dar fiecare fază este un concept separat — când ceva eșuează, dacă știți în ce fază sunteți, știți ce trebuie să corectați.
+Crearea unei aplicații Bades.id are trei faze. Generatorul de schelet le reduce la o singură comandă pe happy path, dar fiecare fază este un concept separat — când ceva eșuează, dacă știți în ce fază sunteți, știți ce trebuie să corectați.
 
 | Fază                    | Ce faceți                                        | Instrument                    | Rezultat                       |
 | ----------------------- | ------------------------------------------------ | ----------------------------- | ------------------------------ |
-| **1. Creați scheletul** | Generați codul sursă al aplicației               | `npx create-twenty-app`       | Un proiect TypeScript pe disc  |
-| **2. Rulați un server** | Porniți un server Twenty cu care să sincronizați | Docker + `yarn twenty server` | O instanță Twenty care rulează |
+| **1. Creați scheletul** | Generați codul sursă al aplicației               | `npx create-bades-app`       | Un proiect TypeScript pe disc  |
+| **2. Rulați un server** | Porniți un server Bades.id cu care să sincronizați | Docker + `yarn twenty server` | O instanță Bades.id care rulează |
 | **3. Sincronizați**     | Sincronizați în timp real codul cu serverul      | `yarn twenty dev`             | Modificările apar în UI        |
 
 ---
@@ -25,7 +25,7 @@ Crearea unei aplicații Twenty are trei faze. Generatorul de schelet le reduce l
 Creați o nouă aplicație din șablon:
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 ```
 
 Vi se va cere un nume și o descriere — apăsați **Enter** pentru valorile implicite. Aceasta generează un proiect TypeScript în `my-twenty-app/` cu un fișier inițial `application-config.ts`, un rol implicit, un flux de lucru CI și un test de integrare.
@@ -34,16 +34,16 @@ Vi se va cere un nume și o descriere — apăsați **Enter** pentru valorile im
 
 ---
 
-## Faza 2 — Rulați un server Twenty local
+## Faza 2 — Rulați un server Bades.id local
 
-Aplicația are nevoie de un server Twenty cu care să se sincronizeze. Serverul este o instanță Twenty completă — UI, API GraphQL, PostgreSQL — care rulează local în Docker. Codul local încarcă definițiile pe acel server, făcându-le să apară în UI.
+Aplicația are nevoie de un server Bades.id cu care să se sincronizeze. Serverul este o instanță Bades.id completă — UI, API GraphQL, PostgreSQL — care rulează local în Docker. Codul local încarcă definițiile pe acel server, făcându-le să apară în UI.
 
 Generatorul de schelet vă propune să pornească unul pentru dvs.:
 
-> **Doriți să configurați o instanță Twenty locală?**
+> **Doriți să configurați o instanță Bades.id locală?**
 
 * **Yes (recomandat)** — descarcă imaginea Docker `twentycrm/twenty-app-dev` și o pornește pe portul `2020`. Asigurați-vă mai întâi că Docker rulează.
-* **No** — alegeți această opțiune dacă aveți deja un server Twenty la care doriți să vă conectați. Îl puteți conecta ulterior cu `yarn twenty remote add`.
+* **No** — alegeți această opțiune dacă aveți deja un server Bades.id la care doriți să vă conectați. Îl puteți conecta ulterior cu `yarn twenty remote add`.
 
 <div style={{textAlign: 'center'}}>
   <img src="/images/docs/developers/extends/apps/start-instance.png" alt="Porniți instanța locală?" />
@@ -55,13 +55,13 @@ După ce serverul pornește, se deschide un browser pentru autentificare. Folosi
 * **Parolă:** `tim@apple.dev`
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/login.png" alt="Ecranul de autentificare Twenty" />
+  <img src="/images/docs/developers/extends/apps/login.png" alt="Ecranul de autentificare Bades.id" />
 </div>
 
 Faceți clic pe **Authorize** pe ecranul următor — aceasta oferă CLI-ului acces la spațiul dvs. de lucru.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Ecranul de autorizare Twenty CLI" />
+  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Ecranul de autorizare Bades.id CLI" />
 </div>
 
 Terminalul va confirma că totul este configurat.
@@ -70,7 +70,7 @@ Terminalul va confirma că totul este configurat.
   <img src="/images/docs/developers/extends/apps/scaffolded.png" alt="Aplicația a fost creată cu succes" />
 </div>
 
-**După această fază:** aveți un server Twenty care rulează la [http://localhost:2020](http://localhost:2020), iar CLI-ul dvs. este autorizat să sincronizeze cu acesta.
+**După această fază:** aveți un server Bades.id care rulează la [http://localhost:2020](http://localhost:2020), iar CLI-ul dvs. este autorizat să sincronizeze cu acesta.
 
 <Note>
 Dacă Docker nu este instalat sau nu rulează, generatorul de schelet vă va indica comanda corectă de pornire pentru sistemul dvs. de operare. După ce Docker rulează, puteți continua cu `yarn twenty server start` — nu este nevoie să recreați scheletul.
@@ -131,7 +131,7 @@ yarn twenty dev --once
 Ambele moduri necesită un server în modul de dezvoltare și un remote autentificat.
 
 <Warning>
-Modul de dezvoltare este disponibil doar pe instanțele Twenty care rulează în modul development (`NODE_ENV=development`). Instanțele de producție resping cererile de sincronizare din modul de dezvoltare — folosiți `yarn twenty deploy` pentru a implementa pe serverele de producție. Consultați [Publicarea aplicațiilor](/l/ro/developers/extend/apps/publishing).
+Modul de dezvoltare este disponibil doar pe instanțele Bades.id care rulează în modul development (`NODE_ENV=development`). Instanțele de producție resping cererile de sincronizare din modul de dezvoltare — folosiți `yarn twenty deploy` pentru a implementa pe serverele de producție. Consultați [Publicarea aplicațiilor](/l/ro/developers/extend/apps/publishing).
 </Warning>
 
 ---
@@ -144,7 +144,7 @@ Aplicațiile sunt compuse din **entități** — fiecare definită într-un fiș
 | --------------------------- | ----------------------------------------------------------------------------------------------- |
 | **Obiecte și câmpuri**      | Modele de date personalizate (carte poștală, factură etc.) cu câmpuri tipizate                  |
 | **Funcții logice**          | TypeScript pe server declanșat de rute HTTP, programări cron sau evenimente din baza de date    |
-| **Componente front-end**    | Componente React care se afișează în UI-ul Twenty (panou lateral, widgeturi, meniul de comenzi) |
+| **Componente front-end**    | Componente React care se afișează în UI-ul Bades.id (panou lateral, widgeturi, meniul de comenzi) |
 | **Abilități și agenți**     | Capabilități AI — instrucțiuni reutilizabile și asistenți autonomi                              |
 | **Vizualizări și navigare** | Vizualizări de listă preconfigurate și elemente de meniu în bara laterală                       |
 | **Layouturi de pagină**     | Pagini personalizate de detalii ale înregistrărilor cu file și widgeturi                        |
@@ -185,7 +185,7 @@ my-twenty-app/
 Folosiți `--example` pentru a începe cu un proiect mai complet (obiecte personalizate, câmpuri, funcții logice, componente front-end):
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app --example postcard
+npx create-bades-app@latest my-twenty-app --example postcard
 ```
 
 Exemplele se află în [twenty-apps/examples](https://github.com/twentyhq/twenty/tree/main/packages/twenty-apps/examples). Puteți, de asemenea, să creați scheletul entităților individuale într-un proiect existent cu `yarn twenty add` — vedeți [Crearea aplicațiilor](/l/ro/developers/extend/apps/building#scaffolding-entities-with-yarn-twenty-add).
@@ -194,7 +194,7 @@ Exemplele se află în [twenty-apps/examples](https://github.com/twentyhq/twenty
 
 ## Gestionarea serverului local
 
-Folosiți `yarn twenty server` pentru a controla containerul Twenty local:
+Folosiți `yarn twenty server` pentru a controla containerul Bades.id local:
 
 | Comandă                                | Ce face                                                      |
 | -------------------------------------- | ------------------------------------------------------------ |
@@ -270,4 +270,4 @@ Nu instalați `twenty-sdk` global — fixați-l per proiect astfel încât fieca
 * **Lipsește Yarn 4** — Rulați `corepack enable`.
 * **Dependențe nefuncționale** — `rm -rf node_modules && yarn install`.
 
-Blocat? Întrebați pe [Discordul Twenty](https://discord.com/channels/1130383047699738754/1130386664812982322).
+Blocat? Întrebați pe [Discordul Bades.id](https://discord.com/channels/1130383047699738754/1130386664812982322).

@@ -46,7 +46,7 @@ export const SignInUpWithMicrosoft = ({
       <StyledSSOButtonContainer>
         <MainButton
           Icon={() => <IconMicrosoft size={theme.icon.size.md} />}
-          title={t`Continue with Microsoft`}
+          title={t`Lanjutkan dengan Microsoft`}
           onClick={handleClick}
           variant={signInUpStep === SignInUpStep.Init ? undefined : 'secondary'}
           fullWidth

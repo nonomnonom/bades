@@ -14,10 +14,10 @@ export const ARTICLE_ROUTES: readonly WebsiteRoute[] =
           id: 'articles',
           path: '/articles',
           title: descriptorFromText(
-            'Twenty Articles | Open Source CRM Insights',
+            'Bades.id Articles | Open Source CRM Insights',
           ),
           description: descriptorFromText(
-            'Ideas from the team building Twenty on open source CRM, customer data, GTM systems, and building software that lasts.',
+            'Ideas from the team building Bades.id on open source CRM, customer data, GTM systems, and building software that lasts.',
           ),
           changeFrequency: 'weekly',
           priority: 0.8,
@@ -28,7 +28,7 @@ export const ARTICLE_ROUTES: readonly WebsiteRoute[] =
           (article): WebsiteRoute => ({
             id: `articles:${article.slug}`,
             path: `/articles/${article.slug}`,
-            title: descriptorFromText(`${article.title} | Twenty Articles`),
+            title: descriptorFromText(`${article.title} | Bades.id Articles`),
             description: descriptorFromText(article.description),
             changeFrequency: 'monthly' as const,
             priority: 0.6,

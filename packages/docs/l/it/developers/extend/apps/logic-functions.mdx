@@ -4,7 +4,7 @@ description: Definisci funzioni TypeScript lato server con trigger HTTP, cron e 
 icon: bolt
 ---
 
-Le funzioni logiche sono funzioni TypeScript lato server che vengono eseguite sulla piattaforma Twenty. Possono essere attivate da richieste HTTP, pianificazioni cron o eventi del database — e possono anche essere esposte come strumenti per agenti di IA.
+Le funzioni logiche sono funzioni TypeScript lato server che vengono eseguite sulla piattaforma Bades.id. Possono essere attivate da richieste HTTP, pianificazioni cron o eventi del database — e possono anche essere esposte come strumenti per agenti di IA.
 
 <AccordionGroup>
 <Accordion title="defineLogicFunction" description="Definisci funzioni logiche e i relativi trigger">
@@ -143,7 +143,7 @@ I nomi delle intestazioni vengono normalizzati in minuscolo. Accedile usando chi
 
 #### Esporre una funzione come strumento
 
-Le funzioni logiche possono essere esposte come **strumenti** per gli agenti di IA e i flussi di lavoro. Quando una funzione è contrassegnata come strumento, diventa individuabile dalle funzionalità di IA di Twenty e può essere utilizzata nelle automazioni dei flussi di lavoro.
+Le funzioni logiche possono essere esposte come **strumenti** per gli agenti di IA e i flussi di lavoro. Quando una funzione è contrassegnata come strumento, diventa individuabile dalle funzionalità di IA di Bades.id e può essere utilizzata nelle automazioni dei flussi di lavoro.
 
 Per contrassegnare una funzione logica come strumento, imposta `isTool: true`:
 
@@ -245,7 +245,7 @@ Punti chiave:
   * `shouldRunSynchronously: false` *(default)* — l'hook viene **messo in coda nella coda dei messaggi** con `retryLimit: 3` ed eseguito in modo asincrono in un worker. La risposta di installazione viene restituita non appena il job è messo in coda, quindi un handler lento o in errore non blocca il chiamante. Il worker riproverà fino a tre volte. **Usalo per job di lunga durata** — popolamento di dataset di grandi dimensioni, chiamate a API di terze parti lente, provisioning di risorse esterne, qualsiasi cosa che possa superare una finestra di risposta HTTP ragionevole.
   * `shouldRunSynchronously: true` — l'hook viene eseguito **inline durante il flusso di installazione** (stesso executor del pre-install). La richiesta di installazione rimane bloccata finché l'handler non termina e, se genera un'eccezione, il chiamante dell'installazione riceve un `POST_INSTALL_ERROR`. Nessun tentativo automatico. **Usalo per attività rapide che devono completarsi prima della risposta** — ad esempio, emettere un errore di validazione all'utente, oppure un setup rapido di cui il client avrà bisogno immediatamente dopo il ritorno della chiamata di installazione. Tieni presente che la migrazione dei metadati è già stata applicata quando viene eseguito il post-install, quindi un errore in modalità sincrona **non** annulla le modifiche allo schema — si limita a far emergere l'errore.
 * Assicurati che il tuo handler sia idempotente. In modalità asincrona la coda può riprovare fino a tre volte; in entrambe le modalità l'hook può essere eseguito di nuovo durante gli aggiornamenti quando `shouldRunOnVersionUpgrade: true`.
-* Le variabili d'ambiente `APPLICATION_ID`, `APP_ACCESS_TOKEN` e `API_URL` sono disponibili all'interno dell'handler (come in qualsiasi altra funzione logica), quindi puoi chiamare le API di Twenty con un token di accesso applicativo con ambito sulla tua app.
+* Le variabili d'ambiente `APPLICATION_ID`, `APP_ACCESS_TOKEN` e `API_URL` sono disponibili all'interno dell'handler (come in qualsiasi altra funzione logica), quindi puoi chiamare le API di Bades.id con un token di accesso applicativo con ambito sulla tua app.
 * È consentita una sola funzione di post-installazione per applicazione. La build del manifesto genererà un errore se ne viene rilevata più di una.
 * I campi `universalIdentifier`, `shouldRunOnVersionUpgrade` e `shouldRunSynchronously` della funzione vengono associati automaticamente al manifest dell'applicazione nel campo `postInstallLogicFunction` durante la build — non è necessario referenziarli in `defineApplication()`.
 * Il timeout predefinito è impostato a 300 secondi (5 minuti) per consentire attività di configurazione più lunghe, come il popolamento dei dati.
@@ -407,7 +407,7 @@ In caso di dubbio, usa **post-install**. Ricorri al pre-install solo quando la m
 
 ## Client API tipizzati (twenty-client-sdk)
 
-Il pacchetto `twenty-client-sdk` fornisce due client GraphQL tipizzati per interagire con l'API di Twenty dalle tue funzioni logiche e dai componenti front-end.
+Il pacchetto `twenty-client-sdk` fornisce due client GraphQL tipizzati per interagire con l'API di Bades.id dalle tue funzioni logiche e dai componenti front-end.
 
 | Client              | Importa                      | Endpoint                                                                 | Generato?                  |
 | ------------------- | ---------------------------- | ------------------------------------------------------------------------ | -------------------------- |
@@ -551,9 +551,9 @@ Punti chiave:
 </AccordionGroup>
 
 <Note>
-  Quando il tuo codice viene eseguito su Twenty (funzioni logiche o componenti front-end), la piattaforma inietta le credenziali come variabili d'ambiente:
+  Quando il tuo codice viene eseguito su Bades.id (funzioni logiche o componenti front-end), la piattaforma inietta le credenziali come variabili d'ambiente:
 
-  * `TWENTY_API_URL` — URL di base dell'API di Twenty
+  * `TWENTY_API_URL` — URL di base dell'API di Bades.id
   * `TWENTY_APP_ACCESS_TOKEN` — Chiave a breve durata con ambito al ruolo funzione predefinito della tua applicazione
 
   Non è **necessario** passarle ai client — vengono lette automaticamente da `process.env`. I permessi della chiave API sono determinati dal ruolo referenziato in `defaultRoleUniversalIdentifier` nel tuo `application-config.ts`.

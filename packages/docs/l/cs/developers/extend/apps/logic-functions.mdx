@@ -4,7 +4,7 @@ description: Definujte serverové funkce v TypeScriptu se spouštěči pro HTTP,
 icon: bolt
 ---
 
-Logické funkce jsou serverové funkce v TypeScriptu, které běží na platformě Twenty. Mohou být spouštěny požadavky HTTP, plány cronu nebo databázovými událostmi — a lze je také zpřístupnit jako nástroje pro agenty AI.
+Logické funkce jsou serverové funkce v TypeScriptu, které běží na platformě Bades.id. Mohou být spouštěny požadavky HTTP, plány cronu nebo databázovými událostmi — a lze je také zpřístupnit jako nástroje pro agenty AI.
 
 <AccordionGroup>
 <Accordion title="defineLogicFunction" description="Definujte logické funkce a jejich spouštěče">
@@ -144,7 +144,7 @@ Názvy záhlaví jsou normalizovány na malá písmena. Přistupujte k nim pomoc
 
 #### Zpřístupnění funkce jako nástroje
 
-Logické funkce lze zpřístupnit jako **nástroje** pro agenty AI a pracovní postupy. Když je funkce označena jako nástroj, stane se dohledatelnou funkcemi AI produktu Twenty a lze ji použít v automatizacích pracovních postupů.
+Logické funkce lze zpřístupnit jako **nástroje** pro agenty AI a pracovní postupy. Když je funkce označena jako nástroj, stane se dohledatelnou funkcemi AI produktu Bades.id a lze ji použít v automatizacích pracovních postupů.
 
 Chcete-li označit logickou funkci jako nástroj, nastavte `isTool: true`:
 
@@ -246,7 +246,7 @@ Hlavní body:
   * `shouldRunSynchronously: false` *(výchozí)* — hook je **zařazen do fronty zpráv** s `retryLimit: 3` a běží asynchronně ve workeru. Odezva instalace se vrátí hned po zařazení úlohy do fronty, takže pomalá nebo chybující obslužná funkce neblokuje volajícího. Worker se pokusí o opakování až třikrát. **Použijte pro dlouho běžící úlohy** — plnění velkých datových sad, volání pomalých externích API, zřizování externích prostředků, cokoli, co by mohlo přesáhnout rozumné časové okno HTTP odezvy.
   * `shouldRunSynchronously: true` — hook se provádí **inline během instalačního procesu** (stejný vykonavatel jako pre-install). Instalační požadavek blokuje, dokud obslužná funkce nedokončí, a pokud vyvolá výjimku, volající instalace obdrží `POST_INSTALL_ERROR`. Žádné automatické opakování. **Použijte pro rychlé úlohy, které se musí dokončit před odpovědí** — například vrácení validační chyby uživateli nebo rychlé nastavení, na kterém bude klient záviset ihned po návratu volání instalace. Mějte na paměti, že v době, kdy se spustí post-install, už byla migrace metadat aplikována, takže selhání v synchronním režimu změny schématu **ne**vrací zpět — pouze odhalí chybu.
 * Ujistěte se, že vaše obslužná funkce je idempotentní. V asynchronním režimu se může fronta pokusit až třikrát; v obou režimech se může hook znovu spustit při aktualizacích, pokud je `shouldRunOnVersionUpgrade: true`.
-* Proměnné prostředí `APPLICATION_ID`, `APP_ACCESS_TOKEN` a `API_URL` jsou dostupné uvnitř obslužné funkce (stejně jako u jakékoli jiné logické funkce), takže můžete volat Twenty API s aplikačním přístupovým tokenem omezeným na vaši aplikaci.
+* Proměnné prostředí `APPLICATION_ID`, `APP_ACCESS_TOKEN` a `API_URL` jsou dostupné uvnitř obslužné funkce (stejně jako u jakékoli jiné logické funkce), takže můžete volat Bades.id API s aplikačním přístupovým tokenem omezeným na vaši aplikaci.
 * Na jednu aplikaci je povolena pouze jedna postinstalační funkce. Sestavení manifestu skončí chybou, pokud je zjištěna více než jedna.
 * Atributy funkce `universalIdentifier`, `shouldRunOnVersionUpgrade` a `shouldRunSynchronously` jsou během buildu automaticky připojeny k manifestu aplikace do pole `postInstallLogicFunction` — není potřeba je uvádět v `defineApplication()`.
 * Výchozí časový limit je nastaven na 300 sekund (5 minut), aby umožnil delší úlohy nastavení, jako je naplnění daty.
@@ -408,7 +408,7 @@ Pokud si nejste jisti, výchozí volbou je **post-install**. Po pre-install sáh
 
 ## Typovaní klienti API (twenty-client-sdk)
 
-Balíček `twenty-client-sdk` poskytuje dva typované klienty GraphQL pro práci s Twenty API z vašich logických funkcí a frontendových komponent.
+Balíček `twenty-client-sdk` poskytuje dva typované klienty GraphQL pro práci s Bades.id API z vašich logických funkcí a frontendových komponent.
 
 | Klient              | Importovat                   | Koncový bod                                                      | Generováno?                    |
 | ------------------- | ---------------------------- | ---------------------------------------------------------------- | ------------------------------ |
@@ -552,9 +552,9 @@ Hlavní body:
 </AccordionGroup>
 
 <Note>
-  Když váš kód běží na Twenty (logické funkce nebo frontendové komponenty), platforma vloží přihlašovací údaje jako proměnné prostředí:
+  Když váš kód běží na Bades.id (logické funkce nebo frontendové komponenty), platforma vloží přihlašovací údaje jako proměnné prostředí:
 
-  * `TWENTY_API_URL` — Základní URL Twenty API
+  * `TWENTY_API_URL` — Základní URL Bades.id API
   * `TWENTY_APP_ACCESS_TOKEN` — krátkodobý klíč s rozsahem omezeným na výchozí roli funkce vaší aplikace
 
   Není nutné je předávat klientům — čtou je automaticky z `process.env`. Oprávnění API klíče jsou určena rolí uvedenou v `defaultRoleUniversalIdentifier` ve vašem `application-config.ts`.

@@ -50,89 +50,91 @@ const GENERATE_NOTE_IDS = (): Record<string, string> => {
 
 export const NOTE_DATA_SEED_IDS = GENERATE_NOTE_IDS();
 
+// Catatan terkait warga/penduduk
 const PERSON_NOTE_TEMPLATES = [
   {
-    title: 'Meeting Follow-up',
+    title: 'Catatan Kunjungan Rumah',
     content:
-      'Great conversation today about potential collaboration opportunities. Next steps discussed include proposal review and timeline planning.',
+      'Telah dilakukan kunjungan rumah untuk verifikasi data kependudukan. Kondisi keluarga baik, data sesuai dengan dokumen yang ada.',
   },
   {
-    title: 'Project Update Discussion',
+    title: 'Permohonan Surat Keterangan',
     content:
-      'Reviewed current project status and identified key deliverables for the upcoming quarter. Timeline adjustments may be needed.',
+      'Warga mengajukan permohonan surat keterangan tidak mampu untuk keperluan beasiswa. Berkas persyaratan sudah lengkap.',
   },
   {
-    title: 'Skills & Experience Review',
+    title: 'Catatan Kesehatan Warga',
     content:
-      'Impressive background in technology and leadership. Strong potential for senior roles in upcoming projects.',
+      'Berdasarkan data Posyandu, kondisi gizi keluarga dalam kategori baik. Perlu pemantauan lanjutan untuk balita.',
   },
   {
-    title: 'Networking Connection',
+    title: 'Laporan Perubahan Data',
     content:
-      'Made connection at industry conference. Shared interests in digital transformation and innovation strategies.',
+      'Warga melaporkan perubahan alamat tempat tinggal. Data sudah diperbarui sesuai surat keterangan pindah.',
   },
   {
-    title: 'Interview Notes',
+    title: 'Catatan Bantuan Sosial',
     content:
-      'Strong candidate with relevant experience. Technical skills align well with team requirements. Positive cultural fit assessment.',
+      'Keluarga ini terdaftar sebagai penerima manfaat program bantuan sosial. Verifikasi lapangan sudah selesai dilakukan.',
   },
   {
-    title: 'Performance Check-in',
+    title: 'Catatan Musyawarah RT',
     content:
-      'Quarterly review completed. Exceeded targets in key areas. Discussed career development opportunities and growth plans.',
+      'Warga berpartisipasi aktif dalam musyawarah RT. Menyampaikan aspirasi terkait perbaikan jalan lingkungan.',
   },
   {
-    title: 'Training & Development',
+    title: 'Pembaruan Dokumen Kependudukan',
     content:
-      'Completed certification program successfully. Ready to take on expanded responsibilities in the next phase.',
+      'Dokumen KTP dan KK sudah diperbarui. Foto terbaru dan tanda tangan digital sudah terekam dalam sistem.',
   },
   {
-    title: 'Client Relationship Notes',
+    title: 'Catatan Program Pemberdayaan',
     content:
-      'Long-standing professional relationship. Reliable partner for complex initiatives. High satisfaction ratings.',
+      'Warga mengikuti pelatihan keterampilan dari program pemberdayaan masyarakat. Progres sangat baik.',
   },
 ];
 
+// Catatan terkait lembaga/organisasi desa
 const COMPANY_NOTE_TEMPLATES = [
   {
-    title: 'Partnership Opportunity',
+    title: 'Rapat Koordinasi Lembaga',
     content:
-      'Promising partnership potential identified. Complementary strengths in market reach and technical capabilities.',
+      'Koordinasi antar lembaga desa berjalan lancar. Disepakati jadwal kegiatan bersama untuk kuartal berikutnya.',
   },
   {
-    title: 'Vendor Assessment',
+    title: 'Evaluasi Program Kerja',
     content:
-      'Comprehensive evaluation completed. Strong financial position and excellent service track record. Recommended for preferred vendor status.',
+      'Evaluasi program kerja menunjukkan capaian 85% dari target yang ditetapkan. Perlu percepatan di beberapa item.',
   },
   {
-    title: 'Market Analysis',
+    title: 'Laporan Kegiatan Sosial',
     content:
-      'Significant player in the industry with growing market share. Innovation-focused approach aligns with our strategic objectives.',
+      'Kegiatan bakti sosial bersama lembaga berjalan sukses. Total warga yang dilayani mencapai 120 KK.',
   },
   {
-    title: 'Contract Negotiation',
+    title: 'Catatan Penggunaan Dana',
     content:
-      'Initial terms discussed. Competitive pricing structure proposed. Legal review scheduled for next phase.',
+      'Realisasi penggunaan dana kegiatan sesuai rencana anggaran. Dokumen pertanggungjawaban sudah lengkap.',
   },
   {
-    title: 'Technology Integration',
+    title: 'Koordinasi Program Desa',
     content:
-      'Advanced technology stack compatible with our systems. Implementation timeline estimated at 6-8 weeks.',
+      'Sinkronisasi program antar lembaga sudah dilakukan. Tidak ada tumpang tindih kegiatan pada bulan depan.',
   },
   {
-    title: 'Due Diligence Report',
+    title: 'Penilaian Kinerja Lembaga',
     content:
-      'Financial health indicators positive. Strong leadership team and sustainable business model. Low risk assessment.',
+      'Berdasarkan indikator kinerja, lembaga ini masuk kategori aktif dan produktif dalam mendukung program desa.',
   },
   {
-    title: 'Customer Success Story',
+    title: 'Rencana Program Tahun Depan',
     content:
-      'Excellent case study of successful digital transformation. Results exceeded expectations with 40% efficiency improvement.',
+      'Usulan program tahun depan sudah disampaikan. Fokus pada pemberdayaan ekonomi dan peningkatan infrastruktur.',
   },
   {
-    title: 'Industry Insights',
+    title: 'Catatan Pengaduan Masyarakat',
     content:
-      'Valuable perspective on market trends and future opportunities. Thought leadership in emerging technologies.',
+      'Pengaduan warga terkait layanan sudah ditindaklanjuti. Respons positif dari masyarakat terhadap penyelesaian.',
   },
 ];
 
@@ -164,12 +166,12 @@ const GENERATE_NOTE_SEEDS = (): NoteDataSeed[] => {
       ]),
       bodyV2Markdown: TEMPLATE.content,
       createdBySource: 'MANUAL',
-      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      createdByName: 'Tim A',
+      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      createdByName: 'Drs. H. Abdullah',
       createdByContext: null,
       updatedBySource: 'MANUAL',
-      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      updatedByName: 'Tim A',
+      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      updatedByName: 'Drs. H. Abdullah',
     });
   }
 
@@ -197,12 +199,12 @@ const GENERATE_NOTE_SEEDS = (): NoteDataSeed[] => {
       ]),
       bodyV2Markdown: TEMPLATE.content,
       createdBySource: 'MANUAL',
-      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      createdByName: 'Tim A',
+      createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      createdByName: 'Drs. H. Abdullah',
       createdByContext: null,
       updatedBySource: 'MANUAL',
-      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
-      updatedByName: 'Tim A',
+      updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
+      updatedByName: 'Drs. H. Abdullah',
     });
   }
 

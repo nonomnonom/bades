@@ -147,7 +147,7 @@ export function Scene({ cards }: SceneProps) {
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`change with Twenty`)}
+              {i18n._(msg`change with Bades.id`)}
             </HeadingPart>
           </Heading>
         </HeadlineBlock>

@@ -6,7 +6,7 @@ description: Ricevi una notifica quando i record cambiano — HTTP POST al tuo e
 
 import { VimeoEmbed } from '/snippets/vimeo-embed.mdx';
 
-Twenty invia un HTTP POST al tuo URL ogni volta che un record viene creato, aggiornato o eliminato. Tutti i tipi di oggetto sono supportati, inclusi gli oggetti personalizzati.
+Bades.id invia un HTTP POST al tuo URL ogni volta che un record viene creato, aggiornato o eliminato. Tutti i tipi di oggetto sono supportati, inclusi gli oggetti personalizzati.
 
 ## Crea un Webhook
 
@@ -27,7 +27,7 @@ Il webhook si attiva immediatamente e inizia a inviare notifiche.
 
 ## Eventi
 
-Twenty invia webhook per questi tipi di eventi:
+Bades.id invia webhook per questi tipi di eventi:
 
 | Evento                | Esempio                                                    |
 | --------------------- | ---------------------------------------------------------- |
@@ -68,21 +68,21 @@ Rispondi con uno **status HTTP 2xx** (200-299) per confermare la ricezione. Le r
 
 ## Convalida del Webhook
 
-Twenty firma ogni richiesta webhook per motivi di sicurezza. Convalida le firme per assicurarti che le richieste siano autentiche.
+Bades.id firma ogni richiesta webhook per motivi di sicurezza. Convalida le firme per assicurarti che le richieste siano autentiche.
 
 ### Intestazioni
 
 | Intestazione                 | Descrizione               |
 | ---------------------------- | ------------------------- |
-| `X-Twenty-Webhook-Signature` | Firma HMAC SHA256         |
-| `X-Twenty-Webhook-Timestamp` | Timestamp della richiesta |
+| `X-Bades.id-Webhook-Signature` | Firma HMAC SHA256         |
+| `X-Bades.id-Webhook-Timestamp` | Timestamp della richiesta |
 
 ### Passaggi di convalida
 
-1. Ottieni il timestamp da `X-Twenty-Webhook-Timestamp`
+1. Ottieni il timestamp da `X-Bades.id-Webhook-Timestamp`
 2. Crea la stringa: `{timestamp}:{JSON payload}`
 3. Calcola HMAC SHA256 usando il segreto del tuo webhook
-4. Confronta con `X-Twenty-Webhook-Signature`
+4. Confronta con `X-Bades.id-Webhook-Signature`
 
 ### Esempio (Node.js)
 
@@ -112,6 +112,6 @@ const isValid = crypto.timingSafeEqual(
 | -------------------------------- | --------- | ------------------------------------------------------------------------ |
 | **Webhooks**                     | OUT       | Notifica automaticamente ai sistemi esterni qualsiasi modifica ai record |
 | **Workflow + HTTP Request**      | OUT       | Invia dati in uscita con logica personalizzata (filtri, trasformazioni)  |
-| **Trigger webhook del Workflow** | IN        | Ricevi dati in Twenty da sistemi esterni                                 |
+| **Trigger webhook del Workflow** | IN        | Ricevi dati in Bades.id da sistemi esterni                                 |
 
 Per la ricezione di dati esterni, vedi [Configura un trigger webhook](/l/it/user-guide/workflows/how-tos/connect-to-other-tools/set-up-a-webhook-trigger).

@@ -13,7 +13,7 @@ export const FEATURE_TILES: FeatureTileType[] = [
   {
     category: msg`Reports & Dashboards`,
     heading: msg`Metrics you can actually trust.`,
-    description: msg`Build custom dashboards from live CRM data. Aggregate anything — deals, accounts, activity — into charts your team actually reads.`,
+    description: msg`Build custom dashboards from live village data. Aggregate anything — residents, services, activity — into charts your team actually reads.`,
     visual: DashboardVisual,
     bullets: [
       {
@@ -38,21 +38,21 @@ export const FEATURE_TILES: FeatureTileType[] = [
   {
     category: msg`Email & Calendar`,
     heading: msg`Every thread, on the right record.`,
-    description: msg`Connect Google or Microsoft accounts and see emails and events linked to CRM records automatically.`,
+    description: msg`Connect Google or Microsoft accounts and see emails and events linked to village records automatically.`,
     visual: EmailsVisual,
     bullets: [
       { icon: 'check', text: msg`Connect Google or Microsoft accounts` },
       {
         icon: 'search',
-        text: msg`Emails and events linked to CRM records`,
+        text: msg`Emails and events linked to village records`,
       },
       { icon: 'book', text: msg`Full communication history in one place` },
     ],
   },
   {
-    category: msg`Contacts & Companies`,
+    category: msg`Residents & Households`,
     heading: msg`Your network, fully mapped.`,
-    description: msg`Custom fields, relationships, and a unified timeline for every contact and company in your workspace.`,
+    description: msg`Custom fields, relationships, and a unified timeline for every resident and household in your village.`,
     visual: ContactsVisual,
     bullets: [
       { icon: 'edit', text: msg`Custom fields and relationships` },
@@ -67,14 +67,14 @@ export const FEATURE_TILES: FeatureTileType[] = [
     ],
   },
   {
-    category: msg`Pipeline Management`,
-    heading: msg`Deals that move themselves.`,
-    description: msg`Custom deal stages, drag-and-drop boards, and real-time tracking so your pipeline reflects reality.`,
+    category: msg`Service Pipeline`,
+    heading: msg`Services that move themselves.`,
+    description: msg`Custom service stages, drag-and-drop boards, and real-time tracking so your pipeline reflects village reality.`,
     visual: PipelineVisual,
     bullets: [
-      { icon: 'edit', text: msg`Custom deal stages for your process` },
-      { icon: 'check', text: msg`Drag-and-drop deals between stages` },
-      { icon: 'tag', text: msg`Track amount and close date` },
+      { icon: 'edit', text: msg`Custom service stages for your process` },
+      { icon: 'check', text: msg`Drag-and-drop services between stages` },
+      { icon: 'tag', text: msg`Track requests and completion date` },
     ],
   },
   {
@@ -93,7 +93,7 @@ export const FEATURE_TILES: FeatureTileType[] = [
   },
   {
     category: msg`Data import`,
-    heading: msg`From CSV to CRM in minutes.`,
+    heading: msg`From CSV to Village Records in minutes.`,
     description: msg`Import your data with field mapping, including relations. Export anytime — your data is always yours.`,
     visual: ImportVisual,
     bullets: [

@@ -3,7 +3,7 @@ import type { TestimonialCardType } from '@/sections/Testimonials';
 
 export const PARTNER_TESTIMONIALS: TestimonialCardType[] = [
   {
-    heading: msg`Twenty gives you the kind of flexibility that actually changes what you can offer your clients. The dev experience is clean, the APIs are open, and when something needs to be customized, you can just do it. There's no fighting the platform.`,
+    heading: msg`Bades.id gives you the kind of flexibility that actually changes what you can offer your clients. The dev experience is clean, the APIs are open, and when something needs to be customized, you can just do it. There's no fighting the platform.`,
     author: {
       name: msg`Benjamin Reynolds`,
       designation: msg`Principal and Founder, Alternative Partners`,
@@ -25,7 +25,7 @@ export const PARTNER_TESTIMONIALS: TestimonialCardType[] = [
     },
   },
   {
-    heading: msg`Twenty Apps opens the door to building products, not just implementations. For example, we're developing a WhatsApp Business integration that any Twenty's client could get. That's a recurring revenue stream we wouldn't have if we were just configuring someone else's platform.`,
+    heading: msg`Bades.id Apps opens the door to building products, not just implementations. For example, we're developing a WhatsApp Business integration that any Bades.id's client could get. That's a recurring revenue stream we wouldn't have if we were just configuring someone else's platform.`,
     author: {
       name: msg`Mike Babiy`,
       designation: msg`Founder, Nine Dots Ventures`,

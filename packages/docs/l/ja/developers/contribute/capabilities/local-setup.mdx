@@ -1,13 +1,13 @@
 ---
 title: ローカルセットアップ
-description: 寄稿者（または好奇心旺盛な開発者）のためのガイドで、ローカルにTwentyを実行したい人向けです。
+description: 寄稿者（または好奇心旺盛な開発者）のためのガイドで、ローカルにBades.idを実行したい人向けです。
 ---
 
 ## 前提条件
 
 <Tabs>
   <Tab title="LinuxとMacOS">
-    Twentyをインストールして使用する前に、以下をコンピュータにインストールしてください。
+    Bades.idをインストールして使用する前に、以下をコンピュータにインストールしてください。
 
     * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
     * [Node v24.5.0](https://nodejs.org/en/download)
@@ -217,7 +217,7 @@ cd twenty
 
 ## ステップ4：Redisデータベース（キャッシュ）をセットアップ
 
-Twentyは、最良のパフォーマンスを提供するためにredisキャッシュを必要とします。
+Bades.idは、最良のパフォーマンスを提供するためにredisキャッシュを必要とします。
 
 <Tabs>
   <Tab title="Linux">
@@ -264,7 +264,7 @@ Twentyは、最良のパフォーマンスを提供するためにredisキャッ
 
 ## ステップ5：環境変数をセットアップします
 
-環境変数や`.env`ファイルを使ってプロジェクトを設定します。 詳細は[こちら](https://docs.twenty.com/l/ja/developers/self-hosting/setup)。 詳細は[こちら](/l/ja/developers/self-host/capabilities/setup)。
+環境変数や`.env`ファイルを使ってプロジェクトを設定します。 詳細は[こちら](https://docs.bades.id/l/ja/developers/self-hosting/setup)。 詳細は[こちら](/l/ja/developers/self-host/capabilities/setup)。
 
 `/front`と`/server`内の`.env.example`ファイルをコピーします：
 
@@ -274,12 +274,12 @@ cp ./packages/twenty-server/.env.example ./packages/twenty-server/.env
 ```
 
 <Info>
-  **マルチワークスペースモード:** デフォルトでは、Twenty は単一ワークスペースモードで動作し、ワークスペースは 1 つだけ作成できます。 マルチワークスペース対応を有効にするには（サブドメインベースの機能のテストに有用）、サーバーの `.env` ファイルで `IS_MULTIWORKSPACE_ENABLED=true` を設定してください。 詳細は[マルチワークスペースモード](/l/ja/developers/self-host/capabilities/setup#multi-workspace-mode)を参照してください。
+  **マルチワークスペースモード:** デフォルトでは、Bades.id は単一ワークスペースモードで動作し、ワークスペースは 1 つだけ作成できます。 マルチワークスペース対応を有効にするには（サブドメインベースの機能のテストに有用）、サーバーの `.env` ファイルで `IS_MULTIWORKSPACE_ENABLED=true` を設定してください。 詳細は[マルチワークスペースモード](/l/ja/developers/self-host/capabilities/setup#multi-workspace-mode)を参照してください。
 </Info>
 
 ## ステップ6：依存関係をインストールします
 
-Twentyサーバーを構築し、データベースにデータをシードするには、以下のコマンドを実行します：
+Bades.idサーバーを構築し、データベースにデータをシードするには、以下のコマンドを実行します：
 
 ```bash
 yarn
@@ -329,16 +329,16 @@ npx nx start twenty-front
 npx nx start
 ```
 
-## ステップ 8: Twentyを使用する
+## ステップ 8: Bades.idを使用する
 
 **フロントエンド**
 
-Twentyのフロントエンドは[http://localhost:3001](http://localhost:3001)で稼働しています。
+Bades.idのフロントエンドは[http://localhost:3001](http://localhost:3001)で稼働しています。
 デフォルトのデモアカウントを使用してログインできます: `tim@apple.dev` (パスワード: `tim@apple.dev`)
 
 **バックエンド**
 
-* Twentyのサーバーは[http://localhost:3000](http://localhost:3000)で稼働しています
+* Bades.idのサーバーは[http://localhost:3000](http://localhost:3000)で稼働しています
 * GraphQL API は [http://localhost:3000/graphql](http://localhost:3000/graphql) でアクセスできます
 * REST API は [http://localhost:3000/rest](http://localhost:3000/rest) でアクセスできます
 

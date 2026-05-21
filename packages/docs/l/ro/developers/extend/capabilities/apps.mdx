@@ -1,6 +1,6 @@
 ---
-title: Aplicații Twenty
-description: Construiți și gestionați personalizările Twenty sub formă de cod.
+title: Aplicații Bades.id
+description: Construiți și gestionați personalizările Bades.id sub formă de cod.
 ---
 
 <Warning>
@@ -9,25 +9,25 @@ Aplicațiile sunt în prezent în testare alfa. Caracteristica funcționează, d
 
 ## Ce sunt aplicațiile?
 
-Aplicațiile vă permit să extindeți Twenty cu obiecte personalizate, câmpuri, funcții logice, componente front-end, abilități IA și altele — toate gestionate ca cod. În loc să configurați totul prin interfața de utilizator (UI), vă definiți modelul de date și logica în TypeScript și le implementați în unul sau mai multe spații de lucru.
+Aplicațiile vă permit să extindeți Bades.id cu obiecte personalizate, câmpuri, funcții logice, componente front-end, abilități IA și altele — toate gestionate ca cod. În loc să configurați totul prin interfața de utilizator (UI), vă definiți modelul de date și logica în TypeScript și le implementați în unul sau mai multe spații de lucru.
 
 **Ce puteți construi:**
 
 * **Obiecte și câmpuri personalizate** — extindeți modelul de date cu entități noi sau adăugați câmpuri la obiecte existente, precum Companie sau Persoană
 * **Funcții logice** — funcții pe partea de server declanșate de evenimente ale bazei de date, programări cron sau rute HTTP
-* **Componente front-end** — componente React care se afișează în interfața Twenty (pagini de înregistrări, meniul de comenzi, panouri laterale)
-* **Abilități și agenți IA** — extindeți IA din Twenty cu capabilități personalizate
+* **Componente front-end** — componente React care se afișează în interfața Bades.id (pagini de înregistrări, meniul de comenzi, panouri laterale)
+* **Abilități și agenți IA** — extindeți IA din Bades.id cu capabilități personalizate
 * **Vizualizări și navigare** — vizualizări salvate preconfigurate și linkuri în bara laterală
 
 ## Pornire rapidă
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 cd my-twenty-app
 yarn twenty dev
 ```
 
-Aceasta creează scheletul unei aplicații noi, pornește opțional un server Twenty local și începe să monitorizeze fișierele pentru modificări. Consultați ghidul [Începeți](/l/ro/developers/extend/apps/getting-started) pentru prezentarea completă.
+Aceasta creează scheletul unei aplicații noi, pornește opțional un server Bades.id local și începe să monitorizeze fișierele pentru modificări. Consultați ghidul [Începeți](/l/ro/developers/extend/apps/getting-started) pentru prezentarea completă.
 
 ## Ghiduri detaliate
 
@@ -51,7 +51,7 @@ SDK-ul detectează entitățile scanând fișierele TypeScript pentru apeluri `e
 | `defineObject()`                   | Obiecte personalizate cu câmpuri                         |
 | `defineField()`                    | Câmpuri pe obiecte existente                             |
 | `defineLogicFunction()`            | Logică pe partea de server cu declanșatoare              |
-| `defineFrontComponent()`           | Componente React în interfața Twenty                     |
+| `defineFrontComponent()`           | Componente React în interfața Bades.id                     |
 | `defineRole()`                     | Roluri de permisiuni                                     |
 | `defineView()`                     | Configurații pentru vizualizări salvate                  |
 | `defineNavigationMenuItem()`       | Linkuri de navigare în bara laterală                     |
@@ -65,7 +65,7 @@ SDK-ul detectează entitățile scanând fișierele TypeScript pentru apeluri `e
 
 1. **`yarn twenty dev`** — monitorizează fișierele sursă, reconstruiește la modificări, sincronizează cu serverul, generează clienți API tipizați
 2. **`yarn twenty build`** — produce o versiune distribuibilă
-3. **`yarn twenty deploy`** — implementează pe un server Twenty la distanță
+3. **`yarn twenty deploy`** — implementează pe un server Bades.id la distanță
 4. **`yarn twenty add`** — generează interactiv o entitate nouă
 
 ### Referință CLI
@@ -73,7 +73,7 @@ SDK-ul detectează entitățile scanând fișierele TypeScript pentru apeluri `e
 ```bash filename="Terminal"
 yarn twenty help          # Listează toate comenzile
 yarn twenty server start  # Pornește serverul local de dezvoltare
-yarn twenty remote add    # Conectează-te la un server Twenty
+yarn twenty remote add    # Conectează-te la un server Bades.id
 yarn twenty exec -n fn    # Execută o funcție logică
 yarn twenty logs -n fn    # Transmite în flux jurnalele funcției
 ```

@@ -163,7 +163,7 @@ export function Root({
             <MobileRightContainer>
               <LinkButton
                 color={buttonColor.linkButton}
-                href="https://app.twenty.com/welcome"
+                href="https://bades.id/masuk"
                 label={i18n._(msg`Get started`)}
                 variant="contained"
               />

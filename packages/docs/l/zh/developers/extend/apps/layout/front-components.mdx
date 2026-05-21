@@ -1,14 +1,14 @@
 ---
 title: 前端组件
-description: 构建可在 Twenty 的 UI 中渲染并具备沙盒隔离的 React 组件。
+description: 构建可在 Bades.id 的 UI 中渲染并具备沙盒隔离的 React 组件。
 icon: window-maximize
 ---
 
-前端组件是直接在 Twenty 的 UI 内渲染的 React 组件。 它们在使用 Remote DOM 的**隔离 Web Worker**中运行——你的代码在沙盒中执行，但会原生渲染到页面中，而非在 iframe 里。
+前端组件是直接在 Bades.id 的 UI 内渲染的 React 组件。 它们在使用 Remote DOM 的**隔离 Web Worker**中运行——你的代码在沙盒中执行，但会原生渲染到页面中，而非在 iframe 里。
 
 ## 前端组件可用位置
 
-在 Twenty 中，前端组件可在两个位置进行渲染：
+在 Bades.id 中，前端组件可在两个位置进行渲染：
 
 * **侧边栏** — 非无头的前端组件会在右侧侧边栏中打开。 当前端组件从命令菜单触发时，这是默认行为。
 * **小部件（仪表盘和记录页面）** — 前端组件可以作为小部件嵌入到[页面布局](/l/zh/developers/extend/apps/layout/page-layouts)中。 在配置仪表盘或记录页面布局时，用户可以添加前端组件小部件。
@@ -29,7 +29,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -110,7 +110,7 @@ export default defineFrontComponent({
 });
 ```
 
-由于该组件返回 `null`，Twenty 会跳过为其渲染容器——布局中不会出现空白区域。 该组件仍可访问所有 hooks 和宿主通信 API。
+由于该组件返回 `null`，Bades.id 会跳过为其渲染容器——布局中不会出现空白区域。 该组件仍可访问所有 hooks 和宿主通信 API。
 
 ## SDK Command 组件
 
@@ -268,7 +268,7 @@ export default defineFrontComponent({
 
 | 变量                        | 描述                 |
 | ------------------------- | ------------------ |
-| `TWENTY_API_URL`          | Twenty API 的基础 URL |
+| `TWENTY_API_URL`          | Bades.id API 的基础 URL |
 | `TWENTY_APP_ACCESS_TOKEN` | 限定在你的应用角色范围内的短期令牌  |
 
 ## 宿主通信 API
@@ -409,7 +409,7 @@ export default defineFrontComponent({
 前端组件支持多种样式方案。 你可以使用：
 
 * **内联样式** — `style={{ color: 'red' }}`
-* **Twenty UI 组件** — 从 `twenty-sdk/ui` 导入（Button、Tag、Status、Chip、Avatar 等）
+* **Bades.id UI 组件** — 从 `twenty-sdk/ui` 导入（Button、Tag、Status、Chip、Avatar 等）
 * **Emotion** — 使用 `@emotion/react` 的 CSS-in-JS
 * **Styled-components** — `styled.div` 模式
 * **Tailwind CSS** — 工具类

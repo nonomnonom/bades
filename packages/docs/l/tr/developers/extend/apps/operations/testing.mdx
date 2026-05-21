@@ -1,10 +1,10 @@
 ---
 title: Test
-description: Vitest kurulumu, gerçek bir Twenty sunucusunda entegrasyon testleri, tip denetimi ve GitHub Actions ile CI.
+description: Vitest kurulumu, gerçek bir Bades.id sunucusunda entegrasyon testleri, tip denetimi ve GitHub Actions ile CI.
 icon: flask
 ---
 
-SDK, test kodundan uygulamanızı derlemenize, dağıtmanıza, yüklemenize ve kaldırmanıza olanak tanıyan programatik API'ler sağlar. Tiplenmiş API istemcileriyle birlikte [Vitest](https://vitest.dev/) kullanarak, uygulamanızın gerçek bir Twenty sunucusunda uçtan uca çalıştığını doğrulayan entegrasyon testleri yazabilirsiniz.
+SDK, test kodundan uygulamanızı derlemenize, dağıtmanıza, yüklemenize ve kaldırmanıza olanak tanıyan programatik API'ler sağlar. Tiplenmiş API istemcileriyle birlikte [Vitest](https://vitest.dev/) kullanarak, uygulamanızın gerçek bir Bades.id sunucusunda uçtan uca çalıştığını doğrulayan entegrasyon testleri yazabilirsiniz.
 
 ## npm paketlerini kullanma
 
@@ -115,7 +115,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -218,7 +218,7 @@ describe('App installation', () => {
 
 ## Testleri çalıştırma
 
-Yerel Twenty sunucunuzun çalıştığından emin olun, ardından:
+Yerel Bades.id sunucunuzun çalıştığından emin olun, ardından:
 
 ```bash filename="Terminal"
 yarn test
@@ -247,7 +247,7 @@ Bu, `tsc --noEmit` komutunu çalıştırır ve tüm tip hatalarını raporlar.
 İş akışı:
 
 1. Kodunuzu çalışma alanına alır
-2. `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` eylemini kullanarak geçici bir Twenty sunucusu başlatır
+2. `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` eylemini kullanarak geçici bir Bades.id sunucusu başlatır
 3. `yarn install --immutable` ile bağımlılıkları kurar
 4. Eylem çıktılarından enjekte edilen `TWENTY_API_URL` ve `TWENTY_API_KEY` ile `yarn test` çalıştırır
 
@@ -270,7 +270,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -296,6 +296,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Herhangi bir gizli değişken yapılandırmanız gerekmez — `spawn-twenty-docker-image` eylemi, koşucu içinde doğrudan geçici bir Twenty sunucusu başlatır ve bağlantı ayrıntılarını çıktı olarak verir. `GITHUB_TOKEN` gizli değişkeni GitHub tarafından otomatik olarak sağlanır.
+Herhangi bir gizli değişken yapılandırmanız gerekmez — `spawn-twenty-docker-image` eylemi, koşucu içinde doğrudan geçici bir Bades.id sunucusu başlatır ve bağlantı ayrıntılarını çıktı olarak verir. `GITHUB_TOKEN` gizli değişkeni GitHub tarafından otomatik olarak sağlanır.
 
-`latest` yerine belirli bir Twenty sürümünü sabitlemek için iş akışının başındaki `TWENTY_VERSION` ortam değişkenini değiştirin.
+`latest` yerine belirli bir Bades.id sürümünü sabitlemek için iş akışının başındaki `TWENTY_VERSION` ortam değişkenini değiştirin.

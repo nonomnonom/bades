@@ -1,15 +1,15 @@
 ---
 title: Publishing
 icon: "upload"
-description: Distribute your Twenty app to the marketplace or deploy it internally.
+description: Distribute your Bades.id app to the marketplace or deploy it internally.
 ---
 
 ## Overview
 
 Once your app is [built and tested locally](/developers/extend/apps/getting-started/concepts), you have two paths for distributing it:
 
-- **Deploy a tarball** — upload your app directly to a specific Twenty server for internal or private use.
-- **Publish to npm** — list your app in the Twenty marketplace for any workspace to discover and install.
+- **Deploy a tarball** — upload your app directly to a specific Bades.id server for internal or private use.
+- **Publish to npm** — list your app in the Bades.id marketplace for any workspace to discover and install.
 
 Both paths start from the same **build** step.
 
@@ -25,7 +25,7 @@ This compiles TypeScript sources, transpiles logic functions and front component
 
 ## Deploying to a server (tarball)
 
-For apps you don't want publicly available — proprietary tools, enterprise-only integrations, or experimental builds — you can deploy a tarball directly to a Twenty server.
+For apps you don't want publicly available — proprietary tools, enterprise-only integrations, or experimental builds — you can deploy a tarball directly to a Bades.id server.
 
 ### Prerequisites
 
@@ -79,7 +79,7 @@ Pre-release tags work as expected: bumping `1.0.0-rc.1` → `1.0.0-rc.2` is allo
 
 ### Server version compatibility
 
-If your app uses a feature introduced in a specific Twenty server version (for example, OAuth providers added in v2.3.0), you should declare the minimum server version your app requires using the `engines.twenty` field in `package.json`:
+If your app uses a feature introduced in a specific Bades.id server version (for example, OAuth providers added in v2.3.0), you should declare the minimum server version your app requires using the `engines.twenty` field in `package.json`:
 
 ```json filename="package.json"
 {
@@ -112,7 +112,7 @@ The server is the authoritative check — it validates `engines.twenty` on both 
 
 ## Automated CI/CD (scaffolded workflows)
 
-Apps generated with `create-twenty-app` ship with two GitHub Actions workflows out of the box, under `.github/workflows/`. They are ready to run as soon as you push the repo to GitHub — no extra setup is needed for CI, and CD only requires a single secret.
+Apps generated with `create-bades-app` ship with two GitHub Actions workflows out of the box, under `.github/workflows/`. They are ready to run as soon as you push the repo to GitHub — no extra setup is needed for CI, and CD only requires a single secret.
 
 ### CI — `ci.yml`
 
@@ -121,20 +121,20 @@ Runs integration tests on every push to `main` and every pull request.
 **What it does:**
 
 1. Checks out your app's source.
-2. Spawns an isolated Twenty test instance using the `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` composite action (the CI equivalent of `yarn twenty docker:start --test`).
+2. Spawns an isolated Bades.id test instance using the `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` composite action (the CI equivalent of `yarn twenty docker:start --test`).
 3. Enables Corepack, sets up Node.js from your `.nvmrc`, and installs dependencies with `yarn install --immutable`.
 4. Runs `yarn test`, passing `TWENTY_API_URL` and `TWENTY_API_KEY` from the spawned instance so your tests can talk to a real server.
 
 **Config knobs:**
 
-- `TWENTY_VERSION` (env, defaults to `latest`) — pin the Twenty server version used in CI by editing this in `ci.yml`.
+- `TWENTY_VERSION` (env, defaults to `latest`) — pin the Bades.id server version used in CI by editing this in `ci.yml`.
 - Concurrency is grouped by `github.ref` and cancels in-progress runs on new pushes.
 
 No secrets are required — the test instance is ephemeral and lives only for the duration of the job.
 
 ### CD — `cd.yml`
 
-Deploys your app to a configured Twenty server on every push to `main`, and optionally from a pull request when the `deploy` label is applied.
+Deploys your app to a configured Bades.id server on every push to `main`, and optionally from a pull request when the `deploy` label is applied.
 
 **What it does:**
 
@@ -146,7 +146,7 @@ Deploys your app to a configured Twenty server on every push to `main`, and opti
 
 | Setting | Where | Purpose |
 |---------|-------|---------|
-| `TWENTY_DEPLOY_URL` | `env` in `cd.yml` (defaults to `http://localhost:3000`) | The Twenty server to deploy to. Change this to your real server URL before first use. |
+| `TWENTY_DEPLOY_URL` | `env` in `cd.yml` (defaults to `http://localhost:3000`) | The Bades.id server to deploy to. Change this to your real server URL before first use. |
 | `TWENTY_DEPLOY_API_KEY` | GitHub repo **Settings → Secrets and variables → Actions** | API key with deploy permission on the target server. |
 
 <Note>
@@ -163,12 +163,12 @@ Both workflows reference reusable actions at `@main`, so action updates in the `
 
 ## Publishing to npm
 
-Publishing to npm makes your app discoverable in the Twenty marketplace. Any Twenty workspace can browse, install, and upgrade marketplace apps directly from the UI.
+Publishing to npm makes your app discoverable in the Bades.id marketplace. Any Bades.id workspace can browse, install, and upgrade marketplace apps directly from the UI.
 
 ### Requirements
 
 - An [npm](https://www.npmjs.com) account
-- The `twenty-app` keyword in your `package.json` `keywords` array (add it manually — it is not included by default in the `create-twenty-app` template)
+- The `twenty-app` keyword in your `package.json` `keywords` array (add it manually — it is not included by default in the `create-bades-app` template)
 
 ```json filename="package.json"
 {
@@ -219,7 +219,7 @@ yarn twenty app:publish --tag beta
 
 ### How marketplace discovery works
 
-The Twenty server syncs its marketplace catalog from the npm registry **every hour**.
+The Bades.id server syncs its marketplace catalog from the npm registry **every hour**.
 
 You can trigger the sync immediately instead of waiting:
 
@@ -232,7 +232,7 @@ yarn twenty dev:catalog-sync
 The metadata shown in the marketplace comes from your `defineApplication()` config — fields like `displayName`, `description`, `author`, `category`, `logoUrl`, `screenshots`, `aboutDescription`, `websiteUrl`, and `termsUrl`.
 
 <Note>
-If your app does not define an `aboutDescription` in `defineApplication()`, the marketplace will automatically use your package's `README.md` from npm as the about page content. This means you can maintain a single README for both npm and the Twenty marketplace. If you want a different description in the marketplace, explicitly set `aboutDescription`.
+If your app does not define an `aboutDescription` in `defineApplication()`, the marketplace will automatically use your package's `README.md` from npm as the about page content. This means you can maintain a single README for both npm and the Bades.id marketplace. If you want a different description in the marketplace, explicitly set `aboutDescription`.
 </Note>
 
 ### CI publishing
@@ -274,7 +274,7 @@ For other CI systems (GitLab CI, CircleCI, etc.), the same three commands apply:
 
 Once an app is published (npm) or deployed (tarball), workspaces can install it through the UI.
 
-Go to the **Settings > Applications** page in Twenty, where both marketplace and tarball-deployed apps can be browsed and installed.
+Go to the **Settings > Applications** page in Bades.id, where both marketplace and tarball-deployed apps can be browsed and installed.
 
 {/* TODO: add screenshot of the UI when the app is registered */}
 

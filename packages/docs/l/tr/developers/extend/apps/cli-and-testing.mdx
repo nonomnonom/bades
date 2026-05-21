@@ -120,7 +120,7 @@ Her iki ortamda da `twenty-client-sdk/core` ve `twenty-client-sdk/metadata` önc
 
 ## Uygulamanızı test etme
 
-SDK, test kodundan uygulamanızı derlemenize, dağıtmanıza, yüklemenize ve kaldırmanıza olanak tanıyan programatik API'ler sağlar. Tiplenmiş API istemcileriyle birlikte [Vitest](https://vitest.dev/) kullanarak, uygulamanızın gerçek bir Twenty sunucusunda uçtan uca çalıştığını doğrulayan entegrasyon testleri yazabilirsiniz.
+SDK, test kodundan uygulamanızı derlemenize, dağıtmanıza, yüklemenize ve kaldırmanıza olanak tanıyan programatik API'ler sağlar. Tiplenmiş API istemcileriyle birlikte [Vitest](https://vitest.dev/) kullanarak, uygulamanızın gerçek bir Bades.id sunucusunda uçtan uca çalıştığını doğrulayan entegrasyon testleri yazabilirsiniz.
 
 ### Kurulum
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### Testleri çalıştırma
 
-Yerel Twenty sunucunuzun çalıştığından emin olun, ardından:
+Yerel Bades.id sunucunuzun çalıştığından emin olun, ardından:
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Bu, Docker konteyner günlüklerini gösteren `yarn twenty server logs` komutundan farklıdır. `yarn twenty logs`, uygulamanızın fonksiyon yürütme günlüklerini Twenty sunucusundan gösterir.
+Bu, Docker konteyner günlüklerini gösteren `yarn twenty server logs` komutundan farklıdır. `yarn twenty logs`, uygulamanızın fonksiyon yürütme günlüklerini Bades.id sunucusundan gösterir.
 </Note>
 
 ### Bir uygulamayı kaldırma (`yarn twenty uninstall`)
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## Uzakları yönetme
 
-Bir **uzak**, uygulamanızın bağlandığı Twenty sunucusudur. Kurulum sırasında iskelet oluşturucu sizin için otomatik olarak bir tane oluşturur. Dilediğiniz zaman daha fazla uzak ekleyebilir veya aralarında geçiş yapabilirsiniz.
+Bir **uzak**, uygulamanızın bağlandığı Bades.id sunucusudur. Kurulum sırasında iskelet oluşturucu sizin için otomatik olarak bir tane oluşturur. Dilediğiniz zaman daha fazla uzak ekleyebilir veya aralarında geçiş yapabilirsiniz.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ Kimlik bilgileriniz `~/.twenty/config.json` içinde saklanır.
 İş akışı:
 
 1. Kodunuzu çalışma alanına alır
-2. `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` eylemini kullanarak geçici bir Twenty sunucusu başlatır
+2. `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` eylemini kullanarak geçici bir Bades.id sunucusu başlatır
 3. `yarn install --immutable` ile bağımlılıkları kurar
 4. Eylem çıktılarından enjekte edilen `TWENTY_API_URL` ve `TWENTY_API_KEY` ile `yarn test` çalıştırır
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Herhangi bir gizli değişken yapılandırmanız gerekmez — `spawn-twenty-docker-image` eylemi, koşucu içinde doğrudan geçici bir Twenty sunucusu başlatır ve bağlantı ayrıntılarını çıktı olarak verir. `GITHUB_TOKEN` gizli değişkeni GitHub tarafından otomatik olarak sağlanır.
+Herhangi bir gizli değişken yapılandırmanız gerekmez — `spawn-twenty-docker-image` eylemi, koşucu içinde doğrudan geçici bir Bades.id sunucusu başlatır ve bağlantı ayrıntılarını çıktı olarak verir. `GITHUB_TOKEN` gizli değişkeni GitHub tarafından otomatik olarak sağlanır.
 
-`latest` yerine belirli bir Twenty sürümünü sabitlemek için iş akışının başındaki `TWENTY_VERSION` ortam değişkenini değiştirin.
+`latest` yerine belirli bir Bades.id sürümünü sabitlemek için iş akışının başındaki `TWENTY_VERSION` ortam değişkenini değiştirin.

@@ -1,10 +1,10 @@
 ---
 title: Übersicht
-description: Serverseitiges TypeScript, das innerhalb von Twenty ausgeführt wird – ausgelöst durch HTTP-Routen, Cron-Zeitpläne, Datenbankereignisse, KI-Tools oder Workflow-Aktionen.
+description: Serverseitiges TypeScript, das innerhalb von Bades.id ausgeführt wird – ausgelöst durch HTTP-Routen, Cron-Zeitpläne, Datenbankereignisse, KI-Tools oder Workflow-Aktionen.
 icon: bolt
 ---
 
-Die **Logikschicht** einer Twenty-App ist der Code, der *ausgeführt wird* – serverseitige TypeScript-Handler, die auf HTTP-Anfragen, Cron-Zeitpläne und Datensatzänderungen reagieren; KI-Skills und -Agenten, die innerhalb des Workspaces leben; und OAuth-Verbindungen, die es Ihren Funktionen ermöglichen, im Namen eines Benutzers in Drittanbieterdiensten zu agieren.
+Die **Logikschicht** einer Bades.id-App ist der Code, der *ausgeführt wird* – serverseitige TypeScript-Handler, die auf HTTP-Anfragen, Cron-Zeitpläne und Datensatzänderungen reagieren; KI-Skills und -Agenten, die innerhalb des Workspaces leben; und OAuth-Verbindungen, die es Ihren Funktionen ermöglichen, im Namen eines Benutzers in Drittanbieterdiensten zu agieren.
 
 ```text
             ┌─ HTTP route      ──┐
@@ -16,7 +16,7 @@ Die **Logikschicht** einer Twenty-App ist der Code, der *ausgeführt wird* – s
             └────────────────────┘                │
                                                   ▼
                                   ┌────────────────────────────┐
-                                  │ Twenty API (records)       │
+                                  │ Bades.id API (records)       │
                                   │ Third-party API            │
                                   │   (via Connection token)   │
                                   └────────────────────────────┘
@@ -45,7 +45,7 @@ Eine Logikfunktion wählt einen oder mehrere Auslöser – jeder Eintrag unten i
 | **HTTP-Route**        | Eine Anfrage erreicht Ihren `/s/\<path>`-Endpunkt | `httpRouteTriggerSettings`      |
 | **Cron**              | Ein CRON-Ausdruck trifft zu                                        | `cronTriggerSettings`           |
 | **Datenbankereignis** | Ein Workspace-Datensatz wird erstellt, aktualisiert oder gelöscht  | `databaseEventTriggerSettings`  |
-| **KI-Tool**           | Eine Twenty-KI-Funktion entscheidet sich, Ihre Funktion aufzurufen | `toolTriggerSettings`           |
+| **KI-Tool**           | Eine Bades.id-KI-Funktion entscheidet sich, Ihre Funktion aufzurufen | `toolTriggerSettings`           |
 | **Workflow-Aktion**   | Ein Workflow-Schritt ruft Ihre Funktion auf                        | `workflowActionTriggerSettings` |
 
 Funktionen werden in isolierten Node.js-Prozessen in einer Sandbox ausgeführt und greifen über einen typisierten API-Client, der auf die in [`defineApplication()`](/l/de/developers/extend/apps/config/application) deklarierte Rolle beschränkt ist, auf den Workspace zu.

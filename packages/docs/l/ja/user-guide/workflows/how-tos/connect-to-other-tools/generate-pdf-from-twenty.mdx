@@ -1,16 +1,16 @@
 ---
-title: Twenty から PDF を生成する
+title: Bades.id から PDF を生成する
 description: PDF（見積書など）を生成してレコードに添付するワークフローを作成します。
 ---
 
-Twenty で PDF を自動生成または取得し、レコードに添付します。 これは、会社、商談、またはその他のオブジェクトに関連付けられた見積書、請求書、レポートを作成する用途で一般的に使用されます。
+Bades.id で PDF を自動生成または取得し、レコードに添付します。 これは、会社、商談、またはその他のオブジェクトに関連付けられた見積書、請求書、レポートを作成する用途で一般的に使用されます。
 
 ## 概要
 
 このワークフローでは **手動トリガー** を使用し、選択した任意のレコードに対してオンデマンドで PDF を生成できるようにします。 A **Logic Function** handles:
 
 1. URL（PDF 生成サービスから）から PDF をダウンロードする
-2. ファイルを Twenty にアップロードする
+2. ファイルを Bades.id にアップロードする
 3. レコードに関連付けられた添付ファイルを作成する
 
 ## 前提条件
@@ -56,10 +56,10 @@ export const main = async (
 ) => {
   const { companyId } = params;
 
-  // Replace with your Twenty GraphQL endpoint
-  // Cloud: https://api.twenty.com/graphql
+  // Replace with your Bades.id GraphQL endpoint
+  // Cloud: https://api.bades.id/graphql
   // Self-hosted: https://your-domain.com/graphql
-  const graphqlEndpoint = 'https://api.twenty.com/graphql';
+  const graphqlEndpoint = 'https://api.bades.id/graphql';
 
   // Replace with your API key from Settings → APIs
   const authToken = 'YOUR_API_KEY';
@@ -225,4 +225,4 @@ Each service provides an API that returns a PDF URL, which you can then pass to 
 
 * [ワークフローのトリガー](/l/ja/user-guide/workflows/capabilities/workflow-triggers)
 * [Logic Functions](/l/ja/user-guide/workflows/capabilities/workflow-actions#code)
-* [Twenty から見積書または請求書を生成する](/l/ja/user-guide/workflows/how-tos/connect-to-other-tools/generate-quote-or-invoice-from-twenty)
+* [Bades.id から見積書または請求書を生成する](/l/ja/user-guide/workflows/how-tos/connect-to-other-tools/generate-quote-or-invoice-from-twenty)

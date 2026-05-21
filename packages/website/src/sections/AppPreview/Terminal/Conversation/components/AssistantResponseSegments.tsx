@@ -121,7 +121,7 @@ const buildCustomerParagraph = (
     onObjectCreated ? () => onObjectCreated(COMPANIES_ID) : undefined,
   ),
   text(
-    ' object that ships with Twenty, so accounts, domain favicons, and the People relation work for free. ',
+    ' object that ships with Bades.id, so accounts, domain favicons, and the People relation work for free. ',
   ),
   node('customer-file', <FileLink>payload.object.ts</FileLink>),
   text(' points its '),
@@ -205,10 +205,10 @@ const WRAPUP_PARAGRAPH: StreamingSegment[] = [
   node(
     'w-docs',
     <ReferenceLink
-      href="https://twenty.com/developers"
+      href="https://bades.id/developers"
       onClick={(event) => event.preventDefault()}
     >
-      Twenty app-building docs
+      Bades.id app-building docs
     </ReferenceLink>,
   ),
   text('.'),

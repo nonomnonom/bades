@@ -4,7 +4,7 @@ description: Defina funções TypeScript no lado do servidor com gatilhos HTTP, 
 icon: bolt
 ---
 
-As funções de lógica são funções TypeScript no lado do servidor que são executadas na plataforma Twenty. Elas podem ser acionadas por solicitações HTTP, agendamentos cron ou eventos de banco de dados — e também podem ser expostas como ferramentas para agentes de IA.
+As funções de lógica são funções TypeScript no lado do servidor que são executadas na plataforma Bades.id. Elas podem ser acionadas por solicitações HTTP, agendamentos cron ou eventos de banco de dados — e também podem ser expostas como ferramentas para agentes de IA.
 
 <AccordionGroup>
 <Accordion title="defineLogicFunction" description="Defina funções de lógica e seus gatilhos">
@@ -253,8 +253,8 @@ const handler = async (event: PersonDestroyedEvent) => {
 
 As funções de lógica podem ser expostas em duas superfícies, cada uma com seu próprio gatilho:
 
-* **`toolTriggerSettings`** — torna a função disponível para os recursos de IA do Twenty (chat, MCP, chamadas de função). Usa o JSON Schema padrão, o formato que os LLMs entendem nativamente.
-* **`workflowActionTriggerSettings`** — torna a função visível como uma etapa no construtor visual de fluxos de trabalho. Usa o `InputSchema` avançado do Twenty para que o construtor possa renderizar editores de campo adequados, seletores de variáveis e rótulos.
+* **`toolTriggerSettings`** — torna a função disponível para os recursos de IA do Bades.id (chat, MCP, chamadas de função). Usa o JSON Schema padrão, o formato que os LLMs entendem nativamente.
+* **`workflowActionTriggerSettings`** — torna a função visível como uma etapa no construtor visual de fluxos de trabalho. Usa o `InputSchema` avançado do Bades.id para que o construtor possa renderizar editores de campo adequados, seletores de variáveis e rótulos.
 
 Uma função pode optar por uma, pela outra ou por ambas. Ficam ao lado de `cronTriggerSettings`, `databaseEventTriggerSettings` e `httpRouteTriggerSettings` — mesmo padrão, mesmo formato.
 
@@ -293,7 +293,7 @@ export default defineLogicFunction({
 Pontos-chave:
 
 * Uma função pode misturar superfícies — declare tanto `toolTriggerSettings` quanto `workflowActionTriggerSettings` para expô-la no chat E no construtor de fluxos de trabalho.
-* `toolTriggerSettings.inputSchema` e `workflowActionTriggerSettings.inputSchema` são opcionais. Quando omitidos, o construtor de manifestos os infere a partir do código-fonte do handler (JSON Schema para a ferramenta de IA, `InputSchema` do Twenty para a ação de fluxo de trabalho). Forneça um explicitamente quando quiser uma tipagem mais rica — por exemplo, com campos compatíveis com `FieldMetadataType`, como `CURRENCY` ou `RELATION` para o construtor de fluxos de trabalho, ou com campos `description` que o agente de IA pode ler:
+* `toolTriggerSettings.inputSchema` e `workflowActionTriggerSettings.inputSchema` são opcionais. Quando omitidos, o construtor de manifestos os infere a partir do código-fonte do handler (JSON Schema para a ferramenta de IA, `InputSchema` do Bades.id para a ação de fluxo de trabalho). Forneça um explicitamente quando quiser uma tipagem mais rica — por exemplo, com campos compatíveis com `FieldMetadataType`, como `CURRENCY` ou `RELATION` para o construtor de fluxos de trabalho, ou com campos `description` que o agente de IA pode ler:
 
 ```ts
 export default defineLogicFunction({
@@ -330,7 +330,7 @@ export default defineLogicFunction({
 
 ## Clientes de API tipados (twenty-client-sdk)
 
-O pacote `twenty-client-sdk` fornece dois clientes GraphQL tipados para interagir com a API do Twenty a partir das suas funções de lógica e componentes de front-end.
+O pacote `twenty-client-sdk` fornece dois clientes GraphQL tipados para interagir com a API do Bades.id a partir das suas funções de lógica e componentes de front-end.
 
 | Cliente             | Importar                     | Endpoint                                                             | Gerado?                    |
 | ------------------- | ---------------------------- | -------------------------------------------------------------------- | -------------------------- |
@@ -474,9 +474,9 @@ Pontos-chave:
 </AccordionGroup>
 
 <Note>
-  Quando seu código é executado no Twenty (funções de lógica ou componentes de front-end), a plataforma injeta credenciais como variáveis de ambiente:
+  Quando seu código é executado no Bades.id (funções de lógica ou componentes de front-end), a plataforma injeta credenciais como variáveis de ambiente:
 
-  * `TWENTY_API_URL` — URL base da API do Twenty
+  * `TWENTY_API_URL` — URL base da API do Bades.id
   * `TWENTY_APP_ACCESS_TOKEN` — Chave de curta duração com escopo para o papel de função padrão do seu aplicativo
 
   Você **não** precisa passá-las para os clientes — eles leem de `process.env` automaticamente. As permissões da chave de API são determinadas pelo papel declarado com `defineApplicationRole()` (ou referenciado via `defaultRoleUniversalIdentifier` em `application-config.ts`).

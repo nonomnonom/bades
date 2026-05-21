@@ -1,15 +1,15 @@
 ---
 title: Pubblicazione
 icon: carica
-description: Distribuisci la tua app Twenty nel marketplace oppure distribuiscila internamente.
+description: Distribuisci la tua app Bades.id nel marketplace oppure distribuiscila internamente.
 ---
 
 ## Panoramica
 
 Una volta che la tua app è stata [compilata e testata localmente](/l/it/developers/extend/apps/building), hai due modalità per distribuirla:
 
-* **Distribuisci un tarball** — carica la tua app direttamente su un server Twenty specifico per uso interno o privato.
-* **Pubblica su npm** — elenca la tua app nel marketplace di Twenty affinché qualsiasi spazio di lavoro possa scoprirla e installarla.
+* **Distribuisci un tarball** — carica la tua app direttamente su un server Bades.id specifico per uso interno o privato.
+* **Pubblica su npm** — elenca la tua app nel marketplace di Bades.id affinché qualsiasi spazio di lavoro possa scoprirla e installarla.
 
 Entrambi i percorsi partono dalla stessa fase di **build**.
 
@@ -25,7 +25,7 @@ Questo compila i sorgenti TypeScript, transpila le funzioni di logica e i compon
 
 ## Distribuzione su un server (tarball)
 
-Per le app che non vuoi rendere pubbliche — strumenti proprietari, integrazioni solo aziendali o build sperimentali — puoi distribuire un tarball direttamente su un server Twenty.
+Per le app che non vuoi rendere pubbliche — strumenti proprietari, integrazioni solo aziendali o build sperimentali — puoi distribuire un tarball direttamente su un server Bades.id.
 
 ### Prerequisiti
 
@@ -79,7 +79,7 @@ I tag di pre-release funzionano come previsto: incrementare `1.0.0-rc.1` → `1.
 
 ## CI/CD automatizzati (workflow preconfigurati)
 
-Le app generate con `create-twenty-app` includono due workflow di GitHub Actions pronti all'uso, nella cartella `.github/workflows/`. Sono pronti all'esecuzione non appena esegui il push del repository su GitHub — non è necessaria alcuna configurazione aggiuntiva per la CI e la CD richiede solo un singolo secret.
+Le app generate con `create-bades-app` includono due workflow di GitHub Actions pronti all'uso, nella cartella `.github/workflows/`. Sono pronti all'esecuzione non appena esegui il push del repository su GitHub — non è necessaria alcuna configurazione aggiuntiva per la CI e la CD richiede solo un singolo secret.
 
 ### CI — `ci.yml`
 
@@ -88,20 +88,20 @@ Esegue automaticamente i test di integrazione a ogni push su `main` e sulle pull
 **Cosa fa:**
 
 1. Esegue il checkout del codice sorgente della tua app.
-2. Avvia un'istanza di test isolata di Twenty utilizzando l'azione composita `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` (l'equivalente per la CI di `yarn twenty server start --test`).
+2. Avvia un'istanza di test isolata di Bades.id utilizzando l'azione composita `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` (l'equivalente per la CI di `yarn twenty server start --test`).
 3. Abilita Corepack, configura Node.js dal tuo `.nvmrc` e installa le dipendenze con `yarn install --immutable`.
 4. Esegue `yarn test`, passando `TWENTY_API_URL` e `TWENTY_API_KEY` dall'istanza avviata affinché i tuoi test possano comunicare con un server reale.
 
 **Opzioni di configurazione:**
 
-* `TWENTY_VERSION` (variabile di ambiente, predefinito `latest`) — fissa la versione del server Twenty usata nella CI modificando questo valore in `ci.yml`.
+* `TWENTY_VERSION` (variabile di ambiente, predefinito `latest`) — fissa la versione del server Bades.id usata nella CI modificando questo valore in `ci.yml`.
 * La concorrenza è raggruppata per `github.ref` e annulla le esecuzioni in corso in caso di nuovi push.
 
 Non sono necessari Secrets — l'istanza di test è effimera ed esiste solo per la durata del job.
 
 ### CD — `cd.yml`
 
-Esegue il deploy della tua app su un server Twenty configurato a ogni push su `main` e, facoltativamente, da una pull request quando viene applicata l'etichetta `deploy`.
+Esegue il deploy della tua app su un server Bades.id configurato a ogni push su `main` e, facoltativamente, da una pull request quando viene applicata l'etichetta `deploy`.
 
 **Cosa fa:**
 
@@ -113,7 +113,7 @@ Esegue il deploy della tua app su un server Twenty configurato a ogni push su `m
 
 | Impostazione            | Dove                                                             | Scopo                                                                                                             |
 | ----------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `TWENTY_DEPLOY_URL`     | `env` in `cd.yml` (predefinito `http://localhost:3000`)          | Il server Twenty su cui effettuare il deploy. Modificalo con l'URL reale del tuo server prima del primo utilizzo. |
+| `TWENTY_DEPLOY_URL`     | `env` in `cd.yml` (predefinito `http://localhost:3000`)          | Il server Bades.id su cui effettuare il deploy. Modificalo con l'URL reale del tuo server prima del primo utilizzo. |
 | `TWENTY_DEPLOY_API_KEY` | Repository GitHub **Settings → Secrets and variables → Actions** | Chiave API con autorizzazione di deploy sul server di destinazione.                                               |
 
 <Note>
@@ -130,12 +130,12 @@ Entrambi i workflow fanno riferimento ad azioni riutilizzabili a `@main`, quindi
 
 ## Pubblicazione su npm
 
-La pubblicazione su npm rende la tua app scopribile nel marketplace di Twenty. Qualsiasi spazio di lavoro Twenty può sfogliare, installare e aggiornare le app del marketplace direttamente dall'interfaccia utente.
+La pubblicazione su npm rende la tua app scopribile nel marketplace di Bades.id. Qualsiasi spazio di lavoro Bades.id può sfogliare, installare e aggiornare le app del marketplace direttamente dall'interfaccia utente.
 
 ### Requisiti
 
 * Un account [npm](https://www.npmjs.com)
-* La parola chiave `twenty-app` nell'array `keywords` del tuo `package.json` (aggiungila manualmente — non è inclusa per impostazione predefinita nel template `create-twenty-app`)
+* La parola chiave `twenty-app` nell'array `keywords` del tuo `package.json` (aggiungila manualmente — non è inclusa per impostazione predefinita nel template `create-bades-app`)
 
 ```json filename="package.json"
 {
@@ -179,7 +179,7 @@ yarn twenty publish --tag beta
 
 ### Come funziona l'individuazione nel marketplace
 
-Il server Twenty sincronizza il proprio catalogo del marketplace dal registro npm **ogni ora**.
+Il server Bades.id sincronizza il proprio catalogo del marketplace dal registro npm **ogni ora**.
 
 Puoi attivare la sincronizzazione immediatamente invece di aspettare:
 
@@ -192,7 +192,7 @@ yarn twenty catalog-sync
 I metadati visualizzati nel marketplace provengono dalla configurazione `defineApplication()` — campi come `displayName`, `description`, `author`, `category`, `logoUrl`, `screenshots`, `aboutDescription`, `websiteUrl` e `termsUrl`.
 
 <Note>
-Se la tua app non definisce un `aboutDescription` in `defineApplication()`, il marketplace userà automaticamente il `README.md` del tuo pacchetto su npm come contenuto della pagina Informazioni. Questo significa che puoi mantenere un unico README sia per npm sia per il marketplace di Twenty. Se desideri una descrizione diversa nel marketplace, imposta esplicitamente `aboutDescription`.
+Se la tua app non definisce un `aboutDescription` in `defineApplication()`, il marketplace userà automaticamente il `README.md` del tuo pacchetto su npm come contenuto della pagina Informazioni. Questo significa che puoi mantenere un unico README sia per npm sia per il marketplace di Bades.id. Se desideri una descrizione diversa nel marketplace, imposta esplicitamente `aboutDescription`.
 </Note>
 
 ### Pubblicazione con CI
@@ -234,7 +234,7 @@ Per altri sistemi CI (GitLab CI, CircleCI, ecc.), si applicano gli stessi tre co
 
 Una volta che un'app è stata pubblicata (npm) o distribuita (tarball), gli spazi di lavoro possono installarla tramite l'interfaccia utente.
 
-Vai alla pagina **Impostazioni > Applicazioni** in Twenty, dove è possibile sfogliare e installare sia le app del marketplace sia quelle distribuite tramite tarball.
+Vai alla pagina **Impostazioni > Applicazioni** in Bades.id, dove è possibile sfogliare e installare sia le app del marketplace sia quelle distribuite tramite tarball.
 
 {/* TODO: add screenshot of the UI when the app is registered */}
 

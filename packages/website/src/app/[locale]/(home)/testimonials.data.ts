@@ -17,7 +17,7 @@ export const HOME_TESTIMONIALS: TestimonialCardType[] = [
     },
   },
   {
-    heading: msg`It is just such a nicer experience than dealing with a Salesforce or a HubSpot. My mission has been to get every tool API-accessible, so everything talks to each other. Twenty made that possible in a way older CRM platforms simply do not.`,
+    heading: msg`It is just such a nicer experience than dealing with a Salesforce or a HubSpot. My mission has been to get every tool API-accessible, so everything talks to each other. Bades.id made that possible in a way older CRM platforms simply do not.`,
     author: {
       name: msg`Justin Beadle`,
       designation: msg`Director of Digital and Information, Elevate Consulting`,

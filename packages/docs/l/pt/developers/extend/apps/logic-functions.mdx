@@ -4,7 +4,7 @@ description: Defina funções TypeScript no lado do servidor com gatilhos HTTP, 
 icon: bolt
 ---
 
-As funções de lógica são funções TypeScript no lado do servidor que são executadas na plataforma Twenty. Elas podem ser acionadas por solicitações HTTP, agendamentos cron ou eventos de banco de dados — e também podem ser expostas como ferramentas para agentes de IA.
+As funções de lógica são funções TypeScript no lado do servidor que são executadas na plataforma Bades.id. Elas podem ser acionadas por solicitações HTTP, agendamentos cron ou eventos de banco de dados — e também podem ser expostas como ferramentas para agentes de IA.
 
 <AccordionGroup>
 <Accordion title="defineLogicFunction" description="Defina funções de lógica e seus gatilhos">
@@ -145,8 +145,8 @@ Os nomes dos cabeçalhos são normalizados para minúsculas. Acesse-os usando ch
 
 As funções de lógica podem ser expostas em duas superfícies, cada uma com seu próprio gatilho:
 
-* **`toolTriggerSettings`** — torna a função disponível para os recursos de IA do Twenty (chat, MCP, chamadas de função). Usa o JSON Schema padrão, o formato que os LLMs entendem nativamente.
-* **`workflowActionTriggerSettings`** — torna a função visível como uma etapa no construtor visual de fluxos de trabalho. Usa o `InputSchema` avançado do Twenty para que o construtor possa renderizar editores de campo adequados, seletores de variáveis e rótulos.
+* **`toolTriggerSettings`** — torna a função disponível para os recursos de IA do Bades.id (chat, MCP, chamadas de função). Usa o JSON Schema padrão, o formato que os LLMs entendem nativamente.
+* **`workflowActionTriggerSettings`** — torna a função visível como uma etapa no construtor visual de fluxos de trabalho. Usa o `InputSchema` avançado do Bades.id para que o construtor possa renderizar editores de campo adequados, seletores de variáveis e rótulos.
 
 Uma função pode optar por uma, pela outra ou por ambas. Ficam ao lado de `cronTriggerSettings`, `databaseEventTriggerSettings` e `httpRouteTriggerSettings` — mesmo padrão, mesmo formato.
 
@@ -185,7 +185,7 @@ export default defineLogicFunction({
 Pontos-chave:
 
 * Uma função pode misturar superfícies — declare tanto `toolTriggerSettings` quanto `workflowActionTriggerSettings` para expô-la no chat E no construtor de fluxos de trabalho.
-* `toolTriggerSettings.inputSchema` e `workflowActionTriggerSettings.inputSchema` são opcionais. Quando omitidos, o construtor de manifestos os infere a partir do código-fonte do handler (JSON Schema para a ferramenta de IA, `InputSchema` do Twenty para a ação de fluxo de trabalho). Forneça um explicitamente quando quiser uma tipagem mais rica — por exemplo, com campos compatíveis com `FieldMetadataType`, como `CURRENCY` ou `RELATION` para o construtor de fluxos de trabalho, ou com campos `description` que o agente de IA pode ler:
+* `toolTriggerSettings.inputSchema` e `workflowActionTriggerSettings.inputSchema` são opcionais. Quando omitidos, o construtor de manifestos os infere a partir do código-fonte do handler (JSON Schema para a ferramenta de IA, `InputSchema` do Bades.id para a ação de fluxo de trabalho). Forneça um explicitamente quando quiser uma tipagem mais rica — por exemplo, com campos compatíveis com `FieldMetadataType`, como `CURRENCY` ou `RELATION` para o construtor de fluxos de trabalho, ou com campos `description` que o agente de IA pode ler:
 
 ```ts
 export default defineLogicFunction({
@@ -250,7 +250,7 @@ Pontos-chave:
   * `shouldRunSynchronously: false` *(padrão)* — o hook é **enfileirado na fila de mensagens** com `retryLimit: 3` e é executado de forma assíncrona em um worker. A resposta da instalação retorna assim que o job é enfileirado, então um manipulador lento ou com falha não bloqueia quem chamou. O worker tentará novamente até três vezes. **Use isto para jobs de longa duração** — popular grandes conjuntos de dados, chamar APIs de terceiros lentas, provisionar recursos externos, qualquer coisa que possa exceder uma janela razoável de resposta HTTP.
   * `shouldRunSynchronously: true` — o hook é executado **inline durante o fluxo de instalação** (mesmo executor da pré-instalação). A requisição de instalação bloqueia até o manipulador terminar e, se ele lançar uma exceção, quem chamou a instalação recebe um `POST_INSTALL_ERROR`. Sem novas tentativas automáticas. **Use isto para trabalhos rápidos que precisam ser concluídos antes da resposta** — por exemplo, emitir um erro de validação para o usuário ou fazer uma configuração rápida da qual o cliente dependerá imediatamente após a chamada de instalação retornar. Tenha em mente que a migração de metadados já foi aplicada quando a pós-instalação é executada, então uma falha no modo síncrono **não** reverte as alterações de esquema — ela apenas expõe o erro.
 * Garanta que seu manipulador seja idempotente. No modo assíncrono, a fila pode tentar novamente até três vezes; em qualquer modo, o hook pode ser executado novamente em atualizações quando `shouldRunOnVersionUpgrade: true`.
-* As variáveis de ambiente `APPLICATION_ID`, `APP_ACCESS_TOKEN` e `API_URL` estão disponíveis dentro do manipulador (assim como em qualquer outra função de lógica), então você pode chamar a API da Twenty com um token de acesso de aplicativo com escopo para o seu app.
+* As variáveis de ambiente `APPLICATION_ID`, `APP_ACCESS_TOKEN` e `API_URL` estão disponíveis dentro do manipulador (assim como em qualquer outra função de lógica), então você pode chamar a API da Bades.id com um token de acesso de aplicativo com escopo para o seu app.
 * É permitida apenas uma função de pós-instalação por app. A geração do manifesto apresentará erro se mais de uma for detectada.
 * O `universalIdentifier`, `shouldRunOnVersionUpgrade` e `shouldRunSynchronously` da função são anexados automaticamente ao manifesto do aplicativo no campo `postInstallLogicFunction` durante o build — você não precisa referenciá-los em `defineApplication()`.
 * O tempo limite padrão é definido como 300 segundos (5 minutos) para permitir tarefas de configuração mais longas, como o pré-carregamento de dados.
@@ -412,7 +412,7 @@ Em caso de dúvida, use **post-install** como padrão. Recurra à pré-instalaç
 
 ## Clientes de API tipados (twenty-client-sdk)
 
-O pacote `twenty-client-sdk` fornece dois clientes GraphQL tipados para interagir com a API do Twenty a partir das suas funções de lógica e componentes de front-end.
+O pacote `twenty-client-sdk` fornece dois clientes GraphQL tipados para interagir com a API do Bades.id a partir das suas funções de lógica e componentes de front-end.
 
 | Cliente             | Importar                     | Endpoint                                                             | Gerado?                    |
 | ------------------- | ---------------------------- | -------------------------------------------------------------------- | -------------------------- |
@@ -556,9 +556,9 @@ Pontos-chave:
 </AccordionGroup>
 
 <Note>
-  Quando seu código é executado no Twenty (funções de lógica ou componentes de front-end), a plataforma injeta credenciais como variáveis de ambiente:
+  Quando seu código é executado no Bades.id (funções de lógica ou componentes de front-end), a plataforma injeta credenciais como variáveis de ambiente:
 
-  * `TWENTY_API_URL` — URL base da API do Twenty
+  * `TWENTY_API_URL` — URL base da API do Bades.id
   * `TWENTY_APP_ACCESS_TOKEN` — Chave de curta duração com escopo para o papel de função padrão do seu aplicativo
 
   Você **não** precisa passá-las para os clientes — eles leem de `process.env` automaticamente. As permissões da chave de API são determinadas pelo papel referenciado em `defaultRoleUniversalIdentifier` no seu `application-config.ts`.

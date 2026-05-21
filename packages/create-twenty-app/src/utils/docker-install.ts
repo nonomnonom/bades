@@ -27,7 +27,7 @@ export const getDockerInstallInstructions = (): string => {
     '',
     '  Then run this command again.',
     '',
-    '  Alternatively, connect to an existing Twenty instance:',
+    '  Alternatively, connect to an existing Bades instance:',
     '  npx create-twenty-app@latest my-twenty-app --url <your-instance-url>',
   ].join('\n');
 };

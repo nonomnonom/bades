@@ -46,24 +46,23 @@ export const NotFound = () => {
 
   return (
     <>
-      <PageTitle title={t`Page Not Found | Twenty`} />
+      <PageTitle title={t`Halaman Tidak Ditemukan | Bades.id`} />
       <StyledBackDrop>
         <AnimatedPlaceholderErrorContainer>
           <AnimatedPlaceholder type="error404" />
           <AnimatedPlaceholderEmptyTextContainer>
             <AnimatedPlaceholderErrorTitle>
-              <Trans>Off the beaten path</Trans>
+              <Trans>Jalan yang dilalui tidak ditemukan</Trans>
             </AnimatedPlaceholderErrorTitle>
             <AnimatedPlaceholderErrorSubTitle>
               <Trans>
-                The page you're seeking is either gone or never was. Let's get
-                you back on track
+                Halaman yang Anda cari tidak ada atau sudah dipindahkan. Mari kembali ke jalur yang benar
               </Trans>
             </AnimatedPlaceholderErrorSubTitle>
           </AnimatedPlaceholderEmptyTextContainer>
           <StyledButtonContainer>
             <UndecoratedLink to={AppPath.Index}>
-              <MainButton title={t`Back to content`} fullWidth />
+              <MainButton title={t`Kembali ke Beranda`} fullWidth />
             </UndecoratedLink>
           </StyledButtonContainer>
         </AnimatedPlaceholderErrorContainer>

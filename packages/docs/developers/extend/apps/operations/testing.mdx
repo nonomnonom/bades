@@ -1,10 +1,10 @@
 ---
 title: Testing
-description: Vitest setup, integration tests against a real Twenty server, type checking, and CI with GitHub Actions.
+description: Vitest setup, integration tests against a real Bades.id server, type checking, and CI with GitHub Actions.
 icon: "flask"
 ---
 
-The SDK provides programmatic APIs that let you build, deploy, install, and uninstall your app from test code. Combined with [Vitest](https://vitest.dev/) and the typed API clients, you can write integration tests that verify your app works end-to-end against a real Twenty server.
+The SDK provides programmatic APIs that let you build, deploy, install, and uninstall your app from test code. Combined with [Vitest](https://vitest.dev/) and the typed API clients, you can write integration tests that verify your app works end-to-end against a real Bades.id server.
 
 ## Using npm packages
 
@@ -115,7 +115,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -218,7 +218,7 @@ describe('App installation', () => {
 
 ## Running tests
 
-Make sure your local Twenty server is running, then:
+Make sure your local Bades.id server is running, then:
 
 ```bash filename="Terminal"
 yarn test
@@ -247,7 +247,7 @@ The scaffolder generates a ready-to-use GitHub Actions workflow at `.github/work
 The workflow:
 
 1. Checks out your code
-2. Spins up a temporary Twenty server using the `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` action
+2. Spins up a temporary Bades.id server using the `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` action
 3. Installs dependencies with `yarn install --immutable`
 4. Runs `yarn test` with `TWENTY_API_URL` and `TWENTY_API_KEY` injected from the action outputs
 
@@ -270,7 +270,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -296,6 +296,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-You don't need to configure any secrets — the `spawn-twenty-docker-image` action starts an ephemeral Twenty server directly in the runner and outputs the connection details. The `GITHUB_TOKEN` secret is provided automatically by GitHub.
+You don't need to configure any secrets — the `spawn-twenty-docker-image` action starts an ephemeral Bades.id server directly in the runner and outputs the connection details. The `GITHUB_TOKEN` secret is provided automatically by GitHub.
 
-To pin a specific Twenty version instead of `latest`, change the `TWENTY_VERSION` environment variable at the top of the workflow.
+To pin a specific Bades.id version instead of `latest`, change the `TWENTY_VERSION` environment variable at the top of the workflow.

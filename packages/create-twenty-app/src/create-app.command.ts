@@ -122,7 +122,7 @@ export class CreateAppCommand {
       let serverReady = skipLocalInstance;
 
       if (!skipLocalInstance) {
-        this.logNextStep('Starting Twenty server');
+        this.logNextStep('Starting Bades server');
         const serverResult = await this.ensureDockerServer(dockerPullPromise);
 
         if (isDefined(serverResult.url)) {
@@ -241,7 +241,7 @@ export class CreateAppCommand {
     appDescription: string;
     appDirectory: string;
   }): void {
-    console.log(chalk.blue('\nCreating Twenty Application\n'));
+    console.log(chalk.blue('\nCreating Bades Application\n'));
     console.log(chalk.white(`  Name:           ${appName}`));
     console.log(chalk.white(`  Display name:   ${appDisplayName}`));
 
@@ -288,7 +288,7 @@ export class CreateAppCommand {
       return {};
     }
 
-    this.logDetail('Ensuring latest Twenty server image...');
+    this.logDetail('Ensuring latest Bades server image...');
 
     const pullSucceeded = await dockerPullPromise;
 
@@ -652,7 +652,7 @@ export class CreateAppCommand {
     stepNumber++;
 
     if (!authSucceeded) {
-      console.log(chalk.white(`  ${stepNumber}. Connect to a Twenty instance`));
+      console.log(chalk.white(`  ${stepNumber}. Connect to a Bades instance`));
       console.log(
         chalk.cyan('     yarn twenty remote:add --url <your-instance-url>\n'),
       );

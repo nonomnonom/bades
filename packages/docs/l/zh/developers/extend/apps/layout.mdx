@@ -1,10 +1,10 @@
 ---
 title: 布局
-description: 定义视图、导航菜单项和页面布局，以塑造你的应用在 Twenty 中的呈现方式。
+description: 定义视图、导航菜单项和页面布局，以塑造你的应用在 Bades.id 中的呈现方式。
 icon: table-columns
 ---
 
-布局实体控制你的应用如何在 Twenty 的 UI 中呈现——侧边栏中有哪些内容、应用随附哪些已保存的视图，以及记录详情页如何排布。
+布局实体控制你的应用如何在 Bades.id 的 UI 中呈现——侧边栏中有哪些内容、应用随附哪些已保存的视图，以及记录详情页如何排布。
 
 ## 布局概念
 
@@ -131,9 +131,9 @@ export default definePageLayout({
 </Accordion>
 <Accordion title="definePageLayoutTab" description="向现有页面布局添加一个选项卡">
 
-`definePageLayoutTab` 允许你的应用将单个选项卡 — 可选小部件 — 附加到一个**现有**页面布局。 最常见的用例是向 Twenty 内置的某个记录页面添加自定义选项卡（例如，分析或 AI 摘要选项卡），或向你的应用已随附的页面布局添加该选项卡。
+`definePageLayoutTab` 允许你的应用将单个选项卡 — 可选小部件 — 附加到一个**现有**页面布局。 最常见的用例是向 Bades.id 内置的某个记录页面添加自定义选项卡（例如，分析或 AI 摘要选项卡），或向你的应用已随附的页面布局添加该选项卡。
 
-目标页面布局必须是 **标准** 的 Twenty 页面布局，或由 **你自己的应用** 定义的布局；目前不支持跨应用引用由其他已安装应用拥有的页面布局。
+目标页面布局必须是 **标准** 的 Bades.id 页面布局，或由 **你自己的应用** 定义的布局；目前不支持跨应用引用由其他已安装应用拥有的页面布局。
 
 ```ts src/page-layouts/example-extra-tab.ts
 import {

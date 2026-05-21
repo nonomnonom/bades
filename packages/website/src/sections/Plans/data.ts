@@ -5,50 +5,50 @@ const PRO_HEADING = msg`Pro`;
 const ORGANIZATION_HEADING = msg`Organization`;
 
 const PRO_BULLETS_MONTHLY = [
-  msg`Full customization`,
-  msg`Create custom apps`,
-  msg`AI Agents with custom skills`,
-  msg`5 workflow credits/month included`,
-  msg`Standard support`,
+  msg`Kustomisasi penuh`,
+  msg`Buat aplikasi kustom`,
+  msg`AI Agents dengan skill kustom`,
+  msg`5 kredit workflow/bulan termasuk`,
+  msg`Dukungan standar`,
 ];
 
 const PRO_BULLETS_YEARLY = [
-  msg`Full customization`,
-  msg`Create custom apps`,
-  msg`AI Agents with custom skills`,
-  msg`50 workflow credits/year included`,
-  msg`Standard support`,
+  msg`Kustomisasi penuh`,
+  msg`Buat aplikasi kustom`,
+  msg`AI Agents dengan skill kustom`,
+  msg`50 kredit workflow/tahun termasuk`,
+  msg`Dukungan standar`,
 ];
 
 const PRO_BULLETS_SELF_HOST = [
-  msg`Full customization`,
-  msg`Create custom apps`,
-  msg`Community support`,
+  msg`Kustomisasi penuh`,
+  msg`Buat aplikasi kustom`,
+  msg`Dukungan komunitas`,
 ];
 
 const ORGANIZATION_BULLETS_MONTHLY = [
-  msg`Everything in Pro`,
+  msg`Semua yang ada di Pro`,
   msg`Row-level permissions`,
   msg`SAML/OIDC SSO`,
-  msg`Custom domain`,
-  msg`Priority support`,
+  msg`Domain kustom`,
+  msg`Dukungan prioritas`,
 ];
 
 const ORGANIZATION_BULLETS_YEARLY = [
-  msg`Everything in Pro`,
+  msg`Semua yang ada di Pro`,
   msg`Row-level permissions`,
   msg`SAML/OIDC SSO`,
-  msg`Custom domain`,
-  msg`Priority support`,
+  msg`Domain kustom`,
+  msg`Dukungan prioritas`,
 ];
 
 const ORGANIZATION_BULLETS_SELF_HOST = [
-  msg`Everything in Pro`,
-  msg`Custom AI models`,
+  msg`Semua yang ada di Pro`,
+  msg`Model AI kustom`,
   msg`Row-level permissions`,
   msg`SAML/OIDC SSO`,
-  msg`Bades.id team support`,
-  msg`Up to 5 villages`,
+  msg`Dukungan tim Bades.id`,
+  msg` hingga 5 desa`,
 ];
 
 export const PLANS_DATA = {
@@ -57,27 +57,27 @@ export const PLANS_DATA = {
       cloud: {
         monthly: {
           featureBullets: ORGANIZATION_BULLETS_MONTHLY,
-          price: { value: 25, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 190000, prefix: 'Rp ', suffix: msg`/user/bulan` },
         },
         yearly: {
           featureBullets: ORGANIZATION_BULLETS_YEARLY,
-          price: { value: 19, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 150000, prefix: 'Rp ', suffix: msg`/user/bulan` },
         },
       },
       selfHost: {
         monthly: {
           featureBullets: ORGANIZATION_BULLETS_SELF_HOST,
-          price: { value: 25, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 0, prefix: '$', suffix: msg`/user/bulan` },
         },
         yearly: {
           featureBullets: ORGANIZATION_BULLETS_SELF_HOST,
-          price: { value: 19, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 0, prefix: '$', suffix: msg`/user/bulan` },
         },
       },
     },
     heading: ORGANIZATION_HEADING,
     icon: {
-      alt: 'Organization plan icon',
+      alt: 'Ikon paket Organization',
       src: '/images/pricing/plans/organization-icon.webp',
     },
   },
@@ -86,27 +86,27 @@ export const PLANS_DATA = {
       cloud: {
         monthly: {
           featureBullets: PRO_BULLETS_MONTHLY,
-          price: { value: 12, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 90000, prefix: 'Rp ', suffix: msg`/user/bulan` },
         },
         yearly: {
           featureBullets: PRO_BULLETS_YEARLY,
-          price: { value: 9, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 75000, prefix: 'Rp ', suffix: msg`/user/bulan` },
         },
       },
       selfHost: {
         monthly: {
           featureBullets: PRO_BULLETS_SELF_HOST,
-          price: { value: 0, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 0, prefix: 'Rp ', suffix: msg`/user/bulan` },
         },
         yearly: {
           featureBullets: PRO_BULLETS_SELF_HOST,
-          price: { value: 0, prefix: '$', suffix: msg`/user/month` },
+          price: { value: 0, prefix: 'Rp ', suffix: msg`/user/bulan` },
         },
       },
     },
     heading: PRO_HEADING,
     icon: {
-      alt: 'Pro plan icon',
+      alt: 'Ikon paket Pro',
       src: '/images/pricing/plans/pro-icon.webp',
       width: 60,
     },

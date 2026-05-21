@@ -30,7 +30,7 @@ export const PARTNER_APPLICATION_MODAL_COPY = {
     company: msg`Company or brand *`,
     website: msg`Website or github link *`,
     opportunities: msg`Estimated monthly opportunities (optional)`,
-    messageLabel: msg`How do you want to partner with Twenty? *`,
+    messageLabel: msg`How do you want to partner with Bades.id? *`,
     messageHint: msg`Tell us about the custom solutions or integrations you plan to build.`,
   },
   submit: msg`Submit application`,

@@ -47,7 +47,7 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
       { value: msg`Q1 2026`, label: msg`Record quarter` },
     ],
     quote: {
-      text: msg`Twenty lets us build a CRM around the business and not the business around the CRM.`,
+      text: msg`Bades.id lets us build a CRM around the business and not the business around the CRM.`,
       author: 'Mike Babiy',
       role: msg`Founder, Nine Dots Ventures`,
     },
@@ -60,7 +60,7 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`Nine Dots put Twenty at the center of Homeseller's stack with APIs, automation, and AI on top of WhatsApp-heavy operations.`,
+      summary: msg`Nine Dots put Bades.id at the center of Homeseller's stack with APIs, automation, and AI on top of WhatsApp-heavy operations.`,
       date: msg`Jul 2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1733244766159-f58f4184fd38?w=1600&q=80',
@@ -76,14 +76,14 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
     ],
     hero: {
       readingTime: '7 min',
-      title: msg`From Salesforce to self-hosted Twenty`,
+      title: msg`From Salesforce to self-hosted Bades.id`,
       author: 'Benjamin Reynolds',
       authorAvatarSrc: '/images/partner/testimonials/benjamin-reynolds.webp',
       clientIcon: 'alternative-partners',
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`Alternative Partners replaced Salesforce with self-hosted Twenty, using agentic AI to compress migration work.`,
+      summary: msg`Alternative Partners replaced Salesforce with self-hosted Bades.id, using agentic AI to compress migration work.`,
       date: msg`2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1702047149248-a6049168d2a8?w=1600&q=80',
@@ -106,7 +106,7 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`NetZero uses Twenty as a modular CRM across product lines and countries, with a roadmap into AI-assisted workflows.`,
+      summary: msg`NetZero uses Bades.id as a modular CRM across product lines and countries, with a roadmap into AI-assisted workflows.`,
       date: msg`2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1744830343976-ce690ba2a67c?w=1600&q=80',
@@ -126,7 +126,7 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`AC&T and Flycoder moved from a dead vendor export to self-hosted Twenty, with over 90% lower CRM cost and full control.`,
+      summary: msg`AC&T and Flycoder moved from a dead vendor export to self-hosted Bades.id, with over 90% lower CRM cost and full control.`,
       date: msg`2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1687600154329-150952c73169?w=1600&q=80',
@@ -146,7 +146,7 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`W3villa shipped W3Grads on Twenty for AI interviews, scoring, and institution-scale workflows without rebuilding CRM plumbing.`,
+      summary: msg`W3villa shipped W3Grads on Bades.id for AI interviews, scoring, and institution-scale workflows without rebuilding CRM plumbing.`,
       date: msg`2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1756830231350-3b501f63c5c1?w=1600&q=80',
@@ -168,13 +168,13 @@ export const CASE_STUDY_CATALOG_ENTRIES: CaseStudyCatalogEntry[] = [
     },
     hero: {
       readingTime: '8 min',
-      title: msg`Twenty as the API backbone of a go-to-market stack`,
+      title: msg`Bades.id as the API backbone of a go-to-market stack`,
       author: 'Justin Beadle',
       clientIcon: 'elevate-consulting',
       heroImageSrc: PLACEHOLDER_HERO,
     },
     catalogCard: {
-      summary: msg`Elevate Consulting uses Twenty as the API backbone connecting billing, Teams, resourcing, and a custom front end around client and opportunity data.`,
+      summary: msg`Elevate Consulting uses Bades.id as the API backbone connecting billing, Teams, resourcing, and a custom front end around client and opportunity data.`,
       date: msg`Jun 2025`,
       coverImageSrc:
         'https://images.unsplash.com/photo-1758873269035-aae0e1fd3422?w=1600&q=80',

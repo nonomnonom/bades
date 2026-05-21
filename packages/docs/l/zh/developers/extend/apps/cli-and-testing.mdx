@@ -120,7 +120,7 @@ export default defineFrontComponent({
 
 ## 测试你的应用
 
-该 SDK 提供可编程的 API，使你可以在测试代码中构建、部署、安装和卸载你的应用。 结合 [Vitest](https://vitest.dev/) 和类型化 API 客户端，你可以编写集成测试，在真实的 Twenty 服务器上验证你的应用端到端运行是否正常。
+该 SDK 提供可编程的 API，使你可以在测试代码中构建、部署、安装和卸载你的应用。 结合 [Vitest](https://vitest.dev/) 和类型化 API 客户端，你可以编写集成测试，在真实的 Bades.id 服务器上验证你的应用端到端运行是否正常。
 
 ### 设置
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### 运行测试
 
-确保你的本地 Twenty 服务器正在运行，然后：
+确保你的本地 Bades.id 服务器正在运行，然后：
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-这与 `yarn twenty server logs` 不同，后者显示的是 Docker 容器日志。 `yarn twenty logs` 会显示来自 Twenty 服务器的应用函数执行日志。
+这与 `yarn twenty server logs` 不同，后者显示的是 Docker 容器日志。 `yarn twenty logs` 会显示来自 Bades.id 服务器的应用函数执行日志。
 </Note>
 
 ### 卸载应用（`yarn twenty uninstall`）
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## 管理远程
 
-“远程”是指你的应用连接到的 Twenty 服务器。 在设置期间，脚手架工具会为你自动创建一个。 你可以随时添加更多远程或在它们之间切换。
+“远程”是指你的应用连接到的 Bades.id 服务器。 在设置期间，脚手架工具会为你自动创建一个。 你可以随时添加更多远程或在它们之间切换。
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ yarn twenty remote switch <name>
 工作流：
 
 1. 检出你的代码
-2. 使用 `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` 动作启动一个临时的 Twenty 服务器
+2. 使用 `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` 动作启动一个临时的 Bades.id 服务器
 3. 使用 `yarn install --immutable` 安装依赖
 4. 运行 `yarn test`，并从该动作的输出中注入 `TWENTY_API_URL` 和 `TWENTY_API_KEY`
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-你无需配置任何机密——`spawn-twenty-docker-image` 动作会在运行器中直接启动一个临时的 Twenty 服务器，并输出连接详情。 GitHub 会自动提供 `GITHUB_TOKEN` 机密。
+你无需配置任何机密——`spawn-twenty-docker-image` 动作会在运行器中直接启动一个临时的 Bades.id 服务器，并输出连接详情。 GitHub 会自动提供 `GITHUB_TOKEN` 机密。
 
-若要固定为特定的 Twenty 版本而不是 `latest`，请在工作流顶部修改 `TWENTY_VERSION` 环境变量。
+若要固定为特定的 Bades.id 版本而不是 `latest`，请在工作流顶部修改 `TWENTY_VERSION` 环境变量。

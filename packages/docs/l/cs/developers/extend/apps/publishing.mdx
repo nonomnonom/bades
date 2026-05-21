@@ -1,15 +1,15 @@
 ---
 title: Publikování
 icon: nahrát
-description: Distribuujte svou aplikaci Twenty do Marketplace nebo ji nasaďte interně.
+description: Distribuujte svou aplikaci Bades.id do Marketplace nebo ji nasaďte interně.
 ---
 
 ## Přehled
 
 Jakmile je vaše aplikace [sestavena a otestována lokálně](/l/cs/developers/extend/apps/building), máte dvě cesty, jak ji distribuovat:
 
-* **Nasaďte tarball** — nahrajte svou aplikaci přímo na konkrétní server Twenty pro interní nebo soukromé použití.
-* **Publish to npm** — uveďte svou aplikaci v Marketplace Twenty, aby ji mohl kterýkoli pracovní prostor objevit a nainstalovat.
+* **Nasaďte tarball** — nahrajte svou aplikaci přímo na konkrétní server Bades.id pro interní nebo soukromé použití.
+* **Publish to npm** — uveďte svou aplikaci v Marketplace Bades.id, aby ji mohl kterýkoli pracovní prostor objevit a nainstalovat.
 
 Obě cesty začínají stejným krokem **build**.
 
@@ -25,7 +25,7 @@ Tím se zkompilují zdrojové soubory TypeScriptu, transpilují logické funkce 
 
 ## Nasazení na server (tarball)
 
-U aplikací, které nechcete zpřístupnit veřejně — proprietární nástroje, integrace pouze pro enterprise nebo experimentální buildy — můžete nasadit tarball přímo na server Twenty.
+U aplikací, které nechcete zpřístupnit veřejně — proprietární nástroje, integrace pouze pro enterprise nebo experimentální buildy — můžete nasadit tarball přímo na server Bades.id.
 
 ### Předpoklady
 
@@ -79,7 +79,7 @@ Předběžné tagy fungují podle očekávání: zvýšení z `1.0.0-rc.1` → `
 
 ## Automatizované CI/CD (předpřipravené workflowy)
 
-Aplikace vygenerované pomocí `create-twenty-app` jsou hned připravené se dvěma workflowy GitHub Actions ve složce `.github/workflows/`. Jsou připravené ke spuštění hned, jakmile repozitář pushnete na GitHub — pro CI není potřeba žádné další nastavení a CD vyžaduje pouze jeden secret.
+Aplikace vygenerované pomocí `create-bades-app` jsou hned připravené se dvěma workflowy GitHub Actions ve složce `.github/workflows/`. Jsou připravené ke spuštění hned, jakmile repozitář pushnete na GitHub — pro CI není potřeba žádné další nastavení a CD vyžaduje pouze jeden secret.
 
 ### CI — `ci.yml`
 
@@ -88,20 +88,20 @@ Automaticky spouští integrační testy při každém pushi do `main` a u pull 
 **K čemu slouží:**
 
 1. Provede checkout zdrojového kódu vaší aplikace.
-2. Spustí izolovanou testovací instanci Twenty pomocí složené akce `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` (ekvivalent v CI k `yarn twenty server start --test`).
+2. Spustí izolovanou testovací instanci Bades.id pomocí složené akce `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` (ekvivalent v CI k `yarn twenty server start --test`).
 3. Povolí Corepack, nastaví Node.js podle vašeho `.nvmrc` a nainstaluje závislosti pomocí `yarn install --immutable`.
 4. Spustí `yarn test` a předá `TWENTY_API_URL` a `TWENTY_API_KEY` ze spuštěné instance, aby vaše testy mohly komunikovat se skutečným serverem.
 
 **Konfigurační volby:**
 
-* `TWENTY_VERSION` (env, výchozí hodnota `latest`) — uzamkněte v CI používanou verzi serveru Twenty úpravou této hodnoty v `ci.yml`.
+* `TWENTY_VERSION` (env, výchozí hodnota `latest`) — uzamkněte v CI používanou verzi serveru Bades.id úpravou této hodnoty v `ci.yml`.
 * Souběžné běhy jsou seskupeny podle `github.ref` a při nových pushích ruší právě probíhající běhy.
 
 Nejsou potřeba žádné secrety — testovací instance je efemérní a existuje pouze po dobu běhu úlohy.
 
 ### CD — `cd.yml`
 
-Nasazuje vaši aplikaci na nakonfigurovaný server Twenty při každém pushi do `main` a volitelně také z pull requestu, pokud je přidán štítek `deploy`.
+Nasazuje vaši aplikaci na nakonfigurovaný server Bades.id při každém pushi do `main` a volitelně také z pull requestu, pokud je přidán štítek `deploy`.
 
 **K čemu slouží:**
 
@@ -113,7 +113,7 @@ Nasazuje vaši aplikaci na nakonfigurovaný server Twenty při každém pushi do
 
 | Nastavení               | Kde                                                             | Účel                                                                                                 |
 | ----------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `TWENTY_DEPLOY_URL`     | `env` v `cd.yml` (výchozí `http://localhost:3000`)              | Server Twenty, na který se nasazuje. Před prvním použitím to změňte na skutečnou URL vašeho serveru. |
+| `TWENTY_DEPLOY_URL`     | `env` v `cd.yml` (výchozí `http://localhost:3000`)              | Server Bades.id, na který se nasazuje. Před prvním použitím to změňte na skutečnou URL vašeho serveru. |
 | `TWENTY_DEPLOY_API_KEY` | GitHub repozitář **Settings → Secrets and variables → Actions** | API klíč s oprávněním k nasazení na cílovém serveru.                                                 |
 
 <Note>
@@ -130,12 +130,12 @@ Obě workflowy odkazují na znovupoužitelné akce na `@main`, takže aktualizac
 
 ## Publikování na npm
 
-Publikování na npm zajistí, že bude vaše aplikace dohledatelná v Marketplace Twenty. Jakýkoli pracovní prostor Twenty může procházet, instalovat a aktualizovat aplikace z Marketplace přímo z UI.
+Publikování na npm zajistí, že bude vaše aplikace dohledatelná v Marketplace Bades.id. Jakýkoli pracovní prostor Bades.id může procházet, instalovat a aktualizovat aplikace z Marketplace přímo z UI.
 
 ### Požadavky
 
 * Účet na [npm](https://www.npmjs.com)
-* Klíčové slovo `twenty-app` ve vašem poli `keywords` v souboru `package.json` (přidejte je ručně — ve výchozím nastavení není zahrnuto v šabloně `create-twenty-app`)
+* Klíčové slovo `twenty-app` ve vašem poli `keywords` v souboru `package.json` (přidejte je ručně — ve výchozím nastavení není zahrnuto v šabloně `create-bades-app`)
 
 ```json filename="package.json"
 {
@@ -179,7 +179,7 @@ yarn twenty publish --tag beta
 
 ### Jak funguje objevování v tržišti
 
-Server Twenty synchronizuje svůj katalog tržiště z registru npm **každou hodinu**.
+Server Bades.id synchronizuje svůj katalog tržiště z registru npm **každou hodinu**.
 
 Synchronizaci můžete spustit okamžitě místo čekání:
 
@@ -192,7 +192,7 @@ yarn twenty catalog-sync
 Metadata zobrazená v tržišti pocházejí z vaší konfigurace `defineApplication()` — z polí jako `displayName`, `description`, `author`, `category`, `logoUrl`, `screenshots`, `aboutDescription`, `websiteUrl` a `termsUrl`.
 
 <Note>
-Pokud vaše aplikace nedefinuje `aboutDescription` v `defineApplication()`, tržiště automaticky použije soubor `README.md` vašeho balíčku z npm jako obsah stránky O aplikaci. To znamená, že můžete spravovat jediný soubor README jak pro npm, tak pro tržiště Twenty. Pokud chcete v tržišti jiný popis, explicitně nastavte `aboutDescription`.
+Pokud vaše aplikace nedefinuje `aboutDescription` v `defineApplication()`, tržiště automaticky použije soubor `README.md` vašeho balíčku z npm jako obsah stránky O aplikaci. To znamená, že můžete spravovat jediný soubor README jak pro npm, tak pro tržiště Bades.id. Pokud chcete v tržišti jiný popis, explicitně nastavte `aboutDescription`.
 </Note>
 
 ### Publikování pomocí CI
@@ -234,7 +234,7 @@ Pro jiné systémy CI (GitLab CI, CircleCI atd.) platí stejné tři příkazy: 
 
 Jakmile je aplikace publikována (npm) nebo nasazena (tarball), mohou ji pracovní prostory nainstalovat prostřednictvím uživatelského rozhraní.
 
-Přejděte na stránku **Nastavení > Aplikace** v Twenty, kde lze procházet a instalovat jak aplikace z tržiště, tak aplikace nasazené jako tarball.
+Přejděte na stránku **Nastavení > Aplikace** v Bades.id, kde lze procházet a instalovat jak aplikace z tržiště, tak aplikace nasazené jako tarball.
 
 {/* TODO: add screenshot of the UI when the app is registered */}
 

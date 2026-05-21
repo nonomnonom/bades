@@ -13,8 +13,8 @@ export function PrivacyPolicyDocument() {
       </h2>
 
       <p>
-        {'Welcome to Twenty.com PBC (“'}
-        <strong>{'Twenty'}</strong>
+        {'Welcome to Bades.id.com PBC (“'}
+        <strong>{'Bades.id'}</strong>
         {'”, “'}
         <strong>{'Company'}</strong>
         {'”, “'}
@@ -27,13 +27,13 @@ export function PrivacyPolicyDocument() {
       </p>
 
       <p>
-        {'Twenty operates the website '}
+        {'Bades.id operates the website '}
         <a
-          href={'https://twenty.com'}
+          href={'https://bades.id'}
           rel="noopener noreferrer"
           target="_blank"
         >
-          {'https://twenty.com'}
+          {'https://bades.id'}
         </a>
         {' and related cloud services (collectively, the “'}
         <strong>{'Service'}</strong>
@@ -70,16 +70,16 @@ export function PrivacyPolicyDocument() {
         <li>
           <p>
             <strong>{'Service'}</strong>
-            {' – means the Twenty website ('}
+            {' – means the Bades.id website ('}
             <a
-              href={'https://twenty.com'}
+              href={'https://bades.id'}
               rel="noopener noreferrer"
               target="_blank"
             >
-              {'https://twenty.com'}
+              {'https://bades.id'}
             </a>
             {
-              ') and any related services or applications operated by Twenty.com PBC.'
+              ') and any related services or applications operated by Bades.id.com PBC.'
             }
           </p>
         </li>
@@ -111,7 +111,7 @@ export function PrivacyPolicyDocument() {
           <p>
             <strong>{'Data Controller'}</strong>
             {
-              ' – means a person or organization who (alone or jointly with others) determines the purposes and means of processing Personal Data. For the purposes of this Privacy Policy, Twenty is the Data Controller for Personal Data we collect directly from you.'
+              ' – means a person or organization who (alone or jointly with others) determines the purposes and means of processing Personal Data. For the purposes of this Privacy Policy, Bades.id is the Data Controller for Personal Data we collect directly from you.'
             }
           </p>
         </li>
@@ -119,7 +119,7 @@ export function PrivacyPolicyDocument() {
           <p>
             <strong>{'Data Processor (or Service Provider)'}</strong>
             {
-              ' – means a person or organization which processes Personal Data on behalf of the Data Controller. We may use the services of various third-party service providers to process your data more effectively. When you use Twenty’s cloud-based CRM, Twenty acts as a Data Processor for the Customer Data you input into our platform on behalf of your organization (see '
+              ' – means a person or organization which processes Personal Data on behalf of the Data Controller. We may use the services of various third-party service providers to process your data more effectively. When you use Bades.id’s cloud-based CRM, Bades.id acts as a Data Processor for the Customer Data you input into our platform on behalf of your organization (see '
             }
             <strong>{'Information We Collect'}</strong>
             {' below).'}
@@ -163,13 +163,13 @@ export function PrivacyPolicyDocument() {
       <p>
         <strong>{'2. Customer Data (CRM Data):'}</strong>
         {
-          ' If you are using Twenty’s cloud-based CRM application, you may input or upload personal information about third parties (such as your customers, leads, or contacts) into our Service. This '
+          ' If you are using Bades.id’s cloud-based CRM application, you may input or upload personal information about third parties (such as your customers, leads, or contacts) into our Service. This '
         }
         <strong>{'Customer Data'}</strong>
         {
-          ' may include names, contact details, communications, transaction histories, and other information relevant to customer relationship management. In these cases, you (or your organization) act as the Data Controller for such Customer Data, and Twenty acts as a Data Processor on your behalf. We process this data solely to provide our CRM services to you and in accordance with your instructions. '
+          ' may include names, contact details, communications, transaction histories, and other information relevant to customer relationship management. In these cases, you (or your organization) act as the Data Controller for such Customer Data, and Bades.id acts as a Data Processor on your behalf. We process this data solely to provide our CRM services to you and in accordance with your instructions. '
         }
-        <strong>{'If you use Twenty in a self-hosted environment,'}</strong>
+        <strong>{'If you use Bades.id in a self-hosted environment,'}</strong>
         {
           ' we do not collect or have access to the Customer Data in your self-hosted instance; all such data remains under your control on your own servers. (Note: We may collect limited information from self-hosted deployments, such as workspace or user emails for license verification and optional telemetry, but this does '
         }
@@ -202,7 +202,7 @@ export function PrivacyPolicyDocument() {
       <p>
         <strong>{'5. Information from Third Parties:'}</strong>
         {
-          ' We may receive information about you from third-party services that you choose to integrate or connect with Twenty. For example, if you use a single sign-on service or import data from another platform, we will collect the information you have authorized that service to share with us. We handle any such third-party-sourced information according to this Privacy Policy.'
+          ' We may receive information about you from third-party services that you choose to integrate or connect with Bades.id. For example, if you use a single sign-on service or import data from another platform, we will collect the information you have authorized that service to share with us. We handle any such third-party-sourced information according to this Privacy Policy.'
         }
       </p>
 
@@ -222,7 +222,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'Twenty uses the collected information for various purposes in order to operate our business, provide the Service to you, and improve our offerings. These purposes include:'
+          'Bades.id uses the collected information for various purposes in order to operate our business, provide the Service to you, and improve our offerings. These purposes include:'
         }
       </p>
 
@@ -295,7 +295,7 @@ export function PrivacyPolicyDocument() {
           <p>
             <strong>{'Marketing and Related Communications:'}</strong>
             {
-              ' To provide you with news about Twenty, special offers, or general information about our products and services, but only where you have an existing relationship with us or have otherwise consented to receive such communications. You have the right to opt out of marketing messages at any time.'
+              ' To provide you with news about Bades.id, special offers, or general information about our products and services, but only where you have an existing relationship with us or have otherwise consented to receive such communications. You have the right to opt out of marketing messages at any time.'
             }
           </p>
         </li>
@@ -367,7 +367,7 @@ export function PrivacyPolicyDocument() {
               ' for error tracking. A comprehensive list of subprocessors is available in our '
             }
             <a
-              href={'https://trust.twenty.com/'}
+              href={'https://trust.bades.id/'}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -396,7 +396,7 @@ export function PrivacyPolicyDocument() {
           <p>
             <strong>{'Protecting Rights and Safety:'}</strong>
             {
-              ' We may disclose information if we believe it is necessary or appropriate to protect the rights, property, or safety of Twenty, our customers, our employees, or others. This includes exchanging information with other companies and organizations for fraud prevention, spam/malware detection, or other similar purposes.'
+              ' We may disclose information if we believe it is necessary or appropriate to protect the rights, property, or safety of Bades.id, our customers, our employees, or others. This includes exchanging information with other companies and organizations for fraud prevention, spam/malware detection, or other similar purposes.'
             }
           </p>
         </li>
@@ -422,7 +422,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'As mentioned, Twenty uses cookies and similar tracking technologies to provide, secure, and improve our Service. This section explains those technologies in more detail and your choices regarding them.'
+          'As mentioned, Bades.id uses cookies and similar tracking technologies to provide, secure, and improve our Service. This section explains those technologies in more detail and your choices regarding them.'
         }
       </p>
 
@@ -492,7 +492,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'We take the security of your information very seriously. Twenty implements robust technical and organizational measures to protect your Personal Data against unauthorized access, alteration, disclosure, or destruction. These measures include, for example, encryption of data in transit and at rest, access controls and authentication procedures to limit access to data, regular security audits and assessments, and staff training on data protection. While we strive to use commercially acceptable means to protect your Personal Data, please note that '
+          'We take the security of your information very seriously. Bades.id implements robust technical and organizational measures to protect your Personal Data against unauthorized access, alteration, disclosure, or destruction. These measures include, for example, encryption of data in transit and at rest, access controls and authentication procedures to limit access to data, regular security audits and assessments, and staff training on data protection. While we strive to use commercially acceptable means to protect your Personal Data, please note that '
         }
         <strong>
           {
@@ -543,7 +543,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'Depending on your jurisdiction and applicable data protection laws, you have certain rights regarding your Personal Data. Twenty is committed to facilitating the exercise of these rights for all users.'
+          'Depending on your jurisdiction and applicable data protection laws, you have certain rights regarding your Personal Data. Bades.id is committed to facilitating the exercise of these rights for all users.'
         }
       </p>
 
@@ -655,7 +655,7 @@ export function PrivacyPolicyDocument() {
             {
               ' You have the right to opt out of the “sale” or “sharing” of your personal information. However, as noted above, '
             }
-            <strong>{'Twenty does not sell your personal information'}</strong>
+            <strong>{'Bades.id does not sell your personal information'}</strong>
             {
               ' to third parties, and we do not share it for cross-context behavioral advertising. If in the future we consider selling personal data or using it for behavioral advertising, we will provide a clear opt-out mechanism as required by law.'
             }
@@ -679,7 +679,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'Additionally, California\'s "Shine the Light" law (Civil Code Section 1798.83) permits users of our Service who are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. We do not disclose personal information to third parties for direct marketing without consent, so this provision is generally not applicable to Twenty’s practices.'
+          'Additionally, California\'s "Shine the Light" law (Civil Code Section 1798.83) permits users of our Service who are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. We do not disclose personal information to third parties for direct marketing without consent, so this provision is generally not applicable to Bades.id’s practices.'
         }
       </p>
 
@@ -697,13 +697,13 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'Twenty is based in the United States but data is currently hosted in Frankfurt (EU). We plan multiple hosting locations in 2026.'
+          'Bades.id is based in the United States but data is currently hosted in Frankfurt (EU). We plan multiple hosting locations in 2026.'
         }
       </p>
 
       <p>
         {
-          'We will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy. Twenty complies with applicable legal requirements for transferring personal data internationally. In particular, for Personal Data originating from the European Economic Area (EEA), United Kingdom, or Switzerland, we implement appropriate safeguards for cross-border data transfers as required by the GDPR and corresponding laws. These safeguards may include entering into Standard Contractual Clauses approved by the European Commission, relying on an adequacy decision by the relevant authority (if the destination country is deemed to provide adequate protection), or other lawful mechanisms. No transfer of your Personal Data will take place to an organization or a country unless adequate controls are in place to protect your information, including the security of your data and other personal information.'
+          'We will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy. Bades.id complies with applicable legal requirements for transferring personal data internationally. In particular, for Personal Data originating from the European Economic Area (EEA), United Kingdom, or Switzerland, we implement appropriate safeguards for cross-border data transfers as required by the GDPR and corresponding laws. These safeguards may include entering into Standard Contractual Clauses approved by the European Commission, relying on an adequacy decision by the relevant authority (if the destination country is deemed to provide adequate protection), or other lawful mechanisms. No transfer of your Personal Data will take place to an organization or a country unless adequate controls are in place to protect your information, including the security of your data and other personal information.'
         }
       </p>
 
@@ -719,7 +719,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'Our Service or website may contain links to other sites that are not operated by Twenty (for example, a link to an article, a partner’s website, or an integration provider). If you click on a third-party link, you will be directed to that third party’s site. We strongly advise you to review the privacy policy of every external site or service that you visit, as their privacy practices may differ from ours.'
+          'Our Service or website may contain links to other sites that are not operated by Bades.id (for example, a link to an article, a partner’s website, or an integration provider). If you click on a third-party link, you will be directed to that third party’s site. We strongly advise you to review the privacy policy of every external site or service that you visit, as their privacy practices may differ from ours.'
         }
       </p>
 
@@ -793,7 +793,7 @@ export function PrivacyPolicyDocument() {
         <li>
           <p>
             <strong>{'By Email:'}</strong>{' '}
-            <a href={'mailto:privacy@twenty.com'}>{'privacy@twenty.com'}</a>
+            <a href={'mailto:privacy@bades.id'}>{'privacy@bades.id'}</a>
           </p>
         </li>
       </ul>
@@ -806,7 +806,7 @@ export function PrivacyPolicyDocument() {
 
       <p>
         {
-          'Thank you for trusting Twenty with your data. Your privacy is important to us, and we are committed to safeguarding it in accordance with this policy and applicable laws.'
+          'Thank you for trusting Bades.id with your data. Your privacy is important to us, and we are committed to safeguarding it in accordance with this policy and applicable laws.'
         }
       </p>
     </>

@@ -8,7 +8,7 @@ import {
 import packageJson from '../package.json';
 
 const program = new Command(packageJson.name)
-  .description('CLI tool to initialize a new Twenty application')
+  .description('CLI tool to initialize a new Bades application')
   .version(
     packageJson.version,
     '-v, --version',
@@ -18,7 +18,7 @@ const program = new Command(packageJson.name)
   .option('-n, --name <name>', 'Application name')
   .option('-d, --display-name <displayName>', 'Application display name')
   .option('--description <description>', 'Application description')
-  .option('--url <url>', 'Twenty server URL (default: http://localhost:2020)')
+  .option('--url <url>', 'Bades server URL (default: http://localhost:2020)')
   .option('--api-url <apiUrl>', '[deprecated: use --url]')
   .option(
     '--authentication-method <method>',

@@ -71,13 +71,13 @@ export default async function ReleasesPage({ params }: ReleasesPageProps) {
         </Hero.Heading>
         <Hero.Body page={Pages.ReleaseNotes} size="sm">
           {i18n._(
-            msg`Discover the newest features and improvements in Twenty,\nthe #1 Open Source CRM.`,
+            msg`Discover the newest features and improvements in Bades.id,\nthe #1 Open Source Village Information System.`,
           )}
         </Hero.Body>
         <Hero.Cta>
           <LinkButton
             color="secondary"
-            href="https://github.com/twentyhq/twenty/releases"
+            href="https://github.com/badesid/bades/releases"
             label={i18n._(msg`Technical notes`)}
             leadingIcon={<GitHubIcon fillColor="currentColor" size={14} />}
             variant="outlined"
@@ -89,10 +89,10 @@ export default async function ReleasesPage({ params }: ReleasesPageProps) {
       <ReleaseNotes.Root>
         {allNotes.length === 0 ? (
           <ReleaseNotes.EmptyMessage>
-            Releases were not found. Add MDX under{' '}
-            <strong>packages/twenty-website/src/content/releases</strong> and
-            images under{' '}
-            <strong>packages/twenty-website/public/images/releases</strong>.
+            Releases were not found. Add MDX under
+            <strong>packages/website/src/content/releases</strong> and
+            images under
+            <strong>packages/website/public/images/releases</strong>.
           </ReleaseNotes.EmptyMessage>
         ) : visibleNotes.length === 0 ? (
           <ReleaseNotes.EmptyMessage>

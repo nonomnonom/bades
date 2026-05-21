@@ -1,10 +1,10 @@
 ---
 title: 测试
-description: Vitest 设置、针对真实 Twenty 服务器的集成测试、类型检查，以及使用 GitHub Actions 的 CI。
+description: Vitest 设置、针对真实 Bades.id 服务器的集成测试、类型检查，以及使用 GitHub Actions 的 CI。
 icon: flask
 ---
 
-该 SDK 提供可编程的 API，使你可以在测试代码中构建、部署、安装和卸载你的应用。 结合 [Vitest](https://vitest.dev/) 和类型化 API 客户端，你可以编写集成测试，在真实的 Twenty 服务器上验证你的应用端到端运行是否正常。
+该 SDK 提供可编程的 API，使你可以在测试代码中构建、部署、安装和卸载你的应用。 结合 [Vitest](https://vitest.dev/) 和类型化 API 客户端，你可以编写集成测试，在真实的 Bades.id 服务器上验证你的应用端到端运行是否正常。
 
 ## 使用 npm 包
 
@@ -115,7 +115,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -218,7 +218,7 @@ describe('App installation', () => {
 
 ## 运行测试
 
-确保你的本地 Twenty 服务器正在运行，然后：
+确保你的本地 Bades.id 服务器正在运行，然后：
 
 ```bash filename="Terminal"
 yarn test
@@ -247,7 +247,7 @@ yarn twenty dev:typecheck
 工作流：
 
 1. 检出你的代码
-2. 使用 `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` 动作启动一个临时的 Twenty 服务器
+2. 使用 `twentyhq/twenty/.github/actions/spawn-twenty-docker-image` 动作启动一个临时的 Bades.id 服务器
 3. 使用 `yarn install --immutable` 安装依赖
 4. 运行 `yarn test`，并从该动作的输出中注入 `TWENTY_API_URL` 和 `TWENTY_API_KEY`
 
@@ -270,7 +270,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -296,6 +296,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-你无需配置任何机密——`spawn-twenty-docker-image` 动作会在运行器中直接启动一个临时的 Twenty 服务器，并输出连接详情。 GitHub 会自动提供 `GITHUB_TOKEN` 机密。
+你无需配置任何机密——`spawn-twenty-docker-image` 动作会在运行器中直接启动一个临时的 Bades.id 服务器，并输出连接详情。 GitHub 会自动提供 `GITHUB_TOKEN` 机密。
 
-若要固定为特定的 Twenty 版本而不是 `latest`，请在工作流顶部修改 `TWENTY_VERSION` 环境变量。
+若要固定为特定的 Bades.id 版本而不是 `latest`，请在工作流顶部修改 `TWENTY_VERSION` 环境变量。

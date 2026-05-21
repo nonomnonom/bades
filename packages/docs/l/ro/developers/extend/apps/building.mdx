@@ -1,10 +1,10 @@
 ---
 title: Arhitectură
-description: Cum funcționează aplicațiile Twenty — izolarea (sandboxing), ciclul de viață și elementele de bază.
+description: Cum funcționează aplicațiile Bades.id — izolarea (sandboxing), ciclul de viață și elementele de bază.
 icon: sitemap
 ---
 
-Aplicațiile Twenty sunt pachete TypeScript care vă extind spațiul de lucru cu obiecte personalizate, logică, componente UI și capabilități AI. Acestea rulează pe platforma Twenty, cu izolare completă (sandboxing) și controale de permisiuni.
+Aplicațiile Bades.id sunt pachete TypeScript care vă extind spațiul de lucru cu obiecte personalizate, logică, componente UI și capabilități AI. Acestea rulează pe platforma Bades.id, cu izolare completă (sandboxing) și controale de permisiuni.
 
 ## Cum funcționează aplicațiile
 
@@ -41,7 +41,7 @@ your-app/
 | **Obiect**                       | Tabele de date personalizate cu câmpuri                     | [Model de date](/l/ro/developers/extend/apps/data-model)              |
 | **Câmp**                         | Extindeți obiectele existente, definiți relații             | [Model de date](/l/ro/developers/extend/apps/data-model)              |
 | **Funcție logică**               | TypeScript pe partea de server cu declanșatoare             | [Funcții logice](/l/ro/developers/extend/apps/logic-functions)        |
-| **Componentă front-end**         | UI React izolat în pagina Twenty                            | [Componente front-end](/l/ro/developers/extend/apps/front-components) |
+| **Componentă front-end**         | UI React izolat în pagina Bades.id                            | [Componente front-end](/l/ro/developers/extend/apps/front-components) |
 | **Abilitate**                    | Instrucțiuni reutilizabile pentru agenți AI                 | [Abilități și agenți](/l/ro/developers/extend/apps/skills-and-agents) |
 | **Agent**                        | Agenți AI cu prompturi personalizate                        | [Abilități și agenți](/l/ro/developers/extend/apps/skills-and-agents) |
 | **Vizualizare**                  | Vizualizări preconfigurate ale listelor de înregistrări     | [Aspect](/l/ro/developers/extend/apps/layout)                         |
@@ -51,7 +51,7 @@ your-app/
 ## Izolare (sandboxing)
 
 * **Funcțiile logice** rulează în procese Node.js izolate pe server. Acestea accesează datele doar prin clientul API tipizat, limitat de permisiunile rolului aplicației.
-* **Componentele front-end** rulează în Web Workers folosind Remote DOM — izolate de pagina principală, dar randând elemente DOM native (nu iframes). Acestea comunică cu Twenty printr-un API al gazdei bazat pe transmiterea de mesaje.
+* **Componentele front-end** rulează în Web Workers folosind Remote DOM — izolate de pagina principală, dar randând elemente DOM native (nu iframes). Acestea comunică cu Bades.id printr-un API al gazdei bazat pe transmiterea de mesaje.
 * **Permisiunile** sunt aplicate la nivelul API-ului. Tokenul de rulare (`TWENTY_APP_ACCESS_TOKEN`) este derivat din rolul definit în `defineApplication()`.
 
 ## Ciclul de viață al aplicației
@@ -59,7 +59,7 @@ your-app/
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ Development                                             │
-│   npx create-twenty-app → yarn twenty dev (live sync)   │
+│   npx create-bades-app → yarn twenty dev (live sync)   │
 ├─────────────────────────────────────────────────────────┤
 │ Build & Deploy                                          │
 │   yarn twenty build → yarn twenty deploy                │
@@ -69,11 +69,11 @@ your-app/
 │   generate SDK → [post-install]                         │
 ├─────────────────────────────────────────────────────────┤
 │ Publish                                                 │
-│   npm publish → appears in Twenty marketplace           │
+│   npm publish → appears in Bades.id marketplace           │
 └─────────────────────────────────────────────────────────┘
 ```
 
-* **`yarn twenty dev`** — monitorizează fișierele sursă și sincronizează în timp real modificările către un server Twenty conectat. Clientul API tipizat este regenerat automat atunci când schema se schimbă.
+* **`yarn twenty dev`** — monitorizează fișierele sursă și sincronizează în timp real modificările către un server Bades.id conectat. Clientul API tipizat este regenerat automat atunci când schema se schimbă.
 * **`yarn twenty build`** — compilează TypeScript, împachetează funcțiile logice și componentele front-end cu esbuild și produce un manifest.
 * **Hook-uri pre/post-instalare** — funcții logice opționale care rulează în timpul instalării. Consultați [Funcții logice](/l/ro/developers/extend/apps/logic-functions) pentru detalii.
 
@@ -87,7 +87,7 @@ your-app/
     Funcții pe partea de server cu declanșatoare HTTP, cron și de evenimente.
   </Card>
   <Card title="Componente front-end" icon="window-maximize" href="/l/ro/developers/extend/apps/front-components">
-    Componente React izolate în interfața Twenty.
+    Componente React izolate în interfața Bades.id.
   </Card>
   <Card title="Aspect" icon="table-columns" href="/l/ro/developers/extend/apps/layout">
     Vizualizări, elemente de navigare și layout-uri ale paginilor de înregistrare.

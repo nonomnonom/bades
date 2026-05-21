@@ -93,7 +93,3 @@ To contribute to the documentation:
 2. Make your changes in the `packages/twenty-docs` directory
 3. Test locally with `npx nx run twenty-docs:dev`
 4. Submit a pull request
-
-## 📄 License
-
-This documentation is part of the Twenty project and is licensed under [AGPL-3.0](../../LICENSE).

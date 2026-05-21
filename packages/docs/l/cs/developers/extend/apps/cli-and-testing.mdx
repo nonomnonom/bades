@@ -120,7 +120,7 @@ V obou prostředích jsou jako předpřipravené moduly k dispozici `twenty-clie
 
 ## Testování vaší aplikace
 
-SDK poskytuje programová rozhraní, která vám umožní z testovacího kódu aplikaci sestavit, nasadit, nainstalovat a odinstalovat. V kombinaci s [Vitest](https://vitest.dev/) a typovanými klienty API můžete psát integrační testy, které ověří, že vaše aplikace funguje end-to-end proti reálnému serveru Twenty.
+SDK poskytuje programová rozhraní, která vám umožní z testovacího kódu aplikaci sestavit, nasadit, nainstalovat a odinstalovat. V kombinaci s [Vitest](https://vitest.dev/) a typovanými klienty API můžete psát integrační testy, které ověří, že vaše aplikace funguje end-to-end proti reálnému serveru Bades.id.
 
 ### Nastavení
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### Spuštění testů
 
-Ujistěte se, že běží váš lokální server Twenty, a poté:
+Ujistěte se, že běží váš lokální server Bades.id, a poté:
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-To je jiné než `yarn twenty server logs`, které zobrazují logy kontejneru Docker. `yarn twenty logs` zobrazuje logy spuštění funkcí vaší aplikace ze serveru Twenty.
+To je jiné než `yarn twenty server logs`, které zobrazují logy kontejneru Docker. `yarn twenty logs` zobrazuje logy spuštění funkcí vaší aplikace ze serveru Bades.id.
 </Note>
 
 ### Odinstalace aplikace (`yarn twenty uninstall`)
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## Správa vzdálených serverů
 
-**Remote** je server Twenty, ke kterému se vaše aplikace připojuje. Během nastavení jej generátor kostry automaticky vytvoří. Můžete kdykoli přidat další vzdálené servery nebo mezi nimi přepínat.
+**Remote** je server Bades.id, ke kterému se vaše aplikace připojuje. Během nastavení jej generátor kostry automaticky vytvoří. Můžete kdykoli přidat další vzdálené servery nebo mezi nimi přepínat.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ Generátor kostry vytvoří připravený k použití workflow GitHub Actions v `
 Workflow:
 
 1. Načte váš kód (checkout).
-2. Spustí dočasný server Twenty pomocí akce `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
+2. Spustí dočasný server Bades.id pomocí akce `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
 3. Nainstaluje závislosti pomocí `yarn install --immutable`
 4. Spustí `yarn test` s proměnnými `TWENTY_API_URL` a `TWENTY_API_KEY` vloženými z výstupů akce
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Není potřeba konfigurovat žádné secrets — akce `spawn-twenty-docker-image` spustí dočasný server Twenty přímo v runneru a vypíše podrobnosti připojení. Secret `GITHUB_TOKEN` je poskytován GitHubem automaticky.
+Není potřeba konfigurovat žádné secrets — akce `spawn-twenty-docker-image` spustí dočasný server Bades.id přímo v runneru a vypíše podrobnosti připojení. Secret `GITHUB_TOKEN` je poskytován GitHubem automaticky.
 
-Chcete-li připnout konkrétní verzi Twenty místo `latest`, změňte proměnnou prostředí `TWENTY_VERSION` na začátku workflow.
+Chcete-li připnout konkrétní verzi Bades.id místo `latest`, změňte proměnnou prostředí `TWENTY_VERSION` na začátku workflow.

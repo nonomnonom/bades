@@ -1,21 +1,21 @@
 ---
 title: Início rápido
 icon: rocket
-description: Crie seu primeiro app do Twenty em minutos.
+description: Crie seu primeiro app do Bades.id em minutos.
 ---
 
 ## Pré-requisitos
 
 * **Node.js 24+** — [Baixar](https://nodejs.org/)
 * **Yarn 4** — Vem com o Node.js via Corepack. Ative-o: `corepack enable`
-* **Docker** — [Baixar](https://www.docker.com/products/docker-desktop/). Necessário para executar um servidor Twenty local. Ignore se você já tiver o Twenty em execução em outro lugar.
+* **Docker** — [Baixar](https://www.docker.com/products/docker-desktop/). Necessário para executar um servidor Bades.id local. Ignore se você já tiver o Bades.id em execução em outro lugar.
 
-A criação de um aplicativo Twenty tem três fases. A ferramenta de scaffolding as reúne em um único comando do fluxo ideal, mas cada fase é um conceito separado — quando algo falha, saber em que fase você está indica o que corrigir.
+A criação de um aplicativo Bades.id tem três fases. A ferramenta de scaffolding as reúne em um único comando do fluxo ideal, mas cada fase é um conceito separado — quando algo falha, saber em que fase você está indica o que corrigir.
 
 | Fase                        | O que você faz                                     | Ferramenta                    | Resultado                             |
 | --------------------------- | -------------------------------------------------- | ----------------------------- | ------------------------------------- |
-| **1. Criar scaffolding**    | Gerar o código-fonte do aplicativo                 | `npx create-twenty-app`       | Um projeto TypeScript em disco        |
-| **2. Executar um servidor** | Iniciar um servidor Twenty para o qual sincronizar | Docker + `yarn twenty server` | Uma instância Twenty em execução      |
+| **1. Criar scaffolding**    | Gerar o código-fonte do aplicativo                 | `npx create-bades-app`       | Um projeto TypeScript em disco        |
+| **2. Executar um servidor** | Iniciar um servidor Bades.id para o qual sincronizar | Docker + `yarn twenty server` | Uma instância Bades.id em execução      |
 | **3. Sincronizar**          | Sincronize seu código em tempo real com o servidor | `yarn twenty dev`             | Suas alterações aparecem na interface |
 
 ---
@@ -25,7 +25,7 @@ A criação de um aplicativo Twenty tem três fases. A ferramenta de scaffolding
 Crie um novo aplicativo a partir do modelo:
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 ```
 
 Você será solicitado a informar um nome e uma descrição — pressione **Enter** para aceitar os valores padrão. Isso gera um projeto TypeScript em `my-twenty-app/` com um `application-config.ts` inicial, um papel padrão, um fluxo de trabalho de CI e um teste de integração.
@@ -34,16 +34,16 @@ Você será solicitado a informar um nome e uma descrição — pressione **Ente
 
 ---
 
-## Fase 2 — Executar um servidor Twenty local
+## Fase 2 — Executar um servidor Bades.id local
 
-Seu aplicativo precisa de um servidor Twenty para o qual sincronizar. O servidor é uma instância completa do Twenty — interface, API GraphQL, PostgreSQL — executando localmente no Docker. Seu código local envia suas definições para esse servidor, o que faz com que elas apareçam na interface.
+Seu aplicativo precisa de um servidor Bades.id para o qual sincronizar. O servidor é uma instância completa do Bades.id — interface, API GraphQL, PostgreSQL — executando localmente no Docker. Seu código local envia suas definições para esse servidor, o que faz com que elas apareçam na interface.
 
 A ferramenta de scaffolding oferece iniciar um para você:
 
-> **Você gostaria de configurar uma instância local do Twenty?**
+> **Você gostaria de configurar uma instância local do Bades.id?**
 
 * **Sim (recomendado)** — baixa a imagem Docker `twentycrm/twenty-app-dev` e a inicia na porta `2020`. Certifique-se de que o Docker esteja em execução primeiro.
-* **Não** — escolha isto se você já tiver um servidor Twenty ao qual deseja se conectar. Você pode conectá-lo depois com `yarn twenty remote:add`.
+* **Não** — escolha isto se você já tiver um servidor Bades.id ao qual deseja se conectar. Você pode conectá-lo depois com `yarn twenty remote:add`.
 
 <div style={{textAlign: 'center'}}>
   <img src="/images/docs/developers/extends/apps/start-instance.png" alt="Deve iniciar instância local?" />
@@ -55,13 +55,13 @@ Quando o servidor estiver ativo, um navegador será aberto para login. Use a con
 * **Senha:** `tim@apple.dev`
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/login.png" alt="Tela de login do Twenty" />
+  <img src="/images/docs/developers/extends/apps/login.png" alt="Tela de login do Bades.id" />
 </div>
 
 Clique em **Authorize** na próxima tela — isso dá à CLI acesso ao seu espaço de trabalho.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Tela de autorização da CLI do Twenty" />
+  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Tela de autorização da CLI do Bades.id" />
 </div>
 
 Seu terminal confirmará que tudo está configurado.
@@ -70,7 +70,7 @@ Seu terminal confirmará que tudo está configurado.
   <img src="/images/docs/developers/extends/apps/scaffolded.png" alt="Scaffold do aplicativo criado com sucesso" />
 </div>
 
-**Após esta fase:** você tem um servidor Twenty em execução em [http://localhost:2020](http://localhost:2020) com sua CLI autorizada a sincronizar com ele.
+**Após esta fase:** você tem um servidor Bades.id em execução em [http://localhost:2020](http://localhost:2020) com sua CLI autorizada a sincronizar com ele.
 
 <Note>
 Se o Docker não estiver instalado ou em execução, a ferramenta de scaffolding informará o comando de inicialização correto para o seu sistema operacional. Quando o Docker estiver ativo, você pode retomar com `yarn twenty docker:start` — sem necessidade de recriar o scaffolding.
@@ -146,7 +146,7 @@ Os aplicativos são compostos por **entidades** — cada uma definida como um ar
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | **Objetos e campos**         | Modelos de dados personalizados (Cartão postal, Fatura etc.) com campos tipados                                    |
 | **Funções lógicas**          | Funções TypeScript do lado do servidor acionadas por rotas HTTP, agendamentos do cron ou eventos de banco de dados |
-| **Componentes de front-end** | Componentes React que são renderizados na UI do Twenty (painel lateral, widgets, menu de comandos)                 |
+| **Componentes de front-end** | Componentes React que são renderizados na UI do Bades.id (painel lateral, widgets, menu de comandos)                 |
 | **Habilidades e agentes**    | Recursos de IA — instruções reutilizáveis e assistentes autônomos                                                  |
 | **Exibições e navegação**    | Exibições de lista pré-configuradas e itens de menu da barra lateral                                               |
 | **Layouts de página**        | Páginas de detalhes de registros personalizadas com abas e widgets                                                 |

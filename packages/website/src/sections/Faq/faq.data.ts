@@ -8,31 +8,31 @@ export type FaqQuestionType = {
 
 export const FAQ_QUESTIONS: FaqQuestionType[] = [
   {
-    question: msg`Is Bades.id really open-source?`,
-    answer: msg`Yes. Bades.id is an open source Village Information System (SID) on GitHub. You can self-host to fully own your infrastructure, or run it on our managed cloud for a zero-ops setup.`,
+    question: msg`Apakah Bades.id benar-benar open-source?`,
+    answer: msg`Ya. Bades.id adalah Sistem Informasi Desa (SID) open source di GitHub. Anda bisa self-host untuk sepenuhnya memiliki infrastruktur Anda, atau menjalankannya di cloud kami yang dikelola untuk setup zero-ops.`,
   },
   {
-    question: msg`How long does it take to get started?`,
-    answer: msg`Sign up for Cloud in under a minute and start your 30-day trial. For larger rollouts, our 4-hour Onboarding Packs or certified partners get you live in 1-2 weeks.`,
+    question: msg`Berapa lama untuk memulai?`,
+    answer: msg`Daftar Cloud dalam waktu kurang dari satu menit dan mulai percobaan 30 hari. Untuk implementasi yang lebih besar, Paket Onboarding 4 jam atau partner bersertifikasi kami membuat Anda aktif dalam 1-2 minggu.`,
   },
   {
-    question: msg`Can I migrate from other village administration systems?`,
-    answer: msg`Yes. Import your data via CSV, or use our API for 50,000+ records. Our partners can handle the full migration for you.`,
+    question: msg`Bisakah saya migrasi dari sistem administrasi desa lain?`,
+    answer: msg`Ya. Impor data Anda melalui CSV, atau gunakan API kami untuk 50.000+ rekaman. Partner kami dapat menangani migrasi lengkap untuk Anda.`,
   },
   {
-    question: msg`Do I need a developer to customize Bades.id?`,
-    answer: msg`No. Build custom objects, fields, views, and no-code workflows straight from Settings. Unlimited, no extra charge.`,
+    question: msg`Apakah saya butuh developer untuk menyesuaikan Bades.id?`,
+    answer: msg`Tidak. Bangun object kustom, kolom, tampilan, dan workflow no-code langsung dari Settings. Tanpa batas, tanpa biaya tambahan.`,
   },
   {
-    question: msg`Can developers extend Bades.id with code?`,
-    answer: msg`Yes, with our Apps framework. Scaffold an extension with \`npx create-bades-app\` and ship custom objects, server-side logic functions, React components that render inside Bades.id's UI, AI skills and agents, views, and navigation, all in TypeScript, deployable to any village.`,
+    question: msg`Bisakah developer memperluas Bades.id dengan kode?`,
+    answer: msg`Ya, dengan framework Apps kami. Buat ekstensi dengan \`npx create-bades-app\` dan kirim object kustom, fungsi logika server-side, komponen React yang ditampilkan di UI Bades.id, skill dan agent AI, tampilan, dan navigasi, semuanya dalam TypeScript, dapat di-deploy ke desa mana pun.`,
   },
   {
-    question: msg`Does Bades.id work with Claude, ChatGPT, and Cursor?`,
-    answer: msg`Yes. Every Cloud workspace ships with a native MCP server. Connect your AI assistant via OAuth and it can read and write your village administration data in natural language.`,
+    question: msg`Apakah Bades.id bekerja dengan Claude, ChatGPT, dan Cursor?`,
+    answer: msg`Ya. Setiap workspace Cloud dilengkapi server MCP native. Hubungkan asisten AI Anda melalui OAuth dan ia dapat membaca dan menulis data administrasi desa Anda dalam bahasa alami.`,
   },
   {
-    question: msg`What does Bades.id cost?`,
-    answer: msg`Cloud Pro is Rp 90.000/user/month (yearly). Organization is Rp 190.000/user/month and unlocks SSO and row-level permissions for villages that need finer access control.`,
+    question: msg`Berapa harga Bades.id?`,
+    answer: msg`Cloud Pro adalah Rp 90.000/user/bulan (tahunan). Organization adalah Rp 190.000/user/bulan dan membuka SSO dan row-level permissions untuk desa yang membutuhkan kontrol akses lebih detail.`,
   },
 ];

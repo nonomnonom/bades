@@ -40,7 +40,7 @@ yarn twenty dev:function:logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Bu, Docker konteyner günlüklerini gösteren `yarn twenty docker:logs` komutundan farklıdır. `yarn twenty dev:function:logs`, uygulamanızın fonksiyon yürütme günlüklerini Twenty sunucusundan gösterir.
+Bu, Docker konteyner günlüklerini gösteren `yarn twenty docker:logs` komutundan farklıdır. `yarn twenty dev:function:logs`, uygulamanızın fonksiyon yürütme günlüklerini Bades.id sunucusundan gösterir.
 </Note>
 
 ## Bir uygulamayı kaldırma (`yarn twenty app:uninstall`)
@@ -56,13 +56,13 @@ yarn twenty app:uninstall --yes
 
 ## Uzakları yönetme
 
-Bir **uzak**, uygulamanızın bağlandığı Twenty sunucusudur. Kurulum sırasında iskelet oluşturucu sizin için otomatik olarak bir tane oluşturur. Dilediğiniz zaman daha fazla uzak ekleyebilir veya aralarında geçiş yapabilirsiniz.
+Bir **uzak**, uygulamanızın bağlandığı Bades.id sunucusudur. Kurulum sırasında iskelet oluşturucu sizin için otomatik olarak bir tane oluşturur. Dilediğiniz zaman daha fazla uzak ekleyebilir veya aralarında geçiş yapabilirsiniz.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote:add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote:add --local
 
 # Add a remote non-interactively (useful for CI)

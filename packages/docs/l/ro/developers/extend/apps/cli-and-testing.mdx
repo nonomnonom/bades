@@ -120,7 +120,7 @@ Ambele medii au `twenty-client-sdk/core` și `twenty-client-sdk/metadata` dispon
 
 ## Testarea aplicației
 
-SDK-ul oferă API-uri programatice care vă permit să construiți, să distribuiți, să instalați și să dezinstalați aplicația din codul de test. Combinat cu [Vitest](https://vitest.dev/) și clienții API tipizați, puteți scrie teste de integrare care verifică faptul că aplicația funcționează cap-coadă împotriva unui server Twenty real.
+SDK-ul oferă API-uri programatice care vă permit să construiți, să distribuiți, să instalați și să dezinstalați aplicația din codul de test. Combinat cu [Vitest](https://vitest.dev/) și clienții API tipizați, puteți scrie teste de integrare care verifică faptul că aplicația funcționează cap-coadă împotriva unui server Bades.id real.
 
 ### Configurare
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### Rularea testelor
 
-Asigurați-vă că serverul Twenty local rulează, apoi:
+Asigurați-vă că serverul Bades.id local rulează, apoi:
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Acest lucru este diferit de `yarn twenty server logs`, care afișează jurnalele containerului Docker. `yarn twenty logs` afișează jurnalele de execuție ale funcțiilor aplicației de pe serverul Twenty.
+Acest lucru este diferit de `yarn twenty server logs`, care afișează jurnalele containerului Docker. `yarn twenty logs` afișează jurnalele de execuție ale funcțiilor aplicației de pe serverul Bades.id.
 </Note>
 
 ### Dezinstalarea unei aplicații (`yarn twenty uninstall`)
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## Gestionarea remote-urilor
 
-Un „remote” este un server Twenty la care se conectează aplicația. În timpul configurării, Scaffolderul creează automat unul pentru dvs. Puteți adăuga mai multe remote-uri sau comuta între ele oricând.
+Un „remote” este un server Bades.id la care se conectează aplicația. În timpul configurării, Scaffolderul creează automat unul pentru dvs. Puteți adăuga mai multe remote-uri sau comuta între ele oricând.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ Scaffolderul generează un workflow GitHub Actions gata de utilizare în `.githu
 Workflow-ul:
 
 1. Preia codul
-2. Pornește un server Twenty temporar folosind acțiunea `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
+2. Pornește un server Bades.id temporar folosind acțiunea `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
 3. Instalează dependențele cu `yarn install --immutable`
 4. Rulează `yarn test` cu `TWENTY_API_URL` și `TWENTY_API_KEY` injectate din rezultatele acțiunii
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Nu trebuie să configurați niciun secret — acțiunea `spawn-twenty-docker-image` pornește un server Twenty efemer direct în runner și oferă detaliile de conectare. Secretul `GITHUB_TOKEN` este furnizat automat de GitHub.
+Nu trebuie să configurați niciun secret — acțiunea `spawn-twenty-docker-image` pornește un server Bades.id efemer direct în runner și oferă detaliile de conectare. Secretul `GITHUB_TOKEN` este furnizat automat de GitHub.
 
-Pentru a fixa o versiune Twenty specifică în loc de `latest`, modificați variabila de mediu `TWENTY_VERSION` din partea de sus a workflow-ului.
+Pentru a fixa o versiune Bades.id specifică în loc de `latest`, modificați variabila de mediu `TWENTY_VERSION` din partea de sus a workflow-ului.

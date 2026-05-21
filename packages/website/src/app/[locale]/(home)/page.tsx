@@ -158,7 +158,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </HeadingPart>
         </Heading>
       ),
-      body: msg`Don't get locked into someone else's ecosystem. Twenty's developer experience looks like normal software, with local setup, real data, live testing, and no proprietary tooling.`,
+      body: msg`Don't get locked into someone else's ecosystem. Bades.id's developer experience looks like normal software, with local setup, real data, live testing, and no proprietary tooling.`,
     },
   ];
   const menuSocialLinks = mergeSocialLinkLabels(MENU_DATA.socialLinks, stats);
@@ -217,14 +217,14 @@ export default async function HomePage({ params }: HomePageProps) {
             </Hero.Heading>
             <Hero.Body page={Pages.Home} size="sm">
               {i18n._(
-                msg`Twenty gives technical teams the building blocks for a custom CRM that meets complex business needs and quickly adapts as the business evolves.`,
+                msg`Bades.id gives technical teams the building blocks for a custom CRM that meets complex business needs and quickly adapts as the business evolves.`,
               )}
             </Hero.Body>
           </HeroHeadingGroup>
           <Hero.Cta>
             <LinkButton
               color="secondary"
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Get started`)}
               variant="contained"
             />
@@ -353,13 +353,13 @@ export default async function HomePage({ params }: HomePageProps) {
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Twenty`)}
+              {i18n._(msg`Start building, with Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Get started`)}
               variant="contained"
             />

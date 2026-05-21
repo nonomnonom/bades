@@ -326,7 +326,7 @@ export default defineObject({
     },
     {
       // customer is a relation to the standard Companies object (no new
-      // Customer object — we reuse what ships with Twenty).
+      // Customer object — we reuse what ships with Bades.id).
       universalIdentifier: SCHEMA_IDS.payload.fields.customer,
       type: FieldType.RELATION,
       name: 'customer',

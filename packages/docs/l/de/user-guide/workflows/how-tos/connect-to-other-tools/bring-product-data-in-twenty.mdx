@@ -1,9 +1,9 @@
 ---
-title: Produktdaten in Twenty importieren
+title: Produktdaten in Bades.id importieren
 description: Synchronisieren Sie Produktkatalogdaten nach Zeitplan aus einem Data Warehouse in Ihr CRM.
 ---
 
-Verwenden Sie dieses Muster, um Twenty mit Produktdaten aus Ihrem Data Warehouse (z. B. Snowflake, BigQuery, PostgreSQL) synchron zu halten.
+Verwenden Sie dieses Muster, um Bades.id mit Produktdaten aus Ihrem Data Warehouse (z. B. Snowflake, BigQuery, PostgreSQL) synchron zu halten.
 
 ## Workflow-Struktur
 
@@ -11,7 +11,7 @@ Verwenden Sie dieses Muster, um Twenty mit Produktdaten aus Ihrem Data Warehouse
 2. **Code**: Ihr Data Warehouse abfragen
 3. **Code** (optional): Daten als Array formatieren
 4. **Iterator**: Jedes Produkt durchlaufen
-5. **Upsert Record**: In Twenty erstellen oder aktualisieren
+5. **Upsert Record**: In Bades.id erstellen oder aktualisieren
 
 <img src="/images/user-guide/workflows/create_users_workflow.png" style={{width:'100%'}} />
 
@@ -80,7 +80,7 @@ export const main = async (params: {
       isActiveLast30d: toBool(user.isActiveLast30d),
       isActiveLast7d: toBool(user.isActiveLast7d),
       isActiveLast24h: toBool(user.isActiveLast24h),
-      isTwenty: toBool(user.isTwenty),
+      isBades.id: toBool(user.isBades.id),
     })),
   };
 };

@@ -11,8 +11,8 @@ import { CaseStudyPageLayout } from '@/app/[locale]/customers/_components/CaseSt
 const PLACEHOLDER_HERO =
   'https://images.unsplash.com/photo-1733244766159-f58f4184fd38?w=1600&q=80';
 
-const META_TITLE = msg`Homeseller, WhatsApp, and a CRM built around the business | Nine Dots & Twenty`;
-const META_DESCRIPTION = msg`How Nine Dots Ventures rebuilt a Singapore real estate agency on Twenty with APIs, n8n, Grafana, and AI on top of 2,000+ WhatsApp messages a day.`;
+const META_TITLE = msg`Homeseller, WhatsApp, and a CRM built around the business | Nine Dots & Bades.id`;
+const META_DESCRIPTION = msg`How Nine Dots Ventures rebuilt a Singapore real estate agency on Bades.id with APIs, n8n, Grafana, and AI on top of 2,000+ WhatsApp messages a day.`;
 
 export const generateMetadata = buildLocalizedMetadata({
   path: '/customers/9dots',
@@ -59,7 +59,7 @@ export default async function NineDotsCaseStudyPage({
         { value: msg`Q1 2026`, label: msg`Record quarter` },
       ],
       quote: {
-        text: msg`Twenty lets us build a CRM around the business and not the business around the CRM.`,
+        text: msg`Bades.id lets us build a CRM around the business and not the business around the CRM.`,
         author: 'Mike Babiy',
         role: msg`Founder, Nine Dots Ventures`,
       },
@@ -84,7 +84,7 @@ export default async function NineDotsCaseStudyPage({
           msg`Mike and Azmat from Nine Dots stepped in to fix that, not by changing how Homeseller works, but by building a system that finally fit around it.`,
         ],
         callout:
-          '"Twenty lets us build a CRM around the business and not the business around the CRM." - Mike Babiy, Founder, Nine Dots Ventures',
+          '"Bades.id lets us build a CRM around the business and not the business around the CRM." - Mike Babiy, Founder, Nine Dots Ventures',
       },
       {
         type: 'text',
@@ -100,11 +100,11 @@ export default async function NineDotsCaseStudyPage({
           </Heading>
         ),
         paragraphs: [
-          msg`Nine Dots rebuilt Homeseller's operations on Twenty, with a custom data model shaped around their sales flow. Because Twenty is open and everything is accessible via API, they connected it to what the business actually needed: n8n for automated workflows (in-app workflows were not available at that time), Grafana for live dashboards fed from Twenty, and a custom AI layer to parse and extract structured insights from more than 2,000 WhatsApp messages a day.`,
+          msg`Nine Dots rebuilt Homeseller's operations on Bades.id, with a custom data model shaped around their sales flow. Because Bades.id is open and everything is accessible via API, they connected it to what the business actually needed: n8n for automated workflows (in-app workflows were not available at that time), Grafana for live dashboards fed from Bades.id, and a custom AI layer to parse and extract structured insights from more than 2,000 WhatsApp messages a day.`,
           msg`Homeseller kept their habits. WhatsApp stayed WhatsApp. What changed is that everything flowing through those conversations now lands in a structured system, tracked, classified, and visible in real time.`,
         ],
         callout:
-          '"Twenty is the heart of the system. Everything branches from it." - Azmat Parveen, Nine Dots Ventures',
+          '"Bades.id is the heart of the system. Everything branches from it." - Azmat Parveen, Nine Dots Ventures',
       },
       {
         type: 'text',
@@ -121,7 +121,7 @@ export default async function NineDotsCaseStudyPage({
         ),
         paragraphs: [
           msg`About 150 hours per month saved in manual operations. Real-time metrics for the business owner. Growth readiness without adding operational headcount. A team that can answer questions that used to take days to piece together.`,
-          msg`The full rollout landed in July 2025. Since then, Nine Dots built a Smart Assistant on top of the system, nudging agents with tasks, reminders, and on-demand market analysis. Some agents never open Twenty directly, yet they are powered by it, outperforming peers on manual processes alone. By Q1 2026, Homeseller had recorded its best sales quarter ever.`,
+          msg`The full rollout landed in July 2025. Since then, Nine Dots built a Smart Assistant on top of the system, nudging agents with tasks, reminders, and on-demand market analysis. Some agents never open Bades.id directly, yet they are powered by it, outperforming peers on manual processes alone. By Q1 2026, Homeseller had recorded its best sales quarter ever.`,
         ],
       },
     ],
@@ -131,7 +131,7 @@ export default async function NineDotsCaseStudyPage({
       msg`The result`,
     ],
     catalogCard: {
-      summary: msg`Nine Dots put Twenty at the center of Homeseller's stack with APIs, automation, and AI on top of WhatsApp-heavy operations.`,
+      summary: msg`Nine Dots put Bades.id at the center of Homeseller's stack with APIs, automation, and AI on top of WhatsApp-heavy operations.`,
       date: msg`Jul 2025`,
     },
   };

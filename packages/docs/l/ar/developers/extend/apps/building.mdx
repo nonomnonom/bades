@@ -1,10 +1,10 @@
 ---
 title: الهيكلية
-description: كيف تعمل تطبيقات Twenty — العزل، دورة الحياة، واللبنات الأساسية.
+description: كيف تعمل تطبيقات Bades.id — العزل، دورة الحياة، واللبنات الأساسية.
 icon: sitemap
 ---
 
-تطبيقات Twenty هي حزم TypeScript توسّع مساحة عملك بكائنات مخصّصة، ومنطق، ومكوّنات واجهة مستخدم (UI)، وقدرات ذكاء اصطناعي. تعمل على منصة Twenty مع عزل كامل وضوابط الأذونات.
+تطبيقات Bades.id هي حزم TypeScript توسّع مساحة عملك بكائنات مخصّصة، ومنطق، ومكوّنات واجهة مستخدم (UI)، وقدرات ذكاء اصطناعي. تعمل على منصة Bades.id مع عزل كامل وضوابط الأذونات.
 
 ## كيف تعمل التطبيقات
 
@@ -41,7 +41,7 @@ your-app/
 | **الكائن**             | جداول بيانات مخصّصة مع حقول                            | [نموذج البيانات](/l/ar/developers/extend/apps/data-model)           |
 | **الحقل**              | توسيع الكائنات الموجودة، تعريف العلاقات                | [نموذج البيانات](/l/ar/developers/extend/apps/data-model)           |
 | **دالة منطقية**        | TypeScript على جانب الخادم مع مشغّلات                  | [الوظائف المنطقية](/l/ar/developers/extend/apps/logic-functions)    |
-| **مكوّن أمامي**        | واجهة مستخدم React معزولة داخل صفحة Twenty.            | [المكوّنات الأمامية](/l/ar/developers/extend/apps/front-components) |
+| **مكوّن أمامي**        | واجهة مستخدم React معزولة داخل صفحة Bades.id.            | [المكوّنات الأمامية](/l/ar/developers/extend/apps/front-components) |
 | **مهارة**              | تعليمات قابلة لإعادة الاستخدام لوكلاء الذكاء الاصطناعي | [المهارات والوكلاء](/l/ar/developers/extend/apps/skills-and-agents) |
 | **وكيل**               | مساعدو الذكاء الاصطناعي بموجهات مخصّصة                 | [المهارات والوكلاء](/l/ar/developers/extend/apps/skills-and-agents) |
 | **عرض**                | عروض قوائم السجلات المكوّنة مسبقًا                     | [التخطيط](/l/ar/developers/extend/apps/layout)                      |
@@ -51,7 +51,7 @@ your-app/
 ## العزل
 
 * **الدوال المنطقية** تعمل في عمليات Node.js معزولة على الخادم. لا تصل إلى البيانات إلا عبر عميل API مضبوط الأنواع، ومقيَّد بأذونات دور التطبيق.
-* **المكوّنات الأمامية** تعمل ضمن Web Workers باستخدام Remote DOM — معزولة عن الصفحة الرئيسية لكنها تعرض عناصر DOM الأصلية (وليس iframes). تتواصل مع Twenty عبر واجهة API للمضيف تعتمد تمرير الرسائل.
+* **المكوّنات الأمامية** تعمل ضمن Web Workers باستخدام Remote DOM — معزولة عن الصفحة الرئيسية لكنها تعرض عناصر DOM الأصلية (وليس iframes). تتواصل مع Bades.id عبر واجهة API للمضيف تعتمد تمرير الرسائل.
 * **الأذونات** تُطبَّق على مستوى واجهة API. يُشتق رمز وقت التشغيل (`TWENTY_APP_ACCESS_TOKEN`) من الدور المعرَّف في `defineApplication()`.
 
 ## دورة حياة التطبيق
@@ -59,7 +59,7 @@ your-app/
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ Development                                             │
-│   npx create-twenty-app → yarn twenty dev (live sync)   │
+│   npx create-bades-app → yarn twenty dev (live sync)   │
 ├─────────────────────────────────────────────────────────┤
 │ Build & Deploy                                          │
 │   yarn twenty build → yarn twenty deploy                │
@@ -69,11 +69,11 @@ your-app/
 │   generate SDK → [post-install]                         │
 ├─────────────────────────────────────────────────────────┤
 │ Publish                                                 │
-│   npm publish → appears in Twenty marketplace           │
+│   npm publish → appears in Bades.id marketplace           │
 └─────────────────────────────────────────────────────────┘
 ```
 
-* **`yarn twenty dev`** — يراقب ملفات المصدر لديك ويزامن التغييرات مباشرةً إلى خادم Twenty متصل. يُعاد توليد عميل API مضبوط الأنواع تلقائيًا عند تغيّر المخطط.
+* **`yarn twenty dev`** — يراقب ملفات المصدر لديك ويزامن التغييرات مباشرةً إلى خادم Bades.id متصل. يُعاد توليد عميل API مضبوط الأنواع تلقائيًا عند تغيّر المخطط.
 * **`yarn twenty build`** — يجمّع TypeScript، ويضمّن الدوال المنطقية والمكوّنات الأمامية باستخدام esbuild، وينتج ملف بيان.
 * **خطّافات ما قبل/ما بعد التثبيت** — دوال منطقية اختيارية تعمل أثناء التثبيت. راجع [الدوال المنطقية](/l/ar/developers/extend/apps/logic-functions) للحصول على التفاصيل.
 
@@ -87,7 +87,7 @@ your-app/
     دوال على جانب الخادم مع HTTP وcron ومشغّلات الأحداث.
   </Card>
   <Card title="المكوّنات الأمامية" icon="window-maximize" href="/l/ar/developers/extend/apps/front-components">
-    مكوّنات React معزولة داخل واجهة مستخدم Twenty.
+    مكوّنات React معزولة داخل واجهة مستخدم Bades.id.
   </Card>
   <Card title="التخطيط" icon="table-columns" href="/l/ar/developers/extend/apps/layout">
     العروض، وعناصر التنقّل، وتخطيطات صفحات السجل.

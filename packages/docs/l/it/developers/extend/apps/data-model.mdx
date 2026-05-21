@@ -1,6 +1,6 @@
 ---
 title: Modello dati
-description: Definisci oggetti, campi, ruoli e metadati dell'applicazione con Twenty SDK.
+description: Definisci oggetti, campi, ruoli e metadati dell'applicazione con Bades.id SDK.
 icon: database
 ---
 
@@ -75,8 +75,8 @@ import { DEFAULT_ROLE_UNIVERSAL_IDENTIFIER } from 'src/roles/default-role';
 
 export default defineApplication({
   universalIdentifier: '39783023-bcac-41e3-b0d2-ff1944d8465d',
-  displayName: 'My Twenty App',
-  description: 'My first Twenty app',
+  displayName: 'My Bades.id App',
+  description: 'My first Bades.id app',
   icon: 'IconWorld',
   applicationVariables: {
     DEFAULT_RECIPIENT_NAME: {
@@ -133,7 +133,7 @@ export const DEFAULT_ROLE_UNIVERSAL_IDENTIFIER =
 export default defineRole({
   universalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'Default function role',
-  description: 'Default role for function Twenty client',
+  description: 'Default role for function Bades.id client',
   canReadAllObjectRecords: true,
   canUpdateAllObjectRecords: false,
   canSoftDeleteAllObjectRecords: false,
@@ -241,7 +241,7 @@ Punti chiave:
 * Puoi generare nuovi oggetti con `yarn twenty add`, che ti guida nella denominazione, nei campi e nelle relazioni.
 
 <Note>
-**I campi base vengono creati automaticamente.** Quando definisci un oggetto personalizzato, Twenty aggiunge automaticamente i campi standard
+**I campi base vengono creati automaticamente.** Quando definisci un oggetto personalizzato, Bades.id aggiunge automaticamente i campi standard
 come `id`, `name`, `createdAt`, `updatedAt`, `createdBy`, `updatedBy` e `deletedAt`.
 Non è necessario definirli nel tuo array `fields` — aggiungi solo i tuoi campi personalizzati.
 Puoi sovrascrivere i campi predefiniti definendo un campo con lo stesso nome nel tuo array `fields`,
@@ -251,7 +251,7 @@ ma non è consigliato.
 </Accordion>
 <Accordion title="defineField — Campi standard" description="Estendi gli oggetti esistenti con campi aggiuntivi">
 
-Usa `defineField()` per aggiungere campi a oggetti che non possiedi — come gli oggetti standard di Twenty (Person, Company, ecc.) o oggetti di altre app. A differenza dei campi inline in `defineObject()`, i campi autonomi richiedono un `objectUniversalIdentifier` per specificare quale oggetto estendono:
+Usa `defineField()` per aggiungere campi a oggetti che non possiedi — come gli oggetti standard di Bades.id (Person, Company, ecc.) o oggetti di altre app. A differenza dei campi inline in `defineObject()`, i campi autonomi richiedono un `objectUniversalIdentifier` per specificare quale oggetto estendono:
 
 ```ts src/fields/company-loyalty-tier.field.ts
 import { defineField, FieldType } from 'twenty-sdk/define';
@@ -279,7 +279,7 @@ Punti chiave:
 </Accordion>
 <Accordion title="defineField — Campi di relazione" description="Collega gli oggetti tra loro con relazioni bidirezionali">
 
-Le relazioni collegano gli oggetti tra loro. In Twenty, le relazioni sono sempre **bidirezionali** — definisci entrambi i lati e ciascun lato fa riferimento all'altro.
+Le relazioni collegano gli oggetti tra loro. In Bades.id, le relazioni sono sempre **bidirezionali** — definisci entrambi i lati e ciascun lato fa riferimento all'altro.
 
 Esistono due tipi di relazione:
 
@@ -363,7 +363,7 @@ export default defineField({
 
 #### Relazioni con gli oggetti standard
 
-Per creare una relazione con un oggetto Twenty integrato (Person, Company, ecc.), usa `STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS`:
+Per creare una relazione con un oggetto Bades.id integrato (Person, Company, ecc.), usa `STANDARD_OBJECT_UNIVERSAL_IDENTIFIERS`:
 
 ```ts src/fields/person-on-self-hosting-user.field.ts
 import {

@@ -1,10 +1,10 @@
 ---
 title: Arquitetura
-description: Como as aplicações Twenty funcionam — sandboxing, ciclo de vida e os blocos de construção.
+description: Como as aplicações Bades.id funcionam — sandboxing, ciclo de vida e os blocos de construção.
 icon: sitemap
 ---
 
-As aplicações Twenty são pacotes TypeScript que estendem seu espaço de trabalho com objetos personalizados, lógica, componentes de UI e recursos de IA. Elas são executadas na plataforma Twenty com sandboxing completo e controles de permissão.
+As aplicações Bades.id são pacotes TypeScript que estendem seu espaço de trabalho com objetos personalizados, lógica, componentes de UI e recursos de IA. Elas são executadas na plataforma Bades.id com sandboxing completo e controles de permissão.
 
 ## Como as aplicações funcionam
 
@@ -41,7 +41,7 @@ your-app/
 | **Objeto**                    | Tabelas de dados personalizadas com campos            | [Modelo de Dados](/l/pt/developers/extend/apps/data-model)                |
 | **Campo**                     | Estender objetos existentes, definir relações         | [Modelo de Dados](/l/pt/developers/extend/apps/data-model)                |
 | **Função lógica**             | TypeScript no lado do servidor com gatilhos           | [Funções lógicas](/l/pt/developers/extend/apps/logic-functions)           |
-| **Componente de front-end**   | UI React em sandbox na página do Twenty               | [Componentes de front-end](/l/pt/developers/extend/apps/front-components) |
+| **Componente de front-end**   | UI React em sandbox na página do Bades.id               | [Componentes de front-end](/l/pt/developers/extend/apps/front-components) |
 | **Habilidade**                | Instruções reutilizáveis para agentes de IA           | [Habilidades e Agentes](/l/pt/developers/extend/apps/skills-and-agents)   |
 | **Agente**                    | Assistentes de IA com prompts personalizados          | [Habilidades e Agentes](/l/pt/developers/extend/apps/skills-and-agents)   |
 | **Vista**                     | Vistas de lista de registros pré-configuradas         | [Layout](/l/pt/developers/extend/apps/layout)                             |
@@ -51,7 +51,7 @@ your-app/
 ## Sandboxing
 
 * **Funções lógicas** são executadas em processos Node.js isolados no servidor. Elas acessam dados apenas por meio do cliente de API tipado, restrito às permissões do papel do aplicativo.
-* **Componentes de front-end** executam em Web Workers usando Remote DOM — isolados da página principal, mas renderizando elementos DOM nativos (não iframes). Eles se comunicam com o Twenty por meio de uma API de host com passagem de mensagens.
+* **Componentes de front-end** executam em Web Workers usando Remote DOM — isolados da página principal, mas renderizando elementos DOM nativos (não iframes). Eles se comunicam com o Bades.id por meio de uma API de host com passagem de mensagens.
 * **Permissões** são aplicadas no nível da API. O token de tempo de execução (`TWENTY_APP_ACCESS_TOKEN`) é derivado do papel definido em `defineApplication()`.
 
 ## Ciclo de vida do aplicativo
@@ -59,7 +59,7 @@ your-app/
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ Development                                             │
-│   npx create-twenty-app → yarn twenty dev (live sync)   │
+│   npx create-bades-app → yarn twenty dev (live sync)   │
 ├─────────────────────────────────────────────────────────┤
 │ Build & Deploy                                          │
 │   yarn twenty build → yarn twenty deploy                │
@@ -69,11 +69,11 @@ your-app/
 │   generate SDK → [post-install]                         │
 ├─────────────────────────────────────────────────────────┤
 │ Publish                                                 │
-│   npm publish → appears in Twenty marketplace           │
+│   npm publish → appears in Bades.id marketplace           │
 └─────────────────────────────────────────────────────────┘
 ```
 
-* **`yarn twenty dev`** — observa seus arquivos-fonte e sincroniza ao vivo as alterações com um servidor Twenty conectado. O cliente de API tipado é regenerado automaticamente quando o esquema muda.
+* **`yarn twenty dev`** — observa seus arquivos-fonte e sincroniza ao vivo as alterações com um servidor Bades.id conectado. O cliente de API tipado é regenerado automaticamente quando o esquema muda.
 * **`yarn twenty build`** — compila TypeScript, empacota funções de lógica e componentes de front-end com o esbuild e produz um manifesto.
 * **Hooks de pré/pós-instalação** — funções de lógica opcionais que são executadas durante a instalação. Veja [Funções de Lógica](/l/pt/developers/extend/apps/logic-functions) para detalhes.
 
@@ -87,7 +87,7 @@ your-app/
     Funções no lado do servidor com gatilhos HTTP, cron e de eventos.
   </Card>
   <Card title="Componentes de front-end" icon="window-maximize" href="/l/pt/developers/extend/apps/front-components">
-    Componentes React em sandbox dentro da UI do Twenty.
+    Componentes React em sandbox dentro da UI do Bades.id.
   </Card>
   <Card title="Layout" icon="table-columns" href="/l/pt/developers/extend/apps/layout">
     Vistas, itens de navegação e layouts de página de registro.

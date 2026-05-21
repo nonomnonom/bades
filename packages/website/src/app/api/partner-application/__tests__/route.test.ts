@@ -6,7 +6,7 @@ const VALID_PAYLOAD = {
   name: 'Ada Lovelace',
   company: 'Analytical Engines',
   website: 'https://analytical.example/',
-  message: 'We would like to integrate Twenty with our analytical engine.',
+  message: 'We would like to integrate Bades.id with our analytical engine.',
   programId: 'technology' as const,
 };
 
@@ -187,7 +187,7 @@ describe('POST /api/partner-application', () => {
       LastName: 'Lovelace',
       Company: 'Analytical Engines',
       Website: 'https://analytical.example/',
-      Message: 'We would like to integrate Twenty with our analytical engine.',
+      Message: 'We would like to integrate Bades.id with our analytical engine.',
       ProgramId: 'technology',
     });
     expect(init.signal).toBeInstanceOf(AbortSignal);

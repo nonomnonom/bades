@@ -187,7 +187,7 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
     description:
-      "Enable or disable requests to twenty-icons to get companies' icons",
+      "Enable or disable requests to icon services to get company icons",
     type: ConfigVariableType.BOOLEAN,
   })
   ALLOW_REQUESTS_TO_TWENTY_ICONS = true;
@@ -373,7 +373,7 @@ export class ConfigVariables {
     description: 'Name used in the From header for outgoing emails',
     type: ConfigVariableType.STRING,
   })
-  EMAIL_FROM_NAME = 'Felix from Twenty';
+  EMAIL_FROM_NAME = 'Bades.id';
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.EMAIL_SETTINGS,
@@ -1586,12 +1586,12 @@ export class ConfigVariables {
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.SERVER_CONFIG,
-    description: 'Base URL for the Enterprise API on twenty.com',
+    description: 'Base URL for the Enterprise API on bades.id',
     isHiddenInAdminPanel: true,
     type: ConfigVariableType.STRING,
   })
   @IsOptional()
-  ENTERPRISE_API_URL: string = 'https://twenty.com/api/enterprise';
+  ENTERPRISE_API_URL: string = 'https://bades.id/api/enterprise';
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
@@ -1612,7 +1612,7 @@ export class ConfigVariables {
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.SERVER_CONFIG,
-    description: 'Twenty server version',
+    description: 'Bades server version',
     type: ConfigVariableType.STRING,
     isEnvOnly: true,
     isHiddenInAdminPanel: true,

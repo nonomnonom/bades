@@ -4,7 +4,7 @@ description: Definieren Sie serverseitige TypeScript-Funktionen mit HTTP-, cron-
 icon: bolt
 ---
 
-Logikfunktionen sind serverseitige TypeScript-Funktionen, die auf der Twenty-Plattform ausgeführt werden. Sie können durch HTTP-Anfragen, cron-Zeitpläne oder Datenbankereignisse ausgelöst werden — und außerdem als Tools für KI-Agenten bereitgestellt werden.
+Logikfunktionen sind serverseitige TypeScript-Funktionen, die auf der Bades.id-Plattform ausgeführt werden. Sie können durch HTTP-Anfragen, cron-Zeitpläne oder Datenbankereignisse ausgelöst werden — und außerdem als Tools für KI-Agenten bereitgestellt werden.
 
 <AccordionGroup>
 <Accordion title="defineLogicFunction" description="Logikfunktionen und deren Trigger definieren">
@@ -145,8 +145,8 @@ Header-Namen werden in Kleinbuchstaben normalisiert. Greifen Sie mit Schlüsseln
 
 Logikfunktionen können auf zwei Oberflächen verfügbar gemacht werden, jeweils mit eigenem Trigger:
 
-* **`toolTriggerSettings`** — macht die Funktion über die KI-Funktionen von Twenty (Chat, MCP, Funktionsaufrufe) auffindbar. Verwendet das standardmäßige JSON Schema, das Format, das LLMs nativ verstehen.
-* **`workflowActionTriggerSettings`** — lässt die Funktion als Schritt im visuellen Workflow-Builder erscheinen. Verwendet das umfangreiche `InputSchema` von Twenty, sodass der Builder geeignete Feldeditoren, Variablenauswahlen und Beschriftungen rendern kann.
+* **`toolTriggerSettings`** — macht die Funktion über die KI-Funktionen von Bades.id (Chat, MCP, Funktionsaufrufe) auffindbar. Verwendet das standardmäßige JSON Schema, das Format, das LLMs nativ verstehen.
+* **`workflowActionTriggerSettings`** — lässt die Funktion als Schritt im visuellen Workflow-Builder erscheinen. Verwendet das umfangreiche `InputSchema` von Bades.id, sodass der Builder geeignete Feldeditoren, Variablenauswahlen und Beschriftungen rendern kann.
 
 Eine Funktion kann sich für eine, die andere oder beide entscheiden. Sie stehen neben `cronTriggerSettings`, `databaseEventTriggerSettings` und `httpRouteTriggerSettings` — gleiches Muster, gleiche Struktur.
 
@@ -185,7 +185,7 @@ export default defineLogicFunction({
 Hauptpunkte:
 
 * Eine Funktion kann Oberflächen mischen — deklarieren Sie sowohl `toolTriggerSettings` als auch `workflowActionTriggerSettings`, um sie im Chat UND im Workflow-Builder bereitzustellen.
-* `toolTriggerSettings.inputSchema` und `workflowActionTriggerSettings.inputSchema` sind beide optional. Wenn sie weggelassen werden, leitet der Manifest-Builder sie aus dem Handler-Quellcode ab (JSON Schema für das KI-Tool, das `InputSchema` von Twenty für die Workflow-Aktion). Geben Sie eines explizit an, wenn Sie eine reichere Typisierung wünschen — zum Beispiel mit `FieldMetadataType`-fähigen Feldern wie `CURRENCY` oder `RELATION` für den Workflow-Builder oder mit `description`-Feldern, die der KI-Agent lesen kann:
+* `toolTriggerSettings.inputSchema` und `workflowActionTriggerSettings.inputSchema` sind beide optional. Wenn sie weggelassen werden, leitet der Manifest-Builder sie aus dem Handler-Quellcode ab (JSON Schema für das KI-Tool, das `InputSchema` von Bades.id für die Workflow-Aktion). Geben Sie eines explizit an, wenn Sie eine reichere Typisierung wünschen — zum Beispiel mit `FieldMetadataType`-fähigen Feldern wie `CURRENCY` oder `RELATION` für den Workflow-Builder oder mit `description`-Feldern, die der KI-Agent lesen kann:
 
 ```ts
 export default defineLogicFunction({
@@ -250,7 +250,7 @@ Hauptpunkte:
   * `shouldRunSynchronously: false` *(Standard)* — der Hook wird **in die Nachrichtenwarteschlange eingereiht** mit `retryLimit: 3` und läuft asynchron in einem Worker. Die Installationsantwort kommt zurück, sobald der Job eingereiht ist, sodass ein langsamer oder fehlschlagender Handler den Aufrufer nicht blockiert. Der Worker versucht es bis zu dreimal erneut. **Verwenden Sie dies für lang laufende Jobs** — das Befüllen großer Datensätze, Aufrufe langsamer Drittanbieter-APIs, Bereitstellung externer Ressourcen, alles, was ein vernünftiges HTTP-Antwortfenster überschreiten könnte.
   * `shouldRunSynchronously: true` — der Hook wird **inline während des Installationsablaufs** ausgeführt (gleicher Executor wie bei Pre-Install). Die Installationsanforderung blockiert, bis der Handler fertig ist, und wenn er einen Fehler wirft, erhält der Installationsaufrufer einen `POST_INSTALL_ERROR`. Keine automatischen Wiederholungen. **Verwenden Sie dies für schnelle Aufgaben, die vor der Antwort abgeschlossen sein müssen** — z. B. um dem Benutzer einen Validierungsfehler auszugeben oder für eine schnelle Einrichtung, auf die der Client unmittelbar nach der Rückkehr des Installationsaufrufs angewiesen ist. Beachten Sie, dass die Metadatenmigration bereits angewendet wurde, wenn Post-Install läuft, sodass ein Fehler im Synchronmodus die Schemaänderungen **nicht** rückgängig macht — er zeigt lediglich den Fehler an.
 * Stellen Sie sicher, dass Ihr Handler idempotent ist. Im asynchronen Modus kann die Warteschlange bis zu dreimal erneut versuchen; in beiden Modi kann der Hook bei Upgrades erneut laufen, wenn `shouldRunOnVersionUpgrade: true`.
-* Die Umgebungsvariablen `APPLICATION_ID`, `APP_ACCESS_TOKEN` und `API_URL` sind im Handler verfügbar (wie bei jeder anderen Logikfunktion), sodass Sie die Twenty API mit einem auf Ihre App beschränkten Anwendungszugriffstoken aufrufen können.
+* Die Umgebungsvariablen `APPLICATION_ID`, `APP_ACCESS_TOKEN` und `API_URL` sind im Handler verfügbar (wie bei jeder anderen Logikfunktion), sodass Sie die Bades.id API mit einem auf Ihre App beschränkten Anwendungszugriffstoken aufrufen können.
 * Pro Anwendung ist nur eine Post-Installationsfunktion zulässig. Der Manifest-Build schlägt fehl, wenn mehr als eine erkannt wird.
 * Die `universalIdentifier`, `shouldRunOnVersionUpgrade` und `shouldRunSynchronously` der Funktion werden während des Builds automatisch dem Anwendungsmanifest unter dem Feld `postInstallLogicFunction` hinzugefügt — Sie müssen sie in `defineApplication()` nicht referenzieren.
 * Das standardmäßige Timeout ist auf 300 Sekunden (5 Minuten) festgelegt, um längere Einrichtungsvorgänge wie Daten-Seeding zu ermöglichen.
@@ -412,7 +412,7 @@ Im Zweifel auf **Post-Install** setzen. Greifen Sie nur zu Pre-Install, wenn die
 
 ## Typisierte API-Clients (twenty-client-sdk)
 
-Das Paket `twenty-client-sdk` stellt zwei typisierte GraphQL-Clients bereit, um aus Ihren Logikfunktionen und Frontend-Komponenten mit der Twenty-API zu interagieren.
+Das Paket `twenty-client-sdk` stellt zwei typisierte GraphQL-Clients bereit, um aus Ihren Logikfunktionen und Frontend-Komponenten mit der Bades.id-API zu interagieren.
 
 | Client              | Importieren                  | Endpunkt                                                  | Generiert?                           |
 | ------------------- | ---------------------------- | --------------------------------------------------------- | ------------------------------------ |
@@ -556,9 +556,9 @@ Hauptpunkte:
 </AccordionGroup>
 
 <Note>
-  Wenn Ihr Code auf Twenty ausgeführt wird (Logikfunktionen oder Frontend-Komponenten), injiziert die Plattform Anmeldedaten als Umgebungsvariablen:
+  Wenn Ihr Code auf Bades.id ausgeführt wird (Logikfunktionen oder Frontend-Komponenten), injiziert die Plattform Anmeldedaten als Umgebungsvariablen:
 
-  * `TWENTY_API_URL` — Basis-URL der Twenty-API
+  * `TWENTY_API_URL` — Basis-URL der Bades.id-API
   * `TWENTY_APP_ACCESS_TOKEN` — Kurzlebiger Schlüssel, der auf die Standard-Funktionsrolle Ihrer Anwendung begrenzt ist
 
   Sie müssen diese **nicht** an die Clients übergeben — sie lesen automatisch aus `process.env`. Die Berechtigungen des API-Schlüssels werden durch die Rolle bestimmt, auf die in `defaultRoleUniversalIdentifier` in Ihrer `application-config.ts` verwiesen wird.

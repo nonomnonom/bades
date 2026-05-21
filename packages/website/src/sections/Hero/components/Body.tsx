@@ -39,7 +39,7 @@ const StyledBody = styled.div`
       max-width: 591px;
     }
 
-    &[data-page='whyTwenty'] {
+    &[data-page='whyBades.id'] {
       max-width: 443px;
     }
 

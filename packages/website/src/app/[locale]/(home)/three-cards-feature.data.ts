@@ -4,7 +4,7 @@ import type { ThreeCardsFeatureCardType } from '@/sections/ThreeCards';
 export const FEATURE_CARDS: ThreeCardsFeatureCardType[] = [
   {
     heading: msg`Familiar, modern interface`,
-    body: msg`Twenty makes it simple. It's clean, intuitive, and built to feel like Notion.`,
+    body: msg`Bades.id makes it simple. It's clean, intuitive, and built to feel like Notion.`,
     backgroundImageSrc:
       '/images/home/three-cards-feature/familiar-interface-gradient.webp',
     icon: 'users-group',

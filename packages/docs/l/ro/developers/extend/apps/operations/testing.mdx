@@ -1,10 +1,10 @@
 ---
 title: Testare
-description: Configurare Vitest, teste de integrare pe un server Twenty real, verificare a tipurilor și CI cu GitHub Actions.
+description: Configurare Vitest, teste de integrare pe un server Bades.id real, verificare a tipurilor și CI cu GitHub Actions.
 icon: flask
 ---
 
-SDK-ul oferă API-uri programatice care vă permit să construiți, să distribuiți, să instalați și să dezinstalați aplicația din codul de test. Combinat cu [Vitest](https://vitest.dev/) și clienții API tipizați, puteți scrie teste de integrare care verifică faptul că aplicația funcționează de la un cap la altul pe un server Twenty real.
+SDK-ul oferă API-uri programatice care vă permit să construiți, să distribuiți, să instalați și să dezinstalați aplicația din codul de test. Combinat cu [Vitest](https://vitest.dev/) și clienții API tipizați, puteți scrie teste de integrare care verifică faptul că aplicația funcționează de la un cap la altul pe un server Bades.id real.
 
 ## Utilizarea pachetelor npm
 
@@ -115,7 +115,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -218,7 +218,7 @@ describe('App installation', () => {
 
 ## Rularea testelor
 
-Asigurați-vă că serverul Twenty local rulează, apoi:
+Asigurați-vă că serverul Bades.id local rulează, apoi:
 
 ```bash filename="Terminal"
 yarn test
@@ -247,7 +247,7 @@ Scaffolderul generează un workflow GitHub Actions gata de utilizare în `.githu
 Workflow-ul:
 
 1. Preia codul
-2. Pornește un server Twenty temporar folosind acțiunea `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
+2. Pornește un server Bades.id temporar folosind acțiunea `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
 3. Instalează dependențele cu `yarn install --immutable`
 4. Rulează `yarn test` cu `TWENTY_API_URL` și `TWENTY_API_KEY` injectate din rezultatele acțiunii
 
@@ -270,7 +270,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -296,6 +296,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-Nu trebuie să configurați niciun secret — acțiunea `spawn-twenty-docker-image` pornește un server Twenty efemer direct în runner și oferă detaliile de conectare. Secretul `GITHUB_TOKEN` este furnizat automat de GitHub.
+Nu trebuie să configurați niciun secret — acțiunea `spawn-twenty-docker-image` pornește un server Bades.id efemer direct în runner și oferă detaliile de conectare. Secretul `GITHUB_TOKEN` este furnizat automat de GitHub.
 
-Pentru a fixa o versiune Twenty specifică în loc de `latest`, modificați variabila de mediu `TWENTY_VERSION` din partea de sus a workflow-ului.
+Pentru a fixa o versiune Bades.id specifică în loc de `latest`, modificați variabila de mediu `TWENTY_VERSION` din partea de sus a workflow-ului.

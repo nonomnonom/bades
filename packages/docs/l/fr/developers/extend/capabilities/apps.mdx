@@ -1,6 +1,6 @@
 ---
-title: Applications Twenty
-description: Créez et gérez les personnalisations Twenty sous forme de code.
+title: Applications Bades.id
+description: Créez et gérez les personnalisations Bades.id sous forme de code.
 ---
 
 <Warning>
@@ -9,7 +9,7 @@ description: Créez et gérez les personnalisations Twenty sous forme de code.
 
 ## Que sont les applications ?
 
-Les applications vous permettent de créer et de gérer des personnalisations Twenty **sous forme de code**. Au lieu de tout configurer via l’interface utilisateur, vous définissez votre modèle de données et vos fonctions logiques dans le code — ce qui accélère la création, la maintenance et le déploiement sur plusieurs espaces de travail.
+Les applications vous permettent de créer et de gérer des personnalisations Bades.id **sous forme de code**. Au lieu de tout configurer via l’interface utilisateur, vous définissez votre modèle de données et vos fonctions logiques dans le code — ce qui accélère la création, la maintenance et le déploiement sur plusieurs espaces de travail.
 
 **Ce que vous pouvez faire aujourd'hui:**
 
@@ -24,7 +24,7 @@ Les applications vous permettent de créer et de gérer des personnalisations Tw
 ## Prérequis
 
 * Node.js 24+ et Yarn 4
-* Un espace de travail Twenty et une clé API (créez-en une sur https://app.twenty.com/settings/api-webhooks)
+* Un espace de travail Bades.id et une clé API (créez-en une sur https://app.bades.id/settings/api-webhooks)
 
 ## Prise en main
 
@@ -32,7 +32,7 @@ Créez une nouvelle application avec l’outil d’amorçage officiel, puis auth
 
 ```bash filename="Terminal"
 # Générez une nouvelle application
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 cd my-twenty-app
 
 # Si vous n'utilisez pas yarn@4
@@ -65,11 +65,11 @@ yarn app:uninstall
 yarn help
 ```
 
-Voir aussi : les pages de référence CLI pour [create-twenty-app](https://www.npmjs.com/package/create-twenty-app) et [twenty-sdk CLI](https://www.npmjs.com/package/twenty-sdk).
+Voir aussi : les pages de référence CLI pour [create-bades-app](https://www.npmjs.com/package/create-bades-app) et [twenty-sdk CLI](https://www.npmjs.com/package/twenty-sdk).
 
 ## Structure du projet (générée)
 
-Lorsque vous exécutez `npx create-twenty-app@latest my-twenty-app`, l’outil de scaffolding :
+Lorsque vous exécutez `npx create-bades-app@latest my-twenty-app`, l’outil de scaffolding :
 
 * Copie une application de base minimale dans `my-twenty-app/`
 * Ajoute une dépendance locale à `twenty-sdk` et la configuration Yarn 4
@@ -170,7 +170,7 @@ Dans les grandes lignes :
 
 Des commandes ultérieures ajouteront d’autres fichiers et dossiers :
 
-* `yarn app:dev` génère automatiquement le client Twenty typé dans `node_modules/twenty-sdk/generated`.
+* `yarn app:dev` génère automatiquement le client Bades.id typé dans `node_modules/twenty-sdk/generated`.
 * `yarn entity:add` ajoutera des fichiers de définition d’entité sous `src/` pour vos objets, fonctions, composants front-end ou rôles personnalisés.
 
 ## Authentification
@@ -305,7 +305,7 @@ Points clés :
 * Vous pouvez générer de nouveaux objets avec `yarn entity:add`, qui vous guide à travers le nommage, les champs et les relations.
 
 <Note>
-  **Les champs de base sont créés automatiquement.** Lorsque vous définissez un objet personnalisé, Twenty ajoute automatiquement des champs standard tels que `name`, `createdAt`, `updatedAt`, `createdBy`, `position` et `deletedAt`. Vous n'avez pas besoin de les définir dans votre tableau `fields` — ajoutez uniquement vos champs personnalisés.
+  **Les champs de base sont créés automatiquement.** Lorsque vous définissez un objet personnalisé, Bades.id ajoute automatiquement des champs standard tels que `name`, `createdAt`, `updatedAt`, `createdBy`, `position` et `deletedAt`. Vous n'avez pas besoin de les définir dans votre tableau `fields` — ajoutez uniquement vos champs personnalisés.
 </Note>
 
 ### Configuration de l’application (application.config.ts)
@@ -325,8 +325,8 @@ import { DEFAULT_ROLE_UNIVERSAL_IDENTIFIER } from './default-function.role';
 
 export default defineApplication({
   universalIdentifier: '4ec0391d-18d5-411c-b2f3-266ddc1c3ef7',
-  displayName: 'My Twenty App',
-  description: 'My first Twenty app',
+  displayName: 'My Bades.id App',
+  description: 'My first Bades.id app',
   icon: 'IconWorld',
   applicationVariables: {
     DEFAULT_RECIPIENT_NAME: {
@@ -368,7 +368,7 @@ export const DEFAULT_ROLE_UNIVERSAL_IDENTIFIER =
 export default defineRole({
   universalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
   label: 'Default function role',
-  description: 'Default role for function Twenty client',
+  description: 'Default role for function Bades.id client',
   canReadAllObjectRecords: false,
   canUpdateAllObjectRecords: false,
   canSoftDeleteAllObjectRecords: false,
@@ -418,10 +418,10 @@ Chaque fichier de fonction utilise `defineFunction()` pour exporter une configur
 // src/app/createPostCard.function.ts
 import { defineFunction } from 'twenty-sdk';
 import type { DatabaseEventPayload, ObjectRecordCreateEvent, CronPayload, RoutePayload } from 'twenty-sdk';
-import Twenty, { type Person } from '~/generated';
+import Bades.id, { type Person } from '~/generated';
 
 const handler = async (params: RoutePayload) => {
-  const client = new Twenty(); // generated typed client
+  const client = new Bades.id(); // generated typed client
   const name = 'name' in params.queryStringParameters
     ? params.queryStringParameters.name ?? process.env.DEFAULT_RECIPIENT_NAME ?? 'Hello world'
     : 'Hello world';
@@ -582,12 +582,12 @@ Vous pouvez créer de nouvelles fonctions de deux façons :
 
 ### Client typé généré
 
-`yarn app:dev` génère automatiquement le client Twenty typé dans `node_modules/twenty-sdk/generated`. Utilisez-le dans vos fonctions :
+`yarn app:dev` génère automatiquement le client Bades.id typé dans `node_modules/twenty-sdk/generated`. Utilisez-le dans vos fonctions :
 
 ```typescript
-import Twenty from '~/generated';
+import Bades.id from '~/generated';
 
-const client = new Twenty();
+const client = new Bades.id();
 const { me } = await client.query({ me: { id: true, displayName: true } });
 ```
 
@@ -595,9 +595,9 @@ Le client est régénéré automatiquement pendant l'exécution de `app:dev`. Re
 
 #### Identifiants d’exécution dans les fonctions logiques
 
-Lorsque votre fonction s’exécute sur Twenty, la plateforme injecte des identifiants sous forme de variables d’environnement avant l’exécution de votre code :
+Lorsque votre fonction s’exécute sur Bades.id, la plateforme injecte des identifiants sous forme de variables d’environnement avant l’exécution de votre code :
 
-* `TWENTY_API_URL` : URL de base de l’API Twenty ciblée par votre application.
+* `TWENTY_API_URL` : URL de base de l’API Bades.id ciblée par votre application.
 * `TWENTY_API_KEY` : Clé de courte durée limitée au rôle de fonction par défaut de votre application.
 
 Notes:
@@ -612,7 +612,7 @@ Découvrez un exemple minimal de bout en bout qui démontre des objets, des fonc
 
 ## Configuration manuelle (sans l’outil de scaffolding)
 
-Même si nous recommandons d’utiliser `create-twenty-app` pour une expérience de démarrage optimale, vous pouvez également configurer un projet manuellement. N’installez pas la CLI globalement. Ajoutez plutôt `twenty-sdk` comme dépendance locale et reliez des scripts dans votre package.json :
+Même si nous recommandons d’utiliser `create-bades-app` pour une expérience de démarrage optimale, vous pouvez également configurer un projet manuellement. N’installez pas la CLI globalement. Ajoutez plutôt `twenty-sdk` comme dépendance locale et reliez des scripts dans votre package.json :
 
 ```bash filename="Terminal"
 yarn add -D twenty-sdk
@@ -643,7 +643,7 @@ Vous pouvez désormais exécuter les mêmes commandes via Yarn, par exemple `yar
 ## Résolution des problèmes
 
 * Erreurs d’authentification : exécutez `yarn auth:login` et assurez-vous que votre clé API dispose des autorisations requises.
-* Impossible de se connecter au serveur : vérifiez l’URL de l’API et que le serveur Twenty est accessible.
+* Impossible de se connecter au serveur : vérifiez l’URL de l’API et que le serveur Bades.id est accessible.
 * Types ou client manquants/obsolètes : redémarrez `yarn app:dev`.
 * Le mode dev ne se synchronise pas : assurez-vous que `yarn app:dev` est en cours d’exécution et que les modifications ne sont pas ignorées par votre environnement.
 

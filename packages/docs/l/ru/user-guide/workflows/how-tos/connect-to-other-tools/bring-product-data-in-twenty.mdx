@@ -1,9 +1,9 @@
 ---
-title: Импортируйте данные о товарах в Twenty
+title: Импортируйте данные о товарах в Bades.id
 description: Синхронизируйте данные каталога товаров из хранилища данных с вашей CRM по расписанию.
 ---
 
-Используйте этот шаблон, чтобы поддерживать синхронизацию Twenty с данными о товарах из вашего хранилища данных (например, Snowflake, BigQuery, PostgreSQL).
+Используйте этот шаблон, чтобы поддерживать синхронизацию Bades.id с данными о товарах из вашего хранилища данных (например, Snowflake, BigQuery, PostgreSQL).
 
 ## Структура рабочего процесса
 
@@ -11,7 +11,7 @@ description: Синхронизируйте данные каталога тов
 2. **Code**: Запрос к вашему хранилищу данных
 3. **Code** (необязательно): Отформатируйте данные как массив
 4. **Iterator**: Цикл по каждому товару
-5. **Upsert Record**: Создать или обновить в Twenty
+5. **Upsert Record**: Создать или обновить в Bades.id
 
 <img src="/images/user-guide/workflows/create_users_workflow.png" style={{width:'100%'}} />
 
@@ -80,7 +80,7 @@ export const main = async (params: {
       isActiveLast30d: toBool(user.isActiveLast30d),
       isActiveLast7d: toBool(user.isActiveLast7d),
       isActiveLast24h: toBool(user.isActiveLast24h),
-      isTwenty: toBool(user.isTwenty),
+      isBades.id: toBool(user.isBades.id),
     })),
   };
 };

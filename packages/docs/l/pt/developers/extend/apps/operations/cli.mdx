@@ -40,7 +40,7 @@ yarn twenty dev:function:logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Isso é diferente de `yarn twenty docker:logs`, que mostra os logs do contêiner Docker. `yarn twenty dev:function:logs` mostra os logs de execução de funções do seu aplicativo a partir do servidor Twenty.
+Isso é diferente de `yarn twenty docker:logs`, que mostra os logs do contêiner Docker. `yarn twenty dev:function:logs` mostra os logs de execução de funções do seu aplicativo a partir do servidor Bades.id.
 </Note>
 
 ## Desinstalando um aplicativo (`yarn twenty app:uninstall`)
@@ -56,13 +56,13 @@ yarn twenty app:uninstall --yes
 
 ## Gerenciando remotos
 
-Um **remoto** é um servidor Twenty ao qual seu aplicativo se conecta. Durante a configuração, o gerador de scaffold cria um para você automaticamente. Você pode adicionar mais remotos ou alternar entre eles a qualquer momento.
+Um **remoto** é um servidor Bades.id ao qual seu aplicativo se conecta. Durante a configuração, o gerador de scaffold cria um para você automaticamente. Você pode adicionar mais remotos ou alternar entre eles a qualquer momento.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote:add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote:add --local
 
 # Add a remote non-interactively (useful for CI)

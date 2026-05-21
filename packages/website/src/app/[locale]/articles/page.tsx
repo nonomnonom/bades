@@ -108,7 +108,7 @@ export default async function ArticlesPage({ params }: ArticlesPageProps) {
             <HeadingPart fontFamily="sans">CRM</HeadingPart>
           </Hero.Heading>
           <Hero.Body page={Pages.Articles}>
-            Ideas from the team building Twenty on open source CRM, GTM systems,
+            Ideas from the team building Bades.id on open source CRM, GTM systems,
             and building software that lasts.
           </Hero.Body>
         </Hero.Root>

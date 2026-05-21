@@ -1,14 +1,14 @@
 ---
 title: Front Components
-description: Build React components that render inside Twenty's UI with sandboxed isolation.
+description: Build React components that render inside Bades.id's UI with sandboxed isolation.
 icon: "window-maximize"
 ---
 
-Front components are React components that render directly inside Twenty's UI. They run in an **isolated Web Worker** using Remote DOM — your code is sandboxed but renders natively in the page, not in an iframe.
+Front components are React components that render directly inside Bades.id's UI. They run in an **isolated Web Worker** using Remote DOM — your code is sandboxed but renders natively in the page, not in an iframe.
 
 ## Where front components can be used
 
-Front components can render in two locations within Twenty:
+Front components can render in two locations within Bades.id:
 
 - **Side panel** — Non-headless front components open in the right-hand side panel. This is the default behavior when a front component is triggered from the command menu.
 - **Widgets (dashboards and record pages)** — Front components can be embedded as widgets inside [page layouts](/developers/extend/apps/layout/page-layouts). When configuring a dashboard or a record page layout, users can add a front component widget.
@@ -29,7 +29,7 @@ const HelloWorld = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Hello from my app!</h1>
-      <p>This component renders inside Twenty.</p>
+      <p>This component renders inside Bades.id.</p>
     </div>
   );
 };
@@ -110,7 +110,7 @@ export default defineFrontComponent({
 });
 ```
 
-Because the component returns `null`, Twenty skips rendering a container for it — no empty space appears in the layout. The component still has access to all hooks and the host communication API.
+Because the component returns `null`, Bades.id skips rendering a container for it — no empty space appears in the layout. The component still has access to all hooks and the host communication API.
 
 ## SDK Command components
 
@@ -268,7 +268,7 @@ The following system variables are always available via `process.env`:
 
 | Variable | Description |
 |----------|-------------|
-| `TWENTY_API_URL` | Base URL of the Twenty API |
+| `TWENTY_API_URL` | Base URL of the Bades.id API |
 | `TWENTY_APP_ACCESS_TOKEN` | Short-lived token scoped to your app's role |
 
 ## Host communication API
@@ -409,7 +409,7 @@ See the [public assets section](/developers/extend/apps/config/public-assets) fo
 Front components support multiple styling approaches. You can use:
 
 - **Inline styles** — `style={{ color: 'red' }}`
-- **Twenty UI components** — import from `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar, and more)
+- **Bades.id UI components** — import from `twenty-sdk/ui` (Button, Tag, Status, Chip, Avatar, and more)
 - **Emotion** — CSS-in-JS with `@emotion/react`
 - **Styled-components** — `styled.div` patterns
 - **Tailwind CSS** — utility classes

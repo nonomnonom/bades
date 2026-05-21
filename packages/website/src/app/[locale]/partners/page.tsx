@@ -125,7 +125,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
               {i18n._(msg`Find the program that fits your business`)}
             </HeadingPart>{' '}
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`and unlock new opportunities with Twenty`)}
+              {i18n._(msg`and unlock new opportunities with Bades.id`)}
             </HeadingPart>
           </Heading>
         </ThreeCards.Intro>
@@ -155,7 +155,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
           </HeadingPart>
           <br />
           <HeadingPart fontFamily="sans">
-            {i18n._(msg`with Twenty?`)}
+            {i18n._(msg`with Bades.id?`)}
           </HeadingPart>
         </Signoff.Heading>
         <Signoff.Body page={Pages.Partners}>
@@ -181,13 +181,13 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Twenty`)}
+              {i18n._(msg`Start building, with Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Get started`)}
               variant="contained"
             />

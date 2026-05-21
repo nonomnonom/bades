@@ -1,21 +1,21 @@
 ---
 title: Erste Schritte
 icon: rocket
-description: Erstellen Sie in wenigen Minuten Ihre erste Twenty-App.
+description: Erstellen Sie in wenigen Minuten Ihre erste Bades.id-App.
 ---
 
 ## Voraussetzungen
 
 * **Node.js 24+** — [Hier herunterladen](https://nodejs.org/)
 * **Yarn 4** — Wird mit Node.js über Corepack mitgeliefert. Aktivieren Sie es: `corepack enable`
-* **Docker** — [Hier herunterladen](https://www.docker.com/products/docker-desktop/). Erforderlich, um einen lokalen Twenty-Server auszuführen. Überspringen Sie dies, wenn Twenty bereits anderswo läuft.
+* **Docker** — [Hier herunterladen](https://www.docker.com/products/docker-desktop/). Erforderlich, um einen lokalen Bades.id-Server auszuführen. Überspringen Sie dies, wenn Bades.id bereits anderswo läuft.
 
-Das Erstellen einer Twenty-App umfasst drei Phasen. Das Scaffolding-Tool fasst sie zu einem einzigen Happy-Path-Befehl zusammen, aber jede Phase ist ein eigenes Konzept — wenn etwas fehlschlägt, hilft Ihnen das Wissen, in welcher Phase Sie sich befinden, zu erkennen, was zu beheben ist.
+Das Erstellen einer Bades.id-App umfasst drei Phasen. Das Scaffolding-Tool fasst sie zu einem einzigen Happy-Path-Befehl zusammen, aber jede Phase ist ein eigenes Konzept — wenn etwas fehlschlägt, hilft Ihnen das Wissen, in welcher Phase Sie sich befinden, zu erkennen, was zu beheben ist.
 
 | Phase                   | Was Sie tun                                             | Tool                          | Ergebnis                                             |
 | ----------------------- | ------------------------------------------------------- | ----------------------------- | ---------------------------------------------------- |
-| **1. Gerüst erstellen** | Den Quellcode der App erzeugen                          | `npx create-twenty-app`       | Ein TypeScript-Projekt auf der Festplatte            |
-| **2. Server starten**   | Einen Twenty-Server starten, in den synchronisiert wird | Docker + `yarn twenty server` | Eine laufende Twenty-Instanz                         |
+| **1. Gerüst erstellen** | Den Quellcode der App erzeugen                          | `npx create-bades-app`       | Ein TypeScript-Projekt auf der Festplatte            |
+| **2. Server starten**   | Einen Bades.id-Server starten, in den synchronisiert wird | Docker + `yarn twenty server` | Eine laufende Bades.id-Instanz                         |
 | **3. Synchronisieren**  | Ihren Code live mit dem Server synchronisieren          | `yarn twenty dev`             | Ihre Änderungen erscheinen in der Benutzeroberfläche |
 
 ---
@@ -25,7 +25,7 @@ Das Erstellen einer Twenty-App umfasst drei Phasen. Das Scaffolding-Tool fasst s
 Erstellen Sie eine neue App aus der Vorlage:
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app
+npx create-bades-app@latest my-twenty-app
 ```
 
 Sie werden nach einem Namen und einer Beschreibung gefragt — drücken Sie **Enter** für die Standardwerte. Dadurch wird ein TypeScript-Projekt in `my-twenty-app/` erzeugt, mit einer Startdatei `application-config.ts`, einer Standardrolle, einem CI-Workflow und einem Integrationstest.
@@ -34,16 +34,16 @@ Sie werden nach einem Namen und einer Beschreibung gefragt — drücken Sie **En
 
 ---
 
-## Phase 2 — Einen lokalen Twenty-Server starten
+## Phase 2 — Einen lokalen Bades.id-Server starten
 
-Ihre App benötigt einen Twenty-Server, in den sie synchronisieren kann. Der Server ist eine vollständige Twenty-Instanz — UI, GraphQL-API, PostgreSQL — die lokal in Docker läuft. Ihr lokaler Code lädt seine Definitionen auf diesen Server hoch, wodurch sie in der Benutzeroberfläche erscheinen.
+Ihre App benötigt einen Bades.id-Server, in den sie synchronisieren kann. Der Server ist eine vollständige Bades.id-Instanz — UI, GraphQL-API, PostgreSQL — die lokal in Docker läuft. Ihr lokaler Code lädt seine Definitionen auf diesen Server hoch, wodurch sie in der Benutzeroberfläche erscheinen.
 
 Das Scaffolding-Tool bietet an, einen für Sie zu starten:
 
-> **Möchten Sie eine lokale Twenty-Instanz einrichten?**
+> **Möchten Sie eine lokale Bades.id-Instanz einrichten?**
 
 * **Ja (empfohlen)** — lädt das Docker-Image `twentycrm/twenty-app-dev` herunter und startet es auf Port `2020`. Stellen Sie sicher, dass Docker läuft.
-* **Nein** — wählen Sie dies, wenn Sie bereits einen Twenty-Server haben, mit dem Sie sich verbinden möchten. Sie können die Verbindung später mit `yarn twenty remote add` herstellen.
+* **Nein** — wählen Sie dies, wenn Sie bereits einen Bades.id-Server haben, mit dem Sie sich verbinden möchten. Sie können die Verbindung später mit `yarn twenty remote add` herstellen.
 
 <div style={{textAlign: 'center'}}>
   <img src="/images/docs/developers/extends/apps/start-instance.png" alt="Soll die lokale Instanz gestartet werden?" />
@@ -55,13 +55,13 @@ Sobald der Server läuft, öffnet sich ein Browser zur Anmeldung. Verwenden Sie 
 * **Passwort:** `tim@apple.dev`
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/login.png" alt="Twenty-Anmeldebildschirm" />
+  <img src="/images/docs/developers/extends/apps/login.png" alt="Bades.id-Anmeldebildschirm" />
 </div>
 
 Klicken Sie auf dem nächsten Bildschirm auf **Authorize** — dadurch erhält die CLI Zugriff auf Ihren Arbeitsbereich.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Twenty-CLI-Autorisierungsbildschirm" />
+  <img src="/images/docs/developers/extends/apps/authorize.png" alt="Bades.id-CLI-Autorisierungsbildschirm" />
 </div>
 
 Ihr Terminal bestätigt, dass alles eingerichtet ist.
@@ -70,7 +70,7 @@ Ihr Terminal bestätigt, dass alles eingerichtet ist.
   <img src="/images/docs/developers/extends/apps/scaffolded.png" alt="App-Gerüst erfolgreich erstellt" />
 </div>
 
-**Nach dieser Phase:** Sie haben einen laufenden Twenty-Server unter [http://localhost:2020](http://localhost:2020), und Ihre CLI ist autorisiert, mit ihm zu synchronisieren.
+**Nach dieser Phase:** Sie haben einen laufenden Bades.id-Server unter [http://localhost:2020](http://localhost:2020), und Ihre CLI ist autorisiert, mit ihm zu synchronisieren.
 
 <Note>
 Wenn Docker nicht installiert ist oder nicht läuft, zeigt das Scaffolding-Tool den richtigen Startbefehl für Ihr Betriebssystem an. Sobald Docker läuft, können Sie mit `yarn twenty server start` fortfahren — ein erneutes Scaffolding ist nicht nötig.
@@ -131,7 +131,7 @@ yarn twenty dev --once
 Beide Modi benötigen einen Server im Entwicklungsmodus und eine authentifizierte Remote-Verbindung.
 
 <Warning>
-Der Dev-Modus ist nur auf Twenty-Instanzen verfügbar, die im Entwicklungsmodus laufen (`NODE_ENV=development`). Produktionsinstanzen lehnen Dev-Sync-Anfragen ab — verwenden Sie `yarn twenty deploy`, um auf Produktionsserver bereitzustellen. Siehe [Apps veröffentlichen](/l/de/developers/extend/apps/publishing).
+Der Dev-Modus ist nur auf Bades.id-Instanzen verfügbar, die im Entwicklungsmodus laufen (`NODE_ENV=development`). Produktionsinstanzen lehnen Dev-Sync-Anfragen ab — verwenden Sie `yarn twenty deploy`, um auf Produktionsserver bereitzustellen. Siehe [Apps veröffentlichen](/l/de/developers/extend/apps/publishing).
 </Warning>
 
 ---
@@ -144,7 +144,7 @@ Apps bestehen aus **Entitäten** — jede ist als TypeScript-Datei mit einem ein
 | -------------------------- | ------------------------------------------------------------------------------------------------- |
 | **Objekte & Felder**       | Benutzerdefinierte Datenmodelle (Postkarte, Rechnung usw.) mit typisierten Feldern                |
 | **Logikfunktionen**        | Serverseitiges TypeScript, ausgelöst durch HTTP-Routen, Cron-Zeitpläne oder Datenbankereignisse   |
-| **Frontend-Komponenten**   | React-Komponenten, die in der UI von Twenty gerendert werden (Seitenleiste, Widgets, Befehlsmenü) |
+| **Frontend-Komponenten**   | React-Komponenten, die in der UI von Bades.id gerendert werden (Seitenleiste, Widgets, Befehlsmenü) |
 | **Fähigkeiten & Agenten**  | KI-Funktionen — wiederverwendbare Anweisungen und autonome Assistenten                            |
 | **Ansichten & Navigation** | Vorkonfigurierte Listenansichten und Seitenleisteneinträge                                        |
 | **Seitenlayouts**          | Benutzerdefinierte Datensatz-Detailseiten mit Tabs und Widgets                                    |
@@ -185,7 +185,7 @@ my-twenty-app/
 Verwenden Sie `--example`, um mit einem vollständigeren Projekt zu starten (benutzerdefinierte Objekte, Felder, Logikfunktionen, Front-End-Komponenten):
 
 ```bash filename="Terminal"
-npx create-twenty-app@latest my-twenty-app --example postcard
+npx create-bades-app@latest my-twenty-app --example postcard
 ```
 
 Die Beispiele befinden sich unter [twenty-apps/examples](https://github.com/twentyhq/twenty/tree/main/packages/twenty-apps/examples). Sie können auch einzelne Entitäten in einem bestehenden Projekt mit `yarn twenty add` erzeugen — siehe [Apps entwickeln](/l/de/developers/extend/apps/building#scaffolding-entities-with-yarn-twenty-add).
@@ -194,7 +194,7 @@ Die Beispiele befinden sich unter [twenty-apps/examples](https://github.com/twen
 
 ## Lokalen Server verwalten
 
-Verwenden Sie `yarn twenty server`, um den lokalen Twenty-Container zu steuern:
+Verwenden Sie `yarn twenty server`, um den lokalen Bades.id-Container zu steuern:
 
 | Befehl                                 | Was es tut                                          |
 | -------------------------------------- | --------------------------------------------------- |
@@ -270,4 +270,4 @@ Installieren Sie `twenty-sdk` nicht global — fixieren Sie es pro Projekt, dami
 * **Yarn 4 fehlt** — Führen Sie `corepack enable` aus.
 * **Abhängigkeiten defekt** — `rm -rf node_modules && yarn install`.
 
-Hängen Sie fest? Bitten Sie im [Twenty-Discord](https://discord.com/channels/1130383047699738754/1130386664812982322) um Hilfe.
+Hängen Sie fest? Bitten Sie im [Bades.id-Discord](https://discord.com/channels/1130383047699738754/1130386664812982322) um Hilfe.

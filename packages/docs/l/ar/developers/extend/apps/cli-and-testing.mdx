@@ -120,7 +120,7 @@ export default defineFrontComponent({
 
 ## اختبار تطبيقك
 
-يوفّر SDK واجهات برمجة قابلة للتنفيذ برمجيًا تمكّنك من بناء تطبيقك ونشره وتثبيته وإلغاء تثبيته من شيفرة الاختبار. بالاقتران مع [Vitest](https://vitest.dev/) وعملاء واجهة البرمجة مضبوطي الأنواع، يمكنك كتابة اختبارات تكامل تتحقّق من أن تطبيقك يعمل من البداية إلى النهاية مقابل خادم Twenty حقيقي.
+يوفّر SDK واجهات برمجة قابلة للتنفيذ برمجيًا تمكّنك من بناء تطبيقك ونشره وتثبيته وإلغاء تثبيته من شيفرة الاختبار. بالاقتران مع [Vitest](https://vitest.dev/) وعملاء واجهة البرمجة مضبوطي الأنواع، يمكنك كتابة اختبارات تكامل تتحقّق من أن تطبيقك يعمل من البداية إلى النهاية مقابل خادم Bades.id حقيقي.
 
 ### إعداد
 
@@ -173,7 +173,7 @@ beforeAll(async () => {
 
   if (!response.ok) {
     throw new Error(
-      `Twenty server is not reachable at ${TWENTY_API_URL}. ` +
+      `Bades.id server is not reachable at ${TWENTY_API_URL}. ` +
         'Start the server before running integration tests.',
     );
   }
@@ -276,7 +276,7 @@ describe('App installation', () => {
 
 ### تشغيل الاختبارات
 
-تأكّد من تشغيل خادم Twenty المحلي لديك، ثم:
+تأكّد من تشغيل خادم Bades.id المحلي لديك، ثم:
 
 ```bash filename="Terminal"
 yarn test
@@ -336,7 +336,7 @@ yarn twenty logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-يختلف هذا عن `yarn twenty server logs`، الذي يعرض سجلات حاوية Docker. يعرض `yarn twenty logs` سجلات تنفيذ دوال تطبيقك من خادم Twenty.
+يختلف هذا عن `yarn twenty server logs`، الذي يعرض سجلات حاوية Docker. يعرض `yarn twenty logs` سجلات تنفيذ دوال تطبيقك من خادم Bades.id.
 </Note>
 
 ### إلغاء تثبيت تطبيق (`yarn twenty uninstall`)
@@ -352,13 +352,13 @@ yarn twenty uninstall --yes
 
 ## إدارة الريموتات
 
-**الريموت** هو خادم Twenty يتصل به تطبيقك. أثناء الإعداد، تُنشئ أداة إنشاء الهيكل واحدًا لك تلقائيًا. يمكنك إضافة ريموتات أخرى أو التبديل بينها في أي وقت.
+**الريموت** هو خادم Bades.id يتصل به تطبيقك. أثناء الإعداد، تُنشئ أداة إنشاء الهيكل واحدًا لك تلقائيًا. يمكنك إضافة ريموتات أخرى أو التبديل بينها في أي وقت.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote add --local
 
 # Add a remote non-interactively (useful for CI)
@@ -380,7 +380,7 @@ yarn twenty remote switch <name>
 سير العمل:
 
 1. يجلب الشيفرة الخاصة بك
-2. يشغّل خادم Twenty مؤقتًا باستخدام الإجراء `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
+2. يشغّل خادم Bades.id مؤقتًا باستخدام الإجراء `twentyhq/twenty/.github/actions/spawn-twenty-docker-image`
 3. يثبّت التبعيات باستخدام `yarn install --immutable`
 4. يشغّل `yarn test` مع حقن `TWENTY_API_URL` و`TWENTY_API_KEY` من مخرجات الإجراء
 
@@ -403,7 +403,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty instance
+      - name: Spawn Bades.id instance
         id: twenty
         uses: twentyhq/twenty/.github/actions/spawn-twenty-docker-image@main
         with:
@@ -429,6 +429,6 @@ jobs:
           TWENTY_API_KEY: ${{ steps.twenty.outputs.access-token }}
 ```
 
-لا تحتاج إلى تهيئة أي أسرار — إذ يبدأ إجراء `spawn-twenty-docker-image` خادم Twenty عابرًا مباشرة في المشغّل ويُخرِج تفاصيل الاتصال. يتم توفير السر `GITHUB_TOKEN` تلقائيًا من قِبل GitHub.
+لا تحتاج إلى تهيئة أي أسرار — إذ يبدأ إجراء `spawn-twenty-docker-image` خادم Bades.id عابرًا مباشرة في المشغّل ويُخرِج تفاصيل الاتصال. يتم توفير السر `GITHUB_TOKEN` تلقائيًا من قِبل GitHub.
 
-لتثبيت إصدار محدّد من Twenty بدلًا من `latest`، غيّر متغير البيئة `TWENTY_VERSION` في أعلى سير العمل.
+لتثبيت إصدار محدّد من Bades.id بدلًا من `latest`، غيّر متغير البيئة `TWENTY_VERSION` في أعلى سير العمل.

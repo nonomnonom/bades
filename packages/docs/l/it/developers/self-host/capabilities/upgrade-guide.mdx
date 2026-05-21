@@ -19,15 +19,15 @@ cat databases_backup.sql | docker exec -i {db_container_name_or_id} psql -U {pos
 
 Se utilizzi Docker Compose, segui questi passaggi:
 
-1. Arresta Twenty: `docker compose down`
+1. Arresta Bades.id: `docker compose down`
 2. Modifica il valore di `TAG` nel file `.env` nella stessa directory di `docker-compose.yml`
-3. Avvia Twenty: `docker compose up -d`
+3. Avvia Bades.id: `docker compose up -d`
 
 All'avvio, il server esegue automaticamente tutte le migrazioni di aggiornamento necessarie. Non è necessario alcun comando manuale.
 
 ## Aggiornamenti tra versioni (v1.22+)
 
-A partire da **v1.22**, Twenty supporta gli aggiornamenti tra versioni. Puoi passare direttamente da qualsiasi versione supportata all'ultima versione senza dover attraversare ogni versione intermedia.
+A partire da **v1.22**, Bades.id supporta gli aggiornamenti tra versioni. Puoi passare direttamente da qualsiasi versione supportata all'ultima versione senza dover attraversare ogni versione intermedia.
 
 Ad esempio, l'aggiornamento da v1.22 direttamente a v2.0 è pienamente supportato.
 

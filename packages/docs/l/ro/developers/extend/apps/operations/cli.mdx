@@ -40,7 +40,7 @@ yarn twenty dev:function:logs -u e56d363b-0bdc-4d8a-a393-6f0d1c75bdcf
 ```
 
 <Note>
-Acest lucru este diferit de `yarn twenty docker:logs`, care afișează jurnalele containerului Docker. `yarn twenty dev:function:logs` afișează jurnalele de execuție ale funcțiilor aplicației de pe serverul Twenty.
+Acest lucru este diferit de `yarn twenty docker:logs`, care afișează jurnalele containerului Docker. `yarn twenty dev:function:logs` afișează jurnalele de execuție ale funcțiilor aplicației de pe serverul Bades.id.
 </Note>
 
 ## Dezinstalarea unei aplicații (`yarn twenty app:uninstall`)
@@ -56,13 +56,13 @@ yarn twenty app:uninstall --yes
 
 ## Gestionarea remote-urilor
 
-Un „remote” este un server Twenty la care se conectează aplicația. În timpul configurării, Scaffolderul creează automat unul pentru dvs. Puteți adăuga mai multe remote-uri sau comuta între ele oricând.
+Un „remote” este un server Bades.id la care se conectează aplicația. În timpul configurării, Scaffolderul creează automat unul pentru dvs. Puteți adăuga mai multe remote-uri sau comuta între ele oricând.
 
 ```bash filename="Terminal"
 # Add a new remote (opens a browser for OAuth login)
 yarn twenty remote:add
 
-# Connect to a local Twenty server (auto-detects port 2020 or 3000)
+# Connect to a local Bades.id server (auto-detects port 2020 or 3000)
 yarn twenty remote:add --local
 
 # Add a remote non-interactively (useful for CI)

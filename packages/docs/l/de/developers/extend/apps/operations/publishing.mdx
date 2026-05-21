@@ -1,15 +1,15 @@
 ---
 title: Veröffentlichen
 icon: hochladen
-description: Veröffentlichen Sie Ihre Twenty-App auf dem Twenty-Marktplatz oder stellen Sie sie intern bereit.
+description: Veröffentlichen Sie Ihre Bades.id-App auf dem Bades.id-Marktplatz oder stellen Sie sie intern bereit.
 ---
 
 ## Übersicht
 
 Sobald Ihre App [lokal gebaut und getestet](/l/de/developers/extend/apps/getting-started/concepts) wurde, haben Sie zwei Möglichkeiten, sie zu verteilen:
 
-* **Einen Tarball bereitstellen** — Laden Sie Ihre App direkt auf einen bestimmten Twenty-Server für die interne oder private Nutzung hoch.
-* **Auf npm veröffentlichen** — führen Sie Ihre App im Twenty-Marktplatz auf, damit jeder Arbeitsbereich sie entdecken und installieren kann.
+* **Einen Tarball bereitstellen** — Laden Sie Ihre App direkt auf einen bestimmten Bades.id-Server für die interne oder private Nutzung hoch.
+* **Auf npm veröffentlichen** — führen Sie Ihre App im Bades.id-Marktplatz auf, damit jeder Arbeitsbereich sie entdecken und installieren kann.
 
 Beide Pfade beginnen mit demselben **Build**-Schritt.
 
@@ -25,7 +25,7 @@ Dabei werden TypeScript-Quelltexte kompiliert, Logikfunktionen und Frontend-Komp
 
 ## Bereitstellung auf einem Server (Tarball)
 
-Für Apps, die Sie nicht öffentlich verfügbar machen möchten — proprietäre Tools, ausschließlich für Unternehmen bestimmte Integrationen oder experimentelle Builds — können Sie einen Tarball direkt auf einem Twenty-Server bereitstellen.
+Für Apps, die Sie nicht öffentlich verfügbar machen möchten — proprietäre Tools, ausschließlich für Unternehmen bestimmte Integrationen oder experimentelle Builds — können Sie einen Tarball direkt auf einem Bades.id-Server bereitstellen.
 
 ### Voraussetzungen
 
@@ -79,7 +79,7 @@ Pre-Release-Tags funktionieren wie erwartet: Das Erhöhen von `1.0.0-rc.1` → `
 
 ### Kompatibilität der Serverversionen
 
-Wenn Ihre App eine Funktion verwendet, die in einer bestimmten Twenty-Serverversion eingeführt wurde (z. B. OAuth-Anbieter, die in v2.3.0 hinzugefügt wurden), sollten Sie die minimale Serverversion, die Ihre App benötigt, mithilfe des Felds `engines.twenty` in `package.json` angeben:
+Wenn Ihre App eine Funktion verwendet, die in einer bestimmten Bades.id-Serverversion eingeführt wurde (z. B. OAuth-Anbieter, die in v2.3.0 hinzugefügt wurden), sollten Sie die minimale Serverversion, die Ihre App benötigt, mithilfe des Felds `engines.twenty` in `package.json` angeben:
 
 ```json filename="package.json"
 {
@@ -112,7 +112,7 @@ Der Server ist die maßgebliche Prüfinstanz — er validiert `engines.twenty` s
 
 ## Automatisiertes CI/CD (vorgefertigte Workflows)
 
-Apps, die mit `create-twenty-app` erzeugt wurden, enthalten von Haus aus zwei GitHub-Actions-Workflows unter `.github/workflows/`. Sie sind einsatzbereit, sobald Sie das Repository zu GitHub pushen — für CI ist keine zusätzliche Einrichtung erforderlich, und für CD ist nur ein einziges Secret nötig.
+Apps, die mit `create-bades-app` erzeugt wurden, enthalten von Haus aus zwei GitHub-Actions-Workflows unter `.github/workflows/`. Sie sind einsatzbereit, sobald Sie das Repository zu GitHub pushen — für CI ist keine zusätzliche Einrichtung erforderlich, und für CD ist nur ein einziges Secret nötig.
 
 ### CI — `ci.yml`
 
@@ -121,20 +121,20 @@ Führt Ihre Integrationstests bei jedem Push auf `main` und bei Pull Requests au
 **Was sie macht:**
 
 1. Checkt den Quellcode Ihrer App aus.
-2. Startet eine isolierte Twenty-Testinstanz mithilfe der Composite-Action `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` (das CI-Äquivalent zu `yarn twenty docker:start --test`).
+2. Startet eine isolierte Bades.id-Testinstanz mithilfe der Composite-Action `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` (das CI-Äquivalent zu `yarn twenty docker:start --test`).
 3. Aktiviert Corepack, richtet Node.js anhand Ihrer `.nvmrc` ein und installiert Abhängigkeiten mit `yarn install --immutable`.
 4. Führt `yarn test` aus und übergibt `TWENTY_API_URL` und `TWENTY_API_KEY` aus der gestarteten Instanz, damit Ihre Tests mit einem echten Server kommunizieren können.
 
 **Konfigurationsoptionen:**
 
-* `TWENTY_VERSION` (env, standardmäßig `latest`) — fixieren Sie die in CI verwendete Twenty-Server-Version, indem Sie dies in `ci.yml` anpassen.
+* `TWENTY_VERSION` (env, standardmäßig `latest`) — fixieren Sie die in CI verwendete Bades.id-Server-Version, indem Sie dies in `ci.yml` anpassen.
 * Die Parallelität wird nach `github.ref` gruppiert und bricht laufende Ausführungen bei neuen Pushes ab.
 
 Es sind keine Secrets erforderlich — die Testinstanz ist flüchtig und existiert nur für die Dauer des Jobs.
 
 ### CD — `cd.yml`
 
-Stellt Ihre App bei jedem Push auf `main` auf einem konfigurierten Twenty-Server bereit und optional aus einem Pull Request, wenn das Label `deploy` gesetzt ist.
+Stellt Ihre App bei jedem Push auf `main` auf einem konfigurierten Bades.id-Server bereit und optional aus einem Pull Request, wenn das Label `deploy` gesetzt ist.
 
 **Was sie macht:**
 
@@ -146,7 +146,7 @@ Stellt Ihre App bei jedem Push auf `main` auf einem konfigurierten Twenty-Server
 
 | Einstellung             | Wo                                                               | Zweck                                                                                                                      |
 | ----------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `TWENTY_DEPLOY_URL`     | `env` in `cd.yml` (standardmäßig `http://localhost:3000`)        | Der Twenty-Server, auf den bereitgestellt werden soll. Ändern Sie dies vor der ersten Verwendung auf die echte Server-URL. |
+| `TWENTY_DEPLOY_URL`     | `env` in `cd.yml` (standardmäßig `http://localhost:3000`)        | Der Bades.id-Server, auf den bereitgestellt werden soll. Ändern Sie dies vor der ersten Verwendung auf die echte Server-URL. |
 | `TWENTY_DEPLOY_API_KEY` | GitHub-Repository **Settings → Secrets and variables → Actions** | API-Schlüssel mit Berechtigung zum Bereitstellen auf dem Zielserver.                                                       |
 
 <Note>
@@ -163,12 +163,12 @@ Beide Workflows verweisen auf wiederverwendbare Actions mit `@main`, sodass Aktu
 
 ## Auf npm veröffentlichen
 
-Die Veröffentlichung auf npm macht Ihre App im Twenty-Marktplatz auffindbar. Jeder Twenty-Arbeitsbereich kann Marktplatz-Apps direkt über die Benutzeroberfläche durchsuchen, installieren und aktualisieren.
+Die Veröffentlichung auf npm macht Ihre App im Bades.id-Marktplatz auffindbar. Jeder Bades.id-Arbeitsbereich kann Marktplatz-Apps direkt über die Benutzeroberfläche durchsuchen, installieren und aktualisieren.
 
 ### Anforderungen
 
 * Ein [npm](https://www.npmjs.com)-Konto
-* Das Schlüsselwort `twenty-app` in Ihrem `package.json`-Array `keywords` (manuell hinzufügen — es ist in der `create-twenty-app`-Vorlage standardmäßig nicht enthalten)
+* Das Schlüsselwort `twenty-app` in Ihrem `package.json`-Array `keywords` (manuell hinzufügen — es ist in der `create-bades-app`-Vorlage standardmäßig nicht enthalten)
 
 ```json filename="package.json"
 {
@@ -219,7 +219,7 @@ yarn twenty app:publish --tag beta
 
 ### So funktioniert die Marktplatz-Erkennung
 
-Der Twenty-Server synchronisiert seinen Marktplatzkatalog **stündlich** aus der npm-Registry.
+Der Bades.id-Server synchronisiert seinen Marktplatzkatalog **stündlich** aus der npm-Registry.
 
 Sie können die Synchronisierung sofort auslösen, anstatt zu warten:
 
@@ -232,7 +232,7 @@ yarn twenty dev:catalog-sync
 Die im Marktplatz angezeigten Metadaten stammen aus Ihrer `defineApplication()`-Konfiguration — Felder wie `displayName`, `description`, `author`, `category`, `logoUrl`, `screenshots`, `aboutDescription`, `websiteUrl` und `termsUrl`.
 
 <Note>
-Wenn Ihre App keine `aboutDescription` in `defineApplication()` definiert, verwendet der Marktplatz automatisch die `README.md` Ihres Pakets von npm als Inhalt der Über-uns-Seite. Das bedeutet, dass Sie eine einzige README sowohl für npm als auch für den Twenty-Marktplatz pflegen können. Wenn Sie im Marktplatz eine andere Beschreibung möchten, setzen Sie `aboutDescription` explizit.
+Wenn Ihre App keine `aboutDescription` in `defineApplication()` definiert, verwendet der Marktplatz automatisch die `README.md` Ihres Pakets von npm als Inhalt der Über-uns-Seite. Das bedeutet, dass Sie eine einzige README sowohl für npm als auch für den Bades.id-Marktplatz pflegen können. Wenn Sie im Marktplatz eine andere Beschreibung möchten, setzen Sie `aboutDescription` explizit.
 </Note>
 
 ### CI-Veröffentlichung
@@ -274,7 +274,7 @@ Für andere CI-Systeme (GitLab CI, CircleCI usw.) gelten die gleichen drei Befeh
 
 Sobald eine App veröffentlicht (npm) oder bereitgestellt (Tarball) wurde, können Arbeitsbereiche sie über die Benutzeroberfläche installieren.
 
-Gehen Sie zur Seite **Einstellungen > Anwendungen** in Twenty, auf der sowohl Marktplatz- als auch per Tarball bereitgestellte Apps durchsucht und installiert werden können.
+Gehen Sie zur Seite **Einstellungen > Anwendungen** in Bades.id, auf der sowohl Marktplatz- als auch per Tarball bereitgestellte Apps durchsucht und installiert werden können.
 
 {/* TODO: add screenshot of the UI when the app is registered */}
 

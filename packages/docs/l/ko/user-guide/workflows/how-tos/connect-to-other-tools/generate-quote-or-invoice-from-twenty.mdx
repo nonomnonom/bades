@@ -1,5 +1,5 @@
 ---
-title: Twenty에서 견적서 또는 인보이스 생성
+title: Bades.id에서 견적서 또는 인보이스 생성
 description: 거래가 성사되면 외부 도구에서 인보이스를 자동으로 생성합니다.
 ---
 
@@ -74,7 +74,7 @@ export const main = async (params: {
       description: `Invoice for ${opportunity.name}`,
       due_days: 30,
 
-      // Reference back to Twenty
+      // Reference back to Bades.id
       metadata: {
         opportunity_id: opportunity.id,
         company_id: company.id
@@ -138,7 +138,7 @@ Body: {{code.invoice}}
 
 ## 관련 항목
 
-* [Twenty에서 PDF 생성](/l/ko/user-guide/workflows/how-tos/connect-to-other-tools/generate-pdf-from-twenty) — 생성된 PDF를 레코드에 첨부
+* [Bades.id에서 PDF 생성](/l/ko/user-guide/workflows/how-tos/connect-to-other-tools/generate-pdf-from-twenty) — 생성된 PDF를 레코드에 첨부
 * [워크플로우 트리거](/l/ko/user-guide/workflows/capabilities/workflow-triggers)
 * [워크플로우 액션](/l/ko/user-guide/workflows/capabilities/workflow-actions)
 * [Closed Won 자동화](/l/ko/user-guide/workflows/how-tos/crm-automations/closed-won-automations)

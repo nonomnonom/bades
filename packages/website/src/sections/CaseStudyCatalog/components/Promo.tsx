@@ -22,7 +22,7 @@ const LINE_INSET = '20px';
 const TRUSTED_BY_BOTTOM_PADDING = 12;
 const TRUSTED_BY_BOTTOM_PADDING_DESKTOP = 16;
 
-const BODY = msg`Meet the teams who shaped Twenty into their own CRM with self-hosted deployments, AI-assisted workflows, and API-first product stacks.`;
+const BODY = msg`Meet the teams who shaped Bades.id into their own CRM with self-hosted deployments, AI-assisted workflows, and API-first product stacks.`;
 
 const Section = styled.section`
   background-color: ${theme.colors.primary.background[100]};
@@ -336,7 +336,7 @@ export function Promo({
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`built with Twenty`)}
+              {i18n._(msg`built with Bades.id`)}
             </HeadingPart>
           </Heading>
           <PromoBody size="sm">{i18n._(BODY)}</PromoBody>
