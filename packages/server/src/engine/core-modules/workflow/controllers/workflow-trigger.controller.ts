@@ -19,12 +19,12 @@ import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.ent
 import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
 import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 import { PermissionsGraphqlApiExceptionFilter } from 'src/engine/metadata-modules/permissions/utils/permissions-graphql-api-exception.filter';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import {
-  TwentyORMException,
-  TwentyORMExceptionCode,
-} from 'src/engine/twenty-orm/exceptions/twenty-orm.exception';
-import { buildSystemAuthContext } from 'src/engine/twenty-orm/utils/build-system-auth-context.util';
+  SidOrmException,
+  SidOrmExceptionCode,
+} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+import { buildSystemAuthContext } from 'src/engine/sid-orm/utils/build-system-auth-context.util';
 import {
   WorkflowVersionStatus,
   type WorkflowVersionWorkspaceEntity,
@@ -191,10 +191,10 @@ export class WorkflowTriggerController {
     workspaceId: string,
   ): never {
     if (
-      error instanceof TwentyORMException &&
+      error instanceof SidOrmException &&
       [
-        TwentyORMExceptionCode.WORKSPACE_NOT_FOUND,
-        TwentyORMExceptionCode.WORKSPACE_SCHEMA_NOT_FOUND,
+        SidOrmExceptionCode.WORKSPACE_NOT_FOUND,
+        SidOrmExceptionCode.WORKSPACE_SCHEMA_NOT_FOUND,
       ].includes(error.code)
     ) {
       throw new WorkflowTriggerException(

@@ -8,8 +8,8 @@ import {
 import { capitalize } from 'shared/utils';
 
 import { metadataToRepositoryMapping } from 'src/engine/object-metadata-repository/metadata-to-repository.mapping';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
-import { TwentyORMModule } from 'src/engine/twenty-orm/twenty-orm.module';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
 import { WorkspaceDataSourceModule } from 'src/engine/workspace-datasource/workspace-datasource.module';
 import { convertClassNameToObjectMetadataName } from 'src/engine/workspace-manager/utils/convert-class-to-object-metadata-name.util';
 
@@ -40,7 +40,7 @@ export class ObjectMetadataRepositoryModule {
 
     return {
       module: ObjectMetadataRepositoryModule,
-      imports: [WorkspaceDataSourceModule, TwentyORMModule],
+      imports: [WorkspaceDataSourceModule, SidOrmModule],
       providers: [...providers],
       exports: providers,
     };

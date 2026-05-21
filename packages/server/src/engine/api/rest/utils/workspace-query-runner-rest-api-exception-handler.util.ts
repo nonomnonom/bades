@@ -8,9 +8,9 @@ import { RestInputRequestParserException } from 'src/engine/api/rest/input-reque
 import { ThrottlerException } from 'src/engine/core-modules/throttler/throttler.exception';
 import { throttlerToRestApiExceptionHandler } from 'src/engine/core-modules/throttler/utils/throttler-to-rest-api-exception-handler.util';
 import {
-  TwentyORMException,
-  TwentyORMExceptionCode,
-} from 'src/engine/twenty-orm/exceptions/twenty-orm.exception';
+  SidOrmException,
+  SidOrmExceptionCode,
+} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
 
 interface QueryFailedErrorWithCode extends QueryFailedError {
   code: string;
@@ -26,8 +26,8 @@ export const workspaceQueryRunnerRestApiExceptionHandler = (
       throw new BadRequestException(error.message);
     case error instanceof ThrottlerException:
       return throttlerToRestApiExceptionHandler(error);
-    case error instanceof TwentyORMException &&
-      error.code === TwentyORMExceptionCode.INVALID_INPUT:
+    case error instanceof SidOrmException &&
+      error.code === SidOrmExceptionCode.INVALID_INPUT:
       throw new BadRequestException(error.message);
     default:
       throw error;

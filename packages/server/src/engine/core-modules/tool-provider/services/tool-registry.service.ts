@@ -19,7 +19,7 @@ import {
   stripLoadingMessage,
   wrapJsonSchemaForExecution,
 } from 'src/engine/core-modules/tool/utils/wrap-tool-for-execution.util';
-import { type RolePermissionConfig } from 'src/engine/twenty-orm/types/role-permission-config';
+import { type RolePermissionConfig } from 'src/engine/sid-orm/types/role-permission-config';
 
 @Injectable()
 export class ToolRegistryService {

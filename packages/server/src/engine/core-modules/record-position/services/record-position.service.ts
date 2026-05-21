@@ -4,8 +4,8 @@ import { isNumber } from '@sniptt/guards';
 import { type ObjectRecord } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
-import { buildSystemAuthContext } from 'src/engine/twenty-orm/utils/build-system-auth-context.util';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { buildSystemAuthContext } from 'src/engine/sid-orm/utils/build-system-auth-context.util';
 import { sanitizeNumber } from 'src/engine/utils/sanitize-number.utli';
 
 export type RecordPositionServiceCreateArgs = {

@@ -19,9 +19,9 @@ import { CustomError } from 'shared/utils';
 import { PostgresException } from 'src/engine/api/graphql/workspace-query-runner/utils/postgres-exception';
 import { ExceptionHandlerService } from 'src/engine/core-modules/exception-handler/exception-handler.service';
 import {
-  TwentyORMException,
-  TwentyORMExceptionCode,
-} from 'src/engine/twenty-orm/exceptions/twenty-orm.exception';
+  SidOrmException,
+  SidOrmExceptionCode,
+} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
 import { handleException } from 'src/engine/utils/global-exception-handler.util';
 
 interface RequestAndParams {
@@ -92,13 +92,13 @@ export class HttpExceptionHandlerService {
     }
 
     if (
-      exception instanceof TwentyORMException &&
+      exception instanceof SidOrmException &&
       [
-        TwentyORMExceptionCode.INVALID_INPUT,
-        TwentyORMExceptionCode.DUPLICATE_ENTRY_DETECTED,
-        TwentyORMExceptionCode.CONNECT_UNIQUE_CONSTRAINT_ERROR,
-        TwentyORMExceptionCode.CONNECT_NOT_ALLOWED,
-        TwentyORMExceptionCode.CONNECT_RECORD_NOT_FOUND,
+        SidOrmExceptionCode.INVALID_INPUT,
+        SidOrmExceptionCode.DUPLICATE_ENTRY_DETECTED,
+        SidOrmExceptionCode.CONNECT_UNIQUE_CONSTRAINT_ERROR,
+        SidOrmExceptionCode.CONNECT_NOT_ALLOWED,
+        SidOrmExceptionCode.CONNECT_RECORD_NOT_FOUND,
       ].includes(exception.code)
     ) {
       exception = new BadRequestException(exception.message);

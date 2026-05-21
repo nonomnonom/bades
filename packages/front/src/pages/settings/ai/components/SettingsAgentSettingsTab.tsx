@@ -1,14 +1,7 @@
 import { styled } from '@linaria/react';
 import { useLingui } from '@lingui/react/macro';
 
-import {
-  useAiModelLabel,
-  useAiModelOptions,
-} from '@/ai/hooks/useAiModelOptions';
-import { SettingsAgentModelCapabilities } from '@/ai/components/SettingsAgentModelCapabilities';
-import { aiModelsState } from '@/client-config/states/aiModelsState';
 import { IconPicker } from '@/ui/input/components/IconPicker';
-import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { TextArea } from '@/ui/input/components/TextArea';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
@@ -22,7 +15,6 @@ import { SettingsAgentDeleteConfirmationModal } from '~/pages/settings/ai/compon
 import { SettingsAgentResponseFormat } from '~/pages/settings/ai/components/SettingsAgentResponseFormat';
 import { computeMetadataNameFromLabel } from '~/pages/settings/data-model/utils/computeMetadataNameFromLabel';
 import { type SettingsAiAgentFormValues } from '~/pages/settings/ai/hooks/useSettingsAgentFormState';
-import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 const StyledFormContainer = styled.div`
   display: flex;
@@ -38,12 +30,6 @@ const StyledIconNameRow = styled.div`
 
 const StyledNameContainer = styled.div`
   flex: 1;
-`;
-
-const StyledErrorMessage = styled.div`
-  color: ${themeCssVariables.color.red};
-  font-size: ${themeCssVariables.font.size.sm};
-  margin-top: ${themeCssVariables.spacing[1]};
 `;
 
 const DELETE_AGENT_MODAL_ID = 'delete-agent-modal';
@@ -66,25 +52,6 @@ export const SettingsAgentSettingsTab = ({
 }: SettingsAgentSettingsTabProps) => {
   const { t } = useLingui();
   const { openModal } = useModal();
-
-  const aiModels = useAtomStateValue(aiModelsState);
-  const { options: activeModelOptions } = useAiModelOptions();
-  const currentModelLabel = useAiModelLabel(formValues.modelId);
-
-  const currentModel = aiModels.find((m) => m.modelId === formValues.modelId);
-  const isCurrentModelDeprecated = currentModel?.isDeprecated === true;
-
-  const modelOptions = isCurrentModelDeprecated
-    ? [
-        {
-          value: formValues.modelId,
-          label: `${currentModelLabel} (deprecated)`,
-        },
-        ...activeModelOptions,
-      ]
-    : activeModelOptions;
-
-  const noModelsAvailable = modelOptions.length === 0;
 
   const fillNameFromLabel = (label: string) => {
     if (isDefined(label)) {
@@ -129,34 +96,6 @@ export const SettingsAgentSettingsTab = ({
           disabled={disabled}
         />
       </StyledFormContainer>
-      <StyledFormContainer>
-        {noModelsAvailable ? (
-          <StyledErrorMessage>
-            {t`No models available. Please configure AI models in your workspace settings.`}
-          </StyledErrorMessage>
-        ) : (
-          <Select
-            dropdownId="ai-model-select"
-            label={t`AI Model`}
-            value={formValues.modelId}
-            onChange={(value) => onFieldChange('modelId', value)}
-            options={modelOptions}
-            disabled={noModelsAvailable || disabled}
-          />
-        )}
-      </StyledFormContainer>
-      {formValues.modelId && (
-        <StyledFormContainer>
-          <SettingsAgentModelCapabilities
-            selectedModelId={formValues.modelId}
-            modelConfiguration={formValues.modelConfiguration || {}}
-            onConfigurationChange={(configuration) =>
-              onFieldChange('modelConfiguration', configuration)
-            }
-            disabled={disabled}
-          />
-        </StyledFormContainer>
-      )}
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-prompt-textarea"

@@ -1,11 +1,11 @@
 import { compositeTypeDefinitions } from 'shared/types';
 import { capitalize } from 'shared/utils';
 
-import { type WorkspaceInternalContext } from 'src/engine/twenty-orm/interfaces/workspace-internal-context.interface';
+import { type WorkspaceInternalContext } from 'src/engine/sid-orm/interfaces/workspace-internal-context.interface';
 
 import { getFlatFieldsFromFlatObjectMetadata } from 'src/engine/api/graphql/workspace-schema-builder/utils/get-flat-fields-for-flat-object-metadata.util';
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
-import { type WorkspaceEntityManager } from 'src/engine/twenty-orm/entity-manager/workspace-entity-manager';
+import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 
 export const findConflictingRecord = async (
   columnName: string,

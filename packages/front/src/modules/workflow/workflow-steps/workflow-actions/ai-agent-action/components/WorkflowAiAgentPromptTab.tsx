@@ -1,12 +1,9 @@
-import { SettingsAgentModelCapabilities } from '@/ai/components/SettingsAgentModelCapabilities';
 import { type OutputSchemaField } from '@/ai/constants/OutputFieldTypeOptions';
-import { useAiModelOptions } from '@/ai/hooks/useAiModelOptions';
 import { agentResponseSchemaToOutputSchema } from '@/ai/utils/agentResponseSchemaToOutputSchema';
 import { createDefaultOutputSchemaField } from '@/ai/utils/createDefaultOutputSchemaField';
 import { fieldsToSchema } from '@/ai/utils/fieldsToSchema';
 import { schemaToFields } from '@/ai/utils/schemaToFields';
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
-import { Select } from '@/ui/input/components/Select';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { type WorkflowAiAgentAction } from '@/workflow/types/Workflow';
 import { WorkflowOutputSchemaBuilder } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/components/WorkflowOutputSchemaBuilder';
@@ -15,10 +12,7 @@ import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components
 import { useMutation } from '@apollo/client/react';
 import { t } from '@lingui/core/macro';
 import { useState } from 'react';
-import {
-  type AgentResponseSchema,
-  type ModelConfiguration,
-} from 'shared/ai';
+import { type AgentResponseSchema } from 'shared/ai';
 import { useDebouncedCallback } from 'use-debounce';
 import {
   UpdateOneAgentDocument,
@@ -42,9 +36,6 @@ export const WorkflowAiAgentPromptTab = ({
 }: WorkflowAiAgentPromptTabProps) => {
   const [workflowAiAgentActionAgent, setWorkflowAiAgentActionAgent] =
     useAtomState(workflowAiAgentActionAgentState);
-  const { options: aiModelOptions, pinnedOption } = useAiModelOptions({
-    variant: 'pinned-default',
-  });
   const [updateAgent] = useMutation(UpdateOneAgentDocument);
 
   const [outputSchemaFields, setOutputSchemaFields] = useState<
@@ -113,22 +104,6 @@ export const WorkflowAiAgentPromptTab = ({
     return null;
   }
 
-  const agent = workflowAiAgentActionAgent;
-
-  const handleModelChange = async (modelId: string) => {
-    await updateAgentField({
-      modelId,
-    });
-  };
-
-  const handleModelConfigurationChange = async (
-    configuration: ModelConfiguration,
-  ) => {
-    await updateAgentField({
-      modelConfiguration: configuration,
-    });
-  };
-
   const handleOutputSchemaChange = (updatedFields: OutputSchemaField[]) => {
     setOutputSchemaFields(updatedFields);
     void debouncedUpdateResponseSchema(fieldsToSchema(updatedFields));
@@ -136,17 +111,6 @@ export const WorkflowAiAgentPromptTab = ({
 
   return (
     <>
-      <Select
-        label={t`Model`}
-        dropdownId="select-agent-model"
-        options={aiModelOptions}
-        pinnedOption={pinnedOption}
-        value={agent.modelId}
-        onChange={handleModelChange}
-        showContextualTextInControl={false}
-        disabled={readonly}
-      />
-
       <FormTextFieldInput
         multiline
         VariablePicker={WorkflowVariablePicker}
@@ -155,13 +119,6 @@ export const WorkflowAiAgentPromptTab = ({
         defaultValue={prompt}
         onChange={onPromptChange}
         readonly={readonly}
-      />
-
-      <SettingsAgentModelCapabilities
-        selectedModelId={agent.modelId}
-        modelConfiguration={agent.modelConfiguration || {}}
-        onConfigurationChange={handleModelConfigurationChange}
-        disabled={readonly}
       />
 
       <WorkflowOutputSchemaBuilder

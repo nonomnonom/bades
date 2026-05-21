@@ -9,8 +9,8 @@ import { type WorkspaceAuthContext } from 'src/engine/core-modules/auth/types/wo
 import { FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
-import { GlobalWorkspaceDataSource } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-datasource';
-import { RolePermissionConfig } from 'src/engine/twenty-orm/types/role-permission-config';
+import { GlobalWorkspaceDataSource } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource';
+import { RolePermissionConfig } from 'src/engine/sid-orm/types/role-permission-config';
 
 @Injectable()
 export class ProcessNestedRelationsHelper {

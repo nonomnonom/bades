@@ -15,7 +15,7 @@ import { CalendarChannelEntity } from 'src/engine/metadata-modules/calendar-chan
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
 import { MessageChannelEntity } from 'src/engine/metadata-modules/message-channel/entities/message-channel.entity';
 import { MessageFolderEntity } from 'src/engine/metadata-modules/message-folder/entities/message-folder.entity';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import { type ConnectedAccountWorkspaceEntity } from 'src/modules/connected-account/standard-objects/connected-account.workspace-entity';
 import { type MessageFolderWorkspaceEntity } from 'src/modules/messaging/common/standard-objects/message-folder.workspace-entity';
 import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
@@ -28,7 +28,7 @@ import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-membe
 })
 export class MigrateMessagingInfrastructureToMetadataCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
   constructor(
-    private readonly twentyORMGlobalManager: GlobalWorkspaceOrmManager,
+    private readonly sidOrmGlobalManager: GlobalWorkspaceOrmManager,
     @InjectRepository(ConnectedAccountEntity)
     private readonly connectedAccountRepository: Repository<ConnectedAccountEntity>,
     @InjectRepository(MessageChannelEntity)
@@ -65,25 +65,25 @@ export class MigrateMessagingInfrastructureToMetadataCommand extends ActiveOrSus
     const isDryRun = options.dryRun ?? false;
 
     const connectedAccountWorkspaceRepository =
-      await this.twentyORMGlobalManager.getRepository<ConnectedAccountWorkspaceEntity>(
+      await this.sidOrmGlobalManager.getRepository<ConnectedAccountWorkspaceEntity>(
         workspaceId,
         'connectedAccount',
       );
 
     const messageChannelWorkspaceRepository =
-      await this.twentyORMGlobalManager.getRepository<MessageChannelEntity>(
+      await this.sidOrmGlobalManager.getRepository<MessageChannelEntity>(
         workspaceId,
         'messageChannel',
       );
 
     const calendarChannelWorkspaceRepository =
-      await this.twentyORMGlobalManager.getRepository<CalendarChannelEntity>(
+      await this.sidOrmGlobalManager.getRepository<CalendarChannelEntity>(
         workspaceId,
         'calendarChannel',
       );
 
     const messageFolderWorkspaceRepository =
-      await this.twentyORMGlobalManager.getRepository<MessageFolderWorkspaceEntity>(
+      await this.sidOrmGlobalManager.getRepository<MessageFolderWorkspaceEntity>(
         workspaceId,
         'messageFolder',
       );
@@ -356,7 +356,7 @@ export class MigrateMessagingInfrastructureToMetadataCommand extends ActiveOrSus
     workspaceId: string,
   ): Promise<Map<string, string>> {
     const workspaceMemberRepository =
-      await this.twentyORMGlobalManager.getRepository<WorkspaceMemberWorkspaceEntity>(
+      await this.sidOrmGlobalManager.getRepository<WorkspaceMemberWorkspaceEntity>(
         workspaceId,
         'workspaceMember',
         { shouldBypassPermissionChecks: true },

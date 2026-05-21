@@ -54,8 +54,8 @@ import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-meta
 import { ViewFilterGroupService } from 'src/engine/metadata-modules/view-filter-group/services/view-filter-group.service';
 import { ViewFilterService } from 'src/engine/metadata-modules/view-filter/services/view-filter.service';
 import { ViewService } from 'src/engine/metadata-modules/view/services/view.service';
-import { WorkspaceSelectQueryBuilder } from 'src/engine/twenty-orm/repository/workspace-select-query-builder';
-import { formatColumnNameForRelationField } from 'src/engine/twenty-orm/utils/format-column-name-for-relation-field.util';
+import { WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
+import { formatColumnNameForRelationField } from 'src/engine/sid-orm/utils/format-column-name-for-relation-field.util';
 
 @Injectable()
 export class CommonGroupByQueryRunnerService extends CommonBaseQueryRunnerService<

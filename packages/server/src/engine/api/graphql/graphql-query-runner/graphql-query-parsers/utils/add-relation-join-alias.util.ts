@@ -1,6 +1,6 @@
 import { type ObjectLiteral } from 'typeorm';
 
-import { type WorkspaceSelectQueryBuilder } from 'src/engine/twenty-orm/repository/workspace-select-query-builder';
+import { type WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
 
 type AddRelationJoinAliasToQueryBuilderArgs = {
   queryBuilder: WorkspaceSelectQueryBuilder<ObjectLiteral>;

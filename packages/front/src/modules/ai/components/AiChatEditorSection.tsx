@@ -11,16 +11,10 @@ import { AiChatContextUsageButton } from '@/ai/components/internal/AiChatContext
 import { AiChatEditorFocusEffect } from '@/ai/components/internal/AiChatEditorFocusEffect';
 import { AiChatSkeletonLoader } from '@/ai/components/internal/AiChatSkeletonLoader';
 import { SendMessageButton } from '@/ai/components/internal/SendMessageButton';
-import { useAgentChatModelId } from '@/ai/hooks/useAgentChatModelId';
 import { useAiChatEditor } from '@/ai/hooks/useAiChatEditor';
-import { useAiModelOptions } from '@/ai/hooks/useAiModelOptions';
-import { agentChatUserSelectedModelState } from '@/ai/states/agentChatUserSelectedModelState';
-import { Select } from '@/ui/input/components/Select';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { hasReachedCurrentBillingPeriodCapSelector } from '@/workspace/states/hasReachedCurrentBillingPeriodCapSelector';
-import { type SelectOption } from 'ui/input';
 
 const StyledInputArea = styled.div<{ isMobile: boolean }>`
   align-items: flex-end;
@@ -112,23 +106,6 @@ export const AiChatEditorSection = () => {
   const hasReachedCurrentBillingPeriodCap = useAtomStateValue(
     hasReachedCurrentBillingPeriodCapSelector,
   );
-  const { options, pinnedOption } = useAiModelOptions({
-    variant: 'pinned-default',
-  });
-
-  const smartModelOptions: SelectOption<string | null>[] = options;
-  const defaultPinnedOption: SelectOption<string | null> | undefined =
-    pinnedOption
-      ? {
-          ...pinnedOption,
-          value: null,
-        }
-      : undefined;
-  const setAgentChatUserSelectedModel = useSetAtomState(
-    agentChatUserSelectedModelState,
-  );
-  const { selectedModelId } = useAgentChatModelId();
-
   const { editor, handleSendAndClear } = useAiChatEditor();
 
   return (
@@ -153,17 +130,6 @@ export const AiChatEditorSection = () => {
               <AiChatContextUsageButton />
             </StyledLeftButtonsContainer>
             <StyledRightButtonsContainer>
-              <Select
-                dropdownId="ai-chat-smart-model-select"
-                value={selectedModelId}
-                onChange={setAgentChatUserSelectedModel}
-                options={smartModelOptions}
-                pinnedOption={defaultPinnedOption}
-                selectSizeVariant="small"
-                showContextualTextInControl={false}
-                withSearchInput
-                dropdownOffset={{ x: 0, y: 8 }}
-              />
               <SendMessageButton onSend={handleSendAndClear} />
             </StyledRightButtonsContainer>
           </StyledButtonsContainer>

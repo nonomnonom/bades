@@ -7,9 +7,9 @@ import { Repository } from 'typeorm';
 import { MessageChannelSyncStatus } from 'shared/types';
 import { ExceptionHandlerService } from 'src/engine/core-modules/exception-handler/exception-handler.service';
 import {
-  type TwentyORMException,
-  TwentyORMExceptionCode,
-} from 'src/engine/twenty-orm/exceptions/twenty-orm.exception';
+  type SidOrmException,
+  SidOrmExceptionCode,
+} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
 import { MessageChannelSyncStatusService } from 'src/modules/messaging/common/services/message-channel-sync-status.service';
 import { MESSAGING_THROTTLE_MAX_ATTEMPTS } from 'src/modules/messaging/message-import-manager/constants/messaging-throttle-max-attempts';
 import {
@@ -35,7 +35,7 @@ export class MessageImportExceptionHandlerService {
   ) {}
 
   public async handleDriverException(
-    exception: MessageImportDriverException | Error | TwentyORMException,
+    exception: MessageImportDriverException | Error | SidOrmException,
     syncStep: MessageImportSyncStep,
     messageChannel: Pick<MessageChannelEntity, 'id' | 'throttleFailureCount'>,
     workspaceId: string,
@@ -58,7 +58,7 @@ export class MessageImportExceptionHandlerService {
             workspaceId,
           );
           break;
-        case TwentyORMExceptionCode.QUERY_READ_TIMEOUT:
+        case SidOrmExceptionCode.QUERY_READ_TIMEOUT:
         case MessageImportDriverExceptionCode.TEMPORARY_ERROR:
         case MessageNetworkExceptionCode.ECONNABORTED:
         case MessageNetworkExceptionCode.ENOTFOUND:

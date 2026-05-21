@@ -14,7 +14,6 @@ import { getSettingsPath, isDefined } from 'shared/utils';
 import { t } from '@lingui/core/macro';
 import {
   IconChartBar,
-  IconCpu,
   IconPlus,
   IconSettingsBolt,
   IconSparkles,
@@ -24,7 +23,6 @@ import { Button } from 'ui/input';
 import { UndecoratedLink } from 'ui/navigation';
 import { SettingsAiMoreTab } from '~/pages/settings/ai/components/SettingsAiMoreTab';
 import { SettingsAgentToolsTab } from '~/pages/settings/ai/components/SettingsAgentToolsTab';
-import { SettingsAiModelsTab } from './components/SettingsAiModelsTab';
 import { SettingsAiUsageTab } from './components/SettingsAiUsageTab';
 import { SettingsAgentSkills } from './components/SettingsAgentSkills';
 import { SETTINGS_AI_TABS } from './constants/SettingsAiTabs';
@@ -82,11 +80,6 @@ export const SettingsAI = () => {
 
   const tabs = [
     {
-      id: SETTINGS_AI_TABS.TABS_IDS.MODELS,
-      title: t`Models`,
-      Icon: IconCpu,
-    },
-    {
       id: SETTINGS_AI_TABS.TABS_IDS.SKILLS,
       title: t`Skills`,
       Icon: IconSparkles,
@@ -108,7 +101,6 @@ export const SettingsAI = () => {
     },
   ];
 
-  const isModelsTab = activeTabId === SETTINGS_AI_TABS.TABS_IDS.MODELS;
   const isSkillsTab = activeTabId === SETTINGS_AI_TABS.TABS_IDS.SKILLS;
   const isToolsTab = activeTabId === SETTINGS_AI_TABS.TABS_IDS.TOOLS;
   const isUsageTab = activeTabId === SETTINGS_AI_TABS.TABS_IDS.USAGE;
@@ -151,7 +143,6 @@ export const SettingsAI = () => {
           tabs={tabs}
           componentInstanceId={SETTINGS_AI_TABS.COMPONENT_INSTANCE_ID}
         />
-        {isModelsTab && <SettingsAiModelsTab />}
         {isSkillsTab && <SettingsAgentSkills />}
         {isToolsTab && <SettingsAgentToolsTab />}
         {isUsageTab && <SettingsAiUsageTab />}

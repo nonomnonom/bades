@@ -1,8 +1,8 @@
 import { type ActorMetadata, FieldMetadataType } from 'shared/types';
 
 import { type FileOutput } from 'src/engine/api/common/common-args-processors/data-arg-processor/types/file-item.type';
-import { BaseWorkspaceEntity } from 'src/engine/twenty-orm/base.workspace-entity';
-import { type CustomWorkspaceEntity } from 'src/engine/twenty-orm/custom.workspace-entity';
+import { BaseWorkspaceEntity } from 'src/engine/sid-orm/base.workspace-entity';
+import { type CustomWorkspaceEntity } from 'src/engine/sid-orm/custom.workspace-entity';
 import { type FieldTypeAndNameMetadata } from 'src/engine/workspace-manager/utils/get-ts-vector-column-expression.util';
 import { type EntityRelation } from 'src/engine/workspace-manager/workspace-migration/types/entity-relation.interface';
 import { type CompanyWorkspaceEntity } from 'src/modules/company/standard-objects/company.workspace-entity';

@@ -1,4 +1,4 @@
-import { type WorkspaceEntityManager } from 'src/engine/twenty-orm/entity-manager/workspace-entity-manager';
+import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 
 export const deleteUsingPagination = async (
   workspaceId: string,

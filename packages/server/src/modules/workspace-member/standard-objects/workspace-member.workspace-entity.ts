@@ -4,7 +4,7 @@ import { type APP_LOCALES } from 'shared/translations';
 import { FieldMetadataType, type FullNameMetadata } from 'shared/types';
 import { type Relation } from 'typeorm';
 
-import { BaseWorkspaceEntity } from 'src/engine/twenty-orm/base.workspace-entity';
+import { BaseWorkspaceEntity } from 'src/engine/sid-orm/base.workspace-entity';
 import { type FieldTypeAndNameMetadata } from 'src/engine/workspace-manager/utils/get-ts-vector-column-expression.util';
 import { type AttachmentWorkspaceEntity } from 'src/modules/attachment/standard-objects/attachment.workspace-entity';
 import { type BlocklistWorkspaceEntity } from 'src/modules/blocklist/standard-objects/blocklist.workspace-entity';

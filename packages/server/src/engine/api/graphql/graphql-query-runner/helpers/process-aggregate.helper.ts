@@ -2,8 +2,8 @@ import { AggregateOperations } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { type AggregationField } from 'src/engine/api/graphql/workspace-schema-builder/utils/get-available-aggregations-from-object-fields.util';
-import { type WorkspaceSelectQueryBuilder } from 'src/engine/twenty-orm/repository/workspace-select-query-builder';
-import { formatColumnNamesFromCompositeFieldAndSubfields } from 'src/engine/twenty-orm/utils/format-column-names-from-composite-field-and-subfield.util';
+import { type WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
+import { formatColumnNamesFromCompositeFieldAndSubfields } from 'src/engine/sid-orm/utils/format-column-names-from-composite-field-and-subfield.util';
 
 export class ProcessAggregateHelper {
   public static addSelectedAggregatedFieldsQueriesToQueryBuilder = ({

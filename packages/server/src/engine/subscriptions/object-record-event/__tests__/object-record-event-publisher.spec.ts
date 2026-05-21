@@ -19,20 +19,20 @@ import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object
 import { EventStreamService } from 'src/engine/subscriptions/event-stream.service';
 import { SubscriptionService } from 'src/engine/subscriptions/subscription.service';
 import { type EventStreamData } from 'src/engine/subscriptions/types/event-stream-data.type';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
 import { type WorkspaceEventBatch } from 'src/engine/workspace-event-emitter/types/workspace-event-batch.type';
 import { ObjectRecordEventPublisher } from 'src/engine/subscriptions/object-record-event/object-record-event-publisher';
 
 jest.mock(
-  'src/engine/twenty-orm/utils/build-row-level-permission-record-filter.util',
+  'src/engine/sid-orm/utils/build-row-level-permission-record-filter.util',
   () => ({
     buildRowLevelPermissionRecordFilter: jest.fn(),
   }),
 );
 
 jest.mock(
-  'src/engine/twenty-orm/utils/is-record-matching-rls-row-level-permission-predicate.util',
+  'src/engine/sid-orm/utils/is-record-matching-rls-row-level-permission-predicate.util',
   () => ({
     isRecordMatchingRLSRowLevelPermissionPredicate: jest.fn(),
   }),
@@ -40,10 +40,10 @@ jest.mock(
 
 const {
   buildRowLevelPermissionRecordFilter,
-} = require('src/engine/twenty-orm/utils/build-row-level-permission-record-filter.util');
+} = require('src/engine/sid-orm/utils/build-row-level-permission-record-filter.util');
 const {
   isRecordMatchingRLSRowLevelPermissionPredicate,
-} = require('src/engine/twenty-orm/utils/is-record-matching-rls-row-level-permission-predicate.util');
+} = require('src/engine/sid-orm/utils/is-record-matching-rls-row-level-permission-predicate.util');
 
 type MockObjectRecordEvent = {
   recordId: string;

@@ -6,7 +6,7 @@ import { AggregateOperations, FieldMetadataType } from 'shared/types';
 import { capitalize, isFieldMetadataDateKind } from 'shared/utils';
 
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
-import { getSubfieldsForAggregateOperation } from 'src/engine/twenty-orm/utils/get-subfields-for-aggregate-operation.util';
+import { getSubfieldsForAggregateOperation } from 'src/engine/sid-orm/utils/get-subfields-for-aggregate-operation.util';
 
 export type AggregationField = {
   type: GraphQLScalarType;

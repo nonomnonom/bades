@@ -4,9 +4,9 @@ import { logger } from '@sentry/node';
 import { isDefined } from 'shared/utils';
 
 import {
-  TwentyORMException,
-  TwentyORMExceptionCode,
-} from 'src/engine/twenty-orm/exceptions/twenty-orm.exception';
+  SidOrmException,
+  SidOrmExceptionCode,
+} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
 
 type CacheResult<T, U> = {
   version: T;
@@ -33,7 +33,7 @@ export class GetDataFromCacheWithRecomputeService<T, U> {
     getCacheVersion: (workspaceId: string) => Promise<T | undefined>;
     recomputeCache: (params: { workspaceId: string }) => Promise<void>;
     cachedEntityName: string;
-    exceptionCode: TwentyORMExceptionCode;
+    exceptionCode: SidOrmExceptionCode;
   }): Promise<CacheResult<T, U>> => {
     let cachedVersion: T | undefined;
     let cachedData: U | undefined;
@@ -72,7 +72,7 @@ export class GetDataFromCacheWithRecomputeService<T, U> {
             cachedData,
           },
         );
-        throw new TwentyORMException(
+        throw new SidOrmException(
           `${cachedEntityName} not found after recompute for workspace ${workspaceId} (missingData: ${!isDefined(cachedData)}, missingVersion: ${!isDefined(cachedVersion)})`,
           exceptionCode,
         );

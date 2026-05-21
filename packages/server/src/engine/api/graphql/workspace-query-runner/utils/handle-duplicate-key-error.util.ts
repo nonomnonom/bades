@@ -1,13 +1,13 @@
 import { msg } from '@lingui/core/macro';
 
-import { type WorkspaceInternalContext } from 'src/engine/twenty-orm/interfaces/workspace-internal-context.interface';
+import { type WorkspaceInternalContext } from 'src/engine/sid-orm/interfaces/workspace-internal-context.interface';
 
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
-import { type WorkspaceEntityManager } from 'src/engine/twenty-orm/entity-manager/workspace-entity-manager';
+import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 import {
-  TwentyORMException,
-  TwentyORMExceptionCode,
-} from 'src/engine/twenty-orm/exceptions/twenty-orm.exception';
+  SidOrmException,
+  SidOrmExceptionCode,
+} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
 
 import { findConflictingRecord } from './find-conflicting-record.util';
 import {
@@ -15,7 +15,7 @@ import {
   type PostgreSQLError,
 } from './parse-postgres-constraint-error.util';
 
-interface DuplicateKeyErrorWithMetadata extends TwentyORMException {
+interface DuplicateKeyErrorWithMetadata extends SidOrmException {
   conflictingRecordId?: string;
   conflictingObjectNameSingular?: string;
 }
@@ -29,9 +29,9 @@ export const handleDuplicateKeyError = async (
   const parsedError = parsePostgresConstraintError(error);
 
   if (!parsedError) {
-    return new TwentyORMException(
+    return new SidOrmException(
       `A duplicate entry was detected`,
-      TwentyORMExceptionCode.DUPLICATE_ENTRY_DETECTED,
+      SidOrmExceptionCode.DUPLICATE_ENTRY_DETECTED,
       {
         userFriendlyMessage: msg`This record already exists. Please check your data and try again.`,
       },
@@ -51,9 +51,9 @@ export const handleDuplicateKeyError = async (
     ? msg`This ${fieldLabel} value is already in use. Please check your data and try again.`
     : msg`This record already exists. Please check your data and try again.`;
 
-  const exception: DuplicateKeyErrorWithMetadata = new TwentyORMException(
+  const exception: DuplicateKeyErrorWithMetadata = new SidOrmException(
     `A duplicate entry was detected`,
-    TwentyORMExceptionCode.DUPLICATE_ENTRY_DETECTED,
+    SidOrmExceptionCode.DUPLICATE_ENTRY_DETECTED,
     {
       userFriendlyMessage,
     },

@@ -1,7 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 
 import { RecordPositionService } from 'src/engine/core-modules/record-position/services/record-position.service';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 
 describe('RecordPositionService', () => {
   let globalWorkspaceOrmManager: jest.Mocked<GlobalWorkspaceOrmManager>;

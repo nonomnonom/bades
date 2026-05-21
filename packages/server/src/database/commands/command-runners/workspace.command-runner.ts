@@ -4,7 +4,7 @@ import { WorkspaceActivationStatus } from 'shared/workspace';
 
 import { WorkspaceIteratorService } from 'src/database/commands/command-runners/workspace-iterator.service';
 import { CommandLogger } from 'src/database/commands/logger';
-import { GlobalWorkspaceDataSource } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-datasource';
+import { GlobalWorkspaceDataSource } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource';
 
 export type WorkspaceCommandOptions = {
   workspaceId?: Set<string>;

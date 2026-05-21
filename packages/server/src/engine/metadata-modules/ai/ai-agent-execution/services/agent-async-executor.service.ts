@@ -44,7 +44,7 @@ import {
   AiExceptionCode,
 } from 'src/engine/metadata-modules/ai/ai.exception';
 import { RoleTargetEntity } from 'src/engine/metadata-modules/role-target/role-target.entity';
-import { type RolePermissionConfig } from 'src/engine/twenty-orm/types/role-permission-config';
+import { type RolePermissionConfig } from 'src/engine/sid-orm/types/role-permission-config';
 
 const EMPTY_USAGE: LanguageModelUsage = {
   inputTokens: 0,

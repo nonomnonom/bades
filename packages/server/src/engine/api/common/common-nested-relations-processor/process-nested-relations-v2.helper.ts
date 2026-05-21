@@ -25,9 +25,9 @@ import {
   type FieldMapsForObject,
 } from 'src/engine/metadata-modules/flat-field-metadata/utils/build-field-maps-from-flat-object-metadata.util';
 import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
-import { GlobalWorkspaceDataSource } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-datasource';
-import { type WorkspaceSelectQueryBuilder } from 'src/engine/twenty-orm/repository/workspace-select-query-builder';
-import { type RolePermissionConfig } from 'src/engine/twenty-orm/types/role-permission-config';
+import { GlobalWorkspaceDataSource } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource';
+import { type WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
+import { type RolePermissionConfig } from 'src/engine/sid-orm/types/role-permission-config';
 import { isFieldMetadataEntityOfType } from 'src/engine/utils/is-field-metadata-of-type.util';
 
 @Injectable()

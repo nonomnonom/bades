@@ -3,8 +3,8 @@ import { type ObjectLiteral } from 'typeorm';
 import { type ObjectRecordFilter } from 'src/engine/api/graphql/workspace-query-builder/interfaces/object-record.interface';
 
 import { type GraphqlQueryParser } from 'src/engine/api/graphql/graphql-query-runner/graphql-query-parsers/graphql-query.parser';
-import { type WorkspaceRepository } from 'src/engine/twenty-orm/repository/workspace.repository';
-import { type WorkspaceSelectQueryBuilder } from 'src/engine/twenty-orm/repository/workspace-select-query-builder';
+import { type WorkspaceRepository } from 'src/engine/sid-orm/repository/workspace.repository';
+import { type WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
 
 type BuildMutationQueryBuilderArgs = {
   repository: WorkspaceRepository<ObjectLiteral>;

@@ -8,7 +8,7 @@ import {
 import { FileUrlService } from 'src/engine/core-modules/file/file-url/file-url.service';
 import { SearchService } from 'src/engine/core-modules/search/services/search.service';
 import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 
 describe('SearchService', () => {
   let service: SearchService;

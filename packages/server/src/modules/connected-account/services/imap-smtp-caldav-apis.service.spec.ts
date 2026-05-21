@@ -16,7 +16,7 @@ import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user
 import { CalendarChannelEntity } from 'src/engine/metadata-modules/calendar-channel/entities/calendar-channel.entity';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
 import { MessageChannelEntity } from 'src/engine/metadata-modules/message-channel/entities/message-channel.entity';
-import { GlobalWorkspaceOrmManager } from 'src/engine/twenty-orm/global-workspace-datasource/global-workspace-orm.manager';
+import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import { CalendarChannelSyncStatusService } from 'src/modules/calendar/common/services/calendar-channel-sync-status.service';
 import { CalendarEventListFetchJob } from 'src/modules/calendar/calendar-event-import-manager/jobs/calendar-event-list-fetch.job';
 import { ConnectedAccountTokenEncryptionService } from 'src/engine/metadata-modules/connected-account/services/connected-account-token-encryption.service';
@@ -31,7 +31,7 @@ jest.mock('uuid', () => ({
 }));
 
 jest.mock(
-  'src/engine/twenty-orm/storage/orm-workspace-context.storage',
+  'src/engine/sid-orm/storage/orm-workspace-context.storage',
   () => ({
     getWorkspaceContext: jest.fn(() => ({
       authContext: { type: 'user', workspace: { id: 'workspace-id' } },
@@ -42,7 +42,7 @@ jest.mock(
 );
 
 jest.mock(
-  'src/engine/twenty-orm/utils/resolve-role-permission-config.util',
+  'src/engine/sid-orm/utils/resolve-role-permission-config.util',
   () => ({
     resolveRolePermissionConfig: jest.fn(() => ({
       intersectionOf: ['role-id'],

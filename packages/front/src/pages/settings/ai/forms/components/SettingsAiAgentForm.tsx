@@ -1,10 +1,7 @@
 import { styled } from '@linaria/react';
 import { useLingui } from '@lingui/react/macro';
 
-import { SettingsAgentModelCapabilities } from '@/ai/components/SettingsAgentModelCapabilities';
-import { useAiModelOptions } from '@/ai/hooks/useAiModelOptions';
 import { IconPicker } from '@/ui/input/components/IconPicker';
-import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { TextArea } from '@/ui/input/components/TextArea';
 import { isDefined } from 'shared/utils';
@@ -28,12 +25,6 @@ const StyledNameContainer = styled.div`
   flex: 1;
 `;
 
-const StyledErrorMessage = styled.div`
-  color: ${themeCssVariables.color.red};
-  font-size: ${themeCssVariables.font.size.sm};
-  margin-top: ${themeCssVariables.spacing[1]};
-`;
-
 type SettingsAiAgentFormProps = {
   formValues: SettingsAiAgentFormValues;
   onFieldChange: (
@@ -49,10 +40,6 @@ export const SettingsAiAgentForm = ({
   disabled,
 }: SettingsAiAgentFormProps) => {
   const { t } = useLingui();
-
-  const { options: modelOptions } = useAiModelOptions();
-
-  const noModelsAvailable = modelOptions.length === 0;
 
   const fillNameFromLabel = (label: string) => {
     isDefined(label) &&
@@ -97,36 +84,6 @@ export const SettingsAiAgentForm = ({
           disabled={disabled}
         />
       </StyledFormContainer>
-
-      <StyledFormContainer>
-        {noModelsAvailable ? (
-          <StyledErrorMessage>
-            {t`No models available. Please configure AI models in your workspace settings.`}
-          </StyledErrorMessage>
-        ) : (
-          <Select
-            dropdownId="ai-model-select"
-            label={t`AI Model`}
-            value={formValues.modelId}
-            onChange={(value) => onFieldChange('modelId', value)}
-            options={modelOptions}
-            disabled={noModelsAvailable || disabled}
-          />
-        )}
-      </StyledFormContainer>
-
-      {formValues.modelId && (
-        <StyledFormContainer>
-          <SettingsAgentModelCapabilities
-            selectedModelId={formValues.modelId}
-            modelConfiguration={formValues.modelConfiguration || {}}
-            onConfigurationChange={(configuration) =>
-              onFieldChange('modelConfiguration', configuration)
-            }
-            disabled={disabled}
-          />
-        </StyledFormContainer>
-      )}
 
       <StyledFormContainer>
         <TextArea
