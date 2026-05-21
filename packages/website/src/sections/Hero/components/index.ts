@@ -7,7 +7,7 @@ import { HeroVisualScroll } from './ProductVisual/HeroVisualScroll';
 import { ProductVisual } from './ProductVisual/ProductVisual';
 import { ReleaseNotesVisual } from './ReleaseNotesVisual';
 import { Root } from './Root';
-import { WhyTwentyVisual } from './WhyTwentyVisual';
+import { WhyBadesVisual } from './WhyBadesVisual';
 
 export const Hero = {
   Root,
@@ -19,5 +19,5 @@ export const Hero = {
   ProductVisual,
   ReleaseNotesVisual,
   PartnerVisual,
-  WhyTwentyVisual,
+  WhyBadesVisual,
 };

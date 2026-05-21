@@ -3,7 +3,7 @@ import type { FooterDataType } from '@/sections/Footer/types';
 
 export const FOOTER_DATA: FooterDataType = {
   bottom: {
-    copyright: msg`© 2026 – Twenty`,
+    copyright: msg`© 2026 – Bades.id`,
   },
   navGroups: [
     {
@@ -15,8 +15,8 @@ export const FOOTER_DATA: FooterDataType = {
         { label: msg`Pricing`, href: '/pricing', external: false },
         { label: msg`Partners`, href: '/partners', external: false },
         {
-          label: msg`Why Twenty`,
-          href: '/why-twenty',
+          label: msg`Why Bades`,
+          href: '/why-bades',
           external: false,
         },
       ],
@@ -28,12 +28,12 @@ export const FOOTER_DATA: FooterDataType = {
       links: [
         {
           label: msg`Developers`,
-          href: 'https://docs.twenty.com/developers/introduction',
+          href: 'https://docs.bades.id/developers/introduction',
           external: true,
         },
         {
           label: msg`User Guide`,
-          href: 'https://docs.twenty.com/getting-started/introduction',
+          href: 'https://docs.bades.id/getting-started/introduction',
           external: true,
         },
         { label: msg`Release Notes`, href: '/releases', external: false },
@@ -69,7 +69,7 @@ export const FOOTER_DATA: FooterDataType = {
         },
         {
           color: 'secondary',
-          href: 'https://app.twenty.com/welcome',
+          href: 'https://app.bades.id/welcome',
           kind: 'link',
           label: msg`Get started`,
           variant: 'outlined',
@@ -78,7 +78,7 @@ export const FOOTER_DATA: FooterDataType = {
       links: [
         {
           label: msg`LinkedIn`,
-          href: 'https://www.linkedin.com/company/twenty',
+          href: 'https://www.linkedin.com/company/bades',
           external: true,
         },
       ],
@@ -86,22 +86,22 @@ export const FOOTER_DATA: FooterDataType = {
   ],
   socialLinks: [
     {
-      href: 'https://github.com/twentyhq/twenty',
+      href: 'https://github.com/badesid/bades',
       icon: 'github',
       ariaLabel: 'GitHub (opens in new tab)',
     },
     {
-      href: 'https://discord.gg/cx5n4Jzs57',
+      href: 'https://discord.gg/badesid',
       icon: 'discord',
       ariaLabel: 'Discord (opens in new tab)',
     },
     {
-      href: 'https://www.linkedin.com/company/twenty',
+      href: 'https://www.linkedin.com/company/bades',
       icon: 'linkedin',
       ariaLabel: 'LinkedIn (opens in new tab)',
     },
     {
-      href: 'https://x.com/twentycrm',
+      href: 'https://x.com/badesid',
       icon: 'x',
       ariaLabel: 'X (opens in new tab)',
     },

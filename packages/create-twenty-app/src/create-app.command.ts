@@ -663,12 +663,12 @@ export class CreateAppCommand {
     console.log(chalk.cyan('     yarn twenty dev\n'));
     stepNumber++;
 
-    console.log(chalk.white(`  ${stepNumber}. Open your twenty instance`));
+    console.log(chalk.white(`  ${stepNumber}. Open your bades instance`));
     console.log(chalk.cyan(`     ${serverUrl}\n`));
 
     console.log(
       chalk.gray(
-        '  Documentation: https://docs.twenty.com/developers/extend/capabilities/apps',
+        '  Documentation: https://docs.bades.id/developers/extend/capabilities/apps',
       ),
     );
   }

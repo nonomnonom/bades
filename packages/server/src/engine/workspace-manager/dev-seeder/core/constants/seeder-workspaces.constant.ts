@@ -35,19 +35,19 @@ export type SeededEmptyWorkspacesIds =
 export const SEEDER_CREATE_WORKSPACE_INPUT = {
   [SEED_APPLE_WORKSPACE_ID]: {
     id: SEED_APPLE_WORKSPACE_ID,
-    displayName: 'Apple',
-    subdomain: 'apple',
-    inviteHash: 'apple.dev-invite-hash',
-    logo: 'https://twentyhq.github.io/placeholder-images/workspaces/apple-logo.png',
+    displayName: 'Desa Sukamaju',
+    subdomain: 'sukamaju',
+    inviteHash: 'sukamaju.dev-invite-hash',
+    logo: 'https://bades.id/placeholder-images/workspaces/sukamaju-logo.png',
     activationStatus: WorkspaceActivationStatus.PENDING_CREATION, // will be set to active after default role creation
     isTwoFactorAuthenticationEnforced: false,
   },
   [SEED_YCOMBINATOR_WORKSPACE_ID]: {
     id: SEED_YCOMBINATOR_WORKSPACE_ID,
-    displayName: 'YCombinator',
-    subdomain: 'yc',
-    inviteHash: 'yc.dev-invite-hash',
-    logo: 'https://twentyhq.github.io/placeholder-images/workspaces/ycombinator-logo.png',
+    displayName: 'Desa Mekar Sari',
+    subdomain: 'mekar-sari',
+    inviteHash: 'mekar-sari.dev-invite-hash',
+    logo: 'https://bades.id/placeholder-images/workspaces/mekar-sari-logo.png',
     activationStatus: WorkspaceActivationStatus.PENDING_CREATION, // will be set to active after default role creation
     isTwoFactorAuthenticationEnforced: false,
   },
@@ -61,7 +61,7 @@ export const SEEDER_CREATE_WORKSPACE_INPUT = {
 export const SEEDER_CREATE_EMPTY_WORKSPACE_INPUT = {
   [SEED_EMPTY_WORKSPACE_3_ID]: {
     id: SEED_EMPTY_WORKSPACE_3_ID,
-    displayName: 'Empty3',
+    displayName: 'Desa empty3',
     subdomain: 'empty3',
     inviteHash: 'empty3.dev-invite-hash',
     logo: '',
@@ -70,7 +70,7 @@ export const SEEDER_CREATE_EMPTY_WORKSPACE_INPUT = {
   },
   [SEED_EMPTY_WORKSPACE_4_ID]: {
     id: SEED_EMPTY_WORKSPACE_4_ID,
-    displayName: 'Empty4',
+    displayName: 'Desa empty4',
     subdomain: 'empty4',
     inviteHash: 'empty4.dev-invite-hash',
     logo: '',

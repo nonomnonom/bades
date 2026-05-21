@@ -11,8 +11,8 @@ import type { MessageDescriptor } from '@lingui/core';
 
 import { getSiteUrl } from './site-url';
 
-const SITE_NAME = 'Twenty';
-const TWITTER_HANDLE = '@twentycrm';
+const SITE_NAME = 'Bades.id';
+const TWITTER_HANDLE = '@badesid';
 const DEFAULT_OG_IMAGE_PATH = '/images/og/default.png';
 
 export type BuildPageMetadataInput = {

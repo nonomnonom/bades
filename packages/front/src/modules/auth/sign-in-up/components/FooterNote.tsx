@@ -63,21 +63,21 @@ export const FooterNote = () => {
   if (!isOnAWorkspace) {
     return (
       <StyledCopyContainer>
-        <Trans>By using Twenty, you agree to the</Trans>{' '}
+        <Trans>Dengan menggunakan Bades.id, Anda menyetujui</Trans>{' '}
         <a
-          href="https://twenty.com/legal/terms"
+          href="https://bades.id/kebijakan"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Trans>Terms of Service</Trans>
+          <Trans>Ketentuan Layanan</Trans>
         </a>{' '}
-        <Trans>and</Trans>{' '}
+        <Trans>dan</Trans>{' '}
         <a
-          href="https://twenty.com/legal/privacy"
+          href="https://bades.id/privasi"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Trans>Privacy Policy</Trans>
+          <Trans>Kebijakan Privasi</Trans>
         </a>
         .
       </StyledCopyContainer>
@@ -95,7 +95,7 @@ export const FooterNote = () => {
         </>
       )}
       <a
-        href="https://twenty.com/legal/privacy"
+        href="https://bades.id/privasi"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -103,7 +103,7 @@ export const FooterNote = () => {
       </a>
       <StyledSeparator>•</StyledSeparator>
       <a
-        href="https://twenty.com/legal/terms"
+        href="https://bades.id/ketentuan"
         target="_blank"
         rel="noopener noreferrer"
       >

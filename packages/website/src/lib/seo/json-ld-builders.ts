@@ -26,13 +26,13 @@ export const buildOrganizationJsonLd = (): JsonLdValue => {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Twenty',
+    name: 'Bades.id',
     url: siteUrl,
     logo: `${siteUrl}/images/core/logo.svg`,
     sameAs: [
-      'https://github.com/twentyhq/twenty',
-      'https://www.linkedin.com/company/twenty',
-      'https://x.com/twentycrm',
+      'https://github.com/badesid/bades',
+      'https://www.linkedin.com/company/badesid',
+      'https://x.com/badesid',
     ],
   };
 };
@@ -43,21 +43,21 @@ export const buildSoftwareApplicationJsonLd = (): JsonLdValue => {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Twenty',
+    name: 'Bades.id',
     applicationCategory: 'BusinessApplication',
-    applicationSubCategory: 'Customer Relationship Management',
+    applicationSubCategory: 'Village Administration System',
     operatingSystem: 'Web',
     description:
-      'Twenty is an open source CRM for teams that want a modern, customizable, and extensible customer platform.',
+      'Bades.id is an open source Village Information System (SID) for Indonesian village government administration.',
     url: siteUrl,
     offers: {
       '@type': 'Offer',
-      priceCurrency: 'USD',
+      priceCurrency: 'IDR',
       url: `${siteUrl}/pricing`,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Twenty',
+      name: 'Bades.id',
       url: siteUrl,
     },
   };
@@ -84,7 +84,7 @@ const extractReleaseHeadline = (note: LocalReleaseNote): string => {
   if (match && match[1]) {
     return match[1].trim();
   }
-  return `Twenty ${note.release}`;
+  return `Bades.id ${note.release}`;
 };
 
 export const buildReleaseListJsonLd = (
@@ -96,7 +96,7 @@ export const buildReleaseListJsonLd = (
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Twenty Releases',
+    name: 'Bades.id Releases',
     url: releasesUrl,
     itemListOrder: 'https://schema.org/ItemListOrderDescending',
     numberOfItems: notes.length,
@@ -108,17 +108,17 @@ export const buildReleaseListJsonLd = (
         '@type': 'TechArticle',
         '@id': `${releasesUrl}#${note.release}`,
         headline: extractReleaseHeadline(note),
-        name: `Twenty ${note.release}`,
+        name: `Bades.id ${note.release}`,
         url: `${releasesUrl}#${note.release}`,
         ...(note.date ? { datePublished: note.date } : {}),
         author: {
           '@type': 'Organization',
-          name: 'Twenty',
+          name: 'Bades.id',
           url: siteUrl,
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Twenty',
+          name: 'Bades.id',
           url: siteUrl,
         },
       },
@@ -135,7 +135,7 @@ export const buildArticleListJsonLd = (
   return {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'Twenty Articles',
+    name: 'Bades.id Articles',
     url: articlesUrl,
     blogPost: posts.map((post) => ({
       '@type': 'BlogPosting',
@@ -149,7 +149,7 @@ export const buildArticleListJsonLd = (
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Twenty',
+        name: 'Bades.id',
         url: siteUrl,
       },
     })),
@@ -174,7 +174,7 @@ export const buildArticleJsonLd = (post: Article): JsonLdValue => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Twenty',
+      name: 'Bades.id',
       url: siteUrl,
     },
   };

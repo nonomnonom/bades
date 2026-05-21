@@ -6,7 +6,7 @@ export const Pages = {
   Partners: 'partners',
   Pricing: 'pricing',
   Product: 'product',
-  WhyTwenty: 'whyTwenty',
+  WhyBades: 'whyBades',
 } as const;
 
 export type Page = (typeof Pages)[keyof typeof Pages];

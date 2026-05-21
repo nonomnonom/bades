@@ -86,31 +86,31 @@ const StyledMain = styled.main`
   flex-grow: 1;
 `;
 
-const SITE_TITLE = 'Twenty | #1 Open Source CRM';
+const SITE_TITLE = 'Bades.id | Sistem Informasi Desa';
 const SITE_DESCRIPTION =
-  'The #1 Open Source CRM for modern teams. Modular, scalable, and built to fit your business.';
+  'Sistem Informasi Desa (SID) berbasis open source untuk pemerintahan balai desa di Indonesia.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
     default: SITE_TITLE,
-    template: '%s | Twenty',
+    template: '%s | Bades.id',
   },
   description: SITE_DESCRIPTION,
-  applicationName: 'Twenty',
+  applicationName: 'Bades.id',
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: '/',
-    siteName: 'Twenty',
+    siteName: 'Bades.id',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    site: '@twentycrm',
-    creator: '@twentycrm',
+    site: '@badesid',
+    creator: '@badesid',
   },
   alternates: {
     types: {

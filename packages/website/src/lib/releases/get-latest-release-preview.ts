@@ -37,7 +37,7 @@ export function getLatestReleasePreview(): LatestReleasePreview | null {
 
   return {
     image,
-    imageAlt: `Twenty release ${latest.release}${featureTitle ? ` — ${featureTitle}` : ''}`,
+    imageAlt: `Bades.id release ${latest.release}${featureTitle ? ` - ${featureTitle}` : ''}`,
     imageScale: 1.04,
     title: msg`See what shipped in ${latest.release}`,
     description: msg`Track every release with changelogs, highlights and demos of the newest features.`,

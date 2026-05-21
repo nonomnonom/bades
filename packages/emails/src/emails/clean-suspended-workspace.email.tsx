@@ -42,12 +42,12 @@ export const CleanSuspendedWorkspaceEmail = ({
         <Trans id="All data in this workspace has been permanently deleted." />
         <br />
         <br />
-        <Trans id="If you wish to use Twenty again, you can create a new workspace." />
+        <Trans id="Jika Anda ingin menggunakan Bades lagi, Anda dapat membuat workspace baru." />
       </MainText>
       <br />
       <CallToAction
-        href="https://app.twenty.com/"
-        value={i18n._('Create a new workspace')}
+        href="https://app.bades.id/"
+        value={i18n._('Buat workspace baru')}
       />
       <br />
       <br />
@@ -58,8 +58,8 @@ export const CleanSuspendedWorkspaceEmail = ({
 CleanSuspendedWorkspaceEmail.PreviewProps = {
   daysSinceInactive: 1,
   userName: 'John Doe',
-  workspaceDisplayName: 'My Workspace',
-  locale: 'en',
+  workspaceDisplayName: 'Workspace Saya',
+  locale: 'id-ID',
 };
 
 export default CleanSuspendedWorkspaceEmail;

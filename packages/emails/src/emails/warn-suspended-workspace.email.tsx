@@ -23,12 +23,12 @@ export const WarnSuspendedWorkspaceEmail = ({
 }: WarnSuspendedWorkspaceEmailProps) => {
   const i18n = createI18nInstance(locale);
   const daysLeft = inactiveDaysBeforeDelete - daysSinceInactive;
-  const dayOrDays = daysLeft > 1 ? 'days' : 'day';
+  const dayOrDays = daysLeft > 1 ? 'hari' : 'hari';
   const remainingDays = daysLeft > 0 ? daysLeft : 0;
 
   return (
     <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Suspended Workspace')} />
+      <Title value={i18n._('Workspace Ditangguhkan')} />
       <MainText>
         {userName?.length > 1 ? (
           <Trans id="Dear {userName}," values={{ userName }} />
@@ -51,14 +51,14 @@ export const WarnSuspendedWorkspaceEmail = ({
         <br />
         <br />
         <Trans
-          id="If you wish to continue using Twenty, please update your subscription within the next {remainingDays} {dayOrDays}."
+          id="Jika Anda ingin terus menggunakan Bades, silakan perbarui langganan Anda dalam {remainingDays} {dayOrDays} ke depan."
           values={{ remainingDays, dayOrDays }}
         />
       </MainText>
       <br />
       <CallToAction
-        href="https://app.twenty.com/settings/billing"
-        value={i18n._('Update your subscription')}
+        href="https://app.bades.id/settings/billing"
+        value={i18n._('Perbarui langganan')}
       />
       <br />
       <br />
@@ -70,8 +70,8 @@ WarnSuspendedWorkspaceEmail.PreviewProps = {
   daysSinceInactive: 10,
   inactiveDaysBeforeDelete: 14,
   userName: 'John Doe',
-  workspaceDisplayName: 'Acme Inc.',
-  locale: 'en',
+  workspaceDisplayName: 'Desa Contoh',
+  locale: 'id-ID',
 };
 
 export default WarnSuspendedWorkspaceEmail;

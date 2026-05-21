@@ -95,7 +95,7 @@ export default async function PricingPage({ params }: PricingPageProps) {
                 </EngagementBand.Heading>
                 <EngagementBand.Body>
                   {i18n._(
-                    msg`Find the right partner to implement, customize, and tailor Twenty to your team.`,
+                    msg`Find the right partner to implement, customize, and tailor Bades.id for your village.`,
                   )}
                 </EngagementBand.Body>
               </EngagementBand.Copy>
@@ -121,7 +121,7 @@ export default async function PricingPage({ params }: PricingPageProps) {
         pricing={SALESFORCE_DATA.pricing}
       >
         <HeadingPart fontFamily="serif">
-          {i18n._(msg`Trust the n°1 CRM,`)}
+          {i18n._(msg`Trust the n°1 SID,`)}
         </HeadingPart>{' '}
         <HeadingPart fontFamily="sans">{i18n._(msg`or not !`)}</HeadingPart>
       </Salesforce.Flow>
@@ -139,13 +139,13 @@ export default async function PricingPage({ params }: PricingPageProps) {
             </HeadingPart>
             <br />
             <HeadingPart fontFamily="sans">
-              {i18n._(msg`Start building, with Twenty`)}
+              {i18n._(msg`Start building, with Bades.id`)}
             </HeadingPart>
           </Faq.Heading>
           <Faq.Cta>
             <LinkButton
               color="primary"
-              href="https://app.twenty.com/welcome"
+              href="https://bades.id/masuk"
               label={i18n._(msg`Get started`)}
               variant="contained"
             />

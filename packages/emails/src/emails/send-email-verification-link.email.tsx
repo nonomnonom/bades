@@ -22,8 +22,8 @@ export const SendEmailVerificationLinkEmail = ({
     ? i18n._('Confirm your new email address')
     : i18n._('Confirm your email address');
   const bodyId = isEmailUpdate
-    ? 'We received a request to change the email address associated with your Twenty account. Click below to confirm this change.'
-    : 'Thanks for registering for an account on Twenty! Before we get started, we just need to confirm that this is you. Click below to verify your email address.';
+    ? 'Kami menerima permintaan untuk mengubah alamat email yang terkait dengan akun Bades Anda. Klik di bawah untuk mengonfirmasi perubahan ini.'
+    : 'Terima kasih telah mendaftar untuk akun Bades! Sebelum kami mulai, kami perlu memastikan bahwa ini adalah Anda. Klik di bawah untuk memverifikasi alamat email Anda.';
   const ctaLabel = isEmailUpdate
     ? i18n._('Confirm new email')
     : i18n._('Verify Email');
@@ -43,8 +43,8 @@ export const SendEmailVerificationLinkEmail = ({
 };
 
 SendEmailVerificationLinkEmail.PreviewProps = {
-  link: 'https://app.twenty.com/verify-email/123',
-  locale: 'en',
+  link: 'https://app.bades.id/verify-email/123',
+  locale: 'id-ID',
   isEmailUpdate: false,
 };
 

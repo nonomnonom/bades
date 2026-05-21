@@ -80,19 +80,19 @@ export const SendApprovedAccessDomainValidation = ({
 };
 
 SendApprovedAccessDomainValidation.PreviewProps = {
-  link: 'https://app.twenty.com/validate-domain',
+  link: 'https://app.bades.id/validate-domain',
   domain: 'example.com',
   workspace: {
-    name: 'Acme Inc.',
-    logo: 'https://fakeimg.pl/200x200/?text=ACME&font=lobster',
+    name: 'Desa Contoh',
+    logo: 'https://fakeimg.pl/200x200/?text=DESA&font=lobster',
   },
   sender: {
     email: 'john.doe@example.com',
     firstName: 'John',
     lastName: 'Doe',
   },
-  serverUrl: 'https://app.twenty.com',
-  locale: 'en',
+  serverUrl: 'https://app.bades.id',
+  locale: 'id-ID',
 };
 
 export default SendApprovedAccessDomainValidation;

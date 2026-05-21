@@ -94,6 +94,10 @@ import {
   PET_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/pet-data-seeds.constant';
 import {
+  PENDUDUK_DATA_SEED_COLUMNS,
+  PENDUDUK_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
+import {
   ROCKET_DATA_SEED_COLUMNS,
   ROCKET_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/rocket-data-seeds.constant';
@@ -181,6 +185,11 @@ const getRecordSeedsBatches = (
       tableName: '_pet',
       pgColumns: PET_DATA_SEED_COLUMNS,
       recordSeeds: PET_DATA_SEEDS,
+    },
+    {
+      tableName: 'penduduk',
+      pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
+      recordSeeds: PENDUDUK_DATA_SEEDS,
     },
     {
       tableName: 'messageChannel',

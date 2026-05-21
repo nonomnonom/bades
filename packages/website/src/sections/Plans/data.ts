@@ -47,8 +47,8 @@ const ORGANIZATION_BULLETS_SELF_HOST = [
   msg`Custom AI models`,
   msg`Row-level permissions`,
   msg`SAML/OIDC SSO`,
-  msg`Twenty team support`,
-  msg`Up to 5 workspaces`,
+  msg`Bades.id team support`,
+  msg`Up to 5 villages`,
 ];
 
 export const PLANS_DATA = {

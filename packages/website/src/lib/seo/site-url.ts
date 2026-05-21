@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = 'https://twenty.com';
+const DEFAULT_SITE_URL = 'https://bades.id';
 
 function normalize(url: string): string {
   return url.replace(/\/+$/, '');
