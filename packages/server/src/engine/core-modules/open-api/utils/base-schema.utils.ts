@@ -130,6 +130,7 @@ curl -H 'Authorization: Bearer <token>' \\
         email: 'support@bades.id',
       },
       license: {
+        name: 'Bades License',
         url: 'https://bades.id/license',
       },
       version: API_Version,

@@ -8,8 +8,8 @@ import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
-import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-twenty-orm-event-to-database-batch-event.util';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
+import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-sid-orm-event-to-database-batch-event.util';
 
 describe('formatTwentyOrmEventToDatabaseBatchEvent', () => {
   const workspaceId = 'workspace-id';

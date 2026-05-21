@@ -10,7 +10,7 @@ import { throttlerToRestApiExceptionHandler } from 'src/engine/core-modules/thro
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 
 interface QueryFailedErrorWithCode extends QueryFailedError {
   code: string;

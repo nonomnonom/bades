@@ -101,7 +101,7 @@ describe('Core REST API Create One endpoint', () => {
 
         expect(createdPerson.createdBy.source).toBe(FieldActorSource.MANUAL);
         expect(createdPerson.createdBy.workspaceMemberId).toBe(
-          WORKSPACE_MEMBER_DATA_SEED_IDS.JANE,
+          WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
         );
       });
   });

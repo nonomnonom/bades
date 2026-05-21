@@ -191,7 +191,7 @@ describe('roles permissions', () => {
       const query = {
         query: `
             mutation UpdateWorkspaceMemberRole {
-                updateWorkspaceMemberRole(workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.JANE}", roleId: "test-role-id") {
+                updateWorkspaceMemberRole(workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.KADES}", roleId: "test-role-id") {
                     id
                 }
             }
@@ -244,7 +244,7 @@ describe('roles permissions', () => {
       const updateRoleQuery = {
         query: `
           mutation UpdateWorkspaceMemberRole {
-              updateWorkspaceMemberRole(workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL}", roleId: "${memberRoleId}") {
+              updateWorkspaceMemberRole(workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR}", roleId: "${memberRoleId}") {
                   id
               }
           }
@@ -261,7 +261,7 @@ describe('roles permissions', () => {
           expect(res.body.data).toBeDefined();
           expect(res.body.errors).toBeUndefined();
           expect(res.body.data.updateWorkspaceMemberRole.id).toBe(
-            WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+            WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
           );
         });
 
@@ -269,7 +269,7 @@ describe('roles permissions', () => {
       const rollbackRoleUpdateQuery = {
         query: `
           mutation UpdateWorkspaceMemberRole {
-              updateWorkspaceMemberRole(workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL}", roleId: "${guestRoleId}") {
+              updateWorkspaceMemberRole(workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR}", roleId: "${guestRoleId}") {
                   id
               }
           }
@@ -285,7 +285,7 @@ describe('roles permissions', () => {
           expect(res.body.data).toBeDefined();
           expect(res.body.errors).toBeUndefined();
           expect(res.body.data.updateWorkspaceMemberRole.id).toBe(
-            WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+            WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
           );
         });
     });

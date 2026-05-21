@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
+import { SidOrmModule } from 'src/engine/sid-orm/sid-orm.module';
 
 import { RecordPositionService } from './services/record-position.service';
 

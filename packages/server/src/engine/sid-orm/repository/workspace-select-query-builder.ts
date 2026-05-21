@@ -14,11 +14,11 @@ import {
   PermissionsException,
   PermissionsExceptionCode,
 } from 'src/engine/metadata-modules/permissions/permissions.exception';
-import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-twenty-orm-exception';
+import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-sid-orm-exception';
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { validateQueryIsPermittedOrThrow } from 'src/engine/sid-orm/repository/permissions.utils';
 import { WorkspaceDeleteQueryBuilder } from 'src/engine/sid-orm/repository/workspace-delete-query-builder';
 import { WorkspaceInsertQueryBuilder } from 'src/engine/sid-orm/repository/workspace-insert-query-builder';

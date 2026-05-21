@@ -7,7 +7,7 @@ import { ExceptionHandlerService } from 'src/engine/core-modules/exception-handl
 import {
   type SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { CALENDAR_THROTTLE_MAX_ATTEMPTS } from 'src/modules/calendar/calendar-event-import-manager/constants/calendar-throttle-max-attempts';
 import {
   type CalendarEventImportDriverException,

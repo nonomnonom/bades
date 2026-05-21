@@ -24,8 +24,8 @@ describe('connectedAccountResolver (e2e)', () => {
       const accounts = response.body.data.myConnectedAccounts;
       const accountIds = accounts.map((account: { id: string }) => account.id);
 
-      expect(accountIds).toContain(CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE);
-      expect(accountIds).not.toContain(CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY);
+      expect(accountIds).toContain(CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES);
+      expect(accountIds).not.toContain(CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES);
     });
 
     it('should not return sensitive fields', async () => {
@@ -53,7 +53,7 @@ describe('connectedAccountResolver (e2e)', () => {
 
       const account = response.body.data.myConnectedAccounts.find(
         (connectedAccount: { id: string }) =>
-          connectedAccount.id === CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE,
+          connectedAccount.id === CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES,
       );
 
       expect(account).toBeDefined();
@@ -92,13 +92,13 @@ describe('connectedAccountResolver (e2e)', () => {
             }
           }
         `,
-        variables: { id: CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE_DELETABLE },
+        variables: { id: CONNECTED_ACCOUNT_DATA_SEED_IDS.KASI_DELETABLE },
       });
 
       expect(response.status).toBe(200);
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data.deleteConnectedAccount.id).toBe(
-        CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE_DELETABLE,
+        CONNECTED_ACCOUNT_DATA_SEED_IDS.KASI_DELETABLE,
       );
     });
 
@@ -111,7 +111,7 @@ describe('connectedAccountResolver (e2e)', () => {
             }
           }
         `,
-        variables: { id: CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY },
+        variables: { id: CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES },
       });
 
       expect(response.status).toBe(200);

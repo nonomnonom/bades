@@ -244,7 +244,7 @@ describe('Field permissions restrictions', () => {
       query: `
         mutation UpdateWorkspaceMemberRole {
           updateWorkspaceMemberRole(
-            workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.JONY}"
+            workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES}"
             roleId: "${originalMemberRoleId}"
           ) { id }
         }
@@ -268,7 +268,7 @@ describe('Field permissions restrictions', () => {
     await updateWorkspaceMemberRole({
       client,
       roleId: customRoleId,
-      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
     });
   });
 

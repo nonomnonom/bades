@@ -6,7 +6,7 @@ import { isDefined } from 'shared/utils';
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 
 type CacheResult<T, U> = {
   version: T;

@@ -13,7 +13,7 @@ import { EntitySchemaFactory } from 'src/engine/sid-orm/factories/entity-schema.
 import { GlobalWorkspaceDataSourceService } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource.service';
 import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import { WorkspaceORMEntityMetadatasCacheService } from 'src/engine/sid-orm/global-workspace-datasource/workspace-orm-entity-metadatas-cache.service';
-import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
+import { SidOrmModule } from 'src/engine/sid-orm/sid-orm.module';
 import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/workspace-cache-storage.module';
 import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache.module';
 import { WorkspaceEventEmitterModule } from 'src/engine/workspace-event-emitter/workspace-event-emitter.module';

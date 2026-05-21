@@ -9,7 +9,7 @@ import { ExceptionHandlerService } from 'src/engine/core-modules/exception-handl
 import {
   type SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { MessageChannelSyncStatusService } from 'src/modules/messaging/common/services/message-channel-sync-status.service';
 import { MESSAGING_THROTTLE_MAX_ATTEMPTS } from 'src/modules/messaging/message-import-manager/constants/messaging-throttle-max-attempts';
 import {

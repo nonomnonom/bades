@@ -20,11 +20,11 @@ import { type QueryDeepPartialEntityWithNestedRelationFields } from 'src/engine/
 import { type RelationConnectQueryConfig } from 'src/engine/sid-orm/entity-manager/types/relation-connect-query-config.type';
 import { type RelationDisconnectQueryFieldsByEntityIndex } from 'src/engine/sid-orm/entity-manager/types/relation-nested-query-fields-by-entity-index.type';
 import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
-import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-twenty-orm-exception';
+import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-sid-orm-exception';
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { FilesFieldSync } from 'src/engine/sid-orm/field-operations/files-field-sync/files-field-sync';
 import { RelationNestedQueries } from 'src/engine/sid-orm/field-operations/relation-nested-queries/relation-nested-queries';
 import { validateQueryIsPermittedOrThrow } from 'src/engine/sid-orm/repository/permissions.utils';
@@ -36,7 +36,7 @@ import { applyTableAliasOnWhereCondition } from 'src/engine/sid-orm/utils/apply-
 import { computeEventSelectQueryBuilder } from 'src/engine/sid-orm/utils/compute-event-select-query-builder.util';
 import { formatData } from 'src/engine/sid-orm/utils/format-data.util';
 import { formatResult } from 'src/engine/sid-orm/utils/format-result.util';
-import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-twenty-orm-event-to-database-batch-event.util';
+import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-sid-orm-event-to-database-batch-event.util';
 import { getObjectMetadataFromEntityTarget } from 'src/engine/sid-orm/utils/get-object-metadata-from-entity-target.util';
 import { validateRLSPredicatesForRecords } from 'src/engine/sid-orm/utils/validate-rls-predicates-for-records.util';
 import { computeTableName } from 'src/engine/utils/compute-table-name.util';

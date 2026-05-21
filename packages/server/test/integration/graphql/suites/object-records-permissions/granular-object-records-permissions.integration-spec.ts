@@ -44,7 +44,7 @@ describe('granularObjectRecordsPermissions', () => {
         query: `
           mutation UpdateWorkspaceMemberRole {
             updateWorkspaceMemberRole(
-              workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.JONY}"
+              workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES}"
               roleId: "${originalMemberRoleId}"
             ) {
               id
@@ -75,7 +75,7 @@ describe('granularObjectRecordsPermissions', () => {
       await updateWorkspaceMemberRole({
         client,
         roleId: customRoleId,
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
       });
 
       // Act
@@ -130,7 +130,7 @@ describe('granularObjectRecordsPermissions', () => {
       await updateWorkspaceMemberRole({
         client,
         roleId: customRoleId,
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
       });
 
       // Act

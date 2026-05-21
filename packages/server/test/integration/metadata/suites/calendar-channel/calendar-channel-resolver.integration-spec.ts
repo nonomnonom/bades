@@ -41,7 +41,7 @@ describe('calendarChannelResolver (e2e)', () => {
           }
         `,
         variables: {
-          connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY,
+          connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES,
         },
       });
 

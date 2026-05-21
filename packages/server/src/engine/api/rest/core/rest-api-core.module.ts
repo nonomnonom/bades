@@ -29,7 +29,7 @@ import { RecordTransformerModule } from 'src/engine/core-modules/record-transfor
 import { SecureHttpClientModule } from 'src/engine/core-modules/secure-http-client/secure-http-client.module';
 import { WorkspaceManyOrAllFlatEntityMapsCacheModule } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.module';
 import { UserRoleModule } from 'src/engine/metadata-modules/user-role/user-role.module';
-import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
+import { SidOrmModule } from 'src/engine/sid-orm/sid-orm.module';
 import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/workspace-cache-storage.module';
 import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache.module';
 

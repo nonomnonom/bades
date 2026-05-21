@@ -108,7 +108,7 @@ describe('group-by with records respects row-level permission predicates', () =>
     await updateWorkspaceMemberRole({
       input: {
         roleId: customRoleId,
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
       },
       expectToFail: false,
     });
@@ -143,7 +143,7 @@ describe('group-by with records respects row-level permission predicates', () =>
   afterAll(async () => {
     await updateWorkspaceMemberRole({
       input: {
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
         roleId: originalMemberRoleId,
       },
       expectToFail: false,

@@ -80,7 +80,7 @@ describe('permissionsOnRelations', () => {
       query: `
           mutation UpdateWorkspaceMemberRole {
             updateWorkspaceMemberRole(
-              workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.JONY}"
+              workspaceMemberId: "${WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES}"
               roleId: "${originalMemberRoleId}"
             ) {
               id
@@ -112,7 +112,7 @@ describe('permissionsOnRelations', () => {
     await updateWorkspaceMemberRole({
       client,
       roleId: customRoleId,
-      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
     });
 
     // Create GraphQL query that includes company relation
@@ -152,7 +152,7 @@ describe('permissionsOnRelations', () => {
     await updateWorkspaceMemberRole({
       client,
       roleId: customRoleId,
-      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
     });
 
     // Create GraphQL query that includes company relation
@@ -196,7 +196,7 @@ describe('permissionsOnRelations', () => {
     await updateWorkspaceMemberRole({
       client,
       roleId: customRoleId,
-      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+      workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
     });
 
     // Create a query with nested relations

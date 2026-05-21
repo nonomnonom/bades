@@ -12,7 +12,7 @@ import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/w
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 
 interface QueryFailedErrorWithCode extends QueryFailedError {
   code?: string;

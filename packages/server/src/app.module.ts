@@ -29,7 +29,7 @@ import { GraphQLHydrateRequestFromTokenMiddleware } from 'src/engine/middlewares
 import { MiddlewareModule } from 'src/engine/middlewares/middleware.module';
 import { RestCoreMiddleware } from 'src/engine/middlewares/rest-core.middleware';
 import { GlobalWorkspaceDataSourceModule } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource.module';
-import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
+import { SidOrmModule } from 'src/engine/sid-orm/sid-orm.module';
 import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/workspace-cache-storage.module';
 import { ModulesModule } from 'src/modules/modules.module';
 

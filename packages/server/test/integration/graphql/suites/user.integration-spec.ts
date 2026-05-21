@@ -37,7 +37,7 @@ describe('deleteUser', () => {
     const query = {
       query: `
         mutation DeleteUserFromWorkspace {
-          deleteUserFromWorkspace(workspaceMemberIdToDelete: "${WORKSPACE_MEMBER_DATA_SEED_IDS.JANE}") {
+          deleteUserFromWorkspace(workspaceMemberIdToDelete: "${WORKSPACE_MEMBER_DATA_SEED_IDS.KADES}") {
             id
           }
         }

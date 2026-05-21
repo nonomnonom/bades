@@ -5,7 +5,7 @@ import { CONNECTED_ACCOUNT_DATA_SEED_IDS } from 'src/engine/workspace-manager/de
 describe('workflowStepConnectedAccountHandle', () => {
   it('should return handle for own account', async () => {
     const result = await getWorkflowStepConnectedAccountHandle({
-      connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE,
+      connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES,
     });
 
     expect(result).toBeDefined();
@@ -14,11 +14,11 @@ describe('workflowStepConnectedAccountHandle', () => {
 
   it('should return handle for another user account in the same workspace', async () => {
     const result = await getWorkflowStepConnectedAccountHandle({
-      connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY,
+      connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES,
     });
 
     expect(result).toBeDefined();
-    expect(result.id).toBe(CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY);
+    expect(result.id).toBe(CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES);
   });
 
   it('should return null for non-existent account', async () => {

@@ -18,7 +18,7 @@ import {
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { formatConnectRecordNotFoundErrorMessage } from 'src/engine/sid-orm/field-operations/relation-nested-queries/utils/formatConnectRecordNotFoundErrorMessage.util';
 import { type WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
 import { computeRelationConnectQueryConfigs } from 'src/engine/sid-orm/utils/compute-relation-connect-query-configs.util';

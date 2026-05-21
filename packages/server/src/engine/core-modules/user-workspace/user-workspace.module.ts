@@ -24,7 +24,7 @@ import { RoleTargetEntity } from 'src/engine/metadata-modules/role-target/role-t
 import { RoleEntity } from 'src/engine/metadata-modules/role/role.entity';
 import { RoleValidationModule } from 'src/engine/metadata-modules/role-validation/role-validation.module';
 import { UserRoleModule } from 'src/engine/metadata-modules/user-role/user-role.module';
-import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
+import { SidOrmModule } from 'src/engine/sid-orm/sid-orm.module';
 import { WorkspaceDataSourceModule } from 'src/engine/workspace-datasource/workspace-datasource.module';
 
 @Module({

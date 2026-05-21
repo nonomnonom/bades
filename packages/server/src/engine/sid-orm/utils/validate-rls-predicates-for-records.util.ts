@@ -11,7 +11,7 @@ import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { buildRowLevelPermissionRecordFilter } from 'src/engine/sid-orm/utils/build-row-level-permission-record-filter.util';
 import { isRecordMatchingRLSRowLevelPermissionPredicate } from 'src/engine/sid-orm/utils/is-record-matching-rls-row-level-permission-predicate.util';
 

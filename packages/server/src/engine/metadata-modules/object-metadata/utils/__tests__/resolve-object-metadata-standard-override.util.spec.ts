@@ -45,7 +45,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -159,7 +159,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'icon',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -184,7 +184,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'color',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -226,7 +226,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'fr-FR': {
+            'id-ID': {
               labelSingular: 'Libellé traduit',
               labelPlural: 'Libellés traduits',
               description: 'Description traduite',
@@ -239,7 +239,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
         resolveObjectMetadataStandardOverride(
           objectMetadata,
           'labelSingular',
-          'fr-FR',
+          'id-ID',
           mockI18n,
         ),
       ).toBe('Libellé traduit');
@@ -247,7 +247,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
         resolveObjectMetadataStandardOverride(
           objectMetadata,
           'labelPlural',
-          'fr-FR',
+          'id-ID',
           mockI18n,
         ),
       ).toBe('Libellés traduits');
@@ -255,7 +255,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
         resolveObjectMetadataStandardOverride(
           objectMetadata,
           'description',
-          'fr-FR',
+          'id-ID',
           mockI18n,
         ),
       ).toBe('Description traduite');
@@ -270,10 +270,10 @@ describe('resolveObjectMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'es-ES': {
-              labelSingular: 'Etiqueta en español',
-              labelPlural: 'Etiquetas en español',
-              description: 'Descripción en español',
+            'id-ID': {
+              labelSingular: 'Label dalam Bahasa Indonesia',
+              labelPlural: 'Label-label dalam Bahasa Indonesia',
+              description: 'Deskripsi dalam Bahasa Indonesia',
             },
           },
         },
@@ -285,7 +285,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'fr-FR',
+        'en',
         mockI18n,
       );
 
@@ -301,7 +301,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'fr-FR': {
+            'id-ID': {
               labelPlural: 'Libellés traduits',
               labelSingular: 'Libellé traduit',
             },
@@ -315,7 +315,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'description',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -331,7 +331,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
         isCustom: false,
         standardOverrides: {
           translations: {
-            'fr-FR': {
+            'id-ID': {
               labelSingular: 'Libellé traduit',
               labelPlural: 'Libellés traduits',
               description: 'Description traduite',
@@ -420,7 +420,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -470,7 +470,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -497,7 +497,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -517,7 +517,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
           labelSingular: 'Source Override',
           labelPlural: 'Source Overrides',
           translations: {
-            'fr-FR': {
+            'id-ID': {
               labelSingular: 'Translation Override',
               labelPlural: 'Translation Overrides',
             },
@@ -528,7 +528,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'fr-FR',
+        'id-ID',
         mockI18n,
       );
 
@@ -578,7 +578,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'de-DE',
+        'id-ID',
         mockI18n,
       );
 

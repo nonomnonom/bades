@@ -8,7 +8,7 @@ describe('Workspace member role update should succeed', () => {
   let adminRoleId: string;
   let guestRoleId: string;
   let memberRoleId: string;
-  let shouldRestorePhilRole: boolean = false;
+  let shouldRestoreKaurRole: boolean = false;
 
   beforeAll(async () => {
     // Get the Admin, Guest, and Member role IDs
@@ -22,23 +22,23 @@ describe('Workspace member role update should succeed', () => {
   });
 
   afterEach(async () => {
-    if (shouldRestorePhilRole) {
+    if (shouldRestoreKaurRole) {
       await updateWorkspaceMemberRole({
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
           roleId: guestRoleId,
         },
       });
     }
 
-    shouldRestorePhilRole = false;
+    shouldRestoreKaurRole = false;
   });
 
-  it('should update Phil from Guest to Admin role', async () => {
+  it('should update Kaur from Guest to Admin role', async () => {
     const { data: updateAdminData } = await updateWorkspaceMemberRole({
       expectToFail: false,
       input: {
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
         roleId: adminRoleId,
       },
       gqlFields: `
@@ -56,13 +56,13 @@ describe('Workspace member role update should succeed', () => {
         `,
     });
 
-    shouldRestorePhilRole = true;
+    shouldRestoreKaurRole = true;
 
     expect(updateAdminData.updateWorkspaceMemberRole).toMatchObject({
-      id: WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+      id: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
       name: {
-        firstName: 'Phil',
-        lastName: 'Schiler',
+        firstName: 'Dewi',
+        lastName: 'Lestari',
       },
     });
     jestExpectToBeDefined(updateAdminData.updateWorkspaceMemberRole.roles);
@@ -75,7 +75,7 @@ describe('Workspace member role update should succeed', () => {
     const { data } = await updateWorkspaceMemberRole({
       expectToFail: false,
       input: {
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
         roleId: memberRoleId,
       },
       gqlFields: `
@@ -94,10 +94,10 @@ describe('Workspace member role update should succeed', () => {
     });
 
     expect(data.updateWorkspaceMemberRole).toMatchObject({
-      id: WORKSPACE_MEMBER_DATA_SEED_IDS.PHIL,
+      id: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
       name: {
-        firstName: 'Phil',
-        lastName: 'Schiler',
+        firstName: 'Dewi',
+        lastName: 'Lestari',
       },
     });
     jestExpectToBeDefined(data.updateWorkspaceMemberRole.roles);

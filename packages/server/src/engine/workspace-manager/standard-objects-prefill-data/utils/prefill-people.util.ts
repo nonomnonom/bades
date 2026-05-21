@@ -49,7 +49,7 @@ export const prefillPeople = async (
         city: 'Sukamaju',
         emailsPrimaryEmail: 'kades@sukamaju.desa.id',
         avatarUrl:
-          'https://twentyhq.github.io/placeholder-images/founders/brian-chesky.jpg',
+          'https://ui-avatars.com/api/?name=Ahmad+Supriyadi&background=0D4F8B&color=fff&size=128',
         position: 1,
         createdBySource: FieldActorSource.SYSTEM,
         createdByWorkspaceMemberId: null,
@@ -68,7 +68,7 @@ export const prefillPeople = async (
         city: 'Sukamaju',
         emailsPrimaryEmail: 'sekdes@sukamaju.desa.id',
         avatarUrl:
-          'https://twentyhq.github.io/placeholder-images/founders/dario-amodei.jpg',
+          'https://ui-avatars.com/api/?name=Siti+Nurhalimah&background=1B7A3D&color=fff&size=128',
         position: 2,
         createdBySource: FieldActorSource.SYSTEM,
         createdByWorkspaceMemberId: null,
@@ -87,7 +87,7 @@ export const prefillPeople = async (
         city: 'Sukamaju',
         emailsPrimaryEmail: 'bambang@bumdes-sukamaju.desa.id',
         avatarUrl:
-          'https://twentyhq.github.io/placeholder-images/founders/patrick-collison.jpg',
+          'https://ui-avatars.com/api/?name=Bambang+Wijaya&background=8B4513&color=fff&size=128',
         position: 3,
         createdBySource: FieldActorSource.SYSTEM,
         createdByWorkspaceMemberId: null,
@@ -106,7 +106,7 @@ export const prefillPeople = async (
         city: 'Sukamaju',
         emailsPrimaryEmail: 'pkk@sukamaju.desa.id',
         avatarUrl:
-          'https://twentyhq.github.io/placeholder-images/founders/dylan-field.jpg',
+          'https://ui-avatars.com/api/?name=Dewi+Sartika&background=800020&color=fff&size=128',
         position: 4,
         createdBySource: FieldActorSource.SYSTEM,
         createdByWorkspaceMemberId: null,
@@ -125,7 +125,7 @@ export const prefillPeople = async (
         city: 'Sukamaju',
         emailsPrimaryEmail: 'posyandu@sukamaju.desa.id',
         avatarUrl:
-          'https://twentyhq.github.io/placeholder-images/founders/ivan-zhao.jpg',
+          'https://ui-avatars.com/api/?name=Fitriani+Kusuma&background=4A6FA5&color=fff&size=128',
         position: 5,
         createdBySource: FieldActorSource.SYSTEM,
         createdByWorkspaceMemberId: null,

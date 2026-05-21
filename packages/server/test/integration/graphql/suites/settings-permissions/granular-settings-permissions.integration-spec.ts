@@ -81,7 +81,7 @@ describe('Granular settings permissions', () => {
     await updateWorkspaceMemberRole({
       input: {
         roleId: customRoleId,
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
       },
       expectToFail: false,
     });
@@ -91,7 +91,7 @@ describe('Granular settings permissions', () => {
     // Restore JONY's original Member role
     await updateWorkspaceMemberRole({
       input: {
-        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+        workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
         roleId: originalMemberRoleId,
       },
       expectToFail: false,

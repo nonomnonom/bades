@@ -23,7 +23,7 @@ import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-d
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { buildSystemAuthContext } from 'src/engine/sid-orm/utils/build-system-auth-context.util';
 import {
   WorkflowVersionStatus,

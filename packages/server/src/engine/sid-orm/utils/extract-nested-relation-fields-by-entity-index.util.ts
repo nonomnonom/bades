@@ -12,7 +12,7 @@ import {
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 
 const hasRelationConnect = (value: unknown): value is ConnectObject => {
   if (!isDefined(value) || typeof value !== 'object') {

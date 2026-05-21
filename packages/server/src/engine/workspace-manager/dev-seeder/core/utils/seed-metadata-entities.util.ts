@@ -30,7 +30,7 @@ const YC_CONNECTED_ACCOUNT_IDS = {
   SEKDES: '30303030-0cc8-4d60-a3a4-803245698908',
   KAUR: '30303030-cafc-4323-908d-e5b42ad69fdf',
   KASI: '30303030-b5c7-46f0-bf5c-3f4e4b3f7c1a',
-  JANE_DELETABLE: '30303030-d1e5-4a8f-9c3b-7f6d5e4c3b2a',
+  KASI_DELETABLE: '30303030-d1e5-4a8f-9c3b-7f6d5e4c3b2a',
 };
 
 const YC_MESSAGE_CHANNEL_IDS = {
@@ -157,7 +157,7 @@ const seedConnectedAccounts = async ({
       workspaceId,
     },
     {
-      id: ids.connectedAccountIds.JANE_DELETABLE,
+      id: ids.connectedAccountIds.KASI_DELETABLE,
       handle: 'kasi-deletable@sukamaju.desa.id',
       provider: 'google',
       userWorkspaceId: ids.userWorkspaceIds.KASI,

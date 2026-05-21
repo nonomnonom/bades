@@ -18,8 +18,8 @@ import { ThrottlerException } from 'src/engine/core-modules/throttler/throttler.
 import { throttlerToGraphqlApiExceptionHandler } from 'src/engine/core-modules/throttler/utils/throttler-to-graphql-api-exception-handler.util';
 import { PermissionsException } from 'src/engine/metadata-modules/permissions/permissions.exception';
 import { permissionGraphqlApiExceptionHandler } from 'src/engine/metadata-modules/permissions/utils/permission-graphql-api-exception-handler.util';
-import { SidOrmException } from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
-import { sidOrmGraphqlApiExceptionHandler } from 'src/engine/sid-orm/utils/twenty-orm-graphql-api-exception-handler.util';
+import { SidOrmException } from 'src/engine/sid-orm/exceptions/sid-orm.exception';
+import { sidOrmGraphqlApiExceptionHandler } from 'src/engine/sid-orm/utils/sid-orm-graphql-api-exception-handler.util';
 import { WorkflowQueryValidationException } from 'src/modules/workflow/common/exceptions/workflow-query-validation.exception';
 import { workflowQueryValidationGraphqlApiExceptionHandler } from 'src/modules/workflow/common/utils/workflow-query-validation-graphql-api-exception-handler.util';
 

@@ -15,11 +15,11 @@ import { type WorkspaceInternalContext } from 'src/engine/sid-orm/interfaces/wor
 
 import { DatabaseEventAction } from 'src/engine/api/graphql/graphql-query-runner/enums/database-event-action';
 import { type WorkspaceAuthContext } from 'src/engine/core-modules/auth/types/workspace-auth-context.type';
-import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-twenty-orm-exception';
+import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-sid-orm-exception';
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { validateQueryIsPermittedOrThrow } from 'src/engine/sid-orm/repository/permissions.utils';
 import { type WorkspaceSelectQueryBuilder } from 'src/engine/sid-orm/repository/workspace-select-query-builder';
 import { type WorkspaceSoftDeleteQueryBuilder } from 'src/engine/sid-orm/repository/workspace-soft-delete-query-builder';
@@ -28,7 +28,7 @@ import { applyRowLevelPermissionPredicates } from 'src/engine/sid-orm/utils/appl
 import { applyTableAliasOnWhereCondition } from 'src/engine/sid-orm/utils/apply-table-alias-on-where-condition';
 import { computeEventSelectQueryBuilder } from 'src/engine/sid-orm/utils/compute-event-select-query-builder.util';
 import { formatResult } from 'src/engine/sid-orm/utils/format-result.util';
-import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-twenty-orm-event-to-database-batch-event.util';
+import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-sid-orm-event-to-database-batch-event.util';
 import { getObjectMetadataFromEntityTarget } from 'src/engine/sid-orm/utils/get-object-metadata-from-entity-target.util';
 import { computeTableName } from 'src/engine/utils/compute-table-name.util';
 

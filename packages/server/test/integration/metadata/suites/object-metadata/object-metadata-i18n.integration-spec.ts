@@ -44,7 +44,7 @@ const updateWorkspaceMemberLocale = async (locale: string) => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JANE,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
           update: { locale },
         },
       },

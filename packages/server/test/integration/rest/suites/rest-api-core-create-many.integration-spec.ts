@@ -112,12 +112,12 @@ describe('Core REST API Create Many endpoint', () => {
 
         expect(createdPeople[0].createdBy.source).toBe(FieldActorSource.MANUAL);
         expect(createdPeople[0].createdBy.workspaceMemberId).toBe(
-          WORKSPACE_MEMBER_DATA_SEED_IDS.JANE,
+          WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
         );
 
         expect(createdPeople[1].createdBy.source).toBe(FieldActorSource.MANUAL);
         expect(createdPeople[1].createdBy.workspaceMemberId).toBe(
-          WORKSPACE_MEMBER_DATA_SEED_IDS.JANE,
+          WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
         );
       });
   });

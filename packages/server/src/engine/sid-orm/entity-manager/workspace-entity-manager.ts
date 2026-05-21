@@ -49,7 +49,7 @@ import { type BaseWorkspaceEntity } from 'src/engine/sid-orm/base.workspace-enti
 import { type DeepPartialWithNestedRelationFields } from 'src/engine/sid-orm/entity-manager/types/deep-partial-entity-with-nested-relation-fields.type';
 import { type QueryDeepPartialEntityWithNestedRelationFields } from 'src/engine/sid-orm/entity-manager/types/query-deep-partial-entity-with-nested-relation-fields.type';
 import { getEntityTarget } from 'src/engine/sid-orm/entity-manager/utils/get-entity-target';
-import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-twenty-orm-exception';
+import { computeSidOrmException } from 'src/engine/sid-orm/error-handling/compute-sid-orm-exception';
 import { FilesFieldSync } from 'src/engine/sid-orm/field-operations/files-field-sync/files-field-sync';
 import { RelationNestedQueries } from 'src/engine/sid-orm/field-operations/relation-nested-queries/relation-nested-queries';
 import { type GlobalWorkspaceDataSource } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource';
@@ -64,7 +64,7 @@ import { type RolePermissionConfig } from 'src/engine/sid-orm/types/role-permiss
 import { computePermissionIntersection } from 'src/engine/sid-orm/utils/compute-permission-intersection.util';
 import { formatData } from 'src/engine/sid-orm/utils/format-data.util';
 import { formatResult } from 'src/engine/sid-orm/utils/format-result.util';
-import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-twenty-orm-event-to-database-batch-event.util';
+import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-sid-orm-event-to-database-batch-event.util';
 import { getObjectMetadataFromEntityTarget } from 'src/engine/sid-orm/utils/get-object-metadata-from-entity-target.util';
 import { type WorkspaceEventEmitter } from 'src/engine/workspace-event-emitter/workspace-event-emitter';
 

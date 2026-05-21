@@ -127,7 +127,7 @@ describe('workspace members permissions', () => {
     const graphqlOperation = updateOneOperationFactory({
       objectMetadataSingularName: 'workspaceMember',
       gqlFields: WORKSPACE_MEMBER_GQL_FIELDS,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
       data: {
         name: {
           firstName: 'Jony',
@@ -153,7 +153,7 @@ describe('workspace members permissions', () => {
         id
         ${customFieldName}
       `,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
       data: {
         [customFieldName]: 'self-custom-value',
       },
@@ -178,7 +178,7 @@ describe('workspace members permissions', () => {
         id
         ${customFieldName}
       `,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
       data: {
         [customFieldName]: customFieldValue,
       },
@@ -199,7 +199,7 @@ describe('workspace members permissions', () => {
     const graphqlOperation = updateOneOperationFactory({
       objectMetadataSingularName: 'workspaceMember',
       gqlFields: WORKSPACE_MEMBER_GQL_FIELDS,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
       data: {
         timeZone: 'Europe/Paris',
       },
@@ -220,7 +220,7 @@ describe('workspace members permissions', () => {
     const graphqlOperation = updateOneOperationFactory({
       objectMetadataSingularName: 'workspaceMember',
       gqlFields: WORKSPACE_MEMBER_GQL_FIELDS,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
       data: {},
     });
 
@@ -246,7 +246,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
           update: {
             timeZone: 'Europe/Paris',
           },
@@ -271,7 +271,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
           update: {
             timeZone: 'Europe/Paris',
           },
@@ -300,7 +300,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
           update: {
             timeZone: 'Europe/London',
           },
@@ -325,7 +325,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
           update: {
             [customFieldName]: 'custom-value',
           },
@@ -356,7 +356,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
           update: {
             [customRelationJoinColumnName]: null,
           },
@@ -387,7 +387,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
           update: {},
         },
       },
@@ -418,7 +418,7 @@ describe('workspace members permissions', () => {
       `,
       variables: {
         input: {
-          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.JONY,
+          workspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
           update: {
             [unknownKey]: 'value',
           },
@@ -442,7 +442,7 @@ describe('workspace members permissions', () => {
     const graphqlOperation = deleteOneOperationFactory({
       objectMetadataSingularName: 'workspaceMember',
       gqlFields: WORKSPACE_MEMBER_GQL_FIELDS,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
     });
 
     const response =
@@ -462,7 +462,7 @@ describe('workspace members permissions', () => {
     const graphqlOperation = deleteOneOperationFactory({
       objectMetadataSingularName: 'workspaceMember',
       gqlFields: WORKSPACE_MEMBER_GQL_FIELDS,
-      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.TIM,
+      recordId: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
     });
 
     const response =

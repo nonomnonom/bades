@@ -24,7 +24,7 @@ import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-m
 import {
   SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 import { getObjectMetadataFromEntityTarget } from 'src/engine/sid-orm/utils/get-object-metadata-from-entity-target.util';
 
 type FileItem = {

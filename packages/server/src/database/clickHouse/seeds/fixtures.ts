@@ -91,10 +91,10 @@ const buildUsageEventFixtures = (): UsageEventFixture[] => {
   const fixtures: UsageEventFixture[] = [];
 
   const users = [
-    USER_WORKSPACE_DATA_SEED_IDS.TIM,
-    USER_WORKSPACE_DATA_SEED_IDS.JANE,
-    USER_WORKSPACE_DATA_SEED_IDS.JONY,
-    USER_WORKSPACE_DATA_SEED_IDS.PHIL,
+    USER_WORKSPACE_DATA_SEED_IDS.KASI,
+    USER_WORKSPACE_DATA_SEED_IDS.KADES,
+    USER_WORKSPACE_DATA_SEED_IDS.SEKDES,
+    USER_WORKSPACE_DATA_SEED_IDS.KAUR,
   ];
 
   // Weight per user so the breakdown isn't uniform

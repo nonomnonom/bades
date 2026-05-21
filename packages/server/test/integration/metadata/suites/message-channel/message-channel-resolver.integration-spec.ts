@@ -42,7 +42,7 @@ describe('messageChannelResolver (e2e)', () => {
           }
         `,
         variables: {
-          connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE,
+          connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES,
         },
       });
 
@@ -66,7 +66,7 @@ describe('messageChannelResolver (e2e)', () => {
           }
         `,
         variables: {
-          connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY,
+          connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES,
         },
       });
 

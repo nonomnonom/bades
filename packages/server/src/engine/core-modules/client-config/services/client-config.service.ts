@@ -253,7 +253,7 @@ export class ClientConfigService {
         this.twentyConfigService.get('STORAGE_TYPE') ===
           StorageDriverType.S_3 &&
         isNonEmptyString(this.twentyConfigService.get('INBOUND_EMAIL_DOMAIN')),
-      allowRequestsToFaviconService: this.twentyConfigService.get(
+      allowRequestsToTwentyIcons: this.twentyConfigService.get(
         'ALLOW_REQUESTS_TO_FAVICON_SERVICE',
       ),
       calendarBookingPageId: isNonEmptyString(calendarBookingPageId)

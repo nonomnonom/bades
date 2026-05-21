@@ -7,7 +7,7 @@ import { MessageQueueModule } from 'src/engine/core-modules/message-queue/messag
 import { ConnectedAccountMetadataModule } from 'src/engine/metadata-modules/connected-account/connected-account-metadata.module';
 import { ConnectedAccountTokenEncryptionModule } from 'src/engine/metadata-modules/connected-account/services/connected-account-token-encryption.module';
 import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permissions.module';
-import { SidOrmModule } from 'src/engine/sid-orm/twenty-orm.module';
+import { SidOrmModule } from 'src/engine/sid-orm/sid-orm.module';
 import { CalDavDriverModule } from 'src/modules/calendar/calendar-event-import-manager/drivers/caldav/caldav-driver.module';
 import { ConnectedAccountModule } from 'src/modules/connected-account/connected-account.module';
 import { IMAPAPIsModule } from 'src/modules/connected-account/imap-api/imap-apis.module';

@@ -4,7 +4,7 @@ import { UserInputError } from 'src/engine/core-modules/graphql/utils/graphql-er
 import {
   type SidOrmException,
   SidOrmExceptionCode,
-} from 'src/engine/sid-orm/exceptions/twenty-orm.exception';
+} from 'src/engine/sid-orm/exceptions/sid-orm.exception';
 
 interface DuplicateKeyErrorWithMetadata extends SidOrmException {
   conflictingRecordId?: string;
