@@ -1,4 +1,4 @@
-import { getClient } from 'src/modules/shared/twenty-client';
+import { getClient } from 'src/modules/shared/bades-client';
 
 export type ContributorSearchResult = {
   id: string;

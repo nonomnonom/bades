@@ -1,8 +1,53 @@
 # BESOK-REVIEW.md
 
-Tanggal: 2026-05-21
+Tanggal: 2026-05-21 s/d 2026-05-22
 Repo: D:\bades (branch: rebrand-bades)
 Tujuan: Dekatkan codebase ke GOAL.md - audit dan perbaiki brand, copy, seed, dan surface publik
+
+---
+
+## STATUS RINGKAS (per 2026-05-22)
+
+### Sudah benar-benar beres & terverifikasi
+
+- **`.github` & workflow CI** — path paket & nama proyek nx diperbaiki
+  (`twenty-*` → nama baru), YAML valid. Iterasi 1.
+- **`README.md`** — ditulis ulang Bahasa Indonesia, posisi layanan terkelola.
+  Iterasi 1.
+- **Website home/product** — terminologi CRM → konteks SID. Iterasi 1.
+- **Seed data** — nama Amerika → Indonesia, konstanta workspace di-rename.
+  Iterasi 1.
+- **AI single-model surface** — pemilih model dihapus dari chat, form agen,
+  workflow, settings. `nx typecheck front` lulus. Iterasi 2. Commit `ebefe24c`.
+- **Korupsi `id-ID.po`** — 434 entri rusak diterjemahkan ulang penuh;
+  `nx run front:lingui:compile` lulus. Iterasi 3.
+- **Surface platform di navigasi settings** — menu `Apps` dan `Updates`
+  disembunyikan dari navigasi pengguna utama (jadi kapabilitas internal tim).
+  `nx typecheck front` lulus. Iterasi 4.
+- **Test `useSettingsNavigationItems.test.tsx`** — diperbaiki (assertion label
+  Inggris → label Indonesia aktual). 3/3 test lulus. Iterasi 5.
+
+### Masih terbuka (debt, belum disentuh)
+
+- Docs (`packages/docs`) — transformasi besar, link-sensitif.
+- Settings & navigasi user-facing umum.
+- Billing Midtrans-first.
+- Platform surface (API key/webhook/app) → pindah ke admin/internal.
+- Rename direktori `packages/create-twenty-app` → `create-bades-app`
+  (terblokir file lock saat dicoba).
+- Website: customer case studies, release notes `.mdx`, `TermsDocument.tsx`
+  (`Bades.id.com PBC`).
+- Kemungkinan ada test lain di `packages/front` yang masih meng-assert label
+  Inggris padahal produk kini Bahasa Indonesia (pola yang sama dengan test
+  navigasi settings yang sudah diperbaiki di iterasi 5). Perlu sisir terpisah.
+
+### Catatan paralel
+
+Rename `packages/server/src/engine/twenty-orm` → `sid-orm` dikerjakan proses
+lain; secara fungsional sudah lengkap (hanya sisa komentar `#:` lokasi sumber
+di server `id-ID.po` yang otomatis terperbarui saat `lingui:extract`).
+
+Detail lengkap per iterasi ada di bawah.
 
 ---
 
@@ -445,3 +490,151 @@ Debt website tersisa (di luar scope agen):
 - Customer case studies & release notes `.mdx` — masih penuh istilah CRM.
 
 *Night shift report — 2026-05-21, sesi otonom Claude Code.*
+
+---
+
+# NIGHT SHIFT — iterasi 2 (AI single-model surface)
+
+Domain iterasi ini: **menghapus pemilih model AI dari surface user-facing**
+sesuai rule `ai-single-model.md` (pengalaman AI = satu kapabilitas tunggal,
+tanpa katalog model untuk user balai desa).
+
+Sudah diterapkan & di-commit (`ebefe24c`):
+
+- `AiChatEditorSection.tsx` — dropdown model di kolom chat AI dihapus. Chat
+  kini selalu memakai model default workspace (request tanpa `modelId`
+  eksplisit → backend pakai default).
+- `SettingsAiAgentForm.tsx` (form buat agen) — select "AI Model" + blok
+  `SettingsAgentModelCapabilities` dihapus. `modelId` default tetap `'auto'`
+  (valid di schema), jadi agen baru otomatis pakai auto-select.
+- `SettingsAgentSettingsTab.tsx` (edit agen) — select model + capabilities
+  dihapus; `modelId` agen lama tetap dipertahankan apa adanya.
+- `WorkflowAiAgentPromptTab.tsx` (aksi AI di workflow) — select model +
+  capabilities dihapus.
+- `SettingsAI.tsx` — tab **"Models"** (Smart/Fast model + tabel model
+  tersedia) dihapus dari halaman Settings → AI. Default tab kini "Skills".
+- Dead code dibersihkan: `SettingsAiModelsTab.tsx`,
+  `SettingsAgentModelCapabilities.tsx`, `useAiModelOptions.ts` dihapus;
+  konstanta tab `MODELS` dihapus.
+
+Verifikasi: `npx nx typecheck front` **lulus**. Tidak ada referensi
+menggantung ke simbol yang dihapus.
+
+Catatan arsitektur (sesuai model tiga lapisan GOAL):
+- Konfigurasi model tetap ada di **admin panel** (`SettingsAdminAI`,
+  `SettingsAdminNewAiModel`) — itu lapisan admin/internal yang benar, sengaja
+  tidak disentuh.
+- `agentChatUserSelectedModelState` kini tidak pernah di-set lagi (hanya
+  dibaca `useAgentChatModelId` dengan nilai default). Tidak rusak, hanya
+  sedikit redundan — bisa disederhanakan di sesi lain.
+
+Debt AI tersisa:
+- `SettingsAiModelsTable` masih dipakai admin panel (benar, biarkan).
+- Halaman Settings → AI masih punya tab Skills/Tools/Usage/More yang cukup
+  bernuansa developer-platform — kandidat untuk dievaluasi pindah ke lapisan
+  admin/internal pada sesi terpisah.
+
+Catatan koordinasi: terdeteksi proses paralel lain sedang me-rename
+`packages/server/src/engine/sid-orm` (`twenty-orm` → `sid-orm`). Area itu
+tidak disentuh sesi ini untuk menghindari tabrakan file.
+
+*Night shift iterasi 2 — 2026-05-21, sesi otonom Claude Code.*
+
+---
+
+# NIGHT SHIFT — iterasi 3 (perbaikan korupsi id-ID.po)
+
+Domain iterasi ini: **memperbaiki korupsi katalog terjemahan
+`packages/front/src/locales/id-ID.po`** — temuan kritis dari iterasi 1.
+
+Masalah: 434 entri `msgstr` rusak dengan pola `"Kata "sisa teks Inggris"`
+(tanda kutip dalam tidak di-escape + hanya kata pertama yang diterjemahkan).
+Akibatnya `lingui:compile` front gagal → seluruh katalog Bahasa Indonesia
+tidak terbangun.
+
+Sudah diterapkan:
+- Ke-434 entri rusak diterjemahkan ulang **penuh ke Bahasa Indonesia native**
+  langsung dari `msgid` sumber (bukan sekadar escape kutip). Placeholder
+  (`{filename}`, `{0}`, `${monthlyPrice}`, dll.) dipertahankan utuh.
+- Istilah disesuaikan: workflow → alur kerja, dashboard → dasbor,
+  API key → kunci API, record → rekaman, field → kolom, dll.
+
+Verifikasi:
+- Validasi struktural `.po`: **0 error** (sebelumnya 434 entri rusak).
+- `npx nx run front:lingui:compile`: **lulus** ("Compiling message
+  catalogs… Done!") — katalog terjemahan front kini terbangun normal.
+
+Catatan: file `.po` lain (`packages/emails`, `packages/server` i18n) sudah
+bersih sejak awal — tidak perlu disentuh.
+
+Debt terjemahan tersisa:
+- Masih mungkin ada entri yang terjemahannya kaku/istilah CRM (mis. prompt AI
+  contoh) — itu polish bahasa, bukan korupsi struktural. Bisa disisir pada
+  iterasi lokalisasi berikutnya.
+
+*Night shift iterasi 3 — 2026-05-22, sesi otonom Claude Code.*
+
+---
+
+# NIGHT SHIFT — iterasi 4 (surface platform → internal/admin)
+
+Domain iterasi ini: **mengeluarkan surface developer-platform dari navigasi
+settings pengguna utama**, sesuai GOAL (model tiga lapisan; app system =
+kapabilitas internal tim Bades, bukan workflow self-service perangkat desa).
+
+Sudah diterapkan di `packages/front/src/modules/settings/hooks/useSettingsNavigationItems.tsx`:
+- Menu **`Apps`** (sistem aplikasi/app platform) — `isHidden: true`.
+  Sebelumnya tampil ke pengguna dengan permission `APPLICATIONS` + badge "new".
+  Route tetap ada untuk tim internal; hanya dilepas dari navigasi pengguna.
+- Menu **`Updates`** (update/release center) — `isHidden: true`.
+  Update center adalah workflow operasional tim Bades pada layanan terkelola,
+  bukan bagian pengalaman pengguna balai desa.
+- Menu `APIs & Webhooks` sudah `isHidden: true` sejak sebelumnya — sesuai.
+
+Verifikasi:
+- `nx typecheck front`: **lulus**.
+- Logika test `useSettingsNavigationItems.test.tsx` (`every(isHidden)` saat
+  tanpa permission, `some(!isHidden)` saat ada permission) tetap konsisten
+  dengan perubahan ini.
+
+Debt yang ditemukan (PRE-EXISTING, bukan regresi iterasi ini):
+- `useSettingsNavigationItems.test.tsx` — ketiga test **sudah gagal di commit
+  `ebefe24c`** (sebelum perubahan apa pun sesi ini; diverifikasi via
+  `git stash`). Gejala: `result.current.find(s => s.label === 'Workspace'/'User')`
+  mengembalikan `undefined` → kemungkinan masalah resolusi katalog lingui di
+  environment test. Perlu sesi terfokus terpisah; bukan regresi dari pekerjaan
+  transformasi.
+
+Catatan arsitektur: langkah ini "mengeluarkan dari surface utama" (GOAL).
+Relokasi penuh `Apps`/`Updates` ke dalam Admin Panel sebagai sub-halaman
+internal adalah follow-up yang lebih besar — belum dikerjakan.
+
+*Night shift iterasi 4 — 2026-05-22, sesi otonom Claude Code.*
+
+---
+
+# NIGHT SHIFT — iterasi 5 (perbaikan verifikasi yang gagal)
+
+Domain iterasi ini: **memperbaiki test yang gagal** —
+`useSettingsNavigationItems.test.tsx` (test untuk file yang disentuh
+iterasi 4).
+
+Diagnosis: ketiga test gagal karena meng-assert label section dalam Bahasa
+Inggris (`'Workspace'`, `'User'`), padahal katalog lingui produk kini
+mengembalikan Bahasa Indonesia. Debug membuktikan label aktual:
+`["Pengguna","Ruang kerja","Lainnya"]`. Jadi test sekadar **usang** terhadap
+arah Bades yang sudah Bahasa Indonesia native — bukan bug produk.
+
+Diterapkan:
+- Assertion label test diperbarui: `'Workspace'` → `'Ruang kerja'`,
+  `'User'` → `'Pengguna'`.
+
+Verifikasi:
+- `npx jest useSettingsNavigationItems.test.tsx`: **3/3 lulus**.
+- Sekaligus mengonfirmasi perubahan iterasi 4 (Apps/Updates disembunyikan)
+  benar: assertion `every(isHidden)` dan `some(!isHidden)` terpenuhi.
+
+Catatan: pola "test meng-assert label Inggris" kemungkinan ada di test front
+lain. Dicatat sebagai debt untuk sisir terpisah.
+
+*Night shift iterasi 5 — 2026-05-22, sesi otonom Claude Code.*

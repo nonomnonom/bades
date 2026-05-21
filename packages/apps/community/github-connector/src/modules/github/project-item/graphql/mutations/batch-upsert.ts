@@ -1,4 +1,4 @@
-import { chunkedBatchCreate } from 'src/modules/shared/twenty-client';
+import { chunkedBatchCreate } from 'src/modules/shared/bades-client';
 import type { ProjectItemRow } from 'src/modules/github/project-item/types/project-item-row';
 
 export async function batchUpsertProjectItems(

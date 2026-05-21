@@ -25,7 +25,7 @@ This app demonstrates every entity type available in the Bades.id SDK:
 ```bash
 # From this directory
 yarn install
-yarn twenty dev
+yarn bades dev
 ```
 
 ## Learn more

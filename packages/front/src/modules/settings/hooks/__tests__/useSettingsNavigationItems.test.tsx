@@ -98,7 +98,7 @@ describe('useSettingsNavigationItems', () => {
     });
 
     const workspaceSection = result.current.find(
-      (section) => section.label === 'Workspace',
+      (section) => section.label === 'Ruang kerja',
     );
 
     expect(workspaceSection?.items.every((item) => item.isHidden)).toBe(true);
@@ -120,7 +120,7 @@ describe('useSettingsNavigationItems', () => {
     });
 
     const workspaceSection = result.current.find(
-      (section) => section.label === 'Workspace',
+      (section) => section.label === 'Ruang kerja',
     );
 
     expect(workspaceSection?.items.some((item) => !item.isHidden)).toBe(true);
@@ -142,7 +142,7 @@ describe('useSettingsNavigationItems', () => {
     });
 
     const userSection = result.current.find(
-      (section) => section.label === 'User',
+      (section) => section.label === 'Pengguna',
     );
     expect(
       userSection?.items.filter((item) => !item.isHidden).length,

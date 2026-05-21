@@ -2,7 +2,7 @@ This is a [Bades.id](https://bades.id) application bootstrapped with [`create-tw
 
 ## Getting Started
 
-Run `yarn twenty help` to list all available commands.
+Run `yarn bades help` to list all available commands.
 
 ## Learn More
 

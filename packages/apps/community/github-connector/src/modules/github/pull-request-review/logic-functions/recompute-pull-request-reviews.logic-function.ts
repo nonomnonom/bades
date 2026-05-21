@@ -1,6 +1,6 @@
 import { defineLogicFunction } from 'sdk/define';
 import { type RoutePayload } from 'sdk/logic-function';
-import { getClient } from 'src/modules/shared/twenty-client';
+import { getClient } from 'src/modules/shared/bades-client';
 import { timed } from 'src/modules/shared/timing';
 import { batchUpsertConsolidatedReviews } from 'src/modules/github/pull-request-review/graphql/mutations/batch-upsert';
 import {

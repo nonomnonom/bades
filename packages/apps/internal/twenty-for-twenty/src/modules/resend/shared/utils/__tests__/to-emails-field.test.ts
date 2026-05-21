@@ -4,22 +4,22 @@ import { toEmailsField } from '@modules/resend/shared/utils/to-emails-field';
 
 describe('toEmailsField', () => {
   it('returns a plain email unchanged', () => {
-    expect(toEmailsField('thomas@mail.twenty.com')).toEqual({
-      primaryEmail: 'thomas@mail.twenty.com',
+    expect(toEmailsField('thomas@mail.bades.id')).toEqual({
+      primaryEmail: 'thomas@mail.bades.id',
       additionalEmails: null,
     });
   });
 
   it('extracts the email from "Name <email>" format', () => {
-    expect(toEmailsField('Thomas <thomas@mail.twenty.com>')).toEqual({
-      primaryEmail: 'thomas@mail.twenty.com',
+    expect(toEmailsField('Thomas <thomas@mail.bades.id>')).toEqual({
+      primaryEmail: 'thomas@mail.bades.id',
       additionalEmails: null,
     });
   });
 
   it('extracts the email from a quoted display name', () => {
-    expect(toEmailsField('"Last, First" <thomas@mail.twenty.com>')).toEqual({
-      primaryEmail: 'thomas@mail.twenty.com',
+    expect(toEmailsField('"Last, First" <thomas@mail.bades.id>')).toEqual({
+      primaryEmail: 'thomas@mail.bades.id',
       additionalEmails: null,
     });
   });
@@ -59,22 +59,22 @@ describe('toEmailsField', () => {
   });
 
   it('trims surrounding whitespace from a plain email', () => {
-    expect(toEmailsField('  thomas@mail.twenty.com  ')).toEqual({
-      primaryEmail: 'thomas@mail.twenty.com',
+    expect(toEmailsField('  thomas@mail.bades.id  ')).toEqual({
+      primaryEmail: 'thomas@mail.bades.id',
       additionalEmails: null,
     });
   });
 
   it('lowercases a plain email', () => {
     expect(toEmailsField('Thomas@Mail.Twenty.Com')).toEqual({
-      primaryEmail: 'thomas@mail.twenty.com',
+      primaryEmail: 'thomas@mail.bades.id',
       additionalEmails: null,
     });
   });
 
   it('lowercases the address inside the "Name <email>" format', () => {
     expect(toEmailsField('Thomas <Thomas@Mail.Twenty.Com>')).toEqual({
-      primaryEmail: 'thomas@mail.twenty.com',
+      primaryEmail: 'thomas@mail.bades.id',
       additionalEmails: null,
     });
   });

@@ -31,13 +31,13 @@ export const fieldValue = [
   },
   {
     __typename: 'Company',
-    domainName: { primaryLinkUrl: 'airbnb.com', primaryLinkLabel: '' },
+    domainName: { primaryLinkUrl: 'bumdes-sukamaju.id', primaryLinkLabel: '' },
     xLink: {
       __typename: 'Link',
       primaryLinkLabel: '',
       primaryLinkUrl: '',
     },
-    name: 'Airbnb',
+    name: 'BUMDes Sukamaju Jaya',
     annualRecurringRevenue: {
       __typename: 'Currency',
       amountMicros: null,

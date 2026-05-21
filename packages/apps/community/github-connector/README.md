@@ -81,7 +81,7 @@ Seven front components surface the connector inside the Bades.id UI:
 You have two options. Use **dev mode** for a tight edit/test loop while
 iterating on the app, or **install** for a one-shot deploy.
 
-### Option A — Live development (`yarn twenty dev`)
+### Option A — Live development (`yarn bades dev`)
 
 Use this when you want every code change to be re-synced into your local
 Bades.id server automatically.
@@ -93,13 +93,13 @@ yarn install
 # Register your local Bades.id server as a remote (interactive prompt).
 # When asked for the URL use http://localhost:2021 and paste an API key
 # from Settings -> Developers in the Bades.id UI.
-yarn twenty remote:add
+yarn bades remote:add
 
 # Build, install, and watch for changes.
-yarn twenty dev
+yarn bades dev
 ```
 
-The first `yarn twenty dev` run installs the app on the remote and starts
+The first `yarn bades dev` run installs the app on the remote and starts
 watching `src/`. Edit any file and the change is re-synced within seconds.
 
 ### Option B — One-shot install
@@ -107,8 +107,8 @@ watching `src/`. Edit any file and the change is re-synced within seconds.
 ```bash
 cd packages/apps/community/github-connector
 yarn install
-yarn twenty remote:add        # same prompts as above
-yarn twenty app:install       # builds and installs once
+yarn bades remote:add        # same prompts as above
+yarn bades app:install       # builds and installs once
 ```
 
 ## Configure authentication

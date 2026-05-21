@@ -5,7 +5,7 @@ import * as path from 'path';
 import { appDevOnce, appUninstall } from 'sdk/cli';
 
 const APP_PATH = process.cwd();
-const CONFIG_DIR = path.join(os.homedir(), '.twenty');
+const CONFIG_DIR = path.join(os.homedir(), '.bades');
 
 function writeConfig(apiUrl: string, apiKey: string) {
   const payload = JSON.stringify(
@@ -24,8 +24,8 @@ function writeConfig(apiUrl: string, apiKey: string) {
 }
 
 export async function setup() {
-  const apiUrl = process.env.TWENTY_API_URL!;
-  const apiKey = process.env.TWENTY_API_KEY!;
+  const apiUrl = process.env.BADES_API_URL!;
+  const apiKey = process.env.BADES_API_KEY!;
 
   writeConfig(apiUrl, apiKey);
 

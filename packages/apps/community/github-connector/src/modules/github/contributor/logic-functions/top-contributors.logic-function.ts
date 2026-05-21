@@ -1,7 +1,7 @@
 import { defineLogicFunction } from 'sdk/define';
 import { type RoutePayload } from 'sdk/logic-function';
 import { isBotLogin } from 'src/modules/github/contributor/utils/is-bot-login';
-import { getClient } from 'src/modules/shared/twenty-client';
+import { getClient } from 'src/modules/shared/bades-client';
 
 type ContributorRef = {
   id: string;

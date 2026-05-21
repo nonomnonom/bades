@@ -1,6 +1,6 @@
 import { defineLogicFunction } from 'sdk/define';
 import { type RoutePayload } from 'sdk/logic-function';
-import { getClient } from 'src/modules/shared/twenty-client';
+import { getClient } from 'src/modules/shared/bades-client';
 
 export type StatsPeriod = 'week' | 'month' | '3months' | 'year';
 

@@ -29,7 +29,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue(
-      'https://api.slackbot.io/webhooks/twenty',
+      'https://api.slackbot.io/webhooks/bades',
       undefined,
       {
         timeout: 3000,

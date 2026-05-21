@@ -102,10 +102,10 @@ export default async function ArticlesPage({ params }: ArticlesPageProps) {
       <div className={pageRevealClassName}>
         <Hero.Root scheme="muted">
           <Hero.Heading page={Pages.Articles}>
-            <HeadingPart fontFamily="serif">Ideas on</HeadingPart>
+            <HeadingPart fontFamily="serif">Wawasan seputar</HeadingPart>
             <br />
-            <HeadingPart fontFamily="serif">open-source</HeadingPart>{' '}
-            <HeadingPart fontFamily="sans">SISDEG</HeadingPart>
+            <HeadingPart fontFamily="serif">Sistem Informasi</HeadingPart>{' '}
+            <HeadingPart fontFamily="sans">Desa</HeadingPart>
           </Hero.Heading>
           <Hero.Body page={Pages.Articles}>
             Ideas from the team building Bades.id on village administration systems,

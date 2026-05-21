@@ -62,14 +62,14 @@ If you're working on this app rather than installing the published version:
 cd packages/apps/internal/twenty-linear
 
 # For day-to-day development (publish + install + watch in one):
-yarn twenty dev
+yarn bades dev
 
 # Manual publish flow (publish registers the app, install activates it):
-yarn twenty app:publish --private
-yarn twenty app:install
+yarn bades app:publish --private
+yarn bades app:install
 ```
 
-`twenty dev` is recommended for iteration — it publishes, installs, and
+`bades dev` is recommended for iteration — it publishes, installs, and
 watches for changes in one command. Use `twenty app:publish --private` +
 `twenty app:install` when you want to control each step separately (e.g.
 deploying to a production server without auto-installing).

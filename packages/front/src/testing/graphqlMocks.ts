@@ -668,7 +668,7 @@ export const graphqlMocks = {
             {
               __typename: 'Webhook',
               id: '1234',
-              targetUrl: 'https://api.slackbot.io/webhooks/twenty',
+              targetUrl: 'https://api.slackbot.io/webhooks/bades',
               operations: ['*.created', '*.updated'],
               description: 'Slack notifications for lead updates',
               secret: 'sample-secret',
@@ -685,7 +685,7 @@ export const graphqlMocks = {
           webhook: {
             __typename: 'Webhook',
             id: webhookId || '1234',
-            targetUrl: 'https://api.slackbot.io/webhooks/twenty',
+            targetUrl: 'https://api.slackbot.io/webhooks/bades',
             operations: ['*.created', '*.updated'],
             description: 'Slack notifications for lead updates',
             secret: 'sample-secret',

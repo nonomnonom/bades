@@ -153,10 +153,13 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
         //   isHidden: !permissionMap[PermissionFlagType.API_KEYS_AND_WEBHOOKS],
         // },
         {
+          // Sistem aplikasi diposisikan sebagai kapabilitas internal tim Bades,
+          // bukan workflow self-service untuk perangkat desa. Disembunyikan dari
+          // navigasi pengguna utama; route tetap ada untuk tim internal.
           label: t`Apps`,
           path: SettingsPath.Applications,
           Icon: IconPlug,
-          isHidden: !permissionMap[PermissionFlagType.APPLICATIONS],
+          isHidden: true,
           modifier: 'new',
         },
         {
@@ -185,10 +188,12 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           isHidden: !isAdminEnabled,
         },
         {
+          // Update/release center adalah workflow operasional tim Bades, bukan
+          // bagian dari pengalaman pengguna balai desa pada layanan terkelola.
           label: t`Updates`,
           path: SettingsPath.Updates,
           Icon: IconRocket,
-          isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
+          isHidden: true,
         },
         {
           label: t`Support`,

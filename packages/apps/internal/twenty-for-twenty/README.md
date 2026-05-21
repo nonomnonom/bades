@@ -22,7 +22,7 @@ Two-way sync between Twenty and the [Resend](https://resend.com) email platform.
 ### 1. Install and run the app
 
 ```bash
-yarn twenty dev
+yarn bades dev
 ```
 
 This registers the app with your local Bades.id instance at `http://localhost:3000/settings/applications`.
@@ -112,7 +112,7 @@ A `lastSyncedFromResend` field on contact, segment, and email records tracks whe
 
 ## Commands
 
-Run `yarn twenty help` to list all available commands.
+Run `yarn bades help` to list all available commands.
 
 ## Learn More
 

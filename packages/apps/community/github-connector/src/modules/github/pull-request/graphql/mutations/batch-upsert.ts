@@ -1,4 +1,4 @@
-import { chunkedBatchCreate } from 'src/modules/shared/twenty-client';
+import { chunkedBatchCreate } from 'src/modules/shared/bades-client';
 import type { LinksFieldValue } from 'src/modules/shared/types';
 import type { PullRequestRow } from 'src/modules/github/pull-request/types/pull-request-row';
 

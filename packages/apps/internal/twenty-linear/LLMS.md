@@ -1,7 +1,7 @@
 ## Base documentation
 
-- Documentation: https://docs.twenty.com/developers/extend/apps/getting-started
-- Rich app example: https://github.com/twentyhq/twenty/tree/main/packages/apps/examples/postcard
+- Documentation: https://docs.bades.id/developers/extend/apps/getting-started
+- Rich app example: https://github.com/bades-id/bades/tree/main/packages/apps/examples/postcard
 
 ## UUID requirement
 

@@ -1,4 +1,4 @@
-import { getClient } from 'src/modules/shared/twenty-client';
+import { getClient } from 'src/modules/shared/bades-client';
 import type { IssueRow } from 'src/modules/github/issue/types/issue-row';
 
 export async function findIssueByNumberAndRepo(

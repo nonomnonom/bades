@@ -1,4 +1,4 @@
-# Fireflies for Twenty
+# Fireflies for Bades.id
 
 Sync [Fireflies](https://fireflies.ai) call transcripts and AI summaries onto
 the matching `CalendarEvent` in your Bades.id — searchable, in context, and
@@ -42,7 +42,7 @@ event, the call is treated as an orphan and skipped (see
 [Limitations](#limitations) below). This avoids silently writing transcripts
 to the wrong event.
 
-## What gets added to your Twenty workspace
+## What gets added to your Bades.id workspace
 
 Two new fields on the standard **CalendarEvent** object:
 
@@ -87,13 +87,13 @@ CalendarEvent, pass the `id` from a list result into **Sync Fireflies Call**.
 
 ## Installing
 
-1. Open **Settings → Applications** in your Twenty workspace.
+1. Open **Settings → Applications** in your Bades.id workspace.
 2. Find **Fireflies** in the available apps and click **Install**.
 3. Follow [Self-hosting setup](#self-hosting-setup-admin-only) below to wire
    up the API key and webhook (admin-only, one-time).
 
 > **Heads up:** if you see *"Fireflies is not configured"* on the first
-> webhook, your Twenty admin needs to follow the
+> webhook, your Bades.id admin needs to follow the
 > [Self-hosting setup](#self-hosting-setup-admin-only) section.
 
 ## Limitations
@@ -133,7 +133,7 @@ What this connector intentionally does **not** support in v1:
 
 ## Self-hosting setup (admin-only)
 
-This section is for Twenty server admins. If you're on Twenty Cloud, skip
+This section is for Bades.id server admins. If you're on Bades.id Cloud, skip
 this — the credentials may already be configured.
 
 ### 1. Generate a Fireflies API key
@@ -208,7 +208,7 @@ If you're working on this app rather than installing the published version:
 cd packages/apps/internal/twenty-fireflies
 
 # Day-to-day development (publish + install + watch in one):
-yarn twenty dev
+yarn bades dev
 
 # Run unit tests:
 yarn test
@@ -217,7 +217,7 @@ yarn test
 yarn lint
 ```
 
-`twenty dev` is recommended for iteration — it publishes to your local Twenty
+`bades dev` is recommended for iteration — it publishes to your local Twenty
 server, installs the app, and watches for changes in one command.
 
 The Fireflies GraphQL API is called directly via `fetch` — no `fireflies` SDK

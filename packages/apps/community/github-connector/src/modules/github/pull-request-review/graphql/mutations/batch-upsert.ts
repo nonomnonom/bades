@@ -1,4 +1,4 @@
-import { chunkedBatchCreate } from 'src/modules/shared/twenty-client';
+import { chunkedBatchCreate } from 'src/modules/shared/bades-client';
 import type { PullRequestReviewRow } from 'src/modules/github/pull-request-review/types/pull-request-review-row';
 import type { ConsolidatedReviewUpsertInput } from 'src/modules/github/pull-request-review/utils/build-consolidated-row';
 

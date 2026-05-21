@@ -122,5 +122,5 @@ yarn lint
 yarn test
 ```
 
-Use `yarn twenty dev` from this directory to develop against a local Twenty
+Use `yarn bades dev` from this directory to develop against a local Twenty
 instance (see other internal apps in this monorepo).

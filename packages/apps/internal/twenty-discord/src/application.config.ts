@@ -7,18 +7,18 @@ import {
 
 export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
-  displayName: 'Twenty Discord',
+  displayName: 'Discord',
   description:
-    'Connect Discord to Twenty. Workflow steps post, update, and delete bot messages and add reactions using a Discord bot token shared across the deployment.',
-  logoUrl: 'public/twenty-discord.svg',
-  author: 'Twenty',
+    'Connect Discord to Bades.id. Workflow steps post, update, and delete bot messages and add reactions using a Discord bot token shared across the deployment.',
+  logoUrl: 'public/bades-discord.svg',
+  author: 'Bades',
   category: 'Communication',
   aboutDescription:
     'Official Discord connector for Bades.id. Create a Discord application at https://discord.com/developers/applications, copy its bot token into the DISCORD_BOT_TOKEN application variable, then invite the bot to each server you want workflows to post in. Use workflow actions to post, update, or delete bot messages and add reactions.',
-  websiteUrl: 'https://docs.twenty.com/developers/extend/apps/getting-started',
-  termsUrl: 'https://www.twenty.com/terms',
-  emailSupport: 'contact@twenty.com',
-  issueReportUrl: 'https://github.com/twentyhq/twenty/issues',
+  websiteUrl: 'https://docs.bades.id/developers/extend/apps/getting-started',
+  termsUrl: 'https://www.bades.id/terms',
+  emailSupport: 'contact@bades.id',
+  issueReportUrl: 'https://github.com/bades-id/bades/issues',
   applicationVariables: {
     DISCORD_BOT_TOKEN: {
       universalIdentifier: DISCORD_BOT_TOKEN_VARIABLE_UNIVERSAL_IDENTIFIER,

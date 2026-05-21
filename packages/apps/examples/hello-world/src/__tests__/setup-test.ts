@@ -3,17 +3,17 @@ import * as os from 'os';
 import * as path from 'path';
 import { beforeAll } from 'vitest';
 
-const CONFIG_DIR = path.join(os.homedir(), '.twenty');
+const CONFIG_DIR = path.join(os.homedir(), '.bades');
 const CONFIG_PATH = path.join(CONFIG_DIR, 'config.test.json');
 
 beforeAll(async () => {
-  const apiUrl = process.env.TWENTY_API_URL!;
-  const token = process.env.TWENTY_API_KEY!;
+  const apiUrl = process.env.BADES_API_URL!;
+  const token = process.env.BADES_API_KEY!;
 
   if (!apiUrl || !token) {
     throw new Error(
-      'TWENTY_API_URL and TWENTY_API_KEY must be set.\n' +
-        'Start a local server: yarn twenty docker:start\n' +
+      'BADES_API_URL and BADES_API_KEY must be set.\n' +
+        'Start a local server: yarn bades docker:start\n' +
         'Or set them in vitest env config.',
     );
   }
@@ -24,7 +24,7 @@ beforeAll(async () => {
     response = await fetch(`${apiUrl}/healthz`);
   } catch {
     throw new Error(
-      `Twenty server is not reachable at ${apiUrl}. ` +
+      `Bades.id server is not reachable at ${apiUrl}. ` +
         'Make sure the server is running before executing integration tests.',
     );
   }
@@ -49,5 +49,5 @@ beforeAll(async () => {
     ),
   );
 
-  process.env.TWENTY_APP_ACCESS_TOKEN ??= token;
+  process.env.BADES_APP_ACCESS_TOKEN ??= token;
 });

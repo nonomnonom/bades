@@ -28,7 +28,7 @@ const tabs = [
   {
     id: 'activity',
     title: 'Activity',
-    logo: 'https://twenty-front-screenshots.s3.eu-west-3.amazonaws.com/server-icon.png',
+    logo: 'https://picsum.photos/192/192',
     disabled: true,
   },
   { id: 'favorites', title: 'Favorites', Icon: IconHeart },

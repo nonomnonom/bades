@@ -9,11 +9,11 @@ import {
 
 export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
-  displayName: 'Twenty Fireflies',
+  displayName: 'Fireflies',
   description:
     'Sync Fireflies call transcripts and AI summaries onto matching CalendarEvent records in Twenty, and trigger sync / list / search of Fireflies calls from workflows and the AI chat.',
-  logoUrl: 'public/twenty-fireflies.svg',
-  author: 'Twenty',
+  logoUrl: 'public/bades-fireflies.svg',
+  author: 'Bades',
   category: 'Productivity',
   aboutDescription: ABOUT_DESCRIPTION,
   screenshots: [
@@ -22,10 +22,10 @@ export default defineApplication({
     'public/gallery/workflow-builder-actions.png',
     'public/gallery/app-settings.png',
   ],
-  websiteUrl: 'https://docs.twenty.com/developers/extend/apps/getting-started',
-  termsUrl: 'https://www.twenty.com/terms',
-  emailSupport: 'contact@twenty.com',
-  issueReportUrl: 'https://github.com/twentyhq/twenty/issues',
+  websiteUrl: 'https://docs.bades.id/developers/extend/apps/getting-started',
+  termsUrl: 'https://www.bades.id/terms',
+  emailSupport: 'contact@bades.id',
+  issueReportUrl: 'https://github.com/bades-id/bades/issues',
   applicationVariables: {
     FIREFLIES_API_KEY: {
       universalIdentifier: FIREFLIES_API_KEY_VARIABLE_UNIVERSAL_IDENTIFIER,

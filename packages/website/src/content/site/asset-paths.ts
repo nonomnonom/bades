@@ -37,7 +37,7 @@ export const SHARED_COMPANY_LOGO_URLS = {
   slack: '/images/shared/companies/logos/slack.webp',
   stripe: '/images/shared/companies/logos/stripe.webp',
   tally: '/images/shared/companies/logos/tally.webp',
-  twenty: '/images/shared/companies/logos/twenty.webp',
+  twenty: '/images/shared/companies/logos/bades.webp',
   whatsapp: '/images/shared/companies/logos/whatsapp.webp',
   zapier: '/images/shared/companies/logos/zapier.webp',
 } as const;

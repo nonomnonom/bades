@@ -155,7 +155,7 @@ If you're working on this app rather than installing the published version:
 cd packages/apps/internal/twenty-discord
 
 # Day-to-day development (publish + install + watch in one):
-yarn twenty dev
+yarn bades dev
 
 # Run unit tests:
 yarn test
@@ -164,7 +164,7 @@ yarn test
 yarn lint
 ```
 
-`twenty dev` is recommended for iteration — it publishes to your local
+`bades dev` is recommended for iteration — it publishes to your local
 Bades.id server, installs the app, and watches for changes in one command.
 
 The Discord REST API (v10) is called directly via `fetch` — no `discord.js`

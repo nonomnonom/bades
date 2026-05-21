@@ -1,4 +1,4 @@
-import { getClient } from 'src/modules/shared/twenty-client';
+import { getClient } from 'src/modules/shared/bades-client';
 import type { PullRequestRow } from 'src/modules/github/pull-request/types/pull-request-row';
 import { buildPrUniqueIdentifier } from 'src/modules/github/pull-request/normalizers';
 

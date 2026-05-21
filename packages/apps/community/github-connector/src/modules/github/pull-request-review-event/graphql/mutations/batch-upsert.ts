@@ -1,4 +1,4 @@
-import { chunkedBatchCreate } from 'src/modules/shared/twenty-client';
+import { chunkedBatchCreate } from 'src/modules/shared/bades-client';
 import type { PullRequestReviewEventRow } from 'src/modules/github/pull-request-review-event/types/pull-request-review-event-row';
 
 export async function batchUpsertReviewEvents(
