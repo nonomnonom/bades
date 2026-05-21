@@ -1,6 +1,6 @@
-# Linear for Twenty
+# Linear for Bades.id
 
-Connect your Linear account to Twenty to create issues and look up teams
+Connect your Linear account to Bades.id to create issues and look up teams
 straight from your workflows or the AI chat.
 
 ## What you can do
@@ -16,7 +16,7 @@ Once installed and connected, two tools become available:
 
 ## Installing
 
-1. Open **Settings → Applications** in your Twenty workspace.
+1. Open **Settings → Applications** in your Bades.id workspace.
 2. Find **Linear** in the available apps and click **Install**.
 3. Open the app, go to the **Connections** tab, and click **Add connection**.
 4. Choose **Just for me** (your personal Linear account) or
@@ -26,7 +26,7 @@ Once installed and connected, two tools become available:
 That's it — you can now use the tools above.
 
 > If you see a "Linear OAuth is not yet set up by your server administrator"
-> notice on the Connections tab, ask your Twenty admin to follow the
+> notice on the Connections tab, ask your Bades.id admin to follow the
 > **Self-hosting setup** below — they need to provide the OAuth credentials
 > before connections can be added.
 
@@ -34,7 +34,7 @@ That's it — you can now use the tools above.
 
 ## Self-hosting setup
 
-This section is for Twenty server admins. If you're on Twenty Cloud, skip
+This section is for Bades.id server admins. If you're on Bades.id Cloud, skip
 this — the OAuth credentials are already configured.
 
 ### 1. Register an OAuth app in Linear
@@ -44,7 +44,7 @@ this — the OAuth credentials are already configured.
    local dev: `http://localhost:3000/apps/oauth/callback`).
 3. Copy the generated **Client ID** and **Client Secret**.
 
-### 2. Wire the credentials into Twenty
+### 2. Wire the credentials into Bades.id
 
 1. In **Settings → Applications**, find **Linear**, click into it, and go
    to the **Application registration** tab (admin-only).
@@ -74,6 +74,6 @@ watches for changes in one command. Use `twenty app:publish --private` +
 `twenty app:install` when you want to control each step separately (e.g.
 deploying to a production server without auto-installing).
 
-This serves as the reference implementation for Twenty's
+This serves as the reference implementation for Bades.id's
 `defineConnectionProvider({ type: 'oauth' })` flow — useful as a template
 when adding OAuth integrations for other providers.

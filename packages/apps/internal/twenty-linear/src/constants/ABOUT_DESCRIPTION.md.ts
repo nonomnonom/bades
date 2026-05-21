@@ -1,4 +1,4 @@
-export const ABOUT_DESCRIPTION = `Connect your Linear account to Twenty to create issues and look up teams straight from your workflows or the AI chat.
+export const ABOUT_DESCRIPTION = `Connect your Linear account to Bades.id to create issues and look up teams straight from your workflows or the AI chat.
 
 ## What you can do
 
@@ -12,7 +12,7 @@ Once installed and connected, two tools become available:
 
 ## Installing
 
-1. Open **Settings → Applications** in your Twenty workspace.
+1. Open **Settings → Applications** in your Bades.id workspace.
 2. Find **Linear** in the available apps and click **Install**.
 3. Open the app, go to the **Connections** tab, and click **Add connection**.
 4. Choose **Just for me** (your personal Linear account) or **Workspace shared** (a team-managed Linear account anyone in this workspace can act through), then complete the Linear sign-in.

@@ -34,7 +34,7 @@ const resolveApplicationId = async (
   );
 
   if (!isDefined(match)) {
-    throw new Error('Twenty-for-Twenty application not found');
+    throw new Error('Bades.id-for-Bades.id application not found');
   }
 
   return match.id;

@@ -162,8 +162,8 @@ export const EmptyState: Story = {
 export const PrimaryLinkOnly: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: null,
     },
   },
@@ -183,15 +183,15 @@ export const PrimaryLinkOnly: Story = {
 export const WithSecondaryLinks: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [
         {
-          url: 'https://docs.twenty.com',
+          url: 'https://docs.bades.id',
           label: 'Documentation',
         },
         {
-          url: 'https://github.com/twentyhq/twenty',
+          url: 'https://github.com/badesid/bades',
           label: 'GitHub',
         },
       ],
@@ -249,8 +249,8 @@ export const TrimInput: Story = {
 export const AddSecondaryLink: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [],
     },
   },
@@ -276,8 +276,8 @@ export const AddSecondaryLink: Story = {
 export const DeletePrimaryLink: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [],
     },
   },
@@ -308,11 +308,11 @@ export const DeletePrimaryLink: Story = {
 export const DeletePrimaryLinkAndUseSecondaryLinkAsTheNewPrimaryLink: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [
         {
-          url: 'https://docs.twenty.com',
+          url: 'https://docs.bades.id',
           label: 'Documentation',
         },
       ],
@@ -350,11 +350,11 @@ export const DeletePrimaryLinkAndUseSecondaryLinkAsTheNewPrimaryLink: Story = {
 export const DeleteSecondaryLink: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [
         {
-          url: 'https://docs.twenty.com',
+          url: 'https://docs.bades.id',
           label: 'Documentation',
         },
       ],
@@ -453,11 +453,11 @@ export const InvalidUrls: Story = {
 export const MakeSecondaryLinkPrimary: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [
         {
-          url: 'https://docs.twenty.com',
+          url: 'https://docs.bades.id',
           label: 'Documentation',
         },
       ],
@@ -493,8 +493,8 @@ export const MakeSecondaryLinkPrimary: Story = {
 export const CanNotSetPrimaryLinkAsPrimaryLink: Story = {
   args: {
     value: {
-      primaryLinkUrl: 'https://www.twenty.com',
-      primaryLinkLabel: 'Twenty Website',
+      primaryLinkUrl: 'https://www.bades.id',
+      primaryLinkLabel: 'Bades.id Website',
       secondaryLinks: [],
     },
   },

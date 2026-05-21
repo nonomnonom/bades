@@ -1,4 +1,4 @@
-# Twenty Helm Chart - Quick Install
+# Bades.id Helm Chart - Quick Install
 
 ## Simple Install
 

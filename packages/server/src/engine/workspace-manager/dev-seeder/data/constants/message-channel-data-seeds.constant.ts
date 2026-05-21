@@ -37,10 +37,10 @@ export const MESSAGE_CHANNEL_DATA_SEED_COLUMNS: (keyof MessageChannelDataSeed)[]
 const GENERATE_MESSAGE_CHANNEL_IDS = (): Record<string, string> => {
   const CHANNEL_IDS: Record<string, string> = {};
 
-  CHANNEL_IDS['TIM'] = '20202020-9b80-4c2c-a597-383db48de1d6';
-  CHANNEL_IDS['JONY'] = '20202020-5ffe-4b32-814a-983d5e4911cd';
-  CHANNEL_IDS['PHIL'] = '20202020-e2f1-49b5-85d2-5d3a3386990c';
-  CHANNEL_IDS['JANE'] = '20202020-8c4d-4e71-a672-2e6a8c9f1b3d';
+  CHANNEL_IDS['KADES'] = '20202020-9b80-4c2c-a597-383db48de1d6';
+  CHANNEL_IDS['SEKDES'] = '20202020-5ffe-4b32-814a-983d5e4911cd';
+  CHANNEL_IDS['KAUR'] = '20202020-e2f1-49b5-85d2-5d3a3386990c';
+  CHANNEL_IDS['KASI'] = '20202020-8c4d-4e71-a672-2e6a8c9f1b3d';
   CHANNEL_IDS['SUPPORT'] = '20202020-e2f1-49b5-85d2-5d3a3386990d';
   CHANNEL_IDS['SALES'] = '20202020-e2f1-49b5-85d2-5d3a3386990e';
 
@@ -51,53 +51,53 @@ export const MESSAGE_CHANNEL_DATA_SEED_IDS = GENERATE_MESSAGE_CHANNEL_IDS();
 
 export const MESSAGE_CHANNEL_DATA_SEEDS: MessageChannelDataSeed[] = [
   {
-    id: MESSAGE_CHANNEL_DATA_SEED_IDS.TIM,
+    id: MESSAGE_CHANNEL_DATA_SEED_IDS.KADES,
     createdAt: new Date(),
     updatedAt: new Date(),
     deletedAt: null,
     isContactAutoCreationEnabled: true,
     type: MessageChannelType.EMAIL,
-    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.TIM,
-    handle: 'tim@apple.dev',
+    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES,
+    handle: 'kades@sukamaju.desa.id',
     isSyncEnabled: false,
     visibility: MessageChannelVisibility.SHARE_EVERYTHING,
     syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
   },
   {
-    id: MESSAGE_CHANNEL_DATA_SEED_IDS.JONY,
+    id: MESSAGE_CHANNEL_DATA_SEED_IDS.SEKDES,
     createdAt: new Date(),
     updatedAt: new Date(),
     deletedAt: null,
     isContactAutoCreationEnabled: true,
     type: MessageChannelType.EMAIL,
-    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JONY,
-    handle: 'jony.ive@apple.dev',
+    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.SEKDES,
+    handle: 'sekdes@sukamaju.desa.id',
     isSyncEnabled: false,
     visibility: MessageChannelVisibility.SHARE_EVERYTHING,
     syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
   },
   {
-    id: MESSAGE_CHANNEL_DATA_SEED_IDS.PHIL,
+    id: MESSAGE_CHANNEL_DATA_SEED_IDS.KAUR,
     createdAt: new Date(),
     updatedAt: new Date(),
     deletedAt: null,
     isContactAutoCreationEnabled: true,
     type: MessageChannelType.EMAIL,
-    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.PHIL,
-    handle: 'phil.schiler@apple.dev',
+    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KAUR,
+    handle: 'kaur@sukamaju.desa.id',
     isSyncEnabled: false,
     visibility: MessageChannelVisibility.SHARE_EVERYTHING,
     syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
   },
   {
-    id: MESSAGE_CHANNEL_DATA_SEED_IDS.JANE,
+    id: MESSAGE_CHANNEL_DATA_SEED_IDS.KASI,
     createdAt: new Date(),
     updatedAt: new Date(),
     deletedAt: null,
     isContactAutoCreationEnabled: true,
     type: MessageChannelType.EMAIL,
-    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.JANE,
-    handle: 'jane.austen@apple.dev',
+    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KASI,
+    handle: 'kasi@sukamaju.desa.id',
     isSyncEnabled: false,
     visibility: MessageChannelVisibility.SHARE_EVERYTHING,
     syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -109,8 +109,8 @@ export const MESSAGE_CHANNEL_DATA_SEEDS: MessageChannelDataSeed[] = [
     deletedAt: null,
     isContactAutoCreationEnabled: true,
     type: MessageChannelType.EMAIL,
-    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.TIM, // Use TIM's connected account for shared inbox
-    handle: 'support@apple.dev',
+    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES, // Gunakan akun Kades untuk saluran bersama
+    handle: 'layanan@sukamaju.desa.id',
     isSyncEnabled: false,
     visibility: MessageChannelVisibility.SHARE_EVERYTHING,
     syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -122,8 +122,8 @@ export const MESSAGE_CHANNEL_DATA_SEEDS: MessageChannelDataSeed[] = [
     deletedAt: null,
     isContactAutoCreationEnabled: true,
     type: MessageChannelType.EMAIL,
-    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.TIM, // Use TIM's connected account for shared inbox
-    handle: 'sales@apple.dev',
+    connectedAccountId: CONNECTED_ACCOUNT_DATA_SEED_IDS.KADES, // Gunakan akun Kades untuk saluran bersama
+    handle: 'admin@sukamaju.desa.id',
     isSyncEnabled: false,
     visibility: MessageChannelVisibility.SHARE_EVERYTHING,
     syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,

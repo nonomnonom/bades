@@ -605,7 +605,7 @@ export const getPageLayoutWidgetDataSeeds = (
         workspaceId,
         PAGE_LAYOUT_TAB_SEEDS.DOCUMENTATION,
       ),
-      title: 'Twenty Star History',
+      title: 'Statistik Desa',
       type: WidgetType.IFRAME,
       gridPosition: { row: 0, column: 0, rowSpan: 12, columnSpan: 12 },
       position: {
@@ -617,7 +617,7 @@ export const getPageLayoutWidgetDataSeeds = (
       },
       configuration: {
         configurationType: WidgetConfigurationType.IFRAME,
-        url: 'https://www.star-history.com/?repos=twentyhq%2Ftwenty&type=date&legend=top-left',
+        url: 'https://bades.id/statistik-desa',
       },
       objectMetadataId: null,
       overrides: null,

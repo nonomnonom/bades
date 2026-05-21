@@ -16,7 +16,7 @@ export const signUpOperationFactory = ({
         signUpInWorkspace(
             email: "${email}"
             password: "${password}"
-            workspaceInviteHash: "${workspaceInviteHash ?? 'apple.dev-invite-hash'}"
+            workspaceInviteHash: "${workspaceInviteHash ?? 'sukamaju.dev-invite-hash'}"
             workspaceId: "${workspaceId ?? SEED_APPLE_WORKSPACE_ID}"
         ) {
           workspace { id }

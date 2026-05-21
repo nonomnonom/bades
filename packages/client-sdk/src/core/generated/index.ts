@@ -1,5 +1,5 @@
 // Stub — this file is replaced by the generated client when the app
-// is installed or sync on a Twenty instance.
+// is installed or sync on a Bades.id instance.
 // Do not edit manually.
 export class CoreApiClient {
   query: any;
@@ -9,7 +9,7 @@ export class CoreApiClient {
   constructor() {
     throw new Error(
       'CoreApiClient was not generated. ' +
-        'Install this app on a Twenty instance or run `yarn twenty dev`.',
+        'Install this app on a Bades.id instance or run `yarn twenty dev`.',
     );
   }
 }

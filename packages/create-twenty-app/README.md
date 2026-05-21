@@ -12,7 +12,7 @@
 
 </div>
 
-The official scaffolding CLI for building apps on top of [Twenty CRM](https://twenty.com). Sets up a ready-to-run project with [twenty-sdk](https://www.npmjs.com/package/twenty-sdk).
+The official scaffolding CLI for building apps on top of [Bades.id](https://twenty.com). Sets up a ready-to-run project with [twenty-sdk](https://www.npmjs.com/package/twenty-sdk).
 
 ## Quick start
 

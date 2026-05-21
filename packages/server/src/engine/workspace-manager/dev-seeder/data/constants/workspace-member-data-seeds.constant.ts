@@ -48,7 +48,7 @@ const originalWorkspaceMembers: WorkspaceMemberDataSeed[] = [
     locale: 'id',
     colorScheme: 'Light',
     userEmail: 'kepaladesa@sukamaju.desa.id',
-    userId: USER_DATA_SEED_IDS.TIM,
+    userId: USER_DATA_SEED_IDS.KADES,
   },
   {
     id: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
@@ -57,7 +57,7 @@ const originalWorkspaceMembers: WorkspaceMemberDataSeed[] = [
     locale: 'id',
     colorScheme: 'Light',
     userEmail: 'sekretaris@sukamaju.desa.id',
-    userId: USER_DATA_SEED_IDS.JONY,
+    userId: USER_DATA_SEED_IDS.SEKDES,
   },
   {
     id: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
@@ -66,7 +66,7 @@ const originalWorkspaceMembers: WorkspaceMemberDataSeed[] = [
     locale: 'id',
     colorScheme: 'Light',
     userEmail: 'kaur@bades.id',
-    userId: USER_DATA_SEED_IDS.PHIL,
+    userId: USER_DATA_SEED_IDS.KAUR,
   },
   {
     id: WORKSPACE_MEMBER_DATA_SEED_IDS.KASI,
@@ -75,7 +75,7 @@ const originalWorkspaceMembers: WorkspaceMemberDataSeed[] = [
     locale: 'id',
     colorScheme: 'Light',
     userEmail: 'kasi.pembangunan@bades.id',
-    userId: USER_DATA_SEED_IDS.JANE,
+    userId: USER_DATA_SEED_IDS.KASI,
   },
 ];
 

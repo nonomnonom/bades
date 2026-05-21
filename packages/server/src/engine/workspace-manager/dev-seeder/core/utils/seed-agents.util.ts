@@ -13,35 +13,35 @@ const agentMessageTableName = 'agentMessage';
 const agentMessagePartTableName = 'agentMessagePart';
 
 export const AGENT_DATA_SEED_IDS = {
-  APPLE_DEFAULT_AGENT: '20202020-0000-4000-8000-000000000001',
-  YCOMBINATOR_DEFAULT_AGENT: '20202020-0000-4000-8000-000000000002',
+  SUKAMAJU_DEFAULT_AGENT: '20202020-0000-4000-8000-000000000001',
+  MEKAR_SARI_DEFAULT_AGENT: '20202020-0000-4000-8000-000000000002',
 };
 
 export const AGENT_CHAT_THREAD_DATA_SEED_IDS = {
-  APPLE_DEFAULT_THREAD: '20202020-0000-4000-8000-000000000011',
-  YCOMBINATOR_DEFAULT_THREAD: '20202020-0000-4000-8000-000000000012',
+  SUKAMAJU_DEFAULT_THREAD: '20202020-0000-4000-8000-000000000011',
+  MEKAR_SARI_DEFAULT_THREAD: '20202020-0000-4000-8000-000000000012',
 };
 
 export const AGENT_CHAT_MESSAGE_DATA_SEED_IDS = {
-  APPLE_MESSAGE_1: '20202020-0000-4000-8000-000000000021',
-  APPLE_MESSAGE_2: '20202020-0000-4000-8000-000000000022',
-  APPLE_MESSAGE_3: '20202020-0000-4000-8000-000000000023',
-  APPLE_MESSAGE_4: '20202020-0000-4000-8000-000000000024',
-  YCOMBINATOR_MESSAGE_1: '20202020-0000-4000-8000-000000000031',
-  YCOMBINATOR_MESSAGE_2: '20202020-0000-4000-8000-000000000032',
-  YCOMBINATOR_MESSAGE_3: '20202020-0000-4000-8000-000000000033',
-  YCOMBINATOR_MESSAGE_4: '20202020-0000-4000-8000-000000000034',
+  SUKAMAJU_MESSAGE_1: '20202020-0000-4000-8000-000000000021',
+  SUKAMAJU_MESSAGE_2: '20202020-0000-4000-8000-000000000022',
+  SUKAMAJU_MESSAGE_3: '20202020-0000-4000-8000-000000000023',
+  SUKAMAJU_MESSAGE_4: '20202020-0000-4000-8000-000000000024',
+  MEKAR_SARI_MESSAGE_1: '20202020-0000-4000-8000-000000000031',
+  MEKAR_SARI_MESSAGE_2: '20202020-0000-4000-8000-000000000032',
+  MEKAR_SARI_MESSAGE_3: '20202020-0000-4000-8000-000000000033',
+  MEKAR_SARI_MESSAGE_4: '20202020-0000-4000-8000-000000000034',
 };
 
 export const AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS = {
-  APPLE_MESSAGE_1_PART_1: '20202020-0000-4000-8000-000000000041',
-  APPLE_MESSAGE_2_PART_1: '20202020-0000-4000-8000-000000000042',
-  APPLE_MESSAGE_3_PART_1: '20202020-0000-4000-8000-000000000043',
-  APPLE_MESSAGE_4_PART_1: '20202020-0000-4000-8000-000000000044',
-  YCOMBINATOR_MESSAGE_1_PART_1: '20202020-0000-4000-8000-000000000051',
-  YCOMBINATOR_MESSAGE_2_PART_1: '20202020-0000-4000-8000-000000000052',
-  YCOMBINATOR_MESSAGE_3_PART_1: '20202020-0000-4000-8000-000000000053',
-  YCOMBINATOR_MESSAGE_4_PART_1: '20202020-0000-4000-8000-000000000054',
+  SUKAMAJU_MESSAGE_1_PART_1: '20202020-0000-4000-8000-000000000041',
+  SUKAMAJU_MESSAGE_2_PART_1: '20202020-0000-4000-8000-000000000042',
+  SUKAMAJU_MESSAGE_3_PART_1: '20202020-0000-4000-8000-000000000043',
+  SUKAMAJU_MESSAGE_4_PART_1: '20202020-0000-4000-8000-000000000044',
+  MEKAR_SARI_MESSAGE_1_PART_1: '20202020-0000-4000-8000-000000000051',
+  MEKAR_SARI_MESSAGE_2_PART_1: '20202020-0000-4000-8000-000000000052',
+  MEKAR_SARI_MESSAGE_3_PART_1: '20202020-0000-4000-8000-000000000053',
+  MEKAR_SARI_MESSAGE_4_PART_1: '20202020-0000-4000-8000-000000000054',
 };
 
 type SeedChatThreadsArgs = {
@@ -59,11 +59,11 @@ const seedChatThreads = async ({
   let userWorkspaceId: string;
 
   if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
-    threadId = AGENT_CHAT_THREAD_DATA_SEED_IDS.APPLE_DEFAULT_THREAD;
-    userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.TIM;
+    threadId = AGENT_CHAT_THREAD_DATA_SEED_IDS.SUKAMAJU_DEFAULT_THREAD;
+    userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES;
   } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
-    threadId = AGENT_CHAT_THREAD_DATA_SEED_IDS.YCOMBINATOR_DEFAULT_THREAD;
-    userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.TIM_ACME;
+    threadId = AGENT_CHAT_THREAD_DATA_SEED_IDS.MEKAR_SARI_DEFAULT_THREAD;
+    userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME;
   } else {
     throw new Error(
       `Unsupported workspace ID for agent chat thread seeding: ${workspaceId}`,
@@ -136,16 +136,16 @@ const seedChatMessages = async ({
 
   if (workspaceId === SEED_APPLE_WORKSPACE_ID) {
     messageIds = [
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.APPLE_MESSAGE_1,
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.APPLE_MESSAGE_2,
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.APPLE_MESSAGE_3,
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.APPLE_MESSAGE_4,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.SUKAMAJU_MESSAGE_1,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.SUKAMAJU_MESSAGE_2,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.SUKAMAJU_MESSAGE_3,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.SUKAMAJU_MESSAGE_4,
     ];
     partIds = [
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.APPLE_MESSAGE_1_PART_1,
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.APPLE_MESSAGE_2_PART_1,
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.APPLE_MESSAGE_3_PART_1,
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.APPLE_MESSAGE_4_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.SUKAMAJU_MESSAGE_1_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.SUKAMAJU_MESSAGE_2_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.SUKAMAJU_MESSAGE_3_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.SUKAMAJU_MESSAGE_4_PART_1,
     ];
     turnIds = [
       '20202020-0000-4000-8000-000000000061',
@@ -193,7 +193,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          'Hello! Can you help me understand our current product roadmap and key metrics?',
+          'Halo! Bisakah kamu bantu saya memahami program layanan desa dan data warga saat ini?',
         createdAt: new Date(baseTime.getTime()),
       },
       {
@@ -203,7 +203,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          "Hello! I'd be happy to help you understand Apple's product roadmap and metrics. Based on your workspace data, I can see you have various projects and initiatives tracked. What specific aspect would you like to explore - product development timelines, user engagement metrics, or revenue targets?",
+          'Halo! Saya dengan senang hati membantu Anda memahami program layanan dan data warga Desa Sukamaju. Berdasarkan data workspace Anda, saya dapat melihat berbagai permohonan layanan dan program bantuan yang sedang berjalan. Aspek apa yang ingin Anda eksplorasi - data kependudukan, status permohonan layanan, atau realisasi program bantuan sosial?',
         createdAt: new Date(baseTime.getTime() + 5 * 60 * 1000),
       },
       {
@@ -213,7 +213,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          "I'd like to focus on our user engagement metrics and how they're trending over the last quarter.",
+          'Tolong tampilkan data permohonan layanan administrasi dan status penyelesaiannya bulan ini.',
         createdAt: new Date(baseTime.getTime() + 10 * 60 * 1000),
       },
       {
@@ -223,22 +223,22 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          'Great! Looking at your user engagement data, I can see several key trends from the last quarter. Your active user base has grown by 15%, with particularly strong engagement in the mobile app. Daily active users are averaging 2.3 million, and session duration has increased by 8%. Would you like me to dive deeper into any specific engagement metrics or create a detailed report?',
+          'Berikut ringkasan permohonan layanan administrasi bulan ini: Total permohonan masuk 47 berkas, sudah selesai 38 berkas (81%), dalam proses 6 berkas, dan menunggu kelengkapan dokumen 3 berkas. Layanan terbanyak adalah pembuatan surat keterangan (18 berkas) dan pengurusan KTP (12 berkas). Rata-rata waktu penyelesaian 2,3 hari kerja. Apakah ingin melihat detail per jenis layanan atau per petugas?',
         createdAt: new Date(baseTime.getTime() + 15 * 60 * 1000),
       },
     ];
   } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
     messageIds = [
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_1,
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_2,
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_3,
-      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_4,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_1,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_2,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_3,
+      AGENT_CHAT_MESSAGE_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_4,
     ];
     partIds = [
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_1_PART_1,
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_2_PART_1,
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_3_PART_1,
-      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.YCOMBINATOR_MESSAGE_4_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_1_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_2_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_3_PART_1,
+      AGENT_CHAT_MESSAGE_PART_DATA_SEED_IDS.MEKAR_SARI_MESSAGE_4_PART_1,
     ];
     turnIds = [
       '20202020-0000-4000-8000-000000000071',
@@ -286,7 +286,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          'What are the current startup trends and which companies in our portfolio are performing best?',
+          'Bagaimana kondisi pembangunan infrastruktur desa dan lembaga-lembaga mana yang paling aktif?',
         createdAt: new Date(baseTime.getTime()),
       },
       {
@@ -296,7 +296,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          'Hello! I can help you analyze startup trends and portfolio performance. From your YCombinator workspace data, I can see strong performance in AI/ML startups, particularly in the B2B SaaS space. Several companies are showing 40%+ month-over-month growth. Would you like me to provide specific company performance metrics or focus on broader industry trends?',
+          'Halo! Saya dapat membantu menganalisis kondisi pembangunan dan kinerja lembaga Desa Mekar Sari. Dari data workspace Anda, terlihat ada kemajuan baik dalam pembangunan infrastruktur. Beberapa lembaga menunjukkan keaktifan tinggi terutama PKK, BPD, dan Karang Taruna. Apakah ingin melihat realisasi anggaran pembangunan, atau laporan kinerja per lembaga?',
         createdAt: new Date(baseTime.getTime() + 3 * 60 * 1000),
       },
       {
@@ -306,7 +306,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          'Please focus on our top 5 performing companies and their key metrics.',
+          'Tolong tampilkan 5 lembaga paling aktif dan capaian program mereka.',
         createdAt: new Date(baseTime.getTime() + 8 * 60 * 1000),
       },
       {
@@ -316,7 +316,7 @@ const seedChatMessages = async ({
         orderIndex: 0,
         type: 'text',
         textContent:
-          'Here are your top 5 performing portfolio companies: 1) TechFlow AI - 45% MoM growth, $2M ARR, 2) DataSync Pro - 38% MoM growth, $1.5M ARR, 3) CloudOps Solutions - 35% MoM growth, $3.2M ARR, 4) SecureNet - 32% MoM growth, $1.8M ARR, 5) HealthTech Plus - 28% MoM growth, $2.5M ARR. All are showing strong customer retention (>95%) and expanding market share. Would you like detailed breakdowns for any specific company?',
+          'Berikut 5 lembaga paling aktif: 1) PKK - 95% program terlaksana, 12 kegiatan bulan ini; 2) BPD - 4 rapat pleno, 2 peraturan desa disahkan; 3) Karang Taruna - 8 kegiatan kepemudaan, 150 anggota aktif; 4) Kelompok Tani Maju - produktivitas naik 20%, area tanam 15 ha; 5) Posyandu Melati - 98% balita terpantau, 0 kasus gizi buruk. Semua lembaga menunjukkan kinerja baik. Apakah ingin detail laporan untuk lembaga tertentu?',
         createdAt: new Date(baseTime.getTime() + 12 * 60 * 1000),
       },
     ];
@@ -326,7 +326,6 @@ const seedChatMessages = async ({
     );
   }
 
-  // Create turns first
   const turns = turnIds.map((id, index) => ({
     id,
     workspaceId,

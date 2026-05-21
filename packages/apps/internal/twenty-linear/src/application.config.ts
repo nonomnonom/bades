@@ -6,7 +6,7 @@ export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
   displayName: 'Linear',
   description:
-    'Connect Linear to Twenty. Each workspace member connects their own Linear account; logic functions can then create issues and read team data on their behalf.',
+    'Connect Linear to Bades.id. Each workspace member connects their own Linear account; logic functions can then create issues and read team data on their behalf.',
   logoUrl: 'public/linear-logomark.svg',
   aboutDescription: ABOUT_DESCRIPTION,
   applicationVariables: undefined,

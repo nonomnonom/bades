@@ -472,7 +472,7 @@ export function generateRandomUsers(): {
 
     const firstName = FIRST_NAMES[firstNameIndex];
     const lastName = LAST_NAMES[lastNameIndex];
-    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}${i}@apple.dev`;
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}${i}@gmail.com`;
 
     // Generate consistent UUIDs based on index
     const userId =

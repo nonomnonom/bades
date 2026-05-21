@@ -121,7 +121,7 @@ Runs integration tests on every push to `main` and every pull request.
 **What it does:**
 
 1. Checks out your app's source.
-2. Spawns an isolated Bades.id test instance using the `twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main` composite action (the CI equivalent of `yarn twenty docker:start --test`).
+2. Spawns an isolated Bades.id test instance using the `badesid/bades/.github/actions/spawn-twenty-app-dev-test@main` composite action (the CI equivalent of `yarn twenty docker:start --test`).
 3. Enables Corepack, sets up Node.js from your `.nvmrc`, and installs dependencies with `yarn install --immutable`.
 4. Runs `yarn test`, passing `TWENTY_API_URL` and `TWENTY_API_KEY` from the spawned instance so your tests can talk to a real server.
 
@@ -139,8 +139,8 @@ Deploys your app to a configured Bades.id server on every push to `main`, and op
 **What it does:**
 
 1. Checks out the PR head (for labeled PRs) or the pushed commit.
-2. Runs `twentyhq/twenty/.github/actions/deploy-twenty-app@main` — the CI equivalent of `yarn twenty app:publish --private`.
-3. Runs `twentyhq/twenty/.github/actions/install-twenty-app@main` so the newly deployed version is installed into the target workspace.
+2. Runs `badesid/bades/.github/actions/deploy-twenty-app@main` — the CI equivalent of `yarn twenty app:publish --private`.
+3. Runs `badesid/bades/.github/actions/install-twenty-app@main` so the newly deployed version is installed into the target workspace.
 
 **Required configuration:**
 
@@ -159,7 +159,7 @@ Add the `deploy` label to a pull request. The `if:` guard in `cd.yml` will run t
 
 ### Pinning the reusable actions
 
-Both workflows reference reusable actions at `@main`, so action updates in the `twentyhq/twenty` repo are picked up automatically. If you want deterministic builds, replace `@main` with a commit SHA or release tag on each `uses:` line.
+Both workflows reference reusable actions at `@main`, so action updates in the `badesid/bades` repo are picked up automatically. If you want deterministic builds, replace `@main` with a commit SHA or release tag on each `uses:` line.
 
 ## Publishing to npm
 

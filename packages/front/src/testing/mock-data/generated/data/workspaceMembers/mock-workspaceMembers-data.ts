@@ -4307,7 +4307,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
           "__typename": "ConnectedAccountEdge",
           "node": {
             "__typename": "ConnectedAccount",
-            "handle": "tim@apple.dev",
+            "handle": "kades@sukamaju.desa.id",
             "id": "20202020-9ac0-4390-9a1a-ab4d2c4e1bb7"
           }
         }
@@ -14333,7 +14333,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "tim@apple.dev",
+    "userEmail": "kades@sukamaju.desa.id",
     "userId": "20202020-9e3b-46d4-a556-88b9ddc2b034"
   },
   {
@@ -18610,7 +18610,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
           "__typename": "ConnectedAccountEdge",
           "node": {
             "__typename": "ConnectedAccount",
-            "handle": "phil.schiler@apple.dev",
+            "handle": "kaur@sukamaju.desa.id",
             "id": "20202020-cafc-4323-908d-e5b42ad69fdf"
           }
         }
@@ -18657,7 +18657,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "phil.schiler@apple.dev",
+    "userEmail": "kaur@sukamaju.desa.id",
     "userId": "20202020-7169-42cf-bc47-1cfef15264b8"
   },
   {
@@ -18752,7 +18752,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "jane.austen@apple.dev",
+    "userEmail": "kasi@sukamaju.desa.id",
     "userId": "20202020-e6b5-4680-8a32-b8209737156b"
   },
   {
@@ -23457,7 +23457,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
           "__typename": "ConnectedAccountEdge",
           "node": {
             "__typename": "ConnectedAccount",
-            "handle": "jony.ive@apple.dev",
+            "handle": "sekdes@sukamaju.desa.id",
             "id": "20202020-0cc8-4d60-a3a4-803245698908"
           }
         }
@@ -23504,7 +23504,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "jony.ive@apple.dev",
+    "userEmail": "sekdes@sukamaju.desa.id",
     "userId": "20202020-3957-4908-9c36-2929a23f8357"
   },
   {
@@ -23573,7 +23573,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "sara.richardson1@apple.dev",
+    "userEmail": "warga1@sukamaju.desa.id",
     "userId": "30303030-0001-4000-8000-000000000000"
   },
   {
@@ -23659,7 +23659,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "deborah.ryan2@apple.dev",
+    "userEmail": "warga2@sukamaju.desa.id",
     "userId": "30303030-0002-4000-8000-000000000000"
   },
   {
@@ -23746,7 +23746,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "victoria.gordon3@apple.dev",
+    "userEmail": "warga3@sukamaju.desa.id",
     "userId": "30303030-0003-4000-8000-000000000000"
   },
   {
@@ -23815,7 +23815,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "roman.gray4@apple.dev",
+    "userEmail": "warga4@sukamaju.desa.id",
     "userId": "30303030-0004-4000-8000-000000000000"
   },
   {
@@ -23884,7 +23884,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "ruth.palmer5@apple.dev",
+    "userEmail": "warga5@sukamaju.desa.id",
     "userId": "30303030-0005-4000-8000-000000000000"
   },
   {
@@ -23953,7 +23953,7 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
       "name": "System",
       "context": null
     },
-    "userEmail": "dylan.alexander6@apple.dev",
+    "userEmail": "warga6@sukamaju.desa.id",
     "userId": "30303030-0006-4000-8000-000000000000"
   }
 ];

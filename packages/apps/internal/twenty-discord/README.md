@@ -1,6 +1,6 @@
-# Discord for Twenty
+# Discord for Bades.id
 
-Connect Discord to your Twenty workflows. Post messages, edit them, react,
+Connect Discord to your Bades.id workflows. Post messages, edit them, react,
 delete, and browse channels — all from the workflow builder or the AI chat.
 
 ## What you can do
@@ -26,12 +26,12 @@ available in workflows and the AI chat:
 
 ## Installing
 
-1. Open **Settings → Applications** in your Twenty workspace.
+1. Open **Settings → Aplikasi** in your Bades.id workspace.
 2. Find **Discord** in the available apps and click **Install**.
 3. Use any of the tools above in a workflow step or via the AI chat.
 
 > **Heads up:** if you see *"Discord is not configured"* on the first run,
-> your Twenty admin needs to follow the [Self-hosting setup](#self-hosting-setup-admin-only)
+> your Bades.id admin needs to follow the [Self-hosting setup](#self-hosting-setup-admin-only)
 > section below — they need to create a Discord application and provide the
 > bot token before the tools work.
 
@@ -63,7 +63,7 @@ What this connector intentionally does **not** support in v1:
 - **Webhooks.** Uses the bot REST API only.
 - **Slash commands / interactions.** The bot doesn't register or respond to
   `/commands`.
-- **Per-workspace identity.** All Twenty workspaces in the same Twenty
+- **Per-workspace identity.** All Bades.id workspaces in the same Bades.id
   deployment share the same Discord bot — see
   [Why bot token instead of OAuth?](#why-bot-token-instead-of-oauth) below.
 - **2000-character message limit.** Discord rejects longer payloads with
@@ -73,7 +73,7 @@ What this connector intentionally does **not** support in v1:
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `Discord is not configured` | `DISCORD_BOT_TOKEN` not set | Admin: paste the bot token in Settings → Applications → Discord → **Settings tab** |
+| `Discord is not configured` | `DISCORD_BOT_TOKEN` not set | Admin: paste the bot token in Settings → Aplikasi → Discord → **Settings tab** |
 | `401 Unauthorized` | Token wrong, copied with whitespace, or rotated | Reset the token in the Discord Developer Portal and re-paste |
 | `Missing Access (50001)` | Bot wasn't invited to that server | Re-run the OAuth invite URL for that server (see admin setup) |
 | `Missing Permissions (50013)` | Bot is in the server but lacks Send / Manage / React permissions | In Discord: server settings → roles → grant the bot's role the missing permission |
@@ -87,14 +87,14 @@ What this connector intentionally does **not** support in v1:
 
 ## Self-hosting setup (admin-only)
 
-This section is for Twenty server admins. If you're on Twenty Cloud, skip
+This section is for Bades.id server admins. If you're on Bades.id Cloud, skip
 this — the bot credentials are already configured.
 
 ### 1. Create a Discord application
 
 1. Visit https://discord.com/developers/applications and click
    **New Application**.
-2. Name it (e.g. *"Twenty Bot"*) and create. Use a dedicated app — don't
+2. Name it (e.g. *"Bades.id Bot"*) and create. Use a dedicated app — don't
    reuse one configured for other bots.
 3. Sidebar → **Bot** tab → **Reset Token** → copy the token immediately
    (it's only shown once; if you lose it, reset again).
@@ -111,9 +111,9 @@ this — the bot credentials are already configured.
 5. Open the URL in your browser, pick the Discord server, authorize.
    Repeat for each server you want workflows to post in.
 
-### 3. Wire the bot token into Twenty
+### 3. Wire the bot token into Bades.id
 
-1. In Twenty: **Settings → Applications → Discord → Settings tab**
+1. In Bades.id: **Settings → Aplikasi → Discord → Settings tab**
    (gear icon).
 2. Paste the bot token into the `DISCORD_BOT_TOKEN` row. Saves on blur.
 
@@ -126,7 +126,7 @@ where each user connects their own account).
 ## Why bot token instead of OAuth?
 
 Slack and Linear use OAuth-per-workspace
-(`defineConnectionProvider({ type: 'oauth' })`) so each Twenty workspace
+(`defineConnectionProvider({ type: 'oauth' })`) so each Bades.id workspace
 stores its own access token. Discord works differently:
 
 - Discord's `bot` scope **does** have an OAuth flow, but the `access_token`
@@ -165,7 +165,7 @@ yarn lint
 ```
 
 `twenty dev` is recommended for iteration — it publishes to your local
-Twenty server, installs the app, and watches for changes in one command.
+Bades.id server, installs the app, and watches for changes in one command.
 
 The Discord REST API (v10) is called directly via `fetch` — no `discord.js`
 or other SDK dependency. See

@@ -24,7 +24,7 @@ import {
 } from '@/utils/docker-install';
 
 const CURRENT_EXECUTION_DIRECTORY = process.env.INIT_CWD || process.cwd();
-const IMAGE = 'twentycrm/twenty-app-dev:latest';
+const IMAGE = 'badesid/bades-app-dev:latest';
 
 export type AuthenticationMethod = 'oauth' | 'apiKey';
 
@@ -202,7 +202,7 @@ export class CreateAppCommand {
     const appName = (
       options.name ??
       options.directory ??
-      'my-twenty-app'
+      'my-bades-app'
     ).trim();
 
     const appDisplayName =
@@ -565,7 +565,7 @@ export class CreateAppCommand {
         const configService = new ConfigService();
 
         await configService.setDefaultRemote('local');
-        this.logDetail('Authenticated as tim@apple.dev (development API key)');
+        this.logDetail('Authenticated as admin@desa.id (development API key)');
 
         return true;
       }

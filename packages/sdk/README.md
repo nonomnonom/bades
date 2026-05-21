@@ -12,7 +12,7 @@
 
 </div>
 
-A CLI and SDK to develop, build, and publish applications that extend [Twenty CRM](https://twenty.com).
+A CLI and SDK to develop, build, and publish applications that extend [Bades.id](https://twenty.com).
 
 ## Quick start
 

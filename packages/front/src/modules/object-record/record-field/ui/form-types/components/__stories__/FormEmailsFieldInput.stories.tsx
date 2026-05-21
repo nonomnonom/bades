@@ -20,7 +20,7 @@ export const Default: Story = {
   args: {
     label: 'Emails',
     defaultValue: {
-      primaryEmail: 'tim@twenty.com',
+      primaryEmail: 'tim@bades.id',
       additionalEmails: [],
     },
   },
@@ -57,7 +57,7 @@ export const Disabled: Story = {
   args: {
     label: 'Emails',
     defaultValue: {
-      primaryEmail: 'tim@twenty.com',
+      primaryEmail: 'tim@bades.id',
       additionalEmails: [],
     },
     onChange: fn(),

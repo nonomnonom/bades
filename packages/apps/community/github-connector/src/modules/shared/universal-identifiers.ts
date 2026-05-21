@@ -1,8 +1,8 @@
 export const APP_DISPLAY_NAME = 'GitHub Connector';
 export const APP_DESCRIPTION =
-  'Sync pull requests, reviews, issues, contributors and Projects (v2) items from GitHub into Twenty.';
+  'Sync pull requests, reviews, issues, contributors and Projects (v2) items from GitHub into Bades.id.';
 export const APP_ABOUT_DESCRIPTION = [
-  'Bring your GitHub activity into Twenty as native records you can view, filter, group and report on alongside the rest of your CRM data.',
+  'Bring your GitHub activity into Bades.id as native records you can view, filter, group and report on alongside the rest of your CRM data.',
   '',
   '**What gets synced**',
   '- Pull requests, pull-request reviews and review events',

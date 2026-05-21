@@ -5,7 +5,7 @@ describe('getWorkspaceUrl', () => {
   it('should return customUrl when it is defined', () => {
     const workspaceUrls: WorkspaceUrls = {
       customUrl: 'https://custom.example.com',
-      subdomainUrl: 'https://subdomain.twenty.com',
+      subdomainUrl: 'https://subdomain.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);
@@ -16,7 +16,7 @@ describe('getWorkspaceUrl', () => {
   it('should return subdomainUrl when customUrl is null', () => {
     const workspaceUrls: WorkspaceUrls = {
       customUrl: null,
-      subdomainUrl: 'https://subdomain.twenty.com',
+      subdomainUrl: 'https://subdomain.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);
@@ -27,7 +27,7 @@ describe('getWorkspaceUrl', () => {
   it('should return subdomainUrl when customUrl is undefined', () => {
     const workspaceUrls: WorkspaceUrls = {
       customUrl: undefined,
-      subdomainUrl: 'https://subdomain.twenty.com',
+      subdomainUrl: 'https://subdomain.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);
@@ -49,7 +49,7 @@ describe('getWorkspaceUrl', () => {
   it('should return empty string when customUrl is empty string', () => {
     const workspaceUrls: WorkspaceUrls = {
       customUrl: '',
-      subdomainUrl: 'https://subdomain.twenty.com',
+      subdomainUrl: 'https://subdomain.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);
@@ -60,7 +60,7 @@ describe('getWorkspaceUrl', () => {
   it('should return subdomainUrl when customUrl is explicitly undefined', () => {
     const workspaceUrls: WorkspaceUrls = {
       customUrl: undefined,
-      subdomainUrl: 'https://subdomain.twenty.com',
+      subdomainUrl: 'https://subdomain.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);

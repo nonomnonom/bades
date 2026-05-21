@@ -103,7 +103,7 @@ export const InviteTeam = () => {
 
   const getPlaceholder = (emailIndex: number) => {
     if (emailIndex === 0) {
-      return 'tim@apple.com';
+      return 'kades@sukamaju.desa.id';
     }
     if (emailIndex === 1) {
       return 'phil@apple.com';

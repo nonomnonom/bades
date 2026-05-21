@@ -1,17 +1,17 @@
-# Twenty Documentation
+# Bades.id Documentation
 
-Official documentation for Twenty CRM, powered by [Mintlify](https://mintlify.com).
+Official documentation for Bades.id - Sistem Informasi Desa, powered by [Mintlify](https://mintlify.com).
 
-## 🌐 Live Site
+## Live Site
 
-Visit the documentation at [docs.twenty.com](https://docs.twenty.com)
+Visit the documentation at [docs.bades.id](https://docs.bades.id)
 
-## 📚 Content
+## Content
 
 This repository contains:
-- **User Guide** (46 pages) - Complete guide for Twenty users
-- **Developers** (24 pages) - Technical documentation for developers
-- **Twenty UI** (25 pages) - UI component library documentation
+- **Panduan Pengguna** (46 pages) - Complete guide for Bades.id users
+- **Pengembang** (24 pages) - Technical documentation for developers
+- **Bades UI** (25 pages) - UI component library documentation
 
 ## 🚀 Local Development
 
@@ -79,10 +79,10 @@ Your content here...
 npx nx run twenty-docs:validate
 ```
 
-## 🔗 Links
+## Links
 
-- [Twenty Website](https://twenty.com)
-- [GitHub Repository](https://github.com/twentyhq/twenty)
+- [Bades.id Website](https://bades.id)
+- [GitHub Repository](https://github.com/badesid/bades)
 - [Mintlify Documentation](https://mintlify.com/docs)
 
 ## 🤝 Contributing

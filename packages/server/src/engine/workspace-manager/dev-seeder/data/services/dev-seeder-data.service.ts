@@ -86,25 +86,53 @@ import {
   PERSON_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/person-data-seeds.constant';
 import {
-  PET_CARE_AGREEMENT_DATA_SEED_COLUMNS,
-  PET_CARE_AGREEMENT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/pet-care-agreement-data-seeds.constant';
-import {
-  PET_DATA_SEED_COLUMNS,
-  PET_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/pet-data-seeds.constant';
-import {
   PENDUDUK_DATA_SEED_COLUMNS,
   PENDUDUK_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 import {
-  ROCKET_DATA_SEED_COLUMNS,
-  ROCKET_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/rocket-data-seeds.constant';
+  KELUARGA_DATA_SEED_COLUMNS,
+  KELUARGA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/keluarga-data-seeds.constant';
 import {
-  SURVEY_RESULT_DATA_SEED_COLUMNS,
-  SURVEY_RESULT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/survey-result-data-seeds.constant';
+  JENIS_SURAT_DATA_SEED_COLUMNS,
+  JENIS_SURAT_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/jenis-surat-data-seeds.constant';
+import {
+  PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
+  PERMOHONAN_SURAT_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/permohonan-surat-data-seeds.constant';
+import {
+  JABATAN_DATA_SEED_COLUMNS,
+  JABATAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/jabatan-data-seeds.constant';
+import {
+  LEMBAGA_DESA_DATA_SEED_COLUMNS,
+  LEMBAGA_DESA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/lembaga-desa-data-seeds.constant';
+import {
+  ANGGARAN_DATA_SEED_COLUMNS,
+  ANGGARAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/anggaran-data-seeds.constant';
+import {
+  REALISASI_ANGGARAN_DATA_SEED_COLUMNS,
+  REALISASI_ANGGARAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/realisasi-anggaran-data-seeds.constant';
+import {
+  PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
+  PROGRAM_BANTUAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/program-bantuan-data-seeds.constant';
+import {
+  PENERIMA_BANTUAN_DATA_SEED_COLUMNS,
+  PENERIMA_BANTUAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/penerima-bantuan-data-seeds.constant';
+import {
+  ASET_DESA_DATA_SEED_COLUMNS,
+  ASET_DESA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/aset-desa-data-seeds.constant';
+import {
+  UMKM_DATA_SEED_COLUMNS,
+  UMKM_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/umkm-data-seeds.constant';
 import {
   TASK_DATA_SEED_COLUMNS,
   TASK_DATA_SEEDS,
@@ -143,16 +171,6 @@ const getRecordSeedsBatches = (
       pgColumns: WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
       recordSeeds: getWorkspaceMemberDataSeeds(workspaceId),
     },
-    {
-      tableName: '_surveyResult',
-      pgColumns: SURVEY_RESULT_DATA_SEED_COLUMNS,
-      recordSeeds: SURVEY_RESULT_DATA_SEEDS,
-    },
-    {
-      tableName: '_rocket',
-      pgColumns: ROCKET_DATA_SEED_COLUMNS,
-      recordSeeds: ROCKET_DATA_SEEDS,
-    },
   ];
 
   // Batch 2: Depends on workspaceMember
@@ -182,14 +200,19 @@ const getRecordSeedsBatches = (
       recordSeeds: PERSON_DATA_SEEDS,
     },
     {
-      tableName: '_pet',
-      pgColumns: PET_DATA_SEED_COLUMNS,
-      recordSeeds: PET_DATA_SEEDS,
-    },
-    {
       tableName: 'penduduk',
       pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
       recordSeeds: PENDUDUK_DATA_SEEDS,
+    },
+    {
+      tableName: 'keluarga',
+      pgColumns: KELUARGA_DATA_SEED_COLUMNS,
+      recordSeeds: KELUARGA_DATA_SEEDS,
+    },
+    {
+      tableName: 'jenisSurat',
+      pgColumns: JENIS_SURAT_DATA_SEED_COLUMNS,
+      recordSeeds: JENIS_SURAT_DATA_SEEDS,
     },
     {
       tableName: 'messageChannel',
@@ -225,16 +248,56 @@ const getRecordSeedsBatches = (
       pgColumns: MESSAGE_THREAD_DATA_SEED_COLUMNS,
       recordSeeds: MESSAGE_THREAD_DATA_SEEDS,
     },
+    {
+      tableName: 'permohonanSurat',
+      pgColumns: PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
+      recordSeeds: PERMOHONAN_SURAT_DATA_SEEDS,
+    },
+    {
+      tableName: 'jabatan',
+      pgColumns: JABATAN_DATA_SEED_COLUMNS,
+      recordSeeds: JABATAN_DATA_SEEDS,
+    },
+    {
+      tableName: 'lembagaDesa',
+      pgColumns: LEMBAGA_DESA_DATA_SEED_COLUMNS,
+      recordSeeds: LEMBAGA_DESA_DATA_SEEDS,
+    },
+    {
+      tableName: 'anggaran',
+      pgColumns: ANGGARAN_DATA_SEED_COLUMNS,
+      recordSeeds: ANGGARAN_DATA_SEEDS,
+    },
+    {
+      tableName: 'realisasiAnggaran',
+      pgColumns: REALISASI_ANGGARAN_DATA_SEED_COLUMNS,
+      recordSeeds: REALISASI_ANGGARAN_DATA_SEEDS,
+    },
+    {
+      tableName: 'programBantuan',
+      pgColumns: PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
+      recordSeeds: PROGRAM_BANTUAN_DATA_SEEDS,
+    },
+    {
+      tableName: 'penerimaBantuan',
+      pgColumns: PENERIMA_BANTUAN_DATA_SEED_COLUMNS,
+      recordSeeds: PENERIMA_BANTUAN_DATA_SEEDS,
+    },
+    {
+      tableName: 'asetDesa',
+      pgColumns: ASET_DESA_DATA_SEED_COLUMNS,
+      recordSeeds: ASET_DESA_DATA_SEEDS,
+    },
+    {
+      tableName: 'umkm',
+      pgColumns: UMKM_DATA_SEED_COLUMNS,
+      recordSeeds: UMKM_DATA_SEEDS,
+    },
     // Junction tables
     {
       tableName: '_employmentHistory',
       pgColumns: EMPLOYMENT_HISTORY_DATA_SEED_COLUMNS,
       recordSeeds: EMPLOYMENT_HISTORY_DATA_SEEDS,
-    },
-    {
-      tableName: '_petCareAgreement',
-      pgColumns: PET_CARE_AGREEMENT_DATA_SEED_COLUMNS,
-      recordSeeds: PET_CARE_AGREEMENT_DATA_SEEDS,
     },
   ];
 

@@ -1,7 +1,7 @@
 # Fireflies for Twenty
 
 Sync [Fireflies](https://fireflies.ai) call transcripts and AI summaries onto
-the matching `CalendarEvent` in your Twenty CRM — searchable, in context, and
+the matching `CalendarEvent` in your Bades.id — searchable, in context, and
 ready for AI agents and workflows to act on. Plus on-demand workflow tools to
 sync, list, and search Fireflies calls from the AI chat or workflow builder.
 

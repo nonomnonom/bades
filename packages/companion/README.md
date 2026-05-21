@@ -1,4 +1,4 @@
-# Twenty Desktop
+# Bades Desktop
 
 > **WARNING: This application is a Proof of Concept (POC) and must NOT be used in production.** It is intended for demonstration and experimentation purposes only. Security, stability, and performance have not been validated for production use.
 
@@ -27,9 +27,9 @@ If you want to enable the AI summary after a recording is finished, you can spec
 OPENROUTER_KEY=<your key>
 ```
 
-### Twenty CRM Integration (optional)
+### Bades.id Integration (optional)
 
-To automatically create `callRecording` records in Twenty when a meeting starts (and mark them as ended when the meeting closes), configure:
+To automatically create `callRecording` records in Bades.id when a meeting starts (and mark them as ended when the meeting closes), configure:
 
 ```
 TWENTY_API_URL=http://localhost:3000
@@ -38,7 +38,7 @@ TWENTY_API_KEY=<your key>
 
 The `call-recording` Twenty app must be installed in your workspace first (`packages/twenty-apps/internal/call-recording`). Generate an API key at `<your-twenty-instance>/settings/api-webhooks`.
 
-To launch the Twenty Desktop application, start the server first, then the app:
+To launch the Bades Desktop application, start the server first, then the app:
 
 ```sh
 npm ci

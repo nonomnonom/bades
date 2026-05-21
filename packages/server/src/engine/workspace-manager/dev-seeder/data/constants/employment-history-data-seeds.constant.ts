@@ -18,33 +18,33 @@ export const EMPLOYMENT_HISTORY_DATA_SEED_IDS = {
   ID_5: '20202020-e001-4000-8000-000000000005',
 };
 
-// Sample employment histories: some people have worked at different companies
+// Riwayat keterlibatan warga dengan lembaga desa lain
 export const EMPLOYMENT_HISTORY_DATA_SEEDS: EmploymentHistoryDataSeed[] = [
-  // Mark Young (Person 1) previously worked at Company 2
+  // Ahmad Santoso (Person 1) sebelumnya terdaftar di lembaga 2
   {
     id: EMPLOYMENT_HISTORY_DATA_SEED_IDS.ID_1,
     personId: PERSON_DATA_SEED_IDS.ID_1,
     companyId: COMPANY_DATA_SEED_IDS.ID_2,
   },
-  // Mark Young (Person 1) also previously worked at Company 3
+  // Ahmad Santoso (Person 1) juga pernah terdaftar di lembaga 3
   {
     id: EMPLOYMENT_HISTORY_DATA_SEED_IDS.ID_2,
     personId: PERSON_DATA_SEED_IDS.ID_1,
     companyId: COMPANY_DATA_SEED_IDS.ID_3,
   },
-  // Gabriel Robinson (Person 2) previously worked at Company 4
+  // Budi Pratama (Person 2) sebelumnya terdaftar di lembaga 4
   {
     id: EMPLOYMENT_HISTORY_DATA_SEED_IDS.ID_3,
     personId: PERSON_DATA_SEED_IDS.ID_2,
     companyId: COMPANY_DATA_SEED_IDS.ID_4,
   },
-  // Kimberly Gordon (Person 3) previously worked at Company 1
+  // Siti Kusuma (Person 3) sebelumnya terdaftar di lembaga 1
   {
     id: EMPLOYMENT_HISTORY_DATA_SEED_IDS.ID_4,
     personId: PERSON_DATA_SEED_IDS.ID_3,
     companyId: COMPANY_DATA_SEED_IDS.ID_1,
   },
-  // Cindy Baker (Person 4) previously worked at Company 5
+  // Rizki Wijaya (Person 4) sebelumnya terdaftar di lembaga 5
   {
     id: EMPLOYMENT_HISTORY_DATA_SEED_IDS.ID_5,
     personId: PERSON_DATA_SEED_IDS.ID_4,

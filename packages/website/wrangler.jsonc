@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "twenty-website",
+  "name": "bades-website",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-04-15",
   // `global_fetch_strictly_public` forces the skew handler's cross-version
@@ -25,21 +25,21 @@
   },
   "env": {
     "dev": {
-      "name": "twenty-website-dev",
+      "name": "bades-website-dev",
       "routes": [
         {
-          "pattern": "twenty-main.com",
+          "pattern": "bades-main.com",
           "custom_domain": true,
         },
         {
-          "pattern": "www.twenty-main.com",
+          "pattern": "www.bades-main.com",
           "custom_domain": true,
         },
       ],
       "r2_buckets": [
         {
           "binding": "NEXT_INC_CACHE_R2_BUCKET",
-          "bucket_name": "twenty-website-cache-dev",
+          "bucket_name": "bades-website-cache-dev",
         },
       ],
       // Self-reference so OpenNext can fire-and-forget background ISR
@@ -48,52 +48,52 @@
       "services": [
         {
           "binding": "WORKER_SELF_REFERENCE",
-          "service": "twenty-website-dev",
+          "service": "bades-website-dev",
         },
       ],
       // Skew-protection runtime inputs. The handler reads these to construct
       // `<old-version-id>-<CF_WORKER_NAME>.<CF_PREVIEW_DOMAIN>.workers.dev`
       // when routing a stale request to an older Worker version.
       "vars": {
-        "CF_WORKER_NAME": "twenty-website-dev",
+        "CF_WORKER_NAME": "bades-website-dev",
         // OpenNext appends `.workers.dev` itself when constructing the
-        // per-version preview URL — passing the full `twentyhq.workers.dev`
-        // here would yield `…twentyhq.workers.dev.workers.dev` and 404.
+        // per-version preview URL — passing the full `badesid.workers.dev`
+        // here would yield `…badesid.workers.dev.workers.dev` and 404.
         // See https://github.com/opennextjs/opennextjs-cloudflare/issues/811
-        "CF_PREVIEW_DOMAIN": "twentyhq",
+        "CF_PREVIEW_DOMAIN": "badesid",
       },
     },
     "prod": {
-      "name": "twenty-website-prod",
+      "name": "bades-website-prod",
       "routes": [
         {
-          "pattern": "twenty.com",
+          "pattern": "bades.id",
           "custom_domain": true,
         },
         {
-          "pattern": "www.twenty.com",
+          "pattern": "www.bades.id",
           "custom_domain": true,
         },
       ],
       "r2_buckets": [
         {
           "binding": "NEXT_INC_CACHE_R2_BUCKET",
-          "bucket_name": "twenty-website-cache-prod",
+          "bucket_name": "bades-website-cache-prod",
         },
       ],
       "services": [
         {
           "binding": "WORKER_SELF_REFERENCE",
-          "service": "twenty-website-prod",
+          "service": "bades-website-prod",
         },
       ],
       "vars": {
-        "CF_WORKER_NAME": "twenty-website-prod",
+        "CF_WORKER_NAME": "bades-website-prod",
         // OpenNext appends `.workers.dev` itself when constructing the
-        // per-version preview URL — passing the full `twentyhq.workers.dev`
-        // here would yield `…twentyhq.workers.dev.workers.dev` and 404.
+        // per-version preview URL — passing the full `badesid.workers.dev`
+        // here would yield `…badesid.workers.dev.workers.dev` and 404.
         // See https://github.com/opennextjs/opennextjs-cloudflare/issues/811
-        "CF_PREVIEW_DOMAIN": "twentyhq",
+        "CF_PREVIEW_DOMAIN": "badesid",
       },
     },
   },

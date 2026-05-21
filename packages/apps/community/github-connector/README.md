@@ -1,15 +1,15 @@
 # GitHub Connector
 
 Sync pull requests, issues, contributors and project items from GitHub into
-Twenty, and react to GitHub webhook events in real time.
+Bades.id, and react to GitHub webhook events in real time.
 
 This app showcases how to build a non-trivial third-party connector with the
-Twenty SDK: custom objects with rich relationships, navigation menu items,
+Bades.id SDK: custom objects with rich relationships, navigation menu items,
 table views, a dashboard page layout, logic functions for periodic syncs, an
 HTTP webhook handler, and authenticated GraphQL/REST calls against an
 external provider.
 
-![GitHub Connector marketplace listing in Settings → Apps with About / Content / Permissions / Settings tabs](public/screenshots/app-listing.png)
+![GitHub Connector marketplace listing in Settings → Aplikasi with About / Content / Permissions / Settings tabs](public/screenshots/app-listing.png)
 
 ![GitHub Dashboard with PR / review counters, weekly histograms, and top-contributor leaderboards](public/screenshots/github-dashboard.png)
 
@@ -63,7 +63,7 @@ A top-level **GitHub** folder in the left sidebar with:
 
 ### Front components
 
-Seven front components surface the connector inside the Twenty UI:
+Seven front components surface the connector inside the Bades.id UI:
 
 - **Fetch Pull Requests** — command on the Pull Request object
 - **Fetch Issues** — command on the Issue object
@@ -84,15 +84,15 @@ iterating on the app, or **install** for a one-shot deploy.
 ### Option A — Live development (`yarn twenty dev`)
 
 Use this when you want every code change to be re-synced into your local
-Twenty server automatically.
+Bades.id server automatically.
 
 ```bash
 cd packages/apps/community/github-connector
 yarn install
 
-# Register your local Twenty server as a remote (interactive prompt).
+# Register your local Bades.id server as a remote (interactive prompt).
 # When asked for the URL use http://localhost:2021 and paste an API key
-# from Settings -> Developers in the Twenty UI.
+# from Settings -> Developers in the Bades.id UI.
 yarn twenty remote:add
 
 # Build, install, and watch for changes.
@@ -113,8 +113,8 @@ yarn twenty app:install       # builds and installs once
 
 ## Configure authentication
 
-Once the app is installed, open the Twenty UI and go to
-**Settings → Apps → GitHub Connector**. You only need one of the two auth
+Once the app is installed, open the Bades.id UI and go to
+**Settings → Aplikasi → GitHub Connector**. You only need one of the two auth
 methods.
 
 ### Option 1 — Personal Access Token (recommended for trying it out)
@@ -186,7 +186,7 @@ GitHub calls.
 
 ## Running a sync
 
-In the Twenty UI, open any of the GitHub objects (e.g. **Pull Requests**) and
+In the Bades.id UI, open any of the GitHub objects (e.g. **Pull Requests**) and
 trigger the matching command from the command palette (`Cmd/Ctrl+K`):
 
 | View              | Command               | Reads from        |
@@ -201,7 +201,7 @@ progress bar.
 
 ## Webhooks
 
-Point a GitHub repo or App webhook at the public URL of your Twenty server,
+Point a GitHub repo or App webhook at the public URL of your Bades.id server,
 path `POST /github/webhook`. Recommended event subscriptions:
 
 - Pull requests
@@ -215,13 +215,13 @@ verification. For local testing, expose your dev server with
 GitHub.
 
 > **Heads up — raw body required for signatures.** HMAC verification needs
-> the original request body bytes. The Twenty SDK currently parses JSON
+> the original request body bytes. The Bades.id SDK currently parses JSON
 > requests before handing them to logic functions, so when the runtime
 > delivers an already-parsed body the connector logs a warning and rejects
 > the delivery instead of silently accepting it. Until the SDK exposes the
 > raw bytes for HTTP routes, either leave `GITHUB_WEBHOOK_SECRET` unset (and
 > rely on a hard-to-guess `/github/webhook` URL plus IP allow-listing), or
-> terminate signature verification at a reverse proxy in front of Twenty.
+> terminate signature verification at a reverse proxy in front of Bades.id.
 
 ## How auth resolution works
 

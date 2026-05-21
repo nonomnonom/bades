@@ -29,17 +29,17 @@ export const DASHBOARD_DATA_SEED_COLUMNS: (keyof DashboardDataSeed)[] = [
 ];
 
 export const DASHBOARD_DATA_SEED_IDS = {
-  SALES_OVERVIEW: '20202020-9e82-4342-91ef-c9e70f16a675',
-  CUSTOMER_INSIGHTS: '20202020-d64e-4588-98cc-c56ba821247b',
-  TEAM_PERFORMANCE: '20202020-b888-4c58-8975-76b4c2035d3a',
+  LAYANAN_DESA: '20202020-9e82-4342-91ef-c9e70f16a675',
+  DATA_WARGA: '20202020-d64e-4588-98cc-c56ba821247b',
+  KINERJA_PERANGKAT: '20202020-b888-4c58-8975-76b4c2035d3a',
 };
 
 export const getDashboardDataSeeds = (
   workspaceId: string,
 ): DashboardDataSeed[] => [
   {
-    id: DASHBOARD_DATA_SEED_IDS.SALES_OVERVIEW,
-    title: 'Sales Overview',
+    id: DASHBOARD_DATA_SEED_IDS.LAYANAN_DESA,
+    title: 'Layanan Desa',
     pageLayoutId: generateSeedId(
       workspaceId,
       PAGE_LAYOUT_SEEDS.SALES_DASHBOARD,
@@ -53,30 +53,30 @@ export const getDashboardDataSeeds = (
     position: 0,
   },
   {
-    id: DASHBOARD_DATA_SEED_IDS.CUSTOMER_INSIGHTS,
-    title: 'Customer Insights',
+    id: DASHBOARD_DATA_SEED_IDS.DATA_WARGA,
+    title: 'Data Warga',
     pageLayoutId: generateSeedId(
       workspaceId,
       PAGE_LAYOUT_SEEDS.CUSTOMER_DASHBOARD,
     ),
     createdBySource: 'MANUAL',
     createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
-    createdByName: 'Jony Ive',
+    createdByName: 'Ahmad Hidayat',
     updatedBySource: 'MANUAL',
     updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,
-    updatedByName: 'Jony Ive',
+    updatedByName: 'Ahmad Hidayat',
     position: 1,
   },
   {
-    id: DASHBOARD_DATA_SEED_IDS.TEAM_PERFORMANCE,
-    title: 'Team & Activity',
+    id: DASHBOARD_DATA_SEED_IDS.KINERJA_PERANGKAT,
+    title: 'Kinerja Perangkat Desa',
     pageLayoutId: generateSeedId(workspaceId, PAGE_LAYOUT_SEEDS.TEAM_DASHBOARD),
     createdBySource: 'MANUAL',
     createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
-    createdByName: 'Phil Schiller',
+    createdByName: 'Dewi Lestari',
     updatedBySource: 'MANUAL',
     updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR,
-    updatedByName: 'Phil Schiller',
+    updatedByName: 'Dewi Lestari',
     position: 2,
   },
 ];

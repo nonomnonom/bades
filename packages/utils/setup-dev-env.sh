@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Twenty CRM — Development Environment Setup
+# Bades.id — Development Environment Setup
 # =============================================================================
 # Single entry point for setting up a dev environment. Idempotent.
 #
@@ -10,16 +10,16 @@
 #   3. Copies .env.example -> .env for front and server
 #
 # Usage (from repo root):
-#   bash packages/twenty-utils/setup-dev-env.sh          # start + configure
-#   bash packages/twenty-utils/setup-dev-env.sh --down    # stop services
-#   bash packages/twenty-utils/setup-dev-env.sh --reset   # wipe data + restart
-#   bash packages/twenty-utils/setup-dev-env.sh --docker  # force Docker mode
+#   bash packages/utils/setup-dev-env.sh          # start + configure
+#   bash packages/utils/setup-dev-env.sh --down   # stop services
+#   bash packages/utils/setup-dev-env.sh --reset  # wipe data + restart
+#   bash packages/utils/setup-dev-env.sh --docker # force Docker mode
 # =============================================================================
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-COMPOSE_FILE="$REPO_ROOT/packages/twenty-docker/docker-compose.dev.yml"
+COMPOSE_FILE="$REPO_ROOT/packages/docker/docker-compose.dev.yml"
 
 info()  { echo "=> $*"; }
 ok()    { echo "   done: $*"; }
@@ -228,10 +228,10 @@ info "Setting up .env files..."
 cd "$REPO_ROOT"
 
 if command -v npx &>/dev/null && [ -d node_modules ]; then
-  npx nx reset:env twenty-front
-  npx nx reset:env twenty-server
+  npx nx run front:reset:env
+  npx nx run server:reset:env
 else
-  for pkg in twenty-front twenty-server; do
+  for pkg in front server; do
     src="packages/$pkg/.env.example"
     dst="packages/$pkg/.env"
     if [ -f "$src" ] && [ ! -f "$dst" ]; then
@@ -246,6 +246,6 @@ echo ""
 echo "Dev environment ready."
 echo ""
 echo "  yarn start                         # start everything"
-echo "  npx nx start twenty-front          # frontend  -> http://localhost:3001"
-echo "  npx nx start twenty-server         # backend   -> http://localhost:3000"
+echo "  npx nx start front                 # frontend  -> http://localhost:3001"
+echo "  npx nx start server                # backend   -> http://localhost:3000"
 echo ""

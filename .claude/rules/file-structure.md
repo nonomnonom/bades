@@ -1,0 +1,48 @@
+# File Structure Guidelines
+
+## Frontend Layout
+
+```text
+packages/front/src/
+├── modules/        # Product features and workflows
+├── pages/          # Route-level pages
+├── generated/      # Generated GraphQL/types artifacts
+├── locales/        # Lingui catalogs such as id-ID.po
+├── testing/        # Test helpers and mock data
+└── utils/          # Shared frontend helpers
+```
+
+## Backend Layout
+
+```text
+packages/server/src/
+├── engine/         # Core platform, metadata, workspace migration
+├── modules/        # Feature modules outside the engine tree
+├── database/       # DB scripts, upgrade commands, migrations
+├── utils/          # Shared backend helpers
+└── command/        # Command entrypoints
+```
+
+## Naming and Exports
+
+- Use kebab-case for files and directories.
+- Prefer named exports.
+- Keep related tests close to the package conventions already in use:
+  frontend commonly uses `*.test.ts(x)`, backend commonly uses `*.spec.ts`,
+  integration uses `*.integration-spec.ts`.
+
+## Imports
+
+- Frontend commonly uses `@/` aliases for app-local imports.
+- Server code commonly uses `src/` aliases.
+- Cross-package shared imports should use published workspace entry points such
+  as `shared/metadata`, `shared/utils`, or `ui`.
+- Do not introduce `styled-components`; follow existing Linaria imports such as
+  `@linaria/react` and `@linaria/core`.
+
+## Practical Limits
+
+- Split large components or services when responsibilities start to blur.
+- Prefer adding focused utilities or hooks over growing one file into multiple
+  concerns.
+- Match the surrounding package conventions before introducing a new structure.

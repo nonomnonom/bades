@@ -9,7 +9,7 @@ describe('workflowStepConnectedAccountHandle', () => {
     });
 
     expect(result).toBeDefined();
-    expect(result.handle).toBe('jane.austen@apple.dev');
+    expect(result.handle).toBe('kasi@sukamaju.desa.id');
   });
 
   it('should return handle for another user account in the same workspace', async () => {

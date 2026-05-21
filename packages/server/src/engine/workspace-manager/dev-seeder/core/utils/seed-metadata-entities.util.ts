@@ -26,27 +26,27 @@ type SeedMetadataEntitiesArgs = {
 
 // YC workspace needs its own entity IDs since core tables have a single PK
 const YC_CONNECTED_ACCOUNT_IDS = {
-  TIM: '30303030-9ac0-4390-9a1a-ab4d2c4e1bb7',
-  JONY: '30303030-0cc8-4d60-a3a4-803245698908',
-  PHIL: '30303030-cafc-4323-908d-e5b42ad69fdf',
-  JANE: '30303030-b5c7-46f0-bf5c-3f4e4b3f7c1a',
+  KADES: '30303030-9ac0-4390-9a1a-ab4d2c4e1bb7',
+  SEKDES: '30303030-0cc8-4d60-a3a4-803245698908',
+  KAUR: '30303030-cafc-4323-908d-e5b42ad69fdf',
+  KASI: '30303030-b5c7-46f0-bf5c-3f4e4b3f7c1a',
   JANE_DELETABLE: '30303030-d1e5-4a8f-9c3b-7f6d5e4c3b2a',
 };
 
 const YC_MESSAGE_CHANNEL_IDS = {
-  TIM: '30303030-9b80-4c2c-a597-383db48de1d6',
-  JONY: '30303030-5ffe-4b32-814a-983d5e4911cd',
-  PHIL: '30303030-e2f1-49b5-85d2-5d3a3386990c',
-  JANE: '30303030-8c4d-4e71-a672-2e6a8c9f1b3d',
+  KADES: '30303030-9b80-4c2c-a597-383db48de1d6',
+  SEKDES: '30303030-5ffe-4b32-814a-983d5e4911cd',
+  KAUR: '30303030-e2f1-49b5-85d2-5d3a3386990c',
+  KASI: '30303030-8c4d-4e71-a672-2e6a8c9f1b3d',
   SUPPORT: '30303030-e2f1-49b5-85d2-5d3a3386990d',
   SALES: '30303030-e2f1-49b5-85d2-5d3a3386990e',
 };
 
 const YC_CALENDAR_CHANNEL_IDS = {
-  TIM: '30303030-a40f-4faf-bb9f-c6f9945b8203',
-  JONY: '30303030-a40f-4faf-bb9f-c6f9945b8204',
-  PHIL: '30303030-a40f-4faf-bb9f-c6f9945b8205',
-  JANE: '30303030-a40f-4faf-bb9f-c6f9945b8208',
+  KADES: '30303030-a40f-4faf-bb9f-c6f9945b8203',
+  SEKDES: '30303030-a40f-4faf-bb9f-c6f9945b8204',
+  KAUR: '30303030-a40f-4faf-bb9f-c6f9945b8205',
+  KASI: '30303030-a40f-4faf-bb9f-c6f9945b8208',
   COMPANY_MAIN: '30303030-a40f-4faf-bb9f-c6f9945b8206',
   TEAM_CALENDAR: '30303030-a40f-4faf-bb9f-c6f9945b8207',
 };
@@ -61,10 +61,10 @@ const YC_MESSAGE_FOLDER_IDS = {
 
 type WorkspaceSeedIds = {
   userWorkspaceIds: {
-    TIM: string;
-    JONY: string;
-    PHIL: string;
-    JANE: string;
+  KADES: string;
+  SEKDES: string;
+  KAUR: string;
+  KASI: string;
   };
   connectedAccountIds: typeof CONNECTED_ACCOUNT_DATA_SEED_IDS;
   messageChannelIds: typeof MESSAGE_CHANNEL_DATA_SEED_IDS;
@@ -76,10 +76,10 @@ const getSeedIds = (workspaceId: string): WorkspaceSeedIds => {
   if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
     return {
       userWorkspaceIds: {
-        TIM: USER_WORKSPACE_DATA_SEED_IDS.TIM_ACME,
-        JONY: USER_WORKSPACE_DATA_SEED_IDS.JONY_ACME,
-        PHIL: USER_WORKSPACE_DATA_SEED_IDS.PHIL_ACME,
-        JANE: USER_WORKSPACE_DATA_SEED_IDS.JANE_ACME,
+  KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME,
+  SEKDES: USER_WORKSPACE_DATA_SEED_IDS.SEKDES_ACME,
+  KAUR: USER_WORKSPACE_DATA_SEED_IDS.KAUR_ACME,
+  KASI: USER_WORKSPACE_DATA_SEED_IDS.KASI_ACME,
       },
       connectedAccountIds: YC_CONNECTED_ACCOUNT_IDS,
       messageChannelIds: YC_MESSAGE_CHANNEL_IDS,
@@ -90,10 +90,10 @@ const getSeedIds = (workspaceId: string): WorkspaceSeedIds => {
 
   return {
     userWorkspaceIds: {
-      TIM: USER_WORKSPACE_DATA_SEED_IDS.TIM,
-      JONY: USER_WORKSPACE_DATA_SEED_IDS.JONY,
-      PHIL: USER_WORKSPACE_DATA_SEED_IDS.PHIL,
-      JANE: USER_WORKSPACE_DATA_SEED_IDS.JANE,
+  KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES,
+  SEKDES: USER_WORKSPACE_DATA_SEED_IDS.SEKDES,
+  KAUR: USER_WORKSPACE_DATA_SEED_IDS.KAUR,
+  KASI: USER_WORKSPACE_DATA_SEED_IDS.KASI,
     },
     connectedAccountIds: CONNECTED_ACCOUNT_DATA_SEED_IDS,
     messageChannelIds: MESSAGE_CHANNEL_DATA_SEED_IDS,
@@ -129,38 +129,38 @@ const seedConnectedAccounts = async ({
 
   const connectedAccounts = [
     {
-      id: ids.connectedAccountIds.TIM,
-      handle: 'tim@apple.dev',
+      id: ids.connectedAccountIds.KADES,
+      handle: 'kades@sukamaju.desa.id',
       provider: 'google',
-      userWorkspaceId: ids.userWorkspaceIds.TIM,
+      userWorkspaceId: ids.userWorkspaceIds.KADES,
       workspaceId,
     },
     {
-      id: ids.connectedAccountIds.JONY,
-      handle: 'jony.ive@apple.dev',
+      id: ids.connectedAccountIds.SEKDES,
+      handle: 'sekdes@sukamaju.desa.id',
       provider: 'google',
-      userWorkspaceId: ids.userWorkspaceIds.JONY,
+      userWorkspaceId: ids.userWorkspaceIds.SEKDES,
       workspaceId,
     },
     {
-      id: ids.connectedAccountIds.PHIL,
-      handle: 'phil.schiler@apple.dev',
+      id: ids.connectedAccountIds.KAUR,
+      handle: 'kaur@sukamaju.desa.id',
       provider: 'google',
-      userWorkspaceId: ids.userWorkspaceIds.PHIL,
+      userWorkspaceId: ids.userWorkspaceIds.KAUR,
       workspaceId,
     },
     {
-      id: ids.connectedAccountIds.JANE,
-      handle: 'jane.austen@apple.dev',
+      id: ids.connectedAccountIds.KASI,
+      handle: 'kasi@sukamaju.desa.id',
       provider: 'google',
-      userWorkspaceId: ids.userWorkspaceIds.JANE,
+      userWorkspaceId: ids.userWorkspaceIds.KASI,
       workspaceId,
     },
     {
       id: ids.connectedAccountIds.JANE_DELETABLE,
-      handle: 'jane-deletable@apple.dev',
+      handle: 'kasi-deletable@sukamaju.desa.id',
       provider: 'google',
-      userWorkspaceId: ids.userWorkspaceIds.JANE,
+      userWorkspaceId: ids.userWorkspaceIds.KASI,
       workspaceId,
     },
   ];
@@ -189,8 +189,8 @@ const seedMessageChannels = async ({
 
   const messageChannels = [
     {
-      id: ids.messageChannelIds.TIM,
-      handle: 'tim@apple.dev',
+      id: ids.messageChannelIds.KADES,
+      handle: 'kades@sukamaju.desa.id',
       visibility: MessageChannelVisibility.SHARE_EVERYTHING,
       type: MessageChannelType.EMAIL,
       syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -201,12 +201,12 @@ const seedMessageChannels = async ({
       excludeGroupEmails: false,
       pendingGroupEmailsAction: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.TIM,
+      connectedAccountId: ids.connectedAccountIds.KADES,
       workspaceId,
     },
     {
-      id: ids.messageChannelIds.JONY,
-      handle: 'jony.ive@apple.dev',
+      id: ids.messageChannelIds.SEKDES,
+      handle: 'sekdes@sukamaju.desa.id',
       visibility: MessageChannelVisibility.SHARE_EVERYTHING,
       type: MessageChannelType.EMAIL,
       syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -217,12 +217,12 @@ const seedMessageChannels = async ({
       excludeGroupEmails: false,
       pendingGroupEmailsAction: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.JONY,
+      connectedAccountId: ids.connectedAccountIds.SEKDES,
       workspaceId,
     },
     {
-      id: ids.messageChannelIds.PHIL,
-      handle: 'phil.schiler@apple.dev',
+      id: ids.messageChannelIds.KAUR,
+      handle: 'kaur@sukamaju.desa.id',
       visibility: MessageChannelVisibility.SHARE_EVERYTHING,
       type: MessageChannelType.EMAIL,
       syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -233,12 +233,12 @@ const seedMessageChannels = async ({
       excludeGroupEmails: false,
       pendingGroupEmailsAction: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.PHIL,
+      connectedAccountId: ids.connectedAccountIds.KAUR,
       workspaceId,
     },
     {
-      id: ids.messageChannelIds.JANE,
-      handle: 'jane.austen@apple.dev',
+      id: ids.messageChannelIds.KASI,
+      handle: 'kasi@sukamaju.desa.id',
       visibility: MessageChannelVisibility.SHARE_EVERYTHING,
       type: MessageChannelType.EMAIL,
       syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -249,12 +249,12 @@ const seedMessageChannels = async ({
       excludeGroupEmails: false,
       pendingGroupEmailsAction: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.JANE,
+      connectedAccountId: ids.connectedAccountIds.KASI,
       workspaceId,
     },
     {
       id: ids.messageChannelIds.SUPPORT,
-      handle: 'support@apple.dev',
+      handle: 'layanan@sukamaju.desa.id',
       visibility: MessageChannelVisibility.SHARE_EVERYTHING,
       type: MessageChannelType.EMAIL,
       syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -265,12 +265,12 @@ const seedMessageChannels = async ({
       excludeGroupEmails: false,
       pendingGroupEmailsAction: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.TIM,
+      connectedAccountId: ids.connectedAccountIds.KADES,
       workspaceId,
     },
     {
       id: ids.messageChannelIds.SALES,
-      handle: 'sales@apple.dev',
+      handle: 'admin@sukamaju.desa.id',
       visibility: MessageChannelVisibility.SHARE_EVERYTHING,
       type: MessageChannelType.EMAIL,
       syncStage: MessageChannelSyncStage.MESSAGE_LIST_FETCH_PENDING,
@@ -281,7 +281,7 @@ const seedMessageChannels = async ({
       excludeGroupEmails: false,
       pendingGroupEmailsAction: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.TIM,
+      connectedAccountId: ids.connectedAccountIds.KADES,
       workspaceId,
     },
   ];
@@ -319,69 +319,69 @@ const seedCalendarChannels = async ({
 
   const calendarChannels = [
     {
-      id: ids.calendarChannelIds.TIM,
-      handle: 'tim@apple.dev',
+      id: ids.calendarChannelIds.KADES,
+      handle: 'kades@sukamaju.desa.id',
       visibility: CalendarChannelVisibility.METADATA,
       syncStage: 'CALENDAR_EVENT_LIST_FETCH_PENDING',
       isContactAutoCreationEnabled: true,
       contactAutoCreationPolicy: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.TIM,
+      connectedAccountId: ids.connectedAccountIds.KADES,
       workspaceId,
     },
     {
-      id: ids.calendarChannelIds.JONY,
-      handle: 'jony@apple.dev',
+      id: ids.calendarChannelIds.SEKDES,
+      handle: 'sekdes@sukamaju.desa.id',
       visibility: CalendarChannelVisibility.SHARE_EVERYTHING,
       syncStage: 'CALENDAR_EVENT_LIST_FETCH_PENDING',
       isContactAutoCreationEnabled: true,
       contactAutoCreationPolicy: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.JONY,
+      connectedAccountId: ids.connectedAccountIds.SEKDES,
       workspaceId,
     },
     {
-      id: ids.calendarChannelIds.PHIL,
-      handle: 'phil@apple.dev',
+      id: ids.calendarChannelIds.KAUR,
+      handle: 'kaur@sukamaju.desa.id',
       visibility: CalendarChannelVisibility.METADATA,
       syncStage: 'CALENDAR_EVENT_LIST_FETCH_PENDING',
       isContactAutoCreationEnabled: true,
       contactAutoCreationPolicy: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.PHIL,
+      connectedAccountId: ids.connectedAccountIds.KAUR,
       workspaceId,
     },
     {
-      id: ids.calendarChannelIds.JANE,
-      handle: 'jane.austen@apple.dev',
+      id: ids.calendarChannelIds.KASI,
+      handle: 'kasi@sukamaju.desa.id',
       visibility: CalendarChannelVisibility.SHARE_EVERYTHING,
       syncStage: 'CALENDAR_EVENT_LIST_FETCH_PENDING',
       isContactAutoCreationEnabled: true,
       contactAutoCreationPolicy: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.JANE,
+      connectedAccountId: ids.connectedAccountIds.KASI,
       workspaceId,
     },
     {
       id: ids.calendarChannelIds.COMPANY_MAIN,
-      handle: 'company-main@apple.dev',
+      handle: 'kalender@sukamaju.desa.id',
       visibility: CalendarChannelVisibility.SHARE_EVERYTHING,
       syncStage: 'CALENDAR_EVENT_LIST_FETCH_PENDING',
       isContactAutoCreationEnabled: true,
       contactAutoCreationPolicy: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.TIM,
+      connectedAccountId: ids.connectedAccountIds.KADES,
       workspaceId,
     },
     {
       id: ids.calendarChannelIds.TEAM_CALENDAR,
-      handle: 'team-calendar@apple.dev',
+      handle: 'perangkat@sukamaju.desa.id',
       visibility: CalendarChannelVisibility.SHARE_EVERYTHING,
       syncStage: 'CALENDAR_EVENT_LIST_FETCH_PENDING',
       isContactAutoCreationEnabled: true,
       contactAutoCreationPolicy: 'NONE',
       isSyncEnabled: true,
-      connectedAccountId: ids.connectedAccountIds.TIM,
+      connectedAccountId: ids.connectedAccountIds.KADES,
       workspaceId,
     },
   ];
@@ -418,7 +418,7 @@ const seedMessageFolders = async ({
       name: 'INBOX',
       isSynced: true,
       isSentFolder: false,
-      messageChannelId: ids.messageChannelIds.TIM,
+      messageChannelId: ids.messageChannelIds.KADES,
       workspaceId,
       pendingSyncAction: MessageFolderPendingSyncAction.NONE,
     },
@@ -427,7 +427,7 @@ const seedMessageFolders = async ({
       name: 'INBOX',
       isSynced: true,
       isSentFolder: false,
-      messageChannelId: ids.messageChannelIds.JONY,
+      messageChannelId: ids.messageChannelIds.SEKDES,
       workspaceId,
       pendingSyncAction: MessageFolderPendingSyncAction.NONE,
     },
@@ -436,7 +436,7 @@ const seedMessageFolders = async ({
       name: 'INBOX',
       isSynced: true,
       isSentFolder: false,
-      messageChannelId: ids.messageChannelIds.JANE,
+      messageChannelId: ids.messageChannelIds.KASI,
       workspaceId,
       pendingSyncAction: MessageFolderPendingSyncAction.NONE,
     },
@@ -445,7 +445,7 @@ const seedMessageFolders = async ({
       name: 'Sent',
       isSynced: true,
       isSentFolder: true,
-      messageChannelId: ids.messageChannelIds.JANE,
+      messageChannelId: ids.messageChannelIds.KASI,
       workspaceId,
       pendingSyncAction: MessageFolderPendingSyncAction.NONE,
     },

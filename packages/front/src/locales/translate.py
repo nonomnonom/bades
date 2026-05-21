@@ -514,7 +514,7 @@ translations = {
     "Generate hash": "Buat hash",
     "Get a demo": "Dapatkan demo",
     "Get started": "Mulai",
-    "Given the circumstances, Twenty CRM may be the right fit for you.": "Mengingat situasinya, Twenty CRM mungkin cocok untuk Anda.",
+    "Given the circumstances, Bades.id may be the right fit for you.": "Mengingat situasinya, Bades.id mungkin cocok untuk Anda.",
     "Go back": "Kembali",
     "Go to settings": "Pergi ke pengaturan",
     "Group": "Grup",

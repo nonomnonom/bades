@@ -15,7 +15,7 @@ const HIGHLIGHT_NUM_SENTENCES = 5;
 const EXA_SEARCH_TIMEOUT_MS = 25_000;
 
 // Exa auto-search pricing (2025): $0.007 covers the first 10 results,
-// $0.001 per additional result. Twenty charges in micro-credits where
+// $0.001 per additional result. Bades.id charges in micro-credits where
 // 1 USD = 1_000_000 micro-credits (DOLLAR_TO_CREDIT_MULTIPLIER).
 const MICRO_CREDITS_PER_DOLLAR = 1_000_000;
 const EXA_BASE_COST_DOLLARS = 0.007;

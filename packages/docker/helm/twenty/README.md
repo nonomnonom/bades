@@ -1,6 +1,6 @@
-# Twenty Helm Chart
+# Bades.id Helm Chart
 
-Deploy Twenty CRM on Kubernetes with server, worker, PostgreSQL, and Redis components.
+Deploy Bades.id on Kubernetes with server, worker, PostgreSQL, and Redis components.
 
 ## Features
 - Server and worker deployments with full env exposure via `values.yaml`.

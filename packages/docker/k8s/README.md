@@ -1,11 +1,11 @@
-# Kubernetes for Twenty CRM (Helm)
+# Kubernetes for Bades.id (Helm)
 DISCLAIMER: The k8s and podman deployments are not maintained by the core team.
 These files are provided and maintained by the community. Twenty core team
 maintains support for docker deployment.
 
 ## Overview
 
-This repository contains a world-class Helm chart and (legacy) raw Kubernetes manifests plus Terraform files to help you deploy and manage the Twenty CRM application. The chart is located at `packages/twenty-docker/helm/twenty` and supersedes the manifests in `packages/twenty-docker/k8s/manifests`.
+This repository contains a world-class Helm chart and (legacy) raw Kubernetes manifests plus Terraform files to help you deploy and manage the Bades.id application. The chart is located at `packages/twenty-docker/helm/twenty` and supersedes the manifests in `packages/twenty-docker/k8s/manifests`.
 
 ## Prerequisites
 

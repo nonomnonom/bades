@@ -48,7 +48,7 @@ export const mockedRoles: Role[] =
           "lastName": "Austen"
         },
         "avatarUrl": "",
-        "userEmail": "jane.austen@apple.dev"
+        "userEmail": "kasi@sukamaju.desa.id"
       }
     ]
   },
@@ -85,7 +85,7 @@ export const mockedRoles: Role[] =
           "lastName": "Schiler"
         },
         "avatarUrl": "",
-        "userEmail": "phil.schiler@apple.dev"
+        "userEmail": "kaur@sukamaju.desa.id"
       }
     ]
   },
@@ -162,7 +162,7 @@ export const mockedRoles: Role[] =
           "lastName": "Apple"
         },
         "avatarUrl": "",
-        "userEmail": "tim@apple.dev"
+        "userEmail": "kades@sukamaju.desa.id"
       }
     ],
     "agents": [],
@@ -199,7 +199,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ive"
         },
         "avatarUrl": "",
-        "userEmail": "jony.ive@apple.dev"
+        "userEmail": "sekdes@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -210,7 +210,7 @@ export const mockedRoles: Role[] =
           "lastName": "Richardson"
         },
         "avatarUrl": "",
-        "userEmail": "sara.richardson1@apple.dev"
+        "userEmail": "warga1@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -221,7 +221,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ryan"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.ryan2@apple.dev"
+        "userEmail": "warga2@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -232,7 +232,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gordon"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.gordon3@apple.dev"
+        "userEmail": "warga3@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -243,7 +243,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "roman.gray4@apple.dev"
+        "userEmail": "warga4@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -254,7 +254,7 @@ export const mockedRoles: Role[] =
           "lastName": "Palmer"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.palmer5@apple.dev"
+        "userEmail": "warga5@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -265,7 +265,7 @@ export const mockedRoles: Role[] =
           "lastName": "Alexander"
         },
         "avatarUrl": "",
-        "userEmail": "dylan.alexander6@apple.dev"
+        "userEmail": "warga6@sukamaju.desa.id"
       },
       {
         "__typename": "WorkspaceMember",
@@ -276,7 +276,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunt"
         },
         "avatarUrl": "",
-        "userEmail": "jaxon.hunt7@apple.dev"
+        "userEmail": "jaxon.hunt7@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -287,7 +287,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.anderson8@apple.dev"
+        "userEmail": "alexander.anderson8@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -298,7 +298,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.reed9@apple.dev"
+        "userEmail": "olivia.reed9@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -309,7 +309,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hicks"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.hicks10@apple.dev"
+        "userEmail": "ruth.hicks10@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -320,7 +320,7 @@ export const mockedRoles: Role[] =
           "lastName": "Russell"
         },
         "avatarUrl": "",
-        "userEmail": "daniel.russell11@apple.dev"
+        "userEmail": "daniel.russell11@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -331,7 +331,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.simmons12@apple.dev"
+        "userEmail": "virginia.simmons12@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -342,7 +342,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chavez"
         },
         "avatarUrl": "",
-        "userEmail": "sara.chavez13@apple.dev"
+        "userEmail": "sara.chavez13@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -353,7 +353,7 @@ export const mockedRoles: Role[] =
           "lastName": "Powell"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.powell14@apple.dev"
+        "userEmail": "christopher.powell14@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -364,7 +364,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cooper"
         },
         "avatarUrl": "",
-        "userEmail": "betty.cooper15@apple.dev"
+        "userEmail": "betty.cooper15@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -375,7 +375,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ruiz"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.ruiz16@apple.dev"
+        "userEmail": "joseph.ruiz16@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -386,7 +386,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ellis"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.ellis17@apple.dev"
+        "userEmail": "kimberly.ellis17@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -397,7 +397,7 @@ export const mockedRoles: Role[] =
           "lastName": "Medina"
         },
         "avatarUrl": "",
-        "userEmail": "larry.medina18@apple.dev"
+        "userEmail": "larry.medina18@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -408,7 +408,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tran"
         },
         "avatarUrl": "",
-        "userEmail": "gloria.tran19@apple.dev"
+        "userEmail": "gloria.tran19@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -419,7 +419,7 @@ export const mockedRoles: Role[] =
           "lastName": "Richardson"
         },
         "avatarUrl": "",
-        "userEmail": "diane.richardson20@apple.dev"
+        "userEmail": "diane.richardson20@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -430,7 +430,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rodriguez"
         },
         "avatarUrl": "",
-        "userEmail": "mark.rodriguez21@apple.dev"
+        "userEmail": "mark.rodriguez21@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -441,7 +441,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "frances.wagner22@apple.dev"
+        "userEmail": "frances.wagner22@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -452,7 +452,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thompson"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.thompson23@apple.dev"
+        "userEmail": "anthony.thompson23@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -463,7 +463,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "carolyn.diaz24@apple.dev"
+        "userEmail": "carolyn.diaz24@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -474,7 +474,7 @@ export const mockedRoles: Role[] =
           "lastName": "Graham"
         },
         "avatarUrl": "",
-        "userEmail": "mary.graham25@apple.dev"
+        "userEmail": "mary.graham25@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -485,7 +485,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henry"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.henry26@apple.dev"
+        "userEmail": "samuel.henry26@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -496,7 +496,7 @@ export const mockedRoles: Role[] =
           "lastName": "Foster"
         },
         "avatarUrl": "",
-        "userEmail": "gloria.foster27@apple.dev"
+        "userEmail": "gloria.foster27@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -507,7 +507,7 @@ export const mockedRoles: Role[] =
           "lastName": "Porter"
         },
         "avatarUrl": "",
-        "userEmail": "tyler.porter28@apple.dev"
+        "userEmail": "tyler.porter28@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -518,7 +518,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "luke.turner29@apple.dev"
+        "userEmail": "luke.turner29@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -529,7 +529,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.aguilar30@apple.dev"
+        "userEmail": "sharon.aguilar30@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -540,7 +540,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanchez"
         },
         "avatarUrl": "",
-        "userEmail": "brian.sanchez31@apple.dev"
+        "userEmail": "brian.sanchez31@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -551,7 +551,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.adams32@apple.dev"
+        "userEmail": "patrick.adams32@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -562,7 +562,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "donald.mendez33@apple.dev"
+        "userEmail": "donald.mendez33@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -573,7 +573,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murphy"
         },
         "avatarUrl": "",
-        "userEmail": "mason.murphy34@apple.dev"
+        "userEmail": "mason.murphy34@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -584,7 +584,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "david.phillips35@apple.dev"
+        "userEmail": "david.phillips35@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -595,7 +595,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzales"
         },
         "avatarUrl": "",
-        "userEmail": "lucas.gonzales36@apple.dev"
+        "userEmail": "lucas.gonzales36@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -606,7 +606,7 @@ export const mockedRoles: Role[] =
           "lastName": "Davis"
         },
         "avatarUrl": "",
-        "userEmail": "owen.davis37@apple.dev"
+        "userEmail": "owen.davis37@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -617,7 +617,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "kelly.munoz38@apple.dev"
+        "userEmail": "kelly.munoz38@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -628,7 +628,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wells"
         },
         "avatarUrl": "",
-        "userEmail": "luke.wells39@apple.dev"
+        "userEmail": "luke.wells39@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -639,7 +639,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.munoz40@apple.dev"
+        "userEmail": "deborah.munoz40@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -650,7 +650,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mitchell"
         },
         "avatarUrl": "",
-        "userEmail": "douglas.mitchell41@apple.dev"
+        "userEmail": "douglas.mitchell41@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -661,7 +661,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "william.mason42@apple.dev"
+        "userEmail": "william.mason42@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -672,7 +672,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rodriguez"
         },
         "avatarUrl": "",
-        "userEmail": "maverick.rodriguez43@apple.dev"
+        "userEmail": "maverick.rodriguez43@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -683,7 +683,7 @@ export const mockedRoles: Role[] =
           "lastName": "Baker"
         },
         "avatarUrl": "",
-        "userEmail": "maverick.baker44@apple.dev"
+        "userEmail": "maverick.baker44@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -694,7 +694,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "kai.bennett45@apple.dev"
+        "userEmail": "kai.bennett45@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -705,7 +705,7 @@ export const mockedRoles: Role[] =
           "lastName": "Russell"
         },
         "avatarUrl": "",
-        "userEmail": "daniel.russell46@apple.dev"
+        "userEmail": "daniel.russell46@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -716,7 +716,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "brenda.murray47@apple.dev"
+        "userEmail": "brenda.murray47@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -727,7 +727,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kim"
         },
         "avatarUrl": "",
-        "userEmail": "jason.kim48@apple.dev"
+        "userEmail": "jason.kim48@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -738,7 +738,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "robert.moore49@apple.dev"
+        "userEmail": "robert.moore49@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -749,7 +749,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "maria.ross50@apple.dev"
+        "userEmail": "maria.ross50@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -760,7 +760,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nguyen"
         },
         "avatarUrl": "",
-        "userEmail": "jeffrey.nguyen51@apple.dev"
+        "userEmail": "jeffrey.nguyen51@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -771,7 +771,7 @@ export const mockedRoles: Role[] =
           "lastName": "Washington"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.washington52@apple.dev"
+        "userEmail": "jayden.washington52@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -782,7 +782,7 @@ export const mockedRoles: Role[] =
           "lastName": "Graham"
         },
         "avatarUrl": "",
-        "userEmail": "jessica.graham53@apple.dev"
+        "userEmail": "jessica.graham53@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -793,7 +793,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.wood54@apple.dev"
+        "userEmail": "jerry.wood54@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -804,7 +804,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.mendez55@apple.dev"
+        "userEmail": "andrew.mendez55@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -815,7 +815,7 @@ export const mockedRoles: Role[] =
           "lastName": "Young"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.young56@apple.dev"
+        "userEmail": "hudson.young56@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -826,7 +826,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "julie.coleman57@apple.dev"
+        "userEmail": "julie.coleman57@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -837,7 +837,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.bailey58@apple.dev"
+        "userEmail": "nancy.bailey58@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -848,7 +848,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "tyler.perez59@apple.dev"
+        "userEmail": "tyler.perez59@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -859,7 +859,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patterson"
         },
         "avatarUrl": "",
-        "userEmail": "christina.patterson60@apple.dev"
+        "userEmail": "christina.patterson60@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -870,7 +870,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cole"
         },
         "avatarUrl": "",
-        "userEmail": "oliver.cole61@apple.dev"
+        "userEmail": "oliver.cole61@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -881,7 +881,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "betty.king62@apple.dev"
+        "userEmail": "betty.king62@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -892,7 +892,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "judith.ross63@apple.dev"
+        "userEmail": "judith.ross63@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -903,7 +903,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brooks"
         },
         "avatarUrl": "",
-        "userEmail": "laura.brooks64@apple.dev"
+        "userEmail": "laura.brooks64@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -914,7 +914,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morris"
         },
         "avatarUrl": "",
-        "userEmail": "alan.morris65@apple.dev"
+        "userEmail": "alan.morris65@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -925,7 +925,7 @@ export const mockedRoles: Role[] =
           "lastName": "White"
         },
         "avatarUrl": "",
-        "userEmail": "janice.white66@apple.dev"
+        "userEmail": "janice.white66@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -936,7 +936,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nelson"
         },
         "avatarUrl": "",
-        "userEmail": "kelly.nelson67@apple.dev"
+        "userEmail": "kelly.nelson67@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -947,7 +947,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robertson"
         },
         "avatarUrl": "",
-        "userEmail": "donna.robertson68@apple.dev"
+        "userEmail": "donna.robertson68@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -958,7 +958,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bell"
         },
         "avatarUrl": "",
-        "userEmail": "ethan.bell69@apple.dev"
+        "userEmail": "ethan.bell69@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -969,7 +969,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.payne70@apple.dev"
+        "userEmail": "lisa.payne70@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -980,7 +980,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "betty.romero71@apple.dev"
+        "userEmail": "betty.romero71@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -991,7 +991,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chavez"
         },
         "avatarUrl": "",
-        "userEmail": "douglas.chavez72@apple.dev"
+        "userEmail": "douglas.chavez72@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1002,7 +1002,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hughes"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.hughes73@apple.dev"
+        "userEmail": "joseph.hughes73@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1013,7 +1013,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lee"
         },
         "avatarUrl": "",
-        "userEmail": "linda.lee74@apple.dev"
+        "userEmail": "linda.lee74@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1024,7 +1024,7 @@ export const mockedRoles: Role[] =
           "lastName": "West"
         },
         "avatarUrl": "",
-        "userEmail": "jessica.west75@apple.dev"
+        "userEmail": "jessica.west75@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1035,7 +1035,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "heather.diaz76@apple.dev"
+        "userEmail": "heather.diaz76@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1046,7 +1046,7 @@ export const mockedRoles: Role[] =
           "lastName": "Griffin"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.griffin77@apple.dev"
+        "userEmail": "sarah.griffin77@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1057,7 +1057,7 @@ export const mockedRoles: Role[] =
           "lastName": "Snyder"
         },
         "avatarUrl": "",
-        "userEmail": "luke.snyder78@apple.dev"
+        "userEmail": "luke.snyder78@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1068,7 +1068,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ruiz"
         },
         "avatarUrl": "",
-        "userEmail": "laura.ruiz79@apple.dev"
+        "userEmail": "laura.ruiz79@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1079,7 +1079,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stewart"
         },
         "avatarUrl": "",
-        "userEmail": "heather.stewart80@apple.dev"
+        "userEmail": "heather.stewart80@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1090,7 +1090,7 @@ export const mockedRoles: Role[] =
           "lastName": "Myers"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.myers81@apple.dev"
+        "userEmail": "catherine.myers81@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1101,7 +1101,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.dixon82@apple.dev"
+        "userEmail": "deborah.dixon82@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1112,7 +1112,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stevens"
         },
         "avatarUrl": "",
-        "userEmail": "judith.stevens83@apple.dev"
+        "userEmail": "judith.stevens83@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1123,7 +1123,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "julia.garza84@apple.dev"
+        "userEmail": "julia.garza84@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1134,7 +1134,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "jason.reyes85@apple.dev"
+        "userEmail": "jason.reyes85@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1145,7 +1145,7 @@ export const mockedRoles: Role[] =
           "lastName": "Williams"
         },
         "avatarUrl": "",
-        "userEmail": "william.williams86@apple.dev"
+        "userEmail": "william.williams86@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1156,7 +1156,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wilson"
         },
         "avatarUrl": "",
-        "userEmail": "karen.wilson87@apple.dev"
+        "userEmail": "karen.wilson87@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1167,7 +1167,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.diaz88@apple.dev"
+        "userEmail": "sarah.diaz88@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1178,7 +1178,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "donna.reynolds89@apple.dev"
+        "userEmail": "donna.reynolds89@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1189,7 +1189,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "angela.dunn90@apple.dev"
+        "userEmail": "angela.dunn90@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1200,7 +1200,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "martha.reynolds91@apple.dev"
+        "userEmail": "martha.reynolds91@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1211,7 +1211,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bryant"
         },
         "avatarUrl": "",
-        "userEmail": "frances.bryant92@apple.dev"
+        "userEmail": "frances.bryant92@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1222,7 +1222,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "lincoln.lewis93@apple.dev"
+        "userEmail": "lincoln.lewis93@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1233,7 +1233,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vasquez"
         },
         "avatarUrl": "",
-        "userEmail": "joan.vasquez94@apple.dev"
+        "userEmail": "joan.vasquez94@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1244,7 +1244,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "kai.aguilar95@apple.dev"
+        "userEmail": "kai.aguilar95@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1255,7 +1255,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "scott.king96@apple.dev"
+        "userEmail": "scott.king96@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1266,7 +1266,7 @@ export const mockedRoles: Role[] =
           "lastName": "Watson"
         },
         "avatarUrl": "",
-        "userEmail": "owen.watson97@apple.dev"
+        "userEmail": "owen.watson97@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1277,7 +1277,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanchez"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.sanchez98@apple.dev"
+        "userEmail": "sarah.sanchez98@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1288,7 +1288,7 @@ export const mockedRoles: Role[] =
           "lastName": "Daniels"
         },
         "avatarUrl": "",
-        "userEmail": "douglas.daniels99@apple.dev"
+        "userEmail": "douglas.daniels99@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1299,7 +1299,7 @@ export const mockedRoles: Role[] =
           "lastName": "Long"
         },
         "avatarUrl": "",
-        "userEmail": "marie.long100@apple.dev"
+        "userEmail": "marie.long100@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1310,7 +1310,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "henry.torres101@apple.dev"
+        "userEmail": "henry.torres101@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1321,7 +1321,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.spencer102@apple.dev"
+        "userEmail": "sharon.spencer102@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1332,7 +1332,7 @@ export const mockedRoles: Role[] =
           "lastName": "Boyd"
         },
         "avatarUrl": "",
-        "userEmail": "judith.boyd103@apple.dev"
+        "userEmail": "judith.boyd103@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1343,7 +1343,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "wyatt.jones104@apple.dev"
+        "userEmail": "wyatt.jones104@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1354,7 +1354,7 @@ export const mockedRoles: Role[] =
           "lastName": "Smith"
         },
         "avatarUrl": "",
-        "userEmail": "liam.smith105@apple.dev"
+        "userEmail": "liam.smith105@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1365,7 +1365,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "maria.turner106@apple.dev"
+        "userEmail": "maria.turner106@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1376,7 +1376,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "debra.walker107@apple.dev"
+        "userEmail": "debra.walker107@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1387,7 +1387,7 @@ export const mockedRoles: Role[] =
           "lastName": "Taylor"
         },
         "avatarUrl": "",
-        "userEmail": "amy.taylor108@apple.dev"
+        "userEmail": "amy.taylor108@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1398,7 +1398,7 @@ export const mockedRoles: Role[] =
           "lastName": "Schmidt"
         },
         "avatarUrl": "",
-        "userEmail": "owen.schmidt109@apple.dev"
+        "userEmail": "owen.schmidt109@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1409,7 +1409,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "janice.garza110@apple.dev"
+        "userEmail": "janice.garza110@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1420,7 +1420,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "logan.meyer111@apple.dev"
+        "userEmail": "logan.meyer111@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1431,7 +1431,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "donna.butler112@apple.dev"
+        "userEmail": "donna.butler112@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1442,7 +1442,7 @@ export const mockedRoles: Role[] =
           "lastName": "Olson"
         },
         "avatarUrl": "",
-        "userEmail": "julia.olson113@apple.dev"
+        "userEmail": "julia.olson113@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1453,7 +1453,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patterson"
         },
         "avatarUrl": "",
-        "userEmail": "henry.patterson114@apple.dev"
+        "userEmail": "henry.patterson114@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1464,7 +1464,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "heather.jones115@apple.dev"
+        "userEmail": "heather.jones115@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1475,7 +1475,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.moore116@apple.dev"
+        "userEmail": "michelle.moore116@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1486,7 +1486,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "megan.torres117@apple.dev"
+        "userEmail": "megan.torres117@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1497,7 +1497,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.green118@apple.dev"
+        "userEmail": "nancy.green118@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1508,7 +1508,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mills"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.mills119@apple.dev"
+        "userEmail": "samantha.mills119@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1519,7 +1519,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fernandez"
         },
         "avatarUrl": "",
-        "userEmail": "zachary.fernandez120@apple.dev"
+        "userEmail": "zachary.fernandez120@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1530,7 +1530,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ryan"
         },
         "avatarUrl": "",
-        "userEmail": "owen.ryan121@apple.dev"
+        "userEmail": "owen.ryan121@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1541,7 +1541,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "julie.lewis122@apple.dev"
+        "userEmail": "julie.lewis122@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1552,7 +1552,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robinson"
         },
         "avatarUrl": "",
-        "userEmail": "helen.robinson123@apple.dev"
+        "userEmail": "helen.robinson123@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1563,7 +1563,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nguyen"
         },
         "avatarUrl": "",
-        "userEmail": "carol.nguyen124@apple.dev"
+        "userEmail": "carol.nguyen124@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1574,7 +1574,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.garza125@apple.dev"
+        "userEmail": "lauren.garza125@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1585,7 +1585,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tran"
         },
         "avatarUrl": "",
-        "userEmail": "marie.tran126@apple.dev"
+        "userEmail": "marie.tran126@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1596,7 +1596,7 @@ export const mockedRoles: Role[] =
           "lastName": "Powell"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.powell127@apple.dev"
+        "userEmail": "kenneth.powell127@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1607,7 +1607,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.mendez128@apple.dev"
+        "userEmail": "dorothy.mendez128@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1618,7 +1618,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.howard129@apple.dev"
+        "userEmail": "michelle.howard129@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1629,7 +1629,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.reed130@apple.dev"
+        "userEmail": "sandra.reed130@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1640,7 +1640,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "karen.ross131@apple.dev"
+        "userEmail": "karen.ross131@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1651,7 +1651,7 @@ export const mockedRoles: Role[] =
           "lastName": "Daniels"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.daniels132@apple.dev"
+        "userEmail": "lisa.daniels132@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1662,7 +1662,7 @@ export const mockedRoles: Role[] =
           "lastName": "Parker"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.parker133@apple.dev"
+        "userEmail": "lauren.parker133@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1673,7 +1673,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "kevin.phillips134@apple.dev"
+        "userEmail": "kevin.phillips134@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1684,7 +1684,7 @@ export const mockedRoles: Role[] =
           "lastName": "Schmidt"
         },
         "avatarUrl": "",
-        "userEmail": "frank.schmidt135@apple.dev"
+        "userEmail": "frank.schmidt135@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1695,7 +1695,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wilson"
         },
         "avatarUrl": "",
-        "userEmail": "josiah.wilson136@apple.dev"
+        "userEmail": "josiah.wilson136@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1706,7 +1706,7 @@ export const mockedRoles: Role[] =
           "lastName": "Medina"
         },
         "avatarUrl": "",
-        "userEmail": "maria.medina137@apple.dev"
+        "userEmail": "maria.medina137@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1717,7 +1717,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stewart"
         },
         "avatarUrl": "",
-        "userEmail": "christine.stewart138@apple.dev"
+        "userEmail": "christine.stewart138@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1728,7 +1728,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "diane.meyer139@apple.dev"
+        "userEmail": "diane.meyer139@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1739,7 +1739,7 @@ export const mockedRoles: Role[] =
           "lastName": "Davis"
         },
         "avatarUrl": "",
-        "userEmail": "aiden.davis140@apple.dev"
+        "userEmail": "aiden.davis140@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1750,7 +1750,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "alan.harrison141@apple.dev"
+        "userEmail": "alan.harrison141@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1761,7 +1761,7 @@ export const mockedRoles: Role[] =
           "lastName": "Clark"
         },
         "avatarUrl": "",
-        "userEmail": "peter.clark142@apple.dev"
+        "userEmail": "peter.clark142@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1772,7 +1772,7 @@ export const mockedRoles: Role[] =
           "lastName": "Taylor"
         },
         "avatarUrl": "",
-        "userEmail": "james.taylor143@apple.dev"
+        "userEmail": "james.taylor143@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1783,7 +1783,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ferguson"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.ferguson144@apple.dev"
+        "userEmail": "samuel.ferguson144@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1794,7 +1794,7 @@ export const mockedRoles: Role[] =
           "lastName": "Williams"
         },
         "avatarUrl": "",
-        "userEmail": "karen.williams145@apple.dev"
+        "userEmail": "karen.williams145@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1805,7 +1805,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "brenda.bailey146@apple.dev"
+        "userEmail": "brenda.bailey146@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1816,7 +1816,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "owen.walker147@apple.dev"
+        "userEmail": "owen.walker147@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1827,7 +1827,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henry"
         },
         "avatarUrl": "",
-        "userEmail": "charles.henry148@apple.dev"
+        "userEmail": "charles.henry148@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1838,7 +1838,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sullivan"
         },
         "avatarUrl": "",
-        "userEmail": "gregory.sullivan149@apple.dev"
+        "userEmail": "gregory.sullivan149@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1849,7 +1849,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bryant"
         },
         "avatarUrl": "",
-        "userEmail": "ethan.bryant150@apple.dev"
+        "userEmail": "ethan.bryant150@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1860,7 +1860,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gibson"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.gibson151@apple.dev"
+        "userEmail": "grayson.gibson151@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1871,7 +1871,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "jason.carter152@apple.dev"
+        "userEmail": "jason.carter152@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1882,7 +1882,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "carter.howard153@apple.dev"
+        "userEmail": "carter.howard153@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1893,7 +1893,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "heather.adams154@apple.dev"
+        "userEmail": "heather.adams154@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1904,7 +1904,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.king155@apple.dev"
+        "userEmail": "thomas.king155@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1915,7 +1915,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robertson"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.robertson156@apple.dev"
+        "userEmail": "thomas.robertson156@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1926,7 +1926,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "jack.wagner157@apple.dev"
+        "userEmail": "jack.wagner157@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1937,7 +1937,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hernandez"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.hernandez158@apple.dev"
+        "userEmail": "patrick.hernandez158@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1948,7 +1948,7 @@ export const mockedRoles: Role[] =
           "lastName": "Price"
         },
         "avatarUrl": "",
-        "userEmail": "dennis.price159@apple.dev"
+        "userEmail": "dennis.price159@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1959,7 +1959,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "jacob.roberts160@apple.dev"
+        "userEmail": "jacob.roberts160@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1970,7 +1970,7 @@ export const mockedRoles: Role[] =
           "lastName": "Campbell"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.campbell161@apple.dev"
+        "userEmail": "michelle.campbell161@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1981,7 +1981,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "cynthia.gray162@apple.dev"
+        "userEmail": "cynthia.gray162@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -1992,7 +1992,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cook"
         },
         "avatarUrl": "",
-        "userEmail": "henry.cook163@apple.dev"
+        "userEmail": "henry.cook163@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2003,7 +2003,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vargas"
         },
         "avatarUrl": "",
-        "userEmail": "charles.vargas164@apple.dev"
+        "userEmail": "charles.vargas164@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2014,7 +2014,7 @@ export const mockedRoles: Role[] =
           "lastName": "Weaver"
         },
         "avatarUrl": "",
-        "userEmail": "laura.weaver165@apple.dev"
+        "userEmail": "laura.weaver165@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2025,7 +2025,7 @@ export const mockedRoles: Role[] =
           "lastName": "Russell"
         },
         "avatarUrl": "",
-        "userEmail": "logan.russell166@apple.dev"
+        "userEmail": "logan.russell166@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2036,7 +2036,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "patricia.hill167@apple.dev"
+        "userEmail": "patricia.hill167@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2047,7 +2047,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "joan.coleman168@apple.dev"
+        "userEmail": "joan.coleman168@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2058,7 +2058,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "susan.owens169@apple.dev"
+        "userEmail": "susan.owens169@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2069,7 +2069,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kim"
         },
         "avatarUrl": "",
-        "userEmail": "helen.kim170@apple.dev"
+        "userEmail": "helen.kim170@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2080,7 +2080,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "george.hunter171@apple.dev"
+        "userEmail": "george.hunter171@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2091,7 +2091,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morris"
         },
         "avatarUrl": "",
-        "userEmail": "john.morris172@apple.dev"
+        "userEmail": "john.morris172@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2102,7 +2102,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.burns173@apple.dev"
+        "userEmail": "jerry.burns173@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2113,7 +2113,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "susan.phillips174@apple.dev"
+        "userEmail": "susan.phillips174@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2124,7 +2124,7 @@ export const mockedRoles: Role[] =
           "lastName": "Porter"
         },
         "avatarUrl": "",
-        "userEmail": "david.porter175@apple.dev"
+        "userEmail": "david.porter175@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2135,7 +2135,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garcia"
         },
         "avatarUrl": "",
-        "userEmail": "jason.garcia176@apple.dev"
+        "userEmail": "jason.garcia176@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2146,7 +2146,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castillo"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.castillo177@apple.dev"
+        "userEmail": "cheryl.castillo177@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2157,7 +2157,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "noah.butler178@apple.dev"
+        "userEmail": "noah.butler178@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2168,7 +2168,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.munoz179@apple.dev"
+        "userEmail": "jerry.munoz179@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2179,7 +2179,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ruiz"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.ruiz180@apple.dev"
+        "userEmail": "grayson.ruiz180@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2190,7 +2190,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.reed181@apple.dev"
+        "userEmail": "anthony.reed181@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2201,7 +2201,7 @@ export const mockedRoles: Role[] =
           "lastName": "White"
         },
         "avatarUrl": "",
-        "userEmail": "noah.white182@apple.dev"
+        "userEmail": "noah.white182@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2212,7 +2212,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "jack.carter183@apple.dev"
+        "userEmail": "jack.carter183@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2223,7 +2223,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.jordan184@apple.dev"
+        "userEmail": "joyce.jordan184@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2234,7 +2234,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "aaron.munoz185@apple.dev"
+        "userEmail": "aaron.munoz185@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2245,7 +2245,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "mark.garza186@apple.dev"
+        "userEmail": "mark.garza186@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2256,7 +2256,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rivera"
         },
         "avatarUrl": "",
-        "userEmail": "heather.rivera187@apple.dev"
+        "userEmail": "heather.rivera187@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2267,7 +2267,7 @@ export const mockedRoles: Role[] =
           "lastName": "Richardson"
         },
         "avatarUrl": "",
-        "userEmail": "nathan.richardson188@apple.dev"
+        "userEmail": "nathan.richardson188@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2278,7 +2278,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murphy"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.murphy189@apple.dev"
+        "userEmail": "samuel.murphy189@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2289,7 +2289,7 @@ export const mockedRoles: Role[] =
           "lastName": "Price"
         },
         "avatarUrl": "",
-        "userEmail": "christina.price190@apple.dev"
+        "userEmail": "christina.price190@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2300,7 +2300,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.spencer191@apple.dev"
+        "userEmail": "alexander.spencer191@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2311,7 +2311,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brooks"
         },
         "avatarUrl": "",
-        "userEmail": "carol.brooks192@apple.dev"
+        "userEmail": "carol.brooks192@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2322,7 +2322,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castillo"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.castillo193@apple.dev"
+        "userEmail": "ruth.castillo193@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2333,7 +2333,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "benjamin.reynolds194@apple.dev"
+        "userEmail": "benjamin.reynolds194@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2344,7 +2344,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanchez"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.sanchez195@apple.dev"
+        "userEmail": "victoria.sanchez195@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2355,7 +2355,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stone"
         },
         "avatarUrl": "",
-        "userEmail": "betty.stone196@apple.dev"
+        "userEmail": "betty.stone196@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2366,7 +2366,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "diane.martin197@apple.dev"
+        "userEmail": "diane.martin197@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2377,7 +2377,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "robert.harrison198@apple.dev"
+        "userEmail": "robert.harrison198@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2388,7 +2388,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morgan"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.morgan199@apple.dev"
+        "userEmail": "catherine.morgan199@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2399,7 +2399,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wallace"
         },
         "avatarUrl": "",
-        "userEmail": "dennis.wallace200@apple.dev"
+        "userEmail": "dennis.wallace200@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2410,7 +2410,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "charles.green201@apple.dev"
+        "userEmail": "charles.green201@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2421,7 +2421,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.adams202@apple.dev"
+        "userEmail": "andrew.adams202@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2432,7 +2432,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lopez"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.lopez203@apple.dev"
+        "userEmail": "patrick.lopez203@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2443,7 +2443,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "jason.payne204@apple.dev"
+        "userEmail": "jason.payne204@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2454,7 +2454,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.roberts205@apple.dev"
+        "userEmail": "joseph.roberts205@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2465,7 +2465,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castro"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.castro206@apple.dev"
+        "userEmail": "joyce.castro206@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2476,7 +2476,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ford"
         },
         "avatarUrl": "",
-        "userEmail": "aiden.ford207@apple.dev"
+        "userEmail": "aiden.ford207@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2487,7 +2487,7 @@ export const mockedRoles: Role[] =
           "lastName": "Porter"
         },
         "avatarUrl": "",
-        "userEmail": "robert.porter208@apple.dev"
+        "userEmail": "robert.porter208@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2498,7 +2498,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "cayden.munoz209@apple.dev"
+        "userEmail": "cayden.munoz209@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2509,7 +2509,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "james.reyes210@apple.dev"
+        "userEmail": "james.reyes210@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2520,7 +2520,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "christina.jordan211@apple.dev"
+        "userEmail": "christina.jordan211@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2531,7 +2531,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.hunter212@apple.dev"
+        "userEmail": "nancy.hunter212@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2542,7 +2542,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ellis"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.ellis213@apple.dev"
+        "userEmail": "ruth.ellis213@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2553,7 +2553,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "donald.wood214@apple.dev"
+        "userEmail": "donald.wood214@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2564,7 +2564,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hughes"
         },
         "avatarUrl": "",
-        "userEmail": "amy.hughes215@apple.dev"
+        "userEmail": "amy.hughes215@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2575,7 +2575,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.jenkins216@apple.dev"
+        "userEmail": "thomas.jenkins216@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2586,7 +2586,7 @@ export const mockedRoles: Role[] =
           "lastName": "Herrera"
         },
         "avatarUrl": "",
-        "userEmail": "richard.herrera217@apple.dev"
+        "userEmail": "richard.herrera217@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2597,7 +2597,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "miles.jenkins218@apple.dev"
+        "userEmail": "miles.jenkins218@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2608,7 +2608,7 @@ export const mockedRoles: Role[] =
           "lastName": "Grant"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.grant219@apple.dev"
+        "userEmail": "grayson.grant219@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2619,7 +2619,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ferguson"
         },
         "avatarUrl": "",
-        "userEmail": "joan.ferguson220@apple.dev"
+        "userEmail": "joan.ferguson220@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2630,7 +2630,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "logan.murray221@apple.dev"
+        "userEmail": "logan.murray221@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2641,7 +2641,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ward"
         },
         "avatarUrl": "",
-        "userEmail": "adrian.ward222@apple.dev"
+        "userEmail": "adrian.ward222@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2652,7 +2652,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramirez"
         },
         "avatarUrl": "",
-        "userEmail": "donald.ramirez223@apple.dev"
+        "userEmail": "donald.ramirez223@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2663,7 +2663,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.walker224@apple.dev"
+        "userEmail": "samantha.walker224@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2674,7 +2674,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wright"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.wright225@apple.dev"
+        "userEmail": "samantha.wright225@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2685,7 +2685,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.perez226@apple.dev"
+        "userEmail": "anthony.perez226@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2696,7 +2696,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rivera"
         },
         "avatarUrl": "",
-        "userEmail": "eric.rivera227@apple.dev"
+        "userEmail": "eric.rivera227@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2707,7 +2707,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fox"
         },
         "avatarUrl": "",
-        "userEmail": "zachary.fox228@apple.dev"
+        "userEmail": "zachary.fox228@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2718,7 +2718,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramos"
         },
         "avatarUrl": "",
-        "userEmail": "rachel.ramos229@apple.dev"
+        "userEmail": "rachel.ramos229@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2729,7 +2729,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nguyen"
         },
         "avatarUrl": "",
-        "userEmail": "robert.nguyen230@apple.dev"
+        "userEmail": "robert.nguyen230@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2740,7 +2740,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "sara.reynolds231@apple.dev"
+        "userEmail": "sara.reynolds231@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2751,7 +2751,7 @@ export const mockedRoles: Role[] =
           "lastName": "Richardson"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.richardson232@apple.dev"
+        "userEmail": "sarah.richardson232@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2762,7 +2762,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "megan.black233@apple.dev"
+        "userEmail": "megan.black233@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2773,7 +2773,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thompson"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.thompson234@apple.dev"
+        "userEmail": "andrew.thompson234@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2784,7 +2784,7 @@ export const mockedRoles: Role[] =
           "lastName": "Herrera"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.herrera235@apple.dev"
+        "userEmail": "lauren.herrera235@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2795,7 +2795,7 @@ export const mockedRoles: Role[] =
           "lastName": "Edwards"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.edwards236@apple.dev"
+        "userEmail": "kenneth.edwards236@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2806,7 +2806,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "isaac.munoz237@apple.dev"
+        "userEmail": "isaac.munoz237@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2817,7 +2817,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stevens"
         },
         "avatarUrl": "",
-        "userEmail": "kelly.stevens238@apple.dev"
+        "userEmail": "kelly.stevens238@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2828,7 +2828,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.harris239@apple.dev"
+        "userEmail": "thomas.harris239@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2839,7 +2839,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "judith.adams240@apple.dev"
+        "userEmail": "judith.adams240@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2850,7 +2850,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.walker241@apple.dev"
+        "userEmail": "andrea.walker241@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2861,7 +2861,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "roman.green242@apple.dev"
+        "userEmail": "roman.green242@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2872,7 +2872,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hernandez"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.hernandez243@apple.dev"
+        "userEmail": "hudson.hernandez243@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2883,7 +2883,7 @@ export const mockedRoles: Role[] =
           "lastName": "Long"
         },
         "avatarUrl": "",
-        "userEmail": "mark.long244@apple.dev"
+        "userEmail": "mark.long244@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2894,7 +2894,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ortiz"
         },
         "avatarUrl": "",
-        "userEmail": "aaron.ortiz245@apple.dev"
+        "userEmail": "aaron.ortiz245@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2905,7 +2905,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.harris246@apple.dev"
+        "userEmail": "sandra.harris246@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2916,7 +2916,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "adam.wood247@apple.dev"
+        "userEmail": "adam.wood247@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2927,7 +2927,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.dixon248@apple.dev"
+        "userEmail": "sharon.dixon248@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2938,7 +2938,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "heather.owens249@apple.dev"
+        "userEmail": "heather.owens249@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2949,7 +2949,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morales"
         },
         "avatarUrl": "",
-        "userEmail": "joan.morales250@apple.dev"
+        "userEmail": "joan.morales250@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2960,7 +2960,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cox"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.cox251@apple.dev"
+        "userEmail": "jerry.cox251@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2971,7 +2971,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "kelly.jones252@apple.dev"
+        "userEmail": "kelly.jones252@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2982,7 +2982,7 @@ export const mockedRoles: Role[] =
           "lastName": "Alvarez"
         },
         "avatarUrl": "",
-        "userEmail": "joshua.alvarez253@apple.dev"
+        "userEmail": "joshua.alvarez253@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -2993,7 +2993,7 @@ export const mockedRoles: Role[] =
           "lastName": "Peterson"
         },
         "avatarUrl": "",
-        "userEmail": "tyler.peterson254@apple.dev"
+        "userEmail": "tyler.peterson254@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3004,7 +3004,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.green255@apple.dev"
+        "userEmail": "olivia.green255@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3015,7 +3015,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "janice.silva256@apple.dev"
+        "userEmail": "janice.silva256@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3026,7 +3026,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stephens"
         },
         "avatarUrl": "",
-        "userEmail": "gloria.stephens257@apple.dev"
+        "userEmail": "gloria.stephens257@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3037,7 +3037,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "justin.mason258@apple.dev"
+        "userEmail": "justin.mason258@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3048,7 +3048,7 @@ export const mockedRoles: Role[] =
           "lastName": "Young"
         },
         "avatarUrl": "",
-        "userEmail": "leonardo.young259@apple.dev"
+        "userEmail": "leonardo.young259@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3059,7 +3059,7 @@ export const mockedRoles: Role[] =
           "lastName": "Davis"
         },
         "avatarUrl": "",
-        "userEmail": "larry.davis260@apple.dev"
+        "userEmail": "larry.davis260@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3070,7 +3070,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "kelly.johnson261@apple.dev"
+        "userEmail": "kelly.johnson261@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3081,7 +3081,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "marie.garza262@apple.dev"
+        "userEmail": "marie.garza262@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3092,7 +3092,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "james.dixon263@apple.dev"
+        "userEmail": "james.dixon263@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3103,7 +3103,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramirez"
         },
         "avatarUrl": "",
-        "userEmail": "robert.ramirez264@apple.dev"
+        "userEmail": "robert.ramirez264@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3114,7 +3114,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thomas"
         },
         "avatarUrl": "",
-        "userEmail": "henry.thomas265@apple.dev"
+        "userEmail": "henry.thomas265@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3125,7 +3125,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "karen.bennett266@apple.dev"
+        "userEmail": "karen.bennett266@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3136,7 +3136,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "william.reyes267@apple.dev"
+        "userEmail": "william.reyes267@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3147,7 +3147,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thompson"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.thompson268@apple.dev"
+        "userEmail": "lisa.thompson268@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3158,7 +3158,7 @@ export const mockedRoles: Role[] =
           "lastName": "Guzman"
         },
         "avatarUrl": "",
-        "userEmail": "jason.guzman269@apple.dev"
+        "userEmail": "jason.guzman269@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3169,7 +3169,7 @@ export const mockedRoles: Role[] =
           "lastName": "Clark"
         },
         "avatarUrl": "",
-        "userEmail": "miles.clark270@apple.dev"
+        "userEmail": "miles.clark270@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3180,7 +3180,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzalez"
         },
         "avatarUrl": "",
-        "userEmail": "julie.gonzalez271@apple.dev"
+        "userEmail": "julie.gonzalez271@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3191,7 +3191,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cole"
         },
         "avatarUrl": "",
-        "userEmail": "susan.cole272@apple.dev"
+        "userEmail": "susan.cole272@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3202,7 +3202,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tucker"
         },
         "avatarUrl": "",
-        "userEmail": "christina.tucker273@apple.dev"
+        "userEmail": "christina.tucker273@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3213,7 +3213,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "lucas.dunn274@apple.dev"
+        "userEmail": "lucas.dunn274@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3224,7 +3224,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.roberts275@apple.dev"
+        "userEmail": "nancy.roberts275@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3235,7 +3235,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "jacob.ross276@apple.dev"
+        "userEmail": "jacob.ross276@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3246,7 +3246,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "cynthia.owens277@apple.dev"
+        "userEmail": "cynthia.owens277@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3257,7 +3257,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramirez"
         },
         "avatarUrl": "",
-        "userEmail": "adrian.ramirez278@apple.dev"
+        "userEmail": "adrian.ramirez278@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3268,7 +3268,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.coleman279@apple.dev"
+        "userEmail": "sarah.coleman279@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3279,7 +3279,7 @@ export const mockedRoles: Role[] =
           "lastName": "Snyder"
         },
         "avatarUrl": "",
-        "userEmail": "linda.snyder280@apple.dev"
+        "userEmail": "linda.snyder280@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3290,7 +3290,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brown"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.brown281@apple.dev"
+        "userEmail": "olivia.brown281@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3301,7 +3301,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "owen.king282@apple.dev"
+        "userEmail": "owen.king282@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3312,7 +3312,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.phillips283@apple.dev"
+        "userEmail": "sarah.phillips283@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3323,7 +3323,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.harris284@apple.dev"
+        "userEmail": "anthony.harris284@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3334,7 +3334,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.wood285@apple.dev"
+        "userEmail": "hannah.wood285@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3345,7 +3345,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelley"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.kelley286@apple.dev"
+        "userEmail": "thomas.kelley286@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3356,7 +3356,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "jason.jordan287@apple.dev"
+        "userEmail": "jason.jordan287@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3367,7 +3367,7 @@ export const mockedRoles: Role[] =
           "lastName": "Myers"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.myers288@apple.dev"
+        "userEmail": "evelyn.myers288@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3378,7 +3378,7 @@ export const mockedRoles: Role[] =
           "lastName": "Peterson"
         },
         "avatarUrl": "",
-        "userEmail": "tyler.peterson289@apple.dev"
+        "userEmail": "tyler.peterson289@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3389,7 +3389,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "john.reyes290@apple.dev"
+        "userEmail": "john.reyes290@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3400,7 +3400,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lopez"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.lopez291@apple.dev"
+        "userEmail": "deborah.lopez291@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3411,7 +3411,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.jordan292@apple.dev"
+        "userEmail": "michelle.jordan292@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3422,7 +3422,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "ethan.butler293@apple.dev"
+        "userEmail": "ethan.butler293@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3433,7 +3433,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "donald.lewis294@apple.dev"
+        "userEmail": "donald.lewis294@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3444,7 +3444,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nguyen"
         },
         "avatarUrl": "",
-        "userEmail": "megan.nguyen295@apple.dev"
+        "userEmail": "megan.nguyen295@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3455,7 +3455,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.romero296@apple.dev"
+        "userEmail": "jayden.romero296@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3466,7 +3466,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henry"
         },
         "avatarUrl": "",
-        "userEmail": "owen.henry297@apple.dev"
+        "userEmail": "owen.henry297@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3477,7 +3477,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "jose.howard298@apple.dev"
+        "userEmail": "jose.howard298@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3488,7 +3488,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanchez"
         },
         "avatarUrl": "",
-        "userEmail": "justin.sanchez299@apple.dev"
+        "userEmail": "justin.sanchez299@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3499,7 +3499,7 @@ export const mockedRoles: Role[] =
           "lastName": "Miller"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.miller300@apple.dev"
+        "userEmail": "joyce.miller300@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3510,7 +3510,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "heather.ross301@apple.dev"
+        "userEmail": "heather.ross301@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3521,7 +3521,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castro"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.castro302@apple.dev"
+        "userEmail": "victoria.castro302@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3532,7 +3532,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castillo"
         },
         "avatarUrl": "",
-        "userEmail": "karen.castillo303@apple.dev"
+        "userEmail": "karen.castillo303@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3543,7 +3543,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rice"
         },
         "avatarUrl": "",
-        "userEmail": "edward.rice304@apple.dev"
+        "userEmail": "edward.rice304@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3554,7 +3554,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "jack.jones305@apple.dev"
+        "userEmail": "jack.jones305@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3565,7 +3565,7 @@ export const mockedRoles: Role[] =
           "lastName": "Holmes"
         },
         "avatarUrl": "",
-        "userEmail": "justin.holmes306@apple.dev"
+        "userEmail": "justin.holmes306@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3576,7 +3576,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.butler307@apple.dev"
+        "userEmail": "andrew.butler307@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3587,7 +3587,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ellis"
         },
         "avatarUrl": "",
-        "userEmail": "laura.ellis308@apple.dev"
+        "userEmail": "laura.ellis308@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3598,7 +3598,7 @@ export const mockedRoles: Role[] =
           "lastName": "Griffin"
         },
         "avatarUrl": "",
-        "userEmail": "barbara.griffin309@apple.dev"
+        "userEmail": "barbara.griffin309@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3609,7 +3609,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "carol.walker310@apple.dev"
+        "userEmail": "carol.walker310@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3620,7 +3620,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "patricia.murray311@apple.dev"
+        "userEmail": "patricia.murray311@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3631,7 +3631,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "josiah.carter312@apple.dev"
+        "userEmail": "josiah.carter312@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3642,7 +3642,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.murray313@apple.dev"
+        "userEmail": "evelyn.murray313@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3653,7 +3653,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "maverick.wood314@apple.dev"
+        "userEmail": "maverick.wood314@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3664,7 +3664,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramirez"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.ramirez315@apple.dev"
+        "userEmail": "anthony.ramirez315@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3675,7 +3675,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lee"
         },
         "avatarUrl": "",
-        "userEmail": "david.lee316@apple.dev"
+        "userEmail": "david.lee316@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3686,7 +3686,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.johnson317@apple.dev"
+        "userEmail": "hannah.johnson317@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3697,7 +3697,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "frank.torres318@apple.dev"
+        "userEmail": "frank.torres318@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3708,7 +3708,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.howard319@apple.dev"
+        "userEmail": "deborah.howard319@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3719,7 +3719,7 @@ export const mockedRoles: Role[] =
           "lastName": "West"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.west320@apple.dev"
+        "userEmail": "dorothy.west320@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3730,7 +3730,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.coleman321@apple.dev"
+        "userEmail": "cheryl.coleman321@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3741,7 +3741,7 @@ export const mockedRoles: Role[] =
           "lastName": "Webb"
         },
         "avatarUrl": "",
-        "userEmail": "george.webb322@apple.dev"
+        "userEmail": "george.webb322@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3752,7 +3752,7 @@ export const mockedRoles: Role[] =
           "lastName": "Salazar"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.salazar323@apple.dev"
+        "userEmail": "alexander.salazar323@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3763,7 +3763,7 @@ export const mockedRoles: Role[] =
           "lastName": "Soto"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.soto324@apple.dev"
+        "userEmail": "alexander.soto324@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3774,7 +3774,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robertson"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.robertson325@apple.dev"
+        "userEmail": "dorothy.robertson325@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3785,7 +3785,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bryant"
         },
         "avatarUrl": "",
-        "userEmail": "nicholas.bryant326@apple.dev"
+        "userEmail": "nicholas.bryant326@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3796,7 +3796,7 @@ export const mockedRoles: Role[] =
           "lastName": "Russell"
         },
         "avatarUrl": "",
-        "userEmail": "amy.russell327@apple.dev"
+        "userEmail": "amy.russell327@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3807,7 +3807,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.moore328@apple.dev"
+        "userEmail": "andrea.moore328@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3818,7 +3818,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "megan.black329@apple.dev"
+        "userEmail": "megan.black329@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3829,7 +3829,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "judith.sanders330@apple.dev"
+        "userEmail": "judith.sanders330@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3840,7 +3840,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kim"
         },
         "avatarUrl": "",
-        "userEmail": "roman.kim331@apple.dev"
+        "userEmail": "roman.kim331@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3851,7 +3851,7 @@ export const mockedRoles: Role[] =
           "lastName": "Barnes"
         },
         "avatarUrl": "",
-        "userEmail": "frances.barnes332@apple.dev"
+        "userEmail": "frances.barnes332@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3862,7 +3862,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.jenkins333@apple.dev"
+        "userEmail": "jayden.jenkins333@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3873,7 +3873,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "joshua.phillips334@apple.dev"
+        "userEmail": "joshua.phillips334@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3884,7 +3884,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "leonardo.king335@apple.dev"
+        "userEmail": "leonardo.king335@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3895,7 +3895,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vasquez"
         },
         "avatarUrl": "",
-        "userEmail": "henry.vasquez336@apple.dev"
+        "userEmail": "henry.vasquez336@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3906,7 +3906,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "jacob.perez337@apple.dev"
+        "userEmail": "jacob.perez337@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3917,7 +3917,7 @@ export const mockedRoles: Role[] =
           "lastName": "Young"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.young338@apple.dev"
+        "userEmail": "lauren.young338@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3928,7 +3928,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ford"
         },
         "avatarUrl": "",
-        "userEmail": "wyatt.ford339@apple.dev"
+        "userEmail": "wyatt.ford339@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3939,7 +3939,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fernandez"
         },
         "avatarUrl": "",
-        "userEmail": "scott.fernandez340@apple.dev"
+        "userEmail": "scott.fernandez340@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3950,7 +3950,7 @@ export const mockedRoles: Role[] =
           "lastName": "Flores"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.flores341@apple.dev"
+        "userEmail": "victoria.flores341@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3961,7 +3961,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "sara.owens342@apple.dev"
+        "userEmail": "sara.owens342@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3972,7 +3972,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bryant"
         },
         "avatarUrl": "",
-        "userEmail": "patricia.bryant343@apple.dev"
+        "userEmail": "patricia.bryant343@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3983,7 +3983,7 @@ export const mockedRoles: Role[] =
           "lastName": "Allen"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.allen344@apple.dev"
+        "userEmail": "sandra.allen344@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -3994,7 +3994,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "gloria.owens345@apple.dev"
+        "userEmail": "gloria.owens345@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4005,7 +4005,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jackson"
         },
         "avatarUrl": "",
-        "userEmail": "lincoln.jackson346@apple.dev"
+        "userEmail": "lincoln.jackson346@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4016,7 +4016,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.dunn347@apple.dev"
+        "userEmail": "virginia.dunn347@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4027,7 +4027,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nichols"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.nichols348@apple.dev"
+        "userEmail": "lisa.nichols348@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4038,7 +4038,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.bennett349@apple.dev"
+        "userEmail": "evelyn.bennett349@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4049,7 +4049,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fox"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.fox350@apple.dev"
+        "userEmail": "hudson.fox350@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4060,7 +4060,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gomez"
         },
         "avatarUrl": "",
-        "userEmail": "joan.gomez351@apple.dev"
+        "userEmail": "joan.gomez351@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4071,7 +4071,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hernandez"
         },
         "avatarUrl": "",
-        "userEmail": "jennifer.hernandez352@apple.dev"
+        "userEmail": "jennifer.hernandez352@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4082,7 +4082,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "jessica.silva353@apple.dev"
+        "userEmail": "jessica.silva353@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4093,7 +4093,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "raymond.martin354@apple.dev"
+        "userEmail": "raymond.martin354@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4104,7 +4104,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sullivan"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.sullivan355@apple.dev"
+        "userEmail": "deborah.sullivan355@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4115,7 +4115,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.martin356@apple.dev"
+        "userEmail": "samantha.martin356@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4126,7 +4126,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "amy.romero357@apple.dev"
+        "userEmail": "amy.romero357@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4137,7 +4137,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "heather.green358@apple.dev"
+        "userEmail": "heather.green358@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4148,7 +4148,7 @@ export const mockedRoles: Role[] =
           "lastName": "Holmes"
         },
         "avatarUrl": "",
-        "userEmail": "richard.holmes359@apple.dev"
+        "userEmail": "richard.holmes359@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4159,7 +4159,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mcdonald"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.mcdonald360@apple.dev"
+        "userEmail": "patrick.mcdonald360@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4170,7 +4170,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.harrison361@apple.dev"
+        "userEmail": "sharon.harrison361@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4181,7 +4181,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robertson"
         },
         "avatarUrl": "",
-        "userEmail": "larry.robertson362@apple.dev"
+        "userEmail": "larry.robertson362@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4192,7 +4192,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "oliver.reed363@apple.dev"
+        "userEmail": "oliver.reed363@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4203,7 +4203,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.anderson364@apple.dev"
+        "userEmail": "lisa.anderson364@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4214,7 +4214,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.carter365@apple.dev"
+        "userEmail": "nancy.carter365@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4225,7 +4225,7 @@ export const mockedRoles: Role[] =
           "lastName": "Foster"
         },
         "avatarUrl": "",
-        "userEmail": "edward.foster366@apple.dev"
+        "userEmail": "edward.foster366@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4236,7 +4236,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brooks"
         },
         "avatarUrl": "",
-        "userEmail": "brian.brooks367@apple.dev"
+        "userEmail": "brian.brooks367@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4247,7 +4247,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martinez"
         },
         "avatarUrl": "",
-        "userEmail": "janet.martinez368@apple.dev"
+        "userEmail": "janet.martinez368@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4258,7 +4258,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "brandon.rogers369@apple.dev"
+        "userEmail": "brandon.rogers369@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4269,7 +4269,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "heather.simmons370@apple.dev"
+        "userEmail": "heather.simmons370@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4280,7 +4280,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hawkins"
         },
         "avatarUrl": "",
-        "userEmail": "joan.hawkins371@apple.dev"
+        "userEmail": "joan.hawkins371@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4291,7 +4291,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "joan.bailey372@apple.dev"
+        "userEmail": "joan.bailey372@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4302,7 +4302,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sullivan"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.sullivan373@apple.dev"
+        "userEmail": "christopher.sullivan373@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4313,7 +4313,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.wood374@apple.dev"
+        "userEmail": "kimberly.wood374@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4324,7 +4324,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "jacob.simmons375@apple.dev"
+        "userEmail": "jacob.simmons375@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4335,7 +4335,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thomas"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.thomas376@apple.dev"
+        "userEmail": "deborah.thomas376@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4346,7 +4346,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.bailey377@apple.dev"
+        "userEmail": "ruth.bailey377@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4357,7 +4357,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "donna.owens378@apple.dev"
+        "userEmail": "donna.owens378@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4368,7 +4368,7 @@ export const mockedRoles: Role[] =
           "lastName": "Grant"
         },
         "avatarUrl": "",
-        "userEmail": "mary.grant379@apple.dev"
+        "userEmail": "mary.grant379@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4379,7 +4379,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "frank.spencer380@apple.dev"
+        "userEmail": "frank.spencer380@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4390,7 +4390,7 @@ export const mockedRoles: Role[] =
           "lastName": "Griffin"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.griffin381@apple.dev"
+        "userEmail": "ruth.griffin381@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4401,7 +4401,7 @@ export const mockedRoles: Role[] =
           "lastName": "White"
         },
         "avatarUrl": "",
-        "userEmail": "jason.white382@apple.dev"
+        "userEmail": "jason.white382@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4412,7 +4412,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.aguilar383@apple.dev"
+        "userEmail": "lauren.aguilar383@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4423,7 +4423,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.green384@apple.dev"
+        "userEmail": "dorothy.green384@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4434,7 +4434,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.wood385@apple.dev"
+        "userEmail": "kimberly.wood385@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4445,7 +4445,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henry"
         },
         "avatarUrl": "",
-        "userEmail": "raymond.henry386@apple.dev"
+        "userEmail": "raymond.henry386@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4456,7 +4456,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "logan.butler387@apple.dev"
+        "userEmail": "logan.butler387@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4467,7 +4467,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ruiz"
         },
         "avatarUrl": "",
-        "userEmail": "noah.ruiz388@apple.dev"
+        "userEmail": "noah.ruiz388@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4478,7 +4478,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morgan"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.morgan389@apple.dev"
+        "userEmail": "hannah.morgan389@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4489,7 +4489,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzalez"
         },
         "avatarUrl": "",
-        "userEmail": "betty.gonzalez390@apple.dev"
+        "userEmail": "betty.gonzalez390@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4500,7 +4500,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stewart"
         },
         "avatarUrl": "",
-        "userEmail": "charles.stewart391@apple.dev"
+        "userEmail": "charles.stewart391@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4511,7 +4511,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.jenkins392@apple.dev"
+        "userEmail": "virginia.jenkins392@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4522,7 +4522,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzales"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.gonzales393@apple.dev"
+        "userEmail": "kenneth.gonzales393@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4533,7 +4533,7 @@ export const mockedRoles: Role[] =
           "lastName": "Weaver"
         },
         "avatarUrl": "",
-        "userEmail": "karen.weaver394@apple.dev"
+        "userEmail": "karen.weaver394@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4544,7 +4544,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moreno"
         },
         "avatarUrl": "",
-        "userEmail": "nicholas.moreno395@apple.dev"
+        "userEmail": "nicholas.moreno395@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4555,7 +4555,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "owen.mendez396@apple.dev"
+        "userEmail": "owen.mendez396@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4566,7 +4566,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.wagner397@apple.dev"
+        "userEmail": "kenneth.wagner397@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4577,7 +4577,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ryan"
         },
         "avatarUrl": "",
-        "userEmail": "jonathan.ryan398@apple.dev"
+        "userEmail": "jonathan.ryan398@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4588,7 +4588,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelly"
         },
         "avatarUrl": "",
-        "userEmail": "jennifer.kelly399@apple.dev"
+        "userEmail": "jennifer.kelly399@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4599,7 +4599,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ortiz"
         },
         "avatarUrl": "",
-        "userEmail": "alan.ortiz400@apple.dev"
+        "userEmail": "alan.ortiz400@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4610,7 +4610,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "jacqueline.rogers401@apple.dev"
+        "userEmail": "jacqueline.rogers401@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4621,7 +4621,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.reed402@apple.dev"
+        "userEmail": "kenneth.reed402@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4632,7 +4632,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "edward.anderson403@apple.dev"
+        "userEmail": "edward.anderson403@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4643,7 +4643,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wells"
         },
         "avatarUrl": "",
-        "userEmail": "laura.wells404@apple.dev"
+        "userEmail": "laura.wells404@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4654,7 +4654,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "gabriel.harrison405@apple.dev"
+        "userEmail": "gabriel.harrison405@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4665,7 +4665,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henderson"
         },
         "avatarUrl": "",
-        "userEmail": "barbara.henderson406@apple.dev"
+        "userEmail": "barbara.henderson406@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4676,7 +4676,7 @@ export const mockedRoles: Role[] =
           "lastName": "Davis"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.davis407@apple.dev"
+        "userEmail": "deborah.davis407@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4687,7 +4687,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "aiden.torres408@apple.dev"
+        "userEmail": "aiden.torres408@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4698,7 +4698,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.sanders409@apple.dev"
+        "userEmail": "thomas.sanders409@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4709,7 +4709,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simpson"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.simpson410@apple.dev"
+        "userEmail": "dorothy.simpson410@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4720,7 +4720,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "charles.butler411@apple.dev"
+        "userEmail": "charles.butler411@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4731,7 +4731,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henderson"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.henderson412@apple.dev"
+        "userEmail": "evelyn.henderson412@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4742,7 +4742,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "jason.jenkins413@apple.dev"
+        "userEmail": "jason.jenkins413@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4753,7 +4753,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "oliver.carter414@apple.dev"
+        "userEmail": "oliver.carter414@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4764,7 +4764,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "stephen.bennett415@apple.dev"
+        "userEmail": "stephen.bennett415@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4775,7 +4775,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.torres416@apple.dev"
+        "userEmail": "hudson.torres416@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4786,7 +4786,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "aaron.perry417@apple.dev"
+        "userEmail": "aaron.perry417@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4797,7 +4797,7 @@ export const mockedRoles: Role[] =
           "lastName": "Freeman"
         },
         "avatarUrl": "",
-        "userEmail": "heather.freeman418@apple.dev"
+        "userEmail": "heather.freeman418@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4808,7 +4808,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chavez"
         },
         "avatarUrl": "",
-        "userEmail": "kevin.chavez419@apple.dev"
+        "userEmail": "kevin.chavez419@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4819,7 +4819,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henderson"
         },
         "avatarUrl": "",
-        "userEmail": "helen.henderson420@apple.dev"
+        "userEmail": "helen.henderson420@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4830,7 +4830,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fox"
         },
         "avatarUrl": "",
-        "userEmail": "helen.fox421@apple.dev"
+        "userEmail": "helen.fox421@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4841,7 +4841,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "janet.harris422@apple.dev"
+        "userEmail": "janet.harris422@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4852,7 +4852,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kim"
         },
         "avatarUrl": "",
-        "userEmail": "joan.kim423@apple.dev"
+        "userEmail": "joan.kim423@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4863,7 +4863,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bell"
         },
         "avatarUrl": "",
-        "userEmail": "sara.bell424@apple.dev"
+        "userEmail": "sara.bell424@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4874,7 +4874,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cook"
         },
         "avatarUrl": "",
-        "userEmail": "james.cook425@apple.dev"
+        "userEmail": "james.cook425@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4885,7 +4885,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "mason.dixon426@apple.dev"
+        "userEmail": "mason.dixon426@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4896,7 +4896,7 @@ export const mockedRoles: Role[] =
           "lastName": "Price"
         },
         "avatarUrl": "",
-        "userEmail": "lincoln.price427@apple.dev"
+        "userEmail": "lincoln.price427@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4907,7 +4907,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nelson"
         },
         "avatarUrl": "",
-        "userEmail": "amy.nelson428@apple.dev"
+        "userEmail": "amy.nelson428@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4918,7 +4918,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "heather.howard429@apple.dev"
+        "userEmail": "heather.howard429@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4929,7 +4929,7 @@ export const mockedRoles: Role[] =
           "lastName": "Crawford"
         },
         "avatarUrl": "",
-        "userEmail": "brenda.crawford430@apple.dev"
+        "userEmail": "brenda.crawford430@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4940,7 +4940,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.reynolds431@apple.dev"
+        "userEmail": "andrea.reynolds431@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4951,7 +4951,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wright"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.wright432@apple.dev"
+        "userEmail": "catherine.wright432@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4962,7 +4962,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramos"
         },
         "avatarUrl": "",
-        "userEmail": "betty.ramos433@apple.dev"
+        "userEmail": "betty.ramos433@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4973,7 +4973,7 @@ export const mockedRoles: Role[] =
           "lastName": "Davis"
         },
         "avatarUrl": "",
-        "userEmail": "liam.davis434@apple.dev"
+        "userEmail": "liam.davis434@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4984,7 +4984,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "brandon.spencer435@apple.dev"
+        "userEmail": "brandon.spencer435@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -4995,7 +4995,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.gray436@apple.dev"
+        "userEmail": "catherine.gray436@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5006,7 +5006,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.moore437@apple.dev"
+        "userEmail": "matthew.moore437@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5017,7 +5017,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castro"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.castro438@apple.dev"
+        "userEmail": "cheryl.castro438@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5028,7 +5028,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.johnson439@apple.dev"
+        "userEmail": "samuel.johnson439@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5039,7 +5039,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jackson"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.jackson440@apple.dev"
+        "userEmail": "evelyn.jackson440@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5050,7 +5050,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hall"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.hall441@apple.dev"
+        "userEmail": "andrea.hall441@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5061,7 +5061,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "joan.phillips442@apple.dev"
+        "userEmail": "joan.phillips442@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5072,7 +5072,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simpson"
         },
         "avatarUrl": "",
-        "userEmail": "helen.simpson443@apple.dev"
+        "userEmail": "helen.simpson443@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5083,7 +5083,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thompson"
         },
         "avatarUrl": "",
-        "userEmail": "brandon.thompson444@apple.dev"
+        "userEmail": "brandon.thompson444@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5094,7 +5094,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.roberts445@apple.dev"
+        "userEmail": "olivia.roberts445@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5105,7 +5105,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "helen.silva446@apple.dev"
+        "userEmail": "helen.silva446@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5116,7 +5116,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cruz"
         },
         "avatarUrl": "",
-        "userEmail": "judith.cruz447@apple.dev"
+        "userEmail": "judith.cruz447@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5127,7 +5127,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robinson"
         },
         "avatarUrl": "",
-        "userEmail": "donald.robinson448@apple.dev"
+        "userEmail": "donald.robinson448@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5138,7 +5138,7 @@ export const mockedRoles: Role[] =
           "lastName": "Freeman"
         },
         "avatarUrl": "",
-        "userEmail": "noah.freeman449@apple.dev"
+        "userEmail": "noah.freeman449@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5149,7 +5149,7 @@ export const mockedRoles: Role[] =
           "lastName": "Snyder"
         },
         "avatarUrl": "",
-        "userEmail": "paul.snyder450@apple.dev"
+        "userEmail": "paul.snyder450@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5160,7 +5160,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "charles.dixon451@apple.dev"
+        "userEmail": "charles.dixon451@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5171,7 +5171,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patel"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.patel452@apple.dev"
+        "userEmail": "nancy.patel452@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5182,7 +5182,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "julie.butler453@apple.dev"
+        "userEmail": "julie.butler453@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5193,7 +5193,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.gray454@apple.dev"
+        "userEmail": "kimberly.gray454@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5204,7 +5204,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tucker"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.tucker455@apple.dev"
+        "userEmail": "matthew.tucker455@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5215,7 +5215,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hernandez"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.hernandez456@apple.dev"
+        "userEmail": "victoria.hernandez456@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5226,7 +5226,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cook"
         },
         "avatarUrl": "",
-        "userEmail": "betty.cook457@apple.dev"
+        "userEmail": "betty.cook457@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5237,7 +5237,7 @@ export const mockedRoles: Role[] =
           "lastName": "West"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.west458@apple.dev"
+        "userEmail": "sarah.west458@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5248,7 +5248,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "megan.gray459@apple.dev"
+        "userEmail": "megan.gray459@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5259,7 +5259,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rice"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.rice460@apple.dev"
+        "userEmail": "sharon.rice460@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5270,7 +5270,7 @@ export const mockedRoles: Role[] =
           "lastName": "Warren"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.warren461@apple.dev"
+        "userEmail": "ruth.warren461@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5281,7 +5281,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kennedy"
         },
         "avatarUrl": "",
-        "userEmail": "noah.kennedy462@apple.dev"
+        "userEmail": "noah.kennedy462@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5292,7 +5292,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.phillips463@apple.dev"
+        "userEmail": "samuel.phillips463@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5303,7 +5303,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tucker"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.tucker464@apple.dev"
+        "userEmail": "deborah.tucker464@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5314,7 +5314,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "lucas.adams465@apple.dev"
+        "userEmail": "lucas.adams465@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5325,7 +5325,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "julie.sanders466@apple.dev"
+        "userEmail": "julie.sanders466@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5336,7 +5336,7 @@ export const mockedRoles: Role[] =
           "lastName": "Allen"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.allen467@apple.dev"
+        "userEmail": "joyce.allen467@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5347,7 +5347,7 @@ export const mockedRoles: Role[] =
           "lastName": "Palmer"
         },
         "avatarUrl": "",
-        "userEmail": "daniel.palmer468@apple.dev"
+        "userEmail": "daniel.palmer468@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5358,7 +5358,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "janet.walker469@apple.dev"
+        "userEmail": "janet.walker469@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5369,7 +5369,7 @@ export const mockedRoles: Role[] =
           "lastName": "Porter"
         },
         "avatarUrl": "",
-        "userEmail": "liam.porter470@apple.dev"
+        "userEmail": "liam.porter470@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5380,7 +5380,7 @@ export const mockedRoles: Role[] =
           "lastName": "Baker"
         },
         "avatarUrl": "",
-        "userEmail": "gary.baker471@apple.dev"
+        "userEmail": "gary.baker471@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5391,7 +5391,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vargas"
         },
         "avatarUrl": "",
-        "userEmail": "betty.vargas472@apple.dev"
+        "userEmail": "betty.vargas472@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5402,7 +5402,7 @@ export const mockedRoles: Role[] =
           "lastName": "Smith"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.smith473@apple.dev"
+        "userEmail": "christopher.smith473@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5413,7 +5413,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "heather.simmons474@apple.dev"
+        "userEmail": "heather.simmons474@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5424,7 +5424,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hamilton"
         },
         "avatarUrl": "",
-        "userEmail": "cooper.hamilton475@apple.dev"
+        "userEmail": "cooper.hamilton475@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5435,7 +5435,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "logan.torres476@apple.dev"
+        "userEmail": "logan.torres476@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5446,7 +5446,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gomez"
         },
         "avatarUrl": "",
-        "userEmail": "amy.gomez477@apple.dev"
+        "userEmail": "amy.gomez477@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5457,7 +5457,7 @@ export const mockedRoles: Role[] =
           "lastName": "Foster"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.foster478@apple.dev"
+        "userEmail": "matthew.foster478@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5468,7 +5468,7 @@ export const mockedRoles: Role[] =
           "lastName": "Medina"
         },
         "avatarUrl": "",
-        "userEmail": "betty.medina479@apple.dev"
+        "userEmail": "betty.medina479@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5479,7 +5479,7 @@ export const mockedRoles: Role[] =
           "lastName": "Campbell"
         },
         "avatarUrl": "",
-        "userEmail": "laura.campbell480@apple.dev"
+        "userEmail": "laura.campbell480@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5490,7 +5490,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chavez"
         },
         "avatarUrl": "",
-        "userEmail": "heather.chavez481@apple.dev"
+        "userEmail": "heather.chavez481@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5501,7 +5501,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "donald.turner482@apple.dev"
+        "userEmail": "donald.turner482@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5512,7 +5512,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wright"
         },
         "avatarUrl": "",
-        "userEmail": "linda.wright483@apple.dev"
+        "userEmail": "linda.wright483@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5523,7 +5523,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patel"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.patel484@apple.dev"
+        "userEmail": "kenneth.patel484@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5534,7 +5534,7 @@ export const mockedRoles: Role[] =
           "lastName": "Price"
         },
         "avatarUrl": "",
-        "userEmail": "barbara.price485@apple.dev"
+        "userEmail": "barbara.price485@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5545,7 +5545,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vasquez"
         },
         "avatarUrl": "",
-        "userEmail": "david.vasquez486@apple.dev"
+        "userEmail": "david.vasquez486@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5556,7 +5556,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "carter.gray487@apple.dev"
+        "userEmail": "carter.gray487@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5567,7 +5567,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jimenez"
         },
         "avatarUrl": "",
-        "userEmail": "dennis.jimenez488@apple.dev"
+        "userEmail": "dennis.jimenez488@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5578,7 +5578,7 @@ export const mockedRoles: Role[] =
           "lastName": "Shaw"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.shaw489@apple.dev"
+        "userEmail": "sandra.shaw489@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5589,7 +5589,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.martin490@apple.dev"
+        "userEmail": "ruth.martin490@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5600,7 +5600,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.sanders491@apple.dev"
+        "userEmail": "jayden.sanders491@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5611,7 +5611,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fisher"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.fisher492@apple.dev"
+        "userEmail": "matthew.fisher492@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5622,7 +5622,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "jason.gray493@apple.dev"
+        "userEmail": "jason.gray493@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5633,7 +5633,7 @@ export const mockedRoles: Role[] =
           "lastName": "Smith"
         },
         "avatarUrl": "",
-        "userEmail": "amy.smith494@apple.dev"
+        "userEmail": "amy.smith494@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5644,7 +5644,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gutierrez"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.gutierrez495@apple.dev"
+        "userEmail": "ruth.gutierrez495@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5655,7 +5655,7 @@ export const mockedRoles: Role[] =
           "lastName": "Daniels"
         },
         "avatarUrl": "",
-        "userEmail": "charles.daniels496@apple.dev"
+        "userEmail": "charles.daniels496@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5666,7 +5666,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rodriguez"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.rodriguez497@apple.dev"
+        "userEmail": "victoria.rodriguez497@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5677,7 +5677,7 @@ export const mockedRoles: Role[] =
           "lastName": "Powell"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.powell498@apple.dev"
+        "userEmail": "lauren.powell498@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5688,7 +5688,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rice"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.rice499@apple.dev"
+        "userEmail": "thomas.rice499@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5699,7 +5699,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzalez"
         },
         "avatarUrl": "",
-        "userEmail": "gary.gonzalez500@apple.dev"
+        "userEmail": "gary.gonzalez500@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5710,7 +5710,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.roberts501@apple.dev"
+        "userEmail": "sarah.roberts501@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5721,7 +5721,7 @@ export const mockedRoles: Role[] =
           "lastName": "Miller"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.miller502@apple.dev"
+        "userEmail": "kimberly.miller502@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5732,7 +5732,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "megan.owens503@apple.dev"
+        "userEmail": "megan.owens503@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5743,7 +5743,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vasquez"
         },
         "avatarUrl": "",
-        "userEmail": "robert.vasquez504@apple.dev"
+        "userEmail": "robert.vasquez504@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5754,7 +5754,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hayes"
         },
         "avatarUrl": "",
-        "userEmail": "edward.hayes505@apple.dev"
+        "userEmail": "edward.hayes505@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5765,7 +5765,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "emma.reyes506@apple.dev"
+        "userEmail": "emma.reyes506@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5776,7 +5776,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castro"
         },
         "avatarUrl": "",
-        "userEmail": "julie.castro507@apple.dev"
+        "userEmail": "julie.castro507@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5787,7 +5787,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "stephen.dunn508@apple.dev"
+        "userEmail": "stephen.dunn508@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5798,7 +5798,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brooks"
         },
         "avatarUrl": "",
-        "userEmail": "james.brooks509@apple.dev"
+        "userEmail": "james.brooks509@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5809,7 +5809,7 @@ export const mockedRoles: Role[] =
           "lastName": "Griffin"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.griffin510@apple.dev"
+        "userEmail": "kenneth.griffin510@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5820,7 +5820,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "donna.murray511@apple.dev"
+        "userEmail": "donna.murray511@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5831,7 +5831,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "ezra.perez512@apple.dev"
+        "userEmail": "ezra.perez512@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5842,7 +5842,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simpson"
         },
         "avatarUrl": "",
-        "userEmail": "liam.simpson513@apple.dev"
+        "userEmail": "liam.simpson513@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5853,7 +5853,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.hunter514@apple.dev"
+        "userEmail": "lauren.hunter514@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5864,7 +5864,7 @@ export const mockedRoles: Role[] =
           "lastName": "Myers"
         },
         "avatarUrl": "",
-        "userEmail": "ryan.myers515@apple.dev"
+        "userEmail": "ryan.myers515@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5875,7 +5875,7 @@ export const mockedRoles: Role[] =
           "lastName": "Daniels"
         },
         "avatarUrl": "",
-        "userEmail": "julia.daniels516@apple.dev"
+        "userEmail": "julia.daniels516@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5886,7 +5886,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ellis"
         },
         "avatarUrl": "",
-        "userEmail": "gabriel.ellis517@apple.dev"
+        "userEmail": "gabriel.ellis517@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5897,7 +5897,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "donna.aguilar518@apple.dev"
+        "userEmail": "donna.aguilar518@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5908,7 +5908,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nelson"
         },
         "avatarUrl": "",
-        "userEmail": "timothy.nelson519@apple.dev"
+        "userEmail": "timothy.nelson519@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5919,7 +5919,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "linda.owens520@apple.dev"
+        "userEmail": "linda.owens520@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5930,7 +5930,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "elijah.adams521@apple.dev"
+        "userEmail": "elijah.adams521@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5941,7 +5941,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "mary.harris522@apple.dev"
+        "userEmail": "mary.harris522@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5952,7 +5952,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kennedy"
         },
         "avatarUrl": "",
-        "userEmail": "megan.kennedy523@apple.dev"
+        "userEmail": "megan.kennedy523@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5963,7 +5963,7 @@ export const mockedRoles: Role[] =
           "lastName": "Soto"
         },
         "avatarUrl": "",
-        "userEmail": "joan.soto524@apple.dev"
+        "userEmail": "joan.soto524@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5974,7 +5974,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henderson"
         },
         "avatarUrl": "",
-        "userEmail": "frank.henderson525@apple.dev"
+        "userEmail": "frank.henderson525@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5985,7 +5985,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ortiz"
         },
         "avatarUrl": "",
-        "userEmail": "charles.ortiz526@apple.dev"
+        "userEmail": "charles.ortiz526@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -5996,7 +5996,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "maverick.rogers527@apple.dev"
+        "userEmail": "maverick.rogers527@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6007,7 +6007,7 @@ export const mockedRoles: Role[] =
           "lastName": "Boyd"
         },
         "avatarUrl": "",
-        "userEmail": "helen.boyd528@apple.dev"
+        "userEmail": "helen.boyd528@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6018,7 +6018,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morgan"
         },
         "avatarUrl": "",
-        "userEmail": "carol.morgan529@apple.dev"
+        "userEmail": "carol.morgan529@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6029,7 +6029,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "jessica.payne530@apple.dev"
+        "userEmail": "jessica.payne530@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6040,7 +6040,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rice"
         },
         "avatarUrl": "",
-        "userEmail": "patricia.rice531@apple.dev"
+        "userEmail": "patricia.rice531@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6051,7 +6051,7 @@ export const mockedRoles: Role[] =
           "lastName": "Boyd"
         },
         "avatarUrl": "",
-        "userEmail": "angela.boyd532@apple.dev"
+        "userEmail": "angela.boyd532@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6062,7 +6062,7 @@ export const mockedRoles: Role[] =
           "lastName": "Salazar"
         },
         "avatarUrl": "",
-        "userEmail": "douglas.salazar533@apple.dev"
+        "userEmail": "douglas.salazar533@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6073,7 +6073,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "helen.mendez534@apple.dev"
+        "userEmail": "helen.mendez534@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6084,7 +6084,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cox"
         },
         "avatarUrl": "",
-        "userEmail": "marie.cox535@apple.dev"
+        "userEmail": "marie.cox535@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6095,7 +6095,7 @@ export const mockedRoles: Role[] =
           "lastName": "West"
         },
         "avatarUrl": "",
-        "userEmail": "daniel.west536@apple.dev"
+        "userEmail": "daniel.west536@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6106,7 +6106,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "susan.perry537@apple.dev"
+        "userEmail": "susan.perry537@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6117,7 +6117,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nichols"
         },
         "avatarUrl": "",
-        "userEmail": "martha.nichols538@apple.dev"
+        "userEmail": "martha.nichols538@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6128,7 +6128,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moreno"
         },
         "avatarUrl": "",
-        "userEmail": "david.moreno539@apple.dev"
+        "userEmail": "david.moreno539@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6139,7 +6139,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lee"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.lee540@apple.dev"
+        "userEmail": "anthony.lee540@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6150,7 +6150,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramos"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.ramos541@apple.dev"
+        "userEmail": "virginia.ramos541@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6161,7 +6161,7 @@ export const mockedRoles: Role[] =
           "lastName": "Foster"
         },
         "avatarUrl": "",
-        "userEmail": "richard.foster542@apple.dev"
+        "userEmail": "richard.foster542@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6172,7 +6172,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "debra.harrison543@apple.dev"
+        "userEmail": "debra.harrison543@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6183,7 +6183,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morris"
         },
         "avatarUrl": "",
-        "userEmail": "julie.morris544@apple.dev"
+        "userEmail": "julie.morris544@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6194,7 +6194,7 @@ export const mockedRoles: Role[] =
           "lastName": "Williams"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.williams545@apple.dev"
+        "userEmail": "sandra.williams545@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6205,7 +6205,7 @@ export const mockedRoles: Role[] =
           "lastName": "Taylor"
         },
         "avatarUrl": "",
-        "userEmail": "isaac.taylor546@apple.dev"
+        "userEmail": "isaac.taylor546@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6216,7 +6216,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mcdonald"
         },
         "avatarUrl": "",
-        "userEmail": "judith.mcdonald547@apple.dev"
+        "userEmail": "judith.mcdonald547@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6227,7 +6227,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.reyes548@apple.dev"
+        "userEmail": "grayson.reyes548@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6238,7 +6238,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "judith.meyer549@apple.dev"
+        "userEmail": "judith.meyer549@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6249,7 +6249,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.jordan550@apple.dev"
+        "userEmail": "dorothy.jordan550@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6260,7 +6260,7 @@ export const mockedRoles: Role[] =
           "lastName": "Price"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.price551@apple.dev"
+        "userEmail": "joseph.price551@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6271,7 +6271,7 @@ export const mockedRoles: Role[] =
           "lastName": "Barnes"
         },
         "avatarUrl": "",
-        "userEmail": "marie.barnes552@apple.dev"
+        "userEmail": "marie.barnes552@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6282,7 +6282,7 @@ export const mockedRoles: Role[] =
           "lastName": "Warren"
         },
         "avatarUrl": "",
-        "userEmail": "henry.warren553@apple.dev"
+        "userEmail": "henry.warren553@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6293,7 +6293,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.martin554@apple.dev"
+        "userEmail": "lauren.martin554@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6304,7 +6304,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.romero555@apple.dev"
+        "userEmail": "alexander.romero555@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6315,7 +6315,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "helen.phillips556@apple.dev"
+        "userEmail": "helen.phillips556@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6326,7 +6326,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hamilton"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.hamilton557@apple.dev"
+        "userEmail": "dorothy.hamilton557@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6337,7 +6337,7 @@ export const mockedRoles: Role[] =
           "lastName": "James"
         },
         "avatarUrl": "",
-        "userEmail": "henry.james558@apple.dev"
+        "userEmail": "henry.james558@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6348,7 +6348,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martinez"
         },
         "avatarUrl": "",
-        "userEmail": "elijah.martinez559@apple.dev"
+        "userEmail": "elijah.martinez559@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6359,7 +6359,7 @@ export const mockedRoles: Role[] =
           "lastName": "Flores"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.flores560@apple.dev"
+        "userEmail": "thomas.flores560@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6370,7 +6370,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.spencer561@apple.dev"
+        "userEmail": "joyce.spencer561@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6381,7 +6381,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "patricia.hill562@apple.dev"
+        "userEmail": "patricia.hill562@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6392,7 +6392,7 @@ export const mockedRoles: Role[] =
           "lastName": "Salazar"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.salazar563@apple.dev"
+        "userEmail": "jayden.salazar563@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6403,7 +6403,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "carol.torres564@apple.dev"
+        "userEmail": "carol.torres564@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6414,7 +6414,7 @@ export const mockedRoles: Role[] =
           "lastName": "Salazar"
         },
         "avatarUrl": "",
-        "userEmail": "ronald.salazar565@apple.dev"
+        "userEmail": "ronald.salazar565@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6425,7 +6425,7 @@ export const mockedRoles: Role[] =
           "lastName": "Campbell"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.campbell566@apple.dev"
+        "userEmail": "lisa.campbell566@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6436,7 +6436,7 @@ export const mockedRoles: Role[] =
           "lastName": "Daniels"
         },
         "avatarUrl": "",
-        "userEmail": "judith.daniels567@apple.dev"
+        "userEmail": "judith.daniels567@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6447,7 +6447,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.harris568@apple.dev"
+        "userEmail": "matthew.harris568@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6458,7 +6458,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "donna.roberts569@apple.dev"
+        "userEmail": "donna.roberts569@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6469,7 +6469,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fernandez"
         },
         "avatarUrl": "",
-        "userEmail": "amy.fernandez570@apple.dev"
+        "userEmail": "amy.fernandez570@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6480,7 +6480,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "parker.turner571@apple.dev"
+        "userEmail": "parker.turner571@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6491,7 +6491,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.turner572@apple.dev"
+        "userEmail": "andrea.turner572@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6502,7 +6502,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brown"
         },
         "avatarUrl": "",
-        "userEmail": "brandon.brown573@apple.dev"
+        "userEmail": "brandon.brown573@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6513,7 +6513,7 @@ export const mockedRoles: Role[] =
           "lastName": "Evans"
         },
         "avatarUrl": "",
-        "userEmail": "janet.evans574@apple.dev"
+        "userEmail": "janet.evans574@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6524,7 +6524,7 @@ export const mockedRoles: Role[] =
           "lastName": "James"
         },
         "avatarUrl": "",
-        "userEmail": "rachel.james575@apple.dev"
+        "userEmail": "rachel.james575@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6535,7 +6535,7 @@ export const mockedRoles: Role[] =
           "lastName": "Young"
         },
         "avatarUrl": "",
-        "userEmail": "cynthia.young576@apple.dev"
+        "userEmail": "cynthia.young576@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6546,7 +6546,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "gary.payne577@apple.dev"
+        "userEmail": "gary.payne577@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6557,7 +6557,7 @@ export const mockedRoles: Role[] =
           "lastName": "Smith"
         },
         "avatarUrl": "",
-        "userEmail": "stephen.smith578@apple.dev"
+        "userEmail": "stephen.smith578@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6568,7 +6568,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.hill579@apple.dev"
+        "userEmail": "evelyn.hill579@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6579,7 +6579,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "helen.romero580@apple.dev"
+        "userEmail": "helen.romero580@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6590,7 +6590,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "kai.mason581@apple.dev"
+        "userEmail": "kai.mason581@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6601,7 +6601,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lee"
         },
         "avatarUrl": "",
-        "userEmail": "barbara.lee582@apple.dev"
+        "userEmail": "barbara.lee582@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6612,7 +6612,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hall"
         },
         "avatarUrl": "",
-        "userEmail": "carol.hall583@apple.dev"
+        "userEmail": "carol.hall583@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6623,7 +6623,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patterson"
         },
         "avatarUrl": "",
-        "userEmail": "janet.patterson584@apple.dev"
+        "userEmail": "janet.patterson584@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6634,7 +6634,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.howard585@apple.dev"
+        "userEmail": "joyce.howard585@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6645,7 +6645,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bryant"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.bryant586@apple.dev"
+        "userEmail": "samantha.bryant586@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6656,7 +6656,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "ryan.sanders587@apple.dev"
+        "userEmail": "ryan.sanders587@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6667,7 +6667,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "mark.moore588@apple.dev"
+        "userEmail": "mark.moore588@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6678,7 +6678,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mitchell"
         },
         "avatarUrl": "",
-        "userEmail": "jason.mitchell589@apple.dev"
+        "userEmail": "jason.mitchell589@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6689,7 +6689,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzales"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.gonzales590@apple.dev"
+        "userEmail": "sharon.gonzales590@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6700,7 +6700,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "jeremy.perry591@apple.dev"
+        "userEmail": "jeremy.perry591@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6711,7 +6711,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robinson"
         },
         "avatarUrl": "",
-        "userEmail": "peter.robinson592@apple.dev"
+        "userEmail": "peter.robinson592@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6722,7 +6722,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "donald.wagner593@apple.dev"
+        "userEmail": "donald.wagner593@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6733,7 +6733,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.reed594@apple.dev"
+        "userEmail": "jayden.reed594@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6744,7 +6744,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.howard595@apple.dev"
+        "userEmail": "virginia.howard595@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6755,7 +6755,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "justin.johnson596@apple.dev"
+        "userEmail": "justin.johnson596@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6766,7 +6766,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mills"
         },
         "avatarUrl": "",
-        "userEmail": "adam.mills597@apple.dev"
+        "userEmail": "adam.mills597@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6777,7 +6777,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gomez"
         },
         "avatarUrl": "",
-        "userEmail": "betty.gomez598@apple.dev"
+        "userEmail": "betty.gomez598@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6788,7 +6788,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gray"
         },
         "avatarUrl": "",
-        "userEmail": "dennis.gray599@apple.dev"
+        "userEmail": "dennis.gray599@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6799,7 +6799,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ford"
         },
         "avatarUrl": "",
-        "userEmail": "michael.ford600@apple.dev"
+        "userEmail": "michael.ford600@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6810,7 +6810,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzalez"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.gonzalez601@apple.dev"
+        "userEmail": "lauren.gonzalez601@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6821,7 +6821,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelly"
         },
         "avatarUrl": "",
-        "userEmail": "marie.kelly602@apple.dev"
+        "userEmail": "marie.kelly602@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6832,7 +6832,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.payne603@apple.dev"
+        "userEmail": "christopher.payne603@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6843,7 +6843,7 @@ export const mockedRoles: Role[] =
           "lastName": "Olson"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.olson604@apple.dev"
+        "userEmail": "evelyn.olson604@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6854,7 +6854,7 @@ export const mockedRoles: Role[] =
           "lastName": "Allen"
         },
         "avatarUrl": "",
-        "userEmail": "debra.allen605@apple.dev"
+        "userEmail": "debra.allen605@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6865,7 +6865,7 @@ export const mockedRoles: Role[] =
           "lastName": "James"
         },
         "avatarUrl": "",
-        "userEmail": "raymond.james606@apple.dev"
+        "userEmail": "raymond.james606@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6876,7 +6876,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "frank.hill607@apple.dev"
+        "userEmail": "frank.hill607@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6887,7 +6887,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "christina.burns608@apple.dev"
+        "userEmail": "christina.burns608@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6898,7 +6898,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.lewis609@apple.dev"
+        "userEmail": "sarah.lewis609@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6909,7 +6909,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thompson"
         },
         "avatarUrl": "",
-        "userEmail": "robert.thompson610@apple.dev"
+        "userEmail": "robert.thompson610@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6920,7 +6920,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "mary.silva611@apple.dev"
+        "userEmail": "mary.silva611@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6931,7 +6931,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanchez"
         },
         "avatarUrl": "",
-        "userEmail": "jaxon.sanchez612@apple.dev"
+        "userEmail": "jaxon.sanchez612@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6942,7 +6942,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.lewis613@apple.dev"
+        "userEmail": "ruth.lewis613@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6953,7 +6953,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hall"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.hall614@apple.dev"
+        "userEmail": "samantha.hall614@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6964,7 +6964,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "janice.reyes615@apple.dev"
+        "userEmail": "janice.reyes615@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6975,7 +6975,7 @@ export const mockedRoles: Role[] =
           "lastName": "Richardson"
         },
         "avatarUrl": "",
-        "userEmail": "mason.richardson616@apple.dev"
+        "userEmail": "mason.richardson616@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6986,7 +6986,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.hill617@apple.dev"
+        "userEmail": "ruth.hill617@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -6997,7 +6997,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murphy"
         },
         "avatarUrl": "",
-        "userEmail": "heather.murphy618@apple.dev"
+        "userEmail": "heather.murphy618@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7008,7 +7008,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.aguilar619@apple.dev"
+        "userEmail": "jayden.aguilar619@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7019,7 +7019,7 @@ export const mockedRoles: Role[] =
           "lastName": "Collins"
         },
         "avatarUrl": "",
-        "userEmail": "donald.collins620@apple.dev"
+        "userEmail": "donald.collins620@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7030,7 +7030,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "diane.garza621@apple.dev"
+        "userEmail": "diane.garza621@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7041,7 +7041,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "joan.harris622@apple.dev"
+        "userEmail": "joan.harris622@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7052,7 +7052,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wright"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.wright623@apple.dev"
+        "userEmail": "michelle.wright623@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7063,7 +7063,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castillo"
         },
         "avatarUrl": "",
-        "userEmail": "edward.castillo624@apple.dev"
+        "userEmail": "edward.castillo624@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7074,7 +7074,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "christina.rogers625@apple.dev"
+        "userEmail": "christina.rogers625@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7085,7 +7085,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "joan.hunter626@apple.dev"
+        "userEmail": "joan.hunter626@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7096,7 +7096,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "robert.murray627@apple.dev"
+        "userEmail": "robert.murray627@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7107,7 +7107,7 @@ export const mockedRoles: Role[] =
           "lastName": "Russell"
         },
         "avatarUrl": "",
-        "userEmail": "amy.russell628@apple.dev"
+        "userEmail": "amy.russell628@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7118,7 +7118,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramirez"
         },
         "avatarUrl": "",
-        "userEmail": "timothy.ramirez629@apple.dev"
+        "userEmail": "timothy.ramirez629@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7129,7 +7129,7 @@ export const mockedRoles: Role[] =
           "lastName": "Young"
         },
         "avatarUrl": "",
-        "userEmail": "helen.young630@apple.dev"
+        "userEmail": "helen.young630@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7140,7 +7140,7 @@ export const mockedRoles: Role[] =
           "lastName": "Warren"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.warren631@apple.dev"
+        "userEmail": "ruth.warren631@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7151,7 +7151,7 @@ export const mockedRoles: Role[] =
           "lastName": "Taylor"
         },
         "avatarUrl": "",
-        "userEmail": "charles.taylor632@apple.dev"
+        "userEmail": "charles.taylor632@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7162,7 +7162,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mcdonald"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.mcdonald633@apple.dev"
+        "userEmail": "matthew.mcdonald633@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7173,7 +7173,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rice"
         },
         "avatarUrl": "",
-        "userEmail": "mary.rice634@apple.dev"
+        "userEmail": "mary.rice634@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7184,7 +7184,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelly"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.kelly635@apple.dev"
+        "userEmail": "nancy.kelly635@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7195,7 +7195,7 @@ export const mockedRoles: Role[] =
           "lastName": "Miller"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.miller636@apple.dev"
+        "userEmail": "andrew.miller636@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7206,7 +7206,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "mary.roberts637@apple.dev"
+        "userEmail": "mary.roberts637@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7217,7 +7217,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gutierrez"
         },
         "avatarUrl": "",
-        "userEmail": "justin.gutierrez638@apple.dev"
+        "userEmail": "justin.gutierrez638@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7228,7 +7228,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wilson"
         },
         "avatarUrl": "",
-        "userEmail": "eric.wilson639@apple.dev"
+        "userEmail": "eric.wilson639@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7239,7 +7239,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "ethan.harrison640@apple.dev"
+        "userEmail": "ethan.harrison640@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7250,7 +7250,7 @@ export const mockedRoles: Role[] =
           "lastName": "Alexander"
         },
         "avatarUrl": "",
-        "userEmail": "gregory.alexander641@apple.dev"
+        "userEmail": "gregory.alexander641@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7261,7 +7261,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ryan"
         },
         "avatarUrl": "",
-        "userEmail": "henry.ryan642@apple.dev"
+        "userEmail": "henry.ryan642@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7272,7 +7272,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.dixon643@apple.dev"
+        "userEmail": "sandra.dixon643@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7283,7 +7283,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patterson"
         },
         "avatarUrl": "",
-        "userEmail": "jacqueline.patterson644@apple.dev"
+        "userEmail": "jacqueline.patterson644@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7294,7 +7294,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "donna.wagner645@apple.dev"
+        "userEmail": "donna.wagner645@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7305,7 +7305,7 @@ export const mockedRoles: Role[] =
           "lastName": "Soto"
         },
         "avatarUrl": "",
-        "userEmail": "leonardo.soto646@apple.dev"
+        "userEmail": "leonardo.soto646@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7316,7 +7316,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hayes"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.hayes647@apple.dev"
+        "userEmail": "sharon.hayes647@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7327,7 +7327,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "parker.jones648@apple.dev"
+        "userEmail": "parker.jones648@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7338,7 +7338,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "megan.reed649@apple.dev"
+        "userEmail": "megan.reed649@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7349,7 +7349,7 @@ export const mockedRoles: Role[] =
           "lastName": "Vargas"
         },
         "avatarUrl": "",
-        "userEmail": "josiah.vargas650@apple.dev"
+        "userEmail": "josiah.vargas650@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7360,7 +7360,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nguyen"
         },
         "avatarUrl": "",
-        "userEmail": "julie.nguyen651@apple.dev"
+        "userEmail": "julie.nguyen651@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7371,7 +7371,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ellis"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.ellis652@apple.dev"
+        "userEmail": "joyce.ellis652@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7382,7 +7382,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelly"
         },
         "avatarUrl": "",
-        "userEmail": "julie.kelly653@apple.dev"
+        "userEmail": "julie.kelly653@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7393,7 +7393,7 @@ export const mockedRoles: Role[] =
           "lastName": "Alexander"
         },
         "avatarUrl": "",
-        "userEmail": "frances.alexander654@apple.dev"
+        "userEmail": "frances.alexander654@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7404,7 +7404,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wallace"
         },
         "avatarUrl": "",
-        "userEmail": "dennis.wallace655@apple.dev"
+        "userEmail": "dennis.wallace655@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7415,7 +7415,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.coleman656@apple.dev"
+        "userEmail": "sarah.coleman656@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7426,7 +7426,7 @@ export const mockedRoles: Role[] =
           "lastName": "Graham"
         },
         "avatarUrl": "",
-        "userEmail": "betty.graham657@apple.dev"
+        "userEmail": "betty.graham657@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7437,7 +7437,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "julie.mason658@apple.dev"
+        "userEmail": "julie.mason658@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7448,7 +7448,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lee"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.lee659@apple.dev"
+        "userEmail": "sandra.lee659@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7459,7 +7459,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.jones660@apple.dev"
+        "userEmail": "olivia.jones660@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7470,7 +7470,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "robert.walker661@apple.dev"
+        "userEmail": "robert.walker661@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7481,7 +7481,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "scott.hill662@apple.dev"
+        "userEmail": "scott.hill662@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7492,7 +7492,7 @@ export const mockedRoles: Role[] =
           "lastName": "Medina"
         },
         "avatarUrl": "",
-        "userEmail": "ezra.medina663@apple.dev"
+        "userEmail": "ezra.medina663@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7503,7 +7503,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hernandez"
         },
         "avatarUrl": "",
-        "userEmail": "debra.hernandez664@apple.dev"
+        "userEmail": "debra.hernandez664@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7514,7 +7514,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "ashley.bailey665@apple.dev"
+        "userEmail": "ashley.bailey665@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7525,7 +7525,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.silva666@apple.dev"
+        "userEmail": "catherine.silva666@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7536,7 +7536,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.dixon667@apple.dev"
+        "userEmail": "hannah.dixon667@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7547,7 +7547,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.sanders668@apple.dev"
+        "userEmail": "lisa.sanders668@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7558,7 +7558,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dixon"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.dixon669@apple.dev"
+        "userEmail": "lauren.dixon669@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7569,7 +7569,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "carol.spencer670@apple.dev"
+        "userEmail": "carol.spencer670@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7580,7 +7580,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hayes"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.hayes671@apple.dev"
+        "userEmail": "cheryl.hayes671@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7591,7 +7591,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harrison"
         },
         "avatarUrl": "",
-        "userEmail": "nathan.harrison672@apple.dev"
+        "userEmail": "nathan.harrison672@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7602,7 +7602,7 @@ export const mockedRoles: Role[] =
           "lastName": "Parker"
         },
         "avatarUrl": "",
-        "userEmail": "noah.parker673@apple.dev"
+        "userEmail": "noah.parker673@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7613,7 +7613,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.torres674@apple.dev"
+        "userEmail": "nancy.torres674@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7624,7 +7624,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ward"
         },
         "avatarUrl": "",
-        "userEmail": "john.ward675@apple.dev"
+        "userEmail": "john.ward675@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7635,7 +7635,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cooper"
         },
         "avatarUrl": "",
-        "userEmail": "donna.cooper676@apple.dev"
+        "userEmail": "donna.cooper676@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7646,7 +7646,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "eric.black677@apple.dev"
+        "userEmail": "eric.black677@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7657,7 +7657,7 @@ export const mockedRoles: Role[] =
           "lastName": "Warren"
         },
         "avatarUrl": "",
-        "userEmail": "oliver.warren678@apple.dev"
+        "userEmail": "oliver.warren678@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7668,7 +7668,7 @@ export const mockedRoles: Role[] =
           "lastName": "Phillips"
         },
         "avatarUrl": "",
-        "userEmail": "amy.phillips679@apple.dev"
+        "userEmail": "amy.phillips679@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7679,7 +7679,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "judith.burns680@apple.dev"
+        "userEmail": "judith.burns680@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7690,7 +7690,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "michael.rogers681@apple.dev"
+        "userEmail": "michael.rogers681@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7701,7 +7701,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stewart"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.stewart682@apple.dev"
+        "userEmail": "michelle.stewart682@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7712,7 +7712,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lopez"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.lopez683@apple.dev"
+        "userEmail": "patrick.lopez683@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7723,7 +7723,7 @@ export const mockedRoles: Role[] =
           "lastName": "Walker"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.walker684@apple.dev"
+        "userEmail": "lauren.walker684@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7734,7 +7734,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stewart"
         },
         "avatarUrl": "",
-        "userEmail": "ronald.stewart685@apple.dev"
+        "userEmail": "ronald.stewart685@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7745,7 +7745,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelley"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.kelley686@apple.dev"
+        "userEmail": "joyce.kelley686@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7756,7 +7756,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mcdonald"
         },
         "avatarUrl": "",
-        "userEmail": "josiah.mcdonald687@apple.dev"
+        "userEmail": "josiah.mcdonald687@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7767,7 +7767,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "steven.garza688@apple.dev"
+        "userEmail": "steven.garza688@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7778,7 +7778,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "diane.johnson689@apple.dev"
+        "userEmail": "diane.johnson689@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7789,7 +7789,7 @@ export const mockedRoles: Role[] =
           "lastName": "Peterson"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.peterson690@apple.dev"
+        "userEmail": "lauren.peterson690@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7800,7 +7800,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moreno"
         },
         "avatarUrl": "",
-        "userEmail": "frank.moreno691@apple.dev"
+        "userEmail": "frank.moreno691@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7811,7 +7811,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henry"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.henry692@apple.dev"
+        "userEmail": "christopher.henry692@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7822,7 +7822,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "robert.roberts693@apple.dev"
+        "userEmail": "robert.roberts693@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7833,7 +7833,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.turner694@apple.dev"
+        "userEmail": "grayson.turner694@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7844,7 +7844,7 @@ export const mockedRoles: Role[] =
           "lastName": "Weaver"
         },
         "avatarUrl": "",
-        "userEmail": "betty.weaver695@apple.dev"
+        "userEmail": "betty.weaver695@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7855,7 +7855,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "kai.black696@apple.dev"
+        "userEmail": "kai.black696@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7866,7 +7866,7 @@ export const mockedRoles: Role[] =
           "lastName": "Harris"
         },
         "avatarUrl": "",
-        "userEmail": "robert.harris697@apple.dev"
+        "userEmail": "robert.harris697@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7877,7 +7877,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fernandez"
         },
         "avatarUrl": "",
-        "userEmail": "angela.fernandez698@apple.dev"
+        "userEmail": "angela.fernandez698@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7888,7 +7888,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reed"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.reed699@apple.dev"
+        "userEmail": "sarah.reed699@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7899,7 +7899,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.simmons700@apple.dev"
+        "userEmail": "victoria.simmons700@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7910,7 +7910,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.mason701@apple.dev"
+        "userEmail": "thomas.mason701@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7921,7 +7921,7 @@ export const mockedRoles: Role[] =
           "lastName": "Soto"
         },
         "avatarUrl": "",
-        "userEmail": "ronald.soto702@apple.dev"
+        "userEmail": "ronald.soto702@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7932,7 +7932,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.bailey703@apple.dev"
+        "userEmail": "andrea.bailey703@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7943,7 +7943,7 @@ export const mockedRoles: Role[] =
           "lastName": "Williams"
         },
         "avatarUrl": "",
-        "userEmail": "david.williams704@apple.dev"
+        "userEmail": "david.williams704@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7954,7 +7954,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gibson"
         },
         "avatarUrl": "",
-        "userEmail": "kelly.gibson705@apple.dev"
+        "userEmail": "kelly.gibson705@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7965,7 +7965,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "ezra.dunn706@apple.dev"
+        "userEmail": "ezra.dunn706@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7976,7 +7976,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chavez"
         },
         "avatarUrl": "",
-        "userEmail": "kevin.chavez707@apple.dev"
+        "userEmail": "kevin.chavez707@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7987,7 +7987,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ward"
         },
         "avatarUrl": "",
-        "userEmail": "karen.ward708@apple.dev"
+        "userEmail": "karen.ward708@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -7998,7 +7998,7 @@ export const mockedRoles: Role[] =
           "lastName": "Clark"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.clark709@apple.dev"
+        "userEmail": "joseph.clark709@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8009,7 +8009,7 @@ export const mockedRoles: Role[] =
           "lastName": "Holmes"
         },
         "avatarUrl": "",
-        "userEmail": "jose.holmes710@apple.dev"
+        "userEmail": "jose.holmes710@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8020,7 +8020,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "diane.black711@apple.dev"
+        "userEmail": "diane.black711@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8031,7 +8031,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "karen.simmons712@apple.dev"
+        "userEmail": "karen.simmons712@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8042,7 +8042,7 @@ export const mockedRoles: Role[] =
           "lastName": "Clark"
         },
         "avatarUrl": "",
-        "userEmail": "elizabeth.clark713@apple.dev"
+        "userEmail": "elizabeth.clark713@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8053,7 +8053,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nichols"
         },
         "avatarUrl": "",
-        "userEmail": "peter.nichols714@apple.dev"
+        "userEmail": "peter.nichols714@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8064,7 +8064,7 @@ export const mockedRoles: Role[] =
           "lastName": "Henry"
         },
         "avatarUrl": "",
-        "userEmail": "cynthia.henry715@apple.dev"
+        "userEmail": "cynthia.henry715@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8075,7 +8075,7 @@ export const mockedRoles: Role[] =
           "lastName": "Myers"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.myers716@apple.dev"
+        "userEmail": "kenneth.myers716@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8086,7 +8086,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "jennifer.lewis717@apple.dev"
+        "userEmail": "jennifer.lewis717@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8097,7 +8097,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "jaxon.anderson718@apple.dev"
+        "userEmail": "jaxon.anderson718@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8108,7 +8108,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendoza"
         },
         "avatarUrl": "",
-        "userEmail": "brandon.mendoza719@apple.dev"
+        "userEmail": "brandon.mendoza719@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8119,7 +8119,7 @@ export const mockedRoles: Role[] =
           "lastName": "Freeman"
         },
         "avatarUrl": "",
-        "userEmail": "carter.freeman720@apple.dev"
+        "userEmail": "carter.freeman720@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8130,7 +8130,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hayes"
         },
         "avatarUrl": "",
-        "userEmail": "steven.hayes721@apple.dev"
+        "userEmail": "steven.hayes721@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8141,7 +8141,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "owen.roberts722@apple.dev"
+        "userEmail": "owen.roberts722@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8152,7 +8152,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzalez"
         },
         "avatarUrl": "",
-        "userEmail": "karen.gonzalez723@apple.dev"
+        "userEmail": "karen.gonzalez723@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8163,7 +8163,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "josiah.ross724@apple.dev"
+        "userEmail": "josiah.ross724@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8174,7 +8174,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "deborah.adams725@apple.dev"
+        "userEmail": "deborah.adams725@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8185,7 +8185,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "larry.black726@apple.dev"
+        "userEmail": "larry.black726@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8196,7 +8196,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.diaz727@apple.dev"
+        "userEmail": "virginia.diaz727@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8207,7 +8207,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramos"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.ramos728@apple.dev"
+        "userEmail": "joseph.ramos728@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8218,7 +8218,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "douglas.johnson729@apple.dev"
+        "userEmail": "douglas.johnson729@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8229,7 +8229,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "edward.owens730@apple.dev"
+        "userEmail": "edward.owens730@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8240,7 +8240,7 @@ export const mockedRoles: Role[] =
           "lastName": "Miller"
         },
         "avatarUrl": "",
-        "userEmail": "janet.miller731@apple.dev"
+        "userEmail": "janet.miller731@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8251,7 +8251,7 @@ export const mockedRoles: Role[] =
           "lastName": "Smith"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.smith732@apple.dev"
+        "userEmail": "jerry.smith732@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8262,7 +8262,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kennedy"
         },
         "avatarUrl": "",
-        "userEmail": "ryan.kennedy733@apple.dev"
+        "userEmail": "ryan.kennedy733@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8273,7 +8273,7 @@ export const mockedRoles: Role[] =
           "lastName": "Guzman"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.guzman734@apple.dev"
+        "userEmail": "dorothy.guzman734@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8284,7 +8284,7 @@ export const mockedRoles: Role[] =
           "lastName": "Castro"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.castro735@apple.dev"
+        "userEmail": "sharon.castro735@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8295,7 +8295,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "elizabeth.owens736@apple.dev"
+        "userEmail": "elizabeth.owens736@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8306,7 +8306,7 @@ export const mockedRoles: Role[] =
           "lastName": "Edwards"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.edwards737@apple.dev"
+        "userEmail": "hudson.edwards737@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8317,7 +8317,7 @@ export const mockedRoles: Role[] =
           "lastName": "Brown"
         },
         "avatarUrl": "",
-        "userEmail": "carol.brown738@apple.dev"
+        "userEmail": "carol.brown738@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8328,7 +8328,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.dunn739@apple.dev"
+        "userEmail": "cheryl.dunn739@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8339,7 +8339,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "carolyn.anderson740@apple.dev"
+        "userEmail": "carolyn.anderson740@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8350,7 +8350,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "sharon.romero741@apple.dev"
+        "userEmail": "sharon.romero741@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8361,7 +8361,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.king742@apple.dev"
+        "userEmail": "hannah.king742@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8372,7 +8372,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stone"
         },
         "avatarUrl": "",
-        "userEmail": "joan.stone743@apple.dev"
+        "userEmail": "joan.stone743@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8383,7 +8383,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.aguilar744@apple.dev"
+        "userEmail": "michelle.aguilar744@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8394,7 +8394,7 @@ export const mockedRoles: Role[] =
           "lastName": "Foster"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.foster745@apple.dev"
+        "userEmail": "sarah.foster745@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8405,7 +8405,7 @@ export const mockedRoles: Role[] =
           "lastName": "Woods"
         },
         "avatarUrl": "",
-        "userEmail": "jose.woods746@apple.dev"
+        "userEmail": "jose.woods746@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8416,7 +8416,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramos"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.ramos747@apple.dev"
+        "userEmail": "anthony.ramos747@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8427,7 +8427,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fernandez"
         },
         "avatarUrl": "",
-        "userEmail": "amy.fernandez748@apple.dev"
+        "userEmail": "amy.fernandez748@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8438,7 +8438,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wells"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.wells749@apple.dev"
+        "userEmail": "hudson.wells749@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8449,7 +8449,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelley"
         },
         "avatarUrl": "",
-        "userEmail": "carolyn.kelley750@apple.dev"
+        "userEmail": "carolyn.kelley750@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8460,7 +8460,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "isaac.munoz751@apple.dev"
+        "userEmail": "isaac.munoz751@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8471,7 +8471,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gomez"
         },
         "avatarUrl": "",
-        "userEmail": "jessica.gomez752@apple.dev"
+        "userEmail": "jessica.gomez752@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8482,7 +8482,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "judith.romero753@apple.dev"
+        "userEmail": "judith.romero753@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8493,7 +8493,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wright"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.wright754@apple.dev"
+        "userEmail": "michelle.wright754@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8504,7 +8504,7 @@ export const mockedRoles: Role[] =
           "lastName": "Powell"
         },
         "avatarUrl": "",
-        "userEmail": "zachary.powell755@apple.dev"
+        "userEmail": "zachary.powell755@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8515,7 +8515,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nichols"
         },
         "avatarUrl": "",
-        "userEmail": "lauren.nichols756@apple.dev"
+        "userEmail": "lauren.nichols756@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8526,7 +8526,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ward"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.ward757@apple.dev"
+        "userEmail": "lisa.ward757@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8537,7 +8537,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nichols"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.nichols758@apple.dev"
+        "userEmail": "cheryl.nichols758@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8548,7 +8548,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.turner759@apple.dev"
+        "userEmail": "evelyn.turner759@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8559,7 +8559,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "jason.mendez760@apple.dev"
+        "userEmail": "jason.mendez760@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8570,7 +8570,7 @@ export const mockedRoles: Role[] =
           "lastName": "Peterson"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.peterson761@apple.dev"
+        "userEmail": "christopher.peterson761@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8581,7 +8581,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robertson"
         },
         "avatarUrl": "",
-        "userEmail": "heather.robertson762@apple.dev"
+        "userEmail": "heather.robertson762@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8592,7 +8592,7 @@ export const mockedRoles: Role[] =
           "lastName": "Miller"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.miller763@apple.dev"
+        "userEmail": "grayson.miller763@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8603,7 +8603,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.mason764@apple.dev"
+        "userEmail": "lisa.mason764@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8614,7 +8614,7 @@ export const mockedRoles: Role[] =
           "lastName": "Shaw"
         },
         "avatarUrl": "",
-        "userEmail": "charles.shaw765@apple.dev"
+        "userEmail": "charles.shaw765@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8625,7 +8625,7 @@ export const mockedRoles: Role[] =
           "lastName": "Richardson"
         },
         "avatarUrl": "",
-        "userEmail": "christina.richardson766@apple.dev"
+        "userEmail": "christina.richardson766@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8636,7 +8636,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kennedy"
         },
         "avatarUrl": "",
-        "userEmail": "jose.kennedy767@apple.dev"
+        "userEmail": "jose.kennedy767@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8647,7 +8647,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "kenneth.coleman768@apple.dev"
+        "userEmail": "kenneth.coleman768@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8658,7 +8658,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "jeremy.bailey769@apple.dev"
+        "userEmail": "jeremy.bailey769@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8669,7 +8669,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ramirez"
         },
         "avatarUrl": "",
-        "userEmail": "amy.ramirez770@apple.dev"
+        "userEmail": "amy.ramirez770@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8680,7 +8680,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.owens771@apple.dev"
+        "userEmail": "patrick.owens771@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8691,7 +8691,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lopez"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.lopez772@apple.dev"
+        "userEmail": "jayden.lopez772@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8702,7 +8702,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelly"
         },
         "avatarUrl": "",
-        "userEmail": "mary.kelly773@apple.dev"
+        "userEmail": "mary.kelly773@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8713,7 +8713,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.mendez774@apple.dev"
+        "userEmail": "samantha.mendez774@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8724,7 +8724,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "janice.moore775@apple.dev"
+        "userEmail": "janice.moore775@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8735,7 +8735,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "patrick.perez776@apple.dev"
+        "userEmail": "patrick.perez776@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8746,7 +8746,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garcia"
         },
         "avatarUrl": "",
-        "userEmail": "jeffrey.garcia777@apple.dev"
+        "userEmail": "jeffrey.garcia777@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8757,7 +8757,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "jonathan.jones778@apple.dev"
+        "userEmail": "jonathan.jones778@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8768,7 +8768,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stevens"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.stevens779@apple.dev"
+        "userEmail": "samantha.stevens779@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8779,7 +8779,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ortiz"
         },
         "avatarUrl": "",
-        "userEmail": "richard.ortiz780@apple.dev"
+        "userEmail": "richard.ortiz780@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8790,7 +8790,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanders"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.sanders781@apple.dev"
+        "userEmail": "evelyn.sanders781@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8801,7 +8801,7 @@ export const mockedRoles: Role[] =
           "lastName": "Webb"
         },
         "avatarUrl": "",
-        "userEmail": "jacob.webb782@apple.dev"
+        "userEmail": "jacob.webb782@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8812,7 +8812,7 @@ export const mockedRoles: Role[] =
           "lastName": "Aguilar"
         },
         "avatarUrl": "",
-        "userEmail": "ashley.aguilar783@apple.dev"
+        "userEmail": "ashley.aguilar783@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8823,7 +8823,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tucker"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.tucker784@apple.dev"
+        "userEmail": "catherine.tucker784@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8834,7 +8834,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.reynolds785@apple.dev"
+        "userEmail": "lisa.reynolds785@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8845,7 +8845,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "douglas.jenkins786@apple.dev"
+        "userEmail": "douglas.jenkins786@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8856,7 +8856,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jackson"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.jackson787@apple.dev"
+        "userEmail": "sarah.jackson787@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8867,7 +8867,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "judith.dunn788@apple.dev"
+        "userEmail": "judith.dunn788@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8878,7 +8878,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jimenez"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.jimenez789@apple.dev"
+        "userEmail": "hannah.jimenez789@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8889,7 +8889,7 @@ export const mockedRoles: Role[] =
           "lastName": "Adams"
         },
         "avatarUrl": "",
-        "userEmail": "diane.adams790@apple.dev"
+        "userEmail": "diane.adams790@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8900,7 +8900,7 @@ export const mockedRoles: Role[] =
           "lastName": "Allen"
         },
         "avatarUrl": "",
-        "userEmail": "kyle.allen791@apple.dev"
+        "userEmail": "kyle.allen791@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8911,7 +8911,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stone"
         },
         "avatarUrl": "",
-        "userEmail": "janice.stone792@apple.dev"
+        "userEmail": "janice.stone792@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8922,7 +8922,7 @@ export const mockedRoles: Role[] =
           "lastName": "Webb"
         },
         "avatarUrl": "",
-        "userEmail": "janice.webb793@apple.dev"
+        "userEmail": "janice.webb793@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8933,7 +8933,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martinez"
         },
         "avatarUrl": "",
-        "userEmail": "maverick.martinez794@apple.dev"
+        "userEmail": "maverick.martinez794@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8944,7 +8944,7 @@ export const mockedRoles: Role[] =
           "lastName": "Myers"
         },
         "avatarUrl": "",
-        "userEmail": "teresa.myers795@apple.dev"
+        "userEmail": "teresa.myers795@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8955,7 +8955,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moore"
         },
         "avatarUrl": "",
-        "userEmail": "roman.moore796@apple.dev"
+        "userEmail": "roman.moore796@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8966,7 +8966,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "kevin.rogers797@apple.dev"
+        "userEmail": "kevin.rogers797@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8977,7 +8977,7 @@ export const mockedRoles: Role[] =
           "lastName": "Graham"
         },
         "avatarUrl": "",
-        "userEmail": "laura.graham798@apple.dev"
+        "userEmail": "laura.graham798@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8988,7 +8988,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelley"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.kelley799@apple.dev"
+        "userEmail": "michelle.kelley799@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -8999,7 +8999,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelley"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.kelley800@apple.dev"
+        "userEmail": "ruth.kelley800@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9010,7 +9010,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robertson"
         },
         "avatarUrl": "",
-        "userEmail": "parker.robertson801@apple.dev"
+        "userEmail": "parker.robertson801@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9021,7 +9021,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cruz"
         },
         "avatarUrl": "",
-        "userEmail": "carol.cruz802@apple.dev"
+        "userEmail": "carol.cruz802@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9032,7 +9032,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "joyce.martin803@apple.dev"
+        "userEmail": "joyce.martin803@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9043,7 +9043,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "larry.perez804@apple.dev"
+        "userEmail": "larry.perez804@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9054,7 +9054,7 @@ export const mockedRoles: Role[] =
           "lastName": "Long"
         },
         "avatarUrl": "",
-        "userEmail": "laura.long805@apple.dev"
+        "userEmail": "laura.long805@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9065,7 +9065,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "joseph.burns806@apple.dev"
+        "userEmail": "joseph.burns806@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9076,7 +9076,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "peter.howard807@apple.dev"
+        "userEmail": "peter.howard807@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9087,7 +9087,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "luke.silva808@apple.dev"
+        "userEmail": "luke.silva808@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9098,7 +9098,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.jordan809@apple.dev"
+        "userEmail": "michelle.jordan809@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9109,7 +9109,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hughes"
         },
         "avatarUrl": "",
-        "userEmail": "owen.hughes810@apple.dev"
+        "userEmail": "owen.hughes810@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9120,7 +9120,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "jayden.dunn811@apple.dev"
+        "userEmail": "jayden.dunn811@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9131,7 +9131,7 @@ export const mockedRoles: Role[] =
           "lastName": "Nguyen"
         },
         "avatarUrl": "",
-        "userEmail": "adam.nguyen812@apple.dev"
+        "userEmail": "adam.nguyen812@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9142,7 +9142,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.diaz813@apple.dev"
+        "userEmail": "christopher.diaz813@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9153,7 +9153,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moreno"
         },
         "avatarUrl": "",
-        "userEmail": "linda.moreno814@apple.dev"
+        "userEmail": "linda.moreno814@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9164,7 +9164,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzales"
         },
         "avatarUrl": "",
-        "userEmail": "gabriel.gonzales815@apple.dev"
+        "userEmail": "gabriel.gonzales815@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9175,7 +9175,7 @@ export const mockedRoles: Role[] =
           "lastName": "Salazar"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.salazar816@apple.dev"
+        "userEmail": "andrew.salazar816@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9186,7 +9186,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chen"
         },
         "avatarUrl": "",
-        "userEmail": "brian.chen817@apple.dev"
+        "userEmail": "brian.chen817@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9197,7 +9197,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.diaz818@apple.dev"
+        "userEmail": "olivia.diaz818@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9208,7 +9208,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stephens"
         },
         "avatarUrl": "",
-        "userEmail": "wyatt.stephens819@apple.dev"
+        "userEmail": "wyatt.stephens819@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9219,7 +9219,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murray"
         },
         "avatarUrl": "",
-        "userEmail": "teresa.murray820@apple.dev"
+        "userEmail": "teresa.murray820@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9230,7 +9230,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "laura.payne821@apple.dev"
+        "userEmail": "laura.payne821@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9241,7 +9241,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ortiz"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.ortiz822@apple.dev"
+        "userEmail": "samantha.ortiz822@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9252,7 +9252,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "donna.wagner823@apple.dev"
+        "userEmail": "donna.wagner823@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9263,7 +9263,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bryant"
         },
         "avatarUrl": "",
-        "userEmail": "adam.bryant824@apple.dev"
+        "userEmail": "adam.bryant824@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9274,7 +9274,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ross"
         },
         "avatarUrl": "",
-        "userEmail": "kyle.ross825@apple.dev"
+        "userEmail": "kyle.ross825@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9285,7 +9285,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "catherine.torres826@apple.dev"
+        "userEmail": "catherine.torres826@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9296,7 +9296,7 @@ export const mockedRoles: Role[] =
           "lastName": "Lewis"
         },
         "avatarUrl": "",
-        "userEmail": "maverick.lewis827@apple.dev"
+        "userEmail": "maverick.lewis827@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9307,7 +9307,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "edward.coleman828@apple.dev"
+        "userEmail": "edward.coleman828@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9318,7 +9318,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wilson"
         },
         "avatarUrl": "",
-        "userEmail": "judith.wilson829@apple.dev"
+        "userEmail": "judith.wilson829@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9329,7 +9329,7 @@ export const mockedRoles: Role[] =
           "lastName": "Baker"
         },
         "avatarUrl": "",
-        "userEmail": "angela.baker830@apple.dev"
+        "userEmail": "angela.baker830@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9340,7 +9340,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kennedy"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.kennedy831@apple.dev"
+        "userEmail": "cheryl.kennedy831@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9351,7 +9351,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gibson"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.gibson832@apple.dev"
+        "userEmail": "andrew.gibson832@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9362,7 +9362,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martinez"
         },
         "avatarUrl": "",
-        "userEmail": "alan.martinez833@apple.dev"
+        "userEmail": "alan.martinez833@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9373,7 +9373,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "aaron.silva834@apple.dev"
+        "userEmail": "aaron.silva834@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9384,7 +9384,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wagner"
         },
         "avatarUrl": "",
-        "userEmail": "parker.wagner835@apple.dev"
+        "userEmail": "parker.wagner835@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9395,7 +9395,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mendez"
         },
         "avatarUrl": "",
-        "userEmail": "gabriel.mendez836@apple.dev"
+        "userEmail": "gabriel.mendez836@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9406,7 +9406,7 @@ export const mockedRoles: Role[] =
           "lastName": "Porter"
         },
         "avatarUrl": "",
-        "userEmail": "scott.porter837@apple.dev"
+        "userEmail": "scott.porter837@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9417,7 +9417,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.meyer838@apple.dev"
+        "userEmail": "samuel.meyer838@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9428,7 +9428,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "cynthia.johnson839@apple.dev"
+        "userEmail": "cynthia.johnson839@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9439,7 +9439,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cole"
         },
         "avatarUrl": "",
-        "userEmail": "adam.cole840@apple.dev"
+        "userEmail": "adam.cole840@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9450,7 +9450,7 @@ export const mockedRoles: Role[] =
           "lastName": "Palmer"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.palmer841@apple.dev"
+        "userEmail": "dorothy.palmer841@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9461,7 +9461,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.jenkins842@apple.dev"
+        "userEmail": "victoria.jenkins842@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9472,7 +9472,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunt"
         },
         "avatarUrl": "",
-        "userEmail": "adrian.hunt843@apple.dev"
+        "userEmail": "adrian.hunt843@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9483,7 +9483,7 @@ export const mockedRoles: Role[] =
           "lastName": "Allen"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.allen844@apple.dev"
+        "userEmail": "matthew.allen844@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9494,7 +9494,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "janet.bennett845@apple.dev"
+        "userEmail": "janet.bennett845@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9505,7 +9505,7 @@ export const mockedRoles: Role[] =
           "lastName": "Garza"
         },
         "avatarUrl": "",
-        "userEmail": "scott.garza846@apple.dev"
+        "userEmail": "scott.garza846@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9516,7 +9516,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morris"
         },
         "avatarUrl": "",
-        "userEmail": "ethan.morris847@apple.dev"
+        "userEmail": "ethan.morris847@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9527,7 +9527,7 @@ export const mockedRoles: Role[] =
           "lastName": "Foster"
         },
         "avatarUrl": "",
-        "userEmail": "christine.foster848@apple.dev"
+        "userEmail": "christine.foster848@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9538,7 +9538,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "janet.munoz849@apple.dev"
+        "userEmail": "janet.munoz849@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9549,7 +9549,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thompson"
         },
         "avatarUrl": "",
-        "userEmail": "nicholas.thompson850@apple.dev"
+        "userEmail": "nicholas.thompson850@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9560,7 +9560,7 @@ export const mockedRoles: Role[] =
           "lastName": "Weaver"
         },
         "avatarUrl": "",
-        "userEmail": "jonathan.weaver851@apple.dev"
+        "userEmail": "jonathan.weaver851@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9571,7 +9571,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stone"
         },
         "avatarUrl": "",
-        "userEmail": "charles.stone852@apple.dev"
+        "userEmail": "charles.stone852@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9582,7 +9582,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "logan.howard853@apple.dev"
+        "userEmail": "logan.howard853@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9593,7 +9593,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stone"
         },
         "avatarUrl": "",
-        "userEmail": "frank.stone854@apple.dev"
+        "userEmail": "frank.stone854@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9604,7 +9604,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "adrian.munoz855@apple.dev"
+        "userEmail": "adrian.munoz855@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9615,7 +9615,7 @@ export const mockedRoles: Role[] =
           "lastName": "Silva"
         },
         "avatarUrl": "",
-        "userEmail": "kevin.silva856@apple.dev"
+        "userEmail": "kevin.silva856@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9626,7 +9626,7 @@ export const mockedRoles: Role[] =
           "lastName": "Salazar"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.salazar857@apple.dev"
+        "userEmail": "cheryl.salazar857@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9637,7 +9637,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fernandez"
         },
         "avatarUrl": "",
-        "userEmail": "justin.fernandez858@apple.dev"
+        "userEmail": "justin.fernandez858@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9648,7 +9648,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patel"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.patel859@apple.dev"
+        "userEmail": "evelyn.patel859@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9659,7 +9659,7 @@ export const mockedRoles: Role[] =
           "lastName": "Schmidt"
         },
         "avatarUrl": "",
-        "userEmail": "gloria.schmidt860@apple.dev"
+        "userEmail": "gloria.schmidt860@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9670,7 +9670,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rogers"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.rogers861@apple.dev"
+        "userEmail": "victoria.rogers861@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9681,7 +9681,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "noah.romero862@apple.dev"
+        "userEmail": "noah.romero862@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9692,7 +9692,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bell"
         },
         "avatarUrl": "",
-        "userEmail": "janice.bell863@apple.dev"
+        "userEmail": "janice.bell863@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9703,7 +9703,7 @@ export const mockedRoles: Role[] =
           "lastName": "Woods"
         },
         "avatarUrl": "",
-        "userEmail": "paul.woods864@apple.dev"
+        "userEmail": "paul.woods864@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9714,7 +9714,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patterson"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.patterson865@apple.dev"
+        "userEmail": "kimberly.patterson865@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9725,7 +9725,7 @@ export const mockedRoles: Role[] =
           "lastName": "Morgan"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.morgan866@apple.dev"
+        "userEmail": "sarah.morgan866@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9736,7 +9736,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mitchell"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.mitchell867@apple.dev"
+        "userEmail": "sarah.mitchell867@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9747,7 +9747,7 @@ export const mockedRoles: Role[] =
           "lastName": "Grant"
         },
         "avatarUrl": "",
-        "userEmail": "linda.grant868@apple.dev"
+        "userEmail": "linda.grant868@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9758,7 +9758,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "ashley.perry869@apple.dev"
+        "userEmail": "ashley.perry869@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9769,7 +9769,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hughes"
         },
         "avatarUrl": "",
-        "userEmail": "jason.hughes870@apple.dev"
+        "userEmail": "jason.hughes870@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9780,7 +9780,7 @@ export const mockedRoles: Role[] =
           "lastName": "Webb"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.webb871@apple.dev"
+        "userEmail": "kimberly.webb871@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9791,7 +9791,7 @@ export const mockedRoles: Role[] =
           "lastName": "Moreno"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.moreno872@apple.dev"
+        "userEmail": "alexander.moreno872@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9802,7 +9802,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "carter.hunter873@apple.dev"
+        "userEmail": "carter.hunter873@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9813,7 +9813,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.bennett874@apple.dev"
+        "userEmail": "sarah.bennett874@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9824,7 +9824,7 @@ export const mockedRoles: Role[] =
           "lastName": "Murphy"
         },
         "avatarUrl": "",
-        "userEmail": "maria.murphy875@apple.dev"
+        "userEmail": "maria.murphy875@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9835,7 +9835,7 @@ export const mockedRoles: Role[] =
           "lastName": "Shaw"
         },
         "avatarUrl": "",
-        "userEmail": "evelyn.shaw876@apple.dev"
+        "userEmail": "evelyn.shaw876@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9846,7 +9846,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stewart"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.stewart877@apple.dev"
+        "userEmail": "michelle.stewart877@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9857,7 +9857,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bailey"
         },
         "avatarUrl": "",
-        "userEmail": "mary.bailey878@apple.dev"
+        "userEmail": "mary.bailey878@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9868,7 +9868,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ward"
         },
         "avatarUrl": "",
-        "userEmail": "eric.ward879@apple.dev"
+        "userEmail": "eric.ward879@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9879,7 +9879,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "christopher.perry880@apple.dev"
+        "userEmail": "christopher.perry880@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9890,7 +9890,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunt"
         },
         "avatarUrl": "",
-        "userEmail": "ashley.hunt881@apple.dev"
+        "userEmail": "ashley.hunt881@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9901,7 +9901,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simmons"
         },
         "avatarUrl": "",
-        "userEmail": "brian.simmons882@apple.dev"
+        "userEmail": "brian.simmons882@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9912,7 +9912,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunt"
         },
         "avatarUrl": "",
-        "userEmail": "george.hunt883@apple.dev"
+        "userEmail": "george.hunt883@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9923,7 +9923,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ferguson"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.ferguson884@apple.dev"
+        "userEmail": "lisa.ferguson884@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9934,7 +9934,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fox"
         },
         "avatarUrl": "",
-        "userEmail": "leonardo.fox885@apple.dev"
+        "userEmail": "leonardo.fox885@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9945,7 +9945,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stephens"
         },
         "avatarUrl": "",
-        "userEmail": "teresa.stephens886@apple.dev"
+        "userEmail": "teresa.stephens886@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9956,7 +9956,7 @@ export const mockedRoles: Role[] =
           "lastName": "Howard"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.howard887@apple.dev"
+        "userEmail": "hannah.howard887@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9967,7 +9967,7 @@ export const mockedRoles: Role[] =
           "lastName": "Patel"
         },
         "avatarUrl": "",
-        "userEmail": "daniel.patel888@apple.dev"
+        "userEmail": "daniel.patel888@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9978,7 +9978,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martinez"
         },
         "avatarUrl": "",
-        "userEmail": "paul.martinez889@apple.dev"
+        "userEmail": "paul.martinez889@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -9989,7 +9989,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jordan"
         },
         "avatarUrl": "",
-        "userEmail": "dorothy.jordan890@apple.dev"
+        "userEmail": "dorothy.jordan890@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10000,7 +10000,7 @@ export const mockedRoles: Role[] =
           "lastName": "Woods"
         },
         "avatarUrl": "",
-        "userEmail": "lucas.woods891@apple.dev"
+        "userEmail": "lucas.woods891@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10011,7 +10011,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rivera"
         },
         "avatarUrl": "",
-        "userEmail": "ezra.rivera892@apple.dev"
+        "userEmail": "ezra.rivera892@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10022,7 +10022,7 @@ export const mockedRoles: Role[] =
           "lastName": "Parker"
         },
         "avatarUrl": "",
-        "userEmail": "linda.parker893@apple.dev"
+        "userEmail": "linda.parker893@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10033,7 +10033,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robinson"
         },
         "avatarUrl": "",
-        "userEmail": "jeffrey.robinson894@apple.dev"
+        "userEmail": "jeffrey.robinson894@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10044,7 +10044,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jenkins"
         },
         "avatarUrl": "",
-        "userEmail": "elijah.jenkins895@apple.dev"
+        "userEmail": "elijah.jenkins895@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10055,7 +10055,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "sandra.johnson896@apple.dev"
+        "userEmail": "sandra.johnson896@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10066,7 +10066,7 @@ export const mockedRoles: Role[] =
           "lastName": "King"
         },
         "avatarUrl": "",
-        "userEmail": "jack.king897@apple.dev"
+        "userEmail": "jack.king897@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10077,7 +10077,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "gabriel.meyer898@apple.dev"
+        "userEmail": "gabriel.meyer898@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10088,7 +10088,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wood"
         },
         "avatarUrl": "",
-        "userEmail": "robert.wood899@apple.dev"
+        "userEmail": "robert.wood899@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10099,7 +10099,7 @@ export const mockedRoles: Role[] =
           "lastName": "Taylor"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.taylor900@apple.dev"
+        "userEmail": "thomas.taylor900@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10110,7 +10110,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "kimberly.burns901@apple.dev"
+        "userEmail": "kimberly.burns901@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10121,7 +10121,7 @@ export const mockedRoles: Role[] =
           "lastName": "Simpson"
         },
         "avatarUrl": "",
-        "userEmail": "charles.simpson902@apple.dev"
+        "userEmail": "charles.simpson902@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10132,7 +10132,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "carter.carter903@apple.dev"
+        "userEmail": "carter.carter903@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10143,7 +10143,7 @@ export const mockedRoles: Role[] =
           "lastName": "Sanchez"
         },
         "avatarUrl": "",
-        "userEmail": "jack.sanchez904@apple.dev"
+        "userEmail": "jack.sanchez904@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10154,7 +10154,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "oliver.martin905@apple.dev"
+        "userEmail": "oliver.martin905@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10165,7 +10165,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cooper"
         },
         "avatarUrl": "",
-        "userEmail": "samantha.cooper906@apple.dev"
+        "userEmail": "samantha.cooper906@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10176,7 +10176,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hall"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.hall907@apple.dev"
+        "userEmail": "hannah.hall907@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10187,7 +10187,7 @@ export const mockedRoles: Role[] =
           "lastName": "Allen"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.allen908@apple.dev"
+        "userEmail": "alexander.allen908@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10198,7 +10198,7 @@ export const mockedRoles: Role[] =
           "lastName": "Bennett"
         },
         "avatarUrl": "",
-        "userEmail": "noah.bennett909@apple.dev"
+        "userEmail": "noah.bennett909@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10209,7 +10209,7 @@ export const mockedRoles: Role[] =
           "lastName": "Butler"
         },
         "avatarUrl": "",
-        "userEmail": "isaac.butler910@apple.dev"
+        "userEmail": "isaac.butler910@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10220,7 +10220,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "donald.coleman911@apple.dev"
+        "userEmail": "donald.coleman911@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10231,7 +10231,7 @@ export const mockedRoles: Role[] =
           "lastName": "Coleman"
         },
         "avatarUrl": "",
-        "userEmail": "david.coleman912@apple.dev"
+        "userEmail": "david.coleman912@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10242,7 +10242,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelley"
         },
         "avatarUrl": "",
-        "userEmail": "jason.kelley913@apple.dev"
+        "userEmail": "jason.kelley913@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10253,7 +10253,7 @@ export const mockedRoles: Role[] =
           "lastName": "Torres"
         },
         "avatarUrl": "",
-        "userEmail": "nicholas.torres914@apple.dev"
+        "userEmail": "nicholas.torres914@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10264,7 +10264,7 @@ export const mockedRoles: Role[] =
           "lastName": "Peterson"
         },
         "avatarUrl": "",
-        "userEmail": "maria.peterson915@apple.dev"
+        "userEmail": "maria.peterson915@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10275,7 +10275,7 @@ export const mockedRoles: Role[] =
           "lastName": "Green"
         },
         "avatarUrl": "",
-        "userEmail": "ethan.green916@apple.dev"
+        "userEmail": "ethan.green916@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10286,7 +10286,7 @@ export const mockedRoles: Role[] =
           "lastName": "Russell"
         },
         "avatarUrl": "",
-        "userEmail": "anthony.russell917@apple.dev"
+        "userEmail": "anthony.russell917@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10297,7 +10297,7 @@ export const mockedRoles: Role[] =
           "lastName": "Turner"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.turner918@apple.dev"
+        "userEmail": "alexander.turner918@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10308,7 +10308,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cox"
         },
         "avatarUrl": "",
-        "userEmail": "adam.cox919@apple.dev"
+        "userEmail": "adam.cox919@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10319,7 +10319,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hicks"
         },
         "avatarUrl": "",
-        "userEmail": "christina.hicks920@apple.dev"
+        "userEmail": "christina.hicks920@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10330,7 +10330,7 @@ export const mockedRoles: Role[] =
           "lastName": "Washington"
         },
         "avatarUrl": "",
-        "userEmail": "frank.washington921@apple.dev"
+        "userEmail": "frank.washington921@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10341,7 +10341,7 @@ export const mockedRoles: Role[] =
           "lastName": "Spencer"
         },
         "avatarUrl": "",
-        "userEmail": "cayden.spencer922@apple.dev"
+        "userEmail": "cayden.spencer922@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10352,7 +10352,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "parker.martin923@apple.dev"
+        "userEmail": "parker.martin923@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10363,7 +10363,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wells"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.wells924@apple.dev"
+        "userEmail": "cheryl.wells924@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10374,7 +10374,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "mark.carter925@apple.dev"
+        "userEmail": "mark.carter925@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10385,7 +10385,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ortiz"
         },
         "avatarUrl": "",
-        "userEmail": "lisa.ortiz926@apple.dev"
+        "userEmail": "lisa.ortiz926@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10396,7 +10396,7 @@ export const mockedRoles: Role[] =
           "lastName": "Romero"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.romero927@apple.dev"
+        "userEmail": "alexander.romero927@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10407,7 +10407,7 @@ export const mockedRoles: Role[] =
           "lastName": "Schmidt"
         },
         "avatarUrl": "",
-        "userEmail": "isaac.schmidt928@apple.dev"
+        "userEmail": "isaac.schmidt928@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10418,7 +10418,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "mason.reyes929@apple.dev"
+        "userEmail": "mason.reyes929@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10429,7 +10429,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "laura.reynolds930@apple.dev"
+        "userEmail": "laura.reynolds930@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10440,7 +10440,7 @@ export const mockedRoles: Role[] =
           "lastName": "Kelly"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.kelly931@apple.dev"
+        "userEmail": "michelle.kelly931@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10451,7 +10451,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.hunter932@apple.dev"
+        "userEmail": "olivia.hunter932@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10462,7 +10462,7 @@ export const mockedRoles: Role[] =
           "lastName": "Grant"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.grant933@apple.dev"
+        "userEmail": "hannah.grant933@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10473,7 +10473,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fisher"
         },
         "avatarUrl": "",
-        "userEmail": "steven.fisher934@apple.dev"
+        "userEmail": "steven.fisher934@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10484,7 +10484,7 @@ export const mockedRoles: Role[] =
           "lastName": "Clark"
         },
         "avatarUrl": "",
-        "userEmail": "dylan.clark935@apple.dev"
+        "userEmail": "dylan.clark935@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10495,7 +10495,7 @@ export const mockedRoles: Role[] =
           "lastName": "Tran"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.tran936@apple.dev"
+        "userEmail": "ruth.tran936@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10506,7 +10506,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jackson"
         },
         "avatarUrl": "",
-        "userEmail": "jeremy.jackson937@apple.dev"
+        "userEmail": "jeremy.jackson937@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10517,7 +10517,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stevens"
         },
         "avatarUrl": "",
-        "userEmail": "donald.stevens938@apple.dev"
+        "userEmail": "donald.stevens938@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10528,7 +10528,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "diane.hunter939@apple.dev"
+        "userEmail": "diane.hunter939@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10539,7 +10539,7 @@ export const mockedRoles: Role[] =
           "lastName": "Jones"
         },
         "avatarUrl": "",
-        "userEmail": "hudson.jones940@apple.dev"
+        "userEmail": "hudson.jones940@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10550,7 +10550,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "aiden.burns941@apple.dev"
+        "userEmail": "aiden.burns941@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10561,7 +10561,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reyes"
         },
         "avatarUrl": "",
-        "userEmail": "sarah.reyes942@apple.dev"
+        "userEmail": "sarah.reyes942@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10572,7 +10572,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ferguson"
         },
         "avatarUrl": "",
-        "userEmail": "joan.ferguson943@apple.dev"
+        "userEmail": "joan.ferguson943@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10583,7 +10583,7 @@ export const mockedRoles: Role[] =
           "lastName": "Alexander"
         },
         "avatarUrl": "",
-        "userEmail": "andrea.alexander944@apple.dev"
+        "userEmail": "andrea.alexander944@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10594,7 +10594,7 @@ export const mockedRoles: Role[] =
           "lastName": "Dunn"
         },
         "avatarUrl": "",
-        "userEmail": "matthew.dunn945@apple.dev"
+        "userEmail": "matthew.dunn945@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10605,7 +10605,7 @@ export const mockedRoles: Role[] =
           "lastName": "Cooper"
         },
         "avatarUrl": "",
-        "userEmail": "james.cooper946@apple.dev"
+        "userEmail": "james.cooper946@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10616,7 +10616,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunter"
         },
         "avatarUrl": "",
-        "userEmail": "laura.hunter947@apple.dev"
+        "userEmail": "laura.hunter947@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10627,7 +10627,7 @@ export const mockedRoles: Role[] =
           "lastName": "Diaz"
         },
         "avatarUrl": "",
-        "userEmail": "carolyn.diaz948@apple.dev"
+        "userEmail": "carolyn.diaz948@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10638,7 +10638,7 @@ export const mockedRoles: Role[] =
           "lastName": "Herrera"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.herrera949@apple.dev"
+        "userEmail": "michelle.herrera949@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10649,7 +10649,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martinez"
         },
         "avatarUrl": "",
-        "userEmail": "kyle.martinez950@apple.dev"
+        "userEmail": "kyle.martinez950@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10660,7 +10660,7 @@ export const mockedRoles: Role[] =
           "lastName": "Mason"
         },
         "avatarUrl": "",
-        "userEmail": "henry.mason951@apple.dev"
+        "userEmail": "henry.mason951@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10671,7 +10671,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robinson"
         },
         "avatarUrl": "",
-        "userEmail": "andrew.robinson952@apple.dev"
+        "userEmail": "andrew.robinson952@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10682,7 +10682,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "john.munoz953@apple.dev"
+        "userEmail": "john.munoz953@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10693,7 +10693,7 @@ export const mockedRoles: Role[] =
           "lastName": "Fisher"
         },
         "avatarUrl": "",
-        "userEmail": "ronald.fisher954@apple.dev"
+        "userEmail": "ronald.fisher954@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10704,7 +10704,7 @@ export const mockedRoles: Role[] =
           "lastName": "Robinson"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.robinson955@apple.dev"
+        "userEmail": "jerry.robinson955@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10715,7 +10715,7 @@ export const mockedRoles: Role[] =
           "lastName": "Woods"
         },
         "avatarUrl": "",
-        "userEmail": "jerry.woods956@apple.dev"
+        "userEmail": "jerry.woods956@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10726,7 +10726,7 @@ export const mockedRoles: Role[] =
           "lastName": "Black"
         },
         "avatarUrl": "",
-        "userEmail": "jack.black957@apple.dev"
+        "userEmail": "jack.black957@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10737,7 +10737,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "lucas.meyer958@apple.dev"
+        "userEmail": "lucas.meyer958@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10748,7 +10748,7 @@ export const mockedRoles: Role[] =
           "lastName": "Stone"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.stone959@apple.dev"
+        "userEmail": "michelle.stone959@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10759,7 +10759,7 @@ export const mockedRoles: Role[] =
           "lastName": "Woods"
         },
         "avatarUrl": "",
-        "userEmail": "george.woods960@apple.dev"
+        "userEmail": "george.woods960@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10770,7 +10770,7 @@ export const mockedRoles: Role[] =
           "lastName": "Graham"
         },
         "avatarUrl": "",
-        "userEmail": "grayson.graham961@apple.dev"
+        "userEmail": "grayson.graham961@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10781,7 +10781,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hunt"
         },
         "avatarUrl": "",
-        "userEmail": "samuel.hunt962@apple.dev"
+        "userEmail": "samuel.hunt962@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10792,7 +10792,7 @@ export const mockedRoles: Role[] =
           "lastName": "Burns"
         },
         "avatarUrl": "",
-        "userEmail": "adrian.burns963@apple.dev"
+        "userEmail": "adrian.burns963@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10803,7 +10803,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ellis"
         },
         "avatarUrl": "",
-        "userEmail": "nancy.ellis964@apple.dev"
+        "userEmail": "nancy.ellis964@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10814,7 +10814,7 @@ export const mockedRoles: Role[] =
           "lastName": "Taylor"
         },
         "avatarUrl": "",
-        "userEmail": "frank.taylor965@apple.dev"
+        "userEmail": "frank.taylor965@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10825,7 +10825,7 @@ export const mockedRoles: Role[] =
           "lastName": "Hill"
         },
         "avatarUrl": "",
-        "userEmail": "paul.hill966@apple.dev"
+        "userEmail": "paul.hill966@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10836,7 +10836,7 @@ export const mockedRoles: Role[] =
           "lastName": "Freeman"
         },
         "avatarUrl": "",
-        "userEmail": "robert.freeman967@apple.dev"
+        "userEmail": "robert.freeman967@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10847,7 +10847,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ruiz"
         },
         "avatarUrl": "",
-        "userEmail": "jack.ruiz968@apple.dev"
+        "userEmail": "jack.ruiz968@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10858,7 +10858,7 @@ export const mockedRoles: Role[] =
           "lastName": "Roberts"
         },
         "avatarUrl": "",
-        "userEmail": "larry.roberts969@apple.dev"
+        "userEmail": "larry.roberts969@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10869,7 +10869,7 @@ export const mockedRoles: Role[] =
           "lastName": "Gonzalez"
         },
         "avatarUrl": "",
-        "userEmail": "frank.gonzalez970@apple.dev"
+        "userEmail": "frank.gonzalez970@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10880,7 +10880,7 @@ export const mockedRoles: Role[] =
           "lastName": "Payne"
         },
         "avatarUrl": "",
-        "userEmail": "carolyn.payne971@apple.dev"
+        "userEmail": "carolyn.payne971@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10891,7 +10891,7 @@ export const mockedRoles: Role[] =
           "lastName": "Schmidt"
         },
         "avatarUrl": "",
-        "userEmail": "nathan.schmidt972@apple.dev"
+        "userEmail": "nathan.schmidt972@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10902,7 +10902,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "ryan.johnson973@apple.dev"
+        "userEmail": "ryan.johnson973@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10913,7 +10913,7 @@ export const mockedRoles: Role[] =
           "lastName": "White"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.white974@apple.dev"
+        "userEmail": "alexander.white974@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10924,7 +10924,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perez"
         },
         "avatarUrl": "",
-        "userEmail": "ruth.perez975@apple.dev"
+        "userEmail": "ruth.perez975@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10935,7 +10935,7 @@ export const mockedRoles: Role[] =
           "lastName": "Meyer"
         },
         "avatarUrl": "",
-        "userEmail": "janet.meyer976@apple.dev"
+        "userEmail": "janet.meyer976@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10946,7 +10946,7 @@ export const mockedRoles: Role[] =
           "lastName": "Edwards"
         },
         "avatarUrl": "",
-        "userEmail": "julie.edwards977@apple.dev"
+        "userEmail": "julie.edwards977@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10957,7 +10957,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rodriguez"
         },
         "avatarUrl": "",
-        "userEmail": "marie.rodriguez978@apple.dev"
+        "userEmail": "marie.rodriguez978@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10968,7 +10968,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "thomas.perry979@apple.dev"
+        "userEmail": "thomas.perry979@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10979,7 +10979,7 @@ export const mockedRoles: Role[] =
           "lastName": "Edwards"
         },
         "avatarUrl": "",
-        "userEmail": "karen.edwards980@apple.dev"
+        "userEmail": "karen.edwards980@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -10990,7 +10990,7 @@ export const mockedRoles: Role[] =
           "lastName": "Martin"
         },
         "avatarUrl": "",
-        "userEmail": "elizabeth.martin981@apple.dev"
+        "userEmail": "elizabeth.martin981@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11001,7 +11001,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.anderson982@apple.dev"
+        "userEmail": "olivia.anderson982@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11012,7 +11012,7 @@ export const mockedRoles: Role[] =
           "lastName": "Wright"
         },
         "avatarUrl": "",
-        "userEmail": "michelle.wright983@apple.dev"
+        "userEmail": "michelle.wright983@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11023,7 +11023,7 @@ export const mockedRoles: Role[] =
           "lastName": "White"
         },
         "avatarUrl": "",
-        "userEmail": "rachel.white984@apple.dev"
+        "userEmail": "rachel.white984@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11034,7 +11034,7 @@ export const mockedRoles: Role[] =
           "lastName": "Anderson"
         },
         "avatarUrl": "",
-        "userEmail": "cheryl.anderson985@apple.dev"
+        "userEmail": "cheryl.anderson985@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11045,7 +11045,7 @@ export const mockedRoles: Role[] =
           "lastName": "Soto"
         },
         "avatarUrl": "",
-        "userEmail": "alexander.soto986@apple.dev"
+        "userEmail": "alexander.soto986@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11056,7 +11056,7 @@ export const mockedRoles: Role[] =
           "lastName": "White"
         },
         "avatarUrl": "",
-        "userEmail": "cayden.white987@apple.dev"
+        "userEmail": "cayden.white987@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11067,7 +11067,7 @@ export const mockedRoles: Role[] =
           "lastName": "Palmer"
         },
         "avatarUrl": "",
-        "userEmail": "james.palmer988@apple.dev"
+        "userEmail": "james.palmer988@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11078,7 +11078,7 @@ export const mockedRoles: Role[] =
           "lastName": "Johnson"
         },
         "avatarUrl": "",
-        "userEmail": "virginia.johnson989@apple.dev"
+        "userEmail": "virginia.johnson989@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11089,7 +11089,7 @@ export const mockedRoles: Role[] =
           "lastName": "Owens"
         },
         "avatarUrl": "",
-        "userEmail": "eric.owens990@apple.dev"
+        "userEmail": "eric.owens990@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11100,7 +11100,7 @@ export const mockedRoles: Role[] =
           "lastName": "Davis"
         },
         "avatarUrl": "",
-        "userEmail": "larry.davis991@apple.dev"
+        "userEmail": "larry.davis991@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11111,7 +11111,7 @@ export const mockedRoles: Role[] =
           "lastName": "Perry"
         },
         "avatarUrl": "",
-        "userEmail": "robert.perry992@apple.dev"
+        "userEmail": "robert.perry992@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11122,7 +11122,7 @@ export const mockedRoles: Role[] =
           "lastName": "Ruiz"
         },
         "avatarUrl": "",
-        "userEmail": "hannah.ruiz993@apple.dev"
+        "userEmail": "hannah.ruiz993@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11133,7 +11133,7 @@ export const mockedRoles: Role[] =
           "lastName": "Thomas"
         },
         "avatarUrl": "",
-        "userEmail": "william.thomas994@apple.dev"
+        "userEmail": "william.thomas994@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11144,7 +11144,7 @@ export const mockedRoles: Role[] =
           "lastName": "Munoz"
         },
         "avatarUrl": "",
-        "userEmail": "olivia.munoz995@apple.dev"
+        "userEmail": "olivia.munoz995@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11155,7 +11155,7 @@ export const mockedRoles: Role[] =
           "lastName": "Chen"
         },
         "avatarUrl": "",
-        "userEmail": "tyler.chen996@apple.dev"
+        "userEmail": "tyler.chen996@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11166,7 +11166,7 @@ export const mockedRoles: Role[] =
           "lastName": "Carter"
         },
         "avatarUrl": "",
-        "userEmail": "rachel.carter997@apple.dev"
+        "userEmail": "rachel.carter997@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11177,7 +11177,7 @@ export const mockedRoles: Role[] =
           "lastName": "Rose"
         },
         "avatarUrl": "",
-        "userEmail": "christina.rose998@apple.dev"
+        "userEmail": "christina.rose998@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11188,7 +11188,7 @@ export const mockedRoles: Role[] =
           "lastName": "Reynolds"
         },
         "avatarUrl": "",
-        "userEmail": "victoria.reynolds999@apple.dev"
+        "userEmail": "victoria.reynolds999@gmail.com"
       },
       {
         "__typename": "WorkspaceMember",
@@ -11199,7 +11199,7 @@ export const mockedRoles: Role[] =
           "lastName": "Palmer"
         },
         "avatarUrl": "",
-        "userEmail": "richard.palmer1000@apple.dev"
+        "userEmail": "richard.palmer1000@gmail.com"
       }
     ],
     "agents": [],

@@ -25,12 +25,12 @@ See [Setup Environment Variables](/developers/self-host/capabilities/setup) for 
 
 Install the latest stable version of Bades.id with a single command:
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/twentyhq/twenty/main/packages/twenty-docker/scripts/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/badesid/bades/main/packages/twenty-docker/scripts/install.sh)
 ```
 
 To install a specific version or branch:
 ```bash
-VERSION=vx.y.z BRANCH=branch-name bash <(curl -sL https://raw.githubusercontent.com/twentyhq/twenty/main/packages/twenty-docker/scripts/install.sh)
+VERSION=vx.y.z BRANCH=branch-name bash <(curl -sL https://raw.githubusercontent.com/badesid/bades/main/packages/twenty-docker/scripts/install.sh)
 ```
 - Replace x.y.z with the desired version number.
 - Replace branch-name with the name of the branch you want to install.
@@ -44,7 +44,7 @@ Follow these steps for a manual setup.
 
     Copy the example environment file to a new .env file in your working directory:
     ```bash
-    curl -o .env https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-docker/.env.example
+    curl -o .env https://raw.githubusercontent.com/badesid/bades/refs/heads/main/packages/twenty-docker/.env.example
     ```
 
 2. **Generate an Encryption Key**
@@ -79,7 +79,7 @@ Follow these steps for a manual setup.
 Download the `docker-compose.yml` file to your working directory:
 
 ```bash
-curl -o docker-compose.yml https://raw.githubusercontent.com/twentyhq/twenty/refs/heads/main/packages/twenty-docker/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/badesid/bades/refs/heads/main/packages/twenty-docker/docker-compose.yml
 ```
 
 ### Step 3: Launch the Application

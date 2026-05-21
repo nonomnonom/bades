@@ -28,7 +28,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "CalendarChannelEdge",
           "node": {
             "__typename": "CalendarChannel",
-            "handle": "jony@apple.dev",
+            "handle": "sekdes@sukamaju.desa.id",
             "id": "20202020-a40f-4faf-bb9f-c6f9945b8204"
           }
         }
@@ -44,7 +44,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
       "context": null
     },
     "deletedAt": null,
-    "handle": "jony.ive@apple.dev",
+    "handle": "sekdes@sukamaju.desa.id",
     "handleAliases": "",
     "id": "20202020-0cc8-4d60-a3a4-803245698908",
     "lastCredentialsRefreshedAt": null,
@@ -56,7 +56,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "MessageChannelEdge",
           "node": {
             "__typename": "MessageChannel",
-            "handle": "jony.ive@apple.dev",
+            "handle": "sekdes@sukamaju.desa.id",
             "id": "20202020-5ffe-4b32-814a-983d5e4911cd"
           }
         }
@@ -96,7 +96,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "CalendarChannelEdge",
           "node": {
             "__typename": "CalendarChannel",
-            "handle": "tim@apple.dev",
+            "handle": "kades@sukamaju.desa.id",
             "id": "20202020-a40f-4faf-bb9f-c6f9945b8203"
           }
         },
@@ -104,7 +104,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "CalendarChannelEdge",
           "node": {
             "__typename": "CalendarChannel",
-            "handle": "company-main@apple.dev",
+            "handle": "kalender@sukamaju.desa.id",
             "id": "20202020-a40f-4faf-bb9f-c6f9945b8206"
           }
         },
@@ -112,7 +112,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "CalendarChannelEdge",
           "node": {
             "__typename": "CalendarChannel",
-            "handle": "team-calendar@apple.dev",
+            "handle": "perangkat@sukamaju.desa.id",
             "id": "20202020-a40f-4faf-bb9f-c6f9945b8207"
           }
         }
@@ -128,7 +128,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
       "context": null
     },
     "deletedAt": null,
-    "handle": "tim@apple.dev",
+    "handle": "kades@sukamaju.desa.id",
     "handleAliases": "",
     "id": "20202020-9ac0-4390-9a1a-ab4d2c4e1bb7",
     "lastCredentialsRefreshedAt": null,
@@ -140,7 +140,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "MessageChannelEdge",
           "node": {
             "__typename": "MessageChannel",
-            "handle": "tim@apple.dev",
+            "handle": "kades@sukamaju.desa.id",
             "id": "20202020-9b80-4c2c-a597-383db48de1d6"
           }
         },
@@ -148,7 +148,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "MessageChannelEdge",
           "node": {
             "__typename": "MessageChannel",
-            "handle": "support@apple.dev",
+            "handle": "layanan@sukamaju.desa.id",
             "id": "20202020-e2f1-49b5-85d2-5d3a3386990d"
           }
         },
@@ -156,7 +156,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "MessageChannelEdge",
           "node": {
             "__typename": "MessageChannel",
-            "handle": "sales@apple.dev",
+            "handle": "admin@sukamaju.desa.id",
             "id": "20202020-e2f1-49b5-85d2-5d3a3386990e"
           }
         }
@@ -196,7 +196,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "CalendarChannelEdge",
           "node": {
             "__typename": "CalendarChannel",
-            "handle": "phil@apple.dev",
+            "handle": "kaur@sukamaju.desa.id",
             "id": "20202020-a40f-4faf-bb9f-c6f9945b8205"
           }
         }
@@ -212,7 +212,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
       "context": null
     },
     "deletedAt": null,
-    "handle": "phil.schiler@apple.dev",
+    "handle": "kaur@sukamaju.desa.id",
     "handleAliases": "",
     "id": "20202020-cafc-4323-908d-e5b42ad69fdf",
     "lastCredentialsRefreshedAt": null,
@@ -224,7 +224,7 @@ export const mockedConnectedAccountRecords: ObjectRecord[] =
           "__typename": "MessageChannelEdge",
           "node": {
             "__typename": "MessageChannel",
-            "handle": "phil.schiler@apple.dev",
+            "handle": "kaur@sukamaju.desa.id",
             "id": "20202020-e2f1-49b5-85d2-5d3a3386990c"
           }
         }

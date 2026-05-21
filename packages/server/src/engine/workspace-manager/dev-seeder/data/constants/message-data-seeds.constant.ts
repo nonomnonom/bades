@@ -40,52 +40,52 @@ export const MESSAGE_DATA_SEED_IDS = GENERATE_MESSAGE_IDS();
 
 const EMAIL_TEMPLATES = [
   {
-    subject: 'Meeting Request',
-    text: 'Hello,\n\nI hope this email finds you well. I am writing to request a meeting. I believe it would be beneficial for both parties to collaborate and explore potential opportunities.\n\nWould you be available for a meeting sometime next week? Please let me know your availability, and I will arrange a suitable time.\n\nLooking forward to your response.\n\nBest regards',
+    subject: 'Permohonan Surat Keterangan Domisili',
+    text: 'Yth. Bapak/Ibu Kepala Desa,\n\nDengan hormat, saya yang bertanda tangan di bawah ini mengajukan permohonan surat keterangan domisili untuk keperluan administrasi. Saya telah menetap di desa ini selama lebih dari 2 tahun.\n\nDemikian permohonan ini saya sampaikan. Atas perhatian dan bantuannya saya ucapkan terima kasih.\n\nHormat saya',
   },
   {
-    subject: 'Project Update',
-    text: 'Hi there,\n\nI wanted to provide you with a quick update on our current project status. We have made significant progress and are on track to meet our deadline.\n\nKey accomplishments this week:\n- Completed the initial design phase\n- Gathered stakeholder feedback\n- Finalized technical requirements\n\nNext steps will be shared in our upcoming meeting.\n\nBest regards',
+    subject: 'Pemberitahuan Jadwal Posyandu',
+    text: 'Kepada Yth. Warga Desa,\n\nDengan hormat, kami memberitahukan bahwa kegiatan Posyandu bulan ini akan dilaksanakan pada hari Kamis mendatang pukul 08.00 - 11.00 WIB di Balai RW.\n\nMohon kehadiran seluruh ibu hamil, ibu menyusui, dan balita untuk hadir tepat waktu.\n\nAtas perhatiannya kami ucapkan terima kasih.\n\nKader Posyandu Desa',
   },
   {
-    subject: 'Invoice for Services',
-    text: "Dear Sir/Madam,\n\nPlease find attached the invoice for services rendered during the month of January. The total amount due is $2,500.\n\nPayment terms: Net 30 days\nPayment methods: Bank transfer or check\n\nIf you have any questions regarding this invoice, please don't hesitate to contact me.\n\nThank you for your business.\n\nBest regards",
+    subject: 'Undangan Musyawarah Desa',
+    text: 'Yth. Bapak/Ibu Warga Desa,\n\nDalam rangka membahas Rencana Kerja Pemerintah Desa tahun mendatang, dengan hormat kami mengundang Bapak/Ibu untuk hadir dalam Musyawarah Desa yang akan dilaksanakan:\n\nHari/Tanggal : [Tanggal]\nWaktu : 09.00 WIB - selesai\nTempat : Balai Desa\n\nMengingat pentingnya acara ini, kehadiran Bapak/Ibu sangat kami harapkan.\n\nKepala Desa',
   },
   {
-    subject: 'Thank You for the Meeting',
-    text: 'Good evening,\n\nI wanted to extend my sincere gratitude for taking the time to meet with me earlier today. It was a pleasure discussing our potential collaboration.\n\nI am excited about the opportunities we discussed and look forward to moving forward with our partnership.\n\nPlease feel free to reach out if you have any further questions or require additional information.\n\nBest regards',
+    subject: 'Laporan Penggunaan Dana Desa',
+    text: 'Kepada Yth. Warga Desa,\n\nDengan ini kami menyampaikan laporan realisasi penggunaan Dana Desa Triwulan I:\n\n- Pembangunan jalan rabat beton: Rp 85.000.000\n- Perbaikan irigasi pertanian: Rp 35.000.000\n- Kegiatan posyandu dan kesehatan: Rp 15.000.000\n- Pemberdayaan ekonomi warga: Rp 25.000.000\n\nLaporan lengkap dapat dilihat di papan pengumuman kantor desa.\n\nSekretaris Desa',
   },
   {
-    subject: 'Proposal Submission',
-    text: 'Dear Team,\n\nI am pleased to submit our proposal for your consideration. We have carefully reviewed your requirements and believe we can deliver exceptional results.\n\nOur proposal includes:\n- Detailed project timeline\n- Resource allocation plan\n- Budget breakdown\n- Risk mitigation strategies\n\nWe would welcome the opportunity to discuss this proposal in detail.\n\nThank you for considering our services.\n\nBest regards',
+    subject: 'Pengumuman Bantuan Sosial',
+    text: 'Kepada Yth. Warga Desa,\n\nDengan hormat kami informasikan bahwa pencairan bantuan sosial Program Keluarga Harapan (PKH) akan dilaksanakan minggu depan.\n\nBagi warga yang terdaftar sebagai penerima manfaat, harap membawa:\n1. KTP asli\n2. Kartu PKH\n3. Buku rekening\n\nInformasi lebih lanjut dapat ditanyakan di kantor desa.\n\nPemerintah Desa',
   },
   {
-    subject: 'Follow-up on Discussion',
-    text: "Hi,\n\nI wanted to follow up on our conversation from last week regarding the new initiative. I've had some time to think about the points we discussed.\n\nI believe we should proceed with the plan we outlined, but I would like to suggest a few modifications to improve efficiency.\n\nCould we schedule a brief call to discuss these changes? I'm available most afternoons this week.\n\nThanks for your time.\n\nBest regards",
+    subject: 'Tindak Lanjut Permohonan KTP',
+    text: 'Yth. Bapak/Ibu,\n\nMenindaklanjuti permohonan KTP yang Bapak/Ibu ajukan, kami informasikan bahwa dokumen sedang dalam proses di Dinas Kependudukan dan Pencatatan Sipil Kabupaten.\n\nPerkiraan waktu selesai adalah 14 hari kerja sejak tanggal pengajuan. Kami akan menghubungi Bapak/Ibu apabila KTP telah selesai dan dapat diambil.\n\nTerima kasih atas kesabaran Bapak/Ibu.\n\nOperator Kependudukan Desa',
   },
   {
-    subject: 'Customer Feedback',
-    text: "Hello,\n\nI hope you're doing well. I wanted to share some positive feedback we received from our recent customer satisfaction survey.\n\nCustomers particularly appreciated:\n- Quick response times\n- Professional service delivery\n- Attention to detail\n- Clear communication\n\nThis reflects well on our team's dedication to excellence.\n\nKeep up the great work!\n\nBest regards",
+    subject: 'Undangan Gotong Royong',
+    text: 'Kepada Yth. Bapak/Ibu Warga,\n\nDalam rangka menjaga kebersihan dan keindahan lingkungan desa, kami mengundang seluruh warga untuk berpartisipasi dalam kegiatan Gotong Royong:\n\nHari : Minggu\nPukul : 07.00 - 10.00 WIB\nLokasi : Jalan Utama Desa dan Area Pemakaman\n\nMohon membawa peralatan kebersihan masing-masing.\n\nKetua RW',
   },
   {
-    subject: 'Training Session Reminder',
-    text: 'Dear Team,\n\nThis is a friendly reminder about the upcoming training session scheduled for [Date] at [Time].\n\nSession details:\n- Topic: [Training Topic]\n- Duration: 2 hours\n- Location: Conference Room A\n- Materials: Will be provided\n\nPlease confirm your attendance by replying to this email.\n\nLooking forward to seeing everyone there.\n\nBest regards',
+    subject: 'Pemberitahuan Pelatihan Keterampilan',
+    text: 'Yth. Warga Desa yang Terhormat,\n\nKami dengan senang hati mengumumkan program pelatihan keterampilan gratis yang diselenggarakan oleh Pemerintah Desa bekerja sama dengan Dinas Tenaga Kerja:\n\nJenis Pelatihan : Kerajinan Batik dan Olahan Pangan\nWaktu : [Tanggal] pkl 08.00-16.00 WIB\nTempat : Balai Desa\nPeserta : Maksimal 30 orang\n\nPendaftaran di kantor desa, kuota terbatas.\n\nSeksi Pemberdayaan Masyarakat',
   },
   {
-    subject: 'Contract Renewal',
-    text: 'Dear [Name],\n\nI hope this email finds you well. Your current contract with us is set to expire on [Date], and we would like to discuss renewal options.\n\nWe value our partnership and would be pleased to continue our collaboration. We have prepared several renewal packages that offer enhanced services and competitive pricing.\n\nWould you be available for a call next week to discuss the details?\n\nBest regards',
+    subject: 'Informasi Program BPNT',
+    text: 'Yth. Penerima Manfaat BPNT,\n\nKami informasikan bahwa bantuan pangan non-tunai (BPNT) bulan ini telah siap dicairkan. Untuk pengambilan, silakan menuju e-warong terdekat dengan membawa:\n\n1. KTP\n2. Kartu Keluarga\n3. Kartu Keluarga Sejahtera (KKS)\n\nWaktu pencairan: Senin - Sabtu, pukul 08.00 - 15.00 WIB.\n\nTerima kasih.\n\nPendamping PKH Desa',
   },
   {
-    subject: 'Quarterly Report',
-    text: 'Good morning,\n\nPlease find attached our quarterly report covering the period from [Start Date] to [End Date].\n\nKey highlights:\n- Revenue growth of 15%\n- Customer satisfaction score of 4.8/5\n- Successful completion of 95% of projects\n- Team expansion by 20%\n\nWe are pleased with these results and look forward to continued success.\n\nIf you have any questions about the report, please let me know.\n\nBest regards',
+    subject: 'Laporan Kunjungan Lapangan',
+    text: 'Kepada Yth. Kepala Desa,\n\nDengan hormat, kami laporkan hasil kunjungan lapangan yang telah dilaksanakan hari ini:\n\n1. Kondisi jalan desa RT 003: perlu perbaikan segera\n2. Saluran irigasi RW 002: tersumbat, perlu pembersihan\n3. Lampu jalan RT 005: 3 unit mati\n4. MCK umum RW 001: kondisi baik\n\nDemikian laporan ini kami sampaikan untuk ditindaklanjuti.\n\nStaf Teknis Desa',
   },
   {
-    subject: 'Partnership Opportunity',
-    text: 'Hello,\n\nI am reaching out to explore a potential partnership opportunity between our organizations. We believe there are synergies that could benefit both parties.\n\nOur company specializes in [Area of Expertise] and we have identified opportunities where our services could complement your offerings.\n\nWould you be interested in discussing this further? I would be happy to schedule a call at your convenience.\n\nBest regards',
+    subject: 'Undangan Rapat Koordinasi RT/RW',
+    text: 'Yth. Bapak/Ibu Ketua RT dan RW,\n\nDengan hormat, kami mengundang Bapak/Ibu untuk hadir dalam Rapat Koordinasi Pengurus RT/RW yang akan dilaksanakan:\n\nHari/Tanggal : [Tanggal]\nPukul : 19.30 WIB\nTempat : Kantor Desa\nAgenda : Persiapan HUT Kemerdekaan RI dan pembahasan program desa\n\nMengingat pentingnya rapat ini, kehadiran Bapak/Ibu sangat diharapkan.\n\nKepala Desa',
   },
   {
-    subject: 'Event Invitation',
-    text: "Dear [Name],\n\nYou are cordially invited to attend our upcoming event:\n\nEvent: [Event Name]\nDate: [Date]\nTime: [Time]\nLocation: [Venue]\n\nThis event will feature industry experts discussing the latest trends and innovations in our field. It's an excellent opportunity for networking and learning.\n\nPlease RSVP by [RSVP Date] to secure your spot.\n\nWe look forward to seeing you there.\n\nBest regards",
+    subject: 'Notifikasi Pembaruan Data Kependudukan',
+    text: 'Kepada Yth. Bapak/Ibu,\n\nDengan hormat, kami menginformasikan bahwa data kependudukan Bapak/Ibu telah berhasil diperbarui dalam sistem administrasi desa.\n\nApabila terdapat ketidaksesuaian data, silakan menghubungi operator kependudukan di kantor desa pada jam kerja (Senin-Jumat, 08.00-14.00 WIB).\n\nDemikian pemberitahuan ini kami sampaikan.\n\nOperator Kependudukan Desa',
   },
 ];
 
@@ -103,8 +103,7 @@ const GENERATE_MESSAGE_SEEDS = (): MessageDataSeed[] => {
     const TEMPLATE_INDEX = (INDEX - 1) % EMAIL_TEMPLATES.length;
     const TEMPLATE = EMAIL_TEMPLATES[TEMPLATE_INDEX];
 
-    // Assign messages to threads (some threads will have multiple messages)
-    const THREAD_INDEX = Math.floor((INDEX - 1) / 2); // 2 messages per thread on average
+    const THREAD_INDEX = Math.floor((INDEX - 1) / 2);
     const THREAD_ID = THREAD_IDS[THREAD_INDEX % THREAD_IDS.length];
 
     const NOW = new Date();
@@ -114,8 +113,8 @@ const GENERATE_MESSAGE_SEEDS = (): MessageDataSeed[] => {
     );
 
     MESSAGE_DATE.setHours(
-      8 + Math.floor(Math.random() * 10), // 8 AM to 6 PM
-      Math.floor(Math.random() * 60), // Random minutes
+      8 + Math.floor(Math.random() * 8),
+      Math.floor(Math.random() * 60),
       0,
       0,
     );

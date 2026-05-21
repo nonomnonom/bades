@@ -50,106 +50,112 @@ export const CALENDAR_EVENT_DATA_SEED_IDS = GENERATE_CALENDAR_EVENT_IDS();
 
 const EVENT_TEMPLATES = [
   {
-    title: 'Team Standup',
+    title: 'Musyawarah Desa',
     description:
-      'Daily team synchronization meeting to discuss progress and blockers.',
-    isFullDay: false,
-    duration: 30, // minutes
-    locations: ['Conference Room A', 'Zoom', 'Teams'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
-  },
-  {
-    title: 'Client Presentation',
-    description:
-      'Present project progress and next steps to client stakeholders.',
-    isFullDay: false,
-    duration: 60,
-    locations: ['Client Office', 'Zoom', 'Conference Room B'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
-  },
-  {
-    title: 'Project Planning Session',
-    description:
-      'Strategic planning session for upcoming project milestones and deliverables.',
-    isFullDay: false,
-    duration: 90,
-    locations: ['Conference Room C', 'Teams', 'Boardroom'],
-    conferenceSolutions: ['Teams', 'Zoom', 'Google Meet'],
-  },
-  {
-    title: 'One-on-One Meeting',
-    description:
-      'Regular one-on-one check-in to discuss performance and career development.',
-    isFullDay: false,
-    duration: 45,
-    locations: ['Office', 'Zoom', 'Coffee Shop'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
-  },
-  {
-    title: 'Code Review Session',
-    description: 'Collaborative code review and technical discussion.',
-    isFullDay: false,
-    duration: 60,
-    locations: ['Dev Room', 'Zoom', 'Teams'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
-  },
-  {
-    title: 'Strategic Planning Workshop',
-    description: 'Quarterly strategic planning and goal setting workshop.',
-    isFullDay: true,
-    duration: 480, // 8 hours
-    locations: ['Offsite Location', 'Headquarters', 'Conference Center'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
-  },
-  {
-    title: 'Training Session',
-    description: 'Professional development and skills training session.',
+      'Musyawarah desa untuk membahas rencana pembangunan dan program kerja desa.',
     isFullDay: false,
     duration: 120,
-    locations: ['Training Room', 'Zoom', 'Teams'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
+    locations: ['Balai Desa', 'Aula Kecamatan', 'Pendopo Desa'],
+    conferenceSolution: 'WhatsApp',
   },
   {
-    title: 'Customer Discovery Call',
-    description: 'Customer interview to gather feedback and understand needs.',
+    title: 'Rapat Koordinasi Perangkat Desa',
+    description:
+      'Koordinasi rutin perangkat desa untuk evaluasi program dan sinkronisasi kegiatan.',
     isFullDay: false,
-    duration: 45,
-    locations: ['Phone', 'Zoom', 'Teams'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
+    duration: 60,
+    locations: ['Kantor Desa', 'Ruang Rapat Desa'],
+    conferenceSolution: 'WhatsApp',
   },
   {
-    title: 'Budget Review Meeting',
-    description: 'Quarterly budget review and financial planning session.',
+    title: 'Posyandu Bulanan',
+    description:
+      'Pelayanan posyandu bulanan untuk pemantauan tumbuh kembang balita dan kesehatan ibu hamil.',
+    isFullDay: false,
+    duration: 180,
+    locations: ['Posyandu Dusun Utama', 'Balai RW', 'Rumah Kader'],
+    conferenceSolution: '',
+  },
+  {
+    title: 'Pertemuan PKK',
+    description:
+      'Pertemuan rutin PKK untuk pemberdayaan kesejahteraan keluarga dan program sosial.',
     isFullDay: false,
     duration: 90,
-    locations: ['Finance Office', 'Conference Room D', 'Zoom'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
+    locations: ['Balai Desa', 'Rumah Ketua PKK', 'Aula Kelurahan'],
+    conferenceSolution: '',
   },
   {
-    title: 'Product Demo',
+    title: 'Rapat BPD',
     description:
-      'Product demonstration for potential customers and stakeholders.',
+      'Rapat Badan Permusyawaratan Desa untuk pembahasan peraturan desa dan APBDes.',
     isFullDay: false,
-    duration: 60,
-    locations: ['Demo Room', 'Zoom', 'Client Site'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
+    duration: 120,
+    locations: ['Kantor BPD', 'Balai Desa', 'Ruang Rapat'],
+    conferenceSolution: '',
   },
   {
-    title: 'All Hands Meeting',
-    description: 'Company-wide meeting for updates and announcements.',
-    isFullDay: false,
-    duration: 60,
-    locations: ['Main Auditorium', 'Zoom', 'Teams'],
-    conferenceSolutions: ['Zoom', 'Teams', 'Google Meet'],
-  },
-  {
-    title: 'Sprint Retrospective',
+    title: 'Gotong Royong Desa',
     description:
-      'Team retrospective to discuss what went well and areas for improvement.',
+      'Kegiatan gotong royong membersihkan dan memperbaiki fasilitas umum desa.',
+    isFullDay: true,
+    duration: 480,
+    locations: ['Jalan Desa', 'Area Pemakaman', 'Saluran Irigasi'],
+    conferenceSolution: '',
+  },
+  {
+    title: 'Sosialisasi Program Pemerintah',
+    description:
+      'Sosialisasi program bantuan sosial dan kebijakan pemerintah kepada warga desa.',
     isFullDay: false,
-    duration: 75,
-    locations: ['Conference Room E', 'Teams', 'Zoom'],
-    conferenceSolutions: ['Teams', 'Zoom', 'Google Meet'],
+    duration: 90,
+    locations: ['Balai Desa', 'Masjid', 'Aula RT'],
+    conferenceSolution: 'WhatsApp',
+  },
+  {
+    title: 'Pelatihan Keterampilan Warga',
+    description:
+      'Pelatihan keterampilan untuk meningkatkan kapasitas dan ekonomi warga desa.',
+    isFullDay: false,
+    duration: 180,
+    locations: ['Balai Pelatihan', 'Kantor Desa', 'Gedung Serbaguna'],
+    conferenceSolution: '',
+  },
+  {
+    title: 'Rapat Karang Taruna',
+    description:
+      'Rapat rutin Karang Taruna untuk merencanakan kegiatan kepemudaan desa.',
+    isFullDay: false,
+    duration: 90,
+    locations: ['Sekretariat Karang Taruna', 'Balai Desa', 'Lapangan'],
+    conferenceSolution: 'WhatsApp',
+  },
+  {
+    title: 'Kunjungan Pejabat Kecamatan',
+    description:
+      'Kunjungan dan inspeksi pejabat kecamatan ke desa untuk monitoring program.',
+    isFullDay: false,
+    duration: 120,
+    locations: ['Kantor Desa', 'Balai Desa', 'Lokasi Proyek'],
+    conferenceSolution: '',
+  },
+  {
+    title: 'Musrenbang Desa',
+    description:
+      'Musyawarah Rencana Pembangunan Desa untuk menyusun RKP Desa tahun berikutnya.',
+    isFullDay: true,
+    duration: 480,
+    locations: ['Balai Desa', 'Aula Kecamatan'],
+    conferenceSolution: '',
+  },
+  {
+    title: 'Rapat BUMDES',
+    description:
+      'Rapat pengurus Badan Usaha Milik Desa untuk evaluasi keuangan dan rencana pengembangan.',
+    isFullDay: false,
+    duration: 90,
+    locations: ['Kantor BUMDES', 'Balai Desa', 'Ruang Rapat'],
+    conferenceSolution: 'WhatsApp',
   },
 ];
 
@@ -160,16 +166,14 @@ const GENERATE_CALENDAR_EVENT_SEEDS = (): CalendarEventDataSeed[] => {
     const TEMPLATE_INDEX = (INDEX - 1) % EVENT_TEMPLATES.length;
     const TEMPLATE = EVENT_TEMPLATES[TEMPLATE_INDEX];
 
-    // Random date within the last 6 months and next 6 months
     const NOW = new Date();
-    const RANDOM_DAYS_OFFSET = Math.floor(Math.random() * 365) - 182; // -182 to +182 days
+    const RANDOM_DAYS_OFFSET = Math.floor(Math.random() * 365) - 182;
     const EVENT_DATE = new Date(
       NOW.getTime() + RANDOM_DAYS_OFFSET * 24 * 60 * 60 * 1000,
     );
 
-    // Random time between 9 AM and 6 PM
-    const START_HOUR = 9 + Math.floor(Math.random() * 9);
-    const START_MINUTE = Math.floor(Math.random() * 4) * 15; // 0, 15, 30, or 45 minutes
+    const START_HOUR = 8 + Math.floor(Math.random() * 8);
+    const START_MINUTE = Math.floor(Math.random() * 4) * 15;
 
     const START_TIME = new Date(EVENT_DATE);
 
@@ -184,23 +188,10 @@ const GENERATE_CALENDAR_EVENT_SEEDS = (): CalendarEventDataSeed[] => {
       END_TIME.setMinutes(END_TIME.getMinutes() + TEMPLATE.duration);
     }
 
-    // Random location and conference solution
     const LOCATION =
-      TEMPLATE.locations[Math.floor(Math.random() * TEMPLATE.locations.length)];
-    const CONFERENCE_SOLUTION =
-      TEMPLATE.conferenceSolutions[
-        Math.floor(Math.random() * TEMPLATE.conferenceSolutions.length)
-      ];
+      TEMPLATE.locations[INDEX % TEMPLATE.locations.length];
 
-    // 5% chance of being cancelled
-    const IS_CANCELLED = Math.random() < 0.05;
-
-    // Generate conference link if it's an online meeting
-    const CONFERENCE_LINK = ['Zoom', 'Teams', 'Google Meet'].includes(
-      CONFERENCE_SOLUTION,
-    )
-      ? `https://${CONFERENCE_SOLUTION.toLowerCase().replace(' ', '')}.com/j/${Math.floor(Math.random() * 9000000000) + 1000000000}`
-      : '';
+    const IS_CANCELLED = INDEX % 20 === 0;
 
     CALENDAR_EVENT_SEEDS.push({
       id: CALENDAR_EVENT_DATA_SEED_IDS[`ID_${INDEX}`],
@@ -210,17 +201,17 @@ const GENERATE_CALENDAR_EVENT_SEEDS = (): CalendarEventDataSeed[] => {
       startsAt: START_TIME.toISOString(),
       endsAt: END_TIME.toISOString(),
       externalCreatedAt: new Date(
-        START_TIME.getTime() - Math.random() * 7 * 24 * 60 * 60 * 1000,
+        START_TIME.getTime() - 7 * 24 * 60 * 60 * 1000,
       ).toISOString(),
       externalUpdatedAt: new Date(
-        START_TIME.getTime() - Math.random() * 24 * 60 * 60 * 1000,
+        START_TIME.getTime() - 24 * 60 * 60 * 1000,
       ).toISOString(),
       description: TEMPLATE.description,
       location: LOCATION,
-      iCalUid: `event${INDEX}@calendar.twentycrm.com`,
-      conferenceSolution: CONFERENCE_SOLUTION,
-      conferenceLinkPrimaryLinkLabel: CONFERENCE_LINK,
-      conferenceLinkPrimaryLinkUrl: CONFERENCE_LINK,
+      iCalUid: `acara${INDEX}@kalender.bades.id`,
+      conferenceSolution: TEMPLATE.conferenceSolution,
+      conferenceLinkPrimaryLinkLabel: '',
+      conferenceLinkPrimaryLinkUrl: '',
     });
   }
 

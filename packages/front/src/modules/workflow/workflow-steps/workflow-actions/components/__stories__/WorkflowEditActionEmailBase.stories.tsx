@@ -55,12 +55,12 @@ const CONFIGURED_SEND_EMAIL_ACTION: WorkflowSendEmailAction = {
     input: {
       connectedAccountId: mockedConnectedAccountRecords[0].id as string,
       recipients: {
-        to: 'test@twenty.com',
+        to: 'test@bades.id',
         cc: '',
         bcc: '',
       },
-      subject: 'Welcome to Twenty!',
-      body: 'Dear Tim,\n\nWelcome to Twenty! We are excited to have you on board.\n\nBest regards,\nThe Team',
+      subject: 'Selamat datang di Bades.id!',
+      body: 'Yth. Tim,\n\nSelamat datang di Bades.id! Kami sangat senang dapat seringkongsi sistem ini.\n\nHormat kami,\nTim Bades.id',
       files: [],
       inReplyTo: '',
     },
@@ -182,10 +182,10 @@ export const Configured: Story = {
     expect(await canvas.findByText('Account')).toBeVisible();
     expect(await canvas.findByText('To')).toBeVisible();
 
-    const emailInput = await canvas.findByText('test@twenty.com');
+    const emailInput = await canvas.findByText('test@bades.id');
     expect(emailInput).toBeVisible();
 
-    const subjectInput = await canvas.findByText('Welcome to Twenty!');
+    const subjectInput = await canvas.findByText('Selamat datang di Bades.id!');
     expect(subjectInput).toBeVisible();
   },
 };

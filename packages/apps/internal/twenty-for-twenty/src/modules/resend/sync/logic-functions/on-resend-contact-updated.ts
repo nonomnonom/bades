@@ -114,7 +114,7 @@ export default defineLogicFunction({
     ON_RESEND_CONTACT_UPDATED_LOGIC_FUNCTION_UNIVERSAL_IDENTIFIER,
   name: 'on-resend-contact-updated',
   description:
-    'Pushes contact field changes to Resend when a resendContact record is updated in Twenty',
+    'Pushes contact field changes to Resend when a resendContact record is updated in Bades.id',
   timeoutSeconds: 30,
   handler,
   databaseEventTriggerSettings: {

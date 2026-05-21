@@ -86,19 +86,19 @@ export class DevSeederPermissionsService {
       if (light) {
         // In light mode, Tim is admin (prefilled login user needs full
         // access for SDK development). No demo permission roles needed.
-        adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.TIM;
+        adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES;
         memberUserWorkspaceIds = [
-          USER_WORKSPACE_DATA_SEED_IDS.JANE,
-          USER_WORKSPACE_DATA_SEED_IDS.JONY,
-          USER_WORKSPACE_DATA_SEED_IDS.PHIL,
+          USER_WORKSPACE_DATA_SEED_IDS.KASI,
+          USER_WORKSPACE_DATA_SEED_IDS.SEKDES,
+          USER_WORKSPACE_DATA_SEED_IDS.KAUR,
           ...Object.values(RANDOM_USER_WORKSPACE_IDS),
         ];
       } else {
-        adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.JANE;
-        limitedUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.TIM;
-        guestUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.PHIL;
+        adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KASI;
+        limitedUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES;
+        guestUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KAUR;
         memberUserWorkspaceIds = [
-          USER_WORKSPACE_DATA_SEED_IDS.JONY,
+          USER_WORKSPACE_DATA_SEED_IDS.SEKDES,
           ...Object.values(RANDOM_USER_WORKSPACE_IDS),
         ];
 
@@ -127,11 +127,11 @@ export class DevSeederPermissionsService {
         });
       }
     } else if (workspaceId === SEED_YCOMBINATOR_WORKSPACE_ID) {
-      adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.TIM_ACME;
+      adminUserWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME;
       memberUserWorkspaceIds = [
-        USER_WORKSPACE_DATA_SEED_IDS.JONY_ACME,
-        USER_WORKSPACE_DATA_SEED_IDS.JANE_ACME,
-        USER_WORKSPACE_DATA_SEED_IDS.PHIL_ACME,
+        USER_WORKSPACE_DATA_SEED_IDS.SEKDES_ACME,
+        USER_WORKSPACE_DATA_SEED_IDS.KASI_ACME,
+        USER_WORKSPACE_DATA_SEED_IDS.KAUR_ACME,
       ];
     }
 

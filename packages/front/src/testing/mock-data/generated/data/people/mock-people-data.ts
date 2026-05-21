@@ -41,7 +41,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "WEBHOOK",
       "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
-      "name": "Jony Ive",
+      "name": "Ahmad Hidayat",
       "context": null
     },
     "deletedAt": null,
@@ -162,7 +162,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "WEBHOOK",
       "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
-      "name": "Jony Ive",
+      "name": "Ahmad Hidayat",
       "context": null
     },
     "whatsapp": {
@@ -223,7 +223,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "CALENDAR",
       "workspaceMemberId": "20202020-1553-45c6-a028-5a9064cce07f",
-      "name": "Phil Schiler",
+      "name": "Dewi Lestari",
       "context": null
     },
     "deletedAt": null,
@@ -343,7 +343,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "CALENDAR",
       "workspaceMemberId": "20202020-1553-45c6-a028-5a9064cce07f",
-      "name": "Phil Schiler",
+      "name": "Dewi Lestari",
       "context": null
     },
     "whatsapp": {
@@ -395,7 +395,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "EMAIL",
       "workspaceMemberId": "20202020-1553-45c6-a028-5a9064cce07f",
-      "name": "Phil Schiler",
+      "name": "Dewi Lestari",
       "context": null
     },
     "deletedAt": null,
@@ -531,7 +531,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "EMAIL",
       "workspaceMemberId": "20202020-1553-45c6-a028-5a9064cce07f",
-      "name": "Phil Schiler",
+      "name": "Dewi Lestari",
       "context": null
     },
     "whatsapp": {
@@ -583,7 +583,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "EMAIL",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "deletedAt": null,
@@ -712,7 +712,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "EMAIL",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "whatsapp": {
@@ -773,7 +773,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "IMPORT",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "deletedAt": null,
@@ -902,7 +902,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "IMPORT",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "whatsapp": {
@@ -971,7 +971,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "CALENDAR",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "deletedAt": null,
@@ -1092,7 +1092,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "CALENDAR",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "whatsapp": {
@@ -1144,7 +1144,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "IMPORT",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "deletedAt": null,
@@ -1256,7 +1256,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "IMPORT",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "whatsapp": {
@@ -1308,7 +1308,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "EMAIL",
       "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
-      "name": "Jony Ive",
+      "name": "Ahmad Hidayat",
       "context": null
     },
     "deletedAt": null,
@@ -1444,7 +1444,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "EMAIL",
       "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
-      "name": "Jony Ive",
+      "name": "Ahmad Hidayat",
       "context": null
     },
     "whatsapp": {
@@ -1496,7 +1496,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "SYSTEM",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "deletedAt": null,
@@ -1616,7 +1616,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "SYSTEM",
       "workspaceMemberId": "20202020-463f-435b-828c-107e007a2711",
-      "name": "Jane Austen",
+      "name": "Hendra Wijaya",
       "context": null
     },
     "whatsapp": {
@@ -1677,7 +1677,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "CALENDAR",
       "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7",
-      "name": "Tim Apple",
+      "name": "Drs. H. Abdullah",
       "context": null
     },
     "deletedAt": null,
@@ -1806,7 +1806,7 @@ export const mockedPersonRecords: ObjectRecord[] =
       "__typename": "Actor",
       "source": "CALENDAR",
       "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7",
-      "name": "Tim Apple",
+      "name": "Drs. H. Abdullah",
       "context": null
     },
     "whatsapp": {

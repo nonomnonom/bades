@@ -83,7 +83,7 @@ export default defineLogicFunction({
     ON_RESEND_CONTACT_CREATED_LOGIC_FUNCTION_UNIVERSAL_IDENTIFIER,
   name: 'on-resend-contact-created',
   description:
-    'Creates a contact in Resend when a new resendContact record is created in Twenty',
+    'Creates a contact in Resend when a new resendContact record is created in Bades.id',
   timeoutSeconds: 30,
   handler,
   databaseEventTriggerSettings: {

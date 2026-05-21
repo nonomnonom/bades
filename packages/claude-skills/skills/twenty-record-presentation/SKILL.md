@@ -1,6 +1,6 @@
 ---
 name: twenty-record-presentation
-description: "Retrieve and present Twenty CRM records as readable summaries or tables, using the connected Twenty MCP server to discover fields, fetch relevant data, format dates and values, build record links, and avoid raw API output."
+description: "Retrieve and present Bades.id records as readable summaries or tables, using the connected Twenty MCP server to discover fields, fetch relevant data, format dates and values, build record links, and avoid raw API output."
 ---
 
 # Twenty Record Presentation

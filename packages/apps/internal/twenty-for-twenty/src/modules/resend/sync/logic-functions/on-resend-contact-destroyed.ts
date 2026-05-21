@@ -47,7 +47,7 @@ export default defineLogicFunction({
     ON_RESEND_CONTACT_DESTROYED_LOGIC_FUNCTION_UNIVERSAL_IDENTIFIER,
   name: 'on-resend-contact-destroyed',
   description:
-    'Removes a contact from Resend when a resendContact record is permanently destroyed in Twenty',
+    'Removes a contact from Resend when a resendContact record is permanently destroyed in Bades.id',
   timeoutSeconds: 30,
   handler,
   databaseEventTriggerSettings: {

@@ -8,7 +8,7 @@ type ResendIdNode = {
   resendId?: string | null;
 };
 
-export const findTwentyIdsByResendId = async (
+export const findBadesIdsByResendId = async (
   client: CoreApiClient,
   objectNamePlural: string,
   resendIds: ReadonlyArray<string | undefined | null>,

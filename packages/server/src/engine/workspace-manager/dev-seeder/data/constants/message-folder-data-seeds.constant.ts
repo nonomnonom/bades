@@ -44,7 +44,7 @@ export const MESSAGE_FOLDER_DATA_SEEDS: MessageFolderDataSeed[] = [
     name: 'INBOX',
     isSynced: true,
     isSentFolder: false,
-    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.TIM,
+    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.KADES,
     pendingSyncAction: MessageFolderPendingSyncAction.NONE,
   },
   {
@@ -55,7 +55,7 @@ export const MESSAGE_FOLDER_DATA_SEEDS: MessageFolderDataSeed[] = [
     name: 'Sent',
     isSynced: true,
     isSentFolder: true,
-    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.TIM,
+    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.KADES,
     pendingSyncAction: MessageFolderPendingSyncAction.NONE,
   },
   {
@@ -66,7 +66,7 @@ export const MESSAGE_FOLDER_DATA_SEEDS: MessageFolderDataSeed[] = [
     name: 'INBOX',
     isSynced: true,
     isSentFolder: false,
-    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.JONY,
+    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.SEKDES,
     pendingSyncAction: MessageFolderPendingSyncAction.NONE,
   },
   {
@@ -77,7 +77,7 @@ export const MESSAGE_FOLDER_DATA_SEEDS: MessageFolderDataSeed[] = [
     name: 'INBOX',
     isSynced: true,
     isSentFolder: false,
-    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.JANE,
+    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.KASI,
     pendingSyncAction: MessageFolderPendingSyncAction.NONE,
   },
   {
@@ -88,7 +88,7 @@ export const MESSAGE_FOLDER_DATA_SEEDS: MessageFolderDataSeed[] = [
     name: 'Sent',
     isSynced: true,
     isSentFolder: true,
-    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.JANE,
+    messageChannelId: MESSAGE_CHANNEL_DATA_SEED_IDS.KASI,
     pendingSyncAction: MessageFolderPendingSyncAction.NONE,
   },
 ];

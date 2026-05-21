@@ -1,4 +1,4 @@
-This is a [Twenty](https://twenty.com) application project bootstrapped with [`create-twenty-app`](https://www.npmjs.com/package/create-twenty-app).
+This is a [Bades.id](https://bades.id) application project bootstrapped with [`create-twenty-app`](https://www.npmjs.com/package/create-twenty-app).
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ Then, start development mode to sync your app and watch for changes:
 yarn twenty dev
 ```
 
-Open your Twenty instance and go to `/settings/applications` section to see the result.
+Open your Bades.id instance and go to `/settings/applications` section to see the result.
 
 ## Available Commands
 
@@ -22,7 +22,7 @@ Run `yarn twenty help` to list all available commands. Common commands:
 
 ```bash
 # Remotes & Authentication
-yarn twenty remote:add --api-url http://localhost:2020 --as local     # Authenticate with Twenty
+yarn twenty remote:add --api-url http://localhost:2020 --as local     # Authenticate with Bades.id
 yarn twenty remote:status         # Check auth status
 yarn twenty remote:use            # Set default remote
 yarn twenty remote:list           # List all configured remotes
@@ -42,10 +42,10 @@ Main docs and pitfalls are available in LLMS.md file.
 
 ## Learn More
 
-To learn more about Twenty applications, take a look at the following resources:
+To learn more about Bades.id applications, take a look at the following resources:
 
 - [twenty-sdk](https://www.npmjs.com/package/twenty-sdk) - learn about `twenty-sdk` tool.
-- [Twenty doc](https://docs.twenty.com/) - Twenty's documentation.
+- [Bades.id doc](https://docs.bades.id/) - Bades.id's documentation.
 - Join our [Discord](https://discord.gg/cx5n4Jzs57)
 
-You can check out [the Twenty GitHub repository](https://github.com/twentyhq/twenty) - your feedback and contributions are welcome!
+You can check out [the Bades.id GitHub repository](https://github.com/badesid/bades) - your feedback and contributions are welcome!

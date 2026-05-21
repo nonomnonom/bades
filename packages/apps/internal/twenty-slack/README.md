@@ -1,6 +1,6 @@
 # twenty-slack
 
-Slack tools for **Twenty workflows** and **agents** (the same logic functions
+Slack tools for **Bades.id workflows** and **agents** (the same logic functions
 are available as workflow steps and as tools where your deployment exposes
 them). Uses the official
 [`@slack/web-api`](https://github.com/slackapi/node-slack-sdk) `WebClient`
@@ -8,13 +8,13 @@ them). Uses the official
 
 ## What you can do
 
-Once the app is installed and Slack is **connected** (see **Twenty setup**
+Once the app is installed and Slack is **connected** (see **Bades.id setup**
 below):
 
 - **Workflow steps** — post, update, or delete bot messages; send ephemerals;
   add reactions; list channels. Pick a **workspace shared** or **just for me**
   connection; steps run with that token.
-- **Agents / AI** — when your Twenty instance surfaces app tools to the model,
+- **Agents / AI** — when your Bades.id instance surfaces app tools to the model,
   these functions can be invoked the same way as other app logic functions.
 - **Quick-send** — command menu **Send Slack message** opens a side panel to
   pick a channel and post (same Slack connection as workflows).
@@ -41,7 +41,7 @@ This app also ships a global command menu item — **Send Slack message** — th
 - `GET /slack/channels` — lists channels visible to the bot (mirrors `slack-list-channels`).
 - `POST /slack/messages` — posts a message (mirrors `slack-post-message`).
 
-Both routes require an authenticated Twenty user and use the same shared Slack connection as the workflow tools.
+Both routes require an authenticated Bades.id user and use the same shared Slack connection as the workflow tools.
 
 ### Prerequisites (Slack workspace)
 
@@ -57,7 +57,7 @@ Both routes require an authenticated Twenty user and use the same shared Slack c
 ## Slack app setup
 
 1. Create a Slack app at [api.slack.com/apps](https://api.slack.com/apps)
-   (dedicated to this Twenty app — do not reuse for other Twenty apps).
+   (dedicated to this Bades.id app — do not reuse for other Bades.id apps).
 2. **OAuth & Permissions** → **Bot Token Scopes**. Twenty uses Slack’s **bot**
    OAuth (`oauth/v2/authorize` with `scope=…`). You must add scopes here — not
    only under **User Token Scopes** — or Slack will refuse install with *“doesn’t
@@ -98,9 +98,9 @@ Both routes require an authenticated Twenty user and use the same shared Slack c
 
 4. Copy the Slack **Client ID** and **Client Secret**.
 
-## Twenty setup
+## Bades.id setup
 
-1. Register / install this app on your Twenty server (`twenty-slack`).
+1. Register / install this app on your Bades.id server (`twenty-slack`).
 2. In **Settings → Applications → Twenty Slack**, open the **Application registration**
    tab (admin-only) and set:
    - `SLACK_CLIENT_ID`

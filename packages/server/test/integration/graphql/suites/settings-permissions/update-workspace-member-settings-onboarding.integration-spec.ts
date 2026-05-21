@@ -10,7 +10,7 @@ import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/m
 import { OnboardingStatus } from 'src/engine/core-modules/onboarding/enums/onboarding-status.enum';
 import { SEED_APPLE_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-seeder/core/constants/seeder-workspaces.constant';
 
-const APPLE_WORKSPACE_INVITE_HASH = 'apple.dev-invite-hash';
+const SUKAMAJU_WORKSPACE_INVITE_HASH = 'sukamaju.dev-invite-hash';
 
 describe('updateWorkspaceMemberSettings and profile onboarding', () => {
   let newUserAccessToken: string | undefined;
@@ -136,7 +136,7 @@ describe('updateWorkspaceMemberSettings and profile onboarding', () => {
         variables: {
           email: uniqueEmail,
           password,
-          workspaceInviteHash: APPLE_WORKSPACE_INVITE_HASH,
+          workspaceInviteHash: SUKAMAJU_WORKSPACE_INVITE_HASH,
           workspaceId: SEED_APPLE_WORKSPACE_ID,
         },
       },

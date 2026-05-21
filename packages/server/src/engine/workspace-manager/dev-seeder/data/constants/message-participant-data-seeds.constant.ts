@@ -145,28 +145,28 @@ const CREATE_WORKSPACE_MEMBER_PARTICIPANT = (
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[0],
         displayName: 'Drs. H. Abdullah',
-        handle: 'tim@apple.dev',
+        handle: 'kades@sukamaju.desa.id',
       };
     case WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES:
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[1] || personIds[0],
-        displayName: 'Jony Ive',
-        handle: 'jony@apple.dev',
+        displayName: 'Ahmad Hidayat',
+        handle: 'sekdes@sukamaju.desa.id',
       };
     case WORKSPACE_MEMBER_DATA_SEED_IDS.KAUR:
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[2] || personIds[0],
-        displayName: 'Phil Schiller',
-        handle: 'phil@apple.dev',
+        displayName: 'Dewi Lestari',
+        handle: 'kaur@sukamaju.desa.id',
       };
     default:
       return {
         workspaceMemberId: WORKSPACE_MEMBER_ID,
         personId: personIds[0],
         displayName: 'Workspace Member',
-        handle: 'member@apple.dev',
+        handle: 'perangkat@sukamaju.desa.id',
       };
   }
 };

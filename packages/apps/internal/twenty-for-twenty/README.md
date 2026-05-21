@@ -1,8 +1,8 @@
-This is a [Twenty](https://twenty.com) application bootstrapped with [`create-twenty-app`](https://www.npmjs.com/package/create-twenty-app).
+This is a [Twenty](https://bades.id) application bootstrapped with [`create-twenty-app`](https://www.npmjs.com/package/create-twenty-app).
 
 ## Overview
 
-**Twenty for Twenty** is the official internal Twenty app. It is organized into modules, each integrating a third-party service with Twenty.
+**Bades.id for Bades.id** is the official internal Twenty app. It is organized into modules, each integrating a third-party service with Twenty.
 
 ### Resend module (`src/modules/resend/`)
 
@@ -15,7 +15,7 @@ Two-way sync between Twenty and the [Resend](https://resend.com) email platform.
 
 **Outbound (Twenty -> Resend):**
 
-- Database event triggers push contact and segment changes back to Resend when records are created, updated, or deleted in Twenty
+- Database event triggers push contact and segment changes back to Resend when records are created, updated, or deleted in Bades.id
 
 ## Getting Started
 
@@ -25,11 +25,11 @@ Two-way sync between Twenty and the [Resend](https://resend.com) email platform.
 yarn twenty dev
 ```
 
-This registers the app with your local Twenty instance at `http://localhost:3000/settings/applications`.
+This registers the app with your local Bades.id instance at `http://localhost:3000/settings/applications`.
 
 ### 2. Configure app variables
 
-In Twenty, go to **Settings > Applications > Twenty for Twenty** and set:
+In Twenty, go to **Settings > Applications > Bades.id for Bades.id** and set:
 
 - **RESEND_API_KEY** -- Your Resend API key. Create one at https://resend.com/api-keys (full access recommended).
 - **RESEND_WEBHOOK_SECRET** -- The signing secret for verifying inbound webhooks (see "Webhook setup" below).
@@ -40,14 +40,14 @@ The app exposes an HTTP endpoint at `/s/webhook/resend` that receives Resend web
 
 1. Go to https://resend.com/webhooks
 2. Click **Add webhook**
-3. Set the **Endpoint URL** to your Twenty server's public URL + `/s/webhook/resend` (e.g. `https://your-domain.com/s/webhook/resend`)
+3. Set the **Endpoint URL** to your Bades.id server's public URL + `/s/webhook/resend` (e.g. `https://your-domain.com/s/webhook/resend`)
 4. Set **Events types** to **All Events**
 5. Click **Add**
-6. Copy the **signing secret** Resend displays and paste it into the `RESEND_WEBHOOK_SECRET` app variable in Twenty
+6. Copy the **signing secret** Resend displays and paste it into the `RESEND_WEBHOOK_SECRET` app variable in Bades.id
 
 The webhook handles:
 
-- **Contact events** (`contact.created`, `contact.updated`, `contact.deleted`) -- upserts/deletes Resend contact records in Twenty
+- **Contact events** (`contact.created`, `contact.updated`, `contact.deleted`) -- upserts/deletes Resend contact records in Bades.id
 - **Email events** (`email.sent`, `email.delivered`, `email.bounced`, `email.opened`, `email.clicked`, etc.) -- updates delivery status on Resend email records in real-time
 - **Domain events** -- logged and skipped (no domain object in the app yet)
 
@@ -71,7 +71,7 @@ Authenticate:
 resend login
 ```
 
-Start the webhook listener with forwarding to your local Twenty server:
+Start the webhook listener with forwarding to your local Bades.id server:
 
 ```bash
 resend webhooks listen --forward-to http://localhost:3000/s/webhook/resend
@@ -81,7 +81,7 @@ The CLI will:
 
 1. Create a public tunnel automatically
 2. Register a temporary webhook in Resend pointing to that tunnel
-3. Forward incoming events (with Svix signature headers) to your local Twenty server
+3. Forward incoming events (with Svix signature headers) to your local Bades.id server
 4. Display events in the terminal as they arrive
 5. Clean up the temporary webhook when you press Ctrl+C
 
@@ -98,12 +98,12 @@ To trigger test events, create or update a contact in the [Resend dashboard](htt
 
 ### Outbound sync
 
-| Twenty action | Resend API call |
+| Bades.id action | Resend API call |
 |---|---|
-| Create contact | `contacts.create()` -- writes `resendId` back to Twenty |
+| Create contact | `contacts.create()` -- writes `resendId` back to Bades.id |
 | Update contact (name, email, unsubscribed) | `contacts.update()` |
 | Delete contact | `contacts.remove()` |
-| Create segment | `segments.create()` -- writes `resendId` back to Twenty |
+| Create segment | `segments.create()` -- writes `resendId` back to Bades.id |
 | Delete segment | `segments.remove()` |
 
 ### Loop prevention
@@ -116,7 +116,7 @@ Run `yarn twenty help` to list all available commands.
 
 ## Learn More
 
-- [Twenty Apps documentation](https://docs.twenty.com/developers/extend/apps/getting-started)
+- [Twenty Apps documentation](https://docs.bades.id/developers/extend/apps/getting-started)
 - [twenty-sdk CLI reference](https://www.npmjs.com/package/twenty-sdk)
 - [Resend API documentation](https://resend.com/docs)
 - [Discord](https://discord.gg/cx5n4Jzs57)

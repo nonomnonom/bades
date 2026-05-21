@@ -104,7 +104,7 @@ const statusAction = async (options: { test?: boolean }) => {
   }
 
   if (healthy) {
-    console.log(chalk.gray('  Login:   tim@apple.dev / tim@apple.dev'));
+    console.log(chalk.gray('  Login:   kades@sukamaju.desa.id / kades@sukamaju.desa.id'));
   }
 };
 

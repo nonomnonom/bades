@@ -58,7 +58,7 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
     description:
-      'Prefills tim@apple.dev in the login form, used in local development for quicker sign-in',
+      'Prefills kades@sukamaju.desa.id in the login form, used in local development for quicker sign-in',
     type: ConfigVariableType.BOOLEAN,
   })
   @IsOptional()

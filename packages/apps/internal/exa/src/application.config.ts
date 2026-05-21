@@ -9,7 +9,7 @@ export default defineApplication({
   universalIdentifier: APPLICATION_UNIVERSAL_IDENTIFIER,
   displayName: 'Exa',
   description:
-    'Structured web search powered by Exa. Surfaces entity-aware results (companies, people, research, news) to Twenty AI agents.',
+    'Structured web search powered by Exa. Surfaces entity-aware results (companies, people, research, news) to Bades.id AI agents.',
   icon: 'IconSearch',
   logoUrl: 'public/exa-logomark.svg',
   defaultRoleUniversalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,

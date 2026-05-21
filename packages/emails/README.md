@@ -1,6 +1,6 @@
-# Twenty Emails
+# Bades.id Emails
 
-This package contains the email templates used by Twenty.
+This package contains the email templates used by Bades.id.
 
 ## Features
 

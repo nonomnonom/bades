@@ -9,11 +9,11 @@ const sdkLogger = require('./sdk-logger');
 const twentyClient = require('./twenty-client');
 require('dotenv').config();
 
-const twentyIconDataUrl = require('./assets/twenty-logo-256.png');
+const badesIconDataUrl = require('./assets/bades-logo-256.png');
 
 function getAppIcon() {
   try {
-    return nativeImage.createFromDataURL(twentyIconDataUrl);
+    return nativeImage.createFromDataURL(badesIconDataUrl);
   } catch (error) {
     console.error('Failed to load app icon:', error);
     return undefined;
@@ -24,7 +24,7 @@ function getAppIcon() {
 function getHeaderLines() {
   return [
     "HTTP-Referer: https://recall.ai", // Replace with your actual app's URL
-    "X-Title: Twenty AI Notetaker"
+    "X-Title: Bades AI Notetaker"
   ];
 }
 
@@ -39,7 +39,7 @@ function getOpenAIClient() {
     apiKey: process.env.OPENROUTER_KEY,
     defaultHeaders: {
       "HTTP-Referer": "https://recall.ai",
-      "X-Title": "Twenty AI Notetaker"
+      "X-Title": "Bades AI Notetaker"
     }
   });
   return openai;
@@ -57,7 +57,7 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-// Check Twenty CRM integration status at startup
+// Check Bades.id integration status at startup
 twentyClient.isConfigured();
 
 // Store detected meeting information
@@ -119,7 +119,7 @@ app.whenReady().then(() => {
     const dockIcon = getAppIcon();
     if (dockIcon && !dockIcon.isEmpty()) {
       app.dock.setIcon(dockIcon);
-      console.log('Twenty dock icon set successfully');
+      console.log('Bades dock icon set successfully');
     } else {
       console.error('Failed to set dock icon: image is empty or undefined');
     }
@@ -376,7 +376,7 @@ async function createDesktopSdkUpload() {
   }
 }
 
-// Poll Recall for the audio URL then call the Twenty end-recording logic function.
+// Poll Recall for the audio URL then call the Bades.id end-recording logic function.
 // Recall may need time to process the upload after progress hits 100%.
 async function endCallRecordingWithRetry(windowId, maxAttempts = 10, delayMs = 5000) {
   try {
@@ -387,7 +387,7 @@ async function endCallRecordingWithRetry(windowId, maxAttempts = 10, delayMs = 5
     );
 
     if (!meeting?.twentyRecordId || !meeting?.recallRecordingId) {
-      console.log('[Twenty] No Twenty record or Recall recording ID found, skipping end-recording');
+      console.log('[Bades.id] No Bades.id record or Recall recording ID found, skipping end-recording');
       return;
     }
 
@@ -412,18 +412,18 @@ async function endCallRecordingWithRetry(windowId, maxAttempts = 10, delayMs = 5
           return;
         }
       } catch (error) {
-        console.error(`[Twenty] Attempt ${attempt}/${maxAttempts} — error fetching recording:`, error.message);
+        console.error(`[Bades.id] Attempt ${attempt}/${maxAttempts} — error fetching recording:`, error.message);
       }
 
       if (attempt < maxAttempts) {
-        console.log(`[Twenty] Audio URL not ready, retrying in ${delayMs / 1000}s (${attempt}/${maxAttempts})`);
+        console.log(`[Bades.id] Audio URL not ready, retrying in ${delayMs / 1000}s (${attempt}/${maxAttempts})`);
         await new Promise((resolve) => setTimeout(resolve, delayMs));
       }
     }
 
-    console.error('[Twenty] Audio URL never became available, giving up');
+    console.error('[Bades.id] Audio URL never became available, giving up');
   } catch (error) {
-    console.error('Failed to end callRecording in Twenty:', error.message);
+    console.error('Failed to end callRecording in Bades.id:', error.message);
   }
 }
 
@@ -1247,7 +1247,7 @@ async function createMeetingNoteAndRecord(platformName) {
       global.activeMeetingIds[detectedMeeting.window.id].noteId = id;
     }
 
-    // Create a call recording record in Twenty CRM
+    // Create a call recording record in Bades.id
     if (twentyClient.isConfigured()) {
       try {
         const twentyRecord = await twentyClient.createCallRecording(meetingTitle);
@@ -1259,10 +1259,10 @@ async function createMeetingNoteAndRecord(platformName) {
             global.activeMeetingIds[detectedMeeting.window.id].twentyRecordId = twentyRecord.id;
           }
 
-          console.log('Created callRecording in Twenty:', twentyRecord.id);
+          console.log('Created callRecording in Bades.id:', twentyRecord.id);
         }
       } catch (error) {
-        console.error('Failed to create callRecording in Twenty:', error.message);
+        console.error('Failed to create callRecording in Bades.id:', error.message);
       }
     }
 

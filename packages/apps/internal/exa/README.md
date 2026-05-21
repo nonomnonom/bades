@@ -1,11 +1,11 @@
 # twenty-exa
 
-Exposes [Exa](https://exa.ai) structured web search to Twenty AI agents
+Exposes [Exa](https://exa.ai) structured web search to Bades.id AI agents
 (chat + workflow agents + MCP) as the `app_exa_web_search` tool.
 
 ## Installation
 
-1. Register the app on the Twenty server once (admin API / UI):
+1. Register the app on the Bades.id server once (admin API / UI):
    `twenty-exa` from npm.
 2. Set `isPreInstalled=true` on the registration so it's installed on
    every new workspace. Existing workspaces can be backfilled via the
@@ -16,7 +16,7 @@ Exposes [Exa](https://exa.ai) structured web search to Twenty AI agents
 
 ## Billing
 
-The handler calls Twenty's generic app billing endpoint
+The handler calls Bades.id's generic app billing endpoint
 (`POST /app/billing/charge`) using the application access token injected
 into the execution env. Pricing mirrors Exa's auto-search tier: $0.007
 base (10 results) + $0.001 per additional result.
