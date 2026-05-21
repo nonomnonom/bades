@@ -5617,64 +5617,64 @@ msgid "No"
 msgstr "Tidak"
 
 msgid "No {clearLabel}"
-msgstr "Tidak "{clearLabel}"
+msgstr "Tidak ada {clearLabel}
 
 msgid "No {fieldLabel}"
-msgstr "Tidak "{fieldLabel}"
+msgstr "Tidak ada {fieldLabel}
 
 msgid "No {label}"
-msgstr "Tidak "{label}"
+msgstr "Tidak ada {label}
 
 msgid "No {objectLabelSingular} found"
-msgstr "Tidak "{objectLabelSingular} found"
+msgstr "Tidak ada {objectLabelSingular} ditemukan
 
 msgid "No active subscription."
-msgstr "Tidak "active subscription."
+msgstr "Tidak ada langganan aktif.
 
 msgid "No activity yet"
-msgstr "Tidak "activity yet"
+msgstr "Belum ada aktivitas
 
 msgid "No agents assigned"
-msgstr "Tidak "agents assigned"
+msgstr "Tidak ada agen yang ditugaskan
 
 msgid "No agents available"
-msgstr "Tidak "agents available"
+msgstr "Tidak ada agen tersedia
 
 msgid "No agents match your search"
-msgstr "Tidak "agents match your search"
+msgstr "Tidak ada agen yang cocok dengan pencarian Anda
 
 msgid "No AI consumption recorded for this user."
-msgstr "Tidak "AI consumption recorded for this user."
+msgstr "Tidak ada konsumsi AI tercatat untuk pengguna ini.
 
 msgid "No AI usage data recorded yet."
-msgstr "Tidak "AI usage data recorded yet."
+msgstr "Belum ada data penggunaan AI tercatat.
 
 msgid "No API keys assigned"
-msgstr "Tidak "API keys assigned"
+msgstr "Tidak ada kunci API yang ditugaskan
 
 msgid "No API keys available"
-msgstr "Tidak "API keys available"
+msgstr "Tidak ada kunci API tersedia
 
 msgid "No API keys match your search"
-msgstr "Tidak "API keys match your search"
+msgstr "Tidak ada kunci API yang cocok dengan pencarian Anda
 
 msgid "No application found"
-msgstr "Tidak "application found"
+msgstr "Tidak ada aplikasi ditemukan
 
 msgid "No applications available"
-msgstr "Tidak "applications available"
+msgstr "Tidak ada aplikasi tersedia
 
 msgid "No available fields to select"
-msgstr "Tidak "available fields to select"
+msgstr "Tidak ada kolom tersedia untuk dipilih
 
 msgid "No available tabs"
-msgstr "Tidak "available tabs"
+msgstr "Tidak ada tab tersedia
 
 msgid "No billing data is available for this workspace."
-msgstr "Tidak "billing data is available for this workspace."
+msgstr "Tidak ada data billing tersedia untuk workspace ini.
 
 msgid "No body"
-msgstr "Tidak "body"
+msgstr "Tidak ada body
 
 msgid "No calling code"
 msgstr "Tidak ada kode panggilan"
@@ -5692,268 +5692,268 @@ msgid "No compatible fields"
 msgstr "Tidak ada kolom yang kompatibel"
 
 msgid "No config variables match your current filters. Try adjusting your filters or search criteria."
-msgstr "Tidak "config variables match your current filters. Try adjusting your filters or search criteria."
+msgstr "Tidak ada variabel konfigurasi yang cocok dengan filter Anda. Coba sesuaikan filter atau kriteria pencarian.
 
 msgid "No context was provided for this request"
-msgstr "Tidak "context was provided for this request"
+msgstr "Tidak ada konteks yang disediakan untuk permintaan ini
 
 msgid "No country"
-msgstr "Tidak "country"
+msgstr "Tidak ada negara
 
 msgid "No credentials"
-msgstr "Tidak "credentials"
+msgstr "Tidak ada kredensial
 
 msgid "No credit consumption recorded for this user."
-msgstr "Tidak "credit consumption recorded for this user."
+msgstr "Tidak ada konsumsi kredit tercatat untuk pengguna ini.
 
 msgid "No currency"
-msgstr "Tidak "currency"
+msgstr "Tidak ada mata uang
 
 msgid "No custom views available"
-msgstr "Tidak "custom views available"
+msgstr "Tidak ada tampilan kustom tersedia
 
 msgid "No data"
 msgstr "Tidak ada data"
 
 msgid "No Data"
-msgstr "Tidak "Data"
+msgstr "Tidak ada Data
 
 msgid "No Data Available for Remote Table"
-msgstr "Tidak "Data Available for Remote Table"
+msgstr "Tidak Ada Data Tersedia untuk Tabel Remote
 
 msgid "No data available. Click edit to configure this widget."
-msgstr "Tidak "data available. Click edit to configure this widget."
+msgstr "Tidak ada data tersedia. Klik edit untuk mengkonfigurasi widget ini.
 
 msgid "No data containing errors"
-msgstr "Tidak "data containing errors"
+msgstr "Tidak ada data yang mengandung error
 
 msgid "No data found"
-msgstr "Tidak "data found"
+msgstr "Tidak ada data ditemukan
 
 msgid "No Date field"
-msgstr "Tidak "Date field"
+msgstr "Tidak ada kolom Tanggal
 
 msgid "No default configuration available for this tab"
-msgstr "Tidak "default configuration available for this tab"
+msgstr "Tidak ada konfigurasi default tersedia untuk tab ini
 
 msgid "No default configuration available for this widget"
-msgstr "Tidak "default configuration available for this widget"
+msgstr "Tidak ada konfigurasi default tersedia untuk widget ini
 
 msgid "No Deleted {objectLabelSingular} found"
-msgstr "Tidak "Deleted {objectLabelSingular} found"
+msgstr "Tidak ada {objectLabelSingular} yang dihapus ditemukan
 
 msgid "No deleted records matching the filter criteria were found."
-msgstr "Tidak "deleted records matching the filter criteria were found."
+msgstr "Tidak ada rekaman yang dihapus yang cocok dengan kriteria filter ditemukan.
 
 msgid "No description available for this application"
-msgstr "Tidak "description available for this application"
+msgstr "Tidak ada deskripsi tersedia untuk aplikasi ini
 
 msgid "No email exchange has occurred with this record yet."
-msgstr "Tidak "email exchange has occurred with this record yet."
+msgstr "Belum ada pertukaran email yang terjadi dengan rekaman ini.
 
 msgid "No evaluation inputs yet. Add your first test input above."
-msgstr "Tidak "evaluation inputs yet. Add your first test input above."
+msgstr "Belum ada input evaluasi. Tambahkan input test pertama Anda di atas.
 
 msgid "No evaluations yet for this turn"
-msgstr "Tidak "evaluations yet for this turn"
+msgstr "Belum ada evaluasi untuk giliran ini
 
 msgid "No event logs found"
-msgstr "Tidak "event logs found"
+msgstr "Tidak ada log acara ditemukan
 
 msgid "No Events"
-msgstr "Tidak "Events"
+msgstr "Tidak ada Acara
 
 msgid "No events have been scheduled with this {objectName} yet."
-msgstr "Tidak "events have been scheduled with this {objectName} yet."
+msgstr "Belum ada acara yang dijadwalkan dengan {objectName} ini.
 
 msgid "No featured applications found. {nonFeaturedCount} non-featured result(s) available — "
-msgstr "Tidak "featured applications found. {nonFeaturedCount} non-featured result(s) available — "
+msgstr "Tidak ada aplikasi andalan ditemukan. {nonFeaturedCount} hasil non-andalan tersedia."
 
 msgid "No field configured"
-msgstr "Tidak "field configured"
+msgstr "Tidak ada kolom dikonfigurasi
 
 msgid "No fields available"
-msgstr "Tidak "fields available"
+msgstr "Tidak ada kolom tersedia
 
 msgid "No fields selected"
-msgstr "Tidak "fields selected"
+msgstr "Tidak ada kolom dipilih
 
 msgid "No fields to display"
-msgstr "Tidak "fields to display"
+msgstr "Tidak ada kolom untuk ditampilkan
 
 msgid "No Files"
-msgstr "Tidak "Files"
+msgstr "Tidak ada File
 
 msgid "No folder"
-msgstr "Tidak "folder"
+msgstr "Tidak ada folder
 
 msgid "No folders available"
-msgstr "Tidak "folders available"
+msgstr "Tidak ada folder tersedia
 
 msgid "No folders found for this account"
-msgstr "Tidak "folders found for this account"
+msgstr "Tidak ada folder ditemukan untuk akun ini
 
 msgid "No input"
-msgstr "Tidak "input"
+msgstr "Tidak ada input
 
 msgid "No input fields for this action"
-msgstr "Tidak "input fields for this action"
+msgstr "Tidak ada kolom input untuk aksi ini
 
 msgid "No jobs found"
-msgstr "Tidak "jobs found"
+msgstr "Tidak ada pekerjaan ditemukan
 
 msgid "No jobs were deleted{errorDetails}"
-msgstr "Tidak "jobs were deleted{errorDetails}"
+msgstr "Tidak ada pekerjaan dihapus{errorDetails}
 
 msgid "No jobs were retried{errorDetails}"
-msgstr "Tidak "jobs were retried{errorDetails}"
+msgstr "Tidak ada pekerjaan dicoba ulang{errorDetails}
 
 msgid "No latest version found"
-msgstr "Tidak "latest version found"
+msgstr "Tidak ada versi terbaru ditemukan
 
 msgid "No logs yet"
-msgstr "Tidak "logs yet"
+msgstr "Belum ada log
 
 msgid "No members"
-msgstr "Tidak "members"
+msgstr "Tidak ada anggota
 
 msgid "No members assigned"
-msgstr "Tidak "members assigned"
+msgstr "Tidak ada anggota ditugaskan
 
 msgid "No members match your search"
-msgstr "Tidak "members match your search"
+msgstr "Tidak ada anggota yang cocok dengan pencarian Anda
 
 msgid "No messages found for this turn"
-msgstr "Tidak "messages found for this turn"
+msgstr "Tidak ada pesan ditemukan untuk giliran ini
 
 msgid "No messages found."
-msgstr "Tidak "messages found."
+msgstr "Tidak ada pesan ditemukan.
 
 msgid "No metrics data available"
-msgstr "Tidak "metrics data available"
+msgstr "Tidak ada data metrik tersedia
 
 msgid "No models available. Please configure AI models in your workspace settings."
-msgstr "Tidak "models available. Please configure AI models in your workspace settings."
+msgstr "Tidak ada model tersedia. Harap konfigurasi model AI di pengaturan workspace Anda.
 
 msgid "No notes"
-msgstr "Tidak "notes"
+msgstr "Tidak ada catatan
 
 msgid "No object found"
-msgstr "Tidak "object found"
+msgstr "Tidak ada objek ditemukan
 
 msgid "No objects with views found"
-msgstr "Tidak "objects with views found"
+msgstr "Tidak ada objek dengan tampilan ditemukan
 
 msgid "No option found"
-msgstr "Tidak "option found"
+msgstr "Tidak ada opsi ditemukan
 
 msgid "No output"
-msgstr "Tidak "output"
+msgstr "Tidak ada output
 
 msgid "No output available"
-msgstr "Tidak "output available"
+msgstr "Tidak ada output tersedia
 
 msgid "No parameters"
-msgstr "Tidak "parameters"
+msgstr "Tidak ada parameter
 
 msgid "No payment method found. Please update your billing details."
-msgstr "Tidak "payment method found. Please update your billing details."
+msgstr "Tidak ada metode pembayaran ditemukan. Harap perbarui detail billing Anda.
 
 msgid "No permission defined for this application"
-msgstr "Tidak "permission defined for this application"
+msgstr "Tidak ada izin yang ditentukan untuk aplikasi ini
 
 msgid "No permissions configured for this application."
-msgstr "Tidak "permissions configured for this application."
+msgstr "Tidak ada izin yang dikonfigurasi untuk aplikasi ini.
 
 msgid "No permissions have been set for individual objects."
-msgstr "Tidak "permissions have been set for individual objects."
+msgstr "Izin telah diatur untuk objek individual.
 
 msgid "No record"
-msgstr "Tidak "record"
+msgstr "Tidak ada rekaman
 
 msgid "No record is required to trigger this workflow"
-msgstr "Tidak "record is required to trigger this workflow"
+msgstr "Rekaman diperlukan untuk memicu workflow ini
 
 msgid "No record selected"
-msgstr "Tidak "record selected"
+msgstr "Tidak ada rekaman dipilih
 
 msgid "No records found"
 msgstr "Tidak ada rekaman ditemukan"
 
 msgid "No records matching the filter criteria were found."
-msgstr "Tidak "records matching the filter criteria were found."
+msgstr "Tidak ada rekaman yang cocok dengan kriteria filter ditemukan.
 
 msgid "No results"
 msgstr "Tidak ada hasil"
 
 msgid "No Results"
-msgstr "Tidak "Results"
+msgstr "Tidak ada Hasil
 
 msgid "No results found"
-msgstr "Tidak "results found"
+msgstr "Tidak ada hasil ditemukan
 
 msgid "No role assigned to this member"
-msgstr "Tidak "role assigned to this member"
+msgstr "Tidak ada peran ditugaskan ke anggota ini
 
 msgid "No roles found"
-msgstr "Tidak "roles found"
+msgstr "Tidak ada peran ditemukan
 
 msgid "No rows with errors"
-msgstr "Tidak "rows with errors"
+msgstr "Tidak ada baris dengan error
 
 msgid "No Select field"
-msgstr "Tidak "Select field"
+msgstr "Pilih kolom
 
 msgid "No system objects available"
-msgstr "Tidak "system objects available"
+msgstr "Tidak ada objek sistem tersedia
 
 msgid "No system objects with views found"
-msgstr "Tidak "system objects with views found"
+msgstr "Tidak ada objek sistem dengan tampilan ditemukan
 
 msgid "No trigger is configured for this function."
-msgstr "Tidak "trigger is configured for this function."
+msgstr "Trigger sudah dikonfigurasi untuk fungsi ini.
 
 msgid "No trigger is enabled. Toggle one of the options above to choose how this function gets invoked."
-msgstr "Tidak "trigger is enabled. Toggle one of the options above to choose how this function gets invoked."
+msgstr "Trigger sudah diaktifkan. Aktifkan salah satu opsi di atas untuk memilih bagaimana fungsi ini dipanggil.
 
 msgid "No usage data"
-msgstr "Tidak "usage data"
+msgstr "Tidak ada data penggunaan
 
 msgid "No usage data yet"
-msgstr "Tidak "usage data yet"
+msgstr "Belum ada data penggunaan
 
 msgid "No users found matching your search criteria."
-msgstr "Tidak "users found matching your search criteria."
+msgstr "Tidak ada pengguna ditemukan yang cocok dengan kriteria pencarian Anda.
 
 msgid "No value"
-msgstr "Tidak "value"
+msgstr "Tidak ada nilai
 
 msgid "No variables available"
-msgstr "Tidak "variables available"
+msgstr "Tidak ada variabel tersedia
 
 msgid "No variables found"
-msgstr "Tidak "variables found"
+msgstr "Tidak ada variabel ditemukan
 
 msgid "No variables to set for this application"
-msgstr "Tidak "variables to set for this application"
+msgstr "Tidak ada variabel untuk diatur untuk aplikasi ini
 
 msgid "No workflow runs yet"
-msgstr "Tidak "workflow runs yet"
+msgstr "Belum ada workflow runs
 
 msgid "No workflow versions yet"
-msgstr "Tidak "workflow versions yet"
+msgstr "Belum ada versi workflow
 
 msgid "No workspace behind"
-msgstr "Tidak "workspace behind"
+msgstr "Tidak ada workspace tertinggal
 
 msgid "No workspace failed"
-msgstr "Tidak "workspace failed"
+msgstr "Tidak ada workspace gagal
 
 msgid "No workspace selected"
-msgstr "Tidak "workspace selected"
+msgstr "Tidak ada workspace dipilih
 
 msgid "No workspaces found matching your search criteria."
-msgstr "Tidak "workspaces found matching your search criteria."
+msgstr "Tidak ada workspace ditemukan yang cocok dengan kriteria pencarian Anda.
 
 msgid "Node"
 msgstr "Tidakde"
@@ -5965,31 +5965,31 @@ msgid "Norwegian"
 msgstr "Tidakrwegian"
 
 msgid "Not all columns matched"
-msgstr "Tidak "all columns matched"
+msgstr "Semua kolom cocok
 
 msgid "Not available for default view"
-msgstr "Tidak "available for default view"
+msgstr "Tersedia untuk tampilan default
 
 msgid "Not available on Default View"
-msgstr "Tidak "available on Default View"
+msgstr "Tersedia di Tampilan Default
 
 msgid "Not empty"
-msgstr "Tidak "empty"
+msgstr "Kosong
 
 msgid "Not Found"
-msgstr "Tidak "Found"
+msgstr "Tidak ditemukan
 
 msgid "Not set"
-msgstr "Tidak "set"
+msgstr "Tidak diatur
 
 msgid "Not shared"
-msgstr "Tidak "shared"
+msgstr "Tidak dibagikan
 
 msgid "Not shared by {notSharedByFullName}"
-msgstr "Tidak "shared by {notSharedByFullName}"
+msgstr "Dibagikan oleh {notSharedByFullName}
 
 msgid "Not synced"
-msgstr "Tidak "synced"
+msgstr "Tidak disinkronkan
 
 msgid "Nothing to configure for this application"
 msgstr "Tidak ada to configure for this application"
