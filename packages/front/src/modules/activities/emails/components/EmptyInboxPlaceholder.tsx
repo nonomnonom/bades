@@ -23,15 +23,15 @@ export const EmptyInboxPlaceholder = () => {
       <AnimatedPlaceholder type="emptyInbox" />
       <AnimatedPlaceholderEmptyTextContainer>
         <AnimatedPlaceholderEmptyTitle>
-          <Trans>Empty Inbox</Trans>
+          "Empty Inbox
         </AnimatedPlaceholderEmptyTitle>
         <AnimatedPlaceholderEmptySubTitle>
-          <Trans>No email exchange has occurred with this record yet.</Trans>
+          "No email exchange has occurred with this record yet.
         </AnimatedPlaceholderEmptySubTitle>
       </AnimatedPlaceholderEmptyTextContainer>
       <Button
         Icon={IconMail}
-        title={t`Send Email`}
+        title={""Send Email"}
         variant="secondary"
         onClick={openComposer}
         disabled={loading}

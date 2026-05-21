@@ -103,7 +103,7 @@ export const SettingsAiModelHoverCard = ({
     },
     {
       Icon: IconBuildingSkyscraper,
-      label: t`Provider`,
+      label: ""Provider",
       value: <StyledValueText>{providerLabel}</StyledValueText>,
     },
     ...(isDefined(model.inputCostPerMillionTokens) ||
@@ -111,7 +111,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconUsers,
-            label: t`Cost per 1M tokens`,
+            label: ""Cost per 1M tokens",
             value: (
               <StyledValueText>
                 {formatCost(
@@ -127,7 +127,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconWindow,
-            label: t`Context`,
+            label: ""Context",
             value: (
               <StyledValueText>
                 {`${formatNumber(model.contextWindowTokens, {
@@ -143,7 +143,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconBolt,
-            label: t`Max output`,
+            label: ""Max output",
             value: (
               <StyledValueText>
                 {`${formatNumber(model.maxOutputTokens, {
@@ -159,7 +159,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconFlag,
-            label: t`Data residency`,
+            label: ""Data residency",
             value: (
               <StyledValueText>
                 {getDataResidencyDisplay(model.dataResidency)}

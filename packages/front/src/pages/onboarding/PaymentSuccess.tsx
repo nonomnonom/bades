@@ -70,11 +70,11 @@ export const PaymentSuccess = () => {
         <OnboardingModalCircularIcon Icon={IconCheck} />
       </AnimatedEaseIn>
       <StyledTitleContainer>
-        <Title noMarginTop>{t`All set!`}</Title>
-        <SubTitle>{t`Your account has been activated.`}</SubTitle>
+        <Title noMarginTop>{""All set!"}</Title>
+        <SubTitle>{""Your account has been activated."}</SubTitle>
       </StyledTitleContainer>
       <MainButton
-        title={t`Start`}
+        title={"Mulai"}
         width={200}
         onClick={navigateWithSubscriptionCheck}
         Icon={() => (isLoading ? <Loader /> : null)}

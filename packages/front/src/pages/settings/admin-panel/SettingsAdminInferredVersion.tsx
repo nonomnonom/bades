@@ -50,14 +50,14 @@ export const SettingsAdminInferredVersion = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Upgrade status refreshed`,
+        message: ""Upgrade status refreshed",
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to refresh upgrade status`,
+            : ""Failed to refresh upgrade status",
       });
     }
   };
@@ -66,30 +66,30 @@ export const SettingsAdminInferredVersion = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: ""Admin Panel - Health",
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Inferred version`,
+          children: ""Inferred version",
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Inferred version`}
-            description={t`Detected application version running on this instance`}
+            title={""Inferred version"}
+            description={""Detected application version running on this instance"}
           />
           <SettingsTableCard
             items={[
               {
                 Icon: IconId,
-                label: t`Inferred version`,
-                value: inferredVersion ?? t`Unknown`,
+                label: ""Inferred version",
+                value: inferredVersion ?? "Tidak dikenal",
               },
             ]}
             gridAutoColumns="3fr 4fr"
@@ -97,7 +97,7 @@ export const SettingsAdminInferredVersion = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Refresh status`}
+              title={""Refresh status"}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />

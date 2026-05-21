@@ -54,7 +54,7 @@ export const SettingsAI = () => {
 
       if (result.status === 'successful' && isDefined(result.response?.data)) {
         const newLogicFunction = result.response.data.createOneLogicFunction;
-        enqueueSuccessSnackBar({ message: t`Tool created` });
+        enqueueSuccessSnackBar({ message: ""Tool created" });
 
         const applicationId = (newLogicFunction as { applicationId?: string })
           .applicationId;
@@ -73,7 +73,7 @@ export const SettingsAI = () => {
           );
         }
       } else {
-        enqueueErrorSnackBar({ message: t`Failed to create tool` });
+        enqueueErrorSnackBar({ message: ""Failed to create tool" });
       }
     } finally {
       setIsCreatingTool(false);
@@ -83,27 +83,27 @@ export const SettingsAI = () => {
   const tabs = [
     {
       id: SETTINGS_AI_TABS.TABS_IDS.MODELS,
-      title: t`Models`,
+      title: ""Models",
       Icon: IconCpu,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.SKILLS,
-      title: t`Skills`,
+      title: ""Skills",
       Icon: IconSparkles,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.TOOLS,
-      title: t`Tools`,
+      title: ""Tools",
       Icon: IconTool,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.USAGE,
-      title: t`Usage`,
+      title: "Penggunaan",
       Icon: IconChartBar,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.MORE,
-      title: t`More`,
+      title: "Lainnya",
       Icon: IconSettingsBolt,
     },
   ];
@@ -116,13 +116,13 @@ export const SettingsAI = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`AI`}
+      title={""AI"}
       actionButton={
         isSkillsTab ? (
           <UndecoratedLink to={getSettingsPath(SettingsPath.AiNewSkill)}>
             <Button
               Icon={IconPlus}
-              title={t`New Skill`}
+              title={""New Skill"}
               accent="blue"
               size="small"
             />
@@ -130,7 +130,7 @@ export const SettingsAI = () => {
         ) : isToolsTab ? (
           <Button
             Icon={IconPlus}
-            title={t`New Tool`}
+            title={""New Tool"}
             accent="blue"
             size="small"
             onClick={handleCreateTool}
@@ -140,10 +140,10 @@ export const SettingsAI = () => {
       }
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`AI` },
+        { children: ""AI" },
       ]}
     >
       <SettingsPageContainer>

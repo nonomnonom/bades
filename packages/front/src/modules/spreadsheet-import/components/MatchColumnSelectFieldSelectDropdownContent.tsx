@@ -92,13 +92,13 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
           />
         }
       >
-        {t`Select matching field`}
+        {""Select matching field"}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         value={searchFilter}
         onChange={handleFilterChange}
         autoFocus
-        placeholder={t`Search fields`}
+        placeholder={""Search fields"}
       />
       <DropdownMenuSeparator />
       <StyledContainer>
@@ -110,13 +110,13 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
                   selected={selectedValue?.value === DO_NOT_IMPORT_OPTION_KEY}
                   onClick={onDoNotImportSelect}
                   LeftIcon={IconForbid}
-                  text={t`Do not import`}
+                  text={""Do not import"}
                 />
               </DropdownMenuItemsContainer>
               {suggestedOptions.length > 0 && (
                 <>
                   <DropdownMenuSeparator />
-                  <DropdownMenuSectionLabel label={t`Suggested`} />
+                  <DropdownMenuSectionLabel label={""Suggested"} />
                   <DropdownMenuItemsContainer scrollable={false}>
                     {suggestedOptions.map((option) => (
                       <MenuItemSelect
@@ -132,7 +132,7 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
                 </>
               )}
               <DropdownMenuSeparator />
-              <DropdownMenuSectionLabel label={t`All fields`} />
+              <DropdownMenuSectionLabel label={""All fields"} />
             </>
           )}
           <DropdownMenuItemsContainer scrollable={false}>

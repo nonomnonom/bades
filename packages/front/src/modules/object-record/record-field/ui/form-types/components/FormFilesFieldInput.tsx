@@ -42,7 +42,7 @@ export const FormFilesFieldInput = ({
         : undefined;
 
   const editor = useTextVariableEditor({
-    placeholder: placeholder ?? t`Enter files as JSON array`,
+    placeholder: placeholder ?? ""Enter files as JSON array",
     multiline: true,
     readonly,
     defaultValue: stringDefaultValue,

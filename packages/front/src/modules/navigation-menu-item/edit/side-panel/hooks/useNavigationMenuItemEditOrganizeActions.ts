@@ -152,7 +152,7 @@ export const useNavigationMenuItemEditOrganizeActions =
       if (!insertion) return;
 
       const title =
-        offset === 0 ? t`Add menu item before` : t`Add menu item after`;
+        offset === 0 ? ""Add menu item before" : ""Add menu item after";
 
       setPendingInsertionNavigationMenuItem(insertion);
       navigateToSidePanelSubPage(

@@ -389,13 +389,13 @@ export const NavigationDrawerItem = ({
 
           {isSoon && (
             <NavigationDrawerAnimatedCollapseWrapper>
-              <Pill label={t`Soon`} />
+              <Pill label={""Soon"} />
             </NavigationDrawerAnimatedCollapseWrapper>
           )}
 
           {isNew && (
             <NavigationDrawerAnimatedCollapseWrapper>
-              <Pill label={t`New`} />
+              <Pill label={"Baru"} />
             </NavigationDrawerAnimatedCollapseWrapper>
           )}
 

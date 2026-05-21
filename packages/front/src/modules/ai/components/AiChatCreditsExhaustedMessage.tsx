@@ -25,11 +25,11 @@ export const AiChatCreditsExhaustedMessage = () => {
 
   const message = hasPermissionToManageBilling
     ? isTrialing
-      ? t`Free trial credits exhausted. Subscribe now to continue using AI features.`
-      : t`Credits exhausted. Upgrade your plan to get more credits.`
-    : t`Credits exhausted. Please contact your workspace admin to upgrade.`;
+      ? ""Free trial credits exhausted. Subscribe now to continue using AI features."
+      : ""Credits exhausted. Upgrade your plan to get more credits."
+    : ""Credits exhausted. Please contact your workspace admin to upgrade.";
 
-  const buttonTitle = isTrialing ? t`Subscribe Now` : t`Upgrade Plan`;
+  const buttonTitle = isTrialing ? ""Subscribe Now" : ""Upgrade Plan";
 
   return (
     <AiChatBanner

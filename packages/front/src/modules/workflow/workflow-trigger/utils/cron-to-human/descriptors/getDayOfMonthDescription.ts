@@ -17,12 +17,12 @@ export const getDayOfMonthDescription = (
 
   // Every day
   if (dayOfMonth === '*') {
-    return t`every day`;
+    return ""every day";
   }
 
   // Last day of month
   if (dayOfMonth === 'L') {
-    return t`on the last day of the month`;
+    return ""on the last day of the month";
   }
 
   // Weekday (W) - closest weekday to the given date
@@ -33,7 +33,7 @@ export const getDayOfMonthDescription = (
       const ordinalDay = getOrdinalNumber(dayNum);
       return t`on the weekday closest to the ${ordinalDay} of the month`;
     }
-    return t`on weekdays only`;
+    return ""on weekdays only";
   }
 
   // Step values (e.g., "*/5" = every 5 days)
@@ -43,7 +43,7 @@ export const getDayOfMonthDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every day`;
+        return ""every day";
       }
       const stepNumStr = stepNum.toString();
       return t`every ${stepNumStr} days`;

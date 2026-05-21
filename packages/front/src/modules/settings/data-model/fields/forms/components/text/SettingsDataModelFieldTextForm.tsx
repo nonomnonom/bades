@@ -49,8 +49,8 @@ export const SettingsDataModelFieldTextForm = ({
         return (
           <SettingsOptionCardContentSelect
             Icon={IconTextWrap}
-            title={t`Wrap on record pages`}
-            description={t`Display text on multiple lines`}
+            title={""Wrap on record pages"}
+            description={""Display text on multiple lines"}
           >
             <Select<number>
               dropdownId="text-wrap"

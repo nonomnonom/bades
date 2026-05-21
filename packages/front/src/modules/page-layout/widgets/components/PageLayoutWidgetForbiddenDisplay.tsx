@@ -33,7 +33,7 @@ export const PageLayoutWidgetForbiddenDisplay = ({
       });
     }
 
-    return t`You do not have permission to view this widget`;
+    return ""You do not have permission to view this widget";
   };
 
   return (

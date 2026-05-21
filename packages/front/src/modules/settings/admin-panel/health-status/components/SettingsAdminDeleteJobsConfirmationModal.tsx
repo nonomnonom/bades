@@ -31,7 +31,7 @@ export const SettingsAdminDeleteJobsConfirmationModal = ({
       subtitle={subtitle}
       onConfirmClick={onConfirm}
       onClose={onClose}
-      confirmButtonText={t`Delete`}
+      confirmButtonText={"Hapus"}
       confirmButtonAccent="danger"
     />
   );

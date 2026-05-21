@@ -83,7 +83,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
   const isFieldFilteringSupported = isUpdateEvent || isUpsertEvent;
 
   const defaultSelectedOption = useMemo(
-    () => ({ label: t`Select an option`, value: '' }),
+    () => ({ label: "Pilih opsi", value: '' }),
     [t],
   );
 
@@ -176,7 +176,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
     <>
       <WorkflowStepBody>
         <StyledRecordTypeSelectContainer fullWidth>
-          <StyledLabel>{t`Record Type`}</StyledLabel>
+          <StyledLabel>{""Record Type"}</StyledLabel>
           <Dropdown
             dropdownId="workflow-edit-trigger-record-type"
             dropdownPlacement="bottom-start"
@@ -201,7 +201,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
                           />
                         }
                       >
-                        <Trans>Advanced</Trans>
+                        "Advanced
                       </DropdownMenuHeader>
                       <DropdownMenuSearchInput
                         autoFocus
@@ -244,7 +244,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
                             searchInputValue.toLowerCase(),
                           )) && (
                           <MenuItem
-                            text={t`Advanced`}
+                            text={""Advanced"}
                             LeftIcon={IconSettings}
                             onClick={handleSystemObjectsClick}
                             hasSubMenu
@@ -260,8 +260,8 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
         </StyledRecordTypeSelectContainer>
         {isDefined(selectedObjectMetadataItem) && isFieldFilteringSupported && (
           <WorkflowFieldsMultiSelect
-            label={t`Fields (Optional)`}
-            placeholder={t`Select specific fields to listen to`}
+            label={""Fields (Optional)"}
+            placeholder={""Select specific fields to listen to"}
             objectMetadataItem={selectedObjectMetadataItem}
             handleFieldsChange={handleFieldsChange}
             readonly={triggerOptions.readonly ?? false}

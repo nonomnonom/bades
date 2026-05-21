@@ -64,7 +64,7 @@ export const EmailThreadComposer = ({
       return [
         {
           id: 'reply',
-          label: t`Reply`,
+          label: ""Reply",
           Icon: IconArrowBackUp,
           isPrimaryCTA: true,
           onClick: () => setIsComposerOpen(true),
@@ -75,14 +75,14 @@ export const EmailThreadComposer = ({
     return [
       {
         id: 'cancel-reply',
-        label: t`Cancel reply`,
+        label: ""Cancel reply",
         Icon: IconX,
         isPinned: false,
         onClick: () => setIsComposerOpen(false),
       },
       {
         id: 'send',
-        label: t`Send`,
+        label: "Kirim",
         Icon: IconSend,
         isPrimaryCTA: true,
         hotkeys: [getOsControlSymbol(), '⏎'],
@@ -123,7 +123,7 @@ export const EmailThreadComposer = ({
     return (
       <StyledReplyBar onClick={() => setIsComposerOpen(true)}>
         <IconArrowBackUp size={16} />
-        {t`Reply...`}
+        {""Reply..."}
       </StyledReplyBar>
     );
   }

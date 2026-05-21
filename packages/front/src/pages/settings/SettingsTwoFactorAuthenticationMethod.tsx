@@ -103,7 +103,7 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
 
     const secret = extractSecretFromOtpUri(qrCode);
     if (secret !== null) {
-      await copyToClipboard(secret, t`Setup key copied to clipboard`);
+      await copyToClipboard(secret, ""Setup key copied to clipboard");
     }
   };
 
@@ -111,18 +111,18 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...verificationForm.formConfig}>
       <SubMenuTopBarContainer
-        title={t`Two Factor Authentication`}
+        title={""Two Factor Authentication"}
         links={[
           {
-            children: <Trans>User</Trans>,
+            children: Pengguna,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: <Trans>Profile</Trans>,
+            children: Profil,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: <Trans>Two-Factor Authentication</Trans>,
+            children: "Two-Factor Authentication,
           },
         ]}
         actionButton={
@@ -148,8 +148,8 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
             <Section>
               <TwoFactorAuthenticationSetupForSettingsEffect />
               <H2Title
-                title={t`Authenticator app`}
-                description={t`Authenticator apps and browser extensions like 1Password, Authy, Microsoft Authenticator, etc. generate one-time passwords that are used as a second factor to verify your identity when prompted during sign-in.`}
+                title={""Authenticator app"}
+                description={""Authenticator apps and browser extensions like 1Password, Authy, Microsoft Authenticator, etc. generate one-time passwords that are used as a second factor to verify your identity when prompted during sign-in."}
               />
               <StyledQRCodeContainer>
                 {!qrCode ? (
@@ -162,9 +162,9 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
                       </StyledQRCodeSizer>
                     </StyledQRCodeWrapper>
                     <StyledCopySetupKeyText>
-                      <Trans>Can't scan? Copy the</Trans>{' '}
+                      "Can't scan? Copy the{' '}
                       <StyledCopySetupKeyLink onClick={handleCopySetupKey}>
-                        <Trans>setup key</Trans>
+                        "setup key
                       </StyledCopySetupKeyLink>
                     </StyledCopySetupKeyText>
                   </>
@@ -174,8 +174,8 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
               <StyledDivider />
 
               <H2Title
-                title={t`Verify the code from the app`}
-                description={t`Copy paste the code below`}
+                title={""Verify the code from the app"}
+                description={""Copy paste the code below"}
               />
               <StyledOTPContainer>
                 <TwoFactorAuthenticationVerificationForSettings />

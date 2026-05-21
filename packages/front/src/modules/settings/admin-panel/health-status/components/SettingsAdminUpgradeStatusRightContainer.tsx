@@ -14,7 +14,7 @@ export const SettingsAdminUpgradeStatusRightContainer = ({
     return (
       <Status
         color="gray"
-        text={item.inferredVersion ?? t`Unknown`}
+        text={item.inferredVersion ?? "Tidak dikenal"}
         weight="medium"
       />
     );

@@ -82,7 +82,7 @@ export const SidePanelComposeEmailPage = () => {
             key="cancel"
             size="small"
             variant="secondary"
-            title={t`Cancel`}
+            title={"Batalkan"}
             onClick={goBackFromSidePanel}
           />,
           <Button
@@ -90,7 +90,7 @@ export const SidePanelComposeEmailPage = () => {
             size="small"
             variant="primary"
             accent="blue"
-            title={t`Send`}
+            title={"Kirim"}
             Icon={IconSend}
             hotkeys={[getOsControlSymbol(), '⏎']}
             onClick={composerState.handleSend}

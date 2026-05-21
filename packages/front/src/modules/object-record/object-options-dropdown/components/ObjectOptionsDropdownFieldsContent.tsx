@@ -29,12 +29,12 @@ export const ObjectOptionsDropdownFieldsContent = () => {
           />
         }
       >
-        {t`Fields`}
+        {"Bidang-bidang"}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
         value={searchInput}
-        placeholder={t`Search fields`}
+        placeholder={""Search fields"}
         onChange={(event) => setSearchInput(event.target.value)}
       />
       <DropdownMenuSeparator />
@@ -48,7 +48,7 @@ export const ObjectOptionsDropdownFieldsContent = () => {
             <MenuItemNavigate
               onClick={() => onContentChange('hiddenFields')}
               LeftIcon={IconEyeOff}
-              text={t`Hidden Fields`}
+              text={""Hidden Fields"}
             />
           </DropdownMenuItemsContainer>
         </>

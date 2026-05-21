@@ -111,7 +111,7 @@ export const EmailAttachmentsField = ({
         ) : (
           <StyledUploadAreaLabel>
             <IconUpload size={theme.icon.size.sm} />
-            <span>{t`Upload file`}</span>
+            <span>{"Unggah file"}</span>
           </StyledUploadAreaLabel>
         )}
       </StyledUploadArea>

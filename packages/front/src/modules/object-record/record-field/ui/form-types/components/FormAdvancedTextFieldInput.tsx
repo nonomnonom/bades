@@ -169,7 +169,7 @@ export const FormAdvancedTextFieldInput = ({
 
   const defaultBreadcrumbs: BreadcrumbProps['links'] = [
     {
-      children: t`Text Editor`,
+      children: ""Text Editor",
     },
   ];
 

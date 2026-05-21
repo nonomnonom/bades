@@ -17,7 +17,7 @@ export const CancelButton = ({
   if (inverted) {
     return (
       <Button
-        title={t`Cancel`}
+        title={"Batalkan"}
         variant="tertiary"
         accent="default"
         inverted
@@ -30,7 +30,7 @@ export const CancelButton = ({
 
   return (
     <LightButton
-      title={t`Cancel`}
+      title={"Batalkan"}
       accent="tertiary"
       onClick={onCancel}
       disabled={disabled}

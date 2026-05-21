@@ -226,7 +226,7 @@ export const ChartGroupByFieldSelectionDropdownContentBase = <
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search fields`}
+        placeholder={""Search fields"}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />
@@ -240,7 +240,7 @@ export const ChartGroupByFieldSelectionDropdownContentBase = <
           {isSecondaryAxisGroupBy && (
             <SelectableListItem itemId="none" onEnter={handleSelectNone}>
               <MenuItemSelect
-                text={t`None`}
+                text={"Tidak ada"}
                 selected={!isDefined(currentGroupByFieldMetadataId)}
                 focused={selectedItemId === 'none'}
                 onClick={handleSelectNone}

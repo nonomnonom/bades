@@ -52,7 +52,7 @@ export const SettingsSecurityApprovedAccessDomainRowDropdownMenu = ({
     });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Could not delete approved access domain`,
+        message: ""Could not delete approved access domain",
         options: {
           duration: 2000,
         },

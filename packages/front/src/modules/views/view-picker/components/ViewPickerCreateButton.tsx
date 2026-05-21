@@ -43,7 +43,7 @@ export const ViewPickerCreateButton = () => {
   if (viewPickerMode === 'edit') {
     return (
       <Button
-        title={t`Delete`}
+        title={"Hapus"}
         onClick={destroyViewFromCurrentState}
         accent="danger"
         fullWidth
@@ -62,7 +62,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Go to Settings`}
+        title={""Go to Settings"}
         onClick={navigateToSelectSettings}
         size="small"
         accent="blue"
@@ -78,7 +78,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Go to Settings`}
+        title={""Go to Settings"}
         onClick={navigateToDateFieldSettings}
         size="small"
         accent="blue"
@@ -94,9 +94,9 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Create`}
+        title={"Buat"}
         onClick={handleCreateButtonClick}
-        ariaLabel={t`Create new view`}
+        ariaLabel={""Create new view"}
         accent="blue"
         fullWidth
         size="small"

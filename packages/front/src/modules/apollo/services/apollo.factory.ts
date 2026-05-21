@@ -281,7 +281,7 @@ export class ApolloFactory implements ApolloManager {
               case 'APP_VERSION_MISMATCH': {
                 onAppVersionMismatch?.(
                   (graphQLError.extensions?.userFriendlyMessage as string) ||
-                    t`Your app version is out of date. Please refresh the page.`,
+                    ""Your app version is out of date. Please refresh the page.",
                 );
                 return;
               }
@@ -324,7 +324,7 @@ export class ApolloFactory implements ApolloManager {
           }
 
           if (this.isPayloadTooLargeError(error)) {
-            onPayloadTooLarge?.(t`Uploaded content is too large.`);
+            onPayloadTooLarge?.(""Uploaded content is too large.");
             return;
           }
 

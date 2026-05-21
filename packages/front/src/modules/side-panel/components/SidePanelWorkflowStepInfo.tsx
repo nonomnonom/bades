@@ -92,9 +92,9 @@ export const SidePanelWorkflowStepInfo = ({
       ? isTrigger
         ? (stepDefinition.definition.name ??
           (stepDefinition.definition.type === 'MANUAL'
-            ? t`Launch manually`
-            : t`Trigger`))
-        : (stepDefinition.definition.name ?? t`Action`)
+            ? ""Launch manually"
+            : "Pemicu"))
+        : (stepDefinition.definition.name ?? "Tindakan")
       : '';
 
   const [editedTitle, setEditedTitle] = useState<string | null>(null);
@@ -124,7 +124,7 @@ export const SidePanelWorkflowStepInfo = ({
     ? getTriggerIconColor(stepDefinition.definition.type)
     : getActionIconColorOrThrow(stepDefinition.definition.type);
 
-  const headerType = isTrigger ? t`Trigger` : t`Action`;
+  const headerType = isTrigger ? "Pemicu" : "Tindakan";
 
   const Icon = getIcon(headerIcon ?? 'IconDefault');
 
@@ -189,7 +189,7 @@ export const SidePanelWorkflowStepInfo = ({
           onShiftTab={saveTitle}
         />
       }
-      label={isTrigger ? t`Trigger` : t`Action`}
+      label={isTrigger ? "Pemicu" : "Tindakan"}
     />
   );
 };

@@ -28,7 +28,7 @@ export const usePersonAvatarUpload = (personRecordId: string) => {
   const onUploadPicture = async (file: File) => {
     assertIsDefinedOrThrow(
       avatarFileFieldMetadataId,
-      new Error(t`Avatar file field not found for person object`),
+      new Error(""Avatar file field not found for person object"),
     );
 
     const result = await uploadFilesFieldFile({

@@ -129,7 +129,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (!values.label.trim()) {
       form.setError('label', {
         type: 'manual',
-        message: t`Label is required`,
+        message: ""Label is required",
       });
 
       return;
@@ -140,7 +140,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (!providerName) {
       form.setError('label', {
         type: 'manual',
-        message: t`Label must contain at least one alphanumeric character`,
+        message: ""Label must contain at least one alphanumeric character",
       });
 
       return;
@@ -167,7 +167,7 @@ export const SettingsAdminNewAiProvider = () => {
       if (!values.region.trim()) {
         form.setError('region', {
           type: 'manual',
-          message: t`Region is required for Bedrock`,
+          message: ""Region is required for Bedrock",
         });
 
         return;
@@ -185,7 +185,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (!isBedrock && !isOpenAiCompatible && !values.apiKey.trim()) {
       form.setError('apiKey', {
         type: 'manual',
-        message: t`API key is required`,
+        message: ""API key is required",
       });
 
       return;
@@ -194,7 +194,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (isOpenAiCompatible && !values.baseUrl.trim()) {
       form.setError('baseUrl', {
         type: 'manual',
-        message: t`Base URL is required`,
+        message: ""Base URL is required",
       });
 
       return;
@@ -220,7 +220,7 @@ export const SettingsAdminNewAiProvider = () => {
       navigate(AI_ADMIN_PATH);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to add provider`,
+        message: ""Failed to add provider",
       });
     } finally {
       setIsSubmitting(false);
@@ -230,13 +230,13 @@ export const SettingsAdminNewAiProvider = () => {
   return (
     <form onSubmit={form.handleSubmit(handleSave)}>
       <SubMenuTopBarContainer
-        title={t`New AI Provider`}
+        title={""New AI Provider"}
         links={[
           {
-            children: <Trans>Admin Panel</Trans>,
+            children: "Admin Panel,
             href: getSettingsPath(SettingsPath.AdminPanel),
           },
-          { children: <Trans>New AI Provider</Trans> },
+          { children: "New AI Provider },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -249,8 +249,8 @@ export const SettingsAdminNewAiProvider = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Provider`}
-              description={t`Select a known provider or create a custom one`}
+              title={""Provider"}
+              description={""Select a known provider or create a custom one"}
             />
             <Select
               dropdownId="ai-provider-models-dev-select"
@@ -260,7 +260,7 @@ export const SettingsAdminNewAiProvider = () => {
               withSearchInput
               fullWidth
               callToActionButton={{
-                text: t`Custom provider`,
+                text: ""Custom provider",
                 onClick: handleCustomMode,
                 Icon: IconPlus,
               }}
@@ -270,7 +270,7 @@ export const SettingsAdminNewAiProvider = () => {
           {isModelsDevWithoutNativeSdk && (
             <Info
               accent="blue"
-              text={t`This provider doesn't have a native SDK yet — it will use OpenAI-compatible mode. Need native support? Reach out to us.`}
+              text={""This provider doesn't have a native SDK yet — it will use OpenAI-compatible mode. Need native support? Reach out to us."}
             />
           )}
 
@@ -279,7 +279,7 @@ export const SettingsAdminNewAiProvider = () => {
               <Section>
                 <H2Title
                   title={t`Label`}
-                  description={t`A display name for this provider`}
+                  description={"Nama tampilan untuk penyedia ini"}
                 />
                 <Controller
                   name="label"
@@ -293,8 +293,8 @@ export const SettingsAdminNewAiProvider = () => {
                       onChange={onChange}
                       placeholder={
                         isCustomMode
-                          ? t`e.g. My OpenAI Proxy`
-                          : t`e.g. OpenAI EU`
+                          ? ""e.g. My OpenAI Proxy"
+                          : ""e.g. OpenAI EU"
                       }
                       fullWidth
                       error={error?.message}
@@ -306,8 +306,8 @@ export const SettingsAdminNewAiProvider = () => {
               {needsApiKey && (
                 <Section>
                   <H2Title
-                    title={t`API Key`}
-                    description={t`Your provider API key for authentication`}
+                    title={"Kunci API"}
+                    description={""Your provider API key for authentication"}
                   />
                   <Controller
                     name="apiKey"
@@ -319,7 +319,7 @@ export const SettingsAdminNewAiProvider = () => {
                       <TextInput
                         value={value}
                         onChange={onChange}
-                        placeholder={t`sk-...`}
+                        placeholder={""sk-..."}
                         fullWidth
                         type="password"
                         error={error?.message}
@@ -332,8 +332,8 @@ export const SettingsAdminNewAiProvider = () => {
               {isOpenAiCompatible && (
                 <Section>
                   <H2Title
-                    title={t`Base URL`}
-                    description={t`The API endpoint for your OpenAI-compatible provider`}
+                    title={""Base URL"}
+                    description={""The API endpoint for your OpenAI-compatible provider"}
                   />
                   <Controller
                     name="baseUrl"
@@ -345,7 +345,7 @@ export const SettingsAdminNewAiProvider = () => {
                       <TextInput
                         value={value}
                         onChange={onChange}
-                        placeholder={t`https://api.example.com/v1`}
+                        placeholder={""https://api.example.com/v1"}
                         fullWidth
                         error={error?.message}
                       />
@@ -356,8 +356,8 @@ export const SettingsAdminNewAiProvider = () => {
 
               <Section>
                 <H2Title
-                  title={t`Data Residency`}
-                  description={t`Region where inference data is processed (optional)`}
+                  title={""Data Residency"}
+                  description={""Region where inference data is processed (optional)"}
                 />
                 <Controller
                   name="dataResidency"
@@ -368,7 +368,7 @@ export const SettingsAdminNewAiProvider = () => {
                       value={value}
                       onChange={onChange}
                       options={[
-                        { value: '', label: t`None` },
+                        { value: '', label: "Tidak ada" },
                         ...DATA_RESIDENCY_OPTIONS,
                       ]}
                       fullWidth
@@ -381,8 +381,8 @@ export const SettingsAdminNewAiProvider = () => {
                 <>
                   <Section>
                     <H2Title
-                      title={t`Region`}
-                      description={t`The AWS region for Bedrock`}
+                      title={""Region"}
+                      description={""The AWS region for Bedrock"}
                     />
                     <Controller
                       name="region"
@@ -394,7 +394,7 @@ export const SettingsAdminNewAiProvider = () => {
                         <TextInput
                           value={value}
                           onChange={onChange}
-                          placeholder={t`us-east-1`}
+                          placeholder={""us-east-1"}
                           fullWidth
                           error={error?.message}
                         />
@@ -404,8 +404,8 @@ export const SettingsAdminNewAiProvider = () => {
 
                   <Section>
                     <H2Title
-                      title={t`Access Key ID`}
-                      description={t`Optional — uses IAM role if empty`}
+                      title={"ID Kunci Akses"}
+                      description={""Optional — uses IAM role if empty"}
                     />
                     <Controller
                       name="accessKeyId"
@@ -414,7 +414,7 @@ export const SettingsAdminNewAiProvider = () => {
                         <TextInput
                           value={value}
                           onChange={onChange}
-                          placeholder={t`AKIA...`}
+                          placeholder={""AKIA..."}
                           fullWidth
                         />
                       )}
@@ -423,8 +423,8 @@ export const SettingsAdminNewAiProvider = () => {
 
                   <Section>
                     <H2Title
-                      title={t`Secret Access Key`}
-                      description={t`Optional — uses IAM role if empty`}
+                      title={""Secret Access Key"}
+                      description={""Optional — uses IAM role if empty"}
                     />
                     <Controller
                       name="secretAccessKey"

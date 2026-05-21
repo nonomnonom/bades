@@ -13,11 +13,11 @@ export const PageLayoutWidgetNoDataDisplay = () => {
   const widget = useCurrentWidget();
   const tooltipId = `widget-incomplete-tooltip-${widget.id}`;
 
-  const text = widget.type === WidgetType.IFRAME ? t`Invalid URL` : t`No Data`;
+  const text = widget.type === WidgetType.IFRAME ? ""Invalid URL" : ""No Data";
   const tooltipContent =
     widget.type === WidgetType.IFRAME
-      ? t`Invalid URL. Click edit to configure this widget.`
-      : t`No data available. Click edit to configure this widget.`;
+      ? ""Invalid URL. Click edit to configure this widget."
+      : ""No data available. Click edit to configure this widget.";
 
   return (
     <StyledNoDataContainer>

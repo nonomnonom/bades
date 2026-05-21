@@ -18,7 +18,7 @@ export const SettingsNavigationDrawer = ({
   );
 
   return (
-    <NavigationDrawer className={className} title={t`Exit Settings`}>
+    <NavigationDrawer className={className} title={""Exit Settings"}>
       <NavigationDrawerScrollableContent>
         <SettingsNavigationDrawerItems />
       </NavigationDrawerScrollableContent>
@@ -27,7 +27,7 @@ export const SettingsNavigationDrawer = ({
         <AdvancedSettingsToggle
           isAdvancedModeEnabled={isAdvancedModeEnabled}
           setIsAdvancedModeEnabled={setIsAdvancedModeEnabled}
-          label={t`Advanced:`}
+          label={""Advanced:"}
         />
       </NavigationDrawerFixedContent>
     </NavigationDrawer>

@@ -39,7 +39,7 @@ export const SettingsRoleAssignmentConfirmationModal = ({
       }
       onClose={onClose}
       onConfirmClick={onConfirm}
-      confirmButtonText={t`Confirm`}
+      confirmButtonText={"Konfirmasi"}
       confirmButtonAccent="danger"
     />
   );

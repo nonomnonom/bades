@@ -55,7 +55,7 @@ export const BookCallDecision = () => {
     <ModalContent gap={8} isVerticallyCentered isHorizontallyCentered>
       <StyledTitleContainer>
         <Title noMarginTop>
-          <Trans>Book your onboarding</Trans>
+          "Book your onboarding
         </Title>
         <SubTitle>
           <Trans>
@@ -68,10 +68,10 @@ export const BookCallDecision = () => {
       <StyledButtonContainer>
         <StyledLinkContainer>
           <Link to={AppPath.BookCall}>
-            <MainButton title={t`Book onboarding`} width={198} />
+            <MainButton title={""Book onboarding"} width={198} />
           </Link>
         </StyledLinkContainer>
-        <LightButton title={t`Finish`} onClick={handleFinish} />
+        <LightButton title={"Selesai"} onClick={handleFinish} />
       </StyledButtonContainer>
     </ModalContent>
   );

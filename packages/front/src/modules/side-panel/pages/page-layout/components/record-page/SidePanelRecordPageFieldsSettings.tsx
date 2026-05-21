@@ -97,14 +97,14 @@ export const SidePanelRecordPageFieldsSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Data and display`}>
+          <SidePanelGroup heading={""Data and display"}>
             <SelectableListItem
               itemId="layout"
               onEnter={handleNavigateToLayout}
             >
               <CommandMenuItem
                 id="layout"
-                label={t`Layout`}
+                label={"Tata letak"}
                 Icon={IconLayoutSidebarRight}
                 hasSubMenu
                 onClick={handleNavigateToLayout}
@@ -118,7 +118,7 @@ export const SidePanelRecordPageFieldsSettings = () => {
             >
               <CommandMenuItemToggle
                 LeftIcon={IconChevronDown}
-                text={t`Display "More fields" button`}
+                text={""Display "More fields" button"}
                 id="display-more-fields-button"
                 toggled={isShouldAllowUserToSeeHiddenFieldsToggled}
                 onToggleChange={handleToggleShouldAllowUserToSeeHiddenFields}

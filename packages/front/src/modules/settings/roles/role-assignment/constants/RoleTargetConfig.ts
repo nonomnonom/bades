@@ -23,12 +23,12 @@ export const ROLE_TARGET_CONFIG = {
       currentMemberId ? [...assignedIds, currentMemberId] : assignedIds,
     canBeAssigned: (settingsDraftRole: RoleWithPartialMembers) =>
       settingsDraftRole.canBeAssignedToUsers,
-    buttonTitle: () => t`Assign to member`,
+    buttonTitle: () => ""Assign to member",
     dropdownComponent: SettingsRoleAssignmentWorkspaceMemberPickerDropdown,
     // Tooltip configuration for member type
     tooltip: {
       anchorId: 'assign-member',
-      content: () => t`All workspace members already have this role`,
+      content: () => ""All workspace members already have this role",
       shouldShow: (allWorkspaceMembersHaveThisRole?: boolean) =>
         allWorkspaceMembersHaveThisRole ?? false,
     },
@@ -42,7 +42,7 @@ export const ROLE_TARGET_CONFIG = {
     getExcludedIds: (assignedIds: string[]) => assignedIds,
     canBeAssigned: (settingsDraftRole: RoleWithPartialMembers) =>
       settingsDraftRole.canBeAssignedToAgents,
-    buttonTitle: () => t`Assign to agent`,
+    buttonTitle: () => ""Assign to agent",
     dropdownComponent: SettingsRoleAssignmentEntityPickerDropdown,
     // No tooltip for agent type
     tooltip: null,
@@ -58,7 +58,7 @@ export const ROLE_TARGET_CONFIG = {
     getExcludedIds: (assignedIds: string[]) => assignedIds,
     canBeAssigned: (settingsDraftRole: RoleWithPartialMembers) =>
       settingsDraftRole.canBeAssignedToApiKeys,
-    buttonTitle: () => t`Assign to API key`,
+    buttonTitle: () => ""Assign to API key",
     dropdownComponent: SettingsRoleAssignmentEntityPickerDropdown,
     // No tooltip for apiKey type
     tooltip: null,

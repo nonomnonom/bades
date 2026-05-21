@@ -141,7 +141,7 @@ export const CurrencyFieldInput = () => {
       currencyCode={currencyCode}
       decimals={decimals}
       autoFocus
-      placeholder={t`Currency`}
+      placeholder={"Mata uang"}
       onClickOutside={handleClickOutside}
       onEnter={handleEnter}
       onEscape={handleEscape}

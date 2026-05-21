@@ -97,7 +97,7 @@ export const WidgetCardHeader = ({
         )}
       </AnimatePresence>
       <StyledTitleContainer variant={variant}>
-        <OverflowingTextWithTooltip text={isEmpty ? t`Add Widget` : title} />
+        <OverflowingTextWithTooltip text={isEmpty ? ""Add Widget" : title} />
       </StyledTitleContainer>
       <StyledRightContainer>
         {isNonEmptyArray(actions) && (

@@ -23,7 +23,7 @@ export const useUpgradeApplication = () => {
 
       if (isDefined(result.data)) {
         enqueueSuccessSnackBar({
-          message: t`Application upgraded successfully.`,
+          message: ""Application upgraded successfully.",
         });
 
         return true;
@@ -34,7 +34,7 @@ export const useUpgradeApplication = () => {
       const graphqlMessage = error instanceof Error ? error.message : undefined;
 
       enqueueErrorSnackBar({
-        message: graphqlMessage ?? t`Failed to upgrade the application.`,
+        message: graphqlMessage ?? ""Failed to upgrade the application.",
       });
 
       return false;

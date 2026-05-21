@@ -112,7 +112,7 @@ export const SettingsCard = ({
               <StyledIconContainer>{Icon}</StyledIconContainer>
               <StyledTitle disabled={disabled}>
                 {title}
-                {soon && <Pill label={t`Soon`} />}
+                {soon && <Pill label={""Soon"} />}
               </StyledTitle>
               {isDefined(Status) && Status}
               <StyledIconChevronRightContainer>

@@ -10,13 +10,13 @@ export const SettingsAdmin = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Admin Panel`}
+      title={""Admin Panel"}
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
-        { children: t`Admin Panel` },
+        { children: ""Admin Panel" },
       ]}
     >
       <SettingsPageContainer>

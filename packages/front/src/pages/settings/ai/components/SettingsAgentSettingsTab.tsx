@@ -107,7 +107,7 @@ export const SettingsAgentSettingsTab = ({
           <StyledNameContainer>
             <SettingsTextInput
               instanceId="agent-label-input"
-              placeholder={t`Enter agent name*`}
+              placeholder={""Enter agent name*"}
               value={formValues.label}
               onChange={(value) => {
                 onFieldChange('label', value);
@@ -122,7 +122,7 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-description-textarea"
-          placeholder={t`Write a description for this agent`}
+          placeholder={""Write a description for this agent"}
           minRows={3}
           value={formValues.description || ''}
           onChange={(value) => onFieldChange('description', value)}
@@ -132,12 +132,12 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         {noModelsAvailable ? (
           <StyledErrorMessage>
-            {t`No models available. Please configure AI models in your workspace settings.`}
+            {""No models available. Please configure AI models in your workspace settings."}
           </StyledErrorMessage>
         ) : (
           <Select
             dropdownId="ai-model-select"
-            label={t`AI Model`}
+            label={""AI Model"}
             value={formValues.modelId}
             onChange={(value) => onFieldChange('modelId', value)}
             options={modelOptions}
@@ -160,8 +160,8 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-prompt-textarea"
-          label={t`System Prompt`}
-          placeholder={t`Enter the system prompt that defines this agent's behavior and capabilities`}
+          label={""System Prompt"}
+          placeholder={""Enter the system prompt that defines this agent's behavior and capabilities"}
           minRows={6}
           maxRows={15}
           value={formValues.prompt}
@@ -180,11 +180,11 @@ export const SettingsAgentSettingsTab = ({
       </StyledFormContainer>
       {!disabled && agent && formValues.isCustom && (
         <Section>
-          <H2Title title={t`Danger zone`} description={t`Delete this agent`} />
+          <H2Title title={""Danger zone"} description={""Delete this agent"} />
           <Button
             accent="danger"
             variant="secondary"
-            title={t`Delete Agent`}
+            title={""Delete Agent"}
             Icon={IconTrash}
             onClick={() => openModal(DELETE_AGENT_MODAL_ID)}
           />

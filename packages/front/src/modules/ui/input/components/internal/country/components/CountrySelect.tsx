@@ -28,7 +28,7 @@ export const CountrySelect = ({
       }),
     );
     countryList.unshift({
-      label: t`No country`,
+      label: ""No country",
       value: '',
       Icon: IconCircleOff,
     });

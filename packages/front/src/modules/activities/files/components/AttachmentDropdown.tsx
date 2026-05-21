@@ -59,18 +59,18 @@ export const AttachmentDropdown = ({
           <DropdownMenuItemsContainer>
             {hasDownloadPermission && (
               <MenuItem
-                text={t`Download`}
+                text={"Unduh"}
                 LeftIcon={IconDownload}
                 onClick={handleDownload}
               />
             )}
             <MenuItem
-              text={t`Rename`}
+              text={"Ubah nama"}
               LeftIcon={IconPencil}
               onClick={handleRename}
             />
             <MenuItem
-              text={t`Delete`}
+              text={"Hapus"}
               accent="danger"
               LeftIcon={IconTrash}
               onClick={handleDelete}

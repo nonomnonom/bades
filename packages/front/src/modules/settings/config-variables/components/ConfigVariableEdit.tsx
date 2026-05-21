@@ -75,7 +75,7 @@ export const ConfigVariableEdit = ({
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error updating variable`,
+        message: ""Error updating variable",
       });
     } finally {
       setIsSubmitting(false);
@@ -92,7 +92,7 @@ export const ConfigVariableEdit = ({
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error resetting variable`,
+        message: ""Error resetting variable",
       });
     } finally {
       setIsSubmitting(false);
@@ -155,8 +155,8 @@ export const ConfigVariableEdit = ({
           )}
           <ConfirmationModal
             modalInstanceId={RESET_VARIABLE_MODAL_ID}
-            title={t`Reset variable`}
-            subtitle={t`Are you sure you want to reset this variable?`}
+            title={""Reset variable"}
+            subtitle={""Are you sure you want to reset this variable?"}
             onConfirmClick={handleConfirmReset}
             confirmButtonText={t`Reset`}
             confirmButtonAccent="danger"

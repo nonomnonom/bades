@@ -11,8 +11,8 @@ type SettingsAccountsMessageFolderCardProps = {
 
 const INBOX_SETTINGS_VISIBILITY_OPTIONS = [
   {
-    title: msg`Everything`,
-    description: msg`Import all emails`,
+    title: ""Everything",
+    description: ""Import all emails",
     value: MessageFolderImportPolicy.ALL_FOLDERS,
     cardMedia: (
       <SettingsAccountsMessageFolderIcon
@@ -21,8 +21,8 @@ const INBOX_SETTINGS_VISIBILITY_OPTIONS = [
     ),
   },
   {
-    title: msg`Some folders`,
-    description: msg`Import only selected folders/labels`,
+    title: ""Some folders",
+    description: ""Import only selected folders/labels",
     value: MessageFolderImportPolicy.SELECTED_FOLDERS,
     cardMedia: (
       <SettingsAccountsMessageFolderIcon

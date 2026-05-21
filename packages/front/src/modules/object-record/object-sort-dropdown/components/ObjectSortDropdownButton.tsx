@@ -172,7 +172,7 @@ export const ObjectSortDropdownButton = () => {
       onOpen={handleDropdownOpen}
       clickableComponent={
         <StyledHeaderDropdownButton isUnfolded={isDropdownOpen}>
-          <Trans>Sort</Trans>
+          Urutkan
         </StyledHeaderDropdownButton>
       }
       dropdownComponents={
@@ -185,7 +185,7 @@ export const ObjectSortDropdownButton = () => {
               />
             }
           >
-            {t`Sort`}
+            {"Urutkan"}
           </DropdownMenuHeader>
           <DropdownMenuInnerSelect
             dropdownId="record-sort-direction-dropdown"
@@ -194,16 +194,16 @@ export const ObjectSortDropdownButton = () => {
                 value: sortDirection,
                 label:
                   sortDirection === ViewSortDirection.ASC
-                    ? t`Ascending`
-                    : t`Descending`,
+                    ? ""Ascending"
+                    : ""Descending",
               }),
             )}
             selectedOption={{
               value: selectedRecordSortDirection,
               label:
                 selectedRecordSortDirection === ViewSortDirection.ASC
-                  ? t`Ascending`
-                  : t`Descending`,
+                  ? ""Ascending"
+                  : ""Descending",
             }}
             onChange={(sortDirection) =>
               handleSortDirectionClick(sortDirection.value as ViewSortDirection)
@@ -214,7 +214,7 @@ export const ObjectSortDropdownButton = () => {
           <DropdownMenuSearchInput
             autoFocus
             value={objectSortDropdownSearchInput}
-            placeholder={t`Search fields`}
+            placeholder={""Search fields"}
             onChange={(event) =>
               setObjectSortDropdownSearchInput(event.target.value)
             }
@@ -226,7 +226,7 @@ export const ObjectSortDropdownButton = () => {
           >
             {shouldShowVisibleFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Visible fields`} />
+                <DropdownMenuSectionLabel label={""Visible fields"} />
                 <DropdownMenuItemsContainer>
                   {visibleFieldMetadataItems.map(
                     (visibleFieldMetadataItem, index) => (
@@ -255,7 +255,7 @@ export const ObjectSortDropdownButton = () => {
             {shouldShowSeparator && <DropdownMenuSeparator />}
             {shouldShowHiddenFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Hidden fields`} />
+                <DropdownMenuSectionLabel label={""Hidden fields"} />
                 <DropdownMenuItemsContainer>
                   {hiddenFieldMetadataItemsSorted.map(
                     (hiddenFieldMetadataItem, index) => (

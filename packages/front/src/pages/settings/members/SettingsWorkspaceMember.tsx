@@ -108,7 +108,7 @@ export const SettingsWorkspaceMember = () => {
           message:
             error instanceof Error
               ? error.message
-              : t`Error while saving the name`,
+              : ""Error while saving the name",
         });
       }
     },
@@ -121,7 +121,7 @@ export const SettingsWorkspaceMember = () => {
       await deleteUserFromWorkspace({
         variables: { workspaceMemberIdToDelete: member.id },
       });
-      enqueueSuccessSnackBar({ message: t`Member removed from workspace` });
+      enqueueSuccessSnackBar({ message: ""Member removed from workspace" });
       closeModal(DELETE_MEMBER_MODAL_ID);
       navigateSettings(SettingsPath.WorkspaceMembersPage);
     } catch (error) {
@@ -129,7 +129,7 @@ export const SettingsWorkspaceMember = () => {
         message:
           error instanceof Error
             ? error.message
-            : t`Unable to delete member right now`,
+            : ""Unable to delete member right now",
       });
     }
   };
@@ -137,7 +137,7 @@ export const SettingsWorkspaceMember = () => {
   const handleImpersonate = async () => {
     if (!member?.userId || !currentWorkspace?.id) {
       enqueueErrorSnackBar({
-        message: t`Cannot impersonate selected user`,
+        message: ""Cannot impersonate selected user",
         options: { duration: 2000 },
       });
       return;
@@ -154,7 +154,7 @@ export const SettingsWorkspaceMember = () => {
       },
       onError: () => {
         enqueueErrorSnackBar({
-          message: t`Cannot impersonate selected user`,
+          message: ""Cannot impersonate selected user",
           options: { duration: 2000 },
         });
       },
@@ -171,11 +171,11 @@ export const SettingsWorkspaceMember = () => {
           title={`${member.name.firstName} ${member.name.lastName}`}
           links={[
             {
-              children: t`Workspace`,
+              children: "Ruang kerja",
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: t`Members`,
+              children: "Anggota",
               href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
             },
             {
@@ -188,12 +188,12 @@ export const SettingsWorkspaceMember = () => {
               tabs={[
                 {
                   id: SETTINGS_WORKSPACE_MEMBER_TABS.TABS_IDS.INFOS,
-                  title: t`Infos`,
+                  title: ""Infos",
                   Icon: IconInfoCircle,
                 },
                 {
                   id: SETTINGS_WORKSPACE_MEMBER_TABS.TABS_IDS.PERMISSIONS,
-                  title: t`Permissions`,
+                  title: ""Permissions",
                   Icon: IconLockOpen,
                 },
               ]}
@@ -221,10 +221,10 @@ export const SettingsWorkspaceMember = () => {
 
           <ConfirmationModal
             modalInstanceId={DELETE_MEMBER_MODAL_ID}
-            title={t`Remove member from workspace`}
-            subtitle={t`This action cannot be undone. This will permanently remove this member from this workspace and remove them from all their assignments.`}
+            title={""Remove member from workspace"}
+            subtitle={""This action cannot be undone. This will permanently remove this member from this workspace and remove them from all their assignments."}
             onConfirmClick={handleDeleteMember}
-            confirmButtonText={t`Remove member`}
+            confirmButtonText={""Remove member"}
             loading={isDeleting}
           />
         </SubMenuTopBarContainer>

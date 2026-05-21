@@ -91,7 +91,7 @@ export const NoteTile = ({
           })
         }
       >
-        <StyledNoteTitle>{note.title ?? t`Task Title`}</StyledNoteTitle>
+        <StyledNoteTitle>{note.title ?? ""Task Title"}</StyledNoteTitle>
         <StyledCardContent>{body}</StyledCardContent>
       </StyledCardDetailsContainer>
       <StyledFooter>

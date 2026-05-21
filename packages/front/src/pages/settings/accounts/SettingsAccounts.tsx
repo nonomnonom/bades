@@ -18,13 +18,13 @@ export const SettingsAccounts = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Account`}
+      title={"Akun"}
       links={[
         {
-          children: t`User`,
+          children: "Pengguna",
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
-        { children: t`Account` },
+        { children: "Akun" },
       ]}
     >
       <SettingsPageContainer>
@@ -34,8 +34,8 @@ export const SettingsAccounts = () => {
           <>
             <Section>
               <H2Title
-                title={t`Connected accounts`}
-                description={t`Manage your internet accounts.`}
+                title={""Connected accounts"}
+                description={""Manage your internet accounts."}
               />
               <SettingsAccountsConnectedAccountsListCard
                 accounts={allAccounts}

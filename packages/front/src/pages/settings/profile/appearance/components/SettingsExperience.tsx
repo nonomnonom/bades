@@ -16,39 +16,39 @@ export const SettingsExperience = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Experience`}
+      title={""Experience"}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: Pengguna,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
-        { children: <Trans>Experience</Trans> },
+        { children: "Experience },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Appearance`} />
+          <H2Title title={""Appearance"} />
           <ColorSchemePicker
             value={colorScheme}
             onChange={setColorScheme}
-            lightLabel={t`Light`}
-            darkLabel={t`Dark`}
-            systemLabel={t`System settings`}
+            lightLabel={""Light"}
+            darkLabel={""Dark"}
+            systemLabel={""System settings"}
           />
         </Section>
 
         <Section>
           <H2Title
-            title={t`Language`}
-            description={t`Select your preferred language`}
+            title={"Bahasa"}
+            description={""Select your preferred language"}
           />
           <LocalePicker />
         </Section>
 
         <Section>
           <H2Title
-            title={t`Formats`}
-            description={t`Configure date, time, number, timezone, and calendar start day`}
+            title={""Formats"}
+            description={""Configure date, time, number, timezone, and calendar start day"}
           />
           <FormatPreferencesSettings />
         </Section>

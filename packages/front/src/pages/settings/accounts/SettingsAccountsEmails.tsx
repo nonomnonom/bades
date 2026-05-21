@@ -11,17 +11,17 @@ export const SettingsAccountsEmails = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Emails`}
+      title={"Email-email"}
       links={[
         {
-          children: t`User`,
+          children: "Pengguna",
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: t`Accounts`,
+          children: "Akun-akun",
           href: getSettingsPath(SettingsPath.Accounts),
         },
-        { children: t`Emails` },
+        { children: "Email-email" },
       ]}
     >
       <SettingsPageContainer>

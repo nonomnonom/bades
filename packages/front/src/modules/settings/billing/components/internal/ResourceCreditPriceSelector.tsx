@@ -147,7 +147,7 @@ export const ResourceCreditPriceSelector = ({
         setCurrentWorkspace(newCurrentWorkspace);
         refetchResourceCreditUsage();
       }
-      enqueueSuccessSnackBar({ message: t`Resource credits updated.` });
+      enqueueSuccessSnackBar({ message: ""Resource credits updated." });
       const newPrice = resourceCreditPrices.find(
         ({ stripePriceId }) => stripePriceId === selectedPrice.stripePriceId,
       );
@@ -156,14 +156,14 @@ export const ResourceCreditPriceSelector = ({
       }
       setSelectedPriceId(undefined);
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to update resource credits.` });
+      enqueueErrorSnackBar({ message: ""Failed to update resource credits." });
     }
   };
 
   return (
     <>
       <H2Title
-        title={t`Resource credits`}
+        title={""Resource credits"}
         description={t`Number of new credits allocated every ${recurringInterval}`}
       />
       <StyledRow>
@@ -177,7 +177,7 @@ export const ResourceCreditPriceSelector = ({
             onChange={handleChange}
             disabled={isUpdating || isTrialing}
             description={
-              isTrialing ? t`Please start your subscription first` : undefined
+              isTrialing ? ""Please start your subscription first" : undefined
             }
             fullWidth
           />
@@ -185,7 +185,7 @@ export const ResourceCreditPriceSelector = ({
         {isChanged && (
           <StyledButtonContainer>
             <Button
-              title={isUpgrade() ? t`Upgrade` : t`Downgrade`}
+              title={isUpgrade() ? ""Upgrade" : ""Downgrade"}
               onClick={handleOpenConfirm}
               variant="primary"
               isLoading={isUpdating}
@@ -197,9 +197,9 @@ export const ResourceCreditPriceSelector = ({
       </StyledRow>
       <ConfirmationModal
         modalInstanceId={confirmModalId}
-        title={isUpgrade() ? t`Confirm upgrade` : t`Confirm downgrade`}
-        subtitle={t`Confirm changing your current resource credit allocation.`}
-        confirmButtonText={isUpgrade() ? t`Upgrade` : t`Downgrade`}
+        title={isUpgrade() ? ""Confirm upgrade" : ""Confirm downgrade"}
+        subtitle={""Confirm changing your current resource credit allocation."}
+        confirmButtonText={isUpgrade() ? ""Upgrade" : ""Downgrade"}
         confirmButtonAccent={isUpgrade() ? 'blue' : 'danger'}
         loading={isUpdating}
         onConfirmClick={handleConfirmClick}

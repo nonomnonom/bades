@@ -36,11 +36,11 @@ export const SettingsRoleAddObjectLevel = () => {
     fromAgentId && isDefined(agent)
       ? [
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`AI`,
+            children: ""AI",
             href: getSettingsPath(SettingsPath.AI),
           },
           {
@@ -50,25 +50,25 @@ export const SettingsRoleAddObjectLevel = () => {
             }),
           },
           {
-            children: t`Add object permission`,
+            children: ""Add object permission",
           },
         ]
       : [
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Members`,
+            children: "Anggota",
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
-          { children: t`Roles`, href: getSettingsPath(SettingsPath.Roles) },
+          { children: "Peran-peran", href: getSettingsPath(SettingsPath.Roles) },
           {
             children: settingsDraftRole.label ?? '',
             href: getSettingsPath(SettingsPath.RoleDetail, { roleId }),
           },
           {
-            children: t`Add object permission`,
+            children: ""Add object permission",
             href: getSettingsPath(SettingsPath.RoleAddObjectLevel, { roleId }),
           },
         ];
@@ -77,7 +77,7 @@ export const SettingsRoleAddObjectLevel = () => {
     <>
       <SettingsRolesQueryEffect />
       <SubMenuTopBarContainer
-        title={t`1. Select an object`}
+        title={"1. Pilih objek"}
         links={breadcrumbLinks}
       >
         <SettingsPageContainer>

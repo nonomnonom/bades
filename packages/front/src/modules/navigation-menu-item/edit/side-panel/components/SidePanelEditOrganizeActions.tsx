@@ -42,14 +42,14 @@ export const SidePanelEditOrganizeActions = ({
   const { t } = useLingui();
 
   return (
-    <SidePanelGroup heading={t`Organize`}>
+    <SidePanelGroup heading={""Organize"}>
       <SelectableListItem
         itemId={SidePanelNavigationItemActions.MOVE_UP}
         onEnter={canMoveUp ? onMoveUp : undefined}
       >
         <CommandMenuItem
           Icon={IconChevronUp}
-          label={t`Move up`}
+          label={"Pindahkan ke atas"}
           id={SidePanelNavigationItemActions.MOVE_UP}
           onClick={onMoveUp}
           disabled={!canMoveUp}
@@ -61,7 +61,7 @@ export const SidePanelEditOrganizeActions = ({
       >
         <CommandMenuItem
           Icon={IconChevronDown}
-          label={t`Move down`}
+          label={"Pindahkan ke bawah"}
           id={SidePanelNavigationItemActions.MOVE_DOWN}
           onClick={onMoveDown}
           disabled={!canMoveDown}
@@ -74,7 +74,7 @@ export const SidePanelEditOrganizeActions = ({
         >
           <CommandMenuItem
             Icon={IconFolderSymlink}
-            label={t`Move to folder`}
+            label={""Move to folder"}
             id={SidePanelNavigationItemActions.MOVE_TO_FOLDER}
             hasSubMenu
             onClick={onMoveToFolder}
@@ -88,7 +88,7 @@ export const SidePanelEditOrganizeActions = ({
         >
           <CommandMenuItem
             Icon={IconRowInsertTop}
-            label={t`Add menu item before`}
+            label={""Add menu item before"}
             id={SidePanelNavigationItemActions.ADD_BEFORE}
             onClick={onAddBefore}
           />
@@ -101,7 +101,7 @@ export const SidePanelEditOrganizeActions = ({
         >
           <CommandMenuItem
             Icon={IconRowInsertBottom}
-            label={t`Add menu item after`}
+            label={""Add menu item after"}
             id={SidePanelNavigationItemActions.ADD_AFTER}
             onClick={onAddAfter}
           />
@@ -113,7 +113,7 @@ export const SidePanelEditOrganizeActions = ({
       >
         <CommandMenuItem
           Icon={IconTrash}
-          label={t`Remove from sidebar`}
+          label={""Remove from sidebar"}
           id={SidePanelNavigationItemActions.REMOVE}
           onClick={onRemove}
         />

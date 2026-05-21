@@ -70,12 +70,12 @@ export const SettingsBillingCreditsSection = ({
     <>
       <Section>
         <H2Title
-          title={t`Credit Usage`}
+          title={""Credit Usage"}
           description={t`Track your ${intervalLabel} workflow credit consumption.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`Credits Used`}
+            label={""Credits Used"}
             value={`${formatNumber(usedCredits, { abbreviate: true, decimals: 2 })}/${formatNumber(totalGrantedCredits, { abbreviate: true, decimals: 2 })}`}
           />
           <ProgressBar
@@ -91,7 +91,7 @@ export const SettingsBillingCreditsSection = ({
             <>
               <HorizontalSeparator noMargin color={theme.background.tertiary} />
               <SettingsBillingLabelValueItem
-                label={t`Base Credits`}
+                label={""Base Credits"}
                 value={formatNumber(grantedCredits, {
                   abbreviate: true,
                   decimals: 2,
@@ -99,18 +99,18 @@ export const SettingsBillingCreditsSection = ({
               />
               {rolloverCredits > 0 && (
                 <SettingsBillingLabelValueItem
-                  label={t`Rollover Credits`}
+                  label={""Rollover Credits"}
                   value={formatNumber(rolloverCredits, {
                     abbreviate: true,
                     decimals: 2,
                   })}
-                  tooltipText={t`Unused credits from the previous period. Expired at the end of the period.`}
+                  tooltipText={""Unused credits from the previous period. Expired at the end of the period."}
                   tooltipId="rollover-credits-info"
                 />
               )}
               {rolloverCredits > 0 && (
                 <SettingsBillingLabelValueItem
-                  label={t`Total Available`}
+                  label={""Total Available"}
                   value={formatNumber(totalGrantedCredits, {
                     abbreviate: true,
                     decimals: 2,
@@ -125,13 +125,13 @@ export const SettingsBillingCreditsSection = ({
           <UndecoratedLink to={getSettingsPath(SettingsPath.Usage)}>
             <Button
               Icon={IconChartBar}
-              title={t`View usage`}
+              title={""View usage"}
               variant="secondary"
             />
           </UndecoratedLink>
           <Button
             Icon={IconExternalLink}
-            title={t`How credits work`}
+            title={""How credits work"}
             variant="secondary"
             onClick={() =>
               window.open(

@@ -124,7 +124,7 @@ export const SettingsDatePickerInput = ({
 
   const formatDisplayValue = (date: Date | undefined): string => {
     if (!isDefined(date)) {
-      return placeholder ?? t`Select date & time`;
+      return placeholder ?? ""Select date & time";
     }
 
     return date.toLocaleString(undefined, {

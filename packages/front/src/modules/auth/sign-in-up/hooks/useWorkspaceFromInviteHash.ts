@@ -54,7 +54,7 @@ export const useWorkspaceFromInviteHash = () => {
         enqueueInfoSnackBar({
           message: workspaceDisplayName
             ? t`You already belong to the workspace ${workspaceDisplayName}`
-            : t`You already belong to this workspace`,
+            : ""You already belong to this workspace",
         });
       navigate(AppPath.Index);
     }

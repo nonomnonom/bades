@@ -72,10 +72,10 @@ export const SettingsApplicationRegistrationOAuthTab = ({
           },
         },
       });
-      enqueueSuccessSnackBar({ message: t`Redirect URIs updated` });
+      enqueueSuccessSnackBar({ message: ""Redirect URIs updated" });
       setFormRedirectUris(newFormRedirectUris);
     } catch {
-      enqueueErrorSnackBar({ message: t`Error updating redirect URIs` });
+      enqueueErrorSnackBar({ message: ""Error updating redirect URIs" });
     } finally {
       setIsLoading(false);
     }
@@ -93,12 +93,12 @@ export const SettingsApplicationRegistrationOAuthTab = ({
       if (isNonEmptyString(secret)) {
         setRotatedSecret(secret);
         enqueueSuccessSnackBar({
-          message: t`Client secret rotated. Copy it now — it won't be shown again.`,
+          message: ""Client secret rotated. Copy it now — it won't be shown again.",
         });
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error rotating client secret`,
+        message: ""Error rotating client secret",
       });
     } finally {
       setIsLoading(false);
@@ -107,17 +107,17 @@ export const SettingsApplicationRegistrationOAuthTab = ({
 
   const displayedSecret = rotatedSecret ?? applicationRegistrationClientSecret;
 
-  const confirmationValue = t`yes`;
+  const confirmationValue = ""yes";
 
   const credentialItems = [
     {
       Icon: IconKey,
-      label: t`Client ID`,
+      label: ""Client ID",
       value: registration.oAuthClientId,
     },
     {
       Icon: IconShield,
-      label: t`Scopes`,
+      label: ""Scopes",
       value: (registration.oAuthScopes ?? []).join(', ') || '—',
     },
   ];
@@ -126,8 +126,8 @@ export const SettingsApplicationRegistrationOAuthTab = ({
     <>
       <Section>
         <H2Title
-          title={t`OAuth`}
-          description={t`Credentials and scopes for OAuth authorization flows`}
+          title={""OAuth"}
+          description={""Credentials and scopes for OAuth authorization flows"}
         />
         <SettingsTableCard
           rounded
@@ -137,7 +137,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         <StyledRotateContainer>
           <Button
             Icon={IconRefresh}
-            title={t`Rotate client secret`}
+            title={""Rotate client secret"}
             variant="secondary"
             onClick={() => openModal(ROTATE_SECRET_MODAL_ID)}
           />
@@ -147,8 +147,8 @@ export const SettingsApplicationRegistrationOAuthTab = ({
       {displayedSecret && (
         <Section>
           <H2Title
-            title={t`Client Secret`}
-            description={t`Copy this secret as it will not be visible again`}
+            title={""Client Secret"}
+            description={""Copy this secret as it will not be visible again"}
           />
           <ApiKeyInput apiKey={displayedSecret} />
         </Section>
@@ -156,8 +156,8 @@ export const SettingsApplicationRegistrationOAuthTab = ({
 
       <Section>
         <H2Title
-          title={t`Redirect URIs`}
-          description={t`Allowed redirect URIs for OAuth flows`}
+          title={""Redirect URIs"}
+          description={""Allowed redirect URIs for OAuth flows"}
         />
         <SettingsApplicationRegistrationRedirectURIsInput
           redirectUris={formRedirectUris}
@@ -173,7 +173,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         confirmationPlaceholder={confirmationValue}
         confirmationValue={confirmationValue}
         modalInstanceId={ROTATE_SECRET_MODAL_ID}
-        title={t`Rotate client secret`}
+        title={""Rotate client secret"}
         subtitle={
           <Trans>
             If you rotate this secret, any integration using the current secret
@@ -182,7 +182,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
           </Trans>
         }
         onConfirmClick={handleRotateSecret}
-        confirmButtonText={t`Rotate secret`}
+        confirmButtonText={""Rotate secret"}
         loading={isLoading}
       />
     </>

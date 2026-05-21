@@ -20,17 +20,17 @@ type NumberDataModelSelectOptions = {
 export const NUMBER_DATA_MODEL_SELECT_OPTIONS = [
   {
     Icon: IconNumber9,
-    label: msg`Number`,
+    label: "Nomor",
     value: 'number',
   },
   {
     Icon: IconLetterK,
-    label: msg`Short`,
+    label: ""Short",
     value: 'shortNumber',
   },
   {
     Icon: IconPercentage,
-    label: msg`Percentage`,
+    label: "Persentase",
     value: 'percentage',
   },
 ] as const satisfies Array<NumberDataModelSelectOptions>;

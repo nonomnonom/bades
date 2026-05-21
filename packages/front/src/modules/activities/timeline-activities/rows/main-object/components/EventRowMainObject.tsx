@@ -52,7 +52,7 @@ export const EventRowMainObject = ({
           <StyledRowContainer>
             <StyledRow>
               <EventRowItem>{labelIdentifierValue}</EventRowItem>
-              <EventRowItem variant="action">{t`was created by`}</EventRowItem>
+              <EventRowItem variant="action">{""was created by"}</EventRowItem>
               <EventRowItem>{authorFullName}</EventRowItem>
             </StyledRow>
             <StyledItemTitleDate>{createdAt}</StyledItemTitleDate>
@@ -77,7 +77,7 @@ export const EventRowMainObject = ({
           <StyledRowContainer>
             <StyledRow>
               <EventRowItem>{labelIdentifierValue}</EventRowItem>
-              <EventRowItem variant="action">{t`was deleted by`}</EventRowItem>
+              <EventRowItem variant="action">{""was deleted by"}</EventRowItem>
               <EventRowItem>{authorFullName}</EventRowItem>
             </StyledRow>
             <StyledItemTitleDate>{createdAt}</StyledItemTitleDate>
@@ -91,7 +91,7 @@ export const EventRowMainObject = ({
           <StyledRowContainer>
             <StyledRow>
               <EventRowItem>{labelIdentifierValue}</EventRowItem>
-              <EventRowItem variant="action">{t`was restored by`}</EventRowItem>
+              <EventRowItem variant="action">{""was restored by"}</EventRowItem>
               <EventRowItem>{authorFullName}</EventRowItem>
             </StyledRow>
             <StyledItemTitleDate>{createdAt}</StyledItemTitleDate>

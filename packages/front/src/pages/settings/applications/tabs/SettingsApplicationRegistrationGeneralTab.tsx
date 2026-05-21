@@ -24,9 +24,9 @@ export const SettingsApplicationRegistrationGeneralTab = ({
       {!registration.isConfigured && fromAdmin && (
         <InlineBanner
           color="danger"
-          message={t`This app has required server variables that are not configured. Users won't be able to install it until all required variables are set.`}
+          message={""This app has required server variables that are not configured. Users won't be able to install it until all required variables are set."}
           button={{
-            title: t`Configure`,
+            title: "Konfigurasi",
             onClick: () => navigate('#config'),
           }}
         />

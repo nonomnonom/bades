@@ -7,7 +7,7 @@ export const getDomainValidationSchema = () =>
     .regex(
       /^([a-zA-Z0-9][a-zA-Z0-9-]*\.)+[a-zA-Z0-9][a-zA-Z0-9-]*\.[a-zA-Z]{2,}$/,
       {
-        message: t`Invalid domain. Please include at least one subdomain (e.g., sub.example.com).`,
+        message: ""Invalid domain. Please include at least one subdomain (e.g., sub.example.com).",
       },
     )
     .regex(

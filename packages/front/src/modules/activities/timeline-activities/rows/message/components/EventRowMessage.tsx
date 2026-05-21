@@ -40,7 +40,7 @@ export const EventRowMessage = ({
     <StyledEventRowMessageContainer>
       <StyledRowContainer>
         <EventRowItem>{authorFullName}</EventRowItem>
-        <EventRowItem variant="action">{t`linked an email with`}</EventRowItem>
+        <EventRowItem variant="action">{""linked an email with"}</EventRowItem>
         <EventRowItem>{labelIdentifierValue}</EventRowItem>
         <EventCardToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
       </StyledRowContainer>

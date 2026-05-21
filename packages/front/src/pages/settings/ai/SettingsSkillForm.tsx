@@ -158,7 +158,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         setOriginalFormValues(initialValues);
       } else {
         enqueueErrorSnackBar({
-          message: t`Skill not found`,
+          message: ""Skill not found",
         });
         navigateApp(AppPath.NotFound);
       }
@@ -393,21 +393,21 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
   const breadcrumbText = !isCreateMode
     ? loading
-      ? t`Skill`
+      ? ""Skill"
       : skill?.label
-    : t`New Skill`;
+    : ""New Skill";
 
   const isNameEditEnabled =
     !isReadonlyMode && !formValues.isLabelSyncedWithName;
 
   const apiNameTooltipText = formValues.isLabelSyncedWithName
-    ? t`Deactivate "Synchronize Label and API Name" to set a custom API name`
-    : t`Input must be in camel case and cannot start with a number`;
+    ? ""Deactivate "Synchronize Label and API Name" to set a custom API name"
+    : ""Input must be in camel case and cannot start with a number";
 
   const title = isCreateMode ? (
-    t`New Skill`
+    ""New Skill"
   ) : loading ? (
-    t`Skill`
+    ""Skill"
   ) : (
     <StyledHeaderTitle>
       <TitleInput
@@ -416,7 +416,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         sizeVariant="md"
         value={formValues.label}
         onChange={(value) => handleFieldChange('label', value)}
-        placeholder={t`Skill name`}
+        placeholder={""Skill name"}
       />
     </StyledHeaderTitle>
   );
@@ -437,10 +437,10 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
       }
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
+        { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
         { children: breadcrumbText },
       ]}
     >
@@ -453,8 +453,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
           <>
             <Section>
               <H2Title
-                title={t`About`}
-                description={t`Define the name and instructions for this skill`}
+                title={"Tentang"}
+                description={""Define the name and instructions for this skill"}
               />
               <StyledFormContainer>
                 <StyledIconNameRow>
@@ -468,7 +468,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                   <StyledNameContainer>
                     <SettingsTextInput
                       instanceId="skill-label-input"
-                      placeholder={t`Skill name`}
+                      placeholder={""Skill name"}
                       value={formValues.label}
                       onChange={(value) => handleFieldChange('label', value)}
                       disabled={isReadonlyMode}
@@ -479,7 +479,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
                 <TextArea
                   textAreaId="skill-description-textarea"
-                  placeholder={t`Write a description`}
+                  placeholder={""Write a description"}
                   minRows={3}
                   value={formValues.description}
                   onChange={(value) =>
@@ -490,7 +490,7 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
                 <FormAdvancedTextFieldInput
                   key={originalFormValues?.content ?? 'loading'}
-                  label={t`Instructions`}
+                  label={""Instructions"}
                   readonly={isReadonlyMode}
                   defaultValue={formValues.content}
                   contentType="markdown"
@@ -500,11 +500,11 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                   enableFullScreen={true}
                   fullScreenBreadcrumbs={[
                     {
-                      children: formValues.label || t`Skill`,
+                      children: formValues.label || ""Skill",
                       href: '#',
                     },
                     {
-                      children: t`Instructions Editor`,
+                      children: ""Instructions Editor",
                     },
                   ]}
                   minHeight={300}
@@ -516,8 +516,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                     <StyledAdvancedSettingsContainer>
                       <SettingsTextInput
                         instanceId="skill-api-name"
-                        label={t`API Name`}
-                        placeholder={t`mySkill`}
+                        label={""API Name"}
+                        placeholder={""mySkill"}
                         value={formValues.name}
                         onChange={(value) => handleFieldChange('name', value)}
                         disabled={!isNameEditEnabled}
@@ -547,8 +547,8 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
                       <Card rounded>
                         <SettingsOptionCardContentToggle
                           Icon={IconRefresh}
-                          title={t`Synchronize Label and API Name`}
-                          description={t`Should changing the label also change the API name?`}
+                          title={""Synchronize Label and API Name"}
+                          description={""Should changing the label also change the API name?"}
                           checked={formValues.isLabelSyncedWithName}
                           disabled={isReadonlyMode}
                           advancedMode
@@ -566,20 +566,20 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             {skill && (
               <Section>
                 <H2Title
-                  title={t`Danger zone`}
-                  description={t`Deactivate or delete this skill`}
+                  title={""Danger zone"}
+                  description={""Deactivate or delete this skill"}
                 />
                 <StyledDangerButtonsContainer>
                   <Button
                     Icon={skill.isActive ? IconArchive : IconArchiveOff}
-                    title={skill.isActive ? t`Deactivate` : t`Activate`}
+                    title={skill.isActive ? ""Deactivate" : "Aktifkan"}
                     size="small"
                     onClick={skill.isActive ? handleDeactivate : handleActivate}
                   />
                   {skill.isCustom && (
                     <Button
                       Icon={IconTrash}
-                      title={t`Delete`}
+                      title={"Hapus"}
                       size="small"
                       accent="danger"
                       variant="secondary"
@@ -595,10 +595,10 @@ export const SettingsSkillForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
       <ConfirmationModal
         modalInstanceId={DELETE_SKILL_MODAL_ID}
-        title={t`Delete Skill`}
-        subtitle={t`Are you sure you want to delete this skill? This action cannot be undone.`}
+        title={""Delete Skill"}
+        subtitle={""Are you sure you want to delete this skill? This action cannot be undone."}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={"Hapus"}
         loading={isSubmitting}
       />
     </SubMenuTopBarContainer>

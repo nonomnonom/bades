@@ -187,7 +187,7 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
   [EngineComponentKey.SEARCH_RECORDS]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.SearchRecords}
-      pageTitle={msg`Search`}
+      pageTitle={"Cari"}
       pageIcon={IconSearch}
       shouldResetSearchState={true}
     />
@@ -195,21 +195,21 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
   [EngineComponentKey.SEARCH_RECORDS_FALLBACK]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.SearchRecords}
-      pageTitle={msg`Search`}
+      pageTitle={"Cari"}
       pageIcon={IconSearch}
     />
   ),
   [EngineComponentKey.ASK_AI]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.AskAI}
-      pageTitle={msg`Ask AI`}
+      pageTitle={""Ask AI"}
       pageIcon={IconSparkles}
     />
   ),
   [EngineComponentKey.VIEW_PREVIOUS_AI_CHATS]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.ViewPreviousAiChats}
-      pageTitle={msg`View Previous AI Chats`}
+      pageTitle={""View Previous AI Chats"}
       pageIcon={IconHistory}
     />
   ),

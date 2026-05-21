@@ -34,7 +34,7 @@ export const ConfigVariableValueInput = ({
     <StyledValueContainer>
       {isConfigVariablesInDbEnabled && !variable.isEnvOnly ? (
         <ConfigVariableDatabaseInput
-          label={t`Value`}
+          label={"Nilai"}
           value={value}
           onChange={onChange}
           type={variable.type}
@@ -42,14 +42,14 @@ export const ConfigVariableValueInput = ({
           disabled={disabled}
           placeholder={
             disabled
-              ? t`Undefined`
+              ? ""Undefined"
               : variable.isSensitive
-                ? t`Enter a new secret value`
-                : t`Enter a value to store in database`
+                ? ""Enter a new secret value"
+                : ""Enter a value to store in database"
           }
         />
       ) : (
-        <TextInput value={String(value)} disabled label={t`Value`} fullWidth />
+        <TextInput value={String(value)} disabled label={"Nilai"} fullWidth />
       )}
     </StyledValueContainer>
   );

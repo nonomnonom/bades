@@ -294,7 +294,7 @@ export const SettingsObjectFieldEdit = () => {
 
     if (deleteResult.status === 'successful') {
       enqueueSuccessSnackBar({
-        message: t`Field deleted`,
+        message: ""Field deleted",
       });
       closeModal(DELETE_FIELD_MODAL_ID);
       navigateSettings(SettingsPath.ObjectDetail, {
@@ -315,11 +315,11 @@ export const SettingsObjectFieldEdit = () => {
           title={fieldMetadataItem?.label}
           links={[
             {
-              children: t`Workspace`,
+              children: "Ruang kerja",
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: t`Objects`,
+              children: "Objek-objek",
               href: getSettingsPath(SettingsPath.Objects),
             },
             {
@@ -345,8 +345,8 @@ export const SettingsObjectFieldEdit = () => {
           <SettingsPageContainer>
             <Section>
               <H2Title
-                title={t`Icon and Name`}
-                description={t`The name and icon of this field`}
+                title={""Icon and Name"}
+                description={""The name and icon of this field"}
               />
               <SettingsDataModelFieldIconLabelForm
                 fieldMetadataItem={fieldMetadataItem}
@@ -363,13 +363,13 @@ export const SettingsObjectFieldEdit = () => {
                     <Section>
                       {fieldMetadataItem.isUnique ? (
                         <H2Title
-                          title={t`Values`}
-                          description={t`The values of this field must be unique`}
+                          title={"Nilai-nilai"}
+                          description={""The values of this field must be unique"}
                         />
                       ) : (
                         <H2Title
-                          title={t`Values`}
-                          description={t`The values of this field`}
+                          title={"Nilai-nilai"}
+                          description={""The values of this field"}
                         />
                       )}
                       <SettingsDataModelFieldSettingsFormCard
@@ -384,8 +384,8 @@ export const SettingsObjectFieldEdit = () => {
             }
             <Section>
               <H2Title
-                title={t`Description`}
-                description={t`The description of this field`}
+                title={"Deskripsi"}
+                description={""The description of this field"}
               />
               <SettingsDataModelFieldDescriptionForm
                 fieldMetadataItem={fieldMetadataItem}
@@ -396,8 +396,8 @@ export const SettingsObjectFieldEdit = () => {
             {!isLabelIdentifier && !readonly && fieldCanBeDeactivated && (
               <Section>
                 <H2Title
-                  title={t`Danger zone`}
-                  description={t`Deactivate this field`}
+                  title={""Danger zone"}
+                  description={""Deactivate this field"}
                 />
                 <StyledDangerButtons>
                   <Button
@@ -406,7 +406,7 @@ export const SettingsObjectFieldEdit = () => {
                     }
                     variant="secondary"
                     title={
-                      fieldMetadataItem.isActive ? t`Deactivate` : t`Activate`
+                      fieldMetadataItem.isActive ? ""Deactivate" : "Aktifkan"
                     }
                     size="small"
                     onClick={
@@ -420,7 +420,7 @@ export const SettingsObjectFieldEdit = () => {
                       Icon={IconTrash}
                       variant="secondary"
                       accent="danger"
-                      title={t`Delete`}
+                      title={"Hapus"}
                       size="small"
                       onClick={handleDelete}
                     />
@@ -436,7 +436,7 @@ export const SettingsObjectFieldEdit = () => {
           modalInstanceId={DELETE_FIELD_MODAL_ID}
           title={t`Delete ${fieldLabel} field?`}
           subtitle={t`This will permanently delete the field and all its data from ${objectLabel}. Type "yes" to confirm.`}
-          confirmButtonText={t`Delete`}
+          confirmButtonText={"Hapus"}
           confirmationValue="yes"
           confirmationPlaceholder="yes"
           onConfirmClick={confirmDelete}

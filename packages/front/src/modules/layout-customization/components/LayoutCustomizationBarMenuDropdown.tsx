@@ -47,7 +47,7 @@ export const LayoutCustomizationBarMenuDropdown = () => {
           <LightIconButton
             Icon={IconDotsVertical}
             accent="tertiary"
-            aria-label={t`Layout customization menu`}
+            aria-label={""Layout customization menu"}
           />
         </StyledInvertedIconButtonWrapper>
       }
@@ -56,7 +56,7 @@ export const LayoutCustomizationBarMenuDropdown = () => {
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconReload}
-              text={t`Reset record page layout`}
+              text={""Reset record page layout"}
               onClick={handleResetClick}
             />
           </DropdownMenuItemsContainer>

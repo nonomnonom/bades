@@ -120,8 +120,8 @@ export const SettingsAiMCP = () => {
   return (
     <Section>
       <H2Title
-        title={t`MCP Server`}
-        description={t`Access your workspace data from your favorite MCP client like Claude Desktop, Windsurf or Cursor.`}
+        title={""MCP Server"}
+        description={"Akses data ruang kerja Anda dari klien MCP favorit Anda seperti Claude Desktop, Windsurf atau Cursor."}
       />
       <Card rounded>
         <StyledCoverCardContent divider>
@@ -137,8 +137,8 @@ export const SettingsAiMCP = () => {
                 value={authMethod}
                 onChange={(value) => setAuthMethod(value as McpAuthMethod)}
                 options={[
-                  { label: t`OAuth`, value: 'oauth' },
-                  { label: t`API Key`, value: 'api-key' },
+                  { label: ""OAuth", value: 'oauth' },
+                  { label: "Kunci API", value: 'api-key' },
                 ]}
                 selectSizeVariant="small"
                 dropdownWidth={GenericDropdownContentWidth.Medium}
@@ -149,7 +149,7 @@ export const SettingsAiMCP = () => {
                 onClick={() => {
                   copyToClipboard(
                     activeConfig,
-                    t`MCP Configuration copied to clipboard`,
+                    ""MCP Configuration copied to clipboard",
                   );
                 }}
                 size="small"

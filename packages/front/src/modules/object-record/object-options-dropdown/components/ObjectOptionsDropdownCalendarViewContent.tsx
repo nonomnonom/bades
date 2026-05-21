@@ -64,7 +64,7 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           />
         }
       >
-        {t`Calendar View`}
+        {""Calendar View"}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -80,10 +80,10 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconCalendarWeek}
-              text={t`Week`}
+              text={"Minggu"}
               selected={recordIndexCalendarLayout === ViewCalendarLayout.WEEK}
               focused={selectedItemId === ViewCalendarLayout.WEEK}
-              contextualText={<Pill label={t`Soon`} />}
+              contextualText={<Pill label={""Soon"} />}
               contextualTextPosition="right"
               disabled
             />
@@ -94,7 +94,7 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconCalendarMonth}
-              text={t`Month`}
+              text={"Bulan"}
               selected={recordIndexCalendarLayout === ViewCalendarLayout.MONTH}
               onClick={() => handleCalendarViewChange(ViewCalendarLayout.MONTH)}
               focused={selectedItemId === ViewCalendarLayout.MONTH}
@@ -106,10 +106,10 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconTimelineEvent}
-              text={t`Timeline`}
+              text={"Linimasa"}
               selected={recordIndexCalendarLayout === ViewCalendarLayout.DAY}
               focused={selectedItemId === ViewCalendarLayout.DAY}
-              contextualText={<Pill label={t`Soon`} />}
+              contextualText={<Pill label={""Soon"} />}
               contextualTextPosition="right"
               disabled
             />

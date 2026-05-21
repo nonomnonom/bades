@@ -157,7 +157,7 @@ export const TerminalOutput = ({
           <LightIconButton
             Icon={IconCopy}
             onClick={() => copyToClipboard(currentOutput)}
-            title={t`Copy output`}
+            title={""Copy output"}
             size="small"
             accent="tertiary"
           />
@@ -171,7 +171,7 @@ export const TerminalOutput = ({
           </>
         ) : (
           <StyledEmptyMessage>
-            {isRunning ? t`Waiting for output...` : t`No output`}
+            {isRunning ? ""Waiting for output..." : ""No output"}
           </StyledEmptyMessage>
         )}
       </StyledOutputArea>

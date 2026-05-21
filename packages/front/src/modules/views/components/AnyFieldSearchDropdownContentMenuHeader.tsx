@@ -22,7 +22,7 @@ export const AnyFieldSearchDropdownContentMenuHeader = () => {
         />
       }
     >
-      {t`Search any field`}
+      {""Search any field"}
     </DropdownMenuHeader>
   );
 };

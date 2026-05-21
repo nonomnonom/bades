@@ -39,8 +39,8 @@ export const SettingsApplicationFrontComponentDetail = () => {
   );
 
   const tabs = [
-    { id: 'preview', title: t`Preview`, Icon: IconEye },
-    { id: 'settings', title: t`Settings`, Icon: IconSettings },
+    { id: 'preview', title: "Pratinjau", Icon: IconEye },
+    { id: 'settings', title: "Pengaturan", Icon: IconSettings },
   ];
 
   const applicationContentHref = getSettingsPath(
@@ -51,15 +51,15 @@ export const SettingsApplicationFrontComponentDetail = () => {
   );
   const breadcrumbLinks = [
     {
-      children: t`Workspace`,
+      children: "Ruang kerja",
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: t`Applications`,
+      children: ""Applications",
       href: getSettingsPath(SettingsPath.Applications),
     },
     { children: application?.name ?? '', href: applicationContentHref },
-    { children: t`Front components`, href: applicationContentHref },
+    { children: ""Front components", href: applicationContentHref },
     { children: frontComponent?.name ?? '' },
   ];
 
@@ -98,7 +98,7 @@ export const SettingsApplicationFrontComponentDetail = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={frontComponent?.name ?? t`Front component`}
+      title={frontComponent?.name ?? ""Front component"}
       links={breadcrumbLinks}
     >
       <SettingsPageContainer>

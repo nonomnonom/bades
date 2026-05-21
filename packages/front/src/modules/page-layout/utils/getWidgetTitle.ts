@@ -14,23 +14,23 @@ export const getWidgetTitle = (
 ): string => {
   switch (configuration.configurationType) {
     case WidgetConfigurationType.AGGREGATE_CHART:
-      return `${t`Aggregate Chart`} ${index + 1}`;
+      return `${""Aggregate Chart"} ${index + 1}`;
     case WidgetConfigurationType.GAUGE_CHART:
-      return `${t`Gauge Chart`} ${index + 1}`;
+      return `${""Gauge Chart"} ${index + 1}`;
     case WidgetConfigurationType.PIE_CHART:
-      return `${t`Pie Chart`} ${index + 1}`;
+      return `${""Pie Chart"} ${index + 1}`;
     case WidgetConfigurationType.BAR_CHART:
       if (configuration.layout === BarChartLayout.VERTICAL) {
-        return `${t`Vertical Bar Chart`} ${index + 1}`;
+        return `${""Vertical Bar Chart"} ${index + 1}`;
       } else {
-        return `${t`Horizontal Bar Chart`} ${index + 1}`;
+        return `${""Horizontal Bar Chart"} ${index + 1}`;
       }
     case WidgetConfigurationType.LINE_CHART:
-      return `${t`Line Chart`} ${index + 1}`;
+      return `${""Line Chart"} ${index + 1}`;
     case WidgetConfigurationType.IFRAME:
-      return `${t`Iframe`} ${index + 1}`;
+      return `${""Iframe"} ${index + 1}`;
     case WidgetConfigurationType.STANDALONE_RICH_TEXT:
-      return `${t`Rich Text`} ${index + 1}`;
+      return `${""Rich Text"} ${index + 1}`;
     case WidgetConfigurationType.FIELD:
     case WidgetConfigurationType.FIELDS:
     case WidgetConfigurationType.CALENDAR:

@@ -158,7 +158,7 @@ export const ViewPickerContentCreateMode = () => {
           <DropdownMenuHeaderLeftComponent onClick={handleClose} Icon={IconX} />
         }
       >
-        {t`Create view`}
+        {"Buat tampilan"}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <ViewPickerIconAndNameContainer>
@@ -174,7 +174,7 @@ export const ViewPickerContentCreateMode = () => {
         </ViewPickerIconAndNameContainer>
         <ViewPickerSelectContainer>
           <Select
-            label={t`View type`}
+            label={""View type"}
             fullWidth
             value={viewPickerType}
             onChange={(value) => {
@@ -192,7 +192,7 @@ export const ViewPickerContentCreateMode = () => {
           <>
             <ViewPickerSelectContainer>
               <Select
-                label={t`Stages`}
+                label={""Stages"}
                 fullWidth
                 value={viewPickerMainGroupByFieldMetadataId}
                 onChange={(value) => {
@@ -205,16 +205,14 @@ export const ViewPickerContentCreateMode = () => {
                         value: field.id,
                         label: field.label,
                       }))
-                    : [{ value: '', label: t`No Select field` }]
+                    : [{ value: '', label: ""No Select field" }]
                 }
                 dropdownId={VIEW_PICKER_KANBAN_FIELD_DROPDOWN_ID}
               />
             </ViewPickerSelectContainer>
             {availableFieldsForGrouping.length === 0 && (
               <StyledFieldAvailableContainer>
-                <Trans>
-                  Set up a Select field on {objectLabel} to create a Kanban
-                </Trans>
+                "Set up a Select field on {objectLabel} to create a Kanban
               </StyledFieldAvailableContainer>
             )}
           </>
@@ -223,7 +221,7 @@ export const ViewPickerContentCreateMode = () => {
           <>
             <ViewPickerSelectContainer>
               <Select
-                label={t`Date field`}
+                label={""Date field"}
                 fullWidth
                 value={viewPickerCalendarFieldMetadataId}
                 onChange={(value) => {
@@ -236,16 +234,14 @@ export const ViewPickerContentCreateMode = () => {
                         value: field.id,
                         label: field.label,
                       }))
-                    : [{ value: '', label: t`No Date field` }]
+                    : [{ value: '', label: ""No Date field" }]
                 }
                 dropdownId={VIEW_PICKER_CALENDAR_FIELD_DROPDOWN_ID}
               />
             </ViewPickerSelectContainer>
             {availableFieldsForCalendar.length === 0 && (
               <StyledFieldAvailableContainer>
-                <Trans>
-                  Set up a Date field on {objectLabel} to create a Calendar
-                </Trans>
+                "Set up a Date field on {objectLabel} to create a Calendar
               </StyledFieldAvailableContainer>
             )}
           </>

@@ -75,7 +75,7 @@ export const SettingsAiMoreTab = () => {
         });
       } else {
         enqueueErrorSnackBar({
-          message: t`Failed to save workspace instructions`,
+          message: ""Failed to save workspace instructions",
         });
       }
     }
@@ -96,14 +96,14 @@ export const SettingsAiMoreTab = () => {
           decimals: 1,
         },
       )} tokens)`
-    : t`Read the system prompts to understand how the AI works`;
+    : ""Read the system prompts to understand how the AI works";
 
   return (
     <>
       <Section>
         <H2Title
-          title={t`Workspace Instructions`}
-          description={t`Add custom instructions specific to your workspace (appended to system prompt)`}
+          title={""Workspace Instructions"}
+          description={"Tambah instruksi khusus untuk ruang kerja Anda (ditambahkan ke prompt sistem)"}
         />
         <StyledFormContainer>
           <FormAdvancedTextFieldInput
@@ -115,14 +115,14 @@ export const SettingsAiMoreTab = () => {
             enableFullScreen={true}
             fullScreenBreadcrumbs={[
               {
-                children: t`System Prompt`,
+                children: ""System Prompt",
                 href: '#',
               },
               {
-                children: t`Workspace Instructions`,
+                children: ""Workspace Instructions",
               },
             ]}
-            placeholder={t`E.g., "We are a B2B SaaS company. Always use formal language..."`}
+            placeholder={""E.g., "We are a B2B SaaS company. Always use formal language...""}
             minHeight={150}
             maxWidth={700}
           />
@@ -132,14 +132,14 @@ export const SettingsAiMoreTab = () => {
 
       <Section>
         <H2Title
-          title={t`System Prompt`}
+          title={""System Prompt"}
           description={systemPromptDescription}
         />
 
         <UndecoratedLink to={getSettingsPath(SettingsPath.AiPrompts)}>
           <SettingsCard
             Icon={<IconPrompt size={theme.icon.size.md} />}
-            title={t`Read system prompts`}
+            title={""Read system prompts"}
           />
         </UndecoratedLink>
       </Section>

@@ -118,10 +118,10 @@ export const WorkflowEditActionHttpRequest = ({
   const tabs = [
     {
       id: WorkflowHttpRequestTabId.CONFIGURATION,
-      title: t`Configuration`,
+      title: ""Configuration",
       Icon: IconSettings,
     },
-    { id: WorkflowHttpRequestTabId.TEST, title: t`Test`, Icon: IconPlayerPlay },
+    { id: WorkflowHttpRequestTabId.TEST, title: "Uji", Icon: IconPlayerPlay },
   ];
 
   useEffect(() => () => saveAction.flush(), [saveAction]);
@@ -140,14 +140,14 @@ export const WorkflowEditActionHttpRequest = ({
           <StyledConfigurationTabContent>
             <FormTextFieldInput
               label={t`URL`}
-              placeholder={t`https://api.example.com/endpoint`}
+              placeholder={""https://api.example.com/endpoint"}
               readonly={actionOptions.readonly}
               defaultValue={formData.url}
               onChange={(value) => handleFieldChange('url', value)}
               VariablePicker={WorkflowVariablePicker}
             />
             <Select
-              label={t`HTTP Method`}
+              label={""HTTP Method"}
               dropdownId="http-method"
               options={[...HTTP_METHODS]}
               value={formData.method}
@@ -161,12 +161,12 @@ export const WorkflowEditActionHttpRequest = ({
 
             <KeyValuePairInput
               key={getBodyTypeFromHeaders(formData.headers) || 'none'}
-              label={t`Headers Input`}
+              label={""Headers Input"}
               defaultValue={formData.headers}
               onChange={(value) => handleFieldChange('headers', value)}
               readonly={actionOptions.readonly}
-              keyPlaceholder={t`Header name`}
-              valuePlaceholder={t`Header value`}
+              keyPlaceholder={""Header name"}
+              valuePlaceholder={""Header value"}
             />
 
             {isMethodWithBody(formData.method) && (
@@ -182,7 +182,7 @@ export const WorkflowEditActionHttpRequest = ({
 
             <StyledFullHeightFormRawJsonFieldInputContainer>
               <FormRawJsonFieldInput
-                label={t`Expected Response Body`}
+                label={""Expected Response Body"}
                 placeholder={JSON_RESPONSE_PLACEHOLDER}
                 defaultValue={outputSchema}
                 onChange={handleOutputSchemaChange}
@@ -213,7 +213,7 @@ export const WorkflowEditActionHttpRequest = ({
             activeTabId === WorkflowHttpRequestTabId.TEST
               ? [
                   <WorkflowStepCmdEnterButton
-                    title={t`Test`}
+                    title={"Uji"}
                     onClick={handleTestRequest}
                     disabled={isTesting}
                   />,

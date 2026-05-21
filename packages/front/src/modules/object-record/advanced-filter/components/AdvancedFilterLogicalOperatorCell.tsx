@@ -33,7 +33,7 @@ export const AdvancedFilterLogicalOperatorCell = ({
   return (
     <StyledContainer>
       {index === 0 ? (
-        <StyledText>{t`Where`}</StyledText>
+        <StyledText>{""Where"}</StyledText>
       ) : index === 1 ? (
         <AdvancedFilterLogicalOperatorDropdown
           recordFilterGroup={recordFilterGroup}

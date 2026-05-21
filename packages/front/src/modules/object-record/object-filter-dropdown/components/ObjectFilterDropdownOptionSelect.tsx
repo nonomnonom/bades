@@ -160,7 +160,7 @@ export const ObjectFilterDropdownOptionSelect = ({
     >
       <DropdownMenuItemsContainer hasMaxHeight>
         {showNoResult ? (
-          <MenuItem text={t`No results`} />
+          <MenuItem text={"Tidak ada hasil"} />
         ) : (
           optionsInDropdown?.map((option) => (
             <MenuItemMultiSelect

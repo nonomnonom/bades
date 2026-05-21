@@ -42,13 +42,13 @@ export const SidePanelSystemObjectPickerSubView = ({
     });
 
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : (emptyNoResultsText ?? t`No system objects available`);
+    ? ""No results found"
+    : (emptyNoResultsText ?? ""No system objects available");
 
   const isAddVariant = objectMenuItemVariant === 'add';
 
   const listContent = (
-    <SidePanelGroup heading={t`System objects`}>
+    <SidePanelGroup heading={""System objects"}>
       {filteredItems.map((objectMetadataItem, index) => (
         <SidePanelObjectPickerItem
           key={objectMetadataItem.id}
@@ -66,7 +66,7 @@ export const SidePanelSystemObjectPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a system object...`}
+      searchPlaceholder={""Search a system object..."}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >

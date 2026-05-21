@@ -102,7 +102,7 @@ export const EmailsCard = () => {
           <StyledH1Title
             title={
               <>
-                <Trans>Inbox</Trans>{' '}
+                "Inbox{' '}
                 <StyledEmailCount>{totalNumberOfThreads}</StyledEmailCount>
               </>
             }

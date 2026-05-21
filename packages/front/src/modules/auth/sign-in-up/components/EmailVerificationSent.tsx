@@ -113,23 +113,23 @@ export const EmailVerificationSent = ({
     setSignInUpStep(SignInUpStep.Email);
   };
 
-  const title = isError ? t`Email Verification Failed` : t`Check your Emails`;
+  const title = isError ? ""Email Verification Failed" : ""Check your Emails";
   const subtitle = isError
-    ? t`We encountered an issue verifying`
-    : t`A verification email has been sent to`;
+    ? ""We encountered an issue verifying"
+    : "Email verifikasi telah dikirim ke";
 
   const Icon = isError ? IconMailX : IconMail;
 
   const mainButtons = isError ? (
     <>
       <MainButton
-        title={t`Try with another email`}
+        title={""Try with another email"}
         onClick={handleChangeEmail}
         variant="secondary"
         fullWidth
       />
       <MainButton
-        title={isLoading ? t`Sending...` : t`Resend email`}
+        title={isLoading ? ""Sending..." : ""Resend email"}
         onClick={handleResendEmailVerificationToken(email)}
         disabled={isLoading}
         fullWidth
@@ -138,14 +138,14 @@ export const EmailVerificationSent = ({
   ) : (
     <>
       <MainButton
-        title={t`Open Gmail`}
+        title={""Open Gmail"}
         onClick={handleOpenGmail}
         Icon={IconGmail}
         variant="secondary"
         fullWidth
       />
       <MainButton
-        title={t`Open Outlook`}
+        title={""Open Outlook"}
         onClick={handleOpenOutlook}
         Icon={IconMicrosoft}
         variant="secondary"
@@ -177,11 +177,11 @@ export const EmailVerificationSent = ({
             onClick={handleResendEmailVerificationToken(email)}
             disabled={isLoading}
           >
-            {isLoading ? t`Sending...` : t`Resend email`}
+            {isLoading ? ""Sending..." : ""Resend email"}
           </StyledLinkButton>
           <StyledDot />
           <StyledLinkButton onClick={handleChangeEmail}>
-            {t`Change email`}
+            {""Change email"}
           </StyledLinkButton>
         </StyledBottomLinks>
       )}

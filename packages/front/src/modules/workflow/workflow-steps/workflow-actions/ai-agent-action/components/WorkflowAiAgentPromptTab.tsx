@@ -150,8 +150,8 @@ export const WorkflowAiAgentPromptTab = ({
       <FormTextFieldInput
         multiline
         VariablePicker={WorkflowVariablePicker}
-        label={t`Input (Prompt)`}
-        placeholder={t`Describe what you want the AI to do...`}
+        label={""Input (Prompt)"}
+        placeholder={""Describe what you want the AI to do..."}
         defaultValue={prompt}
         onChange={onPromptChange}
         readonly={readonly}

@@ -89,7 +89,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
                 <CreateNewButton
                   onClick={handleCreateNew}
                   LeftIcon={IconPlus}
-                  text={t`Add New`}
+                  text={""Add New"}
                 />
               </DropdownMenuItemsContainer>
               <DropdownMenuSeparator />
@@ -138,7 +138,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
                 <CreateNewButton
                   onClick={handleCreateNew}
                   LeftIcon={IconPlus}
-                  text={t`Add New`}
+                  text={""Add New"}
                 />
               </DropdownMenuItemsContainer>
             </>

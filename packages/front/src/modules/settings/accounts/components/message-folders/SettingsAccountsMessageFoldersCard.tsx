@@ -149,18 +149,18 @@ export const SettingsAccountsMessageFoldersCard = () => {
       <Table>
         <StyledSearchInputContainer>
           <SettingsTextInput
-            placeholder={t`Search folders...`}
+            placeholder={""Search folders..."}
             value={search}
             onChange={setSearch}
             instanceId={'message-folders-search'}
           />
         </StyledSearchInputContainer>
         <StyledLabelContainer>
-          <Label>{t`Folders`}</Label>
+          <Label>{"Folder-folder"}</Label>
         </StyledLabelContainer>
 
         <StyledSectionHeader>
-          <Label>{t`Toggle all folders`}</Label>
+          <Label>{""Toggle all folders"}</Label>
           <TableCell
             align="right"
             padding={`0 ${themeCssVariables.spacing[1]} 0 ${themeCssVariables.spacing[2]}`}

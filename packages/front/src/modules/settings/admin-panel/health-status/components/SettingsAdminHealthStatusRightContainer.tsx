@@ -10,10 +10,10 @@ export const SettingsAdminHealthStatusRightContainer = ({
   return (
     <>
       {status === AdminPanelHealthServiceStatus.OPERATIONAL && (
-        <Status color="green" text={t`Operational`} weight="medium" />
+        <Status color="green" text={""Operational"} weight="medium" />
       )}
       {status === AdminPanelHealthServiceStatus.OUTAGE && (
-        <Status color="red" text={t`Outage`} weight="medium" />
+        <Status color="red" text={""Outage"} weight="medium" />
       )}
     </>
   );

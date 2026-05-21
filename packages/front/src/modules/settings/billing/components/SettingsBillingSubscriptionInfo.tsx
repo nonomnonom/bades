@@ -235,7 +235,7 @@ export const SettingsBillingSubscriptionInfo = ({
       const isCurrentMonth =
         currentBillingSubscription.interval === SubscriptionInterval.Month;
       const message = isCurrentMonth
-        ? t`Subscription has been switched to Yearly.`
+        ? ""Subscription has been switched to Yearly."
         : t`Subscription will be switch to Monthly the ${beautifiedRenewDate}.`;
 
       if (
@@ -246,7 +246,7 @@ export const SettingsBillingSubscriptionInfo = ({
       enqueueSuccessSnackBar({ message });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error while switching subscription.`,
+        message: ""Error while switching subscription.",
       });
     } finally {
       setIsSwitchingInterval(false);
@@ -299,11 +299,11 @@ export const SettingsBillingSubscriptionInfo = ({
       }
 
       enqueueSuccessSnackBar({
-        message: t`Plan switching has been cancelled.`,
+        message: ""Plan switching has been cancelled.",
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error while cancelling plan switching.`,
+        message: ""Error while cancelling plan switching.",
       });
     } finally {
       setIsCancellingPlanSwitch(false);
@@ -321,11 +321,11 @@ export const SettingsBillingSubscriptionInfo = ({
         refreshWorkspace(data.cancelSwitchBillingInterval);
       }
       enqueueSuccessSnackBar({
-        message: t`Interval switching has been cancelled.`,
+        message: ""Interval switching has been cancelled.",
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error while cancelling interval switching.`,
+        message: ""Error while cancelling interval switching.",
       });
     } finally {
       setIsCancellingIntervalSwitch(false);
@@ -347,11 +347,11 @@ export const SettingsBillingSubscriptionInfo = ({
       }
 
       enqueueSuccessSnackBar({
-        message: t`Credit pack switching has been cancelled.`,
+        message: ""Credit pack switching has been cancelled.",
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error while cancelling credit pack switching.`,
+        message: ""Error while cancelling credit pack switching.",
       });
     } finally {
       setIsCancellingMeteredSwitch(false);
@@ -360,11 +360,11 @@ export const SettingsBillingSubscriptionInfo = ({
 
   return (
     <Section>
-      <H2Title title={t`Subscription`} description={t`About my subscription`} />
+      <H2Title title={""Subscription"} description={"Tentang langganan saya"} />
       <SubscriptionInfoContainer>
         <SubscriptionInfoHeaderRow show={hasNextBillingPhase} />
         <SubscriptionInfoRowContainer
-          label={t`Plan`}
+          label={"Rencana"}
           Icon={IconTag}
           currentValue={
             <PlansTags
@@ -382,7 +382,7 @@ export const SettingsBillingSubscriptionInfo = ({
           }
         />
         <SubscriptionInfoRowContainer
-          label={t`Billing interval`}
+          label={""Billing interval"}
           Icon={IconCalendarEvent}
           currentValue={getIntervalLabelAsAdjectiveCapitalize(
             currentInterval === SubscriptionInterval.Month,
@@ -397,7 +397,7 @@ export const SettingsBillingSubscriptionInfo = ({
         />
         {currentBillingSubscription.currentPeriodEnd && (
           <SubscriptionInfoRowContainer
-            label={t`Renewal date`}
+            label={""Renewal date"}
             Icon={IconCalendarRepeat}
             currentValue={getBeautifiedRenewDate()}
             nextValue={
@@ -408,13 +408,13 @@ export const SettingsBillingSubscriptionInfo = ({
           />
         )}
         <SubscriptionInfoRowContainer
-          label={t`Seats`}
+          label={""Seats"}
           Icon={IconUsers}
           currentValue={seats}
           nextValue={nextBillingSeats}
         />
         <SubscriptionInfoRowContainer
-          label={t`Credits by period`}
+          label={""Credits by period"}
           Icon={IconCoins}
           currentValue={
             isDefined(currentCreditsByPeriod)
@@ -438,7 +438,7 @@ export const SettingsBillingSubscriptionInfo = ({
         {isTrialPeriod && hasPermissionToEndTrialPeriod && (
           <Button
             Icon={IconArrowUp}
-            title={t`Subscribe Now`}
+            title={""Subscribe Now"}
             variant="secondary"
             onClick={() => openModal(END_TRIAL_PERIOD_MODAL_ID)}
             disabled={isEndTrialPeriodLoading || isAnyActionLoading}
@@ -447,7 +447,7 @@ export const SettingsBillingSubscriptionInfo = ({
         {nextInterval && currentInterval !== nextInterval && (
           <Button
             Icon={IconCircleX}
-            title={t`Cancel interval switching`}
+            title={""Cancel interval switching"}
             variant="secondary"
             onClick={() => openModal(CANCEL_SWITCH_BILLING_INTERVAL_MODAL_ID)}
             disabled={!canSwitchSubscription || isAnyActionLoading}
@@ -457,7 +457,7 @@ export const SettingsBillingSubscriptionInfo = ({
           (!nextInterval || currentInterval === nextInterval) && (
             <Button
               Icon={IconArrowUp}
-              title={t`Switch to Yearly`}
+              title={""Switch to Yearly"}
               variant="secondary"
               onClick={() =>
                 openModal(SWITCH_BILLING_INTERVAL_TO_YEARLY_MODAL_ID)
@@ -469,7 +469,7 @@ export const SettingsBillingSubscriptionInfo = ({
           (!nextInterval || currentInterval === nextInterval) && (
             <Button
               Icon={IconArrowUp}
-              title={t`Switch to Monthly`}
+              title={""Switch to Monthly"}
               variant="secondary"
               onClick={() =>
                 openModal(SWITCH_BILLING_INTERVAL_TO_MONTHLY_MODAL_ID)
@@ -481,7 +481,7 @@ export const SettingsBillingSubscriptionInfo = ({
           (!nextPlan || currentPlan.planKey === nextPlan.planKey) && (
             <Button
               Icon={IconArrowUp}
-              title={t`Switch to Organization`}
+              title={""Switch to Organization"}
               variant="secondary"
               onClick={() =>
                 openModal(SWITCH_BILLING_PLAN_TO_ENTERPRISE_MODAL_ID)
@@ -493,7 +493,7 @@ export const SettingsBillingSubscriptionInfo = ({
           (!nextPlan || currentPlan.planKey === nextPlan.planKey) && (
             <Button
               Icon={IconArrowDown}
-              title={t`Switch to Pro`}
+              title={""Switch to Pro"}
               variant="secondary"
               onClick={() => openModal(SWITCH_BILLING_PLAN_TO_PRO_MODAL_ID)}
               disabled={!canSwitchSubscription || isAnyActionLoading}
@@ -502,7 +502,7 @@ export const SettingsBillingSubscriptionInfo = ({
         {nextPlan && currentPlan.planKey !== nextPlan.planKey && (
           <Button
             Icon={IconCircleX}
-            title={t`Cancel plan switching`}
+            title={""Cancel plan switching"}
             variant="secondary"
             onClick={() => openModal(CANCEL_SWITCH_BILLING_PLAN_MODAL_ID)}
             disabled={!canSwitchSubscription || isAnyActionLoading}
@@ -512,7 +512,7 @@ export const SettingsBillingSubscriptionInfo = ({
           currentCreditsByPeriod !== nextCreditsByPeriod && (
             <Button
               Icon={IconCircleX}
-              title={t`Cancel credit pack switching`}
+              title={""Cancel credit pack switching"}
               variant="secondary"
               onClick={() => openModal(CANCEL_SWITCH_METERED_PRICE_MODAL_ID)}
               disabled={!canSwitchSubscription || isAnyActionLoading}
@@ -521,73 +521,73 @@ export const SettingsBillingSubscriptionInfo = ({
       </StyledSwitchButtonContainer>
       <ConfirmationModal
         modalInstanceId={SWITCH_BILLING_INTERVAL_TO_YEARLY_MODAL_ID}
-        title={t`Change to Yearly?`}
+        title={""Change to Yearly?"}
         subtitle={confirmationModalSwitchToYearlyMessage()}
         onConfirmClick={switchInterval}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent={'blue'}
         loading={isSwitchingInterval}
       />
       <ConfirmationModal
         modalInstanceId={SWITCH_BILLING_INTERVAL_TO_MONTHLY_MODAL_ID}
-        title={t`Change to Monthly?`}
+        title={""Change to Monthly?"}
         subtitle={confirmationModalSwitchToMonthlyMessage()}
         onConfirmClick={switchInterval}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isSwitchingInterval}
       />
       <ConfirmationModal
         modalInstanceId={CANCEL_SWITCH_BILLING_INTERVAL_MODAL_ID}
-        title={t`Cancel interval switching?`}
+        title={""Cancel interval switching?"}
         subtitle={confirmationModalCancelIntervalSwitchingMessage()}
         onConfirmClick={cancelIntervalSwitching}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isCancellingIntervalSwitch}
       />
       <ConfirmationModal
         modalInstanceId={SWITCH_BILLING_PLAN_TO_ENTERPRISE_MODAL_ID}
-        title={t`Change to Organization Plan?`}
+        title={""Change to Organization Plan?"}
         subtitle={confirmationModalSwitchToOrganizationMessage()}
         onConfirmClick={switchPlan}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isSwitchingPlan}
       />
       <ConfirmationModal
         modalInstanceId={SWITCH_BILLING_PLAN_TO_PRO_MODAL_ID}
-        title={t`Change to Pro Plan?`}
+        title={""Change to Pro Plan?"}
         subtitle={confirmationModalSwitchToProMessage()}
         onConfirmClick={switchPlan}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isSwitchingPlan}
       />
       <ConfirmationModal
         modalInstanceId={CANCEL_SWITCH_BILLING_PLAN_MODAL_ID}
-        title={t`Cancel plan switching?`}
+        title={""Cancel plan switching?"}
         subtitle={confirmationModalCancelPlanSwitchingMessage()}
         onConfirmClick={cancelPlanSwitching}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isCancellingPlanSwitch}
       />
       <ConfirmationModal
         modalInstanceId={END_TRIAL_PERIOD_MODAL_ID}
-        title={t`Start Your Subscription`}
-        subtitle={t`We will activate your paid plan. Do you want to proceed?`}
+        title={""Start Your Subscription"}
+        subtitle={""We will activate your paid plan. Do you want to proceed?"}
         onConfirmClick={endTrialPeriod}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isEndTrialPeriodLoading}
       />
       <ConfirmationModal
         modalInstanceId={CANCEL_SWITCH_METERED_PRICE_MODAL_ID}
-        title={t`Cancel credit pack switching?`}
-        subtitle={t`You have scheduled a credit pack change. Do you want to cancel it?`}
+        title={""Cancel credit pack switching?"}
+        subtitle={""You have scheduled a credit pack change. Do you want to cancel it?"}
         onConfirmClick={cancelResourceCreditSwitching}
-        confirmButtonText={t`Confirm`}
+        confirmButtonText={"Konfirmasi"}
         confirmButtonAccent="blue"
         loading={isCancellingMeteredSwitch}
       />

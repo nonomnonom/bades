@@ -107,7 +107,7 @@ export const ObjectFilterDropdownCountrySelect = () => {
         autoFocus
         type="text"
         value={searchText}
-        placeholder={t`Search country`}
+        placeholder={""Search country"}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setSearchText(event.target.value);
         }}
@@ -140,7 +140,7 @@ export const ObjectFilterDropdownCountrySelect = () => {
             />
           );
         })}
-        {showNoResult && <MenuItem text={t`No results`} />}
+        {showNoResult && <MenuItem text={"Tidak ada hasil"} />}
       </DropdownMenuItemsContainer>
     </DropdownContent>
   );

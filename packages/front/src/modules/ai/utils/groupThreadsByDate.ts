@@ -30,21 +30,21 @@ const getThreadDateGroup = (
   if (localDayDifference === 0) {
     return {
       id: 'today',
-      title: t`Today`,
+      title: "Hari ini",
     };
   }
 
   if (localDayDifference === 1) {
     return {
       id: 'yesterday',
-      title: t`Yesterday`,
+      title: "Kemarin",
     };
   }
 
   if (localDayDifference >= 2 && localDayDifference <= 7) {
     return {
       id: 'previous-7-days',
-      title: t`Previous 7 days`,
+      title: ""Previous 7 days",
     };
   }
 

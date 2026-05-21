@@ -131,7 +131,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFieldSelectF
           selectableItemIdArray={selectableItemIdArray}
           selectableListInstanceId={advancedFilterFieldSelectDropdownId}
         >
-          <DropdownMenuSectionLabel label={t`Fields`} />
+          <DropdownMenuSectionLabel label={"Bidang-bidang"} />
           <DropdownMenuItemsContainer>
             {filteredFieldMetadataItems.map((fieldMetadataItem) => (
               <SelectableListItem

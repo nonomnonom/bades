@@ -59,7 +59,7 @@ export const RecordTableSettingsFilters = ({
 
   return (
     <StyledFilterSettingsContainer>
-      <InputLabel>{t`Conditions`}</InputLabel>
+      <InputLabel>{""Conditions"}</InputLabel>
       <RecordFilterGroupsComponentInstanceContext.Provider
         value={{ instanceId: recordIndexId }}
       >

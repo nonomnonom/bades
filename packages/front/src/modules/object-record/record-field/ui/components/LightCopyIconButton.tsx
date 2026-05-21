@@ -22,9 +22,9 @@ export const LightCopyIconButton = ({ copyText }: LightCopyIconButtonProps) => {
       <LightIconButton
         Icon={IconCopy}
         onClick={() => {
-          copyToClipboard(copyText, t`Text copied to clipboard`);
+          copyToClipboard(copyText, ""Text copied to clipboard");
         }}
-        aria-label={t`Copy to Clipboard`}
+        aria-label={""Copy to Clipboard"}
       />
     </StyledButtonContainer>
   );

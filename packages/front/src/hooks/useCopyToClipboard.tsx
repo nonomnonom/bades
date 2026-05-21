@@ -11,7 +11,7 @@ export const useCopyToClipboard = () => {
   const copyToClipboard = async (valueAsString: string, message?: string) => {
     if (!window.isSecureContext) {
       enqueueErrorSnackBar({
-        message: t`Clipboard requires a secure connection (HTTPS). Please access this app over HTTPS to enable copying.`,
+        message: ""Clipboard requires a secure connection (HTTPS). Please access this app over HTTPS to enable copying.",
         options: {
           icon: <IconExclamationCircle size={16} color="red" />,
           duration: 6000,
@@ -25,7 +25,7 @@ export const useCopyToClipboard = () => {
       await navigator.clipboard.writeText(valueAsString);
 
       enqueueSuccessSnackBar({
-        message: message || t`Copied to clipboard`,
+        message: message || ""Copied to clipboard",
         options: {
           icon: <IconCopy size={theme.icon.size.md} />,
           duration: 2000,
@@ -33,7 +33,7 @@ export const useCopyToClipboard = () => {
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Couldn't copy to clipboard`,
+        message: ""Couldn't copy to clipboard",
         options: {
           icon: <IconExclamationCircle size={16} color="red" />,
           duration: 2000,

@@ -37,7 +37,7 @@ export const useSignUpInNewWorkspace = () => {
               message:
                 error instanceof Error
                   ? error.message
-                  : t`Workspace creation failed`,
+                  : ""Workspace creation failed",
             },
       );
     }

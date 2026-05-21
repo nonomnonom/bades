@@ -29,7 +29,7 @@ export const FormCurrencyFieldInput = ({
   const currencies = useMemo(() => {
     return [
       {
-        label: t`No currency`,
+        label: ""No currency",
         value: '',
         Icon: IconCircleOff,
       },
@@ -58,7 +58,7 @@ export const FormCurrencyFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormSelectFieldInput
-          label={t`Currency Code`}
+          label={""Currency Code"}
           defaultValue={defaultValue?.currencyCode ?? ''}
           onChange={handleCurrencyCodeChange}
           options={currencies}
@@ -66,11 +66,11 @@ export const FormCurrencyFieldInput = ({
           readonly={readonly}
         />
         <FormNumberFieldInput
-          label={t`Amount Micros`}
+          label={""Amount Micros"}
           defaultValue={defaultValue?.amountMicros ?? ''}
           onChange={handleAmountMicrosChange}
           VariablePicker={VariablePicker}
-          hint={t`Enter amount x 1 000 000 (e.g. $3.21 → 3210000)`}
+          hint={""Enter amount x 1 000 000 (e.g. $3.21 → 3210000)"}
           readonly={readonly}
         />
       </FormNestedFieldInputContainer>

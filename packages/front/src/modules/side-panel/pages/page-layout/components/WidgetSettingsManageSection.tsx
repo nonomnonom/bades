@@ -95,13 +95,13 @@ export const WidgetSettingsManageSection = ({
 
   return (
     <>
-      <SidePanelGroup heading={t`Manage`}>
+      <SidePanelGroup heading={"Kelola"}>
         <SelectableListItem
           itemId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
         >
           <CommandMenuItemDropdown
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
-            label={t`Visibility Restriction`}
+            label={""Visibility Restriction"}
             Icon={IconEyeX}
             dropdownId={
               WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION
@@ -124,7 +124,7 @@ export const WidgetSettingsManageSection = ({
             <CommandMenuItem
               id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
               Icon={IconRefreshDot}
-              label={t`Reset to default`}
+              label={""Reset to default"}
               onClick={handleResetToDefault}
               disabled={isResetToDefaultDisabled}
             />
@@ -133,7 +133,7 @@ export const WidgetSettingsManageSection = ({
         {isResetToDefaultDisabled && (
           <AppTooltip
             anchorSelect={`#${RESET_WIDGET_TO_DEFAULT_MENU_ITEM_ID}`}
-            content={t`No default configuration available for this widget`}
+            content={""No default configuration available for this widget"}
             noArrow
             place="bottom"
           />
@@ -145,7 +145,7 @@ export const WidgetSettingsManageSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.REPLACE_WIDGET}
             Icon={IconSwitchHorizontal}
-            label={t`Replace widget`}
+            label={""Replace widget"}
             hasSubMenu
             onClick={handleReplaceWidget}
           />
@@ -157,15 +157,15 @@ export const WidgetSettingsManageSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.DELETE_WIDGET}
             Icon={IconTrash}
-            label={t`Delete widget`}
+            label={""Delete widget"}
             onClick={handleDeleteWidget}
           />
         </SelectableListItem>
       </SidePanelGroup>
       <ConfirmationModal
         modalInstanceId={RESET_WIDGET_TO_DEFAULT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This will cancel all modifications done on the widget. This action cannot be undone.`}
+        title={""Reset to default"}
+        subtitle={""This will cancel all modifications done on the widget. This action cannot be undone."}
         onConfirmClick={handleConfirmReset}
         confirmButtonText={t`Reset`}
         confirmButtonAccent="danger"

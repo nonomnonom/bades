@@ -25,17 +25,17 @@ export const SettingsAvailableStandardObjectsSection = ({
 }: SettingsAvailableStandardObjectsSectionProps) => (
   <Section>
     <H2Title
-      title={t`Available`}
-      description={t`Select one or several standard objects to activate below`}
+      title={"Tersedia"}
+      description={""Select one or several standard objects to activate below"}
     />
     <Table>
       <TableRow
         gridTemplateColumns={AVAILABLE_STANDARD_OBJECTS_GRID_TEMPLATE_COLUMNS}
       >
         <TableHeader></TableHeader>
-        <TableHeader>{t`Name`}</TableHeader>
-        <TableHeader>{t`Description`}</TableHeader>
-        <TableHeader align="right">{t`Fields`}</TableHeader>
+        <TableHeader>{"Nama"}</TableHeader>
+        <TableHeader>{"Deskripsi"}</TableHeader>
+        <TableHeader align="right">{"Bidang-bidang"}</TableHeader>
       </TableRow>
       <TableBody>
         {objectItems.map((objectItem) => (

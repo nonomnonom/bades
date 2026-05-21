@@ -27,13 +27,13 @@ export const SettingsUsageAnalyticsSection = () => {
     return (
       <Section>
         <H2Title
-          title={t`Usage Analytics`}
-          description={t`Credit usage breakdown for your workspace.`}
+          title={""Usage Analytics"}
+          description={""Credit usage breakdown for your workspace."}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`ClickHouse Not Configured`}
-            value={t`Usage analytics requires ClickHouse. Contact your administrator.`}
+            label={""ClickHouse Not Configured"}
+            value={""Usage analytics requires ClickHouse. Contact your administrator."}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -54,13 +54,13 @@ export const SettingsUsageAnalyticsSection = () => {
     return (
       <Section>
         <H2Title
-          title={t`Usage Analytics`}
-          description={t`Credit usage breakdown for your workspace.`}
+          title={""Usage Analytics"}
+          description={""Credit usage breakdown for your workspace."}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`No usage data yet`}
-            value={t`Usage analytics will appear here once you start using credits.`}
+            label={""No usage data yet"}
+            value={""Usage analytics will appear here once you start using credits."}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -70,19 +70,19 @@ export const SettingsUsageAnalyticsSection = () => {
   return (
     <>
       <UsageBreakdownPieSection
-        title={t`Usage by Type`}
+        title={""Usage by Type"}
         breakdownField="operationType"
         sectionId="usage-type"
       />
       <UsageDailyChartSection
-        title={t`Daily Usage`}
-        description={t`Credit consumption over time.`}
+        title={""Daily Usage"}
+        description={""Credit consumption over time."}
         chartId="usage-daily"
-        chartLabel={t`Credits`}
+        chartLabel={"Kredit"}
       />
       <UsageByUserTableSection
-        title={t`Usage by User`}
-        description={t`Click a user to see their daily breakdown.`}
+        title={""Usage by User"}
+        description={""Click a user to see their daily breakdown."}
         getDetailPath={(userWorkspaceId) =>
           getSettingsPath(SettingsPath.UsageUserDetail, {
             userWorkspaceId,
@@ -97,7 +97,7 @@ export const SettingsUsageAnalyticsSection = () => {
         >
           <Button
             Icon={IconSparkles}
-            title={t`View AI usage breakdown`}
+            title={""View AI usage breakdown"}
             variant="secondary"
           />
         </Link>

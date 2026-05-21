@@ -28,14 +28,14 @@ export const BackgroundMockPage = () => {
   return (
     <PageContainer>
       <PageHeader
-        title={t`Companies`}
+        title={""Companies"}
         Icon={() => (
           <TintedIconTile Icon={IconBuildingSkyscraper} color="blue" />
         )}
       >
         <Button
           Icon={IconPlus}
-          title={t`New Company`}
+          title={""New Company"}
           variant="primary"
           accent="default"
           size="small"

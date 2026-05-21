@@ -44,7 +44,7 @@ export const settingsDataModelObjectAboutFormSchema =
         nameFields.forEach((field) =>
           ctx.addIssue({
             code: 'custom',
-            message: t`Singular and plural names must be different`,
+            message: ""Singular and plural names must be different",
             path: [field],
           }),
         );

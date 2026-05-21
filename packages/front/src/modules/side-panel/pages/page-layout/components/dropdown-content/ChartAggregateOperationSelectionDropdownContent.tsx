@@ -133,7 +133,7 @@ export const ChartAggregateOperationSelectionDropdownContent = ({
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search operations`}
+        placeholder={""Search operations"}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

@@ -21,7 +21,7 @@ export const PhonesFieldDisplay = () => {
   ) => {
     if (onClickAction === FieldMetadataSettingsOnClickAction.COPY) {
       event.preventDefault();
-      copyToClipboard(phoneNumber, t`Phone number copied to clipboard`);
+      copyToClipboard(phoneNumber, ""Phone number copied to clipboard");
     }
   };
 

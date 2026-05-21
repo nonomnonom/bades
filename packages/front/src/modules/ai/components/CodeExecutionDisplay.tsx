@@ -222,10 +222,10 @@ export const CodeExecutionDisplay = ({
         : IconPlayerPlay;
 
   const statusText = isRunning
-    ? t`Running...`
+    ? ""Running..."
     : exitCode === 0
-      ? t`Completed`
-      : t`Failed`;
+      ? "Selesai"
+      : "Gagal";
 
   const hasOutput = stdout || stderr;
   const hasFiles = files.length > 0;
@@ -235,7 +235,7 @@ export const CodeExecutionDisplay = ({
       <StyledHeader status={status}>
         <StyledHeaderLeft>
           <IconCode size={theme.icon.size.md} />
-          <StyledTitle>{t`Python Code Execution`}</StyledTitle>
+          <StyledTitle>{""Python Code Execution"}</StyledTitle>
         </StyledHeaderLeft>
         <StyledHeaderRight>
           <StyledStatusBadge status={status}>
@@ -249,7 +249,7 @@ export const CodeExecutionDisplay = ({
         <StyledSectionHeader onClick={() => setIsCodeExpanded(!isCodeExpanded)}>
           <StyledSectionHeaderLeft>
             <IconCode size={theme.icon.size.sm} />
-            {t`Code`}
+            {"Kode"}
           </StyledSectionHeaderLeft>
           <StyledHeaderRight>
             <LightIconButton
@@ -258,7 +258,7 @@ export const CodeExecutionDisplay = ({
                 e.stopPropagation();
                 copyToClipboard(code);
               }}
-              title={t`Copy code`}
+              title={""Copy code"}
               size="small"
               accent="tertiary"
             />
@@ -320,7 +320,7 @@ export const CodeExecutionDisplay = ({
           >
             <StyledSectionHeaderLeft>
               <IconFile size={theme.icon.size.sm} />
-              {t`Generated Files`} ({files.length})
+              {""Generated Files"} ({files.length})
             </StyledSectionHeaderLeft>
             {isFilesExpanded ? (
               <IconChevronUp size={theme.icon.size.sm} />

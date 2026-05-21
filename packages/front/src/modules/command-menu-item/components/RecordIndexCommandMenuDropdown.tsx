@@ -104,7 +104,7 @@ export const RecordIndexCommandMenuDropdown = () => {
                       openSidePanelMenu();
                     }}
                     focused={selectedItemId === 'more-actions'}
-                    text={t`More actions`}
+                    text={""More actions"}
                   />
                 </SelectableListItem>
               </SelectableList>

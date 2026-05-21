@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
 export const AppFullScreenErrorFallback = ({
   error,
   resetErrorBoundary,
-  title = t`Sorry, something went wrong`,
+  title = ""Sorry, something went wrong",
 }: AppFullScreenErrorFallbackProps) => {
   return (
     <StyledContainer>

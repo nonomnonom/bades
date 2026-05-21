@@ -191,7 +191,7 @@ export const FilesFieldInput = () => {
       onEnter={handleEnter}
       onEscape={handleEscape}
       onClickOutside={handleClickOutside}
-      placeholder={t`File label`}
+      placeholder={""File label"}
       fieldMetadataType={FieldMetadataType.FILES}
       validateInput={validateInput}
       formatInput={formatInput}
@@ -205,7 +205,7 @@ export const FilesFieldInput = () => {
           onClick={() => handlePreview(file)}
         />
       )}
-      newItemLabel={isUploading ? t`Uploading...` : t`Upload file`}
+      newItemLabel={isUploading ? ""Uploading..." : "Unggah file"}
       onAddClick={handleUploadClick}
       onError={handleError}
       maxItemCount={maxNumberOfValues}

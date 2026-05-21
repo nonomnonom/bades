@@ -61,7 +61,7 @@ export const useAiChatEditor = () => {
       Paragraph,
       Text,
       Placeholder.configure({
-        placeholder: t`Ask, search or make anything...`,
+        placeholder: ""Ask, search or make anything...",
       }),
       HardBreak.configure({
         keepMarks: false,

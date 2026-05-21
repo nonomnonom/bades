@@ -75,21 +75,21 @@ export const SettingsAgentTurnDetail = () => {
   if (loading) {
     return (
       <SubMenuTopBarContainer
-        title={t`Turn Details`}
+        title={""Turn Details"}
         links={[
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
+          { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
           {
-            children: t`Agent`,
+            children: ""Agent",
             href: getSettingsPath(SettingsPath.AiAgentDetail).replace(
               ':agentId',
               agentId || '',
             ),
           },
-          { children: t`Turn` },
+          { children: ""Turn" },
         ]}
       >
         <SettingsPageContainer>
@@ -102,18 +102,18 @@ export const SettingsAgentTurnDetail = () => {
   if (!turn) {
     return (
       <SubMenuTopBarContainer
-        title={t`Turn Not Found`}
+        title={""Turn Not Found"}
         links={[
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
-          { children: t`Turn` },
+          { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
+          { children: ""Turn" },
         ]}
       >
         <SettingsPageContainer>
-          <div>{t`Turn not found`}</div>
+          <div>{""Turn not found"}</div>
         </SettingsPageContainer>
       </SubMenuTopBarContainer>
     );
@@ -121,27 +121,27 @@ export const SettingsAgentTurnDetail = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Turn Details`}
+      title={""Turn Details"}
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
+        { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
         {
-          children: t`Agent`,
+          children: ""Agent",
           href: getSettingsPath(SettingsPath.AiAgentDetail).replace(
             ':agentId',
             agentId || '',
           ),
         },
-        { children: t`Turn` },
+        { children: ""Turn" },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Messages`}
+            title={"Pesan-pesan"}
             description={new Date(turn.createdAt).toLocaleString('en-US', {
               dateStyle: 'medium',
               timeStyle: 'short',
@@ -163,10 +163,10 @@ export const SettingsAgentTurnDetail = () => {
               ).map((message) => {
                 const roleLabel =
                   message.role === 'user'
-                    ? t`User`
+                    ? "Pengguna"
                     : message.role === 'system'
-                      ? t`System`
-                      : t`Assistant`;
+                      ? "Sistem"
+                      : ""Assistant";
                 return (
                   <StyledMessageBubble key={message.id}>
                     <StyledMessageRole>{roleLabel}</StyledMessageRole>
@@ -181,20 +181,20 @@ export const SettingsAgentTurnDetail = () => {
               })}
             </StyledMessagesContainer>
           ) : (
-            <div>{t`No messages found for this turn`}</div>
+            <div>{""No messages found for this turn"}</div>
           )}
         </Section>
 
         <Section>
-          <H2Title title={t`Evaluations`} />
+          <H2Title title={""Evaluations"} />
           {turn.evaluations.length > 0 ? (
             <StyledTableContainer>
               <Table>
                 <StyledTableHeaderRowContainer>
                   <TableRow gridTemplateColumns="140px 80px 1fr">
-                    <TableHeader>{t`Date`}</TableHeader>
-                    <TableHeader>{t`Score`}</TableHeader>
-                    <TableHeader>{t`Comment`}</TableHeader>
+                    <TableHeader>{"Tanggal"}</TableHeader>
+                    <TableHeader>{""Score"}</TableHeader>
+                    <TableHeader>{"Komentar"}</TableHeader>
                   </TableRow>
                 </StyledTableHeaderRowContainer>
                 {[...turn.evaluations]
@@ -230,14 +230,14 @@ export const SettingsAgentTurnDetail = () => {
                         textOverflow="ellipsis"
                         whiteSpace="nowrap"
                       >
-                        {evaluation.comment || t`No comment`}
+                        {evaluation.comment || ""No comment"}
                       </TableCell>
                     </TableRow>
                   ))}
               </Table>
             </StyledTableContainer>
           ) : (
-            <div>{t`No evaluations yet for this turn`}</div>
+            <div>{""No evaluations yet for this turn"}</div>
           )}
         </Section>
       </SettingsPageContainer>

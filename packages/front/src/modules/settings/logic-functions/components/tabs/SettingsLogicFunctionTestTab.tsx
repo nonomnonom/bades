@@ -80,20 +80,20 @@ export const SettingsLogicFunctionTestTab = ({
 
   const triggerButtons: TriggerButton[] = [];
   if (isDefined(httpRouteTriggerSettings)) {
-    triggerButtons.push({ kind: 'http', label: t`HTTP`, Icon: IconWebhook });
+    triggerButtons.push({ kind: 'http', label: ""HTTP", Icon: IconWebhook });
   }
   if (isDefined(cronTriggerSettings)) {
-    triggerButtons.push({ kind: 'cron', label: t`Cron`, Icon: IconClock });
+    triggerButtons.push({ kind: 'cron', label: ""Cron", Icon: IconClock });
   }
   if (isDefined(databaseEventTriggerSettings)) {
     triggerButtons.push({
       kind: 'databaseEvent',
-      label: t`Database event`,
+      label: ""Database event",
       Icon: IconDatabase,
     });
   }
   if (isDefined(toolTriggerSettings)) {
-    triggerButtons.push({ kind: 'tool', label: t`AI tool`, Icon: IconTool });
+    triggerButtons.push({ kind: 'tool', label: ""AI tool", Icon: IconTool });
   }
 
   const onChange = (value: string) => {
@@ -127,13 +127,13 @@ export const SettingsLogicFunctionTestTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Test your function`}
-        description={t`Insert a JSON input, then press "Run Function".`}
+        title={""Test your function"}
+        description={""Insert a JSON input, then press "Run Function"."}
       />
       <StyledInputsContainer>
         {triggerButtons.length > 0 && (
           <div>
-            <StyledTriggerLabel>{t`Fill with sample input from`}</StyledTriggerLabel>
+            <StyledTriggerLabel>{""Fill with sample input from"}</StyledTriggerLabel>
             <StyledTriggerButtonRow>
               {triggerButtons.map((trigger) => (
                 <Button
@@ -153,7 +153,7 @@ export const SettingsLogicFunctionTestTab = ({
             title={t`Input`}
             rightNodes={[
               <Button
-                title={t`Run Function`}
+                title={""Run Function"}
                 variant="primary"
                 accent="blue"
                 size="small"

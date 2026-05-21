@@ -37,7 +37,7 @@ export const CommandMenuItemEditButton = () => {
 
     navigateSidePanel({
       page: SidePanelPages.CommandMenuEdit,
-      pageTitle: t`Edit actions`,
+      pageTitle: ""Edit actions",
       pageIcon: IconPencil,
       resetNavigationStack: true,
     });
@@ -52,7 +52,7 @@ export const CommandMenuItemEditButton = () => {
           InactiveIcon={IconPencil}
         />
       }
-      title={t`Edit actions`}
+      title={""Edit actions"}
       variant="secondary"
       size="small"
       onClick={handleClick}

@@ -303,10 +303,10 @@ export const NavigationMenuItemFolderDnd = ({
             subtitle={
               favoritesEdit.navigationMenuItemCount > 1
                 ? t`This action will delete this folder and all ${favoritesEdit.navigationMenuItemCount} navigation menu items inside. Do you want to continue?`
-                : t`This action will delete this folder and the navigation menu item inside. Do you want to continue?`
+                : ""This action will delete this folder and the navigation menu item inside. Do you want to continue?"
             }
             onConfirmClick={favoritesEdit.handleConfirmDelete}
-            confirmButtonText={t`Delete Folder`}
+            confirmButtonText={""Delete Folder"}
           />,
           document.body,
         )
@@ -390,7 +390,7 @@ export const NavigationMenuItemFolderDnd = ({
               />
               {isWorkspace && isLayoutCustomizationModeEnabled && (
                 <NavigationDrawerSubItem
-                  label={t`Add menu item`}
+                  label={""Add menu item"}
                   Icon={IconPlus}
                   onClick={handleAddMenuItemToFolder}
                   triggerEvent="CLICK"

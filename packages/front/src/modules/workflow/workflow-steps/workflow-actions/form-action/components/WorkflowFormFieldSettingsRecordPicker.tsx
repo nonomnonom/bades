@@ -45,10 +45,10 @@ export const WorkflowFormFieldSettingsRecordPicker = ({
       <FormFieldInputContainer>
         <Select
           dropdownId="workflow-form-field-settings-record-picker-object-name"
-          label={t`Object`}
+          label={"Objek"}
           fullWidth
           value={field.settings?.objectName}
-          emptyOption={{ label: t`Select an option`, value: '' }}
+          emptyOption={{ label: "Pilih opsi", value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             onChange({
@@ -56,7 +56,7 @@ export const WorkflowFormFieldSettingsRecordPicker = ({
               placeholder: `Select a ${
                 activeNonSystemObjectMetadataItems.find(
                   (item) => item.nameSingular === updatedObjectName,
-                )?.labelSingular || t`record`
+                )?.labelSingular || ""record"
               }`,
               settings: {
                 ...field.settings,

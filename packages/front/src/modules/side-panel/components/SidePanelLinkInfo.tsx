@@ -27,8 +27,8 @@ export const SidePanelLinkInfo = () => {
   const items = useNavigationMenuItemSectionItems();
   const { updateLinkInDraft } = useUpdateLinkInDraft();
 
-  const defaultLabel = t`Link label`;
-  const placeholder = t`Link label`;
+  const defaultLabel = ""Link label";
+  const placeholder = ""Link label";
 
   const selectedItem = selectedNavigationMenuItemIdInEditMode
     ? items.find(
@@ -82,7 +82,7 @@ export const SidePanelLinkInfo = () => {
           onFocus={() => setSidePanelShouldFocusTitleInput(false)}
         />
       }
-      label={t`Link`}
+      label={"Tautan"}
     />
   );
 };

@@ -95,7 +95,7 @@ export const SettingsAgentModelCapabilities = ({
       ? [
           {
             key: 'webSearch' as const,
-            label: t`Web Search`,
+            label: ""Web Search",
             Icon: IconWorld,
             enabled: modelConfiguration.webSearch?.enabled || false,
           },
@@ -105,7 +105,7 @@ export const SettingsAgentModelCapabilities = ({
       ? [
           {
             key: 'twitterSearch' as const,
-            label: t`Twitter/X Search`,
+            label: ""Twitter/X Search",
             Icon: IconBrandX,
             enabled: modelConfiguration.twitterSearch?.enabled || false,
           },
@@ -115,7 +115,7 @@ export const SettingsAgentModelCapabilities = ({
 
   return (
     <Section>
-      <InputLabel>{t`Enable model-specific features`}</InputLabel>
+      <InputLabel>{""Enable model-specific features"}</InputLabel>
       <div>
         {capabilities.map((capability) => (
           <StyledCheckboxContainer

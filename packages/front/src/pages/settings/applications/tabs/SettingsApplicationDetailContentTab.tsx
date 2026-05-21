@@ -187,7 +187,7 @@ export const SettingsApplicationDetailContentTab = ({
     <>
       <Section>
         <SearchInput
-          placeholder={t`Search...`}
+          placeholder={""Search..."}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -197,17 +197,17 @@ export const SettingsApplicationDetailContentTab = ({
         <Section>
           <H2Title
             title={t`Data`}
-            description={t`Schema this app contributes to your workspace`}
+            description={""Schema this app contributes to your workspace"}
           />
           <Table>
             <SettingsApplicationContentSubtable
-              title={t`Objects`}
+              title={"Objek-objek"}
               rows={filtered.objects}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Fields added to other objects`}
+              title={""Fields added to other objects"}
               rows={filtered.fields}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
@@ -219,36 +219,36 @@ export const SettingsApplicationDetailContentTab = ({
       {hasLayout && (
         <Section>
           <H2Title
-            title={t`Layout`}
-            description={t`How records, pages, and navigation are displayed`}
+            title={"Tata letak"}
+            description={""How records, pages, and navigation are displayed"}
           />
           <Table>
             <SettingsApplicationContentSubtable
-              title={t`Page layouts`}
+              title={""Page layouts"}
               rows={filtered.pageLayouts}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Views`}
+              title={""Views"}
               rows={filtered.views}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Navigation menu items`}
+              title={""Navigation menu items"}
               rows={filtered.navigation}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Front components`}
+              title={""Front components"}
               rows={filtered.frontComponents}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Command menu items`}
+              title={""Command menu items"}
               rows={filtered.commandMenuItems}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
@@ -260,36 +260,36 @@ export const SettingsApplicationDetailContentTab = ({
       {hasLogic && (
         <Section>
           <H2Title
-            title={t`Logic`}
-            description={t`Automation, AI, and access this app provides`}
+            title={""Logic"}
+            description={""Automation, AI, and access this app provides"}
           />
           <Table>
             <SettingsApplicationContentSubtable
-              title={t`Logic functions`}
+              title={""Logic functions"}
               rows={filtered.logicFunctions}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Agents`}
+              title={""Agents"}
               rows={filtered.agents}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Skills`}
+              title={""Skills"}
               rows={filtered.skills}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Roles`}
+              title={"Peran-peran"}
               rows={filtered.roles}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}
             />
             <SettingsApplicationContentSubtable
-              title={t`Connection providers`}
+              title={""Connection providers"}
               rows={filtered.connectionProviders}
               applicationId={applicationId}
               fallbackApplicationData={fallbackApplicationData}

@@ -56,13 +56,13 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
     authProvider: keyof Omit<AuthProviders, '__typename' | 'magicLink' | 'sso'>,
   ) => {
     if (!currentWorkspace?.id) {
-      throw new Error(t`User is not logged in`);
+      throw new Error(""User is not logged in");
     }
 
     const key = `is${capitalize(authProvider)}AuthEnabled`;
 
     if (!isValidAuthProvider(key)) {
-      throw new Error(t`Invalid auth provider`);
+      throw new Error(""Invalid auth provider");
     }
 
     const allAuthProvidersEnabled = [
@@ -78,7 +78,7 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
         1
     ) {
       return enqueueErrorSnackBar({
-        message: t`At least one authentication method must be enabled`,
+        message: ""At least one authentication method must be enabled",
       });
     }
 
@@ -108,7 +108,7 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
   const handleChange = async (value: boolean) => {
     try {
       if (!currentWorkspace?.id) {
-        throw new Error(t`User is not logged in`);
+        throw new Error(""User is not logged in");
       }
       await updateWorkspace({
         variables: {
@@ -136,8 +136,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
             {authProviders.google === true && (
               <SettingsOptionCardContentToggle
                 Icon={IconGoogle}
-                title={t`Google`}
-                description={t`Allow logins through Google's single sign-on functionality.`}
+                title={""Google"}
+                description={""Allow logins through Google's single sign-on functionality."}
                 checked={currentWorkspace.isGoogleAuthEnabled}
                 advancedMode
                 divider
@@ -150,7 +150,7 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
               <SettingsOptionCardContentToggle
                 Icon={IconMicrosoft}
                 title={t`Microsoft`}
-                description={t`Allow logins through Microsoft's single sign-on functionality.`}
+                description={""Allow logins through Microsoft's single sign-on functionality."}
                 checked={currentWorkspace.isMicrosoftAuthEnabled}
                 advancedMode
                 divider
@@ -162,8 +162,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
             {authProviders.password === true && (
               <SettingsOptionCardContentToggle
                 Icon={IconPassword}
-                title={t`Password`}
-                description={t`Allow users to sign in with an email and password.`}
+                title={"Kata sandi"}
+                description={""Allow users to sign in with an email and password."}
                 checked={currentWorkspace.isPasswordAuthEnabled}
                 advancedMode
                 onChange={() => toggleAuthMethod('password')}
@@ -173,8 +173,8 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
           <Card rounded>
             <SettingsOptionCardContentToggle
               Icon={IconLink}
-              title={t`Invite by Link`}
-              description={t`Allow the invitation of new users by sharing an invite link.`}
+              title={""Invite by Link"}
+              description={""Allow the invitation of new users by sharing an invite link."}
               checked={currentWorkspace.isPublicInviteLinkEnabled}
               advancedMode
               divider

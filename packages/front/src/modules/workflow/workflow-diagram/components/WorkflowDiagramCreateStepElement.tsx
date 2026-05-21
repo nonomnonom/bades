@@ -59,7 +59,7 @@ export const WorkflowDiagramCreateStepElement = ({
       <IconButton
         Icon={IconPlus}
         size="small"
-        ariaLabel={t`Add a step`}
+        ariaLabel={"Tambah langkah"}
         onClick={addNode}
       />
     </StyledContainer>

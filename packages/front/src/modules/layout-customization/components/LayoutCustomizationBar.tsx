@@ -94,7 +94,7 @@ const LayoutCustomizationBarContent = () => {
 
   const title = isDefined(recordPageLayoutObject)
     ? t`${recordPageLayoutObject.labelPlural} layout edition`
-    : t`Layout customization`;
+    : ""Layout customization";
 
   return (
     <motion.div

@@ -92,7 +92,7 @@ export const generateColumns = (
       return (
         <StyledCheckboxContainer>
           <Checkbox
-            aria-label={t`Select`}
+            aria-label={"Pilih"}
             checked={isRowSelected}
             variant={CheckboxVariant.Tertiary}
             onChange={(event) => {

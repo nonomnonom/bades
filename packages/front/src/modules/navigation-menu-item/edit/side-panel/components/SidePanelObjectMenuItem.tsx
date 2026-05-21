@@ -76,7 +76,7 @@ export const SidePanelObjectMenuItem = ({
           id={objectMetadataItem.id}
           onClick={handleClick}
           disabled={isDisabled}
-          description={isAlreadyInNavbar ? t`Already in navbar` : undefined}
+          description={isAlreadyInNavbar ? ""Already in navbar" : undefined}
         />
       )}
     </SelectableListItem>

@@ -201,12 +201,12 @@ export const SettingsToolsTable = () => {
   return (
     <Section>
       <H2Title
-        title={t`Tools`}
-        description={t`Use filter to see existing tools or create your own`}
+        title={""Tools"}
+        description={""Use filter to see existing tools or create your own"}
       />
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Search a tool...`}
+          placeholder={""Search a tool..."}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton: ReactNode) => (
@@ -224,7 +224,7 @@ export const SettingsToolsTable = () => {
                         setShowCustomTools(!showCustomTools)
                       }
                       toggled={showCustomTools}
-                      text={t`Custom`}
+                      text={"Kustom"}
                       toggleSize="small"
                     />
                     <MenuItemToggle
@@ -233,7 +233,7 @@ export const SettingsToolsTable = () => {
                         setShowManagedTools(!showManagedTools)
                       }
                       toggled={showManagedTools}
-                      text={t`Managed`}
+                      text={""Managed"}
                       toggleSize="small"
                     />
                     <MenuItemToggle
@@ -242,7 +242,7 @@ export const SettingsToolsTable = () => {
                         setShowStandardTools(!showStandardTools)
                       }
                       toggled={showStandardTools}
-                      text={t`Standard`}
+                      text={"Standar"}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>
@@ -255,8 +255,8 @@ export const SettingsToolsTable = () => {
       <Table>
         <StyledTableHeaderRowContainer>
           <TableRow gridTemplateColumns={TOOL_TABLE_ROW_GRID_TEMPLATE_COLUMNS}>
-            <TableHeader>{t`Name`}</TableHeader>
-            <TableHeader>{t`App`}</TableHeader>
+            <TableHeader>{"Nama"}</TableHeader>
+            <TableHeader>{""App"}</TableHeader>
             <TableHeader />
           </TableRow>
         </StyledTableHeaderRowContainer>

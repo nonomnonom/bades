@@ -41,14 +41,14 @@ const getStatusTag = (
   signingKey: Pick<SigningKeyDto, 'isCurrent' | 'revokedAt'>,
 ): { text: string; color: TagColor } => {
   if (isDefined(signingKey.revokedAt)) {
-    return { text: t`Revoked`, color: 'red' };
+    return { text: ""Revoked", color: 'red' };
   }
 
   if (signingKey.isCurrent === true) {
-    return { text: t`Current`, color: 'green' };
+    return { text: "Saat ini", color: 'green' };
   }
 
-  return { text: t`Active`, color: 'gray' };
+  return { text: "Aktif", color: 'gray' };
 };
 
 export const SettingsAdminSigningKeysTable = () => {
@@ -94,8 +94,8 @@ export const SettingsAdminSigningKeysTable = () => {
       <Table>
         <TableBody>
           <TableRow gridTemplateColumns={SIGNING_KEYS_GRID_TEMPLATE_COLUMNS}>
-            <TableHeader>{t`Key ID`}</TableHeader>
-            <TableHeader>{t`Revoked`}</TableHeader>
+            <TableHeader>{""Key ID"}</TableHeader>
+            <TableHeader>{""Revoked"}</TableHeader>
             <TableHeader>{t`Status`}</TableHeader>
             <TableHeader align="right">
               {t`Uses (last ${verifyWindowDays}d)`}
@@ -121,9 +121,9 @@ export const SettingsAdminSigningKeysTable = () => {
                     Icon={IconCopy}
                     size="small"
                     variant="tertiary"
-                    ariaLabel={t`Copy key ID`}
+                    ariaLabel={""Copy key ID"}
                     onClick={() =>
-                      copyToClipboard(signingKey.id, t`Key ID copied`)
+                      copyToClipboard(signingKey.id, ""Key ID copied")
                     }
                   />
                 </TableCell>
@@ -148,7 +148,7 @@ export const SettingsAdminSigningKeysTable = () => {
                 </TableCell>
                 <TableCell align="right">
                   <Button
-                    title={t`Revoke`}
+                    title={"Cabut"}
                     size="small"
                     variant="secondary"
                     accent="danger"
@@ -167,14 +167,14 @@ export const SettingsAdminSigningKeysTable = () => {
           <TableRow gridTemplateColumns={SIGNING_KEYS_GRID_TEMPLATE_COLUMNS}>
             <TableCell overflow="hidden">
               <OverflowingTextWithTooltip
-                text={t`Legacy (HS256)`}
-                tooltipContent={t`Legacy HS256 verifications across all tokens`}
+                text={""Legacy (HS256)"}
+                tooltipContent={""Legacy HS256 verifications across all tokens"}
                 alwaysShowTooltip
               />
             </TableCell>
             <TableCell>{EM_DASH}</TableCell>
             <TableCell>
-              <Tag text={t`Legacy`} color="gray" />
+              <Tag text={""Legacy"} color="gray" />
             </TableCell>
             <TableCell align="right">{legacyVerifyCountInWindow}</TableCell>
             <TableCell align="right" />

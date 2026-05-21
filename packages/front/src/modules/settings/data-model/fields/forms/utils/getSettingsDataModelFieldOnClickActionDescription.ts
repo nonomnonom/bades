@@ -10,11 +10,11 @@ export const getSettingsDataModelFieldOnClickActionDescription = (
 ) => {
   switch (fieldType) {
     case FieldMetadataType.PHONES:
-      return t`Choose what happens when you click a phone number`;
+      return ""Choose what happens when you click a phone number";
     case FieldMetadataType.EMAILS:
-      return t`Choose what happens when you click an email`;
+      return ""Choose what happens when you click an email";
     case FieldMetadataType.LINKS:
-      return t`Choose what happens when you click a link`;
+      return ""Choose what happens when you click a link";
     default:
       assertUnreachable(fieldType, `Invalid field type: ${fieldType}`);
   }

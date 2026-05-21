@@ -90,8 +90,8 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`HTTP`}
-      description={t`Triggers the function with an HTTP request`}
+      title={""HTTP"}
+      description={""Triggers the function with an HTTP request"}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_HTTP_SETTINGS : null)
@@ -102,7 +102,7 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
         <StyledFields>
           <Select
             dropdownId="logic-function-http-trigger-method"
-            label={t`Method`}
+            label={"Metode"}
             fullWidth
             disabled={readonly}
             value={value.httpMethod as HTTPMethod}
@@ -113,7 +113,7 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
           />
           <SettingsTextInput
             instanceId="logic-function-http-trigger-path"
-            label={t`Path`}
+            label={""Path"}
             placeholder="/my-route"
             value={value.path}
             onChange={(newPath: string) => updateField('path', newPath)}
@@ -122,14 +122,14 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
           />
           <SettingsTextInput
             instanceId="logic-function-http-trigger-url"
-            label={t`Live URL`}
+            label={""Live URL"}
             value={fullUrl}
             onChange={() => {}}
             readOnly
             fullWidth
             RightIcon={IconCopy}
             onRightIconClick={() =>
-              copyToClipboard(fullUrl, t`URL copied to clipboard`)
+              copyToClipboard(fullUrl, ""URL copied to clipboard")
             }
           />
           <StyledAuthRow>
@@ -140,14 +140,14 @@ export const SettingsLogicFunctionHttpTriggerSection = ({
               toggleSize="small"
               color={theme.color.blue}
             />
-            <StyledAuthLabel>{t`Require authentication`}</StyledAuthLabel>
+            <StyledAuthLabel>{""Require authentication"}</StyledAuthLabel>
           </StyledAuthRow>
           <SettingsLogicFunctionTriggerPayloadFormat
             payload={buildHttpPayload(value)}
             hint={
               value.httpMethod === HTTPMethod.GET
-                ? t`Your handler receives this object. The body is empty because GET requests carry no payload.`
-                : t`Your handler receives this object. The body holds the parsed JSON sent by the client.`
+                ? ""Your handler receives this object. The body is empty because GET requests carry no payload."
+                : ""Your handler receives this object. The body holds the parsed JSON sent by the client."
             }
           />
         </StyledFields>

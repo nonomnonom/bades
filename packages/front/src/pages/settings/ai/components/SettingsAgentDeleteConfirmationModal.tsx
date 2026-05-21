@@ -48,7 +48,7 @@ export const SettingsAgentDeleteConfirmationModal = ({
       confirmationValue={agentName}
       confirmationPlaceholder={agentName}
       modalInstanceId={DELETE_AGENT_MODAL_ID}
-      title={t`Delete Agent`}
+      title={""Delete Agent"}
       subtitle={
         <Trans>
           This action cannot be undone. This will permanently delete your agent.
@@ -57,7 +57,7 @@ export const SettingsAgentDeleteConfirmationModal = ({
         </Trans>
       }
       onConfirmClick={handleDelete}
-      confirmButtonText={t`Delete Agent`}
+      confirmButtonText={""Delete Agent"}
     />
   );
 };

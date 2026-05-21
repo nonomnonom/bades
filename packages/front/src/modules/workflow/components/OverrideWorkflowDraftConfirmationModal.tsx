@@ -42,10 +42,10 @@ export const OverrideWorkflowDraftConfirmationModal = ({
     <>
       <ConfirmationModal
         modalInstanceId={OVERRIDE_WORKFLOW_DRAFT_CONFIRMATION_MODAL_ID}
-        title={t`A draft already exists`}
-        subtitle={t`A draft already exists for this workflow. Are you sure you want to erase it?`}
+        title={"Draf sudah ada"}
+        subtitle={"Draf sudah ada untuk alur kerja ini. Apakah Anda yakin ingin menghapusnya?"}
         onConfirmClick={handleOverrideDraft}
-        confirmButtonText={t`Override Draft`}
+        confirmButtonText={""Override Draft"}
         AdditionalButtons={
           <StyledCenteredButton
             to={getAppPath(AppPath.RecordShowPage, {
@@ -56,7 +56,7 @@ export const OverrideWorkflowDraftConfirmationModal = ({
               closeModal(OVERRIDE_WORKFLOW_DRAFT_CONFIRMATION_MODAL_ID);
             }}
             variant="secondary"
-            title={t`Go to Draft`}
+            title={""Go to Draft"}
             fullWidth
             justify="center"
           />

@@ -22,15 +22,15 @@ export const DateTimeSettingsTimeZoneSelect = ({
   return (
     <Select
       dropdownId="settings-accounts-calendar-time-zone"
-      label={t`Time zone`}
+      label={"Zona waktu"}
       dropdownWidthAuto
       fullWidth
       value={value}
       options={[
         {
           label: isDefined(systemTimeZoneOption)
-            ? t`System settings`.concat(` - ${systemTimeZoneOption.label}`)
-            : t`System settings`,
+            ? ""System settings".concat(` - ${systemTimeZoneOption.label}`)
+            : ""System settings",
           value: 'system',
         },
         ...(AVAILABLE_TIMEZONE_OPTIONS as SelectOption<string>[]),

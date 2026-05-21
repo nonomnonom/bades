@@ -74,11 +74,11 @@ export const SettingsAdminWorkspaceContent = ({
   const workspaceInfoItems = [
     {
       Icon: IconHome,
-      label: t`Name`,
+      label: "Nama",
       value: activeWorkspace?.id ? (
         <LinkChip
           label={activeWorkspace?.name ?? ''}
-          emptyLabel={t`Untitled`}
+          emptyLabel={""Untitled"}
           to={getSettingsPath(SettingsPath.AdminPanelWorkspaceDetail, {
             workspaceId: activeWorkspace.id,
           })}
@@ -106,7 +106,7 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconId,
-      label: t`Schema name`,
+      label: ""Schema name",
       value: isDefined(activeWorkspace?.id)
         ? getWorkspaceSchemaName(activeWorkspace.id)
         : '',
@@ -120,7 +120,7 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconUser,
-      label: t`Members`,
+      label: "Anggota",
       value: activeWorkspace?.totalUsers,
     },
     {
@@ -130,7 +130,7 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconCalendar,
-      label: t`Created`,
+      label: "Dibuat",
       value: activeWorkspace?.createdAt
         ? new Date(activeWorkspace.createdAt).toLocaleDateString()
         : '',
@@ -143,8 +143,8 @@ export const SettingsAdminWorkspaceContent = ({
     <StyledContainer>
       <Section>
         <H2Title
-          title={t`Workspace Info`}
-          description={t`About this workspace`}
+          title={""Workspace Info"}
+          description={"Tentang ruang kerja ini"}
         />
         <SettingsTableCard
           items={workspaceInfoItems}
@@ -154,8 +154,8 @@ export const SettingsAdminWorkspaceContent = ({
       {workspaceUpgradeStatus && (
         <Section>
           <H2Title
-            title={t`Upgrade Status`}
-            description={t`Workspace upgrade health`}
+            title={""Upgrade Status"}
+            description={""Workspace upgrade health"}
           />
           <SettingsTableCard
             items={[
@@ -172,12 +172,12 @@ export const SettingsAdminWorkspaceContent = ({
               },
               {
                 Icon: IconId,
-                label: t`Inferred version`,
-                value: workspaceUpgradeStatus.inferredVersion ?? t`Unknown`,
+                label: ""Inferred version",
+                value: workspaceUpgradeStatus.inferredVersion ?? "Tidak dikenal",
               },
               {
                 Icon: IconCalendar,
-                label: t`Last command`,
+                label: ""Last command",
                 value: (
                   <OverflowingTextWithTooltip
                     text={
@@ -185,32 +185,32 @@ export const SettingsAdminWorkspaceContent = ({
                         ? formatUpgradeCommandName(
                             workspaceUpgradeStatus.latestCommand.name,
                           )
-                        : t`None`
+                        : "Tidak ada"
                     }
                   />
                 ),
               },
               {
                 Icon: IconCalendar,
-                label: t`Last updated`,
+                label: ""Last updated",
                 value: isNonEmptyString(formattedLastUpdated)
                   ? formattedLastUpdated
-                  : t`N/A`,
+                  : ""N/A",
               },
               {
                 Icon: IconStatusChange,
-                label: t`Last command result`,
+                label: ""Last command result",
                 value: workspaceUpgradeStatus.latestCommand?.status
                   ? workspaceUpgradeStatus.latestCommand.status === 'completed'
-                    ? t`Completed`
-                    : t`Failed`
-                  : t`N/A`,
+                    ? "Selesai"
+                    : "Gagal"
+                  : ""N/A",
               },
               ...(workspaceUpgradeStatus.latestCommand?.errorMessage
                 ? [
                     {
                       Icon: IconStatusChange,
-                      label: t`Last error`,
+                      label: ""Last error",
                       value: (
                         <OverflowingTextWithTooltip
                           text={

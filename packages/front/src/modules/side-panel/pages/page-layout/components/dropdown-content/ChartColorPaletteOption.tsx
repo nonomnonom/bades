@@ -65,7 +65,7 @@ export const ChartColorPaletteOption = ({
       }}
     >
       <MenuItemSelect
-        text={t`Default palette`}
+        text={""Default palette"}
         selected={false}
         focused={selectedItemId === 'auto' || currentColor === 'auto'}
         contextualText={colorSamples}

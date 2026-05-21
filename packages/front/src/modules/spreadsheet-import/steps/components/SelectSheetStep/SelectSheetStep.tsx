@@ -100,7 +100,7 @@ export const SelectSheetStep = ({
   return (
     <>
       <ModalContent isVerticallyCentered isHorizontallyCentered gap={8}>
-        <Heading title={t`Select the sheet to use`} />
+        <Heading title={""Select the sheet to use"} />
         <StyledRadioContainer>
           {sheetNames.map((sheetName) => (
             <StyledRadioItemContainer key={sheetName}>
@@ -120,7 +120,7 @@ export const SelectSheetStep = ({
         onContinue={() => handleOnContinue(value)}
         onBack={onBack}
         isLoading={isLoading}
-        continueTitle={t`Next Step`}
+        continueTitle={""Next Step"}
       />
     </>
   );

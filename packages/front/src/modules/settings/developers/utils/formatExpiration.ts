@@ -26,11 +26,11 @@ export const formatExpiration = (
   short = true,
 ) => {
   if (!isNonEmptyString(expiresAt) || doesNeverExpire(expiresAt)) {
-    return withExpiresMention ? t`Never expires` : t`Never`;
+    return withExpiresMention ? ""Never expires" : ""Never";
   }
   const dateDiff = beautifyDateDiff(expiresAt, undefined, short);
   if (dateDiff.includes('-')) {
-    return t`Expired`;
+    return ""Expired";
   }
   return withExpiresMention ? t`Expires in ${dateDiff}` : t`In ${dateDiff}`;
 };

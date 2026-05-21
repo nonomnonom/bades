@@ -91,17 +91,17 @@ export const SettingsAdminWorkerMetricsGraph = ({
   const getAxisLabel = () => {
     switch (timeRange) {
       case QueueMetricsTimeRange.OneHour:
-        return t`Last 1 Hour (oldest → newest)`;
+        return ""Last 1 Hour (oldest → newest)";
       case QueueMetricsTimeRange.FourHours:
-        return t`Last 4 Hours (oldest → newest)`;
+        return ""Last 4 Hours (oldest → newest)";
       case QueueMetricsTimeRange.TwelveHours:
-        return t`Last 12 Hours (oldest → newest)`;
+        return ""Last 12 Hours (oldest → newest)";
       case QueueMetricsTimeRange.OneDay:
-        return t`Last 24 Hours (oldest → newest)`;
+        return ""Last 24 Hours (oldest → newest)";
       case QueueMetricsTimeRange.SevenDays:
-        return t`Last 7 Days (oldest → newest)`;
+        return ""Last 7 Days (oldest → newest)";
       default:
-        return t`Recent Events (oldest → newest)`;
+        return ""Recent Events (oldest → newest)";
     }
   };
 
@@ -109,7 +109,7 @@ export const SettingsAdminWorkerMetricsGraph = ({
     <>
       <StyledGraphContainer>
         {loading ? (
-          <StyledNoDataMessage>{t`Loading metrics data...`}</StyledNoDataMessage>
+          <StyledNoDataMessage>{""Loading metrics data..."}</StyledNoDataMessage>
         ) : hasData ? (
           <ResponsiveLine
             data={metricsData}
@@ -198,7 +198,7 @@ export const SettingsAdminWorkerMetricsGraph = ({
             ]}
           />
         ) : (
-          <StyledNoDataMessage>{t`No metrics data available`}</StyledNoDataMessage>
+          <StyledNoDataMessage>{""No metrics data available"}</StyledNoDataMessage>
         )}
       </StyledGraphContainer>
       {isDefined(metricsDetails) && (

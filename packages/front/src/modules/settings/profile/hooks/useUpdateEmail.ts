@@ -28,7 +28,7 @@ export const useUpdateEmail = () => {
       });
 
       enqueueInfoSnackBar({
-        message: t`Check your inbox to verify your new email address.`,
+        message: ""Check your inbox to verify your new email address.",
       });
     } catch (error) {
       if (CombinedGraphQLErrors.is(error)) {

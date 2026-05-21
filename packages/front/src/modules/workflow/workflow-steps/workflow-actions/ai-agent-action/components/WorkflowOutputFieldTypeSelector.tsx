@@ -19,7 +19,7 @@ export const WorkflowOutputFieldTypeSelector = ({
   return (
     <Select
       dropdownId={dropdownId}
-      label={t`Type`}
+      label={"Tipe"}
       options={OUTPUT_FIELD_TYPE_OPTIONS.map((option) => ({
         ...option,
         label: t(option.label),

@@ -22,7 +22,7 @@ export const useHandleResetPassword = () => {
       return async () => {
         if (!email) {
           enqueueErrorSnackBar({
-            message: t`Invalid email`,
+            message: ""Invalid email",
           });
           return;
         }
@@ -36,7 +36,7 @@ export const useHandleResetPassword = () => {
 
           if (data?.emailPasswordResetLink?.success === true) {
             enqueueSuccessSnackBar({
-              message: t`Password reset link has been sent to the email`,
+              message: ""Password reset link has been sent to the email",
             });
           } else {
             enqueueErrorSnackBar({});

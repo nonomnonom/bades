@@ -63,21 +63,21 @@ export const FooterNote = () => {
   if (!isOnAWorkspace) {
     return (
       <StyledCopyContainer>
-        <Trans>By using Twenty, you agree to the</Trans>{' '}
+        "By using Twenty, you agree to the{' '}
         <a
           href="https://twenty.com/legal/terms"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Trans>Terms of Service</Trans>
+          "Terms of Service
         </a>{' '}
-        <Trans>and</Trans>{' '}
+        "and{' '}
         <a
           href="https://twenty.com/legal/privacy"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Trans>Privacy Policy</Trans>
+          "Privacy Policy
         </a>
         .
       </StyledCopyContainer>
@@ -89,7 +89,7 @@ export const FooterNote = () => {
       {shouldOfferBypass && !shouldUseBypass && (
         <>
           <button type="button" onClick={enableBypass}>
-            <Trans>Bypass SSO</Trans>
+            "Bypass SSO
           </button>
           <StyledSeparator>•</StyledSeparator>
         </>
@@ -99,7 +99,7 @@ export const FooterNote = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Trans>Privacy Policy</Trans>
+        "Privacy Policy
       </a>
       <StyledSeparator>•</StyledSeparator>
       <a
@@ -107,7 +107,7 @@ export const FooterNote = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Trans>Terms of Service</Trans>
+        "Terms of Service
       </a>
     </StyledLinksContainer>
   );

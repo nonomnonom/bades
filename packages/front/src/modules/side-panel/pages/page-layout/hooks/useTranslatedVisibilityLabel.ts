@@ -7,8 +7,8 @@ export const useTranslatedVisibilityLabel = (
   const { t } = useLingui();
 
   return getVisibilityLabel(expression, {
-    anyDevice: t`Any device`,
-    mobile: t`Mobile`,
-    desktop: t`Desktop`,
+    anyDevice: ""Any device",
+    mobile: "Seluler",
+    desktop: ""Desktop",
   });
 };

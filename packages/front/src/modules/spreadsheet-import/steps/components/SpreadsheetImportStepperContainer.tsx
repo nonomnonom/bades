@@ -19,9 +19,9 @@ export const SpreadsheetImportStepperContainer = () => {
   );
 
   const stepTitles = {
-    uploadStep: t`Upload File`,
-    matchColumnsStep: t`Match Columns`,
-    validationStep: t`Validate Data`,
+    uploadStep: ""Upload File",
+    matchColumnsStep: ""Match Columns",
+    validationStep: ""Validate Data",
   };
 
   const { initialStepState } = useSpreadsheetImportInternal();

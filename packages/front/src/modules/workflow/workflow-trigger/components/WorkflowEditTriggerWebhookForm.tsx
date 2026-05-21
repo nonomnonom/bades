@@ -79,7 +79,7 @@ export const WorkflowEditTriggerWebhookForm = ({
     <>
       <WorkflowStepBody>
         <TextInput
-          label={t`Live URL`}
+          label={""Live URL"}
           value={displayWebhookUrl}
           RightIcon={() => (
             <IconCopy
@@ -92,7 +92,7 @@ export const WorkflowEditTriggerWebhookForm = ({
         />
         <Select
           dropdownId="workflow-edit-webhook-trigger-http-method"
-          label={t`HTTP method`}
+          label={""HTTP method"}
           fullWidth
           disabled={triggerOptions.readonly}
           value={trigger.settings.httpMethod}
@@ -115,8 +115,8 @@ export const WorkflowEditTriggerWebhookForm = ({
         />
         {trigger.settings.httpMethod === 'POST' && (
           <FormRawJsonFieldInput
-            label={t`Expected Body`}
-            placeholder={t`Enter a JSON object`}
+            label={""Expected Body"}
+            placeholder={""Enter a JSON object"}
             error={
               errorMessagesVisible ? errorMessages.expectedBody : undefined
             }
@@ -170,7 +170,7 @@ export const WorkflowEditTriggerWebhookForm = ({
         )}
         <Select
           dropdownId="workflow-edit-webhook-trigger-auth"
-          label={t`Auth`}
+          label={""Auth"}
           fullWidth
           disabled
           value={trigger.settings.authentication}

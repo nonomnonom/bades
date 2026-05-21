@@ -52,7 +52,7 @@ export const DeleteAccount = () => {
   const leaveWorkspace = async () => {
     if (!isDefined(currentWorkspaceMemberId)) {
       enqueueErrorSnackBar({
-        message: t`Current workspace member not found.`,
+        message: ""Current workspace member not found.",
       });
       return;
     }
@@ -68,11 +68,11 @@ export const DeleteAccount = () => {
   return (
     <>
       <H2Title
-        title={t`Danger zone`}
+        title={""Danger zone"}
         description={
           userHasMultipleWorkspaces
-            ? t`Delete account and all the associated data or leave workspace`
-            : t`Delete account and all the associated data`
+            ? ""Delete account and all the associated data or leave workspace"
+            : ""Delete account and all the associated data"
         }
       />
       {userHasMultipleWorkspaces && (
@@ -81,23 +81,23 @@ export const DeleteAccount = () => {
             accent="danger"
             onClick={() => openModal(LEAVE_WORKSPACE_MODAL_ID)}
             variant="secondary"
-            title={t`Leave workspace`}
+            title={"Keluar dari ruang kerja"}
           />
 
           <ConfirmationModal
             confirmationValue={userEmail}
             confirmationPlaceholder={userEmail ?? ''}
             modalInstanceId={LEAVE_WORKSPACE_MODAL_ID}
-            title={t`Leave workspace`}
+            title={"Keluar dari ruang kerja"}
             subtitle={
               <>
-                {t`This action cannot be undone. This will permanently remove your membership from this workspace.`}
+                {""This action cannot be undone. This will permanently remove your membership from this workspace."}
                 <br />
-                {t`Please type in your email to confirm.`}
+                {""Please type in your email to confirm."}
               </>
             }
             onConfirmClick={leaveWorkspace}
-            confirmButtonText={t`Leave workspace`}
+            confirmButtonText={"Keluar dari ruang kerja"}
           />
         </StyledDiv>
       )}
@@ -105,23 +105,23 @@ export const DeleteAccount = () => {
         accent="danger"
         onClick={() => openModal(DELETE_ACCOUNT_MODAL_ID)}
         variant="secondary"
-        title={t`Delete account`}
+        title={"Hapus akun"}
       />
       <ConfirmationModal
         confirmationValue={userEmail}
         confirmationPlaceholder={userEmail ?? ''}
         modalInstanceId={DELETE_ACCOUNT_MODAL_ID}
-        title={t`Account Deletion`}
+        title={"Penghapusan Akun"}
         subtitle={
           <>
             {t`This action cannot be undone. This will permanently delete your
             entire account.`}
             <br />
-            {t`Please type in your email to confirm.`}
+            {""Please type in your email to confirm."}
           </>
         }
         onConfirmClick={deleteAccount}
-        confirmButtonText={t`Delete account`}
+        confirmButtonText={"Hapus akun"}
       />
     </>
   );

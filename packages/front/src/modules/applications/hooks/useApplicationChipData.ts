@@ -58,9 +58,9 @@ export const useApplicationChipData = ({
   const isCustom = isWorkspaceCustomApplication(application, currentWorkspace);
 
   const displayName = isStandard
-    ? t`Standard`
+    ? "Standar"
     : isCustom
-      ? t`Custom`
+      ? "Kustom"
       : application.name;
 
   const logo = isStandard

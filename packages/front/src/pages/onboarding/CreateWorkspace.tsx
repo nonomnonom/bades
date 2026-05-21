@@ -77,7 +77,7 @@ export const CreateWorkspace = () => {
 
   const validationSchema = z
     .object({
-      name: z.string().min(1, { message: t`Name can not be empty` }),
+      name: z.string().min(1, { message: ""Name can not be empty" }),
     })
     .required();
 
@@ -118,7 +118,7 @@ export const CreateWorkspace = () => {
         });
 
         if (isDefined(result.error)) {
-          throw result.error ?? new Error(t`Unknown error`);
+          throw result.error ?? new Error(""Unknown error");
         }
 
         await loadCurrentUser();
@@ -159,22 +159,22 @@ export const CreateWorkspace = () => {
             }
           />
           <Title>
-            <Trans>Creating your workspace</Trans>
+            "Creating your workspace
           </Title>
           <StyledPendingCreationLoader>
             {pendingCreationLoaderStep === PendingCreationLoaderStep.Step1 && (
               <SubTitle>
-                <Trans>Setting up your database...</Trans>
+                "Setting up your database...
               </SubTitle>
             )}
             {pendingCreationLoaderStep === PendingCreationLoaderStep.Step2 && (
               <SubTitle>
-                <Trans>Creating your data model...</Trans>
+                "Creating your data model...
               </SubTitle>
             )}
             {pendingCreationLoaderStep === PendingCreationLoaderStep.Step3 && (
               <SubTitle>
-                <Trans>Prefilling your workspace data...</Trans>
+                "Prefilling your workspace data...
               </SubTitle>
             )}
           </StyledPendingCreationLoader>
@@ -186,7 +186,7 @@ export const CreateWorkspace = () => {
       {pendingCreationLoaderStep === PendingCreationLoaderStep.None && (
         <>
           <Title noMarginTop>
-            <Trans>Create your workspace</Trans>
+            "Create your workspace
           </Title>
           <SubTitle>
             <Trans>
@@ -197,13 +197,13 @@ export const CreateWorkspace = () => {
 
           <StyledContentContainer>
             <StyledSectionContainer>
-              <H2Title title={t`Workspace logo`} />
+              <H2Title title={""Workspace logo"} />
               <WorkspaceLogoUploader />
             </StyledSectionContainer>
             <StyledSectionContainer>
               <H2Title
-                title={t`Workspace name`}
-                description={t`The name of your organization`}
+                title={""Workspace name"}
+                description={""The name of your organization"}
               />
               <Controller
                 name="name"
@@ -215,7 +215,7 @@ export const CreateWorkspace = () => {
                   <TextInput
                     autoFocus
                     value={value}
-                    placeholder={t`Apple`}
+                    placeholder={""Apple"}
                     onBlur={onBlur}
                     onChange={onChange}
                     error={error?.message}
@@ -228,7 +228,7 @@ export const CreateWorkspace = () => {
           </StyledContentContainer>
           <StyledButtonContainer>
             <MainButton
-              title={t`Continue`}
+              title={"Lanjutkan"}
               onClick={handleSubmit(onSubmit)}
               disabled={!isValid || isSubmitting}
               Icon={() => isSubmitting && <Loader />}

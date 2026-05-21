@@ -47,7 +47,7 @@ const StyledRecordTypeSelectContainer = styled.div<{ fullWidth?: boolean }>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
 `;
 
-const defaultSelectedOptionMessage = msg`Select an option`;
+const defaultSelectedOptionMessage = "Pilih opsi";
 
 type WorkflowEditActionFindRecordsProps = {
   action: WorkflowFindRecordsAction;
@@ -185,7 +185,7 @@ export const WorkflowEditActionFindRecords = ({
     <>
       <WorkflowStepBody>
         <StyledRecordTypeSelectContainer fullWidth>
-          <StyledLabel>{t`Object`}</StyledLabel>
+          <StyledLabel>{"Objek"}</StyledLabel>
           <Dropdown
             dropdownId={dropdownId}
             dropdownPlacement="bottom-start"
@@ -262,7 +262,7 @@ export const WorkflowEditActionFindRecords = ({
         {isDefined(selectedObjectMetadataItem) && (
           <>
             <div>
-              <InputLabel>{t`Sort`}</InputLabel>
+              <InputLabel>{"Urutkan"}</InputLabel>
               <WorkflowFindRecordsSorts
                 recordSorts={formData.orderBy?.recordSorts ?? []}
                 objectMetadataItem={selectedObjectMetadataItem}
@@ -299,9 +299,9 @@ export const WorkflowEditActionFindRecords = ({
         )}
 
         <FormNumberFieldInput
-          label={t`Limit`}
+          label={"Batas"}
           defaultValue={formData.limit}
-          placeholder={t`Enter limit`}
+          placeholder={""Enter limit"}
           readonly={isFormDisabled}
           hint={t`This action can return up to ${maxRecordsFormatted} records.`}
           error={limitError}
@@ -313,7 +313,7 @@ export const WorkflowEditActionFindRecords = ({
             const normalizedLimit = Math.floor(limit);
 
             if (normalizedLimit <= 0) {
-              setLimitError(t`Limit must be greater than 0.`);
+              setLimitError(""Limit must be greater than 0.");
               return;
             }
 

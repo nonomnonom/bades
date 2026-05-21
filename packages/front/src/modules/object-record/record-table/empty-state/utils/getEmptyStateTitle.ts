@@ -6,11 +6,11 @@ export const getEmptyStateTitle = (
   objectLabel: string,
 ) => {
   if (objectNameSingular === CoreObjectNameSingular.WorkflowVersion) {
-    return t`No workflow versions yet`;
+    return ""No workflow versions yet";
   }
 
   if (objectNameSingular === CoreObjectNameSingular.WorkflowRun) {
-    return t`No workflow runs yet`;
+    return ""No workflow runs yet";
   }
 
   return t`Add your first ${objectLabel}`;

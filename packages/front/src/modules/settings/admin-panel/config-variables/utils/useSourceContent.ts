@@ -12,17 +12,17 @@ export const useSourceContent = (source: ConfigSource) => {
   switch (source) {
     case ConfigSource.DATABASE:
       return {
-        text: t`Stored in database`,
+        text: ""Stored in database",
         color: theme.color.blue10,
       };
     case ConfigSource.ENVIRONMENT:
       return {
-        text: t`Environment variable`,
+        text: ""Environment variable",
         color: theme.color.green10,
       };
     case ConfigSource.DEFAULT:
       return {
-        text: t`Default value`,
+        text: ""Default value",
         color: theme.font.color.tertiary,
       };
     default:

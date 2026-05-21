@@ -55,7 +55,7 @@ export const InformationBannerMaintenance = () => {
       componentInstanceId="information-banner-maintenance"
       variant="secondary"
       message={message}
-      buttonTitle={isDefined(maintenanceLink) ? t`Learn more` : undefined}
+      buttonTitle={isDefined(maintenanceLink) ? "Pelajari lebih lanjut" : undefined}
       buttonIcon={isDefined(maintenanceLink) ? IconExternalLink : undefined}
       buttonOnClick={
         isDefined(maintenanceLink)

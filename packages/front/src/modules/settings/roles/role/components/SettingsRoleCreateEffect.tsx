@@ -40,7 +40,7 @@ export const SettingsRoleCreateEffect = ({
 
     const newRole = {
       id: roleId,
-      label: t`Untitled role`,
+      label: ""Untitled role",
       description: '',
       icon: 'IconUser',
       canUpdateAllSettings: true,

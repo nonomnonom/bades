@@ -71,14 +71,14 @@ export const SettingsRoleDefaultRole = ({
   return (
     <Section>
       <H2Title
-        title={t`Default Role`}
-        description={t`Assigned to users who join via invite link, approved domain, or SSO, and used as fallback when an assigned role is deleted`}
+        title={""Default Role"}
+        description={""Assigned to users who join via invite link, approved domain, or SSO, and used as fallback when an assigned role is deleted"}
       />
       <Card rounded>
         <SettingsOptionCardContentSelect
           Icon={IconUserPin}
-          title={t`Default Role`}
-          description={t`Set a default for this workspace`}
+          title={""Default Role"}
+          description={""Set a default for this workspace"}
         >
           <Select
             selectSizeVariant="small"

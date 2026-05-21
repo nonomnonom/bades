@@ -62,7 +62,7 @@ export const useMergeRecordsActions = ({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to merge records. Please try again.`,
+            : ""Failed to merge records. Please try again.",
       });
     } finally {
       setIsMergeInProgress(false);

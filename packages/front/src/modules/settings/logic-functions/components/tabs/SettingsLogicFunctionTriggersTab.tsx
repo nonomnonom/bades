@@ -53,12 +53,12 @@ export const SettingsLogicFunctionTriggersTab = ({
           variant="info"
           Icon={IconInfoCircle}
           title={t`Bundled with ${applicationName}`}
-          description={t`This function has no trigger configured, so it can only be invoked from the Test tab or by other functions.`}
+          description={""This function has no trigger configured, so it can only be invoked from the Test tab or by other functions."}
         />
       </StyledCalloutWrapper>
     ) : (
       <StyledEmptyState>
-        {t`No trigger is configured for this function.`}
+        {""No trigger is configured for this function."}
       </StyledEmptyState>
     );
   }
@@ -92,7 +92,7 @@ export const SettingsLogicFunctionTriggersTab = ({
       />
       {!readonly && !hasAnyTrigger && (
         <StyledEmptyState>
-          {t`No trigger is enabled. Toggle one of the options above to choose how this function gets invoked.`}
+          {""No trigger is enabled. Toggle one of the options above to choose how this function gets invoked."}
         </StyledEmptyState>
       )}
     </>

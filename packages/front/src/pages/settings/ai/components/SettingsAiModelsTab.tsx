@@ -67,7 +67,7 @@ export const SettingsAiModelsTab = () => {
         autoSelectEntry.modelFamily,
         autoSelectEntry.providerName,
       ),
-      contextualText: t`Best`,
+      contextualText: ""Best",
     };
   };
 
@@ -120,7 +120,7 @@ export const SettingsAiModelsTab = () => {
       });
 
       enqueueErrorSnackBar({
-        message: t`Failed to update model`,
+        message: ""Failed to update model",
       });
     }
   };
@@ -164,7 +164,7 @@ export const SettingsAiModelsTab = () => {
       });
 
       enqueueErrorSnackBar({
-        message: t`Failed to update model selection mode`,
+        message: ""Failed to update model selection mode",
       });
     }
   };
@@ -203,7 +203,7 @@ export const SettingsAiModelsTab = () => {
       });
 
       enqueueErrorSnackBar({
-        message: t`Failed to update model availability`,
+        message: ""Failed to update model availability",
       });
     }
   };
@@ -224,15 +224,15 @@ export const SettingsAiModelsTab = () => {
     <>
       <Section>
         <H2Title
-          title={t`Default`}
-          description={t`Configure your default AI model`}
+          title={"Bawaan"}
+          description={""Configure your default AI model"}
         />
 
         <Card rounded>
           <SettingsOptionCardContentSelect
             Icon={IconBrain}
-            title={t`Smart Model`}
-            description={t`Used for chats, agents, and complex reasoning`}
+            title={""Smart Model"}
+            description={""Used for chats, agents, and complex reasoning"}
           >
             <Select
               dropdownId="smart-model-select"
@@ -246,8 +246,8 @@ export const SettingsAiModelsTab = () => {
           </SettingsOptionCardContentSelect>
           <SettingsOptionCardContentSelect
             Icon={IconBolt}
-            title={t`Fast Model`}
-            description={t`Used for lightweight tasks like title generation`}
+            title={""Fast Model"}
+            description={""Used for lightweight tasks like title generation"}
           >
             <Select
               dropdownId="fast-model-select"
@@ -264,14 +264,14 @@ export const SettingsAiModelsTab = () => {
 
       <Section>
         <H2Title
-          title={t`Available`}
-          description={t`Models available in the chat model picker`}
+          title={"Tersedia"}
+          description={""Models available in the chat model picker"}
         />
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconStar}
-            title={t`Use best models only`}
-            description={t`Restrict available models to a curated list`}
+            title={""Use best models only"}
+            description={""Restrict available models to a curated list"}
             checked={useRecommendedModels}
             onChange={handleUseRecommendedToggle}
             divider={!useRecommendedModels}
@@ -281,7 +281,7 @@ export const SettingsAiModelsTab = () => {
         {!useRecommendedModels && (
           <StyledCustomModelsContainer>
             <SearchInput
-              placeholder={t`Search a model...`}
+              placeholder={""Search a model..."}
               value={searchQuery}
               onChange={setSearchQuery}
             />
@@ -314,7 +314,7 @@ export const SettingsAiModelsTab = () => {
                     enabledAiModelIds: previousIds,
                   });
                   enqueueErrorSnackBar({
-                    message: t`Failed to update model availability`,
+                    message: ""Failed to update model availability",
                   });
                 }
               }}

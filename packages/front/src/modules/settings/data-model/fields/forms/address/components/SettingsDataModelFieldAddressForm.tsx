@@ -49,7 +49,7 @@ export const SettingsDataModelFieldAddressForm = ({
   const { control } = useFormContext<SettingsDataModelFieldTextFormValues>();
   const countries = [
     {
-      label: t`No country`,
+      label: ""No country",
       value: '',
       Icon: IconCircleOff,
     },
@@ -85,8 +85,8 @@ export const SettingsDataModelFieldAddressForm = ({
           return (
             <SettingsOptionCardContentSelect
               Icon={IconMap}
-              title={t`Default Country`}
-              description={t`The default country for new addresses`}
+              title={""Default Country"}
+              description={""The default country for new addresses"}
             >
               <Select<string>
                 dropdownWidth={220}
@@ -117,8 +117,8 @@ export const SettingsDataModelFieldAddressForm = ({
           return (
             <SettingsOptionCardContentSelect
               Icon={IconList}
-              title={t`Sub-Fields`}
-              description={t`Decide which Sub-address fields you want to display`}
+              title={""Sub-Fields"}
+              description={""Decide which Sub-address fields you want to display"}
             >
               <MultiSelectAddressFields<string>
                 options={DEFAULT_SELECTION_ADDRESS_WITH_MESSAGES.map(
@@ -131,7 +131,7 @@ export const SettingsDataModelFieldAddressForm = ({
                 dropdownId="addressSubFieldsId"
                 onChange={onChange}
                 callToActionButton={{
-                  text: t`Reset to default`,
+                  text: ""Reset to default",
                   onClick: (event: MouseEvent<HTMLDivElement>) => {
                     event.preventDefault();
                     reset();

@@ -79,7 +79,7 @@ export const WorkspaceSection = () => {
       current.includes(folderId) ? current : [...current, folderId],
     );
     openNavigationMenuItemInSidePanel({
-      pageTitle: t`Edit folder`,
+      pageTitle: ""Edit folder",
       pageIcon: getIcon(item.icon ?? FOLDER_ICON_DEFAULT),
     });
     const firstChild = workspaceNavigationMenuItemsSorted.find((navItem) => {
@@ -141,7 +141,7 @@ export const WorkspaceSection = () => {
         break;
       case NavigationMenuItemType.LINK:
         openNavigationMenuItemInSidePanel({
-          pageTitle: t`Edit link`,
+          pageTitle: ""Edit link",
           pageIcon: IconLink,
         });
         break;
@@ -166,7 +166,7 @@ export const WorkspaceSection = () => {
     event?.stopPropagation();
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`New menu item`,
+      pageTitle: ""New menu item",
       pageIcon: IconColumnInsertRight,
       resetNavigationStack: true,
     });
@@ -174,7 +174,7 @@ export const WorkspaceSection = () => {
 
   return (
     <WorkspaceSectionContainer
-      sectionTitle={t`Workspace`}
+      sectionTitle={"Ruang kerja"}
       items={items}
       rightIcon={
         <StyledRightIconsContainer>

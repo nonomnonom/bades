@@ -136,15 +136,15 @@ export const EventCardCalendarEvent = ({
       );
 
       if (shouldHandleNotFound) {
-        return <div>{t`Calendar event not found`}</div>;
+        return <div>{""Calendar event not found"}</div>;
       }
     }
 
-    return <div>{t`Error loading calendar event`}</div>;
+    return <div>{""Error loading calendar event"}</div>;
   }
 
   if (loading || isUndefined(calendarEvent)) {
-    return <div>{t`Loading...`}</div>;
+    return <div>{""Loading..."}</div>;
   }
 
   const startsAtDate = calendarEvent?.startsAt;

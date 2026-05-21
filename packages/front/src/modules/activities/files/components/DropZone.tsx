@@ -90,9 +90,9 @@ export const DropZone = ({
               size={theme.icon.size.lg}
             />
           </StyledUploadIconContainer>
-          <StyledUploadDragTitle>{t`Upload files`}</StyledUploadDragTitle>
+          <StyledUploadDragTitle>{""Upload files"}</StyledUploadDragTitle>
           <StyledUploadDragSubTitle>
-            {t`Drag and Drop Here`}
+            {""Drag and Drop Here"}
           </StyledUploadDragSubTitle>
         </>
       )}

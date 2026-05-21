@@ -35,13 +35,13 @@ export const SettingsAdminConnectedAccountHealthStatus = () => {
 
   const getErrorMessage = () => {
     if (isMessageSyncDown && isCalendarSyncDown) {
-      return t`Message Sync and Calendar Sync are not available because the service is down`;
+      return ""Message Sync and Calendar Sync are not available because the service is down";
     }
     if (isMessageSyncDown) {
-      return t`Message Sync is not available because the service is down`;
+      return ""Message Sync is not available because the service is down";
     }
     if (isCalendarSyncDown) {
-      return t`Calendar Sync is not available because the service is down`;
+      return ""Calendar Sync is not available because the service is down";
     }
     return null;
   };
@@ -55,16 +55,16 @@ export const SettingsAdminConnectedAccountHealthStatus = () => {
       {!isMessageSyncDown && serviceDetails.messageSync?.details && (
         <SettingsAdminHealthAccountSyncCountersTable
           details={serviceDetails.messageSync.details}
-          title={t`Message Sync`}
-          description={t`Monitor the execution of your emails sync job`}
+          title={""Message Sync"}
+          description={""Monitor the execution of your emails sync job"}
         />
       )}
 
       {!isCalendarSyncDown && serviceDetails.calendarSync?.details && (
         <SettingsAdminHealthAccountSyncCountersTable
           details={serviceDetails.calendarSync.details}
-          title={t`Calendar Sync`}
-          description={t`Monitor the execution of your calendar events sync job`}
+          title={""Calendar Sync"}
+          description={""Monitor the execution of your calendar events sync job"}
         />
       )}
     </StyledContainer>

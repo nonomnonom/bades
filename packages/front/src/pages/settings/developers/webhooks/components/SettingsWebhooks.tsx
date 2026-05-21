@@ -33,27 +33,27 @@ export const SettingsWebhooks = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Webhooks`}
+      title={""Webhooks"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Webhooks</Trans> },
+        { children: "Webhooks },
       ]}
     >
       <SettingsPageContainer>
         <StyledContainer isMobile={isMobile}>
           <Section>
             <H2Title
-              title={t`Webhooks`}
-              description={t`Establish Webhook endpoints for notifications on asynchronous events.`}
+              title={""Webhooks"}
+              description={""Establish Webhook endpoints for notifications on asynchronous events."}
             />
             <SettingsWebhooksTable />
             <StyledButtonContainer>
               <Button
                 Icon={IconPlus}
-                title={t`Create Webhook`}
+                title={""Create Webhook"}
                 size="small"
                 variant="secondary"
                 to={getSettingsPath(SettingsPath.NewWebhook)}

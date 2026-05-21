@@ -62,7 +62,7 @@ export const FieldsConfigurationGroupRenameInput = ({
         autoFocus
         fullWidth
         sizeVariant="sm"
-        placeholder={t`Group name`}
+        placeholder={""Group name"}
       />
       <Button
         variant="primary"

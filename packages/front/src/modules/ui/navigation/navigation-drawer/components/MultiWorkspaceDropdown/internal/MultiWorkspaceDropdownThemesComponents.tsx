@@ -28,7 +28,7 @@ export const MultiWorkspaceDropdownThemesComponents = () => {
           />
         }
       >
-        {t`Theme`}
+        {"Tema"}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {colorSchemeList.map((theme) => (
@@ -37,10 +37,10 @@ export const MultiWorkspaceDropdownThemesComponents = () => {
             LeftIcon={theme.icon}
             text={
               theme.id === 'System'
-                ? t`System`
+                ? "Sistem"
                 : theme.id === 'Dark'
-                  ? t`Dark`
-                  : t`Light`
+                  ? ""Dark"
+                  : ""Light"
             }
             onClick={() => setColorScheme(theme.id)}
             RightIcon={theme.id === colorScheme ? IconCheck : undefined}

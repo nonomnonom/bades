@@ -101,7 +101,7 @@ export const ActivityTargetsInlineCell = ({
                 showLabel: showLabel,
                 readonly: isReadOnly,
                 labelWidth: fieldDefinition?.labelWidth,
-                label: t`Relations`,
+                label: ""Relations",
                 displayModeContent: (
                   <ActivityTargetChips
                     activityTargetObjectRecords={activityTargetObjectRecords}

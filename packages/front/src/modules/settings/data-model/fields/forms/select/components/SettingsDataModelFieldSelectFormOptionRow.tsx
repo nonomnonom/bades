@@ -28,31 +28,31 @@ import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { MAIN_COLOR_NAMES } from 'ui/theme';
 
 const useColorLabels = (): ColorLabels => ({
-  gray: t`Gray`,
-  tomato: t`Tomato`,
-  red: t`Red`,
-  ruby: t`Ruby`,
-  crimson: t`Crimson`,
-  pink: t`Pink`,
-  plum: t`Plum`,
-  purple: t`Purple`,
-  violet: t`Violet`,
-  iris: t`Iris`,
-  cyan: t`Cyan`,
-  turquoise: t`Turquoise`,
-  sky: t`Sky`,
-  blue: t`Blue`,
-  jade: t`Jade`,
-  green: t`Green`,
-  grass: t`Grass`,
-  mint: t`Mint`,
-  lime: t`Lime`,
-  bronze: t`Bronze`,
-  gold: t`Gold`,
-  brown: t`Brown`,
-  orange: t`Orange`,
-  amber: t`Amber`,
-  yellow: t`Yellow`,
+  gray: ""Gray",
+  tomato: ""Tomato",
+  red: ""Red",
+  ruby: ""Ruby",
+  crimson: ""Crimson",
+  pink: ""Pink",
+  plum: ""Plum",
+  purple: ""Purple",
+  violet: ""Violet",
+  iris: ""Iris",
+  cyan: ""Cyan",
+  turquoise: ""Turquoise",
+  sky: ""Sky",
+  blue: ""Blue",
+  jade: ""Jade",
+  green: ""Green",
+  grass: ""Grass",
+  mint: ""Mint",
+  lime: ""Lime",
+  bronze: ""Bronze",
+  gold: ""Gold",
+  brown: ""Brown",
+  orange: ""Orange",
+  amber: ""Amber",
+  yellow: ""Yellow",
 });
 
 type SettingsDataModelFieldSelectFormOptionRowProps = {
@@ -229,7 +229,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                 {isDefault ? (
                   <MenuItem
                     LeftIcon={IconX}
-                    text={t`Remove as default`}
+                    text={""Remove as default"}
                     onClick={() => {
                       onRemoveAsDefault?.();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);
@@ -238,7 +238,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                 ) : (
                   <MenuItem
                     LeftIcon={IconCheck}
-                    text={t`Set as default`}
+                    text={"Jadikan bawaan"}
                     onClick={() => {
                       onSetAsDefault?.();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);
@@ -249,7 +249,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                   <MenuItem
                     accent="danger"
                     LeftIcon={IconTrash}
-                    text={t`Remove option`}
+                    text={""Remove option"}
                     onClick={() => {
                       onRemove();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);

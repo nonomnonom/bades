@@ -184,7 +184,7 @@ export const FieldsConfigurationGroupEditor = ({
           >
             {sortedFields.length === 0 && (
               <StyledEmptyGroupDropZone>
-                {t`Drop fields here`}
+                {""Drop fields here"}
               </StyledEmptyGroupDropZone>
             )}
             {sortedFields.map((field, fieldIndex) => {

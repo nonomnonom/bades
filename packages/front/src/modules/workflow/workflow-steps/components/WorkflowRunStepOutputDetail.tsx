@@ -51,13 +51,13 @@ export const WorkflowRunStepOutputDetail = ({ stepId }: { stepId: string }) => {
     <>
       <WorkflowRunStepJsonContainer>
         <JsonTree
-          value={stepInfoToDisplay ?? t`No output available`}
+          value={stepInfoToDisplay ?? ""No output available"}
           shouldExpandNodeInitially={isTwoFirstDepths}
-          emptyArrayLabel={t`Empty Array`}
-          emptyObjectLabel={t`Empty Object`}
-          emptyStringLabel={t`[empty string]`}
-          arrowButtonCollapsedLabel={t`Expand`}
-          arrowButtonExpandedLabel={t`Collapse`}
+          emptyArrayLabel={""Empty Array"}
+          emptyObjectLabel={""Empty Object"}
+          emptyStringLabel={"[string kosong]"}
+          arrowButtonCollapsedLabel={"Perluas"}
+          arrowButtonExpandedLabel={"Ciutkan"}
           getNodeHighlighting={
             isDefined(stepInfo?.error)
               ? setRedHighlightingForEveryNode

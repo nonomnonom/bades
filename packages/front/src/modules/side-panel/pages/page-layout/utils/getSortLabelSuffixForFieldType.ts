@@ -21,15 +21,15 @@ export const getSortLabelSuffixForFieldType = ({
     orderBy === GraphOrderBy.VALUE_ASC;
 
   if (!isDefined(fieldType)) {
-    return isAscending ? t`ascending` : t`descending`;
+    return isAscending ? ""ascending" : ""descending";
   }
 
   if (isFieldMetadataTextKind(fieldType)) {
-    return isAscending ? t`alphabetical` : t`reverse alphabetical`;
+    return isAscending ? ""alphabetical" : ""reverse alphabetical";
   }
 
   if (isFieldMetadataNumericKind(fieldType)) {
-    return isAscending ? t`ascending` : t`descending`;
+    return isAscending ? ""ascending" : ""descending";
   }
 
   if (fieldType === FieldMetadataType.SELECT) {
@@ -37,18 +37,18 @@ export const getSortLabelSuffixForFieldType = ({
       orderBy === GraphOrderBy.FIELD_ASC ||
       orderBy === GraphOrderBy.FIELD_DESC
     ) {
-      return isAscending ? t`alphabetical` : t`reverse alphabetical`;
+      return isAscending ? ""alphabetical" : ""reverse alphabetical";
     }
 
     if (
       orderBy === GraphOrderBy.FIELD_POSITION_ASC ||
       orderBy === GraphOrderBy.FIELD_POSITION_DESC
     ) {
-      return isAscending ? t`position ascending` : t`position descending`;
+      return isAscending ? ""position ascending" : ""position descending";
     }
 
-    return isAscending ? t`ascending` : t`descending`;
+    return isAscending ? ""ascending" : ""descending";
   }
 
-  return isAscending ? t`ascending` : t`descending`;
+  return isAscending ? ""ascending" : ""descending";
 };

@@ -51,7 +51,7 @@ export const SettingsAccountsListEmptyStateCard = () => {
       {(isGoogleMessagingEnabled || isGoogleCalendarEnabled) && (
         <SettingsCard
           Icon={<IconGoogle size={theme.icon.size.md} />}
-          title={t`Connect with Google`}
+          title={""Connect with Google"}
           onClick={() => triggerApisOAuth(ConnectedAccountProvider.GOOGLE)}
         />
       )}
@@ -59,7 +59,7 @@ export const SettingsAccountsListEmptyStateCard = () => {
       {(isMicrosoftMessagingEnabled || isMicrosoftCalendarEnabled) && (
         <SettingsCard
           Icon={<IconMicrosoft size={theme.icon.size.md} />}
-          title={t`Connect with Microsoft`}
+          title={""Connect with Microsoft"}
           onClick={() => triggerApisOAuth(ConnectedAccountProvider.MICROSOFT)}
         />
       )}
@@ -70,7 +70,7 @@ export const SettingsAccountsListEmptyStateCard = () => {
         >
           <SettingsCard
             Icon={<IconAt size={theme.icon.size.md} />}
-            title={t`Connect via IMAP/SMTP`}
+            title={""Connect via IMAP/SMTP"}
           />
         </UndecoratedLink>
       )}

@@ -98,17 +98,17 @@ export const WebhookEntitySelect = ({
   );
 
   const metadataOptions = [
-    { label: t`All Metadata`, value: 'metadata.*', icon: IconNorthStar },
-    { label: t`Object`, value: 'metadata.objectMetadata', icon: IconTable },
-    { label: t`Field`, value: 'metadata.fieldMetadata', icon: IconBox },
-    { label: t`View`, value: 'metadata.view', icon: IconEye },
-    { label: t`View Field`, value: 'metadata.viewField', icon: IconEye },
-    { label: t`Index`, value: 'metadata.index', icon: IconSettings },
-    { label: t`Webhook`, value: 'metadata.webhook', icon: IconCode },
+    { label: ""All Metadata", value: 'metadata.*', icon: IconNorthStar },
+    { label: "Objek", value: 'metadata.objectMetadata', icon: IconTable },
+    { label: "Bidang", value: 'metadata.fieldMetadata', icon: IconBox },
+    { label: "Lihat", value: 'metadata.view', icon: IconEye },
+    { label: ""View Field", value: 'metadata.viewField', icon: IconEye },
+    { label: ""Index", value: 'metadata.index', icon: IconSettings },
+    { label: ""Webhook", value: 'metadata.webhook', icon: IconCode },
   ];
 
   const objectOptions: SelectOption<string>[] = [
-    { label: t`All Objects`, value: '*', Icon: IconNorthStar },
+    { label: ""All Objects", value: '*', Icon: IconNorthStar },
     ...objectMetadataItems.map((item) => ({
       label: item.labelPlural,
       value: item.nameSingular,
@@ -126,10 +126,10 @@ export const WebhookEntitySelect = ({
 
   const getSelectedLabel = () => {
     if (!isDefined(value)) {
-      return t`Select entity`;
+      return ""Select entity";
     }
     if (value === '*') {
-      return t`All Objects`;
+      return ""All Objects";
     }
 
     const metadataOption = metadataOptions.find((opt) => opt.value === value);
@@ -180,7 +180,7 @@ export const WebhookEntitySelect = ({
           <DropdownMenuSearchInput
             autoFocus
             value={searchInput}
-            placeholder={t`Search...`}
+            placeholder={""Search..."}
             onChange={(event) => setSearchInput(event.target.value)}
           />
           <DropdownMenuSeparator />
@@ -192,7 +192,7 @@ export const WebhookEntitySelect = ({
             <DropdownMenuItemsContainer hasMaxHeight>
               {shouldShowObjects && (
                 <>
-                  <DropdownMenuSectionLabel label={t`Core Objects`} />
+                  <DropdownMenuSectionLabel label={""Core Objects"} />
                   {filteredObjectOptions.map((option) => (
                     <SelectableListItem
                       key={option.value}

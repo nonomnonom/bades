@@ -102,7 +102,7 @@ export const EventCardMessage = ({
       if (shouldHandleNotFound) {
         return (
           <div>
-            <Trans>Message not found</Trans>
+            "Message not found
           </div>
         );
       }
@@ -110,7 +110,7 @@ export const EventCardMessage = ({
 
     return (
       <div>
-        <Trans>Error loading message</Trans>
+        "Error loading message
       </div>
     );
   }
@@ -118,7 +118,7 @@ export const EventCardMessage = ({
   if (loading || !isDefined(message)) {
     return (
       <div>
-        <Trans>Loading...</Trans>
+        "Loading...
       </div>
     );
   }
@@ -148,7 +148,7 @@ export const EventCardMessage = ({
             {message.subject !==
             FIELD_RESTRICTED_ADDITIONAL_PERMISSIONS_REQUIRED
               ? message.subject
-              : t`Subject not shared`}
+              : ""Subject not shared"}
           </StyledEmailTitle>
           <StyledEmailParticipants>
             <OverflowingTextWithTooltip text={messageParticipantHandles} />

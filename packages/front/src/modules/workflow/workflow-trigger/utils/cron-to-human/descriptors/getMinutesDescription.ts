@@ -15,7 +15,7 @@ export const getMinutesDescription = (
   }
 
   if (minutes === '*') {
-    return t`every minute`;
+    return ""every minute";
   }
 
   if (isStepValue(minutes)) {
@@ -25,7 +25,7 @@ export const getMinutesDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every minute`;
+        return ""every minute";
       }
       return t`every ${stepNumStr} minutes`;
     }
@@ -58,10 +58,10 @@ export const getMinutesDescription = (
   const minuteNum = parseInt(minutes, 10);
   if (!isNaN(minuteNum)) {
     if (minuteNum === 0) {
-      return t`at the top of the hour`;
+      return ""at the top of the hour";
     }
     if (minuteNum === 1) {
-      return t`at 1 minute past the hour`;
+      return ""at 1 minute past the hour";
     }
     const minuteNumStr = minuteNum.toString();
     return t`at ${minuteNumStr} minutes past the hour`;

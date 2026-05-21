@@ -59,8 +59,8 @@ export const SettingsApplicationFrontComponentPreviewTab = ({
       <StyledPreviewFrame>
         {isHeadless ? (
           <StyledHeadlessNotice>
-            <StyledHeadlessTitle>{t`Headless component`}</StyledHeadlessTitle>
-            <span>{t`This component runs without a UI and renders nothing here.`}</span>
+            <StyledHeadlessTitle>{""Headless component"}</StyledHeadlessTitle>
+            <span>{""This component runs without a UI and renders nothing here."}</span>
           </StyledHeadlessNotice>
         ) : (
           <StyledRendererContainer>

@@ -118,16 +118,16 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     if (planKey === BillingPlanKey.ENTERPRISE) {
       return {
         organizationBenefits: [
-          t`SSO (SAML / OIDC)`,
-          t`20,000 workflow node executions`,
-          t`Priority support`,
+          ""SSO (SAML / OIDC)",
+          "20.000 eksekusi node alur kerja",
+          ""Priority support",
         ],
         standardBenefits: [
-          t`Full access`,
-          t`Unlimited contacts`,
-          t`Email integration`,
-          t`Custom objects`,
-          t`API & Webhooks`,
+          ""Full access",
+          ""Unlimited contacts",
+          ""Email integration",
+          ""Custom objects",
+          ""API & Webhooks",
         ],
       };
     }
@@ -135,12 +135,12 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     return {
       organizationBenefits: [],
       standardBenefits: [
-        t`Full access`,
-        t`Unlimited contacts`,
-        t`Email integration`,
-        t`Custom objects`,
-        t`API & Webhooks`,
-        t`50,000 workflow node executions`,
+        ""Full access",
+        ""Unlimited contacts",
+        ""Email integration",
+        ""Custom objects",
+        ""API & Webhooks",
+        "50.000 eksekusi node alur kerja",
       ],
     };
   };
@@ -200,8 +200,8 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     <>
       <Title noMarginTop>
         {hasWithoutCreditCardTrialPeriod
-          ? t`Choose your Trial`
-          : t`Get your subscription`}
+          ? ""Choose your Trial"
+          : ""Get your subscription"}
       </Title>
       {hasWithoutCreditCardTrialPeriod ? (
         <SubTitle>{baseProduct.name}</SubTitle>
@@ -256,7 +256,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
         </StyledChooseTrialContainer>
       )}
       <MainButton
-        title={t`Continue`}
+        title={"Lanjutkan"}
         onClick={handleCheckoutSession}
         width={200}
         Icon={() => isSubmitting && <Loader />}
@@ -264,7 +264,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
       />
       <StyledLinkGroup>
         <ClickToActionLink onClick={signOut}>
-          <Trans>Log out</Trans>
+          Keluar
         </ClickToActionLink>
         <span />
         <ClickToActionLink
@@ -272,16 +272,16 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
           target={calendarBookingPageId ? '_self' : '_blank'}
           rel={calendarBookingPageId ? '' : 'noreferrer'}
         >
-          <Trans>Book a Call</Trans>
+          "Book a Call
         </ClickToActionLink>
         <span />
         {currentPlanKey === BillingPlanKey.PRO ? (
           <ClickToActionLink href={planChangeLink(BillingPlanKey.ENTERPRISE)}>
-            <Trans>Organization plan</Trans>
+            "Organization plan
           </ClickToActionLink>
         ) : (
           <ClickToActionLink href={planChangeLink(BillingPlanKey.PRO)}>
-            <Trans>Pro plan</Trans>
+            "Pro plan
           </ClickToActionLink>
         )}
       </StyledLinkGroup>

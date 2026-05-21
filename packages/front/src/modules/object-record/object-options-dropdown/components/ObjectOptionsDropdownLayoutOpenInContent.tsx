@@ -55,7 +55,7 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
           />
         }
       >
-        {t`Open in`}
+        {""Open in"}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -77,7 +77,7 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconLayoutSidebarRight}
-              text={t`Side Panel`}
+              text={""Side Panel"}
               selected={recordIndexOpenRecordIn === ViewOpenRecordIn.SIDE_PANEL}
               focused={selectedItemId === ViewOpenRecordIn.SIDE_PANEL}
               onClick={() => {
@@ -104,7 +104,7 @@ export const ObjectOptionsDropdownLayoutOpenInContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconLayoutNavbar}
-              text={t`Record Page`}
+              text={""Record Page"}
               selected={
                 recordIndexOpenRecordIn === ViewOpenRecordIn.RECORD_PAGE
               }

@@ -38,24 +38,24 @@ export const SettingsDataModelFieldMaxValuesForm = ({
 
   switch (fieldType) {
     case FieldMetadataType.PHONES:
-      title = t`Maximum phone numbers`;
-      description = t`Ability to add more than one phone number`;
+      title = ""Maximum phone numbers";
+      description = ""Ability to add more than one phone number";
       break;
     case FieldMetadataType.EMAILS:
-      title = t`Maximum email addresses`;
-      description = t`Ability to add more than one email address`;
+      title = ""Maximum email addresses";
+      description = ""Ability to add more than one email address";
       break;
     case FieldMetadataType.LINKS:
-      title = t`Maximum URLs`;
-      description = t`Ability to add more than one URL`;
+      title = ""Maximum URLs";
+      description = ""Ability to add more than one URL";
       break;
     case FieldMetadataType.ARRAY:
-      title = t`Maximum values`;
-      description = t`Limit how many values can be added to this field`;
+      title = ""Maximum values";
+      description = ""Limit how many values can be added to this field";
       break;
     case FieldMetadataType.FILES:
-      title = t`Maximum files`;
-      description = t`Limit how many files can be attached to this field`;
+      title = ""Maximum files";
+      description = ""Limit how many files can be attached to this field";
       break;
     default:
       return null;

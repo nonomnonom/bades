@@ -72,7 +72,7 @@ export const EmailComposer = ({
             <Button
               size="small"
               variant="secondary"
-              title={t`Cancel`}
+              title={"Batalkan"}
               onClick={onClose}
             />
           )}
@@ -80,7 +80,7 @@ export const EmailComposer = ({
             size="small"
             variant="primary"
             accent="blue"
-            title={t`Send`}
+            title={"Kirim"}
             Icon={IconArrowBackUp}
             onClick={composerState.handleSend}
             disabled={!composerState.canSend}

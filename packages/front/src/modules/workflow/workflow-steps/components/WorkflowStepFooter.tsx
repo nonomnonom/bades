@@ -116,7 +116,7 @@ export const WorkflowStepFooter = ({
         <MenuItem
           focused={selectedItemId === 'change-node-type'}
           onClick={handleChangeNodeType}
-          text={t`Change node type`}
+          text={""Change node type"}
           LeftIcon={IconPencil}
         />
       </SelectableListItem>
@@ -125,7 +125,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'duplicate'}
             onClick={handleDuplicateNode}
-            text={t`Duplicate node`}
+            text={""Duplicate node"}
             LeftIcon={IconCopyPlus}
           />
         </SelectableListItem>
@@ -135,7 +135,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'view-agent'}
             onClick={handleViewAgent}
-            text={t`View Agent`}
+            text={""View Agent"}
             LeftIcon={IconRobot}
           />
         </SelectableListItem>
@@ -145,7 +145,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'view-role'}
             onClick={handleViewRole}
-            text={t`View Role`}
+            text={""View Role"}
             LeftIcon={IconUsers}
           />
         </SelectableListItem>
@@ -155,7 +155,7 @@ export const WorkflowStepFooter = ({
           <MenuItem
             focused={selectedItemId === 'delete'}
             onClick={handleDeleteNode}
-            text={t`Delete node`}
+            text={""Delete node"}
             LeftIcon={IconTrash}
           />
         </SelectableListItem>
@@ -166,7 +166,7 @@ export const WorkflowStepFooter = ({
   const deleteButton = (
     <Button
       size="small"
-      title={t`Delete`}
+      title={"Hapus"}
       onClick={() => {
         deleteStep(stepId);
       }}

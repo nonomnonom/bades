@@ -33,7 +33,7 @@ export const TwoFactorAuthenticationSetupEffect = () => {
       try {
         if (!loginToken) {
           enqueueErrorSnackBar({
-            message: t`Login token missing. Two Factor Authentication setup can not be initiated.`,
+            message: ""Login token missing. Two Factor Authentication setup can not be initiated.",
             options: {
               dedupeKey: 'invalid-session-dedupe-key',
             },
@@ -57,7 +57,7 @@ export const TwoFactorAuthenticationSetupEffect = () => {
         );
       } catch {
         enqueueErrorSnackBar({
-          message: t`Two factor authentication provisioning failed.`,
+          message: ""Two factor authentication provisioning failed.",
           options: {
             dedupeKey:
               'two-factor-authentication-provisioning-initiation-failed',

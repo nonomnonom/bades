@@ -63,17 +63,17 @@ export const SettingsCustomDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Custom Domain`}
+      title={""Custom Domain"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>General</Trans>,
+          children: Umum,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Custom Domain</Trans> },
+        { children: "Custom Domain },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -87,8 +87,8 @@ export const SettingsCustomDomain = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Custom Domain`}
-            description={t`Set the name of your custom domain and configure your DNS records.`}
+            title={""Custom Domain"}
+            description={""Set the name of your custom domain and configure your DNS records."}
           />
           <CheckCustomDomainValidRecordsEffect />
           <StyledDomainFormWrapper>
@@ -107,7 +107,7 @@ export const SettingsCustomDomain = () => {
                     <Button
                       isLoading={isRecordsLoading}
                       Icon={IconReload}
-                      title={t`Reload`}
+                      title={""Reload"}
                       variant="primary"
                       onClick={checkCustomDomainRecords}
                       type="button"

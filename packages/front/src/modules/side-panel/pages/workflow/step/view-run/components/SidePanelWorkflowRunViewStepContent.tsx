@@ -104,7 +104,7 @@ export const SidePanelWorkflowRunViewStepContent = () => {
     },
     {
       id: WorkflowRunTabId.NODE,
-      title: t`Node`,
+      title: ""Node",
       Icon: IconStepInto,
     },
     {

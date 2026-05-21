@@ -37,7 +37,7 @@ export const SettingsRolePermissionsObjectLevelTableRowOptionsDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <IconButton
-          aria-label={t`Object permission options`}
+          aria-label={""Object permission options"}
           variant="tertiary"
           size="small"
           Icon={IconDotsVertical}
@@ -58,7 +58,7 @@ export const SettingsRolePermissionsObjectLevelTableRowOptionsDropdown = ({
           )}
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Remove rule`}
+              text={""Remove rule"}
               onClick={handleRemove}
               LeftIcon={IconTrash}
               accent="danger"

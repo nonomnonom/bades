@@ -84,7 +84,7 @@ export const SettingsAgentEvalsTab = ({
     },
     onError: () => {
       enqueueErrorSnackBar({
-        message: t`Failed to execute evaluation input`,
+        message: ""Failed to execute evaluation input",
       });
     },
     refetchQueries: [getOperationName(GET_AGENT_TURNS) ?? ''],
@@ -132,7 +132,7 @@ export const SettingsAgentEvalsTab = ({
       <Section>
         <StyledInputContainer>
           <TextInput
-            placeholder={t`Add test input for evaluation (e.g., "Find all customers in NY")`}
+            placeholder={""Add test input for evaluation (e.g., "Find all customers in NY")"}
             value={newInput}
             onChange={setNewInput}
             onKeyDown={(e) => {
@@ -149,7 +149,7 @@ export const SettingsAgentEvalsTab = ({
             variant="primary"
             accent="blue"
             size="small"
-            title={t`Add`}
+            title={"Tambah"}
             onClick={handleAddInput}
             disabled={disabled || !newInput.trim()}
           />
@@ -176,13 +176,13 @@ export const SettingsAgentEvalsTab = ({
                     <DropdownMenuItemsContainer>
                       <MenuItem
                         LeftIcon={IconPlayerPlay}
-                        text={t`Run`}
+                        text={"Jalankan"}
                         onClick={() => handleRunInput(item.text, item.id)}
                       />
                       <MenuItem
                         accent="danger"
                         LeftIcon={IconTrash}
-                        text={t`Delete`}
+                        text={"Hapus"}
                         onClick={() => openDeleteModal(item.id)}
                       />
                     </DropdownMenuItemsContainer>
@@ -193,16 +193,16 @@ export const SettingsAgentEvalsTab = ({
             hasFooter={false}
           />
         ) : (
-          <StyledEmptyMessage>{t`No evaluation inputs yet. Add your first test input above.`}</StyledEmptyMessage>
+          <StyledEmptyMessage>{""No evaluation inputs yet. Add your first test input above."}</StyledEmptyMessage>
         )}
       </Section>
 
       <ConfirmationModal
         modalInstanceId={DELETE_EVAL_INPUT_MODAL_ID}
-        title={t`Delete Evaluation Input`}
-        subtitle={t`Are you sure you want to delete this evaluation input?`}
+        title={""Delete Evaluation Input"}
+        subtitle={""Are you sure you want to delete this evaluation input?"}
         onConfirmClick={handleDeleteInput}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={"Hapus"}
       />
     </>
   );

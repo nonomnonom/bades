@@ -19,9 +19,9 @@ export const AiChatApiKeyNotConfiguredMessage = () => {
 
   return (
     <AiChatBanner
-      message={t`AI not configured. Set OPENAI_API_KEY, ANTHROPIC_API_KEY, or XAI_API_KEY in your environment.`}
+      message={""AI not configured. Set OPENAI_API_KEY, ANTHROPIC_API_KEY, or XAI_API_KEY in your environment."}
       variant="warning"
-      buttonTitle={t`View Docs`}
+      buttonTitle={""View Docs"}
       buttonIcon={IconExternalLink}
       buttonOnClick={handleDocsClick}
     />

@@ -18,20 +18,20 @@ export const SettingsUpdates = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <SubMenuTopBarContainer
-      title={t`Updates`}
+      title={""Updates"}
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.Updates),
         },
-        { children: t`Updates` },
+        { children: ""Updates" },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Releases`}
-            description={t`Check out our latest releases`}
+            title={""Releases"}
+            description={""Check out our latest releases"}
           />
           <StyledCardLink
             href="https://twenty.com/releases"
@@ -45,15 +45,15 @@ export const SettingsUpdates = () => {
                   stroke={theme.icon.stroke.sm}
                 />
               }
-              title={t`Read changelog`}
+              title={""Read changelog"}
             />
           </StyledCardLink>
         </Section>
 
         <Section>
           <H2Title
-            title={t`Early access`}
-            description={t`Try our upcoming features. Note they are still in beta. Please bear with us and report any issues you find.`}
+            title={""Early access"}
+            description={""Try our upcoming features. Note they are still in beta. Please bear with us and report any issues you find."}
           />
           <SettingsLabContent />
         </Section>

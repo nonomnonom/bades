@@ -21,12 +21,12 @@ export const DateTimeSettingsTimeZoneSelect = ({
   return (
     <Select
       dropdownId="datetime-settings-time-zone"
-      label={t`Time zone`}
+      label={"Zona waktu"}
       dropdownWidth={480}
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`System settings`,
+        label: ""System settings",
         value: 'system',
         contextualText: systemTimeZoneOption?.label,
       }}

@@ -41,10 +41,10 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
           .string()
           .trim()
           .min(1, 'URI is required')
-          .url(t`Please enter a valid URL`)
+          .url(""Please enter a valid URL")
           .refine(
             (value) => !redirectUris.includes(value),
-            t`URI is already in redirect URIs list`,
+            ""URI is already in redirect URIs list",
           ),
       })
       .required();
@@ -79,7 +79,7 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
             render={({ field: { value, onChange }, fieldState: { error } }) => (
               <SettingsTextInput
                 instanceId="settings-application-registration-redirect-uris-input"
-                placeholder={t`https://example.com/callback`}
+                placeholder={""https://example.com/callback"}
                 value={value}
                 onChange={onChange}
                 error={error?.message}
@@ -88,7 +88,7 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
             )}
           />
         </StyledLinkContainer>
-        <Button title={t`Add URI`} type="submit" />
+        <Button title={""Add URI"} type="submit" />
       </StyledContainer>
     </form>
   );

@@ -92,7 +92,7 @@ export const SettingPublicDomain = () => {
 
   const applicationPinnedOption: SelectOption<string | null> = {
     value: null,
-    label: t`Workspace (all apps)`,
+    label: ""Workspace (all apps)",
   };
 
   const applicationOptions: SelectOption<string | null>[] = (
@@ -116,7 +116,7 @@ export const SettingPublicDomain = () => {
       variables: { domain: selectedPublicDomain.domain },
       onCompleted: () => {
         enqueueSuccessSnackBar({
-          message: t`Public domain successfully deleted`,
+          message: ""Public domain successfully deleted",
         });
         navigate(SettingsPath.Applications);
         refetchPublicDomains();
@@ -152,7 +152,7 @@ export const SettingPublicDomain = () => {
       onCompleted: (data) => {
         setSelectedPublicDomain(data.createPublicDomain);
         enqueueSuccessSnackBar({
-          message: t`Public domain created successfully`,
+          message: ""Public domain created successfully",
         });
       },
       onError: (error) => {
@@ -182,7 +182,7 @@ export const SettingPublicDomain = () => {
       onCompleted: (data) => {
         setSelectedPublicDomain(data.updatePublicDomain);
         enqueueSuccessSnackBar({
-          message: t`Public domain updated successfully`,
+          message: ""Public domain updated successfully",
         });
         refetchPublicDomains();
       },
@@ -195,17 +195,17 @@ export const SettingPublicDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Public domain`}
+      title={""Public domain"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Apps</Trans>,
+          children: "Apps,
           href: getSettingsPath(SettingsPath.Applications),
         },
-        { children: <Trans>Public Domain</Trans> },
+        { children: "Public Domain },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -218,8 +218,8 @@ export const SettingPublicDomain = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Public domain`}
-            description={t`Set the name of your public domain and configure your DNS records.`}
+            title={""Public domain"}
+            description={""Set the name of your public domain and configure your DNS records."}
           />
           {isDefined(selectedPublicDomain) && (
             <CheckPublicDomainValidRecordsEffect
@@ -243,7 +243,7 @@ export const SettingPublicDomain = () => {
                     <Button
                       isLoading={isLoading}
                       Icon={IconReload}
-                      title={t`Reload`}
+                      title={""Reload"}
                       variant="primary"
                       onClick={() =>
                         checkPublicDomainRecords(selectedPublicDomain.domain)
@@ -272,12 +272,12 @@ export const SettingPublicDomain = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Bound App`}
-            description={t`Restrict this domain to the HTTP routes of a specific app. Leave empty to expose all workspace HTTP routes.`}
+            title={""Bound App"}
+            description={""Restrict this domain to the HTTP routes of a specific app. Leave empty to expose all workspace HTTP routes."}
           />
           <Select
             dropdownId="public-domain-application"
-            label={t`Application`}
+            label={""Application"}
             fullWidth
             value={selectedApplicationId}
             pinnedOption={applicationPinnedOption}

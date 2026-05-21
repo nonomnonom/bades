@@ -61,27 +61,27 @@ export const RecordPageAddWidgetSection = () => {
           stroke={theme.icon.stroke.md}
           color={theme.font.color.extraLight}
         />
-        {t`Add widget`}
+        {""Add widget"}
       </StyledHeader>
       <StyledMenuItemList>
         <MenuItem
           LeftIcon={IconListDetails}
           withIconContainer
-          text={t`Fields group`}
-          contextualText={t`Group multiple fields from this record`}
+          text={""Fields group"}
+          contextualText={""Group multiple fields from this record"}
           onClick={createRecordPageFieldsWidget}
         />
         <MenuItem
           LeftIcon={IconListSearch}
           withIconContainer
-          text={t`Field`}
-          contextualText={t`Single field with smart formats`}
+          text={"Bidang"}
+          contextualText={""Single field with smart formats"}
           onClick={createRecordPageFieldWidget}
         />
         <MenuItem
           LeftIcon={IconPlus}
           withIconContainer
-          text={t`More widgets`}
+          text={""More widgets"}
           hasSubMenu
           onClick={navigateToMoreWidgets}
         />

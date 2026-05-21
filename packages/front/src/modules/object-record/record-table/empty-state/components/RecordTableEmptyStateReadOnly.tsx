@@ -13,8 +13,8 @@ export const RecordTableEmptyStateReadOnly = () => {
 
   return (
     <RecordTableEmptyStateDisplay
-      title={t`No records found`}
-      subTitle={t`You are not allowed to create records for this object`}
+      title={""No records found"}
+      subTitle={""You are not allowed to create records for this object"}
       animatedPlaceholderType="noRecord"
       buttonTitle={buttonTitle}
       ButtonIcon={IconPlus}

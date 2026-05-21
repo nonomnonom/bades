@@ -49,22 +49,22 @@ export const SettingsAdminQueueDetail = () => {
 
   const queueDescription = retentionConfig
     ? t`Completed jobs kept for ${completedDuration}, failed jobs kept for ${failedDuration} (max ${maxCount} each)`
-    : t`Loading retention configuration...`;
+    : ""Loading retention configuration...";
 
   return (
     <SubMenuTopBarContainer
       title={t`Queue: ${queueName}`}
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: ""Admin Panel - Health",
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Worker`,
+          children: ""Worker",
           href: getSettingsPath(SettingsPath.AdminPanelIndicatorHealthStatus, {
             indicatorId: 'worker',
           }),
@@ -76,7 +76,7 @@ export const SettingsAdminQueueDetail = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Jobs`} description={queueDescription} />
+          <H2Title title={"Pekerjaan-pekerjaan"} description={queueDescription} />
           <SettingsAdminQueueJobsTable
             queueName={queueName}
             onRetentionConfigLoaded={setRetentionConfig}

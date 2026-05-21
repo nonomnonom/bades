@@ -72,8 +72,8 @@ export const SettingsWorkspaceEmailGroupSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`Email Groups`}
-        description={t`Workspace-level shared addresses that receive forwarded mail.`}
+        title={""Email Groups"}
+        description={""Workspace-level shared addresses that receive forwarded mail."}
       />
       {emailGroupChannels.length > 0 && (
         <Table>
@@ -81,12 +81,12 @@ export const SettingsWorkspaceEmailGroupSection = () => {
             <TableHeader
               padding={`0 ${themeCssVariables.spacing[2]} 0 ${themeCssVariables.spacing[2]}`}
             >
-              <Trans>Source</Trans>
+              Sumber
             </TableHeader>
             <TableHeader
               padding={`0 ${themeCssVariables.spacing[2]} 0 ${themeCssVariables.spacing[2]}`}
             >
-              <Trans>Forwarding address</Trans>
+              "Forwarding address
             </TableHeader>
           </TableRow>
           <StyledTableRows>
@@ -125,7 +125,7 @@ export const SettingsWorkspaceEmailGroupSection = () => {
       <StyledFooter>
         <Button
           Icon={IconPlus}
-          title={t`Add email group`}
+          title={"Tambah grup email"}
           variant="secondary"
           size="small"
           onClick={() => navigateSettings(SettingsPath.NewEmailGroupChannel)}

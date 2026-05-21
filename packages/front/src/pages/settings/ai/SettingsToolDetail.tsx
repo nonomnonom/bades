@@ -159,10 +159,10 @@ export const SettingsToolDetail = () => {
     });
 
     if (result.status === 'successful') {
-      enqueueSuccessSnackBar({ message: t`Tool deleted` });
+      enqueueSuccessSnackBar({ message: ""Tool deleted" });
       navigate(getSettingsPath(SettingsPath.AI, undefined, undefined, 'tools'));
     } else {
-      enqueueErrorSnackBar({ message: t`Failed to delete tool` });
+      enqueueErrorSnackBar({ message: ""Failed to delete tool" });
     }
 
     setIsDeleting(false);
@@ -182,11 +182,11 @@ export const SettingsToolDetail = () => {
       }
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`AI`,
+          children: ""AI",
           href: getSettingsPath(SettingsPath.AI, undefined, undefined, 'tools'),
         },
         { children: editedName ?? name ?? '' },
@@ -210,8 +210,8 @@ export const SettingsToolDetail = () => {
           <>
             <Section>
               <H2Title
-                title={t`Parameters`}
-                description={t`Input parameters accepted by this tool`}
+                title={""Parameters"}
+                description={""Input parameters accepted by this tool"}
               />
               <SettingsToolParameterTable
                 schemaProperties={inputSchema?.properties ?? {}}
@@ -222,12 +222,12 @@ export const SettingsToolDetail = () => {
 
             <Section>
               <H2Title
-                title={t`Description`}
-                description={t`Define what this tool does`}
+                title={"Deskripsi"}
+                description={""Define what this tool does"}
               />
               <TextArea
                 textAreaId="tool-description-textarea"
-                placeholder={t`Write a description`}
+                placeholder={""Write a description"}
                 minRows={3}
                 value={editedDescription ?? description ?? ''}
                 onChange={handleDescriptionChange}
@@ -238,12 +238,12 @@ export const SettingsToolDetail = () => {
             {isCustomTool && !isManaged && (
               <Section>
                 <H2Title
-                  title={t`Danger zone`}
-                  description={t`Delete this tool`}
+                  title={""Danger zone"}
+                  description={""Delete this tool"}
                 />
                 <Button
                   Icon={IconTrash}
-                  title={t`Delete`}
+                  title={"Hapus"}
                   accent="danger"
                   size="small"
                   variant="secondary"
@@ -256,10 +256,10 @@ export const SettingsToolDetail = () => {
       </SettingsPageContainer>
       <ConfirmationModal
         modalInstanceId={DELETE_TOOL_MODAL_ID}
-        title={t`Delete Tool`}
-        subtitle={t`Are you sure you want to delete this tool? This action cannot be undone.`}
+        title={""Delete Tool"}
+        subtitle={""Are you sure you want to delete this tool? This action cannot be undone."}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={"Hapus"}
         loading={isDeleting}
       />
     </SubMenuTopBarContainer>

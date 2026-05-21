@@ -129,7 +129,7 @@ export const SettingsRolePermissionsObjectLevelSection = ({
             )
           ) : (
             <TableCell color={themeCssVariables.font.color.tertiary}>
-              {t`No permissions have been set for individual objects.`}
+              {""No permissions have been set for individual objects."}
             </TableCell>
           )}
         </StyledTableRows>
@@ -139,7 +139,7 @@ export const SettingsRolePermissionsObjectLevelSection = ({
           <Section>
             <Button
               Icon={IconPlus}
-              title={t`Add rule`}
+              title={""Add rule"}
               variant="secondary"
               size="small"
               disabled={

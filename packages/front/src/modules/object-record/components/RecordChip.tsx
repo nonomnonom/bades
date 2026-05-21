@@ -86,7 +86,7 @@ export const RecordChip = ({
     return (
       <Chip
         label={recordChipData.name}
-        emptyLabel={t`Untitled`}
+        emptyLabel={""Untitled"}
         isBold={isBold}
         size={size}
         maxWidth={maxWidth}
@@ -111,7 +111,7 @@ export const RecordChip = ({
       size={size}
       maxWidth={maxWidth}
       label={recordChipData.name}
-      emptyLabel={t`Untitled`}
+      emptyLabel={""Untitled"}
       isBold={isBold}
       isLabelHidden={isLabelHidden}
       leftComponent={

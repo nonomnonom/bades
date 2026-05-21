@@ -22,10 +22,10 @@ export const RecordGroupReorderConfirmationModal = ({
       {createPortal(
         <ConfirmationModal
           modalInstanceId={RECORD_GROUP_REORDER_CONFIRMATION_MODAL_ID}
-          title={t`Group sorting`}
+          title={""Group sorting"}
           subtitle={t`Would you like to remove ${recordIndexRecordGroupSort} group sorting?`}
           onConfirmClick={onConfirmClick}
-          confirmButtonText={t`Remove`}
+          confirmButtonText={"Hapus"}
         />,
         document.body,
       )}

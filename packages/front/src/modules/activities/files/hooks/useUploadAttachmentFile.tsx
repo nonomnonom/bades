@@ -37,7 +37,7 @@ export const useUploadAttachmentFile = () => {
   ) => {
     assertIsDefinedOrThrow(
       filesFieldMetadataId,
-      new Error(t`File field not found for attachment object`),
+      new Error(""File field not found for attachment object"),
     );
 
     const result = await uploadFilesFieldFile({

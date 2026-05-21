@@ -189,7 +189,7 @@ export const SettingsEnterprise = ({
 
       if (result.data?.setEnterpriseKey.isValid === true) {
         enqueueSuccessSnackBar({
-          message: t`Enterprise license activated successfully`,
+          message: ""Enterprise license activated successfully",
         });
         setEnterpriseKey('');
         const { data: statusData } = await fetchSubscriptionStatus();
@@ -198,7 +198,7 @@ export const SettingsEnterprise = ({
         await loadCurrentUser();
       } else {
         enqueueErrorSnackBar({
-          message: t`Failed to activate enterprise license. Please check your key or contact support.`,
+          message: ""Failed to activate enterprise license. Please check your key or contact support.",
         });
       }
     } catch (error) {
@@ -209,7 +209,7 @@ export const SettingsEnterprise = ({
         });
       } else {
         enqueueErrorSnackBar({
-          message: t`Error activating enterprise license`,
+          message: ""Error activating enterprise license",
         });
       }
     } finally {
@@ -241,12 +241,12 @@ export const SettingsEnterprise = ({
         window.open(portalUrl, '_blank', 'noopener');
       } else {
         enqueueErrorSnackBar({
-          message: t`Could not open billing portal. Please check your enterprise key is present, or contact support.`,
+          message: ""Could not open billing portal. Please check your enterprise key is present, or contact support.",
         });
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error opening billing portal`,
+        message: ""Error opening billing portal",
       });
     }
   }, [fetchPortalSession, enqueueErrorSnackBar, t, returnUrlPath]);
@@ -263,17 +263,17 @@ export const SettingsEnterprise = ({
 
       if (data?.refreshEnterpriseValidityToken === true) {
         enqueueSuccessSnackBar({
-          message: t`Validity token refreshed successfully`,
+          message: ""Validity token refreshed successfully",
         });
         await loadCurrentUser();
       } else {
         enqueueErrorSnackBar({
-          message: t`Could not refresh validity token. Please contact support.`,
+          message: ""Could not refresh validity token. Please contact support.",
         });
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error refreshing validity token. Please contact support.`,
+        message: ""Error refreshing validity token. Please contact support.",
       });
     } finally {
       setIsRefreshingToken(false);
@@ -289,8 +289,8 @@ export const SettingsEnterprise = ({
   const activateKeySection = (
     <Section>
       <H2Title
-        title={t`Activate Enterprise Key`}
-        description={t`Paste your enterprise key below to activate`}
+        title={"Aktifkan Kunci Enterprise"}
+        description={""Paste your enterprise key below to activate"}
       />
       <StyledInputContainer>
         <StyledInputWrapper>
@@ -298,7 +298,7 @@ export const SettingsEnterprise = ({
             instanceId="enterprise-key-input"
             value={enterpriseKey}
             onChange={(value) => setEnterpriseKey(value)}
-            placeholder={t`Paste your enterprise key here`}
+            placeholder={""Paste your enterprise key here"}
             fullWidth
             onInputEnter={handleActivate}
           />
@@ -306,7 +306,7 @@ export const SettingsEnterprise = ({
         <StyledActivateButtonWrapper>
           <Button
             Icon={IconKey}
-            title={isActivating ? t`Activating...` : t`Activate`}
+            title={isActivating ? "Mengaktifkan..." : "Aktifkan"}
             accent="blue"
             onClick={handleActivate}
             disabled={isActivating || !enterpriseKey.trim()}
@@ -326,12 +326,12 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Enterprise License`}
-              description={t`Your enterprise features are active but your enterprise key is missing or invalid. This may be expected, but if not, please set a valid signed enterprise key to manage your subscription, or contact support.`}
+              title={""Enterprise License"}
+              description={""Your enterprise features are active but your enterprise key is missing or invalid. This may be expected, but if not, please set a valid signed enterprise key to manage your subscription, or contact support."}
             />
             <Button
               Icon={IconKey}
-              title={t`Get Enterprise Key`}
+              title={""Get Enterprise Key"}
               variant="secondary"
               onClick={openCheckoutModal}
             />
@@ -346,12 +346,12 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Get Enterprise`}
-              description={t`Unlock enterprise features like SSO, row-level security, and audit logs.`}
+              title={""Get Enterprise"}
+              description={""Unlock enterprise features like SSO, row-level security, and audit logs."}
             />
             <Button
               Icon={IconKey}
-              title={t`Get Enterprise Key`}
+              title={""Get Enterprise Key"}
               variant="secondary"
               onClick={openCheckoutModal}
             />
@@ -366,13 +366,13 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Enterprise License`}
-              description={t`Your subscription is active but your validity token is invalid or has expired. Try reloading it or contact support.`}
+              title={""Enterprise License"}
+              description={""Your subscription is active but your validity token is invalid or has expired. Try reloading it or contact support."}
             />
             <Button
               Icon={IconKey}
               title={
-                isRefreshingToken ? t`Reloading...` : t`Reload validity token`
+                isRefreshingToken ? ""Reloading..." : ""Reload validity token"
               }
               variant="secondary"
               accent="blue"
@@ -388,23 +388,23 @@ export const SettingsEnterprise = ({
                   <StyledStatusContainer>
                     <StyledStatusDot isActive={true} />
                     {stripeStatus === 'trialing' ? (
-                      <Trans>Trial</Trans>
+                      "Trial
                     ) : (
-                      <Trans>Active</Trans>
+                      Aktif
                     )}
                   </StyledStatusContainer>
                 }
               />
               {licensee && (
                 <SubscriptionInfoRowContainer
-                  label={t`Licensee`}
+                  label={""Licensee"}
                   Icon={IconUser}
                   currentValue={licensee}
                 />
               )}
               {expiresAt && (
                 <SubscriptionInfoRowContainer
-                  label={t`Valid until`}
+                  label={""Valid until"}
                   Icon={IconCalendarRepeat}
                   currentValue={new Date(expiresAt).toLocaleDateString()}
                 />
@@ -413,12 +413,12 @@ export const SettingsEnterprise = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Manage billing information`}
-              description={t`Edit payment method, see your invoices and more`}
+              title={""Manage billing information"}
+              description={""Edit payment method, see your invoices and more"}
             />
             <Button
               Icon={IconCreditCard}
-              title={t`View billing details`}
+              title={""View billing details"}
               variant="secondary"
               onClick={openBillingPortal}
             />
@@ -432,11 +432,11 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Enterprise License`}
+              title={""Enterprise License"}
               description={
                 isCancelScheduled
-                  ? t`Your subscription is scheduled for cancellation`
-                  : t`Your enterprise features are active`
+                  ? ""Your subscription is scheduled for cancellation"
+                  : ""Your enterprise features are active"
               }
             />
             <SubscriptionInfoContainer>
@@ -447,25 +447,25 @@ export const SettingsEnterprise = ({
                   <StyledStatusContainer>
                     <StyledStatusDot isActive={!isCancelScheduled} />
                     {isCancelScheduled ? (
-                      <Trans>Cancelling</Trans>
+                      "Cancelling
                     ) : stripeStatus === 'trialing' ? (
-                      <Trans>Trial</Trans>
+                      "Trial
                     ) : (
-                      <Trans>Active</Trans>
+                      Aktif
                     )}
                   </StyledStatusContainer>
                 }
               />
               {licensee && (
                 <SubscriptionInfoRowContainer
-                  label={t`Licensee`}
+                  label={""Licensee"}
                   Icon={IconUser}
                   currentValue={licensee}
                 />
               )}
               {expiresAt && (
                 <SubscriptionInfoRowContainer
-                  label={isCancelScheduled ? t`Cancels on` : t`Valid until`}
+                  label={isCancelScheduled ? ""Cancels on" : ""Valid until"}
                   Icon={IconCalendarRepeat}
                   currentValue={new Date(expiresAt).toLocaleDateString()}
                 />
@@ -479,12 +479,12 @@ export const SettingsEnterprise = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Manage billing information`}
-              description={t`Edit payment method, see your invoices and more`}
+              title={""Manage billing information"}
+              description={""Edit payment method, see your invoices and more"}
             />
             <Button
               Icon={IconCreditCard}
-              title={t`View billing details`}
+              title={""View billing details"}
               variant="secondary"
               onClick={openBillingPortal}
             />
@@ -492,12 +492,12 @@ export const SettingsEnterprise = ({
           {!isCancelScheduled && (
             <Section>
               <H2Title
-                title={t`Cancel your subscription`}
-                description={t`Your enterprise features will be disabled`}
+                title={""Cancel your subscription"}
+                description={""Your enterprise features will be disabled"}
               />
               <Button
                 Icon={IconCircleX}
-                title={t`Cancel Plan`}
+                title={""Cancel Plan"}
                 variant="secondary"
                 accent="danger"
                 onClick={openBillingPortal}
@@ -513,8 +513,8 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Enterprise License`}
-              description={t`Your enterprise subscription has been canceled.`}
+              title={""Enterprise License"}
+              description={""Your enterprise subscription has been canceled."}
             />
             <SubscriptionInfoContainer>
               <SubscriptionInfoRowContainer
@@ -523,16 +523,16 @@ export const SettingsEnterprise = ({
                 currentValue={
                   <StyledStatusContainer>
                     <StyledStatusDot isActive={false} />
-                    <Trans>Canceled</Trans>
+                    "Canceled
                   </StyledStatusContainer>
                 }
               />
               <SubscriptionInfoRowContainer
-                label={t`Billing history`}
+                label={""Billing history"}
                 Icon={IconCreditCard}
                 currentValue={
                   <Button
-                    title={t`View invoices`}
+                    title={""View invoices"}
                     variant="secondary"
                     size="small"
                     onClick={openBillingPortal}
@@ -543,12 +543,12 @@ export const SettingsEnterprise = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Get Enterprise`}
-              description={t`Start a new enterprise subscription to re-enable enterprise features.`}
+              title={""Get Enterprise"}
+              description={""Start a new enterprise subscription to re-enable enterprise features."}
             />
             <Button
               Icon={IconKey}
-              title={t`Get Enterprise Key`}
+              title={""Get Enterprise Key"}
               variant="secondary"
               onClick={openCheckoutModal}
             />
@@ -563,8 +563,8 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Enterprise License`}
-              description={t`There is a payment issue with your subscription. Please update your payment method.`}
+              title={""Enterprise License"}
+              description={""There is a payment issue with your subscription. Please update your payment method."}
             />
             <SubscriptionInfoContainer>
               <SubscriptionInfoRowContainer
@@ -573,7 +573,7 @@ export const SettingsEnterprise = ({
                 currentValue={
                   <StyledStatusContainer>
                     <StyledStatusDot isActive={false} />
-                    <Trans>Payment issue</Trans>
+                    "Payment issue
                   </StyledStatusContainer>
                 }
               />
@@ -581,12 +581,12 @@ export const SettingsEnterprise = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Update payment method`}
-              description={t`Fix the payment issue to keep your enterprise features active.`}
+              title={""Update payment method"}
+              description={""Fix the payment issue to keep your enterprise features active."}
             />
             <Button
               Icon={IconCreditCard}
-              title={t`Go to billing portal`}
+              title={""Go to billing portal"}
               variant="secondary"
               accent="blue"
               onClick={openBillingPortal}
@@ -601,8 +601,8 @@ export const SettingsEnterprise = ({
         <>
           <Section>
             <H2Title
-              title={t`Enterprise License`}
-              description={t`Your subscription setup was not completed.`}
+              title={""Enterprise License"}
+              description={""Your subscription setup was not completed."}
             />
             <SubscriptionInfoContainer>
               <SubscriptionInfoRowContainer
@@ -611,7 +611,7 @@ export const SettingsEnterprise = ({
                 currentValue={
                   <StyledStatusContainer>
                     <StyledStatusDot isActive={false} />
-                    <Trans>Incomplete</Trans>
+                    "Incomplete
                   </StyledStatusContainer>
                 }
               />
@@ -619,12 +619,12 @@ export const SettingsEnterprise = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Get Enterprise`}
-              description={t`Start a new enterprise subscription.`}
+              title={""Get Enterprise"}
+              description={""Start a new enterprise subscription."}
             />
             <Button
               Icon={IconKey}
-              title={t`Get Enterprise Key`}
+              title={""Get Enterprise Key"}
               onClick={openCheckoutModal}
             />
           </Section>
@@ -637,7 +637,7 @@ export const SettingsEnterprise = ({
       <>
         <Section>
           <H2Title
-            title={t`Enterprise License`}
+            title={""Enterprise License"}
             description={(() => {
               const statusLabel = stripeStatus ?? 'unknown';
 
@@ -646,7 +646,7 @@ export const SettingsEnterprise = ({
           />
           <Button
             Icon={IconCreditCard}
-            title={t`Go to billing portal`}
+            title={""Go to billing portal"}
             variant="secondary"
             onClick={openBillingPortal}
           />
@@ -669,13 +669,13 @@ export const SettingsEnterprise = ({
 
   return (
     <SubMenuTopBarContainer
-      title={t`Enterprise`}
+      title={""Enterprise"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Enterprise</Trans> },
+        { children: "Enterprise },
       ]}
     >
       <SettingsPageContainer>{innerContent}</SettingsPageContainer>

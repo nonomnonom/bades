@@ -118,7 +118,7 @@ export const MultipleSelectDropdown = ({
             </SelectableListItem>
           );
         })}
-        {showNoResult && <MenuItem text={t`No results`} />}
+        {showNoResult && <MenuItem text={"Tidak ada hasil"} />}
         {loadingItems && <DropdownMenuSkeletonItem />}
       </DropdownMenuItemsContainer>
     </SelectableList>

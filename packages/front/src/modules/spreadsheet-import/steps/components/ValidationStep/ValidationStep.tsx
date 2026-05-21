@@ -272,12 +272,12 @@ export const ValidationStep = ({
       submitData();
     } else {
       enqueueDialog({
-        title: t`Finish flow with errors`,
-        message: t`There are still some rows that contain errors. Rows with errors will be ignored when submitting.`,
+        title: ""Finish flow with errors",
+        message: ""There are still some rows that contain errors. Rows with errors will be ignored when submitting.",
         buttons: [
-          { title: t`Cancel` },
+          { title: "Batalkan" },
           {
-            title: t`Submit`,
+            title: "Kirim",
             variant: 'primary',
             onClick: submitData,
             role: 'confirm',
@@ -293,7 +293,7 @@ export const ValidationStep = ({
         <StyledContentWrapper>
           {filterByErrors && tableData.length === 0 ? (
             <StyledNoRowsWithErrorsContainer>
-              <Trans>No rows with errors</Trans>
+              "No rows with errors
             </StyledNoRowsWithErrorsContainer>
           ) : (
             <StyledScrollContainer>
@@ -309,8 +309,8 @@ export const ValidationStep = ({
                   noRowsFallback: (
                     <StyledNoRowsContainer>
                       {filterByErrors
-                        ? t`No data containing errors`
-                        : t`No data found`}
+                        ? ""No data containing errors"
+                        : ""No data found"}
                     </StyledNoRowsContainer>
                   ),
                 }}
@@ -325,13 +325,13 @@ export const ValidationStep = ({
                 toggleSize="small"
               />
               <StyledErrorToggleDescription>
-                <Trans>Show only rows with errors</Trans>
+                "Show only rows with errors
               </StyledErrorToggleDescription>
             </StyledErrorToggle>
             <StyledButtonContainer>
               <Button
                 Icon={IconTrash}
-                title={t`Remove`}
+                title={"Hapus"}
                 accent="default"
                 onClick={deleteSelectedRows}
                 disabled={selectedRows.size === 0}
@@ -343,7 +343,7 @@ export const ValidationStep = ({
       <StepNavigationButton
         onContinue={onContinue}
         onBack={onBack}
-        continueTitle={t`Confirm`}
+        continueTitle={"Konfirmasi"}
       />
     </>
   );

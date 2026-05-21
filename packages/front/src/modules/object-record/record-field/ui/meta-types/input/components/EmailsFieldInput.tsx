@@ -77,7 +77,7 @@ export const EmailsFieldInput = () => {
   };
 
   const handleCopy = (email: string) => {
-    copyToClipboard(email, t`Email copied to clipboard`);
+    copyToClipboard(email, ""Email copied to clipboard");
   };
 
   const handleClickOutside = (

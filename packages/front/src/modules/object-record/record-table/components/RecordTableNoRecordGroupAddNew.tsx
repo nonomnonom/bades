@@ -83,7 +83,7 @@ export const RecordTableNoRecordGroupAddNew = () => {
     <RecordTableActionRow
       onClick={handleButtonClick}
       LeftIcon={IconPlus}
-      text={t`Add New`}
+      text={""Add New"}
     />
   );
 };

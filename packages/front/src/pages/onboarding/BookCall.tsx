@@ -66,12 +66,12 @@ export const BookCall = () => {
       <ModalFooter autoHeight centered smallPadding>
         {isPlanRequired ? (
           <Link to={AppPath.PlanRequired}>
-            <LightButton Icon={IconChevronLeft} title={t`Back`} />
+            <LightButton Icon={IconChevronLeft} title={"Kembali"} />
           </Link>
         ) : (
           <LightButton
             Icon={IconChevronRightPipe}
-            title={t`Skip`}
+            title={"Lewati"}
             onClick={handleCompleteOnboarding}
           />
         )}

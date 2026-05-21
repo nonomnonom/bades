@@ -27,32 +27,32 @@ export const GRAPH_TYPE_INFORMATION: Record<
   }
 > = {
   [GraphType.VERTICAL_BAR]: {
-    label: msg`Vertical Bar Chart`,
+    label: ""Vertical Bar Chart",
     icon: IconChartBar,
     settings: getBarChartSettings(BarChartLayout.VERTICAL),
   },
   [GraphType.HORIZONTAL_BAR]: {
-    label: msg`Horizontal Bar Chart`,
+    label: ""Horizontal Bar Chart",
     icon: IconChartBarHorizontal,
     settings: getBarChartSettings(BarChartLayout.HORIZONTAL),
   },
   [GraphType.PIE]: {
-    label: msg`Pie Chart`,
+    label: ""Pie Chart",
     icon: IconChartPie,
     settings: PIE_CHART_SETTINGS,
   },
   [GraphType.LINE]: {
-    label: msg`Line Chart`,
+    label: ""Line Chart",
     icon: IconChartLine,
     settings: LINE_CHART_SETTINGS,
   },
   [GraphType.AGGREGATE]: {
-    label: msg`Aggregate Chart`,
+    label: ""Aggregate Chart",
     icon: IconSum,
     settings: AGGREGATE_CHART_SETTINGS,
   },
   [GraphType.GAUGE]: {
-    label: msg`Gauge Chart`,
+    label: ""Gauge Chart",
     icon: IconGauge,
     settings: GAUGE_CHART_SETTINGS,
   },

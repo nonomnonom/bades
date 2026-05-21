@@ -34,8 +34,8 @@ export const SettingsApplicationRegistrationDistributionTab = ({
     <>
       <Section>
         <H2Title
-          title={t`Public`}
-          description={t`Publish your app to the marketplace so others can install it`}
+          title={"Publik"}
+          description={""Publish your app to the marketplace so others can install it"}
         />
         {isNpmSource && (
           <SettingsApplicationRegistrationShareLinkButtons
@@ -52,10 +52,10 @@ export const SettingsApplicationRegistrationDistributionTab = ({
                 onClick={() => {
                   copyToClipboard(
                     publishCommands.join('\n'),
-                    t`Command copied to clipboard`,
+                    ""Command copied to clipboard",
                   );
                 }}
-                ariaLabel={t`Copy command`}
+                ariaLabel={""Copy command"}
                 Icon={IconCopy}
               />
             }
@@ -65,8 +65,8 @@ export const SettingsApplicationRegistrationDistributionTab = ({
       {isTarballSource && (
         <Section>
           <H2Title
-            title={t`Private`}
-            description={t`Share your app to other workspaces without pushing it on the marketplace`}
+            title={"Pribadi"}
+            description={""Share your app to other workspaces without pushing it on the marketplace"}
           />
           <SettingsApplicationRegistrationShareLinkButtons
             shareLink={shareLink}

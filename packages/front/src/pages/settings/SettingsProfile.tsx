@@ -36,40 +36,40 @@ export const SettingsProfile = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Profile`}
+      title={"Profil"}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: Pengguna,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
-        { children: <Trans>Profile</Trans> },
+        { children: Profil },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Picture`} />
+          <H2Title title={""Picture"} />
           <WorkspaceMemberPictureUploader
             workspaceMemberId={currentWorkspaceMember.id}
           />
         </Section>
         <Section>
           <H2Title
-            title={t`Name`}
-            description={t`Your name as it will be displayed`}
+            title={"Nama"}
+            description={""Your name as it will be displayed"}
           />
           <NameFields />
         </Section>
         <Section>
           <H2Title
             title={t`Email`}
-            description={t`The email associated to your account`}
+            description={""The email associated to your account"}
           />
           <EmailField />
         </Section>
         <Section>
           <H2Title
-            title={t`Two Factor Authentication`}
-            description={t`Enhances security by requiring a code along with your password`}
+            title={""Two Factor Authentication"}
+            description={""Enhances security by requiring a code along with your password"}
           />
           <UndecoratedLink
             to={getSettingsPath(
@@ -78,13 +78,13 @@ export const SettingsProfile = () => {
             )}
           >
             <SettingsCard
-              title={t`Authenticator App`}
+              title={"Aplikasi Autentikator"}
               Icon={<IconShield />}
               Status={
                 has2FAMethod ? (
-                  <Status text={t`Active`} color="turquoise" />
+                  <Status text={"Aktif"} color="turquoise" />
                 ) : (
-                  <Status text={t`Deactivated`} color="gray" />
+                  <Status text={""Deactivated"} color="gray" />
                 )
               }
             />

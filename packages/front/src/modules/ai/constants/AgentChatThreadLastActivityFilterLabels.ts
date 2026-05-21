@@ -7,9 +7,9 @@ export const AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_LABELS: Record<
   AgentChatThreadLastActivityFilter,
   MessageDescriptor
 > = {
-  all: msg`All`,
-  '1d': msg`1d`,
-  '3d': msg`3d`,
-  '7d': msg`7d`,
-  '30d': msg`30d`,
+  all: "Semua",
+  '1d': "1h",
+  '3d': "3h",
+  '7d': "7h",
+  '30d': "30h",
 };

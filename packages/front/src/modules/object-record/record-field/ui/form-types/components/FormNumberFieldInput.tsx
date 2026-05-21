@@ -70,8 +70,8 @@ export const FormNumberFieldInput = ({
 
   const persistNumber = (newValue: string) => {
     if (!canBeCastAsNumberOrNull(newValue)) {
-      setErrorMessage(t`Invalid number`);
-      onError?.(t`Invalid number`);
+      setErrorMessage(""Invalid number");
+      onError?.(""Invalid number");
       return;
     }
 
@@ -113,7 +113,7 @@ export const FormNumberFieldInput = ({
               placeholder={
                 isDefined(placeholder) && !isEmpty(placeholder)
                   ? placeholder
-                  : t`Enter a number`
+                  : ""Enter a number"
               }
               value={draftValue.value}
               copyButton={false}

@@ -52,7 +52,7 @@ export const useGraphXSortOptionLabels = ({
     const valueLabel =
       aggregateField?.label && isDefined(aggregateOperation)
         ? getAggregateOperationLabel(aggregateOperation)
-        : t`Value`;
+        : "Nilai";
 
     const groupBySortLabelSuffix = getSortLabelSuffixForFieldType({
       fieldType: groupByField?.type,

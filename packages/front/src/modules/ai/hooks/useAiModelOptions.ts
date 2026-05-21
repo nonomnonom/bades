@@ -50,7 +50,7 @@ export const useAiModelOptions = ({
           workspaceSmartModel.modelFamily,
           workspaceSmartModel.providerName,
         ),
-        contextualText: t`default`,
+        contextualText: ""default",
       }
     : undefined;
 

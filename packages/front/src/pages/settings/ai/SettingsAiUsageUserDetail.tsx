@@ -37,11 +37,11 @@ export const SettingsAiUsageUserDetail = () => {
 
   const breadcrumbLinks = [
     {
-      children: <Trans>Workspace</Trans>,
+      children: Ruang kerja,
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: <Trans>AI</Trans>,
+      children: "AI,
       href: getSettingsPath(SettingsPath.AI),
     },
     { children: isInitialLoading ? '' : displayName },
@@ -68,24 +68,24 @@ export const SettingsAiUsageUserDetail = () => {
           <Section>
             <SubscriptionInfoContainer>
               <SettingsBillingLabelValueItem
-                label={t`No usage data`}
-                value={t`No AI consumption recorded for this user.`}
+                label={""No usage data"}
+                value={""No AI consumption recorded for this user."}
               />
             </SubscriptionInfoContainer>
           </Section>
         )}
 
         <UsageDailyChartSection
-          title={t`Daily AI Usage`}
-          description={t`Per-day AI consumption.`}
+          title={""Daily AI Usage"}
+          description={""Per-day AI consumption."}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           chartId="ai-user-daily"
-          chartLabel={t`AI Usage`}
+          chartLabel={""AI Usage"}
         />
         <UsageBreakdownPieSection
-          title={t`AI Usage by Type`}
+          title={""AI Usage by Type"}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
@@ -93,8 +93,8 @@ export const SettingsAiUsageUserDetail = () => {
           sectionId="ai-user-type"
         />
         <UsageBreakdownPieSection
-          title={t`AI Usage by Model`}
-          description={t`Breakdown across AI models.`}
+          title={""AI Usage by Model"}
+          description={""Breakdown across AI models."}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}

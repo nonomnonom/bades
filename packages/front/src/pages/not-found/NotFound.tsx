@@ -46,13 +46,13 @@ export const NotFound = () => {
 
   return (
     <>
-      <PageTitle title={t`Page Not Found | Twenty`} />
+      <PageTitle title={""Page Not Found | Twenty"} />
       <StyledBackDrop>
         <AnimatedPlaceholderErrorContainer>
           <AnimatedPlaceholder type="error404" />
           <AnimatedPlaceholderEmptyTextContainer>
             <AnimatedPlaceholderErrorTitle>
-              <Trans>Off the beaten path</Trans>
+              "Off the beaten path
             </AnimatedPlaceholderErrorTitle>
             <AnimatedPlaceholderErrorSubTitle>
               <Trans>
@@ -63,7 +63,7 @@ export const NotFound = () => {
           </AnimatedPlaceholderEmptyTextContainer>
           <StyledButtonContainer>
             <UndecoratedLink to={AppPath.Index}>
-              <MainButton title={t`Back to content`} fullWidth />
+              <MainButton title={""Back to content"} fullWidth />
             </UndecoratedLink>
           </StyledButtonContainer>
         </AnimatedPlaceholderErrorContainer>

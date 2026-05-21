@@ -33,10 +33,10 @@ const StyledComboInputContainer = styled.div`
 `;
 
 const MODALITY_OPTIONS = [
-  { value: 'image', label: t`Image` },
+  { value: 'image', label: "Gambar" },
   { value: 'pdf', label: t`PDF` },
-  { value: 'audio', label: t`Audio` },
-  { value: 'video', label: t`Video` },
+  { value: 'audio', label: ""Audio" },
+  { value: 'video', label: ""Video" },
 ];
 
 const StyledCheckboxRow = styled.div`
@@ -201,7 +201,7 @@ export const SettingsAdminNewAiModel = () => {
     if (!values.name.trim()) {
       form.setError('name', {
         type: 'manual',
-        message: t`Model ID is required`,
+        message: ""Model ID is required",
       });
 
       return;
@@ -210,7 +210,7 @@ export const SettingsAdminNewAiModel = () => {
     if (!values.label.trim()) {
       form.setError('label', {
         type: 'manual',
-        message: t`Label is required`,
+        message: ""Label is required",
       });
 
       return;
@@ -266,7 +266,7 @@ export const SettingsAdminNewAiModel = () => {
       navigate(providerDetailPath);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to add model`,
+        message: ""Failed to add model",
       });
     } finally {
       setIsSubmitting(false);
@@ -279,17 +279,17 @@ export const SettingsAdminNewAiModel = () => {
   return (
     <form onSubmit={form.handleSubmit(handleSave)}>
       <SubMenuTopBarContainer
-        title={t`New Model`}
+        title={""New Model"}
         links={[
           {
-            children: <Trans>Admin Panel</Trans>,
+            children: "Admin Panel,
             href: getSettingsPath(SettingsPath.AdminPanel),
           },
           {
             children: provider?.label ?? providerName ?? '',
             href: providerDetailPath,
           },
-          { children: <Trans>New Model</Trans> },
+          { children: "New Model },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -302,11 +302,11 @@ export const SettingsAdminNewAiModel = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Model ID`}
+              title={""Model ID"}
               description={
                 showModelSelect
-                  ? t`Select a known model or add a custom one`
-                  : t`The model identifier used by the provider API`
+                  ? ""Select a known model or add a custom one"
+                  : ""The model identifier used by the provider API"
               }
             />
             {showModelSelect ? (
@@ -322,7 +322,7 @@ export const SettingsAdminNewAiModel = () => {
                     withSearchInput
                     fullWidth
                     callToActionButton={{
-                      text: t`Custom model ID`,
+                      text: ""Custom model ID",
                       onClick: () => setIsCustomModelId(true),
                       Icon: IconPlus,
                     }}
@@ -340,7 +340,7 @@ export const SettingsAdminNewAiModel = () => {
                   <TextInput
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. gpt-4o`}
+                    placeholder={""e.g. gpt-4o"}
                     fullWidth
                     error={error?.message}
                   />
@@ -352,7 +352,7 @@ export const SettingsAdminNewAiModel = () => {
           <Section>
             <H2Title
               title={t`Label`}
-              description={t`Display name for the model`}
+              description={""Display name for the model"}
             />
             <Controller
               name="label"
@@ -364,7 +364,7 @@ export const SettingsAdminNewAiModel = () => {
                 <TextInput
                   value={value}
                   onChange={onChange}
-                  placeholder={t`e.g. GPT-4o`}
+                  placeholder={""e.g. GPT-4o"}
                   fullWidth
                   error={error?.message}
                 />
@@ -374,8 +374,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Pricing`}
-              description={t`Cost per million tokens (USD)`}
+              title={""Pricing"}
+              description={""Cost per million tokens (USD)"}
             />
             <StyledComboInputContainer>
               <Controller
@@ -386,7 +386,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Input`}
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. 2.50`}
+                    placeholder={""e.g. 2.50"}
                     fullWidth
                   />
                 )}
@@ -399,7 +399,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Output`}
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. 10.00`}
+                    placeholder={""e.g. 10.00"}
                     fullWidth
                   />
                 )}
@@ -409,8 +409,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Cache pricing`}
-              description={t`Cost per million tokens for cached input (USD)`}
+              title={""Cache pricing"}
+              description={""Cost per million tokens for cached input (USD)"}
             />
             <StyledComboInputContainer>
               <Controller
@@ -418,10 +418,10 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Cache read`}
+                    label={""Cache read"}
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. 1.25`}
+                    placeholder={""e.g. 1.25"}
                     fullWidth
                   />
                 )}
@@ -431,10 +431,10 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Cache write`}
+                    label={""Cache write"}
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. 3.75`}
+                    placeholder={""e.g. 3.75"}
                     fullWidth
                   />
                 )}
@@ -444,8 +444,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Limits`}
-              description={t`Token limits for context and output`}
+              title={""Limits"}
+              description={""Token limits for context and output"}
             />
             <StyledComboInputContainer>
               <Controller
@@ -453,10 +453,10 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Context window`}
+                    label={""Context window"}
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. 128000`}
+                    placeholder={""e.g. 128000"}
                     fullWidth
                   />
                 )}
@@ -466,10 +466,10 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Max output`}
+                    label={""Max output"}
                     value={value}
                     onChange={onChange}
-                    placeholder={t`e.g. 16384`}
+                    placeholder={""e.g. 16384"}
                     fullWidth
                   />
                 )}
@@ -479,8 +479,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Supported input types`}
-              description={t`Types of content this model can process besides text`}
+              title={""Supported input types"}
+              description={""Types of content this model can process besides text"}
             />
             <Controller
               name="modalities"
@@ -527,8 +527,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Supports reasoning`}
-              description={t`Whether this model supports chain-of-thought reasoning`}
+              title={""Supports reasoning"}
+              description={""Whether this model supports chain-of-thought reasoning"}
             />
             <Controller
               name="supportsReasoning"

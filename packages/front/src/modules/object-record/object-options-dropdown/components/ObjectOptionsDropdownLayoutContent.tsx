@@ -143,7 +143,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
           />
         }
       >
-        {t`Layout`}
+        {"Tata letak"}
       </DropdownMenuHeader>
 
       {!!currentView && (
@@ -161,7 +161,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             >
               <MenuItemSelect
                 LeftIcon={IconTable}
-                text={t`Table`}
+                text={"Tabel"}
                 selected={currentView?.type === ViewType.TABLE}
                 focused={selectedItemId === ViewType.TABLE}
                 onClick={async () => {
@@ -179,7 +179,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             >
               <MenuItemSelect
                 LeftIcon={viewTypeIconMapping(ViewType.CALENDAR)}
-                text={t`Calendar`}
+                text={"Kalender"}
                 selected={currentView?.type === ViewType.CALENDAR}
                 focused={selectedItemId === ViewType.CALENDAR}
                 onClick={handleSelectCalendarViewType}
@@ -193,7 +193,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             >
               <MenuItemSelect
                 LeftIcon={viewTypeIconMapping(ViewType.KANBAN)}
-                text={t`Kanban`}
+                text={""Kanban"}
                 disabled={isDefaultView}
                 focused={selectedItemId === ViewType.KANBAN}
                 contextualText={
@@ -201,11 +201,11 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                     <>
                       {nbsp}·{nbsp}
                       <OverflowingTextWithTooltip
-                        text={t`Not available for default view`}
+                        text={""Not available for default view"}
                       />
                     </>
                   ) : availableFieldsForGrouping.length === 0 ? (
-                    t`Create Select...`
+                    ""Create Select..."
                   ) : undefined
                 }
                 contextualTextPosition="right"
@@ -226,7 +226,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                     focused={selectedItemId === 'CalendarDateField'}
                     onClick={() => onContentChange('calendarFields')}
                     LeftIcon={IconCalendar}
-                    text={t`Date field`}
+                    text={""Date field"}
                     contextualText={calendarFieldMetadata?.label}
                     contextualTextPosition="right"
                     hasSubMenu
@@ -240,13 +240,13 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                     focused={selectedItemId === 'CalendarView'}
                     onClick={() => onContentChange('calendarView')}
                     LeftIcon={IconCalendarWeek}
-                    text={t`Calendar view`}
+                    text={""Calendar view"}
                     contextualText={
                       recordIndexCalendarLayout === ViewCalendarLayout.MONTH
-                        ? t`Month`
+                        ? "Bulan"
                         : recordIndexCalendarLayout === ViewCalendarLayout.WEEK
-                          ? t`Week`
-                          : t`Day`
+                          ? "Minggu"
+                          : "Hari"
                     }
                     contextualTextPosition="right"
                     hasSubMenu
@@ -267,14 +267,14 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                     ? IconLayoutSidebarRight
                     : IconLayoutNavbar
                 }
-                text={t`Open in`}
+                text={""Open in"}
                 onClick={() => {
                   onContentChange('layoutOpenIn');
                 }}
                 contextualText={
                   recordIndexOpenRecordIn === ViewOpenRecordIn.SIDE_PANEL
-                    ? t`Side Panel`
-                    : t`Record Page`
+                    ? ""Side Panel"
+                    : ""Record Page"
                 }
                 contextualTextPosition="right"
                 hasSubMenu
@@ -297,7 +297,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                       : onContentChange('recordGroupFields')
                   }
                   LeftIcon={IconLayoutList}
-                  text={t`Group`}
+                  text={"Grup"}
                   contextualText={recordIndexGroupFieldMetadataItem?.label}
                   contextualTextPosition="right"
                   hasSubMenu
@@ -324,7 +324,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                     )
                   }
                   toggled={isCompactModeActive}
-                  text={t`Compact view`}
+                  text={""Compact view"}
                   toggleSize="small"
                 />
               </SelectableListItem>

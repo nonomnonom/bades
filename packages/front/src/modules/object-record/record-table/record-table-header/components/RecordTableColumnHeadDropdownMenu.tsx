@@ -149,7 +149,7 @@ export const RecordTableColumnHeadDropdownMenu = ({
             <MenuItem
               LeftIcon={IconSortDescending}
               onClick={handleSortClick}
-              text={t`Sort`}
+              text={"Urutkan"}
             />
           )}
           {showSeparator && <DropdownMenuSeparator />}
@@ -157,21 +157,21 @@ export const RecordTableColumnHeadDropdownMenu = ({
             <MenuItem
               LeftIcon={IconArrowLeft}
               onClick={handleColumnMoveLeft}
-              text={t`Move left`}
+              text={""Move left"}
             />
           )}
           {canMoveRight && (
             <MenuItem
               LeftIcon={IconArrowRight}
               onClick={handleColumnMoveRight}
-              text={t`Move right`}
+              text={""Move right"}
             />
           )}
           {canHide && (
             <MenuItem
               LeftIcon={IconEyeOff}
               onClick={async () => await handleColumnVisibility()}
-              text={t`Hide`}
+              text={"Sembunyikan"}
             />
           )}
         </DropdownMenuItemsContainer>

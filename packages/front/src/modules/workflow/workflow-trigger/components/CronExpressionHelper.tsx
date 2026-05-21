@@ -118,14 +118,14 @@ export const CronExpressionHelper = ({
     CronExpressionParser.parse(normalized);
   } catch (error) {
     isValid = false;
-    errorMessage = error instanceof Error ? error.message : t`Unknown error`;
+    errorMessage = error instanceof Error ? error.message : ""Unknown error";
   }
 
   if (!isValid) {
     return (
       <StyledContainer>
         <InputHint danger>
-          {errorMessage || t`Please check your cron expression syntax.`}
+          {errorMessage || ""Please check your cron expression syntax."}
         </InputHint>
       </StyledContainer>
     );
@@ -137,7 +137,7 @@ export const CronExpressionHelper = ({
     <StyledContainer>
       {isScheduleVisible && (
         <StyledSection>
-          <StyledScheduleTitle>{t`Schedule`}</StyledScheduleTitle>
+          <StyledScheduleTitle>{""Schedule"}</StyledScheduleTitle>
           <StyledScheduleDescription>
             {customDescription}
           </StyledScheduleDescription>

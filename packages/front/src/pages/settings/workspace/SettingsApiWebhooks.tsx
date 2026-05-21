@@ -47,13 +47,13 @@ export const SettingsApiWebhooks = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`APIs & Webhooks`}
+      title={""APIs & Webhooks"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>APIs & Webhooks</Trans> },
+        { children: "APIs & Webhooks },
       ]}
     >
       <SettingsPageContainer>
@@ -61,8 +61,8 @@ export const SettingsApiWebhooks = () => {
           <StyledSectionContainer>
             <Section>
               <H2Title
-                title={t`Documentation`}
-                description={t`Try our REST or GraphQL API playgrounds.`}
+                title={""Documentation"}
+                description={""Try our REST or GraphQL API playgrounds."}
               />
               <StyledContainer>
                 <StyledSettingsApiPlaygroundCoverImage />
@@ -74,15 +74,15 @@ export const SettingsApiWebhooks = () => {
           <StyledSectionContainer>
             <Section>
               <H2Title
-                title={t`API Keys`}
-                description={t`Active API keys created by you or your team.`}
+                title={"Kunci API"}
+                description={"Kunci API aktif yang dibuat oleh Anda atau tim Anda."}
               />
               <StyledContainer isMobile={isMobile}>
                 <SettingsApiKeysTable />
                 <StyledButtonContainer>
                   <Button
                     Icon={IconPlus}
-                    title={t`Create API key`}
+                    title={""Create API key"}
                     size="small"
                     variant="secondary"
                     to={getSettingsPath(SettingsPath.NewApiKey)}
@@ -95,15 +95,15 @@ export const SettingsApiWebhooks = () => {
           <StyledSectionContainer>
             <Section>
               <H2Title
-                title={t`Webhooks`}
-                description={t`Establish Webhook endpoints for notifications on asynchronous events.`}
+                title={""Webhooks"}
+                description={""Establish Webhook endpoints for notifications on asynchronous events."}
               />
               <StyledContainer isMobile={isMobile}>
                 <SettingsWebhooksTable />
                 <StyledButtonContainer>
                   <Button
                     Icon={IconPlus}
-                    title={t`Create webhook`}
+                    title={""Create webhook"}
                     size="small"
                     variant="secondary"
                     to={getSettingsPath(SettingsPath.NewWebhook)}

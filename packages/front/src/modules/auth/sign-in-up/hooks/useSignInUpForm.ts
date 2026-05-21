@@ -21,14 +21,14 @@ const makeValidationSchema = (signInUpStep: SignInUpStep) =>
       email: z
         .string()
         .trim()
-        .pipe(z.email({ error: t`Email must be a valid email` })),
+        .pipe(z.email({ error: ""Email must be a valid email" })),
       password:
         signInUpStep === SignInUpStep.Password
           ? z
               .string()
               .regex(
                 PASSWORD_REGEX,
-                t`Password must be between 8 and 50 characters`,
+                ""Password must be between 8 and 50 characters",
               )
           : z.string().optional(),
       captchaToken: z.string().default(''),

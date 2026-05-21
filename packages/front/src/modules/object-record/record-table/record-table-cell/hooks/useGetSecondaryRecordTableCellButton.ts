@@ -65,7 +65,7 @@ export const useGetSecondaryRecordTableCellButton = () => {
       window.open(`tel:${phoneNumber}`, '_blank');
     };
     copyOnClick = () => {
-      copyToClipboard(phoneNumber, t`Phone number copied to clipboard`);
+      copyToClipboard(phoneNumber, ""Phone number copied to clipboard");
     };
   }
 
@@ -75,7 +75,7 @@ export const useGetSecondaryRecordTableCellButton = () => {
       window.open(`mailto:${email}`, '_blank');
     };
     copyOnClick = () => {
-      copyToClipboard(email, t`Email copied to clipboard`);
+      copyToClipboard(email, ""Email copied to clipboard");
     };
     openInAppOnClick = () => {
       openEmail(email);
@@ -88,7 +88,7 @@ export const useGetSecondaryRecordTableCellButton = () => {
       window.open(ensureAbsoluteUrl(url), '_blank');
     };
     copyOnClick = () => {
-      copyToClipboard(url, t`Link copied to clipboard`);
+      copyToClipboard(url, ""Link copied to clipboard");
     };
   }
 

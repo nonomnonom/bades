@@ -10,17 +10,17 @@ export const SettingsUsage = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Usage`}
+      title={"Penggunaan"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Billing</Trans>,
+          children: Penagihan,
           href: getSettingsPath(SettingsPath.Billing),
         },
-        { children: <Trans>Usage</Trans> },
+        { children: Penggunaan },
       ]}
     >
       <SettingsPageContainer>

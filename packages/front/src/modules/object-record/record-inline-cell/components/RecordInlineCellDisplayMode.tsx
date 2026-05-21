@@ -86,7 +86,7 @@ export const RecordInlineCellDisplayMode = ({
 
   const isFieldInputOnly = useIsFieldInputOnly();
 
-  const emptyPlaceHolder = label ?? t`Empty`;
+  const emptyPlaceHolder = label ?? ""Empty";
 
   const shouldShowValue = !isFieldEmpty || isFieldInputOnly || isForbidden;
 

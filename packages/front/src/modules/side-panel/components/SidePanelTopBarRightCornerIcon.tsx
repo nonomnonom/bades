@@ -50,7 +50,7 @@ export const SidePanelTopBarRightCornerIcon = () => {
         size="small"
         variant="tertiary"
         onClick={() => switchToNewChat()}
-        ariaLabel={t`New conversation`}
+        ariaLabel={""New conversation"}
       />
     </StyledIconButtonContainer>
   );

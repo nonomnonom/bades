@@ -40,18 +40,18 @@ export const FormLinksFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`Primary Link Label`}
+          label={""Primary Link Label"}
           defaultValue={defaultValue?.primaryLinkLabel}
           onChange={handleChange('primaryLinkLabel')}
-          placeholder={placeholder ?? t`Primary Link Label`}
+          placeholder={placeholder ?? ""Primary Link Label"}
           readonly={readonly}
           VariablePicker={VariablePicker}
         />
         <FormTextFieldInput
-          label={t`Primary Link URL`}
+          label={""Primary Link URL"}
           defaultValue={defaultValue?.primaryLinkUrl}
           onChange={handleChange('primaryLinkUrl')}
-          placeholder={placeholder ?? t`Primary Link URL`}
+          placeholder={placeholder ?? ""Primary Link URL"}
           readonly={readonly}
           VariablePicker={VariablePicker}
         />

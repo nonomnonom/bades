@@ -30,8 +30,8 @@ export const SettingsAccountsSettingsSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`Settings`}
-        description={t`Configure your emails and calendar settings.`}
+        title={"Pengaturan"}
+        description={""Configure your emails and calendar settings."}
       />
       <StyledCardsContainer>
         <UndecoratedLink to={getSettingsPath(SettingsPath.AccountsEmails)}>
@@ -42,8 +42,8 @@ export const SettingsAccountsSettingsSection = () => {
                 stroke={theme.icon.stroke.sm}
               />
             }
-            title={t`Emails`}
-            description={t`Set email visibility, manage your blocklist and more.`}
+            title={"Email-email"}
+            description={""Set email visibility, manage your blocklist and more."}
           />
         </UndecoratedLink>
         <UndecoratedLink to={getSettingsPath(SettingsPath.AccountsCalendars)}>
@@ -54,8 +54,8 @@ export const SettingsAccountsSettingsSection = () => {
                 stroke={theme.icon.stroke.sm}
               />
             }
-            title={t`Calendar`}
-            description={t`Configure and customize your calendar preferences.`}
+            title={"Kalender"}
+            description={""Configure and customize your calendar preferences."}
           />
         </UndecoratedLink>
       </StyledCardsContainer>

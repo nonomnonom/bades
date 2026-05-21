@@ -126,14 +126,14 @@ export const ViewPickerOptionDropdown = ({
               {isIndexView ? (
                 <MenuItem
                   LeftIcon={IconHeart}
-                  text={isFavorite ? t`Manage favorite` : t`Add to Favorite`}
+                  text={isFavorite ? ""Manage favorite" : ""Add to Favorite"}
                   onClick={handleAddToFavorites}
                 />
               ) : (
                 <>
                   <MenuItem
                     LeftIcon={IconHeart}
-                    text={isFavorite ? t`Manage favorite` : t`Add to Favorite`}
+                    text={isFavorite ? ""Manage favorite" : ""Add to Favorite"}
                     onClick={handleAddToFavorites}
                   />
 
@@ -150,7 +150,7 @@ export const ViewPickerOptionDropdown = ({
                       {!isLastView && (
                         <MenuItem
                           LeftIcon={IconTrash}
-                          text={t`Delete`}
+                          text={"Hapus"}
                           onClick={handleDelete}
                           accent="danger"
                         />

@@ -125,17 +125,17 @@ export const SettingsDevelopersApiKeysNew = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`New key`}
+      title={""New key"}
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`APIs & Webhooks`,
+          children: ""APIs & Webhooks",
           href: getSettingsPath(SettingsPath.ApiWebhooks),
         },
-        { children: t`New Key` },
+        { children: ""New Key" },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -149,10 +149,10 @@ export const SettingsDevelopersApiKeysNew = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Name`} description={t`Name of your API key`} />
+          <H2Title title={"Nama"} description={""Name of your API key"} />
           <SettingsTextInput
             instanceId="api-key-new-name"
-            placeholder={t`E.g. backoffice integration`}
+            placeholder={""E.g. backoffice integration"}
             value={formValues.name}
             onKeyDown={(e) => {
               if (e.key === Key.Enter) {
@@ -170,8 +170,8 @@ export const SettingsDevelopersApiKeysNew = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Role`}
-            description={t`What this API can do: Select a user role to define its permissions.`}
+            title={"Peran"}
+            description={""What this API can do: Select a user role to define its permissions."}
           />
           <SettingsDevelopersRoleSelector
             value={formValues.roleId}
@@ -186,8 +186,8 @@ export const SettingsDevelopersApiKeysNew = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Expiration Date`}
-            description={t`When the API key will expire.`}
+            title={""Expiration Date"}
+            description={""When the API key will expire."}
           />
           <Select
             dropdownId="object-field-type-select"

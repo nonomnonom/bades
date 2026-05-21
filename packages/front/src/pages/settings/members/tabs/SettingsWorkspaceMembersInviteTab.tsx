@@ -100,7 +100,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
     const result = await deleteWorkspaceInvitation({ appTokenId });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Error deleting invitation`,
+        message: ""Error deleting invitation",
         options: {
           duration: 2000,
         },
@@ -112,7 +112,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
     const result = await resendInvitation({ appTokenId });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Error resending invitation`,
+        message: ""Error resending invitation",
         options: {
           duration: 2000,
         },
@@ -122,7 +122,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
 
   const getExpiresAtText = (expiresAt: string) => {
     const expirationDate = new Date(expiresAt);
-    if (expirationDate.getTime() <= Date.now()) return t`Expired`;
+    if (expirationDate.getTime() <= Date.now()) return ""Expired";
     return formatDistanceToNow(expirationDate, { locale: localeCatalog });
   };
 
@@ -132,8 +132,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
         currentWorkspace?.isPublicInviteLinkEnabled && (
           <Section>
             <H2Title
-              title={t`Invite by link`}
-              description={t`Share this link to invite users to join your workspace`}
+              title={""Invite by link"}
+              description={""Share this link to invite users to join your workspace"}
             />
             <WorkspaceInviteLink
               inviteLink={`${window.location.origin}/invite/${currentWorkspace?.inviteHash}`}
@@ -142,8 +142,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
         )}
       <Section>
         <H2Title
-          title={t`Invite by email`}
-          description={t`Send an invite email to your team`}
+          title={""Invite by email"}
+          description={""Send an invite email to your team"}
         />
         <WorkspaceInviteTeam roles={roles} />
         {isNonEmptyArray(workspaceInvitations) && (
@@ -157,11 +157,11 @@ export const SettingsWorkspaceMembersInviteTab = () => {
                   <Trans>Email</Trans>
                 </TableHeader>
                 <TableHeader>
-                  <Trans>Role</Trans>
+                  Peran
                 </TableHeader>
                 <TableHeader align="center">
                   <StyledExpiresInHeader>
-                    <Trans>Expires in</Trans>
+                    "Expires in
                   </StyledExpiresInHeader>
                 </TableHeader>
                 <TableHeader></TableHeader>
@@ -197,7 +197,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
                     <TableCell minWidth="0" overflow="hidden">
                       <StyledTextContainerWithEllipsis>
                         {rolesById.get(workspaceInvitation.roleId ?? '')
-                          ?.label ?? t`Default role`}
+                          ?.label ?? ""Default role"}
                       </StyledTextContainerWithEllipsis>
                     </TableCell>
                     <TableCell align="center">
@@ -239,8 +239,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Approved Domains`}
-          description={t`Anyone with an email address at these domains is allowed to sign up for this workspace.`}
+          title={""Approved Domains"}
+          description={""Anyone with an email address at these domains is allowed to sign up for this workspace."}
         />
         <SettingsApprovedAccessDomainsListCard />
       </Section>

@@ -35,7 +35,7 @@ export const SettingsDataModelPreviewFormCard = ({
     <StyledPreviewContainerWrapper>
       <CardContent divider={isDefined(form)}>
         <StyledFormCardTitle>
-          <Trans>Preview</Trans>
+          Pratinjau
         </StyledFormCardTitle>
         {preview}
       </CardContent>

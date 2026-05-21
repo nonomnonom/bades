@@ -12,7 +12,7 @@ import {
 
 export const AppErrorDisplay = ({
   resetErrorBoundary,
-  title = t`Sorry, something went wrong`,
+  title = ""Sorry, something went wrong",
 }: AppErrorDisplayProps) => {
   return (
     <AnimatedPlaceholderEmptyContainer>
@@ -20,12 +20,12 @@ export const AppErrorDisplay = ({
       <AnimatedPlaceholderEmptyTextContainer>
         <AnimatedPlaceholderEmptyTitle>{title}</AnimatedPlaceholderEmptyTitle>
         <AnimatedPlaceholderEmptySubTitle>
-          {t`Please refresh the page.`}
+          {""Please refresh the page."}
         </AnimatedPlaceholderEmptySubTitle>
       </AnimatedPlaceholderEmptyTextContainer>
       <Button
         Icon={IconRefresh}
-        title={t`Reload`}
+        title={""Reload"}
         variant="secondary"
         onClick={resetErrorBoundary}
       />

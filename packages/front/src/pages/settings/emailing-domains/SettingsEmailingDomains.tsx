@@ -43,7 +43,7 @@ export const SettingsEmailingDomains = () => {
   return isLoading || !emailingDomains.length ? (
     <StyledLinkContainer>
       <Link to={getSettingsPath(SettingsPath.NewEmailingDomain)}>
-        <SettingsCard title={t`Add Emailing Domain`} Icon={<IconMail />} />
+        <SettingsCard title={"Tambah Domain Email"} Icon={<IconMail />} />
       </Link>
     </StyledLinkContainer>
   ) : (
@@ -72,7 +72,7 @@ export const SettingsEmailingDomains = () => {
           </>
         )}
         hasFooter
-        footerButtonLabel={t`Add Emailing Domain`}
+        footerButtonLabel={"Tambah Domain Email"}
         onFooterButtonClick={() =>
           navigate(getSettingsPath(SettingsPath.NewEmailingDomain))
         }

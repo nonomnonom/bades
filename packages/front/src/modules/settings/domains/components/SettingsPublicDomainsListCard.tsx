@@ -31,7 +31,7 @@ export const SettingsPublicDomainsListCard = () => {
   if (publicDomains.length === 0) {
     return (
       <SettingsCard
-        title={t`Add Public Domain`}
+        title={""Add Public Domain"}
         Icon={<IconMailCog />}
         onClick={() => {
           setSelectedPublicDomain(undefined);
@@ -54,13 +54,13 @@ export const SettingsPublicDomainsListCard = () => {
       RowRightComponent={({ item: publicDomain }) => (
         <>
           {!publicDomain.isValidated && (
-            <Status color="orange" text={t`Pending`} />
+            <Status color="orange" text={"Tertunda"} />
           )}
           <SettingPublicDomainRowDropdownMenu publicDomain={publicDomain} />
         </>
       )}
       hasFooter
-      footerButtonLabel={t`Add Public Domain`}
+      footerButtonLabel={""Add Public Domain"}
       onFooterButtonClick={() => {
         setSelectedPublicDomain(undefined);
         navigate(SettingsPath.PublicDomain);

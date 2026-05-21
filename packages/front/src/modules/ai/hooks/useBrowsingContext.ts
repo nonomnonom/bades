@@ -134,7 +134,7 @@ export const useGetBrowsingContext = () => {
           const fieldMetadataItem = objectMetadataItem.fields.find(
             (field) => field.id === filter.fieldMetadataId,
           );
-          const fieldLabel = fieldMetadataItem?.label ?? t`Unknown field`;
+          const fieldLabel = fieldMetadataItem?.label ?? ""Unknown field";
 
           return `${fieldLabel} ${filter.operand} "${filter.displayValue}"`;
         },

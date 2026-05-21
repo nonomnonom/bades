@@ -91,7 +91,7 @@ export const SettingsToolParameterTable = ({
 
   if (entries.length === 0 && !functionLink) {
     return (
-      <SettingsEmptyPlaceholder>{t`No parameters`}</SettingsEmptyPlaceholder>
+      <SettingsEmptyPlaceholder>{""No parameters"}</SettingsEmptyPlaceholder>
     );
   }
 
@@ -101,9 +101,9 @@ export const SettingsToolParameterTable = ({
         <>
           <StyledTableHeaderRow>
             <TableRow gridTemplateColumns={PARAMETER_TABLE_GRID}>
-              <TableHeader>{t`Name`}</TableHeader>
-              <TableHeader>{t`Type`}</TableHeader>
-              <TableHeader>{t`Required`}</TableHeader>
+              <TableHeader>{"Nama"}</TableHeader>
+              <TableHeader>{"Tipe"}</TableHeader>
+              <TableHeader>{"Diperlukan"}</TableHeader>
               <TableHeader />
             </TableRow>
           </StyledTableHeaderRow>
@@ -131,7 +131,7 @@ export const SettingsToolParameterTable = ({
                     {getDisplayType(property)}
                   </TableCell>
                   <TableCell color={themeCssVariables.font.color.tertiary}>
-                    {requiredFields?.includes(paramName) ? t`Yes` : ''}
+                    {requiredFields?.includes(paramName) ? "Ya" : ''}
                   </TableCell>
                   <TableCell>
                     {property.description && (
@@ -165,7 +165,7 @@ export const SettingsToolParameterTable = ({
           <UndecoratedLink to={functionLink}>
             <Button
               Icon={IconArrowUpRight}
-              title={t`See function`}
+              title={""See function"}
               size="small"
               variant="secondary"
             />

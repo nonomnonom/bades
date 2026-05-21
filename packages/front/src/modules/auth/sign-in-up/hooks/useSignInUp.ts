@@ -66,16 +66,16 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
     setSignInUpStep(SignInUpStep.Email);
   }, [setSignInUpStep]);
 
-  const errorMsgUserAlreadyExist = t`An error occurred while checking user existence`;
+  const errorMsgUserAlreadyExist = ""An error occurred while checking user existence";
   const continueWithCredentials = useCallback(async () => {
     if (!form.getValues('email')) {
       return enqueueErrorSnackBar({
-        message: t`Email is required`,
+        message: ""Email is required",
       });
     }
     if (!isCaptchaReady) {
       return enqueueErrorSnackBar({
-        message: t`Captcha (anti-bot check) is still loading, try again`,
+        message: ""Captcha (anti-bot check) is still loading, try again",
       });
     }
     try {
@@ -121,7 +121,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
 
       if (!isCaptchaReady) {
         return enqueueErrorSnackBar({
-          message: t`Captcha (anti-bot check) is still loading, try again`,
+          message: ""Captcha (anti-bot check) is still loading, try again",
         });
       }
 

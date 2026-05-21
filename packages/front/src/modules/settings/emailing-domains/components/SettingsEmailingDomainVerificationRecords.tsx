@@ -38,7 +38,7 @@ export const SettingsEmailingDomainVerificationRecords = ({
         },
       });
       enqueueSuccessSnackBar({
-        message: t`Started verification process`,
+        message: ""Started verification process",
       });
     } catch (error) {
       enqueueErrorSnackBar({
@@ -50,8 +50,8 @@ export const SettingsEmailingDomainVerificationRecords = ({
   return (
     <Section>
       <H2Title
-        title={t`DNS Records`}
-        description={t`Add these records to verify your domain.`}
+        title={""DNS Records"}
+        description={""Add these records to verify your domain."}
         adornment={
           <Button
             onClick={handleVerifyEmailingDomain}
@@ -59,7 +59,7 @@ export const SettingsEmailingDomainVerificationRecords = ({
             variant="secondary"
             Icon={IconRefresh}
             size="small"
-            title={t`Check verification`}
+            title={""Check verification"}
             disabled={isVerifying}
           />
         }

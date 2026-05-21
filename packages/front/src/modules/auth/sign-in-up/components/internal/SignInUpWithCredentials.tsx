@@ -96,24 +96,24 @@ export const SignInUpWithCredentials = ({
 
   const buttonTitle = useMemo(() => {
     if (signInUpStep === SignInUpStep.Init) {
-      return t`Continue with Email`;
+      return "Lanjutkan dengan Email";
     }
 
     if (
       signInUpMode === SignInUpMode.SignIn &&
       signInUpStep === SignInUpStep.Password
     ) {
-      return t`Sign in`;
+      return "Masuk";
     }
 
     if (
       signInUpMode === SignInUpMode.SignUp &&
       signInUpStep === SignInUpStep.Password
     ) {
-      return t`Sign up`;
+      return "Daftar";
     }
 
-    return t`Continue`;
+    return "Lanjutkan";
   }, [signInUpMode, signInUpStep, t]);
 
   const shouldWaitForCaptchaToken =
@@ -174,7 +174,7 @@ export const SignInUpWithCredentials = ({
             />
             {isLastUsed && <LastUsedPill />}
             {isSignUpBlockedByDDLLock && (
-              <InputHint>{t`Sign-up is temporarily unavailable during maintenance.`}</InputHint>
+              <InputHint>{""Sign-up is temporarily unavailable during maintenance."}</InputHint>
             )}
           </StyledSSOButtonContainer>
         </StyledForm>

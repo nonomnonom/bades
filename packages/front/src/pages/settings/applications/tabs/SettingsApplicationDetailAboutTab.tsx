@@ -128,7 +128,7 @@ export const SettingsApplicationDetailAboutTab = ({
   const markdownText =
     aboutDescription ??
     description ??
-    t`No description available for this application`;
+    ""No description available for this application";
 
   const getActionButton = () => {
     if (!canInstallMarketplaceApps) {
@@ -139,7 +139,7 @@ export const SettingsApplicationDetailAboutTab = ({
       return (
         <Button
           Icon={IconDownload}
-          title={isInstalling ? t`Installing...` : t`Install`}
+          title={isInstalling ? ""Installing..." : "Pasang"}
           variant={'primary'}
           accent={'blue'}
           onClick={onInstall}
@@ -154,7 +154,7 @@ export const SettingsApplicationDetailAboutTab = ({
           Icon={IconUpload}
           title={
             isUpgrading
-              ? t`Upgrading...`
+              ? ""Upgrading..."
               : t`Upgrade to ${latestAvailableVersion}`
           }
           variant={'secondary'}
@@ -169,7 +169,7 @@ export const SettingsApplicationDetailAboutTab = ({
       return (
         <Button
           Icon={IconTrash}
-          title={isUninstalling ? t`Uninstalling...` : t`Uninstall`}
+          title={isUninstalling ? ""Uninstalling..." : ""Uninstall"}
           variant={'secondary'}
           accent={'danger'}
           onClick={() => openModal(UNINSTALL_APPLICATION_MODAL_ID)}
@@ -181,7 +181,7 @@ export const SettingsApplicationDetailAboutTab = ({
     return (
       <Button
         Icon={IconCheck}
-        title={t`Installed`}
+        title={"Terpasang"}
         variant={'secondary'}
         accent={'default'}
         disabled={true}
@@ -189,7 +189,7 @@ export const SettingsApplicationDetailAboutTab = ({
     );
   };
 
-  const confirmationValue = t`yes`;
+  const confirmationValue = ""yes";
 
   return (
     <>
@@ -225,7 +225,7 @@ export const SettingsApplicationDetailAboutTab = ({
           confirmationPlaceholder={confirmationValue}
           confirmationValue={confirmationValue}
           modalInstanceId={UNINSTALL_APPLICATION_MODAL_ID}
-          title={t`Uninstall Application?`}
+          title={""Uninstall Application?"}
           subtitle={
             <Trans>
               Please type {`"${confirmationValue}"`} to confirm you want to
@@ -233,7 +233,7 @@ export const SettingsApplicationDetailAboutTab = ({
             </Trans>
           }
           onConfirmClick={onUninstall}
-          confirmButtonText={t`Uninstall`}
+          confirmButtonText={""Uninstall"}
           loading={isUninstalling}
         />
       )}

@@ -115,10 +115,10 @@ export const FieldsWidget = ({ widget }: FieldsWidgetProps) => {
             <AnimatedPlaceholder type="noRecord" />
             <AnimatedPlaceholderEmptyTextContainer>
               <AnimatedPlaceholderEmptyTitle>
-                {t`No fields to display`}
+                {""No fields to display"}
               </AnimatedPlaceholderEmptyTitle>
               <AnimatedPlaceholderEmptySubTitle>
-                {t`Configure this widget to display fields`}
+                {""Configure this widget to display fields"}
               </AnimatedPlaceholderEmptySubTitle>
             </AnimatedPlaceholderEmptyTextContainer>
           </AnimatedPlaceholderEmptyContainer>

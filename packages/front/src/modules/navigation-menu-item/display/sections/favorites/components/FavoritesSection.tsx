@@ -145,7 +145,7 @@ export const FavoritesSection = () => {
 
   return (
     <NavigationMenuItemSection
-      title={t`Favorites`}
+      title={""Favorites"}
       isOpen={isNavigationSectionOpen}
       onToggle={toggleNavigationSection}
       rightIcon={

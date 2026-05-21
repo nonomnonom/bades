@@ -17,30 +17,30 @@ export const EventLogTableSelector = ({
   const options = [
     {
       value: EventLogTable.PAGEVIEW,
-      label: t`Page Views`,
+      label: ""Page Views",
     },
     {
       value: EventLogTable.WORKSPACE_EVENT,
-      label: t`Workspace Events`,
+      label: ""Workspace Events",
     },
     {
       value: EventLogTable.OBJECT_EVENT,
-      label: t`Object Events`,
+      label: ""Object Events",
     },
     {
       value: EventLogTable.USAGE_EVENT,
-      label: t`Usage Events`,
+      label: ""Usage Events",
     },
     {
       value: EventLogTable.APPLICATION_LOG,
-      label: t`Application Logs`,
+      label: ""Application Logs",
     },
   ];
 
   return (
     <Select
       dropdownId="event-log-table-selector"
-      label={t`Table`}
+      label={"Tabel"}
       fullWidth
       value={value}
       options={options}

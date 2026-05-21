@@ -90,7 +90,7 @@ export const InformationBanner = ({
                 size="small"
                 variant="tertiary"
                 onClick={onClose}
-                ariaLabel={t`Close banner`}
+                ariaLabel={""Close banner"}
               />
             ) : (
               <IconButton
@@ -99,7 +99,7 @@ export const InformationBanner = ({
                 variant="tertiary"
                 accent={buttonAccent}
                 onClick={onClose}
-                ariaLabel={t`Close banner`}
+                ariaLabel={""Close banner"}
               />
             ))}
         </Banner>

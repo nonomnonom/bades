@@ -51,25 +51,25 @@ export const SettingsLayoutViewDetail = () => {
     ? [
         {
           key: 'universalIdentifier',
-          label: t`Universal identifier`,
+          label: ""Universal identifier",
           value: view.universalIdentifier,
         },
-        { key: 'type', label: t`Type`, value: view.type ?? t`Table` },
+        { key: 'type', label: "Tipe", value: view.type ?? "Tabel" },
         {
           key: 'object',
-          label: t`Object`,
+          label: "Objek",
           value: objectLabel ?? view.objectUniversalIdentifier,
         },
-        { key: 'icon', label: t`Icon`, value: view.icon ?? t`Not set` },
+        { key: 'icon', label: "Ikon", value: view.icon ?? ""Not set" },
         {
           key: 'visibility',
-          label: t`Visibility`,
-          value: view.visibility ?? t`Default`,
+          label: "Visibilitas",
+          value: view.visibility ?? "Bawaan",
         },
         {
           key: 'openRecordIn',
-          label: t`Open records in`,
-          value: view.openRecordIn ?? t`Default`,
+          label: ""Open records in",
+          value: view.openRecordIn ?? "Bawaan",
         },
       ]
     : [];
@@ -82,38 +82,38 @@ export const SettingsLayoutViewDetail = () => {
     <SettingsLayoutDetailScaffold
       applicationId={applicationId}
       applicationName={application?.name}
-      entityName={view?.name ?? t`View`}
-      entityTypeLabel={t`view`}
-      categoryLabel={t`Views`}
+      entityName={view?.name ?? "Lihat"}
+      entityTypeLabel={""view"}
+      categoryLabel={""Views"}
       detailRows={detailRows}
       isLoading={isLoading}
     >
       <SettingsLayoutItemTable
-        title={t`Fields`}
-        description={t`Columns shown in this view, in display order`}
+        title={"Bidang-bidang"}
+        description={""Columns shown in this view, in display order"}
         columns={[
           { key: 'position', label: t`#`, width: '40px', align: 'right' },
-          { key: 'field', label: t`Field` },
-          { key: 'visible', label: t`Visible`, width: '80px' },
-          { key: 'size', label: t`Size`, width: '80px', align: 'right' },
+          { key: 'field', label: "Bidang" },
+          { key: 'visible', label: "Terlihat", width: '80px' },
+          { key: 'size', label: "Ukuran", width: '80px', align: 'right' },
         ]}
         rows={sortedFields.map((field) => ({
           key: field.universalIdentifier,
           cells: [
             field.position,
             resolveFieldLabel(field.fieldMetadataUniversalIdentifier),
-            field.isVisible === false ? t`Hidden` : t`Yes`,
+            field.isVisible === false ? ""Hidden" : "Ya",
             field.size ?? '—',
           ],
         }))}
       />
       <SettingsLayoutItemTable
-        title={t`Filters`}
-        description={t`Conditions applied to records before they appear in this view`}
+        title={"Filter-filter"}
+        description={""Conditions applied to records before they appear in this view"}
         columns={[
-          { key: 'field', label: t`Field` },
-          { key: 'operand', label: t`Operand`, width: '160px' },
-          { key: 'value', label: t`Value` },
+          { key: 'field', label: "Bidang" },
+          { key: 'operand', label: ""Operand", width: '160px' },
+          { key: 'value', label: "Nilai" },
         ]}
         rows={(view?.filters ?? []).map((filter) => ({
           key: filter.universalIdentifier,
@@ -125,11 +125,11 @@ export const SettingsLayoutViewDetail = () => {
         }))}
       />
       <SettingsLayoutItemTable
-        title={t`Sorts`}
-        description={t`Order in which records are displayed`}
+        title={""Sorts"}
+        description={""Order in which records are displayed"}
         columns={[
-          { key: 'field', label: t`Field` },
-          { key: 'direction', label: t`Direction`, width: '120px' },
+          { key: 'field', label: "Bidang" },
+          { key: 'direction', label: ""Direction", width: '120px' },
         ]}
         rows={(view?.sorts ?? []).map((sort) => ({
           key: sort.universalIdentifier,

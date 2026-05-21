@@ -33,7 +33,7 @@ export const useTwoFactorVerificationForSettings = () => {
 
   const handleVerificationSuccess = async () => {
     enqueueSuccessSnackBar({
-      message: t`Two-factor authentication setup completed successfully!`,
+      message: ""Two-factor authentication setup completed successfully!",
     });
 
     // Reload current user to refresh 2FA status
@@ -56,7 +56,7 @@ export const useTwoFactorVerificationForSettings = () => {
       await handleVerificationSuccess();
     } catch {
       enqueueErrorSnackBar({
-        message: t`Invalid verification code. Please try again.`,
+        message: ""Invalid verification code. Please try again.",
       });
     } finally {
       setIsLoading(false);

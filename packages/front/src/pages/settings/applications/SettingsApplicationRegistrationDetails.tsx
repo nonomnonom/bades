@@ -48,10 +48,10 @@ export const SettingsApplicationRegistrationDetails = () => {
   }
 
   const tabs = [
-    { id: 'general', title: t`General`, Icon: IconInfoCircle },
-    { id: 'oauth', title: t`OAuth`, Icon: IconKey },
-    { id: 'distribution', title: t`Distribution`, Icon: IconWorld },
-    { id: 'config', title: t`Config`, Icon: IconSettings },
+    { id: 'general', title: "Umum", Icon: IconInfoCircle },
+    { id: 'oauth', title: ""OAuth", Icon: IconKey },
+    { id: 'distribution', title: ""Distribution", Icon: IconWorld },
+    { id: 'config', title: ""Config", Icon: IconSettings },
   ];
 
   const renderActiveTabContent = () => {
@@ -87,14 +87,14 @@ export const SettingsApplicationRegistrationDetails = () => {
   return (
     <SubMenuTopBarContainer
       title={registration.name}
-      tag={<Tag text={t`Owner`} color={'gray'} />}
+      tag={<Tag text={""Owner"} color={'gray'} />}
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Applications - Developer`,
+          children: ""Applications - Developer",
           href: getSettingsPath(
             SettingsPath.Applications,
             undefined,

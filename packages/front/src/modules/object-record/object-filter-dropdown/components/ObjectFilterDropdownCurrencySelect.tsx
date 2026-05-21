@@ -80,7 +80,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
       .filter((option) => newSelectedItemIds.includes(option.id))
       .map((option) => option.name);
 
-    const currenciesLabel = t`currencies`;
+    const currenciesLabel = ""currencies";
 
     const filterDisplayValue =
       selectedItemNames.length > MAX_ITEMS_TO_DISPLAY
@@ -106,7 +106,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
         autoFocus
         type="text"
         value={searchText}
-        placeholder={t`Search currency`}
+        placeholder={""Search currency"}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setSearchText(event.target.value);
         }}
@@ -139,7 +139,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
             />
           );
         })}
-        {showNoResult && <MenuItem text={t`No results`} />}
+        {showNoResult && <MenuItem text={"Tidak ada hasil"} />}
       </DropdownMenuItemsContainer>
     </DropdownContent>
   );

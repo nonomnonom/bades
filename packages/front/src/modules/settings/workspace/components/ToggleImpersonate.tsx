@@ -45,8 +45,8 @@ export const ToggleImpersonate = () => {
     <Card rounded>
       <SettingsOptionCardContentToggle
         Icon={IconLifebuoy}
-        title={t`Allow Support Team Access`}
-        description={t`Grant access to your workspace so we can troubleshoot problems.`}
+        title={""Allow Support Team Access"}
+        description={""Grant access to your workspace so we can troubleshoot problems."}
         checked={currentWorkspace?.allowImpersonation ?? false}
         onChange={handleChange}
         advancedMode

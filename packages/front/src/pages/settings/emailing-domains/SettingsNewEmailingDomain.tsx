@@ -86,7 +86,7 @@ export const SettingsNewEmailingDomain = () => {
         },
         onCompleted: (data) => {
           enqueueSuccessSnackBar({
-            message: t`Emailing domain created successfully. Please verify the domain to start using it.`,
+            message: ""Emailing domain created successfully. Please verify the domain to start using it.",
           });
           if (!data.createEmailingDomain?.id) return;
 
@@ -111,7 +111,7 @@ export const SettingsNewEmailingDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`New Emailing Domain`}
+      title={""New Emailing Domain"}
       actionButton={
         <SaveAndCancelButtons
           onCancel={() => navigate(SettingsPath.Applications)}
@@ -121,25 +121,25 @@ export const SettingsNewEmailingDomain = () => {
       }
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Apps</Trans>,
+          children: "Apps,
           href: getSettingsPath(SettingsPath.Applications),
         },
         {
-          children: <Trans>Emailing Domains</Trans>,
+          children: "Emailing Domains,
           href: getSettingsPath(SettingsPath.Applications),
         },
-        { children: <Trans>New Emailing Domain</Trans> },
+        { children: "New Emailing Domain },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
             title={t`Domain`}
-            description={t`The domain name you want to use for emailing`}
+            description={""The domain name you want to use for emailing"}
           />
           <SettingsTextInput
             instanceId="emailing-domain"

@@ -162,19 +162,19 @@ export const BodyInput = ({
 
   return (
     <FormFieldInputContainer>
-      <InputLabel>{t`Body Input`}</InputLabel>
+      <InputLabel>{""Body Input"}</InputLabel>
       <StyledSelectDropdownContainer>
         <Select
           options={[
-            { label: t`Key/Value`, value: BODY_TYPES.KEY_VALUE, Icon: IconKey },
+            { label: ""Key/Value", value: BODY_TYPES.KEY_VALUE, Icon: IconKey },
             {
-              label: t`Raw JSON`,
+              label: ""Raw JSON",
               value: BODY_TYPES.RAW_JSON,
               Icon: IconFileText,
             },
-            { label: t`Form Data`, value: BODY_TYPES.FORM_DATA, Icon: IconKey },
-            { label: t`Text`, value: BODY_TYPES.TEXT, Icon: IconFileText },
-            { label: t`None`, value: BODY_TYPES.NONE, Icon: IconFileText },
+            { label: ""Form Data", value: BODY_TYPES.FORM_DATA, Icon: IconKey },
+            { label: "Teks", value: BODY_TYPES.TEXT, Icon: IconFileText },
+            { label: "Tidak ada", value: BODY_TYPES.NONE, Icon: IconFileText },
           ]}
           dropdownId="body-input-mode"
           value={getBodyTypeFromHeaders(headers) || BODY_TYPES.NONE}
@@ -200,8 +200,8 @@ export const BodyInput = ({
             defaultValue={defaultValueParsed as Record<string, string>}
             onChange={handleKeyValueChange}
             readonly={readonly}
-            keyPlaceholder={t`Property name`}
-            valuePlaceholder={t`Property value`}
+            keyPlaceholder={""Property name"}
+            valuePlaceholder={""Property value"}
           />
         ) : getBodyTypeFromHeaders(headers) === BODY_TYPES.FORM_DATA ? (
           <KeyValuePairInput
@@ -209,19 +209,19 @@ export const BodyInput = ({
             defaultValue={defaultValueParsed as Record<string, string>}
             onChange={handleKeyValueChange}
             readonly={readonly}
-            keyPlaceholder={t`Property name`}
-            valuePlaceholder={t`Property value`}
+            keyPlaceholder={""Property name"}
+            valuePlaceholder={""Property value"}
           />
         ) : getBodyTypeFromHeaders(headers) === BODY_TYPES.TEXT ? (
           <FormTextFieldInput
-            placeholder={t`Enter text`}
+            placeholder={""Enter text"}
             readonly={readonly}
             defaultValue={textValue}
             onChange={(value: string) => handleChangeTextValue(value)}
             VariablePicker={WorkflowVariablePicker}
           />
         ) : (
-          <StyledNoBodyMessage>{t`No body`}</StyledNoBodyMessage>
+          <StyledNoBodyMessage>{""No body"}</StyledNoBodyMessage>
         )}
       </StyledContainer>
     </FormFieldInputContainer>

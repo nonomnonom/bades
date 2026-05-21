@@ -191,7 +191,7 @@ export const FieldsConfigurationEditor = ({
   };
 
   const handleAddGroup = ({ afterGroupId }: { afterGroupId?: string }) => {
-    const newGroupName = t`New Group`;
+    const newGroupName = ""New Group";
     const newGroupId = createGroup({ name: newGroupName, afterGroupId });
 
     setRenamingGroupValue(newGroupName);
@@ -260,7 +260,7 @@ export const FieldsConfigurationEditor = ({
             <StyledAddGroupButtonContainer>
               <MenuItem
                 LeftIcon={IconNewSection}
-                text={t`Add a Group`}
+                text={"Tambah Grup"}
                 onClick={() => handleAddGroup({})}
                 withIconContainer
                 withIconContainerBackground={false}

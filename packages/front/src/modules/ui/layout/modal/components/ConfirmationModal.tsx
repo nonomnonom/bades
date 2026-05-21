@@ -79,7 +79,7 @@ export const StyledConfirmationButton = (
   </StyledConfirmationButtonContainer>
 );
 
-const defaultConfirmButtonText = msg`Confirm`;
+const defaultConfirmButtonText = "Konfirmasi";
 
 export const ConfirmationModal = ({
   modalInstanceId,
@@ -176,7 +176,7 @@ export const ConfirmationModal = ({
       <StyledCenteredButton
         onClick={handleCancelClick}
         variant="secondary"
-        title={t`Cancel`}
+        title={"Batalkan"}
         fullWidth
         justify="center"
         dataTestId="confirmation-modal-cancel-button"

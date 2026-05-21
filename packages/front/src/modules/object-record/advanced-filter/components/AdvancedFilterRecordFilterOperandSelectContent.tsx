@@ -73,7 +73,7 @@ export const AdvancedFilterRecordFilterOperandSelectContent = ({
           selectedOption={{
             label: filter?.operand
               ? getOperandLabel(filter.operand, timeZoneAbbreviation)
-              : t`Select operand`,
+              : ""Select operand",
             value: null,
           }}
         />

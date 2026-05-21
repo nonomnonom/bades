@@ -99,7 +99,7 @@ export const getToolDisplayMessage = (
       );
     }
 
-    return byStatus(t`Searched the web`, t`Searching the web`);
+    return byStatus(""Searched the web", ""Searching the web");
   }
 
   if (resolvedToolName === 'learn_tools') {
@@ -109,7 +109,7 @@ export const getToolDisplayMessage = (
       return byStatus(t`Learned ${names}`, t`Learning ${names}`);
     }
 
-    return byStatus(t`Learned tools`, t`Learning tools...`);
+    return byStatus(""Learned tools", ""Learning tools...");
   }
 
   if (resolvedToolName === 'load_skills') {
@@ -119,7 +119,7 @@ export const getToolDisplayMessage = (
       return byStatus(t`Loaded ${names}`, t`Loading ${names}`);
     }
 
-    return byStatus(t`Loaded skills`, t`Loading skills...`);
+    return byStatus(""Loaded skills", ""Loading skills...");
   }
 
   const customMessage = extractCustomLoadingMessage(resolvedInput);

@@ -21,9 +21,9 @@ export const MemberNameFields = ({
     <>
       <SettingsTextInput
         instanceId={firstNameInstanceId}
-        label={t`First Name`}
+        label={""First Name"}
         value={firstName}
-        placeholder={t`Tim`}
+        placeholder={""Tim"}
         onChange={(value) => {
           onChange('firstName', value);
         }}
@@ -31,9 +31,9 @@ export const MemberNameFields = ({
       />
       <SettingsTextInput
         instanceId={lastNameInstanceId}
-        label={t`Last name`}
+        label={"Nama belakang"}
         value={lastName}
-        placeholder={t`Cook`}
+        placeholder={""Cook"}
         onChange={(value) => {
           onChange('lastName', value);
         }}

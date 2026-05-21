@@ -36,7 +36,7 @@ export const CustomResolverFetchMoreLoader = ({
 
   return (
     <StyledContainer ref={tbodyRef}>
-      {loading && <StyledText>{t`Loading more...`}</StyledText>}
+      {loading && <StyledText>{""Loading more..."}</StyledText>}
     </StyledContainer>
   );
 };

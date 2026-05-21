@@ -68,7 +68,7 @@ export const SettingsApplicationsAvailableTab = () => {
   if (isLoading) {
     return (
       <Section>
-        <SettingsEmptyPlaceholder padding="4">{t`Loading applications...`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder padding="4">{""Loading applications..."}</SettingsEmptyPlaceholder>
       </Section>
     );
   }
@@ -80,7 +80,7 @@ export const SettingsApplicationsAvailableTab = () => {
     <Section>
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search an application`}
+          placeholder={""Search an application"}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton: ReactNode) => (
@@ -98,7 +98,7 @@ export const SettingsApplicationsAvailableTab = () => {
                         setShowFeaturedOnly(!showFeaturedOnly)
                       }
                       toggled={showFeaturedOnly}
-                      text={t`Featured only`}
+                      text={""Featured only"}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>
@@ -113,10 +113,10 @@ export const SettingsApplicationsAvailableTab = () => {
         <SettingsEmptyPlaceholder padding="4">
           {showNonFeaturedHint
             ? t`No featured applications found. ${nonFeaturedCount} non-featured result(s) available — `
-            : t`No applications available`}
+            : ""No applications available"}
           {showNonFeaturedHint && (
             <StyledHintLink onClick={() => setShowFeaturedOnly(false)}>
-              {t`show all`}
+              {""show all"}
             </StyledHintLink>
           )}
         </SettingsEmptyPlaceholder>

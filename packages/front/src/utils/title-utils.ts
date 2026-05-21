@@ -26,33 +26,33 @@ export const getPageTitleFromPath = (pathname: string): string => {
   const pathnameOrPrefix = getPathnameOrPrefix(pathname);
   switch (pathnameOrPrefix) {
     case AppPath.Verify:
-      return t`Verify`;
+      return ""Verify";
     case AppPath.SignInUp:
-      return t`Sign in or Create an account`;
+      return ""Sign in or Create an account";
     case AppPath.Invite:
-      return t`Invite`;
+      return "Undang";
     case AppPath.CreateWorkspace:
-      return t`Create Workspace`;
+      return ""Create Workspace";
     case AppPath.CreateProfile:
-      return t`Create Profile`;
+      return ""Create Profile";
     case SettingsPathPrefixes.Experience:
-      return t`Experience - Settings`;
+      return ""Experience - Settings";
     case SettingsPathPrefixes.Accounts:
-      return t`Account - Settings`;
+      return "Akun - Pengaturan";
     case SettingsPathPrefixes.Profile:
-      return t`Profile - Settings`;
+      return ""Profile - Settings";
     case SettingsPathPrefixes.Members:
-      return t`Members - Settings`;
+      return ""Members - Settings";
     case SettingsPathPrefixes.Objects:
-      return t`Data model - Settings`;
+      return ""Data model - Settings";
     case SettingsPathPrefixes.ApiWebhooks:
-      return t`API Keys - Settings`;
+      return ""API Keys - Settings";
     case SettingsPathPrefixes.LogicFunctions:
-      return t`Functions - Settings`;
+      return ""Functions - Settings";
     case SettingsPathPrefixes.Integration:
-      return t`Integrations - Settings`;
+      return ""Integrations - Settings";
     case SettingsPathPrefixes.General:
-      return t`General - Settings`;
+      return ""General - Settings";
     default:
       return 'Twenty';
   }

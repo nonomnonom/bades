@@ -83,13 +83,13 @@ export const SettingsAdminQueueJobsTable = ({
   const { openModal } = useModal();
 
   const jobStateOptions: { value: JobState; label: string }[] = [
-    { value: JobState.COMPLETED, label: t`Completed` },
-    { value: JobState.FAILED, label: t`Failed` },
-    { value: JobState.ACTIVE, label: t`Active` },
-    { value: JobState.WAITING, label: t`Waiting` },
-    { value: JobState.DELAYED, label: t`Delayed` },
-    { value: JobState.PRIORITIZED, label: t`Prioritized` },
-    { value: JobState.WAITING_CHILDREN, label: t`Waiting Children` },
+    { value: JobState.COMPLETED, label: "Selesai" },
+    { value: JobState.FAILED, label: "Gagal" },
+    { value: JobState.ACTIVE, label: "Aktif" },
+    { value: JobState.WAITING, label: ""Waiting" },
+    { value: JobState.DELAYED, label: ""Delayed" },
+    { value: JobState.PRIORITIZED, label: ""Prioritized" },
+    { value: JobState.WAITING_CHILDREN, label: ""Waiting Children" },
   ];
 
   const offset = page * LIMIT;
@@ -248,7 +248,7 @@ export const SettingsAdminQueueJobsTable = ({
           {failedJobs.length > 0 && selectedCount === 0 && (
             <Button
               Icon={IconRefresh}
-              title={t`Retry All Failed`}
+              title={""Retry All Failed"}
               onClick={handleRetrySelected}
               disabled={isRetrying || loading}
               size="small"
@@ -259,9 +259,9 @@ export const SettingsAdminQueueJobsTable = ({
       </StyledControlsContainer>
 
       {loading && jobs.length === 0 ? (
-        <SettingsEmptyPlaceholder>{t`Loading jobs...`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder>{""Loading jobs..."}</SettingsEmptyPlaceholder>
       ) : jobs.length === 0 ? (
-        <SettingsEmptyPlaceholder>{t`No jobs found`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder>{""No jobs found"}</SettingsEmptyPlaceholder>
       ) : (
         <>
           <Table>
@@ -278,9 +278,9 @@ export const SettingsAdminQueueJobsTable = ({
                   />
                 )}
               </TableHeader>
-              <TableHeader>{t`Job Name`}</TableHeader>
-              <TableHeader>{t`State`}</TableHeader>
-              <TableHeader align="right">{t`Timestamp`}</TableHeader>
+              <TableHeader>{""Job Name"}</TableHeader>
+              <TableHeader>{"Negara bagian"}</TableHeader>
+              <TableHeader align="right">{""Timestamp"}</TableHeader>
               <TableHeader></TableHeader>
             </TableRow>
             <TableBody>
@@ -359,18 +359,18 @@ export const SettingsAdminQueueJobsTable = ({
 
           <StyledPaginationContainer>
             <Button
-              title={t`Previous`}
+              title={"Sebelumnya"}
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0 || loading}
               size="small"
               variant="secondary"
             />
             <div>
-              {t`Page`} {page + 1} {totalCount > 0 ? t`of` : ''}{' '}
+              {"Halaman"} {page + 1} {totalCount > 0 ? ""of" : ''}{' '}
               {totalCount > 0 ? Math.max(1, Math.ceil(totalCount / LIMIT)) : ''}
             </div>
             <Button
-              title={t`Next`}
+              title={"Berikutnya"}
               onClick={() => setPage((p) => p + 1)}
               disabled={!hasMore || loading}
               size="small"

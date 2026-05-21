@@ -99,8 +99,8 @@ export const WorkspaceMemberPictureUploader = ({
       setErrorMessage(null);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : t`Failed to upload picture`;
-      setErrorMessage(t`An error occurred while uploading the picture.`);
+        error instanceof Error ? error.message : ""Failed to upload picture";
+      setErrorMessage(""An error occurred while uploading the picture.");
       enqueueErrorSnackBar({ message });
     } finally {
       setIsUploading(false);
@@ -128,8 +128,8 @@ export const WorkspaceMemberPictureUploader = ({
       setErrorMessage(null);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : t`Failed to remove picture`;
-      setErrorMessage(t`An error occurred while removing the picture.`);
+        error instanceof Error ? error.message : ""Failed to remove picture";
+      setErrorMessage(""An error occurred while removing the picture.");
       enqueueErrorSnackBar({ message });
     } finally {
       setIsUploading(false);

@@ -45,7 +45,7 @@ export const WorkflowStepFilterLogicalOperatorCell = ({
 }: WorkflowStepFilterLogicalOperatorCellProps) => {
   const { readonly } = useContext(WorkflowStepFilterContext);
   const { t } = useLingui();
-  const defaultFirstFilterLabel = t`Where`;
+  const defaultFirstFilterLabel = ""Where";
 
   const { upsertStepFilterSettings } = useUpsertStepFilterSettings();
 
@@ -53,11 +53,11 @@ export const WorkflowStepFilterLogicalOperatorCell = ({
     () => [
       {
         value: StepLogicalOperator.AND,
-        label: t`And`,
+        label: ""And",
       },
       {
         value: StepLogicalOperator.OR,
-        label: t`Or`,
+        label: ""Or",
       },
     ],
     [t],

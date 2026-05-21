@@ -26,7 +26,7 @@ export const WorkflowStepFilterOptionsDropdown = ({
       dropdownId={`step-filter-options-${stepFilterId}`}
       clickableComponent={
         <IconButton
-          aria-label={t`Step filter options`}
+          aria-label={""Step filter options"}
           variant="tertiary"
           Icon={IconDotsVertical}
           disabled={readonly}
@@ -37,7 +37,7 @@ export const WorkflowStepFilterOptionsDropdown = ({
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconTrash}
-              text={t`Delete`}
+              text={"Hapus"}
               onClick={() => removeStepFilter(stepFilterId)}
               accent="danger"
             />

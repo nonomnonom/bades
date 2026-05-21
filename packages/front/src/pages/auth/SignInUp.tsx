@@ -114,25 +114,25 @@ export const SignInUp = () => {
     }
 
     if (signInUpStep === SignInUpStep.WorkspaceSelection) {
-      return t`Choose a Workspace`;
+      return ""Choose a Workspace";
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationProvision) {
-      return t`Setup your 2FA`;
+      return ""Setup your 2FA";
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationVerification) {
-      return t`Verify code from the app`;
+      return ""Verify code from the app";
     }
 
     if (isGlobalScope) {
-      return t`Welcome to Twenty`;
+      return ""Welcome to Twenty";
     }
 
     const workspaceName = workspacePublicData?.displayName;
 
     if (!workspaceName) {
-      return t`Welcome to your workspace`;
+      return ""Welcome to your workspace";
     }
 
     return t`Welcome, ${workspaceName}.`;

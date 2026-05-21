@@ -32,29 +32,29 @@ export const SettingsWorkspace = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`General`}
+      title={"Umum"}
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`General` },
+        { children: "Umum" },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Picture`} />
+          <H2Title title={""Picture"} />
           <WorkspaceLogoUploader />
         </Section>
         <Section>
-          <H2Title title={t`Name`} description={t`Name of your workspace`} />
+          <H2Title title={"Nama"} description={""Name of your workspace"} />
           <NameField />
         </Section>
         {isMultiWorkspaceEnabled && (
           <Section>
             <H2Title
-              title={t`Workspace Domain`}
-              description={t`Edit your subdomain name or set a custom domain.`}
+              title={""Workspace Domain"}
+              description={""Edit your subdomain name or set a custom domain."}
             />
             <SettingsWorkspaceDomainCard />
           </Section>

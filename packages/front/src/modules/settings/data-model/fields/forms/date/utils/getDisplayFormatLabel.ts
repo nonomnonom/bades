@@ -6,11 +6,11 @@ export const getDisplayFormatLabel = (
 ) => {
   switch (displayFormat) {
     case FieldDateDisplayFormat.CUSTOM:
-      return t`Custom`;
+      return "Kustom";
     case FieldDateDisplayFormat.RELATIVE:
-      return t`Relative`;
+      return ""Relative";
     case FieldDateDisplayFormat.USER_SETTINGS:
-      return t`Default`;
+      return "Bawaan";
     default:
       return '';
   }

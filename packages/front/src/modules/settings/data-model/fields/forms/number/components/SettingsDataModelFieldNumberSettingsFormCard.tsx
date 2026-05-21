@@ -26,7 +26,7 @@ export const SettingsDataModelFieldNumberSettingsFormCard = ({
         <SettingsDataModelFieldPreviewWidget
           fieldMetadataItem={{
             icon: watch('icon'),
-            label: watch('label') || t`New Field`,
+            label: watch('label') || ""New Field",
             settings: watch('settings') || null,
             type: FieldMetadataType.NUMBER,
           }}

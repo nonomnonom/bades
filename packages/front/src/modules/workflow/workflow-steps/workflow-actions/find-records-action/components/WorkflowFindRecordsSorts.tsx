@@ -52,11 +52,11 @@ export const WorkflowFindRecordsSorts = ({
 
   const directionOptions: Array<SelectOption<ViewSortDirection>> = [
     {
-      label: t`Ascending`,
+      label: ""Ascending",
       value: ViewSortDirection.ASC,
     },
     {
-      label: t`Descending`,
+      label: ""Descending",
       value: ViewSortDirection.DESC,
     },
   ];
@@ -154,8 +154,8 @@ export const WorkflowFindRecordsSorts = ({
           variant="secondary"
           accent="default"
           onClick={handleAddSort}
-          ariaLabel={t`Add sort`}
-          title={t`Add sort`}
+          ariaLabel={""Add sort"}
+          title={""Add sort"}
           disabled={readonly}
         />
       </StyledAddButtonContainer>

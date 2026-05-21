@@ -109,8 +109,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
       : true);
 
   const apiNameTooltipText = isLabelSyncedWithName
-    ? t`Deactivate "Synchronize Objects Labels and API Names" to set a custom API name`
-    : t`Input must be in camel case and cannot start with a number`;
+    ? ""Deactivate "Synchronize Objects Labels and API Names" to set a custom API name"
+    : ""Input must be in camel case and cannot start with a number";
 
   const fillNameFromLabel = (label: string) => {
     isDefined(label) &&
@@ -160,7 +160,7 @@ export const SettingsDataModelFieldIconLabelForm = ({
           render={({ field: { onChange, value } }) => (
             <SettingsTextInput
               instanceId={labelTextInputId}
-              placeholder={t`Employees`}
+              placeholder={""Employees"}
               value={value}
               disabled={!isLabelEditEnabled || readonly}
               onChange={(value) => {
@@ -195,8 +195,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
                       <>
                         <SettingsTextInput
                           instanceId={nameTextInputId}
-                          label={t`API Name`}
-                          placeholder={t`employees`}
+                          label={""API Name"}
+                          placeholder={""employees"}
                           value={value}
                           onChange={onChange}
                           readOnly={readonly}
@@ -243,8 +243,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
                       <Card rounded>
                         <SettingsOptionCardContentToggle
                           Icon={IconRefresh}
-                          title={t`Synchronize Field Label and API Name`}
-                          description={t`Should changing a field's label also change the API name?`}
+                          title={""Synchronize Field Label and API Name"}
+                          description={""Should changing a field's label also change the API name?"}
                           checked={value ?? true}
                           disabled={readonly}
                           advancedMode

@@ -39,10 +39,10 @@ export const SubscriptionPrice = ({ type, price }: SubscriptionPriceProps) => {
   let priceUnit = '';
   switch (type) {
     case SubscriptionInterval.Month:
-      priceUnit = t`seat / month`;
+      priceUnit = ""seat / month";
       break;
     case SubscriptionInterval.Year:
-      priceUnit = t`seat / month - billed yearly`;
+      priceUnit = ""seat / month - billed yearly";
       break;
   }
 

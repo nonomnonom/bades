@@ -108,7 +108,7 @@ export const useHandleAddToNavigationDrop = () => {
             index,
           );
           openEditForNewNavItem(newFolderId, {
-            pageTitle: t`Edit folder`,
+            pageTitle: ""Edit folder",
             pageIcon: IconFolder,
             focusTitleInput: true,
           });
@@ -116,14 +116,14 @@ export const useHandleAddToNavigationDrop = () => {
         }
         case NavigationMenuItemType.LINK: {
           const newLinkId = addLinkToDraft(
-            payload.name || t`Link label`,
+            payload.name || ""Link label",
             payload.link,
             currentDraft,
             folderId,
             index,
           );
           openEditForNewNavItem(newLinkId, {
-            pageTitle: t`Edit link`,
+            pageTitle: ""Edit link",
             pageIcon: IconLink,
             focusTitleInput: true,
           });

@@ -34,8 +34,8 @@ export const InformationBannerInvalidEnterpriseKey = () => {
     <InformationBanner
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
-      message={t`Your enterprise key is no longer valid. Activate a new key to continue using enterprise features.`}
-      buttonTitle={t`Activate`}
+      message={""Your enterprise key is no longer valid. Activate a new key to continue using enterprise features."}
+      buttonTitle={"Aktifkan"}
       buttonIcon={IconKey}
       buttonOnClick={() =>
         navigate(getSettingsPath(SettingsPath.AdminPanelEnterprise))

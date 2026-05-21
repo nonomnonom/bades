@@ -66,7 +66,7 @@ export const useOpenComposeEmailInSidePanel = () => {
 
       navigateSidePanelMenu({
         page: SidePanelPages.ComposeEmail,
-        pageTitle: params.pageTitle ?? (isReply ? t`Reply` : t`New Email`),
+        pageTitle: params.pageTitle ?? (isReply ? ""Reply" : ""New Email"),
         pageIcon: params.pageIcon ?? (isReply ? IconArrowBackUp : IconMail),
         pageId,
       });

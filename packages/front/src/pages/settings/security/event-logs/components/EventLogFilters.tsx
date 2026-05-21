@@ -82,10 +82,10 @@ export const EventLogFilters = ({
   };
 
   const eventLabel =
-    table === EventLogTable.PAGEVIEW ? t`Page Name` : t`Event Type`;
+    table === EventLogTable.PAGEVIEW ? ""Page Name" : ""Event Type";
 
   const userWorkspaceOptions: SelectOption<string | null>[] = [
-    { label: t`All Members`, value: null, Icon: IconUser },
+    { label: ""All Members", value: null, Icon: IconUser },
     ...currentWorkspaceMembers
       .filter((member) => member.userWorkspaceId)
       .map((workspaceMember) => ({
@@ -97,7 +97,7 @@ export const EventLogFilters = ({
   ];
 
   const objectMetadataOptions: SelectOption<string | null>[] = [
-    { label: t`All Objects`, value: null, Icon: IconBox },
+    { label: ""All Objects", value: null, Icon: IconBox },
     ...objectMetadataItems.map((item) => ({
       label: item.labelPlural,
       value: item.id,
@@ -112,7 +112,7 @@ export const EventLogFilters = ({
           label={eventLabel}
           value={value.eventType ?? ''}
           onChange={handleEventTypeChange}
-          placeholder={t`Filter by event`}
+          placeholder={""Filter by event"}
           fullWidth
         />
       </StyledFilterItem>
@@ -120,7 +120,7 @@ export const EventLogFilters = ({
       <StyledFilterItem>
         <Select
           dropdownId="event-log-user-workspace-filter"
-          label={t`Workspace Member`}
+          label={""Workspace Member"}
           value={value.userWorkspaceId ?? null}
           options={userWorkspaceOptions}
           onChange={handleUserWorkspaceChange}
@@ -131,7 +131,7 @@ export const EventLogFilters = ({
 
       <StyledFilterItem>
         <EventLogDatePickerInput
-          label={t`Start Date`}
+          label={""Start Date"}
           value={value.dateRange?.start}
           onChange={handleStartDateChange}
         />
@@ -139,7 +139,7 @@ export const EventLogFilters = ({
 
       <StyledFilterItem>
         <EventLogDatePickerInput
-          label={t`End Date`}
+          label={""End Date"}
           value={value.dateRange?.end}
           onChange={handleEndDateChange}
         />
@@ -150,7 +150,7 @@ export const EventLogFilters = ({
           <StyledFilterItem>
             <Select
               dropdownId="event-log-object-type-filter"
-              label={t`Object Type`}
+              label={""Object Type"}
               value={value.objectMetadataId ?? null}
               options={objectMetadataOptions}
               onChange={handleObjectMetadataIdChange}
@@ -161,10 +161,10 @@ export const EventLogFilters = ({
 
           <StyledFilterItem>
             <TextInput
-              label={t`Record ID`}
+              label={""Record ID"}
               value={value.recordId ?? ''}
               onChange={handleRecordIdChange}
-              placeholder={t`Filter by record ID`}
+              placeholder={""Filter by record ID"}
               fullWidth
             />
           </StyledFilterItem>

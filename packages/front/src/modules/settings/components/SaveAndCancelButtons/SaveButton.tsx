@@ -19,7 +19,7 @@ export const SaveButton = ({
 }: SaveButtonProps) => {
   return (
     <Button
-      title={t`Save`}
+      title={"Simpan"}
       variant={inverted ? 'secondary' : 'primary'}
       size="small"
       accent={inverted ? 'default' : 'blue'}

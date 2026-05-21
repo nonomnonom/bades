@@ -73,11 +73,11 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
     fromAgentId && isDefined(agent)
       ? [
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`AI`,
+            children: ""AI",
             href: getSettingsPath(SettingsPath.AI),
           },
           {
@@ -92,15 +92,15 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
         ]
       : [
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Members`,
+            children: "Anggota",
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
           {
-            children: t`Roles`,
+            children: "Peran-peran",
             href: getSettingsPath(SettingsPath.Roles),
           },
           {
@@ -143,7 +143,7 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
       links={breadcrumbLinks}
       actionButton={
         <Button
-          title={t`Finish`}
+          title={"Selesai"}
           variant="secondary"
           size="small"
           accent="blue"

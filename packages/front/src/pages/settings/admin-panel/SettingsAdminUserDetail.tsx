@@ -94,7 +94,7 @@ export const SettingsAdminUserDetail = () => {
   const userInfoItems = [
     {
       Icon: IconUser,
-      label: t`Name`,
+      label: "Nama",
       value: userFullName,
     },
     {
@@ -109,7 +109,7 @@ export const SettingsAdminUserDetail = () => {
     },
     {
       Icon: IconCalendar,
-      label: t`Created`,
+      label: "Dibuat",
       value: user?.createdAt
         ? new Date(user.createdAt).toLocaleDateString()
         : '',
@@ -126,11 +126,11 @@ export const SettingsAdminUserDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - General`,
+          children: ""Admin Panel - General",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
@@ -142,7 +142,7 @@ export const SettingsAdminUserDetail = () => {
         {userLookupResult && (
           <>
             <Section>
-              <H2Title title={t`User Info`} description={t`About this user`} />
+              <H2Title title={""User Info"} description={"Tentang pengguna ini"} />
               <SettingsTableCard
                 items={userInfoItems}
                 rounded
@@ -151,8 +151,8 @@ export const SettingsAdminUserDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Workspaces`}
-                description={t`All workspaces this user is a member of`}
+                title={"Ruang kerja-ruang kerja"}
+                description={""All workspaces this user is a member of"}
               />
               <TabList
                 tabs={tabs}
@@ -174,8 +174,8 @@ export const SettingsAdminUserDetail = () => {
                       accent="default"
                       title={
                         activeWorkspace.allowImpersonation === false
-                          ? t`Impersonation is disabled for this workspace`
-                          : t`Impersonate`
+                          ? ""Impersonation is disabled for this workspace"
+                          : ""Impersonate"
                       }
                       onClick={() =>
                         handleImpersonate(user.id, activeWorkspace.id)

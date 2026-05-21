@@ -78,7 +78,7 @@ export const AiChatThreadFilterDropdownRootMenu = ({
         />
         <MenuItem
           LeftIcon={IconLayoutList}
-          text={t`Group by`}
+          text={"Kelompokkan berdasarkan"}
           contextualText={t(
             AGENT_CHAT_THREAD_GROUP_BY_LABELS[agentChatThreadGroupBy],
           )}
@@ -90,7 +90,7 @@ export const AiChatThreadFilterDropdownRootMenu = ({
         />
         <MenuItem
           LeftIcon={IconClock}
-          text={t`Last activity`}
+          text={""Last activity"}
           contextualText={t(
             AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_LABELS[
               agentChatThreadLastActivityFilter
@@ -108,7 +108,7 @@ export const AiChatThreadFilterDropdownRootMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Clear filters`}
+              text={""Clear filters"}
               onClick={handleClearFilters}
             />
           </>

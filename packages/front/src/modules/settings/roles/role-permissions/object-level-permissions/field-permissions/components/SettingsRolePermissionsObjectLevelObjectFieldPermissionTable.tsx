@@ -97,14 +97,14 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
   return (
     <Section>
       <H2Title
-        title={t`Fields Permissions`}
-        description={t`Ability to interact with this object's fields.`}
+        title={""Fields Permissions"}
+        description={""Ability to interact with this object's fields."}
       />
       <StyledSearchInputContainer>
         <SettingsTextInput
           instanceId="object-field-table-search"
           LeftIcon={IconSearch}
-          placeholder={t`Search a field...`}
+          placeholder={""Search a field..."}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -115,20 +115,20 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
         >
           <SortableTableHeader
             fieldName="label"
-            label={t`Name`}
+            label={"Nama"}
             tableId={
               SETTINGS_ROLE_PERMISSION_OBJECT_LEVEL_FIELD_PERMISSION_TABLE_ID
             }
             initialSort={{ fieldName: 'label', orderBy: 'AscNullsFirst' }}
           />
           <TableHeader>
-            <TableHeaderText>{t`Data type`}</TableHeaderText>
+            <TableHeaderText>{""Data type"}</TableHeaderText>
           </TableHeader>
           <>
             {shouldShowEmptyTableHeader && <TableHeader />}
             {shouldShowSeeTableHeader && (
               <TableHeader>
-                <TableHeaderText>{t`See`}</TableHeaderText>
+                <TableHeaderText>{""See"}</TableHeaderText>
               </TableHeader>
             )}
             {shouldShowUpdateTableHeader && (

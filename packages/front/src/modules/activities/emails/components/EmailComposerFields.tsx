@@ -63,7 +63,7 @@ export const EmailComposerFields = ({
       {hasMultipleAccounts && (
         <Select
           dropdownId="email-composer-from-account"
-          label={t`From`}
+          label={"Dari"}
           fullWidth
           value={composerState.connectedAccountId}
           options={accountOptions}
@@ -72,49 +72,49 @@ export const EmailComposerFields = ({
       )}
       <StyledToRow>
         <FormMultiTextFieldInput
-          label={t`To`}
+          label={""To"}
           defaultValue={composerState.defaultTo}
           onChange={composerState.setTo}
-          placeholder={t`Recipients`}
+          placeholder={""Recipients"}
         />
         {!composerState.showCcBcc && (
           <StyledCcBccToggle onClick={() => composerState.setShowCcBcc(true)}>
-            {t`Cc/Bcc`}
+            {""Cc/Bcc"}
           </StyledCcBccToggle>
         )}
       </StyledToRow>
       {composerState.showCcBcc && (
         <>
           <FormMultiTextFieldInput
-            label={t`Cc`}
+            label={""Cc"}
             defaultValue=""
             onChange={composerState.setCc}
-            placeholder={t`Cc`}
+            placeholder={""Cc"}
           />
           <FormMultiTextFieldInput
-            label={t`Bcc`}
+            label={""Bcc"}
             defaultValue=""
             onChange={composerState.setBcc}
-            placeholder={t`Bcc`}
+            placeholder={""Bcc"}
           />
         </>
       )}
       <FormTextFieldInput
-        label={t`Subject`}
+        label={""Subject"}
         defaultValue={composerState.defaultSubject}
         onChange={composerState.setSubject}
-        placeholder={t`Subject`}
+        placeholder={""Subject"}
       />
       <FormAdvancedTextFieldInput
         defaultValue=""
         onChange={composerState.setBody}
-        placeholder={t`Type something or press "/" to see commands`}
+        placeholder={""Type something or press "/" to see commands"}
         minHeight={120}
         maxWidth={600}
         contentType="html"
       />
       <EmailAttachmentsField
-        label={t`Attachments`}
+        label={"Lampiran-lampiran"}
         files={composerState.files}
         onChange={composerState.setFiles}
       />

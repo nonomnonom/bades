@@ -34,7 +34,7 @@ export const InformationBannerReconnectAccountInsufficientPermissions = () => {
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
       message={t`Sync lost with mailbox ${mailboxHandle}. Please reconnect for updates:`}
-      buttonTitle={t`Reconnect`}
+      buttonTitle={""Reconnect"}
       buttonIcon={IconRefresh}
       buttonOnClick={() =>
         triggerProviderReconnect(

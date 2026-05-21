@@ -64,7 +64,7 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
         {...form}
       >
         <SubMenuTopBarContainer
-          title={t`New SSO Configuration`}
+          title={""New SSO Configuration"}
           actionButton={
             <SaveAndCancelButtons
               onCancel={() => navigate(SettingsPath.Security)}
@@ -73,14 +73,14 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
           }
           links={[
             {
-              children: <Trans>Workspace</Trans>,
+              children: Ruang kerja,
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: <Trans>Security</Trans>,
+              children: Keamanan,
               href: getSettingsPath(SettingsPath.Security),
             },
-            { children: <Trans>New SSO provider</Trans> },
+            { children: "New SSO provider },
           ]}
         >
           <SettingsSSOIdentitiesProvidersForm />

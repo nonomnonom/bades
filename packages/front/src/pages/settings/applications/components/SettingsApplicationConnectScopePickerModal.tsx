@@ -30,13 +30,13 @@ export const SettingsApplicationConnectScopePickerModal = ({
   const options = [
     {
       value: 'user',
-      title: t`Just for me`,
-      description: t`Only you can use this credential.`,
+      title: ""Just for me",
+      description: ""Only you can use this credential.",
     },
     {
       value: 'workspace',
-      title: t`Workspace shared`,
-      description: t`Anyone in this workspace can use this credential.`,
+      title: ""Workspace shared",
+      description: ""Anyone in this workspace can use this credential.",
     },
   ];
 
@@ -61,7 +61,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
       <StyledAppModalButton
         onClick={() => closeModal(modalInstanceId)}
         variant="secondary"
-        title={t`Cancel`}
+        title={"Batalkan"}
         fullWidth
         justify="center"
       />
@@ -72,7 +72,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
         }}
         variant="secondary"
         accent="blue"
-        title={t`Continue`}
+        title={"Lanjutkan"}
         fullWidth
         justify="center"
       />

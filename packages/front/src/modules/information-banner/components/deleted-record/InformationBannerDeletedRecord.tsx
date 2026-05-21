@@ -29,8 +29,8 @@ export const InformationBannerDeletedRecord = ({
       <InformationBanner
         componentInstanceId="information-banner-deleted-record"
         color="danger"
-        message={t`This record has been deleted`}
-        buttonTitle={t`Restore`}
+        message={""This record has been deleted"}
+        buttonTitle={"Pulihkan"}
         buttonIcon={IconRefresh}
         buttonOnClick={() => restoreManyRecords({ idsToRestore: [recordId] })}
       />

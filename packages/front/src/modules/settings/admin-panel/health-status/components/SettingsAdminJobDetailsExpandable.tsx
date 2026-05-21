@@ -81,14 +81,14 @@ export const SettingsAdminJobDetailsExpandable = ({
       <StyledDetailsContainer>
         {hasFailedReason && (
           <StyledSection>
-            <StyledSectionTitle>{t`Error Message`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Error Message"}</StyledSectionTitle>
             <StyledPreformattedText>{job.failedReason}</StyledPreformattedText>
           </StyledSection>
         )}
 
         {hasStacktrace && job.stackTrace && (
           <StyledSection>
-            <StyledSectionTitle>{t`Stack Trace`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Stack Trace"}</StyledSectionTitle>
             <StyledPreformattedText>
               {job.stackTrace.join('\n')}
             </StyledPreformattedText>
@@ -97,15 +97,15 @@ export const SettingsAdminJobDetailsExpandable = ({
 
         {hasReturnValue && (
           <StyledSection>
-            <StyledSectionTitle>{t`Return Value`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Return Value"}</StyledSectionTitle>
             <JsonTree
               value={job.returnValue}
               shouldExpandNodeInitially={isAnyNode}
-              emptyArrayLabel={t`Empty Array`}
-              emptyObjectLabel={t`Empty Object`}
-              emptyStringLabel={t`[empty string]`}
-              arrowButtonCollapsedLabel={t`Expand`}
-              arrowButtonExpandedLabel={t`Collapse`}
+              emptyArrayLabel={""Empty Array"}
+              emptyObjectLabel={""Empty Object"}
+              emptyStringLabel={"[string kosong]"}
+              arrowButtonCollapsedLabel={"Perluas"}
+              arrowButtonExpandedLabel={"Ciutkan"}
               onNodeValueClick={copyToClipboard}
             />
           </StyledSection>
@@ -113,15 +113,15 @@ export const SettingsAdminJobDetailsExpandable = ({
 
         {hasData && (
           <StyledSection>
-            <StyledSectionTitle>{t`Job Data`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Job Data"}</StyledSectionTitle>
             <JsonTree
               value={job.data}
               shouldExpandNodeInitially={isAnyNode}
-              emptyArrayLabel={t`Empty Array`}
-              emptyObjectLabel={t`Empty Object`}
-              emptyStringLabel={t`[empty string]`}
-              arrowButtonCollapsedLabel={t`Expand`}
-              arrowButtonExpandedLabel={t`Collapse`}
+              emptyArrayLabel={""Empty Array"}
+              emptyObjectLabel={""Empty Object"}
+              emptyStringLabel={"[string kosong]"}
+              arrowButtonCollapsedLabel={"Perluas"}
+              arrowButtonExpandedLabel={"Ciutkan"}
               onNodeValueClick={copyToClipboard}
             />
           </StyledSection>
@@ -129,7 +129,7 @@ export const SettingsAdminJobDetailsExpandable = ({
 
         {hasLogs && (
           <StyledSection>
-            <StyledSectionTitle>{t`Logs`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Logs"}</StyledSectionTitle>
             {job.logs?.map((log, index) => (
               <StyledLogEntry key={index}>{log}</StyledLogEntry>
             ))}

@@ -34,12 +34,12 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
     getSearchableValues: (item) => [item.labelPlural],
   });
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : t`No system objects with views found`;
+    ? ""No results found"
+    : ""No system objects with views found";
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a system object...`}
+      searchPlaceholder={""Search a system object..."}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >
@@ -48,7 +48,7 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
         noResults={isEmpty}
         noResultsText={noResultsText}
       >
-        <SidePanelGroup heading={t`System objects`}>
+        <SidePanelGroup heading={""System objects"}>
           {filteredSystemObjectMetadataItems.map((objectMetadataItem) => (
             <SelectableListItem
               key={objectMetadataItem.id}

@@ -82,7 +82,7 @@ export const FieldsConfigurationUngroupedEditor = ({
 
             <MenuItem
               LeftIcon={IconNewSection}
-              text={t`Add a Group`}
+              text={"Tambah Grup"}
               onClick={onAddGroup}
               withIconContainer
               withIconContainerBackground={false}

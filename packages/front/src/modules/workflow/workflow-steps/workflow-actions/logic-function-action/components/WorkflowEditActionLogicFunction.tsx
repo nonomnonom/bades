@@ -191,7 +191,7 @@ export const WorkflowEditActionLogicFunction = ({
     },
     {
       id: TEST_TAB_ID,
-      title: t`Test`,
+      title: "Uji",
       Icon: IconPlayerPlay,
     },
   ];
@@ -220,7 +220,7 @@ export const WorkflowEditActionLogicFunction = ({
               readonly={actionOptions.readonly}
             />
             <StyledResultContainer>
-              <InputLabel>{t`Result`}</InputLabel>
+              <InputLabel>{""Result"}</InputLabel>
               <LogicFunctionExecutionResult
                 logicFunctionTestData={logicFunctionTestData}
                 isTesting={isExecuting}
@@ -251,8 +251,8 @@ export const WorkflowEditActionLogicFunction = ({
             ) : (
               <Callout
                 variant={'neutral'}
-                title={t`No input fields for this action`}
-                description={t`You can see the function logic in your application settings.`}
+                title={""No input fields for this action"}
+                description={""You can see the function logic in your application settings."}
               />
             )}
           </StyledContainer>
@@ -265,7 +265,7 @@ export const WorkflowEditActionLogicFunction = ({
             activeTabId === TEST_TAB_ID
               ? [
                   <WorkflowStepCmdEnterButton
-                    title={t`Test`}
+                    title={"Uji"}
                     onClick={handleTestFunction}
                     disabled={isExecuting}
                   />,

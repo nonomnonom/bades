@@ -22,7 +22,7 @@ export const ViewBarFilterDropdownAnyFieldSearchInputDropdownHeader = () => {
         />
       }
     >
-      {t`Search any field`}
+      {""Search any field"}
     </DropdownMenuHeader>
   );
 };

@@ -172,37 +172,37 @@ const TimingTab = ({ debug }: TimingTabProps) => {
   return (
     <StyledTimingSection>
       <TimingRow
-        label={t`Routing decision`}
+        label={""Routing decision"}
         value={debug.routingTimeMs && `${debug.routingTimeMs}ms`}
       />
       <TimingRow
-        label={t`Context building (routing)`}
+        label={""Context building (routing)"}
         value={debug.contextBuildTimeMs && `${debug.contextBuildTimeMs}ms`}
       />
       <TimingRow
-        label={t`Context building (agent)`}
+        label={""Context building (agent)"}
         value={
           debug.agentContextBuildTimeMs && `${debug.agentContextBuildTimeMs}ms`
         }
       />
       <TimingRow
-        label={t`Tool generation`}
+        label={""Tool generation"}
         value={debug.toolGenerationTimeMs && `${debug.toolGenerationTimeMs}ms`}
       />
       <TimingRow
-        label={t`AI request prep`}
+        label={""AI request prep"}
         value={debug.aiRequestPrepTimeMs && `${debug.aiRequestPrepTimeMs}ms`}
       />
       <TimingRow
-        label={t`Agent execution`}
+        label={""Agent execution"}
         value={debug.agentExecutionTimeMs && `${debug.agentExecutionTimeMs}ms`}
       />
-      <TimingRow label={t`Total time`} value={totalTime} />
-      <TimingRow label={t`Available tools`} value={debug.toolCount} />
-      <TimingRow label={t`Tool calls made`} value={debug.toolCallCount} />
-      <TimingRow label={t`Context records`} value={debug.contextRecordCount} />
+      <TimingRow label={""Total time"} value={totalTime} />
+      <TimingRow label={""Available tools"} value={debug.toolCount} />
+      <TimingRow label={""Tool calls made"} value={debug.toolCallCount} />
+      <TimingRow label={""Context records"} value={debug.contextRecordCount} />
       <TimingRow
-        label={t`Context size`}
+        label={""Context size"}
         value={
           debug.contextSizeBytes !== undefined
             ? formatBytes(debug.contextSizeBytes)
@@ -210,7 +210,7 @@ const TimingTab = ({ debug }: TimingTabProps) => {
         }
       />
       <TimingRow
-        label={t`Routing tokens`}
+        label={""Routing tokens"}
         value={
           debug.routingTotalTokens !== undefined
             ? formatTokenBreakdown(
@@ -222,7 +222,7 @@ const TimingTab = ({ debug }: TimingTabProps) => {
         }
       />
       <TimingRow
-        label={t`Agent tokens`}
+        label={""Agent tokens"}
         value={
           debug.agentTotalTokens !== undefined
             ? formatTokenBreakdown(
@@ -233,7 +233,7 @@ const TimingTab = ({ debug }: TimingTabProps) => {
             : undefined
         }
       />
-      <TimingRow label={t`Total cost`} value={totalCost} />
+      <TimingRow label={""Total cost"} value={totalCost} />
     </StyledTimingSection>
   );
 };
@@ -262,11 +262,11 @@ const DetailsTab = ({ debug, copyToClipboard }: DetailsTabProps) => {
       <JsonTree
         value={detailsData as JsonValue}
         shouldExpandNodeInitially={() => true}
-        emptyArrayLabel={t`Empty Array`}
-        emptyObjectLabel={t`Empty Object`}
-        emptyStringLabel={t`[empty string]`}
-        arrowButtonCollapsedLabel={t`Expand`}
-        arrowButtonExpandedLabel={t`Collapse`}
+        emptyArrayLabel={""Empty Array"}
+        emptyObjectLabel={""Empty Object"}
+        emptyStringLabel={"[string kosong]"}
+        arrowButtonCollapsedLabel={"Perluas"}
+        arrowButtonExpandedLabel={"Ciutkan"}
         onNodeValueClick={copyToClipboard}
       />
     </StyledJsonTreeContainer>
@@ -284,7 +284,7 @@ const ContextTab = ({ debug, copyToClipboard }: ContextTabProps) => {
   if (!debug.context) {
     return (
       <StyledTimingLabel>
-        {t`No context was provided for this request`}
+        {""No context was provided for this request"}
       </StyledTimingLabel>
     );
   }
@@ -297,11 +297,11 @@ const ContextTab = ({ debug, copyToClipboard }: ContextTabProps) => {
         <JsonTree
           value={contextData as JsonValue}
           shouldExpandNodeInitially={() => false}
-          emptyArrayLabel={t`Empty Array`}
-          emptyObjectLabel={t`Empty Object`}
-          emptyStringLabel={t`[empty string]`}
-          arrowButtonCollapsedLabel={t`Expand`}
-          arrowButtonExpandedLabel={t`Collapse`}
+          emptyArrayLabel={""Empty Array"}
+          emptyObjectLabel={""Empty Object"}
+          emptyStringLabel={"[string kosong]"}
+          arrowButtonCollapsedLabel={"Perluas"}
+          arrowButtonExpandedLabel={"Ciutkan"}
           onNodeValueClick={copyToClipboard}
         />
       </StyledJsonTreeContainer>
@@ -330,7 +330,7 @@ export const RoutingDebugDisplay = ({ debug }: RoutingDebugDisplayProps) => {
   return (
     <StyledContainer>
       <StyledToggleButton onClick={() => setIsExpanded(!isExpanded)}>
-        <StyledTimingLabel>{t`Debug Info`}</StyledTimingLabel>
+        <StyledTimingLabel>{""Debug Info"}</StyledTimingLabel>
         {isExpanded ? (
           <IconChevronUp size={theme.icon.size.sm} />
         ) : (
@@ -345,20 +345,20 @@ export const RoutingDebugDisplay = ({ debug }: RoutingDebugDisplayProps) => {
               isActive={activeTab === 'timing'}
               onClick={() => setActiveTab('timing')}
             >
-              {t`Timing`}
+              {""Timing"}
             </StyledTab>
             <StyledTab
               isActive={activeTab === 'details'}
               onClick={() => setActiveTab('details')}
             >
-              {t`Details`}
+              {"Detail"}
             </StyledTab>
             {debug.context && (
               <StyledTab
                 isActive={activeTab === 'context'}
                 onClick={() => setActiveTab('context')}
               >
-                {t`Context`}
+                {""Context"}
               </StyledTab>
             )}
           </StyledTabContainer>

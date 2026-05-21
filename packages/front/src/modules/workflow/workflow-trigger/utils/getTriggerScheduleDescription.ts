@@ -21,7 +21,7 @@ export const getTriggerScheduleDescription = (
     );
   } catch (error) {
     const errorMessage =
-      error instanceof Error ? error.message : t`Invalid cron expression`;
+      error instanceof Error ? error.message : ""Invalid cron expression";
     return errorMessage;
   }
 };

@@ -111,11 +111,11 @@ export const SettingsApplicationRegistrationConfigVariableDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Applications - Developer`,
+          children: ""Applications - Developer",
           href: getSettingsPath(
             SettingsPath.Applications,
             undefined,
@@ -144,7 +144,7 @@ export const SettingsApplicationRegistrationConfigVariableDetail = () => {
           <TextInput
             value={value}
             placeholder={
-              !isEditing ? (variable.value ?? t`set-config-value`) : ''
+              !isEditing ? (variable.value ?? ""set-config-value") : ''
             }
             onChange={setValue}
             disabled={!isEditing}

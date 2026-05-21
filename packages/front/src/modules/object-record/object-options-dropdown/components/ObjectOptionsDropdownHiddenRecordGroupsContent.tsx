@@ -88,10 +88,10 @@ export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
           />
         }
       >
-        {t`Hidden`} {recordIndexGroupFieldMetadataItem?.label}
+        {""Hidden"} {recordIndexGroupFieldMetadataItem?.label}
       </DropdownMenuHeader>
       <RecordGroupsVisibilityDropdownSection
-        title={`${t`Hidden`} ${recordIndexGroupFieldMetadataItem?.label}`}
+        title={`${""Hidden"} ${recordIndexGroupFieldMetadataItem?.label}`}
         recordGroupIds={hiddenRecordGroupIds}
         onVisibilityChange={handleRecordGroupVisibilityChange}
         isDraggable={false}
@@ -108,7 +108,7 @@ export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
         }}
       >
         <DropdownMenuItemsContainer>
-          <MenuItem LeftIcon={IconSettings} text={t`Edit field values`} />
+          <MenuItem LeftIcon={IconSettings} text={""Edit field values"} />
         </DropdownMenuItemsContainer>
       </UndecoratedLink>
     </DropdownContent>

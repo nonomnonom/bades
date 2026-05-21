@@ -64,20 +64,20 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
 
   const nextTierInterval = isDefined(nextPrice)
     ? nextPrice.recurringInterval === SubscriptionInterval.Month
-      ? t`month`
-      : t`year`
+      ? ""month"
+      : ""year"
     : null;
 
   const message = isTrialing
-    ? t`You've hit your usage limit. Subscribe for more usage.`
+    ? ""You've hit your usage limit. Subscribe for more usage."
     : isDefined(nextPrice)
       ? t`You've hit your usage limit. \nUpgrade to ${nextResourceCreditsAmount} credits for $${nextResourceCreditPrice}/${nextTierInterval}.`
       : t`You've hit your usage limit. \nReach to our support team to upgrade.`;
 
   const buttonTitle = isTrialing
-    ? t`Subscribe Now`
+    ? ""Subscribe Now"
     : isDefined(nextPrice)
-      ? t`Upgrade`
+      ? ""Upgrade"
       : undefined;
 
   const handleButtonClick = isTrialing
@@ -106,9 +106,9 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
             data.setResourceCreditSubscriptionPrice.billingSubscriptions,
         });
       }
-      enqueueSuccessSnackBar({ message: t`Credit plan upgraded.` });
+      enqueueSuccessSnackBar({ message: ""Credit plan upgraded." });
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to upgrade credit plan.` });
+      enqueueErrorSnackBar({ message: ""Failed to upgrade credit plan." });
     }
   };
 
@@ -126,10 +126,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
       {isTrialing && (
         <ConfirmationModal
           modalInstanceId={AI_CHAT_END_TRIAL_PERIOD_MODAL_ID}
-          title={t`Start Your Subscription`}
-          subtitle={t`We will activate your paid plan. Do you want to proceed?`}
+          title={""Start Your Subscription"}
+          subtitle={""We will activate your paid plan. Do you want to proceed?"}
           onConfirmClick={endTrialPeriod}
-          confirmButtonText={t`Confirm`}
+          confirmButtonText={"Konfirmasi"}
           confirmButtonAccent="blue"
           loading={isEndTrialLoading}
         />
@@ -137,10 +137,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
       {!isTrialing && (
         <ConfirmationModal
           modalInstanceId={AI_CHAT_UPGRADE_CREDIT_PLAN_MODAL_ID}
-          title={t`Get more credits`}
+          title={""Get more credits"}
           subtitle={t`Upgrade to ${nextResourceCreditsAmount} credits for $${nextResourceCreditPrice}/${nextTierInterval}.`}
           onConfirmClick={handleUpgradeConfirm}
-          confirmButtonText={t`Upgrade`}
+          confirmButtonText={""Upgrade"}
           confirmButtonAccent="blue"
           loading={isUpgrading}
         />

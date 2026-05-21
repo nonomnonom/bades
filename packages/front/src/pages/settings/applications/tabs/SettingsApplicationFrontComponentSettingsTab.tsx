@@ -62,39 +62,39 @@ export const SettingsApplicationFrontComponentSettingsTab = ({
   const detailRows: { key: string; label: string; value: ReactNode }[] = [
     {
       key: 'componentName',
-      label: t`Component name`,
+      label: ""Component name",
       value: <StyledMonoText>{componentName}</StyledMonoText>,
     },
     {
       key: 'universalIdentifier',
-      label: t`Universal identifier`,
+      label: ""Universal identifier",
       value: (
-        <StyledMonoText>{universalIdentifier ?? t`Not set`}</StyledMonoText>
+        <StyledMonoText>{universalIdentifier ?? ""Not set"}</StyledMonoText>
       ),
     },
     {
       key: 'isHeadless',
-      label: t`Headless`,
-      value: isHeadless ? t`Yes` : t`No`,
+      label: ""Headless",
+      value: isHeadless ? "Ya" : "Tidak",
     },
     {
       key: 'usesSdkClient',
-      label: t`Uses SDK client`,
-      value: usesSdkClient ? t`Yes` : t`No`,
+      label: ""Uses SDK client",
+      value: usesSdkClient ? "Ya" : "Tidak",
     },
     {
       key: 'builtComponentChecksum',
-      label: t`Build checksum`,
+      label: ""Build checksum",
       value: <StyledMonoText>{builtComponentChecksum}</StyledMonoText>,
     },
     {
       key: 'createdAt',
-      label: t`Created`,
+      label: "Dibuat",
       value: formatDateTime(createdAt),
     },
     {
       key: 'updatedAt',
-      label: t`Updated`,
+      label: ""Updated",
       value: formatDateTime(updatedAt),
     },
   ];
@@ -104,23 +104,23 @@ export const SettingsApplicationFrontComponentSettingsTab = ({
       {trimmedDescription !== undefined && trimmedDescription.length > 0 && (
         <Section>
           <H2Title
-            title={t`About`}
-            description={t`Description provided by the application`}
+            title={"Tentang"}
+            description={""Description provided by the application"}
           />
           <StyledDescription>{trimmedDescription}</StyledDescription>
         </Section>
       )}
       <Section>
         <H2Title
-          title={t`Details`}
-          description={t`Build and runtime metadata for this component`}
+          title={"Detail"}
+          description={""Build and runtime metadata for this component"}
         />
         <Table>
           <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-            <TableHeader>{t`Property`}</TableHeader>
-            <TableHeader>{t`Value`}</TableHeader>
+            <TableHeader>{""Property"}</TableHeader>
+            <TableHeader>{"Nilai"}</TableHeader>
           </TableRow>
-          <TableSection title={t`Front component`}>
+          <TableSection title={""Front component"}>
             {detailRows.map((row) => (
               <TableRow key={row.key} gridTemplateColumns={GRID_TEMPLATE}>
                 <TableCell color={themeCssVariables.font.color.secondary}>

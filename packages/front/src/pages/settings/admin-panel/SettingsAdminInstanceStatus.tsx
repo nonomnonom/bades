@@ -81,14 +81,14 @@ export const SettingsAdminInstanceStatus = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Upgrade status refreshed`,
+        message: ""Upgrade status refreshed",
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to refresh upgrade status`,
+            : ""Failed to refresh upgrade status",
       });
     }
   };
@@ -97,23 +97,23 @@ export const SettingsAdminInstanceStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: ""Admin Panel - Health",
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Instance status`,
+          children: ""Instance status",
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Instance status`}
-            description={t`Health of the latest instance command`}
+            title={""Instance status"}
+            description={""Health of the latest instance command"}
           />
           <SettingsTableCard
             items={[
@@ -130,36 +130,36 @@ export const SettingsAdminInstanceStatus = () => {
               },
               {
                 Icon: IconCalendar,
-                label: t`Last command`,
+                label: ""Last command",
                 value: (
                   <StyledCommandValue>
                     {instanceLatestCommand?.name
                       ? formatUpgradeCommandName(instanceLatestCommand.name)
-                      : t`None`}
+                      : "Tidak ada"}
                   </StyledCommandValue>
                 ),
               },
               {
                 Icon: IconStatusChange,
-                label: t`Last command result`,
+                label: ""Last command result",
                 value: instanceLatestCommand?.status
                   ? instanceLatestCommand.status === 'completed'
-                    ? t`Completed`
-                    : t`Failed`
-                  : t`N/A`,
+                    ? "Selesai"
+                    : "Gagal"
+                  : ""N/A",
               },
               {
                 Icon: IconCalendar,
-                label: t`Last updated`,
+                label: ""Last updated",
                 value: isNonEmptyString(formattedInstanceLastUpdated)
                   ? formattedInstanceLastUpdated
-                  : t`N/A`,
+                  : ""N/A",
               },
               ...(instanceLatestCommand?.errorMessage
                 ? [
                     {
                       Icon: IconAlertTriangle,
-                      label: t`Last error`,
+                      label: ""Last error",
                       value: instanceLatestCommand.errorMessage,
                     },
                   ]
@@ -170,7 +170,7 @@ export const SettingsAdminInstanceStatus = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Refresh status`}
+              title={""Refresh status"}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />

@@ -24,7 +24,7 @@ export const useUploadFilesFieldFile = () => {
       const uploadedFile = result?.data?.uploadFilesFieldFile;
 
       if (!isDefined(uploadedFile)) {
-        throw new Error(t`File upload failed`);
+        throw new Error(""File upload failed");
       }
 
       const fileName = file.name;

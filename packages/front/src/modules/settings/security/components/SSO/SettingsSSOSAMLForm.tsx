@@ -69,7 +69,7 @@ export const SettingsSSOSAMLForm = () => {
       e.target.value = '';
       if (!samlMetadataParsed.success) {
         return enqueueErrorSnackBar({
-          message: t`Invalid File`,
+          message: ""Invalid File",
           options: {
             duration: 2000,
           },
@@ -107,7 +107,7 @@ export const SettingsSSOSAMLForm = () => {
     );
     if (!response.ok) {
       return enqueueErrorSnackBar({
-        message: t`Metadata file generation failed`,
+        message: ""Metadata file generation failed",
         options: {
           duration: 2000,
         },
@@ -128,8 +128,8 @@ export const SettingsSSOSAMLForm = () => {
     <>
       <Section>
         <H2Title
-          title={t`Identity Provider Metadata XML`}
-          description={t`Upload the XML file with your connection infos`}
+          title={""Identity Provider Metadata XML"}
+          description={""Upload the XML file with your connection infos"}
         />
         <StyledUploadFileContainer>
           <StyledFileInput
@@ -141,7 +141,7 @@ export const SettingsSSOSAMLForm = () => {
           <Button
             Icon={IconUpload}
             onClick={handleUploadFileClick}
-            title={t`Upload file`}
+            title={"Unggah file"}
             type="button"
           ></Button>
           {isXMLMetadataValid() && (
@@ -155,25 +155,25 @@ export const SettingsSSOSAMLForm = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Service Provider Details`}
-          description={t`Enter the infos to set the connection`}
+          title={""Service Provider Details"}
+          description={""Enter the infos to set the connection"}
         />
         <StyledInputsContainer>
           <StyledContainer>
             <Button
               Icon={IconDownload}
               onClick={downloadMetadata}
-              title={t`Download file`}
+              title={""Download file"}
               type="button"
             />
           </StyledContainer>
-          <HorizontalSeparator text={t`Or`} />
+          <HorizontalSeparator text={""Or"} />
           <StyledContainer>
             <StyledLinkContainer>
               <SettingsTextInput
                 instanceId="sso-saml-acs-url"
                 disabled={true}
-                label={t`ACS Url`}
+                label={"URL ACS"}
                 value={acsUrl}
                 fullWidth
               />
@@ -181,9 +181,9 @@ export const SettingsSSOSAMLForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title={t`Copy`}
+                title={"Salin"}
                 onClick={() => {
-                  copyToClipboard(acsUrl, t`ACS Url copied to clipboard`);
+                  copyToClipboard(acsUrl, "URL ACS disalin ke clipboard");
                 }}
                 type="button"
               />
@@ -194,7 +194,7 @@ export const SettingsSSOSAMLForm = () => {
               <SettingsTextInput
                 instanceId="sso-saml-entity-id"
                 disabled={true}
-                label={t`Entity ID`}
+                label={""Entity ID"}
                 value={entityID}
                 fullWidth
               />
@@ -202,9 +202,9 @@ export const SettingsSSOSAMLForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title={t`Copy`}
+                title={"Salin"}
                 onClick={() => {
-                  copyToClipboard(entityID, t`Entity ID copied to clipboard`);
+                  copyToClipboard(entityID, ""Entity ID copied to clipboard");
                 }}
                 type="button"
               />

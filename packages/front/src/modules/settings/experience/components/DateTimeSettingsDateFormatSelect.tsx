@@ -35,11 +35,11 @@ export const DateTimeSettingsDateFormatSelect = ({
     <Select
       dropdownId="datetime-settings-date-format"
       dropdownWidth={320}
-      label={t`Date format`}
+      label={""Date format"}
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`System settings`,
+        label: ""System settings",
         value: DateFormat.SYSTEM,
         contextualText: systemDateFormatLabel,
       }}

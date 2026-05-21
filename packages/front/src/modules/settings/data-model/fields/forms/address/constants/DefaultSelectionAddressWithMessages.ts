@@ -8,11 +8,11 @@ export const DEFAULT_SELECTION_ADDRESS_WITH_MESSAGES: {
 }[] = DEFAULT_VISIBLE_ADDRESS_SUBFIELDS.map((value) => ({
   value,
   label: {
-    addressStreet1: msg`Address 1`,
-    addressStreet2: msg`Address 2`,
-    addressCity: msg`City`,
-    addressState: msg`State`,
-    addressPostcode: msg`Postcode`,
-    addressCountry: msg`Country`,
+    addressStreet1: ""Address 1",
+    addressStreet2: ""Address 2",
+    addressCity: "Kota",
+    addressState: "Negara bagian",
+    addressPostcode: ""Postcode",
+    addressCountry: "Negara",
   }[value],
 }));

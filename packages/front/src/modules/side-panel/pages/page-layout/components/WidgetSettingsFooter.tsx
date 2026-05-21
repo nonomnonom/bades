@@ -63,7 +63,7 @@ export const WidgetSettingsFooter = ({
             <MenuItem
               focused={selectedItemId === 'duplicate-widget'}
               onClick={handleDuplicateWidget}
-              text={t`Duplicate widget`}
+              text={""Duplicate widget"}
               LeftIcon={IconCopyPlus}
             />
           </SelectableListItem>
@@ -75,7 +75,7 @@ export const WidgetSettingsFooter = ({
             <MenuItem
               focused={selectedItemId === 'delete-widget'}
               onClick={handleDeleteWidget}
-              text={t`Delete widget`}
+              text={""Delete widget"}
               LeftIcon={IconTrash}
               accent="danger"
             />

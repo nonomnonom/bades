@@ -243,12 +243,12 @@ export const WorkflowEditActionFormBuilder = ({
             <Callout
               variant={'warning'}
               Icon={IconAlertTriangle}
-              title={t`This form will appear in workflow runs.`}
-              description={t`Because this workflow is not using a manual trigger, the form will not open on top of the interface. To fill it, open the corresponding workflow run and complete the form there.`}
+              title={""This form will appear in workflow runs."}
+              description={""Because this workflow is not using a manual trigger, the form will not open on top of the interface. To fill it, open the corresponding workflow run and complete the form there."}
               isClosable
               onClose={() => setIsCalloutVisible(false)}
               action={{
-                label: t`Learn more`,
+                label: "Pelajari lebih lanjut",
                 onClick: () =>
                   window.open(
                     'https://docs.twenty.com/user-guide/workflows/capabilities/workflow-actions#form',
@@ -264,8 +264,8 @@ export const WorkflowEditActionFormBuilder = ({
             <Callout
               variant={'neutral'}
               isClosable={false}
-              title={t`Add inputs to your form`}
-              description={t`Click on "Add Field" below to add the first input to your form. The form will pop up on the user's screen when the workflow is launched from a manual trigger. For other types of triggers, it will be displayed in the Workflow run record page.`}
+              title={"Tambah input ke formulir Anda"}
+              description={""Click on "Add Field" below to add the first input to your form. The form will pop up on the user's screen when the workflow is launched from a manual trigger. For other types of triggers, it will be displayed in the Workflow run record page."}
             />
           </StyledNotClosableCalloutContainer>
         )}
@@ -303,7 +303,7 @@ export const WorkflowEditActionFormBuilder = ({
                           <StyledGripButtonContainer>
                             <LightIconButton
                               Icon={IconGripVertical}
-                              aria-label={t`Reorder field`}
+                              aria-label={""Reorder field"}
                             />
                           </StyledGripButtonContainer>
                         )}
@@ -350,7 +350,7 @@ export const WorkflowEditActionFormBuilder = ({
                           <StyledTrashButtonContainer>
                             <LightIconButton
                               Icon={IconTrash}
-                              aria-label={t`Delete field`}
+                              aria-label={"Hapus bidang"}
                               onClick={() => {
                                 const updatedFormData = formData.filter(
                                   (currentField) =>
@@ -426,7 +426,7 @@ export const WorkflowEditActionFormBuilder = ({
                   <StyledFieldContainer>
                     <StyledAddFieldButtonContentContainer>
                       <IconPlus size={theme.icon.size.sm} />
-                      {t`Add Field`}
+                      {"Tambah Bidang"}
                     </StyledAddFieldButtonContentContainer>
                   </StyledFieldContainer>
                 </FormFieldInputInnerContainer>

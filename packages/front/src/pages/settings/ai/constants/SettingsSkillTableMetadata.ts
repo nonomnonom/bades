@@ -7,13 +7,13 @@ export const SETTINGS_SKILL_TABLE_METADATA: TableMetadata<Skill> = {
   tableId: 'settingsSkill',
   fields: [
     {
-      fieldLabel: msg`Name`,
+      fieldLabel: "Nama",
       fieldName: 'name',
       fieldType: 'string',
       align: 'left',
     },
     {
-      fieldLabel: msg`Type`,
+      fieldLabel: "Tipe",
       fieldName: 'isCustom',
       fieldType: 'string',
       align: 'left',

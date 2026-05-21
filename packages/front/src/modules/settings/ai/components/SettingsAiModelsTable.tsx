@@ -100,11 +100,11 @@ export const SettingsAiModelsTable = <TModel extends AiModelSummary>({
       <Table>
         <TableRow gridTemplateColumns={gridColumns}>
           <TableHeader>
-            <Trans>Name</Trans>
+            Nama
           </TableHeader>
           {showProviderColumn && (
             <TableHeader align="right">
-              <Trans>Provider</Trans>
+              "Provider
             </TableHeader>
           )}
           <TableHeader align="right">
@@ -165,7 +165,7 @@ export const SettingsAiModelsTable = <TModel extends AiModelSummary>({
                     <StyledModelLabel>{model.label}</StyledModelLabel>
                     {disabled && model.isDeprecated && (
                       <StyledDeprecatedSuffix>
-                        · <Trans>Deprecated</Trans>
+                        · "Deprecated
                       </StyledDeprecatedSuffix>
                     )}
                   </StyledModelNameCell>

@@ -58,7 +58,7 @@ export const EditLinkPopover = ({
           <DropdownMenuItemsContainer>
             <form onSubmit={handleSubmit}>
               <TextInput
-                placeholder={t`Enter link`}
+                placeholder={""Enter link"}
                 value={value}
                 onChange={setValue}
                 onBlur={handleSubmit}

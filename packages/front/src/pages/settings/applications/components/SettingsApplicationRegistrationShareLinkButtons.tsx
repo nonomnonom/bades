@@ -52,7 +52,7 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       {installable && (
         <Button
           Icon={IconDownload}
-          title={isInstalling ? t`Installing...` : t`Install`}
+          title={isInstalling ? ""Installing..." : "Pasang"}
           variant={'secondary'}
           onClick={handleInstall}
           disabled={isInstalling}
@@ -61,14 +61,14 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       {withCopyButton && (
         <Button
           Icon={IconCopy}
-          title={t`Copy sharing link`}
+          title={""Copy sharing link"}
           variant="secondary"
           disabled={!shareLink}
           onClick={async () => {
             if (shareLink) {
               await copyToClipboard(
                 `${window.location.origin}${shareLink}`,
-                t`Sharing link copied to clipboard`,
+                ""Sharing link copied to clipboard",
               );
             }
           }}
@@ -76,7 +76,7 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       )}
       <Button
         Icon={isNpmSource ? IconArrowUpRight : IconInfoCircle}
-        title={isNpmSource ? t`See on marketplace` : t`See app page`}
+        title={isNpmSource ? ""See on marketplace" : ""See app page"}
         variant="secondary"
         disabled={!shareLink}
         to={shareLink}

@@ -83,7 +83,7 @@ export const CanvasTabSettingsContent = ({
   return (
     <>
       <SidePanelList selectableItemIds={selectableItemIds}>
-        <SidePanelGroup heading={t`Placement`}>
+        <SidePanelGroup heading={""Placement"}>
           {canSetAsPinned && (
             <SelectableListItem
               itemId={TAB_SETTINGS_SELECTABLE_ITEM_IDS.SET_AS_PINNED}
@@ -92,7 +92,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.SET_AS_PINNED}
                 Icon={IconPinned}
-                label={t`Pin tab`}
+                label={""Pin tab"}
                 onClick={onSetAsPinned}
               />
             </SelectableListItem>
@@ -105,7 +105,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_LEFT}
                 Icon={IconChevronLeft}
-                label={t`Move left`}
+                label={""Move left"}
                 onClick={onMoveLeft}
               />
             </SelectableListItem>
@@ -118,20 +118,20 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_RIGHT}
                 Icon={IconChevronRight}
-                label={t`Move right`}
+                label={""Move right"}
                 onClick={onMoveRight}
               />
             </SelectableListItem>
           )}
         </SidePanelGroup>
-        <SidePanelGroup heading={t`Manage`}>
+        <SidePanelGroup heading={"Kelola"}>
           {isDefined(canvasWidget) && (
             <SelectableListItem
               itemId={TAB_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
             >
               <CommandMenuItemDropdown
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
-                label={t`Visibility restriction`}
+                label={""Visibility restriction"}
                 Icon={IconEyeX}
                 dropdownId={
                   TAB_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION
@@ -161,7 +161,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
                 Icon={IconRefreshDot}
-                label={t`Reset to default`}
+                label={""Reset to default"}
                 onClick={handleResetToDefault}
                 disabled={isResetToDefaultDisabled}
               />
@@ -170,7 +170,7 @@ export const CanvasTabSettingsContent = ({
           {isResetToDefaultDisabled && (
             <AppTooltip
               anchorSelect={`#${RESET_TAB_TO_DEFAULT_MENU_ITEM_ID}`}
-              content={t`No default configuration available for this tab`}
+              content={""No default configuration available for this tab"}
               noArrow
               place="bottom"
             />
@@ -183,7 +183,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.DELETE}
                 Icon={IconTrash}
-                label={t`Delete`}
+                label={"Hapus"}
                 onClick={onDelete}
               />
             </SelectableListItem>
@@ -192,8 +192,8 @@ export const CanvasTabSettingsContent = ({
       </SidePanelList>
       <ConfirmationModal
         modalInstanceId={RESET_TAB_TO_DEFAULT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This will cancel all modifications done on the tab and its widgets. Edit mode will be canceled and the page will refresh. This action cannot be undone.`}
+        title={""Reset to default"}
+        subtitle={""This will cancel all modifications done on the tab and its widgets. Edit mode will be canceled and the page will refresh. This action cannot be undone."}
         onConfirmClick={onResetToDefault}
         confirmButtonText={t`Reset`}
         confirmButtonAccent="danger"

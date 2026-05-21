@@ -6,7 +6,7 @@ export const getNonReadableViewFieldSubTitle = (
   nonReadableViewFieldInfo: NonReadableViewFieldInfo,
 ): string => {
   const usageLabel =
-    nonReadableViewFieldInfo.usage === 'sort' ? t`sorting` : t`filtering`;
+    nonReadableViewFieldInfo.usage === 'sort' ? ""sorting" : ""filtering";
 
   if (isDefined(nonReadableViewFieldInfo.fieldLabel)) {
     return t`This view uses ${usageLabel} on field "${nonReadableViewFieldInfo.fieldLabel}" on "${nonReadableViewFieldInfo.objectLabel}" which is not accessible.`;

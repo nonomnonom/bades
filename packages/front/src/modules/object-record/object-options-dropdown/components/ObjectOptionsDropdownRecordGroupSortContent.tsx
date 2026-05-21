@@ -68,7 +68,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
           />
         }
       >
-        {t`Sort`}
+        {"Urutkan"}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList

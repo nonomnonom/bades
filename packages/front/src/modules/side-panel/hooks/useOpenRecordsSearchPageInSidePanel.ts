@@ -13,7 +13,7 @@ export const useOpenRecordsSearchPageInSidePanel = () => {
   const openRecordsSearchPage = () => {
     navigateSidePanelMenu({
       page: SidePanelPages.SearchRecords,
-      pageTitle: t`Search`,
+      pageTitle: "Cari",
       pageIcon: IconSearch,
       pageId: v4(),
       resetNavigationStack: isSidePanelOpened,

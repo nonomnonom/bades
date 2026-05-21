@@ -34,7 +34,7 @@ export const useAiChatFileUpload = () => {
       const response = result?.data?.uploadAiChatFile;
 
       if (!isDefined(response)) {
-        throw new Error(t`Couldn't upload the file.`);
+        throw new Error(""Couldn't upload the file.");
       }
 
       setAgentChatSelectedFiles(

@@ -241,7 +241,7 @@ export const AttachmentList = ({
                   fallback={
                     <StyledLoadingContainer>
                       <StyledLoadingText>
-                        {t`Loading document viewer...`}
+                        {""Loading document viewer..."}
                       </StyledLoadingText>
                     </StyledLoadingContainer>
                   }

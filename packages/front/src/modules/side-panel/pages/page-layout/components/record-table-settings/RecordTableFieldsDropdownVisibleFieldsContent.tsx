@@ -156,7 +156,7 @@ export const RecordTableFieldsDropdownVisibleFieldsContent = ({
         <MenuItemNavigate
           onClick={onShowHiddenFields}
           LeftIcon={IconEyeOff}
-          text={t`Hidden Fields`}
+          text={""Hidden Fields"}
         />
       </DropdownMenuItemsContainer>
     </DropdownContent>

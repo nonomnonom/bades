@@ -57,7 +57,7 @@ export const SettingsAdminConfigVariables = () => {
 
   const groupOptions = useMemo(
     () => [
-      { value: 'all', label: t`All Groups` },
+      { value: 'all', label: ""All Groups" },
       ...allGroups.map((group) => ({
         value: group.name,
         label: group.name,
@@ -166,7 +166,7 @@ export const SettingsAdminConfigVariables = () => {
   return (
     <>
       <Section>
-        <H2Title title={t`Config Variables`} />
+        <H2Title title={""Config Variables"} />
 
         <ConfigVariableFilterContainer activeChips={activeChips}>
           <StyledControlsContainer>
@@ -187,8 +187,8 @@ export const SettingsAdminConfigVariables = () => {
         <StyledTableContainer>
           <Section>
             <H2Title
-              title={t`No variables found`}
-              description={t`No config variables match your current filters. Try adjusting your filters or search criteria.`}
+              title={""No variables found"}
+              description={""No config variables match your current filters. Try adjusting your filters or search criteria."}
             />
           </Section>
         </StyledTableContainer>

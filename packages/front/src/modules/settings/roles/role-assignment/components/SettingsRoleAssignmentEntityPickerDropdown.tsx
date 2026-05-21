@@ -75,15 +75,15 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
       : apiKeysData?.apiKeys) || []) as EntityData[];
   }, [isAgent, agentsData?.findManyAgents, apiKeysData?.apiKeys]);
 
-  const placeholder = isAgent ? t`Search agents` : t`Search API keys`;
+  const placeholder = isAgent ? ""Search agents" : ""Search API keys";
 
   const getEmptyStateMessage = () => {
     if (searchFilter !== '') {
       return isAgent
-        ? t`No agents match your search`
-        : t`No API keys match your search`;
+        ? ""No agents match your search"
+        : ""No API keys match your search";
     } else {
-      return isAgent ? t`No agents available` : t`No API keys available`;
+      return isAgent ? ""No agents available" : ""No API keys available";
     }
   };
 
@@ -120,7 +120,7 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>
         {loading ? (
-          <StyledLoadingContainer>{t`Loading...`}</StyledLoadingContainer>
+          <StyledLoadingContainer>{""Loading..."}</StyledLoadingContainer>
         ) : filteredEntities.length > 0 ? (
           filteredEntities.map((entity) => (
             <StyledDropdownItem

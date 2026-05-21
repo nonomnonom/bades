@@ -23,7 +23,7 @@ export const useOpenAnyFieldSearchFilterFromViewBar = () => {
     objectFilterDropdownSearchInputComponentState,
   );
 
-  const translatedLabel = t`Search any field`;
+  const translatedLabel = ""Search any field";
 
   const openAnyFieldSearchFilterFromViewBar = () => {
     const userHasAlreadyEnteredSearchInputForObjectDropdownSearch =

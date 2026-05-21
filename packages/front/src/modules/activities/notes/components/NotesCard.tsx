@@ -68,16 +68,16 @@ export const NotesCard = () => {
         <AnimatedPlaceholder type="noNote" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`No notes`}
+            {""No notes"}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`There are no associated notes with this record.`}
+            {""There are no associated notes with this record."}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
         {hasObjectUpdatePermissions && (
           <Button
             Icon={IconPlus}
-            title={t`New note`}
+            title={""New note"}
             variant="secondary"
             onClick={() =>
               openCreateActivity({
@@ -93,7 +93,7 @@ export const NotesCard = () => {
   return (
     <StyledNotesContainer>
       <NoteList
-        title={t`All`}
+        title={"Semua"}
         notes={notes}
         totalCount={totalCountNotes}
         button={
@@ -102,7 +102,7 @@ export const NotesCard = () => {
               Icon={IconPlus}
               size="small"
               variant="secondary"
-              title={t`Add note`}
+              title={"Tambah catatan"}
               onClick={() =>
                 openCreateActivity({
                   targetableObjects: [targetRecord],

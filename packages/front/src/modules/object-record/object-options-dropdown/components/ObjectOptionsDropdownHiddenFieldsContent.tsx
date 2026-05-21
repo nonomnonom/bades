@@ -45,7 +45,7 @@ export const ObjectOptionsDropdownHiddenFieldsContent = () => {
           />
         }
       >
-        {t`Hidden Fields`}
+        {""Hidden Fields"}
       </DropdownMenuHeader>
       <ViewFieldsHiddenDropdownSection />
       <DropdownMenuSeparator />
@@ -57,7 +57,7 @@ export const ObjectOptionsDropdownHiddenFieldsContent = () => {
         }}
       >
         <DropdownMenuItemsContainer scrollable={false}>
-          <MenuItem LeftIcon={IconSettings} text={t`Edit Fields`} />
+          <MenuItem LeftIcon={IconSettings} text={""Edit Fields"} />
         </DropdownMenuItemsContainer>
       </UndecoratedLink>
     </DropdownContent>

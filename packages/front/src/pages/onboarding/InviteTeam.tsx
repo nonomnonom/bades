@@ -117,7 +117,7 @@ export const InviteTeam = () => {
   const copyInviteLink = () => {
     if (isDefined(currentWorkspace?.inviteHash)) {
       const inviteLink = `${window.location.origin}/invite/${currentWorkspace?.inviteHash}`;
-      copyToClipboard(inviteLink, t`Link copied to clipboard`);
+      copyToClipboard(inviteLink, ""Link copied to clipboard");
     }
   };
 
@@ -139,7 +139,7 @@ export const InviteTeam = () => {
 
       if (emails.length > 0) {
         enqueueSuccessSnackBar({
-          message: t`Invite link sent to email addresses`,
+          message: ""Invite link sent to email addresses",
           options: {
             duration: 2000,
           },
@@ -167,10 +167,10 @@ export const InviteTeam = () => {
   return (
     <ModalContent isVerticallyCentered isHorizontallyCentered>
       <Title>
-        <Trans>Invite your team</Trans>
+        "Invite your team
       </Title>
       <SubTitle>
-        <Trans>Get the most out of your workspace by inviting your team.</Trans>
+        "Get the most out of your workspace by inviting your team.
       </SubTitle>
       <StyledAnimatedContainer>
         {fields.map((field, index) => (
@@ -199,11 +199,11 @@ export const InviteTeam = () => {
         {isDefined(currentWorkspace?.inviteHash) && (
           <>
             <SeparatorLineText>
-              <Trans>or</Trans>
+              "or
             </SeparatorLineText>
             <StyledActionLinkContainer>
               <LightButton
-                title={t`Copy invitation link`}
+                title={""Copy invitation link"}
                 accent="tertiary"
                 onClick={copyInviteLink}
                 Icon={IconCopy}
@@ -214,7 +214,7 @@ export const InviteTeam = () => {
       </StyledAnimatedContainer>
       <StyledButtonContainer>
         <MainButton
-          title={hasCalendarBooking ? t`Continue` : t`Finish`}
+          title={hasCalendarBooking ? "Lanjutkan" : "Selesai"}
           disabled={!isValid || isSubmitting}
           onClick={handleSubmit(onSubmit)}
           fullWidth
@@ -222,7 +222,7 @@ export const InviteTeam = () => {
       </StyledButtonContainer>
       <StyledActionSkipLinkContainer>
         <ClickToActionLink onClick={handleSkip}>
-          <Trans>Skip</Trans>
+          Lewati
         </ClickToActionLink>
       </StyledActionSkipLinkContainer>
     </ModalContent>

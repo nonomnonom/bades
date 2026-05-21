@@ -19,7 +19,7 @@ export const useInstallApp = <TVariables extends Record<string, unknown>>(
 
       if (isDefined(result.data)) {
         enqueueSuccessSnackBar({
-          message: t`Application installed successfully.`,
+          message: ""Application installed successfully.",
         });
 
         return true;
@@ -30,7 +30,7 @@ export const useInstallApp = <TVariables extends Record<string, unknown>>(
       const graphqlMessage = error instanceof Error ? error.message : undefined;
 
       enqueueErrorSnackBar({
-        message: graphqlMessage ?? t`Failed to install the application.`,
+        message: graphqlMessage ?? ""Failed to install the application.",
       });
 
       return false;

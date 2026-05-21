@@ -50,11 +50,11 @@ export const SettingsAdminIndicatorHealthStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: ""Admin Panel - Health",
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         { children: `${data?.getIndicatorHealthStatus?.label}` },

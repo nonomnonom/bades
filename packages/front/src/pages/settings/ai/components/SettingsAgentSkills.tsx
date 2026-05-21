@@ -73,20 +73,20 @@ export const SettingsAgentSkills = () => {
   const handleActivate = async (skillId: string) => {
     try {
       await activateSkill({ variables: { id: skillId } });
-      enqueueSuccessSnackBar({ message: t`Skill activated` });
+      enqueueSuccessSnackBar({ message: ""Skill activated" });
       refetch();
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to activate skill` });
+      enqueueErrorSnackBar({ message: ""Failed to activate skill" });
     }
   };
 
   const handleDelete = async (skillId: string) => {
     try {
       await deleteSkill({ variables: { id: skillId } });
-      enqueueSuccessSnackBar({ message: t`Skill deleted` });
+      enqueueSuccessSnackBar({ message: ""Skill deleted" });
       refetch();
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to delete skill` });
+      enqueueErrorSnackBar({ message: ""Failed to delete skill" });
     }
   };
 
@@ -100,12 +100,12 @@ export const SettingsAgentSkills = () => {
       <StyledCoverImage style={{ backgroundImage: `url('${coverImage}')` }} />
       <Section>
         <H2Title
-          title={t`Skills`}
-          description={t`Use filter to see existing tools or create your own`}
+          title={""Skills"}
+          description={""Use filter to see existing tools or create your own"}
         />
 
         <StyledSearchInput
-          placeholder={t`Search a skill...`}
+          placeholder={""Search a skill..."}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -123,7 +123,7 @@ export const SettingsAgentSkills = () => {
                         setShowDeactivated(!showDeactivated)
                       }
                       toggled={showDeactivated}
-                      text={t`Deactivated`}
+                      text={""Deactivated"}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>

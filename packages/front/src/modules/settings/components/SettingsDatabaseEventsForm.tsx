@@ -53,14 +53,14 @@ export const SettingsDatabaseEventsForm = ({
       isDefined(updatedFields) && updatedFields.length > 0;
 
     return [
-      { label: t`All`, value: '*', Icon: IconNorthStar },
-      { label: t`Created`, value: 'created', Icon: IconPlus },
+      { label: "Semua", value: '*', Icon: IconNorthStar },
+      { label: "Dibuat", value: 'created', Icon: IconPlus },
       {
-        label: hasSpecificFields ? t`Updated (on specific fields)` : t`Updated`,
+        label: hasSpecificFields ? ""Updated (on specific fields)" : ""Updated",
         value: 'updated',
         Icon: IconBox,
       },
-      { label: t`Deleted`, value: 'deleted', Icon: IconTrash },
+      { label: "Dihapus", value: 'deleted', Icon: IconTrash },
     ];
   };
 

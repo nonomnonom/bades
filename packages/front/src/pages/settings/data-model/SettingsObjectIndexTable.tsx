@@ -41,20 +41,20 @@ export const SettingsObjectIndexTable = ({
     tableId: 'settingsObjectIndexs',
     fields: [
       {
-        fieldLabel: msg`Fields`,
+        fieldLabel: "Bidang-bidang",
         fieldName: 'indexFields',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Unique`,
+        fieldLabel: "Unik",
         FieldIcon: IconSquareKey,
         fieldName: 'isUnique',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Type`,
+        fieldLabel: "Tipe",
         fieldName: 'indexType',
         fieldType: 'string',
         align: 'right',
@@ -120,7 +120,7 @@ export const SettingsObjectIndexTable = ({
     <>
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search an index...`}
+          placeholder={""Search an index..."}
           value={searchTerm}
           onChange={setSearchTerm}
         />

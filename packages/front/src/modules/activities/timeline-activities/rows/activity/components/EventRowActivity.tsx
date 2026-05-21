@@ -89,7 +89,7 @@ export const EventRowActivity = ({
       return event.linkedRecordCachedName;
     }
 
-    return t`Untitled`;
+    return ""Untitled";
   };
   const activityTitle = computeActivityTitle();
 

@@ -166,21 +166,21 @@ export const SettingsWorkspaceMembersTeamTab = () => {
   return (
     <Section>
       <H2Title
-        title={t`Manage Members`}
-        description={t`Manage the members of your workspace here`}
+        title={""Manage Members"}
+        description={""Manage the members of your workspace here"}
       />
       <StyledSearchContainer>
         <SearchInput
           value={searchFilter}
           onChange={handleSearchChange}
-          placeholder={t`Search a team member...`}
+          placeholder={""Search a team member..."}
         />
         <Dropdown
           dropdownId="workspace-members-open-dropdown"
           clickableComponent={
             <Button
               Icon={IconArrowUpRight}
-              title={t`Open`}
+              title={"Buka"}
               variant="secondary"
               size="medium"
             />
@@ -192,7 +192,7 @@ export const SettingsWorkspaceMembersTeamTab = () => {
               <DropdownMenuItemsContainer>
                 <MenuItem
                   LeftIcon={IconListDetails}
-                  text={t`See records`}
+                  text={""See records"}
                   onClick={() => {
                     navigateApp(AppPath.RecordIndexPage, {
                       objectNamePlural: 'workspaceMembers',
@@ -202,7 +202,7 @@ export const SettingsWorkspaceMembersTeamTab = () => {
                 />
                 <MenuItem
                   LeftIcon={IconHierarchy2}
-                  text={t`See data model settings`}
+                  text={""See data model settings"}
                   onClick={() => {
                     navigateSettings(SettingsPath.ObjectDetail, {
                       objectNamePlural: 'workspaceMembers',
@@ -222,7 +222,7 @@ export const SettingsWorkspaceMembersTeamTab = () => {
             mobileGridAutoColumns="100px 1fr 32px"
           >
             <TableHeader>
-              <Trans>Name</Trans>
+              Nama
             </TableHeader>
             <TableHeader>
               <Trans>Email</Trans>
@@ -289,8 +289,8 @@ export const SettingsWorkspaceMembersTeamTab = () => {
             ) : (
               <TableCell color={themeCssVariables.font.color.tertiary}>
                 {!searchFilter
-                  ? t`No members`
-                  : t`No members match your search`}
+                  ? ""No members"
+                  : ""No members match your search"}
               </TableCell>
             )}
           </StyledTableRows>

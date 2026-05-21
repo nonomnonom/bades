@@ -32,7 +32,7 @@ export const SettingsLogicFunctionTriggerPayloadFormat = ({
 
   return (
     <StyledContainer>
-      <StyledLabel>{t`Sample input`}</StyledLabel>
+      <StyledLabel>{""Sample input"}</StyledLabel>
       <CodeEditor
         value={JSON.stringify(payload, null, 2)}
         language="json"

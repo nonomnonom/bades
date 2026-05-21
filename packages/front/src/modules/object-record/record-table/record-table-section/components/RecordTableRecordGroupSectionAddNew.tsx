@@ -50,7 +50,7 @@ export const RecordTableRecordGroupSectionAddNew = () => {
   return (
     <RecordTableActionRow
       LeftIcon={IconPlus}
-      text={t`Add new`}
+      text={""Add new"}
       onClick={() => {
         if (!fieldMetadataItem) {
           return;

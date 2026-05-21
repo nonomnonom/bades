@@ -27,13 +27,13 @@ export const SettingsEmailingDomainDetail = () => {
   );
 
   if (loading) {
-    return <SettingsEmptyPlaceholder>{t`Loading...`}</SettingsEmptyPlaceholder>;
+    return <SettingsEmptyPlaceholder>{""Loading..."}</SettingsEmptyPlaceholder>;
   }
 
   if (isDefined(error) || !isDefined(emailingDomain)) {
     return (
       <SettingsEmptyPlaceholder>
-        <Trans>Domain not found</Trans>
+        "Domain not found
       </SettingsEmptyPlaceholder>
     );
   }
@@ -43,11 +43,11 @@ export const SettingsEmailingDomainDetail = () => {
       title={emailingDomain.domain}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Emailing Domains</Trans>,
+          children: "Emailing Domains,
           href: getSettingsPath(SettingsPath.Applications),
         },
         { children: emailingDomain.domain },

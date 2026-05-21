@@ -33,11 +33,11 @@ export const SettingsAccountsConfigurationStepCalendar = ({
       title={stepTitle}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: Pengguna,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: <Trans>Account</Trans>,
+          children: Akun,
           href: getSettingsPath(SettingsPath.Accounts),
         },
         {
@@ -47,7 +47,7 @@ export const SettingsAccountsConfigurationStepCalendar = ({
       actionButton={
         <Button
           Icon={IconDeviceFloppy}
-          title={t`Finish Setup`}
+          title={""Finish Setup"}
           accent="blue"
           size="small"
           variant="primary"

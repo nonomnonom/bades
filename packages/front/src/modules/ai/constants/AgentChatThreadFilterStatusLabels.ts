@@ -7,7 +7,7 @@ export const AGENT_CHAT_THREAD_FILTER_STATUS_LABELS: Record<
   AgentChatThreadFilterStatus,
   MessageDescriptor
 > = {
-  active: msg`Active`,
-  archived: msg`Archived`,
-  all: msg`All`,
+  active: "Aktif",
+  archived: ""Archived",
+  all: "Semua",
 };

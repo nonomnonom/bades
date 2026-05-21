@@ -108,7 +108,7 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
               instanceId="role-permissions-object-search"
               value={searchFilter}
               onChange={handleSearchChange}
-              placeholder={t`Search an object`}
+              placeholder={""Search an object"}
               fullWidth
               LeftIcon={IconSearch}
               sizeVariant="lg"
@@ -120,8 +120,8 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
       {standardObjects.length > 0 && (
         <Section>
           <H2Title
-            title={t`Standard`}
-            description={t`All the standard objects`}
+            title={"Standar"}
+            description={""All the standard objects"}
           />
           <StyledContainer>
             {standardObjects.map((objectMetadataItem) => (
@@ -148,7 +148,7 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
       )}
       {customObjects.length > 0 && (
         <Section>
-          <H2Title title={t`Custom`} description={t`All your custom objects`} />
+          <H2Title title={"Kustom"} description={""All your custom objects"} />
           <StyledContainer>
             {customObjects.map((objectMetadataItem) => (
               <StyledCardContainer

@@ -55,7 +55,7 @@ export const useSendEmail = () => {
 
         if (result.data?.sendEmail.success) {
           enqueueSuccessSnackBar({
-            message: t`Email sent successfully`,
+            message: ""Email sent successfully",
           });
 
           await apolloCoreClient.refetchQueries({
@@ -73,13 +73,13 @@ export const useSendEmail = () => {
         }
 
         enqueueErrorSnackBar({
-          message: result.data?.sendEmail.error ?? t`Failed to send email`,
+          message: result.data?.sendEmail.error ?? ""Failed to send email",
         });
 
         return false;
       } catch {
         enqueueErrorSnackBar({
-          message: t`Failed to send email`,
+          message: ""Failed to send email",
         });
 
         return false;

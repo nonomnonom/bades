@@ -85,7 +85,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
     }
   }, [webhookData, formConfig]);
 
-  useSnackBarOnQueryError(error, t`Failed to load webhook`);
+  useSnackBarOnQueryError(error, ""Failed to load webhook");
 
   const { isDirty, isValid, isSubmitting } = formConfig.formState;
   const canSave = isCreationMode
@@ -120,7 +120,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
   const handleUpdate = async (formValues: WebhookFormValues) => {
     if (!webhookId) {
       enqueueErrorSnackBar({
-        message: t`Webhook ID is required for updates`,
+        message: ""Webhook ID is required for updates",
       });
       return;
     }
@@ -184,7 +184,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
   const handleDelete = async () => {
     if (!webhookId) {
       enqueueErrorSnackBar({
-        message: t`Webhook ID is required for deletion`,
+        message: ""Webhook ID is required for deletion",
       });
       return;
     }
@@ -194,7 +194,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
         variables: { id: webhookId },
       });
       enqueueSuccessSnackBar({
-        message: t`Webhook deleted successfully`,
+        message: ""Webhook deleted successfully",
       });
 
       navigate(SettingsPath.ApiWebhooks);

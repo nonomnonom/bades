@@ -21,7 +21,7 @@ export const WorkspacesForSignIn = ({
 
   return (
     <>
-      <StyledDropdownMenuSubheader>{t`Member of`}</StyledDropdownMenuSubheader>
+      <StyledDropdownMenuSubheader>{""Member of"}</StyledDropdownMenuSubheader>
       <DropdownMenuItemsContainer>
         {searchAvailableWorkspaces(
           searchValue,

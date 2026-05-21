@@ -218,7 +218,7 @@ export const SidePanelCommandMenuItemEditPage = () => {
       )}
       <StyledContent>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Pinned`}>
+          <SidePanelGroup heading={""Pinned"}>
             <DraggableList
               onDragEnd={handlePinnedDragEnd}
               draggableItems={displayedPinnedItems.map((item, index) => {
@@ -265,7 +265,7 @@ export const SidePanelCommandMenuItemEditPage = () => {
             />
           </SidePanelGroup>
 
-          <SidePanelGroup heading={t`Other`}>
+          <SidePanelGroup heading={"Lainnya"}>
             {displayedOtherItems.map((item) => {
               const ItemIcon = isDefined(item.icon)
                 ? getIcon(item.icon)
@@ -303,7 +303,7 @@ export const SidePanelCommandMenuItemEditPage = () => {
           <Button
             key="reset"
             Icon={IconRefresh}
-            title={t`Reset to default`}
+            title={""Reset to default"}
             variant="secondary"
             accent="default"
             size="small"

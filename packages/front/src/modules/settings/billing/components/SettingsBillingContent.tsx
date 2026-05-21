@@ -77,12 +77,12 @@ export const SettingsBillingContent = () => {
         )}
       <Section>
         <H2Title
-          title={t`Manage billing information`}
-          description={t`Edit payment method, see your invoices and more`}
+          title={""Manage billing information"}
+          description={""Edit payment method, see your invoices and more"}
         />
         <Button
           Icon={IconCreditCard}
-          title={t`View billing details`}
+          title={""View billing details"}
           variant="secondary"
           onClick={openBillingPortal}
           disabled={billingPortalButtonDisabled}
@@ -91,12 +91,12 @@ export const SettingsBillingContent = () => {
       {hasNotCanceledCurrentSubscription && (
         <Section>
           <H2Title
-            title={t`Cancel your subscription`}
-            description={t`Your workspace will be disabled`}
+            title={""Cancel your subscription"}
+            description={""Your workspace will be disabled"}
           />
           <Button
             Icon={IconCircleX}
-            title={t`Cancel Plan`}
+            title={""Cancel Plan"}
             variant="secondary"
             accent="danger"
             onClick={openBillingPortal}

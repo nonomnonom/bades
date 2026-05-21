@@ -37,8 +37,8 @@ export const SettingsLogicFunctionToolTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`AI tool`}
-      description={t`Exposes the function as a tool that AI agents can call`}
+      title={""AI tool"}
+      description={""Exposes the function as a tool that AI agents can call"}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_TOOL_TRIGGER_SETTINGS : null)

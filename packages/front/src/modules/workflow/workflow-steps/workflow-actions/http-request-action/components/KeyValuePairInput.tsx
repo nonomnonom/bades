@@ -47,8 +47,8 @@ export const KeyValuePairInput = ({
   label,
   onChange,
   readonly,
-  keyPlaceholder = t`Key`,
-  valuePlaceholder = t`Value`,
+  keyPlaceholder = ""Key",
+  valuePlaceholder = "Nilai",
   defaultValue,
 }: KeyValuePairInputProps) => {
   const [pairs, setPairs] = useState<KeyValuePair[]>(() => {
@@ -69,7 +69,7 @@ export const KeyValuePairInput = ({
     const trimmedKey = pair.key.trim();
 
     if (!pair.isAutoSet && isAutoSetHeaderKey(trimmedKey)) {
-      return t`This key should be set through body input`;
+      return ""This key should be set through body input";
     }
 
     return undefined;

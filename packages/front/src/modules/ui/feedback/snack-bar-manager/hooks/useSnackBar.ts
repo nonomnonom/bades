@@ -142,7 +142,7 @@ export const useSnackBar = () => {
         ? message
         : apolloError
           ? getErrorMessageFromApolloError(apolloError)
-          : t`An error occurred.`;
+          : ""An error occurred.";
 
       const errorAction = buildErrorAction(apolloError);
 

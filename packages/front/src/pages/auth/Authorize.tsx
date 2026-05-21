@@ -201,8 +201,8 @@ export const Authorize = () => {
   const { redirect } = useRedirect();
 
   const oauthScopeLabels: { [scope: string]: string | undefined } = {
-    api: t`Access your workspace data`,
-    profile: t`Read your profile`,
+    api: "Akses data ruang kerja Anda",
+    profile: ""Read your profile",
   };
 
   // Support both camelCase (legacy) and standard OAuth snake_case params
@@ -255,7 +255,7 @@ export const Authorize = () => {
         onError: (error) => {
           setIsAuthorizing(false);
           setAuthorizeError(
-            error.message || t`Authorization failed. Please try again.`,
+            error.message || ""Authorization failed. Please try again.",
           );
         },
       });
@@ -268,11 +268,11 @@ export const Authorize = () => {
         <StyledCardWrapper>
           <ModalContent contentPadding={10}>
             <StyledOAuthTitle
-              title={<Trans>Something went wrong</Trans>}
+              title={"Something went wrong}
               fontColor={H1TitleFontColor.Primary}
             />
             <StyledErrorText>
-              {t`Unable to load application details. Please try again later.`}
+              {""Unable to load application details. Please try again later."}
             </StyledErrorText>
           </ModalContent>
         </StyledCardWrapper>
@@ -322,13 +322,13 @@ export const Authorize = () => {
         </StyledHeader>
         <ModalContent contentPadding={10}>
           <StyledOAuthTitle
-            title={<Trans>Connect {appName} to your account</Trans>}
+            title={"Connect {appName} to your account}
             fontColor={H1TitleFontColor.Primary}
           />
           {requestedScopes.length > 0 && (
             <StyledPermissionSection>
               <StyledPermissionIntro>
-                <Trans>{appName} would like to:</Trans>
+                {appName} ingin:
               </StyledPermissionIntro>
               <StyledScopeList>
                 {requestedScopes.map((scope) => {
@@ -356,7 +356,7 @@ export const Authorize = () => {
             <StyledCancelLinkContainer>
               <UndecoratedLink to={AppPath.Index} fullWidth>
                 <MainButton
-                  title={t`Cancel`}
+                  title={"Batalkan"}
                   variant="secondary"
                   fullWidth
                   disabled={isAuthorizing}
@@ -364,7 +364,7 @@ export const Authorize = () => {
               </UndecoratedLink>
             </StyledCancelLinkContainer>
             <StyledAuthorizeButton
-              title={isAuthorizing ? t`Authorizing...` : t`Authorize`}
+              title={isAuthorizing ? ""Authorizing..." : ""Authorize"}
               onClick={handleAuthorize}
               disabled={isAuthorizing}
               fullWidth

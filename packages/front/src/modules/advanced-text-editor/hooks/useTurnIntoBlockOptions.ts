@@ -25,7 +25,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
     selector: ({ editor }): TurnIntoBlockOptions[] => [
       {
         id: 'paragraph',
-        title: t`Paragraph`,
+        title: ""Paragraph",
         icon: IconPilcrow,
         onClick: () => {
           return editor.chain().focus().setParagraph().run();
@@ -39,7 +39,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading1',
-        title: t`Heading 1`,
+        title: ""Heading 1",
         icon: IconH1,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 1 }).run();
@@ -53,7 +53,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading2',
-        title: t`Heading 2`,
+        title: ""Heading 2",
         icon: IconH2,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 2 }).run();
@@ -67,7 +67,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading3',
-        title: t`Heading 3`,
+        title: ""Heading 3",
         icon: IconH3,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 3 }).run();

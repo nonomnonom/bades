@@ -63,7 +63,7 @@ export const SettingsApprovedAccessDomainsListCard = () => {
     <StyledLinkContainer>
       <Link to={getSettingsPath(SettingsPath.NewApprovedAccessDomain)}>
         <SettingsCard
-          title={t`Add Approved Access Domain`}
+          title={"Tambah Domain Akses yang Disetujui"}
           Icon={<IconMailCog />}
         />
       </Link>
@@ -79,7 +79,7 @@ export const SettingsApprovedAccessDomainsListCard = () => {
         RowRightComponent={({ item: approvedAccessDomain }) => (
           <>
             {!approvedAccessDomain.isValidated && (
-              <Status color="orange" text={t`Pending`} />
+              <Status color="orange" text={"Tertunda"} />
             )}
             <SettingsSecurityApprovedAccessDomainRowDropdownMenu
               approvedAccessDomain={approvedAccessDomain}
@@ -87,7 +87,7 @@ export const SettingsApprovedAccessDomainsListCard = () => {
           </>
         )}
         hasFooter
-        footerButtonLabel={t`Add Approved Access Domain`}
+        footerButtonLabel={"Tambah Domain Akses yang Disetujui"}
         onFooterButtonClick={() =>
           navigate(getSettingsPath(SettingsPath.NewApprovedAccessDomain))
         }

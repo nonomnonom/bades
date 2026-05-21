@@ -100,19 +100,19 @@ export const NameFields = ({ autoSave = true }: NameFieldsProps) => {
     <StyledComboInputContainer>
       <SettingsTextInput
         instanceId={firstNameTextInputId}
-        label={t`First Name`}
+        label={""First Name"}
         value={firstName}
         onChange={setFirstName}
-        placeholder={t`Tim`}
+        placeholder={""Tim"}
         fullWidth
         disabled={!canEditFirstName}
       />
       <SettingsTextInput
         instanceId={lastNameTextInputId}
-        label={t`Last Name`}
+        label={""Last Name"}
         value={lastName}
         onChange={setLastName}
-        placeholder={t`Cook`}
+        placeholder={""Cook"}
         fullWidth
         disabled={!canEditLastName}
       />

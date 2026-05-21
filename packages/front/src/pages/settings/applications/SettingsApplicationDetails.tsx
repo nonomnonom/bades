@@ -90,7 +90,7 @@ export const SettingsApplicationDetails = () => {
   const resolvedDescription = useResolvedApplicationDescription(application);
 
   const displayName =
-    app?.displayName ?? application?.name ?? t`Application details`;
+    app?.displayName ?? application?.name ?? ""Application details";
   const description = app?.description ?? resolvedDescription;
 
   const getScreenshots = () => {
@@ -150,11 +150,11 @@ export const SettingsApplicationDetails = () => {
         variables: { universalIdentifier: application.universalIdentifier },
       });
       enqueueSuccessSnackBar({
-        message: t`Application successfully uninstalled.`,
+        message: ""Application successfully uninstalled.",
       });
       navigate(SettingsPath.Applications);
     } catch {
-      enqueueErrorSnackBar({ message: t`Error uninstalling application.` });
+      enqueueErrorSnackBar({ message: ""Error uninstalling application." });
     } finally {
       setIsUninstalling(false);
     }
@@ -185,44 +185,44 @@ export const SettingsApplicationDetails = () => {
     {
       icon: IconBox,
       count: (application?.objects ?? []).length,
-      one: t`object`,
-      many: t`objects`,
+      one: ""object",
+      many: ""objects",
     },
     {
       icon: IconListDetails,
       count: appFieldExtensionsCount,
-      one: t`field`,
-      many: t`fields`,
+      one: ""field",
+      many: ""fields",
     },
     {
       icon: IconCommand,
       count: (application?.logicFunctions ?? []).length,
-      one: t`logic function`,
-      many: t`logic functions`,
+      one: ""logic function",
+      many: ""logic functions",
     },
     {
       icon: IconGraph,
       count: (application?.frontComponents ?? []).length,
-      one: t`front component`,
-      many: t`front components`,
+      one: ""front component",
+      many: ""front components",
     },
     {
       icon: IconLego,
       count: (application?.agents ?? []).length,
-      one: t`agent`,
-      many: t`agents`,
+      one: ""agent",
+      many: ""agents",
     },
   ];
 
   const tabs: SingleTabProps[] = [
-    { id: 'about', title: t`About`, Icon: IconInfoCircle },
-    { id: 'content', title: t`Content`, Icon: IconBox },
+    { id: 'about', title: "Tentang", Icon: IconInfoCircle },
+    { id: 'content', title: ""Content", Icon: IconBox },
     {
       id: 'permissions',
-      title: t`Permissions`,
+      title: ""Permissions",
       Icon: IconLock,
       tooltipContent: !isDefined(application?.defaultRoleId)
-        ? t`No permission defined for this application`
+        ? ""No permission defined for this application"
         : undefined,
       disabled: !isDefined(application?.defaultRoleId),
     },
@@ -233,16 +233,16 @@ export const SettingsApplicationDetails = () => {
 
       return {
         id: 'settings',
-        title: t`Settings`,
+        title: "Pengaturan",
         Icon: IconSettings,
         tooltipContent: hasNothingToConfigure
-          ? t`Nothing to configure for this application`
+          ? ""Nothing to configure for this application"
           : undefined,
         disabled: hasNothingToConfigure,
       };
     })(),
     ...(isDefined(settingsCustomTabFrontComponentId)
-      ? [{ id: 'custom', title: t`Custom`, Icon: IconApps }]
+      ? [{ id: 'custom', title: "Kustom", Icon: IconApps }]
       : []),
   ];
 
@@ -335,11 +335,11 @@ export const SettingsApplicationDetails = () => {
         }
         links={[
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Applications`,
+            children: ""Applications",
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: displayName },

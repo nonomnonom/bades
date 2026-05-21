@@ -39,21 +39,21 @@ export const SettingsApplicationCommandMenuItemDetail = () => {
   );
   const breadcrumbLinks = [
     {
-      children: t`Workspace`,
+      children: "Ruang kerja",
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: t`Applications`,
+      children: ""Applications",
       href: getSettingsPath(SettingsPath.Applications),
     },
     { children: application?.name ?? '', href: applicationContentHref },
-    { children: t`Command menu items`, href: applicationContentHref },
+    { children: ""Command menu items", href: applicationContentHref },
     { children: commandMenuItem?.label ?? '' },
   ];
 
   return (
     <SubMenuTopBarContainer
-      title={commandMenuItem?.label ?? t`Command menu item`}
+      title={commandMenuItem?.label ?? ""Command menu item"}
       links={breadcrumbLinks}
     >
       <SettingsPageContainer>

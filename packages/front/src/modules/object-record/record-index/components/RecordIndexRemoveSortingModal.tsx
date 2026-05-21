@@ -27,10 +27,10 @@ export const RecordIndexRemoveSortingModal = () => {
   return (
     <ConfirmationModal
       modalInstanceId={RECORD_INDEX_REMOVE_SORTING_MODAL_ID}
-      title={t`Remove sorting?`}
-      subtitle={t`This is required to enable manual row reordering.`}
+      title={""Remove sorting?"}
+      subtitle={""This is required to enable manual row reordering."}
       onConfirmClick={handleRemoveClick}
-      confirmButtonText={t`Remove Sorting`}
+      confirmButtonText={""Remove Sorting"}
     />
   );
 };

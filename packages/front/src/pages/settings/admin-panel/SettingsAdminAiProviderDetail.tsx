@@ -110,7 +110,7 @@ export const SettingsAdminAiProviderDetail = () => {
       navigate(AI_ADMIN_PATH);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to remove provider`,
+        message: ""Failed to remove provider",
       });
     }
   };
@@ -138,7 +138,7 @@ export const SettingsAdminAiProviderDetail = () => {
       setModelToRemove(null);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to remove model`,
+        message: ""Failed to remove model",
       });
     }
   };
@@ -188,7 +188,7 @@ export const SettingsAdminAiProviderDetail = () => {
       await refetchClientConfig();
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to update model availability`,
+        message: ""Failed to update model availability",
       });
     }
   };
@@ -214,12 +214,12 @@ export const SettingsAdminAiProviderDetail = () => {
     }> = [
       {
         Icon: IconTag,
-        label: t`Name`,
+        label: "Nama",
         value: provider.label ?? provider.id,
       },
       {
         Icon: IconPlug,
-        label: t`SDK`,
+        label: ""SDK",
         value: provider.npm,
       },
     ];
@@ -233,11 +233,11 @@ export const SettingsAdminAiProviderDetail = () => {
 
       items.push({
         Icon: IconKey,
-        label: t`API Key`,
+        label: "Kunci API",
         value: (
           <RoundedLink
             href={configPath}
-            label={provider.apiKey ?? t`Configure`}
+            label={provider.apiKey ?? "Konfigurasi"}
             onClick={(event) => {
               event.preventDefault();
               navigate(configPath);
@@ -248,7 +248,7 @@ export const SettingsAdminAiProviderDetail = () => {
     } else if (provider.apiKey) {
       items.push({
         Icon: IconKey,
-        label: t`API Key`,
+        label: "Kunci API",
         value: provider.apiKey,
       });
     }
@@ -256,7 +256,7 @@ export const SettingsAdminAiProviderDetail = () => {
     if (provider.baseUrl) {
       items.push({
         Icon: IconWorld,
-        label: t`Base URL`,
+        label: ""Base URL",
         value: provider.baseUrl,
       });
     }
@@ -264,7 +264,7 @@ export const SettingsAdminAiProviderDetail = () => {
     if (provider.region) {
       items.push({
         Icon: IconServer,
-        label: t`Region`,
+        label: ""Region",
         value: provider.region,
       });
     }
@@ -272,21 +272,21 @@ export const SettingsAdminAiProviderDetail = () => {
     if (provider.hasAccessKey) {
       items.push({
         Icon: IconKey,
-        label: t`Credentials`,
-        value: t`IAM credentials configured`,
+        label: ""Credentials",
+        value: ""IAM credentials configured",
       });
     } else if (provider.authType === 'role') {
       items.push({
         Icon: IconKey,
-        label: t`Credentials`,
-        value: t`IAM role (instance profile)`,
+        label: ""Credentials",
+        value: ""IAM role (instance profile)",
       });
     }
 
     if (isCustomProvider && provider.dataResidency) {
       items.push({
         Icon: IconFlag,
-        label: t`Data Residency`,
+        label: ""Data Residency",
         value: getDataResidencyDisplay(provider.dataResidency),
       });
     }
@@ -306,11 +306,11 @@ export const SettingsAdminAiProviderDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - AI`,
+          children: ""Admin Panel - AI",
           href: AI_ADMIN_PATH,
         },
         {
@@ -336,17 +336,17 @@ export const SettingsAdminAiProviderDetail = () => {
 
         <Section>
           <H2Title
-            title={t`Models`}
+            title={""Models"}
             description={
               isCustomProvider
-                ? t`Models for this provider. Toggle to enable or disable.`
-                : t`Built-in models from this provider. Toggle to enable or disable.`
+                ? ""Models for this provider. Toggle to enable or disable."
+                : ""Built-in models from this provider. Toggle to enable or disable."
             }
           />
 
           {providerModels.length > 3 && (
             <SearchInput
-              placeholder={t`Search a model...`}
+              placeholder={""Search a model..."}
               value={searchQuery}
               onChange={setSearchQuery}
             />
@@ -382,7 +382,7 @@ export const SettingsAdminAiProviderDetail = () => {
                   });
                 } catch {
                   enqueueErrorSnackBar({
-                    message: t`Failed to update model availability`,
+                    message: ""Failed to update model availability",
                   });
                 } finally {
                   await refetchModels();
@@ -398,7 +398,7 @@ export const SettingsAdminAiProviderDetail = () => {
             <UndecoratedLink to={newModelPath}>
               <Button
                 Icon={IconPlus}
-                title={t`Add Model`}
+                title={""Add Model"}
                 variant="secondary"
               />
             </UndecoratedLink>
@@ -408,12 +408,12 @@ export const SettingsAdminAiProviderDetail = () => {
         {isCustomProvider && (
           <Section>
             <H2Title
-              title={t`Danger zone`}
-              description={t`Remove this provider and disconnect all its models`}
+              title={""Danger zone"}
+              description={""Remove this provider and disconnect all its models"}
             />
             <Button
               Icon={IconTrash}
-              title={t`Remove provider`}
+              title={""Remove provider"}
               variant="secondary"
               accent="danger"
               onClick={() => openModal(REMOVE_PROVIDER_MODAL_ID)}
@@ -425,18 +425,18 @@ export const SettingsAdminAiProviderDetail = () => {
       <ConfirmationModal
         modalInstanceId={REMOVE_PROVIDER_MODAL_ID}
         title={t`Remove provider "${provider?.label ?? providerName}"`}
-        subtitle={t`This will disconnect all models from this provider. Models will no longer be available until a new provider is configured.`}
+        subtitle={""This will disconnect all models from this provider. Models will no longer be available until a new provider is configured."}
         onConfirmClick={handleRemoveProvider}
-        confirmButtonText={t`Remove`}
+        confirmButtonText={"Hapus"}
         confirmButtonAccent="danger"
       />
 
       <ConfirmationModal
         modalInstanceId={REMOVE_MODEL_MODAL_ID}
         title={t`Remove model "${modelToRemove?.label ?? ''}"`}
-        subtitle={t`This model will be removed from the provider. You can re-add it later.`}
+        subtitle={""This model will be removed from the provider. You can re-add it later."}
         onConfirmClick={handleRemoveModel}
-        confirmButtonText={t`Remove`}
+        confirmButtonText={"Hapus"}
         confirmButtonAccent="danger"
       />
     </SubMenuTopBarContainer>

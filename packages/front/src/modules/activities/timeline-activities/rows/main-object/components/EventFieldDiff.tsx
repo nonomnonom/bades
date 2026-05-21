@@ -58,7 +58,7 @@ export const EventFieldDiff = ({
       <EventFieldDiffLabel fieldMetadataItem={fieldMetadataItem} />→
       {isUpdatedToEmpty ? (
         <StyledEmptyValue>
-          <Trans>Empty</Trans>
+          "Empty
         </StyledEmptyValue>
       ) : (
         <>

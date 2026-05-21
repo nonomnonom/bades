@@ -51,7 +51,7 @@ export const DeleteTwoFactorAuthentication = () => {
       )
     ) {
       enqueueErrorSnackBar({
-        message: t`Invalid 2FA information.`,
+        message: ""Invalid 2FA information.",
         options: {
           dedupeKey: '2fa-dedupe-key',
         },
@@ -69,7 +69,7 @@ export const DeleteTwoFactorAuthentication = () => {
     });
 
     enqueueSuccessSnackBar({
-      message: t`2FA Method has been deleted successfully.`,
+      message: "Metode 2FA berhasil dihapus.",
       options: {
         dedupeKey: '2fa-dedupe-key',
       },
@@ -86,8 +86,8 @@ export const DeleteTwoFactorAuthentication = () => {
   return (
     <>
       <H2Title
-        title={t`Delete Two-Factor Authentication Method`}
-        description={t`Deleting this method will remove it permanently from your account.`}
+        title={""Delete Two-Factor Authentication Method"}
+        description={""Deleting this method will remove it permanently from your account."}
       />
 
       <Button
@@ -101,7 +101,7 @@ export const DeleteTwoFactorAuthentication = () => {
         confirmationValue={userEmail}
         confirmationPlaceholder={userEmail ?? ''}
         modalInstanceId={DELETE_TWO_FACTOR_AUTHENTICATION_MODAL_ID}
-        title={t`2FA Method Reset`}
+        title={"Reset Metode 2FA"}
         subtitle={
           isTwoFactorAuthenticationEnforced ? (
             <Trans>

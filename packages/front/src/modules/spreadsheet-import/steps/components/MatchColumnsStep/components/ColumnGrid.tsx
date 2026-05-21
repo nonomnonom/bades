@@ -101,8 +101,8 @@ export const ColumnGrid = ({
       <StyledGridContainer>
         <StyledGrid>
           <StyledGridRow height="32px">
-            <StyledGridHeader position="left">{t`Imported data`}</StyledGridHeader>
-            <StyledGridHeader position="right">{t`Twenty fields`}</StyledGridHeader>
+            <StyledGridHeader position="left">{""Imported data"}</StyledGridHeader>
+            <StyledGridHeader position="right">{""Twenty fields"}</StyledGridHeader>
           </StyledGridRow>
           {columns.map((column, index) => {
             const userColumn = renderUserColumn(columns, index);

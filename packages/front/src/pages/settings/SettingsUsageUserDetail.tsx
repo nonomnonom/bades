@@ -73,15 +73,15 @@ export const SettingsUsageUserDetail = () => {
 
   const breadcrumbLinks = [
     {
-      children: <Trans>Workspace</Trans>,
+      children: Ruang kerja,
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: <Trans>Billing</Trans>,
+      children: Penagihan,
       href: getSettingsPath(SettingsPath.Billing),
     },
     {
-      children: <Trans>Usage</Trans>,
+      children: Penggunaan,
       href: getSettingsPath(SettingsPath.Usage),
     },
     { children: isInitialLoading ? '' : displayName },
@@ -136,23 +136,23 @@ export const SettingsUsageUserDetail = () => {
           <Section>
             <SubscriptionInfoContainer>
               <SettingsBillingLabelValueItem
-                label={t`No usage data`}
-                value={t`No credit consumption recorded for this user.`}
+                label={""No usage data"}
+                value={""No credit consumption recorded for this user."}
               />
             </SubscriptionInfoContainer>
           </Section>
         )}
 
         <UsageDailyChartSection
-          title={t`Daily Usage`}
-          description={t`Per-day credit consumption.`}
+          title={""Daily Usage"}
+          description={""Per-day credit consumption."}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           chartId="user-daily"
-          chartLabel={t`Credits`}
+          chartLabel={"Kredit"}
         />
         <UsageBreakdownPieSection
-          title={t`Usage by Type`}
+          title={""Usage by Type"}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           breakdownField="operationType"

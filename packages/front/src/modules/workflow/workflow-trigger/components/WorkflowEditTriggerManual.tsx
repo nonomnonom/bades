@@ -74,9 +74,9 @@ export const WorkflowEditTriggerManual = ({
   const availability = trigger.settings.availability;
 
   const availabilityDescriptions = {
-    SINGLE_RECORD: t`The selected record will be passed to your workflow`,
+    SINGLE_RECORD: ""The selected record will be passed to your workflow",
     BULK_RECORDS: t`The selected records (up to ${maxRecordsFormatted}) will be passed to your workflow`,
-    GLOBAL: t`No record is required to trigger this workflow`,
+    GLOBAL: ""No record is required to trigger this workflow",
   };
 
   return (
@@ -84,7 +84,7 @@ export const WorkflowEditTriggerManual = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-manual-trigger-availability"
-          label={t`Availability`}
+          label={""Availability"}
           description={
             availability?.type
               ? availabilityDescriptions[availability.type]
@@ -117,8 +117,8 @@ export const WorkflowEditTriggerManual = ({
         availability?.type === 'BULK_RECORDS' ? (
           <Select
             dropdownId="workflow-edit-manual-trigger-object"
-            label={t`Object`}
-            description={t`On which object(s) should this trigger be available`}
+            label={"Objek"}
+            description={""On which object(s) should this trigger be available"}
             fullWidth
             value={availability?.objectNameSingular}
             options={availableMetadata}
@@ -165,7 +165,7 @@ export const WorkflowEditTriggerManual = ({
                 }
               }}
             >
-              <StyledLabel>{t`Command Icon`}</StyledLabel>
+              <StyledLabel>{""Command Icon"}</StyledLabel>
               <SelectControl
                 isDisabled={triggerOptions.readonly}
                 selectedOption={{
@@ -174,7 +174,7 @@ export const WorkflowEditTriggerManual = ({
                   label: '',
                 }}
               />
-              <StyledDescription>{t`The icon your workflow trigger will display in the command menu`}</StyledDescription>
+              <StyledDescription>{""The icon your workflow trigger will display in the command menu"}</StyledDescription>
             </StyledIconPickerContainer>
           }
           onChange={({ iconKey }) => {
@@ -194,8 +194,8 @@ export const WorkflowEditTriggerManual = ({
 
         <Select
           dropdownId="workflow-edit-manual-trigger-navbar"
-          label={t`Navbar`}
-          description={t`Display a button in the top navbar to trigger this workflow`}
+          label={""Navbar"}
+          description={""Display a button in the top navbar to trigger this workflow"}
           fullWidth
           value={trigger.settings.isPinned}
           options={MANUAL_TRIGGER_IS_PINNED_OPTIONS}

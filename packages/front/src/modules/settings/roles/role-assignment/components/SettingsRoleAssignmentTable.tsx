@@ -61,21 +61,21 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
 
   const tableConfig = {
     member: {
-      columns: [t`Name`, t`Email`],
-      displayName: t`Members`,
-      emptyStateText: t`No members assigned`,
+      columns: ["Nama", t`Email`],
+      displayName: "Anggota",
+      emptyStateText: ""No members assigned",
       roleTargets: settingsDraftRole.workspaceMembers,
     },
     agent: {
-      columns: [t`Name`, t`Description`],
-      displayName: t`Agents`,
-      emptyStateText: t`No agents assigned`,
+      columns: ["Nama", "Deskripsi"],
+      displayName: ""Agents",
+      emptyStateText: ""No agents assigned",
       roleTargets: settingsDraftRole.agents,
     },
     apiKey: {
-      columns: [t`Name`, t`Expires`],
-      displayName: t`API keys`,
-      emptyStateText: t`No API keys assigned`,
+      columns: ["Nama", "Kedaluwarsa"],
+      displayName: ""API keys",
+      emptyStateText: ""No API keys assigned",
       roleTargets: settingsDraftRole.apiKeys,
     },
   };

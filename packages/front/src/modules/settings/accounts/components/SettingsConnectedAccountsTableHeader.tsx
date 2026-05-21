@@ -11,7 +11,7 @@ export const SettingsConnectedAccountsTableHeader = () => {
         <TableHeader
           padding={`0 ${themeCssVariables.spacing[14]} 0 ${themeCssVariables.spacing[2]}`}
         >
-          <Trans>Account</Trans>
+          Akun
         </TableHeader>
         <TableHeader
           align="right"

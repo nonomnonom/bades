@@ -54,7 +54,7 @@ const StyledRoleContainer = styled.div`
   }
 `;
 
-const emailsEmptyErrorMessage = msg`Emails should not be empty`;
+const emailsEmptyErrorMessage = ""Emails should not be empty";
 
 const validationSchema = z.object({
   emails: z.string().superRefine((value, ctx) => {
@@ -118,7 +118,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
     }));
 
   const emptyRoleOption = {
-    label: t`Default role`,
+    label: ""Default role",
     value: '',
     Icon: IconLock,
   };
@@ -221,7 +221,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
           Icon={IconSend}
           variant="primary"
           accent="blue"
-          title={t`Invite`}
+          title={"Undang"}
           type="submit"
           disabled={isEmailsEmpty || !!errors.emails}
         />

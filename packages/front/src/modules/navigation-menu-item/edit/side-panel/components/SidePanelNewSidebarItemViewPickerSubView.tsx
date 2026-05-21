@@ -66,8 +66,8 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
     getSearchableValues: (view) => [view.name],
   });
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : t`No custom views available`;
+    ? ""No results found"
+    : ""No custom views available";
 
   const selectedObjectIconColor = isDefined(selectedObjectMetadataItem)
     ? getObjectColorWithFallback(selectedObjectMetadataItem)
@@ -91,7 +91,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a view...`}
+      searchPlaceholder={""Search a view..."}
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     >
@@ -104,7 +104,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
           >
             {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
             <div ref={innerRef} {...droppableProps}>
-              <SidePanelGroup heading={t`Views`}>
+              <SidePanelGroup heading={""Views"}>
                 {filteredViews.map((view, index) => (
                   <SelectableListItem
                     key={view.id}

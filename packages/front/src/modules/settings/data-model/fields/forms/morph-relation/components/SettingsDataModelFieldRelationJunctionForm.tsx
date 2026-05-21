@@ -153,8 +153,8 @@ export const SettingsDataModelFieldRelationJunctionForm = ({
     <>
       <SettingsOptionCardContentToggle
         Icon={IconLink}
-        title={t`This is a relation to a Junction Object`}
-        description={t`Build many-to-many relations`}
+        title={""This is a relation to a Junction Object"}
+        description={""Build many-to-many relations"}
         checked={isJunctionConfigEnabled}
         onChange={handleJunctionToggle}
         divider={isJunctionConfigEnabled}
@@ -163,8 +163,8 @@ export const SettingsDataModelFieldRelationJunctionForm = ({
 
       {isJunctionConfigEnabled && (
         <SettingsOptionCardContentSelect
-          title={t`Target relation on Junction Object`}
-          description={t`Skip the junction object (similar to many-to-many relations)`}
+          title={""Target relation on Junction Object"}
+          description={""Skip the junction object (similar to many-to-many relations)"}
         >
           <Select
             dropdownId="junction-target-field-select"

@@ -62,57 +62,57 @@ export const SettingsApplicationCommandMenuItemSettingsTab = ({
     },
     {
       key: 'shortLabel',
-      label: t`Short label`,
-      value: shortLabel ?? t`Not set`,
+      label: ""Short label",
+      value: shortLabel ?? ""Not set",
     },
     {
       key: 'icon',
-      label: t`Icon`,
-      value: icon ? <StyledMonoText>{icon}</StyledMonoText> : t`Not set`,
+      label: "Ikon",
+      value: icon ? <StyledMonoText>{icon}</StyledMonoText> : ""Not set",
     },
     {
       key: 'isPinned',
-      label: t`Pinned`,
-      value: isPinned ? t`Yes` : t`No`,
+      label: ""Pinned",
+      value: isPinned ? "Ya" : "Tidak",
     },
     {
       key: 'availabilityType',
-      label: t`Availability`,
+      label: ""Availability",
       value: <StyledMonoText>{availabilityType}</StyledMonoText>,
     },
     {
       key: 'conditionalAvailabilityExpression',
-      label: t`Conditional availability`,
+      label: ""Conditional availability",
       value: conditionalAvailabilityExpression ? (
         <StyledMonoText>{conditionalAvailabilityExpression}</StyledMonoText>
       ) : (
-        t`Not set`
+        ""Not set"
       ),
     },
     {
       key: 'frontComponent',
-      label: t`Front component`,
+      label: ""Front component",
       value: frontComponentName ? (
         <StyledMonoText>{frontComponentName}</StyledMonoText>
       ) : (
-        t`Not set`
+        ""Not set"
       ),
     },
     {
       key: 'universalIdentifier',
-      label: t`Universal identifier`,
+      label: ""Universal identifier",
       value: (
-        <StyledMonoText>{universalIdentifier ?? t`Not set`}</StyledMonoText>
+        <StyledMonoText>{universalIdentifier ?? ""Not set"}</StyledMonoText>
       ),
     },
     {
       key: 'createdAt',
-      label: t`Created`,
+      label: "Dibuat",
       value: formatDateTime(createdAt),
     },
     {
       key: 'updatedAt',
-      label: t`Updated`,
+      label: ""Updated",
       value: formatDateTime(updatedAt),
     },
   ];
@@ -120,15 +120,15 @@ export const SettingsApplicationCommandMenuItemSettingsTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Details`}
-        description={t`Configuration of this command menu item`}
+        title={"Detail"}
+        description={""Configuration of this command menu item"}
       />
       <Table>
         <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-          <TableHeader>{t`Property`}</TableHeader>
-          <TableHeader>{t`Value`}</TableHeader>
+          <TableHeader>{""Property"}</TableHeader>
+          <TableHeader>{"Nilai"}</TableHeader>
         </TableRow>
-        <TableSection title={t`Command menu item`}>
+        <TableSection title={""Command menu item"}>
           {detailRows.map((row) => (
             <TableRow key={row.key} gridTemplateColumns={GRID_TEMPLATE}>
               <TableCell color={themeCssVariables.font.color.secondary}>

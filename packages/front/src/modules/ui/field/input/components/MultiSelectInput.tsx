@@ -131,7 +131,7 @@ export const MultiSelectInput = ({
         <DropdownMenuSeparator />
         <DropdownMenuItemsContainer hasMaxHeight>
           {filteredOptionsInDropDown.length === 0 ? (
-            <MenuItem text={t`No option found`} />
+            <MenuItem text={""No option found"} />
           ) : (
             filteredOptionsInDropDown.map((option) => {
               return (

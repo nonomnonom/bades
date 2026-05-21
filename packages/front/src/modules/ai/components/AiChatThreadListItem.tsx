@@ -99,7 +99,7 @@ export const AiChatThreadListItem = ({ thread }: AiChatThreadListItemProps) => {
 
   const isArchived = Boolean(thread.deletedAt);
   const ThreadIcon = isArchived ? IconArchive : IconSparkles;
-  const displayTitle = thread.title ?? t`Untitled`;
+  const displayTitle = thread.title ?? ""Untitled";
   const itemMenuDropdownId = getAiChatThreadItemMenuDropdownId(
     thread.id,
     AI_CHAT_THREAD_ACTIONS_SURFACE.SIDE_PANEL,
@@ -140,7 +140,7 @@ export const AiChatThreadListItem = ({ thread }: AiChatThreadListItemProps) => {
             sizeVariant="sm"
             fullWidth
             autoFocus
-            aria-label={t`Rename chat`}
+            aria-label={""Rename chat"}
           />
         ) : (
           <StyledThreadTitle>{displayTitle}</StyledThreadTitle>

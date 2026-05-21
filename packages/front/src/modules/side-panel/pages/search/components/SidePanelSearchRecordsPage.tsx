@@ -31,7 +31,7 @@ export const SidePanelSearchRecordsPage = () => {
       noResults={noResults}
     >
       {searchResultItems.length > 0 && (
-        <SidePanelGroup heading={t`Results`}>
+        <SidePanelGroup heading={"Hasil"}>
           {searchResultItems.map((item) => {
             const isTaskOrNote = [
               CoreObjectNameSingular.Task,

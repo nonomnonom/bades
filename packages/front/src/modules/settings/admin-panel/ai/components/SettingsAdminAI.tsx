@@ -144,7 +144,7 @@ export const SettingsAdminAI = () => {
       await refetchClientConfig();
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to update model recommendation`,
+        message: ""Failed to update model recommendation",
       });
     }
   };
@@ -174,7 +174,7 @@ export const SettingsAdminAI = () => {
       await refetchClientConfig();
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to update default model`,
+        message: ""Failed to update default model",
       });
     }
   };
@@ -183,8 +183,8 @@ export const SettingsAdminAI = () => {
     <>
       <Section>
         <H2Title
-          title={t`Providers`}
-          description={t`Built-in providers activated by API key. Click to manage models.`}
+          title={""Providers"}
+          description={""Built-in providers activated by API key. Click to manage models."}
         />
 
         <SettingsAdminAiProviderListCard
@@ -195,11 +195,11 @@ export const SettingsAdminAI = () => {
 
       <Section>
         <H2Title
-          title={t`Custom Providers`}
-          description={t`Add custom endpoints, private gateways, or additional regions.`}
+          title={""Custom Providers"}
+          description={"Tambah endpoint khusus, gateway pribadi, atau region tambahan."}
           adornment={
             <Tag
-              text={t`Enterprise`}
+              text={""Enterprise"}
               color="transparent"
               Icon={IconLock}
               variant="border"
@@ -216,15 +216,15 @@ export const SettingsAdminAI = () => {
       {availableModelOptions.length > 0 && (
         <Section>
           <H2Title
-            title={t`Default Models`}
-            description={t`Configure the default AI models for all workspaces`}
+            title={""Default Models"}
+            description={""Configure the default AI models for all workspaces"}
           />
 
           <Card rounded>
             <SettingsOptionCardContentSelect
               Icon={IconRobot}
-              title={t`Smart Model`}
-              description={t`Default model for chats and complex reasoning`}
+              title={""Smart Model"}
+              description={""Default model for chats and complex reasoning"}
             >
               <Select
                 dropdownId="admin-smart-model-select"
@@ -239,8 +239,8 @@ export const SettingsAdminAI = () => {
             </SettingsOptionCardContentSelect>
             <SettingsOptionCardContentSelect
               Icon={IconBolt}
-              title={t`Fast Model`}
-              description={t`Default model for lightweight tasks`}
+              title={""Fast Model"}
+              description={""Default model for lightweight tasks"}
             >
               <Select
                 dropdownId="admin-fast-model-select"
@@ -260,8 +260,8 @@ export const SettingsAdminAI = () => {
       {enabledModels.length > 0 && (
         <Section>
           <H2Title
-            title={t`Recommended Models`}
-            description={t`Select which models appear as recommended in the workspace model picker`}
+            title={""Recommended Models"}
+            description={""Select which models appear as recommended in the workspace model picker"}
           />
 
           <SettingsAiModelsTable
@@ -286,7 +286,7 @@ export const SettingsAdminAI = () => {
                 });
               } catch {
                 enqueueErrorSnackBar({
-                  message: t`Failed to update model recommendations`,
+                  message: ""Failed to update model recommendations",
                 });
               } finally {
                 await refetchModels();
@@ -300,8 +300,8 @@ export const SettingsAdminAI = () => {
 
       <Section>
         <H2Title
-          title={t`AI Usage by Workspace`}
-          description={t`AI consumption across all workspaces.`}
+          title={""AI Usage by Workspace"}
+          description={""AI consumption across all workspaces."}
           adornment={
             hasEnterpriseAccess ? (
               <Select
@@ -314,7 +314,7 @@ export const SettingsAdminAI = () => {
               />
             ) : (
               <Tag
-                text={t`Enterprise`}
+                text={""Enterprise"}
                 color="transparent"
                 Icon={IconLock}
                 variant="border"
@@ -326,8 +326,8 @@ export const SettingsAdminAI = () => {
           usageByWorkspace.length > 0 ? (
             <Table>
               <TableRow gridTemplateColumns={USAGE_TABLE_GRID_TEMPLATE_COLUMNS}>
-                <TableHeader>{t`Workspace`}</TableHeader>
-                <TableHeader align="right">{t`Usage`}</TableHeader>
+                <TableHeader>{"Ruang kerja"}</TableHeader>
+                <TableHeader align="right">{"Penggunaan"}</TableHeader>
               </TableRow>
               {usageByWorkspace.map((item) => (
                 <TableRow
@@ -353,16 +353,16 @@ export const SettingsAdminAI = () => {
                   color={themeCssVariables.font.color.tertiary}
                   align="center"
                 >
-                  {t`No AI usage data recorded yet.`}
+                  {""No AI usage data recorded yet."}
                 </TableCell>
               </TableRow>
             </Card>
           )
         ) : (
           <SettingsEnterpriseFeatureGateCard
-            title={t`Enterprise feature`}
-            description={t`AI usage analytics across workspaces is available with an Enterprise key.`}
-            buttonTitle={t`Activate`}
+            title={""Enterprise feature"}
+            description={""AI usage analytics across workspaces is available with an Enterprise key."}
+            buttonTitle={"Aktifkan"}
           />
         )}
       </Section>

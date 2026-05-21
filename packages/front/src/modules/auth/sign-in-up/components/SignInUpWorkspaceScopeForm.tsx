@@ -76,7 +76,7 @@ export const SignInUpWorkspaceScopeForm = () => {
         <ClickToActionLink
           onClick={handleResetPassword(form.getValues('email'))}
         >
-          <Trans>Forgot your password?</Trans>
+          "Forgot your password?
         </ClickToActionLink>
       )}
     </>

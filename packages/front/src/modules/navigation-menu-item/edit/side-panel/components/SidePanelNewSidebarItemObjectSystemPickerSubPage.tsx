@@ -81,7 +81,7 @@ export const SidePanelNewSidebarItemObjectSystemPickerSubPage = () => {
       isViewItem={false}
       onChangeObject={handleSelectObject}
       objectMenuItemVariant="add"
-      emptyNoResultsText={t`All system objects are already in the sidebar`}
+      emptyNoResultsText={""All system objects are already in the sidebar"}
     />
   );
 };

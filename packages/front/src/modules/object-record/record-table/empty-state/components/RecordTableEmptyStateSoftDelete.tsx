@@ -48,8 +48,8 @@ export const RecordTableEmptyStateSoftDelete = () => {
 
   return (
     <RecordTableEmptyStateDisplay
-      buttonTitle={t`Remove Deleted filter`}
-      subTitle={t`No deleted records matching the filter criteria were found.`}
+      buttonTitle={""Remove Deleted filter"}
+      subTitle={""No deleted records matching the filter criteria were found."}
       title={t`No Deleted ${objectLabelSingular} found`}
       ButtonIcon={IconFilterOff}
       animatedPlaceholderType="noDeletedRecord"

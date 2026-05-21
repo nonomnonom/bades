@@ -54,7 +54,7 @@ export const SettingsAccountsPasswordController = ({
           />
           {disabled && (
             <StyledChangePasswordLink onClick={onUnlock}>
-              <Trans>Change password</Trans>
+              Ubah kata sandi
             </StyledChangePasswordLink>
           )}
         </StyledPasswordFieldContainer>

@@ -11,31 +11,31 @@ export const getAggregateOperationLabel = (
     case AggregateOperations.MIN:
       return t`Min`;
     case AggregateOperations.MAX:
-      return t`Max`;
+      return "Maks";
     case AggregateOperations.AVG:
-      return t`Average`;
+      return "Rata-rata";
     case AggregateOperations.SUM:
-      return t`Sum`;
+      return ""Sum";
     case AggregateOperations.COUNT:
-      return t`Count all`;
+      return ""Count all";
     case AggregateOperations.COUNT_EMPTY:
-      return t`Count empty`;
+      return ""Count empty";
     case AggregateOperations.COUNT_NOT_EMPTY:
-      return t`Count not empty`;
+      return ""Count not empty";
     case AggregateOperations.COUNT_UNIQUE_VALUES:
-      return t`Count unique values`;
+      return ""Count unique values";
     case AggregateOperations.PERCENTAGE_EMPTY:
-      return t`Percent empty`;
+      return ""Percent empty";
     case AggregateOperations.PERCENTAGE_NOT_EMPTY:
-      return t`Percent not empty`;
+      return ""Percent not empty";
     case DateAggregateOperations.EARLIEST:
-      return t`Earliest date`;
+      return ""Earliest date";
     case DateAggregateOperations.LATEST:
-      return t`Latest date`;
+      return ""Latest date";
     case AggregateOperations.COUNT_TRUE:
-      return t`Count true`;
+      return ""Count true";
     case AggregateOperations.COUNT_FALSE:
-      return t`Count false`;
+      return ""Count false";
     default:
       throw new CustomError(
         `Unknown aggregate operation: ${operation}`,

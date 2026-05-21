@@ -35,7 +35,7 @@ export const DuplicateWorkflowSingleRecordCommand = () => {
 
     if (isDefined(result) && isNonEmptyString(result.workflowId)) {
       enqueueSuccessSnackBar({
-        message: t`Workflow duplicated successfully`,
+        message: ""Workflow duplicated successfully",
       });
 
       navigate(AppPath.RecordShowPage, {
@@ -44,7 +44,7 @@ export const DuplicateWorkflowSingleRecordCommand = () => {
       });
     } else {
       enqueueErrorSnackBar({
-        message: t`Failed to duplicate workflow`,
+        message: ""Failed to duplicate workflow",
       });
     }
   };

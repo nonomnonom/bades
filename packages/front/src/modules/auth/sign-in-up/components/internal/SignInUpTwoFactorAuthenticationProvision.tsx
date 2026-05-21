@@ -83,7 +83,7 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
 
     const secret = extractSecretFromOtpUri(qrCode);
     if (secret !== null) {
-      await copyToClipboard(secret, t`Setup key copied to clipboard`);
+      await copyToClipboard(secret, ""Setup key copied to clipboard");
     }
   };
 
@@ -102,12 +102,12 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
           {qrCode && (
             <StyledCopySetupKeyLink onClick={handleCopySetupKey}>
               <IconCopy size={theme.icon.size.sm} />
-              <Trans>Copy Setup Key</Trans>
+              "Copy Setup Key
             </StyledCopySetupKeyLink>
           )}
         </StyledMainContentContainer>
         <MainButton
-          title={t`Next`}
+          title={"Berikutnya"}
           onClick={handleClick}
           variant="primary"
           fullWidth

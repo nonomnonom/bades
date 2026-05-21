@@ -7,8 +7,8 @@ export const useVisibilityLabels = (): Record<string, string> => {
   const { t } = useLingui();
 
   return {
-    [VISIBILITY_ANY_DEVICE]: t`Any device`,
-    [VISIBILITY_MOBILE]: t`Mobile`,
-    [VISIBILITY_DESKTOP]: t`Desktop`,
+    [VISIBILITY_ANY_DEVICE]: ""Any device",
+    [VISIBILITY_MOBILE]: "Seluler",
+    [VISIBILITY_DESKTOP]: ""Desktop",
   };
 };

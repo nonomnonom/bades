@@ -42,12 +42,12 @@ export const EmailThreadNotShared = ({
     <>
       <StyledContainer id={containerId} isCompact={isCompact}>
         <IconLock size={theme.icon.size.sm} />
-        {t`Not shared`}
+        {""Not shared"}
       </StyledContainer>
       {visibility === MessageChannelVisibility.SUBJECT && (
         <AppTooltip
           anchorSelect={`#${containerId}`}
-          content={t`Only the subject is shared`}
+          content={""Only the subject is shared"}
           delay={TooltipDelay.mediumDelay}
           noArrow
           place="bottom"

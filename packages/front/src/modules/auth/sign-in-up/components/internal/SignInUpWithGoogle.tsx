@@ -48,7 +48,7 @@ export const SignInUpWithGoogle = ({
       <StyledSSOButtonContainer>
         <MainButton
           Icon={GoogleIcon}
-          title={t`Continue with Google`}
+          title={"Lanjutkan dengan Google"}
           onClick={handleClick}
           variant={signInUpStep === SignInUpStep.Init ? undefined : 'secondary'}
           fullWidth

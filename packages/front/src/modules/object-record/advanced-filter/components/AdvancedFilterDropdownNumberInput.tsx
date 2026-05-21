@@ -34,7 +34,7 @@ export const AdvancedFilterDropdownNumberInput = () => {
     <TextInput
       value={objectFilterDropdownFilterValue}
       onChange={handleChange}
-      placeholder={t`Enter value`}
+      placeholder={""Enter value"}
       fullWidth
       type="number"
     />

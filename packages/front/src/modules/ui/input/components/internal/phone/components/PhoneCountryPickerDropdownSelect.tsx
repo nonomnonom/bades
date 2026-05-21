@@ -58,7 +58,7 @@ export const PhoneCountryPickerDropdownSelect = ({
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>
         {filteredCountries?.length === 0 ? (
-          <MenuItem text={t`No results`} />
+          <MenuItem text={"Tidak ada hasil"} />
         ) : (
           <>
             {selectedCountry && (

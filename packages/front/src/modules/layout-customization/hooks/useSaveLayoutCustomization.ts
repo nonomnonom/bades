@@ -151,7 +151,7 @@ export const useSaveLayoutCustomization = () => {
 
       if (hasAnyFailure) {
         enqueueErrorSnackBar({
-          message: t`Some layout changes could not be saved`,
+          message: ""Some layout changes could not be saved",
         });
         return;
       }
@@ -160,7 +160,7 @@ export const useSaveLayoutCustomization = () => {
     } catch (error) {
       logError(error);
       enqueueErrorSnackBar({
-        message: t`Failed to save layout customization`,
+        message: ""Failed to save layout customization",
       });
     } finally {
       setIsSaving(false);

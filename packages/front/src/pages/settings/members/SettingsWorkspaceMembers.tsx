@@ -31,10 +31,10 @@ export const SettingsWorkspaceMembers = () => {
   );
 
   const tabs = [
-    { id: MEMBERS_TAB_TEAM_ID, title: t`Team`, Icon: IconUsers },
-    { id: MEMBERS_TAB_INVITE_ID, title: t`Invite`, Icon: IconUserPlus },
+    { id: MEMBERS_TAB_TEAM_ID, title: "Tim", Icon: IconUsers },
+    { id: MEMBERS_TAB_INVITE_ID, title: "Undang", Icon: IconUserPlus },
     ...(hasRolesPermission
-      ? [{ id: MEMBERS_TAB_ROLES_ID, title: t`Roles`, Icon: IconLock }]
+      ? [{ id: MEMBERS_TAB_ROLES_ID, title: "Peran-peran", Icon: IconLock }]
       : []),
   ];
 
@@ -55,13 +55,13 @@ export const SettingsWorkspaceMembers = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Members`}
+      title={"Anggota"}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Members</Trans> },
+        { children: Anggota },
       ]}
     >
       <SettingsPageContainer>

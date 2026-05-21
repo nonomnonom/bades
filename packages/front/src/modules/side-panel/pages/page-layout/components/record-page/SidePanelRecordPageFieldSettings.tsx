@@ -60,9 +60,9 @@ export const SidePanelRecordPageFieldSettings = () => {
   const fieldLabel = currentFieldMetadataItem?.label ?? '';
 
   const displayModeLabels: Record<string, string> = {
-    [FieldDisplayMode.FIELD]: t`Field`,
-    [FieldDisplayMode.CARD]: t`Card`,
-    [FieldDisplayMode.EDITOR]: t`Editor`,
+    [FieldDisplayMode.FIELD]: "Bidang",
+    [FieldDisplayMode.CARD]: ""Card",
+    [FieldDisplayMode.EDITOR]: ""Editor",
   };
 
   const layoutLabel = isDefined(currentDisplayMode)
@@ -83,11 +83,11 @@ export const SidePanelRecordPageFieldSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Data and display`}>
+          <SidePanelGroup heading={""Data and display"}>
             <SelectableListItem itemId="field">
               <CommandMenuItemDropdown
                 id="field"
-                label={t`Field`}
+                label={"Bidang"}
                 Icon={IconListDetails}
                 dropdownId="field"
                 dropdownComponents={
@@ -103,7 +103,7 @@ export const SidePanelRecordPageFieldSettings = () => {
             <SelectableListItem itemId="layout">
               <CommandMenuItemDropdown
                 id="layout"
-                label={t`Layout`}
+                label={"Tata letak"}
                 Icon={IconLayoutSidebarRight}
                 dropdownId="layout"
                 dropdownComponents={

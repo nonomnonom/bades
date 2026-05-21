@@ -28,14 +28,14 @@ export const SettingsRoleSettingsDeleteRoleConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={ROLE_SETTINGS_DELETE_ROLE_CONFIRMATION_MODAL_ID}
-      title={t`Delete Role Permanently`}
+      title={""Delete Role Permanently"}
       subtitle={
         <SettingsRoleSettingsDeleteRoleConfirmationModalSubtitle
           roleId={roleId}
         />
       }
       onConfirmClick={handleConfirmClick}
-      confirmButtonText={t`Confirm`}
+      confirmButtonText={"Konfirmasi"}
       confirmButtonAccent="danger"
     />
   );

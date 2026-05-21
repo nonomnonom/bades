@@ -39,11 +39,11 @@ export const SettingsAiUsageTab = () => {
     return (
       <Section>
         <H2Title
-          title={t`AI Usage`}
-          description={t`Track AI consumption across your workspace.`}
+          title={""AI Usage"}
+          description={""Track AI consumption across your workspace."}
           adornment={
             <Tag
-              text={t`Enterprise`}
+              text={""Enterprise"}
               color="transparent"
               Icon={IconLock}
               variant="border"
@@ -51,9 +51,9 @@ export const SettingsAiUsageTab = () => {
           }
         />
         <SettingsEnterpriseFeatureGateCard
-          title={t`Enterprise feature`}
-          description={t`AI usage analytics is available with an Enterprise key.`}
-          buttonTitle={t`Activate`}
+          title={""Enterprise feature"}
+          description={""AI usage analytics is available with an Enterprise key."}
+          buttonTitle={"Aktifkan"}
         />
       </Section>
     );
@@ -63,13 +63,13 @@ export const SettingsAiUsageTab = () => {
     return (
       <Section>
         <H2Title
-          title={t`AI Usage`}
-          description={t`Track AI consumption across your workspace.`}
+          title={""AI Usage"}
+          description={""Track AI consumption across your workspace."}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`ClickHouse Not Configured`}
-            value={t`AI usage analytics requires ClickHouse. Contact your administrator.`}
+            label={""ClickHouse Not Configured"}
+            value={""AI usage analytics requires ClickHouse. Contact your administrator."}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -91,13 +91,13 @@ export const SettingsAiUsageTab = () => {
     return (
       <Section>
         <H2Title
-          title={t`AI Usage`}
-          description={t`Track AI consumption across your workspace.`}
+          title={""AI Usage"}
+          description={""Track AI consumption across your workspace."}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`No usage data yet`}
-            value={t`AI usage analytics will appear here once you start using AI features.`}
+            label={""No usage data yet"}
+            value={""AI usage analytics will appear here once you start using AI features."}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -107,28 +107,28 @@ export const SettingsAiUsageTab = () => {
   return (
     <>
       <UsageDailyChartSection
-        title={t`Daily AI Usage`}
-        description={t`AI consumption over time.`}
+        title={""Daily AI Usage"}
+        description={""AI consumption over time."}
         operationTypes={AI_OPERATION_TYPES}
         chartId="ai-usage-daily"
-        chartLabel={t`AI Usage`}
+        chartLabel={""AI Usage"}
       />
       <UsageBreakdownPieSection
-        title={t`AI Usage by Type`}
+        title={""AI Usage by Type"}
         operationTypes={AI_OPERATION_TYPES}
         breakdownField="operationType"
         sectionId="ai-usage-type"
       />
       <UsageBreakdownPieSection
-        title={t`AI Usage by Model`}
-        description={t`Breakdown across AI models.`}
+        title={""AI Usage by Model"}
+        description={""Breakdown across AI models."}
         operationTypes={AI_OPERATION_TYPES}
         breakdownField="model"
         sectionId="ai-usage-model"
       />
       <UsageByUserTableSection
-        title={t`AI Usage by User`}
-        description={t`Click a user to see their daily breakdown.`}
+        title={""AI Usage by User"}
+        description={""Click a user to see their daily breakdown."}
         operationTypes={AI_OPERATION_TYPES}
         getDetailPath={(userWorkspaceId) =>
           getSettingsPath(SettingsPath.AiUsageUserDetail, {

@@ -10,7 +10,7 @@ type AppPageErrorFallbackProps = AppErrorDisplayProps;
 export const AppPageErrorFallback = ({
   error,
   resetErrorBoundary,
-  title = t`Sorry, something went wrong`,
+  title = ""Sorry, something went wrong",
 }: AppPageErrorFallbackProps) => {
   return (
     <PageContainer>

@@ -63,8 +63,8 @@ export const WorkflowEditTriggerCronForm = ({
     <>
       <WorkflowStepBody>
         <FormSelectFieldInput
-          label={t`Trigger interval`}
-          hint={t`Cron will be triggered at UTC time`}
+          label={""Trigger interval"}
+          hint={""Cron will be triggered at UTC time"}
           defaultValue={trigger.settings.type}
           options={CRON_TRIGGER_INTERVAL_OPTIONS}
           readonly={triggerOptions.readonly}
@@ -90,7 +90,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'CUSTOM' && (
           <>
             <FormTextFieldInput
-              label={t`Expression`}
+              label={""Expression"}
               placeholder={t`0 */1 * * *`}
               error={errorMessagesVisible ? errorMessages.CUSTOM : undefined}
               onBlur={onBlur}
@@ -107,7 +107,7 @@ export const WorkflowEditTriggerCronForm = ({
                 try {
                   CronExpressionParser.parse(newPattern);
                 } catch (error) {
-                  const unknownError = t`Unknown error`;
+                  const unknownError = ""Unknown error";
                   const errorMessage =
                     error instanceof Error ? error.message : unknownError;
                   setErrorMessages({
@@ -141,7 +141,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'DAYS' && (
           <>
             <FormNumberFieldInput
-              label={t`Days between triggers`}
+              label={""Days between triggers"}
               error={errorMessagesVisible ? errorMessages.DAYS_day : undefined}
               onBlur={onBlur}
               defaultValue={trigger.settings.schedule.day}
@@ -186,11 +186,11 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Enter number greater than 1`}
+              placeholder={""Enter number greater than 1"}
               readonly={triggerOptions.readonly}
             />
             <FormNumberFieldInput
-              label={t`Trigger at hour (UTC)`}
+              label={""Trigger at hour (UTC)"}
               error={errorMessagesVisible ? errorMessages.DAYS_hour : undefined}
               onBlur={onBlur}
               defaultValue={trigger.settings.schedule.hour}
@@ -235,11 +235,11 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Enter number between 0 and 23`}
+              placeholder={""Enter number between 0 and 23"}
               readonly={triggerOptions.readonly}
             />
             <FormNumberFieldInput
-              label={t`Trigger at minute (UTC)`}
+              label={""Trigger at minute (UTC)"}
               error={
                 errorMessagesVisible ? errorMessages.DAYS_minute : undefined
               }
@@ -286,7 +286,7 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Enter number between 0 and 59`}
+              placeholder={""Enter number between 0 and 59"}
               readonly={triggerOptions.readonly}
             />
             <CronExpressionHelperLazy
@@ -302,7 +302,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'HOURS' && (
           <>
             <FormNumberFieldInput
-              label={t`Hours between triggers`}
+              label={""Hours between triggers"}
               error={
                 errorMessagesVisible ? errorMessages.HOURS_hour : undefined
               }
@@ -345,11 +345,11 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Enter number greater than 1`}
+              placeholder={""Enter number greater than 1"}
               readonly={triggerOptions.readonly}
             />
             <FormNumberFieldInput
-              label={t`Trigger at minute (UTC)`}
+              label={""Trigger at minute (UTC)"}
               error={
                 errorMessagesVisible ? errorMessages.HOURS_minute : undefined
               }
@@ -392,7 +392,7 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Enter number between 0 and 59`}
+              placeholder={""Enter number between 0 and 59"}
               readonly={triggerOptions.readonly}
             />
             <CronExpressionHelperLazy
@@ -406,7 +406,7 @@ export const WorkflowEditTriggerCronForm = ({
         {trigger.settings.type === 'MINUTES' && (
           <>
             <FormNumberFieldInput
-              label={t`Minutes between triggers`}
+              label={""Minutes between triggers"}
               error={errorMessagesVisible ? errorMessages.MINUTES : undefined}
               onBlur={onBlur}
               defaultValue={trigger.settings.schedule.minute}
@@ -428,7 +428,7 @@ export const WorkflowEditTriggerCronForm = ({
 
                 if (newMinute > 60) {
                   setErrorMessages({
-                    MINUTES: t`Minute value cannot exceed 60. For intervals greater than 60 minutes, use the "Hours" trigger type or a custom cron expression`,
+                    MINUTES: ""Minute value cannot exceed 60. For intervals greater than 60 minutes, use the "Hours" trigger type or a custom cron expression",
                   });
                   return;
                 }
@@ -449,7 +449,7 @@ export const WorkflowEditTriggerCronForm = ({
                   },
                 });
               }}
-              placeholder={t`Enter number between 1 and 60`}
+              placeholder={""Enter number between 1 and 60"}
               readonly={triggerOptions.readonly}
             />
             <CronExpressionHelperLazy

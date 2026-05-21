@@ -26,7 +26,7 @@ export const MentionRecordChip = ({
   if (!isNonEmptyString(objectNameSingular)) {
     return (
       <Chip
-        label={t`Unknown object`}
+        label={""Unknown object"}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -36,7 +36,7 @@ export const MentionRecordChip = ({
   if (!isNonEmptyString(recordId)) {
     return (
       <Chip
-        label={t`Deleted record`}
+        label={""Deleted record"}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -50,7 +50,7 @@ export const MentionRecordChip = ({
   return (
     <LinkChip
       label={label}
-      emptyLabel={t`Untitled`}
+      emptyLabel={""Untitled"}
       to={linkToShowPage}
       variant={ChipVariant.Highlighted}
       className={className}

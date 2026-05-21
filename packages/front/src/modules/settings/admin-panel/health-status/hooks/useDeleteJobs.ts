@@ -73,7 +73,7 @@ export const useDeleteJobs = (queueName: string, onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Failed to delete jobs. Please try again later.`,
+          : ""Failed to delete jobs. Please try again later.",
       });
     } finally {
       setIsDeleting(false);

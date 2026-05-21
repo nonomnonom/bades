@@ -38,17 +38,17 @@ export const SettingsRolePermissionsObjectsTableHeader = ({
 
   return (
     <TableRow>
-      <TableHeader>{t`All Objects`}</TableHeader>
+      <TableHeader>{""All Objects"}</TableHeader>
       <TableHeader
         align="right"
         padding={`0 ${themeCssVariables.spacing[1]} 0 ${themeCssVariables.spacing[2]}`}
-        aria-label={t`Actions`}
+        aria-label={"Tindakan-tindakan"}
       >
         <Checkbox
           checked={allPermissionsEnabled}
           indeterminate={somePermissionsEnabled && !allPermissionsEnabled}
           disabled={!isEditable}
-          aria-label={t`Toggle all object permissions`}
+          aria-label={""Toggle all object permissions"}
           onChange={() => {
             const newValue = !allPermissionsEnabled;
 

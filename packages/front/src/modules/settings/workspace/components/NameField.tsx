@@ -95,10 +95,10 @@ export const NameField = ({
     <StyledComboInputContainer>
       <SettingsTextInput
         instanceId="workspace-name"
-        label={t`Name`}
+        label={"Nama"}
         value={displayName}
         onChange={setDisplayName}
-        placeholder={t`Apple`}
+        placeholder={""Apple"}
         fullWidth
       />
     </StyledComboInputContainer>

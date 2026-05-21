@@ -84,7 +84,7 @@ export const CalendarEventRow = ({
   const hasEnded = hasCalendarEventEnded(calendarEvent);
 
   const startTimeLabel = calendarEvent.isFullDay
-    ? t`All day`
+    ? ""All day"
     : format(startsAt, 'HH:mm');
   const endTimeLabel = calendarEvent.isFullDay ? '' : format(endsAt, 'HH:mm');
 

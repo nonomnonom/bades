@@ -87,13 +87,13 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
         case 'FOLDER':
           return { label: t`Folder`, displayName: t`Folder` };
         case 'LINK': {
-          const link = item.link ?? t`Link`;
+          const link = item.link ?? "Tautan";
           return { label: link, displayName: link };
         }
         case 'OBJECT': {
           const label = resolveLabel(item.targetObjectUniversalIdentifier);
           return {
-            label: isDefined(label) ? t`${label} list` : t`Object`,
+            label: isDefined(label) ? t`${label} list` : "Objek",
             displayName: label,
           };
         }
@@ -105,7 +105,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
           return {
             label: isDefined(layout)
               ? t`${layout.name} layout`
-              : t`Page layout`,
+              : ""Page layout",
             displayName: layout?.name,
           };
         }
@@ -114,12 +114,12 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
             (v) => v.universalIdentifier === item.viewUniversalIdentifier,
           );
           return {
-            label: isDefined(view) ? t`${view.name} view` : t`View`,
+            label: isDefined(view) ? t`${view.name} view` : "Lihat",
             displayName: view?.name,
           };
         }
         case 'RECORD':
-          return { label: t`Record`, displayName: t`Record` };
+          return { label: ""Record", displayName: ""Record" };
         default:
           return { label: undefined, displayName: undefined };
       }
@@ -179,10 +179,10 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
     const parts: string[] = [];
 
     if (provider.type === 'oauth') {
-      parts.push(t`OAuth 2.0`);
+      parts.push(""OAuth 2.0");
       const scopeCount = provider.oauth.scopes.length;
       if (scopeCount > 0) {
-        parts.push(scopeCount === 1 ? t`1 scope` : t`${scopeCount} scopes`);
+        parts.push(scopeCount === 1 ? "1 cakupan" : t`${scopeCount} scopes`);
       }
     }
 

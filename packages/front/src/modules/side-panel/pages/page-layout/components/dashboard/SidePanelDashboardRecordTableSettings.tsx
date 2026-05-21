@@ -101,16 +101,16 @@ export const SidePanelDashboardRecordTableSettings = () => {
       >
         <StyledSettingsContainer>
           <SidePanelList selectableItemIds={selectableItemIds}>
-            <SidePanelGroup heading={t`Settings`}>
+            <SidePanelGroup heading={"Pengaturan"}>
               <SelectableListItem itemId="object-view-layout">
                 <CommandMenuItemDropdown
                   Icon={IconTable}
-                  label={t`Layout`}
+                  label={"Tata letak"}
                   id="object-view-layout"
                   dropdownId="object-view-layout"
                   dropdownComponents={<></>}
                   dropdownPlacement="bottom-end"
-                  description={t`Table`}
+                  description={"Tabel"}
                   disabled={true}
                   contextualTextPosition="right"
                 />
@@ -118,7 +118,7 @@ export const SidePanelDashboardRecordTableSettings = () => {
               <SelectableListItem itemId="record-table-source">
                 <CommandMenuItemDropdown
                   Icon={IconBox}
-                  label={t`Source`}
+                  label={"Sumber"}
                   id="record-table-source"
                   dropdownId="record-table-source"
                   dropdownComponents={
@@ -137,7 +137,7 @@ export const SidePanelDashboardRecordTableSettings = () => {
                   <SelectableListItem itemId="record-table-fields">
                     <CommandMenuItemDropdown
                       Icon={IconListDetails}
-                      label={t`Fields`}
+                      label={"Bidang-bidang"}
                       id="record-table-fields"
                       dropdownId="record-table-fields"
                       dropdownComponents={
@@ -174,7 +174,7 @@ export const SidePanelDashboardRecordTableSettings = () => {
                   >
                     <CommandMenuItem
                       id="record-table-sort"
-                      label={t`Sort`}
+                      label={"Urutkan"}
                       Icon={IconArrowsSort}
                       hasSubMenu
                       onClick={handleSortClick}

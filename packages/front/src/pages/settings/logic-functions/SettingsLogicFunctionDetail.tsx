@@ -78,14 +78,14 @@ export const SettingsLogicFunctionDetail = () => {
   const tabs = [
     {
       id: 'editor',
-      title: t`Editor`,
+      title: ""Editor",
       Icon: IconCode,
       disabled: isReadonly,
       hide: isReadonly,
     },
-    { id: 'settings', title: t`Settings`, Icon: IconSettings },
-    { id: 'test', title: t`Test`, Icon: IconPlayerPlay },
-    { id: 'triggers', title: t`Triggers`, Icon: IconBolt },
+    { id: 'settings', title: "Pengaturan", Icon: IconSettings },
+    { id: 'test', title: "Uji", Icon: IconPlayerPlay },
+    { id: 'triggers', title: "Pemicu-pemicu", Icon: IconBolt },
   ];
 
   const isEditorTab = activeTabId === 'editor';
@@ -103,28 +103,28 @@ export const SettingsLogicFunctionDetail = () => {
         );
         return [
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Applications`,
+            children: ""Applications",
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: applicationName ?? '', href: applicationContentHref },
-          { children: t`Logic functions`, href: applicationContentHref },
+          { children: ""Logic functions", href: applicationContentHref },
           { children: logicFunction?.name ?? '' },
         ];
       })()
     : [
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`AI`,
+          children: ""AI",
           href: getSettingsPath(SettingsPath.AI),
         },
-        { children: t`Logic functions` },
+        { children: ""Logic functions" },
         { children: logicFunction?.name ?? '' },
       ];
 

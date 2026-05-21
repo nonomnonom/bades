@@ -67,8 +67,8 @@ export const SettingsDataModelFieldCurrencyForm = ({
         render={({ field: { onChange, value } }) => (
           <SettingsOptionCardContentSelect
             Icon={IconCurrencyDollar}
-            title={t`Default Value`}
-            description={t`Choose the default currency that will apply`}
+            title={""Default Value"}
+            description={""Choose the default currency that will apply"}
           >
             <Select<string>
               dropdownWidth={220}
@@ -100,7 +100,7 @@ export const SettingsDataModelFieldCurrencyForm = ({
               <SettingsOptionCardContentSelect
                 Icon={IconCheckbox}
                 title={t`Format`}
-                description={t`Choose between Short and Full`}
+                description={""Choose between Short and Full"}
               >
                 <Select<FieldCurrencyFormat>
                   dropdownWidth={140}
@@ -128,7 +128,7 @@ export const SettingsDataModelFieldCurrencyForm = ({
               {format === 'full' && (
                 <SettingsOptionCardContentCounter
                   Icon={IconDecimal}
-                  title={t`Number of decimals`}
+                  title={""Number of decimals"}
                   description={plural(decimals, {
                     one: `E.g. ${(1000).toFixed(decimals)} for ${decimals} decimal`,
                     other: `E.g. ${(1000).toFixed(decimals)} for ${decimals} decimals`,

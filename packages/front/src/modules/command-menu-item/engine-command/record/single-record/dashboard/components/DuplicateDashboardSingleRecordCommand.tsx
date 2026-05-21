@@ -26,7 +26,7 @@ export const DuplicateDashboardSingleRecordCommand = () => {
 
     if (isDefined(result) && isNonEmptyString(result.id)) {
       enqueueSuccessSnackBar({
-        message: t`Dashboard duplicated successfully`,
+        message: ""Dashboard duplicated successfully",
       });
 
       navigate(AppPath.RecordShowPage, {
@@ -35,7 +35,7 @@ export const DuplicateDashboardSingleRecordCommand = () => {
       });
     } else {
       enqueueErrorSnackBar({
-        message: t`Failed to duplicate dashboard`,
+        message: ""Failed to duplicate dashboard",
       });
     }
   };

@@ -94,7 +94,7 @@ export const SettingsDataModelObjectIdentifiersForm = ({
 
   const emptyOption: SelectOption<string | null> = {
     Icon: IconCircleOff,
-    label: t`None`,
+    label: "Tidak ada",
     value: null,
   };
 
@@ -104,13 +104,13 @@ export const SettingsDataModelObjectIdentifiersForm = ({
     <StyledContainer>
       {[
         {
-          label: t`Record label`,
+          label: ""Record label",
           fieldName: LABEL_IDENTIFIER_FIELD_METADATA_ID,
           options: labelIdentifierFieldOptions,
           defaultValue: objectMetadataItem.labelIdentifierFieldMetadataId,
         },
         {
-          label: t`Record image`,
+          label: ""Record image",
           fieldName: IMAGE_IDENTIFIER_FIELD_METADATA_ID,
           options: imageIdentifierFieldOptions,
           defaultValue: null,
@@ -132,7 +132,7 @@ export const SettingsDataModelObjectIdentifiersForm = ({
               withSearchInput={label === t`Record label`}
               disabled={!objectMetadataItem.isCustom || readonly}
               callToActionButton={
-                label === t`Record label`
+                label === ""Record label"
                   ? {
                       text: 'Create Text Field',
                       Icon: IconPlus,

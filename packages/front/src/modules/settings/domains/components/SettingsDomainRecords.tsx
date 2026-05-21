@@ -59,8 +59,8 @@ export const SettingsDomainRecords = ({
   return (
     <Section>
       <H2Title
-        title={t`Domain Setup`}
-        description={t`Configure these DNS records with your domain provider`}
+        title={""Domain Setup"}
+        description={""Configure these DNS records with your domain provider"}
       />
       <SettingsDnsRecordsTable records={transformedRecords} />
     </Section>

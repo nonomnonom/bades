@@ -13,44 +13,44 @@ export const useMetadataErrorHandler = () => {
   const { enqueueErrorSnackBar } = useSnackBar();
 
   const TRANSLATED_OPERATION_TYPE = {
-    [CrudOperationType.CREATE]: t`create`,
-    [CrudOperationType.UPDATE]: t`update`,
-    [CrudOperationType.DELETE]: t`delete`,
-    [CrudOperationType.RESTORE]: t`restore`,
-    [CrudOperationType.DESTROY]: t`destroy`,
+    [CrudOperationType.CREATE]: ""create",
+    [CrudOperationType.UPDATE]: ""update",
+    [CrudOperationType.DELETE]: ""delete",
+    [CrudOperationType.RESTORE]: ""restore",
+    [CrudOperationType.DESTROY]: ""destroy",
   } as const satisfies Record<CrudOperationType, string>;
 
   const TRANSLATED_METADATA_NAME = {
-    objectMetadata: t`object`,
-    fieldMetadata: t`field`,
-    view: t`view`,
-    viewField: t`view field`,
-    viewFieldGroup: t`view field group`,
-    viewGroup: t`view group`,
-    viewFilter: t`view filter`,
-    index: t`index`,
-    logicFunction: t`logic function`,
-    rolePermissionFlag: t`role permission flag`,
-    permissionFlag: t`permission flag`,
-    objectPermission: t`object permission`,
-    fieldPermission: t`field permission`,
-    role: t`role`,
-    roleTarget: t`role target`,
-    agent: t`agent`,
-    skill: t`skill`,
-    pageLayout: t`page layout`,
-    pageLayoutTab: t`page layout tab`,
-    pageLayoutWidget: t`page layout widget`,
-    rowLevelPermissionPredicate: t`row level permission predicate`,
-    rowLevelPermissionPredicateGroup: t`row level permission predicate group`,
-    viewFilterGroup: t`view filter group`,
-    commandMenuItem: t`command menu item`,
-    frontComponent: t`front component`,
-    navigationMenuItem: t`navigation menu item`,
-    webhook: t`webhook`,
-    viewSort: t`view sort`,
-    applicationVariable: t`application variable`,
-    connectionProvider: t`connection provider`,
+    objectMetadata: ""object",
+    fieldMetadata: ""field",
+    view: ""view",
+    viewField: ""view field",
+    viewFieldGroup: ""view field group",
+    viewGroup: ""view group",
+    viewFilter: ""view filter",
+    index: ""index",
+    logicFunction: ""logic function",
+    rolePermissionFlag: ""role permission flag",
+    permissionFlag: ""permission flag",
+    objectPermission: ""object permission",
+    fieldPermission: ""field permission",
+    role: ""role",
+    roleTarget: ""role target",
+    agent: ""agent",
+    skill: ""skill",
+    pageLayout: ""page layout",
+    pageLayoutTab: ""page layout tab",
+    pageLayoutWidget: ""page layout widget",
+    rowLevelPermissionPredicate: ""row level permission predicate",
+    rowLevelPermissionPredicateGroup: ""row level permission predicate group",
+    viewFilterGroup: ""view filter group",
+    commandMenuItem: ""command menu item",
+    frontComponent: ""front component",
+    navigationMenuItem: ""navigation menu item",
+    webhook: ""webhook",
+    viewSort: ""view sort",
+    applicationVariable: ""application variable",
+    connectionProvider: ""connection provider",
   } as const satisfies Record<AllMetadataName, string>;
 
   const handleMetadataError = (
@@ -122,8 +122,8 @@ export const useMetadataErrorHandler = () => {
         const errorMessage =
           code ===
           WorkspaceMigrationV2ExceptionCode.BUILDER_INTERNAL_SERVER_ERROR
-            ? t`An internal error occurred while validating your changes. Please contact support.`
-            : t`An internal error occurred while applying your changes. Please contact support and try again later.`;
+            ? ""An internal error occurred while validating your changes. Please contact support."
+            : ""An internal error occurred while applying your changes. Please contact support and try again later.";
 
         enqueueErrorSnackBar({ message: errorMessage });
         break;

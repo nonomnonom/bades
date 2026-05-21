@@ -39,7 +39,7 @@ export const SettingPublicDomainRowDropdownMenu = ({
       },
       onCompleted: () =>
         enqueueSuccessSnackBar({
-          message: t`Public domain successfully deleted`,
+          message: ""Public domain successfully deleted",
         }),
       onError: (error) => enqueueErrorSnackBar({ apolloError: error }),
     });
@@ -58,7 +58,7 @@ export const SettingPublicDomainRowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Delete`}
+              text={"Hapus"}
               onClick={async () => {
                 await handleDeletePublicDomain();
                 closeDropdown(dropdownId);

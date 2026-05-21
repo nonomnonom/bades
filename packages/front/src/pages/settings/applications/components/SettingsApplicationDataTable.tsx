@@ -75,36 +75,36 @@ export const SettingsApplicationDataTable = ({
     <Section>
       <H2Title
         title={t`Data`}
-        description={t`Objects and fields managed by this app`}
+        description={""Objects and fields managed by this app"}
       />
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search an object...`}
+          placeholder={""Search an object..."}
           value={searchTerm}
           onChange={setSearchTerm}
         />
       </StyledSearchInputContainer>
       {hasNoResults ? (
-        <SettingsEmptyPlaceholder>{t`No object found`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder>{""No object found"}</SettingsEmptyPlaceholder>
       ) : (
         <Table>
           <TableRow gridAutoColumns={MAIN_ROW_GRID_COLUMNS}>
-            <TableHeader>{t`Name`}</TableHeader>
-            <TableHeader>{t`App`}</TableHeader>
-            <TableHeader align="right">{t`Fields`}</TableHeader>
+            <TableHeader>{"Nama"}</TableHeader>
+            <TableHeader>{""App"}</TableHeader>
+            <TableHeader align="right">{"Bidang-bidang"}</TableHeader>
             <StyledEmptyHeaderContainer>
               <TableHeader />
             </StyledEmptyHeaderContainer>
           </TableRow>
           {shouldDisplayObjects && (
-            <TableSection title={t`Objects`}>
+            <TableSection title={"Objek-objek"}>
               {filteredObjectRows.map((row) => (
                 <SettingsApplicationDataTableRow key={row.key} row={row} />
               ))}
             </TableSection>
           )}
           {shouldDisplayFields && (
-            <TableSection title={t`Fields`}>
+            <TableSection title={"Bidang-bidang"}>
               {filteredFieldGroupRows.map((row) => (
                 <SettingsApplicationDataTableRow key={row.key} row={row} />
               ))}

@@ -40,19 +40,19 @@ const SETTINGS_OBJECT_FIELD_TABLE_METADATA: TableMetadata<SettingsObjectDetailTa
     tableId: 'settingsObjectDetail',
     fields: [
       {
-        fieldLabel: msg`Name`,
+        fieldLabel: "Nama",
         fieldName: 'label',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`App`,
+        fieldLabel: ""App",
         fieldName: 'fieldType',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Data type`,
+        fieldLabel: ""Data type",
         fieldName: 'dataType',
         fieldType: 'string',
         align: 'left',
@@ -152,7 +152,7 @@ export const SettingsObjectFieldTable = ({
     <>
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Search a field...`}
+          placeholder={""Search a field..."}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -168,7 +168,7 @@ export const SettingsObjectFieldTable = ({
                       LeftIcon={IconArchive}
                       onToggleChange={() => setShowInactive(!showInactive)}
                       toggled={showInactive}
-                      text={t`Inactive`}
+                      text={""Inactive"}
                       toggleSize="small"
                     />
                     {isAdvancedModeEnabled && (
@@ -178,7 +178,7 @@ export const SettingsObjectFieldTable = ({
                           setShowSystemFields(!showSystemFields)
                         }
                         toggled={showSystemFields}
-                        text={t`System fields`}
+                        text={""System fields"}
                         toggleSize="small"
                       />
                     )}

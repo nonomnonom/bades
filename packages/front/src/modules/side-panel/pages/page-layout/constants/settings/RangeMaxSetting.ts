@@ -10,5 +10,5 @@ export const RANGE_MAX_SETTING: ChartSettingsItem = {
   label: CHART_CONFIGURATION_SETTING_LABELS.MAX_RANGE,
   id: CHART_CONFIGURATION_SETTING_IDS.MAX_RANGE,
   isNumberInput: true,
-  inputPlaceholder: msg`Max`,
+  inputPlaceholder: "Maks",
 };

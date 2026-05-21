@@ -73,7 +73,7 @@ export const SidePanelObjectFilterDropdownContent = ({
 
   return (
     <DropdownContent>
-      <DropdownMenuHeader>{t`Object`}</DropdownMenuHeader>
+      <DropdownMenuHeader>{"Objek"}</DropdownMenuHeader>
       <DropdownMenuSearchInput
         value={filterSearch}
         onChange={(event) => setFilterSearch(event.target.value)}
@@ -92,7 +92,7 @@ export const SidePanelObjectFilterDropdownContent = ({
           >
             <MenuItemSelectAvatar
               avatar={<TintedIconTile Icon={IconCube} />}
-              text={t`All objects`}
+              text={""All objects"}
               selected={selectedObjectNameSingular === null}
               onClick={() => handleSelect(null)}
               focused={selectedItemId === ALL_OBJECTS_ITEM_ID}
@@ -132,7 +132,7 @@ export const SidePanelObjectFilterDropdownContent = ({
             setSidePanelShowHiddenObjects(!sidePanelShowHiddenObjects)
           }
           toggled={sidePanelShowHiddenObjects}
-          text={t`Show hidden objects`}
+          text={""Show hidden objects"}
           toggleSize="small"
         />
       </DropdownMenuItemsContainer>

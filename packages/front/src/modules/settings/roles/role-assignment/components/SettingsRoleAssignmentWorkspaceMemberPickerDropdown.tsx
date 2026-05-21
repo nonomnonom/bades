@@ -49,7 +49,7 @@ export const SettingsRoleAssignmentWorkspaceMemberPickerDropdown = ({
       <DropdownMenuSearchInput
         value={searchFilter}
         onChange={handleSearchFilterChange}
-        placeholder={t`Search`}
+        placeholder={"Cari"}
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>

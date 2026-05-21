@@ -36,12 +36,12 @@ export const SettingsSecurityApprovedAccessDomain = () => {
           .regex(
             /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])\.[a-zA-Z]{2,}$/,
             {
-              message: t`Domains have to be smaller than 256 characters, cannot contain spaces and cannot contain any special characters.`,
+              message: ""Domains have to be smaller than 256 characters, cannot contain spaces and cannot contain any special characters.",
             },
           )
           .max(256),
         email: z.string().min(1, {
-          message: t`Email cannot be empty`,
+          message: ""Email cannot be empty",
         }),
       }),
     ),
@@ -64,7 +64,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
         },
         onCompleted: () => {
           enqueueSuccessSnackBar({
-            message: t`Please check your email for a verification link.`,
+            message: ""Please check your email for a verification link.",
           });
           navigate(SettingsPath.WorkspaceMembersPage);
         },
@@ -84,7 +84,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
   return (
     <form onSubmit={form.handleSubmit(handleSave)}>
       <SubMenuTopBarContainer
-        title={t`New Approved Access Domain`}
+        title={""New Approved Access Domain"}
         actionButton={
           <SaveAndCancelButtons
             onCancel={() => navigate(SettingsPath.WorkspaceMembersPage)}
@@ -93,21 +93,21 @@ export const SettingsSecurityApprovedAccessDomain = () => {
         }
         links={[
           {
-            children: <Trans>Workspace</Trans>,
+            children: Ruang kerja,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: <Trans>Members</Trans>,
+            children: Anggota,
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
-          { children: <Trans>New Approved Access Domain</Trans> },
+          { children: "New Approved Access Domain },
         ]}
       >
         <SettingsPageContainer>
           <Section>
             <H2Title
               title={t`Domain`}
-              description={t`The name of your Domain`}
+              description={""The name of your Domain"}
             />
             <Controller
               name="domain"
@@ -131,8 +131,8 @@ export const SettingsSecurityApprovedAccessDomain = () => {
           </Section>
           <Section>
             <H2Title
-              title={t`Email verification`}
-              description={t`We will send your a link to verify domain ownership`}
+              title={""Email verification"}
+              description={""We will send your a link to verify domain ownership"}
             />
             <Controller
               name="email"

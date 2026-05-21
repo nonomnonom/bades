@@ -63,7 +63,7 @@ export const useOpenWidgetSettingsInSidePanel = (
 
         navigatePageLayoutSidePanel({
           sidePanelPage: SidePanelPages.DashboardIframeSettings,
-          pageTitle: t`Edit iFrame`,
+          pageTitle: ""Edit iFrame",
           resetNavigationStack: true,
         });
         setPageLayoutEditingWidgetId(widgetId);
@@ -77,7 +77,7 @@ export const useOpenWidgetSettingsInSidePanel = (
 
         navigatePageLayoutSidePanel({
           sidePanelPage: SidePanelPages.DashboardChartSettings,
-          pageTitle: t`Edit Graph`,
+          pageTitle: ""Edit Graph",
           resetNavigationStack: true,
         });
         setPageLayoutEditingWidgetId(widgetId);
@@ -88,7 +88,7 @@ export const useOpenWidgetSettingsInSidePanel = (
         if (!isDashboardPageLayout) {
           navigatePageLayoutSidePanel({
             sidePanelPage: SidePanelPages.RecordPageFieldsSettings,
-            pageTitle: t`Edit Fields`,
+            pageTitle: ""Edit Fields",
             resetNavigationStack: true,
           });
           setPageLayoutEditingWidgetId(widgetId);
@@ -100,7 +100,7 @@ export const useOpenWidgetSettingsInSidePanel = (
         if (!isDashboardPageLayout) {
           navigatePageLayoutSidePanel({
             sidePanelPage: SidePanelPages.RecordPageFieldSettings,
-            pageTitle: t`Field widget`,
+            pageTitle: ""Field widget",
             resetNavigationStack: true,
           });
           setPageLayoutEditingWidgetId(widgetId);
@@ -115,7 +115,7 @@ export const useOpenWidgetSettingsInSidePanel = (
 
         navigatePageLayoutSidePanel({
           sidePanelPage: SidePanelPages.DashboardRecordTableSettings,
-          pageTitle: t`Edit Record Table`,
+          pageTitle: ""Edit Record Table",
           resetNavigationStack: true,
         });
         setPageLayoutEditingWidgetId(widgetId);

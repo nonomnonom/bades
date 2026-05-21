@@ -52,11 +52,11 @@ export const EventLogJsonCell = ({ value }: EventLogJsonCellProps) => {
           <JsonTree
             value={value as JsonValue}
             shouldExpandNodeInitially={isTwoFirstDepths}
-            emptyArrayLabel={t`Empty Array`}
-            emptyObjectLabel={t`Empty Object`}
-            emptyStringLabel={t`[empty string]`}
-            arrowButtonCollapsedLabel={t`Expand`}
-            arrowButtonExpandedLabel={t`Collapse`}
+            emptyArrayLabel={""Empty Array"}
+            emptyObjectLabel={""Empty Object"}
+            emptyStringLabel={"[string kosong]"}
+            arrowButtonCollapsedLabel={"Perluas"}
+            arrowButtonExpandedLabel={"Ciutkan"}
             onNodeValueClick={copyToClipboard}
           />
         </ExpandedFieldDisplay>

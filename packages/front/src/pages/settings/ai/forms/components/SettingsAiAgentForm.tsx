@@ -74,7 +74,7 @@ export const SettingsAiAgentForm = ({
           <StyledNameContainer>
             <SettingsTextInput
               instanceId="agent-label-input"
-              placeholder={t`Enter agent name*`}
+              placeholder={""Enter agent name*"}
               value={formValues.label}
               onChange={(value) => {
                 onFieldChange('label', value);
@@ -90,7 +90,7 @@ export const SettingsAiAgentForm = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-description-textarea"
-          placeholder={t`Write a description for this agent`}
+          placeholder={""Write a description for this agent"}
           minRows={3}
           value={formValues.description || ''}
           onChange={(value) => onFieldChange('description', value)}
@@ -101,12 +101,12 @@ export const SettingsAiAgentForm = ({
       <StyledFormContainer>
         {noModelsAvailable ? (
           <StyledErrorMessage>
-            {t`No models available. Please configure AI models in your workspace settings.`}
+            {""No models available. Please configure AI models in your workspace settings."}
           </StyledErrorMessage>
         ) : (
           <Select
             dropdownId="ai-model-select"
-            label={t`AI Model`}
+            label={""AI Model"}
             value={formValues.modelId}
             onChange={(value) => onFieldChange('modelId', value)}
             options={modelOptions}
@@ -131,8 +131,8 @@ export const SettingsAiAgentForm = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-prompt-textarea"
-          label={t`System Prompt`}
-          placeholder={t`Enter the system prompt that defines this agent's behavior and capabilities`}
+          label={""System Prompt"}
+          placeholder={""Enter the system prompt that defines this agent's behavior and capabilities"}
           minRows={6}
           maxRows={15}
           value={formValues.prompt}

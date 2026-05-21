@@ -163,8 +163,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
       <StyledContainer>
         <Section>
           <H2Title
-            title={t`Billing`}
-            description={t`No billing data is available for this workspace.`}
+            title={"Penagihan"}
+            description={""No billing data is available for this workspace."}
           />
         </Section>
       </StyledContainer>
@@ -176,7 +176,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
   const customerItems = [
     {
       Icon: IconId,
-      label: t`Stripe customer`,
+      label: ""Stripe customer",
       value: isDefined(stripeCustomerId) ? (
         <StripeLink path="customers" id={stripeCustomerId} />
       ) : (
@@ -185,18 +185,18 @@ export const SettingsAdminWorkspaceBillingContent = ({
     },
     {
       Icon: IconCoins,
-      label: t`Credit balance`,
+      label: ""Credit balance",
       value: isDefined(creditBalance)
-        ? `${formatNumber(creditBalance, { abbreviate: true, decimals: 2 })} ${t`credits`}`
+        ? `${formatNumber(creditBalance, { abbreviate: true, decimals: 2 })} ${""credits"}`
         : EM_DASH,
     },
   ];
 
   const intervalLabel =
     subscription?.interval === SubscriptionInterval.Month
-      ? t`Monthly`
+      ? "Bulanan"
       : subscription?.interval === SubscriptionInterval.Year
-        ? t`Yearly`
+        ? ""Yearly"
         : null;
 
   const formatPeriod = (start: string, end: string): string =>
@@ -213,11 +213,11 @@ export const SettingsAdminWorkspaceBillingContent = ({
     const parts: string[] = [];
 
     if (isDefined(item.quantity)) {
-      parts.push(`${formatNumber(item.quantity)} ${t`seats`}`);
+      parts.push(`${formatNumber(item.quantity)} ${""seats"}`);
     }
     if (isDefined(item.includedCredits)) {
       parts.push(
-        `${formatNumber(item.includedCredits, { abbreviate: true, decimals: 2 })} ${t`credits/period`}`,
+        `${formatNumber(item.includedCredits, { abbreviate: true, decimals: 2 })} ${""credits/period"}`,
       );
     }
     if (isDefined(item.unitAmount) && isDefined(subscription)) {
@@ -231,7 +231,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
     ? [
         {
           Icon: IconCreditCard,
-          label: t`Stripe subscription`,
+          label: ""Stripe subscription",
           value: (
             <StripeLink
               path="subscriptions"
@@ -253,7 +253,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconTag,
-                label: t`Plan`,
+                label: "Rencana",
                 value: <PlansTags plan={planKey} isTrialPeriod={isTrialing} />,
               },
             ]
@@ -262,14 +262,14 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCalendarEvent,
-                label: t`Billing interval`,
+                label: ""Billing interval",
                 value: intervalLabel,
               },
             ]
           : []),
         {
           Icon: IconCalendarRepeat,
-          label: t`Current period`,
+          label: ""Current period",
           value: formatPeriod(
             subscription.currentPeriodStart,
             subscription.currentPeriodEnd,
@@ -280,7 +280,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCalendarRepeat,
-                label: t`Trial period`,
+                label: ""Trial period",
                 value: formatPeriod(
                   subscription.trialStart,
                   subscription.trialEnd,
@@ -292,8 +292,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Cancels at period end`,
-                value: t`Yes`,
+                label: ""Cancels at period end",
+                value: "Ya",
               },
             ]
           : []),
@@ -301,7 +301,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Cancels at`,
+                label: ""Cancels at",
                 value: beautifyExactDate(subscription.cancelAt),
               },
             ]
@@ -310,7 +310,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Canceled at`,
+                label: ""Canceled at",
                 value: beautifyExactDate(subscription.canceledAt),
               },
             ]
@@ -322,7 +322,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
               : item.productKey === RESOURCE_CREDIT_KEY
                 ? IconCoins
                 : IconBox,
-          label: item.productName || t`Unnamed product`,
+          label: item.productName || ""Unnamed product",
           value: (
             <StyledItemValue>
               <span>{formatItemValue(item)}</span>
@@ -339,8 +339,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
     <StyledContainer>
       <Section>
         <H2Title
-          title={t`Customer`}
-          description={t`Stripe customer linked to this workspace`}
+          title={""Customer"}
+          description={""Stripe customer linked to this workspace"}
         />
         <SettingsTableCard
           rounded
@@ -351,11 +351,11 @@ export const SettingsAdminWorkspaceBillingContent = ({
 
       <Section>
         <H2Title
-          title={t`Subscription`}
+          title={""Subscription"}
           description={
             subscription
-              ? t`Current subscription state and line items`
-              : t`No active subscription.`
+              ? ""Current subscription state and line items"
+              : ""No active subscription."
           }
         />
         {subscription && (

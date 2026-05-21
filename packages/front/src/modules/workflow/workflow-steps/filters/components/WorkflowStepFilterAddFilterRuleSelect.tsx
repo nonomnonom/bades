@@ -98,8 +98,8 @@ export const WorkflowStepFilterAddFilterRuleSelect = ({
       <CommandMenuButton
         command={{
           Icon: IconPlus,
-          label: t`Add rule`,
-          shortLabel: t`Add rule`,
+          label: ""Add rule",
+          shortLabel: ""Add rule",
           key: 'add-rule',
         }}
         onClick={handleAddFilter}
@@ -114,8 +114,8 @@ export const WorkflowStepFilterAddFilterRuleSelect = ({
         <CommandMenuButton
           command={{
             Icon: IconPlus,
-            label: t`Add filter rule`,
-            shortLabel: t`Add filter rule`,
+            label: "Tambah aturan filter",
+            shortLabel: "Tambah aturan filter",
             key: 'add-filter-rule',
           }}
         />
@@ -125,13 +125,13 @@ export const WorkflowStepFilterAddFilterRuleSelect = ({
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconPlus}
-              text={t`Add rule`}
+              text={""Add rule"}
               onClick={handleAddFilter}
             />
             {isFilterRuleGroupOptionVisible && (
               <MenuItem
                 LeftIcon={IconLibraryPlus}
-                text={t`Add rule group`}
+                text={""Add rule group"}
                 onClick={handleAddFilterGroup}
               />
             )}

@@ -83,7 +83,7 @@ export const LocalePicker = () => {
       value: APP_LOCALES['id-ID'],
     },
     {
-      label: t`English`,
+      label: ""English",
       value: APP_LOCALES.en,
     },
   ];

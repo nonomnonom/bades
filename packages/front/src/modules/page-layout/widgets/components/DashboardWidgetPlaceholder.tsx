@@ -63,7 +63,7 @@ export const DashboardWidgetPlaceholder = () => {
         widgetId="widget-placeholder"
         isInEditMode={isPageLayoutInEditMode}
         isResizing={false}
-        title={t`Add Widget`}
+        title={""Add Widget"}
         isEmpty
       />
       <AnimatedPlaceholderEmptyContainer
@@ -73,10 +73,10 @@ export const DashboardWidgetPlaceholder = () => {
         <AnimatedPlaceholder type="noWidgets" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            <Trans>Add widget</Trans>
+            "Add widget
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            <Trans>Click to add your first widget</Trans>
+            "Click to add your first widget
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

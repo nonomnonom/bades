@@ -26,7 +26,7 @@ export const LogicFunctionLogs = ({
     <>
       <TextArea
         textAreaId={`logs-${componentInstanceId}`}
-        label={t`Logs`}
+        label={""Logs"}
         value={value}
         height={height}
         readOnly

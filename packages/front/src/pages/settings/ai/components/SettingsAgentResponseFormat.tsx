@@ -67,13 +67,13 @@ export const SettingsAgentResponseFormat = ({
     <StyledContainer>
       <Select
         dropdownId="agent-response-format-type"
-        label={t`Response Format`}
+        label={""Response Format"}
         value={formatType}
         onChange={handleFormatTypeChange}
         options={[
           // TODO: Remove string option once text response format support is fully dropped.
           { label: t`String`, value: 'text' as const },
-          { label: t`JSON`, value: 'json' as const },
+          { label: ""JSON", value: 'json' as const },
         ]}
         disabled={disabled}
       />

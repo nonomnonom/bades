@@ -211,7 +211,7 @@ export const RichTextFieldEditor = ({
     schema: BLOCK_SCHEMA,
     uploadFile: handleEditorBuiltInUploadFile,
     placeholders: {
-      default: t`Type '/' for commands, '@' for mentions`,
+      default: ""Type '/' for commands, '@' for mentions",
     },
   });
 

@@ -44,7 +44,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={availableAggregations}
-          title={t`Count`}
+          title={""Count"}
         />
       );
     }
@@ -57,7 +57,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={availableAggregations}
-          title={t`Percent`}
+          title={""Percent"}
         />
       );
     }
@@ -73,7 +73,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={datesAvailableAggregations}
-          title={t`Date`}
+          title={"Tanggal"}
         />
       );
     }
@@ -86,7 +86,7 @@ export const AggregateDropdownContent = () => {
       return (
         <RecordBoardColumnHeaderAggregateDropdownOptionsContent
           availableAggregations={availableAggregationsWithoutDates}
-          title={t`More options`}
+          title={"Opsi lainnya"}
         />
       );
     }

@@ -26,28 +26,28 @@ export const RecordBoardColumnHeaderAggregateDropdownMenuContent = () => {
           onClick={() => {
             onContentChange('countAggregateOperationsOptions');
           }}
-          text={t`Count`}
+          text={""Count"}
           hasSubMenu
         />
         <MenuItem
           onClick={() => {
             onContentChange('percentAggregateOperationsOptions');
           }}
-          text={t`Percent`}
+          text={""Percent"}
           hasSubMenu
         />
         <MenuItem
           onClick={() => {
             onContentChange('datesAggregateOperationOptions');
           }}
-          text={t`Date`}
+          text={"Tanggal"}
           hasSubMenu
         />
         <MenuItem
           onClick={() => {
             onContentChange('moreAggregateOperationOptions');
           }}
-          text={t`More options`}
+          text={"Opsi lainnya"}
           hasSubMenu
         />
       </DropdownMenuItemsContainer>

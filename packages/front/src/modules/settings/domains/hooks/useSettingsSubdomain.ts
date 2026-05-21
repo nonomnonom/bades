@@ -64,7 +64,7 @@ export const useSettingsSubdomain = () => {
           mutationError.errors[0]?.extensions?.code === 'CONFLICT'
         ) {
           closeModal(SUBDOMAIN_CHANGE_CONFIRMATION_MODAL_ID);
-          setError(t`Subdomain already taken`);
+          setError(""Subdomain already taken");
           setIsSubmitting(false);
 
           return;
@@ -84,7 +84,7 @@ export const useSettingsSubdomain = () => {
         ).hostname.replace(currentWorkspace.subdomain, subdomain);
 
         setCurrentWorkspace({ ...currentWorkspace, subdomain });
-        enqueueSuccessSnackBar({ message: t`Subdomain updated` });
+        enqueueSuccessSnackBar({ message: ""Subdomain updated" });
         setIsSubmitting(false);
 
         await redirectToWorkspaceDomain(currentUrl.toString());

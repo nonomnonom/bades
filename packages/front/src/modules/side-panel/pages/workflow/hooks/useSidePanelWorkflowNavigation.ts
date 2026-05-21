@@ -37,7 +37,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowTriggerSelectType,
-        pageTitle: t`Trigger Type`,
+        pageTitle: ""Trigger Type",
         pageIcon: IconBolt,
         pageId,
       });
@@ -58,7 +58,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowStepCreate,
-        pageTitle: t`Select Action`,
+        pageTitle: ""Select Action",
         pageIcon: IconSettingsAutomation,
         pageId,
       });
@@ -121,7 +121,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowStepEditType,
-        pageTitle: t`Select action`,
+        pageTitle: ""Select action",
         pageIcon: IconSettingsAutomation,
         pageId,
       });

@@ -92,15 +92,15 @@ export const UsageByUserTableSection = ({
       />
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search for a user...`}
+          placeholder={""Search for a user..."}
           value={searchTerm}
           onChange={setSearchTerm}
         />
       </StyledSearchInputContainer>
       <Table>
         <TableRow gridTemplateColumns={GRID_TEMPLATE_COLUMNS}>
-          <TableHeader>{t`Name`}</TableHeader>
-          <TableHeader align="right">{t`Usage`}</TableHeader>
+          <TableHeader>{"Nama"}</TableHeader>
+          <TableHeader align="right">{"Penggunaan"}</TableHeader>
           <TableHeader />
         </TableRow>
         {filteredUsers.map((item) => (

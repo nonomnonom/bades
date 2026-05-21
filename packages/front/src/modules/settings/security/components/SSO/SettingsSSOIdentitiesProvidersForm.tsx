@@ -82,7 +82,7 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
   return (
     <SettingsPageContainer>
       <Section>
-        <H2Title title={t`Name`} description={t`The name of your connection`} />
+        <H2Title title={"Nama"} description={""The name of your connection"} />
         <StyledInputsContainer>
           <Controller
             name="name"
@@ -91,11 +91,11 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
               <SettingsTextInput
                 instanceId="sso-identity-provider-name"
                 autoComplete="off"
-                label={t`Name`}
+                label={"Nama"}
                 value={value}
                 onChange={onChange}
                 fullWidth
-                placeholder={t`Google OIDC`}
+                placeholder={""Google OIDC"}
               />
             )}
           />
@@ -103,8 +103,8 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Type`}
-          description={t`Choose between OIDC and SAML protocols`}
+          title={"Tipe"}
+          description={""Choose between OIDC and SAML protocols"}
         />
         <StyledInputsContainer>
           <Controller

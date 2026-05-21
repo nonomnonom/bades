@@ -97,18 +97,18 @@ export const EnterprisePlanModal = () => {
   const client = useApolloClient();
 
   const benefits = [
-    t`SSO (SAML / OIDC)`,
-    t`Row-level security`,
-    t`Audit logs`,
-    t`Advanced Encryption`,
-    t`Custom AI Models`,
+    ""SSO (SAML / OIDC)",
+    ""Row-level security",
+    ""Audit logs",
+    ""Advanced Encryption",
+    ""Custom AI Models",
   ];
 
   const price = selectedInterval === 'monthly' ? MONTHLY_PRICE : YEARLY_PRICE;
   const priceUnit =
     selectedInterval === 'monthly'
-      ? t`seat / month`
-      : t`seat / month - billed yearly`;
+      ? ""seat / month"
+      : ""seat / month - billed yearly";
 
   const handleContinue = async () => {
     setIsLoading(true);
@@ -128,12 +128,12 @@ export const EnterprisePlanModal = () => {
         closeModal(ENTERPRISE_PLAN_MODAL_ID);
       } else {
         enqueueErrorSnackBar({
-          message: t`Could not open Stripe. Please contact support.`,
+          message: ""Could not open Stripe. Please contact support.",
         });
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error opening Stripe`,
+        message: ""Error opening Stripe",
       });
     } finally {
       setIsLoading(false);
@@ -148,8 +148,8 @@ export const EnterprisePlanModal = () => {
       isClosable
     >
       <ModalContent isVerticallyCentered>
-        <Title noMarginTop>{t`Get Enterprise`}</Title>
-        <SubTitle>{t`Enjoy a 30-day free trial`}</SubTitle>
+        <Title noMarginTop>{""Get Enterprise"}</Title>
+        <SubTitle>{""Enjoy a 30-day free trial"}</SubTitle>
 
         <StyledSubscriptionContainer>
           <StyledPriceContainer>
@@ -169,8 +169,8 @@ export const EnterprisePlanModal = () => {
             handleChange={() => setSelectedInterval('monthly')}
           >
             <StyledIntervalCardContent>
-              <StyledIntervalTitle>{t`Monthly`}</StyledIntervalTitle>
-              <StyledIntervalSubtitle>{`$${MONTHLY_PRICE} / ${t`seat / month`}`}</StyledIntervalSubtitle>
+              <StyledIntervalTitle>{"Bulanan"}</StyledIntervalTitle>
+              <StyledIntervalSubtitle>{`$${MONTHLY_PRICE} / ${""seat / month"}`}</StyledIntervalSubtitle>
             </StyledIntervalCardContent>
           </CardPicker>
           <CardPicker
@@ -178,14 +178,14 @@ export const EnterprisePlanModal = () => {
             handleChange={() => setSelectedInterval('yearly')}
           >
             <StyledIntervalCardContent>
-              <StyledIntervalTitle>{t`Yearly`}</StyledIntervalTitle>
-              <StyledIntervalSubtitle>{`$${YEARLY_PRICE} / ${t`seat / month`}`}</StyledIntervalSubtitle>
+              <StyledIntervalTitle>{""Yearly"}</StyledIntervalTitle>
+              <StyledIntervalSubtitle>{`$${YEARLY_PRICE} / ${""seat / month"}`}</StyledIntervalSubtitle>
             </StyledIntervalCardContent>
           </CardPicker>
         </StyledIntervalContainer>
 
         <MainButton
-          title={t`Continue`}
+          title={"Lanjutkan"}
           onClick={handleContinue}
           width={200}
           Icon={() => isLoading && <Loader />}

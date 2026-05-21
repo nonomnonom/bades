@@ -95,7 +95,7 @@ export const ViewPickerDropdown = () => {
             )}
           </StyledIconContainer>
           <StyledViewName>
-            <OverflowingTextWithTooltip text={currentView?.name ?? t`All`} />
+            <OverflowingTextWithTooltip text={currentView?.name ?? "Semua"} />
           </StyledViewName>
           <StyledDropdownLabelAdornments>
             {isDefined(totalCount) && <>· {totalCount} </>}

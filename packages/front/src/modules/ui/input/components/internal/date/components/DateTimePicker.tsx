@@ -554,7 +554,7 @@ export const DateTimePicker = ({
             <StyledSeparator />
             <StyledButtonContainer onClick={handleClear}>
               <StyledButtonContent>
-                <MenuItemLeftContent LeftIcon={IconCalendarX} text={t`Clear`} />
+                <MenuItemLeftContent LeftIcon={IconCalendarX} text={""Clear"} />
               </StyledButtonContent>
             </StyledButtonContainer>
           </>

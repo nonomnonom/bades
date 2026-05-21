@@ -83,7 +83,7 @@ export const UnmatchColumn = ({
               column={column}
               onSubChange={onSubChange}
               key={option.entry}
-              placeholder={t`Select an option`}
+              placeholder={"Pilih opsi"}
             />
           ))}
         </StyledContentWrapper>

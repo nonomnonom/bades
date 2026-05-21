@@ -11,46 +11,46 @@ export type ColumnConfig = {
 };
 
 const DEFAULT_COLUMNS: ColumnConfig[] = [
-  { id: 'event', label: msg`Event`, minWidth: 100, defaultWidth: 200 },
+  { id: 'event', label: ""Event", minWidth: 100, defaultWidth: 200 },
   {
     id: 'timestamp',
-    label: msg`Timestamp`,
+    label: ""Timestamp",
     minWidth: 100,
     defaultWidth: 150,
   },
-  { id: 'userId', label: msg`User`, minWidth: 100, defaultWidth: 150 },
+  { id: 'userId', label: "Pengguna", minWidth: 100, defaultWidth: 150 },
   {
     id: 'properties',
-    label: msg`Properties`,
+    label: ""Properties",
     minWidth: 200,
     defaultWidth: 400,
   },
 ];
 
 const OBJECT_EVENT_COLUMNS: ColumnConfig[] = [
-  { id: 'event', label: msg`Event`, minWidth: 100, defaultWidth: 180 },
+  { id: 'event', label: ""Event", minWidth: 100, defaultWidth: 180 },
   {
     id: 'timestamp',
-    label: msg`Timestamp`,
+    label: ""Timestamp",
     minWidth: 100,
     defaultWidth: 130,
   },
-  { id: 'userId', label: msg`User`, minWidth: 100, defaultWidth: 130 },
+  { id: 'userId', label: "Pengguna", minWidth: 100, defaultWidth: 130 },
   {
     id: 'recordId',
-    label: msg`Record ID`,
+    label: ""Record ID",
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'objectMetadataId',
-    label: msg`Object ID`,
+    label: ""Object ID",
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'properties',
-    label: msg`Properties`,
+    label: ""Properties",
     minWidth: 150,
     defaultWidth: 300,
   },
@@ -59,20 +59,20 @@ const OBJECT_EVENT_COLUMNS: ColumnConfig[] = [
 const USAGE_EVENT_COLUMNS: ColumnConfig[] = [
   {
     id: 'event',
-    label: msg`Resource Type`,
+    label: ""Resource Type",
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'timestamp',
-    label: msg`Timestamp`,
+    label: ""Timestamp",
     minWidth: 100,
     defaultWidth: 140,
   },
-  { id: 'userId', label: msg`User`, minWidth: 100, defaultWidth: 130 },
+  { id: 'userId', label: "Pengguna", minWidth: 100, defaultWidth: 130 },
   {
     id: 'properties',
-    label: msg`Details`,
+    label: "Detail",
     minWidth: 200,
     defaultWidth: 400,
   },
@@ -81,26 +81,26 @@ const USAGE_EVENT_COLUMNS: ColumnConfig[] = [
 const APPLICATION_LOG_COLUMNS: ColumnConfig[] = [
   {
     id: 'event',
-    label: msg`Function`,
+    label: "Fungsi",
     minWidth: 100,
     defaultWidth: 160,
   },
   {
     id: 'timestamp',
-    label: msg`Timestamp`,
+    label: ""Timestamp",
     minWidth: 100,
     defaultWidth: 140,
   },
-  { id: 'level', label: msg`Level`, minWidth: 60, defaultWidth: 80 },
+  { id: 'level', label: "Tingkat", minWidth: 60, defaultWidth: 80 },
   {
     id: 'message',
-    label: msg`Message`,
+    label: "Pesan",
     minWidth: 200,
     defaultWidth: 400,
   },
   {
     id: 'executionId',
-    label: msg`Execution ID`,
+    label: ""Execution ID",
     minWidth: 100,
     defaultWidth: 140,
   },

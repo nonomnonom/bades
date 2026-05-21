@@ -35,7 +35,7 @@ export const SettingsApplicationRegistrationRedirectURIsTable = ({
               gridAutoColumns="1fr 20px"
               mobileGridAutoColumns="1fr 20px"
             >
-              <TableHeader>{t`URI`}</TableHeader>
+              <TableHeader>{""URI"}</TableHeader>
               <TableHeader></TableHeader>
             </TableRow>
             <StyledTableBodyContainer>

@@ -171,7 +171,7 @@ export const BlockEditor = ({
 
     return [
       {
-        title: t`Close menu`,
+        title: ""Close menu",
         Icon: IconX,
         onItemClick: () => editor.getExtension(SuggestionMenu)?.closeMenu(),
       },

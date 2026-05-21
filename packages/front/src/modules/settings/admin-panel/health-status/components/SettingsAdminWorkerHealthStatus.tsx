@@ -22,7 +22,7 @@ export const SettingsAdminWorkerHealthStatus = () => {
     <>
       {isWorkerDown ? (
         <StyledErrorMessage>
-          {t`Queue information is not available because the worker is down`}
+          {""Queue information is not available because the worker is down"}
         </StyledErrorMessage>
       ) : (
         (indicatorHealth.queues ?? []).map((queue) => (

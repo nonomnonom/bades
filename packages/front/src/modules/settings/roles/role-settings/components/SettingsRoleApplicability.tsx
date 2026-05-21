@@ -53,25 +53,25 @@ export const SettingsRoleApplicability = ({
   const options = [
     {
       key: 'canBeAssignedToUsers' as const,
-      label: t`Assignable to Workspace Members`,
+      label: ""Assignable to Workspace Members",
       Icon: IconUsers,
     },
     {
       key: 'canBeAssignedToAgents' as const,
-      label: t`Assignable to Agents`,
+      label: ""Assignable to Agents",
       Icon: IconRobot,
     },
     {
       key: 'canBeAssignedToApiKeys' as const,
-      label: t`Assignable to API Keys`,
+      label: ""Assignable to API Keys",
       Icon: IconKey,
     },
   ];
   return (
     <Section>
       <H2Title
-        title={t`Applicability`}
-        description={t`Control which types of entities this role can be assigned to`}
+        title={""Applicability"}
+        description={""Control which types of entities this role can be assigned to"}
       />
       <div>
         {options.map((option) => (

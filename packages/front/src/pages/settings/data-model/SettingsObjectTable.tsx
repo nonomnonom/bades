@@ -152,7 +152,7 @@ export const SettingsObjectTable = ({
       {withSearchBar && (
         <StyledSearchInputContainer>
           <SearchInput
-            placeholder={t`Search for an object...`}
+            placeholder={""Search for an object..."}
             value={searchTerm}
             onChange={setSearchTerm}
             filterDropdown={(filterButton: ReactNode) => (
@@ -170,7 +170,7 @@ export const SettingsObjectTable = ({
                           setShowDeactivated(!showDeactivated)
                         }
                         toggled={showDeactivated}
-                        text={t`Deactivated`}
+                        text={""Deactivated"}
                         toggleSize="small"
                       />
                       {isAdvancedModeEnabled && (
@@ -180,7 +180,7 @@ export const SettingsObjectTable = ({
                             setShowSystemObjects(!showSystemObjects)
                           }
                           toggled={showSystemObjects}
-                          text={t`System objects`}
+                          text={""System objects"}
                           toggleSize="small"
                         />
                       )}

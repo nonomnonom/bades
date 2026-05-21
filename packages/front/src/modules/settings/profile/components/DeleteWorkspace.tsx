@@ -32,13 +32,13 @@ export const DeleteWorkspace = () => {
   return (
     <>
       <H2Title
-        title={t`Danger zone`}
-        description={t`Delete your whole workspace`}
+        title={""Danger zone"}
+        description={""Delete your whole workspace"}
       />
       <Button
         accent="danger"
         variant="secondary"
-        title={t`Delete workspace`}
+        title={"Hapus ruang kerja"}
         Icon={IconTrash}
         onClick={() => openModal(DELETE_WORKSPACE_MODAL_ID)}
       />
@@ -47,7 +47,7 @@ export const DeleteWorkspace = () => {
         modalInstanceId={DELETE_WORKSPACE_MODAL_ID}
         confirmationPlaceholder={userEmail}
         confirmationValue={userEmail}
-        title={t`Workspace Deletion`}
+        title={""Workspace Deletion"}
         subtitle={
           <Trans>
             This action cannot be undone. This will permanently delete your
@@ -55,7 +55,7 @@ export const DeleteWorkspace = () => {
           </Trans>
         }
         onConfirmClick={deleteWorkspace}
-        confirmButtonText={t`Delete workspace`}
+        confirmButtonText={"Hapus ruang kerja"}
       />
     </>
   );

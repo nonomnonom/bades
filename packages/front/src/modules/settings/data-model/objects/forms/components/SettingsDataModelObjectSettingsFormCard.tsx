@@ -52,7 +52,7 @@ export const SettingsDataModelObjectSettingsFormCard = ({
       <StyledTopCardContentContainer>
         <CardContent divider>
           <SettingsDataModelCardTitle>
-            <Trans>Preview</Trans>
+            Pratinjau
           </SettingsDataModelCardTitle>
           {labelIdentifierFieldMetadataItem ? (
             <SettingsDataModelFieldPreviewWidget

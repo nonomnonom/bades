@@ -112,7 +112,7 @@ export const SettingsObjectNewFieldSelector = ({
           <SettingsTextInput
             instanceId="new-field-type-search"
             LeftIcon={IconSearch}
-            placeholder={t`Search a type`}
+            placeholder={""Search a type"}
             value={searchQuery}
             onChange={setSearchQuery}
           />
@@ -140,7 +140,7 @@ export const SettingsObjectNewFieldSelector = ({
                         [
                           key,
                           key === FieldMetadataType.MORPH_RELATION
-                            ? { ...config, label: t`Relation` }
+                            ? { ...config, label: "Relasi" }
                             : config,
                         ] as [string, SettingsFieldTypeConfig<any>],
                     )

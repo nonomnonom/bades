@@ -15,12 +15,12 @@ export interface OutputSchemaField {
 
 export const OUTPUT_FIELD_TYPE_OPTIONS = [
   {
-    label: msg`Text`,
+    label: "Teks",
     value: 'string' as const,
     Icon: IllustrationIconText,
   },
   {
-    label: msg`Number`,
+    label: "Nomor",
     value: 'number' as const,
     Icon: IllustrationIconNumbers,
   },

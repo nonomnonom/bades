@@ -30,7 +30,7 @@ export const useAddLinkToNavigationMenu = () => {
 
   const handleAddLink = () => {
     const itemId = addLinkToDraft(
-      t`Link label`,
+      ""Link label",
       'www.example.com',
       currentDraft,
       pendingInsertionNavigationMenuItem?.folderId ?? null,
@@ -40,7 +40,7 @@ export const useAddLinkToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Edit link`,
+      pageTitle: ""Edit link",
       pageIcon: IconLink,
       focusTitleInput: true,
     });

@@ -46,7 +46,7 @@ export const useEnterLayoutCustomizationMode = () => {
 
       if (isDashboardInEditMode) {
         enqueueWarningSnackBar({
-          message: t`Save or cancel dashboard changes before editing the layout.`,
+          message: ""Save or cancel dashboard changes before editing the layout.",
         });
 
         return;
@@ -77,7 +77,7 @@ export const useEnterLayoutCustomizationMode = () => {
     ) {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuEdit,
-        pageTitle: t`Edit actions`,
+        pageTitle: ""Edit actions",
         pageIcon: IconPencil,
         resetNavigationStack: true,
       });

@@ -130,7 +130,7 @@ export const SettingsDataModelFieldRelationForm = ({
           defaultValue={initialRelationType}
           render={({ field: { onChange, value } }) => (
             <Select
-              label={t`Relation type`}
+              label={""Relation type"}
               dropdownId="relation-type-select"
               fullWidth
               disabled={disabled || disableRelationEdition}
@@ -147,7 +147,7 @@ export const SettingsDataModelFieldRelationForm = ({
           defaultValue={initialMorphRelationsObjectMetadataIds}
           render={({ field: { onChange, value } }) => (
             <SettingsMorphRelationMultiSelect
-              label={t`Object destination`}
+              label={""Object destination"}
               dropdownId="object-destination-select"
               fullWidth
               disabled={disableRelationEdition}
@@ -156,14 +156,14 @@ export const SettingsDataModelFieldRelationForm = ({
               onChange={onChange}
               error={
                 isSelfInDestinationForMorphRelation
-                  ? t`Relations cannot include the source object when multiple destinations are selected.`
+                  ? ""Relations cannot include the source object when multiple destinations are selected."
                   : undefined
               }
             />
           )}
         />
       </StyledSelectsContainer>
-      <StyledInputsLabel>{t`Field on destination`}</StyledInputsLabel>
+      <StyledInputsLabel>{""Field on destination"}</StyledInputsLabel>
       <StyledInputsContainer>
         <Controller
           name="iconOnDestination"
@@ -187,7 +187,7 @@ export const SettingsDataModelFieldRelationForm = ({
             <SettingsTextInput
               instanceId="relation-field-label"
               disabled={disableFieldEdition}
-              placeholder={t`Field name`}
+              placeholder={"Nama bidang"}
               value={value}
               onChange={onChange}
               fullWidth

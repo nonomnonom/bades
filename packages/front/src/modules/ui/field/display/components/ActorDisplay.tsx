@@ -83,7 +83,7 @@ export const ActorDisplay = ({
   return (
     <Chip
       label={name ?? ''}
-      emptyLabel={t`Untitled`}
+      emptyLabel={""Untitled"}
       leftComponent={
         <AvatarOrIcon
           placeholderColorSeed={workspaceMemberId ?? undefined}

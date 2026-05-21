@@ -31,14 +31,14 @@ export const SettingsGraphQLPlayground = () => {
       exitFullScreen={handleExitFullScreen}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: Ruang kerja,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>APIs & Webhooks</Trans>,
+          children: "APIs & Webhooks,
           href: getSettingsPath(SettingsPath.ApiWebhooks),
         },
-        { children: <Trans>GraphQL API Playground</Trans> },
+        { children: "GraphQL API Playground },
       ]}
     >
       <GraphQLPlayground onError={handleOnError} schema={schema} />

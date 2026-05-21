@@ -51,7 +51,7 @@ export const SignInUpPasswordField = ({
               autoFocus
               value={value}
               type="password"
-              placeholder={t`Password`}
+              placeholder={"Kata sandi"}
               onBlur={onBlur}
               onChange={onChange}
               error={showErrors ? error?.message : undefined}
@@ -59,7 +59,7 @@ export const SignInUpPasswordField = ({
             />
             {signInUpMode === SignInUpMode.SignUp && (
               <StyledText
-                text={t`At least 8 characters long.`}
+                text={""At least 8 characters long."}
                 color={theme.font.color.secondary}
               />
             )}

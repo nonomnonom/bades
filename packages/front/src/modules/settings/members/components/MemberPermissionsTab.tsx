@@ -96,11 +96,11 @@ export const MemberPermissionsTab = ({
         },
         refetchQueries: ['GetRoles'],
       });
-      enqueueSuccessSnackBar({ message: t`Role updated successfully` });
+      enqueueSuccessSnackBar({ message: ""Role updated successfully" });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
-          error instanceof Error ? error.message : t`Failed to update role`,
+          error instanceof Error ? error.message : ""Failed to update role",
       });
     } finally {
       setPendingRole(null);
@@ -115,7 +115,7 @@ export const MemberPermissionsTab = ({
 
   if (!isDefined(primaryRole)) {
     return (
-      <StyledNoRoleContainer>{t`No role assigned to this member`}</StyledNoRoleContainer>
+      <StyledNoRoleContainer>{""No role assigned to this member"}</StyledNoRoleContainer>
     );
   }
 
@@ -126,8 +126,8 @@ export const MemberPermissionsTab = ({
     <>
       <Section>
         <H2Title
-          title={t`Role`}
-          description={t`Customize what this user can view and perform`}
+          title={"Peran"}
+          description={""Customize what this user can view and perform"}
         />
         <StyledRoleContainer>
           <StyledRoleSelector>
@@ -142,7 +142,7 @@ export const MemberPermissionsTab = ({
           </StyledRoleSelector>
           <Button
             Icon={IconArrowUpRight}
-            title={t`Open in Roles`}
+            title={""Open in Roles"}
             variant="secondary"
             onClick={handleOpenRole}
           />
@@ -153,10 +153,10 @@ export const MemberPermissionsTab = ({
       {pendingRole && (
         <ConfirmationModal
           modalInstanceId={CONFIRM_ROLE_CHANGE_MODAL_ID}
-          title={t`Confirm role update`}
+          title={""Confirm role update"}
           subtitle={t`Are you sure you want to update the role of this user from "${oldRoleLabel}" to "${newRoleLabel}"?`}
           onConfirmClick={handleConfirmRoleChange}
-          confirmButtonText={t`Update role`}
+          confirmButtonText={"Perbarui peran"}
           confirmButtonAccent="blue"
         />
       )}

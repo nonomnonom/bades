@@ -66,10 +66,10 @@ export const TimelineCard = () => {
         <AnimatedPlaceholder type="emptyTimeline" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`No activity yet`}
+            {""No activity yet"}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`There is no activity associated with this record.`}
+            {""There is no activity associated with this record."}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>
@@ -88,7 +88,7 @@ export const TimelineCard = () => {
     <StyledMainContainer>
       <EventList
         targetableObject={targetRecord}
-        title={t`All`}
+        title={"Semua"}
         events={timelineActivities ?? []}
       />
       <CustomResolverFetchMoreLoader

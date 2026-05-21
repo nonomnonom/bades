@@ -199,12 +199,12 @@ export const MatchColumnsStep = ({
   const handleOnContinue = useCallback(async () => {
     if (unmatchedRequiredFields.length > 0) {
       enqueueDialog({
-        title: t`Not all columns matched`,
-        message: t`There are required columns that are not matched or ignored. Do you want to continue?`,
+        title: ""Not all columns matched",
+        message: ""There are required columns that are not matched or ignored. Do you want to continue?",
         children: (
           <StyledColumnsContainer>
             <StyledColumns>
-              <Trans>Columns not matched:</Trans>
+              "Columns not matched:
             </StyledColumns>
             {unmatchedRequiredFields.map((field) => (
               <StyledColumn key={field}>{field}</StyledColumn>
@@ -212,9 +212,9 @@ export const MatchColumnsStep = ({
           </StyledColumnsContainer>
         ),
         buttons: [
-          { title: t`Cancel` },
+          { title: "Batalkan" },
           {
-            title: t`Continue`,
+            title: "Lanjutkan",
             onClick: handleAlertOnContinue,
             variant: 'primary',
             role: 'confirm',
@@ -255,12 +255,12 @@ export const MatchColumnsStep = ({
 
   const openRestartDialog = () => {
     enqueueDialog({
-      title: t`Restart Import`,
-      message: t`You will lose all your mappings.`,
+      title: ""Restart Import",
+      message: ""You will lose all your mappings.",
       buttons: [
-        { title: t`Cancel` },
+        { title: "Batalkan" },
         {
-          title: t`Restart`,
+          title: "Mulai ulang",
           onClick: onBackConfirmation,
           accent: 'danger',
           role: 'confirm',
@@ -303,8 +303,8 @@ export const MatchColumnsStep = ({
       <StepNavigationButton
         onContinue={handleOnContinue}
         isLoading={isLoading}
-        continueTitle={t`Next Step`}
-        backTitle={t`Restart Import`}
+        continueTitle={""Next Step"}
+        backTitle={""Restart Import"}
         onBack={openRestartDialog}
         isContinueDisabled={!hasMatchedColumns}
       />

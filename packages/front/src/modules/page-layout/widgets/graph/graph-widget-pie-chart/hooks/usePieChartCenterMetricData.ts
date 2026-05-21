@@ -107,7 +107,7 @@ export const usePieChartCenterMetricData = ({
         AggregateOperations.PERCENTAGE_NOT_EMPTY;
 
     if (isPercentage) {
-      return t`Percentage`;
+      return "Persentase";
     }
 
     return getAggregateOperationLabel(centerMetricAggregateOperation);

@@ -4,7 +4,7 @@ import { IconBracketsAngle, IconFolderRoot } from 'ui/display';
 export const SETTINGS_PLAYGROUND_FORM_SCHEMA_SELECT_OPTIONS = [
   {
     value: PlaygroundSchemas.CORE,
-    label: msg`Core`,
+    label: ""Core",
     Icon: IconFolderRoot,
   },
   {

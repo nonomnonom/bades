@@ -177,22 +177,22 @@ export const DropZone = ({ onContinue, isLoading }: DropZoneProps) => {
       />
       {isDragActive ? (
         <StyledText>
-          <Trans>Drop file here...</Trans>
+          "Drop file here...
         </StyledText>
       ) : loading || isLoading ? (
         <StyledText>
-          <Trans>Processing...</Trans>
+          "Processing...
         </StyledText>
       ) : (
         <>
           <StyledText>
-            <Trans>Upload .xlsx, .xls or .csv file</Trans>
+            "Upload .xlsx, .xls or .csv file
           </StyledText>
           <StyledButtonsContainer>
-            <MainButton onClick={open} title={t`Select file`} fullWidth />
+            <MainButton onClick={open} title={"Pilih file"} fullWidth />
             <MainButton
               onClick={downloadSample}
-              title={t`Download sample`}
+              title={""Download sample"}
               variant="secondary"
               fullWidth
             />

@@ -102,9 +102,9 @@ export const SettingsDataModelObjectAboutForm = ({
   const apiNameTooltipText =
     !isDefined(objectMetadataItem) || objectMetadataItem.isCustom
       ? isLabelSyncedWithName
-        ? t`Deactivate "Synchronize Objects Labels and API Names" to set a custom API name`
-        : t`Input must be in camel case and cannot start with a number`
-      : t`Can't change API names for standard objects`;
+        ? ""Deactivate "Synchronize Objects Labels and API Names" to set a custom API name"
+        : ""Input must be in camel case and cannot start with a number"
+      : ""Can't change API names for standard objects";
 
   const fillLabelPlural = (labelSingular: string | undefined) => {
     if (!isDefined(labelSingular)) return;
@@ -146,7 +146,7 @@ export const SettingsDataModelObjectAboutForm = ({
     <>
       <StyledInputsContainer>
         <StyledInputContainer>
-          <StyledLabel>{t`Icon`}</StyledLabel>
+          <StyledLabel>{"Ikon"}</StyledLabel>
           <Controller
             name="icon"
             control={control}
@@ -197,7 +197,7 @@ export const SettingsDataModelObjectAboutForm = ({
               noErrorHelper={true}
               error={errors.labelSingular?.message}
               label={t`Singular`}
-              placeholder={t`Listing`}
+              placeholder={""Listing"}
               value={value}
               onChange={(value) => {
                 onChange(capitalize(value));
@@ -222,7 +222,7 @@ export const SettingsDataModelObjectAboutForm = ({
               noErrorHelper={true}
               error={errors.labelPlural?.message}
               label={t`Plural`}
-              placeholder={t`Listings`}
+              placeholder={""Listings"}
               value={value}
               onChange={(value) => {
                 onChange(capitalize(value));
@@ -244,7 +244,7 @@ export const SettingsDataModelObjectAboutForm = ({
         render={({ field: { onChange, value } }) => (
           <TextArea
             textAreaId={descriptionTextAreaId}
-            placeholder={t`Write a description`}
+            placeholder={""Write a description"}
             minRows={4}
             value={value ?? undefined}
             onChange={(nextValue) => onChange(nextValue ?? null)}
@@ -259,9 +259,9 @@ export const SettingsDataModelObjectAboutForm = ({
             {isDefined(conflictingObjectMetadataItem) && (
               <InlineBanner
                 color={'blue'}
-                message={t`An object with this name already exists`}
+                message={""An object with this name already exists"}
                 button={{
-                  title: t`Open`,
+                  title: "Buka",
                   onClick: () =>
                     navigateSettings(SettingsPath.ObjectDetail, {
                       objectNamePlural:
@@ -272,7 +272,7 @@ export const SettingsDataModelObjectAboutForm = ({
             )}
             {[
               {
-                label: t`API Name (Singular)`,
+                label: ""API Name (Singular)",
                 fieldName:
                   'nameSingular' as const satisfies StringKeyOf<EnrichedObjectMetadataItem>,
                 placeholder: `listing`,
@@ -282,7 +282,7 @@ export const SettingsDataModelObjectAboutForm = ({
                 tooltip: apiNameTooltipText,
               },
               {
-                label: t`API Name (Plural)`,
+                label: ""API Name (Plural)",
                 fieldName:
                   'namePlural' as const satisfies StringKeyOf<EnrichedObjectMetadataItem>,
                 placeholder: `listings`,
@@ -366,8 +366,8 @@ export const SettingsDataModelObjectAboutForm = ({
                     <Card rounded>
                       <SettingsOptionCardContentToggle
                         Icon={IconRefresh}
-                        title={t`Synchronize Objects Labels and API Names`}
-                        description={t`Should changing an object's label also change the API?`}
+                        title={""Synchronize Objects Labels and API Names"}
+                        description={""Should changing an object's label also change the API?"}
                         checked={value ?? true}
                         advancedMode
                         disabled={disableEdition}
@@ -403,7 +403,7 @@ export const SettingsDataModelObjectAboutForm = ({
                       <SettingsOptionCardContentToggle
                         Icon={IconLink}
                         title={t`Skip creating a Name field `}
-                        description={t`Useful for pivot/junction tables`}
+                        description={""Useful for pivot/junction tables"}
                         checked={value ?? false}
                         advancedMode
                         disabled={disableEdition}

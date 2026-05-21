@@ -29,7 +29,7 @@ export const NoDataLayer = ({
       fill={theme.font.color.tertiary}
       fontSize={theme.font.size.md}
     >
-      {t`No data`}
+      {"Tidak ada data"}
     </text>
   );
 };

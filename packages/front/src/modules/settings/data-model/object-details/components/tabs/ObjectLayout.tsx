@@ -84,11 +84,11 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
     <StyledContentContainer>
       <Section>
         <H2Title
-          title={t`Customize`}
-          description={t`Customize the layout for this role`}
+          title={"Sesuaikan"}
+          description={""Customize the layout for this role"}
         />
         <SettingsCard
-          title={t`Customize record page`}
+          title={""Customize record page"}
           Icon={<IconLayoutDashboard size={theme.icon.size.md} />}
           onClick={handleCustomizeRecordPage}
           disabled={!isDefined(firstRecord)}
@@ -97,10 +97,10 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
       <Section>
         <H2Title
           title={t`Reset`}
-          description={t`Reset all overrides on this layout to return it to the app default`}
+          description={""Reset all overrides on this layout to return it to the app default"}
         />
         <Button
-          title={t`Reset to default`}
+          title={""Reset to default"}
           variant="secondary"
           size="small"
           Icon={IconReload}
@@ -110,8 +110,8 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
       </Section>
       <ConfirmationModal
         modalInstanceId={RESET_PAGE_LAYOUT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This action cannot be undone.`}
+        title={""Reset to default"}
+        subtitle={""This action cannot be undone."}
         onConfirmClick={handleConfirmReset}
         confirmButtonText={t`Reset`}
         confirmButtonAccent="danger"

@@ -19,7 +19,7 @@ export const useHandleResendEmailVerificationToken = () => {
       return async () => {
         if (!email) {
           enqueueErrorSnackBar({
-            message: t`Invalid email`,
+            message: ""Invalid email",
           });
           return;
         }
@@ -34,7 +34,7 @@ export const useHandleResendEmailVerificationToken = () => {
 
           if (data?.resendEmailVerificationToken?.success === true) {
             enqueueSuccessSnackBar({
-              message: t`Email verification link resent!`,
+              message: ""Email verification link resent!",
             });
           } else {
             enqueueErrorSnackBar({});

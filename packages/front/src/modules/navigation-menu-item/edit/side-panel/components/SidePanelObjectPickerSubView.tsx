@@ -48,13 +48,13 @@ export const SidePanelObjectPickerSubView = ({
     });
 
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : (emptyNoResultsText ?? t`All objects are already in the sidebar`);
+    ? ""No results found"
+    : (emptyNoResultsText ?? ""All objects are already in the sidebar");
 
   const isAddVariant = objectMenuItemVariant === 'add';
 
   const listContent = (
-    <SidePanelGroup heading={t`Objects`}>
+    <SidePanelGroup heading={"Objek-objek"}>
       {filteredItems.map((objectMetadataItem, index) => (
         <SidePanelObjectPickerItem
           key={objectMetadataItem.id}
@@ -70,7 +70,7 @@ export const SidePanelObjectPickerSubView = ({
       <SelectableListItem itemId="system" onEnter={onOpenSystemPicker}>
         <CommandMenuItem
           Icon={() => <TintedIconTile Icon={IconSettings} />}
-          label={t`System objects`}
+          label={""System objects"}
           id="system"
           hasSubMenu
           onClick={onOpenSystemPicker}
@@ -81,7 +81,7 @@ export const SidePanelObjectPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search an object...`}
+      searchPlaceholder={""Search an object..."}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >

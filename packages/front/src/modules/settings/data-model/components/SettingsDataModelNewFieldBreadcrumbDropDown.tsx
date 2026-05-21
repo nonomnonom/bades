@@ -85,7 +85,7 @@ export const SettingsDataModelNewFieldBreadcrumbDropDown = () => {
 
   return (
     <StyledContainer>
-      {t`New Field`} <StyledSpan>-</StyledSpan>
+      {""New Field"} <StyledSpan>-</StyledSpan>
       <Dropdown
         dropdownPlacement="bottom-start"
         dropdownId={dropdownId}
@@ -96,11 +96,11 @@ export const SettingsDataModelNewFieldBreadcrumbDropDown = () => {
             </StyledDownChevronContainer>
             {isConfigureStep ? (
               <StyledButtonWrapper>
-                <Button variant="tertiary" title={t`2. Configure`} />
+                <Button variant="tertiary" title={"2. Konfigurasi"} />
               </StyledButtonWrapper>
             ) : (
               <StyledButtonWrapper>
-                <Button variant="tertiary" title={t`1. Type`} />
+                <Button variant="tertiary" title={"1. Tipe"} />
               </StyledButtonWrapper>
             )}
           </StyledButtonContainer>
@@ -110,14 +110,14 @@ export const SettingsDataModelNewFieldBreadcrumbDropDown = () => {
             <DropdownMenuItemsContainer>
               <StyledMenuItemWrapper>
                 <MenuItem
-                  text={t`1. Type`}
+                  text={"1. Tipe"}
                   onClick={() => handleClick('select')}
                   selected={!isConfigureStep}
                 />
               </StyledMenuItemWrapper>
               <StyledMenuItemWrapper disabled={!isDefined(fieldType)}>
                 <MenuItem
-                  text={t`2. Configure`}
+                  text={"2. Konfigurasi"}
                   onClick={() => handleClick('configure')}
                   selected={isConfigureStep}
                   disabled={!isDefined(fieldType)}

@@ -80,14 +80,14 @@ export const SettingsRoleSettings = ({
                 label: value,
               });
             }}
-            placeholder={t`Role name`}
+            placeholder={""Role name"}
             disabled={!isEditable}
           />
         </StyledInputsContainer>
         <TextArea
           textAreaId={descriptionTextAreaId}
           minRows={4}
-          placeholder={t`Write a description`}
+          placeholder={""Write a description"}
           value={settingsDraftRole.description || ''}
           onChange={(value: string) => {
             setSettingsDraftRole({
@@ -118,11 +118,11 @@ export const SettingsRoleSettings = ({
         <>
           <Section>
             <H2Title
-              title={t`Danger zone`}
-              description={t`Delete this role and assign a new role to its members`}
+              title={""Danger zone"}
+              description={""Delete this role and assign a new role to its members"}
             />
             <Button
-              title={t`Delete role`}
+              title={"Hapus peran"}
               size="small"
               variant="secondary"
               accent="danger"

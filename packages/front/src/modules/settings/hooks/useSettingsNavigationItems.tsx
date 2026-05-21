@@ -75,33 +75,33 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
   const permissionMap = usePermissionFlagMap();
   return [
     {
-      label: t`User`,
+      label: "Pengguna",
       items: [
         {
-          label: t`Profile`,
+          label: "Profil",
           path: SettingsPath.ProfilePage,
           Icon: IconUserCircle,
         },
         {
-          label: t`Experience`,
+          label: ""Experience",
           path: SettingsPath.Experience,
           Icon: IconColorSwatch,
         },
         {
-          label: t`Accounts`,
+          label: "Akun-akun",
           path: SettingsPath.Accounts,
           Icon: IconAt,
           isHidden: !permissionMap[PermissionFlagType.CONNECTED_ACCOUNTS],
           subItems: [
             {
-              label: t`Emails`,
+              label: "Email-email",
               path: SettingsPath.AccountsEmails,
               Icon: IconMail,
               isHidden: !permissionMap[PermissionFlagType.CONNECTED_ACCOUNTS],
               indentationLevel: 2,
             },
             {
-              label: t`Calendars`,
+              label: ""Calendars",
               path: SettingsPath.AccountsCalendars,
               Icon: IconCalendarEvent,
               isHidden: !permissionMap[PermissionFlagType.CONNECTED_ACCOUNTS],
@@ -112,35 +112,35 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
       ],
     },
     {
-      label: t`Workspace`,
+      label: "Ruang kerja",
       items: [
         {
-          label: t`General`,
+          label: "Umum",
           path: SettingsPath.Workspace,
           Icon: IconSettings,
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
-          label: t`Data model`,
+          label: ""Data model",
           path: SettingsPath.Objects,
           Icon: IconHierarchy2,
           isHidden: !permissionMap[PermissionFlagType.DATA_MODEL],
         },
         {
-          label: t`Members`,
+          label: "Anggota",
           path: SettingsPath.WorkspaceMembersPage,
           Icon: IconUsers,
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE_MEMBERS],
         },
         {
-          label: t`Billing`,
+          label: "Penagihan",
           path: SettingsPath.Billing,
           Icon: IconCurrencyDollar,
           isHidden:
             !isBillingEnabled || !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
-          label: t`APIs & Webhooks`,
+          label: ""APIs & Webhooks",
           path: SettingsPath.ApiWebhooks,
           Icon: IconApi,
           isHidden: !permissionMap[PermissionFlagType.API_KEYS_AND_WEBHOOKS],
@@ -153,21 +153,21 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
         //   isHidden: !permissionMap[PermissionFlagType.API_KEYS_AND_WEBHOOKS],
         // },
         {
-          label: t`Apps`,
+          label: ""Apps",
           path: SettingsPath.Applications,
           Icon: IconPlug,
           isHidden: !permissionMap[PermissionFlagType.APPLICATIONS],
           modifier: 'new',
         },
         {
-          label: t`AI`,
+          label: ""AI",
           path: SettingsPath.AI,
           Icon: IconSparkles,
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
           modifier: 'new',
         },
         {
-          label: t`Security`,
+          label: "Keamanan",
           path: SettingsPath.Security,
           Icon: IconKey,
           isAdvanced: true,
@@ -176,28 +176,28 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
       ],
     },
     {
-      label: t`Other`,
+      label: "Lainnya",
       items: [
         {
-          label: t`Admin Panel`,
+          label: ""Admin Panel",
           path: SettingsPath.AdminPanel,
           Icon: IconServer,
           isHidden: !isAdminEnabled,
         },
         {
-          label: t`Updates`,
+          label: ""Updates",
           path: SettingsPath.Updates,
           Icon: IconRocket,
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
-          label: t`Support`,
+          label: "Dukungan",
           onClick: () => window.FrontChat?.('show'),
           Icon: IconMessage,
           isHidden: !isSupportChatConfigured,
         },
         {
-          label: t`Documentation`,
+          label: ""Documentation",
           onClick: () =>
             window.open(
               getDocumentationUrl({ locale: currentWorkspaceMember?.locale }),
@@ -206,7 +206,7 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           Icon: IconHelpCircle,
         },
         {
-          label: t`Logout`,
+          label: "Keluar",
           onClick: signOut,
           Icon: IconDoorEnter,
           matchSubPages: false,

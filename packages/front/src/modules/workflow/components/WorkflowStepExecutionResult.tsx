@@ -72,7 +72,7 @@ export const WorkflowStepExecutionResult = ({
   height = '100%',
   status,
   isTesting = false,
-  loadingMessage = t`Processing...`,
+  loadingMessage = ""Processing...",
   idleMessage = t`Output`,
 }: WorkflowStepExecutionResultProps) => {
   const { theme } = useContext(ThemeContext);

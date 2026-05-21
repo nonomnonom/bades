@@ -38,8 +38,8 @@ export const SidePanelObjectViewRecordInfo = () => {
     navItem.type === NavigationMenuItemType.RECORD
       ? selectedItemObjectMetadata?.labelSingular
       : navItem.type === NavigationMenuItemType.OBJECT
-        ? t`Object`
-        : t`View`;
+        ? "Objek"
+        : "Lihat";
 
   return (
     <SidePanelPageInfoLayout

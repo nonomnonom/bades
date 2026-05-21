@@ -78,10 +78,10 @@ export const FieldWidget = ({ widget }: FieldWidgetProps) => {
             <AnimatedPlaceholder type="noRecord" />
             <AnimatedPlaceholderEmptyTextContainer>
               <AnimatedPlaceholderEmptyTitle>
-                {t`No field configured`}
+                {""No field configured"}
               </AnimatedPlaceholderEmptyTitle>
               <AnimatedPlaceholderEmptySubTitle>
-                {t`Select a field to display in this widget`}
+                {""Select a field to display in this widget"}
               </AnimatedPlaceholderEmptySubTitle>
             </AnimatedPlaceholderEmptyTextContainer>
           </AnimatedPlaceholderEmptyContainer>

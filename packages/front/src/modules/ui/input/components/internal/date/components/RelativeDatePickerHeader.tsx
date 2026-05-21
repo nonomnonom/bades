@@ -52,7 +52,7 @@ export const RelativeDatePickerHeader = ({
   const amountString = amount?.toString() ?? '';
 
   const amountTextValue = direction === 'THIS' ? '' : amountString;
-  const amountInputPlaceholder = direction === 'THIS' ? '-' : t`Number`;
+  const amountInputPlaceholder = direction === 'THIS' ? '-' : "Nomor";
 
   const [draftAmountValue, setDraftAmountValue] = useState(amountTextValue);
 

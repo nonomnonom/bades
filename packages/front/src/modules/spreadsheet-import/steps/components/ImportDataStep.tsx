@@ -44,11 +44,11 @@ export const ImportDataStep = ({
   return (
     <>
       <ModalContent noPadding isVerticallyCentered isHorizontallyCentered>
-        <StyledHeader>{t`Importing Data ...`}</StyledHeader>
+        <StyledHeader>{""Importing Data ..."}</StyledHeader>
         <StyledDescription>{t`${formattedCreatedRecordsProgress} out of ${formattedRecordsToImportCount} records imported.`}</StyledDescription>
         <Loader />
       </ModalContent>
-      <StepNavigationButton onBack={onClose} backTitle={t`Cancel`} />
+      <StepNavigationButton onBack={onClose} backTitle={"Batalkan"} />
     </>
   );
 };

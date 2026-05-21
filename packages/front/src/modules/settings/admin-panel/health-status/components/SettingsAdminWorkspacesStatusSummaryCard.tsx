@@ -48,7 +48,7 @@ export const SettingsAdminWorkspacesStatusSummaryCard = ({
       items={[
         {
           Icon: IconStatusChange,
-          label: t`Upgrade health`,
+          label: ""Upgrade health",
           value: (
             <Status
               color={workspacesUpgradeHealthBadge.color}
@@ -59,17 +59,17 @@ export const SettingsAdminWorkspacesStatusSummaryCard = ({
         },
         {
           Icon: IconAlertTriangle,
-          label: t`Behind`,
+          label: ""Behind",
           value: behindCount,
         },
         {
           Icon: IconX,
-          label: t`Failed`,
+          label: "Gagal",
           value: failedCount,
         },
         {
           Icon: IconClock,
-          label: t`Computed at`,
+          label: ""Computed at",
           value:
             formatDateTimeString({
               value: computedAt,
@@ -77,7 +77,7 @@ export const SettingsAdminWorkspacesStatusSummaryCard = ({
               dateFormat,
               timeFormat,
               localeCatalog,
-            }) || t`N/A`,
+            }) || ""N/A",
         },
       ]}
       gridAutoColumns="3fr 4fr"

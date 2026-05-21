@@ -156,7 +156,7 @@ export const AiChatContextUsageButton = () => {
       {isHovered && (
         <StyledHoverCard>
           <StyledSection>
-            <StyledSectionTitle>{t`Context window`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Context window"}</StyledSectionTitle>
             <StyledRow>
               <StyledContextWindowValue>
                 {formattedPercentage}%
@@ -171,7 +171,7 @@ export const AiChatContextUsageButton = () => {
                   abbreviate: true,
                   decimals: 1,
                 })}{' '}
-                {t`tokens`}
+                {""tokens"}
               </StyledContextWindowValue>
             </StyledRow>
             <ProgressBar
@@ -195,23 +195,23 @@ export const AiChatContextUsageButton = () => {
                 color={themeCssVariables.background.tertiary}
               />
               <StyledSection>
-                <StyledSectionTitle>{t`Last message`}</StyledSectionTitle>
+                <StyledSectionTitle>{""Last message"}</StyledSectionTitle>
                 <SettingsBillingLabelValueItem
-                  label={t`Input tokens`}
+                  label={""Input tokens"}
                   value={`${formatNumber(lastMessage.inputTokens, {
                     abbreviate: true,
                     decimals: 1,
                   })}${getCachedLabel(lastMessage)}`}
                 />
                 <SettingsBillingLabelValueItem
-                  label={t`Output tokens`}
+                  label={""Output tokens"}
                   value={formatNumber(lastMessage.outputTokens, {
                     abbreviate: true,
                     decimals: 1,
                   })}
                 />
                 <SettingsBillingLabelValueItem
-                  label={t`Cost`}
+                  label={"Biaya"}
                   value={formatChatCost(
                     lastMessage.inputCredits + lastMessage.outputCredits,
                   )}
@@ -225,23 +225,23 @@ export const AiChatContextUsageButton = () => {
             color={themeCssVariables.background.tertiary}
           />
           <StyledSection>
-            <StyledSectionTitle>{t`Conversation`}</StyledSectionTitle>
+            <StyledSectionTitle>{""Conversation"}</StyledSectionTitle>
             <SettingsBillingLabelValueItem
-              label={t`Input tokens`}
+              label={""Input tokens"}
               value={formatNumber(agentChatUsage.inputTokens, {
                 abbreviate: true,
                 decimals: 1,
               })}
             />
             <SettingsBillingLabelValueItem
-              label={t`Output tokens`}
+              label={""Output tokens"}
               value={formatNumber(agentChatUsage.outputTokens, {
                 abbreviate: true,
                 decimals: 1,
               })}
             />
             <SettingsBillingLabelValueItem
-              label={t`Total cost`}
+              label={""Total cost"}
               value={formatChatCost(totalCredits)}
             />
           </StyledSection>

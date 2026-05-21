@@ -40,7 +40,7 @@ import {
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 import { logError } from '~/utils/logError';
 
-const passwordLengthMessage = msg`Password must be between 8 and 50 characters`;
+const passwordLengthMessage = ""Password must be between 8 and 50 characters";
 
 const validationSchema = z
   .object({
@@ -165,15 +165,15 @@ export const PasswordReset = () => {
 
       if (!data?.updatePasswordViaResetToken.success) {
         enqueueErrorSnackBar({
-          message: t`There was an error while updating password.`,
+          message: ""There was an error while updating password.",
         });
         return;
       }
 
       const successMessage =
         isTargetUserPasswordSet === false
-          ? t`Password has been set`
-          : t`Password has been updated`;
+          ? ""Password has been set"
+          : ""Password has been updated";
 
       setCurrentUser((currentUser) =>
         currentUser ? { ...currentUser, hasPassword: true } : currentUser,
@@ -189,7 +189,7 @@ export const PasswordReset = () => {
 
       if (!isCaptchaReady) {
         enqueueErrorSnackBar({
-          message: t`Captcha (anti-bot check) is still loading, try again`,
+          message: ""Captcha (anti-bot check) is still loading, try again",
         });
         return;
       }
@@ -216,7 +216,7 @@ export const PasswordReset = () => {
   };
 
   const passwordActionLabel =
-    isTargetUserPasswordSet === true ? t`Change Password` : t`Set Password`;
+    isTargetUserPasswordSet === true ? ""Change Password" : ""Set Password";
 
   return (
     isTokenValid && (
@@ -288,7 +288,7 @@ export const PasswordReset = () => {
                             autoFocus
                             value={value}
                             type="password"
-                            placeholder={t`New Password`}
+                            placeholder={""New Password"}
                             onBlur={onBlur}
                             onChange={onChange}
                             error={error?.message}

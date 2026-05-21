@@ -44,12 +44,12 @@ export const SettingsAiPrompts = () => {
     }
 
     const parts = [
-      `**${t`User`}:** ${currentWorkspaceMember.name.firstName} ${currentWorkspaceMember.name.lastName}`.trim(),
-      `**${t`Locale`}:** ${currentWorkspaceMember.locale ?? 'en'}`,
+      `**${"Pengguna"}:** ${currentWorkspaceMember.name.firstName} ${currentWorkspaceMember.name.lastName}`.trim(),
+      `**${""Locale"}:** ${currentWorkspaceMember.locale ?? 'en'}`,
     ];
 
     if (isDefined(currentWorkspaceMember.timeZone)) {
-      parts.push(`**${t`Timezone`}:** ${currentWorkspaceMember.timeZone}`);
+      parts.push(`**${""Timezone"}:** ${currentWorkspaceMember.timeZone}`);
     }
 
     return parts.join('\n\n');
@@ -74,19 +74,19 @@ export const SettingsAiPrompts = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
-        { children: t`System Prompt` },
+        { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
+        { children: ""System Prompt" },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <StyledTitleContainer>
             <H3Title
-              title={t`System Prompt`}
-              description={[t`Read-only`, totalTokenCount]
+              title={""System Prompt"}
+              description={[""Read-only", totalTokenCount]
                 .filter(Boolean)
                 .join(' ')}
             />
@@ -105,7 +105,7 @@ export const SettingsAiPrompts = () => {
             <Section key={section.title}>
               <H2Title
                 title={section.title}
-                description={[t`Read-only`, sectionTokenCount]
+                description={[""Read-only", sectionTokenCount]
                   .filter(Boolean)
                   .join(' ')}
               />
@@ -122,7 +122,7 @@ export const SettingsAiPrompts = () => {
                   enableFullScreen={true}
                   fullScreenBreadcrumbs={[
                     {
-                      children: t`System Prompt`,
+                      children: ""System Prompt",
                       href: '#',
                     },
                     {
@@ -139,12 +139,12 @@ export const SettingsAiPrompts = () => {
 
         <Section>
           <H2Title
-            title={t`User Context`}
-            description={t`Information about the current user (auto-generated and included in each request)`}
+            title={""User Context"}
+            description={""Information about the current user (auto-generated and included in each request)"}
           />
           <StyledFormContainer>
             <FormAdvancedTextFieldInput
-              label={t`User Information`}
+              label={""User Information"}
               readonly={true}
               defaultValue={userContextPreview}
               contentType="markdown"

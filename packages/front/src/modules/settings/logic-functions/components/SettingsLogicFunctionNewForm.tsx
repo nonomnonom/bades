@@ -31,13 +31,13 @@ export const SettingsLogicFunctionNewForm = ({
   return (
     <Section>
       <H2Title
-        title={t`About`}
-        description={t`Name and describe your function`}
+        title={"Tentang"}
+        description={""Name and describe your function"}
       />
       <StyledInputsContainer>
         <SettingsTextInput
           instanceId={nameTextInputId}
-          placeholder={t`Name`}
+          placeholder={"Nama"}
           fullWidth
           autoFocusOnMount
           value={formValues.name}
@@ -46,7 +46,7 @@ export const SettingsLogicFunctionNewForm = ({
         />
         <TextArea
           textAreaId={descriptionTextAreaId}
-          placeholder={t`Description`}
+          placeholder={"Deskripsi"}
           minRows={4}
           value={formValues.description}
           onChange={onChange('description')}
@@ -55,8 +55,8 @@ export const SettingsLogicFunctionNewForm = ({
         <Card rounded>
           <SettingsOptionCardContentCounter
             Icon={IconClockHour8}
-            title={t`Timeout`}
-            description={t`Maximum execution time in seconds (1-900)`}
+            title={""Timeout"}
+            description={""Maximum execution time in seconds (1-900)"}
             value={formValues.timeoutSeconds}
             onChange={onChange('timeoutSeconds')}
             minValue={1}

@@ -23,8 +23,8 @@ export const SettingsLogicFunctionWorkflowActionTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`Workflow action`}
-      description={t`Exposes the function as a step in the workflow builder`}
+      title={""Workflow action"}
+      description={""Exposes the function as a step in the workflow builder"}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_WORKFLOW_ACTION_TRIGGER_SETTINGS : null)

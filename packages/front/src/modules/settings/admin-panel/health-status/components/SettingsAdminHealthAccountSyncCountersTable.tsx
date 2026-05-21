@@ -29,19 +29,19 @@ export const SettingsAdminHealthAccountSyncCountersTable = ({
 
   const items = [
     {
-      label: t`Active Sync`,
+      label: "Sinkronisasi Aktif",
       value: details.counters.ACTIVE,
     },
     {
-      label: t`Total Jobs`,
+      label: ""Total Jobs",
       value: details.totalJobs,
     },
     {
-      label: t`Failed Jobs`,
+      label: ""Failed Jobs",
       value: details.failedJobs,
     },
     {
-      label: t`Failure Rate`,
+      label: ""Failure Rate",
       value: `${details.failureRate}%`,
     },
   ];

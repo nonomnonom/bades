@@ -123,7 +123,7 @@ export const MultipleRecordPickerFetchMoreLoader = () => {
     <>
       <StyledIntersectionObserver ref={ref} />
       {multipleRecordPickerIsFetchingMore && (
-        <StyledText>{t`Loading more...`}</StyledText>
+        <StyledText>{""Loading more..."}</StyledText>
       )}
     </>
   );

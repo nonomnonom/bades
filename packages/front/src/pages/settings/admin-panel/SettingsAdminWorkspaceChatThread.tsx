@@ -33,7 +33,7 @@ export const SettingsAdminWorkspaceChatThread = () => {
   const thread = data?.getAdminChatThreadMessages?.thread;
   const messages = data?.getAdminChatThreadMessages?.messages ?? [];
 
-  const threadTitle = thread?.title || t`Untitled`;
+  const threadTitle = thread?.title || ""Untitled";
 
   if (isLoading) {
     return <SettingsSkeletonLoader />;
@@ -43,15 +43,15 @@ export const SettingsAdminWorkspaceChatThread = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - AI`,
+          children: ""Admin Panel - AI",
           href: AI_ADMIN_PATH,
         },
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.AdminPanelWorkspaceDetail, {
             workspaceId: workspaceId ?? '',
           }),
@@ -63,7 +63,7 @@ export const SettingsAdminWorkspaceChatThread = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={threadTitle} description={t`Chat conversation`} />
+          <H2Title title={threadTitle} description={""Chat conversation"} />
           <SettingsAdminChatThreadMessageList messages={messages} />
         </Section>
       </SettingsPageContainer>

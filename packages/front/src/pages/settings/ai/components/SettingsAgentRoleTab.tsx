@@ -150,12 +150,12 @@ export const SettingsAgentRoleTab = ({
       {!formValues.role ? (
         <>
           <H2Title
-            title={t`Role`}
-            description={t`Create a role to define permissions for this agent.`}
+            title={"Peran"}
+            description={""Create a role to define permissions for this agent."}
           />
           <Button
             Icon={IconPlus}
-            title={t`Create Role`}
+            title={""Create Role"}
             variant="secondary"
             onClick={handleCreateRole}
             disabled={disabled || isCreatingRole}
@@ -167,7 +167,7 @@ export const SettingsAgentRoleTab = ({
             <>
               {isRoleShared && (
                 <StyledWarningText>
-                  {t`This role is shared with other users or agents and cannot be edited here.`}
+                  {""This role is shared with other users or agents and cannot be edited here."}
                 </StyledWarningText>
               )}
               <SettingsRolePermissions

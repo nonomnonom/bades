@@ -45,12 +45,12 @@ export const HttpRequestExecutionResult = ({
             ? ` - ${httpRequestTestData.output.duration}ms`
             : ''
         }`
-      : t`Request Failed`,
+      : ""Request Failed",
     additionalInfo:
       isSuccess && headersCount > 0
         ? t`${headersCount} headers received`
         : isError
-          ? t`An error occurred`
+          ? ""An error occurred"
           : undefined,
   };
 
@@ -61,8 +61,8 @@ export const HttpRequestExecutionResult = ({
       height="100%"
       status={status}
       isTesting={isTesting}
-      loadingMessage={t`Sending request...`}
-      idleMessage={t`Response`}
+      loadingMessage={""Sending request..."}
+      idleMessage={"Respons"}
     />
   );
 };

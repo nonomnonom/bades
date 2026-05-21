@@ -26,10 +26,10 @@ type StepNavigationButtonProps = {
 
 export const StepNavigationButton = ({
   onContinue,
-  continueTitle = t`Continue`,
+  continueTitle = "Lanjutkan",
   isLoading,
   onBack,
-  backTitle = t`Back`,
+  backTitle = "Kembali",
   isContinueDisabled = false,
 }: StepNavigationButtonProps) => {
   return (

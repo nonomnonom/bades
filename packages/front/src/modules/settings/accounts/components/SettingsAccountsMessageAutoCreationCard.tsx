@@ -10,22 +10,22 @@ type SettingsAccountsMessageAutoCreationCardProps = {
 
 const autoCreationOptions = [
   {
-    title: msg`Sent and Received`,
-    description: msg`People I’ve sent emails to and received emails from.`,
+    title: ""Sent and Received",
+    description: ""People I’ve sent emails to and received emails from.",
     value: MessageChannelContactAutoCreationPolicy.SENT_AND_RECEIVED,
     cardMedia: (
       <SettingsAccountsMessageAutoCreationIcon isSentActive isReceivedActive />
     ),
   },
   {
-    title: msg`Sent`,
-    description: msg`People I’ve sent emails to.`,
+    title: "Terkirim",
+    description: ""People I’ve sent emails to.",
     value: MessageChannelContactAutoCreationPolicy.SENT,
     cardMedia: <SettingsAccountsMessageAutoCreationIcon isSentActive />,
   },
   {
-    title: msg`None`,
-    description: msg`Don’t auto-create contacts.`,
+    title: "Tidak ada",
+    description: ""Don’t auto-create contacts.",
     value: MessageChannelContactAutoCreationPolicy.NONE,
     cardMedia: (
       <SettingsAccountsMessageAutoCreationIcon

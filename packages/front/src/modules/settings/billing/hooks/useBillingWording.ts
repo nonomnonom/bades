@@ -38,12 +38,12 @@ export const useBillingWording = () => {
     asAdjective: boolean = false,
   ): string =>
     isMonthly && asAdjective
-      ? t`monthly`
+      ? ""monthly"
       : asAdjective
-        ? t`yearly`
+        ? ""yearly"
         : isMonthly
-          ? t`month`
-          : t`year`;
+          ? ""month"
+          : ""year";
 
   const getBeautifiedRenewDate = () => {
     assertIsDefinedOrThrow(
@@ -122,8 +122,8 @@ export const useBillingWording = () => {
   const confirmationModalCancelPlanSwitchingMessage = () => {
     const planKeyWord =
       currentPlan.planKey === BillingPlanKey.ENTERPRISE
-        ? t`Organization`
-        : t`Pro`;
+        ? "Organisasi"
+        : ""Pro";
 
     return t`This will cancel the scheduled plan change and keep your current plan (${planKeyWord}).`;
   };

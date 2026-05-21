@@ -19,7 +19,7 @@ export const getHoursDescription = (
   const use24Hour = options.use24HourTimeFormat ?? true;
 
   if (hours === '*') {
-    return t`every hour`;
+    return ""every hour";
   }
 
   if (isStepValue(hours)) {
@@ -28,7 +28,7 @@ export const getHoursDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every hour`;
+        return ""every hour";
       }
       const stepNumStr = stepNum.toString();
       return t`every ${stepNumStr} hours`;

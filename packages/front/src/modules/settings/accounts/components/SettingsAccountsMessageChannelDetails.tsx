@@ -90,8 +90,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       {supportsFolderImportPolicy && (
         <Section>
           <H2Title
-            title={t`Import`}
-            description={t`Emails from the blocklist will be ignored. Manage blocklist on the "Accounts" setting page.`}
+            title={"Impor"}
+            description={""Emails from the blocklist will be ignored. Manage blocklist on the "Accounts" setting page."}
           />
           <SettingsAccountsMessageFolderCard
             onChange={handleMessageFolderImportPolicyChange}
@@ -103,8 +103,8 @@ export const SettingsAccountsMessageChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconUsers}
-            title={t`Exclude group emails`}
-            description={t`Don't sync emails from team@ support@ noreply@...`}
+            title={""Exclude group emails"}
+            description={""Don't sync emails from team@ support@ noreply@..."}
             checked={messageChannel.excludeGroupEmails}
             onChange={() =>
               handleIsGroupEmailExcludedToggle(
@@ -116,8 +116,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Visibility`}
-          description={t`Define what will be visible to other users in your workspace`}
+          title={"Visibilitas"}
+          description={""Define what will be visible to other users in your workspace"}
         />
         <SettingsAccountsMessageVisibilityCard
           value={messageChannel.visibility}
@@ -126,8 +126,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Contact auto-creation`}
-          description={t`Automatically create People records when receiving or sending emails`}
+          title={""Contact auto-creation"}
+          description={""Automatically create People records when receiving or sending emails"}
         />
         <SettingsAccountsMessageAutoCreationCard
           value={messageChannel.contactAutoCreationPolicy}
@@ -138,8 +138,8 @@ export const SettingsAccountsMessageChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconBriefcase}
-            title={t`Exclude non-professional emails`}
-            description={t`Don't create contacts from/to Gmail, Outlook emails`}
+            title={""Exclude non-professional emails"}
+            description={""Don't create contacts from/to Gmail, Outlook emails"}
             checked={messageChannel.excludeNonProfessionalEmails}
             onChange={() => {
               handleIsNonProfessionalEmailExcludedToggle(

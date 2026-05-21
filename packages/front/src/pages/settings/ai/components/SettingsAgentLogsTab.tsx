@@ -108,7 +108,7 @@ export const SettingsAgentLogsTab = ({
           });
         }
         enqueueSuccessSnackBar({
-          message: t`Turn evaluated successfully`,
+          message: ""Turn evaluated successfully",
         });
         refetch();
       },
@@ -124,7 +124,7 @@ export const SettingsAgentLogsTab = ({
         return next;
       });
       enqueueErrorSnackBar({
-        message: t`Failed to evaluate turn`,
+        message: ""Failed to evaluate turn",
       });
     });
   };
@@ -152,8 +152,8 @@ export const SettingsAgentLogsTab = ({
         <Table>
           <StyledTableHeaderRowContainer>
             <TableRow gridTemplateColumns="140px 80px 1fr 40px">
-              <TableHeader>{t`Date`}</TableHeader>
-              <TableHeader>{t`Score`}</TableHeader>
+              <TableHeader>{"Tanggal"}</TableHeader>
+              <TableHeader>{""Score"}</TableHeader>
               <TableHeader>{t`Input`}</TableHeader>
               <TableHeader />
             </TableRow>
@@ -172,10 +172,10 @@ export const SettingsAgentLogsTab = ({
         <AnimatedPlaceholder type="emptyTimeline" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`No logs yet`}
+            {""No logs yet"}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`Agent interactions will appear here once the agent is used in conversations`}
+            {""Agent interactions will appear here once the agent is used in conversations"}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>
@@ -187,8 +187,8 @@ export const SettingsAgentLogsTab = ({
       <Table>
         <StyledTableHeaderRowContainer>
           <TableRow gridTemplateColumns="140px 80px 1fr 40px">
-            <TableHeader>{t`Date`}</TableHeader>
-            <TableHeader>{t`Score`}</TableHeader>
+            <TableHeader>{"Tanggal"}</TableHeader>
+            <TableHeader>{""Score"}</TableHeader>
             <TableHeader>{t`Input`}</TableHeader>
             <TableHeader />
           </TableRow>
@@ -215,14 +215,14 @@ export const SettingsAgentLogsTab = ({
                   />
                 ) : evaluatingTurnIds.has(turn.id) ||
                   backgroundEvaluatingTurnIds.has(turn.id) ? (
-                  <Status color="blue" text={t`Evaluating`} isLoaderVisible />
+                  <Status color="blue" text={""Evaluating"} isLoaderVisible />
                 ) : (
                   <Button
                     size="small"
                     variant="secondary"
                     onClick={() => handleEvaluateTurn(turn.id)}
                     disabled={evaluating}
-                    title={t`Evaluate`}
+                    title={""Evaluate"}
                   />
                 )}
               </TableCell>
@@ -231,7 +231,7 @@ export const SettingsAgentLogsTab = ({
                 textOverflow="ellipsis"
                 whiteSpace="nowrap"
               >
-                {userInput || t`No input`}
+                {userInput || ""No input"}
               </TableCell>
               <TableCell
                 align="right"
@@ -245,7 +245,7 @@ export const SettingsAgentLogsTab = ({
                   >
                     <LightIconButton
                       Icon={IconChevronRight}
-                      title={t`View all evaluations`}
+                      title={""View all evaluations"}
                       accent="tertiary"
                     />
                   </UndecoratedLink>

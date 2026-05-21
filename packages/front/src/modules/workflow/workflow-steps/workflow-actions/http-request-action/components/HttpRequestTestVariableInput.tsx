@@ -74,7 +74,7 @@ export const HttpRequestTestVariableInput = ({
           <FormTextFieldInput
             key={variablePath}
             label={`${variablePath}`}
-            placeholder={t`Enter test value`}
+            placeholder={""Enter test value"}
             readonly={readonly}
             defaultValue={
               httpRequestTestData.variableValues[variablePath] || ''

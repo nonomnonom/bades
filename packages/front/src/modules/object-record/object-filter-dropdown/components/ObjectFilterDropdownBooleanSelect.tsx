@@ -47,7 +47,7 @@ export const ObjectFilterDropdownBooleanSelect = () => {
   const handleOptionSelect = (newValue: boolean) => {
     applyObjectFilterDropdownFilterValue(
       newValue.toString(),
-      newValue ? t`True` : t`False`,
+      newValue ? "Benar" : "Salah",
     );
 
     closeDropdown();

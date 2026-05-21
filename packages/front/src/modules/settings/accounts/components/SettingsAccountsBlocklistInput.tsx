@@ -42,7 +42,7 @@ export const SettingsAccountsBlocklistInput = ({
         emailOrDomain: z
           .string()
           .trim()
-          .pipe(z.email({ error: t`Invalid email or domain` }))
+          .pipe(z.email({ error: ""Invalid email or domain" }))
           .or(
             z.string().refine(
               (value) =>
@@ -51,12 +51,12 @@ export const SettingsAccountsBlocklistInput = ({
                   allowIp: false,
                   allowLocalhost: false,
                 }),
-              t`Invalid email or domain`,
+              ""Invalid email or domain",
             ),
           )
           .refine(
             (value) => !blockedEmailOrDomainList.includes(value),
-            t`Email or domain is already in blocklist`,
+            ""Email or domain is already in blocklist",
           ),
       })
       .required();
@@ -97,7 +97,7 @@ export const SettingsAccountsBlocklistInput = ({
             render={({ field: { value, onChange }, fieldState: { error } }) => (
               <SettingsTextInput
                 instanceId="settings-accounts-blocklist-input"
-                placeholder={t`eddy@gmail.com, @apple.com`}
+                placeholder={""eddy@gmail.com, @apple.com"}
                 value={value}
                 onChange={onChange}
                 error={error?.message}
@@ -107,7 +107,7 @@ export const SettingsAccountsBlocklistInput = ({
             )}
           />
         </StyledLinkContainer>
-        <Button title={t`Add to blocklist`} type="submit" />
+        <Button title={""Add to blocklist"} type="submit" />
       </StyledContainer>
     </form>
   );

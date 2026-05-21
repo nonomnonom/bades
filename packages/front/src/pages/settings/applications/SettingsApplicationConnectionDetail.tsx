@@ -126,13 +126,13 @@ export const SettingsApplicationConnectionDetail = () => {
       connectionProvider.id === connection?.connectionProviderId,
   );
 
-  const applicationName = application?.name ?? t`Application`;
+  const applicationName = application?.name ?? ""Application";
   const connectionLabel =
     connection?.name !== null &&
     connection?.name !== undefined &&
     connection.name.trim() !== ''
       ? connection.name
-      : (connection?.handle ?? t`Connection`);
+      : (connection?.handle ?? ""Connection");
   const deleteModalId = `delete-application-connection-modal-${connectedAccountId}`;
   const changeVisibilityModalId = `change-application-connection-visibility-modal-${connectedAccountId}`;
   const applicationSettingsPath = getSettingsPath(
@@ -204,24 +204,24 @@ export const SettingsApplicationConnectionDetail = () => {
     return [
       {
         key: 'provider',
-        label: t`Provider`,
+        label: ""Provider",
         value: provider.displayName,
       },
       {
         key: 'handle',
-        label: t`Handle`,
+        label: ""Handle",
         value: <StyledMonoText>{connection.handle}</StyledMonoText>,
       },
       {
         key: 'visibility',
-        label: t`Visibility`,
+        label: "Visibilitas",
         value: (
           <Status
             color={connection.visibility === 'workspace' ? 'blue' : 'gray'}
             text={
               connection.visibility === 'workspace'
-                ? t`Workspace shared`
-                : t`Just for me`
+                ? ""Workspace shared"
+                : ""Just for me"
             }
           />
         ),
@@ -230,14 +230,14 @@ export const SettingsApplicationConnectionDetail = () => {
         key: 'status',
         label: t`Status`,
         value: connection.authFailedAt ? (
-          <Status color="red" text={t`Reconnect needed`} />
+          <Status color="red" text={""Reconnect needed"} />
         ) : (
-          <Status color="green" text={t`Connected`} />
+          <Status color="green" text={"Terhubung"} />
         ),
       },
       {
         key: 'scopes',
-        label: t`Granted OAuth scopes`,
+        label: ""Granted OAuth scopes",
         value:
           scopes.length > 0 ? (
             <StyledScopeList>
@@ -251,27 +251,27 @@ export const SettingsApplicationConnectionDetail = () => {
       },
       {
         key: 'lastSignedInAt',
-        label: t`Last signed in`,
+        label: ""Last signed in",
         value: formatDateTime(connection.lastSignedInAt),
       },
       {
         key: 'lastCredentialsRefreshedAt',
-        label: t`Last refreshed`,
+        label: ""Last refreshed",
         value: formatDateTime(connection.lastCredentialsRefreshedAt),
       },
       {
         key: 'authFailedAt',
-        label: t`Auth failed at`,
+        label: ""Auth failed at",
         value: formatDateTime(connection.authFailedAt),
       },
       {
         key: 'createdAt',
-        label: t`Created`,
+        label: "Dibuat",
         value: formatDateTime(connection.createdAt),
       },
       {
         key: 'updatedAt',
-        label: t`Updated`,
+        label: ""Updated",
         value: formatDateTime(connection.updatedAt),
       },
     ];
@@ -287,11 +287,11 @@ export const SettingsApplicationConnectionDetail = () => {
       title={connectionLabel}
       links={[
         {
-          children: t`Workspace`,
+          children: "Ruang kerja",
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Applications`,
+          children: ""Applications",
           href: getSettingsPath(SettingsPath.Applications),
         },
         {
@@ -307,8 +307,8 @@ export const SettingsApplicationConnectionDetail = () => {
         ) : connection === undefined || provider === undefined ? (
           <Section>
             <H2Title
-              title={t`Connection not found`}
-              description={t`This connection does not exist or is not available for this application.`}
+              title={""Connection not found"}
+              description={""This connection does not exist or is not available for this application."}
             />
           </Section>
         ) : (
@@ -316,12 +316,12 @@ export const SettingsApplicationConnectionDetail = () => {
             <Section>
               <H2Title
                 title={connectionLabel}
-                description={t`Manage this application's OAuth connection.`}
+                description={""Manage this application's OAuth connection."}
               />
               <StyledActions>
                 {connection.authFailedAt && (
                   <Button
-                    title={t`Reconnect`}
+                    title={""Reconnect"}
                     Icon={IconRefresh}
                     variant="secondary"
                     accent="blue"
@@ -331,8 +331,8 @@ export const SettingsApplicationConnectionDetail = () => {
                 <Button
                   title={
                     connection.visibility === 'workspace'
-                      ? t`Make private`
-                      : t`Share with workspace`
+                      ? ""Make private"
+                      : ""Share with workspace"
                   }
                   Icon={
                     connection.visibility === 'workspace' ? IconUser : IconUsers
@@ -342,7 +342,7 @@ export const SettingsApplicationConnectionDetail = () => {
                   onClick={() => openModal(changeVisibilityModalId)}
                 />
                 <Button
-                  title={t`Disconnect`}
+                  title={"Putuskan koneksi"}
                   Icon={IconTrash}
                   variant="secondary"
                   accent="danger"
@@ -352,15 +352,15 @@ export const SettingsApplicationConnectionDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Details`}
-                description={t`OAuth credential metadata for this application connection`}
+                title={"Detail"}
+                description={""OAuth credential metadata for this application connection"}
               />
               <Table>
                 <TableRow gridTemplateColumns={DETAIL_GRID_TEMPLATE}>
-                  <TableHeader>{t`Property`}</TableHeader>
-                  <TableHeader>{t`Value`}</TableHeader>
+                  <TableHeader>{""Property"}</TableHeader>
+                  <TableHeader>{"Nilai"}</TableHeader>
                 </TableRow>
-                <TableSection title={t`Connection`}>
+                <TableSection title={""Connection"}>
                   {detailRows.map((row) => (
                     <TableRow
                       key={row.key}
@@ -379,19 +379,17 @@ export const SettingsApplicationConnectionDetail = () => {
             </Section>
             <ConfirmationModal
               modalInstanceId={deleteModalId}
-              title={t`Disconnect connection?`}
+              title={""Disconnect connection?"}
               subtitle={
-                <Trans>
-                  This will disconnect {connectionLabel} from this application.
-                </Trans>
+                "This will disconnect {connectionLabel} from this application.
               }
               onConfirmClick={handleDelete}
-              confirmButtonText={t`Disconnect`}
+              confirmButtonText={"Putuskan koneksi"}
               loading={isDeleting}
             />
             <ConfirmationModal
               modalInstanceId={changeVisibilityModalId}
-              title={t`Change visibility?`}
+              title={""Change visibility?"}
               subtitle={
                 <Trans>
                   Changing visibility requires reconnecting this OAuth
@@ -399,7 +397,7 @@ export const SettingsApplicationConnectionDetail = () => {
                 </Trans>
               }
               onConfirmClick={handleChangeVisibility}
-              confirmButtonText={t`Reconnect and change visibility`}
+              confirmButtonText={""Reconnect and change visibility"}
               confirmButtonAccent="blue"
             />
           </>

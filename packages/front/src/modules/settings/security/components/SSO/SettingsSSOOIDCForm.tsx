@@ -46,8 +46,8 @@ export const SettingsSSOOIDCForm = () => {
     <>
       <Section>
         <H2Title
-          title={t`Client Settings`}
-          description={t`Provide your OIDC provider details`}
+          title={""Client Settings"}
+          description={""Provide your OIDC provider details"}
         />
         <StyledInputsContainer>
           <StyledContainer>
@@ -55,7 +55,7 @@ export const SettingsSSOOIDCForm = () => {
               <SettingsTextInput
                 instanceId="sso-oidc-authorized-uri"
                 readOnly={true}
-                label={t`Authorized URI`}
+                label={""Authorized URI"}
                 value={authorizedUrl}
                 fullWidth
               />
@@ -63,11 +63,11 @@ export const SettingsSSOOIDCForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title={t`Copy`}
+                title={"Salin"}
                 onClick={() => {
                   copyToClipboard(
                     authorizedUrl,
-                    t`Authorized URL copied to clipboard`,
+                    ""Authorized URL copied to clipboard",
                   );
                 }}
                 type="button"
@@ -79,7 +79,7 @@ export const SettingsSSOOIDCForm = () => {
               <SettingsTextInput
                 instanceId="sso-oidc-redirection-uri"
                 readOnly={true}
-                label={t`Redirection URI`}
+                label={""Redirection URI"}
                 value={redirectionUrl}
                 fullWidth
               />
@@ -87,11 +87,11 @@ export const SettingsSSOOIDCForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title={t`Copy`}
+                title={"Salin"}
                 onClick={() => {
                   copyToClipboard(
                     redirectionUrl,
-                    t`Redirect Url copied to clipboard`,
+                    ""Redirect Url copied to clipboard",
                   );
                 }}
                 type="button"
@@ -102,8 +102,8 @@ export const SettingsSSOOIDCForm = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Identity Provider`}
-          description={t`Enter the credentials to set the connection`}
+          title={""Identity Provider"}
+          description={""Enter the credentials to set the connection"}
         />
         <StyledInputsContainer>
           <Controller
@@ -113,7 +113,7 @@ export const SettingsSSOOIDCForm = () => {
               <SettingsTextInput
                 instanceId="sso-oidc-client-id"
                 autoComplete="off"
-                label={t`Client ID`}
+                label={""Client ID"}
                 value={value}
                 onChange={onChange}
                 fullWidth
@@ -129,7 +129,7 @@ export const SettingsSSOOIDCForm = () => {
                 instanceId="sso-oidc-client-secret"
                 autoComplete="off"
                 type="password"
-                label={t`Client Secret`}
+                label={""Client Secret"}
                 value={value}
                 onChange={onChange}
                 fullWidth
@@ -144,7 +144,7 @@ export const SettingsSSOOIDCForm = () => {
               <SettingsTextInput
                 instanceId="sso-oidc-issuer"
                 autoComplete="off"
-                label={t`Issuer URI`}
+                label={""Issuer URI"}
                 value={value}
                 onChange={onChange}
                 fullWidth

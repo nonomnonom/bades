@@ -30,7 +30,7 @@ export const useAddFolderToNavigationMenu = () => {
 
   const handleAddFolder = () => {
     const itemId = addFolderToDraft(
-      t`New folder`,
+      ""New folder",
       currentDraft,
       pendingInsertionNavigationMenuItem?.folderId ?? null,
       pendingInsertionNavigationMenuItem?.position,
@@ -39,7 +39,7 @@ export const useAddFolderToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Edit folder`,
+      pageTitle: ""Edit folder",
       pageIcon: IconFolder,
       focusTitleInput: true,
     });

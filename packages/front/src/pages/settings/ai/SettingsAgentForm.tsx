@@ -121,7 +121,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         setOriginalFormValues(initialValues);
       } else {
         enqueueErrorSnackBar({
-          message: t`Agent not found`,
+          message: ""Agent not found",
         });
         navigateApp(AppPath.NotFound);
       }
@@ -261,22 +261,22 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const tabs = [
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Settings`,
+      title: "Pengaturan",
       Icon: IconSettings,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.ROLE,
-      title: t`Role`,
+      title: "Peran",
       Icon: IconLock,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.EVALS,
-      title: t`Evals`,
+      title: ""Evals",
       Icon: IconListCheck,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.LOGS,
-      title: t`Logs`,
+      title: ""Logs",
       Icon: IconList,
     },
   ];
@@ -378,14 +378,14 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
   const title = !isCreateMode
     ? loading
-      ? t`Agent`
+      ? ""Agent"
       : agent?.label
-    : t`New Agent`;
+    : ""New Agent";
   const breadcrumbText = !isCreateMode
     ? loading
-      ? t`Agent`
+      ? ""Agent"
       : agent?.label
-    : t`New Agent`;
+    : ""New Agent";
 
   const isRoleTab = activeTabId === SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.ROLE;
   const isSettingsTab =
@@ -416,10 +416,10 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         }
         links={[
           {
-            children: t`Workspace`,
+            children: "Ruang kerja",
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
+          { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
           { children: breadcrumbText },
         ]}
       >

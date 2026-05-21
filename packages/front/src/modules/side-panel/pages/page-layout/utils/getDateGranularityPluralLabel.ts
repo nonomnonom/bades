@@ -7,23 +7,23 @@ export const getDateGranularityPluralLabel = (
 ): string => {
   switch (granularity) {
     case ObjectRecordGroupByDateGranularity.DAY:
-      return t`days`;
+      return "hari";
     case ObjectRecordGroupByDateGranularity.WEEK:
-      return t`weeks`;
+      return ""weeks";
     case ObjectRecordGroupByDateGranularity.MONTH:
-      return t`months`;
+      return ""months";
     case ObjectRecordGroupByDateGranularity.QUARTER:
-      return t`quarters`;
+      return ""quarters";
     case ObjectRecordGroupByDateGranularity.YEAR:
-      return t`years`;
+      return ""years";
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
-      return t`days`;
+      return "hari";
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
-      return t`months`;
+      return ""months";
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
-      return t`quarters`;
+      return ""quarters";
     case ObjectRecordGroupByDateGranularity.NONE:
-      return t`items`;
+      return ""items";
     default:
       assertUnreachable(granularity);
   }

@@ -57,14 +57,14 @@ export const SettingsAdminWorkspacesStatus = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Upgrade status refreshed`,
+        message: ""Upgrade status refreshed",
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to refresh upgrade status`,
+            : ""Failed to refresh upgrade status",
       });
     }
   };
@@ -73,23 +73,23 @@ export const SettingsAdminWorkspacesStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: "Lainnya",
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: ""Admin Panel - Health",
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Workspaces status`,
+          children: ""Workspaces status",
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Workspaces status`}
-            description={t`Upgrade health across all workspaces`}
+            title={""Workspaces status"}
+            description={""Upgrade health across all workspaces"}
           />
           <SettingsAdminWorkspacesStatusSummaryCard
             behindCount={behindCount}
@@ -99,7 +99,7 @@ export const SettingsAdminWorkspacesStatus = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Refresh status`}
+              title={""Refresh status"}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />
@@ -107,8 +107,8 @@ export const SettingsAdminWorkspacesStatus = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Detail per workspace`}
-            description={t`Workspace lists by upgrade status`}
+            title={""Detail per workspace"}
+            description={""Workspace lists by upgrade status"}
           />
           <StyledAccordionCardsContainer>
             <SettingsAdminWorkspacesByHealthAccordion
@@ -116,7 +116,7 @@ export const SettingsAdminWorkspacesStatus = () => {
                 one: '# workspace behind',
                 other: '# workspaces behind',
               })}
-              emptyLabel={t`No workspace behind`}
+              emptyLabel={""No workspace behind"}
               workspaces={upgradeStatus?.workspacesBehind ?? []}
               defaultExpanded={true}
             />
@@ -125,7 +125,7 @@ export const SettingsAdminWorkspacesStatus = () => {
                 one: '# workspace failed',
                 other: '# workspaces failed',
               })}
-              emptyLabel={t`No workspace failed`}
+              emptyLabel={""No workspace failed"}
               workspaces={upgradeStatus?.workspacesFailed ?? []}
             />
           </StyledAccordionCardsContainer>

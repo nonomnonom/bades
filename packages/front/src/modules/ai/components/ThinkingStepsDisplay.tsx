@@ -348,11 +348,11 @@ const ThinkingToolStepRow = ({
                           : toolInput) as JsonValue
                       }
                       shouldExpandNodeInitially={() => false}
-                      emptyArrayLabel={t`Empty Array`}
-                      emptyObjectLabel={t`Empty Object`}
-                      emptyStringLabel={t`[empty string]`}
-                      arrowButtonCollapsedLabel={t`Expand`}
-                      arrowButtonExpandedLabel={t`Collapse`}
+                      emptyArrayLabel={""Empty Array"}
+                      emptyObjectLabel={""Empty Object"}
+                      emptyStringLabel={"[string kosong]"}
+                      arrowButtonCollapsedLabel={"Perluas"}
+                      arrowButtonExpandedLabel={"Ciutkan"}
                       onNodeValueClick={copyToClipboard}
                     />
                   </StyledJsonTreeContainer>
@@ -397,7 +397,7 @@ const ThinkingStepRow = ({
         )}
       </StyledIconContainer>
       <StyledRowLabelContainer>
-        <StyledRowLabel>{isActive ? t`Thinking` : t`Thought`}</StyledRowLabel>
+        <StyledRowLabel>{isActive ? ""Thinking" : ""Thought"}</StyledRowLabel>
       </StyledRowLabelContainer>
     </StyledRow>
   );

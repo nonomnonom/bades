@@ -101,21 +101,21 @@ export const SidePanelCommandMenuItemDisplayPage = () => {
   return (
     <SidePanelList selectableItemIds={selectableItemIds} noResults={noResults}>
       {matchingPinnedItems.length > 0 && (
-        <SidePanelGroup heading={t`Pinned`}>
+        <SidePanelGroup heading={""Pinned"}>
           {matchingPinnedItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}
         </SidePanelGroup>
       )}
       {matchingOtherItems.length > 0 && (
-        <SidePanelGroup heading={t`Other`}>
+        <SidePanelGroup heading={"Lainnya"}>
           {matchingOtherItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}
         </SidePanelGroup>
       )}
       {noResults && fallbackCommandMenuItems.length > 0 && (
-        <SidePanelGroup heading={t`Fallback`}>
+        <SidePanelGroup heading={""Fallback"}>
           {fallbackCommandMenuItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}

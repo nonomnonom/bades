@@ -87,8 +87,8 @@ export const AdvancedFilterSidePanelCreateRootFilterButton = ({
       variant="secondary"
       accent="default"
       onClick={addRootRecordFilterGroup}
-      ariaLabel={t`Add filter`}
-      title={t`Add filter`}
+      ariaLabel={"Tambah filter"}
+      title={"Tambah filter"}
       disabled={readonly}
     />
   );

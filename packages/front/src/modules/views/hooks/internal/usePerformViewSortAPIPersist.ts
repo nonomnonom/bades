@@ -61,7 +61,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.CREATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred.` });
+          enqueueErrorSnackBar({ message: ""An error occurred." });
         }
 
         return {
@@ -108,7 +108,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.UPDATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred` });
+          enqueueErrorSnackBar({ message: ""An error occurred" });
         }
 
         return {
@@ -155,7 +155,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred` });
+          enqueueErrorSnackBar({ message: ""An error occurred" });
         }
 
         return {
@@ -202,7 +202,7 @@ export const usePerformViewSortAPIPersist = () => {
             operationType: CrudOperationType.DESTROY,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred` });
+          enqueueErrorSnackBar({ message: ""An error occurred" });
         }
 
         return {

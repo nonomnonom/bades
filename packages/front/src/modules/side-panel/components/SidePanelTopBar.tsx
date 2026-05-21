@@ -177,7 +177,7 @@ export const SidePanelTopBar = () => {
               data-testid={SIDE_PANEL_FOCUS_ID}
               ref={inputRef}
               value={sidePanelSearch}
-              placeholder={t`Type anything...`}
+              placeholder={""Type anything..."}
               onChange={handleSearchChange}
               onFocus={handleInputFocus}
               onBlur={handleInputBlur}

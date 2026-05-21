@@ -40,8 +40,8 @@ export const SettingsDataModelFieldBooleanForm = ({
       render={({ field: { onChange, value } }) => (
         <SettingsOptionCardContentSelect
           Icon={IconCheck}
-          title={t`Default Value`}
-          description={t`Select the default value for this boolean field`}
+          title={""Default Value"}
+          description={""Select the default value for this boolean field"}
         >
           <Select<boolean>
             value={value}

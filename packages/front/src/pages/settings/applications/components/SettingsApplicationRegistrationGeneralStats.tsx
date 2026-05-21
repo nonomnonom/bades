@@ -49,17 +49,17 @@ export const SettingsApplicationRegistrationGeneralStats = ({
   const statsItems = [
     {
       Icon: IconBrandDocker,
-      label: t`Active installs`,
+      label: "Instalasi aktif",
       value: stats?.activeInstalls ?? '—',
     },
     {
       Icon: IconStatusChange,
-      label: t`Most installed version`,
+      label: ""Most installed version",
       value: stats?.mostInstalledVersion ?? '—',
     },
     {
       Icon: IconChartBar,
-      label: t`Distribution`,
+      label: ""Distribution",
       value: versionDistributionLabel,
     },
   ];
@@ -67,8 +67,8 @@ export const SettingsApplicationRegistrationGeneralStats = ({
   return (
     <Section>
       <H2Title
-        title={t`Install Stats`}
-        description={t`Usage across all workspaces on this server`}
+        title={""Install Stats"}
+        description={""Usage across all workspaces on this server"}
       />
       <SettingsTableCard
         rounded

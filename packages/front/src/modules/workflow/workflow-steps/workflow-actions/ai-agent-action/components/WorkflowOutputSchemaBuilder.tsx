@@ -161,7 +161,7 @@ export const WorkflowOutputSchemaBuilder = ({
         <StyledOutputSchemaFieldContainer>
           <StyledMessageContentContainer>
             <StyledMessageDescription data-testid="empty-output-schema-message-description">
-              {t`Click on "Add Output Field" below to define the structure of your AI agent's response. These fields will be used to format and validate the AI's output when the workflow is executed, and can be referenced by subsequent workflow steps.`}
+              {""Click on "Add Output Field" below to define the structure of your AI agent's response. These fields will be used to format and validate the AI's output when the workflow is executed, and can be referenced by subsequent workflow steps."}
             </StyledMessageDescription>
           </StyledMessageContentContainer>
         </StyledOutputSchemaFieldContainer>
@@ -181,7 +181,7 @@ export const WorkflowOutputSchemaBuilder = ({
                 >
                   <StyledTitleContainer>
                     <IconVariable size={theme.icon.size.sm} />
-                    <span>{field.name || t`Untitled field`}</span>
+                    <span>{field.name || ""Untitled field"}</span>
                   </StyledTitleContainer>
                   <AnimatedLightIconButton
                     Icon={IconChevronDown}
@@ -207,8 +207,8 @@ export const WorkflowOutputSchemaBuilder = ({
                   <StyledSettingsContent>
                     <FormFieldInputContainer>
                       <FormTextFieldInput
-                        label={t`Variable Name`}
-                        placeholder={t`e.g., summary, status, count`}
+                        label={""Variable Name"}
+                        placeholder={""e.g., summary, status, count"}
                         defaultValue={field.name}
                         onChange={(value) =>
                           updateField(field.id, { name: value.trim() })
@@ -230,8 +230,8 @@ export const WorkflowOutputSchemaBuilder = ({
 
                     <FormFieldInputContainer>
                       <FormTextFieldInput
-                        label={t`Instruction for AI`}
-                        placeholder={t`Brief explanation of this output field`}
+                        label={""Instruction for AI"}
+                        placeholder={""Brief explanation of this output field"}
                         defaultValue={field.description}
                         onChange={(value) =>
                           updateField(field.id, { description: value })
@@ -251,7 +251,7 @@ export const WorkflowOutputSchemaBuilder = ({
         <StyledAddFieldButtonContainer>
           <MenuItem
             LeftIcon={IconPlus}
-            text={t`Add Output Field`}
+            text={""Add Output Field"}
             onClick={addField}
           />
         </StyledAddFieldButtonContainer>

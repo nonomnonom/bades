@@ -81,7 +81,7 @@ export const PlaygroundSetupForm = () => {
 
       return true;
     } catch {
-      throw new Error(t`Invalid API key`);
+      throw new Error(""Invalid API key");
     }
   };
 
@@ -105,7 +105,7 @@ export const PlaygroundSetupForm = () => {
         message:
           error instanceof Error
             ? error.message
-            : t`An unexpected error occurred`,
+            : ""An unexpected error occurred",
       });
     }
   };
@@ -118,8 +118,8 @@ export const PlaygroundSetupForm = () => {
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <SettingsTextInput
             instanceId="playground-api-key"
-            label={t`API Key`}
-            placeholder={t`Enter your API key`}
+            label={"Kunci API"}
+            placeholder={""Enter your API key"}
             value={value}
             onChange={(newValue) => {
               onChange(newValue);
@@ -137,7 +137,7 @@ export const PlaygroundSetupForm = () => {
         render={({ field: { onChange, value } }) => (
           <Select
             dropdownId="schema"
-            label={t`Schema`}
+            label={"Skema"}
             options={SETTINGS_PLAYGROUND_FORM_SCHEMA_SELECT_OPTIONS.map(
               (option) => ({
                 ...option,
@@ -156,16 +156,16 @@ export const PlaygroundSetupForm = () => {
         render={({ field: { onChange, value } }) => (
           <Select
             dropdownId="apiPlaygroundType"
-            label={t`API`}
+            label={""API"}
             options={[
               {
                 value: PlaygroundTypes.REST,
-                label: t`REST`,
+                label: ""REST",
                 Icon: IconApi,
               },
               {
                 value: PlaygroundTypes.GRAPHQL,
-                label: t`GraphQL`,
+                label: ""GraphQL",
                 Icon: IconBrandGraphql,
               },
             ]}
@@ -175,7 +175,7 @@ export const PlaygroundSetupForm = () => {
         )}
       />
       <Button
-        title={t`Launch`}
+        title={"Luncur"}
         variant="primary"
         accent="blue"
         type="submit"

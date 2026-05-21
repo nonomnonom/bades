@@ -334,11 +334,11 @@ export const SidePanelPageLayoutRecordPageWidgetTypeSelect = () => {
 
   return (
     <SidePanelList selectableItemIds={selectableItemIds}>
-      <SidePanelGroup heading={t`Widget type`}>
+      <SidePanelGroup heading={""Widget type"}>
         <SelectableListItem itemId="fields" onEnter={handleCreateFieldsWidget}>
           <CommandMenuItem
             Icon={IconList}
-            label={t`Fields`}
+            label={"Bidang-bidang"}
             id="fields"
             onClick={handleCreateFieldsWidget}
           />
@@ -346,7 +346,7 @@ export const SidePanelPageLayoutRecordPageWidgetTypeSelect = () => {
         <SelectableListItem itemId="field" onEnter={handleCreateFieldWidget}>
           <CommandMenuItem
             Icon={IconList}
-            label={t`Field`}
+            label={"Bidang"}
             id="field"
             onClick={handleCreateFieldWidget}
           />
@@ -354,7 +354,7 @@ export const SidePanelPageLayoutRecordPageWidgetTypeSelect = () => {
       </SidePanelGroup>
 
       {frontComponentsWithSelectItemId.length > 0 && (
-        <SidePanelGroup heading={t`Front Components`}>
+        <SidePanelGroup heading={""Front Components"}>
           {frontComponentsWithSelectItemId.map(
             ({ frontComponent, selectItemId }) => (
               <SelectableListItem

@@ -30,7 +30,7 @@ export const SettingsApplicationRegistrationConfigTab = ({
   const configVariables = variables.map((variable) => ({
     name: variable.key,
     description: variable.description,
-    value: variable.value ?? <Status color="gray" text={t`Not set`} />,
+    value: variable.value ?? <Status color="gray" text={""Not set"} />,
     to: getSettingsPath(
       SettingsPath.ApplicationRegistrationConfigVariableDetails,
       {
@@ -44,8 +44,8 @@ export const SettingsApplicationRegistrationConfigTab = ({
     variables.length > 0 && (
       <Section>
         <H2Title
-          title={t`Server Variables`}
-          description={t`Server variables are applied to all workspace installations.`}
+          title={""Server Variables"}
+          description={""Server variables are applied to all workspace installations."}
         />
         <ConfigVariableTable configVariables={configVariables} />
       </Section>

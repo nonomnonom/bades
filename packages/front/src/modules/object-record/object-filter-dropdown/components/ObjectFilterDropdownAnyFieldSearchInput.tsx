@@ -21,7 +21,7 @@ export const ObjectFilterDropdownAnyFieldSearchInput = () => {
       autoFocus
       type="text"
       value={anyFieldFilterValue}
-      placeholder={t`Search any field`}
+      placeholder={""Search any field"}
       onChange={handleSearchChange}
     />
   );

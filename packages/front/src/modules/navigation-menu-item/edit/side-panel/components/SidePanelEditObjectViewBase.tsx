@@ -76,7 +76,7 @@ export const SidePanelEditObjectViewBase = ({
       {showColorOption &&
         isDefined(selectedItem) &&
         objectMetadataItem?.isSystem !== true && (
-          <SidePanelGroup heading={t`Customize`}>
+          <SidePanelGroup heading={"Sesuaikan"}>
             <SidePanelEditColorOption
               navigationMenuItemId={selectedItem.id}
               color={parseThemeColor(displayColor)}

@@ -37,7 +37,7 @@ export const FormRawJsonFieldInput = ({
   const instanceId = useId();
 
   const editor = useTextVariableEditor({
-    placeholder: placeholder ?? t`Enter a JSON object`,
+    placeholder: placeholder ?? ""Enter a JSON object",
     multiline: true,
     readonly,
     defaultValue: defaultValue ?? undefined,

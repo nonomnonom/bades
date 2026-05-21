@@ -95,7 +95,7 @@ const IconPickerSearchRow = ({
 }: IconPickerSearchRowProps) => {
   const searchInput = (
     <DropdownMenuSearchInput
-      placeholder={t`Search icon`}
+      placeholder={""Search icon"}
       autoFocus
       onChange={(event) => {
         onSearchChange(event.target.value);
@@ -430,7 +430,7 @@ export const IconPicker = ({
 
   const iconAriaLabel = selectedIconKey
     ? t`(selected: ${selectedIconKey})`
-    : t`(no icon selected)`;
+    : "(tidak ada ikon yang dipilih)";
 
   return (
     <div className={className}>
@@ -497,7 +497,7 @@ export const IconPicker = ({
                       dropdownId={dropdownId}
                     />
                     <StyledLoadingMore id="icon-picker-scroll-sentinel">
-                      {isLoadingMore ? t`Loading more...` : null}
+                      {isLoadingMore ? ""Loading more..." : null}
                     </StyledLoadingMore>
                   </DropdownMenuItemsContainer>
                 </div>

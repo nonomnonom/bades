@@ -15,7 +15,7 @@ export const ArrayDisplay = ({ value }: ArrayDisplayProps) => {
           key={`${item}-${index}`}
           variant={ChipVariant.Highlighted}
           label={item}
-          emptyLabel={t`Untitled`}
+          emptyLabel={""Untitled"}
         />
       ))}
     </ExpandableList>

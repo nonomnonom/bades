@@ -26,7 +26,7 @@ export const CalendarEventNotSharedContent = () => {
   return (
     <StyledContainer>
       <IconLock size={theme.icon.size.sm} />
-      <Trans>Not shared</Trans>
+      "Not shared
     </StyledContainer>
   );
 };

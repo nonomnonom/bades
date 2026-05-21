@@ -66,7 +66,7 @@ export const CommandMenuItemOptionsDropdown = ({
           <DropdownMenuItemsContainer>
             <MenuItemToggle
               LeftIcon={IconTag}
-              text={t`Hide label`}
+              text={""Hide label"}
               toggled={isLabelHidden || hasNoShortLabel}
               onToggleChange={handleToggleHideLabel}
               toggleSize="small"
@@ -76,7 +76,7 @@ export const CommandMenuItemOptionsDropdown = ({
               LeftIcon={IconRefresh}
               onClick={handleResetLabelToDefault}
               accent="default"
-              text={t`Reset label to default`}
+              text={""Reset label to default"}
               disabled={!hasShortLabelOverride}
             />
           </DropdownMenuItemsContainer>

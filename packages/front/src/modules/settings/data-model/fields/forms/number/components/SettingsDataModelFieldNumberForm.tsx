@@ -54,8 +54,8 @@ export const SettingsDataModelFieldNumberForm = ({
           <>
             <SettingsOptionCardContentSelect
               Icon={IconEye}
-              title={t`Number type`}
-              description={t`Display as a plain number or a percentage`}
+              title={""Number type"}
+              description={""Display as a plain number or a percentage"}
             >
               <Select<string>
                 selectSizeVariant="small"
@@ -81,7 +81,7 @@ export const SettingsDataModelFieldNumberForm = ({
             {type !== 'shortNumber' && (
               <SettingsOptionCardContentCounter
                 Icon={IconDecimal}
-                title={t`Number of decimals`}
+                title={""Number of decimals"}
                 description={plural(count, {
                   one: `E.g. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} for ${count} decimal`,
                   other: `E.g. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} for ${count} decimals`,

@@ -42,7 +42,7 @@ export const SidePanelEditLinkItemView = ({
   const [urlEditInput, setUrlEditInput] = useState('');
   const [lastAutoSetName, setLastAutoSetName] = useState<string | null>(null);
 
-  const defaultLabel = t`Link label`;
+  const defaultLabel = ""Link label";
   const selectableItemIds =
     getOrganizeActionsSelectableItemIds(showMoveToFolder);
 
@@ -77,7 +77,7 @@ export const SidePanelEditLinkItemView = ({
 
   return (
     <SidePanelList selectableItemIds={selectableItemIds}>
-      <SidePanelGroup heading={t`Customize`}>
+      <SidePanelGroup heading={"Sesuaikan"}>
         <TextInput
           fullWidth
           placeholder="www.google.com"

@@ -63,19 +63,19 @@ export const FieldsConfigurationGroupDropdown = ({
               LeftIcon={IconPencil}
               onClick={handleRename}
               accent="default"
-              text={t`Rename`}
+              text={"Ubah nama"}
             />
             <MenuItem
               LeftIcon={IconTrash}
               onClick={handleDelete}
               accent="danger"
-              text={t`Delete`}
+              text={"Hapus"}
             />
             <MenuItem
               LeftIcon={IconNewSection}
               onClick={handleAddGroup}
               accent="default"
-              text={t`Add a Group`}
+              text={"Tambah Grup"}
             />
           </DropdownMenuItemsContainer>
         </DropdownContent>

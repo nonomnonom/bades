@@ -31,7 +31,7 @@ export const WorkspaceSectionAddMenuItemButton = () => {
     setSelectedNavigationMenuItemIdInEditMode(null);
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`New menu item`,
+      pageTitle: ""New menu item",
       pageIcon: IconColumnInsertRight,
       resetNavigationStack: true,
     });
@@ -44,7 +44,7 @@ export const WorkspaceSectionAddMenuItemButton = () => {
   return (
     <NavigationDrawerItem
       Icon={IconPlus}
-      label={t`Add menu item`}
+      label={""Add menu item"}
       onClick={handleClick}
       triggerEvent="CLICK"
       variant="tertiary"

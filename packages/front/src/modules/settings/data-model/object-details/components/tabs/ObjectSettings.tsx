@@ -84,7 +84,7 @@ export const ObjectSettings = ({
 
     if (result.status === 'successful') {
       enqueueSuccessSnackBar({
-        message: t`Object deleted`,
+        message: ""Object deleted",
       });
       closeModal(DELETE_OBJECT_MODAL_ID);
       navigate(SettingsPath.Objects);
@@ -102,8 +102,8 @@ export const ObjectSettings = ({
       <StyledFormSectionContainer>
         <Section>
           <H2Title
-            title={t`About`}
-            description={t`Name in both singular (e.g., 'Invoice') and plural (e.g., 'Invoices') forms.`}
+            title={"Tentang"}
+            description={""Name in both singular (e.g., 'Invoice') and plural (e.g., 'Invoices') forms."}
           />
           <SettingsUpdateDataModelObjectAboutForm
             objectMetadataItem={objectMetadataItem}
@@ -113,8 +113,8 @@ export const ObjectSettings = ({
       <StyledFormSectionContainer>
         <Section>
           <H2Title
-            title={t`Options`}
-            description={t`Choose the fields that will identify your records`}
+            title={"Opsi-opsi"}
+            description={""Choose the fields that will identify your records"}
           />
           <SettingsDataModelObjectSettingsFormCard
             objectMetadataItem={objectMetadataItem}
@@ -125,8 +125,8 @@ export const ObjectSettings = ({
         <StyledFormSectionContainer>
           <Section>
             <H2Title
-              title={t`Search`}
-              description={t`Configure how this object appears in search results`}
+              title={"Cari"}
+              description={""Configure how this object appears in search results"}
             />
             <SettingsObjectSearchSection
               objectMetadataItem={objectMetadataItem}
@@ -139,20 +139,20 @@ export const ObjectSettings = ({
         <StyledFormSectionContainer>
           <Section>
             <H2Title
-              title={t`Danger zone`}
-              description={t`Deactivate object`}
+              title={""Danger zone"}
+              description={""Deactivate object"}
             />
             <StyledDangerButtonsContainer>
               <Button
                 Icon={IconArchive}
-                title={t`Deactivate`}
+                title={""Deactivate"}
                 size="small"
                 onClick={handleDisable}
               />
               {objectMetadataItem.isCustom && (
                 <Button
                   Icon={IconTrash}
-                  title={t`Delete`}
+                  title={"Hapus"}
                   size="small"
                   accent="danger"
                   variant="secondary"
@@ -166,8 +166,8 @@ export const ObjectSettings = ({
       <ConfirmationModal
         modalInstanceId={DELETE_OBJECT_MODAL_ID}
         title={t`Delete ${objectLabel} object?`}
-        subtitle={t`This will permanently delete the object and all its records. Type "yes" to confirm.`}
-        confirmButtonText={t`Delete`}
+        subtitle={""This will permanently delete the object and all its records. Type "yes" to confirm."}
+        confirmButtonText={"Hapus"}
         onConfirmClick={confirmDelete}
         onClose={() => closeModal(DELETE_OBJECT_MODAL_ID)}
         confirmationValue="yes"

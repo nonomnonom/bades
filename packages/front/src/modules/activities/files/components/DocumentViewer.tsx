@@ -226,7 +226,7 @@ export const DocumentViewer = ({
       <StyledDocumentViewerContainer>
         <StyledUnavailablePreviewContainer>
           <StyledTitle>
-            <Trans>Preview Not Available</Trans>
+            "Preview Not Available
           </StyledTitle>
           <StyledMessage>
             {fileCategory === 'ARCHIVE' ? (
@@ -243,7 +243,7 @@ export const DocumentViewer = ({
           </StyledMessage>
           <Button
             Icon={IconDownload}
-            title={t`Download File`}
+            title={""Download File"}
             onClick={() => downloadFile(documentUrl, documentName)}
             variant="secondary"
           />
@@ -289,13 +289,11 @@ export const DocumentViewer = ({
       <StyledDocumentViewerContainer>
         <StyledUnavailablePreviewContainer>
           <StyledLightMessage>
-            <Trans>
-              This file cannot be previewed because it is hosted locally.
-            </Trans>
+            "This file cannot be previewed because it is hosted locally.
           </StyledLightMessage>
           <Button
             Icon={IconDownload}
-            title={t`Download`}
+            title={"Unduh"}
             onClick={() => downloadFile(documentUrl, documentName)}
             variant="secondary"
             size="small"

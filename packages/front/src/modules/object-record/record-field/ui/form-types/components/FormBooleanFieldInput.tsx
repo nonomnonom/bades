@@ -77,7 +77,7 @@ export const FormBooleanFieldInput = ({
   );
 
   const defaultEmptyOption = {
-    label: t`Select a value`,
+    label: ""Select a value",
     value: '',
     icon: IconCircleOff,
   };

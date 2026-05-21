@@ -71,11 +71,11 @@ export const getDayOfWeekDescription = (
         localeCatalog,
       );
       const getOrdinals = () => [
-        t`first`,
-        t`second`,
-        t`third`,
-        t`fourth`,
-        t`fifth`,
+        ""first",
+        ""second",
+        ""third",
+        ""fourth",
+        ""fifth",
       ];
       const ordinals = getOrdinals();
       const ordinal = ordinals[occurrenceNum - 1] || occurrenceNum.toString();
@@ -90,7 +90,7 @@ export const getDayOfWeekDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every day`;
+        return ""every day";
       }
       const stepNumStr = stepNum.toString();
       return t`every ${stepNumStr} days`;
@@ -115,10 +115,10 @@ export const getDayOfWeekDescription = (
 
     // Special case for weekdays
     if (start === '1' && end === '5' && dayOfWeekStartIndexZero) {
-      return t`on weekdays`;
+      return ""on weekdays";
     }
     if (start === '2' && end === '6' && !dayOfWeekStartIndexZero) {
-      return t`on weekdays`;
+      return ""on weekdays";
     }
 
     return t`from ${startDay} to ${endDay}`;

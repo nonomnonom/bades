@@ -49,7 +49,7 @@ export const useLabPublicFeatureFlags = () => {
     value: boolean,
   ) => {
     if (!isDefined(currentWorkspace)) {
-      setError(t`No workspace selected`);
+      setError(""No workspace selected");
       return false;
     }
 

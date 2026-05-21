@@ -66,7 +66,7 @@ const AddConnectionDropdown = ({
       dropdownPlacement="bottom-start"
       clickableComponent={
         <Button
-          title={t`Add connection`}
+          title={"Tambah koneksi"}
           Icon={IconPlus}
           variant="secondary"
           accent="default"
@@ -77,12 +77,12 @@ const AddConnectionDropdown = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Just for me`}
+              text={""Just for me"}
               LeftIcon={IconUser}
               onClick={() => handleSelect('user')}
             />
             <MenuItem
-              text={t`Workspace shared`}
+              text={""Workspace shared"}
               LeftIcon={IconUsers}
               onClick={() => handleSelect('workspace')}
             />
@@ -139,9 +139,9 @@ export const SettingsApplicationConnectionsSection = ({
                     CONNECTION_TABLE_ROW_GRID_TEMPLATE_COLUMNS
                   }
                 >
-                  <TableHeader>{t`Connection`}</TableHeader>
+                  <TableHeader>{""Connection"}</TableHeader>
                   <TableHeader>{t`Status`}</TableHeader>
-                  <TableHeader>{t`Visibility`}</TableHeader>
+                  <TableHeader>{"Visibilitas"}</TableHeader>
                   <TableHeader />
                 </TableRow>
                 <StyledTableRowsContainer>
@@ -170,9 +170,9 @@ export const SettingsApplicationConnectionsSection = ({
                       </TableCell>
                       <TableCell clickable>
                         {connection.authFailedAt ? (
-                          <Status color="red" text={t`Reconnect needed`} />
+                          <Status color="red" text={""Reconnect needed"} />
                         ) : (
-                          <Status color="green" text={t`Connected`} />
+                          <Status color="green" text={"Terhubung"} />
                         )}
                       </TableCell>
                       <TableCell clickable>
@@ -184,8 +184,8 @@ export const SettingsApplicationConnectionsSection = ({
                           }
                           text={
                             connection.visibility === 'workspace'
-                              ? t`Workspace shared`
-                              : t`Just for me`
+                              ? ""Workspace shared"
+                              : ""Just for me"
                           }
                         />
                       </TableCell>

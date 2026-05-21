@@ -39,13 +39,13 @@ export const SettingsLayoutPageLayoutDetail = () => {
     ? [
         {
           key: 'universalIdentifier',
-          label: t`Universal identifier`,
+          label: ""Universal identifier",
           value: pageLayout.universalIdentifier,
         },
-        { key: 'type', label: t`Type`, value: pageLayout.type ?? t`Default` },
+        { key: 'type', label: "Tipe", value: pageLayout.type ?? "Bawaan" },
         {
           key: 'object',
-          label: t`Object`,
+          label: "Objek",
           value: objectLabel ?? pageLayout.objectUniversalIdentifier,
         },
       ]
@@ -59,9 +59,9 @@ export const SettingsLayoutPageLayoutDetail = () => {
     <SettingsLayoutDetailScaffold
       applicationId={applicationId}
       applicationName={application?.name}
-      entityName={pageLayout?.name ?? t`Page layout`}
-      entityTypeLabel={t`page layout`}
-      categoryLabel={t`Page layouts`}
+      entityName={pageLayout?.name ?? ""Page layout"}
+      entityTypeLabel={""page layout"}
+      categoryLabel={""Page layouts"}
       detailRows={detailRows}
       isLoading={isLoading}
     >
@@ -81,7 +81,7 @@ export const SettingsLayoutPageLayoutDetail = () => {
         const description =
           descriptionParts.length > 0
             ? descriptionParts.join(' · ')
-            : t`Empty tab`;
+            : ""Empty tab";
 
         return (
           <SettingsLayoutItemTable
@@ -90,8 +90,8 @@ export const SettingsLayoutPageLayoutDetail = () => {
             description={description}
             columns={[
               { key: 'title', label: t`Widget` },
-              { key: 'type', label: t`Type`, width: '160px' },
-              { key: 'object', label: t`Object`, width: '180px' },
+              { key: 'type', label: "Tipe", width: '160px' },
+              { key: 'object', label: "Objek", width: '180px' },
             ]}
             rows={widgets.map((widget) => ({
               key: widget.universalIdentifier,

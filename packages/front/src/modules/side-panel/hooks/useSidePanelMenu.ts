@@ -80,14 +80,14 @@ export const useSidePanelMenu = () => {
     } else if (isLayoutCustomizationModeEnabled) {
       navigateSidePanel({
         page: SidePanelPages.NavigationMenuAddItem,
-        pageTitle: t`New menu item`,
+        pageTitle: ""New menu item",
         pageIcon: IconColumnInsertRight,
         resetNavigationStack: true,
       });
     } else {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuDisplay,
-        pageTitle: t`Command Menu`,
+        pageTitle: ""Command Menu",
         pageIcon: IconDotsVertical,
         resetNavigationStack: true,
       });

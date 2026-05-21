@@ -39,10 +39,10 @@ export const InformationBannerBillingSubscriptionPaused = () => {
       variant="secondary"
       message={
         hasPermissionToUpdateBillingDetails
-          ? t`Trial expired. Please update your billing details.`
-          : t`Trial expired. Please contact your admin`
+          ? ""Trial expired. Please update your billing details."
+          : ""Trial expired. Please contact your admin"
       }
-      buttonTitle={hasPermissionToUpdateBillingDetails ? t`Update` : undefined}
+      buttonTitle={hasPermissionToUpdateBillingDetails ? "Perbarui" : undefined}
       buttonOnClick={() => openBillingPortal()}
       isButtonDisabled={loading || !isDefined(data)}
     />

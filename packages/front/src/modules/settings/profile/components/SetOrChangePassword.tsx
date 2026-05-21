@@ -12,10 +12,10 @@ export const SetOrChangePassword = () => {
   const { handleResetPassword } = useHandleResetPassword();
 
   const hasPassword = currentUser?.hasPassword ?? false;
-  const heading = hasPassword ? t`Change Password` : t`Set Password`;
+  const heading = hasPassword ? ""Change Password" : ""Set Password";
   const description = hasPassword
-    ? t`Receive an email containing password update link`
-    : t`Receive an email containing password set link`;
+    ? ""Receive an email containing password update link"
+    : ""Receive an email containing password set link";
 
   return (
     <>

@@ -131,11 +131,11 @@ const defaultAriaLabelByVariant: Record<
   SnackBarVariant,
   ReturnType<typeof msg>
 > = {
-  [SnackBarVariant.Default]: msg`Alert`,
-  [SnackBarVariant.Error]: msg`Error`,
-  [SnackBarVariant.Info]: msg`Info`,
-  [SnackBarVariant.Success]: msg`Success`,
-  [SnackBarVariant.Warning]: msg`Warning`,
+  [SnackBarVariant.Default]: ""Alert",
+  [SnackBarVariant.Error]: "Kesalahan",
+  [SnackBarVariant.Info]: ""Info",
+  [SnackBarVariant.Success]: "Berhasil",
+  [SnackBarVariant.Warning]: "Peringatan",
 };
 
 export const SnackBar = ({
@@ -232,10 +232,10 @@ export const SnackBar = ({
         <StyledIcon>{icon}</StyledIcon>
         <StyledMessage>{sanitizedMessage ?? ''}</StyledMessage>
         <StyledActions>
-          {!!onCancel && <LightButton title={t`Cancel`} onClick={onCancel} />}
+          {!!onCancel && <LightButton title={"Batalkan"} onClick={onCancel} />}
 
           {!!onClose && (
-            <LightIconButton title={t`Close`} Icon={IconX} onClick={onClose} />
+            <LightIconButton title={"Tutup"} Icon={IconX} onClick={onClose} />
           )}
         </StyledActions>
       </StyledHeader>

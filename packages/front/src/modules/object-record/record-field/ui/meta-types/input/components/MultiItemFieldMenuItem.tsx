@@ -90,7 +90,7 @@ export const MultiItemFieldMenuItem = <T,>({
             {showSetAsPrimaryButton && (
               <MenuItem
                 LeftIcon={IconBookmarkPlus}
-                text={t`Set as Primary`}
+                text={""Set as Primary"}
                 onClick={handleSetAsPrimaryClick}
               />
             )}
@@ -102,13 +102,13 @@ export const MultiItemFieldMenuItem = <T,>({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Delete`}
+              text={"Hapus"}
               onClick={handleDeleteClick}
             />
             {showCopyButton && (
               <MenuItem
                 LeftIcon={IconCopy}
-                text={t`Copy`}
+                text={"Salin"}
                 onClick={handleCopyClick}
               />
             )}

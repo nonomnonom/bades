@@ -57,9 +57,9 @@ export const SettingsLayoutDetailScaffold = ({
   );
 
   const breadcrumbLinks = [
-    { children: t`Workspace`, href: getSettingsPath(SettingsPath.Workspace) },
+    { children: "Ruang kerja", href: getSettingsPath(SettingsPath.Workspace) },
     {
-      children: t`Applications`,
+      children: ""Applications",
       href: getSettingsPath(SettingsPath.Applications),
     },
     { children: applicationName ?? '', href: applicationContentHref },
@@ -77,21 +77,21 @@ export const SettingsLayoutDetailScaffold = ({
             {isDefined(trimmedDescription) && trimmedDescription.length > 0 && (
               <Section>
                 <H2Title
-                  title={t`About`}
-                  description={t`Description provided by the application`}
+                  title={"Tentang"}
+                  description={""Description provided by the application"}
                 />
                 <StyledDescription>{trimmedDescription}</StyledDescription>
               </Section>
             )}
             <Section>
               <H2Title
-                title={t`Details`}
+                title={"Detail"}
                 description={t`Read-only ${entityTypeLabel} definition shipped by this app`}
               />
               <Table>
                 <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-                  <TableHeader>{t`Property`}</TableHeader>
-                  <TableHeader>{t`Value`}</TableHeader>
+                  <TableHeader>{""Property"}</TableHeader>
+                  <TableHeader>{"Nilai"}</TableHeader>
                 </TableRow>
                 <TableBody>
                   {detailRows.map((row) => (

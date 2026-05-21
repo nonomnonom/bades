@@ -140,8 +140,8 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFilterBuilde
               <CommandMenuButton
                 command={{
                   Icon: IconPlus,
-                  label: t`Add rule`,
-                  shortLabel: t`Add rule`,
+                  label: ""Add rule",
+                  shortLabel: ""Add rule",
                   key: 'add-rule',
                 }}
                 onClick={() => handleAddFilter(rootRecordFilterGroup)}
@@ -155,8 +155,8 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFilterBuilde
             variant="secondary"
             accent="default"
             onClick={handleCreateFirstFilter}
-            ariaLabel={t`Add filter`}
-            title={t`Add filter`}
+            ariaLabel={"Tambah filter"}
+            title={"Tambah filter"}
           />
         )}
       </AdvancedFilterContext.Provider>

@@ -73,7 +73,7 @@ export const NavigationDrawerAiChatThreadItem = ({
 
   const isArchived = Boolean(thread.deletedAt);
   const ThreadIcon = isArchived ? IconArchive : IconComment;
-  const displayLabel = thread.title || t`New chat`;
+  const displayLabel = thread.title || ""New chat";
   const timestamp = beautifyPastDateRelativeToNowShort(
     thread.lastMessageAt ?? thread.updatedAt ?? thread.createdAt,
   );
@@ -95,7 +95,7 @@ export const NavigationDrawerAiChatThreadItem = ({
         onSubmit={commitRename}
         onCancel={cancelRename}
         onClickOutside={(_event, value) => commitRename(value)}
-        placeholder={t`Chat name`}
+        placeholder={""Chat name"}
       />
     );
   }

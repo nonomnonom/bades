@@ -46,23 +46,23 @@ export const DateTimeSettingsTimeFormatSelect = ({
     <Select
       dropdownId="datetime-settings-time-format"
       dropdownWidth={218}
-      label={t`Time format`}
+      label={""Time format"}
       dropdownWidthAuto
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`System settings`,
+        label: ""System settings",
         value: TimeFormat.SYSTEM,
         contextualText: systemTimeFormatLabel,
       }}
       options={[
         {
-          label: t`24h`,
+          label: "24j",
           value: TimeFormat.HOUR_24,
           contextualText: hour24Label,
         },
         {
-          label: t`12h`,
+          label: "12j",
           value: TimeFormat.HOUR_12,
           contextualText: hour12Label,
         },

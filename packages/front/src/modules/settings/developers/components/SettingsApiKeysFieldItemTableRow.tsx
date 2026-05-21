@@ -46,7 +46,7 @@ export const SettingsApiKeysFieldItemTableRow = ({
         clickable
       >
         <StyledEllipsisLabel>
-          {apiKey.name || t`Unnamed API Key`}
+          {apiKey.name || ""Unnamed API Key"}
         </StyledEllipsisLabel>
       </TableCell>
 

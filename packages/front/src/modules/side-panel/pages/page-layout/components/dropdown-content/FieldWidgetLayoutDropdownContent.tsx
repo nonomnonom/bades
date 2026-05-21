@@ -82,9 +82,9 @@ export const FieldWidgetLayoutDropdownContent = () => {
   };
 
   const layoutLabels: Record<string, string> = {
-    [FieldDisplayMode.FIELD]: t`Field`,
-    [FieldDisplayMode.CARD]: t`Card`,
-    [FieldDisplayMode.EDITOR]: t`Editor`,
+    [FieldDisplayMode.FIELD]: "Bidang",
+    [FieldDisplayMode.CARD]: ""Card",
+    [FieldDisplayMode.EDITOR]: ""Editor",
   };
 
   return (

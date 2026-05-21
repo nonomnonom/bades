@@ -88,7 +88,7 @@ export const NavigationDrawerHeader = ({
             accent="secondary"
             size="small"
             onClick={openRecordsSearchPage}
-            aria-label={t`Search`}
+            aria-label={"Cari"}
           />
         )}
         {isNavigationDrawerExpanded && showCollapseButton && (

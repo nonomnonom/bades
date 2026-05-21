@@ -104,7 +104,7 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
         <StyledInput
           value={objectFilterDropdownSearchInput}
           autoFocus
-          placeholder={t`Search fields`}
+          placeholder={""Search fields"}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setObjectFilterDropdownSearchInput(event.target.value)
           }
@@ -116,7 +116,7 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
         >
           {shouldShowVisibleFields && (
             <>
-              <DropdownMenuSectionLabel label={t`Visible fields`} />
+              <DropdownMenuSectionLabel label={""Visible fields"} />
               <DropdownMenuItemsContainer scrollable={false}>
                 {selectableVisibleFieldMetadataItems.map(
                   (visibleFieldMetadataItem) => (
@@ -132,7 +132,7 @@ export const ViewBarFilterDropdownFieldSelectMenu = () => {
           {shouldShowSeparator && <DropdownMenuSeparator />}
           {shouldShowHiddenFields && (
             <>
-              <DropdownMenuSectionLabel label={t`Hidden fields`} />
+              <DropdownMenuSectionLabel label={""Hidden fields"} />
               <DropdownMenuItemsContainer scrollable={false}>
                 {selectableHiddenFieldMetadataItems.map(
                   (hiddenFieldMetadataItem) => (

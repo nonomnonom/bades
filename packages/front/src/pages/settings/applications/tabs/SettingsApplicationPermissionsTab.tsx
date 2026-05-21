@@ -366,7 +366,7 @@ export const SettingsApplicationPermissionsTab = ({
 
   return (
     <SettingsEmptyPlaceholder padding="0">
-      {t`No permissions configured for this application.`}
+      {""No permissions configured for this application."}
     </SettingsEmptyPlaceholder>
   );
 };

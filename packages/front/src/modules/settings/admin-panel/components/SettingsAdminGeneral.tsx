@@ -79,8 +79,8 @@ export const SettingsAdminGeneral = () => {
       {canAccessFullAdminPanel && (
         <Section>
           <H2Title
-            title={t`About`}
-            description={t`Version of the application`}
+            title={"Tentang"}
+            description={""Version of the application"}
           />
           <SettingsAdminVersionContainer />
         </Section>
@@ -90,25 +90,25 @@ export const SettingsAdminGeneral = () => {
         <>
           <Section>
             <H2Title
-              title={t`Recent Users`}
+              title={""Recent Users"}
               description={
                 canManageFeatureFlags
-                  ? t`Last 10 users created. Click to manage feature flags or impersonate.`
-                  : t`Last 10 users created. Click to impersonate.`
+                  ? ""Last 10 users created. Click to manage feature flags or impersonate."
+                  : ""Last 10 users created. Click to impersonate."
               }
             />
             <SettingsTextInput
               instanceId="admin-panel-user-search"
               value={userSearchTerm}
               onChange={setUserSearchTerm}
-              placeholder={t`Search by name, email, or user ID...`}
+              placeholder={""Search by name, email, or user ID..."}
               fullWidth
             />
             {isLoadingUsers ? (
               <SettingsSectionSkeletonLoader />
             ) : recentUsers.length === 0 ? (
               <StyledEmptyState>
-                {t`No users found matching your search criteria.`}
+                {""No users found matching your search criteria."}
               </StyledEmptyState>
             ) : (
               <Table>
@@ -116,9 +116,9 @@ export const SettingsAdminGeneral = () => {
                   <TableRow
                     gridTemplateColumns={RECENT_USERS_GRID_TEMPLATE_COLUMNS}
                   >
-                    <TableHeader>{t`Name`}</TableHeader>
+                    <TableHeader>{"Nama"}</TableHeader>
                     <TableHeader>{t`Email`}</TableHeader>
-                    <TableHeader>{t`Workspace`}</TableHeader>
+                    <TableHeader>{"Ruang kerja"}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   {recentUsers.map((user) => (
@@ -188,21 +188,21 @@ export const SettingsAdminGeneral = () => {
 
           <Section>
             <H2Title
-              title={t`Top Workspaces`}
-              description={t`Top 10 workspaces by number of users`}
+              title={""Top Workspaces"}
+              description={""Top 10 workspaces by number of users"}
             />
             <SettingsTextInput
               instanceId="admin-panel-workspace-search"
               value={workspaceSearchTerm}
               onChange={setWorkspaceSearchTerm}
-              placeholder={t`Search by workspace name, subdomain, or ID...`}
+              placeholder={""Search by workspace name, subdomain, or ID..."}
               fullWidth
             />
             {isLoadingWorkspaces ? (
               <SettingsSectionSkeletonLoader />
             ) : topWorkspaces.length === 0 ? (
               <StyledEmptyState>
-                {t`No workspaces found matching your search criteria.`}
+                {""No workspaces found matching your search criteria."}
               </StyledEmptyState>
             ) : (
               <Table>
@@ -210,8 +210,8 @@ export const SettingsAdminGeneral = () => {
                   <TableRow
                     gridTemplateColumns={TOP_WORKSPACES_GRID_TEMPLATE_COLUMNS}
                   >
-                    <TableHeader>{t`Workspace`}</TableHeader>
-                    <TableHeader align="right">{t`Users`}</TableHeader>
+                    <TableHeader>{"Ruang kerja"}</TableHeader>
+                    <TableHeader align="right">{"Pengguna-pengguna"}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   {topWorkspaces.map((workspace) => (

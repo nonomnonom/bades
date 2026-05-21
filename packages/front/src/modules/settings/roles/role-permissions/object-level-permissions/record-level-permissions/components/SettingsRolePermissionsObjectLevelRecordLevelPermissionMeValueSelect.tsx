@@ -181,7 +181,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
     if (isDefined(idField) && isRelationToWorkspaceMember) {
       menuItems.push({
         id: 'me-id',
-        label: t`Me (User ID)`,
+        label: ""Me (User ID)",
         icon: null,
         fieldMetadataId: idField.id,
         subFieldName: null,
@@ -261,11 +261,11 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
 
     const headerText = fieldTypeLabel
       ? t`Select 1 ${fieldTypeLabelLowercase} field`
-      : t`Select 1 field`;
+      : ""Select 1 field";
 
     const placeholderText = fieldTypeLabel
       ? t`Search 1 ${fieldTypeLabelLowercase} field`
-      : t`Search 1 field`;
+      : ""Search 1 field";
 
     return (
       <DropdownContent widthInPixels={GenericDropdownContentWidth.Medium}>
@@ -300,7 +300,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
           ))}
           {filteredMenuItems.length === 0 && (
             <MenuItem
-              text={t`No compatible fields`}
+              text={""No compatible fields"}
               onClick={() => {}}
               disabled
             />

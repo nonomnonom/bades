@@ -79,7 +79,7 @@ export const SettingsAdminChatThreadMessageList = ({
             color={themeCssVariables.font.color.tertiary}
             align="center"
           >
-            {t`No messages found.`}
+            {""No messages found."}
           </TableCell>
         </TableRow>
       </Card>

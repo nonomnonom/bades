@@ -99,7 +99,7 @@ export const SettingsAdminMaintenanceMode = () => {
           message:
             error instanceof Error
               ? error.message
-              : t`Failed to set maintenance mode.`,
+              : ""Failed to set maintenance mode.",
         });
       }
     },
@@ -190,13 +190,13 @@ export const SettingsAdminMaintenanceMode = () => {
   return (
     <Section>
       <H2Title
-        title={t`Maintenance`}
-        description={t`Schedule a maintenance window and notify all users`}
+        title={""Maintenance"}
+        description={""Schedule a maintenance window and notify all users"}
       />
       <Card rounded>
         <SettingsOptionCardContentToggle
           Icon={IconTool}
-          title={t`Maintenance mode`}
+          title={""Maintenance mode"}
           description={toggleDescription}
           checked={isEnabled}
           onChange={handleToggle}
@@ -205,25 +205,25 @@ export const SettingsAdminMaintenanceMode = () => {
           <CardContent>
             <StyledFormContainer>
               <SettingsDatePickerInput
-                label={t`Start date`}
+                label={"Tanggal mulai"}
                 value={startDate}
                 onChange={handleDateChange('startAt')}
               />
               <div>
                 <SettingsDatePickerInput
-                  label={t`End date`}
+                  label={""End date"}
                   value={endDate}
                   onChange={handleDateChange('endAt')}
                 />
                 {isDefined(startDate) &&
                   isDefined(endDate) &&
                   !hasValidDateRange && (
-                    <InputHint>{t`End date must be after start date.`}</InputHint>
+                    <InputHint>{""End date must be after start date."}</InputHint>
                   )}
               </div>
               <div>
                 <TextInput
-                  label={t`Link`}
+                  label={"Tautan"}
                   type="url"
                   value={adminPanelMaintenanceMode.link ?? ''}
                   onChange={handleLinkChange}
@@ -233,7 +233,7 @@ export const SettingsAdminMaintenanceMode = () => {
                   fullWidth
                 />
                 <InputHint>
-                  {t`If there's no link, no button will appear.`}
+                  {""If there's no link, no button will appear."}
                 </InputHint>
               </div>
               {isScheduled && (

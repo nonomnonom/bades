@@ -77,7 +77,7 @@ export const StandaloneRichTextEditorContent = ({
     domAttributes: { editor: { class: 'editor' } },
     schema: DASHBOARD_BLOCK_SCHEMA,
     placeholders: {
-      default: t`Enter text or type '/' for commands`,
+      default: ""Enter text or type '/' for commands",
     },
   });
 

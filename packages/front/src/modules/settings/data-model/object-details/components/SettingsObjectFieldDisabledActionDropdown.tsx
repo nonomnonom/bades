@@ -59,7 +59,7 @@ export const SettingsObjectFieldInactiveActionDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Inactive Field Options`}
+          aria-label={""Inactive Field Options"}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -68,20 +68,20 @@ export const SettingsObjectFieldInactiveActionDropdown = ({
         <DropdownContent widthInPixels={GenericDropdownContentWidth.Narrow}>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={isCustomField && !readonly ? t`Edit` : t`View`}
+              text={isCustomField && !readonly ? t`Edit` : "Lihat"}
               LeftIcon={isCustomField ? IconPencil : IconEye}
               onClick={handleEdit}
             />
             {!readonly && (
               <MenuItem
-                text={t`Activate`}
+                text={"Aktifkan"}
                 LeftIcon={IconArchiveOff}
                 onClick={handleActivate}
               />
             )}
             {isDeletable && !readonly && (
               <MenuItem
-                text={t`Delete`}
+                text={"Hapus"}
                 accent="danger"
                 LeftIcon={IconTrash}
                 onClick={handleDelete}

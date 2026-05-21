@@ -35,7 +35,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
 
         if (retriedCount === -1) {
           enqueueSuccessSnackBar({
-            message: t`All failed jobs have been retried`,
+            message: ""All failed jobs have been retried",
           });
         } else if (retriedCount > 0) {
           if (failedResults.length > 0) {
@@ -77,7 +77,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Failed to retry jobs. Please try again later.`,
+          : ""Failed to retry jobs. Please try again later.",
       });
     } finally {
       setIsRetrying(false);

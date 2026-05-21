@@ -31,10 +31,10 @@ export const StandaloneWidgetPlaceholder = () => {
         <AnimatedPlaceholder type="noWidgets" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            <Trans>Nothing to see</Trans>
+            "Nothing to see
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            <Trans>This page has no content</Trans>
+            "This page has no content
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>
