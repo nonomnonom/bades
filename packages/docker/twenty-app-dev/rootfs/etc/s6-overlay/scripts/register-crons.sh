@@ -3,7 +3,7 @@ set -e
 
 echo "==> START Registering cron jobs"
 
-cd /app/packages/twenty-server
+cd /app/packages/server
 yarn command:prod cron:register:all
 
 echo "==> DONE"

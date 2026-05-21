@@ -28,7 +28,7 @@ su-exec postgres psql -h localhost -tc \
   || su-exec postgres createdb -h localhost -O twenty default
 
 # Run Twenty database setup and migrations
-cd /app/packages/twenty-server
+cd /app/packages/server
 
 has_schema=$(PGPASSWORD=twenty psql -h localhost -U twenty -d default -tAc \
   "SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'core')")
