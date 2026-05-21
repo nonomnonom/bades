@@ -659,6 +659,19 @@ penuh ke Midtrans; docs ditunda.
 - Seluruh baseline (145 file) di-commit dalam 2 commit logis & di-push ke
   `rebrand-bades`.
 
+## Fase 3 — SELESAI & TER-PUSH (commit `e8babff8`)
+
+- **Dockerfile sebelumnya rusak total**: masih memakai `packages/twenty-server`,
+  `nx run twenty-server:build`, dll. — `docker build` pasti gagal karena
+  direktori/proyek itu sudah di-rename. Diperbaiki ke nama baru
+  (`server`, `front`, `shared`, … ; root project `bades`).
+- `docker-compose.yml`: path `.local-storage` diperbaiki.
+- Script s6 service all-in-one image (`twenty-app-dev/rootfs`):
+  `cd /app/packages/twenty-server` → `/app/packages/server`.
+- Label image diarahkan ke repo Bades; nama stage/target docker dipertahankan
+  (kontrak internal, dipakai workflow).
+- Verifikasi: `docker compose config` valid. (Build penuh = verifikasi Fase 7.)
+
 ## Sisa fase (belum dikerjakan)
 
 - **Fase 2 — Migrasi billing Stripe → Midtrans**: pekerjaan TERBESAR
@@ -666,8 +679,6 @@ penuh ke Midtrans; docs ditunda.
   `/webhooks/midtrans`, feature flag, frontend billing). Estimasi besar
   (setara berminggu-minggu); butuh akun/kredensial Midtrans sandbox untuk
   verifikasi end-to-end.
-- **Fase 3 — Docker & CI**: path `twenty-server` di `docker-compose.yml`,
-  label Dockerfile.
 - **Fase 4 — Brand/CRM/self-hosting leak user-facing**: `asset-paths.ts`,
   `next.config.ts`, narasi self-hosting di website locale, istilah CRM di
   `id-ID.po`, hapus seed legacy pet/rocket/survey.
