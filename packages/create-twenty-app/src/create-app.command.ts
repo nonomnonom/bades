@@ -16,8 +16,8 @@ import {
   DEV_API_KEY,
   DEV_API_URL,
   serverStart,
-} from 'twenty-sdk/cli';
-import { isDefined, normalizeUrl } from 'twenty-shared/utils';
+} from 'sdk/cli';
+import { isDefined, normalizeUrl } from 'shared/utils';
 import {
   getDockerInstallInstructions,
   isDockerInstalled,

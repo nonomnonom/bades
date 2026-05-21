@@ -1,11 +1,11 @@
-import { defineFrontComponent } from 'twenty-sdk/define';
+import { defineFrontComponent } from 'sdk/define';
 import {
   Avatar,
   IconBox,
   IconHierarchy,
   IconLayout,
   IconSettingsAutomation,
-} from 'twenty-sdk/ui';
+} from 'sdk/ui';
 import { useState } from 'react';
 
 import {

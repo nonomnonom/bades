@@ -1,4 +1,4 @@
-import { definePageLayout, PageLayoutTabLayoutMode } from 'twenty-sdk/define';
+import { definePageLayout, PageLayoutTabLayoutMode } from 'sdk/define';
 
 import {
   APP_DISPLAY_NAME,

@@ -1,7 +1,7 @@
 import {
   defineNavigationMenuItem,
   NavigationMenuItemType,
-} from 'twenty-sdk/define';
+} from 'sdk/define';
 
 import {
   APP_DISPLAY_NAME,
