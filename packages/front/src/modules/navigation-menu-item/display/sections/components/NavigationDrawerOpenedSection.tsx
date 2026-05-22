@@ -22,7 +22,7 @@ export const NavigationDrawerOpenedSection = () => {
   return (
     <AnimatedExpandableContainer isExpanded={shouldShowOpenedSection}>
       <NavigationDrawerSectionForObjectMetadataItems
-        sectionTitle={t`Opened`}
+        sectionTitle={t`Dibuka`}
         objectMetadataItems={
           isDefined(objectMetadataItem) ? [objectMetadataItem] : []
         }

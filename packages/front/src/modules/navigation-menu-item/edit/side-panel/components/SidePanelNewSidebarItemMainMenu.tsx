@@ -75,7 +75,7 @@ export const SidePanelNewSidebarItemMainMenu = ({
                       color="blue"
                     />
                   )}
-                  label={t`Object`}
+                  label={t`Objek`}
                   id={NavigationMenuItemType.OBJECT}
                   hasSubMenu={true}
                   onClick={onSelectObject}
@@ -87,7 +87,7 @@ export const SidePanelNewSidebarItemMainMenu = ({
               >
                 <CommandMenuItem
                   Icon={() => <TintedIconTile Icon={IconTable} />}
-                  label={t`View`}
+                  label={t`Tampilan`}
                   id={NavigationMenuItemType.VIEW}
                   hasSubMenu={true}
                   onClick={onSelectView}
@@ -105,14 +105,14 @@ export const SidePanelNewSidebarItemMainMenu = ({
                       backgroundColor={themeCssVariables.color.green4}
                     />
                   )}
-                  label={t`Record`}
+                  label={t`Rekod`}
                   id={NavigationMenuItemType.RECORD}
                   hasSubMenu={true}
                   onClick={onSelectRecord}
                 />
               </SelectableListItem>
             </SidePanelGroup>
-            <SidePanelGroup heading={t`Other`}>
+            <SidePanelGroup heading={t`Lainnya`}>
               <SelectableListItem
                 itemId={NavigationMenuItemType.FOLDER}
                 onEnter={isAddingToFolder ? undefined : handleAddFolder}
@@ -126,7 +126,7 @@ export const SidePanelNewSidebarItemMainMenu = ({
                   payload={{
                     type: NavigationMenuItemType.FOLDER,
                     folderId: 'new',
-                    name: t`New folder`,
+                    name: t`Folder baru`,
                   }}
                   disabled={isAddingToFolder}
                 />
@@ -137,14 +137,14 @@ export const SidePanelNewSidebarItemMainMenu = ({
               >
                 <SidePanelItemWithAddToNavigationDrag
                   icon={IconLink}
-                  label={t`Link`}
+                  label={t`Tautan`}
                   id={NavigationMenuItemType.LINK}
                   onClick={handleAddLink}
                   dragIndex={4}
                   payload={{
                     type: NavigationMenuItemType.LINK,
                     linkId: 'new',
-                    name: t`Link label`,
+                    name: t`Label tautan`,
                     link: 'https://www.example.com',
                   }}
                 />

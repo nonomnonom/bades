@@ -97,7 +97,7 @@ export const SidePanelNavigationMenuItemEditPage = () => {
     return (
       <StyledSidePanelPageContainer>
         <StyledSidePanelPlaceholder>
-          {t`Select a navigation item to edit`}
+          {t`Pilih item navigasi untuk diubah`}
         </StyledSidePanelPlaceholder>
       </StyledSidePanelPageContainer>
     );
@@ -168,14 +168,14 @@ export const SidePanelNavigationMenuItemEditPage = () => {
           ]}
         >
           {selectedItem && (
-            <SidePanelGroup heading={t`Customize`}>
+            <SidePanelGroup heading={t`Sesuaikan`}>
               <SelectableListItem
                 itemId={ADD_ITEM_TO_FOLDER_ACTION_ID}
                 onEnter={handleAddItemToFolder}
               >
                 <CommandMenuItem
                   Icon={IconPlus}
-                  label={t`Add item to folder`}
+                  label={t`Tambah item ke folder`}
                   id={ADD_ITEM_TO_FOLDER_ACTION_ID}
                   onClick={handleAddItemToFolder}
                   hasSubMenu

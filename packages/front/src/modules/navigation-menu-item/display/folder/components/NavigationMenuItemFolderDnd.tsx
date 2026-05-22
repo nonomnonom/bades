@@ -297,16 +297,16 @@ export const NavigationMenuItemFolderDnd = ({
             modalInstanceId={favoritesEdit.modalId}
             title={
               favoritesEdit.navigationMenuItemCount > 1
-                ? t`Remove ${favoritesEdit.navigationMenuItemCount} navigation menu items?`
-                : t`Remove ${favoritesEdit.navigationMenuItemCount} navigation menu item?`
+                ? t`Hapus ${favoritesEdit.navigationMenuItemCount} item menu navigasi?`
+                : t`Hapus ${favoritesEdit.navigationMenuItemCount} item menu navigasi?`
             }
             subtitle={
               favoritesEdit.navigationMenuItemCount > 1
-                ? t`This action will delete this folder and all ${favoritesEdit.navigationMenuItemCount} navigation menu items inside. Do you want to continue?`
-                : t`This action will delete this folder and the navigation menu item inside. Do you want to continue?`
+                ? t`Tindakan ini akan menghapus folder dan semua ${favoritesEdit.navigationMenuItemCount} item menu navigasi di dalamnya. Lanjutkan?`
+                : t`Tindakan ini akan menghapus folder beserta item menu navigasi di dalamnya. Lanjutkan?`
             }
             onConfirmClick={favoritesEdit.handleConfirmDelete}
-            confirmButtonText={t`Delete Folder`}
+            confirmButtonText={t`Hapus Folder`}
           />,
           document.body,
         )
@@ -390,7 +390,7 @@ export const NavigationMenuItemFolderDnd = ({
               />
               {isWorkspace && isLayoutCustomizationModeEnabled && (
                 <NavigationDrawerSubItem
-                  label={t`Add menu item`}
+                  label={t`Tambah item menu`}
                   Icon={IconPlus}
                   onClick={handleAddMenuItemToFolder}
                   triggerEvent="CLICK"

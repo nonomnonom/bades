@@ -41,7 +41,7 @@ export const SidePanelEditOwnerSection = ({
   }
 
   return (
-    <SidePanelGroup heading={t`Owner`}>
+    <SidePanelGroup heading={t`Pemilik`}>
       <SelectableListItem itemId="owner-app" onEnter={() => {}}>
         <CommandMenuItem
           Icon={IconApps}

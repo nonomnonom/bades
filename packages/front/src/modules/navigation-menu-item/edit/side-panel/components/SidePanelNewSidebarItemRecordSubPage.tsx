@@ -83,12 +83,12 @@ export const SidePanelNewSidebarItemRecordSubPage = () => {
     : availableSearchRecords.map((record) => record.recordId);
   const noResultsText =
     deferredRecordSearchInput.length > 0
-      ? t`No results found`
-      : t`Type to search records`;
+      ? t`Tidak ada hasil`
+      : t`Ketik untuk mencari rekod`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search records...`}
+      searchPlaceholder={t`Cari rekod...`}
       searchValue={recordSearchInput}
       onSearchChange={setRecordSearchInput}
       rightElement={
@@ -108,7 +108,7 @@ export const SidePanelNewSidebarItemRecordSubPage = () => {
           >
             {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
             <div ref={innerRef} {...droppableProps}>
-              <SidePanelGroup heading={t`Results`}>
+              <SidePanelGroup heading={t`Hasil`}>
                 {availableSearchRecords.map((record, index) => (
                   <SidePanelNewSidebarItemRecordItem
                     key={record.recordId}

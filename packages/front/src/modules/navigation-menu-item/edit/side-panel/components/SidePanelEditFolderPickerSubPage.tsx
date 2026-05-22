@@ -31,12 +31,12 @@ export const SidePanelEditFolderPickerSubPage = () => {
   ];
   const noResultsText =
     searchValue.trim().length > 0
-      ? t`No results found`
-      : t`No folders available`;
+      ? t`Tidak ada hasil`
+      : t`Belum ada folder`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a folder...`}
+      searchPlaceholder={t`Cari folder...`}
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     >
@@ -45,14 +45,14 @@ export const SidePanelEditFolderPickerSubPage = () => {
         noResults={isEmpty}
         noResultsText={noResultsText}
       >
-        <SidePanelGroup heading={t`Folders`}>
+        <SidePanelGroup heading={t`Folder`}>
           {includeNoFolderOption && (
             <SelectableListItem
               itemId="no-folder"
               onEnter={() => handleSelectFolder(null)}
             >
               <CommandMenuItem
-                label={t`No folder`}
+                label={t`Tanpa folder`}
                 id="no-folder"
                 onClick={() => handleSelectFolder(null)}
               />

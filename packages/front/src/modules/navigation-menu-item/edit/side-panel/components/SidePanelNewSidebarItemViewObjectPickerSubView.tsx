@@ -36,12 +36,12 @@ export const SidePanelNewSidebarItemViewObjectPickerSubView = ({
       appendSelectableIds: showSystemObjectsOption ? ['system'] : [],
     });
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : t`No objects with views found`;
+    ? t`Tidak ada hasil`
+    : t`Belum ada objek dengan tampilan`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search an object...`}
+      searchPlaceholder={t`Cari objek...`}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >
@@ -50,7 +50,7 @@ export const SidePanelNewSidebarItemViewObjectPickerSubView = ({
         noResults={isEmpty}
         noResultsText={noResultsText}
       >
-        <SidePanelGroup heading={t`Objects`}>
+        <SidePanelGroup heading={t`Objek`}>
           {filteredItems.map((objectMetadataItem) => (
             <SelectableListItem
               key={objectMetadataItem.id}
@@ -72,7 +72,7 @@ export const SidePanelNewSidebarItemViewObjectPickerSubView = ({
             <SelectableListItem itemId="system" onEnter={onOpenSystemPicker}>
               <CommandMenuItem
                 Icon={() => <TintedIconTile Icon={IconSettings} />}
-                label={t`System objects`}
+                label={t`Objek sistem`}
                 id="system"
                 hasSubMenu={true}
                 onClick={onOpenSystemPicker}

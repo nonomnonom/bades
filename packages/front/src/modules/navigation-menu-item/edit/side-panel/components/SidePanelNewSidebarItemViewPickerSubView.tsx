@@ -66,8 +66,8 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
     getSearchableValues: (view) => [view.name],
   });
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : t`No custom views available`;
+    ? t`Tidak ada hasil`
+    : t`Belum ada tampilan kustom`;
 
   const selectedObjectIconColor = isDefined(selectedObjectMetadataItem)
     ? getObjectColorWithFallback(selectedObjectMetadataItem)
@@ -91,7 +91,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a view...`}
+      searchPlaceholder={t`Cari tampilan...`}
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     >
@@ -104,7 +104,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
           >
             {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
             <div ref={innerRef} {...droppableProps}>
-              <SidePanelGroup heading={t`Views`}>
+              <SidePanelGroup heading={t`Tampilan`}>
                 {filteredViews.map((view, index) => (
                   <SelectableListItem
                     key={view.id}

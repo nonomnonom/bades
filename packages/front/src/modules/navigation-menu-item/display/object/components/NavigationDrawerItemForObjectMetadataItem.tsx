@@ -130,7 +130,7 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
     !canReadObjectRecords &&
     !isNonEmptyString(primaryLabel.trim());
 
-  const label = needsInaccessibleRecordPlaceholder ? t`Record` : primaryLabel;
+  const label = needsInaccessibleRecordPlaceholder ? t`Rekod` : primaryLabel;
 
   const recordIdentifier =
     isRecord && isDefined(navigationMenuItem?.targetRecordIdentifier)

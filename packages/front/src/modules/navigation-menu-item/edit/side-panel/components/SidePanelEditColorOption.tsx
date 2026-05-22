@@ -62,7 +62,7 @@ export const SidePanelEditColorOption = ({
   return (
     <CommandMenuItemDropdown
       id="edit-navigation-menu-item-color"
-      label={t`Color`}
+      label={t`Warna`}
       Icon={IconColorSwatch}
       dropdownId={NAVIGATION_MENU_ITEM_COLOR_DROPDOWN_ID}
       dropdownPlacement="bottom-start"
