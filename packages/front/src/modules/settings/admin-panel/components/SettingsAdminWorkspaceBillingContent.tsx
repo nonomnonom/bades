@@ -11,7 +11,6 @@ import {
   IconCircleX,
   IconCoins,
   IconCreditCard,
-  IconExternalLink,
   IconId,
   IconStatusChange,
   IconTag,
@@ -35,7 +34,6 @@ import {
   type WorkspaceBillingAdminPanelQuery,
 } from '~/generated-admin/graphql';
 
-const STRIPE_DASHBOARD_BASE_URL = 'https://dashboard.stripe.com';
 const BASE_PRODUCT_KEY = 'BASE_PRODUCT';
 const RESOURCE_CREDIT_KEY = 'RESOURCE_CREDIT';
 const EM_DASH = '\u2014';
@@ -49,18 +47,6 @@ const StyledContainer = styled.div`
   flex-direction: column;
   gap: ${themeCssVariables.spacing[3]};
   margin-top: ${themeCssVariables.spacing[6]};
-`;
-
-const StyledExternalLink = styled.a`
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  gap: ${themeCssVariables.spacing[1]};
-  text-decoration: none;
-
-  &:hover {
-    color: ${themeCssVariables.font.color.primary};
-  }
 `;
 
 const StyledMono = styled.span`
@@ -115,21 +101,8 @@ const toBillingPlanKey = (planKey: string): BillingPlanKey | null =>
       ? BillingPlanKey.ENTERPRISE
       : null;
 
-const StripeLink = ({
-  path,
-  id,
-}: {
-  path: 'customers' | 'subscriptions';
-  id: string;
-}) => (
-  <StyledExternalLink
-    href={`${STRIPE_DASHBOARD_BASE_URL}/${path}/${id}`}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <StyledMono>{id}</StyledMono>
-    <IconExternalLink size={12} />
-  </StyledExternalLink>
+const BillingIdDisplay = ({ id }: { id: string }) => (
+  <StyledMono>{id}</StyledMono>
 );
 
 export const SettingsAdminWorkspaceBillingContent = ({
@@ -176,9 +149,9 @@ export const SettingsAdminWorkspaceBillingContent = ({
   const customerItems = [
     {
       Icon: IconId,
-      label: t`Akun billing`,
+      label: t`ID pelanggan billing`,
       value: isDefined(stripeCustomerId) ? (
-        <StripeLink path="customers" id={stripeCustomerId} />
+        <BillingIdDisplay id={stripeCustomerId} />
       ) : (
         EM_DASH
       ),
@@ -231,12 +204,9 @@ export const SettingsAdminWorkspaceBillingContent = ({
     ? [
         {
           Icon: IconCreditCard,
-          label: t`Langganan billing`,
+          label: t`ID langganan billing`,
           value: (
-            <StripeLink
-              path="subscriptions"
-              id={subscription.stripeSubscriptionId}
-            />
+            <BillingIdDisplay id={subscription.stripeSubscriptionId} />
           ),
         },
         {
