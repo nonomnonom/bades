@@ -133,8 +133,8 @@ export const SidePanelToggleButton = () => {
     isMobile && isLayoutCustomizationModeEnabled && isSidePanelOpened;
 
   const ariaLabel = isSidePanelOpened
-    ? t`Close side panel`
-    : t`Open side panel`;
+    ? t`Tutup panel samping`
+    : t`Buka panel samping`;
 
   const { theme } = useContext(ThemeContext);
   return (

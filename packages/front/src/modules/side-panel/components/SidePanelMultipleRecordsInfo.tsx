@@ -24,8 +24,8 @@ export const SidePanelMultipleRecordsInfo = ({
         <IconPencil size={theme.icon.size.md} stroke={theme.icon.stroke.sm} />
       }
       iconColor={theme.font.color.tertiary}
-      title={t`Update records`}
-      label={t`${totalCount} selected`}
+      title={t`Ubah data`}
+      label={t`${totalCount} dipilih`}
     />
   );
 };

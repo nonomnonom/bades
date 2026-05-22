@@ -28,7 +28,7 @@ export const CountrySelect = ({
       }),
     );
     countryList.unshift({
-      label: t`No country`,
+      label: t`Tidak ada negara`,
       value: '',
       Icon: IconCircleOff,
     });

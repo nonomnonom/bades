@@ -7,45 +7,45 @@ i18n.activate('id-ID');
 
 describe('title-utils', () => {
   it('should return the correct title for a given path', () => {
-    expect(getPageTitleFromPath('/verify')).toBe('Verify');
+    expect(getPageTitleFromPath('/verify')).toBe('Verifikasi');
     expect(getPageTitleFromPath('/welcome')).toBe(
-      'Sign in or Create an account',
+      'Masuk atau Buat Akun',
     );
-    expect(getPageTitleFromPath('/invite/:workspaceInviteHash')).toBe('Invite');
-    expect(getPageTitleFromPath('/create/workspace')).toBe('Create Workspace');
-    expect(getPageTitleFromPath('/create/profile')).toBe('Create Profile');
+    expect(getPageTitleFromPath('/invite/:workspaceInviteHash')).toBe('Undangan');
+    expect(getPageTitleFromPath('/create/workspace')).toBe('Buat Ruang Kerja');
+    expect(getPageTitleFromPath('/create/profile')).toBe('Buat Profil');
     expect(getPageTitleFromPath('/settings/objects/opportunities')).toBe(
-      'Data model - Settings',
+      'Model Data - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/profile')).toBe(
-      'Profile - Settings',
+      'Profil - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/experience')).toBe(
-      'Experience - Settings',
+      'Tampilan - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/accounts')).toBe(
-      'Account - Settings',
+      'Akun - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/accounts/new')).toBe(
-      'Account - Settings',
+      'Akun - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/accounts/calendars')).toBe(
-      'Account - Settings',
+      'Akun - Pengaturan',
     );
     expect(
       getPageTitleFromPath('/settings/accounts/calendars/:accountUuid'),
-    ).toBe('Account - Settings');
+    ).toBe('Akun - Pengaturan');
     expect(getPageTitleFromPath('/settings/accounts/emails')).toBe(
-      'Account - Settings',
+      'Akun - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/accounts/emails/:accountUuid')).toBe(
-      'Account - Settings',
+      'Akun - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/members')).toBe(
-      'Members - Settings',
+      'Anggota - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/general')).toBe(
-      'General - Settings',
+      'Umum - Pengaturan',
     );
     expect(getPageTitleFromPath('/')).toBe('Bades.id');
     expect(getPageTitleFromPath('/random')).toBe('Bades.id');

@@ -95,7 +95,7 @@ const IconPickerSearchRow = ({
 }: IconPickerSearchRowProps) => {
   const searchInput = (
     <DropdownMenuSearchInput
-      placeholder={t`Search icon`}
+      placeholder={t`Cari ikon`}
       autoFocus
       onChange={(event) => {
         onSearchChange(event.target.value);
@@ -429,8 +429,8 @@ export const IconPicker = ({
     iconPickerVisibleCount < totalMatchingIconsCount;
 
   const iconAriaLabel = selectedIconKey
-    ? t`(selected: ${selectedIconKey})`
-    : t`(no icon selected)`;
+    ? t`(dipilih: ${selectedIconKey})`
+    : t`(belum ada ikon dipilih)`;
 
   return (
     <div className={className}>
@@ -443,7 +443,7 @@ export const IconPicker = ({
         clickableComponent={
           clickableComponent ?? (
             <IconButton
-              ariaLabel={t`Click to select icon ${iconAriaLabel}`}
+              ariaLabel={t`Klik untuk memilih ikon ${iconAriaLabel}`}
               disabled={disabled}
               Icon={displayIcon}
               variant={variant}
@@ -497,7 +497,7 @@ export const IconPicker = ({
                       dropdownId={dropdownId}
                     />
                     <StyledLoadingMore id="icon-picker-scroll-sentinel">
-                      {isLoadingMore ? t`Loading more...` : null}
+                      {isLoadingMore ? t`Memuat lebih banyak...` : null}
                     </StyledLoadingMore>
                   </DropdownMenuItemsContainer>
                 </div>

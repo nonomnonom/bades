@@ -78,7 +78,7 @@ export const SettingsUsageAnalyticsSection = () => {
         title={t`Penggunaan Harian`}
         description={t`Konsumsi kredit dari waktu ke waktu.`}
         chartId="usage-daily"
-        chartLabel={t`Credits`}
+        chartLabel={t`Kredit`}
       />
       <UsageByUserTableSection
         title={t`Penggunaan per Pengguna`}

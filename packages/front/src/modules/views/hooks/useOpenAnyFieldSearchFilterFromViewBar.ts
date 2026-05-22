@@ -23,7 +23,7 @@ export const useOpenAnyFieldSearchFilterFromViewBar = () => {
     objectFilterDropdownSearchInputComponentState,
   );
 
-  const translatedLabel = t`Search any field`;
+  const translatedLabel = t`Cari di semua kolom`;
 
   const openAnyFieldSearchFilterFromViewBar = () => {
     const userHasAlreadyEnteredSearchInputForObjectDropdownSearch =

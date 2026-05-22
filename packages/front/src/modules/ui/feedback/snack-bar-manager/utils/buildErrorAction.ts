@@ -16,7 +16,7 @@ export const buildErrorAction = (
 
   if (isDefined(conflictingRecord)) {
     return {
-      buttonLabel: t`View existing record`,
+      buttonLabel: t`Lihat data yang sudah ada`,
       buttonTo: getAppPath(AppPath.RecordShowPage, {
         objectNameSingular: conflictingRecord.conflictingObjectNameSingular,
         objectRecordId: conflictingRecord.conflictingRecordId,

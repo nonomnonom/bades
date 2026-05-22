@@ -225,7 +225,7 @@ export const DateTimePickerHeader = ({
               <LightIconButton
                 Icon={IconCalendar}
                 size="medium"
-                aria-label={t`Select month and year`}
+                aria-label={t`Pilih bulan dan tahun`}
               />
             }
             dropdownPlacement="bottom-start"

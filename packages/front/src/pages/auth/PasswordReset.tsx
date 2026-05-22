@@ -40,7 +40,7 @@ import {
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 import { logError } from '~/utils/logError';
 
-const passwordLengthMessage = msg`Password must be between 8 and 50 characters`;
+const passwordLengthMessage = msg`Kata sandi harus terdiri dari 8 hingga 50 karakter`;
 
 const validationSchema = z
   .object({
@@ -165,15 +165,15 @@ export const PasswordReset = () => {
 
       if (!data?.updatePasswordViaResetToken.success) {
         enqueueErrorSnackBar({
-          message: t`There was an error while updating password.`,
+          message: t`Terjadi kesalahan saat memperbarui kata sandi.`,
         });
         return;
       }
 
       const successMessage =
         isTargetUserPasswordSet === false
-          ? t`Password has been set`
-          : t`Password has been updated`;
+          ? t`Kata sandi berhasil disetel`
+          : t`Kata sandi berhasil diperbarui`;
 
       setCurrentUser((currentUser) =>
         currentUser ? { ...currentUser, hasPassword: true } : currentUser,
@@ -189,7 +189,7 @@ export const PasswordReset = () => {
 
       if (!isCaptchaReady) {
         enqueueErrorSnackBar({
-          message: t`Captcha (anti-bot check) is still loading, try again`,
+          message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
         });
         return;
       }
@@ -216,7 +216,7 @@ export const PasswordReset = () => {
   };
 
   const passwordActionLabel =
-    isTargetUserPasswordSet === true ? t`Change Password` : t`Set Password`;
+    isTargetUserPasswordSet === true ? t`Ubah Kata Sandi` : t`Setel Kata Sandi`;
 
   return (
     isTokenValid && (
@@ -259,7 +259,7 @@ export const PasswordReset = () => {
                       <TextInput
                         autoFocus
                         value={email}
-                        placeholder={t`Email`}
+                        placeholder={t`Surel`}
                         fullWidth
                         disabled
                       />
@@ -288,7 +288,7 @@ export const PasswordReset = () => {
                             autoFocus
                             value={value}
                             type="password"
-                            placeholder={t`New Password`}
+                            placeholder={t`Kata Sandi Baru`}
                             onBlur={onBlur}
                             onChange={onChange}
                             error={error?.message}

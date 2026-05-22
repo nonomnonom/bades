@@ -117,7 +117,7 @@ export const RecordTableDataSourceDropdownContent = () => {
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search objects`}
+        placeholder={t`Cari objek`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

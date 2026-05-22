@@ -26,33 +26,33 @@ export const getPageTitleFromPath = (pathname: string): string => {
   const pathnameOrPrefix = getPathnameOrPrefix(pathname);
   switch (pathnameOrPrefix) {
     case AppPath.Verify:
-      return t`Verify`;
+      return t`Verifikasi`;
     case AppPath.SignInUp:
-      return t`Sign in or Create an account`;
+      return t`Masuk atau Buat Akun`;
     case AppPath.Invite:
-      return t`Invite`;
+      return t`Undangan`;
     case AppPath.CreateWorkspace:
-      return t`Create Workspace`;
+      return t`Buat Ruang Kerja`;
     case AppPath.CreateProfile:
-      return t`Create Profile`;
+      return t`Buat Profil`;
     case SettingsPathPrefixes.Experience:
-      return t`Experience - Settings`;
+      return t`Tampilan - Pengaturan`;
     case SettingsPathPrefixes.Accounts:
-      return t`Account - Settings`;
+      return t`Akun - Pengaturan`;
     case SettingsPathPrefixes.Profile:
-      return t`Profile - Settings`;
+      return t`Profil - Pengaturan`;
     case SettingsPathPrefixes.Members:
-      return t`Members - Settings`;
+      return t`Anggota - Pengaturan`;
     case SettingsPathPrefixes.Objects:
-      return t`Data model - Settings`;
+      return t`Model Data - Pengaturan`;
     case SettingsPathPrefixes.ApiWebhooks:
-      return t`API Keys - Settings`;
+      return t`Kunci API - Pengaturan`;
     case SettingsPathPrefixes.LogicFunctions:
-      return t`Functions - Settings`;
+      return t`Fungsi - Pengaturan`;
     case SettingsPathPrefixes.Integration:
-      return t`Integrations - Settings`;
+      return t`Integrasi - Pengaturan`;
     case SettingsPathPrefixes.General:
-      return t`General - Settings`;
+      return t`Umum - Pengaturan`;
     default:
       return 'Bades.id';
   }

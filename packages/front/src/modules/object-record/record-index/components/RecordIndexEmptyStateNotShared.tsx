@@ -30,13 +30,13 @@ export const RecordIndexEmptyStateNotShared = ({
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
             {isDefined(nonReadableViewFieldInfo)
-              ? t`View not shared`
-              : t`Object not shared`}
+              ? t`Tampilan tidak dibagikan`
+              : t`Objek tidak dibagikan`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
             {isDefined(nonReadableViewFieldInfo)
               ? getNonReadableViewFieldSubTitle(nonReadableViewFieldInfo)
-              : t`You don't have access to this object.`}
+              : t`Anda tidak memiliki akses ke objek ini.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

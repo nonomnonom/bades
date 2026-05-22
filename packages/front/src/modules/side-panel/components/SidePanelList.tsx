@@ -71,7 +71,7 @@ export const SidePanelList = ({
           >
             {children}
             {noResults && !loading && (
-              <StyledEmpty>{noResultsText ?? t`No results found`}</StyledEmpty>
+              <StyledEmpty>{noResultsText ?? t`Tidak ada hasil`}</StyledEmpty>
             )}
           </SelectableList>
         </StyledInnerList>

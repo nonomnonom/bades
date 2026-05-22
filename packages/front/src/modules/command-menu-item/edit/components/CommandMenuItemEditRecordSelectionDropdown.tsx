@@ -82,8 +82,8 @@ export const CommandMenuItemEditRecordSelectionDropdown = ({
 
   const TriggerIcon = isNoneSelected ? IconSquareX : IconSquareCheck;
   const triggerLabel = isNoneSelected
-    ? t`No record selected`
-    : t`Record(s) selected`;
+    ? t`Belum ada data dipilih`
+    : t`Data dipilih`;
 
   return (
     <Dropdown
@@ -117,13 +117,13 @@ export const CommandMenuItemEditRecordSelectionDropdown = ({
             <DropdownMenuItemsContainer>
               <MenuItemSelect
                 LeftIcon={IconSquareX}
-                text={t`No record selected`}
+                text={t`Belum ada data dipilih`}
                 selected={isNoneSelected}
                 onClick={() => handleSelectMode('none')}
               />
               <MenuItemSelect
                 LeftIcon={IconSquareCheck}
-                text={t`Record(s) selected`}
+                text={t`Data dipilih`}
                 selected={!isNoneSelected}
                 onClick={() => handleSelectMode('selection')}
               />

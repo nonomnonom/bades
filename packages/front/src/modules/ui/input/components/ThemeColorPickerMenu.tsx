@@ -34,7 +34,7 @@ export const ThemeColorPickerMenu = ({
   return (
     <>
       <DropdownMenuSearchInput
-        placeholder={t`Search colors...`}
+        placeholder={t`Cari warna...`}
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
       />

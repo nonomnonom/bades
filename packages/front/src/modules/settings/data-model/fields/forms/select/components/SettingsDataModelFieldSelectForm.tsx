@@ -370,7 +370,7 @@ export const SettingsDataModelFieldSelectForm = ({
                           <DropdownMenuItemsContainer>
                             <MenuItem
                               text={
-                                isBulkInputMode ? t`Edit satu per satu` : t`Edit sekaligus`
+                                isBulkInputMode ? t`Ubah satu per satu` : t`Ubah sekaligus`
                               }
                               LeftIcon={IconPencil}
                               onClick={() => {

@@ -128,13 +128,13 @@ export const GlobalFilePreviewModal = (): JSX.Element | null => {
                 fallback={
                   <StyledLoadingContainer>
                     <StyledLoadingText>
-                      {t`Loading document viewer...`}
+                      {t`Memuat penampil dokumen...`}
                     </StyledLoadingText>
                   </StyledLoadingContainer>
                 }
               >
                 <DocumentViewer
-                  documentName={filePreview.label ?? t`Untitled`}
+                  documentName={filePreview.label ?? t`Tanpa judul`}
                   documentUrl={filePreview.url ?? ''}
                   documentExtension={filePreview.extension ?? ''}
                 />

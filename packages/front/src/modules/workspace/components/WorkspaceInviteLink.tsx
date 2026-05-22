@@ -43,7 +43,7 @@ export const WorkspaceInviteLink = ({
         Icon={IconLink}
         variant="primary"
         accent="blue"
-        title={t`Copy link`}
+        title={t`Salin tautan`}
         onClick={() => {
           copyToClipboard(inviteLink, t`Link copied to clipboard`);
         }}

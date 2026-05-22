@@ -142,7 +142,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                 <DropdownMenuItemsContainer>
                   <MenuItem
                     LeftIcon={IconPlus}
-                    text={t`Create Workspace`}
+                    text={t`Buat Ruang Kerja`}
                     onClick={createWorkspace}
                   />
                   <MenuItem
