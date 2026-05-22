@@ -52,7 +52,7 @@ export const SettingsAI = () => {
 
       if (result.status === 'successful' && isDefined(result.response?.data)) {
         const newLogicFunction = result.response.data.createOneLogicFunction;
-        enqueueSuccessSnackBar({ message: t`Tool created` });
+        enqueueSuccessSnackBar({ message: t`Alat berhasil dibuat` });
 
         const applicationId = (newLogicFunction as { applicationId?: string })
           .applicationId;
@@ -71,7 +71,7 @@ export const SettingsAI = () => {
           );
         }
       } else {
-        enqueueErrorSnackBar({ message: t`Failed to create tool` });
+        enqueueErrorSnackBar({ message: t`Gagal membuat alat` });
       }
     } finally {
       setIsCreatingTool(false);
@@ -81,22 +81,22 @@ export const SettingsAI = () => {
   const tabs = [
     {
       id: SETTINGS_AI_TABS.TABS_IDS.SKILLS,
-      title: t`Skills`,
+      title: t`Keahlian`,
       Icon: IconSparkles,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.TOOLS,
-      title: t`Tools`,
+      title: t`Alat`,
       Icon: IconTool,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.USAGE,
-      title: t`Usage`,
+      title: t`Pemakaian`,
       Icon: IconChartBar,
     },
     {
       id: SETTINGS_AI_TABS.TABS_IDS.MORE,
-      title: t`More`,
+      title: t`Lainnya`,
       Icon: IconSettingsBolt,
     },
   ];
@@ -114,7 +114,7 @@ export const SettingsAI = () => {
           <UndecoratedLink to={getSettingsPath(SettingsPath.AiNewSkill)}>
             <Button
               Icon={IconPlus}
-              title={t`New Skill`}
+              title={t`Keahlian Baru`}
               accent="blue"
               size="small"
             />
@@ -122,7 +122,7 @@ export const SettingsAI = () => {
         ) : isToolsTab ? (
           <Button
             Icon={IconPlus}
-            title={t`New Tool`}
+            title={t`Alat Baru`}
             accent="blue"
             size="small"
             onClick={handleCreateTool}
@@ -132,7 +132,7 @@ export const SettingsAI = () => {
       }
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         { children: t`AI` },

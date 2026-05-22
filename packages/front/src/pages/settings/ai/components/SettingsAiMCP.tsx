@@ -120,8 +120,8 @@ export const SettingsAiMCP = () => {
   return (
     <Section>
       <H2Title
-        title={t`MCP Server`}
-        description={t`Access your workspace data from your favorite MCP client like Claude Desktop, Windsurf or Cursor.`}
+        title={t`Server MCP`}
+        description={t`Akses data ruang kerja Anda dari klien MCP seperti Claude Desktop, Windsurf, atau Cursor.`}
       />
       <Card rounded>
         <StyledCoverCardContent divider>
@@ -149,7 +149,7 @@ export const SettingsAiMCP = () => {
                 onClick={() => {
                   copyToClipboard(
                     activeConfig,
-                    t`MCP Configuration copied to clipboard`,
+                    t`Konfigurasi MCP disalin ke papan klip`,
                   );
                 }}
                 size="small"

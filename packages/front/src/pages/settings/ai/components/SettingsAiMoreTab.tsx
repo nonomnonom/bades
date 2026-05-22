@@ -75,7 +75,7 @@ export const SettingsAiMoreTab = () => {
         });
       } else {
         enqueueErrorSnackBar({
-          message: t`Failed to save workspace instructions`,
+          message: t`Gagal menyimpan instruksi ruang kerja`,
         });
       }
     }
@@ -89,21 +89,21 @@ export const SettingsAiMoreTab = () => {
   const systemPromptTokenCount =
     previewData?.getAiSystemPromptPreview.estimatedTokenCount;
   const systemPromptDescription = isDefined(systemPromptTokenCount)
-    ? t`Read the system prompts to understand how the AI works (~${formatNumber(
+    ? t`Baca prompt sistem untuk memahami cara kerja AI (~${formatNumber(
         systemPromptTokenCount,
         {
           abbreviate: true,
           decimals: 1,
         },
-      )} tokens)`
-    : t`Read the system prompts to understand how the AI works`;
+      )} token)`
+    : t`Baca prompt sistem untuk memahami cara kerja AI`;
 
   return (
     <>
       <Section>
         <H2Title
-          title={t`Workspace Instructions`}
-          description={t`Add custom instructions specific to your workspace (appended to system prompt)`}
+          title={t`Instruksi Ruang Kerja`}
+          description={t`Tambahkan instruksi khusus untuk ruang kerja Anda (disisipkan ke prompt sistem)`}
         />
         <StyledFormContainer>
           <FormAdvancedTextFieldInput
@@ -115,14 +115,14 @@ export const SettingsAiMoreTab = () => {
             enableFullScreen={true}
             fullScreenBreadcrumbs={[
               {
-                children: t`System Prompt`,
+                children: t`Prompt Sistem`,
                 href: '#',
               },
               {
-                children: t`Workspace Instructions`,
+                children: t`Instruksi Ruang Kerja`,
               },
             ]}
-            placeholder={t`E.g., "We are a B2B SaaS company. Always use formal language..."`}
+            placeholder={t`Mis., "Kami adalah pemerintah desa. Selalu gunakan bahasa formal..."`}
             minHeight={150}
             maxWidth={700}
           />
@@ -132,14 +132,14 @@ export const SettingsAiMoreTab = () => {
 
       <Section>
         <H2Title
-          title={t`System Prompt`}
+          title={t`Prompt Sistem`}
           description={systemPromptDescription}
         />
 
         <UndecoratedLink to={getSettingsPath(SettingsPath.AiPrompts)}>
           <SettingsCard
             Icon={<IconPrompt size={theme.icon.size.md} />}
-            title={t`Read system prompts`}
+            title={t`Baca prompt sistem`}
           />
         </UndecoratedLink>
       </Section>
