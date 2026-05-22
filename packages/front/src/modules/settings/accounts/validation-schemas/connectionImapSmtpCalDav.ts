@@ -24,13 +24,13 @@ const connectionParameters = z
     },
     {
       path: ['port'],
-      error: 'Port must be a positive number when configuring this protocol',
+      error: 'Port harus berupa angka positif saat mengonfigurasi protokol ini',
     },
   );
 
 export const connectionImapSmtpCalDav = z
   .object({
-    handle: z.email('Invalid email address'),
+    handle: z.email('Alamat email tidak valid'),
     IMAP: connectionParameters.optional(),
     SMTP: connectionParameters.optional(),
     CALDAV: connectionParameters.optional(),
@@ -44,13 +44,13 @@ export const connectionImapSmtpCalDav = z
     {
       path: ['handle'],
       error:
-        'At least one account type (IMAP, SMTP, or CalDAV) must be completely configured',
+        'Setidaknya satu tipe akun (IMAP, SMTP, atau CalDAV) harus dikonfigurasi secara lengkap',
     },
   );
 
 export const connectionImapSmtpCalDavUpdate = z
   .object({
-    handle: z.email('Invalid email address'),
+    handle: z.email('Alamat email tidak valid'),
     IMAP: connectionParameters.optional(),
     SMTP: connectionParameters.optional(),
     CALDAV: connectionParameters.optional(),
@@ -66,6 +66,6 @@ export const connectionImapSmtpCalDavUpdate = z
     {
       path: ['handle'],
       error:
-        'At least one account type (IMAP, SMTP, or CalDAV) must be completely configured',
+        'Setidaknya satu tipe akun (IMAP, SMTP, atau CalDAV) harus dikonfigurasi secara lengkap',
     },
   );

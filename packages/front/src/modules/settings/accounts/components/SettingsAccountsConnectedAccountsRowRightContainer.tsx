@@ -26,24 +26,24 @@ export const SettingsAccountsConnectedAccountsRowRightContainer = ({
   return (
     <StyledRowRightContainer>
       {status === SyncStatus.FAILED && (
-        <Status color="red" text={t`Sync failed`} weight="medium" />
+        <Status color="red" text={t`Sinkronisasi gagal`} weight="medium" />
       )}
       {status === SyncStatus.SYNCED && (
-        <Status color="green" text={t`Synced`} weight="medium" />
+        <Status color="green" text={t`Tersinkronkan`} weight="medium" />
       )}
       {status === SyncStatus.NOT_SYNCED && (
-        <Status color="orange" text={t`Not synced`} weight="medium" />
+        <Status color="orange" text={t`Belum tersinkronkan`} weight="medium" />
       )}
       {status === SyncStatus.IMPORTING && (
         <Status
           color="turquoise"
-          text={t`Importing`}
+          text={t`Mengimpor`}
           weight="medium"
           isLoaderVisible
         />
       )}
       {status === SyncStatus.PENDING_CONFIGURATION && (
-        <Status color="orange" text={t`Setup incomplete`} weight="medium" />
+        <Status color="orange" text={t`Pengaturan belum selesai`} weight="medium" />
       )}
       <SettingsAccountsRowDropdownMenu account={account} />
     </StyledRowRightContainer>

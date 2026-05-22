@@ -7,8 +7,8 @@ export const SettingsNewAccountSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`New account`}
-        description={t`Connect a new account to your workspace`}
+        title={t`Akun baru`}
+        description={t`Hubungkan akun baru ke Ruang Kerja Anda`}
       />
       <SettingsAccountsListEmptyStateCard />
     </Section>

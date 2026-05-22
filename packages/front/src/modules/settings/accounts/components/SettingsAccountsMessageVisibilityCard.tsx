@@ -10,8 +10,8 @@ type SettingsAccountsMessageVisibilityCardProps = {
 
 const inboxSettingsVisibilityOptions = [
   {
-    title: msg`Everything`,
-    description: msg`Subject, body and attachments will be shared with your team.`,
+    title: msg`Semua`,
+    description: msg`Subjek, isi, dan lampiran akan dibagikan ke tim Anda.`,
     value: MessageChannelVisibility.SHARE_EVERYTHING,
     cardMedia: (
       <SettingsAccountsVisibilityIcon
@@ -22,8 +22,8 @@ const inboxSettingsVisibilityOptions = [
     ),
   },
   {
-    title: msg`Subject and metadata`,
-    description: msg`Subject and metadata will be shared with your team.`,
+    title: msg`Subjek dan metadata`,
+    description: msg`Subjek dan metadata akan dibagikan ke tim Anda.`,
     value: MessageChannelVisibility.SUBJECT,
     cardMedia: (
       <SettingsAccountsVisibilityIcon
@@ -35,7 +35,7 @@ const inboxSettingsVisibilityOptions = [
   },
   {
     title: msg`Metadata`,
-    description: msg`Timestamp and participants will be shared with your team.`,
+    description: msg`Waktu dan peserta akan dibagikan ke tim Anda.`,
     value: MessageChannelVisibility.METADATA,
     cardMedia: (
       <SettingsAccountsVisibilityIcon

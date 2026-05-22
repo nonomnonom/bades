@@ -86,16 +86,16 @@ export const SettingsAccountsConnectionForm = ({
 
   const getDescription = () => {
     if (isEditing) {
-      return t`Update your account's configuration. Configure any combination of IMAP, SMTP, and CalDAV as needed.`;
+      return t`Perbarui konfigurasi akun Anda. Atur kombinasi IMAP, SMTP, dan CalDAV sesuai kebutuhan.`;
     }
-    return t`You can set up any combination of IMAP (receiving emails), SMTP (sending emails), and CalDAV (calendar sync).`;
+    return t`Anda dapat mengatur kombinasi IMAP (menerima email), SMTP (mengirim email), dan CalDAV (sinkronisasi kalender).`;
   };
 
   const handlePortChange = (value: string) => Number(value);
 
   return (
     <Section>
-      <H2Title title={t`Mail Account`} description={getDescription()} />
+      <H2Title title={t`Akun Email`} description={getDescription()} />
       <StyledFormContainer>
         <Controller
           name="handle"
@@ -103,7 +103,7 @@ export const SettingsAccountsConnectionForm = ({
           render={({ field, fieldState }) => (
             <SettingsTextInput
               instanceId="email-address-connection-form"
-              label={t`Email Address`}
+              label={t`Alamat Email`}
               placeholder={t`john.doe@example.com`}
               value={field.value}
               onChange={field.onChange}
@@ -114,10 +114,10 @@ export const SettingsAccountsConnectionForm = ({
 
         <StyledConnectionSection>
           <StyledSectionHeader>
-            <StyledSectionTitle>{t`IMAP Configuration`}</StyledSectionTitle>
+            <StyledSectionTitle>{t`Konfigurasi IMAP`}</StyledSectionTitle>
             <StyledSectionDescription>
-              {t`Configure IMAP settings to receive and sync your emails.`}{' '}
-              {t`Leave blank if you don't need to import emails.`}
+              {t`Atur pengaturan IMAP untuk menerima dan menyinkronkan email Anda.`}{' '}
+              {t`Biarkan kosong jika tidak perlu mengimpor email.`}
             </StyledSectionDescription>
           </StyledSectionHeader>
 
@@ -127,7 +127,7 @@ export const SettingsAccountsConnectionForm = ({
             render={({ field, fieldState }) => (
               <SettingsTextInput
                 instanceId="imap-host-connection-form"
-                label={t`IMAP Server`}
+                label={t`Server IMAP`}
                 placeholder={t`imap.example.com`}
                 value={field.value || ''}
                 onChange={field.onChange}
@@ -142,7 +142,7 @@ export const SettingsAccountsConnectionForm = ({
             render={({ field, fieldState }) => (
               <SettingsTextInput
                 instanceId="imap-username-connection-form"
-                label={t`IMAP Username (Optional)`}
+                label={t`Nama Pengguna IMAP (Opsional)`}
                 placeholder={t`john.doe`}
                 type="text"
                 value={field.value || ''}
@@ -155,7 +155,7 @@ export const SettingsAccountsConnectionForm = ({
 
           <SettingsAccountsPasswordController
             protocol="IMAP"
-            label={t`IMAP Password`}
+            label={t`Kata Sandi IMAP`}
             control={control}
             disabled={isPasswordInputDisabled('IMAP')}
             onUnlock={() =>
@@ -174,7 +174,7 @@ export const SettingsAccountsConnectionForm = ({
                 render={({ field, fieldState }) => (
                   <SettingsTextInput
                     instanceId="imap-port-connection-form"
-                    label={t`IMAP Port`}
+                    label={t`Port IMAP`}
                     type="number"
                     placeholder="993"
                     value={field?.value ? field.value : 993}
@@ -193,7 +193,7 @@ export const SettingsAccountsConnectionForm = ({
                 control={control}
                 render={({ field }) => (
                   <Select
-                    label={t`IMAP Encryption`}
+                    label={t`Enkripsi IMAP`}
                     options={[
                       { label: 'SSL/TLS', value: true },
                       { label: 'None', value: false },
@@ -210,10 +210,10 @@ export const SettingsAccountsConnectionForm = ({
 
         <StyledConnectionSection>
           <StyledSectionHeader>
-            <StyledSectionTitle>{t`SMTP Configuration`}</StyledSectionTitle>
+            <StyledSectionTitle>{t`Konfigurasi SMTP`}</StyledSectionTitle>
             <StyledSectionDescription>
-              {t`Configure SMTP settings to send emails from your account.`}{' '}
-              {t`Leave blank if you don't need to send emails.`}
+              {t`Atur pengaturan SMTP untuk mengirim email dari akun Anda.`}{' '}
+              {t`Biarkan kosong jika tidak perlu mengirim email.`}
             </StyledSectionDescription>
           </StyledSectionHeader>
 
@@ -223,7 +223,7 @@ export const SettingsAccountsConnectionForm = ({
             render={({ field, fieldState }) => (
               <SettingsTextInput
                 instanceId="smtp-host-connection-form"
-                label={t`SMTP Server`}
+                label={t`Server SMTP`}
                 placeholder={t`smtp.example.com`}
                 value={field.value || ''}
                 onChange={field.onChange}
@@ -238,7 +238,7 @@ export const SettingsAccountsConnectionForm = ({
             render={({ field, fieldState }) => (
               <SettingsTextInput
                 instanceId="smtp-username-connection-form"
-                label={t`SMTP Username`}
+                label={t`Nama Pengguna SMTP`}
                 placeholder={t`john.doe`}
                 type="text"
                 value={field.value || ''}
@@ -250,7 +250,7 @@ export const SettingsAccountsConnectionForm = ({
 
           <SettingsAccountsPasswordController
             protocol="SMTP"
-            label={t`SMTP Password`}
+            label={t`Kata Sandi SMTP`}
             control={control}
             disabled={isPasswordInputDisabled('SMTP')}
             onUnlock={() =>
@@ -269,7 +269,7 @@ export const SettingsAccountsConnectionForm = ({
                 render={({ field, fieldState }) => (
                   <SettingsTextInput
                     instanceId="smtp-port-connection-form"
-                    label={t`SMTP Port`}
+                    label={t`Port SMTP`}
                     type="number"
                     placeholder="587"
                     value={field?.value ? field.value : 587}
@@ -288,7 +288,7 @@ export const SettingsAccountsConnectionForm = ({
                 control={control}
                 render={({ field }) => (
                   <Select
-                    label={t`SMTP Encryption`}
+                    label={t`Enkripsi SMTP`}
                     options={[
                       { label: 'SSL/TLS', value: true },
                       { label: 'STARTTLS', value: false },
@@ -305,10 +305,10 @@ export const SettingsAccountsConnectionForm = ({
 
         <StyledConnectionSection>
           <StyledSectionHeader>
-            <StyledSectionTitle>{t`CalDAV Configuration`}</StyledSectionTitle>
+            <StyledSectionTitle>{t`Konfigurasi CalDAV`}</StyledSectionTitle>
             <StyledSectionDescription>
-              {t`Configure CalDAV settings to sync your calendar events.`}{' '}
-              {t`Leave blank if you don't need calendar sync.`}
+              {t`Atur pengaturan CalDAV untuk menyinkronkan acara kalender Anda.`}{' '}
+              {t`Biarkan kosong jika tidak perlu sinkronisasi kalender.`}
             </StyledSectionDescription>
           </StyledSectionHeader>
 
@@ -318,7 +318,7 @@ export const SettingsAccountsConnectionForm = ({
             render={({ field, fieldState }) => (
               <SettingsTextInput
                 instanceId="caldav-host-connection-form"
-                label={t`CalDAV Server`}
+                label={t`Server CalDAV`}
                 placeholder={t`caldav.example.com`}
                 value={field.value || ''}
                 onChange={field.onChange}
@@ -333,7 +333,7 @@ export const SettingsAccountsConnectionForm = ({
             render={({ field, fieldState }) => (
               <SettingsTextInput
                 instanceId="caldav-username-connection-form"
-                label={t`CalDAV Username`}
+                label={t`Nama Pengguna CalDAV`}
                 placeholder={t`john.doe`}
                 required={false}
                 value={field.value || ''}
@@ -345,7 +345,7 @@ export const SettingsAccountsConnectionForm = ({
 
           <SettingsAccountsPasswordController
             protocol="CALDAV"
-            label={t`CalDAV Password`}
+            label={t`Kata Sandi CalDAV`}
             control={control}
             disabled={isPasswordInputDisabled('CALDAV')}
             onUnlock={() =>

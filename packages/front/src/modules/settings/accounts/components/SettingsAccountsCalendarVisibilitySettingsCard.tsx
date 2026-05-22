@@ -19,8 +19,8 @@ const StyledCardMediaContainer = styled.div`
 
 const eventSettingsVisibilityOptions = [
   {
-    title: msg`Everything`,
-    description: msg`The whole event details will be shared with your team.`,
+    title: msg`Semua detail`,
+    description: msg`Seluruh detail acara akan dibagikan ke tim Anda.`,
     value: CalendarChannelVisibility.SHARE_EVERYTHING,
     cardMedia: (
       <StyledCardMediaContainer>
@@ -30,7 +30,7 @@ const eventSettingsVisibilityOptions = [
   },
   {
     title: msg`Metadata`,
-    description: msg`Only date & participants will be shared with your team.`,
+    description: msg`Hanya tanggal & peserta yang akan dibagikan ke tim Anda.`,
     value: CalendarChannelVisibility.METADATA,
     cardMedia: (
       <StyledCardMediaContainer>

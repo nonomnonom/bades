@@ -83,7 +83,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               {hasPendingConfiguration && (
                 <MenuItem
                   LeftIcon={IconPlayerPlay}
-                  text={t`Complete setup`}
+                  text={t`Selesaikan pengaturan`}
                   onClick={() => {
                     navigate(SettingsPath.AccountsConfiguration, {
                       connectedAccountId: account.id,
@@ -95,7 +95,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               {account.provider ===
                 ConnectedAccountProvider.IMAP_SMTP_CALDAV && (
                 <MenuItem
-                  text={t`Connection settings`}
+                  text={t`Pengaturan koneksi`}
                   LeftIcon={IconAt}
                   onClick={() => {
                     navigate(SettingsPath.EditImapSmtpCaldavConnection, {
@@ -107,7 +107,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               )}
               <MenuItem
                 LeftIcon={IconMail}
-                text={t`Emails settings`}
+                text={t`Pengaturan email`}
                 onClick={() => {
                   navigate(SettingsPath.AccountsEmails);
                   closeDropdown(dropdownId);
@@ -115,7 +115,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               />
               <MenuItem
                 LeftIcon={IconCalendarEvent}
-                text={t`Calendar settings`}
+                text={t`Pengaturan kalender`}
                 onClick={() => {
                   navigate(SettingsPath.AccountsCalendars);
                   closeDropdown(dropdownId);
@@ -124,7 +124,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               {account.authFailedAt && (
                 <MenuItem
                   LeftIcon={IconRefresh}
-                  text={t`Reconnect`}
+                  text={t`Hubungkan ulang`}
                   onClick={() => {
                     triggerProviderReconnect(account.provider, account.id);
                     closeDropdown(dropdownId);
@@ -134,7 +134,7 @@ export const SettingsAccountsRowDropdownMenu = ({
               <MenuItem
                 accent="danger"
                 LeftIcon={IconTrash}
-                text={t`Remove account`}
+                text={t`Hapus akun`}
                 onClick={() => {
                   closeDropdown(dropdownId);
                   openModal(deleteAccountModalId);
@@ -146,15 +146,14 @@ export const SettingsAccountsRowDropdownMenu = ({
       />
       <ConfirmationModal
         modalInstanceId={deleteAccountModalId}
-        title={t`Data deletion`}
+        title={t`Hapus data`}
         subtitle={
           <Trans>
-            All emails and events linked to this account ({accountHandle}) will
-            be deleted
+            Semua email dan acara yang terhubung ke akun ini ({accountHandle}) akan dihapus
           </Trans>
         }
         onConfirmClick={deleteAccount}
-        confirmButtonText={t`Delete account`}
+        confirmButtonText={t`Hapus akun`}
       />
     </>
   );

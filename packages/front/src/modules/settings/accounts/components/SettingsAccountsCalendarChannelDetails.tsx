@@ -47,8 +47,8 @@ export const SettingsAccountsCalendarChannelDetails = ({
     <StyledDetailsContainer>
       <Section>
         <H2Title
-          title={t`Event visibility`}
-          description={t`Define what will be visible to other users in your workspace`}
+          title={t`Visibilitas acara`}
+          description={t`Tentukan apa yang akan terlihat oleh pengguna lain di Ruang Kerja Anda`}
         />
         <SettingsAccountsEventVisibilitySettingsCard
           value={calendarChannel.visibility}
@@ -63,8 +63,8 @@ export const SettingsAccountsCalendarChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconUserPlus}
-            title={t`Auto-creation`}
-            description={t`Automatically create contacts for people.`}
+            title={t`Pembuatan otomatis`}
+            description={t`Otomatis membuat kontak untuk orang-orang.`}
             checked={calendarChannel.isContactAutoCreationEnabled}
             onChange={() => {
               handleContactAutoCreationToggle(

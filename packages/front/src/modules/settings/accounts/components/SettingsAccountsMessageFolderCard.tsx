@@ -11,8 +11,8 @@ type SettingsAccountsMessageFolderCardProps = {
 
 const INBOX_SETTINGS_VISIBILITY_OPTIONS = [
   {
-    title: msg`Everything`,
-    description: msg`Import all emails`,
+    title: msg`Semua`,
+    description: msg`Impor semua email`,
     value: MessageFolderImportPolicy.ALL_FOLDERS,
     cardMedia: (
       <SettingsAccountsMessageFolderIcon
@@ -21,8 +21,8 @@ const INBOX_SETTINGS_VISIBILITY_OPTIONS = [
     ),
   },
   {
-    title: msg`Some folders`,
-    description: msg`Import only selected folders/labels`,
+    title: msg`Beberapa folder`,
+    description: msg`Impor hanya folder/label yang dipilih`,
     value: MessageFolderImportPolicy.SELECTED_FOLDERS,
     cardMedia: (
       <SettingsAccountsMessageFolderIcon

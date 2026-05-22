@@ -31,17 +31,17 @@ export const SettingsAccountsNewImapSmtpCaldavConnection = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...formMethods}>
       <SubMenuTopBarContainer
-        title={t`New Account`}
+        title={t`Akun Baru`}
         links={[
           {
-            children: t`User`,
+            children: t`Pengguna`,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: t`Accounts`,
+            children: t`Akun`,
             href: getSettingsPath(SettingsPath.Accounts),
           },
-          { children: t`New Account` },
+          { children: t`Akun Baru` },
         ]}
         actionButton={
           <SaveAndCancelButtons

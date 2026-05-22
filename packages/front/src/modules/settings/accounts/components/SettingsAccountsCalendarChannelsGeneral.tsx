@@ -59,7 +59,7 @@ export const SettingsAccountsCalendarChannelsGeneral = () => {
     description: '',
     isCanceled: false,
     location: '',
-    title: t`Onboarding call`,
+    title: t`Rapat orientasi`,
     visibility: CalendarChannelVisibility.SHARE_EVERYTHING,
   };
 
@@ -67,15 +67,15 @@ export const SettingsAccountsCalendarChannelsGeneral = () => {
     <StyledGeneralContainer>
       <Section>
         <H2Title
-          title={t`Display`}
-          description={t`Configure how we should display your events in your calendar`}
+          title={t`Tampilan`}
+          description={t`Atur bagaimana acara Anda ditampilkan di kalender`}
         />
         <SettingsAccountsCalendarDisplaySettings />
       </Section>
       <Section>
         <H2Title
-          title={t`Color code`}
-          description={t`Events you participated in are displayed in red.`}
+          title={t`Kode warna`}
+          description={t`Acara yang Anda ikuti ditampilkan dengan warna merah.`}
         />
         <CalendarContext.Provider
           value={{

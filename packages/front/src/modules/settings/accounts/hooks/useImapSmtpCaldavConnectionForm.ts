@@ -157,8 +157,8 @@ export const useImapSmtpCaldavConnectionForm = ({
         if (!isDefined(data)) return;
 
         const successMessage = isEditing
-          ? t`Connection successfully updated`
-          : t`Connection successfully created`;
+          ? t`Koneksi berhasil diperbarui`
+          : t`Koneksi berhasil dibuat`;
 
         enqueueSuccessSnackBar({ message: successMessage });
 

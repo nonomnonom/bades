@@ -57,11 +57,11 @@ export const SettingsAccountsBlocklistSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`Blocklist`}
+        title={t`Daftar blokir`}
         description={
           isInternalMessagesImportEnabled
-            ? t`Exclude the following people and domains from my email sync.`
-            : t`Exclude the following people and domains from my email sync. Internal conversations will not be imported`
+            ? t`Kecualikan orang dan domain berikut dari sinkronisasi email saya.`
+            : t`Kecualikan orang dan domain berikut dari sinkronisasi email saya. Percakapan internal tidak akan diimpor.`
         }
       />
       <SettingsAccountsBlocklistInput

@@ -35,7 +35,7 @@ export const SettingsAccountsBlocklistTable = ({
               mobileGridAutoColumns="120px 1fr 20px"
             >
               <TableHeader>{t`Email/Domain`}</TableHeader>
-              <TableHeader>{t`Added to blocklist`}</TableHeader>
+              <TableHeader>{t`Ditambahkan ke daftar blokir`}</TableHeader>
               <TableHeader></TableHeader>
             </TableRow>
             <StyledTableBodyContainer>

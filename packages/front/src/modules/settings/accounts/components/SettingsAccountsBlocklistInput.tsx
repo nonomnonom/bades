@@ -42,7 +42,7 @@ export const SettingsAccountsBlocklistInput = ({
         emailOrDomain: z
           .string()
           .trim()
-          .pipe(z.email({ error: t`Invalid email or domain` }))
+          .pipe(z.email({ error: t`Email atau domain tidak valid` }))
           .or(
             z.string().refine(
               (value) =>
@@ -51,12 +51,12 @@ export const SettingsAccountsBlocklistInput = ({
                   allowIp: false,
                   allowLocalhost: false,
                 }),
-              t`Invalid email or domain`,
+              t`Email atau domain tidak valid`,
             ),
           )
           .refine(
             (value) => !blockedEmailOrDomainList.includes(value),
-            t`Email or domain is already in blocklist`,
+            t`Email atau domain sudah ada dalam daftar blokir`,
           ),
       })
       .required();
@@ -107,7 +107,7 @@ export const SettingsAccountsBlocklistInput = ({
             )}
           />
         </StyledLinkContainer>
-        <Button title={t`Add to blocklist`} type="submit" />
+        <Button title={t`Tambah ke daftar blokir`} type="submit" />
       </StyledContainer>
     </form>
   );

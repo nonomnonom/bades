@@ -90,8 +90,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       {supportsFolderImportPolicy && (
         <Section>
           <H2Title
-            title={t`Import`}
-            description={t`Emails from the blocklist will be ignored. Manage blocklist on the "Accounts" setting page.`}
+            title={t`Impor`}
+            description={t`Email dari daftar blokir akan diabaikan. Kelola daftar blokir di halaman pengaturan "Akun".`}
           />
           <SettingsAccountsMessageFolderCard
             onChange={handleMessageFolderImportPolicyChange}
@@ -103,8 +103,8 @@ export const SettingsAccountsMessageChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconUsers}
-            title={t`Exclude group emails`}
-            description={t`Don't sync emails from team@ support@ noreply@...`}
+            title={t`Kecualikan email grup`}
+            description={t`Jangan sinkronkan email dari team@ support@ noreply@...`}
             checked={messageChannel.excludeGroupEmails}
             onChange={() =>
               handleIsGroupEmailExcludedToggle(
@@ -116,8 +116,8 @@ export const SettingsAccountsMessageChannelDetails = ({
       </Section>
       <Section>
         <H2Title
-          title={t`Visibility`}
-          description={t`Define what will be visible to other users in your workspace`}
+          title={t`Visibilitas`}
+          description={t`Tentukan apa yang akan terlihat oleh pengguna lain di Ruang Kerja Anda`}
         />
         <SettingsAccountsMessageVisibilityCard
           value={messageChannel.visibility}
@@ -138,8 +138,8 @@ export const SettingsAccountsMessageChannelDetails = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconBriefcase}
-            title={t`Exclude non-professional emails`}
-            description={t`Don't create contacts from/to Gmail, Outlook emails`}
+            title={t`Kecualikan email non-profesional`}
+            description={t`Jangan buat kontak dari/ke email Gmail, Outlook`}
             checked={messageChannel.excludeNonProfessionalEmails}
             onChange={() => {
               handleIsNonProfessionalEmailExcludedToggle(

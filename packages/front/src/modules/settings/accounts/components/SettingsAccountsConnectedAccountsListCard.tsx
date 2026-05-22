@@ -57,7 +57,7 @@ export const SettingsAccountsConnectedAccountsListCard = ({
         <Section>
           <Button
             Icon={IconPlus}
-            title={t`Add account`}
+            title={t`Tambah akun`}
             variant="secondary"
             size="small"
             onClick={() => navigateSettings(SettingsPath.NewAccount)}

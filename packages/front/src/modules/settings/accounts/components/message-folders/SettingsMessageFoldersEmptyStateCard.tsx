@@ -22,7 +22,7 @@ export const SettingsMessageFoldersEmptyStateCard = () => {
     <Section>
       <StyledEmptyState>
         <IconFolder size={theme.icon.size.md} />
-        <div>{t`No folders found for this account`}</div>
+        <div>{t`Tidak ada folder yang ditemukan untuk akun ini`}</div>
       </StyledEmptyState>
     </Section>
   );

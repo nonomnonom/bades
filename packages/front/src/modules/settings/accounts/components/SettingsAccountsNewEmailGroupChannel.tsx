@@ -39,24 +39,24 @@ export const SettingsAccountsNewEmailGroupChannel = () => {
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to create email group channel. Email group may not be configured on this server.`,
+        message: t`Gagal membuat saluran grup email. Grup email mungkin belum dikonfigurasi di server ini.`,
       });
     }
   }, [createEmailGroupChannel, handle, navigate, enqueueErrorSnackBar, t]);
 
   return (
     <SubMenuTopBarContainer
-      title={t`New Email Group`}
+      title={t`Grup Email Baru`}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`General`,
+          children: t`Umum`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`New Email Group` },
+        { children: t`Grup Email Baru` },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -71,12 +71,12 @@ export const SettingsAccountsNewEmailGroupChannel = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Email Address`}
-            description={t`Enter the email address you want to forward emails from (e.g. support@mycompany.com).`}
+            title={t`Alamat Email`}
+            description={t`Masukkan alamat email yang ingin Anda teruskan emailnya (mis. support@mycompany.com).`}
           />
           <SettingsTextInput
             instanceId="email-group-handle"
-            label={t`Source Email Address`}
+            label={t`Alamat Email Sumber`}
             placeholder="support@mycompany.com"
             value={handle}
             onChange={setHandle}
