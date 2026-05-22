@@ -53,7 +53,7 @@ export const AgentChatFileUploadButton = () => {
           fileInputRef.current?.click();
         }}
         Icon={IconPaperclip}
-        ariaLabel={t`Attach files`}
+        ariaLabel={t`Lampirkan file`}
       />
     </StyledFileUploadContainer>
   );

@@ -59,9 +59,9 @@ export const AiChatErrorMessage = ({ error }: AiChatErrorMessageProps) => {
         <IconAlertCircle size={theme.icon.size.md} />
       </StyledErrorIcon>
       <StyledErrorContent>
-        <StyledErrorTitle>{t`Failed to get response`}</StyledErrorTitle>
+        <StyledErrorTitle>{t`Gagal mendapatkan respons`}</StyledErrorTitle>
         <StyledErrorMessage>
-          {errorMessage || t`An error occurred while processing your message`}
+          {errorMessage || t`Terjadi kesalahan saat memproses pesan Anda`}
         </StyledErrorMessage>
       </StyledErrorContent>
     </StyledErrorContainer>

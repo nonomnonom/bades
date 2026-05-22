@@ -7,6 +7,6 @@ export const AGENT_CHAT_THREAD_GROUP_BY_LABELS: Record<
   AgentChatThreadGroupBy,
   MessageDescriptor
 > = {
-  date: msg`Date`,
-  none: msg`None`,
+  date: msg`Tanggal`,
+  none: msg`Tidak dikelompokkan`,
 };

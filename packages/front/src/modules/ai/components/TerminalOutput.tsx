@@ -136,7 +136,7 @@ export const TerminalOutput = ({
       <StyledHeader>
         <StyledHeaderLeft>
           <IconTerminal size={14} />
-          {t`Output`}
+          {t`Keluaran`}
         </StyledHeaderLeft>
         <StyledTabContainer>
           <StyledTab
@@ -157,7 +157,7 @@ export const TerminalOutput = ({
           <LightIconButton
             Icon={IconCopy}
             onClick={() => copyToClipboard(currentOutput)}
-            title={t`Copy output`}
+            title={t`Salin keluaran`}
             size="small"
             accent="tertiary"
           />
@@ -171,7 +171,7 @@ export const TerminalOutput = ({
           </>
         ) : (
           <StyledEmptyMessage>
-            {isRunning ? t`Waiting for output...` : t`No output`}
+            {isRunning ? t`Menunggu keluaran...` : t`Tidak ada keluaran`}
           </StyledEmptyMessage>
         )}
       </StyledOutputArea>

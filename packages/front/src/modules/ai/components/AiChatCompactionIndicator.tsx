@@ -23,7 +23,7 @@ export const AiChatCompactionIndicator = () => {
     <StyledIndicatorContainer>
       <StyledIconTextContainer>
         <IconTransform size={theme.icon.size.sm} />
-        <div>The conversation has been compacted</div>
+        <div>Percakapan telah dipadatkan</div>
       </StyledIconTextContainer>
     </StyledIndicatorContainer>
   );

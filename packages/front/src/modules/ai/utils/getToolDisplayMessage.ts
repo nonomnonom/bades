@@ -94,32 +94,32 @@ export const getToolDisplayMessage = (
 
     if (isNonEmptyString(query)) {
       return byStatus(
-        t`Searched the web for ${query}`,
-        t`Searching the web for ${query}`,
+        t`Mencari web untuk ${query}`,
+        t`Sedang mencari web untuk ${query}`,
       );
     }
 
-    return byStatus(t`Searched the web`, t`Searching the web`);
+    return byStatus(t`Mencari web`, t`Sedang mencari web`);
   }
 
   if (resolvedToolName === 'learn_tools') {
     const names = extractLearnToolNames(resolvedInput);
 
     if (isNonEmptyString(names)) {
-      return byStatus(t`Learned ${names}`, t`Learning ${names}`);
+      return byStatus(t`Mempelajari ${names}`, t`Sedang mempelajari ${names}`);
     }
 
-    return byStatus(t`Learned tools`, t`Learning tools...`);
+    return byStatus(t`Mempelajari alat`, t`Sedang mempelajari alat...`);
   }
 
   if (resolvedToolName === 'load_skills') {
     const names = extractSkillNames(resolvedInput);
 
     if (isNonEmptyString(names)) {
-      return byStatus(t`Loaded ${names}`, t`Loading ${names}`);
+      return byStatus(t`Memuat ${names}`, t`Sedang memuat ${names}`);
     }
 
-    return byStatus(t`Loaded skills`, t`Loading skills...`);
+    return byStatus(t`Memuat keahlian`, t`Sedang memuat keahlian...`);
   }
 
   const customMessage = extractCustomLoadingMessage(resolvedInput);
@@ -130,5 +130,5 @@ export const getToolDisplayMessage = (
 
   const formattedName = formatToolName(resolvedToolName);
 
-  return byStatus(t`Ran ${formattedName}`, t`Running ${formattedName}`);
+  return byStatus(t`Menjalankan ${formattedName}`, t`Sedang menjalankan ${formattedName}`);
 };

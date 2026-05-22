@@ -104,7 +104,7 @@ export const NavigationDrawerAiChatContent = () => {
         ) : (
           <NavigationDrawerAiChatThreadSection
             sectionId={AI_CHAT_RECENTS_NAVIGATION_SECTION_ID}
-            title={t`Recents`}
+            title={t`Terbaru`}
             threads={threads}
             currentThreadId={currentAiChatThread}
             onThreadClick={handleThreadClick}
@@ -112,7 +112,7 @@ export const NavigationDrawerAiChatContent = () => {
           />
         )}
         {threads.length === 0 ? (
-          <StyledEmptyState>{t`No chat`}</StyledEmptyState>
+          <StyledEmptyState>{t`Belum ada obrolan`}</StyledEmptyState>
         ) : null}
         {hasNextPage ? <StyledFetchMoreTrigger ref={fetchMoreRef} /> : null}
       </StyledThreadList>

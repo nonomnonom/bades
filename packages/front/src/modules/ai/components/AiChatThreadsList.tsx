@@ -95,7 +95,7 @@ export const AiChatThreadsList = () => {
           ) : (
             <>
               <NavigationDrawerSectionTitle
-                label={t`Recents`}
+                label={t`Terbaru`}
                 alwaysShowRightIcon
                 rightIcon={filterDropdown}
               />
@@ -115,7 +115,7 @@ export const AiChatThreadsList = () => {
             variant="primary"
             accent="blue"
             size="medium"
-            title={t`New chat`}
+            title={t`Obrolan baru`}
             onClick={() => switchToNewChat()}
             hotkeys={[getOsControlSymbol(), '⏎']}
           />

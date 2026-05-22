@@ -216,7 +216,7 @@ export const ToolStepRenderer = ({
   }
 
   const displayMessage = hasError
-    ? t`Tool execution failed`
+    ? t`Eksekusi alat gagal`
     : rawToolName === 'learn_tools' ||
         rawToolName === 'execute_tool' ||
         rawToolName === 'load_skills'
@@ -260,13 +260,13 @@ export const ToolStepRenderer = ({
                     isActive={activeTab === 'output'}
                     onClick={() => setActiveTab('output')}
                   >
-                    {t`Output`}
+                    {t`Keluaran`}
                   </StyledTab>
                   <StyledTab
                     isActive={activeTab === 'input'}
                     onClick={() => setActiveTab('input')}
                   >
-                    {t`Input`}
+                    {t`Masukan`}
                   </StyledTab>
                 </StyledTabContainer>
 
@@ -276,11 +276,11 @@ export const ToolStepRenderer = ({
                       (activeTab === 'output' ? result : toolInput) as JsonValue
                     }
                     shouldExpandNodeInitially={() => false}
-                    emptyArrayLabel={t`Empty Array`}
-                    emptyObjectLabel={t`Empty Object`}
-                    emptyStringLabel={t`[empty string]`}
-                    arrowButtonCollapsedLabel={t`Expand`}
-                    arrowButtonExpandedLabel={t`Collapse`}
+                    emptyArrayLabel={t`Array kosong`}
+                    emptyObjectLabel={t`Objek kosong`}
+                    emptyStringLabel={t`[string kosong]`}
+                    arrowButtonCollapsedLabel={t`Perluas`}
+                    arrowButtonExpandedLabel={t`Ciutkan`}
                     onNodeValueClick={copyToClipboard}
                   />
                 </StyledJsonTreeContainer>

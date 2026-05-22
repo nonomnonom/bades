@@ -44,7 +44,7 @@ export const AiChatThreadFilterDropdownLastActivityMenu = ({
           />
         }
       >
-        {t`Last activity`}
+        {t`Aktivitas terakhir`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_OPTIONS.map((option) => (

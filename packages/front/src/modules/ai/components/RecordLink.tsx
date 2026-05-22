@@ -35,7 +35,7 @@ export const RecordLink = ({
   return (
     <LinkChip
       label={displayName}
-      emptyLabel={t`Untitled`}
+      emptyLabel={t`Tanpa judul`}
       to={linkToShowPage}
       variant={ChipVariant.Highlighted}
       leftComponent={

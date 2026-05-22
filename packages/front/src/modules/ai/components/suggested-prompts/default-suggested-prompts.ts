@@ -17,32 +17,32 @@ export type SuggestedPrompt = {
 export const DEFAULT_SUGGESTED_PROMPTS: SuggestedPrompt[] = [
   {
     id: 'dashboard',
-    label: msg`Create a dashboard`,
+    label: msg`Buat dasbor`,
     Icon: IconLayoutDashboard,
     prefillPrompts: [
-      msg`Create a dashboard with a chart of service requests by stage (Menunggu, Diproses, Selesai, Ditolak) for the current month, and a table of my top 10 open requests with applicant name, service type and expected completion date.`,
-      msg`Build a dashboard that shows: (1) total service requests by stage for the last 3 months, (2) count of services completed vs rejected per month, (3) average processing time. Use our standard service stages.`,
-      msg`I need a dashboard for resident services: number of new requests by type this month, how many were processed, and completion rate by type. Include a simple table and a bar chart.`,
+      msg`Buat dasbor dengan grafik permohonan layanan berdasarkan tahapan (Menunggu, Diproses, Selesai, Ditolak) untuk bulan ini, dan tabel 10 permohonan terbuka terbaru dengan nama pemohon, jenis layanan, dan tanggal penyelesaian yang diharapkan.`,
+      msg`Buat dasbor yang menampilkan: (1) total permohonan layanan per tahapan selama 3 bulan terakhir, (2) jumlah layanan selesai vs ditolak per bulan, (3) rata-rata waktu pemrosesan. Gunakan tahapan layanan standar kami.`,
+      msg`Saya butuh dasbor layanan warga: jumlah permohonan baru per jenis bulan ini, berapa yang sudah diproses, dan tingkat penyelesaian per jenis. Sertakan tabel sederhana dan diagram batang.`,
     ],
   },
   {
     id: 'workflow',
-    label: msg`Create a workflow`,
+    label: msg`Buat alur kerja`,
     Icon: IconSettingsAutomation,
     prefillPrompts: [
-      msg`When a service request's stage changes to Completed, create a task assigned to the officer handling the request, due 7 days after the completion date, with title "Follow-up satisfaction check" and the resident name in the description.`,
-      msg`When a new service request is created with type "Surat Keterangan Domisili", assign it to the village officer whose sector matches the resident's RT; if no match, assign to the village secretary.`,
-      msg`When any service request with priority "Urgent" has its stage or priority updated, send a notification to the admin channel with the request name, resident name, new stage, priority and officer.`,
+      msg`Ketika tahapan permohonan layanan berubah menjadi Selesai, buat tugas yang ditugaskan kepada petugas yang menangani permohonan tersebut, jatuh tempo 7 hari setelah tanggal penyelesaian, dengan judul "Tindak lanjut kepuasan" dan nama warga di deskripsi.`,
+      msg`Ketika permohonan layanan baru dibuat dengan jenis "Surat Keterangan Domisili", tugaskan ke petugas desa yang sektornya sesuai dengan RT warga; jika tidak ada yang cocok, tugaskan ke sekretaris desa.`,
+      msg`Ketika permohonan layanan dengan prioritas "Mendesak" diperbarui tahapan atau prioritasnya, kirim notifikasi ke saluran admin dengan nama permohonan, nama warga, tahapan baru, prioritas, dan petugas.`,
     ],
   },
   {
     id: 'record',
-    label: msg`Create a record`,
+    label: msg`Buat data`,
     Icon: IconPlus,
     prefillPrompts: [
-      msg`Add a new resident we are processing documents for (e.g. name, NIK, address). Details: `,
-      msg`Create a new service request and link them to a resident. Details: `,
-      msg`Log a new service request (resident name, service type, status, expected completion). Details: `,
+      msg`Tambahkan warga baru yang sedang kami proses dokumennya (contoh: nama, NIK, alamat). Detail: `,
+      msg`Buat permohonan layanan baru dan hubungkan ke data warga. Detail: `,
+      msg`Catat permohonan layanan baru (nama warga, jenis layanan, status, perkiraan tanggal selesai). Detail: `,
     ],
   },
 ];

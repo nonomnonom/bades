@@ -40,7 +40,7 @@ export const AiChatThreadFilterDropdownGroupByMenu = ({
           />
         }
       >
-        {t`Group by`}
+        {t`Kelompokkan berdasarkan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {AGENT_CHAT_THREAD_GROUP_BY_OPTIONS.map((option) => (

@@ -32,7 +32,7 @@ export const AiChatThreadFilterDropdown = ({
       onClose={goToRoot}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Filter chats`}
+          aria-label={t`Filter obrolan`}
           Icon={IconAdjustments}
           accent="tertiary"
           size="small"

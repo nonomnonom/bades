@@ -37,7 +37,7 @@ export const AgentChatFilePreview = ({
   const setFilePreview = useSetAtomState(filePreviewState);
 
   const fileName =
-    file instanceof File ? file.name : (file.filename ?? t`Unknown file`);
+    file instanceof File ? file.name : (file.filename ?? t`File tidak diketahui`);
 
   const fileUrl = file instanceof File ? undefined : file.url;
   const fileId = file instanceof File ? undefined : file.fileId;
@@ -91,7 +91,7 @@ export const AgentChatFilePreview = ({
     >
       <Chip
         label={fileName}
-        emptyLabel={t`Untitled`}
+        emptyLabel={t`Tanpa judul`}
         variant={ChipVariant.Static}
         clickable={isClickable}
         leftComponent={leftComponent}

@@ -38,16 +38,16 @@ export const AiChatThreadDeleteConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={modalInstanceId}
-      title={t`Delete chat`}
+      title={t`Hapus obrolan`}
       subtitle={
         <Trans>
-          <strong>{aiChatThreadPendingDelete?.threadTitle ?? ''}</strong> and
-          all its messages will be removed.
+          <strong>{aiChatThreadPendingDelete?.threadTitle ?? ''}</strong> dan
+          semua pesannya akan dihapus.
         </Trans>
       }
       onConfirmClick={handleDelete}
       onClose={() => setAiChatThreadPendingDelete(null)}
-      confirmButtonText={t`Delete`}
+      confirmButtonText={t`Hapus`}
       confirmButtonAccent="danger"
     />
   );

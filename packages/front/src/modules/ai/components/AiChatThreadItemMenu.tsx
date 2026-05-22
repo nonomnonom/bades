@@ -76,7 +76,7 @@ export const AiChatThreadItemMenu = ({
       dropdownPlacement="bottom-end"
       clickableComponent={
         <LightIconButton
-          aria-label={t`Chat actions`}
+          aria-label={t`Aksi obrolan`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -85,18 +85,18 @@ export const AiChatThreadItemMenu = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Rename`}
+              text={t`Ubah nama`}
               LeftIcon={IconPencil}
               onClick={handleRename}
             />
             <MenuItem
-              text={isArchived ? t`Unarchive` : t`Archive`}
+              text={isArchived ? t`Batalkan arsip` : t`Arsipkan`}
               LeftIcon={isArchived ? IconArchiveOff : IconArchive}
               onClick={handleArchive}
             />
             <MenuItem
               accent="danger"
-              text={t`Delete`}
+              text={t`Hapus`}
               LeftIcon={IconTrash}
               onClick={handleDelete}
             />

@@ -222,10 +222,10 @@ export const CodeExecutionDisplay = ({
         : IconPlayerPlay;
 
   const statusText = isRunning
-    ? t`Running...`
+    ? t`Berjalan...`
     : exitCode === 0
-      ? t`Completed`
-      : t`Failed`;
+      ? t`Selesai`
+      : t`Gagal`;
 
   const hasOutput = stdout || stderr;
   const hasFiles = files.length > 0;
@@ -235,7 +235,7 @@ export const CodeExecutionDisplay = ({
       <StyledHeader status={status}>
         <StyledHeaderLeft>
           <IconCode size={theme.icon.size.md} />
-          <StyledTitle>{t`Python Code Execution`}</StyledTitle>
+          <StyledTitle>{t`Eksekusi Kode Python`}</StyledTitle>
         </StyledHeaderLeft>
         <StyledHeaderRight>
           <StyledStatusBadge status={status}>
@@ -249,7 +249,7 @@ export const CodeExecutionDisplay = ({
         <StyledSectionHeader onClick={() => setIsCodeExpanded(!isCodeExpanded)}>
           <StyledSectionHeaderLeft>
             <IconCode size={theme.icon.size.sm} />
-            {t`Code`}
+            {t`Kode`}
           </StyledSectionHeaderLeft>
           <StyledHeaderRight>
             <LightIconButton
@@ -258,7 +258,7 @@ export const CodeExecutionDisplay = ({
                 e.stopPropagation();
                 copyToClipboard(code);
               }}
-              title={t`Copy code`}
+              title={t`Salin kode`}
               size="small"
               accent="tertiary"
             />
@@ -293,7 +293,7 @@ export const CodeExecutionDisplay = ({
           <StyledSectionHeader
             onClick={() => setIsOutputExpanded(!isOutputExpanded)}
           >
-            <StyledSectionHeaderLeft>{t`Output`}</StyledSectionHeaderLeft>
+            <StyledSectionHeaderLeft>{t`Keluaran`}</StyledSectionHeaderLeft>
             {isOutputExpanded ? (
               <IconChevronUp size={theme.icon.size.sm} />
             ) : (
@@ -320,7 +320,7 @@ export const CodeExecutionDisplay = ({
           >
             <StyledSectionHeaderLeft>
               <IconFile size={theme.icon.size.sm} />
-              {t`Generated Files`} ({files.length})
+              {t`File yang Dihasilkan`} ({files.length})
             </StyledSectionHeaderLeft>
             {isFilesExpanded ? (
               <IconChevronUp size={theme.icon.size.sm} />
@@ -356,7 +356,7 @@ export const CodeExecutionDisplay = ({
                       <StyledDownloadLink
                         href={file.url}
                         download={filename}
-                        title={t`Download ${filename}`}
+                        title={t`Unduh ${filename}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

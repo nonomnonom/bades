@@ -60,7 +60,7 @@ export const AiChatSuggestedPrompts = ({
 
   return (
     <StyledContainer>
-      <StyledTitle>{t`What can I help you with?`}</StyledTitle>
+      <StyledTitle>{t`Apa yang bisa saya bantu?`}</StyledTitle>
       {DEFAULT_SUGGESTED_PROMPTS.map((prompt) => (
         <StyledSuggestedPromptButtonContainer key={prompt.id}>
           <LightButton

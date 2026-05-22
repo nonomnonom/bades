@@ -34,7 +34,7 @@ export const useAiChatFileUpload = () => {
       const response = result?.data?.uploadAiChatFile;
 
       if (!isDefined(response)) {
-        throw new Error(t`Couldn't upload the file.`);
+        throw new Error(t`Gagal mengunggah file.`);
       }
 
       setAgentChatSelectedFiles(
@@ -50,7 +50,7 @@ export const useAiChatFileUpload = () => {
     } catch {
       const fileName = file.name;
       enqueueErrorSnackBar({
-        message: t`Failed to upload file: ${fileName}`,
+        message: t`Gagal mengunggah file: ${fileName}`,
       });
       return null;
     }
@@ -83,7 +83,7 @@ export const useAiChatFileUpload = () => {
     ).length;
     if (failedCount > 0) {
       enqueueErrorSnackBar({
-        message: t`${failedCount} file(s) failed to upload`,
+        message: t`${failedCount} file gagal diunggah`,
       });
     }
   };

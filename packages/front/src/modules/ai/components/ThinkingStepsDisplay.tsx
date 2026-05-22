@@ -289,8 +289,8 @@ const ThinkingToolStepRow = ({
   const activeTab: ToolDetailsTab =
     activeTabId === 'input' ? 'input' : 'output';
   const toolTabs = [
-    { id: 'output', title: t`Output` },
-    { id: 'input', title: t`Input` },
+    { id: 'output', title: t`Keluaran` },
+    { id: 'input', title: t`Masukan` },
   ];
 
   return (
@@ -348,11 +348,11 @@ const ThinkingToolStepRow = ({
                           : toolInput) as JsonValue
                       }
                       shouldExpandNodeInitially={() => false}
-                      emptyArrayLabel={t`Empty Array`}
-                      emptyObjectLabel={t`Empty Object`}
-                      emptyStringLabel={t`[empty string]`}
-                      arrowButtonCollapsedLabel={t`Expand`}
-                      arrowButtonExpandedLabel={t`Collapse`}
+                      emptyArrayLabel={t`Array kosong`}
+                      emptyObjectLabel={t`Objek kosong`}
+                      emptyStringLabel={t`[string kosong]`}
+                      arrowButtonCollapsedLabel={t`Perluas`}
+                      arrowButtonExpandedLabel={t`Ciutkan`}
                       onNodeValueClick={copyToClipboard}
                     />
                   </StyledJsonTreeContainer>
@@ -397,7 +397,7 @@ const ThinkingStepRow = ({
         )}
       </StyledIconContainer>
       <StyledRowLabelContainer>
-        <StyledRowLabel>{isActive ? t`Thinking` : t`Thought`}</StyledRowLabel>
+        <StyledRowLabel>{isActive ? t`Sedang berpikir` : t`Telah berpikir`}</StyledRowLabel>
       </StyledRowLabelContainer>
     </StyledRow>
   );
@@ -445,8 +445,8 @@ export const ThinkingStepsDisplay = ({
           </StyledSummaryChevronContainer>
           <StyledSummaryText>
             {plural(stepCount, {
-              one: '# step',
-              other: '# steps',
+              one: '# langkah',
+              other: '# langkah',
             })}
           </StyledSummaryText>
         </StyledSummaryButton>

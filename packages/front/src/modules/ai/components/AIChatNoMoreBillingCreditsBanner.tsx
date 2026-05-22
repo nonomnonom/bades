@@ -64,20 +64,20 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
 
   const nextTierInterval = isDefined(nextPrice)
     ? nextPrice.recurringInterval === SubscriptionInterval.Month
-      ? t`month`
-      : t`year`
+      ? t`bulan`
+      : t`tahun`
     : null;
 
   const message = isTrialing
-    ? t`You've hit your usage limit. Subscribe for more usage.`
+    ? t`Anda telah mencapai batas penggunaan. Berlangganan untuk penggunaan lebih banyak.`
     : isDefined(nextPrice)
-      ? t`You've hit your usage limit. \nUpgrade to ${nextResourceCreditsAmount} credits for $${nextResourceCreditPrice}/${nextTierInterval}.`
-      : t`You've hit your usage limit. \nReach to our support team to upgrade.`;
+      ? t`Anda telah mencapai batas penggunaan. \nTingkatkan ke ${nextResourceCreditsAmount} kredit seharga Rp${nextResourceCreditPrice}/${nextTierInterval}.`
+      : t`Anda telah mencapai batas penggunaan. \nHubungi tim dukungan kami untuk meningkatkan paket.`;
 
   const buttonTitle = isTrialing
-    ? t`Subscribe Now`
+    ? t`Berlangganan Sekarang`
     : isDefined(nextPrice)
-      ? t`Upgrade`
+      ? t`Tingkatkan`
       : undefined;
 
   const handleButtonClick = isTrialing
@@ -106,9 +106,9 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
             data.setResourceCreditSubscriptionPrice.billingSubscriptions,
         });
       }
-      enqueueSuccessSnackBar({ message: t`Credit plan upgraded.` });
+      enqueueSuccessSnackBar({ message: t`Paket kredit berhasil ditingkatkan.` });
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to upgrade credit plan.` });
+      enqueueErrorSnackBar({ message: t`Gagal meningkatkan paket kredit.` });
     }
   };
 
@@ -126,10 +126,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
       {isTrialing && (
         <ConfirmationModal
           modalInstanceId={AI_CHAT_END_TRIAL_PERIOD_MODAL_ID}
-          title={t`Start Your Subscription`}
-          subtitle={t`We will activate your paid plan. Do you want to proceed?`}
+          title={t`Mulai Berlangganan`}
+          subtitle={t`Kami akan mengaktifkan paket berbayar Anda. Apakah Anda ingin melanjutkan?`}
           onConfirmClick={endTrialPeriod}
-          confirmButtonText={t`Confirm`}
+          confirmButtonText={t`Konfirmasi`}
           confirmButtonAccent="blue"
           loading={isEndTrialLoading}
         />
@@ -137,10 +137,10 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
       {!isTrialing && (
         <ConfirmationModal
           modalInstanceId={AI_CHAT_UPGRADE_CREDIT_PLAN_MODAL_ID}
-          title={t`Get more credits`}
-          subtitle={t`Upgrade to ${nextResourceCreditsAmount} credits for $${nextResourceCreditPrice}/${nextTierInterval}.`}
+          title={t`Tambah kredit`}
+          subtitle={t`Tingkatkan ke ${nextResourceCreditsAmount} kredit seharga Rp${nextResourceCreditPrice}/${nextTierInterval}.`}
           onConfirmClick={handleUpgradeConfirm}
-          confirmButtonText={t`Upgrade`}
+          confirmButtonText={t`Tingkatkan`}
           confirmButtonAccent="blue"
           loading={isUpgrading}
         />

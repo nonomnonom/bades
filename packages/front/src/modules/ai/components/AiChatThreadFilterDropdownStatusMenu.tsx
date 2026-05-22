@@ -42,6 +42,7 @@ export const AiChatThreadFilterDropdownStatusMenu = ({
       >
         {t`Status`}
       </DropdownMenuHeader>
+
       <DropdownMenuItemsContainer>
         {AGENT_CHAT_THREAD_FILTER_STATUS_OPTIONS.map((option) => (
           <MenuItemSelect

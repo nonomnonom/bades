@@ -19,9 +19,9 @@ export const AiChatApiKeyNotConfiguredMessage = () => {
 
   return (
     <AiChatBanner
-      message={t`AI not configured. Set OPENAI_API_KEY, ANTHROPIC_API_KEY, or XAI_API_KEY in your environment.`}
+      message={t`Asisten AI belum dikonfigurasi. Hubungi administrator sistem untuk mengaktifkan fitur ini.`}
       variant="warning"
-      buttonTitle={t`View Docs`}
+      buttonTitle={t`Lihat Panduan`}
       buttonIcon={IconExternalLink}
       buttonOnClick={handleDocsClick}
     />
