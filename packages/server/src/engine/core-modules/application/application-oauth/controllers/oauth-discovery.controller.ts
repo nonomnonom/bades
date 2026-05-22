@@ -9,7 +9,7 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
 import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 import { cleanServerUrl } from 'src/utils/clean-server-url';
-import { TWENTY_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-cli-application-registration.constant';
+import { TWENTY_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manager/bades-standard-application/constants/twenty-cli-application-registration.constant';
 
 @Controller('.well-known')
 export class OAuthDiscoveryController {

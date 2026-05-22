@@ -1,4 +1,4 @@
-import { type PerformTwentyConfigQueryParams } from 'test/integration/twenty-config/types/perform-twenty-config-query.type';
+import { type PerformTwentyConfigQueryParams } from 'test/integration/bades-config/types/perform-bades-config-query.type';
 
 import {
   type CreateConfigVariableFactoryInput,

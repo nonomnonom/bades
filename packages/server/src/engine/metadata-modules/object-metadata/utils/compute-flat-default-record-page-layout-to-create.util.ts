@@ -9,7 +9,7 @@ import { PageLayoutType } from 'src/engine/metadata-modules/page-layout/enums/pa
 import {
   TAB_PROPS,
   WIDGET_PROPS,
-} from 'src/engine/workspace-manager/twenty-standard-application/constants/standard-page-layout-tabs.template';
+} from 'src/engine/workspace-manager/bades-standard-application/constants/standard-page-layout-tabs.template';
 import { type UniversalFlatObjectMetadata } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-object-metadata.type';
 import { type UniversalFlatView } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-view.type';
 

@@ -2,7 +2,7 @@ import request from 'supertest';
 import { findManyApplications } from 'test/integration/graphql/utils/find-many-applications.util';
 import { generateApplicationToken } from 'test/integration/metadata/suites/application/utils/generate-application-token.util';
 
-import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/bades-standard-application/constants/bades-standard-applications';
 import { getConnectionTypename, getEdgeTypename } from 'shared/utils';
 
 const INTROSPECTION_QUERY = `

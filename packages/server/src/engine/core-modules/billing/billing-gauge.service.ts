@@ -28,7 +28,7 @@ export class BillingGaugeService implements OnModuleInit {
 
   onModuleInit() {
     this.metricsService.createObservableGauge({
-      metricName: 'twenty_billing_subscribed_workspaces_total',
+      metricName: 'bades_billing_subscribed_workspaces_total',
       options: {
         description: 'Total number of workspaces having an active subscription',
       },
@@ -39,7 +39,7 @@ export class BillingGaugeService implements OnModuleInit {
     });
 
     this.metricsService.createObservableGauge({
-      metricName: 'twenty_billing_last_workspace_has_subscription',
+      metricName: 'bades_billing_last_workspace_has_subscription',
       options: {
         description:
           'Whether the last workspace (older than 1 min) has a subscription (1 = yes, 0 = no)',

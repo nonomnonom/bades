@@ -13,7 +13,7 @@ import { jestExpectToBeDefined } from 'test/utils/jest-expect-to-be-defined.util
 import { isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 
-import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/twenty-standard-application/constants/twenty-standard-applications';
+import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/bades-standard-application/constants/bades-standard-applications';
 
 describe('Successful user and workspace creation', () => {
   let createdUserAccessToken: string | undefined;

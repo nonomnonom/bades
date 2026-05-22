@@ -32,7 +32,7 @@ export class EventStreamService implements OnModuleInit {
 
   onModuleInit() {
     this.metricsService.createObservableGauge({
-      metricName: 'twenty_event_streams_live_total',
+      metricName: 'bades_event_streams_live_total',
       options: { description: 'Current number of live event streams' },
       callback: async () => {
         return this.getTotalActiveStreamCount();

@@ -8,7 +8,7 @@ import {
   getWebhooks,
   updateWebhook,
 } from 'test/integration/metadata/suites/utils/webhook-test.util';
-import { makeAdminPanelAPIRequest } from 'test/integration/twenty-config/utils/make-admin-panel-api-request.util';
+import { makeAdminPanelAPIRequest } from 'test/integration/bades-config/utils/make-admin-panel-api-request.util';
 import { v4 as uuidv4 } from 'uuid';
 
 import { type UpdateWebhookInput } from 'src/engine/metadata-modules/webhook/dtos/update-webhook.input';

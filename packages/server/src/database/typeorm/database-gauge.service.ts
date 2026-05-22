@@ -17,7 +17,7 @@ export class DatabaseGaugeService implements OnModuleInit {
 
   onModuleInit() {
     this.metricsService.createObservableGauge({
-      metricName: 'twenty_database_up',
+      metricName: 'bades_database_up',
       options: {
         description: 'Whether the database is reachable (1 = up, 0 = down)',
       },
