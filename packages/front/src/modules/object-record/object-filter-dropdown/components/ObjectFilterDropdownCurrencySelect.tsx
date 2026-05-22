@@ -106,7 +106,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
         autoFocus
         type="text"
         value={searchText}
-        placeholder={t`Search currency`}
+        placeholder={t`Cari mata uang`}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setSearchText(event.target.value);
         }}
@@ -139,7 +139,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
             />
           );
         })}
-        {showNoResult && <MenuItem text={t`No results`} />}
+        {showNoResult && <MenuItem text={t`Tidak ada hasil`} />}
       </DropdownMenuItemsContainer>
     </DropdownContent>
   );

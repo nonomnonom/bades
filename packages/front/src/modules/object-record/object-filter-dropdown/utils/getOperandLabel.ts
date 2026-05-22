@@ -15,35 +15,35 @@ export const getOperandLabel = (
 
   switch (operand) {
     case ViewFilterOperand.CONTAINS:
-      return t`Contains`;
+      return t`Berisi`;
     case ViewFilterOperand.DOES_NOT_CONTAIN:
-      return t`Doesn't contain`;
+      return t`Tidak berisi`;
     case ViewFilterOperand.GREATER_THAN_OR_EQUAL:
-      return t`Greater than or equal`;
+      return t`Lebih besar atau sama dengan`;
     case ViewFilterOperand.LESS_THAN_OR_EQUAL:
-      return t`Less than or equal`;
+      return t`Lebih kecil atau sama dengan`;
     case ViewFilterOperand.IS_BEFORE:
-      return t`Is before`;
+      return t`Sebelum`;
     case ViewFilterOperand.IS_AFTER:
-      return t`Is after or equal`;
+      return t`Setelah atau sama dengan`;
     case ViewFilterOperand.IS:
-      return t`Is`;
+      return t`Sama dengan`;
     case ViewFilterOperand.IS_NOT:
-      return t`Is not`;
+      return t`Tidak sama dengan`;
     case ViewFilterOperand.IS_NOT_NULL:
-      return t`Is not null`;
+      return t`Terisi`;
     case ViewFilterOperand.IS_EMPTY:
-      return t`Is empty`;
+      return t`Kosong`;
     case ViewFilterOperand.IS_NOT_EMPTY:
-      return t`Is not empty`;
+      return t`Tidak kosong`;
     case ViewFilterOperand.IS_RELATIVE:
-      return t`Is relative`;
+      return t`Relatif`;
     case ViewFilterOperand.IS_IN_PAST:
-      return t`Is in past`;
+      return t`Di masa lalu`;
     case ViewFilterOperand.IS_IN_FUTURE:
-      return t`Is in future`;
+      return t`Di masa depan`;
     case ViewFilterOperand.IS_TODAY:
-      return t`Is today${timeZoneAbbreviationSuffix}`;
+      return t`Hari ini${timeZoneAbbreviationSuffix}`;
     default:
       return '';
   }
@@ -66,13 +66,13 @@ export const getOperandLabelShort = (
       return ': ';
     case ViewFilterOperand.IS_NOT:
     case ViewFilterOperand.DOES_NOT_CONTAIN:
-      return t`: Not`;
+      return t`: Bukan`;
     case ViewFilterOperand.IS_NOT_NULL:
-      return t`: NotNull`;
+      return t`: Terisi`;
     case ViewFilterOperand.IS_NOT_EMPTY:
-      return t`: NotEmpty`;
+      return t`: TidakKosong`;
     case ViewFilterOperand.IS_EMPTY:
-      return t`: Empty`;
+      return t`: Kosong`;
     case ViewFilterOperand.GREATER_THAN_OR_EQUAL:
       return '\u00A0≥ ';
     case ViewFilterOperand.LESS_THAN_OR_EQUAL:
@@ -82,11 +82,11 @@ export const getOperandLabelShort = (
     case ViewFilterOperand.IS_AFTER:
       return '\u00A0≥ ';
     case ViewFilterOperand.IS_IN_PAST:
-      return t`: Past`;
+      return t`: Lalu`;
     case ViewFilterOperand.IS_IN_FUTURE:
-      return t`: Future`;
+      return t`: Depan`;
     case ViewFilterOperand.IS_TODAY:
-      return t`: Today${timeZoneAbbreviationSuffix}`;
+      return t`: HariIni${timeZoneAbbreviationSuffix}`;
     default:
       return ': ';
   }

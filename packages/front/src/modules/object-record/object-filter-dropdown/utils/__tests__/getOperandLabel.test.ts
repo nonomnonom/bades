@@ -8,13 +8,13 @@ import {
 
 describe('getOperandLabel', () => {
   const testCases = [
-    [ViewFilterOperand.CONTAINS, 'Contains'],
-    [ViewFilterOperand.DOES_NOT_CONTAIN, "Doesn't contain"],
-    [ViewFilterOperand.GREATER_THAN_OR_EQUAL, 'Greater than or equal'],
-    [ViewFilterOperand.LESS_THAN_OR_EQUAL, 'Less than or equal'],
-    [ViewFilterOperand.IS, 'Is'],
-    [ViewFilterOperand.IS_NOT, 'Is not'],
-    [ViewFilterOperand.IS_NOT_NULL, 'Is not null'],
+    [ViewFilterOperand.CONTAINS, 'Berisi'],
+    [ViewFilterOperand.DOES_NOT_CONTAIN, 'Tidak berisi'],
+    [ViewFilterOperand.GREATER_THAN_OR_EQUAL, 'Lebih besar atau sama dengan'],
+    [ViewFilterOperand.LESS_THAN_OR_EQUAL, 'Lebih kecil atau sama dengan'],
+    [ViewFilterOperand.IS, 'Sama dengan'],
+    [ViewFilterOperand.IS_NOT, 'Tidak sama dengan'],
+    [ViewFilterOperand.IS_NOT_NULL, 'Terisi'],
     [undefined, ''], // undefined operand
   ];
 
@@ -32,9 +32,9 @@ describe('getOperandLabelShort', () => {
   const testCases = [
     [ViewFilterOperand.IS, ': '],
     [ViewFilterOperand.CONTAINS, ': '],
-    [ViewFilterOperand.IS_NOT, ': Not'],
-    [ViewFilterOperand.DOES_NOT_CONTAIN, ': Not'],
-    [ViewFilterOperand.IS_NOT_NULL, ': NotNull'],
+    [ViewFilterOperand.IS_NOT, ': Bukan'],
+    [ViewFilterOperand.DOES_NOT_CONTAIN, ': Bukan'],
+    [ViewFilterOperand.IS_NOT_NULL, ': Terisi'],
     [ViewFilterOperand.GREATER_THAN_OR_EQUAL, '\u00A0≥ '],
     [ViewFilterOperand.LESS_THAN_OR_EQUAL, '\u00A0≤ '],
     [undefined, ': '], // undefined operand
