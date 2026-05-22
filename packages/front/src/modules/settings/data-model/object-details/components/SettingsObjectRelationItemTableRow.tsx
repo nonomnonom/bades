@@ -195,7 +195,7 @@ export const SettingsObjectRelationItemTableRow = ({
             </StyledNameLabel>
           )}
           {!fieldMetadataItem.isActive && (
-            <StyledInactiveLabel>{t`Deactivated`}</StyledInactiveLabel>
+            <StyledInactiveLabel>{t`Nonaktif`}</StyledInactiveLabel>
           )}
         </StyledNameContainer>
       </TableCell>

@@ -15,12 +15,12 @@ export const RELATION_TYPES: Record<
   }
 > = {
   [RelationType.ONE_TO_MANY]: {
-    label: 'Has many',
+    label: 'Memiliki banyak',
     Icon: IllustrationIconOneToMany,
     imageSrc: OneToManySvg,
   },
   [RelationType.MANY_TO_ONE]: {
-    label: 'Belongs to one',
+    label: 'Milik satu',
     Icon: IllustrationIconOneToMany,
     imageSrc: OneToManySvg,
     isImageFlipped: true,

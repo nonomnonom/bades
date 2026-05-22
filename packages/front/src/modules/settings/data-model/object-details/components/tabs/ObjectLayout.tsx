@@ -84,11 +84,11 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
     <StyledContentContainer>
       <Section>
         <H2Title
-          title={t`Customize`}
-          description={t`Customize the layout for this role`}
+          title={t`Sesuaikan`}
+          description={t`Sesuaikan tata letak untuk peran ini`}
         />
         <SettingsCard
-          title={t`Customize record page`}
+          title={t`Sesuaikan halaman data`}
           Icon={<IconLayoutDashboard size={theme.icon.size.md} />}
           onClick={handleCustomizeRecordPage}
           disabled={!isDefined(firstRecord)}
@@ -96,11 +96,11 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
       </Section>
       <Section>
         <H2Title
-          title={t`Reset`}
-          description={t`Reset all overrides on this layout to return it to the app default`}
+          title={t`Setel ulang`}
+          description={t`Kembalikan semua perubahan tata letak ke tampilan bawaan aplikasi`}
         />
         <Button
-          title={t`Reset to default`}
+          title={t`Setel ulang ke bawaan`}
           variant="secondary"
           size="small"
           Icon={IconReload}
@@ -110,10 +110,10 @@ export const ObjectLayout = ({ objectMetadataItem }: ObjectLayoutProps) => {
       </Section>
       <ConfirmationModal
         modalInstanceId={RESET_PAGE_LAYOUT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This action cannot be undone.`}
+        title={t`Setel ulang ke bawaan`}
+        subtitle={t`Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleConfirmReset}
-        confirmButtonText={t`Reset`}
+        confirmButtonText={t`Setel ulang`}
         confirmButtonAccent="danger"
       />
     </StyledContentContainer>

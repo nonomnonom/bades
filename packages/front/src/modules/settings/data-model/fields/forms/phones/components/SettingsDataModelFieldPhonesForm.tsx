@@ -55,7 +55,7 @@ export const SettingsDataModelFieldPhonesForm = ({
   );
 
   const countries = [
-    { label: t`No country`, value: '', Icon: IconCircleOff },
+    { label: t`Tidak ada negara`, value: '', Icon: IconCircleOff },
     ...useCountries()
       .sort((a, b) => a.countryName.localeCompare(b.countryName))
       .map((country) => ({
@@ -85,8 +85,8 @@ export const SettingsDataModelFieldPhonesForm = ({
         return (
           <SettingsOptionCardContentSelect
             Icon={IconMap}
-            title={t`Default Country Code`}
-            description={t`The default country code for new phone numbers.`}
+            title={t`Kode Negara Bawaan`}
+            description={t`Kode negara bawaan untuk nomor telepon baru.`}
           >
             <Select<string>
               dropdownId="selectDefaultCountryCode"

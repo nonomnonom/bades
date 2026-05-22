@@ -31,7 +31,7 @@ export const AddSelectOptionMenuItem = ({
     <MenuItem
       onClick={handleClick}
       LeftIcon={IconPlus}
-      text={t`Add "${trimmedName}" to options`}
+      text={t`Tambah "${trimmedName}" ke pilihan`}
     />
   );
 };

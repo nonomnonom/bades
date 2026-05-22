@@ -229,7 +229,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                 {isDefault ? (
                   <MenuItem
                     LeftIcon={IconX}
-                    text={t`Remove as default`}
+                    text={t`Hapus sebagai bawaan`}
                     onClick={() => {
                       onRemoveAsDefault?.();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);
@@ -238,7 +238,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                 ) : (
                   <MenuItem
                     LeftIcon={IconCheck}
-                    text={t`Set as default`}
+                    text={t`Jadikan bawaan`}
                     onClick={() => {
                       onSetAsDefault?.();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);
@@ -249,7 +249,7 @@ export const SettingsDataModelFieldSelectFormOptionRow = ({
                   <MenuItem
                     accent="danger"
                     LeftIcon={IconTrash}
-                    text={t`Remove option`}
+                    text={t`Hapus pilihan`}
                     onClick={() => {
                       onRemove();
                       closeActionsDropdown(SELECT_ACTIONS_DROPDOWN_ID);

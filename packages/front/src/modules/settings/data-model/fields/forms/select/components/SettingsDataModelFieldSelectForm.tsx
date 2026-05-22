@@ -343,7 +343,7 @@ export const SettingsDataModelFieldSelectForm = ({
                               />
                             </StyledIconPointContainer>
                           </StyledIconContainer>
-                          <StyledApiKey>{t`API values`}</StyledApiKey>
+                          <StyledApiKey>{t`Nilai API`}</StyledApiKey>
                         </StyledApiKeyContainer>
                       </AdvancedSettingsWrapper>
                     )}
@@ -351,7 +351,7 @@ export const SettingsDataModelFieldSelectForm = ({
                       isAdvancedModeEnabled={isAdvancedModeEnabled}
                       isBulkInputMode={isBulkInputMode}
                     >
-                      {t`Options`}
+                      {t`Pilihan`}
                     </StyledOptionsLabel>
                   </StyledLabelContainer>
                   {!disabled && (
@@ -370,7 +370,7 @@ export const SettingsDataModelFieldSelectForm = ({
                           <DropdownMenuItemsContainer>
                             <MenuItem
                               text={
-                                isBulkInputMode ? t`Single edit` : t`Bulk edit`
+                                isBulkInputMode ? t`Edit satu per satu` : t`Edit sekaligus`
                               }
                               LeftIcon={IconPencil}
                               onClick={() => {
@@ -386,7 +386,7 @@ export const SettingsDataModelFieldSelectForm = ({
                               }}
                             />
                             <MenuItem
-                              text={t`Remove all`}
+                              text={t`Hapus semua`}
                               accent="danger"
                               LeftIcon={IconTrash}
                               onClick={() => {
@@ -405,7 +405,7 @@ export const SettingsDataModelFieldSelectForm = ({
                   <StyledTextAreaContainer>
                     <TextArea
                       textAreaId="bulk-options-input"
-                      placeholder={t`Enter one option per line`}
+                      placeholder={t`Masukkan satu pilihan per baris`}
                       value={bulkInputText}
                       onChange={(nextOptionAsText) => {
                         if (disabled) {
@@ -425,7 +425,7 @@ export const SettingsDataModelFieldSelectForm = ({
                       disabled={disabled}
                     />
                     <StyledHelpText>
-                      {t`Enter one option per line. Each line will become a new option.`}
+                      {t`Masukkan satu pilihan per baris. Setiap baris akan menjadi pilihan baru.`}
                     </StyledHelpText>
                   </StyledTextAreaContainer>
                 ) : (
@@ -523,7 +523,7 @@ export const SettingsDataModelFieldSelectForm = ({
                 <CardFooter>
                   <StyledButtonContainer>
                     <LightButton
-                      title={t`Add option`}
+                      title={t`Tambah pilihan`}
                       Icon={IconPlus}
                       onClick={handleAddOption}
                     />

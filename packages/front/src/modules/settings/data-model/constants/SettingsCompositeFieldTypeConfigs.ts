@@ -50,7 +50,7 @@ type SettingsCompositeFieldTypeConfigArray = Record<
 
 export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
   [FieldMetadataType.CURRENCY]: {
-    label: 'Currency',
+    label: 'Mata Uang',
     Icon: IllustrationIconCurrency,
     subFields: [
       {
@@ -93,7 +93,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldCurrencyValue>,
   [FieldMetadataType.EMAILS]: {
-    label: 'Emails',
+    label: 'Email',
     Icon: IllustrationIconMail,
     subFields: [
       {
@@ -140,7 +140,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldEmailsValue>,
   [FieldMetadataType.LINKS]: {
-    label: 'Links',
+    label: 'Tautan',
     Icon: IllustrationIconLink,
     subFields: [
       {
@@ -197,7 +197,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldLinksValue>,
   [FieldMetadataType.PHONES]: {
-    label: 'Phones',
+    label: 'Telepon',
     Icon: IllustrationIconPhone,
     subFields: [
       {
@@ -273,7 +273,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldPhonesValue>,
   [FieldMetadataType.FULL_NAME]: {
-    label: 'Full Name',
+    label: 'Nama Lengkap',
     Icon: IllustrationIconUser,
     subFields: [
       {
@@ -307,7 +307,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldFullNameValue>,
   [FieldMetadataType.ADDRESS]: {
-    label: 'Address',
+    label: 'Alamat',
     Icon: IllustrationIconMap,
     subFields: [
       {
@@ -434,7 +434,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldAddressValue>,
   [FieldMetadataType.ACTOR]: {
-    label: 'Actor',
+    label: 'Pelaku',
     Icon: IllustrationIconSetting,
     category: 'Basic',
     subFields: [
@@ -500,7 +500,7 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     ],
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldActorValue>,
   [FieldMetadataType.RICH_TEXT]: {
-    label: 'Rich Text',
+    label: 'Teks Kaya',
     Icon: IllustrationIconText,
     category: 'Basic',
     subFields: [

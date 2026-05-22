@@ -52,7 +52,7 @@ type SettingsNonCompositeFieldTypeConfigArray = Record<
 export const SETTINGS_NON_COMPOSITE_FIELD_TYPE_CONFIGS: SettingsNonCompositeFieldTypeConfigArray =
   {
     [FieldMetadataType.UUID]: {
-      label: 'Unique ID',
+      label: 'ID Unik',
       Icon: IllustrationIconUid,
       exampleValues: [
         '00000000-0000-4000-8000-000000000000',
@@ -62,7 +62,7 @@ export const SETTINGS_NON_COMPOSITE_FIELD_TYPE_CONFIGS: SettingsNonCompositeFiel
       category: 'Advanced',
     } as const satisfies SettingsFieldTypeConfig<FieldUUidValue>,
     [FieldMetadataType.TEXT]: {
-      label: 'Text',
+      label: 'Teks',
       Icon: IllustrationIconText,
       exampleValues: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum magna enim, dapibus non enim in, lacinia faucibus nunc. Sed interdum ante sed felis facilisis, eget ultricies neque molestie. Mauris auctor, justo eu volutpat cursus, libero erat tempus nulla, non sodales lorem lacus a est.',
@@ -72,19 +72,19 @@ export const SETTINGS_NON_COMPOSITE_FIELD_TYPE_CONFIGS: SettingsNonCompositeFiel
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldTextValue>,
     [FieldMetadataType.NUMBER]: {
-      label: 'Number',
+      label: 'Angka',
       Icon: IllustrationIconNumbers,
       exampleValues: [2000, 3000, 4000],
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldNumberValue>,
     [FieldMetadataType.BOOLEAN]: {
-      label: 'True/False',
+      label: 'Ya/Tidak',
       Icon: IllustrationIconToggle,
       exampleValues: [true, false, true],
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldBooleanValue>,
     [FieldMetadataType.DATE_TIME]: {
-      label: 'Date and Time',
+      label: 'Tanggal dan Waktu',
       Icon: IllustrationIconCalendarTime,
       exampleValues: [
         DEFAULT_DATE_VALUE.toISOString(),
@@ -94,7 +94,7 @@ export const SETTINGS_NON_COMPOSITE_FIELD_TYPE_CONFIGS: SettingsNonCompositeFiel
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldDateTimeValue>,
     [FieldMetadataType.DATE]: {
-      label: 'Date',
+      label: 'Tanggal',
       Icon: IllustrationIconCalendarEvent,
       exampleValues: [
         DEFAULT_DATE_VALUE.toISOString(),
@@ -104,27 +104,27 @@ export const SETTINGS_NON_COMPOSITE_FIELD_TYPE_CONFIGS: SettingsNonCompositeFiel
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldDateValue>,
     [FieldMetadataType.SELECT]: {
-      label: 'Select',
+      label: 'Pilihan',
       Icon: IllustrationIconTag,
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldSelectValue>,
     [FieldMetadataType.MULTI_SELECT]: {
-      label: 'Multi-select',
+      label: 'Pilihan Ganda',
       Icon: IllustrationIconTags,
       category: 'Basic',
     } as const satisfies SettingsFieldTypeConfig<FieldMultiSelectValue>,
     [FieldMetadataType.RELATION]: {
-      label: 'Relation',
+      label: 'Relasi',
       Icon: IllustrationIconOneToMany,
       category: 'Relation',
     } as const satisfies SettingsFieldTypeConfig<FieldRelationValue<any>>,
     [FieldMetadataType.MORPH_RELATION]: {
-      label: 'Morph Relation',
+      label: 'Relasi Morph',
       Icon: IllustrationIconOneToMany,
       category: 'Relation',
     } as const satisfies SettingsFieldTypeConfig<FieldRelationValue<any>>,
     [FieldMetadataType.RATING]: {
-      label: 'Rating',
+      label: 'Penilaian',
       Icon: IllustrationIconStar,
       exampleValues: ['RATING_3', 'RATING_4', 'RATING_5'],
       category: 'Basic',
@@ -136,13 +136,13 @@ export const SETTINGS_NON_COMPOSITE_FIELD_TYPE_CONFIGS: SettingsNonCompositeFiel
       category: 'Advanced',
     } as const satisfies SettingsFieldTypeConfig<FieldJsonValue>,
     [FieldMetadataType.ARRAY]: {
-      label: 'Array',
+      label: 'Larik',
       Icon: IllustrationIconArray,
       category: 'Advanced',
       exampleValues: [['value1', 'value2'], ['value3'], []],
     } as const satisfies SettingsFieldTypeConfig<FieldArrayValue>,
     [FieldMetadataType.FILES]: {
-      label: 'Files',
+      label: 'Berkas',
       Icon: IllustrationIconFile,
       category: 'Basic',
       exampleValues: [

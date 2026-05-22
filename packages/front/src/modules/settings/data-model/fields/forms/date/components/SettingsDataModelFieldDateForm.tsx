@@ -72,8 +72,8 @@ export const SettingsDataModelFieldDateForm = ({
 
   const displayFormatSelectDescription =
     activeDisplayFormat === FieldDateDisplayFormat.CUSTOM
-      ? t`Enter in Unicode format`
-      : t`Choose the format used to display date value`;
+      ? t`Masukkan dalam format Unicode`
+      : t`Pilih format tampilan tanggal`;
 
   return (
     <>
@@ -84,7 +84,7 @@ export const SettingsDataModelFieldDateForm = ({
         render={({ field: { onChange, value } }) => (
           <SettingsOptionCardContentSelect
             Icon={IconSlash}
-            title={t`Display Format`}
+            title={t`Format Tampilan`}
             disabled={disabled}
             description={displayFormatSelectDescription}
           >
@@ -120,7 +120,7 @@ export const SettingsDataModelFieldDateForm = ({
             <StyledTextInputContainer>
               <SettingsTextInput
                 instanceId="custom-date-format-input"
-                placeholder={t`Format e.g. d-MMM-y (qqq''yy)`}
+                placeholder={t`Format mis. d-MMM-y (qqq''yy)`}
                 value={value}
                 onChange={(value) => onChange(value)}
                 disabled={false}

@@ -39,7 +39,7 @@ export const SettingsDataModelFieldDescriptionForm = ({
       render={({ field: { onChange, value } }) => (
         <TextArea
           textAreaId={descriptionTextAreaId}
-          placeholder={t`Write a description`}
+          placeholder={t`Tulis deskripsi`}
           minRows={4}
           value={value ?? undefined}
           onChange={onChange}

@@ -102,9 +102,9 @@ export const SettingsDataModelObjectAboutForm = ({
   const apiNameTooltipText =
     !isDefined(objectMetadataItem) || objectMetadataItem.isCustom
       ? isLabelSyncedWithName
-        ? t`Deactivate "Synchronize Objects Labels and API Names" to set a custom API name`
-        : t`Input must be in camel case and cannot start with a number`
-      : t`Can't change API names for standard objects`;
+        ? t`Nonaktifkan "Sinkronkan Label Objek dan Nama API" untuk mengatur nama API kustom`
+        : t`Masukan harus dalam format camelCase dan tidak boleh diawali angka`
+      : t`Nama API tidak dapat diubah untuk objek standar`;
 
   const fillLabelPlural = (labelSingular: string | undefined) => {
     if (!isDefined(labelSingular)) return;
@@ -146,7 +146,7 @@ export const SettingsDataModelObjectAboutForm = ({
     <>
       <StyledInputsContainer>
         <StyledInputContainer>
-          <StyledLabel>{t`Icon`}</StyledLabel>
+          <StyledLabel>{t`Ikon`}</StyledLabel>
           <Controller
             name="icon"
             control={control}
@@ -196,8 +196,8 @@ export const SettingsDataModelObjectAboutForm = ({
               // TODO we should discuss on how to notify user about form validation schema issue, from now just displaying red borders
               noErrorHelper={true}
               error={errors.labelSingular?.message}
-              label={t`Singular`}
-              placeholder={t`Listing`}
+              label={t`Tunggal`}
+              placeholder={t`Surat`}
               value={value}
               onChange={(value) => {
                 onChange(capitalize(value));
@@ -221,8 +221,8 @@ export const SettingsDataModelObjectAboutForm = ({
               // TODO we should discuss on how to notify user about form validation schema issue, from now just displaying red borders
               noErrorHelper={true}
               error={errors.labelPlural?.message}
-              label={t`Plural`}
-              placeholder={t`Listings`}
+              label={t`Jamak`}
+              placeholder={t`Surat-surat`}
               value={value}
               onChange={(value) => {
                 onChange(capitalize(value));
@@ -244,7 +244,7 @@ export const SettingsDataModelObjectAboutForm = ({
         render={({ field: { onChange, value } }) => (
           <TextArea
             textAreaId={descriptionTextAreaId}
-            placeholder={t`Write a description`}
+            placeholder={t`Tulis deskripsi`}
             minRows={4}
             value={value ?? undefined}
             onChange={(nextValue) => onChange(nextValue ?? null)}
@@ -259,7 +259,7 @@ export const SettingsDataModelObjectAboutForm = ({
             {isDefined(conflictingObjectMetadataItem) && (
               <InlineBanner
                 color={'blue'}
-                message={t`An object with this name already exists`}
+                message={t`Objek dengan nama ini sudah ada`}
                 button={{
                   title: t`Open`,
                   onClick: () =>
@@ -272,20 +272,20 @@ export const SettingsDataModelObjectAboutForm = ({
             )}
             {[
               {
-                label: t`API Name (Singular)`,
+                label: t`Nama API (Tunggal)`,
                 fieldName:
                   'nameSingular' as const satisfies StringKeyOf<EnrichedObjectMetadataItem>,
-                placeholder: `listing`,
+                placeholder: `surat`,
                 defaultValue: objectMetadataItem?.nameSingular ?? '',
                 disableEdition:
                   isStandardObject || disableEdition || isLabelSyncedWithName,
                 tooltip: apiNameTooltipText,
               },
               {
-                label: t`API Name (Plural)`,
+                label: t`Nama API (Jamak)`,
                 fieldName:
                   'namePlural' as const satisfies StringKeyOf<EnrichedObjectMetadataItem>,
-                placeholder: `listings`,
+                placeholder: `suratSurats`,
                 defaultValue: objectMetadataItem?.namePlural ?? '',
                 disableEdition:
                   isStandardObject || disableEdition || isLabelSyncedWithName,
@@ -366,8 +366,8 @@ export const SettingsDataModelObjectAboutForm = ({
                     <Card rounded>
                       <SettingsOptionCardContentToggle
                         Icon={IconRefresh}
-                        title={t`Synchronize Objects Labels and API Names`}
-                        description={t`Should changing an object's label also change the API?`}
+                        title={t`Sinkronkan Label Objek dan Nama API`}
+                        description={t`Apakah perubahan label objek juga mengubah nama API?`}
                         checked={value ?? true}
                         advancedMode
                         disabled={disableEdition}
@@ -402,8 +402,8 @@ export const SettingsDataModelObjectAboutForm = ({
                     <Card rounded>
                       <SettingsOptionCardContentToggle
                         Icon={IconLink}
-                        title={t`Skip creating a Name field `}
-                        description={t`Useful for pivot/junction tables`}
+                        title={t`Lewati pembuatan kolom Nama`}
+                        description={t`Berguna untuk tabel pivot atau junction`}
                         checked={value ?? false}
                         advancedMode
                         disabled={disableEdition}

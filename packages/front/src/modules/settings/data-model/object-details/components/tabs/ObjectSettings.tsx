@@ -84,7 +84,7 @@ export const ObjectSettings = ({
 
     if (result.status === 'successful') {
       enqueueSuccessSnackBar({
-        message: t`Object deleted`,
+        message: t`Objek berhasil dihapus`,
       });
       closeModal(DELETE_OBJECT_MODAL_ID);
       navigate(SettingsPath.Objects);
@@ -102,8 +102,8 @@ export const ObjectSettings = ({
       <StyledFormSectionContainer>
         <Section>
           <H2Title
-            title={t`About`}
-            description={t`Name in both singular (e.g., 'Invoice') and plural (e.g., 'Invoices') forms.`}
+            title={t`Tentang`}
+            description={t`Nama dalam bentuk tunggal (mis. 'Surat') dan jamak (mis. 'Surat-surat').`}
           />
           <SettingsUpdateDataModelObjectAboutForm
             objectMetadataItem={objectMetadataItem}
@@ -113,8 +113,8 @@ export const ObjectSettings = ({
       <StyledFormSectionContainer>
         <Section>
           <H2Title
-            title={t`Options`}
-            description={t`Choose the fields that will identify your records`}
+            title={t`Opsi`}
+            description={t`Pilih kolom yang akan mengidentifikasi data Anda`}
           />
           <SettingsDataModelObjectSettingsFormCard
             objectMetadataItem={objectMetadataItem}
@@ -125,8 +125,8 @@ export const ObjectSettings = ({
         <StyledFormSectionContainer>
           <Section>
             <H2Title
-              title={t`Search`}
-              description={t`Configure how this object appears in search results`}
+              title={t`Pencarian`}
+              description={t`Atur bagaimana objek ini muncul dalam hasil pencarian`}
             />
             <SettingsObjectSearchSection
               objectMetadataItem={objectMetadataItem}
@@ -139,20 +139,20 @@ export const ObjectSettings = ({
         <StyledFormSectionContainer>
           <Section>
             <H2Title
-              title={t`Danger zone`}
-              description={t`Deactivate object`}
+              title={t`Zona berbahaya`}
+              description={t`Nonaktifkan objek`}
             />
             <StyledDangerButtonsContainer>
               <Button
                 Icon={IconArchive}
-                title={t`Deactivate`}
+                title={t`Nonaktifkan`}
                 size="small"
                 onClick={handleDisable}
               />
               {objectMetadataItem.isCustom && (
                 <Button
                   Icon={IconTrash}
-                  title={t`Delete`}
+                  title={t`Hapus`}
                   size="small"
                   accent="danger"
                   variant="secondary"
@@ -165,13 +165,13 @@ export const ObjectSettings = ({
       )}
       <ConfirmationModal
         modalInstanceId={DELETE_OBJECT_MODAL_ID}
-        title={t`Delete ${objectLabel} object?`}
-        subtitle={t`This will permanently delete the object and all its records. Type "yes" to confirm.`}
-        confirmButtonText={t`Delete`}
+        title={t`Hapus objek ${objectLabel}?`}
+        subtitle={t`Ini akan menghapus objek beserta seluruh datanya secara permanen. Ketik "ya" untuk konfirmasi.`}
+        confirmButtonText={t`Hapus`}
         onConfirmClick={confirmDelete}
         onClose={() => closeModal(DELETE_OBJECT_MODAL_ID)}
-        confirmationValue="yes"
-        confirmationPlaceholder="yes"
+        confirmationValue="ya"
+        confirmationPlaceholder="ya"
         loading={isDeleting}
       />
     </StyledContentContainer>

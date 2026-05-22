@@ -40,7 +40,7 @@ export const SettingsObjectInactiveMenuDropDown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Inactive Object Options`}
+          aria-label={t`Opsi Objek Nonaktif`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -49,13 +49,13 @@ export const SettingsObjectInactiveMenuDropDown = ({
         <DropdownContent widthInPixels={GenericDropdownContentWidth.Narrow}>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Activate`}
+              text={t`Aktifkan`}
               LeftIcon={IconArchiveOff}
               onClick={handleActivate}
             />
             {isCustomObject && (
               <MenuItem
-                text={t`Delete`}
+                text={t`Hapus`}
                 LeftIcon={IconTrash}
                 accent="danger"
                 onClick={handleDelete}

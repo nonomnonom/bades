@@ -1,6 +1,6 @@
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { SettingsCard } from '@/settings/components/SettingsCard';
-import { SETTINGS_FIELD_TYPE_CATEGORIES } from '@/settings/data-model/constants/SettingsFieldTypeCategories';
+import { SETTINGS_FIELD_TYPE_CATEGORIES, SETTINGS_FIELD_TYPE_CATEGORY_LABELS } from '@/settings/data-model/constants/SettingsFieldTypeCategories';
 import { SETTINGS_FIELD_TYPE_CATEGORY_DESCRIPTIONS } from '@/settings/data-model/constants/SettingsFieldTypeCategoryDescriptions';
 import { SETTINGS_FIELD_TYPE_CONFIGS } from '@/settings/data-model/constants/SettingsFieldTypeConfigs';
 import { type SettingsFieldTypeConfig } from '@/settings/data-model/constants/SettingsNonCompositeFieldTypeConfigs';
@@ -112,7 +112,7 @@ export const SettingsObjectNewFieldSelector = ({
           <SettingsTextInput
             instanceId="new-field-type-search"
             LeftIcon={IconSearch}
-            placeholder={t`Search a type`}
+            placeholder={t`Cari tipe kolom`}
             value={searchQuery}
             onChange={setSearchQuery}
           />
@@ -126,7 +126,7 @@ export const SettingsObjectNewFieldSelector = ({
             {SETTINGS_FIELD_TYPE_CATEGORIES.map((category) => (
               <Section key={category}>
                 <H2Title
-                  title={category}
+                  title={SETTINGS_FIELD_TYPE_CATEGORY_LABELS[category]}
                   description={
                     SETTINGS_FIELD_TYPE_CATEGORY_DESCRIPTIONS[category]
                   }
@@ -140,7 +140,7 @@ export const SettingsObjectNewFieldSelector = ({
                         [
                           key,
                           key === FieldMetadataType.MORPH_RELATION
-                            ? { ...config, label: t`Relation` }
+                            ? { ...config, label: t`Relasi` }
                             : config,
                         ] as [string, SettingsFieldTypeConfig<any>],
                     )

@@ -48,8 +48,8 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
       {hasRelations && (
         <Section>
           <H2Title
-            title={t`Relations`}
-            description={t`Relation between this object and other objects`}
+            title={t`Relasi`}
+            description={t`Relasi antara objek ini dengan objek lain`}
           />
           <SettingsObjectRelationsTable
             objectMetadataItem={objectMetadataItem}
@@ -65,7 +65,7 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
               >
                 <Button
                   Icon={IconPlus}
-                  title={t`Add relation`}
+                  title={t`Tambah relasi`}
                   size="small"
                   variant="secondary"
                 />
@@ -76,8 +76,8 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
       )}
       <Section>
         <H2Title
-          title={t`Fields`}
-          description={t`Customise the fields available in the ${objectLabelSingular} views and their display order in the ${objectLabelSingular} detail view and menus.`}
+          title={t`Kolom`}
+          description={t`Atur kolom yang tersedia pada tampilan ${objectLabelSingular} dan urutan tampilannya di halaman detail serta menu.`}
         />
         <SettingsObjectFieldTable
           objectMetadataItem={objectMetadataItem}
@@ -93,7 +93,7 @@ export const ObjectFields = ({ objectMetadataItem }: ObjectFieldsProps) => {
             >
               <Button
                 Icon={IconPlus}
-                title={t`Add Field`}
+                title={t`Tambah Kolom`}
                 size="small"
                 variant="secondary"
               />

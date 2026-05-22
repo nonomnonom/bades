@@ -94,7 +94,7 @@ export const SettingsDataModelObjectIdentifiersForm = ({
 
   const emptyOption: SelectOption<string | null> = {
     Icon: IconCircleOff,
-    label: t`None`,
+    label: t`Tidak ada`,
     value: null,
   };
 
@@ -104,13 +104,13 @@ export const SettingsDataModelObjectIdentifiersForm = ({
     <StyledContainer>
       {[
         {
-          label: t`Record label`,
+          label: t`Label data`,
           fieldName: LABEL_IDENTIFIER_FIELD_METADATA_ID,
           options: labelIdentifierFieldOptions,
           defaultValue: objectMetadataItem.labelIdentifierFieldMetadataId,
         },
         {
-          label: t`Record image`,
+          label: t`Gambar data`,
           fieldName: IMAGE_IDENTIFIER_FIELD_METADATA_ID,
           options: imageIdentifierFieldOptions,
           defaultValue: null,
@@ -129,12 +129,12 @@ export const SettingsDataModelObjectIdentifiersForm = ({
               emptyOption={emptyOption}
               options={options}
               value={value}
-              withSearchInput={label === t`Record label`}
+              withSearchInput={label === t`Label data`}
               disabled={!objectMetadataItem.isCustom || readonly}
               callToActionButton={
-                label === t`Record label`
+                label === t`Label data`
                   ? {
-                      text: 'Create Text Field',
+                      text: 'Buat Kolom Teks',
                       Icon: IconPlus,
                       onClick: () => {
                         navigate('./new-field/select');

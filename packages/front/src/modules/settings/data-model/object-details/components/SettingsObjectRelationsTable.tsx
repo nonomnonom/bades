@@ -49,19 +49,19 @@ const SETTINGS_OBJECT_RELATION_TABLE_METADATA: TableMetadata<FieldMetadataItem> 
     tableId: 'settingsObjectRelations',
     fields: [
       {
-        fieldLabel: msg`Name`,
+        fieldLabel: msg`Nama`,
         fieldName: 'label',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`App`,
+        fieldLabel: msg`Aplikasi`,
         fieldName: 'isCustom',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Type`,
+        fieldLabel: msg`Tipe`,
         fieldName: 'type',
         fieldType: 'string',
         align: 'left',
@@ -123,7 +123,7 @@ export const SettingsObjectRelationsTable = ({
           <SettingsTextInput
             instanceId="object-relation-table-search"
             LeftIcon={IconSearch}
-            placeholder={t`Search a field...`}
+            placeholder={t`Cari kolom...`}
             value={searchTerm}
             onChange={setSearchTerm}
           />
@@ -148,7 +148,7 @@ export const SettingsObjectRelationsTable = ({
                   LeftIcon={IconArchive}
                   onToggleChange={() => setShowInactive(!showInactive)}
                   toggled={showInactive}
-                  text={t`Inactive`}
+                  text={t`Nonaktif`}
                   toggleSize="small"
                 />
                 {isAdvancedModeEnabled && (
@@ -158,7 +158,7 @@ export const SettingsObjectRelationsTable = ({
                       setShowSystemRelations(!showSystemRelations)
                     }
                     toggled={showSystemRelations}
-                    text={t`System relations`}
+                    text={t`Relasi sistem`}
                     toggleSize="small"
                   />
                 )}

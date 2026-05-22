@@ -45,17 +45,17 @@ export const SettingsDataModelFieldOnClickActionForm = ({
     ...(isEmailField
       ? [
           {
-            label: t`Open in app`,
+            label: t`Buka di aplikasi`,
             value: FieldMetadataSettingsOnClickAction.OPEN_IN_APP,
           },
         ]
       : []),
     {
-      label: t`Open as link`,
+      label: t`Buka sebagai tautan`,
       value: FieldMetadataSettingsOnClickAction.OPEN_LINK,
     },
     {
-      label: t`Copy to clipboard`,
+      label: t`Salin ke papan klip`,
       value: FieldMetadataSettingsOnClickAction.COPY,
     },
   ];
@@ -83,7 +83,7 @@ export const SettingsDataModelFieldOnClickActionForm = ({
         return (
           <SettingsOptionCardContentSelect
             Icon={IconClick}
-            title={t`Action on click`}
+            title={t`Tindakan saat diklik`}
             description={description}
             disabled={disabled}
           >

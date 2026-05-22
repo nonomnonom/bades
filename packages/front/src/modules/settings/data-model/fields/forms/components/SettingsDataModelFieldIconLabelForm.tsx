@@ -109,8 +109,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
       : true);
 
   const apiNameTooltipText = isLabelSyncedWithName
-    ? t`Deactivate "Synchronize Objects Labels and API Names" to set a custom API name`
-    : t`Input must be in camel case and cannot start with a number`;
+    ? t`Nonaktifkan "Sinkronkan Label Kolom dan Nama API" untuk mengatur nama API kustom`
+    : t`Masukan harus dalam format camelCase dan tidak boleh diawali angka`;
 
   const fillNameFromLabel = (label: string) => {
     isDefined(label) &&
@@ -160,7 +160,7 @@ export const SettingsDataModelFieldIconLabelForm = ({
           render={({ field: { onChange, value } }) => (
             <SettingsTextInput
               instanceId={labelTextInputId}
-              placeholder={t`Employees`}
+              placeholder={t`Nama Kolom`}
               value={value}
               disabled={!isLabelEditEnabled || readonly}
               onChange={(value) => {
@@ -195,8 +195,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
                       <>
                         <SettingsTextInput
                           instanceId={nameTextInputId}
-                          label={t`API Name`}
-                          placeholder={t`employees`}
+                          label={t`Nama API`}
+                          placeholder={t`namaKolom`}
                           value={value}
                           onChange={onChange}
                           readOnly={readonly}
@@ -243,8 +243,8 @@ export const SettingsDataModelFieldIconLabelForm = ({
                       <Card rounded>
                         <SettingsOptionCardContentToggle
                           Icon={IconRefresh}
-                          title={t`Synchronize Field Label and API Name`}
-                          description={t`Should changing a field's label also change the API name?`}
+                          title={t`Sinkronkan Label Kolom dan Nama API`}
+                          description={t`Apakah perubahan label kolom juga mengubah nama API?`}
                           checked={value ?? true}
                           disabled={readonly}
                           advancedMode

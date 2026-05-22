@@ -67,8 +67,8 @@ export const SettingsDataModelFieldIsUniqueForm = ({
           <>
             <SettingsOptionCardContentSelect
               Icon={IconKey}
-              title={t`Unique`}
-              description={t`Prevent from assigning the same value to different records`}
+              title={t`Unik`}
+              description={t`Mencegah nilai yang sama diterapkan ke data berbeda`}
             >
               <Toggle
                 toggleSize="small"

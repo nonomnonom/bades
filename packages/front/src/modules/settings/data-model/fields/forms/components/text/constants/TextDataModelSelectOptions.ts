@@ -2,23 +2,23 @@ import { msg } from '@lingui/core/macro';
 
 export const TEXT_DATA_MODEL_SELECT_OPTIONS = [
   {
-    label: msg`Deactivated`,
+    label: msg`Nonaktif`,
     value: 0,
   },
   {
-    label: msg`First 2 lines`,
+    label: msg`2 baris pertama`,
     value: 2,
   },
   {
-    label: msg`First 5 lines`,
+    label: msg`5 baris pertama`,
     value: 5,
   },
   {
-    label: msg`First 10 lines`,
+    label: msg`10 baris pertama`,
     value: 10,
   },
   {
-    label: msg`All lines`,
+    label: msg`Semua baris`,
     value: 99,
   },
 ];

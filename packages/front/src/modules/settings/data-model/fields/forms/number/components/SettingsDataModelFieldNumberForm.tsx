@@ -54,8 +54,8 @@ export const SettingsDataModelFieldNumberForm = ({
           <>
             <SettingsOptionCardContentSelect
               Icon={IconEye}
-              title={t`Number type`}
-              description={t`Display as a plain number or a percentage`}
+              title={t`Tipe angka`}
+              description={t`Tampilkan sebagai angka biasa atau persentase`}
             >
               <Select<string>
                 selectSizeVariant="small"
@@ -81,10 +81,10 @@ export const SettingsDataModelFieldNumberForm = ({
             {type !== 'shortNumber' && (
               <SettingsOptionCardContentCounter
                 Icon={IconDecimal}
-                title={t`Number of decimals`}
+                title={t`Jumlah desimal`}
                 description={plural(count, {
-                  one: `E.g. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} for ${count} decimal`,
-                  other: `E.g. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} for ${count} decimals`,
+                  one: `Mis. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} untuk ${count} desimal`,
+                  other: `Mis. ${(type === 'percentage' ? 99 : 1000).toFixed(count)}${type === 'percentage' ? '%' : ''} untuk ${count} desimal`,
                 })}
                 value={count}
                 onChange={(value) => onChange({ type: type, decimals: value })}

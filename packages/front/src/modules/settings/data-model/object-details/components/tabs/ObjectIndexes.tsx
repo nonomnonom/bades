@@ -12,8 +12,8 @@ export const ObjectIndexes = ({ objectMetadataItem }: ObjectIndexesProps) => {
   return (
     <Section>
       <H2Title
-        title={t`Indexes`}
-        description={t`Advanced feature to improve the performance of queries and to enforce unicity constraints.`}
+        title={t`Indeks`}
+        description={t`Fitur lanjutan untuk meningkatkan performa kueri dan menerapkan batasan keunikan data.`}
       />
       <SettingsObjectIndexTable objectMetadataItem={objectMetadataItem} />
     </Section>

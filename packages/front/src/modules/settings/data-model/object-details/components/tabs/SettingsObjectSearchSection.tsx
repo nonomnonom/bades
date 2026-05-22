@@ -135,8 +135,8 @@ export const SettingsObjectSearchSection = ({
         <Card rounded>
           <SettingsOptionCardContentToggle
             Icon={IconEye}
-            title={t`Include in default search`}
-            description={t`If disabled, use advanced search filters to find these records`}
+            title={t`Sertakan dalam pencarian bawaan`}
+            description={t`Jika dinonaktifkan, gunakan filter pencarian lanjutan untuk menemukan data ini`}
             checked={isSearchable}
             advancedMode
             onChange={handleToggleSearchable}
@@ -148,7 +148,7 @@ export const SettingsObjectSearchSection = ({
           <SettingsTextInput
             instanceId="indexed-fields-search"
             LeftIcon={IconSearch}
-            placeholder={t`Search across indexed fields...`}
+            placeholder={t`Cari pada kolom terindeks...`}
             value={searchTerm}
             onChange={setSearchTerm}
           />
@@ -156,9 +156,9 @@ export const SettingsObjectSearchSection = ({
             <TableRow
               gridTemplateColumns={INDEXED_FIELDS_GRID_TEMPLATE_COLUMNS}
             >
-              <TableHeader>{t`Name`}</TableHeader>
-              <TableHeader>{t`Weight`}</TableHeader>
-              <TableHeader>{t`Data type`}</TableHeader>
+              <TableHeader>{t`Nama`}</TableHeader>
+              <TableHeader>{t`Bobot`}</TableHeader>
+              <TableHeader>{t`Tipe data`}</TableHeader>
             </TableRow>
             {filteredIndexedFields.map((entry) => {
               const FieldIcon = getIcon(entry.icon);

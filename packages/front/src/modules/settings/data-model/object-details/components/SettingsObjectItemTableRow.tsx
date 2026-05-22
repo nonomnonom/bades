@@ -79,7 +79,7 @@ export const SettingsObjectMetadataItemTableRow = ({
               {objectMetadataItem.labelPlural}
             </StyledNameLabel>
             {!objectMetadataItem.isActive && (
-              <StyledInactiveLabel>{t`Deactivated`}</StyledInactiveLabel>
+              <StyledInactiveLabel>{t`Nonaktif`}</StyledInactiveLabel>
             )}
           </StyledNameContainer>
         </StyledNameTableCell>

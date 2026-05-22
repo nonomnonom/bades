@@ -4,7 +4,7 @@ export const SETTINGS_FIELD_TYPE_CATEGORY_DESCRIPTIONS: Record<
   SettingsFieldTypeCategoryType,
   string
 > = {
-  Basic: 'All the basic field types you need to start',
-  Advanced: 'More advanced fields for advanced projects',
-  Relation: 'Create a relation with other objects',
+  Basic: 'Semua tipe kolom dasar yang dibutuhkan untuk memulai',
+  Advanced: 'Kolom lanjutan untuk kebutuhan yang lebih kompleks',
+  Relation: 'Buat relasi dengan objek lain',
 };
