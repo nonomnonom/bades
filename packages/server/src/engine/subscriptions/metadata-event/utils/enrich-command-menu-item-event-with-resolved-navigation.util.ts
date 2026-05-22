@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import type { I18n } from 'src/utils/bades-i18n';
 import { type APP_LOCALES } from 'shared/translations';
 import {
   interpolateCommandMenuItemTemplate,

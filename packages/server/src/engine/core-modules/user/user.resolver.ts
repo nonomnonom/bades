@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto from 'crypto';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { GraphQLJSONObject } from 'graphql-type-json';
 import { PermissionFlagType } from 'shared/constants';
 import { isDefined } from 'shared/utils';

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { type MessageDescriptor } from '@lingui/core';
+import { type MessageDescriptor } from 'src/utils/bades-i18n';
 import { type Request } from 'express';
 import {
   GraphQLError,

@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 
 export const getStandardViewFieldGroupNames = () => [
   msg`General`,

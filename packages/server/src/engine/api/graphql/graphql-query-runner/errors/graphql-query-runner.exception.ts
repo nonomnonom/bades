@@ -1,4 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
+import { type MessageDescriptor } from 'src/utils/bades-i18n';
 
 import { CustomException } from 'src/utils/custom-exception';
 

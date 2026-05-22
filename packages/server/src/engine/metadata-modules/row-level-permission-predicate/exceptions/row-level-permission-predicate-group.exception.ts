@@ -1,7 +1,6 @@
+import { type MessageDescriptor, msg } from 'src/utils/bades-i18n';
 /* @license Enterprise */
 
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
 
 import {
   appendCommonExceptionCode,

@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from 'src/utils/bades-i18n';
 import { type AllMetadataName } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 

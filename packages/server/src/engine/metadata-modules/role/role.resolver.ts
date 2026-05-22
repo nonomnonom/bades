@@ -1,3 +1,4 @@
+import { msg } from 'src/utils/bades-i18n';
 import {
   UseFilters,
   UseGuards,
@@ -6,7 +7,6 @@ import {
 } from '@nestjs/common';
 import { Args, Mutation, Parent, Query, ResolveField } from '@nestjs/graphql';
 
-import { msg } from '@lingui/core/macro';
 import { PermissionFlagType } from 'shared/constants';
 import { isDefined } from 'shared/utils';
 

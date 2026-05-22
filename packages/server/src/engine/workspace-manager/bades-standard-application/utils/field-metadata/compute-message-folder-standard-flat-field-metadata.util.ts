@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { i18nLabel } from 'src/engine/workspace-manager/bades-standard-application/utils/i18n-label.util';
 import { DateDisplayFormat, FieldMetadataType } from 'shared/types';
 

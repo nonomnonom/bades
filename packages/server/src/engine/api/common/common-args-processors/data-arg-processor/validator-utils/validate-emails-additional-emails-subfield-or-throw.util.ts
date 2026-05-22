@@ -1,6 +1,6 @@
 import { inspect } from 'util';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isNull } from '@sniptt/guards';
 
 import { validateEmailsPrimaryEmailSubfieldOrThrow } from 'src/engine/api/common/common-args-processors/data-arg-processor/validator-utils/validate-emails-primary-email-subfield-or-throw.util';

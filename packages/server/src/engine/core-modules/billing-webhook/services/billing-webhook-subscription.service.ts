@@ -3,7 +3,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 import { In, Repository } from 'typeorm';

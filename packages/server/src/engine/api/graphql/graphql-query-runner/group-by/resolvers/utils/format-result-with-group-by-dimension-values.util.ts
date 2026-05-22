@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from 'src/utils/bades-i18n';
 import {
   type ObjectRecord,
   ObjectRecordGroupByDateGranularity,

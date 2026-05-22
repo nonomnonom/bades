@@ -1,8 +1,7 @@
 import { HttpException } from '@nestjs/common';
 
-import { type I18n, type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
+import type { I18n, MessageDescriptor } from 'src/utils/bades-i18n';
 import {
   BaseGraphQLError,
   ErrorCode,

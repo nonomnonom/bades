@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { ImapFlow } from 'imapflow';
 import { createTransport } from 'nodemailer';
 import { ACCOUNT_TYPES } from 'shared/constants';

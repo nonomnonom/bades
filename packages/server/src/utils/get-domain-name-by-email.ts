@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { UserInputError } from 'src/engine/core-modules/graphql/utils/graphql-errors.util';

@@ -1,5 +1,4 @@
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import { type UniqueConstraintCondition } from 'src/engine/sid-orm/entity-manager/types/relation-connect-query-config.type';
 
 export const formatConnectRecordNotFoundErrorMessage = (

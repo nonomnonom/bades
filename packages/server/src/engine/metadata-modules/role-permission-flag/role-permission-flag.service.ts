@@ -1,6 +1,6 @@
+import { msg } from 'src/utils/bades-i18n';
 import { Injectable } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
 import {
   type PermissionFlagType,
   SystemPermissionFlag,

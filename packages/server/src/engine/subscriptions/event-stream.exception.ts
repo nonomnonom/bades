@@ -1,5 +1,5 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
+import type { MessageDescriptor } from 'src/utils/bades-i18n';
 import { assertUnreachable } from 'shared/utils';
 
 import { CustomException } from 'src/utils/custom-exception';

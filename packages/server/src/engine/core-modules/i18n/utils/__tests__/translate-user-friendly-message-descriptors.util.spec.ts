@@ -1,5 +1,4 @@
-import { type I18n, type MessageDescriptor } from '@lingui/core';
-
+import type { I18n, MessageDescriptor } from 'src/utils/bades-i18n';
 import { translateUserFriendlyMessageDescriptors } from 'src/engine/core-modules/i18n/utils/translate-user-friendly-message-descriptors.util';
 
 const buildDescriptor = (id: string): MessageDescriptor => ({

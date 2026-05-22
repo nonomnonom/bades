@@ -1,4 +1,4 @@
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { AiExceptionCode } from 'src/engine/metadata-modules/ai/ai.exception';

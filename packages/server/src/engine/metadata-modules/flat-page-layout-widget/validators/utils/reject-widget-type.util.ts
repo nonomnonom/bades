@@ -1,4 +1,4 @@
-import { type msg } from '@lingui/core/macro';
+import { type MessageDescriptor } from 'src/utils/bades-i18n';
 
 import { type GenericValidateFlatPageLayoutWidgetTypeSpecificitiesArgs } from 'src/engine/metadata-modules/flat-page-layout-widget/services/flat-page-layout-widget-type-validator.service';
 import { type FlatPageLayoutWidgetValidationError } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget-validation-error.type';
@@ -9,7 +9,7 @@ import { isCallerTwentyStandardApp } from 'src/engine/metadata-modules/utils/is-
 export const rejectWidgetType = (
   widgetType: WidgetType,
   message: string,
-  userFriendlyMessage: ReturnType<typeof msg>,
+  userFriendlyMessage: MessageDescriptor,
 ) => {
   return (
     args: GenericValidateFlatPageLayoutWidgetTypeSpecificitiesArgs,

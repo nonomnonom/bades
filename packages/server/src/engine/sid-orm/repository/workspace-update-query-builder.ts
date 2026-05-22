@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { QUERY_MAX_RECORDS } from 'shared/constants';
 import { type ObjectsPermissions } from 'shared/types';
 import { isDefined } from 'shared/utils';

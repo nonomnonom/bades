@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { IsNull, Not } from 'typeorm';
 
 import {

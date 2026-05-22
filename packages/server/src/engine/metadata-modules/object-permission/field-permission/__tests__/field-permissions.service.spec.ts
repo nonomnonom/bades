@@ -1,7 +1,7 @@
+import { msg } from 'src/utils/bades-i18n';
 import { Test, type TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
 import { type ObjectsPermissionsByRoleId } from 'shared/types';
 import { type Repository } from 'typeorm';
 

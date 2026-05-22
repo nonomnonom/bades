@@ -1,4 +1,4 @@
-import { msg, t } from '@lingui/core/macro';
+import { msg, t} from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 import { validate as uuidValidate } from 'uuid';
 

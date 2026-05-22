@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { QUERY_MAX_RECORDS } from 'shared/constants';
 import { ObjectRecord } from 'shared/types';
 import { isDefined } from 'shared/utils';

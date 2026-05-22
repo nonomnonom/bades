@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'class-validator';
 import { type RelationCreationPayload } from 'shared/types';
 
