@@ -120,12 +120,12 @@ export const SettingsDevelopersApiKeyDetail = () => {
         },
       });
       enqueueSuccessSnackBar({
-        message: t`Role updated successfully`,
+        message: t`Peran berhasil diperbarui`,
       });
       setSelectedRoleId(roleId);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error updating role`,
+        message: t`Gagal memperbarui peran`,
       });
     } finally {
       setIsLoading(false);
@@ -147,7 +147,7 @@ export const SettingsDevelopersApiKeyDetail = () => {
         navigate(SettingsPath.ApiWebhooks);
       }
     } catch {
-      enqueueErrorSnackBar({ message: t`Error deleting api key.` });
+      enqueueErrorSnackBar({ message: t`Gagal menghapus kunci API.` });
     } finally {
       setIsLoading(false);
     }
@@ -161,7 +161,7 @@ export const SettingsDevelopersApiKeyDetail = () => {
 
     if (!roleIdToUse) {
       enqueueErrorSnackBar({
-        message: t`A role must be selected for the API key`,
+        message: t`Peran harus dipilih untuk kunci API`,
       });
       return;
     }
@@ -204,7 +204,7 @@ export const SettingsDevelopersApiKeyDetail = () => {
       if (isDefined(apiKey)) {
         if (!isNonEmptyString(apiKeyName)) {
           enqueueErrorSnackBar({
-            message: t`API key name cannot be empty`,
+            message: t`Nama kunci API tidak boleh kosong`,
           });
           return;
         }
@@ -224,14 +224,14 @@ export const SettingsDevelopersApiKeyDetail = () => {
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error regenerating api key.`,
+        message: t`Gagal membuat ulang kunci API.`,
       });
     } finally {
       setIsLoading(false);
     }
   };
 
-  const confirmationValue = t`yes`;
+  const confirmationValue = t`ya`;
 
   if (apiKeyLoading || rolesLoading) {
     return <SettingsSkeletonLoader />;
@@ -241,17 +241,17 @@ export const SettingsDevelopersApiKeyDetail = () => {
     <>
       {isDefined(apiKey) && (
         <SubMenuTopBarContainer
-          title={apiKey.name || t`Unnamed API Key`}
+          title={apiKey.name || t`Kunci API Tanpa Nama`}
           links={[
             {
-              children: t`Workspace`,
+              children: t`Ruang Kerja`,
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: t`APIs & Webhooks`,
+              children: t`API & Webhook`,
               href: getSettingsPath(SettingsPath.ApiWebhooks),
             },
-            { children: apiKey.name || t`Unnamed API Key` },
+            { children: apiKey.name || t`Kunci API Tanpa Nama` },
           ]}
         >
           <SettingsPageContainer>
@@ -259,20 +259,20 @@ export const SettingsDevelopersApiKeyDetail = () => {
               {apiKeyToken ? (
                 <>
                   <H2Title
-                    title={t`API Key`}
-                    description={t`Copy this key as it will not be visible again`}
+                    title={t`Kunci API`}
+                    description={t`Salin kunci ini karena tidak akan ditampilkan lagi`}
                   />
                   <ApiKeyInput apiKey={apiKeyToken} />
                 </>
               ) : (
                 <>
                   <H2Title
-                    title={t`API Key`}
-                    description={t`Regenerate an API key`}
+                    title={t`Kunci API`}
+                    description={t`Buat ulang kunci API`}
                   />
                   <StyledInputContainer>
                     <Button
-                      title={t`Regenerate Key`}
+                      title={t`Buat Ulang Kunci`}
                       Icon={IconRepeat}
                       onClick={() => openModal(REGENERATE_API_KEY_MODAL_ID)}
                     />
@@ -284,7 +284,7 @@ export const SettingsDevelopersApiKeyDetail = () => {
               )}
             </Section>
             <Section>
-              <H2Title title={t`Name`} description={t`Name of your API key`} />
+              <H2Title title={t`Nama`} description={t`Nama kunci API Anda`} />
               <ApiKeyNameInput
                 apiKeyName={apiKeyName}
                 apiKeyId={apiKey?.id}
@@ -294,8 +294,8 @@ export const SettingsDevelopersApiKeyDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Role`}
-                description={t`What this API can do: Select a user role to define its permissions.`}
+                title={t`Peran`}
+                description={t`Kemampuan API ini: pilih peran pengguna untuk menentukan izinnya.`}
               />
               <SettingsDevelopersRoleSelector
                 value={selectedRoleId}
@@ -305,12 +305,12 @@ export const SettingsDevelopersApiKeyDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Expiration`}
-                description={t`When the key will be disabled`}
+                title={t`Kedaluwarsa`}
+                description={t`Kapan kunci akan dinonaktifkan`}
               />
               <SettingsTextInput
                 instanceId={`api-key-expiration-${apiKey?.id}`}
-                placeholder={t`E.g. backoffice integration`}
+                placeholder={t`Mis. integrasi backoffice`}
                 value={formatExpiration(apiKey?.expiresAt || '', true, false)}
                 disabled
                 fullWidth
@@ -318,13 +318,13 @@ export const SettingsDevelopersApiKeyDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Danger zone`}
-                description={t`Delete this integration`}
+                title={t`Zona berbahaya`}
+                description={t`Hapus integrasi ini`}
               />
               <Button
                 accent="danger"
                 variant="secondary"
-                title={t`Delete`}
+                title={t`Hapus`}
                 Icon={IconTrash}
                 onClick={() => openModal(DELETE_API_KEY_MODAL_ID)}
               />
@@ -336,32 +336,32 @@ export const SettingsDevelopersApiKeyDetail = () => {
         confirmationPlaceholder={confirmationValue}
         confirmationValue={confirmationValue}
         modalInstanceId={DELETE_API_KEY_MODAL_ID}
-        title={t`Delete API key`}
+        title={t`Hapus kunci API`}
         subtitle={
           <Trans>
-            Please type {`"${confirmationValue}"`} to confirm you want to delete
-            this API Key. Be aware that any script using this key will stop
-            working.
+            Ketik {`"${confirmationValue}"`} untuk mengonfirmasi penghapusan
+            kunci API ini. Perlu diketahui, integrasi apa pun yang memakai
+            kunci ini akan berhenti berfungsi.
           </Trans>
         }
         onConfirmClick={deleteIntegration}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={t`Hapus`}
         loading={isLoading}
       />
       <ConfirmationModal
         confirmationPlaceholder={confirmationValue}
         confirmationValue={confirmationValue}
         modalInstanceId={REGENERATE_API_KEY_MODAL_ID}
-        title={t`Regenerate an API key`}
+        title={t`Buat ulang kunci API`}
         subtitle={
           <Trans>
-            If you’ve lost this key, you can regenerate it, but be aware that
-            any script using this key will need to be updated. Please type
-            {`"${confirmationValue}"`} to confirm.
+            Jika kunci ini hilang, Anda dapat membuatnya ulang, tetapi
+            integrasi apa pun yang memakai kunci lama harus diperbarui. Ketik
+            {`"${confirmationValue}"`} untuk mengonfirmasi.
           </Trans>
         }
         onConfirmClick={regenerateApiKey}
-        confirmButtonText={t`Regenerate key`}
+        confirmButtonText={t`Buat ulang kunci`}
         loading={isLoading}
       />
     </>
