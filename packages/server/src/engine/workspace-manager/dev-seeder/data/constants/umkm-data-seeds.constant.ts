@@ -25,10 +25,10 @@ export const UMKM_DATA_SEED_COLUMNS: (keyof UmkmDataSeed)[] = [
 ];
 
 export const UMKM_DATA_SEED_IDS = {
-  UMK_1: '20202020-u001-41e7-8c72-ba44072a4c58',
-  UMK_2: '20202020-u002-4b3d-a89c-7f6c30df998a',
-  UMK_3: '20202020-u003-422c-8fcf-5b7496f94975',
-  UMK_4: '20202020-u004-4e9a-9fcf-5b7496f94976',
+  UMK_1: '20202020-ac01-41e7-8c72-ba44072a4c58',
+  UMK_2: '20202020-ac02-4b3d-a89c-7f6c30df998a',
+  UMK_3: '20202020-ac03-422c-8fcf-5b7496f94975',
+  UMK_4: '20202020-ac04-4e9a-9fcf-5b7496f94976',
 };
 
 export const UMKM_DATA_SEEDS: UmkmDataSeed[] = [

@@ -29,9 +29,9 @@ export const REALISASI_ANGGARAN_DATA_SEED_COLUMNS: (keyof RealisasiAnggaranDataS
 ];
 
 export const REALISASI_ANGGARAN_DATA_SEED_IDS = {
-  REAL_1: '20202020-r001-41e7-8c72-ba44072a4c58',
-  REAL_2: '20202020-r002-4b3d-a89c-7f6c30df998a',
-  REAL_3: '20202020-r003-422c-8fcf-5b7496f94975',
+  REAL_1: '20202020-ab01-41e7-8c72-ba44072a4c58',
+  REAL_2: '20202020-ab02-4b3d-a89c-7f6c30df998a',
+  REAL_3: '20202020-ab03-422c-8fcf-5b7496f94975',
 };
 
 export const REALISASI_ANGGARAN_DATA_SEEDS: RealisasiAnggaranDataSeed[] = [

@@ -27,9 +27,9 @@ export const PROGRAM_BANTUAN_DATA_SEED_COLUMNS: (keyof ProgramBantuanDataSeed)[]
 ];
 
 export const PROGRAM_BANTUAN_DATA_SEED_IDS = {
-  PROG_1: '20202020-g001-41e7-8c72-ba44072a4c58',
-  PROG_2: '20202020-g002-4b3d-a89c-7f6c30df998a',
-  PROG_3: '20202020-g003-422c-8fcf-5b7496f94975',
+  PROG_1: '20202020-d001-41e7-8c72-ba44072a4c58',
+  PROG_2: '20202020-d002-4b3d-a89c-7f6c30df998a',
+  PROG_3: '20202020-d003-422c-8fcf-5b7496f94975',
 };
 
 export const PROGRAM_BANTUAN_DATA_SEEDS: ProgramBantuanDataSeed[] = [

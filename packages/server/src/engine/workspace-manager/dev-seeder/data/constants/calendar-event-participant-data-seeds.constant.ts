@@ -95,22 +95,12 @@ const FIND_UNUSED_WORKSPACE_MEMBER_ID = (
 };
 
 const CREATE_PERSON_EVENT_PARTICIPANT = (
-  personIds: string[],
-  usedPersonIds: Set<string>,
+  _personIds: string[],
+  _usedPersonIds: Set<string>,
 ): EventParticipantData | null => {
-  const PERSON_ID = FIND_UNUSED_PERSON_ID(personIds, usedPersonIds);
-
-  if (!PERSON_ID) return null;
-
-  usedPersonIds.add(PERSON_ID);
-  const PERSON_INDEX = personIds.indexOf(PERSON_ID) + 1;
-
-  return {
-    handle: `warga${PERSON_INDEX}@gmail.com`,
-    displayName: `Warga ${PERSON_INDEX}`,
-    personId: PERSON_ID,
-    workspaceMemberId: null,
-  };
+  // personId FK mengacu ke tabel person (standard Twenty), bukan penduduk
+  // Nonaktifkan person participant sementara sampai relasi dipetakan ulang
+  return null;
 };
 
 const CREATE_WORKSPACE_MEMBER_EVENT_PARTICIPANT = (

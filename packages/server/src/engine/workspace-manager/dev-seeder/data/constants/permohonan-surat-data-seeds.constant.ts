@@ -9,7 +9,7 @@ type PermohonanSuratDataSeed = {
   status: string;
   keperluan: string;
   catatan: string;
-  tanggalSelesai: string;
+  tanggalSelesai: string | null;
   position: number;
 };
 
@@ -26,9 +26,9 @@ export const PERMOHONAN_SURAT_DATA_SEED_COLUMNS: (keyof PermohonanSuratDataSeed)
 
 // prettier-ignore
 export const PERMOHONAN_SURAT_DATA_SEED_IDS = {
-  PMHONAN_1: '20202020-p001-41e7-8c72-ba44072a4c58',
-  PMHONAN_2: '20202020-p002-4b3d-a89c-7f6c30df998a',
-  PMHONAN_3: '20202020-p003-422c-8fcf-5b7496f94975',
+  PMHONAN_1: '20202020-b001-41e7-8c72-ba44072a4c58',
+  PMHONAN_2: '20202020-b002-4b3d-a89c-7f6c30df998a',
+  PMHONAN_3: '20202020-b003-422c-8fcf-5b7496f94975',
 };
 
 const KADES_USER_ID = WORKSPACE_MEMBER_DATA_SEED_IDS.KADES;
@@ -51,7 +51,7 @@ export const PERMOHONAN_SURAT_DATA_SEEDS: PermohonanSuratDataSeed[] = [
     status: 'DIPROSES',
     keperluan: 'Berkas administratif BLT',
     catatan: 'Menunggu verifikasi data',
-    tanggalSelesai: '',
+    tanggalSelesai: null,
     position: 1,
   },
   {
@@ -61,7 +61,7 @@ export const PERMOHONAN_SURAT_DATA_SEEDS: PermohonanSuratDataSeed[] = [
     status: 'MENUNGGU',
     keperluan: 'Izin pesta pernikahan',
     catatan: '',
-    tanggalSelesai: '',
+    tanggalSelesai: null,
     position: 2,
   },
 ];
