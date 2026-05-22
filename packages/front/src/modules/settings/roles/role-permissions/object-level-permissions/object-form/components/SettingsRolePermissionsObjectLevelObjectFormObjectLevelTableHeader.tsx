@@ -1,6 +1,6 @@
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 export const SettingsRolePermissionsObjectLevelObjectFormObjectLevelTableHeader =
   () => (

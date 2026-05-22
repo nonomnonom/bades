@@ -1,6 +1,6 @@
 import { isNonEmptyString } from '@sniptt/guards';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type ReactNode } from 'react';
 import { isDefined } from 'shared/utils';
 import { Tag } from 'ui/components';

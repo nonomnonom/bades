@@ -1,7 +1,7 @@
 /* @license Enterprise */
 
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconArrowUp, IconLock } from 'ui/display';
 import { Card, Section } from 'ui/layout';
 

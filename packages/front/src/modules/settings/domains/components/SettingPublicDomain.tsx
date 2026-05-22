@@ -1,6 +1,6 @@
 import { Section } from 'ui/layout';
 import { H2Title, IconReload, IconTrash } from 'ui/display';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { SettingsPath } from 'shared/types';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';

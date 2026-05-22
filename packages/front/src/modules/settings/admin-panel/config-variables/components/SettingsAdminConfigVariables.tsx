@@ -8,7 +8,7 @@ import { configVariableGroupFilterState } from '@/settings/admin-panel/config-va
 import { configVariableSourceFilterState } from '@/settings/admin-panel/config-variables/states/configVariableSourceFilterState';
 import { showHiddenGroupVariablesState } from '@/settings/admin-panel/config-variables/states/showHiddenGroupVariablesState';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';

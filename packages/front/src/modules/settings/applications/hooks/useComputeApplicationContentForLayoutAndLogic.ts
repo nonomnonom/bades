@@ -1,6 +1,6 @@
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type Manifest } from 'shared/application';
 import { SettingsPath } from 'shared/types';
 import { capitalize, getSettingsPath, isDefined } from 'shared/utils';

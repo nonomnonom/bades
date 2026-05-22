@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type IconComponent, IconDeviceFloppy } from 'ui/display';
 import { Button } from 'ui/input';
 

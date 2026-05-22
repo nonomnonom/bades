@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { QueueMetricsTimeRange } from '~/generated-admin/graphql';
 
 export const WORKER_QUEUE_METRICS_SELECT_OPTIONS = [

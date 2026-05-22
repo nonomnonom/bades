@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
-import { type MessageDescriptor } from '@lingui/core';
-import { Trans } from '@lingui/react';
+import { Trans } from '~/utils/i18n/badesI18n';
+import { type MessageDescriptor } from '~/utils/i18n/badesI18n';
 import { type ReactNode } from 'react';
 import { Radio } from 'ui/input';
 import { Card, CardContent } from 'ui/layout';

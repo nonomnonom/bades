@@ -7,7 +7,7 @@ import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Controller, useForm } from 'react-hook-form';
 import { SettingsPath } from 'shared/types';
 import { CustomError } from 'shared/utils';

@@ -1,6 +1,6 @@
 import { type FieldNumberVariant } from '@/object-record/record-field/ui/types/FieldMetadata';
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
+import { type MessageDescriptor } from '~/utils/i18n/badesI18n';
 import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
 import {
   IconLetterK,

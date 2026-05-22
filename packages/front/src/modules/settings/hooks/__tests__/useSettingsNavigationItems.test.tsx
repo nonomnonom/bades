@@ -18,8 +18,7 @@ import {
   jotaiStore,
   resetJotaiStore,
 } from '@/ui/utilities/state/jotai/jotaiStore';
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { I18nProvider, i18n } from '~/utils/i18n/badesI18n';
 import { Provider as JotaiProvider } from 'jotai';
 import { SOURCE_LOCALE } from 'shared/translations';
 import { messages } from '~/locales/generated/id-ID';

@@ -1,4 +1,4 @@
-import { plural } from '@lingui/core/macro';
+import { plural } from '~/utils/i18n/badesI18n';
 
 export const getWorkspacesUpgradeHealthText = (
   behindCount: number,

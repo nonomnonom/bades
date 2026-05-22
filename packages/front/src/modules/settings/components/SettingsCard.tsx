@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { type ReactNode, useContext } from 'react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Card, CardContent } from 'ui/layout';
 import { IconChevronRight } from 'ui/display';
 import { Pill } from 'ui/components';

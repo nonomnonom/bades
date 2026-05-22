@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 import { useContext } from 'react';
 
 import { SettingsCard } from '@/settings/components/SettingsCard';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconCalendarEvent, IconMailCog } from 'ui/display';

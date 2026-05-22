@@ -4,7 +4,7 @@ import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Checkbox } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 

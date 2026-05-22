@@ -4,7 +4,7 @@ import { type SettingsRolePermissionsObjectPermission } from '@/settings/roles/r
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { plural } from '@lingui/core/macro';
+import { plural } from '~/utils/i18n/badesI18n';
 import { Checkbox, CheckboxAccent } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 

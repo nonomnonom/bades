@@ -2,7 +2,7 @@ import { SettingsDatabaseEventsForm } from '@/settings/components/SettingsDataba
 import { SettingsLogicFunctionTriggerPayloadFormat } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerPayloadFormat';
 import { SettingsLogicFunctionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerSection';
 import { buildDatabaseEventPayload } from '@/settings/logic-functions/utils/getTriggerSamplePayload';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type DatabaseEventTriggerSettings } from 'shared/application';
 import { isDefined } from 'shared/utils';
 

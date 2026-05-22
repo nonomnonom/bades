@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useRef, useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
 import {

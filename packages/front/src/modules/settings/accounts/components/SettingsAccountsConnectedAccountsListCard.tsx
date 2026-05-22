@@ -6,7 +6,7 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
 import { SettingsPath } from 'shared/types';
 
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 
 import { Button } from 'ui/input';

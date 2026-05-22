@@ -4,7 +4,7 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import {
   IconChevronRight,

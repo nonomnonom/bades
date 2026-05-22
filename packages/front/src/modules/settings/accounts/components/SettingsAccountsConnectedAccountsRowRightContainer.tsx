@@ -3,7 +3,7 @@ import { SettingsAccountsRowDropdownMenu } from '@/settings/accounts/components/
 import { SyncStatus } from '@/settings/accounts/constants/SyncStatus';
 import { computeSyncStatus } from '@/settings/accounts/utils/computeSyncStatus';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Status } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 

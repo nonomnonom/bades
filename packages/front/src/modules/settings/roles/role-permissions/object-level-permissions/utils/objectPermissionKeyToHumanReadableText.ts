@@ -1,5 +1,5 @@
 import { type SettingsRoleObjectPermissionKey } from '@/settings/roles/role-permissions/objects-permissions/constants/SettingsRoleObjectPermissionIconConfig';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 export const objectPermissionKeyToHumanReadable = (
   objectPermissionKey: SettingsRoleObjectPermissionKey,

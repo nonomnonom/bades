@@ -2,7 +2,7 @@ import { SettingsDnsRecordsTable } from '@/settings/components/SettingsDnsRecord
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconRefresh } from 'ui/display';
 import { Button } from 'ui/input';
 

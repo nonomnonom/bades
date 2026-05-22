@@ -1,5 +1,5 @@
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 type MemberNameFieldsProps = {
   memberId: string;

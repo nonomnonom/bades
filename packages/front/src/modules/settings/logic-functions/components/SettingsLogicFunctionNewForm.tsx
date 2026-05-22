@@ -3,7 +3,7 @@ import { SettingsOptionCardContentCounter } from '@/settings/components/Settings
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { TextArea } from '@/ui/input/components/TextArea';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title, IconClockHour8 } from 'ui/display';
 import { Card, Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

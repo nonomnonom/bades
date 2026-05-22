@@ -86,14 +86,7 @@ export const mergeWorkspaceMemberSettingsIntoCurrent = (
     };
   }
 
-  if (
-    'locale' in payload &&
-    (payload.locale === null || isDefined(payload.locale))
-  ) {
-    if (isString(payload.locale) || isNull(payload.locale)) {
-      next = { ...next, locale: payload.locale };
-    }
-  }
+  // locale tidak lagi relevan — Bades single-language Bahasa Indonesia
 
   if ('colorScheme' in payload && isDefined(payload.colorScheme)) {
     if (isColorScheme(payload.colorScheme)) {

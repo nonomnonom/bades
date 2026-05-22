@@ -1,6 +1,6 @@
 import { SettingsAccountsMessageAutoCreationIcon } from '@/settings/accounts/components/SettingsAccountsMessageAutoCreationIcon';
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { MessageChannelContactAutoCreationPolicy } from 'shared/types';
 
 type SettingsAccountsMessageAutoCreationCardProps = {

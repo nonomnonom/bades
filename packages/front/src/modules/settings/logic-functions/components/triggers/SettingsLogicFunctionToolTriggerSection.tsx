@@ -1,5 +1,5 @@
 import { SettingsLogicFunctionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerSection';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ToolTriggerSettings } from 'shared/application';
 import { DEFAULT_TOOL_INPUT_SCHEMA } from 'shared/logic-function';
 import { isDefined } from 'shared/utils';

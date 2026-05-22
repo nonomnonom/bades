@@ -123,6 +123,8 @@ export const I18nProvider = ({
   children,
 }: {
   children: ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  i18n?: any;
 }): ReactNode => <Fragment>{children}</Fragment>;
 
 type TransProps = {

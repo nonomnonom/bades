@@ -2,7 +2,7 @@ import { SettingsLogicFunctionTriggerPayloadFormat } from '@/settings/logic-func
 import { SettingsLogicFunctionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerSection';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type CronTriggerSettings } from 'shared/application';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';

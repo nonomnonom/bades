@@ -11,7 +11,7 @@ import { useGetResourceCreditUsage } from '@/settings/billing/hooks/useGetResour
 import { getDocumentationUrl } from '@/support/utils/getDocumentationUrl';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { DOCUMENTATION_PATHS } from 'shared/constants';
 import { SettingsPath } from 'shared/types';

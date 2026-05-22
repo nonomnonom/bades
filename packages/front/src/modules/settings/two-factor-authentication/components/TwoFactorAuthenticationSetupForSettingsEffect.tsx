@@ -2,7 +2,7 @@ import { currentUserState } from '@/auth/states/currentUserState';
 import { qrCodeState } from '@/auth/states/qrCode';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 import { isDefined } from 'shared/utils';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';

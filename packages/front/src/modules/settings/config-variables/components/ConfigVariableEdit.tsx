@@ -3,7 +3,7 @@ import { H3Title, IconCheck, IconPencil, IconX } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Section } from 'ui/layout';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { type Dispatch, type SetStateAction, useState } from 'react';

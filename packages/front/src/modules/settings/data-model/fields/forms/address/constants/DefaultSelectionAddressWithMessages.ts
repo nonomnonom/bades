@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { DEFAULT_VISIBLE_ADDRESS_SUBFIELDS } from 'shared/constants';
 import { type AllowedAddressSubField } from 'shared/types';
 

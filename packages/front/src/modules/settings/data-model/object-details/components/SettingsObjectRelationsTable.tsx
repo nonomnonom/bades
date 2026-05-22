@@ -13,8 +13,7 @@ import { type TableMetadata } from '@/ui/layout/table/types/TableMetadata';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { FieldMetadataType } from 'shared/types';
 import {

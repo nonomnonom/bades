@@ -13,8 +13,7 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { CURRENCIES } from '@/settings/data-model/constants/Currencies';
 import { useCurrencySettingsFormInitialValues } from '@/settings/data-model/fields/forms/currency/hooks/useCurrencySettingsFormInitialValues';
 import { Select } from '@/ui/input/components/Select';
-import { plural } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { plural, useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconCheckbox,
   IconCurrencyDollar,

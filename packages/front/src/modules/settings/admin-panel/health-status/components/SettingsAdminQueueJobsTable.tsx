@@ -15,7 +15,7 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { plural, t } from '@lingui/core/macro';
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconRefresh, IconTrash } from 'ui/display';
 import { Button, Checkbox } from 'ui/input';

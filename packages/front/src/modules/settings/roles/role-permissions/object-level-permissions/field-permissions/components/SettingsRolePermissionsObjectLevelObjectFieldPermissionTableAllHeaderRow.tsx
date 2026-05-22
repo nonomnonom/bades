@@ -9,7 +9,7 @@ import { OverridableCheckbox } from '@/settings/roles/role-permissions/object-le
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Label } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 

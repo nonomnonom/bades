@@ -2,7 +2,7 @@ import { WebhookEntitySelect } from '@/settings/developers/components/WebhookEnt
 import { Select } from '@/ui/input/components/Select';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconBox, IconNorthStar, IconPlus, IconTrash } from 'ui/display';
 import { IconButton, type SelectOption } from 'ui/input';

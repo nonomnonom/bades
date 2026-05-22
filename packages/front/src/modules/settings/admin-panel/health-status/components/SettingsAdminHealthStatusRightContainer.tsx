@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Status } from 'ui/display';
 import { AdminPanelHealthServiceStatus } from '~/generated-admin/graphql';
 

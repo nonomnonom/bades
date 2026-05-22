@@ -2,7 +2,7 @@ import {
   formatExpiration,
   isExpired,
 } from '@/settings/developers/utils/formatExpiration';
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { messages as idMessages } from '~/locales/generated/id-ID';
 
 i18n.load('id-ID', idMessages);

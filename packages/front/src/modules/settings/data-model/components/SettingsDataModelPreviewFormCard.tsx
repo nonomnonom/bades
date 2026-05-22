@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 import { type ReactNode } from 'react';
 
 import { StyledFormCardTitle } from '@/settings/data-model/fields/components/StyledFormCardTitle';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { Card, CardContent } from 'ui/layout';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';

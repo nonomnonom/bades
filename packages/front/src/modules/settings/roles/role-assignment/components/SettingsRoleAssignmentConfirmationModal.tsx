@@ -2,7 +2,7 @@ import { SettingsRoleAssignmentConfirmationModalSubtitle } from '@/settings/role
 import { ROLE_ASSIGNMENT_CONFIRMATION_MODAL_ID } from '@/settings/roles/role-assignment/constants/RoleAssignmentConfirmationModalId';
 import { type SettingsRoleAssignmentConfirmationModalSelectedRoleTarget } from '@/settings/roles/role-assignment/types/SettingsRoleAssignmentConfirmationModalSelectedRoleTarget';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 type SettingsRoleAssignmentConfirmationModalProps = {
   selectedRoleTarget: SettingsRoleAssignmentConfirmationModalSelectedRoleTarget;

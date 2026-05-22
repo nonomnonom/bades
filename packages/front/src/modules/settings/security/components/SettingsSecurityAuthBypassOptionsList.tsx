@@ -4,7 +4,7 @@ import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsO
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { capitalize } from 'shared/utils';
 import { IconGoogle, IconMicrosoft, IconPassword } from 'ui/display';
 import { Card } from 'ui/layout';

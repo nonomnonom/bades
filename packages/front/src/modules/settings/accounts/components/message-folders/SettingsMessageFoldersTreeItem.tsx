@@ -6,7 +6,7 @@ import { countNestedFolders } from '@/settings/accounts/components/message-folde
 import { formatFolderName } from '@/settings/accounts/components/message-folders/utils/formatFolderName';
 import { isFolderTreePartiallySelected } from '@/settings/accounts/components/message-folders/utils/isFolderTreePartiallySelected';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconChevronDown, IconChevronUp } from 'ui/display';
 import { Checkbox, CheckboxSize } from 'ui/input';

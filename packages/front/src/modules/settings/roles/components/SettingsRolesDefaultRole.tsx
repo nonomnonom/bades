@@ -6,7 +6,7 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { type RoleWithPartialMembers } from '@/settings/roles/types/RoleWithPartialMembers';
 import { Select } from '@/ui/input/components/Select';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { H2Title, IconUserPin, useIcons } from 'ui/display';
 import { Card, Section } from 'ui/layout';

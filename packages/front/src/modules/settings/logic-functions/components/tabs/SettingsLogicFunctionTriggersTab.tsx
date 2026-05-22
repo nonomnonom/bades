@@ -5,7 +5,7 @@ import { SettingsLogicFunctionHttpTriggerSection } from '@/settings/logic-functi
 import { SettingsLogicFunctionToolTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionToolTriggerSection';
 import { SettingsLogicFunctionWorkflowActionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionWorkflowActionTriggerSection';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { Callout, IconInfoCircle } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';

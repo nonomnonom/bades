@@ -12,7 +12,7 @@ import { IDENTIFIER_MAX_CHAR_LENGTH } from 'shared/metadata';
 import { getErrorMessageFromError } from '@/settings/data-model/fields/forms/utils/errorMessages';
 import { IconPicker } from '@/ui/input/components/IconPicker';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {

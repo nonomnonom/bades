@@ -3,7 +3,7 @@ import { isHiddenSystemField } from '@/object-metadata/utils/isHiddenSystemField
 import { useObjectPermissionDerivedStates } from '@/settings/roles/role-permissions/object-level-permissions/field-permissions/hooks/useObjectPermissionDerivedStates';
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 type SettingsRolePermissionsObjectLevelSeeFieldsValueForObjectProps = {
   roleId: string;

@@ -12,7 +12,7 @@ import { useAddressSettingsFormInitialValues } from '@/settings/data-model/field
 import { useCountries } from '@/ui/input/components/internal/hooks/useCountries';
 import { Select } from '@/ui/input/components/Select';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type MouseEvent } from 'react';
 import {
   IconCircleOff,

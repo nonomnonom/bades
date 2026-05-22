@@ -9,7 +9,7 @@ import { settingsDataModelFieldOnClickActionSchema } from '@/settings/data-model
 import { countryCodeToCallingCode } from '@/settings/data-model/fields/preview/utils/getPhonesFieldPreviewValue';
 import { Select } from '@/ui/input/components/Select';
 import { useCountries } from '@/ui/input/components/internal/hooks/useCountries';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import type { CountryCode } from 'libphonenumber-js';
 import {
   IconCircleOff,
