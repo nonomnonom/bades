@@ -127,7 +127,7 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.TEXT,
     label: 'Dusun',
     name: 'dusun',
-    description: 'Nama DBSusun',
+    description: 'Nama dusun tempat tinggal',
   },
   {
     type: FieldMetadataType.SELECT,
