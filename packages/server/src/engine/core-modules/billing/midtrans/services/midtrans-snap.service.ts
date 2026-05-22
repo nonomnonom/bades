@@ -42,7 +42,7 @@ export class MidtransSnapService {
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,
   ) {
-    if (!this.badesConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return;
     }
 
@@ -80,7 +80,7 @@ export class MidtransSnapService {
   }): Promise<MidtransSnapResult> {
     if (!isDefined(this.snap)) {
       throw new BillingException(
-        'Midtrans Snap tidak dikonfigurasi. Aktifkan IS_BILLING_MIDTRANS_ENABLED.',
+        'Midtrans Snap tidak dikonfigurasi. Aktifkan IS_BILLING_ENABLED dan konfigurasi MIDTRANS_SERVER_KEY.',
         BillingExceptionCode.BILLING_PAYMENT_REQUIRED,
       );
     }

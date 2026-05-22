@@ -81,16 +81,20 @@ const STATUS_LABELS: Record<SubscriptionStatus, string> = {
   [SubscriptionStatus.IncompleteExpired]: 'Tidak Lengkap & Kedaluwarsa',
 };
 
-const formatCurrency = (amountMinor: number, currency: string): string => {
+// Bades: server menyimpan nominal dalam unit IDR penuh (bukan minor units
+// ala Stripe cents). Format pakai locale id-ID supaya admin desa membaca
+// nominal apa adanya.
+const formatCurrency = (amount: number, currency: string): string => {
   const normalizedCurrency = currency.toUpperCase();
 
   try {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('id-ID', {
       style: 'currency',
       currency: normalizedCurrency,
-    }).format(amountMinor / 100);
+      maximumFractionDigits: 0,
+    }).format(amount);
   } catch {
-    return `${(amountMinor / 100).toFixed(2)} ${normalizedCurrency}`;
+    return `${amount.toLocaleString('id-ID')} ${normalizedCurrency}`;
   }
 };
 
@@ -144,14 +148,14 @@ export const SettingsAdminWorkspaceBillingContent = ({
     );
   }
 
-  const { stripeCustomerId, creditBalance, subscription } = billing;
+  const { billingCustomerId, creditBalance, subscription } = billing;
 
   const customerItems = [
     {
       Icon: IconId,
       label: t`ID pelanggan billing`,
-      value: isDefined(stripeCustomerId) ? (
-        <BillingIdDisplay id={stripeCustomerId} />
+      value: isDefined(billingCustomerId) ? (
+        <BillingIdDisplay id={billingCustomerId} />
       ) : (
         EM_DASH
       ),
@@ -205,9 +209,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
         {
           Icon: IconCreditCard,
           label: t`ID langganan billing`,
-          value: (
-            <BillingIdDisplay id={subscription.stripeSubscriptionId} />
-          ),
+          value: <BillingIdDisplay id={subscription.subscriptionId} />,
         },
         {
           Icon: IconStatusChange,

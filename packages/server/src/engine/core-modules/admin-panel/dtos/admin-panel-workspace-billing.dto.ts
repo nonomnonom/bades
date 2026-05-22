@@ -5,7 +5,7 @@ import { AdminPanelWorkspaceSubscriptionDTO } from 'src/engine/core-modules/admi
 @ObjectType('AdminPanelWorkspaceBilling')
 export class AdminPanelWorkspaceBillingDTO {
   @Field(() => String, { nullable: true })
-  stripeCustomerId: string | null;
+  billingCustomerId: string | null;
 
   @Field(() => Float, { nullable: true })
   creditBalance: number | null;

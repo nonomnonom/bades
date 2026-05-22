@@ -26,7 +26,7 @@ export class BillingSubscriptionItemService {
   async getResourceCreditSubscriptionItemDetails(
     subscription: BillingSubscriptionEntity,
   ): Promise<{
-    stripeSubscriptionItemId: string;
+    subscriptionItemId: string;
     productKey: BillingProductKey;
     creditAmount: number;
     freeTrialQuantity: number;
@@ -62,7 +62,7 @@ export class BillingSubscriptionItemService {
     );
 
     return {
-      stripeSubscriptionItemId: item.stripeSubscriptionItemId,
+      subscriptionItemId: item.id,
       productKey: BillingProductKey.RESOURCE_CREDIT,
       creditAmount: Number(price.metadata?.credit_amount ?? 0),
       freeTrialQuantity: this.badesConfigService.get(
@@ -83,7 +83,7 @@ export class BillingSubscriptionItemService {
 
     if (!matchingPrice) {
       throw new BillingException(
-        `Cannot find price for product ${item.stripeProductId}`,
+        `Tidak dapat menemukan harga untuk produk ${item.productCode}`,
         BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
       );
     }

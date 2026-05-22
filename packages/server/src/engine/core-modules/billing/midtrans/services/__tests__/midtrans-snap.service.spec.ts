@@ -17,7 +17,7 @@ describe('MidtransSnapService', () => {
   const configMidtransAktif = {
     get: jest.fn((key: string) => {
       const config: Record<string, unknown> = {
-        IS_BILLING_MIDTRANS_ENABLED: true,
+        IS_BILLING_ENABLED: true,
         MIDTRANS_SERVER_KEY: 'SB-Mid-server-test',
         MIDTRANS_CLIENT_KEY: 'SB-Mid-client-test',
         MIDTRANS_IS_PRODUCTION: false,
@@ -30,7 +30,7 @@ describe('MidtransSnapService', () => {
   const configMidtransNonaktif = {
     get: jest.fn((key: string) => {
       const config: Record<string, unknown> = {
-        IS_BILLING_MIDTRANS_ENABLED: false,
+        IS_BILLING_ENABLED: false,
       };
 
       return config[key];

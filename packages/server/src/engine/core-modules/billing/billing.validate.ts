@@ -139,7 +139,7 @@ const assertIsSubscription = (
 
   if (subscription.billingSubscriptionItems.length !== 2) {
     throw new BillingException(
-      'Subscription must have exactly two subscription items. Check that stripe and database are in sync',
+      'Langganan harus memiliki tepat dua item. Pastikan data subscription konsisten di database.',
       BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID,
       {
         userFriendlyMessage: msg`Langganan tagihan Anda bermasalah. Silakan hubungi dukungan.`,

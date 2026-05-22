@@ -35,8 +35,8 @@ export class BillingEntitlementEntity extends WorkspaceRelatedEntity {
   @Column({ nullable: false, type: 'text' })
   key: BillingEntitlementKey;
 
-  @Column({ nullable: false })
-  stripeCustomerId: string;
+  @Column({ nullable: false, type: 'uuid' })
+  billingCustomerId: string;
 
   @Field()
   @Column({ nullable: false })
@@ -50,6 +50,7 @@ export class BillingEntitlementEntity extends WorkspaceRelatedEntity {
 
   @Column({ nullable: true, type: 'timestamptz' })
   deletedAt?: Date;
+
   @ManyToOne(
     () => BillingCustomerEntity,
     (billingCustomer) => billingCustomer.billingEntitlements,
@@ -59,8 +60,8 @@ export class BillingEntitlementEntity extends WorkspaceRelatedEntity {
     },
   )
   @JoinColumn({
-    referencedColumnName: 'stripeCustomerId',
-    name: 'stripeCustomerId',
+    referencedColumnName: 'id',
+    name: 'billingCustomerId',
   })
   billingCustomer: Relation<BillingCustomerEntity>;
 }

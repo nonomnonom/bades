@@ -8,8 +8,8 @@ export const mockBillingPlans = {
       baseProducts: [
         {
           __typename: 'BillingLicensedProduct',
-          name: 'Pro Plan',
-          description: 'For growing teams',
+          name: 'Paket Pro',
+          description: 'Untuk perangkat desa yang sedang berkembang',
           images: [],
           metadata: {
             __typename: 'BillingProductMetadata',
@@ -20,16 +20,16 @@ export const mockBillingPlans = {
           prices: [
             {
               __typename: 'BillingPriceLicensed',
-              priceId: 'price_1RyF4BQh1LFc4XrXvt7DwNjS',
-              unitAmount: 1200,
+              priceId: 'bades-price-pro-monthly',
+              unitAmount: 150000,
               recurringInterval: 'Month',
               priceUsageType: 'LICENSED',
               creditAmount: null,
             },
             {
               __typename: 'BillingPriceLicensed',
-              priceId: 'price_1RyF4BQh1LFc4XrXK0QSeC7f',
-              unitAmount: 10800,
+              priceId: 'bades-price-pro-yearly',
+              unitAmount: 1500000,
               recurringInterval: 'Year',
               priceUsageType: 'LICENSED',
               creditAmount: null,
@@ -41,7 +41,7 @@ export const mockBillingPlans = {
       meteredProducts: [
         {
           __typename: 'BillingMeteredProduct',
-          name: 'Workflow Execution - Pro',
+          name: 'Kredit Pemakaian - Pro',
           description: '',
           images: [],
           metadata: {
@@ -54,228 +54,8 @@ export const mockBillingPlans = {
             {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S5247Qh1LFc4XrXz7p0wdAc',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 999000,
-                  unitAmount: null,
-                  upTo: 7500000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S5246Qh1LFc4XrX2SdtgqXV',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 399000,
-                  unitAmount: null,
-                  upTo: 2600000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S5246Qh1LFc4XrXs78BMPQ9',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 199000,
-                  unitAmount: null,
-                  upTo: 1200000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S5246Qh1LFc4XrXyMEu78zC',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 99000,
-                  unitAmount: null,
-                  upTo: 540000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S5245Qh1LFc4XrXcNX3ZHn2',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 29000,
-                  unitAmount: null,
-                  upTo: 130000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S5245Qh1LFc4XrXBSZDK2pI',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 0,
-                  unitAmount: null,
-                  upTo: 50000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              priceId: 'price_1S5245Qh1LFc4XrXPCSjYIq0',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 99900,
-                  unitAmount: null,
-                  upTo: 700000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S5244Qh1LFc4XrXswQAQfQh',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 39900,
-                  unitAmount: null,
-                  upTo: 240000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S5244Qh1LFc4XrXB8yPMpce',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 19900,
-                  unitAmount: null,
-                  upTo: 110000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S5244Qh1LFc4XrXa5wYhu1M',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 9900,
-                  unitAmount: null,
-                  upTo: 50000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S5243Qh1LFc4XrX1rtoEZD3',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 2900,
-                  unitAmount: null,
-                  upTo: 10000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S5243Qh1LFc4XrXaeDkjNQq',
+              priceId: 'bades-price-pro-resource-credit-monthly',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -301,8 +81,8 @@ export const mockBillingPlans = {
       baseProducts: [
         {
           __typename: 'BillingLicensedProduct',
-          name: 'Organization Plan',
-          description: 'One seat',
+          name: 'Paket Organisasi',
+          description: 'Untuk pemerintah desa skala besar',
           images: [],
           metadata: {
             __typename: 'BillingProductMetadata',
@@ -313,16 +93,16 @@ export const mockBillingPlans = {
           prices: [
             {
               __typename: 'BillingPriceLicensed',
-              priceId: 'price_1RyF49Qh1LFc4XrX2W6yGRpc',
-              unitAmount: 2500,
+              priceId: 'bades-price-enterprise-monthly',
+              unitAmount: 250000,
               recurringInterval: 'Month',
               priceUsageType: 'LICENSED',
               creditAmount: null,
             },
             {
               __typename: 'BillingPriceLicensed',
-              priceId: 'price_1RyF48Qh1LFc4XrXw5Tr704k',
-              unitAmount: 22800,
+              priceId: 'bades-price-enterprise-yearly',
+              unitAmount: 2500000,
               recurringInterval: 'Year',
               priceUsageType: 'LICENSED',
               creditAmount: null,
@@ -334,7 +114,7 @@ export const mockBillingPlans = {
       meteredProducts: [
         {
           __typename: 'BillingMeteredProduct',
-          name: 'Workflow Execution - Organization',
+          name: 'Kredit Pemakaian - Organisasi',
           description: '',
           images: [],
           metadata: {
@@ -347,228 +127,8 @@ export const mockBillingPlans = {
             {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S4GiuQh1LFc4XrX9IZ68tqy',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 999000,
-                  unitAmount: null,
-                  upTo: 7500000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S4GirQh1LFc4XrXJxV0yJEX',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 399000,
-                  unitAmount: null,
-                  upTo: 2600000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S4GirQh1LFc4XrX6fK2qrQm',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 199000,
-                  unitAmount: null,
-                  upTo: 1200000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S4GipQh1LFc4XrXeamfdifM',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 99000,
-                  unitAmount: null,
-                  upTo: 540000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S4GipQh1LFc4XrXKxrUDfnE',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 29000,
-                  unitAmount: null,
-                  upTo: 130000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Year',
-              priceId: 'price_1S4GioQh1LFc4XrXMTbLurFo',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 0,
-                  unitAmount: null,
-                  upTo: 50000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              priceId: 'price_1S4GinQh1LFc4XrXP3sgt8Cn',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 99900,
-                  unitAmount: null,
-                  upTo: 700000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S4GigQh1LFc4XrXGsuGslfk',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 39900,
-                  unitAmount: null,
-                  upTo: 240000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S4GifQh1LFc4XrXCsT2PvH2',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 19900,
-                  unitAmount: null,
-                  upTo: 110000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S4GifQh1LFc4XrXZ0ZIrjeM',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 9900,
-                  unitAmount: null,
-                  upTo: 50000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S4GieQh1LFc4XrX8njwswjQ',
-              tiers: [
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: 2900,
-                  unitAmount: null,
-                  upTo: 10000,
-                },
-                {
-                  __typename: 'BillingPriceTier',
-                  flatAmount: null,
-                  unitAmount: null,
-                  upTo: null,
-                },
-              ],
-            },
-            {
-              __typename: 'BillingPriceMetered',
-              priceUsageType: 'METERED',
-              recurringInterval: 'Month',
-              priceId: 'price_1S4GieQh1LFc4XrXDpVbLuuE',
+              priceId: 'bades-price-enterprise-resource-credit-monthly',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',

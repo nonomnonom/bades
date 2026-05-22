@@ -61,14 +61,14 @@ export const useBillingWording = () => {
   };
 
   const yearlyPrice =
-    formatPrices[
-      currentBillingSubscription.metadata['plan'] as BillingPlanKey
-    ]?.[SubscriptionInterval.Year];
+    formatPrices[currentBillingSubscription.planKey as BillingPlanKey]?.[
+      SubscriptionInterval.Year
+    ];
 
   const monthlyPrice =
-    formatPrices[
-      currentBillingSubscription.metadata['plan'] as BillingPlanKey
-    ]?.[SubscriptionInterval.Month];
+    formatPrices[currentBillingSubscription.planKey as BillingPlanKey]?.[
+      SubscriptionInterval.Month
+    ];
 
   const getCurrentIntervalLabel = () =>
     getIntervalLabelAsAdjectiveCapitalize(

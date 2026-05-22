@@ -2,25 +2,15 @@
 
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { SubscriptionStatus } from 'src/engine/core-modules/billing/enums/billing-subscription-status.enum';
-
 @ObjectType('BillingEndTrialPeriod')
 export class BillingEndTrialPeriodDTO {
-  @Field(() => SubscriptionStatus, {
-    description: 'Updated subscription status',
-    nullable: true,
+  @Field(() => String, {
+    description: 'URL redirect ke halaman pembayaran Midtrans Snap',
   })
-  status: SubscriptionStatus | undefined;
-
-  @Field(() => Boolean, {
-    description: 'Boolean that confirms if a payment method was found',
-  })
-  hasPaymentMethod: boolean;
+  checkoutUrl: string;
 
   @Field(() => String, {
-    description:
-      'Billing portal URL for payment method update (returned when no payment method exists)',
-    nullable: true,
+    description: 'ID order Midtrans untuk tracking status pembayaran',
   })
-  billingPortalUrl?: string;
+  orderId: string;
 }

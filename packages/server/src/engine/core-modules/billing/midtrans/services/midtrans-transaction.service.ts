@@ -33,7 +33,7 @@ export class MidtransTransactionService {
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,
   ) {
-    if (!this.badesConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return;
     }
 

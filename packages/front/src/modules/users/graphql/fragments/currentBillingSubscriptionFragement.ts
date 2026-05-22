@@ -7,7 +7,7 @@ export const CURRENT_BILLING_SUBSCRIPTION_FRAGMENT = gql`
     id
     status
     interval
-    metadata
+    planKey
     currentPeriodEnd
     phases {
       ...BillingSubscriptionSchedulePhaseFragment

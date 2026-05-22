@@ -3,18 +3,10 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { differenceInDays } from 'date-fns';
+import { addMonths, addYears, differenceInDays } from 'date-fns';
 import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 import { Not, type Repository } from 'typeorm';
 
-import type Stripe from 'stripe';
-
-import { transformStripeSubscriptionEventToDatabaseCustomer } from 'src/engine/core-modules/billing-webhook/utils/transform-stripe-subscription-event-to-database-customer.util';
-import { transformStripeSubscriptionEventToDatabaseSubscriptionItem } from 'src/engine/core-modules/billing-webhook/utils/transform-stripe-subscription-event-to-database-subscription-item.util';
-import {
-  getSubscriptionStatus,
-  transformStripeSubscriptionEventToDatabaseSubscription,
-} from 'src/engine/core-modules/billing-webhook/utils/transform-stripe-subscription-event-to-database-subscription.util';
 import {
   BillingException,
   BillingExceptionCode,
@@ -25,13 +17,12 @@ import { BillingEntitlementEntity } from 'src/engine/core-modules/billing/entiti
 import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/entities/billing-subscription-item.entity';
 import { BillingSubscriptionEntity } from 'src/engine/core-modules/billing/entities/billing-subscription.entity';
 import { BillingEntitlementKey } from 'src/engine/core-modules/billing/enums/billing-entitlement-key.enum';
+import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
+import { SubscriptionInterval } from 'src/engine/core-modules/billing/enums/billing-subscription-interval.enum';
 import { SubscriptionStatus } from 'src/engine/core-modules/billing/enums/billing-subscription-status.enum';
+import { MidtransSnapService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-snap.service';
 import { BillingPlanService } from 'src/engine/core-modules/billing/services/billing-plan.service';
 import { BillingPriceService } from 'src/engine/core-modules/billing/services/billing-price.service';
-import { StripeCustomerService } from 'src/engine/core-modules/billing/stripe/services/stripe-customer.service';
-import { StripeSubscriptionScheduleService } from 'src/engine/core-modules/billing/stripe/services/stripe-subscription-schedule.service';
-import { StripeSubscriptionService } from 'src/engine/core-modules/billing/stripe/services/stripe-subscription.service';
-import { getPlanKeyFromSubscription } from 'src/engine/core-modules/billing/utils/get-plan-key-from-subscription.util';
 import { EnterprisePlanService } from 'src/engine/core-modules/enterprise/services/enterprise-plan.service';
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
@@ -41,20 +32,18 @@ export class BillingSubscriptionService {
   protected readonly logger = new Logger(BillingSubscriptionService.name);
 
   constructor(
-    private readonly stripeSubscriptionService: StripeSubscriptionService,
     private readonly billingPriceService: BillingPriceService,
     private readonly billingPlanService: BillingPlanService,
+    private readonly midtransSnapService: MidtransSnapService,
     @InjectRepository(BillingEntitlementEntity)
     private readonly billingEntitlementRepository: Repository<BillingEntitlementEntity>,
     @InjectRepository(BillingSubscriptionEntity)
     private readonly billingSubscriptionRepository: Repository<BillingSubscriptionEntity>,
-    private readonly stripeCustomerService: StripeCustomerService,
-    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
-    private readonly stripeSubscriptionScheduleService: StripeSubscriptionScheduleService,
     @InjectRepository(BillingCustomerEntity)
-    private readonly billingCustomerRepository: Repository<BillingSubscriptionEntity>,
+    private readonly billingCustomerRepository: Repository<BillingCustomerEntity>,
+    private readonly badesConfigService: BadesConfigService,
     private readonly enterprisePlanService: EnterprisePlanService,
   ) {}
 
@@ -66,7 +55,7 @@ export class BillingSubscriptionService {
 
   async getCurrentBillingSubscription(criteria: {
     workspaceId?: string;
-    stripeCustomerId?: string;
+    billingCustomerId?: string;
   }): Promise<BillingSubscriptionEntity | undefined> {
     const notCanceledSubscriptions =
       await this.billingSubscriptionRepository.find({
@@ -79,7 +68,7 @@ export class BillingSubscriptionService {
 
     if (notCanceledSubscriptions.length > 1) {
       throw new BillingException(
-        `More than one not canceled subscription for workspace ${criteria.workspaceId}`,
+        `Lebih dari satu subscription aktif untuk workspace ${criteria.workspaceId}`,
         BillingExceptionCode.BILLING_TOO_MUCH_SUBSCRIPTIONS_FOUND,
       );
     }
@@ -89,7 +78,7 @@ export class BillingSubscriptionService {
 
   async getCurrentBillingSubscriptionOrThrow(criteria: {
     workspaceId?: string;
-    stripeCustomerId?: string;
+    billingCustomerId?: string;
   }): Promise<BillingSubscriptionEntity> {
     const notCanceledSubscription =
       await this.getCurrentBillingSubscription(criteria);
@@ -97,7 +86,7 @@ export class BillingSubscriptionService {
     assertIsDefinedOrThrow(
       notCanceledSubscription,
       new BillingException(
-        `No active subscription found for workspace ${criteria.workspaceId}`,
+        `Tidak ada subscription aktif untuk workspace ${criteria.workspaceId}`,
         BillingExceptionCode.BILLING_SUBSCRIPTION_NOT_FOUND,
       ),
     );
@@ -112,28 +101,28 @@ export class BillingSubscriptionService {
       { workspaceId },
     );
 
-    const planKey = getPlanKeyFromSubscription(billingSubscription);
+    const planKey = billingSubscription.planKey ?? BillingPlanKey.PRO;
 
     const baseProduct =
       await this.billingPlanService.getPlanBaseProduct(planKey);
 
     if (!baseProduct) {
       throw new BillingException(
-        'Base product not found',
+        'Produk dasar tidak ditemukan',
         BillingExceptionCode.BILLING_PRODUCT_NOT_FOUND,
       );
     }
 
-    const stripeProductId = baseProduct.stripeProductId;
+    const productCode = baseProduct.productCode;
 
     const billingSubscriptionItem =
       billingSubscription.billingSubscriptionItems.find(
-        (item) => item.stripeProductId === stripeProductId,
+        (item) => item.productCode === productCode,
       );
 
     if (!billingSubscriptionItem) {
       throw new BillingException(
-        `Cannot find billingSubscriptionItem for product ${stripeProductId} for workspace ${workspaceId}`,
+        `Tidak dapat menemukan billingSubscriptionItem untuk produk ${productCode} workspace ${workspaceId}`,
         BillingExceptionCode.BILLING_SUBSCRIPTION_ITEM_NOT_FOUND,
       );
     }
@@ -142,33 +131,87 @@ export class BillingSubscriptionService {
   }
 
   async deleteSubscriptions(workspaceId: string) {
-    const subscriptionToCancel = await this.getCurrentBillingSubscription({
-      workspaceId,
-    });
-
-    if (isDefined(subscriptionToCancel)) {
-      await this.stripeSubscriptionService.cancelSubscription(
-        subscriptionToCancel.stripeSubscriptionId,
-      );
-    }
     await this.billingSubscriptionRepository.delete({ workspaceId });
   }
 
-  async handleUnpaidInvoices(data: Stripe.SetupIntentSucceededEvent.Data) {
-    const billingSubscription = await this.getCurrentBillingSubscriptionOrThrow(
-      { stripeCustomerId: data.object.customer as string },
-    );
+  /**
+   * Membuat atau memperbarui subscription DB-only.
+   * Menggantikan syncSubscriptionToDatabase berbasis Stripe.
+   */
+  async createOrRenewSubscription(
+    workspaceId: string,
+    planKey: BillingPlanKey,
+    interval: SubscriptionInterval,
+    status: SubscriptionStatus = SubscriptionStatus.Active,
+  ): Promise<BillingSubscriptionEntity> {
+    let customer = await this.billingCustomerRepository.findOne({
+      where: { workspaceId },
+    });
 
-    if (billingSubscription.status === SubscriptionStatus.Unpaid) {
-      await this.stripeSubscriptionService.collectLastInvoice(
-        billingSubscription.stripeSubscriptionId,
-      );
+    if (!isDefined(customer)) {
+      customer = this.billingCustomerRepository.create({ workspaceId });
+      customer = await this.billingCustomerRepository.save(customer);
     }
 
-    return {
-      handleUnpaidInvoiceStripeSubscriptionId:
-        billingSubscription.stripeSubscriptionId,
-    };
+    const periodStart = new Date();
+    const periodEnd =
+      interval === SubscriptionInterval.Month
+        ? addMonths(periodStart, 1)
+        : addYears(periodStart, 1);
+
+    const existing = await this.billingSubscriptionRepository.findOne({
+      where: { workspaceId, status: Not(SubscriptionStatus.Canceled) },
+    });
+
+    if (isDefined(existing)) {
+      // Saat renewal aktif: perpanjang dari currentPeriodEnd lama agar tidak ada gap
+      const baseStart =
+        status === SubscriptionStatus.Active
+          ? (existing.currentPeriodEnd ?? periodStart)
+          : periodStart;
+
+      const newPeriodEnd =
+        interval === SubscriptionInterval.Month
+          ? addMonths(baseStart, 1)
+          : addYears(baseStart, 1);
+
+      await this.billingSubscriptionRepository.update(existing.id, {
+        status,
+        planKey,
+        interval,
+        billingCustomerId: customer.id,
+        currentPeriodStart: baseStart,
+        currentPeriodEnd: newPeriodEnd,
+      });
+
+      await this.billingSubscriptionItemRepository.update(
+        { billingSubscriptionId: existing.id },
+        { hasReachedCurrentPeriodCap: false },
+      );
+
+      return await this.billingSubscriptionRepository.findOneOrFail({
+        where: { id: existing.id },
+        relations: [
+          'billingSubscriptionItems',
+          'billingSubscriptionItems.billingProduct',
+        ],
+      });
+    }
+
+    const subscription = this.billingSubscriptionRepository.create({
+      workspaceId,
+      billingCustomerId: customer.id,
+      planKey,
+      status,
+      interval,
+      currency: 'IDR',
+      currentPeriodStart: periodStart,
+      currentPeriodEnd: periodEnd,
+      cancelAtPeriodEnd: false,
+      phases: [],
+    });
+
+    return await this.billingSubscriptionRepository.save(subscription);
   }
 
   async getWorkspaceEntitlements(
@@ -213,141 +256,59 @@ export class BillingSubscriptionService {
     return entitlement?.value ?? false;
   }
 
-  async endTrialPeriod(workspace: WorkspaceEntity) {
+  /**
+   * Mengakhiri masa percobaan dengan membuat sesi Snap pembayaran.
+   * Kembalikan checkoutUrl + orderId agar front-end redirect ke Snap.
+   */
+  async endTrialPeriod(
+    workspace: WorkspaceEntity,
+    customerEmail: string,
+  ): Promise<{ checkoutUrl: string; orderId: string }> {
     const billingSubscription = await this.getCurrentBillingSubscriptionOrThrow(
       { workspaceId: workspace.id },
     );
 
     if (billingSubscription.status !== SubscriptionStatus.Trialing) {
       throw new BillingException(
-        'Billing subscription is not in trial period',
+        'Langganan tidak sedang dalam masa percobaan',
         BillingExceptionCode.BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD,
       );
     }
 
-    const hasPaymentMethod = await this.stripeCustomerService.hasPaymentMethod(
-      billingSubscription.stripeCustomerId,
+    const planKey = billingSubscription.planKey ?? BillingPlanKey.PRO;
+    const interval =
+      billingSubscription.interval ?? SubscriptionInterval.Month;
+
+    const pricesPerPlan =
+      await this.billingPlanService.getPricesPerPlanByInterval({
+        planKey,
+        interval,
+      });
+
+    const grossAmount = pricesPerPlan.baseProductPrices.reduce(
+      (total, price) => total + Math.round(price.unitAmount ?? 0),
+      0,
     );
 
-    if (!hasPaymentMethod) {
-      return {
-        hasPaymentMethod: false,
-        status: undefined,
-        stripeCustomerId: billingSubscription.stripeCustomerId,
-      };
+    if (grossAmount <= 0) {
+      throw new BillingException(
+        'Nominal tagihan tidak valid. Pastikan harga paket sudah dikonfigurasi.',
+        BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
+      );
     }
 
-    const updatedSubscription =
-      await this.stripeSubscriptionService.updateSubscription(
-        billingSubscription.stripeSubscriptionId,
-        {
-          trial_end: 'now',
-        },
-      );
-
-    await this.billingSubscriptionItemRepository.update(
-      { stripeSubscriptionId: updatedSubscription.id },
-      { hasReachedCurrentPeriodCap: false },
-    );
-
-    return {
-      status: getSubscriptionStatus(updatedSubscription.status),
-      hasPaymentMethod: true,
-    };
-  }
-
-  async syncSubscriptionToDatabase(
-    workspaceId: string,
-    stripeSubscriptionId: string,
-  ) {
-    const subscription =
-      await this.stripeSubscriptionScheduleService.getSubscriptionWithSchedule(
-        stripeSubscriptionId,
-      );
-
-    await this.billingCustomerRepository.upsert(
-      transformStripeSubscriptionEventToDatabaseCustomer(workspaceId, {
-        object: subscription,
-      }),
-      {
-        conflictPaths: ['workspaceId'],
-        skipUpdateIfNoValuesChanged: true,
-      },
-    );
-
-    await this.billingSubscriptionRepository.upsert(
-      transformStripeSubscriptionEventToDatabaseSubscription(
-        workspaceId,
-        subscription,
-      ),
-      {
-        conflictPaths: ['stripeSubscriptionId'],
-        skipUpdateIfNoValuesChanged: true,
-      },
-    );
-
-    const billingSubscriptions = await this.billingSubscriptionRepository.find({
-      where: { workspaceId },
+    const snapResult = await this.midtransSnapService.createSnapTransaction({
+      workspaceId: workspace.id,
+      grossAmount,
+      transactionType: 'MONTHLY_BILLING',
+      customerEmail,
+      itemName: `Tagihan pertama Bades - Paket ${planKey}`,
     });
 
-    const currentBillingSubscription = billingSubscriptions.find(
-      (sub) => sub.stripeSubscriptionId === subscription.id,
-    );
-
-    if (!currentBillingSubscription) {
-      throw new BillingException(
-        'Billing subscription not found after creation',
-        BillingExceptionCode.BILLING_SUBSCRIPTION_NOT_FOUND,
-      );
-    }
-
-    const billingSubscriptionItems =
-      transformStripeSubscriptionEventToDatabaseSubscriptionItem(
-        currentBillingSubscription.id,
-        {
-          object: subscription,
-        },
-        workspaceId,
-      );
-
-    // V2 subscriptions have no quantityless metered item; skip the stale-item cleanup in that case
-    const meterBillingSubscriptionItem = billingSubscriptionItems.find(
-      (item) => !isDefined(item.quantity),
-    );
-
-    if (isDefined(meterBillingSubscriptionItem)) {
-      const existingBillingSubscriptionItem =
-        await this.billingSubscriptionItemRepository.findOne({
-          where: {
-            billingSubscriptionId: currentBillingSubscription.id,
-            stripeProductId: meterBillingSubscriptionItem.stripeProductId,
-          },
-        });
-
-      if (
-        existingBillingSubscriptionItem?.stripeSubscriptionItemId !==
-        meterBillingSubscriptionItem.stripeSubscriptionItemId
-      ) {
-        await this.billingSubscriptionItemRepository.delete({
-          billingSubscriptionId: currentBillingSubscription.id,
-          stripeProductId: meterBillingSubscriptionItem.stripeProductId,
-        });
-      }
-    }
-
-    await this.billingSubscriptionItemRepository.upsert(
-      billingSubscriptionItems,
-      {
-        conflictPaths: ['stripeSubscriptionItemId'],
-        skipUpdateIfNoValuesChanged: true,
-      },
-    );
-
-    this.logger.log(
-      `Subscription synced to database: ${subscription.id} for workspace: ${workspaceId}`,
-    );
-
-    return currentBillingSubscription;
+    return {
+      checkoutUrl: snapResult.snapRedirectUrl,
+      orderId: snapResult.orderId,
+    };
   }
 
   getTrialPeriodFreeWorkflowCredits(

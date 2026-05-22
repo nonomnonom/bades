@@ -12,12 +12,12 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import type Stripe from 'stripe';
-
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
 import { BillingUsageType } from 'src/engine/core-modules/billing/enums/billing-usage-type.enum';
 import { BillingProductMetadata } from 'src/engine/core-modules/billing/types/billing-product-metadata.type';
+
 registerEnumType(BillingUsageType, { name: 'BillingUsageType' });
+
 @Entity({ name: 'billingProduct', schema: 'core' })
 export class BillingProductEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -47,14 +47,23 @@ export class BillingProductEntity {
   @Column({ nullable: false, type: 'jsonb', default: [] })
   images: string[];
 
+  /** Fitur marketing dalam format string sederhana, bukan tipe Stripe. */
   @Column({ nullable: false, type: 'jsonb', default: [] })
-  marketingFeatures: Stripe.Product.MarketingFeature[];
+  marketingFeatures: string[];
 
+  /**
+   * Kode produk internal Bades, mis. `bades-product-base`.
+   * Menggantikan stripeProductId.
+   */
   @Column({ nullable: false, unique: true })
-  stripeProductId: string;
+  productCode: string;
 
+  /**
+   * Slug harga default untuk produk ini.
+   * Menggantikan defaultStripePriceId.
+   */
   @Column({ nullable: true, type: 'text' })
-  defaultStripePriceId: string | null;
+  defaultPriceId: string | null;
 
   @Column({ nullable: false, type: 'jsonb', default: {} })
   metadata: BillingProductMetadata;

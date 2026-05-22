@@ -3,7 +3,6 @@
 import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 
 import { IDField } from '@ptc-org/nestjs-query-graphql';
-import graphqlTypeJson from 'graphql-type-json';
 import {
   Column,
   CreateDateColumn,
@@ -17,25 +16,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import type Stripe from 'stripe';
-
-// Serialized types for JSONB storage - uses Stripe's enum types but normalizes expandable fields
-// These avoid TypeORM's DeepPartialEntity issues with Stripe's expandable object types (e.g. Stripe.Account)
-export type AutomaticTaxJson = {
-  disabled_reason: Stripe.Subscription.AutomaticTax['disabled_reason'];
-  enabled: boolean;
-  liability: {
-    type: Stripe.Subscription.AutomaticTax.Liability.Type;
-    account?: string; // Normalized: always string ID, never expanded Stripe.Account
-  } | null;
-};
-
-export type CancellationDetailsJson = {
-  comment: string | null;
-  feedback: Stripe.Subscription.CancellationDetails.Feedback | null;
-  reason: Stripe.Subscription.CancellationDetails.Reason | null;
-};
-
 import { UUIDScalarType } from 'src/engine/api/graphql/workspace-schema-builder/graphql-types/scalars';
 import { BillingSubscriptionSchedulePhaseDTO } from 'src/engine/core-modules/billing/dtos/billing-subscription-schedule-phase.dto';
 import { BillingSubscriptionItemDTO } from 'src/engine/core-modules/billing/dtos/billing-subscription-item.dto';
@@ -44,6 +24,7 @@ import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/e
 import { BillingSubscriptionCollectionMethod } from 'src/engine/core-modules/billing/enums/billing-subscription-collection-method.enum';
 import { SubscriptionInterval } from 'src/engine/core-modules/billing/enums/billing-subscription-interval.enum';
 import { SubscriptionStatus } from 'src/engine/core-modules/billing/enums/billing-subscription-status.enum';
+import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
 import { WorkspaceRelatedEntity } from 'src/engine/workspace-manager/types/workspace-related-entity';
 
 registerEnumType(SubscriptionStatus, { name: 'SubscriptionStatus' });
@@ -69,11 +50,24 @@ export class BillingSubscriptionEntity extends WorkspaceRelatedEntity {
   @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
-  @Column({ nullable: false })
-  stripeCustomerId: string;
+  /**
+   * FK ke billingCustomer.id — pengganti join via stripeCustomerId.
+   * Nullable untuk kompatibilitas mundur dengan baris lama yang belum dimigrasi.
+   */
+  @Column({ nullable: true, type: 'uuid' })
+  billingCustomerId: string | null;
 
-  @Column({ unique: true, nullable: false })
-  stripeSubscriptionId: string;
+  /**
+   * Kode paket langganan Bades, mis. PRO atau ENTERPRISE.
+   * Menggantikan penghitungan runtim dari metadata Stripe.
+   */
+  @Field(() => BillingPlanKey, { nullable: true })
+  @Column({
+    nullable: true,
+    type: 'enum',
+    enum: Object.values(BillingPlanKey),
+  })
+  planKey: BillingPlanKey | null;
 
   @Field(() => SubscriptionStatus)
   @Column({
@@ -102,21 +96,22 @@ export class BillingSubscriptionEntity extends WorkspaceRelatedEntity {
     () => BillingCustomerEntity,
     (billingCustomer) => billingCustomer.billingSubscriptions,
     {
-      nullable: false,
+      nullable: true,
       onDelete: 'CASCADE',
       createForeignKeyConstraints: false,
     },
   )
   @JoinColumn({
-    referencedColumnName: 'stripeCustomerId',
-    name: 'stripeCustomerId',
+    referencedColumnName: 'id',
+    name: 'billingCustomerId',
   })
-  billingCustomer: Relation<BillingCustomerEntity>;
+  billingCustomer: Relation<BillingCustomerEntity> | null;
 
   @Column({ nullable: false, default: false })
   cancelAtPeriodEnd: boolean;
 
-  @Column({ nullable: false, default: 'USD' })
+  /** Mata uang default IDR (Rupiah) sesuai arah pembayaran Bades via Midtrans. */
+  @Column({ nullable: false, default: 'IDR' })
   currency: string;
 
   @Field(() => Date, { nullable: true })
@@ -134,10 +129,10 @@ export class BillingSubscriptionEntity extends WorkspaceRelatedEntity {
   })
   currentPeriodStart: Date;
 
-  @Field(() => graphqlTypeJson)
-  @Column({ nullable: false, type: 'jsonb', default: {} })
-  metadata: Stripe.Metadata;
-
+  /**
+   * Perubahan paket/interval terjadwal untuk periode berikutnya.
+   * Format item: { price: string; quantity?: number }.
+   */
   @Field(() => [BillingSubscriptionSchedulePhaseDTO])
   @Column({ nullable: false, type: 'jsonb', default: [] })
   phases: Array<BillingSubscriptionSchedulePhaseDTO>;
@@ -150,12 +145,6 @@ export class BillingSubscriptionEntity extends WorkspaceRelatedEntity {
     type: 'timestamptz',
   })
   canceledAt: Date | null;
-
-  @Column({ nullable: true, type: 'jsonb' })
-  automaticTax: AutomaticTaxJson | null;
-
-  @Column({ nullable: true, type: 'jsonb' })
-  cancellationDetails: CancellationDetailsJson | null;
 
   @Column({
     nullable: false,

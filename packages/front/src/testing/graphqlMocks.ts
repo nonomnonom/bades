@@ -552,7 +552,7 @@ export const graphqlMocks = {
         data: {
           billingPortalSession: {
             __typename: 'BillingSession',
-            url: 'https://billing.stripe.com/p/mock-portal-session',
+            url: 'http://localhost:3001/settings/billing',
           },
         },
       });

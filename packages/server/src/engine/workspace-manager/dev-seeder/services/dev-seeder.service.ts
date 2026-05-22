@@ -322,11 +322,17 @@ export class DevSeederService {
       await seedFeatureFlags({ queryRunner, schemaName, workspaceId });
 
       if (seedBilling) {
-        await seedBillingCustomers({ queryRunner, schemaName, workspaceId });
+        const billingCustomerId = await seedBillingCustomers({
+          queryRunner,
+          schemaName,
+          workspaceId,
+        });
+
         await seedBillingSubscriptions({
           queryRunner,
           schemaName,
           workspaceId,
+          billingCustomerId,
         });
       }
 

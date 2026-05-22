@@ -21,7 +21,6 @@ export enum BillingExceptionCode {
   BILLING_METER_EVENT_FAILED = 'BILLING_METER_EVENT_FAILED',
   BILLING_MISSING_REQUEST_BODY = 'BILLING_MISSING_REQUEST_BODY',
   BILLING_UNHANDLED_ERROR = 'BILLING_UNHANDLED_ERROR',
-  BILLING_STRIPE_ERROR = 'BILLING_STRIPE_ERROR',
   BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD = 'BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD',
   BILLING_SUBSCRIPTION_INTERVAL_NOT_SWITCHABLE = 'BILLING_SUBSCRIPTION_INTERVAL_NOT_SWITCHABLE',
   BILLING_SUBSCRIPTION_INTERVAL_INVALID = 'BILLING_SUBSCRIPTION_INTERVAL_INVALID',
@@ -67,8 +66,6 @@ const getBillingExceptionUserFriendlyMessage = (code: BillingExceptionCode) => {
       return msg`Isi permintaan tidak lengkap.`;
     case BillingExceptionCode.BILLING_UNHANDLED_ERROR:
       return msg`Terjadi kesalahan tak terduga pada sistem tagihan.`;
-    case BillingExceptionCode.BILLING_STRIPE_ERROR:
-      return msg`Terjadi kesalahan pada pemrosesan pembayaran.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD:
       return msg`Langganan tidak sedang dalam masa percobaan.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INTERVAL_NOT_SWITCHABLE:

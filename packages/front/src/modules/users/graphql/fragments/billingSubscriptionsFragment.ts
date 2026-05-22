@@ -6,7 +6,7 @@ export const BILLING_SUBSCRIPTION_FRAGMENT = gql`
   fragment BillingSubscriptionFragment on BillingSubscription {
     id
     status
-    metadata
+    planKey
     phases {
       ...BillingSubscriptionSchedulePhaseFragment
     }

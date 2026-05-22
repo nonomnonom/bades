@@ -11,8 +11,8 @@ import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.mjs';
 
 import { AppModule } from 'src/app.module';
 import { settings } from 'src/engine/constants/settings';
-import { StripeSDKMockService } from 'src/engine/core-modules/billing/stripe/stripe-sdk/mocks/stripe-sdk-mock.service';
-import { StripeSDKService } from 'src/engine/core-modules/billing/stripe/stripe-sdk/services/stripe-sdk.service';
+import { MidtransSDKMockService } from 'src/engine/core-modules/billing/midtrans/midtrans-sdk/mocks/midtrans-sdk-mock.service';
+import { MidtransSDKService } from 'src/engine/core-modules/billing/midtrans/midtrans-sdk/services/midtrans-sdk.service';
 import { CaptchaDriverFactory } from 'src/engine/core-modules/captcha/captcha-driver.factory';
 import { ExceptionHandlerService } from 'src/engine/core-modules/exception-handler/exception-handler.service';
 import { ExceptionHandlerMockService } from 'src/engine/core-modules/exception-handler/mocks/exception-handler-mock.service';
@@ -46,7 +46,7 @@ export const createApp = async (
     appInitHook?: TestingAppCreatePreHook;
   } = {},
 ): Promise<NestExpressApplication> => {
-  const stripeSDKMockService = new StripeSDKMockService();
+  const midtransSDKMockService = new MidtransSDKMockService();
   const mockExceptionHandlerService = new ExceptionHandlerMockService();
   let moduleBuilder: TestingModuleBuilder = Test.createTestingModule({
     imports: [AppModule, JobsModule, MessageQueueModule.registerExplorer()],
@@ -57,8 +57,8 @@ export const createApp = async (
       },
     ],
   })
-    .overrideProvider(StripeSDKService)
-    .useValue(stripeSDKMockService)
+    .overrideProvider(MidtransSDKService)
+    .useValue(midtransSDKMockService)
     .overrideProvider(ExceptionHandlerService)
     .useValue(mockExceptionHandlerService)
     .overrideProvider(CaptchaDriverFactory)

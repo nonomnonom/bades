@@ -3,15 +3,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import {
-  assertIsDefinedOrThrow,
-  findOrThrow,
-  isDefined,
-  isNonEmptyArray,
-} from 'shared/utils';
+import { isDefined, isNonEmptyArray } from 'shared/utils';
 import { Not, Repository } from 'typeorm';
-
-import type Stripe from 'stripe';
 
 import {
   BillingException,
@@ -19,294 +12,142 @@ import {
 } from 'src/engine/core-modules/billing/billing.exception';
 import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/billing-customer.entity';
 import { BillingSubscriptionEntity } from 'src/engine/core-modules/billing/entities/billing-subscription.entity';
-import { BillingProductKey } from 'src/engine/core-modules/billing/enums/billing-product-key.enum';
+import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
+import { SubscriptionInterval } from 'src/engine/core-modules/billing/enums/billing-subscription-interval.enum';
 import { SubscriptionStatus } from 'src/engine/core-modules/billing/enums/billing-subscription-status.enum';
+import { MidtransSnapService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-snap.service';
 import { BillingSubscriptionService } from 'src/engine/core-modules/billing/services/billing-subscription.service';
-import { StripeBillingPortalService } from 'src/engine/core-modules/billing/stripe/services/stripe-billing-portal.service';
-import { StripeCheckoutService } from 'src/engine/core-modules/billing/stripe/services/stripe-checkout.service';
-import { type BillingGetPricesPerPlanResult } from 'src/engine/core-modules/billing/types/billing-get-prices-per-plan-result.type';
-import { type BillingPortalCheckoutSessionParameters } from 'src/engine/core-modules/billing/types/billing-portal-checkout-session-parameters.type';
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
-import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
+import { type AuthContextUser } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 
 @Injectable()
 export class BillingPortalWorkspaceService {
   protected readonly logger = new Logger(BillingPortalWorkspaceService.name);
+
   constructor(
-    private readonly stripeCheckoutService: StripeCheckoutService,
-    private readonly stripeBillingPortalService: StripeBillingPortalService,
+    private readonly midtransSnapService: MidtransSnapService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly billingSubscriptionService: BillingSubscriptionService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(BillingSubscriptionEntity)
     private readonly billingSubscriptionRepository: Repository<BillingSubscriptionEntity>,
     @InjectRepository(BillingCustomerEntity)
     private readonly billingCustomerRepository: Repository<BillingCustomerEntity>,
-    @InjectRepository(UserWorkspaceEntity)
-    private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
   ) {}
 
-  async computeCheckoutSessionURL({
-    user,
-    workspace,
-    billingPricesPerPlan,
-    successUrlPath,
-    plan,
-    requirePaymentMethod,
-  }: BillingPortalCheckoutSessionParameters): Promise<string> {
-    const { successUrl, cancelUrl, customer, stripeSubscriptionLineItems } =
-      await this.prepareSubscriptionParameters({
-        workspace,
-        billingPricesPerPlan,
-        successUrlPath,
-      });
-
-    const checkoutSession =
-      await this.stripeCheckoutService.createCheckoutSession({
-        user,
-        workspace,
-        stripeSubscriptionLineItems,
-        successUrl,
-        cancelUrl,
-        stripeCustomerId: customer?.stripeCustomerId ?? undefined,
-        plan,
-        requirePaymentMethod,
-        withTrialPeriod:
-          !isDefined(customer) || customer.billingSubscriptions.length === 0,
-      });
-
-    assertIsDefinedOrThrow(
-      checkoutSession.url,
-      new BillingException(
-        'Error: missing checkout.session.url',
-        BillingExceptionCode.BILLING_STRIPE_ERROR,
-      ),
-    );
-
-    return checkoutSession.url;
-  }
-
-  async createDirectSubscription({
-    user,
-    workspace,
-    billingPricesPerPlan,
-    successUrlPath,
-    plan,
-    requirePaymentMethod,
-  }: BillingPortalCheckoutSessionParameters): Promise<string> {
-    const { successUrl, customer, stripeSubscriptionLineItems } =
-      await this.prepareSubscriptionParameters({
-        workspace,
-        billingPricesPerPlan,
-        successUrlPath,
-      });
-
-    if (
-      isNonEmptyArray(customer?.billingSubscriptions) &&
-      customer.billingSubscriptions.some(
-        (subscription) => subscription.status !== SubscriptionStatus.Canceled,
-      )
-    ) {
-      throw new BillingException(
-        'Customer already has a non-canceled billing subscription',
-        BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID,
-      );
-    }
-
-    const stripeSubscription =
-      await this.stripeCheckoutService.createDirectSubscription({
-        user,
-        workspace,
-        stripeSubscriptionLineItems,
-        stripeCustomerId: customer?.stripeCustomerId ?? undefined,
-        plan,
-        requirePaymentMethod,
-        withTrialPeriod:
-          !isDefined(customer) || customer.billingSubscriptions.length === 0,
-      });
-
-    await this.billingSubscriptionService.syncSubscriptionToDatabase(
-      workspace.id,
-      stripeSubscription.id,
-    );
-
-    return successUrl;
-  }
-
-  private async prepareSubscriptionParameters({
-    workspace,
-    billingPricesPerPlan,
-    successUrlPath,
-  }: {
-    workspace: WorkspaceEntity;
-    billingPricesPerPlan: BillingGetPricesPerPlanResult;
-    successUrlPath?: string;
-  }) {
+  /**
+   * Mengembalikan URL halaman billing internal Bades.
+   * Midtrans tidak menyediakan portal pelanggan seperti Stripe.
+   */
+  async computeBillingPortalSessionURLOrThrow(
+    workspace: WorkspaceEntity,
+    returnUrlPath?: string,
+  ): Promise<string> {
     const frontBaseUrl = this.workspaceDomainsService.buildWorkspaceURL({
       workspace,
     });
-    const cancelUrl = frontBaseUrl.toString();
 
-    if (successUrlPath) {
-      frontBaseUrl.pathname = successUrlPath;
+    if (returnUrlPath) {
+      frontBaseUrl.pathname = returnUrlPath;
     }
-    const successUrl = frontBaseUrl.toString();
 
-    const quantity = await this.userWorkspaceRepository.countBy({
-      workspaceId: workspace.id,
-    });
+    return frontBaseUrl.toString();
+  }
 
+  /**
+   * Membuat subscription langsung dengan status trialing (tanpa payment method).
+   * Untuk trial 7 hari tanpa metode pembayaran.
+   */
+  async createDirectSubscription({
+    user,
+    workspace,
+    plan,
+    interval,
+    successUrlPath,
+  }: {
+    user: AuthContextUser;
+    workspace: WorkspaceEntity;
+    plan: BillingPlanKey;
+    interval: SubscriptionInterval;
+    successUrlPath?: string;
+  }): Promise<string> {
     const customer = await this.billingCustomerRepository.findOne({
       where: { workspaceId: workspace.id },
       relations: ['billingSubscriptions'],
     });
 
-    const stripeSubscriptionLineItems = this.getStripeSubscriptionLineItems({
-      quantity,
-      billingPricesPerPlan,
-      workspaceId: workspace.id,
-    });
-
-    return {
-      successUrl,
-      cancelUrl,
-      quantity,
-      customer,
-      stripeSubscriptionLineItems,
-    };
-  }
-
-  async computeBillingPortalSessionURLOrThrow(
-    workspace: WorkspaceEntity,
-    returnUrlPath?: string,
-  ) {
-    const lastSubscription = await this.billingSubscriptionRepository.findOne({
-      where: {
-        workspaceId: workspace.id,
-        status: Not(SubscriptionStatus.Canceled),
-      },
-      order: { createdAt: 'DESC' },
-    });
-
-    if (!lastSubscription) {
-      throw new Error('Error: missing subscription');
-    }
-
-    const stripeCustomerId = lastSubscription.stripeCustomerId;
-
-    if (!stripeCustomerId) {
-      throw new Error('Error: missing stripeCustomerId');
-    }
-
-    const frontBaseUrl = this.workspaceDomainsService.buildWorkspaceURL({
-      workspace,
-    });
-
-    if (returnUrlPath) {
-      frontBaseUrl.pathname = returnUrlPath;
-    }
-    const returnUrl = frontBaseUrl.toString();
-
-    const session =
-      await this.stripeBillingPortalService.createBillingPortalSession(
-        stripeCustomerId,
-        returnUrl,
-      );
-
-    assertIsDefinedOrThrow(
-      session.url,
-      new BillingException(
-        'Error: missing billingPortal.session.url',
-        BillingExceptionCode.BILLING_STRIPE_ERROR,
-      ),
-    );
-
-    return session.url;
-  }
-
-  async computeBillingPortalSessionURLForPaymentMethodUpdate(
-    workspace: WorkspaceEntity,
-    stripeCustomerId: string,
-    returnUrlPath?: string,
-  ) {
-    const frontBaseUrl = this.workspaceDomainsService.buildWorkspaceURL({
-      workspace,
-    });
-
-    if (returnUrlPath) {
-      frontBaseUrl.pathname = returnUrlPath;
-    }
-    const returnUrl = frontBaseUrl.toString();
-
-    const session =
-      await this.stripeBillingPortalService.createBillingPortalSessionForPaymentMethodUpdate(
-        stripeCustomerId,
-        returnUrl,
-      );
-
-    assertIsDefinedOrThrow(
-      session.url,
-      new BillingException(
-        'Error: missing billingPortal.session.url',
-        BillingExceptionCode.BILLING_STRIPE_ERROR,
-      ),
-    );
-
-    return session.url;
-  }
-
-  private getDefaultResourceCreditPrice(
-    billingPricesPerPlan: BillingGetPricesPerPlanResult,
-  ) {
-    const resourceCreditPrices =
-      billingPricesPerPlan.resourceCreditProductPrices;
-
-    if (!isDefined(resourceCreditPrices) || resourceCreditPrices.length === 0) {
+    if (
+      isDefined(customer) &&
+      isNonEmptyArray(customer.billingSubscriptions) &&
+      customer.billingSubscriptions.some(
+        (sub) => sub.status !== SubscriptionStatus.Canceled,
+      )
+    ) {
       throw new BillingException(
-        'Missing Default RESOURCE_CREDIT price',
-        BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
+        'Workspace sudah memiliki subscription aktif',
+        BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID,
       );
     }
 
-    return resourceCreditPrices.reduce((lowest, price) => {
-      const amount = Number(price.metadata?.credit_amount ?? 0);
-      const lowestAmount = Number(lowest.metadata?.credit_amount ?? 0);
-
-      return amount < lowestAmount ? price : lowest;
-    });
-  }
-
-  private getStripeSubscriptionLineItems({
-    quantity,
-    billingPricesPerPlan,
-  }: {
-    quantity: number;
-    billingPricesPerPlan: BillingGetPricesPerPlanResult;
-    workspaceId: string;
-  }): Stripe.Checkout.SessionCreateParams.LineItem[] {
-    const defaultBaseProductPrice = findOrThrow(
-      billingPricesPerPlan.baseProductPrices,
-      (baseProductPrice) =>
-        baseProductPrice.billingProduct?.metadata.productKey ===
-        BillingProductKey.BASE_PRODUCT,
-      new BillingException(
-        `Base product not found`,
-        BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
-      ),
+    const trialDays = this.badesConfigService.get(
+      'BILLING_FREE_TRIAL_WITHOUT_CREDIT_CARD_DURATION_IN_DAYS',
     );
 
-    const defaultResourceCreditPrice =
-      this.getDefaultResourceCreditPrice(billingPricesPerPlan);
+    const trialStart = new Date();
+    const trialEnd = new Date(trialStart);
 
-    return [
-      {
-        price: defaultBaseProductPrice.priceId,
-        quantity,
-      },
-      {
-        price: defaultResourceCreditPrice.priceId,
-        quantity: 1,
-      },
-    ];
+    trialEnd.setDate(trialEnd.getDate() + trialDays);
+
+    await this.billingSubscriptionService.createOrRenewSubscription(
+      workspace.id,
+      plan,
+      interval,
+      SubscriptionStatus.Trialing,
+    );
+
+    const frontBaseUrl = this.workspaceDomainsService.buildWorkspaceURL({
+      workspace,
+    });
+
+    if (successUrlPath) {
+      frontBaseUrl.pathname = successUrlPath;
+    }
+
+    return frontBaseUrl.toString();
+  }
+
+  /**
+   * Membuat sesi checkout Midtrans Snap untuk langganan baru.
+   */
+  async computeCheckoutSessionURL({
+    user,
+    workspace,
+    plan,
+    interval,
+    successUrlPath,
+  }: {
+    user: AuthContextUser;
+    workspace: WorkspaceEntity;
+    plan: BillingPlanKey;
+    interval: SubscriptionInterval;
+    successUrlPath?: string;
+  }): Promise<string> {
+    const frontendUrl = this.badesConfigService.get('FRONTEND_URL') ?? '';
+    const callbackUrl = successUrlPath
+      ? `${frontendUrl}${successUrlPath}`
+      : `${frontendUrl}/settings/billing`;
+
+    const snapResult = await this.midtransSnapService.createSnapTransaction({
+      workspaceId: workspace.id,
+      grossAmount: 0,
+      transactionType: 'MONTHLY_BILLING',
+      customerEmail: user.email,
+      itemName: `Langganan Bades - Paket ${plan}`,
+      callbackFinishUrl: callbackUrl,
+    });
+
+    return snapResult.snapRedirectUrl;
   }
 }

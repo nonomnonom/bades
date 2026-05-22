@@ -1,6 +1,4 @@
-import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
-import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
@@ -9,12 +7,9 @@ import { useMutation } from '@apollo/client/react';
 import { EndSubscriptionTrialPeriodDocument } from '~/generated-metadata/graphql';
 
 export const useEndSubscriptionTrialPeriod = () => {
-  const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
+  const { enqueueErrorSnackBar } = useSnackBar();
   const [endSubscriptionTrialPeriod] = useMutation(
     EndSubscriptionTrialPeriodDocument,
-  );
-  const [currentWorkspace, setCurrentWorkspace] = useAtomState(
-    currentWorkspaceState,
   );
   const [isLoading, setIsLoading] = useState(false);
   const { redirect } = useRedirect();
@@ -24,45 +19,17 @@ export const useEndSubscriptionTrialPeriod = () => {
       setIsLoading(true);
 
       const { data } = await endSubscriptionTrialPeriod();
-      const endTrialPeriodOutput = data?.endSubscriptionTrialPeriod;
+      const checkoutUrl = data?.endSubscriptionTrialPeriod?.checkoutUrl;
 
-      const hasPaymentMethod = endTrialPeriodOutput?.hasPaymentMethod;
-
-      if (isDefined(hasPaymentMethod) && hasPaymentMethod === false) {
-        const billingPortalUrl = endTrialPeriodOutput?.billingPortalUrl;
-
-        if (isDefined(billingPortalUrl)) {
-          redirect(billingPortalUrl);
-
-          return { success: false };
-        }
-
-        enqueueErrorSnackBar({
-          message: t`Metode pembayaran belum diatur. Silakan lengkapi informasi pembayaran Anda.`,
-        });
-
-        return { success: false };
+      if (isDefined(checkoutUrl) && checkoutUrl.length > 0) {
+        redirect(checkoutUrl);
+        return { success: true };
       }
 
-      const updatedSubscriptionStatus = endTrialPeriodOutput?.status;
-      if (
-        isDefined(updatedSubscriptionStatus) &&
-        isDefined(currentWorkspace?.currentBillingSubscription)
-      ) {
-        setCurrentWorkspace({
-          ...currentWorkspace,
-          currentBillingSubscription: {
-            ...currentWorkspace?.currentBillingSubscription,
-            status: updatedSubscriptionStatus,
-          },
-        });
-      }
-
-      enqueueSuccessSnackBar({
-        message: t`Langganan berhasil diaktifkan.`,
+      enqueueErrorSnackBar({
+        message: t`Tautan pembayaran belum tersedia. Silakan coba lagi atau hubungi tim Bades.`,
       });
-
-      return { success: true };
+      return { success: false };
     } catch {
       enqueueErrorSnackBar({
         message: t`Terjadi kesalahan saat mengakhiri masa uji coba. Silakan hubungi tim Bades.`,

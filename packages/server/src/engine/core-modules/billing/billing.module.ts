@@ -7,13 +7,9 @@ import { ClickHouseModule } from 'src/database/clickHouse/clickHouse.module';
 import { WorkspaceIteratorModule } from 'src/database/commands/command-runners/workspace-iterator.module';
 import { BillingGaugeService } from 'src/engine/core-modules/billing/billing-gauge.service';
 import { BillingResolver } from 'src/engine/core-modules/billing/billing.resolver';
-import { BillingSyncCustomerDataCommand } from 'src/engine/core-modules/billing/commands/billing-sync-customer-data.command';
-import { BillingSyncPlansDataCommand } from 'src/engine/core-modules/billing/commands/billing-sync-plans-data.command';
-import { BillingUpdateSubscriptionPriceCommand } from 'src/engine/core-modules/billing/commands/billing-update-subscription-price.command';
 import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/billing-customer.entity';
 import { BillingMidtransTransactionEntity } from 'src/engine/core-modules/billing/entities/billing-midtrans-transaction.entity';
 import { BillingEntitlementEntity } from 'src/engine/core-modules/billing/entities/billing-entitlement.entity';
-import { BillingMeterEntity } from 'src/engine/core-modules/billing/entities/billing-meter.entity';
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
 import { BillingProductEntity } from 'src/engine/core-modules/billing/entities/billing-product.entity';
 import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/entities/billing-subscription-item.entity';
@@ -35,7 +31,6 @@ import { BillingService } from 'src/engine/core-modules/billing/services/billing
 import { ResourceCreditService } from 'src/engine/core-modules/billing/services/resource-credit.service';
 import { WorkspaceBillingSubscriptionCacheService } from 'src/engine/core-modules/billing/services/workspace-billing-subscription-cache.service';
 import { MidtransModule } from 'src/engine/core-modules/billing/midtrans/midtrans.module';
-import { StripeModule } from 'src/engine/core-modules/billing/stripe/stripe.module';
 import { WorkspaceDomainsModule } from 'src/engine/core-modules/domain/workspace-domains/workspace-domains.module';
 import { EnterpriseModule } from 'src/engine/core-modules/enterprise/enterprise.module';
 import { FeatureFlagEntity } from 'src/engine/core-modules/feature-flag/feature-flag.entity';
@@ -52,7 +47,6 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
     ClickHouseModule,
     FeatureFlagModule,
     MidtransModule,
-    StripeModule,
     MessageQueueModule,
     PermissionsModule,
     WorkspaceCacheModule,
@@ -64,7 +58,6 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
       BillingMidtransTransactionEntity,
       BillingProductEntity,
       BillingPriceEntity,
-      BillingMeterEntity,
       BillingEntitlementEntity,
       WorkspaceEntity,
       UserWorkspaceEntity,
@@ -86,9 +79,6 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
     BillingWorkspaceMemberListener,
     BillingService,
     BillingRestApiExceptionFilter,
-    BillingSyncCustomerDataCommand,
-    BillingUpdateSubscriptionPriceCommand,
-    BillingSyncPlansDataCommand,
     BillingUsageService,
     BillingUsageCapService,
     BillingPriceService,

@@ -6,33 +6,45 @@ type SeedBillingSubscriptionsArgs = {
   queryRunner: QueryRunner;
   schemaName: string;
   workspaceId: string;
+  billingCustomerId: string;
 };
 
+/**
+ * Membuat data awal subscription billing untuk workspace dev.
+ * Menggunakan billingCustomerId (FK ke billingCustomer.id) dan planKey
+ * sebagai pengganti identifikasi berbasis Stripe.
+ */
 export const seedBillingSubscriptions = async ({
   queryRunner,
   schemaName,
   workspaceId,
+  billingCustomerId,
 }: SeedBillingSubscriptionsArgs) => {
+  const now = new Date();
+  const nextMonth = new Date(now);
+
+  nextMonth.setMonth(nextMonth.getMonth() + 1);
+
   await queryRunner.manager
     .createQueryBuilder()
     .insert()
     .into(`${schemaName}.${tableName}`, [
       'workspaceId',
-      'stripeCustomerId',
-      'stripeSubscriptionId',
+      'billingCustomerId',
+      'planKey',
       'status',
-      'metadata',
+      'currentPeriodStart',
+      'currentPeriodEnd',
     ])
     .orIgnore()
     .values([
       {
         workspaceId,
-        stripeCustomerId: 'cus_default0',
-        stripeSubscriptionId: 'sub_default0',
+        billingCustomerId,
+        planKey: 'PRO',
         status: 'active',
-        metadata: {
-          workspaceId,
-        },
+        currentPeriodStart: now.toISOString(),
+        currentPeriodEnd: nextMonth.toISOString(),
       },
     ])
     .execute();

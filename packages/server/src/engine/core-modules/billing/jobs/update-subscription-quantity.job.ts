@@ -3,13 +3,13 @@
 import { Logger, Scope } from '@nestjs/common';
 
 import { BillingSubscriptionUpdateService } from 'src/engine/core-modules/billing/services/billing-subscription-update.service';
-import { StripeSubscriptionItemService } from 'src/engine/core-modules/billing/stripe/services/stripe-subscription-item.service';
 import { Process } from 'src/engine/core-modules/message-queue/decorators/process.decorator';
 import { Processor } from 'src/engine/core-modules/message-queue/decorators/processor.decorator';
 import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
 import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import { buildSystemAuthContext } from 'src/engine/sid-orm/utils/build-system-auth-context.util';
 import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
+
 export type UpdateSubscriptionQuantityJobData = { workspaceId: string };
 
 @Processor({
@@ -21,7 +21,6 @@ export class UpdateSubscriptionQuantityJob {
 
   constructor(
     private readonly billingSubscriptionUpdateService: BillingSubscriptionUpdateService,
-    private readonly stripeSubscriptionItemService: StripeSubscriptionItemService,
     private readonly globalWorkspaceOrmManager: GlobalWorkspaceOrmManager,
   ) {}
 
@@ -50,11 +49,11 @@ export class UpdateSubscriptionQuantityJob {
         );
 
         this.logger.log(
-          `Updating workspace ${data.workspaceId} subscription quantity to ${workspaceMembersCount} members`,
+          `Memperbarui jumlah anggota workspace ${data.workspaceId} menjadi ${workspaceMembersCount}`,
         );
       } catch (e) {
         this.logger.warn(
-          `Failed to update workspace ${data.workspaceId} subscription quantity to ${workspaceMembersCount} members. Error: ${e}`,
+          `Gagal memperbarui jumlah anggota workspace ${data.workspaceId}: ${e}`,
         );
       }
     }, authContext);
