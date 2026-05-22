@@ -34,10 +34,6 @@ import {
   getCalendarEventParticipantDataSeeds,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-event-participant-data-seeds.constant';
 import {
-  COMPANY_DATA_SEED_COLUMNS,
-  COMPANY_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/company-data-seeds.constant';
-import {
   CONNECTED_ACCOUNT_DATA_SEED_COLUMNS,
   CONNECTED_ACCOUNT_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/connected-account-data-seeds.constant';
@@ -45,10 +41,6 @@ import {
   DASHBOARD_DATA_SEED_COLUMNS,
   getDashboardDataSeeds,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/dashboard-data-seeds.constant';
-import {
-  EMPLOYMENT_HISTORY_DATA_SEED_COLUMNS,
-  EMPLOYMENT_HISTORY_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/employment-history-data-seeds.constant';
 import {
   MESSAGE_CHANNEL_DATA_SEED_COLUMNS,
   MESSAGE_CHANNEL_DATA_SEEDS,
@@ -77,14 +69,6 @@ import {
   NOTE_TARGET_DATA_SEED_COLUMNS,
   NOTE_TARGET_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-target-data-seeds.constant';
-import {
-  OPPORTUNITY_DATA_SEED_COLUMNS,
-  OPPORTUNITY_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/opportunity-data-seeds.constant';
-import {
-  PERSON_DATA_SEED_COLUMNS,
-  PERSON_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/person-data-seeds.constant';
 import {
   PENDUDUK_DATA_SEED_COLUMNS,
   PENDUDUK_DATA_SEEDS,
@@ -176,11 +160,6 @@ const getRecordSeedsBatches = (
   // Batch 2: Depends on workspaceMember
   const batch2: RecordSeedConfig[] = [
     {
-      tableName: 'company',
-      pgColumns: COMPANY_DATA_SEED_COLUMNS,
-      recordSeeds: COMPANY_DATA_SEEDS,
-    },
-    {
       tableName: 'dashboard',
       pgColumns: DASHBOARD_DATA_SEED_COLUMNS,
       recordSeeds: getDashboardDataSeeds(workspaceId),
@@ -192,13 +171,8 @@ const getRecordSeedsBatches = (
     },
   ];
 
-  // Batch 3: Depends on company, connectedAccount
+  // Batch 3: Depends on connectedAccount
   const batch3: RecordSeedConfig[] = [
-    {
-      tableName: 'person',
-      pgColumns: PERSON_DATA_SEED_COLUMNS,
-      recordSeeds: PERSON_DATA_SEEDS,
-    },
     {
       tableName: 'penduduk',
       pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
@@ -221,13 +195,8 @@ const getRecordSeedsBatches = (
     },
   ];
 
-  // Batch 4: Depends on person/company/messageChannel or independent
+  // Batch 4: Depends on penduduk/messageChannel or independent
   const batch4: RecordSeedConfig[] = [
-    {
-      tableName: 'opportunity',
-      pgColumns: OPPORTUNITY_DATA_SEED_COLUMNS,
-      recordSeeds: OPPORTUNITY_DATA_SEEDS,
-    },
     {
       tableName: 'note',
       pgColumns: NOTE_DATA_SEED_COLUMNS,
@@ -292,12 +261,6 @@ const getRecordSeedsBatches = (
       tableName: 'umkm',
       pgColumns: UMKM_DATA_SEED_COLUMNS,
       recordSeeds: UMKM_DATA_SEEDS,
-    },
-    // Junction tables
-    {
-      tableName: '_employmentHistory',
-      pgColumns: EMPLOYMENT_HISTORY_DATA_SEED_COLUMNS,
-      recordSeeds: EMPLOYMENT_HISTORY_DATA_SEEDS,
     },
   ];
 

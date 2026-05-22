@@ -33,12 +33,12 @@ export const DeleteWorkspace = () => {
     <>
       <H2Title
         title={t`Danger zone`}
-        description={t`Delete your whole workspace`}
+        description={t`Hapus seluruh ruang kerja Anda`}
       />
       <Button
         accent="danger"
         variant="secondary"
-        title={t`Delete workspace`}
+        title={t`Hapus ruang kerja`}
         Icon={IconTrash}
         onClick={() => openModal(DELETE_WORKSPACE_MODAL_ID)}
       />
@@ -47,15 +47,16 @@ export const DeleteWorkspace = () => {
         modalInstanceId={DELETE_WORKSPACE_MODAL_ID}
         confirmationPlaceholder={userEmail}
         confirmationValue={userEmail}
-        title={t`Workspace Deletion`}
+        title={t`Hapus Ruang Kerja`}
         subtitle={
           <Trans>
-            This action cannot be undone. This will permanently delete your
-            entire workspace. <br /> Please type in your email to confirm.
+            Tindakan ini tidak dapat dibatalkan. Seluruh ruang kerja dan
+            datanya akan dihapus secara permanen. <br /> Ketik email Anda untuk
+            mengonfirmasi.
           </Trans>
         }
         onConfirmClick={deleteWorkspace}
-        confirmButtonText={t`Delete workspace`}
+        confirmButtonText={t`Hapus ruang kerja`}
       />
     </>
   );

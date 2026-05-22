@@ -7,8 +7,6 @@ paths:
   - "packages/**/*.stories.tsx"
   - "packages/**/__fixtures__/**"
   - "packages/**/fixtures/**"
-  - "packages/website/**"
-  - "packages/docs/**"
 ---
 
 # Seed Desa Indonesia

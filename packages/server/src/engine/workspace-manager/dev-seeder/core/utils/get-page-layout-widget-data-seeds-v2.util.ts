@@ -1,5 +1,4 @@
 import { CalendarStartDay } from 'shared/constants';
-import { STANDARD_OBJECTS } from 'shared/metadata';
 import {
   AggregateOperations,
   PageLayoutTabLayoutMode,
@@ -27,39 +26,33 @@ export const getPageLayoutWidgetDataSeedsV2 = (
   workspaceId: string,
   objectMetadataItems: ObjectMetadataEntity[],
 ): SeederFlatPageLayoutWidget[] => {
-  const opportunityObject = objectMetadataItems.find(
-    (obj) =>
-      obj.universalIdentifier ===
-      STANDARD_OBJECTS.opportunity.universalIdentifier,
+  // Bades SID custom objects
+  const pendudukObject = objectMetadataItems.find(
+    (obj) => obj.nameSingular === 'penduduk',
   );
-  const companyObject = objectMetadataItems.find(
-    (obj) =>
-      obj.universalIdentifier === STANDARD_OBJECTS.company.universalIdentifier,
+  const keluargaObject = objectMetadataItems.find(
+    (obj) => obj.nameSingular === 'keluarga',
   );
-  const personObject = objectMetadataItems.find(
-    (obj) =>
-      obj.universalIdentifier === STANDARD_OBJECTS.person.universalIdentifier,
+  const permohonanSuratObject = objectMetadataItems.find(
+    (obj) => obj.nameSingular === 'permohonanSurat',
   );
 
-  const opportunityAmountFieldId = getFieldId(opportunityObject, 'amount');
-  const opportunityCloseDateFieldId = getFieldId(
-    opportunityObject,
-    'closeDate',
+  const pendudukIdFieldId = getFieldId(pendudukObject, 'id');
+  const pendudukCreatedAtFieldId = getFieldId(pendudukObject, 'createdAt');
+  const pendudukJenisKelaminFieldId = getFieldId(pendudukObject, 'jenisKelamin');
+
+  const keluargaIdFieldId = getFieldId(keluargaObject, 'id');
+  const keluargaCreatedAtFieldId = getFieldId(keluargaObject, 'createdAt');
+
+  const permohonanIdFieldId = getFieldId(permohonanSuratObject, 'id');
+  const permohonanCreatedAtFieldId = getFieldId(
+    permohonanSuratObject,
+    'createdAt',
   );
-
-  const companyIdFieldId = getFieldId(companyObject, 'id');
-  const companyCreatedAtFieldId = getFieldId(companyObject, 'createdAt');
-  const companyArrFieldId = getFieldId(companyObject, 'annualRecurringRevenue');
-  const companyNameFieldId = getFieldId(companyObject, 'name');
-  const companyLinkedinLinkFieldId = getFieldId(companyObject, 'linkedinLink');
-
-  const personIdFieldId = getFieldId(personObject, 'id');
-  const personJobTitleFieldId = getFieldId(personObject, 'jobTitle');
 
   return [
-    // LINE chart: Revenue Forecast (Sales Overview)
-    isDefined(opportunityAmountFieldId) &&
-    isDefined(opportunityCloseDateFieldId)
+    // LINE chart: Pertumbuhan Warga per Waktu (Ringkasan Layanan)
+    isDefined(pendudukIdFieldId) && isDefined(pendudukCreatedAtFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -69,7 +62,7 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.SALES_OVERVIEW,
           ),
-          title: 'Revenue Forecast',
+          title: 'Pertumbuhan Warga per Waktu',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 7, rowSpan: 8, columnSpan: 5 },
           position: {
@@ -81,22 +74,22 @@ export const getPageLayoutWidgetDataSeedsV2 = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.LINE_CHART,
-            aggregateFieldMetadataId: opportunityAmountFieldId,
-            aggregateOperation: AggregateOperations.SUM,
-            primaryAxisGroupByFieldMetadataId: opportunityCloseDateFieldId,
+            aggregateFieldMetadataId: pendudukIdFieldId,
+            aggregateOperation: AggregateOperations.COUNT,
+            primaryAxisGroupByFieldMetadataId: pendudukCreatedAtFieldId,
             primaryAxisOrderBy: GraphOrderBy.FIELD_ASC,
             axisNameDisplay: AxisNameDisplay.NONE,
             displayDataLabel: false,
-            timezone: 'UTC',
+            timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: opportunityObject?.id ?? null,
+          objectMetadataId: pendudukObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
 
-    // LINE chart: New Customers Over Time (Customer Overview)
-    isDefined(companyIdFieldId) && isDefined(companyCreatedAtFieldId)
+    // LINE chart: Permohonan Baru per Waktu (Ringkasan Warga)
+    isDefined(permohonanIdFieldId) && isDefined(permohonanCreatedAtFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -106,7 +99,7 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_OVERVIEW,
           ),
-          title: 'New Customers Over Time',
+          title: 'Permohonan Baru per Waktu',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 3, rowSpan: 6, columnSpan: 5 },
           position: {
@@ -118,22 +111,22 @@ export const getPageLayoutWidgetDataSeedsV2 = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.LINE_CHART,
-            aggregateFieldMetadataId: companyIdFieldId,
+            aggregateFieldMetadataId: permohonanIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            primaryAxisGroupByFieldMetadataId: companyCreatedAtFieldId,
+            primaryAxisGroupByFieldMetadataId: permohonanCreatedAtFieldId,
             primaryAxisOrderBy: GraphOrderBy.FIELD_ASC,
             axisNameDisplay: AxisNameDisplay.NONE,
             displayDataLabel: false,
-            timezone: 'UTC',
+            timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: companyObject?.id ?? null,
+          objectMetadataId: permohonanSuratObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
 
-    // PIE chart: Revenue Distribution (Customer Analytics)
-    isDefined(companyArrFieldId) && isDefined(companyNameFieldId)
+    // PIE chart: Distribusi KK per Periode (Analitik Demografi)
+    isDefined(keluargaIdFieldId) && isDefined(keluargaCreatedAtFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -143,7 +136,7 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_ANALYTICS,
           ),
-          title: 'Revenue Distribution',
+          title: 'Kartu Keluarga per Periode',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 4, rowSpan: 2, columnSpan: 3 },
           position: {
@@ -154,22 +147,23 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             columnSpan: 3,
           },
           configuration: {
-            configurationType: WidgetConfigurationType.PIE_CHART,
-            aggregateFieldMetadataId: companyArrFieldId,
-            aggregateOperation: AggregateOperations.SUM,
-            groupByFieldMetadataId: companyNameFieldId,
-            orderBy: GraphOrderBy.VALUE_DESC,
-            displayDataLabel: true,
-            timezone: 'UTC',
+            configurationType: WidgetConfigurationType.LINE_CHART,
+            aggregateFieldMetadataId: keluargaIdFieldId,
+            aggregateOperation: AggregateOperations.COUNT,
+            primaryAxisGroupByFieldMetadataId: keluargaCreatedAtFieldId,
+            primaryAxisOrderBy: GraphOrderBy.FIELD_ASC,
+            axisNameDisplay: AxisNameDisplay.NONE,
+            displayDataLabel: false,
+            timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: companyObject?.id ?? null,
+          objectMetadataId: keluargaObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
 
-    // PIE chart: Companies by LinkedIn (Customer Overview)
-    isDefined(companyIdFieldId) && isDefined(companyLinkedinLinkFieldId)
+    // PIE chart: Distribusi Jenis Kelamin Warga (Ringkasan Warga)
+    isDefined(pendudukIdFieldId) && isDefined(pendudukJenisKelaminFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -179,7 +173,7 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_OVERVIEW,
           ),
-          title: 'Companies by LinkedIn (Field Permission Test)',
+          title: 'Komposisi Jenis Kelamin Warga',
           type: WidgetType.GRAPH,
           gridPosition: { row: 6, column: 0, rowSpan: 4, columnSpan: 6 },
           position: {
@@ -191,22 +185,21 @@ export const getPageLayoutWidgetDataSeedsV2 = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.PIE_CHART,
-            aggregateFieldMetadataId: companyIdFieldId,
+            aggregateFieldMetadataId: pendudukIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            groupByFieldMetadataId: companyLinkedinLinkFieldId,
-            groupBySubFieldName: 'primaryLinkUrl',
+            groupByFieldMetadataId: pendudukJenisKelaminFieldId,
             orderBy: GraphOrderBy.VALUE_DESC,
             displayDataLabel: true,
-            timezone: 'UTC',
+            timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: companyObject?.id ?? null,
+          objectMetadataId: pendudukObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,
 
-    // PIE chart: Contact Roles (Team Metrics)
-    isDefined(personIdFieldId) && isDefined(personJobTitleFieldId)
+    // PIE chart: Distribusi Agama Warga (Tugas & Aktivitas)
+    isDefined(pendudukIdFieldId)
       ? ({
           id: generateSeedId(
             workspaceId,
@@ -216,7 +209,7 @@ export const getPageLayoutWidgetDataSeedsV2 = (
             workspaceId,
             PAGE_LAYOUT_TAB_SEEDS.TEAM_METRICS,
           ),
-          title: 'Contact Roles',
+          title: 'Distribusi Agama Warga',
           type: WidgetType.GRAPH,
           gridPosition: { row: 0, column: 0, rowSpan: 4, columnSpan: 6 },
           position: {
@@ -228,15 +221,15 @@ export const getPageLayoutWidgetDataSeedsV2 = (
           },
           configuration: {
             configurationType: WidgetConfigurationType.PIE_CHART,
-            aggregateFieldMetadataId: personIdFieldId,
+            aggregateFieldMetadataId: pendudukIdFieldId,
             aggregateOperation: AggregateOperations.COUNT,
-            groupByFieldMetadataId: personJobTitleFieldId,
+            groupByFieldMetadataId: pendudukIdFieldId,
             orderBy: GraphOrderBy.VALUE_DESC,
             displayDataLabel: true,
-            timezone: 'UTC',
+            timezone: 'Asia/Jakarta',
             firstDayOfTheWeek: CalendarStartDay.MONDAY,
           },
-          objectMetadataId: personObject?.id ?? null,
+          objectMetadataId: pendudukObject?.id ?? null,
           overrides: null,
         } satisfies SeederFlatPageLayoutWidget)
       : null,

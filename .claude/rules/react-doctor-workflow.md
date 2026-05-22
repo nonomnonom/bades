@@ -2,7 +2,6 @@
 paths:
   - "packages/front/src/**/*.tsx"
   - "packages/ui/src/**/*.tsx"
-  - "packages/website/src/**/*.tsx"
 ---
 
 # React Doctor Workflow

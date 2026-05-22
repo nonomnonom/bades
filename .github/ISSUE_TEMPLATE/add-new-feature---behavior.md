@@ -1,55 +1,50 @@
 ---
-name: Add new feature / behavior
-about: Describe the desired product increment
-title: 'Ex: Add custom field from Companies / People table options menu'
+name: Tambah fitur / perilaku baru
+about: Deskripsikan perubahan produk yang diinginkan
+title: 'Contoh: Tambah filter data penduduk berdasarkan wilayah di halaman Demografi'
 labels: ''
 assignees: ''
 
 ---
 
-## Scope & Context
+## Lingkup & Konteks
 
-**Example:** 
+**Contoh:**
 ```
-We are working on enabling users to add custom fields in their workspace. 
-The ticket is about adding the custom field feature on Companies and People pages only.
-```
-
-## Current behavior
-
-A clear and concise description of what the current behavior is.
-Please also add **screenshots** of the existing application.
-
-**Example:** 
-```
-On Companies and People pages, the "field" menu item from the option menu shows both displayed columns, and hidden columns
-[screenshot]
+Kami sedang mengerjakan peningkatan halaman Demografi.
+Tiket ini berfokus pada penambahan filter berdasarkan wilayah (Dusun/RW/RT)
+di tabel daftar penduduk.
 ```
 
-## Expected behavior
-A clear and concise description of what you want to happen.
-Please also add **figma screenshots or figma links** if available
+## Perilaku saat ini
 
-**Example:** 
+Deskripsi jelas dan ringkas tentang perilaku yang ada saat ini.
+Sertakan juga **tangkapan layar** dari aplikasi yang sedang berjalan.
+
+**Contoh:**
 ```
-The "field" menu item from the option menu should only display visible columns. To display a new column, the user should click on "Add field" at the bottom of the menu.
-[figma screenshot 1]
-[figma link 1]
-
-Clicking on this button should swap the menu with the same menu that is used by pressing the "+" button on the table title bar, showing "Add custom field option"
-[figma screenshot 2]
-[figma link 2]
-
-Clicking on "Add custom field" should open swap the menu with the "field type" menu
-...
+Di halaman Demografi, tabel penduduk menampilkan seluruh data tanpa opsi filter
+berdasarkan wilayah.
+[tangkapan layar]
 ```
 
+## Perilaku yang diharapkan
 
-## Technical inputs
+Deskripsi jelas dan ringkas tentang perilaku yang diinginkan.
+Sertakan **tautan atau tangkapan layar desain (Figma)** jika tersedia.
 
-**Example:** 
+**Contoh:**
 ```
-- Modify TableOptionsDropdownContent to add the new "Add field Item" using a MenuItem component
-- Create an internal state 'isAddingField' to track the progress in the flow. Set this state to true on "Add field Item" onClick
+Pengguna harus dapat memfilter daftar penduduk berdasarkan Dusun, RW, atau RT
+melalui dropdown filter di atas tabel.
+[tangkapan layar desain]
+```
+
+## Masukan teknis
+
+**Contoh:**
+```
+- Tambahkan komponen FilterWilayah di atas tabel PendudukTable
+- Hubungkan filter ke query GraphQL yang sudah ada dengan parameter wilayahId
 - ...
 ```

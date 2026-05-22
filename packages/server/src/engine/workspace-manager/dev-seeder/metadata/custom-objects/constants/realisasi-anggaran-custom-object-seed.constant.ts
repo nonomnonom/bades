@@ -3,7 +3,7 @@ import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder
 export const REALISASI_ANGGARAN_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Realisasi Anggaran',
   labelSingular: 'Realisasi Anggaran',
-  namePlural: 'realisasi-anggarans',
-  nameSingular: 'realisasi-anggaran',
+  namePlural: 'realisasiAnggarans',
+  nameSingular: 'realisasiAnggaran',
   icon: 'IconReceipt',
 };

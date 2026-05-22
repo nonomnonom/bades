@@ -11,7 +11,6 @@ import {
   CalendarEventParticipantDataSeed,
   getCalendarEventParticipantDataSeeds,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-event-participant-data-seeds.constant';
-import { COMPANY_DATA_SEEDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/company-data-seeds.constant';
 import { MESSAGE_DATA_SEEDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-data-seeds.constant';
 import {
   getMessageParticipantDataSeeds,
@@ -19,11 +18,7 @@ import {
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-participant-data-seeds.constant';
 import { NOTE_DATA_SEEDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-data-seeds.constant';
 import { NOTE_TARGET_DATA_SEEDS_MAP } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-target-data-seeds.constant';
-import { OPPORTUNITY_DATA_SEEDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/opportunity-data-seeds.constant';
-import {
-  PERSON_DATA_SEEDS,
-  PERSON_DATA_SEEDS_MAP,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/person-data-seeds.constant';
+import { PENDUDUK_DATA_SEEDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 import { TASK_DATA_SEEDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/task-data-seeds.constant';
 import { TASK_TARGET_DATA_SEEDS_MAP } from 'src/engine/workspace-manager/dev-seeder/data/constants/task-target-data-seeds.constant';
 import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
@@ -87,19 +82,15 @@ type ObjectMetadataIds = {
 @Injectable()
 export class TimelineActivitySeederService {
   private readonly ENTITY_CODES = {
-    company: '0001',
-    person: '0201',
+    penduduk: '0001',
     note: '0601',
     task: '0651',
-    opportunity: '0851',
     calendarEvent: '0701',
     message: '0751',
   } as const;
 
   private readonly TARGET_CODES = {
-    person: '1001',
-    company: '2001',
-    opportunity: '3001',
+    penduduk: '1001',
   } as const;
 
   private readonly LINKABLE_TYPES = new Set([
@@ -138,12 +129,11 @@ export class TimelineActivitySeederService {
     const metadataIds = await this.getObjectMetadataIds(workspaceId);
     let activityIndex = 0;
 
+    // Entitas utama Bades SID: penduduk sebagai fondasi
     const entityConfigs: EntityConfig[] = [
-      { type: 'company', seeds: COMPANY_DATA_SEEDS },
-      { type: 'person', seeds: PERSON_DATA_SEEDS },
+      { type: 'penduduk', seeds: PENDUDUK_DATA_SEEDS },
       { type: 'note', seeds: NOTE_DATA_SEEDS },
       { type: 'task', seeds: TASK_DATA_SEEDS },
-      { type: 'opportunity', seeds: OPPORTUNITY_DATA_SEEDS },
     ];
 
     // Calendar events and messages only appear as linked activities
@@ -302,14 +292,9 @@ export class TimelineActivitySeederService {
       happensAt: creationDate,
     };
 
-    // Set the appropriate target entity ID for entities that have target columns
-    const entitiesWithTargetColumns = new Set([
-      'note',
-      'task',
-      'person',
-      'company',
-      'opportunity',
-    ]);
+    // Penduduk tidak pakai morph standard (bukan standard object engine)
+    // Only note/task menggunakan targetColumn
+    const entitiesWithTargetColumns = new Set(['note', 'task']);
 
     if (entitiesWithTargetColumns.has(entityType)) {
       const targetIdKey = `${buildTimelineActivityRelatedMorphFieldMetadataName(entityType)}Id`;
@@ -337,21 +322,16 @@ export class TimelineActivitySeederService {
     const commonProperties = { id: recordSeed.id };
 
     const propertyGetters = {
-      company: () => ({
+      // Properti penduduk Bades SID
+      penduduk: () => ({
         ...commonProperties,
-        name: recordSeed.name,
-        domainName: recordSeed.domainNamePrimaryLinkUrl,
-        employees: recordSeed.employees,
-        city: recordSeed.addressAddressCity,
-      }),
-      person: () => ({
-        ...commonProperties,
-        name: {
-          firstName: recordSeed.nameFirstName,
-          lastName: recordSeed.nameLastName,
+        nik: recordSeed.nik,
+        namaLengkap: {
+          firstName: recordSeed.namaLengkapFirstName,
+          lastName: recordSeed.namaLengkapLastName,
         },
-        email: recordSeed.emailsPrimaryEmail,
-        jobTitle: recordSeed.jobTitle,
+        jenisKelamin: recordSeed.jenisKelamin,
+        statusHidup: recordSeed.statusHidup,
       }),
       note: () => ({
         ...commonProperties,
@@ -364,13 +344,6 @@ export class TimelineActivitySeederService {
         body: recordSeed.body,
         status: recordSeed.status,
         dueAt: recordSeed.dueAt,
-      }),
-      opportunity: () => ({
-        ...commonProperties,
-        name: recordSeed.name,
-        amount: recordSeed.amountAmountMicros,
-        stage: recordSeed.stage,
-        closeDate: recordSeed.closeDate,
       }),
       calendarEvent: () => ({
         ...commonProperties,
@@ -462,18 +435,8 @@ export class TimelineActivitySeederService {
       return [];
     }
 
-    const targetChecks = [
-      { id: noteTargetSeed.targetPersonId, type: 'person' },
-      { id: noteTargetSeed.targetCompanyId, type: 'company' },
-      { id: noteTargetSeed.targetOpportunityId, type: 'opportunity' },
-    ];
-
-    for (const { id, type } of targetChecks) {
-      if (id) {
-        return [{ targetType: type, targetId: id }];
-      }
-    }
-
+    // Note target sekarang menggunakan penduduk (custom object, bukan standard morph)
+    // Kembalikan array kosong karena penduduk tidak punya morph column di timelineActivity
     return [];
   }
 
@@ -486,18 +449,8 @@ export class TimelineActivitySeederService {
       return [];
     }
 
-    const targetChecks = [
-      { id: taskTargetSeed.targetPersonId, type: 'person' },
-      { id: taskTargetSeed.targetCompanyId, type: 'company' },
-      { id: taskTargetSeed.targetOpportunityId, type: 'opportunity' },
-    ];
-
-    for (const { id, type } of targetChecks) {
-      if (id) {
-        return [{ targetType: type, targetId: id }];
-      }
-    }
-
+    // Task target sekarang menggunakan penduduk (custom object, bukan standard morph)
+    // Kembalikan array kosong karena penduduk tidak punya morph column di timelineActivity
     return [];
   }
 
@@ -509,27 +462,13 @@ export class TimelineActivitySeederService {
       (participant) => participant.calendarEventId === recordSeed.id,
     );
 
-    const targetInfos: ActivityTargetInfo[] = [];
+    // Peserta kalender sekarang memakai penduduk bukan person standard object
+    // Kembalikan array kosong karena penduduk tidak punya morph column di timelineActivity
+    if (eventParticipants.length > 0) {
+      return [];
+    }
 
-    eventParticipants.forEach((participant) => {
-      if (participant.personId) {
-        targetInfos.push({
-          targetType: 'person',
-          targetId: participant.personId,
-        });
-
-        const person = PERSON_DATA_SEEDS_MAP.get(participant.personId);
-
-        if (person?.companyId) {
-          targetInfos.push({
-            targetType: 'company',
-            targetId: person.companyId as string,
-          });
-        }
-      }
-    });
-
-    return targetInfos;
+    return [];
   }
 
   private getMessageTargetInfos(
@@ -540,27 +479,13 @@ export class TimelineActivitySeederService {
       (participant) => participant.messageId === recordSeed.id,
     );
 
-    const targetInfos: ActivityTargetInfo[] = [];
+    // Peserta pesan sekarang memakai penduduk bukan person standard object
+    // Kembalikan array kosong karena penduduk tidak punya morph column di timelineActivity
+    if (filteredMessageParticipants.length > 0) {
+      return [];
+    }
 
-    filteredMessageParticipants.forEach((participant) => {
-      if (participant.personId) {
-        targetInfos.push({
-          targetType: 'person',
-          targetId: participant.personId,
-        });
-
-        const person = PERSON_DATA_SEEDS_MAP.get(participant.personId);
-
-        if (person?.companyId) {
-          targetInfos.push({
-            targetType: 'company',
-            targetId: person.companyId,
-          });
-        }
-      }
-    });
-
-    return targetInfos;
+    return [];
   }
 
   private computeLinkedActivityRecord({
@@ -598,13 +523,7 @@ export class TimelineActivitySeederService {
       happensAt: creationDate,
     };
 
-    // Set target ID (person, company, or opportunity)
-    const targetIdKey = `target${capitalize(targetInfo.targetType)}Id`;
-
-    // @ts-expect-error - This is okay for morph
-    linkedActivity[targetIdKey] = targetInfo.targetId;
-
-    // Only set target activity ID for entities that have corresponding columns
+    // Only note/task memerlukan targetActivityId column
     const entitiesWithTargetColumns = new Set(['note', 'task']);
 
     if (entitiesWithTargetColumns.has(activityType)) {
@@ -630,7 +549,7 @@ export class TimelineActivitySeederService {
     const dataGetters = {
       calendarEvent: () => ({
         linkedRecordCachedName: String(
-          recordSeed.title || `Calendar Event ${index + 1}`,
+          recordSeed.title || `Kegiatan Kalender ${index + 1}`,
         ),
         linkedProperties: {
           ...baseProperties,
@@ -642,7 +561,7 @@ export class TimelineActivitySeederService {
       }),
       message: () => ({
         linkedRecordCachedName: String(
-          recordSeed.subject || `Message ${index + 1}`,
+          recordSeed.subject || `Pesan ${index + 1}`,
         ),
         linkedProperties: {
           ...baseProperties,

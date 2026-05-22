@@ -71,9 +71,4 @@ export const PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'keterangan',
     description: 'Keterangan tambahan',
   },
-  {
-    type: FieldMetadataType.NUMBER,
-    label: 'Position',
-    name: 'position',
-  },
 ];

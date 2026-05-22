@@ -8,7 +8,7 @@ Folder ini berisi role subagent yang bisa dipakai langsung sebagai:
 ## Role yang tersedia
 
 - `penjaga-goal-bades` - audit drift terhadap `GOAL.md`
-- `pelaksana-front-bades` - implementasi UI, website, email, copy
+- `pelaksana-front-bades` - implementasi UI aplikasi, email, dan copy
 - `pelaksana-server-bades` - backend, seed, metadata, boundary legacy
 - `operator-github-bades` - `.github`, repo metadata, release, workflow
 - `lokalisasi-bades` - perapian istilah dan Bahasa Indonesia native
@@ -47,6 +47,7 @@ Pastikan tidak ada file conflict antarteammate.
 
 - Mulai dengan 3-5 teammate.
 - Gunakan `penjaga-goal-bades` atau `verifikator-bades` pada task yang menyentuh
-  branding, docs, website, seed, email, atau workflow GitHub.
+  branding, seed, email, workflow GitHub, atau penghapusan/arsip website dan
+  docs.
 - Untuk maintenance branch aktif saat Anda tidak memantau terus, gunakan
   bare `/loop` atau skill `operasi-otonom-bades`.

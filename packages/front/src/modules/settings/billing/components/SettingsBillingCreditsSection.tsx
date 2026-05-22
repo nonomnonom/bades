@@ -2,6 +2,7 @@ import { type CurrentWorkspace } from '@/auth/states/currentWorkspaceState';
 import { useNumberFormat } from '@/localization/hooks/useNumberFormat';
 import { ResourceCreditPriceSelector } from '@/settings/billing/components/internal/ResourceCreditPriceSelector';
 import { SettingsBillingLabelValueItem } from '@/settings/billing/components/internal/SettingsBillingLabelValueItem';
+import { SettingsBillingTopUpSection } from '@/settings/billing/components/SettingsBillingTopUpSection';
 import { SubscriptionInfoContainer } from '@/settings/billing/components/SubscriptionInfoContainer';
 import { useBillingWording } from '@/settings/billing/hooks/useBillingWording';
 import { useCurrentBillingFlags } from '@/settings/billing/hooks/useCurrentBillingFlags';
@@ -70,12 +71,12 @@ export const SettingsBillingCreditsSection = ({
     <>
       <Section>
         <H2Title
-          title={t`Credit Usage`}
-          description={t`Track your ${intervalLabel} workflow credit consumption.`}
+          title={t`Pemakaian kredit`}
+          description={t`Pantau pemakaian kredit alur kerja Anda per ${intervalLabel}.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`Credits Used`}
+            label={t`Kredit terpakai`}
             value={`${formatNumber(usedCredits, { abbreviate: true, decimals: 2 })}/${formatNumber(totalGrantedCredits, { abbreviate: true, decimals: 2 })}`}
           />
           <ProgressBar
@@ -91,7 +92,7 @@ export const SettingsBillingCreditsSection = ({
             <>
               <HorizontalSeparator noMargin color={theme.background.tertiary} />
               <SettingsBillingLabelValueItem
-                label={t`Base Credits`}
+                label={t`Kredit dasar`}
                 value={formatNumber(grantedCredits, {
                   abbreviate: true,
                   decimals: 2,
@@ -99,18 +100,18 @@ export const SettingsBillingCreditsSection = ({
               />
               {rolloverCredits > 0 && (
                 <SettingsBillingLabelValueItem
-                  label={t`Rollover Credits`}
+                  label={t`Sisa kredit periode lalu`}
                   value={formatNumber(rolloverCredits, {
                     abbreviate: true,
                     decimals: 2,
                   })}
-                  tooltipText={t`Unused credits from the previous period. Expired at the end of the period.`}
+                  tooltipText={t`Kredit yang belum terpakai dari periode sebelumnya. Hangus di akhir periode.`}
                   tooltipId="rollover-credits-info"
                 />
               )}
               {rolloverCredits > 0 && (
                 <SettingsBillingLabelValueItem
-                  label={t`Total Available`}
+                  label={t`Total tersedia`}
                   value={formatNumber(totalGrantedCredits, {
                     abbreviate: true,
                     decimals: 2,
@@ -125,13 +126,13 @@ export const SettingsBillingCreditsSection = ({
           <UndecoratedLink to={getSettingsPath(SettingsPath.Usage)}>
             <Button
               Icon={IconChartBar}
-              title={t`View usage`}
+              title={t`Lihat pemakaian`}
               variant="secondary"
             />
           </UndecoratedLink>
           <Button
             Icon={IconExternalLink}
-            title={t`How credits work`}
+            title={t`Cara kerja kredit`}
             variant="secondary"
             onClick={() =>
               window.open(
@@ -150,6 +151,7 @@ export const SettingsBillingCreditsSection = ({
           isTrialing={isTrialing}
         />
       </Section>
+      <SettingsBillingTopUpSection />
     </>
   );
 };

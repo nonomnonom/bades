@@ -75,33 +75,33 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
   const permissionMap = usePermissionFlagMap();
   return [
     {
-      label: t`User`,
+      label: t`Pengguna`,
       items: [
         {
-          label: t`Profile`,
+          label: t`Profil`,
           path: SettingsPath.ProfilePage,
           Icon: IconUserCircle,
         },
         {
-          label: t`Experience`,
+          label: t`Tampilan`,
           path: SettingsPath.Experience,
           Icon: IconColorSwatch,
         },
         {
-          label: t`Accounts`,
+          label: t`Akun`,
           path: SettingsPath.Accounts,
           Icon: IconAt,
           isHidden: !permissionMap[PermissionFlagType.CONNECTED_ACCOUNTS],
           subItems: [
             {
-              label: t`Emails`,
+              label: t`Surel`,
               path: SettingsPath.AccountsEmails,
               Icon: IconMail,
               isHidden: !permissionMap[PermissionFlagType.CONNECTED_ACCOUNTS],
               indentationLevel: 2,
             },
             {
-              label: t`Calendars`,
+              label: t`Kalender`,
               path: SettingsPath.AccountsCalendars,
               Icon: IconCalendarEvent,
               isHidden: !permissionMap[PermissionFlagType.CONNECTED_ACCOUNTS],
@@ -112,35 +112,39 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
       ],
     },
     {
-      label: t`Workspace`,
+      label: t`Ruang Kerja`,
       items: [
         {
-          label: t`General`,
+          label: t`Umum`,
           path: SettingsPath.Workspace,
           Icon: IconSettings,
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
-          label: t`Data model`,
+          label: t`Model Data`,
           path: SettingsPath.Objects,
           Icon: IconHierarchy2,
           isHidden: !permissionMap[PermissionFlagType.DATA_MODEL],
         },
         {
-          label: t`Members`,
+          label: t`Anggota`,
           path: SettingsPath.WorkspaceMembersPage,
           Icon: IconUsers,
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE_MEMBERS],
         },
         {
-          label: t`Billing`,
+          label: t`Tagihan`,
           path: SettingsPath.Billing,
           Icon: IconCurrencyDollar,
           isHidden:
             !isBillingEnabled || !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
-          label: t`APIs & Webhooks`,
+          // API key, webhook, dan playground adalah surface developer teknis.
+          // Disembunyikan dari navigasi pengguna utama sesuai arah produk Bades
+          // (kapabilitas internal tim, bukan fitur perangkat desa).
+          // Route tetap aktif untuk akses tim internal yang memiliki izin.
+          label: t`API & Webhook`,
           path: SettingsPath.ApiWebhooks,
           Icon: IconApi,
           isHidden: true,
@@ -170,7 +174,7 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           modifier: 'new',
         },
         {
-          label: t`Security`,
+          label: t`Keamanan`,
           path: SettingsPath.Security,
           Icon: IconKey,
           isAdvanced: true,
@@ -179,10 +183,10 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
       ],
     },
     {
-      label: t`Other`,
+      label: t`Lainnya`,
       items: [
         {
-          label: t`Admin Panel`,
+          label: t`Panel Admin`,
           path: SettingsPath.AdminPanel,
           Icon: IconServer,
           isHidden: !isAdminEnabled,
@@ -196,13 +200,13 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           isHidden: true,
         },
         {
-          label: t`Support`,
+          label: t`Bantuan`,
           onClick: () => window.FrontChat?.('show'),
           Icon: IconMessage,
           isHidden: !isSupportChatConfigured,
         },
         {
-          label: t`Documentation`,
+          label: t`Dokumentasi`,
           onClick: () =>
             window.open(
               getDocumentationUrl({ locale: currentWorkspaceMember?.locale }),
@@ -211,7 +215,7 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           Icon: IconHelpCircle,
         },
         {
-          label: t`Logout`,
+          label: t`Keluar`,
           onClick: signOut,
           Icon: IconDoorEnter,
           matchSubPages: false,

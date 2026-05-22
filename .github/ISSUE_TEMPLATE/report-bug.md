@@ -1,36 +1,37 @@
 ---
-name: Report a bug
-about: Report a bug or a functional regression
-title: 'Ex: In DarkMode, a blank square appears in bottom right corner while scrolling'
+name: Laporkan bug
+about: Laporkan bug atau regresi fungsional
+title: 'Contoh: Di halaman Penduduk, tombol simpan tidak merespons setelah mengisi NIK'
 labels: ['type: bug']
 assignees: ''
 
 ---
 
-## Bug Description
+## Deskripsi Bug
 
-A clear and concise description of what the current behavior is.
-Please also add **screenshots** of the existing application.
+Deskripsi jelas dan ringkas tentang perilaku yang terjadi saat ini.
+Sertakan juga **tangkapan layar** dari aplikasi.
 
-**Example:** 
+**Contoh:**
 ```
-In DarkMode, when scrollbar are displayed (for example on Companies page, with enough companies in the list), we see a blank square in the bottom right corner
-[screenshot]
-```
-
-## Expected behavior
-
-A clear and concise description of what the expected behavior is.
-
-**Example:** 
-```
-The blank square should be transparent (invisible)
+Di halaman tambah penduduk baru, setelah mengisi NIK dan klik tombol Simpan,
+tidak ada respons — tombol tidak bereaksi dan data tidak tersimpan.
+[tangkapan layar]
 ```
 
-## Technical inputs
+## Perilaku yang diharapkan
 
-**Example:** 
+Deskripsi jelas dan ringkas tentang perilaku yang seharusnya terjadi.
+
+**Contoh:**
 ```
-- We are displaying custom scrollbars that disappear when the user is not scrolling. See ScrollWrapper.
-- Probably fixable with CSS
+Setelah klik Simpan, data penduduk baru tersimpan dan halaman kembali ke daftar penduduk.
+```
+
+## Masukan teknis
+
+**Contoh:**
+```
+- Kemungkinan validasi NIK memblokir submit tanpa menampilkan pesan error
+- Cek handler onSubmit di formulir PendudukBaru
 ```

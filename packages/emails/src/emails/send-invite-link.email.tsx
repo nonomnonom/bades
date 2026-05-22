@@ -48,7 +48,7 @@ export const SendInviteLinkEmail = ({
       <Title value={i18n._('Bergabung dengan tim di Bades')} />
       <MainText>
         <Trans
-          id="{senderName} (<0>{senderEmail}</0>) has invited you to join a workspace called <1>{workspaceName}</1>."
+          id="{senderName} (<0>{senderEmail}</0>) mengundang Anda untuk bergabung ke workspace <1>{workspaceName}</1>."
           values={{ senderName, senderEmail, workspaceName }}
           components={{
             0: (
@@ -75,7 +75,7 @@ export const SendInviteLinkEmail = ({
           <></>
         )}
         {workspace.name ? <HighlightedText value={workspace.name} /> : <></>}
-        <CallToAction href={link} value={i18n._('Accept invite')} />
+        <CallToAction href={link} value={i18n._('Terima undangan')} />
       </HighlightedContainer>
       <WhatIsBades i18n={i18n} />
     </BaseEmail>

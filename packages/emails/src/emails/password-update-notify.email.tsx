@@ -24,22 +24,22 @@ export const PasswordUpdateNotifyEmail = ({
 
   return (
     <BaseEmail locale={locale}>
-      <Title value={i18n._('Password updated')} />
+      <Title value={i18n._('Kata sandi diperbarui')} />
       <MainText>
         {userName?.length > 1 ? (
-          <Trans id="Dear {userName}," values={{ userName }} />
+          <Trans id="Halo {userName}," values={{ userName }} />
         ) : (
-          <Trans id="Hello," />
+          <Trans id="Halo," />
         )}
         <br />
         <br />
         <Trans
-          id="This is a confirmation that password for your account ({email}) was successfully changed on {formattedDate}."
+          id="Ini adalah konfirmasi bahwa kata sandi akun Anda ({email}) berhasil diubah pada {formattedDate}."
           values={{ email, formattedDate }}
         />
         <br />
         <br />
-        <Trans id="If you did not initiate this change, please contact your workspace owner immediately." />
+        <Trans id="Jika Anda tidak melakukan perubahan ini, segera hubungi pemilik workspace Anda." />
         <br />
       </MainText>
       <br />
@@ -51,8 +51,8 @@ export const PasswordUpdateNotifyEmail = ({
 };
 
 PasswordUpdateNotifyEmail.PreviewProps = {
-  userName: 'John Doe',
-  email: 'john.doe@example.com',
+  userName: 'Budi Santoso',
+  email: 'budi.santoso@desa-suka-maju.id',
   link: 'https://app.bades.id',
   locale: 'id-ID',
 } as PasswordUpdateNotifyEmailProps;

@@ -51,10 +51,4 @@ export const JENIS_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     icon: 'IconCheck',
     description: 'Apakah surat aktif',
   },
-  {
-    type: FieldMetadataType.NUMBER,
-    label: 'Position',
-    name: 'position',
-    icon: 'IconHierarchy',
-  },
 ];

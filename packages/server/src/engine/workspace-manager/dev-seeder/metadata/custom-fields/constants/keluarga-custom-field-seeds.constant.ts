@@ -79,24 +79,4 @@ export const KELUARGA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Mampu', value: 'MAMPU', position: 2 },
     ],
   },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'Sumber Data',
-    name: 'createdBySource',
-  },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'ID Warehouse',
-    name: 'createdByWorkspaceMemberId',
-  },
-  {
-    type: FieldMetadataType.TEXT,
-    label: 'Nama Creator',
-    name: 'createdByName',
-  },
-  {
-    type: FieldMetadataType.NUMBER,
-    label: 'Position',
-    name: 'position',
-  },
 ];

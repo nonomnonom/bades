@@ -3,7 +3,7 @@ import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder
 export const PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Permohonan Surat',
   labelSingular: 'Permohonan Surat',
-  namePlural: 'permohonan-surats',
-  nameSingular: 'permohonan-surat',
+  namePlural: 'permohonanSurats',
+  nameSingular: 'permohonanSurat',
   icon: 'IconMail',
 };

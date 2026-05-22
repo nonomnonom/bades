@@ -38,12 +38,12 @@ export const useBillingWording = () => {
     asAdjective: boolean = false,
   ): string =>
     isMonthly && asAdjective
-      ? t`monthly`
+      ? t`bulanan`
       : asAdjective
-        ? t`yearly`
+        ? t`tahunan`
         : isMonthly
-          ? t`month`
-          : t`year`;
+          ? t`bulan`
+          : t`tahun`;
 
   const getBeautifiedRenewDate = () => {
     assertIsDefinedOrThrow(
@@ -91,47 +91,47 @@ export const useBillingWording = () => {
 
   const confirmationModalSwitchToYearlyMessage = () => {
     if (subscriptionStatus === SubscriptionStatus.Trialing) {
-      return t`Your trial period will end, and you will be charged $${yearlyPrice} per user per year billed annually. A prorata with your current subscription will be applied.`;
+      return t`Masa uji coba Anda akan berakhir, dan Anda akan ditagih Rp${yearlyPrice} per pengguna per tahun yang ditagih tahunan. Prorata dengan langganan Anda saat ini akan diterapkan.`;
     }
-    return t`You will be charged $${yearlyPrice} per user per year billed annually. A prorata with your current subscription will be applied.`;
+    return t`Anda akan ditagih Rp${yearlyPrice} per pengguna per tahun yang ditagih tahunan. Prorata dengan langganan Anda saat ini akan diterapkan.`;
   };
 
   const confirmationModalSwitchToMonthlyMessage = () => {
     const beautifiedRenewDate = getBeautifiedRenewDate();
-    return t`You will be charged $${monthlyPrice} per user per month billed monthly. The change will be applied the ${beautifiedRenewDate}.`;
+    return t`Anda akan ditagih Rp${monthlyPrice} per pengguna per bulan yang ditagih bulanan. Perubahan berlaku pada ${beautifiedRenewDate}.`;
   };
 
   const confirmationModalSwitchToOrganizationMessage = () => {
     const prefix =
       subscriptionStatus === SubscriptionStatus.Trialing
-        ? t`Your trial period will end, and `
+        ? t`Masa uji coba Anda akan berakhir, dan `
         : '';
-    const body = t`you will be charged $${enterprisePrice} per user per month`;
-    const suffix = isYearlyPlan ? t` billed annually` : '';
+    const body = t`Anda akan ditagih Rp${enterprisePrice} per pengguna per bulan`;
+    const suffix = isYearlyPlan ? t` yang ditagih tahunan` : '';
     return capitalize(`${prefix}${body}${suffix}.`);
   };
 
   const confirmationModalSwitchToProMessage = () => {
     const beautifiedRenewDate = getBeautifiedRenewDate();
-    const suffix1 = isYearlyPlan ? t` billed annually` : '';
-    const suffix2 = t`. The change will be applied the ${beautifiedRenewDate}.`;
-    const body = t`You will be charged $${proPrice} per user per month`;
+    const suffix1 = isYearlyPlan ? t` yang ditagih tahunan` : '';
+    const suffix2 = t`. Perubahan berlaku pada ${beautifiedRenewDate}.`;
+    const body = t`Anda akan ditagih Rp${proPrice} per pengguna per bulan`;
     return `${body}${suffix1}${suffix2}`;
   };
 
   const confirmationModalCancelPlanSwitchingMessage = () => {
     const planKeyWord =
       currentPlan.planKey === BillingPlanKey.ENTERPRISE
-        ? t`Organization`
+        ? t`Organisasi`
         : t`Pro`;
 
-    return t`This will cancel the scheduled plan change and keep your current plan (${planKeyWord}).`;
+    return t`Tindakan ini membatalkan perubahan paket terjadwal dan mempertahankan paket Anda saat ini (${planKeyWord}).`;
   };
 
   const confirmationModalCancelIntervalSwitchingMessage = () => {
     const currentIntervalLabel = getCurrentIntervalLabel();
 
-    return t`This will cancel the scheduled interval change and keep your current billing interval (${currentIntervalLabel}).`;
+    return t`Tindakan ini membatalkan perubahan interval terjadwal dan mempertahankan interval penagihan Anda saat ini (${currentIntervalLabel}).`;
   };
 
   return {

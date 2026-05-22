@@ -42,7 +42,7 @@ jobs:
           upload_translations: false
           download_translations: false
           localization_branch_name: i18n-docs
-          base_url: 'https://twenty.api.crowdin.com'
+          base_url: 'https://bades.api.crowdin.com'
           config: '.github/crowdin-docs.yml'
         env:
           # Docs translations project

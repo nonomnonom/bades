@@ -194,9 +194,9 @@ export class DevSeederPermissionsService {
       ownerFlatApplication,
       workspaceId,
       input: {
-        label: 'Object-restricted',
+        label: 'Dibatasi-Objek',
         description:
-          'All permissions except read on Rockets and update on Pets',
+          'Semua izin kecuali baca Keluarga dan ubah Penduduk',
         icon: 'custom',
         canUpdateAllSettings: true,
         canAccessAllTools: true,
@@ -207,19 +207,18 @@ export class DevSeederPermissionsService {
       },
     });
 
-    const petObjectMetadata = await this.objectMetadataRepository.findOneOrFail(
-      {
-        where: {
-          nameSingular: 'pet',
-          workspaceId,
-        },
-      },
-    );
-
-    const rocketObjectMetadata =
+    const pendudukObjectMetadata =
       await this.objectMetadataRepository.findOneOrFail({
         where: {
-          nameSingular: 'rocket',
+          nameSingular: 'penduduk',
+          workspaceId,
+        },
+      });
+
+    const keluargaObjectMetadata =
+      await this.objectMetadataRepository.findOneOrFail({
+        where: {
+          nameSingular: 'keluarga',
           workspaceId,
         },
       });
@@ -252,14 +251,14 @@ export class DevSeederPermissionsService {
         roleId: customRole.id,
         objectPermissions: [
           {
-            objectMetadataId: petObjectMetadata.id,
+            objectMetadataId: pendudukObjectMetadata.id,
             canReadObjectRecords: true,
             canUpdateObjectRecords: false,
             canSoftDeleteObjectRecords: false,
             canDestroyObjectRecords: false,
           },
           {
-            objectMetadataId: rocketObjectMetadata.id,
+            objectMetadataId: keluargaObjectMetadata.id,
             canReadObjectRecords: false,
             canUpdateObjectRecords: false,
             canSoftDeleteObjectRecords: false,

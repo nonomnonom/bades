@@ -8,9 +8,19 @@ paths:
   - "docs/**"
 ---
 
-# Docs And Website Branding
+# Docs And Website Cleanup
 
-Gunakan rule ini untuk website, docs, release notes, README, dan konten publik.
+Gunakan rule ini saat menyentuh website, docs, release notes, README, dan
+konten publik yang masih tersisa.
+
+## Default Sikap
+
+- `website` dan `docs` bukan stream pengembangan aktif Bades.
+- Arah default pada area ini adalah **hapus, arsipkan, matikan, atau bersihkan**,
+  bukan memperkaya surface publik lama.
+- Jika sebuah perubahan di area ini tidak membantu penghapusan surface lama,
+  pemutusan branding lama, atau pengalihan fokus ke aplikasi inti, pertanyakan
+  dulu apakah perubahan itu perlu dilakukan.
 
 ## Narasi Publik
 
@@ -28,6 +38,8 @@ Gunakan rule ini untuk website, docs, release notes, README, dan konten publik.
   rename".
 - Jangan jadikan setup infra, deployment manual, atau workflow engineer sebagai
   jalur utama yang ditonjolkan pada surface publik repo, website, atau docs.
+- Jika halaman atau konten publik tidak lagi dibutuhkan, lebih baik dihapus
+  atau diarsipkan daripada dirombak menjadi surface marketing baru.
 
 ## Bahasa dan Terminologi
 
@@ -42,3 +54,5 @@ Gunakan rule ini untuk website, docs, release notes, README, dan konten publik.
   identitas Bades.
 - Kalau ada contoh lama yang masih terasa seperti SaaS/CRM generik, anggap itu
   backlog pembersihan, bukan referensi yang dipertahankan.
+- Saat menghapus surface docs/website, pastikan link, metadata, nav, dan asset
+  yang menunjuk ke sana ikut dirapikan agar tidak meninggalkan jejak rusak.

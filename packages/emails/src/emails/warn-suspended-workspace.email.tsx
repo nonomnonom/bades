@@ -31,21 +31,21 @@ export const WarnSuspendedWorkspaceEmail = ({
       <Title value={i18n._('Workspace Ditangguhkan')} />
       <MainText>
         {userName?.length > 1 ? (
-          <Trans id="Dear {userName}," values={{ userName }} />
+          <Trans id="Halo {userName}," values={{ userName }} />
         ) : (
-          <Trans id="Hello," />
+          <Trans id="Halo," />
         )}
         <br />
         <br />
         <Trans
-          id="It appears that your workspace <0>{workspaceDisplayName}</0> has been suspended for {daysSinceInactive} days."
+          id="Workspace <0>{workspaceDisplayName}</0> Anda telah ditangguhkan selama {daysSinceInactive} hari."
           values={{ workspaceDisplayName, daysSinceInactive }}
           components={{ 0: <b /> }}
         />
         <br />
         <br />
         <Trans
-          id="The workspace will be deactivated in {remainingDays} {dayOrDays}, and all its data will be deleted."
+          id="Workspace akan dinonaktifkan dalam {remainingDays} {dayOrDays}, dan seluruh datanya akan dihapus."
           values={{ remainingDays, dayOrDays }}
         />
         <br />
@@ -69,7 +69,7 @@ export const WarnSuspendedWorkspaceEmail = ({
 WarnSuspendedWorkspaceEmail.PreviewProps = {
   daysSinceInactive: 10,
   inactiveDaysBeforeDelete: 14,
-  userName: 'John Doe',
+  userName: 'Budi Santoso',
   workspaceDisplayName: 'Desa Contoh',
   locale: 'id-ID',
 };

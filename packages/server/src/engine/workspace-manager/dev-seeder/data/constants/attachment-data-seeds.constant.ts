@@ -1,9 +1,7 @@
 import { FieldActorSource } from 'shared/types';
 
-import { COMPANY_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/company-data-seeds.constant';
 import { NOTE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-data-seeds.constant';
-import { OPPORTUNITY_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/opportunity-data-seeds.constant';
-import { PERSON_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/person-data-seeds.constant';
+import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 import { TASK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/task-data-seeds.constant';
 import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
 
@@ -17,11 +15,8 @@ type AttachmentDataSeed = {
   updatedBySource: string;
   updatedByWorkspaceMemberId: string;
   updatedByName: string;
-  targetPersonId: string | null;
-  targetCompanyId: string | null;
   targetNoteId: string | null;
   targetTaskId: string | null;
-  targetOpportunityId: string | null;
 };
 
 export const ATTACHMENT_DATA_SEED_COLUMNS: (keyof AttachmentDataSeed)[] = [
@@ -34,11 +29,8 @@ export const ATTACHMENT_DATA_SEED_COLUMNS: (keyof AttachmentDataSeed)[] = [
   'updatedBySource',
   'updatedByWorkspaceMemberId',
   'updatedByName',
-  'targetPersonId',
-  'targetCompanyId',
   'targetNoteId',
   'targetTaskId',
-  'targetOpportunityId',
 ];
 
 const GENERATE_ATTACHMENT_IDS = (): Record<string, string> => {
@@ -95,39 +87,40 @@ export const ATTACHMENT_SAMPLE_FILES = [
   },
 ];
 
+// Nama file lampiran sesuai konteks administrasi desa Indonesia
 const FILE_NAME_VARIATIONS = [
-  // Documents
-  { name: 'Service Agreement.pdf', sampleFileIndex: 0 },
-  { name: 'NDA Document.pdf', sampleFileIndex: 0 },
-  { name: 'Project Proposal.pdf', sampleFileIndex: 0 },
-  { name: 'Invoice Q1 2024.pdf', sampleFileIndex: 0 },
-  { name: 'Meeting Notes.pdf', sampleFileIndex: 0 },
-  { name: 'Report Final.pdf', sampleFileIndex: 0 },
-  { name: 'Contract Signed.pdf', sampleFileIndex: 0 },
-  // Spreadsheets
-  { name: 'Financial Forecast.xlsx', sampleFileIndex: 1 },
-  { name: 'Sales Report Q4.xlsx', sampleFileIndex: 1 },
-  { name: 'Team Roster.xlsx', sampleFileIndex: 1 },
-  { name: 'Expense Report.xlsx', sampleFileIndex: 1 },
-  { name: 'Inventory List.xlsx', sampleFileIndex: 1 },
-  { name: 'Data Export.csv', sampleFileIndex: 1 },
-  // Presentations
-  { name: 'Pitch Deck.pptx', sampleFileIndex: 2 },
-  { name: 'Q4 Results.pptx', sampleFileIndex: 2 },
-  { name: 'Roadmap 2024.pptx', sampleFileIndex: 2 },
-  { name: 'Company Overview.pptx', sampleFileIndex: 2 },
-  { name: 'Training Materials.pptx', sampleFileIndex: 2 },
-  // Images
-  { name: 'Company Logo.png', sampleFileIndex: 3 },
-  { name: 'Product Photo.jpg', sampleFileIndex: 3 },
-  { name: 'Diagram.png', sampleFileIndex: 3 },
-  { name: 'Wireframe.png', sampleFileIndex: 3 },
-  { name: 'Mockup Design.png', sampleFileIndex: 3 },
-  { name: 'Headshot.jpg', sampleFileIndex: 3 },
-  // Archives
-  { name: 'Project Files.zip', sampleFileIndex: 4 },
-  { name: 'Backup Data.zip', sampleFileIndex: 4 },
-  { name: 'Source Code.zip', sampleFileIndex: 4 },
+  // Dokumen administrasi
+  { name: 'Surat Keterangan Domisili.pdf', sampleFileIndex: 0 },
+  { name: 'Akta Kelahiran.pdf', sampleFileIndex: 0 },
+  { name: 'Surat Pengantar SKCK.pdf', sampleFileIndex: 0 },
+  { name: 'Permohonan Layanan Warga.pdf', sampleFileIndex: 0 },
+  { name: 'Surat Keterangan Usaha.pdf', sampleFileIndex: 0 },
+  { name: 'Berita Acara Musyawarah.pdf', sampleFileIndex: 0 },
+  { name: 'SK Kepala Desa.pdf', sampleFileIndex: 0 },
+  // Data keuangan desa
+  { name: 'APBDes 2024.xlsx', sampleFileIndex: 1 },
+  { name: 'Realisasi Anggaran Q1.xlsx', sampleFileIndex: 1 },
+  { name: 'Daftar Penerima Bantuan.xlsx', sampleFileIndex: 1 },
+  { name: 'Laporan Keuangan Desa.xlsx', sampleFileIndex: 1 },
+  { name: 'Data Penduduk Desa.xlsx', sampleFileIndex: 1 },
+  { name: 'Rekap Kartu Keluarga.xlsx', sampleFileIndex: 1 },
+  // Presentasi dan laporan
+  { name: 'Profil Desa 2024.pptx', sampleFileIndex: 2 },
+  { name: 'Laporan Tahunan Desa.pptx', sampleFileIndex: 2 },
+  { name: 'Program Kerja Desa.pptx', sampleFileIndex: 2 },
+  { name: 'Rencana Pembangunan Desa.pptx', sampleFileIndex: 2 },
+  { name: 'Sosialisasi Program Bantuan.pptx', sampleFileIndex: 2 },
+  // Foto dan dokumen pendukung
+  { name: 'Foto Balai Desa.png', sampleFileIndex: 3 },
+  { name: 'Peta Wilayah Desa.png', sampleFileIndex: 3 },
+  { name: 'Denah Kantor Desa.png', sampleFileIndex: 3 },
+  { name: 'Dokumentasi Kegiatan.png', sampleFileIndex: 3 },
+  { name: 'Foto Kondisi Infrastruktur.png', sampleFileIndex: 3 },
+  { name: 'KTP Warga Scan.jpg', sampleFileIndex: 3 },
+  // Arsip
+  { name: 'Arsip Surat 2023.zip', sampleFileIndex: 4 },
+  { name: 'Backup Data Penduduk.zip', sampleFileIndex: 4 },
+  { name: 'Dokumen APBDes Lama.zip', sampleFileIndex: 4 },
 ];
 
 export type AttachmentFileSeedMetadata = {
@@ -147,11 +140,8 @@ export const generateAttachmentSeedsForWorkspace = (
   const seeds: AttachmentDataSeed[] = [];
   const fileSeedMetadata: AttachmentFileSeedMetadata[] = [];
 
-  const PERSON_IDS = Object.values(PERSON_DATA_SEED_IDS).slice(0, 120);
-  const COMPANY_IDS = Object.values(COMPANY_DATA_SEED_IDS).slice(0, 120);
-  const NOTE_IDS = Object.values(NOTE_DATA_SEED_IDS).slice(0, 80);
-  const TASK_IDS = Object.values(TASK_DATA_SEED_IDS).slice(0, 60);
-  const OPPORTUNITY_IDS = Object.values(OPPORTUNITY_DATA_SEED_IDS).slice(0, 20);
+  const NOTE_IDS = Object.values(NOTE_DATA_SEED_IDS).slice(0, 120);
+  const TASK_IDS = Object.values(TASK_DATA_SEED_IDS).slice(0, 120);
 
   let entityIndex = 0;
 
@@ -163,29 +153,18 @@ export const generateAttachmentSeedsForWorkspace = (
     const attachmentId = ATTACHMENT_DATA_SEED_IDS[`ID_${index}`];
     const fileId = deriveFileId(index, workspaceId);
 
-    let targetPersonId: string | null = null;
-    let targetCompanyId: string | null = null;
     let targetNoteId: string | null = null;
     let targetTaskId: string | null = null;
-    let targetOpportunityId: string | null = null;
 
     const distributionValue = index % 100;
 
-    if (distributionValue < 30) {
-      targetPersonId = PERSON_IDS[entityIndex % PERSON_IDS.length];
-      entityIndex++;
-    } else if (distributionValue < 60) {
-      targetCompanyId = COMPANY_IDS[entityIndex % COMPANY_IDS.length];
-      entityIndex++;
-    } else if (distributionValue < 80) {
+    if (distributionValue < 50) {
+      // 50% lampiran ke catatan warga
       targetNoteId = NOTE_IDS[entityIndex % NOTE_IDS.length];
       entityIndex++;
-    } else if (distributionValue < 95) {
+    } else if (distributionValue < 100) {
+      // 50% lampiran ke tugas perangkat desa
       targetTaskId = TASK_IDS[entityIndex % TASK_IDS.length];
-      entityIndex++;
-    } else {
-      targetOpportunityId =
-        OPPORTUNITY_IDS[entityIndex % OPPORTUNITY_IDS.length];
       entityIndex++;
     }
 
@@ -209,11 +188,8 @@ export const generateAttachmentSeedsForWorkspace = (
       updatedBySource: FieldActorSource.MANUAL,
       updatedByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
       updatedByName: 'Drs. H. Abdullah',
-      targetPersonId,
-      targetCompanyId,
       targetNoteId,
       targetTaskId,
-      targetOpportunityId,
     });
   }
 

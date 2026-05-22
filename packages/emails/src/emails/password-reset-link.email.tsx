@@ -22,16 +22,16 @@ export const PasswordResetLinkEmail = ({
 }: PasswordResetLinkEmailProps) => {
   const i18n = createI18nInstance(locale);
   const headline = hasPassword
-    ? i18n._('Reset your password 🗝')
-    : i18n._('Set your password 🗝');
-  const ctaLabel = hasPassword ? i18n._('Reset') : i18n._('Set');
+    ? i18n._('Atur ulang kata sandi')
+    : i18n._('Buat kata sandi');
+  const ctaLabel = hasPassword ? i18n._('Atur ulang') : i18n._('Buat');
 
   return (
     <BaseEmail locale={locale}>
       <Title value={headline} />
       <MainText>
         <Trans
-          id="This link is only valid for the next {duration}. If the link does not work, you can use the login verification link directly:"
+          id="Tautan ini hanya berlaku selama {duration} ke depan. Jika tautan tidak berfungsi, gunakan tautan verifikasi login berikut secara langsung:"
           values={{ duration }}
         />
         <br />

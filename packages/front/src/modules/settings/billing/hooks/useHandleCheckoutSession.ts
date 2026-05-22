@@ -41,7 +41,7 @@ export const useHandleCheckoutSession = ({
     setIsSubmitting(false);
     if (!data?.checkoutSession.url) {
       enqueueErrorSnackBar({
-        message: t`Checkout session error. Please retry or contact Bades team`,
+        message: t`Gagal memulai pembayaran. Silakan coba lagi atau hubungi tim Bades.`,
       });
       return;
     }

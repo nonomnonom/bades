@@ -42,8 +42,8 @@ export const SubscriptionInfoHeaderRow = ({ show }: { show: boolean }) => {
   return (
     <StyledContainer>
       <div />
-      <StyledHeaderText>{t`Current`}</StyledHeaderText>
-      <StyledHeaderText>{t`Next`}</StyledHeaderText>
+      <StyledHeaderText>{t`Saat ini`}</StyledHeaderText>
+      <StyledHeaderText>{t`Berikutnya`}</StyledHeaderText>
     </StyledContainer>
   );
 };

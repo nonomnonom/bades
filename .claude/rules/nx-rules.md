@@ -29,14 +29,15 @@ npx nx lint:diff-with-main server
 # Shared packages
 npx nx build shared
 npx nx build ui
-npx nx build website
 ```
 
 ## Preferred Workflow
 
 - Prefer `lint:diff-with-main` before full-package lint runs.
 - Use explicit project names that exist in this repo such as `front`, `server`,
-  `shared`, `ui`, `website`, `docs`, and `sdk`.
+  `shared`, `ui`, dan `sdk`.
+- Perlakukan `website` dan `docs` sebagai proyek legacy; jangan menjadikannya
+  contoh default workflow baru.
 - Check each package `project.json` instead of assuming target names.
 
 ## Notes

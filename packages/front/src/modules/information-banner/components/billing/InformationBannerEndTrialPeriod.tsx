@@ -18,11 +18,11 @@ export const InformationBannerEndTrialPeriod = () => {
       variant="secondary"
       message={
         hasPermissionToEndTrialPeriod
-          ? t`End trial period to continue using Workflow or AI features.`
-          : t`Contact your admin to continue using Workflow or AI features.`
+          ? t`Akhiri masa uji coba untuk terus memakai fitur alur kerja atau AI.`
+          : t`Hubungi admin Anda untuk terus memakai fitur alur kerja atau AI.`
       }
       buttonTitle={
-        hasPermissionToEndTrialPeriod ? t`End Trial Period` : undefined
+        hasPermissionToEndTrialPeriod ? t`Akhiri masa uji coba` : undefined
       }
       buttonOnClick={async () => await endTrialPeriod()}
       isButtonDisabled={isLoading}

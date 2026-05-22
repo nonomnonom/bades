@@ -67,7 +67,7 @@ export const ResourceCreditPriceSelector = ({
     });
 
     return {
-      label: t`${credits} Credits - $${priceDisplay}`,
+      label: t`${credits} kredit - Rp${priceDisplay}`,
       value: price.stripePriceId,
     };
   };
@@ -147,7 +147,9 @@ export const ResourceCreditPriceSelector = ({
         setCurrentWorkspace(newCurrentWorkspace);
         refetchResourceCreditUsage();
       }
-      enqueueSuccessSnackBar({ message: t`Resource credits updated.` });
+      enqueueSuccessSnackBar({
+        message: t`Kredit sumber daya berhasil diperbarui.`,
+      });
       const newPrice = resourceCreditPrices.find(
         ({ stripePriceId }) => stripePriceId === selectedPrice.stripePriceId,
       );
@@ -156,15 +158,17 @@ export const ResourceCreditPriceSelector = ({
       }
       setSelectedPriceId(undefined);
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to update resource credits.` });
+      enqueueErrorSnackBar({
+        message: t`Gagal memperbarui kredit sumber daya.`,
+      });
     }
   };
 
   return (
     <>
       <H2Title
-        title={t`Resource credits`}
-        description={t`Number of new credits allocated every ${recurringInterval}`}
+        title={t`Kredit sumber daya`}
+        description={t`Jumlah kredit baru yang dialokasikan setiap ${recurringInterval}`}
       />
       <StyledRow>
         <StyledSelectContainer>
@@ -177,7 +181,7 @@ export const ResourceCreditPriceSelector = ({
             onChange={handleChange}
             disabled={isUpdating || isTrialing}
             description={
-              isTrialing ? t`Please start your subscription first` : undefined
+              isTrialing ? t`Mulai langganan Anda terlebih dahulu` : undefined
             }
             fullWidth
           />
@@ -185,7 +189,7 @@ export const ResourceCreditPriceSelector = ({
         {isChanged && (
           <StyledButtonContainer>
             <Button
-              title={isUpgrade() ? t`Upgrade` : t`Downgrade`}
+              title={isUpgrade() ? t`Tingkatkan` : t`Turunkan`}
               onClick={handleOpenConfirm}
               variant="primary"
               isLoading={isUpdating}
@@ -197,9 +201,11 @@ export const ResourceCreditPriceSelector = ({
       </StyledRow>
       <ConfirmationModal
         modalInstanceId={confirmModalId}
-        title={isUpgrade() ? t`Confirm upgrade` : t`Confirm downgrade`}
-        subtitle={t`Confirm changing your current resource credit allocation.`}
-        confirmButtonText={isUpgrade() ? t`Upgrade` : t`Downgrade`}
+        title={
+          isUpgrade() ? t`Konfirmasi peningkatan` : t`Konfirmasi penurunan`
+        }
+        subtitle={t`Konfirmasi perubahan alokasi kredit sumber daya Anda saat ini.`}
+        confirmButtonText={isUpgrade() ? t`Tingkatkan` : t`Turunkan`}
         confirmButtonAccent={isUpgrade() ? 'blue' : 'danger'}
         loading={isUpdating}
         onConfirmClick={handleConfirmClick}

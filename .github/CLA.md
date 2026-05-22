@@ -4,7 +4,7 @@
 The following terms are used throughout this agreement:
 
 - You - the person or legal entity including its affiliates asked to accept this agreement. An affiliate is any entity that controls or is controlled by the legal entity, or is under common control with it.
-- Project - is an umbrella term that refers to any and all Bades.id open source projects.
+- Project - is an umbrella term that refers to any and all Bades.id projects.
 - Contribution - any type of work that is submitted to a Project, including any modifications or additions to existing work.
 - Submitted - conveyed to a Project via a pull request, commit, issue, or any form of electronic, written, or verbal communication with Bades.id contributors or maintainers.
 

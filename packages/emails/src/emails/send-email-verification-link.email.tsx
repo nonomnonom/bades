@@ -19,14 +19,14 @@ export const SendEmailVerificationLinkEmail = ({
 }: SendEmailVerificationLinkEmailProps) => {
   const i18n = createI18nInstance(locale);
   const title = isEmailUpdate
-    ? i18n._('Confirm your new email address')
-    : i18n._('Confirm your email address');
+    ? i18n._('Konfirmasi alamat email baru')
+    : i18n._('Konfirmasi alamat email');
   const bodyId = isEmailUpdate
     ? 'Kami menerima permintaan untuk mengubah alamat email yang terkait dengan akun Bades Anda. Klik di bawah untuk mengonfirmasi perubahan ini.'
     : 'Terima kasih telah mendaftar untuk akun Bades! Sebelum kami mulai, kami perlu memastikan bahwa ini adalah Anda. Klik di bawah untuk memverifikasi alamat email Anda.';
   const ctaLabel = isEmailUpdate
-    ? i18n._('Confirm new email')
-    : i18n._('Verify Email');
+    ? i18n._('Konfirmasi email baru')
+    : i18n._('Verifikasi email');
 
   return (
     <BaseEmail width={333} locale={locale}>

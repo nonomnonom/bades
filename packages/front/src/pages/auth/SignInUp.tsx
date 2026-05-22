@@ -118,11 +118,11 @@ export const SignInUp = () => {
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationProvision) {
-      return t`Setup your 2FA`;
+      return t`Atur autentikasi dua faktor`;
     }
 
     if (signInUpStep === SignInUpStep.TwoFactorAuthenticationVerification) {
-      return t`Verify code from the app`;
+      return t`Masukkan kode dari aplikasi`;
     }
 
     if (isGlobalScope) {
@@ -132,10 +132,10 @@ export const SignInUp = () => {
     const workspaceName = workspacePublicData?.displayName;
 
     if (!workspaceName) {
-      return t`Welcome to your workspace`;
+      return t`Selamat datang di ruang kerja Anda`;
     }
 
-    return t`Welcome, ${workspaceName}.`;
+    return t`Selamat datang, ${workspaceName}.`;
   }, [
     workspaceInviteHash,
     signInUpStep,

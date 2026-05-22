@@ -81,7 +81,7 @@ jobs:
             crowdin download \
               --config .github/crowdin-docs.yml \
               --token "$CROWDIN_PERSONAL_TOKEN" \
-              --base-url "https://twenty.api.crowdin.com" \
+              --base-url "https://bades.api.crowdin.com" \
               --language "$lang" \
               --skip-untranslated-strings=false \
               --skip-untranslated-files=false \

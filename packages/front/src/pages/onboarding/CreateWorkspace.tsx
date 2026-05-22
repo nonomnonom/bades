@@ -77,7 +77,7 @@ export const CreateWorkspace = () => {
 
   const validationSchema = z
     .object({
-      name: z.string().min(1, { message: t`Name can not be empty` }),
+      name: z.string().min(1, { message: t`Nama tidak boleh kosong` }),
     })
     .required();
 
@@ -159,22 +159,22 @@ export const CreateWorkspace = () => {
             }
           />
           <Title>
-            <Trans>Creating your workspace</Trans>
+            <Trans>Menyiapkan ruang kerja Anda</Trans>
           </Title>
           <StyledPendingCreationLoader>
             {pendingCreationLoaderStep === PendingCreationLoaderStep.Step1 && (
               <SubTitle>
-                <Trans>Setting up your database...</Trans>
+                <Trans>Menyiapkan database...</Trans>
               </SubTitle>
             )}
             {pendingCreationLoaderStep === PendingCreationLoaderStep.Step2 && (
               <SubTitle>
-                <Trans>Creating your data model...</Trans>
+                <Trans>Membangun model data...</Trans>
               </SubTitle>
             )}
             {pendingCreationLoaderStep === PendingCreationLoaderStep.Step3 && (
               <SubTitle>
-                <Trans>Prefilling your workspace data...</Trans>
+                <Trans>Mengisi data awal...</Trans>
               </SubTitle>
             )}
           </StyledPendingCreationLoader>
@@ -186,24 +186,24 @@ export const CreateWorkspace = () => {
       {pendingCreationLoaderStep === PendingCreationLoaderStep.None && (
         <>
           <Title noMarginTop>
-            <Trans>Create your workspace</Trans>
+            <Trans>Buat ruang kerja Anda</Trans>
           </Title>
           <SubTitle>
             <Trans>
-              A shared environment where you will be able to manage your
-              customer relations with your team.
+              Lingkungan bersama tempat Anda dan tim mengelola data administrasi
+              desa.
             </Trans>
           </SubTitle>
 
           <StyledContentContainer>
             <StyledSectionContainer>
-              <H2Title title={t`Workspace logo`} />
+              <H2Title title={t`Logo ruang kerja`} />
               <WorkspaceLogoUploader />
             </StyledSectionContainer>
             <StyledSectionContainer>
               <H2Title
-                title={t`Workspace name`}
-                description={t`The name of your organization`}
+                title={t`Nama ruang kerja`}
+                description={t`Nama instansi atau organisasi Anda`}
               />
               <Controller
                 name="name"
@@ -215,7 +215,7 @@ export const CreateWorkspace = () => {
                   <TextInput
                     autoFocus
                     value={value}
-                    placeholder={t`Apple`}
+                    placeholder={t`Desa Maju Jaya`}
                     onBlur={onBlur}
                     onChange={onChange}
                     error={error?.message}
@@ -228,7 +228,7 @@ export const CreateWorkspace = () => {
           </StyledContentContainer>
           <StyledButtonContainer>
             <MainButton
-              title={t`Continue`}
+              title={t`Lanjutkan`}
               onClick={handleSubmit(onSubmit)}
               disabled={!isValid || isSubmitting}
               Icon={() => isSubmitting && <Loader />}

@@ -1,59 +1,49 @@
-# Contributor Code of Conduct
+# Kode Etik Kontributor
 
-## Bades's Pledge
+## Komitmen Bades
 
-The contributors and maintainers of this project pledge to ensure a harassment-free experience for everyone in the community.
+Kontributor dan maintainer proyek ini berkomitmen untuk memastikan pengalaman
+yang bebas dari pelecehan bagi semua pihak yang terlibat dalam pengembangan
+produk.
 
-The focus of both contributors and maintainers is on acting and interacting in ways that promote an open, welcoming, friendly, diverse, inclusive, and healthy community.
+Fokus semua pihak adalah bertindak dan berinteraksi dengan cara yang mendorong
+lingkungan kerja yang terbuka, ramah, beragam, inklusif, dan sehat.
 
-## Bades's Standards
+## Standar Perilaku
 
-Examples of behavior that contributes to a positive environment for this
-community include:
+Contoh perilaku yang berkontribusi pada lingkungan yang positif:
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Respectfully giving and accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by mistakes,
-  and learning from the experience
-* Focusing on what's best, not just for each individual but also for the community
+- Menunjukkan empati dan kebaikan kepada orang lain
+- Menghormati perbedaan pendapat, sudut pandang, dan pengalaman
+- Memberikan dan menerima umpan balik konstruktif dengan baik
+- Menerima tanggung jawab dan meminta maaf kepada pihak yang terdampak
+  oleh kesalahan, serta belajar dari pengalaman tersebut
+- Berfokus pada hal yang terbaik, tidak hanya untuk diri sendiri tetapi
+  juga untuk keseluruhan tim
 
-Examples of unacceptable behavior include:
+Contoh perilaku yang tidak dapat diterima:
 
-* The use of sexualized language or imagery, and sexual attention or
-  advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* The use of aggressive language
-* Publishing others' private information, such as a physical or email
-  address, without their explicit permission
-* Other conduct inappropriate in a professional setting.
+- Penggunaan bahasa atau citra yang bersifat seksual, serta perhatian
+  atau pendekatan seksual dalam bentuk apa pun
+- Trolling, komentar menghina atau merendahkan, serta serangan pribadi atau politik
+- Pelecehan publik atau pribadi
+- Penggunaan bahasa yang agresif
+- Mempublikasikan informasi pribadi orang lain, seperti alamat fisik atau email,
+  tanpa izin eksplisit
+- Perilaku lain yang tidak pantas dalam lingkungan profesional
 
-## Enforcement Responsibilities
+## Tanggung Jawab Penegakan
 
-Community leaders and maintainers of this repository are responsible for clarifying and enforcing Bades's standards of acceptable behavior. They will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+Maintainer repositori ini bertanggung jawab untuk mengklarifikasi dan menegakkan
+standar perilaku yang berlaku. Mereka akan mengambil tindakan korektif yang tepat
+dan adil sebagai respons terhadap perilaku yang dianggap tidak pantas, mengancam,
+menyinggung, atau merugikan.
 
-Community leaders and maintainers of this repository have the right and responsibility to remove, edit, or reject comments, commits, code, issues, and other contributions that aren't aligned with this Code of Conduct. They will also communicate reasons for moderation decisions when appropriate.
+Maintainer berhak dan bertanggung jawab untuk menghapus, mengedit, atau menolak
+komentar, commit, kode, isu, dan kontribusi lain yang tidak selaras dengan Kode
+Etik ini.
 
-## Scope
+## Ruang Lingkup
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
-Examples of representing this community include using an official e-mail address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
-
-## Attribution
-
-This Code of Conduct is an adaption of the [Contributor Covenant][homepage],
-version 2.0, available at
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
-
-Community Impact Guidelines draw inspiration from [Mozilla's code of conduct
-enforcement ladder](https://github.com/mozilla/diversity).
-
-[homepage]: https://www.contributor-covenant.org
-
-For answers to common questions about this code of conduct, see the FAQ at
-https://www.contributor-covenant.org/faq. Translations are available at
-https://www.contributor-covenant.org/translations.
+Kode Etik ini berlaku di semua ruang lingkup yang berkaitan dengan repositori ini,
+termasuk ketika seseorang secara resmi mewakili proyek di ruang publik.

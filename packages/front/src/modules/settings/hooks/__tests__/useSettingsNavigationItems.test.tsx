@@ -98,7 +98,7 @@ describe('useSettingsNavigationItems', () => {
     });
 
     const workspaceSection = result.current.find(
-      (section) => section.label === 'Ruang kerja',
+      (section) => section.label === 'Ruang Kerja',
     );
 
     expect(workspaceSection?.items.every((item) => item.isHidden)).toBe(true);
@@ -120,7 +120,7 @@ describe('useSettingsNavigationItems', () => {
     });
 
     const workspaceSection = result.current.find(
-      (section) => section.label === 'Ruang kerja',
+      (section) => section.label === 'Ruang Kerja',
     );
 
     expect(workspaceSection?.items.some((item) => !item.isHidden)).toBe(true);

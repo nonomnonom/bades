@@ -24,6 +24,9 @@ secara semi-otonom.
   `GOAL.md`.
 - Default ini juga boleh melanjutkan clean up + refactor terarah satu area per
   iterasi ketika arah transformasi sudah jelas dari transcript dan `GOAL.md`.
+- Dalam repo ini, bare `/loop` tidak boleh memperlakukan `website` atau `docs`
+  sebagai stream produk aktif kecuali untuk penghapusan, arsip, atau cleanup
+  yang jelas.
 
 ## Prompt yang disarankan
 
@@ -57,5 +60,7 @@ hijau dan siap ditinjau
   diotorisasi.
 - Batasi ke branch, PR, dan transformasi Bades yang sudah didukung transcript
   serta `GOAL.md`.
+- Jangan memulai pekerjaan website/docs baru kecuali arahnya adalah removal,
+  archive, atau memutus kebocoran identitas lama.
 - Jika pekerjaan menyentuh area besar, pecah dulu dengan `orkestrasi-tim-bades`
   lalu gunakan `/loop` untuk maintenance lanjutan.

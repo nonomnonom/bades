@@ -14,6 +14,7 @@ import {
   BillingExceptionCode,
 } from 'src/engine/core-modules/billing/billing.exception';
 import { BillingEndTrialPeriodDTO } from 'src/engine/core-modules/billing/dtos/billing-end-trial-period.dto';
+import { BillingMidtransTransactionStatusDTO } from 'src/engine/core-modules/billing/dtos/billing-midtrans-transaction-status.dto';
 import { BillingResourceCreditUsageDTO } from 'src/engine/core-modules/billing/dtos/billing-resource-credit-usage.dto';
 import { BillingPlanDTO } from 'src/engine/core-modules/billing/dtos/billing-plan.dto';
 import { BillingSessionDTO } from 'src/engine/core-modules/billing/dtos/billing-session.dto';
@@ -23,7 +24,9 @@ import { BillingSessionInput } from 'src/engine/core-modules/billing/dtos/inputs
 import { BillingTopUpCreditSessionInput } from 'src/engine/core-modules/billing/dtos/inputs/billing-topup-credit-session.input';
 import { BillingUpdateSubscriptionItemPriceInput } from 'src/engine/core-modules/billing/dtos/inputs/billing-update-subscription-item-price.input';
 import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
+import { type SubscriptionInterval } from 'src/engine/core-modules/billing/enums/billing-subscription-interval.enum';
 import { MidtransSnapService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-snap.service';
+import { MidtransTransactionService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-transaction.service';
 import { BillingPlanService } from 'src/engine/core-modules/billing/services/billing-plan.service';
 import { BillingPortalWorkspaceService } from 'src/engine/core-modules/billing/services/billing-portal.workspace-service';
 import { BillingSubscriptionUpdateService } from 'src/engine/core-modules/billing/services/billing-subscription-update.service';
@@ -70,6 +73,7 @@ export class BillingResolver {
     private readonly billingUsageService: BillingUsageService,
     private readonly permissionsService: PermissionsService,
     private readonly midtransSnapService: MidtransSnapService,
+    private readonly midtransTransactionService: MidtransTransactionService,
     private readonly twentyConfigService: TwentyConfigService,
   ) {}
 
@@ -106,7 +110,12 @@ export class BillingResolver {
   async createTopUpCreditSession(
     @AuthWorkspace() workspace: WorkspaceEntity,
     @AuthUser() user: AuthContextUser,
-    @Args() { grossAmount, itemName, callbackFinishUrl }: BillingTopUpCreditSessionInput,
+    @Args()
+    {
+      grossAmount,
+      itemName,
+      callbackFinishUrl,
+    }: BillingTopUpCreditSessionInput,
   ) {
     if (!this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
       throw new BillingException(
@@ -124,7 +133,7 @@ export class BillingResolver {
       callbackFinishUrl,
     });
 
-    return { url: snapResult.snapRedirectUrl };
+    return { url: snapResult.snapRedirectUrl, orderId: snapResult.orderId };
   }
 
   @Mutation(() => BillingSessionDTO)
@@ -157,12 +166,16 @@ export class BillingResolver {
       requirePaymentMethod,
     };
 
-    // Jika Midtrans aktif, gunakan Snap untuk checkout subscription
+    // Jika Midtrans aktif, gunakan Snap untuk checkout langganan
     if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+      const grossAmount = await this.computeMidtransSubscriptionAmount(
+        checkoutSessionParams.plan,
+        recurringInterval,
+      );
+
       const snapResult = await this.midtransSnapService.createSnapTransaction({
         workspaceId: workspace.id,
-        // Jumlah placeholder untuk subscription — nominal nyata ditentukan per paket
-        grossAmount: 0,
+        grossAmount,
         transactionType: 'MONTHLY_BILLING',
         customerEmail: user.email,
         itemName: `Langganan Bades - Paket ${checkoutSessionParams.plan}`,
@@ -171,7 +184,7 @@ export class BillingResolver {
           : undefined,
       });
 
-      return { url: snapResult.snapRedirectUrl };
+      return { url: snapResult.snapRedirectUrl, orderId: snapResult.orderId };
     }
 
     const billingPricesPerPlan =
@@ -400,6 +413,63 @@ export class BillingResolver {
           { workspaceId: workspace.id },
         ),
     };
+  }
+
+  @Query(() => BillingMidtransTransactionStatusDTO)
+  @UseGuards(
+    WorkspaceAuthGuard,
+    SettingsPermissionGuard(PermissionFlagType.BILLING),
+  )
+  async getMidtransTransactionStatus(
+    @AuthWorkspace() workspace: WorkspaceEntity,
+    @Args('orderId', { type: () => String }) orderId: string,
+  ): Promise<BillingMidtransTransactionStatusDTO> {
+    const transaction =
+      await this.midtransTransactionService.findByOrderId(orderId);
+
+    if (!transaction || transaction.workspaceId !== workspace.id) {
+      throw new BillingException(
+        `Transaksi pembayaran tidak ditemukan untuk orderId=${orderId}.`,
+        BillingExceptionCode.BILLING_SUBSCRIPTION_EVENT_WORKSPACE_NOT_FOUND,
+      );
+    }
+
+    return {
+      orderId: transaction.orderId,
+      transactionType: transaction.transactionType,
+      transactionStatus: transaction.transactionStatus,
+      grossAmount: transaction.grossAmount,
+      paymentType: transaction.paymentType ?? undefined,
+    };
+  }
+
+  /**
+   * Menghitung nominal langganan dalam IDR untuk checkout Midtrans Snap.
+   * Memakai harga produk dasar paket pada interval terpilih.
+   */
+  private async computeMidtransSubscriptionAmount(
+    plan: BillingPlanKey,
+    interval: SubscriptionInterval,
+  ): Promise<number> {
+    const { baseProductPrices } =
+      await this.billingPlanService.getPricesPerPlanByInterval({
+        planKey: plan,
+        interval,
+      });
+
+    const grossAmount = baseProductPrices.reduce(
+      (total, price) => total + Math.round(price.unitAmount ?? 0),
+      0,
+    );
+
+    if (grossAmount <= 0) {
+      throw new BillingException(
+        'Nominal langganan tidak valid. Pastikan harga paket sudah dikonfigurasi dalam IDR.',
+        BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
+      );
+    }
+
+    return grossAmount;
   }
 
   private async validateCanCheckoutSessionPermissionOrThrow({

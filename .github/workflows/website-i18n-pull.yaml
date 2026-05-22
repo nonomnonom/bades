@@ -75,7 +75,7 @@ jobs:
           translation: 'packages/website/src/locales/%locale%.po'
           export_only_approved: false
           localization_branch_name: i18n-website
-          base_url: 'https://twenty.api.crowdin.com'
+          base_url: 'https://bades.api.crowdin.com'
           auto_approve_imported: false
           import_eq_suggestions: false
           download_sources: false

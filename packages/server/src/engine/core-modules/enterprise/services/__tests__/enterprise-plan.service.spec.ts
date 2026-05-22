@@ -482,6 +482,22 @@ describe('EnterprisePlanService', () => {
       expect(fetchMock).not.toHaveBeenCalled();
     });
 
+    it('should return false when ENTERPRISE_API_URL is not configured', async () => {
+      const fakeKey = createFakeJwt(MOCK_KEY_PAYLOAD);
+
+      configGetMock.mockImplementation((key: string) => {
+        if (key === 'ENTERPRISE_KEY') return fakeKey;
+
+        return undefined;
+      });
+      mockCryptoVerify.mockReturnValue(true);
+
+      const result = await service.refreshValidityToken();
+
+      expect(result).toBe(false);
+      expect(fetchMock).not.toHaveBeenCalled();
+    });
+
     it('should refresh and return true when API call succeeds', async () => {
       const fakeKey = createFakeJwt(MOCK_KEY_PAYLOAD);
       const fakeValidityToken = createFakeJwt(MOCK_VALIDITY_PAYLOAD);
@@ -559,263 +575,6 @@ describe('EnterprisePlanService', () => {
       const result = await service.refreshValidityToken();
 
       expect(result).toBe(false);
-    });
-  });
-
-  describe('reportSeats', () => {
-    it('should return false when no enterprise key is configured', async () => {
-      setupEnterpriseKey(undefined);
-
-      const result = await service.reportSeats(10);
-
-      expect(result).toBe(false);
-      expect(fetchMock).not.toHaveBeenCalled();
-    });
-
-    it('should return false when key is not a valid signed JWT', async () => {
-      setupEnterpriseKey('not-a-valid-jwt');
-      appTokenFindOneMock.mockResolvedValue(null);
-      await service.onModuleInit();
-
-      const result = await service.reportSeats(10);
-
-      expect(result).toBe(false);
-    });
-
-    it('should report seats and return true on success', async () => {
-      await setupValidState();
-
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve({ success: true }),
-      });
-
-      const result = await service.reportSeats(25);
-
-      expect(result).toBe(true);
-      expect(fetchMock).toHaveBeenCalledWith(
-        `${MOCK_API_URL}/seats`,
-        expect.objectContaining({
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-        }),
-      );
-
-      const callBody = JSON.parse(
-        (fetchMock.mock.calls[0] as [string, { body: string }])[1].body,
-      );
-
-      expect(callBody.seatCount).toBe(25);
-    });
-
-    it('should return false when API returns non-OK response', async () => {
-      await setupValidState();
-
-      fetchMock.mockResolvedValue({ ok: false, status: 500 });
-
-      const result = await service.reportSeats(10);
-
-      expect(result).toBe(false);
-    });
-
-    it('should return false on network error', async () => {
-      await setupValidState();
-
-      fetchMock.mockRejectedValue(new Error('Connection refused'));
-
-      const result = await service.reportSeats(10);
-
-      expect(result).toBe(false);
-    });
-  });
-
-  describe('getSubscriptionStatus', () => {
-    it('should return null when no enterprise key is configured', async () => {
-      setupEnterpriseKey(undefined);
-
-      const result = await service.getSubscriptionStatus();
-
-      expect(result).toBeNull();
-    });
-
-    it('should return subscription status on success', async () => {
-      await setupValidState();
-
-      const cancelAtTimestamp = Math.floor(Date.now() / 1000) + 86400;
-      const periodEndTimestamp = Math.floor(Date.now() / 1000) + 2592000;
-
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () =>
-          Promise.resolve({
-            status: 'active',
-            cancelAt: cancelAtTimestamp,
-            currentPeriodEnd: periodEndTimestamp,
-            isCancellationScheduled: false,
-          }),
-      });
-
-      const result = await service.getSubscriptionStatus();
-
-      expect(result).toEqual({
-        status: 'active',
-        licensee: 'ACME Corp',
-        expiresAt: new Date(FUTURE_TIMESTAMP * 1000),
-        cancelAt: new Date(cancelAtTimestamp * 1000),
-        currentPeriodEnd: new Date(periodEndTimestamp * 1000),
-        isCancellationScheduled: false,
-      });
-    });
-
-    it('should return null when API returns non-OK response', async () => {
-      await setupValidState();
-
-      fetchMock.mockResolvedValue({ ok: false, status: 500 });
-
-      const result = await service.getSubscriptionStatus();
-
-      expect(result).toBeNull();
-    });
-
-    it('should return null on network error', async () => {
-      await setupValidState();
-
-      fetchMock.mockRejectedValue(new Error('Network error'));
-
-      const result = await service.getSubscriptionStatus();
-
-      expect(result).toBeNull();
-    });
-
-    it('should handle null cancelAt and currentPeriodEnd', async () => {
-      await setupValidState();
-
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () =>
-          Promise.resolve({
-            status: 'active',
-            cancelAt: null,
-            currentPeriodEnd: null,
-          }),
-      });
-
-      const result = await service.getSubscriptionStatus();
-
-      expect(result?.cancelAt).toBeNull();
-      expect(result?.currentPeriodEnd).toBeNull();
-      expect(result?.isCancellationScheduled).toBe(false);
-    });
-  });
-
-  describe('getPortalUrl', () => {
-    it('should return null when no API URL is configured', async () => {
-      configGetMock.mockReturnValue(undefined);
-
-      const result = await service.getPortalUrl();
-
-      expect(result).toBeNull();
-    });
-
-    it('should return null when no valid enterprise key exists', async () => {
-      setupEnterpriseKey(undefined);
-
-      const result = await service.getPortalUrl();
-
-      expect(result).toBeNull();
-    });
-
-    it('should return portal URL on success', async () => {
-      await setupValidState();
-
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve({ url: 'https://portal.example.com' }),
-      });
-
-      const result = await service.getPortalUrl('https://return.example.com');
-
-      expect(result).toBe('https://portal.example.com');
-      expect(fetchMock).toHaveBeenCalledWith(
-        `${MOCK_API_URL}/portal`,
-        expect.objectContaining({
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-        }),
-      );
-    });
-
-    it('should return null when API fails', async () => {
-      await setupValidState();
-
-      fetchMock.mockResolvedValue({ ok: false, status: 500 });
-
-      const result = await service.getPortalUrl();
-
-      expect(result).toBeNull();
-    });
-
-    it('should return null on network error', async () => {
-      await setupValidState();
-
-      fetchMock.mockRejectedValue(new Error('Network error'));
-
-      const result = await service.getPortalUrl();
-
-      expect(result).toBeNull();
-    });
-  });
-
-  describe('getCheckoutUrl', () => {
-    it('should return null when no API URL is configured', async () => {
-      configGetMock.mockReturnValue(undefined);
-
-      const result = await service.getCheckoutUrl('monthly', 5);
-
-      expect(result).toBeNull();
-    });
-
-    it('should return checkout URL on success', async () => {
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve({ url: 'https://checkout.example.com' }),
-      });
-
-      const result = await service.getCheckoutUrl('yearly', 10);
-
-      expect(result).toBe('https://checkout.example.com');
-      expect(fetchMock).toHaveBeenCalledWith(`${MOCK_API_URL}/checkout`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ billingInterval: 'yearly', seatCount: 10 }),
-      });
-    });
-
-    it('should return null when API fails', async () => {
-      fetchMock.mockResolvedValue({ ok: false, status: 500 });
-
-      const result = await service.getCheckoutUrl('monthly', 5);
-
-      expect(result).toBeNull();
-    });
-
-    it('should return null on network error', async () => {
-      fetchMock.mockRejectedValue(new Error('Network error'));
-
-      const result = await service.getCheckoutUrl('monthly', 5);
-
-      expect(result).toBeNull();
-    });
-
-    it('should return null when API response has no url', async () => {
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve({}),
-      });
-
-      const result = await service.getCheckoutUrl('monthly', 5);
-
-      expect(result).toBeNull();
     });
   });
 });

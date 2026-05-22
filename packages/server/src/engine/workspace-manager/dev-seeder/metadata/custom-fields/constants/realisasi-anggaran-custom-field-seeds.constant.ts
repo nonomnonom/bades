@@ -62,9 +62,4 @@ export const REALISASI_ANGGARAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'keterangan',
     description: 'Keterangan',
   },
-  {
-    type: FieldMetadataType.NUMBER,
-    label: 'Position',
-    name: 'position',
-  },
 ];

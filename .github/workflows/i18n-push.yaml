@@ -86,7 +86,7 @@ jobs:
           upload_translations: true
           download_translations: false
           localization_branch_name: i18n
-          base_url: 'https://twenty.api.crowdin.com'
+          base_url: 'https://bades.api.crowdin.com'
           config: '.github/crowdin-app.yml'
         env:
           # App translations project

@@ -2,20 +2,7 @@
 
 Terima kasih sudah mempertimbangkan untuk berkontribusi ke Bades.id!
 
-Silakan lihat [dokumentasi](https://docs.bades.id) terlebih dahulu.
-
-<br />
-
-## Good first issues
-
-Good first issues adalah cara yang bagus untuk mulai berkontribusi dan mengenal codebase. Anda bisa menemukannya dengan filter [good first issue](https://github.com/badesid/bades/labels/good%20first%20issue) di repositori kami.
-
-## Assignment isu
-
-Untuk menghindari konflik, kami mengikuti panduan berikut:
-
-1. Untuk isu `Good First Issue` dan `Experienced Contributor` tanpa label `size: long`, kami akan menggabungkan PR pertama yang memenuhi [standar kualitas kode kami](https://docs.bades.id/developers). **Kami tidak menugaskan kontributor untuk isu-isu ini**. Untuk isu `priority: high`, tim inti kami akan turun tangan dalam beberapa hari jika tidak ada kontribusi yang memadai.
-2. Untuk isu `size: long`, kontributor yang ditugaskan memiliki waktu satu minggu untuk mengirimkan draft PR pertama.
+Silakan lihat [dokumentasi](https://docs.bades.id) terlebih dahulu sebelum mulai.
 
 ## Cara Berkontribusi
 
@@ -52,10 +39,10 @@ git push origin nama-branch-anda
 
 8. **Buat Pull Request:** Buka repositori Bades.id asli dan buat pull request. Berikan deskripsi detail tentang perubahan Anda. Mengirimkan PR berarti Anda menyetujui CLA.
 
-9. **Review Kode:** Pull request Anda akan menjalani review kode.
+9. **Review Kode:** Pull request Anda akan menjalani review kode oleh tim Bades.
 
 10. **Merge:** Setelah disetujui, maintainer akan menggabungkan pull request Anda ke repositori utama.
 
 ## Melaporkan Isu
 
-Jika Anda mengalami masalah atau memiliki saran, silakan [buat isu di repositori GitHub Bades.id](https://github.com/badesid/bades/issues/new). Berikan informasi sebanyak mungkin.
+Jika Anda mengalami masalah atau memiliki saran, silakan [buat isu di repositori GitHub Bades.id](https://github.com/badesid/bades/issues/new). Berikan informasi sebanyak mungkin untuk membantu tim menyelesaikan masalah dengan cepat.

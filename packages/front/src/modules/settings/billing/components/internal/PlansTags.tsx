@@ -19,12 +19,12 @@ export const PlansTags = ({ plan, isTrialPeriod = false }: PlansTagsProps) => {
   const planDescriptor =
     plan === BillingPlanKey.PRO
       ? { color: 'sky' as const, label: t`Pro` }
-      : { color: 'purple' as const, label: t`Organization` };
+      : { color: 'purple' as const, label: t`Organisasi` };
 
   return (
     <StyledTagsWrapper>
       <Tag color={planDescriptor.color} text={planDescriptor.label} />
-      {isTrialPeriod && <Tag color="blue" text={t`Trial`} preventShrink />}
+      {isTrialPeriod && <Tag color="blue" text={t`Uji coba`} preventShrink />}
     </StyledTagsWrapper>
   );
 };

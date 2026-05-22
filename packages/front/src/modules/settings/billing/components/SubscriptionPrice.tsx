@@ -1,3 +1,4 @@
+import { useNumberFormat } from '@/localization/hooks/useNumberFormat';
 import { styled } from '@linaria/react';
 import { useLingui } from '@lingui/react/macro';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -31,6 +32,8 @@ const formatYearlyPriceToMonthly = (price: number): number => {
 
 export const SubscriptionPrice = ({ type, price }: SubscriptionPriceProps) => {
   const { t } = useLingui();
+  const { formatNumber } = useNumberFormat();
+
   const pricePerSeat =
     type === SubscriptionInterval.Year
       ? formatYearlyPriceToMonthly(price)
@@ -39,16 +42,16 @@ export const SubscriptionPrice = ({ type, price }: SubscriptionPriceProps) => {
   let priceUnit = '';
   switch (type) {
     case SubscriptionInterval.Month:
-      priceUnit = t`seat / month`;
+      priceUnit = t`kursi / bulan`;
       break;
     case SubscriptionInterval.Year:
-      priceUnit = t`seat / month - billed yearly`;
+      priceUnit = t`kursi / bulan - ditagih tahunan`;
       break;
   }
 
   return (
     <>
-      <StyledPriceSpan>{`$${pricePerSeat}`}</StyledPriceSpan>
+      <StyledPriceSpan>{`Rp${formatNumber(pricePerSeat)}`}</StyledPriceSpan>
       <StyledPriceUnitSpan>{priceUnit}</StyledPriceUnitSpan>
     </>
   );

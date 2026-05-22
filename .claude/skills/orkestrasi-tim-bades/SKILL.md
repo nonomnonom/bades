@@ -55,8 +55,8 @@ Gunakan skill ini saat ingin membagi kerja Bades ke beberapa agent Claude Code.
 - Minta lead **menunggu teammate selesai** sebelum mengambil alih pekerjaan
   mereka.
 - Untuk kerja refactor Bades, pecah menurut lapisan:
-  repo/docs publik, settings/navigasi, billing, seed/demo, dan platform
-  internal.
+  repo metadata + removal website/docs, settings/navigasi, billing, seed/demo,
+  dan platform internal.
 
 ## Prompt awal yang disarankan
 

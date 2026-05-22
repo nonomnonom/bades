@@ -50,10 +50,4 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     icon: 'IconCalendar',
     description: 'Tanggal permohonan selesai',
   },
-  {
-    type: FieldMetadataType.NUMBER,
-    label: 'Position',
-    name: 'position',
-    icon: 'IconHierarchy',
-  },
 ];

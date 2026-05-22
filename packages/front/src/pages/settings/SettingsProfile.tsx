@@ -36,40 +36,40 @@ export const SettingsProfile = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Profile`}
+      title={t`Profil`}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: <Trans>Pengguna</Trans>,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
-        { children: <Trans>Profile</Trans> },
+        { children: <Trans>Profil</Trans> },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Picture`} />
+          <H2Title title={t`Foto`} />
           <WorkspaceMemberPictureUploader
             workspaceMemberId={currentWorkspaceMember.id}
           />
         </Section>
         <Section>
           <H2Title
-            title={t`Name`}
-            description={t`Your name as it will be displayed`}
+            title={t`Nama`}
+            description={t`Nama Anda sebagaimana ditampilkan di sistem`}
           />
           <NameFields />
         </Section>
         <Section>
           <H2Title
-            title={t`Email`}
-            description={t`The email associated to your account`}
+            title={t`Surel`}
+            description={t`Alamat surel yang terhubung ke akun Anda`}
           />
           <EmailField />
         </Section>
         <Section>
           <H2Title
-            title={t`Two Factor Authentication`}
-            description={t`Enhances security by requiring a code along with your password`}
+            title={t`Autentikasi Dua Faktor`}
+            description={t`Meningkatkan keamanan dengan meminta kode verifikasi tambahan saat masuk`}
           />
           <UndecoratedLink
             to={getSettingsPath(
@@ -78,13 +78,13 @@ export const SettingsProfile = () => {
             )}
           >
             <SettingsCard
-              title={t`Authenticator App`}
+              title={t`Aplikasi Autentikator`}
               Icon={<IconShield />}
               Status={
                 has2FAMethod ? (
-                  <Status text={t`Active`} color="turquoise" />
+                  <Status text={t`Aktif`} color="turquoise" />
                 ) : (
-                  <Status text={t`Deactivated`} color="gray" />
+                  <Status text={t`Nonaktif`} color="gray" />
                 )
               }
             />

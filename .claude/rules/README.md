@@ -23,14 +23,13 @@ Autonomous workflow helpers for this repo also live in:
 - `nx-rules.md` - Nx targets and workspace patterns
 - `server-migrations.md` - Upgrade command workflow for the server package
 - `front-user-surface.md` - Path-scoped guidance for UI, settings, and navigation surfaces
-- `docs-and-website-branding.md` - Path-scoped branding guidance for docs and website work
+- `docs-and-website-branding.md` - Path-scoped guidance untuk penghapusan, pengarsipan, dan pembersihan branding docs/website
 - `midtrans-first-billing.md` - Path-scoped billing and payment guidance for Midtrans-first migration work
 - `ai-single-model.md` - Path-scoped guidance for single-model AI surfaces and routing
 - `platform-internal-bades.md` - Path-scoped guidance for app system, marketplace, API/webhook, and internal-platform boundaries
 - `seed-desa-indonesia.md` - Path-scoped rules for seed data, fixtures, stories, and examples
 - `translations.md` - Lingui and Indonesian-first localization workflow
 - `testing-guidelines.md` - Practical unit/integration test guidance
-- `changelog-process.md` - Release content workflow for `packages/website`
 - `react-general-guidelines.md` - React component patterns
 - `react-state-management.md` - Jotai patterns used in the frontend
 - `react-doctor-workflow.md` - Path-scoped React quality check workflow with the `react-doctor` skill

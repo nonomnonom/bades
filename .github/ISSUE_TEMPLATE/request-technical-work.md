@@ -1,33 +1,36 @@
 ---
-name: Request technical chore
-about: Request technical work that does not provide any product increment (aka refactoring)
+name: Permintaan pekerjaan teknis
+about: Permintaan pekerjaan teknis yang tidak menambah fitur produk (refactoring, cleanup, dsb)
 title: ''
 labels: ['type: chore']
 assignees: ''
 ---
 
-## Scope & Context
+## Lingkup & Konteks
 
-**Example:** 
+**Contoh:**
 ```
-In previous PRs: #1667 and #1636, we have introduced a new MenuItem draggable in the dropdown and implemented a drag and drop behavior.
+Pada PR sebelumnya (#1667 dan #1636), kami memperkenalkan MenuItem yang bisa di-drag
+di dalam dropdown dan mengimplementasikan perilaku drag and drop.
 
-This is working but it would be great to refactor this into separated components so we can re-use them.
+Ini sudah berjalan tetapi akan lebih baik jika di-refactor menjadi komponen terpisah
+agar bisa digunakan kembali di tempat lain.
 ```
 
-## Technical inputs
+## Masukan teknis
 
-A clear and detailed description of what the expected change is.
-Describe components, files and folders that should be touch and how.
-Using a Task list can be helpful
+Deskripsi jelas dan detail tentang perubahan yang diharapkan.
+Jelaskan komponen, file, dan folder yang perlu disentuh beserta caranya.
+Menggunakan daftar tugas (task list) akan sangat membantu.
 
-**Example:** 
+**Contoh:**
 ```
-Having a list that is draggable will be useful, not only in dropdown.
+Daftar yang bisa di-drag akan berguna tidak hanya di dropdown.
 
-Create a folder @/ui/draggable-list with a DraggableList component
-This component should take as prop: itemsComponents, onDragEnd((previousIndex, nextIndex) => {})
-Use this component in ObjectOptionsDropdownHiddenFieldsContent (move the logic from ObjectOptionsDropdownHiddenFieldsContent to DraggableList) by passing a list of DraggableMenuItems
-Add a storybook test on this list (we don't know how to actually test the draggable behavior, but we can at least make sure the component renders correctly a list of items)
+Buat folder @/ui/draggable-list dengan komponen DraggableList.
+Komponen ini menerima prop: itemsComponents, onDragEnd((previousIndex, nextIndex) => {}).
+Gunakan komponen ini di ObjectOptionsDropdownHiddenFieldsContent dengan meneruskan
+daftar DraggableMenuItems.
+Tambahkan storybook test untuk daftar ini.
 ```
 

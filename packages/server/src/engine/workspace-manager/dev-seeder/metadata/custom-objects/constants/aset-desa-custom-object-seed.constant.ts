@@ -3,7 +3,7 @@ import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder
 export const ASET_DESA_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Aset Desa',
   labelSingular: 'Aset Desa',
-  namePlural: 'aset-desas',
-  nameSingular: 'aset-desa',
+  namePlural: 'asetDesas',
+  nameSingular: 'asetDesa',
   icon: 'IconBuildingSkyscraper',
 };

@@ -16,39 +16,39 @@ export const SettingsExperience = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Experience`}
+      title={t`Tampilan`}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: <Trans>Pengguna</Trans>,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
-        { children: <Trans>Experience</Trans> },
+        { children: <Trans>Tampilan</Trans> },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Appearance`} />
+          <H2Title title={t`Tema Warna`} />
           <ColorSchemePicker
             value={colorScheme}
             onChange={setColorScheme}
-            lightLabel={t`Light`}
-            darkLabel={t`Dark`}
-            systemLabel={t`System settings`}
+            lightLabel={t`Terang`}
+            darkLabel={t`Gelap`}
+            systemLabel={t`Ikuti sistem`}
           />
         </Section>
 
         <Section>
           <H2Title
-            title={t`Language`}
-            description={t`Select your preferred language`}
+            title={t`Bahasa`}
+            description={t`Pilih bahasa yang Anda gunakan`}
           />
           <LocalePicker />
         </Section>
 
         <Section>
           <H2Title
-            title={t`Formats`}
-            description={t`Configure date, time, number, timezone, and calendar start day`}
+            title={t`Format`}
+            description={t`Atur format tanggal, waktu, angka, zona waktu, dan hari pertama kalender`}
           />
           <FormatPreferencesSettings />
         </Section>

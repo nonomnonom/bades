@@ -1,5 +1,0 @@
-Contact: https://github.com/badesid/bades/issues/new
-Contact: security@bades.id
-Preferred-Languages: en,id
-Canonical: https://bades.id/.well-known/security.txt
-Policy: https://github.com/badesid/bades/security/policy

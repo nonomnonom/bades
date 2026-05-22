@@ -39,9 +39,6 @@
   "version": "0.2.1",
   "nx": {},
   "scripts": {
-    "docs:generate": "tsx packages/docs/scripts/generate-docs-json.ts",
-    "docs:generate-navigation-template": "tsx packages/docs/scripts/generate-navigation-template.ts",
-    "docs:generate-paths": "tsx packages/docs/scripts/generate-documentation-paths.ts",
     "start": "npx concurrently --kill-others 'npx nx run-many -t start -p server front' 'npx wait-on tcp:3000 && npx nx run server:worker'"
   },
   "workspaces": {
@@ -52,8 +49,6 @@
       "packages/ui",
       "packages/utils",
       "packages/zapier",
-      "packages/website",
-      "packages/docs",
       "packages/e2e-testing",
       "packages/shared",
       "packages/sdk",

@@ -64,7 +64,7 @@ export const SettingsAiMCP = () => {
   const oauthConfig = JSON.stringify(
     {
       mcpServers: {
-        twenty: {
+        bades: {
           type: 'streamable-http',
           url: `${REACT_APP_SERVER_BASE_URL}/mcp`,
         },
@@ -77,7 +77,7 @@ export const SettingsAiMCP = () => {
   const apiKeyConfig = JSON.stringify(
     {
       mcpServers: {
-        twenty: {
+        bades: {
           type: 'streamable-http',
           url: `${REACT_APP_SERVER_BASE_URL}/mcp`,
           headers: {

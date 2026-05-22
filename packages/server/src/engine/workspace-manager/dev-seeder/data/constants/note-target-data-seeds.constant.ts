@@ -1,38 +1,32 @@
-import { COMPANY_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/company-data-seeds.constant';
 import { NOTE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-data-seeds.constant';
-import { PERSON_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/person-data-seeds.constant';
+import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 
+// Kolom `targetPendudukId` dibuat otomatis oleh engine saat custom object
+// `penduduk` diregistrasi. Engine memanggil
+// `buildDefaultRelationFlatFieldMetadatasForCustomObject` yang mengiterasi
+// `DEFAULT_RELATIONS_OBJECTS_STANDARD_IDS` (termasuk `noteTarget`) dan
+// membuat kolom morph `target${capitalize(nameSingular)}` untuk setiap
+// custom object. Kolom ini AMAN dipakai di seed ini.
 type NoteTargetDataSeed = {
   id: string;
   noteId: string | null;
-  targetPersonId: string | null;
-  targetCompanyId: string | null;
-  targetOpportunityId: string | null;
+  targetPendudukId: string | null;
 };
 
 export const NOTE_TARGET_DATA_SEED_COLUMNS: (keyof NoteTargetDataSeed)[] = [
   'id',
   'noteId',
-  'targetPersonId',
-  'targetCompanyId',
-  'targetOpportunityId',
+  'targetPendudukId',
 ];
 
 const GENERATE_NOTE_TARGET_IDS = (): Record<string, string> => {
   const NOTE_TARGET_IDS: Record<string, string> = {};
 
-  for (let INDEX = 1; INDEX <= 1200; INDEX++) {
+  for (let INDEX = 1; INDEX <= 1800; INDEX++) {
     const HEX_INDEX = INDEX.toString(16).padStart(4, '0');
 
     NOTE_TARGET_IDS[`ID_${INDEX}`] =
       `20202020-${HEX_INDEX}-4e7c-8001-123456789def`;
-  }
-
-  for (let INDEX = 1201; INDEX <= 1800; INDEX++) {
-    const HEX_INDEX = INDEX.toString(16).padStart(4, '0');
-
-    NOTE_TARGET_IDS[`ID_${INDEX}`] =
-      `20202020-${HEX_INDEX}-4e7c-9001-123456789def`;
   }
 
   return NOTE_TARGET_IDS;
@@ -40,34 +34,17 @@ const GENERATE_NOTE_TARGET_IDS = (): Record<string, string> => {
 
 const NOTE_TARGET_DATA_SEED_IDS = GENERATE_NOTE_TARGET_IDS();
 
+const PENDUDUK_ID_LIST = Object.values(PENDUDUK_DATA_SEED_IDS);
+
 const GENERATE_NOTE_TARGET_SEEDS = (): NoteTargetDataSeed[] => {
   const NOTE_TARGET_SEEDS: NoteTargetDataSeed[] = [];
 
-  for (let INDEX = 1; INDEX <= 1200; INDEX++) {
+  for (let INDEX = 1; INDEX <= 1800; INDEX++) {
     NOTE_TARGET_SEEDS.push({
       id: NOTE_TARGET_DATA_SEED_IDS[`ID_${INDEX}`],
       noteId: NOTE_DATA_SEED_IDS[`ID_${INDEX}`],
-      targetPersonId:
-        PERSON_DATA_SEED_IDS[
-          `ID_${INDEX}` as keyof typeof PERSON_DATA_SEED_IDS
-        ],
-      targetCompanyId: null,
-      targetOpportunityId: null,
-    });
-  }
-
-  for (let INDEX = 1201; INDEX <= 1800; INDEX++) {
-    const COMPANY_INDEX = INDEX - 1200;
-
-    NOTE_TARGET_SEEDS.push({
-      id: NOTE_TARGET_DATA_SEED_IDS[`ID_${INDEX}`],
-      noteId: NOTE_DATA_SEED_IDS[`ID_${INDEX}`],
-      targetPersonId: null,
-      targetCompanyId:
-        COMPANY_DATA_SEED_IDS[
-          `ID_${COMPANY_INDEX}` as keyof typeof COMPANY_DATA_SEED_IDS
-        ],
-      targetOpportunityId: null,
+      targetPendudukId:
+        PENDUDUK_ID_LIST[(INDEX - 1) % PENDUDUK_ID_LIST.length],
     });
   }
 

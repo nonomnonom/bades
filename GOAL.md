@@ -40,6 +40,16 @@ terkait administrasi warga.
   Indonesia native. Jika istilah teknis perlu tetap Inggris untuk kontrak
   model atau API, istilah itu tidak boleh menjadi bahasa utama yang dilihat
   pengguna.
+- Bades **tidak lagi diarahkan sebagai produk multi-language**. Pengalaman
+  produk utama harus dikunci ke **Bahasa Indonesia saja** sebagai bahasa
+  operasional tunggal.
+- Semua surface pemilihan bahasa, locale switcher, pilihan terjemahan,
+  fallback locale, dan pengalaman i18n user-facing harus dihapus dari produk
+  utama.
+- Infrastruktur **i18n**, **multi-language**, dan **Lingui** tidak lagi
+  diperlakukan sebagai capability produk yang dipelihara. Jika masih ada di
+  codebase, perlakukan itu sebagai debt migrasi yang harus dibersihkan
+  bertahap.
 - Jadikan **Bades SID Standard Seed** sebagai pengalaman default saat instalasi
   pertama, bukan seed CRM generik.
 - **Seed harus diganti total**, bukan sekadar rename. Jangan sisakan default
@@ -69,6 +79,12 @@ terkait administrasi warga.
   program **clean up surface warisan** dan **refactor arsitektur produk** agar
   codebase tidak lagi berpikir seperti produk Twenty lama pada layer yang
   terlihat user, admin, dan repo publik.
+- Fokus delivery aktif Bades **bukan** pada website marketing dan docs publik.
+  Keduanya harus dihapus, diarsipkan, atau dikeluarkan dari prioritas utama
+  sampai tidak lagi menjadi beban arah produk.
+- Fokus implementasi utama harus dipusatkan ke **engine**, **server worker**,
+  dan **front aplikasi platform** sebagai inti produk yang benar-benar dipakai
+  dan dikembangkan.
 
 ## Branding Rollout
 
@@ -104,6 +120,13 @@ terkait administrasi warga.
 - Prioritas clean up harus dimulai dari surface dengan dampak publik tertinggi:
   repo metadata, `.github`, README, website, docs utama, onboarding, settings,
   email, billing, dan sample data.
+- Untuk fase eksekusi saat ini, **website** dan **docs utama** tidak
+  diperlakukan sebagai stream produk yang terus dikembangkan. Arah yang
+  diinginkan adalah menghapus surface tersebut dari fokus aktif dan
+  memindahkan tenaga kerja ke engine, server worker, dan front aplikasi.
+- Clean up juga harus mencakup penghapusan surface dan infrastruktur
+  **multi-language/i18n/Lingui** yang tidak lagi relevan dengan arah
+  single-language Bades.
 - Refactor tidak harus selalu berarti rename besar-besaran. Jika rename teknis
   berisiko, dahulukan pemisahan boundary, pengurangan surface, perubahan alur,
   dan reposisi capability.
@@ -165,6 +188,9 @@ Relasi kunci:
 - Phone country code: `+62`
 - Date format: `DD/MM/YYYY`
 - Bahasa utama: `Bahasa Indonesia`
+- Mode bahasa: **single-language only**
+- Tidak ada locale alternatif, language switcher, atau strategi fallback
+  multi-bahasa pada pengalaman produk utama.
 
 ## Non-Technical Product Focus
 
@@ -258,6 +284,8 @@ Relasi kunci:
 - Default bahasa proyek adalah **Bahasa Indonesia native**. Ini berlaku untuk
   copy produk, dokumentasi, komentar, test, fixture, seed, contoh data, dan
   penamaan konsep bisnis di codebase.
+- Arah akhir lokalisasi Bades adalah **bukan sistem terjemahan multi-bahasa**,
+  melainkan **satu bahasa operasional tunggal: Bahasa Indonesia**.
 - Semua surface yang terlihat user harus memakai **Bahasa Indonesia yang
   benar-benar natural**, sederhana, formal secukupnya, dan familiar bagi
   operator desa.
@@ -279,6 +307,9 @@ Relasi kunci:
 - Bahasa Inggris hanya boleh dipakai untuk keyword bahasa pemrograman, nama API
   framework/library, kontrak teknis eksternal, atau identifier legacy yang
   memang belum aman diubah.
+- Jangan pertahankan katalog terjemahan, locale registry, message extraction,
+  compile pipeline terjemahan, atau dependency seperti **Lingui** sebagai
+  workflow utama jika hasil akhirnya tetap hanya Bahasa Indonesia.
 
 ## Guardrails
 
@@ -293,6 +324,9 @@ Relasi kunci:
 - Jangan pertahankan Stripe sebagai asumsi pembayaran utama pada produk final,
   docs final, settings final, atau workflow operasional final jika Midtrans
   sudah dapat menggantikan use case yang sama.
+- Jangan pertahankan fitur **multi-language**, **i18n runtime**, **locale
+  switcher**, atau dependency/wiring **Lingui** pada produk final jika semuanya
+  hanya mempertahankan kompleksitas tanpa kebutuhan bisnis nyata.
 - Jangan memposisikan Bades sebagai produk self-hosting-first atau
   open-source-distribution-first pada surface publik, docs utama, workflow
   utama, atau repo metadata utama.

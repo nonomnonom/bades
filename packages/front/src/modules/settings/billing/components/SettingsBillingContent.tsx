@@ -5,6 +5,7 @@ import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { SettingsBillingCreditsSection } from '@/settings/billing/components/SettingsBillingCreditsSection';
 import { SettingsBillingSubscriptionInfo } from '@/settings/billing/components/SettingsBillingSubscriptionInfo';
 import { useGetResourceCreditUsage } from '@/settings/billing/hooks/useGetResourceCreditUsage';
+import { useMidtransPaymentResult } from '@/settings/billing/hooks/useMidtransPaymentResult';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
@@ -21,6 +22,8 @@ export const SettingsBillingContent = () => {
   const { t } = useLingui();
 
   const { redirect } = useRedirect();
+
+  useMidtransPaymentResult();
 
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
@@ -77,12 +80,12 @@ export const SettingsBillingContent = () => {
         )}
       <Section>
         <H2Title
-          title={t`Manage billing information`}
-          description={t`Edit payment method, see your invoices and more`}
+          title={t`Kelola informasi pembayaran`}
+          description={t`Ubah metode pembayaran, lihat riwayat tagihan, dan lainnya`}
         />
         <Button
           Icon={IconCreditCard}
-          title={t`View billing details`}
+          title={t`Lihat detail tagihan`}
           variant="secondary"
           onClick={openBillingPortal}
           disabled={billingPortalButtonDisabled}
@@ -91,12 +94,12 @@ export const SettingsBillingContent = () => {
       {hasNotCanceledCurrentSubscription && (
         <Section>
           <H2Title
-            title={t`Cancel your subscription`}
-            description={t`Your workspace will be disabled`}
+            title={t`Batalkan langganan`}
+            description={t`Ruang kerja Anda akan dinonaktifkan`}
           />
           <Button
             Icon={IconCircleX}
-            title={t`Cancel Plan`}
+            title={t`Batalkan langganan`}
             variant="secondary"
             accent="danger"
             onClick={openBillingPortal}

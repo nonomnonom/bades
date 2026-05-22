@@ -29,9 +29,9 @@ export const TrialCard = ({ duration, withCreditCard }: TrialCardProps) => {
   const { t } = useLingui();
   return (
     <StyledTrialCardContainer>
-      <StyledTrialDurationContainer>{t`${duration} days trial`}</StyledTrialDurationContainer>
+      <StyledTrialDurationContainer>{t`Uji coba ${duration} hari`}</StyledTrialDurationContainer>
       <StyledCreditCardRequirementContainer>
-        {withCreditCard ? t`With Credit Card` : t`Without Credit Card`}
+        {withCreditCard ? t`Dengan kartu kredit` : t`Tanpa kartu kredit`}
       </StyledCreditCardRequirementContainer>
     </StyledTrialCardContainer>
   );

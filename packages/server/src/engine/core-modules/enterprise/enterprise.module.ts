@@ -8,12 +8,11 @@ import { EnterpriseKeyValidationCronJob } from 'src/engine/core-modules/enterpri
 import { EnterpriseResolver } from 'src/engine/core-modules/enterprise/enterprise.resolver';
 import { EnterprisePlanService } from 'src/engine/core-modules/enterprise/services/enterprise-plan.service';
 import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
-import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 
 @Module({
   imports: [
     TwentyConfigModule,
-    TypeOrmModule.forFeature([UserWorkspaceEntity, AppTokenEntity]),
+    TypeOrmModule.forFeature([AppTokenEntity]),
   ],
   providers: [
     EnterprisePlanService,

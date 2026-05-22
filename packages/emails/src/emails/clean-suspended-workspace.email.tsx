@@ -23,23 +23,23 @@ export const CleanSuspendedWorkspaceEmail = ({
 
   return (
     <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Deleted Workspace')} />
+      <Title value={i18n._('Workspace Dihapus')} />
       <MainText>
         {userName?.length > 1 ? (
-          <Trans id="Dear {userName}," values={{ userName }} />
+          <Trans id="Halo {userName}," values={{ userName }} />
         ) : (
-          <Trans id="Hello," />
+          <Trans id="Halo," />
         )}
         <br />
         <br />
         <Trans
-          id="Your workspace <0>{workspaceDisplayName}</0> has been deleted as your subscription expired {daysSinceInactive} days ago."
+          id="Workspace <0>{workspaceDisplayName}</0> Anda telah dihapus karena langganan berakhir {daysSinceInactive} hari lalu."
           values={{ workspaceDisplayName, daysSinceInactive }}
           components={{ 0: <b /> }}
         />
         <br />
         <br />
-        <Trans id="All data in this workspace has been permanently deleted." />
+        <Trans id="Semua data dalam workspace tersebut telah dihapus secara permanen." />
         <br />
         <br />
         <Trans id="Jika Anda ingin menggunakan Bades lagi, Anda dapat membuat workspace baru." />
@@ -57,7 +57,7 @@ export const CleanSuspendedWorkspaceEmail = ({
 
 CleanSuspendedWorkspaceEmail.PreviewProps = {
   daysSinceInactive: 1,
-  userName: 'John Doe',
+  userName: 'Budi Santoso',
   workspaceDisplayName: 'Workspace Saya',
   locale: 'id-ID',
 };

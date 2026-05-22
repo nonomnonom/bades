@@ -25,10 +25,10 @@ export const InformationBannerNoBillingSubscription = () => {
       variant="secondary"
       message={
         hasPermissionToSubscribe
-          ? t`Your workspace doesn't have an active subscription.`
-          : t`Your workspace doesn't have an active subscription. Please contact your admin.`
+          ? t`Ruang kerja Anda belum memiliki langganan aktif.`
+          : t`Ruang kerja Anda belum memiliki langganan aktif. Silakan hubungi admin Anda.`
       }
-      buttonTitle={hasPermissionToSubscribe ? t`Subscribe` : undefined}
+      buttonTitle={hasPermissionToSubscribe ? t`Mulai langganan` : undefined}
       buttonOnClick={() => handleCheckoutSession()}
       isButtonDisabled={isSubmitting}
     />

@@ -72,7 +72,7 @@ export type DataMessagePart = {
       agentPromptTokens?: number;
       agentCompletionTokens?: number;
       agentTotalTokens?: number;
-      // Cost in Twenty credits
+      // Biaya dalam kredit Bades
       routingCostInCredits?: number;
       agentCostInCredits?: number;
       totalCostInCredits?: number;

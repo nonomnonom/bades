@@ -44,37 +44,37 @@ export const getPageLayoutTabFlatEntitySeeds = ({
   return [
     buildTab(
       PAGE_LAYOUT_TAB_SEEDS.SALES_OVERVIEW,
-      'Overview',
+      'Ringkasan Layanan',
       0,
       PAGE_LAYOUT_SEEDS.SALES_DASHBOARD,
     ),
     buildTab(
       PAGE_LAYOUT_TAB_SEEDS.SALES_DETAILS,
-      'Details',
+      'Rincian Permohonan',
       1,
       PAGE_LAYOUT_SEEDS.SALES_DASHBOARD,
     ),
     buildTab(
       PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_OVERVIEW,
-      'Overview',
+      'Ringkasan Warga',
       0,
       PAGE_LAYOUT_SEEDS.CUSTOMER_DASHBOARD,
     ),
     buildTab(
       PAGE_LAYOUT_TAB_SEEDS.CUSTOMER_ANALYTICS,
-      'Analytics',
+      'Analitik Demografi',
       1,
       PAGE_LAYOUT_SEEDS.CUSTOMER_DASHBOARD,
     ),
     buildTab(
       PAGE_LAYOUT_TAB_SEEDS.TEAM_OVERVIEW,
-      'Team & People',
+      'Perangkat & Lembaga',
       0,
       PAGE_LAYOUT_SEEDS.TEAM_DASHBOARD,
     ),
     buildTab(
       PAGE_LAYOUT_TAB_SEEDS.TEAM_METRICS,
-      'Tasks & Activity',
+      'Tugas & Aktivitas',
       1,
       PAGE_LAYOUT_SEEDS.TEAM_DASHBOARD,
     ),

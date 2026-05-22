@@ -32,29 +32,29 @@ export const SettingsWorkspace = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`General`}
+      title={t`Pengaturan Umum`}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`General` },
+        { children: t`Pengaturan Umum` },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Picture`} />
+          <H2Title title={t`Logo`} />
           <WorkspaceLogoUploader />
         </Section>
         <Section>
-          <H2Title title={t`Name`} description={t`Name of your workspace`} />
+          <H2Title title={t`Nama`} description={t`Nama ruang kerja Anda`} />
           <NameField />
         </Section>
         {isMultiWorkspaceEnabled && (
           <Section>
             <H2Title
-              title={t`Workspace Domain`}
-              description={t`Edit your subdomain name or set a custom domain.`}
+              title={t`Domain Ruang Kerja`}
+              description={t`Ubah nama subdomain atau tetapkan domain kustom.`}
             />
             <SettingsWorkspaceDomainCard />
           </Section>

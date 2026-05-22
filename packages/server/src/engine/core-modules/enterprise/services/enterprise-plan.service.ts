@@ -201,11 +201,13 @@ export class EnterprisePlanService implements OnModuleInit {
     }
   }
 
+  // Validasi token lisensi dari otoritas internal Bades; dipanggil oleh cron
+  // dan dapat digunakan ulang saat kunci diganti secara manual.
   async refreshValidityToken(): Promise<boolean> {
     const enterpriseKey = this.twentyConfigService.get('ENTERPRISE_KEY');
 
     if (!enterpriseKey) {
-      this.logger.warn('No ENTERPRISE_KEY configured, skipping refresh');
+      this.logger.warn('Tidak ada ENTERPRISE_KEY, skip refresh token validitas');
 
       return false;
     }
@@ -214,13 +216,22 @@ export class EnterprisePlanService implements OnModuleInit {
 
     if (!isDefined(this.cachedKeyPayload)) {
       this.logger.warn(
-        'ENTERPRISE_KEY is not a valid signed JWT, skipping refresh',
+        'ENTERPRISE_KEY bukan JWT bertanda tangan valid, skip refresh',
       );
 
       return false;
     }
 
     const apiUrl = this.twentyConfigService.get('ENTERPRISE_API_URL');
+
+    if (!apiUrl) {
+      this.logger.warn(
+        'ENTERPRISE_API_URL tidak dikonfigurasi, skip refresh token validitas',
+      );
+
+      return false;
+    }
+
     const validateUrl = `${apiUrl}/validate`;
 
     try {
@@ -234,7 +245,7 @@ export class EnterprisePlanService implements OnModuleInit {
         const errorData = await response.json().catch(() => ({}));
 
         this.logger.warn(
-          `Enterprise refresh failed with status ${response.status}: ${errorData.error ?? 'Unknown error'}`,
+          `Refresh token validitas gagal dengan status ${response.status}: ${errorData.error ?? 'Unknown error'}`,
         );
 
         return false;
@@ -243,7 +254,7 @@ export class EnterprisePlanService implements OnModuleInit {
       const data = await response.json();
 
       if (!data.validityToken) {
-        this.logger.warn('Enterprise refresh response missing validityToken');
+        this.logger.warn('Respons refresh tidak memiliki validityToken');
 
         return false;
       }
@@ -251,202 +262,15 @@ export class EnterprisePlanService implements OnModuleInit {
       await this.saveNewValidityTokenToDb(data.validityToken);
       await this.loadValidityToken();
 
-      this.logger.log('Enterprise validity token refreshed successfully');
+      this.logger.log('Token validitas enterprise berhasil di-refresh');
 
       return true;
     } catch (error) {
       this.logger.warn(
-        `Enterprise refresh failed: ${error instanceof Error ? error.message : 'Network error'}. Current validity token will continue to work until expiration.`,
+        `Refresh token validitas gagal: ${error instanceof Error ? error.message : 'Network error'}. Token validitas yang ada tetap berlaku hingga kedaluwarsa.`,
       );
 
       return false;
-    }
-  }
-
-  async reportSeats(seatCount: number): Promise<boolean> {
-    const enterpriseKey = this.twentyConfigService.get('ENTERPRISE_KEY');
-
-    if (!enterpriseKey) {
-      return false;
-    }
-
-    if (!isDefined(this.cachedKeyPayload)) {
-      return false;
-    }
-
-    const apiUrl = this.twentyConfigService.get('ENTERPRISE_API_URL');
-    const seatsUrl = `${apiUrl}/seats`;
-
-    try {
-      const response = await fetch(seatsUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ enterpriseKey, seatCount }),
-      });
-
-      if (!response.ok) {
-        this.logger.warn(
-          `Seat reporting failed with status ${response.status}`,
-        );
-
-        return false;
-      }
-
-      this.logger.log(`Reported ${seatCount} seats to enterprise API`);
-
-      return true;
-    } catch (error) {
-      this.logger.warn(
-        `Seat reporting failed: ${error instanceof Error ? error.message : 'Network error'}`,
-      );
-
-      return false;
-    }
-  }
-
-  async getSubscriptionStatus(): Promise<{
-    status: string;
-    licensee: string | null;
-    expiresAt: Date | null;
-    cancelAt: Date | null;
-    currentPeriodEnd: Date | null;
-    isCancellationScheduled: boolean;
-  } | null> {
-    this.refreshKeyPayload();
-
-    const enterpriseKey = this.twentyConfigService.get('ENTERPRISE_KEY');
-
-    if (!enterpriseKey || !isDefined(this.cachedKeyPayload)) {
-      return null;
-    }
-
-    const licenseInfo = await this.getLicenseInfo();
-    const apiUrl = this.twentyConfigService.get('ENTERPRISE_API_URL');
-    const statusUrl = `${apiUrl}/status`;
-
-    try {
-      const response = await fetch(statusUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ enterpriseKey }),
-      });
-
-      if (!response.ok) {
-        this.logger.warn(
-          `Enterprise status request failed with status ${response.status}`,
-        );
-
-        return null;
-      }
-
-      const data = await response.json();
-
-      return {
-        status: data.status,
-        licensee: licenseInfo.licensee,
-        expiresAt: licenseInfo.expiresAt,
-        cancelAt: data.cancelAt ? new Date(data.cancelAt * 1000) : null,
-        currentPeriodEnd: data.currentPeriodEnd
-          ? new Date(data.currentPeriodEnd * 1000)
-          : null,
-        isCancellationScheduled: data.isCancellationScheduled ?? false,
-      };
-    } catch (error) {
-      this.logger.warn(
-        `Enterprise status request failed: ${error instanceof Error ? error.message : 'Network error'}`,
-      );
-
-      return null;
-    }
-  }
-
-  async getPortalUrl(returnUrl?: string): Promise<string | null> {
-    const apiUrl = this.twentyConfigService.get('ENTERPRISE_API_URL');
-
-    if (!apiUrl) {
-      return null;
-    }
-
-    this.refreshKeyPayload();
-    const enterpriseKey = this.twentyConfigService.get('ENTERPRISE_KEY');
-
-    if (enterpriseKey && isDefined(this.cachedKeyPayload)) {
-      return this.requestPortalUrlWithKey(apiUrl, enterpriseKey, returnUrl);
-    }
-
-    return null;
-  }
-
-  private async requestPortalUrlWithKey(
-    apiUrl: string,
-    enterpriseKey: string,
-    returnUrl?: string,
-  ): Promise<string | null> {
-    const portalUrl = `${apiUrl}/portal`;
-
-    try {
-      const response = await fetch(portalUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ enterpriseKey, returnUrl }),
-      });
-
-      if (!response.ok) {
-        this.logger.warn(
-          `Enterprise portal request failed with status ${response.status}`,
-        );
-
-        return null;
-      }
-
-      const data = await response.json();
-
-      return data.url ?? null;
-    } catch (error) {
-      this.logger.warn(
-        `Enterprise portal request failed: ${error instanceof Error ? error.message : 'Network error'}`,
-      );
-
-      return null;
-    }
-  }
-
-  async getCheckoutUrl(
-    billingInterval: 'monthly' | 'yearly' = 'monthly',
-    seatCount: number,
-  ): Promise<string | null> {
-    const apiUrl = this.twentyConfigService.get('ENTERPRISE_API_URL');
-
-    if (!apiUrl) {
-      return null;
-    }
-
-    const checkoutUrl = `${apiUrl}/checkout`;
-
-    try {
-      const response = await fetch(checkoutUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ billingInterval, seatCount }),
-      });
-
-      if (!response.ok) {
-        this.logger.warn(
-          `Enterprise checkout request failed with status ${response.status}`,
-        );
-
-        return null;
-      }
-
-      const data = await response.json();
-
-      return data.url ?? null;
-    } catch (error) {
-      this.logger.warn(
-        `Enterprise checkout request failed: ${error instanceof Error ? error.message : 'Network error'}`,
-      );
-
-      return null;
     }
   }
 
