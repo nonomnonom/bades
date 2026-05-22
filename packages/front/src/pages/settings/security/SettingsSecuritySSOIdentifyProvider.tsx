@@ -1,5 +1,6 @@
 /* @license Enterprise */
 
+import { t, Trans } from '~/utils/i18n/badesI18n';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
 import SettingsSSOIdentitiesProvidersForm from '@/settings/security/components/SSO/SettingsSSOIdentitiesProvidersForm';
 import { useCreateSSOIdentityProvider } from '@/settings/security/hooks/useCreateSSOIdentityProvider';
@@ -10,8 +11,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { FormProvider, useForm } from 'react-hook-form';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

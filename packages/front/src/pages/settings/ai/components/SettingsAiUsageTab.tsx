@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { billingState } from '@/client-config/states/billingState';
 import { isClickHouseConfiguredState } from '@/client-config/states/isClickHouseConfiguredState';
@@ -11,7 +12,6 @@ import { UsageSectionSkeleton } from '@/settings/usage/components/UsageSectionSk
 import { AI_OPERATION_TYPES } from '@/settings/usage/constants/AiOperationTypes';
 import { useUsageAnalyticsData } from '@/settings/usage/hooks/useUsageAnalyticsData';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { Tag } from 'ui/components';

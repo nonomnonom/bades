@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconAdjustments } from 'ui/display';
 import { LightIconButton } from 'ui/input';

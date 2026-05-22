@@ -9,7 +9,7 @@ import { sidePanelWidgetFooterCommandMenuItemsState } from '@/ui/layout/side-pan
 import { type SidePanelFooterCommandMenuItem } from '@/ui/layout/side-panel/types/SidePanelFooterCommandMenuItem';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconArrowBackUp, IconSend, IconX } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 import { getOsControlSymbol } from 'ui/utilities';

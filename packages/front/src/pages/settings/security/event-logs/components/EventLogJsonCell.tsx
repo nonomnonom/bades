@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { useRef, useState } from 'react';
 
 import { JsonDisplay } from '@/ui/field/display/components/JsonDisplay';

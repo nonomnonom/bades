@@ -1,10 +1,10 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceMembersState } from '@/auth/states/currentWorkspaceMembersState';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { Select } from '@/ui/input/components/Select';
 import { TextInput } from '@/ui/input/components/TextInput';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { IconBox, IconUser, useIcons } from 'ui/display';
 import { type SelectOption } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';

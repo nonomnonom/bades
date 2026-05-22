@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { format, type Locale } from 'date-fns';
 import { isDefined } from 'shared/utils';
 

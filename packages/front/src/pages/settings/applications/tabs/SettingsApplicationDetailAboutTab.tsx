@@ -1,9 +1,8 @@
+import { t, Trans } from '~/utils/i18n/badesI18n';
 import { LazyMarkdownRenderer } from '@/ai/components/LazyMarkdownRenderer';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { isDefined } from 'shared/utils';
 import {
   IconCheck,

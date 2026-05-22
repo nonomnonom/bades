@@ -1,9 +1,9 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client/react';
 import { FindOneAdminApplicationRegistrationDocument } from '~/generated-admin/graphql';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { SettingsPath } from 'shared/types';
-import { useLingui } from '@lingui/react/macro';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { APPLICATION_REGISTRATION_ADMIN_PATH } from '@/settings/admin-panel/apps/constants/ApplicationRegistrationAdminPath';

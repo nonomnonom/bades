@@ -15,7 +15,7 @@ import { workflowAiAgentActionAgentState } from '@/workflow/workflow-steps/workf
 import { workflowAiAgentPermissionsIsAddingPermissionState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentPermissionsIsAddingPermissionState';
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';

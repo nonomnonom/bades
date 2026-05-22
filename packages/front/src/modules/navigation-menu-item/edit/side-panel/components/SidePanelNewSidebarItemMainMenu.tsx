@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { NavigationMenuItemType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {

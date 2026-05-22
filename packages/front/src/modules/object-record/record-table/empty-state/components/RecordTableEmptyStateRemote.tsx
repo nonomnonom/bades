@@ -1,6 +1,6 @@
 /* oxlint-disable bades/no-navigate-prefer-link */
+import { t } from '~/utils/i18n/badesI18n';
 import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty-state/components/RecordTableEmptyStateDisplay';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { IconSettings } from 'ui/display';
 import { useNavigateSettings } from '~/hooks/useNavigateSettings';

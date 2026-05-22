@@ -1,5 +1,5 @@
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconCopy, IconExclamationCircle } from 'ui/display';
 import { useContext } from 'react';
 import { ThemeContext } from 'ui/theme-constants';

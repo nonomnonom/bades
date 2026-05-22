@@ -1,9 +1,9 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import type { ApplicationRegistrationData } from '~/pages/settings/applications/tabs/types/ApplicationRegistrationData';
 import { useQuery } from '@apollo/client/react';
 import { FindApplicationRegistrationVariablesDocument } from '~/generated-metadata/graphql';
 import { Section } from 'ui/layout';
 import { H2Title, Status } from 'ui/display';
-import { useLingui } from '@lingui/react/macro';
 import { getSettingsPath } from 'shared/utils';
 import { SettingsPath } from 'shared/types';
 import { ConfigVariableTable } from '@/settings/config-variables/components/ConfigVariableTable';

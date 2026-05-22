@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { BaseChip } from '@/object-record/record-field/ui/form-types/components/BaseChip';
 import { useSearchVariable } from '@/workflow/workflow-variables/hooks/useSearchVariable';
-import { useLingui } from '@lingui/react/macro';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { extractRawVariableNamePart } from 'shared/workflow';

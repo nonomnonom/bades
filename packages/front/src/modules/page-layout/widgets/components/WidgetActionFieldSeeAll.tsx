@@ -12,7 +12,7 @@ import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
 import { indexViewIdFromObjectMetadataItemFamilySelector } from '@/views/states/selectors/indexViewIdFromObjectMetadataItemFamilySelector';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Link } from 'react-router-dom';
 import { AppPath, ViewFilterOperand } from 'shared/types';
 import { getAppPath, isDefined } from 'shared/utils';

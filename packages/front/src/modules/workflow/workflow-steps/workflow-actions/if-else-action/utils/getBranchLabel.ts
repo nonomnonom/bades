@@ -1,5 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { type StepIfElseBranch } from 'shared/workflow';
 import { isDefined } from 'shared/utils';
 
@@ -11,7 +10,7 @@ export const getBranchLabel = ({
   branchIndex: number;
   totalBranches: number;
   branch?: StepIfElseBranch;
-}): MessageDescriptor => {
+}): string => {
   if (branchIndex === 0) {
     return msg`if`;
   }

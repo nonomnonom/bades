@@ -1,6 +1,6 @@
 import { ForbiddenFieldDisplay } from '@/object-record/record-field/ui/meta-types/display/components/ForbiddenFieldDisplay';
 import { type WidgetAccessDenialInfo } from '@/page-layout/widgets/types/WidgetAccessDenialInfo';
-import { plural, t } from '@lingui/core/macro';
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { AppTooltip } from 'ui/display';
 

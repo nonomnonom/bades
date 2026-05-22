@@ -15,7 +15,7 @@ import { useWidgetSettingsPlacementSelectableItemIds } from '@/side-panel/pages/
 import { SidePanelSubPages } from '@/side-panel/types/SidePanelSubPages';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconChevronDown, IconLayoutSidebarRight } from 'ui/display';
 import { type FieldsConfiguration } from '~/generated-metadata/graphql';

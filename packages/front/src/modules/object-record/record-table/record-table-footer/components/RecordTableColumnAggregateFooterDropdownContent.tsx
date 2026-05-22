@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useDropdownContextStateManagement } from '@/dropdown-context-state-management/hooks/useDropdownContextStateManagement';
 import { type AggregateOperations } from '@/object-record/record-table/constants/AggregateOperations';
 import { type DateAggregateOperations } from '@/object-record/record-table/constants/DateAggregateOperations';
@@ -10,7 +11,6 @@ import { PERCENT_AGGREGATE_OPERATION_OPTIONS } from '@/object-record/record-tabl
 import { STANDARD_AGGREGATE_OPERATION_OPTIONS } from '@/object-record/record-table/record-table-footer/constants/standardAggregateOperationOptions';
 import { getAvailableAggregateOperationsForFieldMetadataType } from '@/object-record/record-table/record-table-footer/utils/getAvailableAggregateOperationsForFieldMetadataType';
 
-import { useLingui } from '@lingui/react/macro';
 
 export const RecordTableColumnAggregateFooterDropdownContent = () => {
   const { t } = useLingui();

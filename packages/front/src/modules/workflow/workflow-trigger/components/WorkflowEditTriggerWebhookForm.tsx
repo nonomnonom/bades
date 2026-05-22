@@ -18,7 +18,7 @@ import { useContext, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { getOutputSchemaFromValue } from 'shared/logic-function';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconCopy } from 'ui/display';
 
 import { useDebouncedCallback } from 'use-debounce';

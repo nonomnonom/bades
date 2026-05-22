@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { addDays } from 'date-fns';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -11,7 +12,6 @@ import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useMutation, useQuery } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
 import { useStore } from 'jotai';
 import { Key } from 'ts-key-enum';
 import { SettingsPath } from 'shared/types';

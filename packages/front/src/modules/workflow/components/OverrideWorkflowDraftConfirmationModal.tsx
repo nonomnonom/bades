@@ -5,7 +5,7 @@ import {
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { OVERRIDE_WORKFLOW_DRAFT_CONFIRMATION_MODAL_ID } from '@/workflow/constants/OverrideWorkflowDraftConfirmationModalId';
 import { useCreateDraftFromWorkflowVersion } from '@/workflow/hooks/useCreateDraftFromWorkflowVersion';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AppPath, CoreObjectNameSingular } from 'shared/types';
 import { getAppPath } from 'shared/utils';
 import { useNavigateApp } from '~/hooks/useNavigateApp';

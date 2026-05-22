@@ -1,5 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { type Editor, type Range } from '@tiptap/core';
 import {
   type IconComponent,
@@ -13,10 +12,10 @@ import {
 
 export type SlashCommandConfig = {
   id: string;
-  title: MessageDescriptor;
-  description: MessageDescriptor;
+  title: string;
+  description: string;
   icon: IconComponent;
-  keywords: MessageDescriptor[];
+  keywords: string[];
   getIsActive: (editor: Editor) => boolean;
   getIsVisible: (editor: Editor) => boolean;
   getOnSelect: (editor: Editor, range: Range) => () => void;

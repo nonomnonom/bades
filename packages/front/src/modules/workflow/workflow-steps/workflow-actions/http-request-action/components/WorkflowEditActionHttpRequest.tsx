@@ -14,7 +14,7 @@ import { getBodyTypeFromHeaders } from '@/workflow/workflow-steps/workflow-actio
 import { isMethodWithBody } from '@/workflow/workflow-steps/workflow-actions/http-request-action/utils/isMethodWithBody';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect } from 'react';
 import { IconPlayerPlay, IconSettings } from 'ui/display';
 import {

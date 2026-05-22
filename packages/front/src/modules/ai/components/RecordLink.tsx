@@ -1,7 +1,7 @@
 import { objectMetadataItemFamilySelector } from '@/object-metadata/states/objectMetadataItemFamilySelector';
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AvatarOrIcon, ChipVariant, LinkChip } from 'ui/components';
 

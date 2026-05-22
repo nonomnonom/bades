@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { getOperationName } from '~/utils/getOperationName';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { useState } from 'react';
 import { v4 } from 'uuid';
 

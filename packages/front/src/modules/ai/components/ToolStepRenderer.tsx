@@ -13,7 +13,7 @@ import {
   resolveToolInput,
 } from '@/ai/utils/getToolDisplayMessage';
 import { getToolIcon } from '@/ai/utils/getToolIcon';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ToolUIPart } from 'ai';
 import { isDefined } from 'shared/utils';
 import { type JsonValue } from 'type-fest';

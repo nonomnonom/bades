@@ -6,8 +6,7 @@ import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 
 import { ModalStatefulWrapper } from '@/ui/layout/modal/components/ModalStatefulWrapper';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { H1Title, H1TitleFontColor } from 'ui/display';
 import { Button, type ButtonAccent } from 'ui/input';
 import {

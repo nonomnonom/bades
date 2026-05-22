@@ -16,8 +16,8 @@ import { DateFormat } from '@/localization/constants/DateFormat';
 import { TimeFormat } from '@/localization/constants/TimeFormat';
 import { CustomError, isDefined } from 'shared/utils';
 
-import { i18n } from '@lingui/core';
-import { plural, t } from '@lingui/core/macro';
+import { i18n } from '~/utils/i18n/badesI18n';
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { logError } from './logError';
 
 // TODO: review all of this with Temporal

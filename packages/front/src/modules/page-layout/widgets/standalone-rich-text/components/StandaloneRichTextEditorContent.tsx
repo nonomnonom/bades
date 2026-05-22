@@ -21,7 +21,7 @@ import '@blocknote/core/fonts/inter.css';
 import '@blocknote/mantine/style.css';
 import { useCreateBlockNote } from '@blocknote/react';
 import '@blocknote/react/style.css';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useDebouncedCallback } from 'use-debounce';
 import { WidgetConfigurationType } from '~/generated-metadata/graphql';

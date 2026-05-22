@@ -17,7 +17,7 @@ import { useBuildSearchParamsFromUrlSyncedStates } from '@/domain-manager/hooks/
 import { useIsCurrentLocationOnAWorkspace } from '@/domain-manager/hooks/useIsCurrentLocationOnAWorkspace';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { isErrorLike } from '@apollo/client/errors';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { buildAppPathWithQueryParams } from '~/utils/buildAppPathWithQueryParams';

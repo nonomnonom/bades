@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';

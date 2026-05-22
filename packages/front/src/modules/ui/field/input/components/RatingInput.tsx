@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
 

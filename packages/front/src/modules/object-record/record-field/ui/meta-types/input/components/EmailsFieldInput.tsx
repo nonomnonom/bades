@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldInputEventContext } from '@/object-record/record-field/ui/contexts/FieldInputEventContext';
 import { useEmailsField } from '@/object-record/record-field/ui/meta-types/hooks/useEmailsField';
 import { EmailsFieldMenuItem } from '@/object-record/record-field/ui/meta-types/input/components/EmailsFieldMenuItem';
@@ -7,7 +8,6 @@ import { type FieldEmailsValue } from '@/object-record/record-field/ui/types/Fie
 import { emailsSchema } from '@/object-record/record-field/ui/types/guards/isFieldEmailsValue';
 import { emailSchema } from '@/object-record/record-field/ui/validation-schemas/emailSchema';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useLingui } from '@lingui/react/macro';
 import { useCallback, useContext, useMemo } from 'react';
 import { MULTI_ITEM_FIELD_DEFAULT_MAX_VALUES } from 'shared/constants';
 import { isDefined } from 'shared/utils';

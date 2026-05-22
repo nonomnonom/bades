@@ -2,7 +2,7 @@
 // prettier-ignore
 import { useRowSelection, type Column, type FormatterProps } from 'react-data-grid';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type ImportedRow } from '@/spreadsheet-import/types';
 import { Radio } from 'ui/input';
 

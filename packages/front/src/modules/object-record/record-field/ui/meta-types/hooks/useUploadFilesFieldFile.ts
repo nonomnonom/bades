@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useApolloClient, useMutation } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
 import { isDefined } from 'shared/utils';
 import { UploadFilesFieldFileDocument } from '~/generated-metadata/graphql';
 

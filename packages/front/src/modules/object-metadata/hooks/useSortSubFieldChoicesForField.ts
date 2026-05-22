@@ -2,7 +2,7 @@ import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataIte
 import { getEnabledAddressSubFields } from '@/object-metadata/utils/getEnabledAddressSubFields';
 import { resolveAddressSortSubField } from '@/object-metadata/utils/resolveAddressSortSubField';
 import { resolvePrimaryFullNameSortSubField } from '@/object-metadata/utils/resolvePrimaryFullNameSortSubField';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { ALLOWED_FULL_NAME_SORT_SUBFIELDS } from 'shared/constants';
 import {
   type AllowedAddressSubField,

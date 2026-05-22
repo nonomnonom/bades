@@ -1,3 +1,4 @@
+import { msg, i18n, useLingui } from '~/utils/i18n/badesI18n';
 import { SKELETON_LOADER_HEIGHT_SIZES } from '@/activities/components/SkeletonLoader';
 import { Logo } from '@/auth/components/Logo';
 import { Title } from '@/auth/components/Title';
@@ -16,9 +17,6 @@ import { ModalContent } from 'ui/layout';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { msg } from '@lingui/core/macro';
-import { i18n } from '@lingui/core';
-import { useLingui } from '@lingui/react/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';

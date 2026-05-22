@@ -3,7 +3,7 @@ import { CHART_CONFIGURATION_SETTING_IDS } from '@/side-panel/pages/page-layout/
 import { type ChartSettingsItem } from '@/side-panel/pages/page-layout/types/ChartSettingsGroup';
 import { shouldHideChartSetting } from '@/side-panel/pages/page-layout/utils/shouldHideChartSetting';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType } from 'shared/types';
 import { IconChartBar } from 'ui/display';
 

@@ -24,7 +24,7 @@ import { getWorkflowRunStepExecutionStatus } from '@/workflow/workflow-steps/uti
 import { WorkflowIteratorSubStepSwitcher } from '@/workflow/workflow-steps/workflow-actions/iterator-action/components/WorkflowIteratorSubStepSwitcher';
 import { styled } from '@linaria/react';
 import { isNull } from '@sniptt/guards';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconLogin2, IconLogout, IconStepInto } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';

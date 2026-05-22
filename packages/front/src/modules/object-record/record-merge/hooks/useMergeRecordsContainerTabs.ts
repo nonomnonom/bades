@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
-import { useLingui } from '@lingui/react/macro';
 
 import { IconArrowMerge, IconSettings } from 'ui/display';
 

@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useIsSettingsPage } from '@/navigation/hooks/useIsSettingsPage';
 import { styled } from '@linaria/react';
 import { isNonEmptyString } from '@sniptt/guards';

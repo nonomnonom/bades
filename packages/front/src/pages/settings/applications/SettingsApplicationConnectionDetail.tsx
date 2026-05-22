@@ -1,6 +1,6 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';

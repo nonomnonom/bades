@@ -13,7 +13,7 @@ import { useWidgetSettingsPlacementSelectableItemIds } from '@/side-panel/pages/
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconLayoutSidebarRight, IconListDetails } from 'ui/display';
 import {

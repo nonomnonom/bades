@@ -1,10 +1,10 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useQuery } from '@apollo/client/react';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { FindOneApplicationRegistrationDocument } from '~/generated-metadata/graphql';
-import { useLingui } from '@lingui/react/macro';
 import { Tag } from 'ui/components';
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';

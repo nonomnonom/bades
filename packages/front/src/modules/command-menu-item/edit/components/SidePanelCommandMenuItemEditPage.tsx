@@ -18,7 +18,7 @@ import { SidePanelFooter } from '@/ui/layout/side-panel/components/SidePanelFoot
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { type DropResult } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { ContextStorePageType } from 'shared/types';
 import {
   interpolateCommandMenuItemTemplate,

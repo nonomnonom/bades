@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useMemo, useState } from 'react';
 import { Key } from 'ts-key-enum';
 
@@ -19,7 +20,6 @@ import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotke
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { MAX_OPTIONS_TO_DISPLAY } from 'shared/constants';
 import { isDefined, parseJson } from 'shared/utils';

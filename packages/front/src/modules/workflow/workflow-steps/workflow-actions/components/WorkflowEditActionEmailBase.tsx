@@ -24,7 +24,7 @@ import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/Workflo
 import { useEmailForm } from '@/workflow/workflow-steps/workflow-actions/hooks/useEmailForm';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useState } from 'react';
 import { ConnectedAccountProvider, SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';

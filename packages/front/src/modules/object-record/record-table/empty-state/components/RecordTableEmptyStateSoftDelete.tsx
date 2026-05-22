@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useObjectLabel } from '@/object-metadata/hooks/useObjectLabel';
 import { useCheckIsSoftDeleteFilter } from '@/object-record/record-filter/hooks/useCheckIsSoftDeleteFilter';
 import { useRemoveRecordFilter } from '@/object-record/record-filter/hooks/useRemoveRecordFilter';
@@ -7,7 +8,6 @@ import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 
 import { currentRecordFiltersComponentState } from '@/object-record/record-filter/states/currentRecordFiltersComponentState';
-import { useLingui } from '@lingui/react/macro';
 import { isDefined } from 'shared/utils';
 import { IconFilterOff } from 'ui/display';
 

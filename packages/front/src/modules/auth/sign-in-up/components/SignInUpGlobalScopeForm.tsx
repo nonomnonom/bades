@@ -2,7 +2,7 @@ import { availableWorkspacesState } from '@/auth/states/availableWorkspacesState
 import { returnToPathState } from '@/auth/states/returnToPathState';
 import { useBuildWorkspaceUrl } from '@/domain-manager/hooks/useBuildWorkspaceUrl';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { FormProvider } from 'react-hook-form';
 import { ClickToActionLink, UndecoratedLink } from 'ui/navigation';
 

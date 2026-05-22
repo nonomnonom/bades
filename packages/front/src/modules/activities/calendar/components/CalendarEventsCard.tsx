@@ -1,6 +1,6 @@
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { format, getYear } from 'date-fns';
 
 import { CalendarMonthCard } from '@/activities/calendar/components/CalendarMonthCard';

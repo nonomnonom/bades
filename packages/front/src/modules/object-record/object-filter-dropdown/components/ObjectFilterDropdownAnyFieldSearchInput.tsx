@@ -1,7 +1,7 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { anyFieldFilterValueComponentState } from '@/object-record/record-filter/states/anyFieldFilterValueComponentState';
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
-import { useLingui } from '@lingui/react/macro';
 
 export const ObjectFilterDropdownAnyFieldSearchInput = () => {
   const { t } = useLingui();

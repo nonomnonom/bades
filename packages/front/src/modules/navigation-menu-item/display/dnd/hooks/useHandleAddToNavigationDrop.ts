@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconFolder, IconLink, useIcons } from 'ui/display';

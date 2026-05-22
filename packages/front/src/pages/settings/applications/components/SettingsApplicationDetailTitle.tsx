@@ -1,6 +1,6 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { OBJECT_SETTINGS_WIDTH } from '@/settings/data-model/constants/ObjectSettings';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { Avatar, IconEyeOff } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 import { getApplicationDescriptionSummary } from '~/pages/settings/applications/utils/getApplicationDescriptionSummary';

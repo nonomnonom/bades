@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 
 import { isNonEmptyString } from '@sniptt/guards';
 import React, { useContext, useState } from 'react';

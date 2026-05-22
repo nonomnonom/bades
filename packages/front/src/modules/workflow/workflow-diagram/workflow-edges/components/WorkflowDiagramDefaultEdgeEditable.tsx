@@ -11,7 +11,6 @@ import { type WorkflowDiagramEdgeComponentProps } from '@/workflow/workflow-diag
 import { getConnectionOptionsForSourceHandle } from '@/workflow/workflow-diagram/workflow-edges/utils/getConnectionOptionsForSourceHandle';
 import { getEdgePath } from '@/workflow/workflow-diagram/workflow-edges/utils/getEdgePath';
 import { useDeleteEdge } from '@/workflow/workflow-steps/hooks/useDeleteEdge';
-import { useLingui } from '@lingui/react/macro';
 import { EdgeLabelRenderer } from '@xyflow/react';
 import { type MouseEvent } from 'react';
 import { isDefined } from 'shared/utils';
@@ -36,8 +35,6 @@ export const WorkflowDiagramDefaultEdgeEditable = ({
   data,
   deletable,
 }: WorkflowDiagramDefaultEdgeEditableProps) => {
-  const { i18n } = useLingui();
-
   const { isEdgeHovered } = useEdgeState();
 
   const isEditable = deletable !== false;
@@ -114,7 +111,7 @@ export const WorkflowDiagramDefaultEdgeEditable = ({
             centerY={labelY}
           >
             <WorkflowDiagramEdgeLabel
-              label={i18n._(data.labelOptions.label)}
+              label={data.labelOptions.label}
               elseIfIndex={data.labelOptions.elseIfIndex}
             />
           </WorkflowDiagramEdgeLabelContainer>

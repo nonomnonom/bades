@@ -1,7 +1,7 @@
 import { TerminalOutput } from '@/ai/components/TerminalOutput';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconChevronDown,
   IconChevronUp,

@@ -1,7 +1,7 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { RestPlayground } from '@/settings/playground/components/RestPlayground';
 import { PlaygroundSchemas } from '@/settings/playground/types/PlaygroundSchemas';
 import { FullScreenContainer } from '@/ui/layout/fullscreen/components/FullScreenContainer';
-import { Trans } from '@lingui/react/macro';
 import { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';

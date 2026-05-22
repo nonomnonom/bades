@@ -1,3 +1,4 @@
+import { t, Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { motion } from 'framer-motion';
 import { useCallback, useContext } from 'react';
@@ -29,8 +30,6 @@ import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModa
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { createPortal } from 'react-dom';
 import {
   computeMorphRelationGqlFieldName,

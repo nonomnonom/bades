@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AdvancedTextEditor } from '@/advanced-text-editor/components/AdvancedTextEditor';
 import {
   type AdvancedTextEditorContentType,
@@ -14,7 +15,6 @@ import { usePushFocusItemToFocusStack } from '@/ui/utilities/focus/hooks/usePush
 import { useRemoveFocusItemFromFocusStackById } from '@/ui/utilities/focus/hooks/useRemoveFocusItemFromFocusStackById';
 import { FocusComponentType } from '@/ui/utilities/focus/types/FocusComponentType';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { useId, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconMaximize } from 'ui/display';

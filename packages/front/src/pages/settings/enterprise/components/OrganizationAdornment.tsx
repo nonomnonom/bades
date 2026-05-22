@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { IconLock } from 'ui/display';
-import { t } from '@lingui/core/macro';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 

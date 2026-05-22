@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
 import { useContext, useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useNavigate, useParams } from 'react-router-dom';

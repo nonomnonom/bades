@@ -1,7 +1,7 @@
 import { type WorkflowCronTrigger } from '@/workflow/types/Workflow';
 import { describeCronExpression } from '@/workflow/workflow-trigger/utils/cron-to-human/describeCronExpression';
 import { convertScheduleToCronExpression } from '@/workflow/workflow-trigger/utils/cron-to-human/utils/convertScheduleToCronExpression';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 export const getTriggerScheduleDescription = (
   trigger: WorkflowCronTrigger,

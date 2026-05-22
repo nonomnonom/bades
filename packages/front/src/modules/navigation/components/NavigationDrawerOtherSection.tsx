@@ -1,11 +1,9 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { IconHelpCircle, IconSettings } from 'ui/display';
 import { AnimatedExpandableContainer } from 'ui/layout';
 
-import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { getDocumentationUrl } from '@/support/utils/getDocumentationUrl';
-import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 import { NavigationDrawerAnimatedCollapseWrapper } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerAnimatedCollapseWrapper';
 import { NavigationDrawerItem } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerItem';
@@ -19,7 +17,6 @@ import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 export const NavigationDrawerOtherSection = () => {
   const { t } = useLingui();
   const navigateSettings = useNavigateSettings();
-  const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
   const { toggleNavigationSection } = useNavigationSection('Other');
   const isNavigationSectionOpen = useAtomFamilyStateValue(
@@ -54,9 +51,7 @@ export const NavigationDrawerOtherSection = () => {
         />
         <NavigationDrawerItem
           label={t`Dokumentasi`}
-          to={getDocumentationUrl({
-            locale: currentWorkspaceMember?.locale,
-          })}
+          to={getDocumentationUrl({})}
           Icon={IconHelpCircle}
         />
       </AnimatedExpandableContainer>

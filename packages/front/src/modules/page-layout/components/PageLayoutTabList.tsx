@@ -7,7 +7,7 @@ import {
   type ResponderProvided,
 } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IconPlus, useIcons } from 'ui/display';

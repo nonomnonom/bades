@@ -1,5 +1,5 @@
 import { type ErrorLike } from '@apollo/client';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { getAppPath, isDefined } from 'shared/utils';
 import { getConflictingRecordFromApolloError } from '~/utils/get-conflicting-record-from-apollo-error.util';

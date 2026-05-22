@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +12,6 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 
-import { t } from '@lingui/core/macro';
 import {
   IconChartBar,
   IconPlus,

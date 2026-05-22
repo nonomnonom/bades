@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
@@ -8,7 +9,6 @@ import {
   type RecordInlineCellContextProps,
 } from '@/object-record/record-inline-cell/components/RecordInlineCellContext';
 import { RecordInlineCellButton } from '@/object-record/record-inline-cell/components/RecordInlineCellEditButton';
-import { useLingui } from '@lingui/react/macro';
 import { useContext } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 

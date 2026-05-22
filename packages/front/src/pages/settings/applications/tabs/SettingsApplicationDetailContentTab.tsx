@@ -1,8 +1,8 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { getLogicFunctionTriggerLabel } from '@/logic-functions/utils/getLogicFunctionTriggerLabel';
 import { useComputeApplicationContentForLayoutAndLogic } from '@/settings/applications/hooks/useComputeApplicationContentForLayoutAndLogic';
 import { useComputeObjectAndFieldsContentForApplication } from '@/settings/applications/hooks/useComputeObjectAndFieldsContentForApplication';
 import { Table } from '@/ui/layout/table/components/Table';
-import { useLingui } from '@lingui/react/macro';
 import { useState } from 'react';
 import { type Manifest } from 'shared/application';
 import { SettingsPath } from 'shared/types';

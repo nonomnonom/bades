@@ -1,5 +1,5 @@
 import { getChartLimitMessage } from '@/side-panel/pages/page-layout/utils/getChartLimitMessage';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelInformationBanner } from 'ui/display';
 import { type WidgetConfigurationType } from '~/generated-metadata/graphql';
 

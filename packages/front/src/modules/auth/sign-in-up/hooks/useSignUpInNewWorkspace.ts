@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client/react';
 import { SignUpInNewWorkspaceDocument } from '~/generated-metadata/graphql';
 import { getWorkspaceUrl } from '~/utils/getWorkspaceUrl';
 import { assertIsDefinedOrThrow } from 'shared/utils';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 export const useSignUpInNewWorkspace = () => {
   const { redirectToWorkspaceDomain } = useRedirectToWorkspaceDomain();

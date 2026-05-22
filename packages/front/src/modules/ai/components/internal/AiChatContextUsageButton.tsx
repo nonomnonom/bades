@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { t, useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { HorizontalSeparator } from 'ui/display';

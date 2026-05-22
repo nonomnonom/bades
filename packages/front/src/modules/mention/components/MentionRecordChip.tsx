@@ -1,5 +1,5 @@
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import {
   AvatarOrIcon,

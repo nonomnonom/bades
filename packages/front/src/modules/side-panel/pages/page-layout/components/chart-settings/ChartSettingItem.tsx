@@ -20,7 +20,7 @@ import { useCloseAnyOpenDropdown } from '@/ui/layout/dropdown/hooks/useCloseAnyO
 import { useOpenDropdown } from '@/ui/layout/dropdown/hooks/useOpenDropdown';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useSelectableList } from '@/ui/layout/selectable-list/hooks/useSelectableList';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 

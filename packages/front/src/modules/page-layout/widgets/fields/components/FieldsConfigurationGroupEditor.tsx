@@ -1,6 +1,6 @@
 import { Droppable, type DraggableProvided } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 import { DraggableItem } from '@/ui/layout/draggable-list/components/DraggableItem';
 

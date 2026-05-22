@@ -1,6 +1,6 @@
 import { usePieChartCenterMetricData } from '@/page-layout/widgets/graph/graph-widget-pie-chart/hooks/usePieChartCenterMetricData';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useContext } from 'react';
 import { type PieChartConfiguration } from '~/generated-metadata/graphql';

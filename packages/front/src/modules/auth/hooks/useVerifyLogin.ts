@@ -1,6 +1,6 @@
 import { useAuth } from '@/auth/hooks/useAuth';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 

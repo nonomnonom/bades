@@ -1,9 +1,9 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { GraphQLPlayground } from '@/settings/playground/components/GraphQLPlayground';
 import { PlaygroundSchemas } from '@/settings/playground/types/PlaygroundSchemas';
 import { SettingsPath } from 'shared/types';
 
 import { FullScreenContainer } from '@/ui/layout/fullscreen/components/FullScreenContainer';
-import { Trans } from '@lingui/react/macro';
 import { useParams } from 'react-router-dom';
 import { getSettingsPath } from 'shared/utils';
 import { useNavigateSettings } from '~/hooks/useNavigateSettings';

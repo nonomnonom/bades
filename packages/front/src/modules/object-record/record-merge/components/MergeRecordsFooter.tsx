@@ -1,9 +1,9 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { SIDE_PANEL_FOCUS_ID } from '@/side-panel/constants/SidePanelFocusId';
 import { useMergeRecordsActions } from '@/object-record/record-merge/hooks/useMergeRecordsActions';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { styled } from '@linaria/react';
 import { Key } from 'ts-key-enum';
-import { t } from '@lingui/core/macro';
 import { IconArrowMerge } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';

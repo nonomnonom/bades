@@ -1,5 +1,5 @@
 import { type AgentResponseFieldType } from 'shared/ai';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import {
   IllustrationIconNumbers,
   IllustrationIconText,

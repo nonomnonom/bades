@@ -1,4 +1,4 @@
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { Editor } from '@tiptap/core';
 import { Document } from '@tiptap/extension-document';
 import { Heading } from '@tiptap/extension-heading';
@@ -58,27 +58,23 @@ describe('DefaultSlashCommands', () => {
       expect(uniqueIds.size).toBe(ids.length);
     });
 
-    it('should have translatable message descriptors for titles', () => {
+    it('should have string titles', () => {
       DEFAULT_SLASH_COMMANDS.forEach((command) => {
-        // MessageDescriptor should have an id property
-        expect(command.title).toHaveProperty('id');
-        expect(typeof command.title.id).toBe('string');
+        expect(typeof command.title).toBe('string');
       });
     });
 
-    it('should have translatable message descriptors for descriptions', () => {
+    it('should have string descriptions', () => {
       DEFAULT_SLASH_COMMANDS.forEach((command) => {
-        expect(command.description).toHaveProperty('id');
-        expect(typeof command.description.id).toBe('string');
+        expect(typeof command.description).toBe('string');
       });
     });
 
-    it('should have translatable message descriptors for keywords', () => {
+    it('should have string keywords', () => {
       DEFAULT_SLASH_COMMANDS.forEach((command) => {
         expect(Array.isArray(command.keywords)).toBe(true);
         command.keywords.forEach((keyword) => {
-          expect(keyword).toHaveProperty('id');
-          expect(typeof keyword.id).toBe('string');
+          expect(typeof keyword).toBe('string');
         });
       });
     });

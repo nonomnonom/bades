@@ -9,7 +9,7 @@ import { getFieldLabelWithSubField } from '@/side-panel/pages/page-layout/utils/
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { getAggregateOperationLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationLabel';
 import { convertAggregateOperationToExtendedAggregateOperation } from '@/object-record/utils/convertAggregateOperationToExtendedAggregateOperation';
-import { plural, t } from '@lingui/core/macro';
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { type CompositeFieldSubFieldName } from 'shared/types';
 import { capitalize, isDefined } from 'shared/utils';

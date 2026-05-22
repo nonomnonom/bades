@@ -1,10 +1,10 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { AppPath } from 'shared/types';
 
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useQuery, useMutation } from '@apollo/client/react';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';

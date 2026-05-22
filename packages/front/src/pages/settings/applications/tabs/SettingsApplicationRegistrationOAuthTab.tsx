@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { ApiKeyInput } from '@/settings/developers/components/ApiKeyInput';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -6,7 +7,6 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
 import { H2Title, IconKey, IconRefresh, IconShield } from 'ui/display';

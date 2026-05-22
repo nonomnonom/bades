@@ -1,5 +1,5 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
-import { useLingui } from '@lingui/react/macro';
 import { useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 

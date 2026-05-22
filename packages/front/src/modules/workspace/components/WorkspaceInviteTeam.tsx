@@ -10,9 +10,9 @@ import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { useCreateWorkspaceInvitation } from '@/workspace-invitation/hooks/useCreateWorkspaceInvitation';
 import { sanitizeEmailList } from '@/workspace/utils/sanitizeEmailList';
-import { i18n } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { i18n } from '~/utils/i18n/badesI18n';
+import { msg } from '~/utils/i18n/badesI18n';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   IconLock,

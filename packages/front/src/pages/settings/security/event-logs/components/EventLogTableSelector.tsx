@@ -1,5 +1,5 @@
-import { useLingui } from '@lingui/react/macro';
 
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Select } from '@/ui/input/components/Select';
 import { EventLogTable } from '~/generated-metadata/graphql';
 

@@ -1,3 +1,4 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { useDropdownContextCurrentContentId } from '@/dropdown-context-state-management/hooks/useDropdownContextCurrentContentId';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { ObjectOptionsDropdownContent } from '@/object-record/object-options-dropdown/components/ObjectOptionsDropdownContent';
@@ -12,7 +13,6 @@ import { DROPDOWN_OFFSET_Y } from '@/ui/layout/dropdown/constants/DropdownOffset
 import { isDropdownOpenComponentState } from '@/ui/layout/dropdown/states/isDropdownOpenComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { type ViewType } from '@/views/types/ViewType';
-import { Trans } from '@lingui/react/macro';
 
 type ObjectOptionsDropdownProps = {
   viewType: ViewType;

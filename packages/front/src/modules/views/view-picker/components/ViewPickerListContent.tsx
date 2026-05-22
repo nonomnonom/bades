@@ -21,7 +21,7 @@ import { ViewPickerOptionDropdown } from '@/views/view-picker/components/ViewPic
 import { VIEW_PICKER_DROPDOWN_ID } from '@/views/view-picker/constants/ViewPickerDropdownId';
 import { useViewPickerMode } from '@/views/view-picker/hooks/useViewPickerMode';
 import { viewPickerReferenceViewIdComponentState } from '@/views/view-picker/states/viewPickerReferenceViewIdComponentState';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 import { themeCssVariables } from 'ui/theme-constants';

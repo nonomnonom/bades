@@ -20,7 +20,7 @@ import { useSaveCurrentViewFiltersAndSorts } from '@/views/hooks/useSaveCurrentV
 import { VIEW_PICKER_DROPDOWN_ID } from '@/views/view-picker/constants/ViewPickerDropdownId';
 import { useViewPickerMode } from '@/views/view-picker/hooks/useViewPickerMode';
 import { viewPickerReferenceViewIdComponentState } from '@/views/view-picker/states/viewPickerReferenceViewIdComponentState';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconChevronDown, IconPlus } from 'ui/display';
 import { Button, ButtonGroup, IconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';

@@ -1,10 +1,10 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { recordGroupDefinitionFamilyState } from '@/object-record/record-group/states/recordGroupDefinitionFamilyState';
 import {
   type RecordGroupDefinition,
   RecordGroupDefinitionType,
 } from '@/object-record/record-group/types/RecordGroupDefinition';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { Tag } from 'ui/components';
 import { IconEye, IconEyeOff } from 'ui/display';

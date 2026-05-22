@@ -5,7 +5,7 @@ import { useUpsertStepFilterSettings } from '@/workflow/workflow-steps/filters/h
 import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/states/context/WorkflowStepFilterContext';
 
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useMemo } from 'react';
 import { StepLogicalOperator, type StepFilterGroup } from 'shared/types';
 import { capitalize, isDefined } from 'shared/utils';

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 import {
   AnimatedPlaceholder,

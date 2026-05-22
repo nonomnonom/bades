@@ -1,9 +1,9 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { computeProgressText } from '@/command-menu-item/utils/computeProgressText';
 import { SIDE_PANEL_FOCUS_ID } from '@/side-panel/constants/SidePanelFocusId';
 import { type ObjectRecordQueryProgress } from '@/object-record/types/ObjectRecordQueryProgress';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { themeCssVariables } from 'ui/theme-constants';
 
 import { Key } from 'ts-key-enum';

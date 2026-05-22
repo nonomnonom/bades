@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { Key } from 'ts-key-enum';
 
 import { type SelectableItem } from '@/object-record/select/types/SelectableItem';
@@ -10,7 +11,6 @@ import { useSelectableList } from '@/ui/layout/selectable-list/hooks/useSelectab
 import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states/selectedItemIdComponentState';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
 import { Avatar } from 'ui/display';
 import { MenuItem, MenuItemMultiSelectAvatar } from 'ui/navigation';
 

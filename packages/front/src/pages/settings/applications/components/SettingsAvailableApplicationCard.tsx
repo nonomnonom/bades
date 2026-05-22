@@ -1,10 +1,10 @@
+import { t } from '~/utils/i18n/badesI18n';
 import {
   StyledSettingsCardContent,
   StyledSettingsCardThirdLine,
   StyledSettingsCardTitle,
 } from '@/settings/components/SettingsOptions/SettingsCardContentBase';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { Link } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { lazy, Suspense } from 'react';
 
 const BackgroundMockPage = lazy(() =>

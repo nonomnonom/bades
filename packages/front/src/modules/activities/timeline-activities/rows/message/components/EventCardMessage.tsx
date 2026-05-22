@@ -6,7 +6,7 @@ import { EventCardMessageForbidden } from '@/activities/timeline-activities/rows
 import { useOpenRecordInSidePanel } from '@/side-panel/hooks/useOpenRecordInSidePanel';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useFindOneRecord } from '@/object-record/hooks/useFindOneRecord';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { FIELD_RESTRICTED_ADDITIONAL_PERMISSIONS_REQUIRED } from 'shared/constants';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { isDefined } from 'shared/utils';

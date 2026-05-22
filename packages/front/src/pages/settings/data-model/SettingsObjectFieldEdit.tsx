@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { zodResolver } from '@hookform/resolvers/zod';
 import omit from 'lodash.omit';
 import { useEffect, useState } from 'react';
@@ -31,7 +32,6 @@ import { shouldNavigateBackToMemorizedUrlOnSaveState } from '@/ui/navigation/sta
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { AppPath, SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import {

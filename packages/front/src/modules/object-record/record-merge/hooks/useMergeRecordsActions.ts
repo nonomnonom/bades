@@ -1,5 +1,5 @@
-import { useLingui } from '@lingui/react/macro';
 
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { useMergeManyRecords } from '@/object-record/hooks/useMergeManyRecords';
 import { useMergeRecordsSelectedRecords } from '@/object-record/record-merge/hooks/useMergeRecordsSelectedRecords';

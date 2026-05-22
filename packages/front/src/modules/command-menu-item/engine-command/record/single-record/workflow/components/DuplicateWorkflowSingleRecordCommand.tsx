@@ -3,7 +3,7 @@ import { useHeadlessCommandContextApi } from '@/command-menu-item/engine-command
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useDuplicateWorkflow } from '@/workflow/hooks/useDuplicateWorkflow';
 import { useWorkflowWithCurrentVersion } from '@/workflow/hooks/useWorkflowWithCurrentVersion';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AppPath, CoreObjectNameSingular } from 'shared/types';
 import { isDefined } from 'shared/utils';

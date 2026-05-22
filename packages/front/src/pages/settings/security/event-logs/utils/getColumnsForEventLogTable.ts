@@ -1,11 +1,10 @@
-import { msg } from '@lingui/core/macro';
-import { type MessageDescriptor } from '@lingui/core';
 
+import { msg } from '~/utils/i18n/badesI18n';
 import { EventLogTable } from '~/generated-metadata/graphql';
 
 export type ColumnConfig = {
   id: string;
-  label: MessageDescriptor;
+  label: string;
   minWidth: number;
   defaultWidth: number;
 };

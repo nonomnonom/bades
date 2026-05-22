@@ -8,7 +8,7 @@ import { useMetadataErrorHandler } from '@/metadata-error-handler/hooks/useMetad
 import { type MetadataRequestResult } from '@/object-metadata/types/MetadataRequestResult.type';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { CrudOperationType } from 'shared/types';
 
 export const useUpdatePageLayoutWithTabsAndWidgets = () => {

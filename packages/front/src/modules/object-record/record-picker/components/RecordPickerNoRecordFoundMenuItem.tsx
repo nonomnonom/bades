@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { MenuItem } from 'ui/navigation';
 
-import { useLingui } from '@lingui/react/macro';
 
 export const RecordPickerNoRecordFoundMenuItem = () => {
   const { t } = useLingui();

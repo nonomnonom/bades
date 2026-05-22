@@ -1,10 +1,10 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { FormSelectFieldInput } from '@/object-record/record-field/ui/form-types/components/FormSelectFieldInput';
 import { type VariablePickerComponent } from '@/object-record/record-field/ui/form-types/types/VariablePickerComponent';
 import { useCountries } from '@/ui/input/components/internal/hooks/useCountries';
 import { isStandaloneVariableString } from '@/workflow/utils/isStandaloneVariableString';
-import { t } from '@lingui/core/macro';
 import { IconCircleOff, type IconComponentProps } from 'ui/display';
 import { type SelectOption } from 'ui/input';
 

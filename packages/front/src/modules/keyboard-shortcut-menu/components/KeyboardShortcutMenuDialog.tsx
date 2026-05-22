@@ -3,7 +3,7 @@ import {
   StyledDialog,
   StyledHeading,
 } from './KeyboardShortcutMenuStyles';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconButton } from 'ui/input';
 import { IconX } from 'ui/display';
 import { useIsMobile } from 'ui/utilities';

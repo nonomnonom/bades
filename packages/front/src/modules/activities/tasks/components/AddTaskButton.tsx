@@ -3,7 +3,7 @@ import { type ActivityTargetableObject } from '@/activities/types/ActivityTarget
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 import { Button } from 'ui/input';
 

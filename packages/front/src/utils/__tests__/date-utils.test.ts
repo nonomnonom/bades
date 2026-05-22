@@ -1,4 +1,4 @@
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { addDays, format, formatDistanceToNow, subDays } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { SOURCE_LOCALE } from 'shared/translations';

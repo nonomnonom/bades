@@ -10,7 +10,7 @@ import {
   useComponentsContext,
 } from '@blocknote/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconColorSwatch, IconPlus, IconTrash } from 'ui/display';
 import { isDefined } from 'shared/utils';
 

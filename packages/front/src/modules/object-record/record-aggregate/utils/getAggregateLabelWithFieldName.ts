@@ -1,7 +1,7 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { getAggregateOperationShortLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationShortLabel';
 import { type ExtendedAggregateOperations } from '@/object-record/record-table/types/ExtendedAggregateOperations';
-import { t } from '@lingui/core/macro';
 
 export type GetAggregateLabelWithFieldNameParams = {
   aggregateFieldMetadataItem: FieldMetadataItem;

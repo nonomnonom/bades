@@ -1,9 +1,9 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 
 import { Select } from '@/ui/input/components/Select';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { H2Title, IconCopy } from 'ui/display';
 import { CodeEditor, IconButton } from 'ui/input';
 import { Card, CardContent, Section } from 'ui/layout';

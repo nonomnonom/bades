@@ -1,4 +1,4 @@
-import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import {
   StyledActionTableCell,
@@ -10,10 +10,8 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { useContext, useMemo, useState } from 'react';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { FeatureFlagKey, SettingsPath } from 'shared/types';
@@ -64,7 +62,6 @@ const NPM_PACKAGES_GRID_COLUMNS = '200px 1fr 36px';
 export const SettingsApplicationsDeveloperTab = () => {
   const { t } = useLingui();
   const { theme } = useContext(ThemeContext);
-  const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
   const [displayNotVettedApps, setDisplayNotVettedApps] = useState(false);
 
@@ -150,7 +147,6 @@ export const SettingsApplicationsDeveloperTab = () => {
             onClick={() =>
               window.open(
                 getDocumentationUrl({
-                  locale: currentWorkspaceMember?.locale,
                   path: '/developers/extend/apps/getting-started',
                 }),
                 '_blank',

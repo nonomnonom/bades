@@ -27,8 +27,8 @@ import { PreComputedChipGeneratorsProvider } from '@/object-metadata/components/
 import { RecordComponentInstanceContextsWrapper } from '@/object-record/components/RecordComponentInstanceContextsWrapper';
 import { SnackBarComponentInstanceContext } from '@/ui/feedback/snack-bar-manager/contexts/SnackBarComponentInstanceContext';
 import { WorkspaceProviderEffect } from '@/workspace/components/WorkspaceProviderEffect';
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { i18n } from '~/utils/i18n/badesI18n';
+import { I18nProvider } from '~/utils/i18n/badesI18n';
 import { SOURCE_LOCALE } from 'shared/translations';
 import { IconsProvider } from 'ui/display';
 import { FullHeightStorybookLayout } from '~/testing/FullHeightStorybookLayout';

@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 
 export const CHART_CONFIGURATION_SETTING_LABELS = {
   SOURCE: msg`Sumber`,

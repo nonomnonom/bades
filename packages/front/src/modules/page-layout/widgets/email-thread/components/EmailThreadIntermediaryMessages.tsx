@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { EmailThreadMessage } from '@/activities/emails/components/EmailThreadMessage';
 import { type EmailThreadMessageWithSender } from '@/activities/emails/types/EmailThreadMessageWithSender';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconArrowsVertical } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';

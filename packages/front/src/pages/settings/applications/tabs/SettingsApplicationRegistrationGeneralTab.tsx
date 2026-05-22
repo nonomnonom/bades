@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ApplicationRegistration } from '~/generated-metadata/graphql';
 
-import { useLingui } from '@lingui/react/macro';
 import { useNavigate } from 'react-router-dom';
 import { InlineBanner } from 'ui/display';
 import { SettingsApplicationRegistrationGeneralInfo } from '~/pages/settings/applications/components/SettingsApplicationRegistrationGeneralInfo';

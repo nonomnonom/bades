@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -6,7 +7,6 @@ import { type VariablePickerComponent } from '@/object-record/record-field/ui/fo
 import { TextInput } from '@/ui/field/input/components/TextInput';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { isStandaloneVariableString } from '@/workflow/utils/isStandaloneVariableString';
-import { t } from '@lingui/core/macro';
 import { useId, useState } from 'react';
 import { isDefined } from 'shared/utils';
 

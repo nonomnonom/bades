@@ -1,3 +1,4 @@
+import { i18n, msg, Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,9 +21,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { TextInput } from '@/ui/input/components/TextInput';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { i18n } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { isDefined } from 'shared/utils';
 import { H2Title } from 'ui/display';
 import { MainButton } from 'ui/input';

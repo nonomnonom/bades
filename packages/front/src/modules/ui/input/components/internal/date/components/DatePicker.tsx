@@ -12,7 +12,7 @@ import { DatePickerHeader } from '@/ui/input/components/internal/date/components
 import { RelativeDatePickerHeader } from '@/ui/input/components/internal/date/components/RelativeDatePickerHeader';
 import { getHighlightedDates } from '@/ui/input/components/internal/date/utils/getHighlightedDates';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { useUserTimezone } from '@/ui/input/components/internal/date/hooks/useUserTimezone';

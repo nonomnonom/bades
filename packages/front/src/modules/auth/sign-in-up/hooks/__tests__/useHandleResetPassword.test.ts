@@ -1,5 +1,4 @@
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { i18n, I18nProvider } from '~/utils/i18n/badesI18n';
 import { act, renderHook } from '@testing-library/react';
 import { type ReactNode, createElement } from 'react';
 import { Provider as JotaiProvider } from 'jotai';
@@ -29,7 +28,7 @@ const renderHooks = () => {
       createElement(
         JotaiProvider,
         { store: jotaiStore },
-        createElement(I18nProvider, { i18n }, children),
+        createElement(I18nProvider, { i18n, children }),
       ),
   });
   return { result };
@@ -43,7 +42,7 @@ const renderHooksWithoutWorkspace = () => {
       createElement(
         JotaiProvider,
         { store: jotaiStore },
-        createElement(I18nProvider, { i18n }, children),
+        createElement(I18nProvider, { i18n, children }),
       ),
   });
   return { result };

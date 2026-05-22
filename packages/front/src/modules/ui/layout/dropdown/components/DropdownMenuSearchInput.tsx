@@ -1,5 +1,4 @@
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { useInputFocusWithoutScrollOnMount } from '@/ui/input/hooks/useInputFocusWithoutScrollOnMount';
 import { styled } from '@linaria/react';
 import { forwardRef, type InputHTMLAttributes } from 'react';

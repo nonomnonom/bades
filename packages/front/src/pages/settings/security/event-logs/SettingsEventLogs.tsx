@@ -1,5 +1,5 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useState } from 'react';
 
 import { FullScreenContainer } from '@/ui/layout/fullscreen/components/FullScreenContainer';

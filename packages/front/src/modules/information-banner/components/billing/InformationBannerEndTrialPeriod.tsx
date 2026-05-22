@@ -1,7 +1,7 @@
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { useEndSubscriptionTrialPeriod } from '@/settings/billing/hooks/useEndSubscriptionTrialPeriod';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { PermissionFlagType } from '~/generated-metadata/graphql';
 
 export const InformationBannerEndTrialPeriod = () => {

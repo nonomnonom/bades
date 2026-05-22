@@ -1,5 +1,5 @@
+import { msg } from '~/utils/i18n/badesI18n';
 import { type TableMetadata } from '@/ui/layout/table/types/TableMetadata';
-import { msg } from '@lingui/core/macro';
 import { type SettingsObjectTableItem } from '~/pages/settings/data-model/types/SettingsObjectTableItem';
 
 export const GET_SETTINGS_OBJECT_TABLE_METADATA: TableMetadata<SettingsObjectTableItem> =

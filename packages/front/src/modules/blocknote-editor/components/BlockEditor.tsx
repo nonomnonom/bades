@@ -4,7 +4,7 @@ import {
 } from '@blocknote/core/extensions';
 import { BlockNoteView } from '@blocknote/mantine';
 import { SuggestionMenuController } from '@blocknote/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { type ClipboardEvent, useContext } from 'react';
 import { type BLOCK_SCHEMA } from '@/blocknote-editor/blocks/Schema';

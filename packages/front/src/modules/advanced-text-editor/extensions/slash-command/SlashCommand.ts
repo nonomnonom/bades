@@ -1,4 +1,4 @@
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { Extension, type Editor, type Range } from '@tiptap/core';
 import Suggestion, { type SuggestionOptions } from '@tiptap/suggestion';
 import { type IconComponent } from 'ui/display';

@@ -44,7 +44,7 @@ import { SeeVersionsWorkflowSingleRecordCommand } from '@/command-menu-item/engi
 import { TestWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/TestWorkflowSingleRecordCommand';
 import { TidyUpWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/TidyUpWorkflowSingleRecordCommand';
 import { CoreObjectNamePlural } from '@/object-metadata/types/CoreObjectNamePlural';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { AppPath, SettingsPath, SidePanelPages } from 'shared/types';
 import { IconHistory, IconSearch, IconSparkles } from 'ui/display';
 import { EngineComponentKey } from '~/generated-metadata/graphql';

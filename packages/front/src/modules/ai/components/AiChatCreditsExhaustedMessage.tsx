@@ -1,7 +1,7 @@
 import { AiChatBanner } from '@/ai/components/AiChatBanner';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { IconSparkles } from 'ui/display';
 import {

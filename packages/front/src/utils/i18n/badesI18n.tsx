@@ -36,7 +36,7 @@ const isTemplateStringsArray = (
   value: unknown,
 ): value is TemplateStringsArray =>
   Array.isArray(value) &&
-  Array.isArray((value as TemplateStringsArray).raw);
+  Array.isArray((value as { raw?: unknown }).raw);
 
 /**
  * `t` — dipakai sebagai tagged template (t`Halo ${nama}`) maupun pemanggilan

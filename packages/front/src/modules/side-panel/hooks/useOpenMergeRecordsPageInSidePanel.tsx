@@ -6,7 +6,7 @@ import { useLazyFindManyRecords } from '@/object-record/hooks/useLazyFindManyRec
 import { useUpsertRecordsInStore } from '@/object-record/record-store/hooks/useUpsertRecordsInStore';
 import { SidePanelPages } from 'shared/types';
 
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { IconArrowMerge } from 'ui/display';
 import { v4 } from 'uuid';

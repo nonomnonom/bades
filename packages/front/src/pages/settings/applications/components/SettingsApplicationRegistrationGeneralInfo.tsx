@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import {
   H2Title,
   IconBox,
@@ -6,7 +7,6 @@ import {
   IconTag,
   IconWorld,
 } from 'ui/display';
-import { Trans, useLingui } from '@lingui/react/macro';
 import {
   SettingsTableCard,
   type TableItem,

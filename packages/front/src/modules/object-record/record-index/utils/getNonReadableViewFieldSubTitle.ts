@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type NonReadableViewFieldInfo } from '@/object-record/record-index/hooks/useHasCurrentViewNonReadableFields';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 
 export const getNonReadableViewFieldSubTitle = (

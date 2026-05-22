@@ -1,5 +1,5 @@
-import { Trans, useLingui } from '@lingui/react/macro';
 
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { type MessageChannel } from '@/accounts/types/MessageChannel';
 import { SettingsAccountsMessageChannelDetails } from '@/settings/accounts/components/SettingsAccountsMessageChannelDetails';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';

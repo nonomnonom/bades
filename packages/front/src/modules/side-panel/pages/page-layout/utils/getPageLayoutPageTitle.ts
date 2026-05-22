@@ -1,5 +1,5 @@
 import { type PageLayoutSidePanelPage } from '@/side-panel/pages/page-layout/types/PageLayoutSidePanelPage';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { assertUnreachable } from 'shared/utils';
 

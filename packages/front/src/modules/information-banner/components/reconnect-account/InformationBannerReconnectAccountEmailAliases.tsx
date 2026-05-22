@@ -3,7 +3,7 @@ import { useAccountToReconnect } from '@/information-banner/hooks/useAccountToRe
 import { useDismissReconnectAccountBanner } from '@/information-banner/hooks/useDismissReconnectAccountBanner';
 import { InformationBannerKeys } from '@/information-banner/types/InformationBannerKeys';
 import { useTriggerProviderReconnect } from '@/settings/accounts/hooks/useTriggerProviderReconnect';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconRefresh } from 'ui/display';
 
 const COMPONENT_INSTANCE_ID =

@@ -18,7 +18,7 @@ import { isDefined } from 'shared/utils';
 import { MOBILE_VIEWPORT } from 'ui/theme-constants';
 import { v4 } from 'uuid';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type AllowedAddressSubField } from 'shared/types';
 import { useAddressAutocomplete } from '@/ui/field/input/hooks/useAddressAutocomplete';
 import { useCountryUtils } from '@/ui/field/input/hooks/useCountryUtils';

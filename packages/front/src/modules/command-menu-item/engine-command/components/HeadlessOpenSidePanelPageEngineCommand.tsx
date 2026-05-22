@@ -2,8 +2,7 @@ import { HeadlessEngineCommandWrapperEffect } from '@/command-menu-item/engine-c
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { type MessageDescriptor } from '@lingui/core';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type SidePanelPages } from 'shared/types';
 import { type IconComponent } from 'ui/display';
 
@@ -14,7 +13,7 @@ export const HeadlessOpenSidePanelPageEngineCommand = ({
   shouldResetSearchState = false,
 }: {
   page: SidePanelPages;
-  pageTitle: MessageDescriptor;
+  pageTitle: string;
   pageIcon: IconComponent;
   shouldResetSearchState?: boolean;
 }) => {

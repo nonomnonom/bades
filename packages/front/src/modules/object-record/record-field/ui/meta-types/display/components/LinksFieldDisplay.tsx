@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useLinksFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useLinksFieldDisplay';
 import { LinksDisplay } from '@/ui/field/display/components/LinksDisplay';
-import { useLingui } from '@lingui/react/macro';
 import React from 'react';
 import { FieldMetadataSettingsOnClickAction } from 'shared/types';
 

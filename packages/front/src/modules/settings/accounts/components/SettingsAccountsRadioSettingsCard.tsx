@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react';
-import { Trans } from '~/utils/i18n/badesI18n';
-import { type MessageDescriptor } from '~/utils/i18n/badesI18n';
 import { type ReactNode } from 'react';
 import { Radio } from 'ui/input';
 import { Card, CardContent } from 'ui/layout';
@@ -55,8 +53,8 @@ const StyledExpandedContent = styled.div`
 export const SettingsAccountsRadioSettingsCard = <
   Option extends {
     cardMedia: ReactNode;
-    description: MessageDescriptor;
-    title: MessageDescriptor;
+    description: string;
+    title: string;
     value: string;
     cardContentExpanded?: ReactNode;
   },
@@ -76,12 +74,8 @@ export const SettingsAccountsRadioSettingsCard = <
           <StyledOptionHeader>
             {option.cardMedia}
             <div>
-              <StyledTitle>
-                <Trans id={option.title.id} />
-              </StyledTitle>
-              <StyledDescription>
-                <Trans id={option.description.id} />
-              </StyledDescription>
+              <StyledTitle>{option.title}</StyledTitle>
+              <StyledDescription>{option.description}</StyledDescription>
             </div>
             <StyledRadioContainer>
               <Radio

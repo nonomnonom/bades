@@ -1,5 +1,5 @@
 import { type CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 import { classifyMetadataError } from '@/metadata-error-handler/utils/classifyMetadataError';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';

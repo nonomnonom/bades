@@ -6,7 +6,7 @@ import { type RecordFilter } from '@/object-record/record-filter/types/RecordFil
 import { useRecordsForSelect } from '@/object-record/select/hooks/useRecordsForSelect';
 import { useGetRecordFilterChipLabelValue } from '@/views/hooks/useGetRecordFilterChipLabelValue';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   arrayOfUuidOrVariableSchema,
   isDefined,

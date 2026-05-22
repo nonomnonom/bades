@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type Editor, useEditorState } from '@tiptap/react';
 import {
   type IconComponent,

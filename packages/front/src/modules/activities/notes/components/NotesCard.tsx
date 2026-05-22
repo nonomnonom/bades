@@ -8,7 +8,7 @@ import { CoreObjectNameSingular } from 'shared/types';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconPlus } from 'ui/display';
 import { Button } from 'ui/input';
 import {

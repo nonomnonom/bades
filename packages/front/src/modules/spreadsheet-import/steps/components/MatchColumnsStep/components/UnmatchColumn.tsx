@@ -7,8 +7,8 @@ import { type SpreadsheetColumns } from '@/spreadsheet-import/types/SpreadsheetC
 import { SpreadsheetColumnType } from '@/spreadsheet-import/types/SpreadsheetColumnType';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
-import { t } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { t } from '~/utils/i18n/badesI18n';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { AnimatedExpandableContainer } from 'ui/layout';

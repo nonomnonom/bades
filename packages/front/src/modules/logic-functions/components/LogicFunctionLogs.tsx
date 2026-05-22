@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { ResizeHandle, useResizeHandle } from 'ui/layout';
 import { TextArea } from '@/ui/input/components/TextArea';
 

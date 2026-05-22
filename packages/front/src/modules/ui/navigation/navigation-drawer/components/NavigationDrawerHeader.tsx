@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconSearch } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MOBILE_VIEWPORT, themeCssVariables } from 'ui/theme-constants';

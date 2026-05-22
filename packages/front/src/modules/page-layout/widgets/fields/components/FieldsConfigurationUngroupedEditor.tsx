@@ -5,7 +5,7 @@ import { DraggableItem } from '@/ui/layout/draggable-list/components/DraggableIt
 import { FieldsConfigurationFieldEditor } from '@/page-layout/widgets/fields/components/FieldsConfigurationFieldEditor';
 import { type FieldsWidgetGroupField } from '@/page-layout/widgets/fields/types/FieldsWidgetGroup';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconNewSection } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 

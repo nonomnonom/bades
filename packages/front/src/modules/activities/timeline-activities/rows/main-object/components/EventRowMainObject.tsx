@@ -2,7 +2,7 @@ import { type EventRowDynamicComponentProps } from '@/activities/timeline-activi
 import { EventRowItem } from '@/activities/timeline-activities/rows/components/EventRowItem';
 import { EventRowMainObjectUpdated } from '@/activities/timeline-activities/rows/main-object/components/EventRowMainObjectUpdated';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { MOBILE_VIEWPORT, themeCssVariables } from 'ui/theme-constants';
 
 type EventRowMainObjectProps = EventRowDynamicComponentProps;

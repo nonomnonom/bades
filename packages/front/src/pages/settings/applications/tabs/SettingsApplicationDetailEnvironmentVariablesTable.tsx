@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type ApplicationVariable } from '~/generated-metadata/graphql';
-import { t } from '@lingui/core/macro';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { TextInput } from '@/ui/input/components/TextInput';

@@ -1,7 +1,7 @@
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { SettingsAdminQueueJobsTable } from '@/settings/admin-panel/health-status/components/SettingsAdminQueueJobsTable';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
-import { plural, t } from '@lingui/core/macro';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';

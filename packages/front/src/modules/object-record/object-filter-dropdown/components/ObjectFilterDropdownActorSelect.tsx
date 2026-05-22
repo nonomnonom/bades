@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { CoreObjectNameSingular } from 'shared/types';
 import { ObjectFilterDropdownRecordPinnedItems } from '@/object-record/object-filter-dropdown/components/ObjectFilterDropdownRecordPinnedItems';
 import { CURRENT_WORKSPACE_MEMBER_SELECTABLE_ITEM_ID } from '@/object-record/object-filter-dropdown/constants/CurrentWorkspaceMemberSelectableItemId';
@@ -10,7 +11,6 @@ import { type SelectableItem } from '@/object-record/select/types/SelectableItem
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { type RelationFilterValue } from '@/views/view-filter-value/types/RelationFilterValue';
-import { t } from '@lingui/core/macro';
 import {
   arrayOfUuidOrVariableSchema,
   jsonRelationFilterValueSchema,

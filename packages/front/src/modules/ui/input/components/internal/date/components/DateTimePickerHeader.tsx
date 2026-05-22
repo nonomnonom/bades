@@ -14,7 +14,7 @@ import { getTimeMask } from '@/ui/input/components/internal/date/utils/getTimeMa
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { ClickOutsideListenerContext } from '@/ui/utilities/pointer-event/contexts/ClickOutsideListenerContext';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type Temporal } from 'temporal-polyfill';
 import { SOURCE_LOCALE } from 'shared/translations';
 import { isDefined } from 'shared/utils';

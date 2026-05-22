@@ -1,11 +1,10 @@
-import { msg } from '@lingui/core/macro';
-import { type MessageDescriptor } from '@lingui/core';
+import { msg } from '~/utils/i18n/badesI18n';
 
 import { type AgentChatThreadFilterStatus } from '@/ai/types/AgentChatThreadFilterStatus';
 
 export const AGENT_CHAT_THREAD_FILTER_STATUS_LABELS: Record<
   AgentChatThreadFilterStatus,
-  MessageDescriptor
+  string
 > = {
   active: msg`Aktif`,
   archived: msg`Diarsipkan`,

@@ -1,6 +1,6 @@
 import { useCurrentWidget } from '@/page-layout/widgets/hooks/useCurrentWidget';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { AppTooltip, Status } from 'ui/display';
 
 const StyledInvalidConfigContainer = styled.div`

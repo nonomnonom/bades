@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -17,7 +18,6 @@ import { useTriggerApisOAuth } from '@/settings/accounts/hooks/useTriggerApiOAut
 import { PageFocusId } from '@/types/PageFocusId';
 import { ModalContent } from 'ui/layout';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
-import { t } from '@lingui/core/macro';
 import { AppPath, ConnectedAccountProvider } from 'shared/types';
 import { IconGoogle, IconMicrosoft } from 'ui/display';
 import { MainButton } from 'ui/input';

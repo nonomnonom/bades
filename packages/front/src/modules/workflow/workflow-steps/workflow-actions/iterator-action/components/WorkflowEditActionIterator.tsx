@@ -6,7 +6,7 @@ import { isStandaloneVariableString } from '@/workflow/utils/isStandaloneVariabl
 import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowStepBody';
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isArray, isString } from '@sniptt/guards';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';

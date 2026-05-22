@@ -1,9 +1,9 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableBody } from '@/ui/layout/table/components/TableBody';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { themeCssVariables } from 'ui/theme-constants';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { IconX, OverflowingTextWithTooltip } from 'ui/display';

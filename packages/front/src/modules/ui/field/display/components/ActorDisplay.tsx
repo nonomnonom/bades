@@ -1,6 +1,6 @@
 import { type FieldActorValue } from '@/object-record/record-field/ui/types/FieldMetadata';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { ConnectedAccountProvider } from 'shared/types';
 import { AvatarOrIcon, Chip } from 'ui/components';

@@ -6,7 +6,7 @@ import { useStepBar } from '@/ui/navigation/step-bar/hooks/useStepBar';
 
 import { spreadsheetImportDialogState } from '@/spreadsheet-import/states/spreadsheetImportDialogState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 import { ModalHeader } from 'ui/layout';
 import { SpreadsheetImportStepper } from './SpreadsheetImportStepper';

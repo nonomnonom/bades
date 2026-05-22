@@ -1,7 +1,7 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useOpenEmailInAppOrFallback } from '@/activities/emails/hooks/useOpenEmailInAppOrFallback';
 import { useEmailsFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useEmailsFieldDisplay';
 import { EmailsDisplay } from '@/ui/field/display/components/EmailsDisplay';
-import { useLingui } from '@lingui/react/macro';
 import React from 'react';
 import { FieldMetadataSettingsOnClickAction } from 'shared/types';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';

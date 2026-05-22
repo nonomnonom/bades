@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Card, Section } from 'ui/layout';
 import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsOptions/SettingsOptionCardContentToggle';
 import { IconArrowBarToDown } from 'ui/display';
@@ -8,7 +9,6 @@ import {
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
 
 const StyledToggleContainer = styled.div`
   display: flex;

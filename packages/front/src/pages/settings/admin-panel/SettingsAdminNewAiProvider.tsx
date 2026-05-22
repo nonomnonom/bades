@@ -1,7 +1,7 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { type AiSdkPackage, isDataResidency } from 'shared/ai';

@@ -1,5 +1,5 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { Trans } from '@lingui/react/macro';
 import { useContext } from 'react';
 import { IconLock } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';

@@ -1,8 +1,8 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { AdvancedFilterLogicalOperatorDropdown } from '@/object-record/advanced-filter/components/AdvancedFilterLogicalOperatorDropdown';
 import { type RecordFilterGroup } from '@/object-record/record-filter-group/types/RecordFilterGroup';
 
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { capitalize } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 

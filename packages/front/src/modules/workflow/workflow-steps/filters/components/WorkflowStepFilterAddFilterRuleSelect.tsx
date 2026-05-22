@@ -13,7 +13,7 @@ import {
   type StepFilterGroup,
 } from 'shared/types';
 import { isDefined } from 'shared/utils';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconLibraryPlus, IconPlus } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 import { v4 } from 'uuid';

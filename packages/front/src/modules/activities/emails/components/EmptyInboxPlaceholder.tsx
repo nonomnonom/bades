@@ -1,5 +1,5 @@
 import { useComposeEmailForTargetRecord } from '@/activities/emails/hooks/useComposeEmailForTargetRecord';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { IconMail } from 'ui/display';
 import { Button } from 'ui/input';
 import {

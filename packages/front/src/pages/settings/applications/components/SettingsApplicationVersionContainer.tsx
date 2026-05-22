@@ -1,9 +1,9 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { SettingsAdminVersionDisplay } from '@/settings/admin-panel/components/SettingsAdminVersionDisplay';
 import { useUpgradeApplication } from '@/marketplace/hooks/useUpgradeApplication';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { IconCircleDot, IconStatusChange, IconUpload } from 'ui/display';
 import { Button } from 'ui/input';

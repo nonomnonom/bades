@@ -1,8 +1,7 @@
-import { type MessageDescriptor } from '@lingui/core';
 import { type IconComponent } from 'ui/display';
 
 export type TableFieldMetadata<ItemType> = {
-  fieldLabel: MessageDescriptor;
+  fieldLabel: string;
   fieldName: keyof ItemType;
   fieldType: 'string' | 'number';
   align: 'left' | 'right';

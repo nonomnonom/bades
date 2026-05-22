@@ -1,11 +1,10 @@
-import { msg } from '@lingui/core/macro';
-import { type MessageDescriptor } from '@lingui/core';
+import { msg } from '~/utils/i18n/badesI18n';
 
 import { type AgentChatThreadLastActivityFilter } from '@/ai/types/AgentChatThreadLastActivityFilter';
 
 export const AGENT_CHAT_THREAD_LAST_ACTIVITY_FILTER_LABELS: Record<
   AgentChatThreadLastActivityFilter,
-  MessageDescriptor
+  string
 > = {
   all: msg`Semua`,
   '1d': msg`1 hari`,

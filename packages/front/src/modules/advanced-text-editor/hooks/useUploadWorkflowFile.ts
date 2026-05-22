@@ -1,7 +1,7 @@
 import { MAX_ATTACHMENT_SIZE } from '@/advanced-text-editor/utils/maxAttachmentSize';
 import { formatFileSize } from '@/file/utils/formatFileSize';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   extractFolderPathFilenameAndTypeOrThrow,
   isDefined,

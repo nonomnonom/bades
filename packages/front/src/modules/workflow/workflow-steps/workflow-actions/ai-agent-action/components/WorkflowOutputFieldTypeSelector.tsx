@@ -1,6 +1,6 @@
 import { OUTPUT_FIELD_TYPE_OPTIONS } from '@/ai/constants/OutputFieldTypeOptions';
 import { Select } from '@/ui/input/components/Select';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type AgentResponseFieldType } from 'shared/ai';
 
 type WorkflowOutputFieldTypeSelectorProps = {

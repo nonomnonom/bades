@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useRef } from 'react';
 import { useStore } from 'jotai';
 
@@ -19,7 +20,6 @@ import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotke
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
 import { Key } from 'ts-key-enum';
 import { isDefined } from 'shared/utils';
-import { t } from '@lingui/core/macro';
 import { IconPlus } from 'ui/display';
 
 type MultipleRecordPickerProps = {
