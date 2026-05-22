@@ -35,7 +35,7 @@ export const NavigationDrawerOtherSection = () => {
     <NavigationDrawerSection>
       <NavigationDrawerAnimatedCollapseWrapper>
         <NavigationDrawerSectionTitle
-          label={t`Other`}
+          label={t`Lainnya`}
           onClick={toggleNavigationSection}
           isOpen={isNavigationSectionOpen}
         />
@@ -48,12 +48,12 @@ export const NavigationDrawerOtherSection = () => {
         initial={false}
       >
         <NavigationDrawerItem
-          label={t`Settings`}
+          label={t`Pengaturan`}
           Icon={IconSettings}
           onClick={handleSettingsClick}
         />
         <NavigationDrawerItem
-          label={t`Documentation`}
+          label={t`Dokumentasi`}
           to={getDocumentationUrl({
             locale: currentWorkspaceMember?.locale,
           })}

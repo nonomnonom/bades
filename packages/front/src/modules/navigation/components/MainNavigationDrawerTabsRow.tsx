@@ -186,7 +186,7 @@ export const MainNavigationDrawerTabsRow = () => {
   return (
     <StyledRow isExpanded={isExpanded}>
       <NavigationDrawerAnimatedCollapseWrapper>
-        <StyledTabsPill role="tablist" aria-label={t`Navigation tabs`}>
+        <StyledTabsPill role="tablist" aria-label={t`Tab navigasi`}>
           <StyledTabWrapper
             isActive={
               navigationDrawerActiveTab ===
@@ -197,7 +197,7 @@ export const MainNavigationDrawerTabsRow = () => {
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.NAVIGATION_MENU
             }
-            aria-label={t`Home`}
+            aria-label={t`Beranda`}
             tabIndex={
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.NAVIGATION_MENU
@@ -227,7 +227,7 @@ export const MainNavigationDrawerTabsRow = () => {
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.AI_CHAT_HISTORY
             }
-            aria-label={t`Chat`}
+            aria-label={t`Obrolan`}
             tabIndex={
               navigationDrawerActiveTab ===
               NAVIGATION_DRAWER_TABS.AI_CHAT_HISTORY
@@ -253,14 +253,14 @@ export const MainNavigationDrawerTabsRow = () => {
         <StyledNewChatButton
           role="button"
           tabIndex={0}
-          aria-label={t`New chat`}
+          aria-label={t`Obrolan baru`}
           onClick={handleNewChatClick}
           onKeyDown={handleNewChatKeyDown}
         >
           <StyledNewChatIcon>
             <IconMessageCirclePlus size={theme.icon.size.md} />
           </StyledNewChatIcon>
-          {isExpanded && <OverflowingTextWithTooltip text={t`New chat`} />}
+          {isExpanded && <OverflowingTextWithTooltip text={t`Obrolan baru`} />}
         </StyledNewChatButton>
       </StyledNewChatButtonWrapper>
     </StyledRow>
