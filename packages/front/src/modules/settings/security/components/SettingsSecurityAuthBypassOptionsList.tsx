@@ -46,13 +46,13 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
     authProvider: keyof Omit<AuthProviders, '__typename' | 'magicLink' | 'sso'>,
   ) => {
     if (!currentWorkspace?.id) {
-      throw new Error(t`User is not logged in`);
+      throw new Error(t`Pengguna belum masuk`);
     }
 
     const key = `is${capitalize(authProvider)}AuthBypassEnabled`;
 
     if (!isValidAuthProvider(key)) {
-      throw new Error(t`Invalid auth bypass provider`);
+      throw new Error(t`Penyedia bypass autentikasi tidak valid`);
     }
 
     setCurrentWorkspace({
@@ -88,7 +88,7 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
           <SettingsOptionCardContentToggle
             Icon={IconGoogle}
             title={t`Google`}
-            description={t`Allow Google-based login for users with SSO bypass permissions.`}
+            description={t`Izinkan masuk menggunakan Google untuk pengguna dengan izin bypass SSO.`}
             checked={currentWorkspace.isGoogleAuthBypassEnabled}
             advancedMode
             divider
@@ -99,7 +99,7 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
           <SettingsOptionCardContentToggle
             Icon={IconMicrosoft}
             title={t`Microsoft`}
-            description={t`Allow Microsoft-based login for users with SSO bypass permissions.`}
+            description={t`Izinkan masuk menggunakan Microsoft untuk pengguna dengan izin bypass SSO.`}
             checked={currentWorkspace.isMicrosoftAuthBypassEnabled}
             advancedMode
             divider
@@ -109,8 +109,8 @@ export const SettingsSecurityAuthBypassOptionsList = () => {
         {authProviders.password && (
           <SettingsOptionCardContentToggle
             Icon={IconPassword}
-            title={t`Password`}
-            description={t`Allow email & password login for SSO bypass users.`}
+            title={t`Kata Sandi`}
+            description={t`Izinkan masuk dengan email & kata sandi untuk pengguna bypass SSO.`}
             checked={currentWorkspace.isPasswordAuthBypassEnabled}
             advancedMode
             onChange={() => toggleAuthBypassMethod('password')}

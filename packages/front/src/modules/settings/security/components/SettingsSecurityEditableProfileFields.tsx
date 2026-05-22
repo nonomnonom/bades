@@ -46,9 +46,9 @@ export const SettingsSecurityEditableProfileFields = () => {
 
   const profileFieldOptions: ProfileFieldOption[] = [
     { value: 'email', label: t`Email`, Icon: IconMail },
-    { value: 'firstName', label: t`First Name`, Icon: IconUserCircle },
-    { value: 'lastName', label: t`Last Name`, Icon: IconUser },
-    { value: 'profilePicture', label: t`Profile Picture`, Icon: IconPhoto },
+    { value: 'firstName', label: t`Nama Depan`, Icon: IconUserCircle },
+    { value: 'lastName', label: t`Nama Belakang`, Icon: IconUser },
+    { value: 'profilePicture', label: t`Foto Profil`, Icon: IconPhoto },
   ];
 
   const selectedFields =
@@ -65,7 +65,7 @@ export const SettingsSecurityEditableProfileFields = () => {
   const selectedDisplayLabel =
     selectedLabelList.length > 0
       ? selectedLabelList.join(', ')
-      : t`No fields selected`;
+      : t`Tidak ada field yang dipilih`;
 
   const firstSelectedIcon =
     selectedFields.length === 1
@@ -80,7 +80,7 @@ export const SettingsSecurityEditableProfileFields = () => {
 
   const toggleField = (field: string) => {
     if (!currentWorkspace?.id) {
-      enqueueErrorSnackBar({ message: t`User is not logged in` });
+      enqueueErrorSnackBar({ message: t`Pengguna belum masuk` });
       return;
     }
 

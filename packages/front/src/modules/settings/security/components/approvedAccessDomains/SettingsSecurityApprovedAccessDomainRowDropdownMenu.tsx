@@ -52,7 +52,7 @@ export const SettingsSecurityApprovedAccessDomainRowDropdownMenu = ({
     });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Could not delete approved access domain`,
+        message: t`Gagal menghapus domain akses yang disetujui`,
         options: {
           duration: 2000,
         },
@@ -73,7 +73,7 @@ export const SettingsSecurityApprovedAccessDomainRowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text="Delete"
+              text={t`Hapus`}
               onClick={() => {
                 handleDeleteApprovedAccessDomain();
                 closeDropdown(dropdownId);

@@ -59,7 +59,7 @@ export const SettingsSSOIdentitiesProvidersListCard = () => {
     >
       <Link to={getSettingsPath(SettingsPath.NewSSOIdentityProvider)}>
         <SettingsCard
-          title={t`Add SSO Identity Provider`}
+          title={t`Tambah Penyedia Identitas SSO`}
           disabled={currentWorkspace?.hasValidEnterpriseKey !== true}
           Icon={<IconKey />}
         />

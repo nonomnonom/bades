@@ -38,7 +38,7 @@ export const SettingsSecurityApprovedAccessDomainValidationEffect = () => {
             })),
           );
           enqueueSuccessSnackBar({
-            message: t`Approved access domain validated`,
+            message: t`Domain akses berhasil divalidasi`,
             options: {
               dedupeKey: 'approved-access-domain-validation-dedupe-key',
             },
@@ -48,7 +48,7 @@ export const SettingsSecurityApprovedAccessDomainValidationEffect = () => {
           enqueueErrorSnackBar({
             message: error?.message
               ? error.message
-              : t`Error validating approved access domain`,
+              : t`Gagal memvalidasi domain akses`,
             options: {
               dedupeKey: 'approved-access-domain-validation-error-dedupe-key',
             },

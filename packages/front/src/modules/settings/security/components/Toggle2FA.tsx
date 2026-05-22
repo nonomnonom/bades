@@ -18,7 +18,7 @@ export const Toggle2FA = () => {
 
   const handleChange = async () => {
     if (!currentWorkspace?.id) {
-      throw new Error('User is not logged in');
+      throw new Error('Pengguna belum masuk');
     }
 
     const newEnforceValue = !currentWorkspace.isTwoFactorAuthenticationEnforced;
@@ -55,8 +55,8 @@ export const Toggle2FA = () => {
       {currentWorkspace && (
         <SettingsOptionCardContentToggle
           Icon={IconLifebuoy}
-          title={t`Two Factor Authentication`}
-          description={t`Enforce two-step verification for every user login.`}
+          title={t`Autentikasi Dua Faktor`}
+          description={t`Wajibkan verifikasi dua langkah untuk setiap login pengguna.`}
           checked={currentWorkspace.isTwoFactorAuthenticationEnforced}
           onChange={handleChange}
           advancedMode

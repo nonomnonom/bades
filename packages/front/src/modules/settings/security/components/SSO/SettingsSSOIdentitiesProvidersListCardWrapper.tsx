@@ -27,7 +27,7 @@ export const SettingsSSOIdentitiesProvidersListCardWrapper = () => {
         <SettingsSSOIdentityProviderRowRightContainer SSOIdp={SSOIdp} />
       )}
       hasFooter
-      footerButtonLabel={t`Add SSO Identity Provider`}
+      footerButtonLabel={t`Tambah Penyedia Identitas SSO`}
       onFooterButtonClick={() => navigate(SettingsPath.NewSSOIdentityProvider)}
     />
   );

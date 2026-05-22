@@ -39,7 +39,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
     });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Error deleting SSO Identity Provider`,
+        message: t`Gagal menghapus Penyedia Identitas SSO`,
         options: {
           duration: 2000,
         },
@@ -59,7 +59,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
     });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Error editing SSO Identity Provider`,
+        message: t`Gagal mengubah Penyedia Identitas SSO`,
         options: {
           duration: 2000,
         },
@@ -80,7 +80,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
             <MenuItem
               accent="default"
               LeftIcon={IconArchive}
-              text={SSOIdp.status === 'Active' ? t`Deactivate` : t`Activate`}
+              text={SSOIdp.status === 'Active' ? t`Nonaktifkan` : t`Aktifkan`}
               onClick={() => {
                 toggleSSOIdentityProviderStatus(SSOIdp.id);
                 closeDropdown(dropdownId);
@@ -89,7 +89,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Delete`}
+              text={t`Hapus`}
               onClick={() => {
                 handleDeleteSSOIdentityProvider(SSOIdp.id);
                 closeDropdown(dropdownId);
