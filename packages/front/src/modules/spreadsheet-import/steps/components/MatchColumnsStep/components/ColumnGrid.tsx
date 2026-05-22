@@ -101,7 +101,7 @@ export const ColumnGrid = ({
       <StyledGridContainer>
         <StyledGrid>
           <StyledGridRow height="32px">
-            <StyledGridHeader position="left">{t`Imported data`}</StyledGridHeader>
+            <StyledGridHeader position="left">{t`Data dari berkas`}</StyledGridHeader>
             <StyledGridHeader position="right">{t`Kolom Bades`}</StyledGridHeader>
           </StyledGridRow>
           {columns.map((column, index) => {

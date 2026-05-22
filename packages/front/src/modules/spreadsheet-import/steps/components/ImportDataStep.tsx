@@ -44,11 +44,11 @@ export const ImportDataStep = ({
   return (
     <>
       <ModalContent noPadding isVerticallyCentered isHorizontallyCentered>
-        <StyledHeader>{t`Importing Data ...`}</StyledHeader>
-        <StyledDescription>{t`${formattedCreatedRecordsProgress} out of ${formattedRecordsToImportCount} records imported.`}</StyledDescription>
+        <StyledHeader>{t`Mengimpor Data...`}</StyledHeader>
+        <StyledDescription>{t`${formattedCreatedRecordsProgress} dari ${formattedRecordsToImportCount} baris telah diimpor.`}</StyledDescription>
         <Loader />
       </ModalContent>
-      <StepNavigationButton onBack={onClose} backTitle={t`Cancel`} />
+      <StepNavigationButton onBack={onClose} backTitle={t`Batal`} />
     </>
   );
 };

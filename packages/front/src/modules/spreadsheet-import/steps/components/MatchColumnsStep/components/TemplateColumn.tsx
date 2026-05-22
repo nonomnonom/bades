@@ -57,7 +57,7 @@ export const TemplateColumn = ({
     {
       Icon: IconForbid,
       value: DO_NOT_IMPORT_OPTION_KEY,
-      label: t`Do not import`,
+      label: t`Jangan diimpor`,
     },
     ...fieldOptions,
   ];
@@ -73,7 +73,7 @@ export const TemplateColumn = ({
   return (
     <StyledContainer>
       <MatchColumnToFieldSelect
-        placeholder={t`Select column...`}
+        placeholder={t`Pilih kolom...`}
         value={isIgnored ? ignoreValue : selectValue}
         onChange={(value) => onChange(value?.value as string, column.index)}
         options={selectOptions}

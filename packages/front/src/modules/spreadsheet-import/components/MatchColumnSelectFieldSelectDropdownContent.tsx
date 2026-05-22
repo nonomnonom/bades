@@ -92,13 +92,13 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
           />
         }
       >
-        {t`Select matching field`}
+        {t`Pilih kolom yang sesuai`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         value={searchFilter}
         onChange={handleFilterChange}
         autoFocus
-        placeholder={t`Search fields`}
+        placeholder={t`Cari kolom`}
       />
       <DropdownMenuSeparator />
       <StyledContainer>
@@ -110,13 +110,13 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
                   selected={selectedValue?.value === DO_NOT_IMPORT_OPTION_KEY}
                   onClick={onDoNotImportSelect}
                   LeftIcon={IconForbid}
-                  text={t`Do not import`}
+                  text={t`Jangan diimpor`}
                 />
               </DropdownMenuItemsContainer>
               {suggestedOptions.length > 0 && (
                 <>
                   <DropdownMenuSeparator />
-                  <DropdownMenuSectionLabel label={t`Suggested`} />
+                  <DropdownMenuSectionLabel label={t`Disarankan`} />
                   <DropdownMenuItemsContainer scrollable={false}>
                     {suggestedOptions.map((option) => (
                       <MenuItemSelect
@@ -132,7 +132,7 @@ export const MatchColumnSelectFieldSelectDropdownContent = ({
                 </>
               )}
               <DropdownMenuSeparator />
-              <DropdownMenuSectionLabel label={t`All fields`} />
+              <DropdownMenuSectionLabel label={t`Semua kolom`} />
             </>
           )}
           <DropdownMenuItemsContainer scrollable={false}>

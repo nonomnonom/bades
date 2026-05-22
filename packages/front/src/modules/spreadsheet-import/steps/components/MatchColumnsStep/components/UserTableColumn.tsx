@@ -46,7 +46,7 @@ export const UserTableColumn = ({
     <StyledContainer>
       <StyledValue>{header}</StyledValue>
       {firstDefinedValue && (
-        <StyledExample>{`ex: ${firstDefinedValue}`}</StyledExample>
+        <StyledExample>{`mis: ${firstDefinedValue}`}</StyledExample>
       )}
     </StyledContainer>
   );

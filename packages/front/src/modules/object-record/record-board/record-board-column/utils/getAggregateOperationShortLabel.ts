@@ -11,29 +11,29 @@ export const getAggregateOperationShortLabel = (
     case AggregateOperations.MIN:
       return msg`Min`;
     case AggregateOperations.MAX:
-      return msg`Max`;
+      return msg`Maks`;
     case AggregateOperations.AVG:
-      return msg`Average`;
+      return msg`Rata-rata`;
     case AggregateOperations.SUM:
-      return msg`Sum`;
+      return msg`Jumlah`;
     case AggregateOperations.COUNT:
-      return msg`All`;
+      return msg`Semua`;
     case AggregateOperations.COUNT_EMPTY:
     case AggregateOperations.PERCENTAGE_EMPTY:
-      return msg`Empty`;
+      return msg`Kosong`;
     case AggregateOperations.COUNT_NOT_EMPTY:
     case AggregateOperations.PERCENTAGE_NOT_EMPTY:
-      return msg`Not empty`;
+      return msg`Terisi`;
     case AggregateOperations.COUNT_UNIQUE_VALUES:
-      return msg`Unique`;
+      return msg`Unik`;
     case DateAggregateOperations.EARLIEST:
-      return msg`Earliest`;
+      return msg`Terlama`;
     case DateAggregateOperations.LATEST:
-      return msg`Latest`;
+      return msg`Terbaru`;
     case AggregateOperations.COUNT_TRUE:
-      return msg`True`;
+      return msg`Benar`;
     case AggregateOperations.COUNT_FALSE:
-      return msg`False`;
+      return msg`Salah`;
     default:
       throw new CustomError(
         `Unknown aggregate operation: ${operation}`,

@@ -106,7 +106,7 @@ export const SelectHeaderStep = ({
     <>
       <ModalContent>
         <StyledHeadingContainer>
-          <Heading title={t`Select header row`} />
+          <Heading title={t`Pilih baris judul kolom`} />
         </StyledHeadingContainer>
         <StyledTableContainer>
           <SelectHeaderTable
@@ -119,7 +119,7 @@ export const SelectHeaderStep = ({
       <StepNavigationButton
         onContinue={handleOnContinue}
         onBack={onBack}
-        continueTitle={t`Continue`}
+        continueTitle={t`Lanjutkan`}
         isLoading={isLoading}
       />
     </>

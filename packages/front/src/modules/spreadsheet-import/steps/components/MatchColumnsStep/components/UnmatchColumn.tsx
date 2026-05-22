@@ -25,7 +25,7 @@ const getExpandableContainerTitle = (
     'matchedOptions' in column &&
     column.matchedOptions?.filter((option) => !isDefined(option.value)).length;
 
-  return t`Match ${fieldLabel} (${unmatchedCount} Unmatched)`;
+  return t`Cocokkan ${fieldLabel} (${unmatchedCount} belum dicocokkan)`;
 };
 
 type UnmatchColumnProps = {
@@ -83,7 +83,7 @@ export const UnmatchColumn = ({
               column={column}
               onSubChange={onSubChange}
               key={option.entry}
-              placeholder={t`Select an option`}
+              placeholder={t`Pilih opsi`}
             />
           ))}
         </StyledContentWrapper>

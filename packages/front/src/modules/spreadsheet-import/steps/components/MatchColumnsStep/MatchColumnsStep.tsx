@@ -199,12 +199,12 @@ export const MatchColumnsStep = ({
   const handleOnContinue = useCallback(async () => {
     if (unmatchedRequiredFields.length > 0) {
       enqueueDialog({
-        title: t`Not all columns matched`,
-        message: t`There are required columns that are not matched or ignored. Do you want to continue?`,
+        title: t`Ada kolom yang belum dicocokkan`,
+        message: t`Ada kolom wajib yang belum dicocokkan atau diabaikan. Lanjutkan?`,
         children: (
           <StyledColumnsContainer>
             <StyledColumns>
-              <Trans>Columns not matched:</Trans>
+              <Trans>Kolom yang belum dicocokkan:</Trans>
             </StyledColumns>
             {unmatchedRequiredFields.map((field) => (
               <StyledColumn key={field}>{field}</StyledColumn>
@@ -212,9 +212,9 @@ export const MatchColumnsStep = ({
           </StyledColumnsContainer>
         ),
         buttons: [
-          { title: t`Cancel` },
+          { title: t`Batal` },
           {
-            title: t`Continue`,
+            title: t`Lanjutkan`,
             onClick: handleAlertOnContinue,
             variant: 'primary',
             role: 'confirm',
@@ -255,12 +255,12 @@ export const MatchColumnsStep = ({
 
   const openRestartDialog = () => {
     enqueueDialog({
-      title: t`Restart Import`,
-      message: t`You will lose all your mappings.`,
+      title: t`Mulai Ulang Impor`,
+      message: t`Semua pemetaan kolom Anda akan hilang.`,
       buttons: [
-        { title: t`Cancel` },
+        { title: t`Batal` },
         {
-          title: t`Restart`,
+          title: t`Mulai Ulang`,
           onClick: onBackConfirmation,
           accent: 'danger',
           role: 'confirm',
@@ -303,8 +303,8 @@ export const MatchColumnsStep = ({
       <StepNavigationButton
         onContinue={handleOnContinue}
         isLoading={isLoading}
-        continueTitle={t`Next Step`}
-        backTitle={t`Restart Import`}
+        continueTitle={t`Langkah Berikutnya`}
+        backTitle={t`Mulai Ulang Impor`}
         onBack={openRestartDialog}
         isContinueDisabled={!hasMatchedColumns}
       />

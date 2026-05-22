@@ -66,7 +66,7 @@ export const setColumn = (
         header: oldColumn.header,
         type: SpreadsheetColumnType.matchedError,
         value: field.key,
-        errorMessage: t`column data is not compatible with Multi-Select. Format required is '["option1", "option2"]' or option1,option2.`,
+        errorMessage: t`data kolom tidak kompatibel dengan Multi-Pilih. Format yang diperlukan: '["opsi1", "opsi2"]' atau opsi1,opsi2.`,
       };
     }
 

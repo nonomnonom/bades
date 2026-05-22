@@ -137,7 +137,7 @@ export const DropZone = ({ onContinue, isLoading }: DropZoneProps) => {
       fileRejections.forEach((fileRejection) => {
         const fileName = fileRejection.file.name;
         enqueueErrorSnackBar({
-          message: t`${fileName} upload rejected`,
+          message: t`${fileName} ditolak`,
           options: {
             detailedMessage: fileRejection.errors[0].message,
           },
@@ -177,28 +177,28 @@ export const DropZone = ({ onContinue, isLoading }: DropZoneProps) => {
       />
       {isDragActive ? (
         <StyledText>
-          <Trans>Drop file here...</Trans>
+          <Trans>Letakkan berkas di sini...</Trans>
         </StyledText>
       ) : loading || isLoading ? (
         <StyledText>
-          <Trans>Processing...</Trans>
+          <Trans>Memproses...</Trans>
         </StyledText>
       ) : (
         <>
           <StyledText>
-            <Trans>Upload .xlsx, .xls or .csv file</Trans>
+            <Trans>Unggah berkas .xlsx, .xls, atau .csv</Trans>
           </StyledText>
           <StyledButtonsContainer>
-            <MainButton onClick={open} title={t`Select file`} fullWidth />
+            <MainButton onClick={open} title={t`Pilih berkas`} fullWidth />
             <MainButton
               onClick={downloadSample}
-              title={t`Download sample`}
+              title={t`Unduh contoh`}
               variant="secondary"
               fullWidth
             />
           </StyledButtonsContainer>
           <StyledFooterText>
-            {t`Max import capacity: ${formatSpreadsheetMaxRecordImportCapacity} records. Otherwise, consider splitting your file or using the API.`}
+            {t`Kapasitas impor maks: ${formatSpreadsheetMaxRecordImportCapacity} baris. Jika lebih, pertimbangkan memecah berkas Anda.`}
           </StyledFooterText>
         </>
       )}

@@ -15,7 +15,7 @@ const SelectFormatter = (props: SelectFormatterProps) => {
 
   return (
     <Radio
-      aria-label={t`Select`}
+      aria-label={t`Pilih`}
       checked={isRowSelected}
       onChange={(event) => {
         onRowSelectionChange({

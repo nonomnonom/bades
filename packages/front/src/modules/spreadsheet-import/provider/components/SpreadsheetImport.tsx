@@ -53,12 +53,12 @@ export const SpreadsheetImport = (props: SpreadsheetImportProps) => {
     }
 
     enqueueDialog({
-      title: t`Exit import flow`,
-      message: t`Are you sure? Your current information will not be saved.`,
+      title: t`Keluar dari proses impor`,
+      message: t`Yakin ingin keluar? Data yang sudah dimasukkan tidak akan disimpan.`,
       buttons: [
-        { title: t`Cancel` },
+        { title: t`Batal` },
         {
-          title: t`Exit`,
+          title: t`Keluar`,
           onClick: mergedProps.onClose,
           accent: 'danger',
           role: 'confirm',

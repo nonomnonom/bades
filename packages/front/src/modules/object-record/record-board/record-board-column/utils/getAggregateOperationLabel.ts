@@ -11,31 +11,31 @@ export const getAggregateOperationLabel = (
     case AggregateOperations.MIN:
       return t`Min`;
     case AggregateOperations.MAX:
-      return t`Max`;
+      return t`Maks`;
     case AggregateOperations.AVG:
-      return t`Average`;
+      return t`Rata-rata`;
     case AggregateOperations.SUM:
-      return t`Sum`;
+      return t`Jumlah`;
     case AggregateOperations.COUNT:
-      return t`Count all`;
+      return t`Hitung semua`;
     case AggregateOperations.COUNT_EMPTY:
-      return t`Count empty`;
+      return t`Hitung yang kosong`;
     case AggregateOperations.COUNT_NOT_EMPTY:
-      return t`Count not empty`;
+      return t`Hitung yang terisi`;
     case AggregateOperations.COUNT_UNIQUE_VALUES:
-      return t`Count unique values`;
+      return t`Hitung nilai unik`;
     case AggregateOperations.PERCENTAGE_EMPTY:
-      return t`Percent empty`;
+      return t`Persentase kosong`;
     case AggregateOperations.PERCENTAGE_NOT_EMPTY:
-      return t`Percent not empty`;
+      return t`Persentase terisi`;
     case DateAggregateOperations.EARLIEST:
-      return t`Earliest date`;
+      return t`Tanggal terlama`;
     case DateAggregateOperations.LATEST:
-      return t`Latest date`;
+      return t`Tanggal terbaru`;
     case AggregateOperations.COUNT_TRUE:
-      return t`Count true`;
+      return t`Hitung yang benar`;
     case AggregateOperations.COUNT_FALSE:
-      return t`Count false`;
+      return t`Hitung yang salah`;
     default:
       throw new CustomError(
         `Unknown aggregate operation: ${operation}`,

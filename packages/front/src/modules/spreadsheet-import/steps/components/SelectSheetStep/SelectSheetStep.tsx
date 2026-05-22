@@ -61,7 +61,7 @@ export const SelectSheetStep = ({
         )
       ) {
         const maxRecordsString = maxRecords.toString();
-        onError(t`Too many records. Up to ${maxRecordsString} allowed`);
+        onError(t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`);
         return;
       }
       try {
@@ -100,7 +100,7 @@ export const SelectSheetStep = ({
   return (
     <>
       <ModalContent isVerticallyCentered isHorizontallyCentered gap={8}>
-        <Heading title={t`Select the sheet to use`} />
+        <Heading title={t`Pilih lembar yang akan digunakan`} />
         <StyledRadioContainer>
           {sheetNames.map((sheetName) => (
             <StyledRadioItemContainer key={sheetName}>
@@ -120,7 +120,7 @@ export const SelectSheetStep = ({
         onContinue={() => handleOnContinue(value)}
         onBack={onBack}
         isLoading={isLoading}
-        continueTitle={t`Next Step`}
+        continueTitle={t`Langkah Berikutnya`}
       />
     </>
   );
