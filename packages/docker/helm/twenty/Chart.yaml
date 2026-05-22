@@ -1,7 +1,0 @@
-apiVersion: v2
-name: bades
-description: A Helm chart to deploy Bades (server + worker) with optional PostgreSQL and Redis dependencies.
-type: application
-version: 0.1.0
-appVersion: "v1.14.0"
-icon: https://raw.githubusercontent.com/bades-id/bades/main/packages/website/public/images/core/logo.svg
