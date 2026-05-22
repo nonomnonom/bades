@@ -7,10 +7,10 @@ import { Command, CommandRunner, Option } from 'nest-commander';
 
 import { InstanceCommandGenerationService } from 'src/database/commands/instance-command-generation.service';
 import {
-  TWENTY_ALL_VERSIONS,
-  type TwentyAllVersion,
-} from 'src/engine/core-modules/upgrade/constants/twenty-all-versions.constant';
-import { TWENTY_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/twenty-current-version.constant';
+  BADES_ALL_VERSIONS,
+  type BadesAllVersion,
+} from 'src/engine/core-modules/upgrade/constants/bades-all-versions.constant';
+import { BADES_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/bades-current-version.constant';
 import { type InstanceCommandType } from 'src/engine/core-modules/upgrade/decorators/registered-instance-command.decorator';
 
 const UPGRADE_VERSION_COMMAND_DIR = path.resolve(
@@ -21,7 +21,7 @@ const UPGRADE_VERSION_COMMAND_DIR = path.resolve(
 type GenerateInstanceCommandOptions = {
   name: string;
   type: InstanceCommandType;
-  version?: TwentyAllVersion;
+  version?: BadesAllVersion;
 };
 
 @Command({
@@ -65,18 +65,18 @@ export class GenerateInstanceCommandCommand extends CommandRunner {
     flags: '--version <version>',
     description: 'Target version (e.g. 1.23.0). Defaults to CURRENT_VERSION.',
   })
-  parseVersion(value: string): TwentyAllVersion {
+  parseVersion(value: string): BadesAllVersion {
     if (
-      !TWENTY_ALL_VERSIONS.includes(
-        value as (typeof TWENTY_ALL_VERSIONS)[number],
+      !BADES_ALL_VERSIONS.includes(
+        value as (typeof BADES_ALL_VERSIONS)[number],
       )
     ) {
       throw new Error(
-        `Invalid version "${value}". Must be one of: ${TWENTY_ALL_VERSIONS.join(', ')}`,
+        `Invalid version "${value}". Must be one of: ${BADES_ALL_VERSIONS.join(', ')}`,
       );
     }
 
-    return value as TwentyAllVersion;
+    return value as BadesAllVersion;
   }
 
   async run(
@@ -84,7 +84,7 @@ export class GenerateInstanceCommandCommand extends CommandRunner {
     options: GenerateInstanceCommandOptions,
   ): Promise<void> {
     const migrationName = options.name;
-    const version = options.version ?? TWENTY_CURRENT_VERSION;
+    const version = options.version ?? BADES_CURRENT_VERSION;
 
     const commandType = options.type;
 

@@ -9,9 +9,9 @@ import {
 } from 'src/engine/core-modules/upgrade/services/upgrade-sequence-reader.service';
 import { UpgradeCommandRegistryService } from 'src/engine/core-modules/upgrade/services/upgrade-command-registry.service';
 import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
-import { TWENTY_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/twenty-current-version.constant';
+import { BADES_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/bades-current-version.constant';
 
-const VERSION = TWENTY_CURRENT_VERSION;
+const VERSION = BADES_CURRENT_VERSION;
 
 @RegisteredWorkspaceCommand(VERSION, 1770000000000)
 class MinimalWorkspaceCommand {

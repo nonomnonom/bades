@@ -11,11 +11,11 @@ import { UpgradeCommandRegistryService } from 'src/engine/core-modules/upgrade/s
 import { RegisteredInstanceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-instance-command.decorator';
 import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
 import { type SlowInstanceCommand } from 'src/engine/core-modules/upgrade/interfaces/slow-instance-command.interface';
-import { TWENTY_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/twenty-current-version.constant';
-import { TWENTY_PREVIOUS_VERSIONS } from 'src/engine/core-modules/upgrade/constants/twenty-previous-versions.constant';
+import { BADES_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/bades-current-version.constant';
+import { BADES_PREVIOUS_VERSIONS } from 'src/engine/core-modules/upgrade/constants/bades-previous-versions.constant';
 
-const VERSION_A = TWENTY_CURRENT_VERSION;
-const VERSION_B = TWENTY_PREVIOUS_VERSIONS[0];
+const VERSION_A = BADES_CURRENT_VERSION;
+const VERSION_B = BADES_PREVIOUS_VERSIONS[0];
 
 @RegisteredInstanceCommand(VERSION_A, 1770000000000)
 class MigrationA1770000000000 implements FastInstanceCommand {
