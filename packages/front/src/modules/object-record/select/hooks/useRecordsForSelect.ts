@@ -18,7 +18,7 @@ export const useRecordsForSelect = ({
   limit,
   excludedRecordIds = [],
   objectNameSingular,
-  allowRequestsToTwentyIcons,
+  allowRequestsToFaviconService,
 }: {
   searchFilterText: string;
   sortOrder?: OrderBy;
@@ -26,11 +26,11 @@ export const useRecordsForSelect = ({
   limit?: number;
   excludedRecordIds?: string[];
   objectNameSingular: string;
-  allowRequestsToTwentyIcons: boolean;
+  allowRequestsToFaviconService: boolean;
 }) => {
   const { mapToObjectRecordIdentifier } = useMapToObjectRecordIdentifier({
     objectNameSingular,
-    allowRequestsToTwentyIcons,
+    allowRequestsToFaviconService,
   });
 
   const filters = [

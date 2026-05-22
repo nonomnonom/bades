@@ -56,7 +56,7 @@ export const mockedClientConfig: ClientConfig = {
   isEmailGroupEnabled: false,
   isTwoFactorAuthenticationEnabled: false,
   isEmailingDomainsEnabled: false,
-  allowRequestsToTwentyIcons: true,
+  allowRequestsToFaviconService: true,
   isCloudflareIntegrationEnabled: false,
   isClickHouseConfigured: false,
   isWorkspaceSchemaDDLLocked: false,

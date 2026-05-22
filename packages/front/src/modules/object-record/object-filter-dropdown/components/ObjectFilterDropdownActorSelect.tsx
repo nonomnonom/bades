@@ -57,7 +57,7 @@ export const ObjectFilterDropdownActorSelect = ({
       selectedIds: selectedRecordIds,
       objectNameSingular: CoreObjectNameSingular.WorkspaceMember,
       limit: 10,
-      allowRequestsToTwentyIcons: false,
+      allowRequestsToFaviconService: false,
     });
 
   const currentWorkspaceMemberSelectableItem: SelectableItem = {

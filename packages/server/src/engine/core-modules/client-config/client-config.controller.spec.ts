@@ -97,7 +97,7 @@ describe('ClientConfigController', () => {
         isEmailGroupEnabled: false,
         calendarBookingPageId: undefined,
         isTwoFactorAuthenticationEnabled: false,
-        allowRequestsToTwentyIcons: true,
+        allowRequestsToFaviconService: true,
         isCloudflareIntegrationEnabled: false,
         isClickHouseConfigured: false,
         isWorkspaceSchemaDDLLocked: false,

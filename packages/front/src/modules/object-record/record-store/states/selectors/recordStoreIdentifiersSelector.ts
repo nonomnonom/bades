@@ -9,12 +9,12 @@ export const recordStoreIdentifiersFamilySelector = createAtomFamilySelector<
   ObjectRecordIdentifier[],
   {
     recordIds: string[];
-    allowRequestsToTwentyIcons: boolean;
+    allowRequestsToFaviconService: boolean;
   }
 >({
   key: 'recordStoreIdentifiersFamilySelector',
   get:
-    ({ recordIds, allowRequestsToTwentyIcons }) =>
+    ({ recordIds, allowRequestsToFaviconService }) =>
     ({ get }) => {
       const objectMetadataItems = get(objectMetadataItemsSelector);
 
@@ -36,7 +36,7 @@ export const recordStoreIdentifiersFamilySelector = createAtomFamilySelector<
           return getObjectRecordIdentifier({
             objectMetadataItem: objectMetadataItem,
             record: recordFromStore,
-            allowRequestsToTwentyIcons,
+            allowRequestsToFaviconService,
           });
         })
         .filter(isDefined);

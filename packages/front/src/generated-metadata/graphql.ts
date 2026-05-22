@@ -849,7 +849,7 @@ export type ClientAiModelConfig = {
 export type ClientConfig = {
   __typename?: 'ClientConfig';
   aiModels: Array<ClientAiModelConfig>;
-  allowRequestsToTwentyIcons: Scalars['Boolean'];
+  allowRequestsToFaviconService: Scalars['Boolean'];
   analyticsEnabled: Scalars['Boolean'];
   api: ApiConfig;
   appVersion?: Maybe<Scalars['String']>;

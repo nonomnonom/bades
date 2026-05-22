@@ -31,7 +31,7 @@ import { domainConfigurationState } from '@/domain-manager/states/domainConfigur
 import { useCallback } from 'react';
 import { clientConfigApiStatusState } from '@/client-config/states/clientConfigApiStatusState';
 import { getClientConfig } from '@/client-config/utils/getClientConfig';
-import { allowRequestsToTwentyIconsState } from '@/client-config/states/allowRequestsToTwentyIcons';
+import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 
@@ -111,8 +111,8 @@ export const useClientConfig = (): UseClientConfigResult => {
     isImapSmtpCaldavEnabledState,
   );
 
-  const setAllowRequestsToTwentyIcons = useSetAtomState(
-    allowRequestsToTwentyIconsState,
+  const setAllowRequestsToFaviconService = useSetAtomState(
+    allowRequestsToFaviconServiceState,
   );
 
   const setIsCloudflareIntegrationEnabled = useSetAtomState(
@@ -201,7 +201,7 @@ export const useClientConfig = (): UseClientConfigResult => {
       setIsImapSmtpCaldavEnabled(clientConfig?.isImapSmtpCaldavEnabled);
       setIsEmailGroupEnabled(clientConfig?.isEmailGroupEnabled ?? false);
       setIsEmailingDomainsEnabled(clientConfig?.isEmailingDomainsEnabled);
-      setAllowRequestsToTwentyIcons(clientConfig?.allowRequestsToTwentyIcons);
+      setAllowRequestsToFaviconService(clientConfig?.allowRequestsToFaviconService);
       setIsCloudflareIntegrationEnabled(
         clientConfig?.isCloudflareIntegrationEnabled,
       );
@@ -250,7 +250,7 @@ export const useClientConfig = (): UseClientConfigResult => {
     setIsMicrosoftMessagingEnabled,
     setSentryConfig,
     setSupportChat,
-    setAllowRequestsToTwentyIcons,
+    setAllowRequestsToFaviconService,
   ]);
 
   return {

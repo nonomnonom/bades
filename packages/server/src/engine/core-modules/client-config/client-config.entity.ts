@@ -313,7 +313,7 @@ export class ClientConfig {
   isEmailGroupEnabled: boolean;
 
   @Field(() => Boolean)
-  allowRequestsToTwentyIcons: boolean;
+  allowRequestsToFaviconService: boolean;
 
   @Field(() => String, { nullable: true })
   calendarBookingPageId?: string;
