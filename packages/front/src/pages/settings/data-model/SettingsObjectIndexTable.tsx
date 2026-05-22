@@ -120,7 +120,7 @@ export const SettingsObjectIndexTable = ({
     <>
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search an index...`}
+          placeholder={t`Cari indeks...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />

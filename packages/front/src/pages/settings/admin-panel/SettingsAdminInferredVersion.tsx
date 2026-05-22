@@ -50,14 +50,14 @@ export const SettingsAdminInferredVersion = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Upgrade status refreshed`,
+        message: t`Status pembaruan disegarkan`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to refresh upgrade status`,
+            : t`Gagal menyegarkan status pembaruan`,
       });
     }
   };
@@ -66,30 +66,30 @@ export const SettingsAdminInferredVersion = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: t`Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Inferred version`,
+          children: t`Versi terdeteksi`,
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Inferred version`}
-            description={t`Detected application version running on this instance`}
+            title={t`Versi terdeteksi`}
+            description={t`Versi aplikasi yang terdeteksi berjalan pada instans ini`}
           />
           <SettingsTableCard
             items={[
               {
                 Icon: IconId,
-                label: t`Inferred version`,
-                value: inferredVersion ?? t`Unknown`,
+                label: t`Versi terdeteksi`,
+                value: inferredVersion ?? t`Tidak diketahui`,
               },
             ]}
             gridAutoColumns="3fr 4fr"
@@ -97,7 +97,7 @@ export const SettingsAdminInferredVersion = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Refresh status`}
+              title={t`Segarkan status`}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />

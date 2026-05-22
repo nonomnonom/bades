@@ -65,12 +65,12 @@ export const SettingsApplicationVersionContainer = ({
   const versionItems = [
     {
       Icon: IconCircleDot,
-      label: t`Current version`,
+      label: t`Versi saat ini`,
       value: (
         <SettingsAdminVersionDisplay
           version={currentVersion}
           loading={loading}
-          noVersionMessage={t`Unknown`}
+          noVersionMessage={t`Tidak diketahui`}
         />
       ),
     },
@@ -78,12 +78,12 @@ export const SettingsApplicationVersionContainer = ({
       ? [
           {
             Icon: IconStatusChange,
-            label: t`Latest version`,
+            label: t`Versi terbaru`,
             value: (
               <SettingsAdminVersionDisplay
                 version={latestVersion}
                 loading={loading}
-                noVersionMessage={t`No latest version found`}
+                noVersionMessage={t`Tidak ada versi terbaru`}
               />
             ),
           },
@@ -103,8 +103,8 @@ export const SettingsApplicationVersionContainer = ({
           Icon={IconUpload}
           title={
             isUpgrading
-              ? t`Upgrading...`
-              : t`Upgrade to ${latestAvailableVersion}`
+              ? t`Memperbarui...`
+              : t`Perbarui ke ${latestAvailableVersion}`
           }
           variant="secondary"
           accent="blue"

@@ -32,8 +32,8 @@ export const SettingsAdminApplicationRegistrationGeneralToggles = ({
         <Card rounded fullWidth>
           <SettingsOptionCardContentToggle
             Icon={IconArrowBarToDown}
-            title={t`Allow installation`}
-            description={t`Display this app in the NPM packages list`}
+            title={t`Izinkan pemasangan`}
+            description={t`Tampilkan aplikasi ini dalam daftar paket NPM`}
             checked={registration.isListed}
             onChange={(checked) =>
               updateRegistration({

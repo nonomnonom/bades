@@ -71,7 +71,7 @@ export const SettingsAccountsConfiguration = () => {
       },
       onCompleted: () => {
         enqueueSuccessSnackBar({
-          message: t`Account added successfully. Sync started.`,
+          message: t`Akun berhasil ditambahkan. Sinkronisasi dimulai.`,
         });
         navigate(getSettingsPath(SettingsPath.Accounts));
       },

@@ -198,13 +198,13 @@ export const SettingsSecurity = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Security`}
+      title={t`Keamanan`}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Security</Trans> },
+        { children: <Trans>Keamanan</Trans> },
       ]}
     >
       <SettingsPageContainer>
@@ -214,7 +214,7 @@ export const SettingsSecurity = () => {
             <Section>
               <H2Title
                 title={t`SSO`}
-                description={t`Configure an SSO connection`}
+                description={t`Konfigurasi koneksi SSO`}
                 adornment={
                   <Tag
                     text={t`Enterprise`}
@@ -231,8 +231,8 @@ export const SettingsSecurity = () => {
           <Section>
             <StyledContainer>
               <H2Title
-                title={t`Authentication`}
-                description={t`Customize your workspace security`}
+                title={t`Autentikasi`}
+                description={t`Sesuaikan keamanan ruang kerja Anda`}
               />
               <SettingsSecurityAuthProvidersOptionsList />
             </StyledContainer>
@@ -240,8 +240,8 @@ export const SettingsSecurity = () => {
           <Section>
             <StyledContainer>
               <H2Title
-                title={t`Editable Profile Fields`}
-                description={t`Choose which profile fields users with the Edit Profile permission can modify`}
+                title={t`Kolom Profil yang Dapat Diedit`}
+                description={t`Pilih kolom profil mana yang dapat diubah pengguna dengan izin Edit Profil`}
               />
               <SettingsSecurityEditableProfileFields />
             </StyledContainer>
@@ -251,8 +251,8 @@ export const SettingsSecurity = () => {
             <Section>
               <StyledContainer>
                 <H2Title
-                  title={t`SSO Bypass`}
-                  description={t`Configure fallback login methods for users with SSO bypass permissions`}
+                  title={t`Bypass SSO`}
+                  description={t`Konfigurasi metode masuk cadangan untuk pengguna dengan izin bypass SSO`}
                 />
                 <SettingsSecurityAuthBypassOptionsList />
               </StyledContainer>
@@ -261,16 +261,16 @@ export const SettingsSecurity = () => {
           {isMultiWorkspaceEnabled && (
             <Section>
               <H2Title
-                title={t`Support`}
-                description={t`Manage support access settings`}
+                title={t`Dukungan`}
+                description={t`Kelola pengaturan akses dukungan`}
               />
               <ToggleImpersonate />
             </Section>
           )}
           <Section>
             <H2Title
-              title={t`Audit Logs`}
-              description={t`View workspace activity logs`}
+              title={t`Log Audit`}
+              description={t`Lihat log aktivitas ruang kerja`}
               adornment={
                 <Tag
                   text={t`Enterprise`}
@@ -284,11 +284,11 @@ export const SettingsSecurity = () => {
               <Card rounded>
                 <SettingsOptionCardContentButton
                   Icon={IconHistory}
-                  title={t`Workspace Events`}
+                  title={t`Peristiwa Ruang Kerja`}
                   description={
                     !isClickHouseConfigured
-                      ? t`ClickHouse is required for audit logs. Contact your administrator.`
-                      : t`View and filter events, page views, object changes`
+                      ? t`ClickHouse diperlukan untuk log audit. Hubungi administrator Anda.`
+                      : t`Lihat dan filter peristiwa, tampilan halaman, perubahan objek`
                   }
                   Button={
                     <StyledLinkContainer>
@@ -297,7 +297,7 @@ export const SettingsSecurity = () => {
                         data-disabled={!isEventLogsEnabled}
                       >
                         <Button
-                          title={t`View Logs`}
+                          title={t`Lihat Log`}
                           variant="secondary"
                           size="small"
                           disabled={!isEventLogsEnabled}
@@ -311,8 +311,8 @@ export const SettingsSecurity = () => {
                     <Separator />
                     <SettingsOptionCardContentCounter
                       Icon={IconClockHour8}
-                      title={t`Log retention`}
-                      description={t`Number of days to retain audit logs (30-1095 days)`}
+                      title={t`Retensi log`}
+                      description={t`Jumlah hari menyimpan log audit (30-1095 hari)`}
                       value={currentWorkspace?.eventLogRetentionDays ?? 90}
                       onChange={handleEventLogRetentionDaysChange}
                       minValue={30}
@@ -324,22 +324,22 @@ export const SettingsSecurity = () => {
               </Card>
             ) : (
               <SettingsEnterpriseFeatureGateCard
-                title={t`Enterprise feature`}
-                description={t`Upgrade to Enterprise to access audit logs.`}
-                buttonTitle={t`Activate`}
+                title={t`Fitur enterprise`}
+                description={t`Tingkatkan ke Enterprise untuk mengakses log audit.`}
+                buttonTitle={t`Aktifkan`}
               />
             )}
           </Section>
           <Section>
             <H2Title
-              title={t`Other`}
-              description={t`Other security settings`}
+              title={t`Lainnya`}
+              description={t`Pengaturan keamanan lainnya`}
             />
             <Card rounded>
               <SettingsOptionCardContentCounter
                 Icon={IconTrash}
-                title={t`Erasure of soft-deleted records`}
-                description={t`Permanent deletion. Enter the number of days.`}
+                title={t`Penghapusan catatan yang dihapus sementara`}
+                description={t`Penghapusan permanen. Masukkan jumlah hari.`}
                 value={currentWorkspace?.trashRetentionDays ?? 14}
                 onChange={handleTrashRetentionDaysChange}
                 minValue={0}
@@ -348,8 +348,8 @@ export const SettingsSecurity = () => {
               <Separator />
               <SettingsOptionCardContentToggle
                 Icon={IconMail}
-                title={t`Sync Internal Emails`}
-                description={t`Include emails where all participants share the same domain.`}
+                title={t`Sinkronisasi Surel Internal`}
+                description={t`Sertakan surel di mana semua peserta berbagi domain yang sama.`}
                 checked={
                   currentWorkspace?.isInternalMessagesImportEnabled ?? false
                 }

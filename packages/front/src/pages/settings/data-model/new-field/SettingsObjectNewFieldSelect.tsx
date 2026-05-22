@@ -65,13 +65,13 @@ export const SettingsObjectNewFieldSelect = () => {
       {...formMethods}
     >
       <SubMenuTopBarContainer
-        title={t`1. Select a field type`}
+        title={t`1. Pilih tipe kolom`}
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`Objects`, href: getSettingsPath(SettingsPath.Objects) },
+          { children: t`Objek`, href: getSettingsPath(SettingsPath.Objects) },
           {
             children: activeObjectMetadataItem.labelPlural,
             href: getSettingsPath(SettingsPath.ObjectDetail, {

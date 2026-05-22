@@ -64,7 +64,7 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
         {...form}
       >
         <SubMenuTopBarContainer
-          title={t`New SSO Configuration`}
+          title={t`Konfigurasi SSO Baru`}
           actionButton={
             <SaveAndCancelButtons
               onCancel={() => navigate(SettingsPath.Security)}

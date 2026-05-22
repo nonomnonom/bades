@@ -105,12 +105,12 @@ export const SettingsAdminAiProviderDetail = () => {
         ],
       });
       enqueueSuccessSnackBar({
-        message: t`Provider "${provider?.label ?? providerName}" removed`,
+        message: t`Penyedia "${provider?.label ?? providerName}" dihapus`,
       });
       navigate(AI_ADMIN_PATH);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to remove provider`,
+        message: t`Gagal menghapus penyedia`,
       });
     }
   };
@@ -133,12 +133,12 @@ export const SettingsAdminAiProviderDetail = () => {
       });
       await refetchClientConfig();
       enqueueSuccessSnackBar({
-        message: t`Model "${modelToRemove.label}" removed`,
+        message: t`Model "${modelToRemove.label}" dihapus`,
       });
       setModelToRemove(null);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to remove model`,
+        message: t`Gagal menghapus model`,
       });
     }
   };
@@ -188,7 +188,7 @@ export const SettingsAdminAiProviderDetail = () => {
       await refetchClientConfig();
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to update model availability`,
+        message: t`Gagal memperbarui ketersediaan model`,
       });
     }
   };
@@ -214,7 +214,7 @@ export const SettingsAdminAiProviderDetail = () => {
     }> = [
       {
         Icon: IconTag,
-        label: t`Name`,
+        label: t`Nama`,
         value: provider.label ?? provider.id,
       },
       {
@@ -233,11 +233,11 @@ export const SettingsAdminAiProviderDetail = () => {
 
       items.push({
         Icon: IconKey,
-        label: t`API Key`,
+        label: t`Kunci API`,
         value: (
           <RoundedLink
             href={configPath}
-            label={provider.apiKey ?? t`Configure`}
+            label={provider.apiKey ?? t`Konfigurasikan`}
             onClick={(event) => {
               event.preventDefault();
               navigate(configPath);
@@ -248,7 +248,7 @@ export const SettingsAdminAiProviderDetail = () => {
     } else if (provider.apiKey) {
       items.push({
         Icon: IconKey,
-        label: t`API Key`,
+        label: t`Kunci API`,
         value: provider.apiKey,
       });
     }
@@ -256,7 +256,7 @@ export const SettingsAdminAiProviderDetail = () => {
     if (provider.baseUrl) {
       items.push({
         Icon: IconWorld,
-        label: t`Base URL`,
+        label: t`URL Dasar`,
         value: provider.baseUrl,
       });
     }
@@ -264,7 +264,7 @@ export const SettingsAdminAiProviderDetail = () => {
     if (provider.region) {
       items.push({
         Icon: IconServer,
-        label: t`Region`,
+        label: t`Wilayah`,
         value: provider.region,
       });
     }
@@ -272,21 +272,21 @@ export const SettingsAdminAiProviderDetail = () => {
     if (provider.hasAccessKey) {
       items.push({
         Icon: IconKey,
-        label: t`Credentials`,
-        value: t`IAM credentials configured`,
+        label: t`Kredensial`,
+        value: t`Kredensial IAM dikonfigurasi`,
       });
     } else if (provider.authType === 'role') {
       items.push({
         Icon: IconKey,
-        label: t`Credentials`,
-        value: t`IAM role (instance profile)`,
+        label: t`Kredensial`,
+        value: t`Peran IAM (profil instance)`,
       });
     }
 
     if (isCustomProvider && provider.dataResidency) {
       items.push({
         Icon: IconFlag,
-        label: t`Data Residency`,
+        label: t`Residensi Data`,
         value: getDataResidencyDisplay(provider.dataResidency),
       });
     }
@@ -306,11 +306,11 @@ export const SettingsAdminAiProviderDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - AI`,
+          children: t`Panel Admin - AI`,
           href: AI_ADMIN_PATH,
         },
         {
@@ -336,17 +336,17 @@ export const SettingsAdminAiProviderDetail = () => {
 
         <Section>
           <H2Title
-            title={t`Models`}
+            title={t`Model`}
             description={
               isCustomProvider
-                ? t`Models for this provider. Toggle to enable or disable.`
-                : t`Built-in models from this provider. Toggle to enable or disable.`
+                ? t`Model untuk penyedia ini. Aktifkan atau nonaktifkan sesuai kebutuhan.`
+                : t`Model bawaan dari penyedia ini. Aktifkan atau nonaktifkan sesuai kebutuhan.`
             }
           />
 
           {providerModels.length > 3 && (
             <SearchInput
-              placeholder={t`Search a model...`}
+              placeholder={t`Cari model...`}
               value={searchQuery}
               onChange={setSearchQuery}
             />
@@ -382,7 +382,7 @@ export const SettingsAdminAiProviderDetail = () => {
                   });
                 } catch {
                   enqueueErrorSnackBar({
-                    message: t`Failed to update model availability`,
+                    message: t`Gagal memperbarui ketersediaan model`,
                   });
                 } finally {
                   await refetchModels();
@@ -398,7 +398,7 @@ export const SettingsAdminAiProviderDetail = () => {
             <UndecoratedLink to={newModelPath}>
               <Button
                 Icon={IconPlus}
-                title={t`Add Model`}
+                title={t`Tambah Model`}
                 variant="secondary"
               />
             </UndecoratedLink>
@@ -408,12 +408,12 @@ export const SettingsAdminAiProviderDetail = () => {
         {isCustomProvider && (
           <Section>
             <H2Title
-              title={t`Danger zone`}
-              description={t`Remove this provider and disconnect all its models`}
+              title={t`Zona berbahaya`}
+              description={t`Hapus penyedia ini dan putuskan semua modelnya`}
             />
             <Button
               Icon={IconTrash}
-              title={t`Remove provider`}
+              title={t`Hapus penyedia`}
               variant="secondary"
               accent="danger"
               onClick={() => openModal(REMOVE_PROVIDER_MODAL_ID)}
@@ -424,19 +424,19 @@ export const SettingsAdminAiProviderDetail = () => {
 
       <ConfirmationModal
         modalInstanceId={REMOVE_PROVIDER_MODAL_ID}
-        title={t`Remove provider "${provider?.label ?? providerName}"`}
-        subtitle={t`This will disconnect all models from this provider. Models will no longer be available until a new provider is configured.`}
+        title={t`Hapus penyedia "${provider?.label ?? providerName}"`}
+        subtitle={t`Ini akan memutus semua model dari penyedia ini. Model tidak akan tersedia sampai penyedia baru dikonfigurasi.`}
         onConfirmClick={handleRemoveProvider}
-        confirmButtonText={t`Remove`}
+        confirmButtonText={t`Hapus`}
         confirmButtonAccent="danger"
       />
 
       <ConfirmationModal
         modalInstanceId={REMOVE_MODEL_MODAL_ID}
-        title={t`Remove model "${modelToRemove?.label ?? ''}"`}
-        subtitle={t`This model will be removed from the provider. You can re-add it later.`}
+        title={t`Hapus model "${modelToRemove?.label ?? ''}"`}
+        subtitle={t`Model ini akan dihapus dari penyedia. Anda dapat menambahkannya kembali nanti.`}
         onConfirmClick={handleRemoveModel}
-        confirmButtonText={t`Remove`}
+        confirmButtonText={t`Hapus`}
         confirmButtonAccent="danger"
       />
     </SubMenuTopBarContainer>

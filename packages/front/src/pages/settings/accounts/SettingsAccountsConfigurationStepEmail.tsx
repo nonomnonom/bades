@@ -28,25 +28,25 @@ export const SettingsAccountsConfigurationStepEmail = ({
 
   return (
     <SubMenuTopBarContainer
-      title={t`1. Email`}
+      title={t`1. Surel`}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: <Trans>Pengguna</Trans>,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: <Trans>Account</Trans>,
+          children: <Trans>Akun</Trans>,
           href: getSettingsPath(SettingsPath.Accounts),
         },
         {
-          children: t`1. Email`,
+          children: t`1. Surel`,
         },
       ]}
       actionButton={
         hasNextStep ? (
           <Button
             Icon={IconChevronRight}
-            title={t`Next`}
+            title={t`Lanjut`}
             accent="blue"
             size="small"
             variant="secondary"
@@ -56,7 +56,7 @@ export const SettingsAccountsConfigurationStepEmail = ({
         ) : (
           <Button
             Icon={IconPlus}
-            title={t`Add account`}
+            title={t`Tambah akun`}
             accent="blue"
             size="small"
             variant="primary"

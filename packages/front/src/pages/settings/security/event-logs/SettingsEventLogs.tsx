@@ -154,22 +154,22 @@ export const SettingsEventLogs = () => {
 
     if (isClickHouseError) {
       return {
-        title: t`ClickHouse Not Configured`,
-        message: t`Audit logs require ClickHouse to be configured. Please contact your administrator to set up ClickHouse.`,
+        title: t`ClickHouse Belum Dikonfigurasi`,
+        message: t`Log audit memerlukan ClickHouse yang dikonfigurasi. Hubungi administrator Anda untuk menyiapkan ClickHouse.`,
       };
     }
 
     if (isEntitlementError) {
       return {
-        title: t`Enterprise Feature`,
-        message: t`Audit logs are available with an Enterprise subscription. Please upgrade to access this feature.`,
+        title: t`Fitur Enterprise`,
+        message: t`Log audit tersedia dengan langganan Enterprise. Tingkatkan paket untuk mengakses fitur ini.`,
       };
     }
 
     return {
-      title: t`Error Loading Audit Logs`,
+      title: t`Gagal Memuat Log Audit`,
       message:
-        errorMessage || t`An unexpected error occurred. Please try again.`,
+        errorMessage || t`Terjadi kesalahan tak terduga. Coba lagi.`,
     };
   };
 
@@ -180,14 +180,14 @@ export const SettingsEventLogs = () => {
       exitFullScreen={handleExitFullScreen}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Security</Trans>,
+          children: <Trans>Keamanan</Trans>,
           href: getSettingsPath(SettingsPath.Security),
         },
-        { children: <Trans>Audit Logs</Trans> },
+        { children: <Trans>Log Audit</Trans> },
       ]}
     >
       <StyledContainer>
@@ -199,7 +199,7 @@ export const SettingsEventLogs = () => {
             <StyledErrorTitle>{errorContent.title}</StyledErrorTitle>
             <StyledErrorMessage>{errorContent.message}</StyledErrorMessage>
             <Button
-              title={t`Go Back`}
+              title={t`Kembali`}
               variant="secondary"
               onClick={handleExitFullScreen}
             />
@@ -218,14 +218,14 @@ export const SettingsEventLogs = () => {
               />
               <StyledHeaderRow>
                 <StyledRecordCount>
-                  {t`${recordCount} of ${totalCount} records`}
+                  {t`${recordCount} dari ${totalCount} catatan`}
                 </StyledRecordCount>
                 <Button
                   Icon={IconRefresh}
                   variant="tertiary"
                   size="small"
                   onClick={() => refetch()}
-                  title={t`Refresh`}
+                  title={t`Segarkan`}
                 />
               </StyledHeaderRow>
             </StyledHeader>

@@ -57,14 +57,14 @@ export const SettingsAdminWorkspacesStatus = () => {
       await refreshUpgradeStatus();
       await refetch();
       enqueueSuccessSnackBar({
-        message: t`Upgrade status refreshed`,
+        message: t`Status pembaruan disegarkan`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to refresh upgrade status`,
+            : t`Gagal menyegarkan status pembaruan`,
       });
     }
   };
@@ -73,23 +73,23 @@ export const SettingsAdminWorkspacesStatus = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Health`,
+          children: t`Panel Admin - Kesehatan`,
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: t`Workspaces status`,
+          children: t`Status ruang kerja`,
         },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Workspaces status`}
-            description={t`Upgrade health across all workspaces`}
+            title={t`Status ruang kerja`}
+            description={t`Kesehatan pembaruan di semua ruang kerja`}
           />
           <SettingsAdminWorkspacesStatusSummaryCard
             behindCount={behindCount}
@@ -99,7 +99,7 @@ export const SettingsAdminWorkspacesStatus = () => {
           <StyledRefreshButtonContainer>
             <Button
               variant="secondary"
-              title={t`Refresh status`}
+              title={t`Segarkan status`}
               onClick={handleRefreshUpgradeStatus}
               disabled={isRefreshingUpgradeStatus || isLoadingUpgradeStatus}
             />
@@ -107,25 +107,25 @@ export const SettingsAdminWorkspacesStatus = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Detail per workspace`}
-            description={t`Workspace lists by upgrade status`}
+            title={t`Detail per ruang kerja`}
+            description={t`Daftar ruang kerja berdasarkan status pembaruan`}
           />
           <StyledAccordionCardsContainer>
             <SettingsAdminWorkspacesByHealthAccordion
               filledLabel={plural(behindCount, {
-                one: '# workspace behind',
-                other: '# workspaces behind',
+                one: '# ruang kerja tertinggal',
+                other: '# ruang kerja tertinggal',
               })}
-              emptyLabel={t`No workspace behind`}
+              emptyLabel={t`Tidak ada ruang kerja tertinggal`}
               workspaces={upgradeStatus?.workspacesBehind ?? []}
               defaultExpanded={true}
             />
             <SettingsAdminWorkspacesByHealthAccordion
               filledLabel={plural(failedCount, {
-                one: '# workspace failed',
-                other: '# workspaces failed',
+                one: '# ruang kerja gagal',
+                other: '# ruang kerja gagal',
               })}
-              emptyLabel={t`No workspace failed`}
+              emptyLabel={t`Tidak ada ruang kerja gagal`}
               workspaces={upgradeStatus?.workspacesFailed ?? []}
             />
           </StyledAccordionCardsContainer>

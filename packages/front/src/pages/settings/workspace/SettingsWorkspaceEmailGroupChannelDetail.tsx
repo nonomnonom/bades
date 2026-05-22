@@ -65,7 +65,7 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       navigate(-1);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to delete email group channel.`,
+        message: t`Gagal menghapus saluran grup surel.`,
       });
     }
   };
@@ -75,11 +75,11 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       title={sourceHandle}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`General`,
+          children: t`Umum`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         { children: sourceHandle },
@@ -87,7 +87,7 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       actionButton={
         <Button
           Icon={IconTrash}
-          title={t`Delete`}
+          title={t`Hapus`}
           variant="secondary"
           accent="danger"
           size="small"
@@ -99,8 +99,8 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Source address`}
-            description={t`The external address whose mail is forwarded into the workspace.`}
+            title={t`Alamat sumber`}
+            description={t`Alamat eksternal yang surelnya diteruskan ke ruang kerja.`}
           />
           <SettingsTextInput
             instanceId="email-group-source"
@@ -111,8 +111,8 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Forwarding address`}
-            description={t`Set up forwarding from the source address to this destination.`}
+            title={t`Alamat penerusan`}
+            description={t`Atur penerusan dari alamat sumber ke tujuan ini.`}
           />
           <StyledForwardingRow>
             <StyledForwardingInputContainer>
@@ -125,11 +125,11 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
             </StyledForwardingInputContainer>
             <Button
               Icon={IconCopy}
-              title={t`Copy`}
+              title={t`Salin`}
               onClick={() =>
                 copyToClipboard(
                   forwardingAddress,
-                  t`Forwarding address copied to clipboard`,
+                  t`Alamat penerusan disalin ke clipboard`,
                 )
               }
             />
@@ -139,10 +139,10 @@ export const SettingsWorkspaceEmailGroupChannelDetail = () => {
       </SettingsPageContainer>
       <ConfirmationModal
         modalInstanceId={DELETE_EMAIL_GROUP_MODAL_ID}
-        title={t`Delete email group`}
-        subtitle={t`Are you sure you want to delete ${sourceHandle}? Forwarded emails will no longer arrive in this workspace.`}
+        title={t`Hapus grup surel`}
+        subtitle={t`Apakah Anda yakin ingin menghapus ${sourceHandle}? Surel yang diteruskan tidak akan masuk ke ruang kerja ini lagi.`}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={t`Hapus`}
         confirmButtonAccent="danger"
         loading={deleting}
       />

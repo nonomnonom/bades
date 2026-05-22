@@ -73,15 +73,15 @@ export const SettingsUsageUserDetail = () => {
 
   const breadcrumbLinks = [
     {
-      children: <Trans>Workspace</Trans>,
+      children: <Trans>Ruang Kerja</Trans>,
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: <Trans>Billing</Trans>,
+      children: <Trans>Tagihan</Trans>,
       href: getSettingsPath(SettingsPath.Billing),
     },
     {
-      children: <Trans>Usage</Trans>,
+      children: <Trans>Pemakaian</Trans>,
       href: getSettingsPath(SettingsPath.Usage),
     },
     { children: isInitialLoading ? '' : displayName },
@@ -90,7 +90,7 @@ export const SettingsUsageUserDetail = () => {
   if (isInitialLoading) {
     return (
       <SubMenuTopBarContainer
-        title={tLingui`User Usage`}
+        title={tLingui`Pemakaian Pengguna`}
         links={breadcrumbLinks}
       >
         <SettingsPageContainer>
@@ -115,7 +115,7 @@ export const SettingsUsageUserDetail = () => {
   }
 
   return (
-    <SubMenuTopBarContainer title={tLingui`User Usage`} links={breadcrumbLinks}>
+    <SubMenuTopBarContainer title={tLingui`Pemakaian Pengguna`} links={breadcrumbLinks}>
       <SettingsPageContainer>
         <StyledUserHeader>
           <Avatar
@@ -127,7 +127,7 @@ export const SettingsUsageUserDetail = () => {
           <StyledUserInfo>
             <StyledUserName>{displayName}</StyledUserName>
             <StyledUserCredits>
-              {t`${formatUsageValue(totalCredits)} used`}
+              {t`${formatUsageValue(totalCredits)} digunakan`}
             </StyledUserCredits>
           </StyledUserInfo>
         </StyledUserHeader>
@@ -136,23 +136,23 @@ export const SettingsUsageUserDetail = () => {
           <Section>
             <SubscriptionInfoContainer>
               <SettingsBillingLabelValueItem
-                label={t`No usage data`}
-                value={t`No credit consumption recorded for this user.`}
+                label={t`Belum ada data pemakaian`}
+                value={t`Tidak ada konsumsi kredit tercatat untuk pengguna ini.`}
               />
             </SubscriptionInfoContainer>
           </Section>
         )}
 
         <UsageDailyChartSection
-          title={t`Daily Usage`}
-          description={t`Per-day credit consumption.`}
+          title={t`Pemakaian Harian`}
+          description={t`Konsumsi kredit per hari.`}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           chartId="user-daily"
-          chartLabel={t`Credits`}
+          chartLabel={t`Kredit`}
         />
         <UsageBreakdownPieSection
-          title={t`Usage by Type`}
+          title={t`Pemakaian per Jenis`}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           breakdownField="operationType"

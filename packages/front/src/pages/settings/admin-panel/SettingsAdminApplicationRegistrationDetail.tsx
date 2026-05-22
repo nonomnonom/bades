@@ -54,10 +54,10 @@ export const SettingsAdminApplicationRegistrationDetail = () => {
   }
 
   const tabs = [
-    { id: 'general', title: t`General`, Icon: IconInfoCircle },
+    { id: 'general', title: t`Umum`, Icon: IconInfoCircle },
     { id: 'oauth', title: t`OAuth`, Icon: IconKey },
-    { id: 'distribution', title: t`Distribution`, Icon: IconWorld },
-    { id: 'config', title: t`Config`, Icon: IconSettings },
+    { id: 'distribution', title: t`Distribusi`, Icon: IconWorld },
+    { id: 'config', title: t`Konfigurasi`, Icon: IconSettings },
   ];
 
   const renderActiveTabContent = () => {
@@ -96,11 +96,11 @@ export const SettingsAdminApplicationRegistrationDetail = () => {
       title={registration.name}
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Apps`,
+          children: t`Panel Admin - Aplikasi`,
           href: APPLICATION_REGISTRATION_ADMIN_PATH,
         },
         { children: registration.name },

@@ -33,7 +33,7 @@ const StyledComboInputContainer = styled.div`
 `;
 
 const MODALITY_OPTIONS = [
-  { value: 'image', label: t`Image` },
+  { value: 'image', label: t`Gambar` },
   { value: 'pdf', label: t`PDF` },
   { value: 'audio', label: t`Audio` },
   { value: 'video', label: t`Video` },
@@ -201,7 +201,7 @@ export const SettingsAdminNewAiModel = () => {
     if (!values.name.trim()) {
       form.setError('name', {
         type: 'manual',
-        message: t`Model ID is required`,
+        message: t`ID model wajib diisi`,
       });
 
       return;
@@ -210,7 +210,7 @@ export const SettingsAdminNewAiModel = () => {
     if (!values.label.trim()) {
       form.setError('label', {
         type: 'manual',
-        message: t`Label is required`,
+        message: t`Label wajib diisi`,
       });
 
       return;
@@ -261,12 +261,12 @@ export const SettingsAdminNewAiModel = () => {
       });
 
       enqueueSuccessSnackBar({
-        message: t`Model "${values.label.trim()}" added`,
+        message: t`Model "${values.label.trim()}" ditambahkan`,
       });
       navigate(providerDetailPath);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to add model`,
+        message: t`Gagal menambahkan model`,
       });
     } finally {
       setIsSubmitting(false);
@@ -279,17 +279,17 @@ export const SettingsAdminNewAiModel = () => {
   return (
     <form onSubmit={form.handleSubmit(handleSave)}>
       <SubMenuTopBarContainer
-        title={t`New Model`}
+        title={t`Model Baru`}
         links={[
           {
-            children: <Trans>Admin Panel</Trans>,
+            children: <Trans>Panel Admin</Trans>,
             href: getSettingsPath(SettingsPath.AdminPanel),
           },
           {
             children: provider?.label ?? providerName ?? '',
             href: providerDetailPath,
           },
-          { children: <Trans>New Model</Trans> },
+          { children: <Trans>Model Baru</Trans> },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -302,11 +302,11 @@ export const SettingsAdminNewAiModel = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Model ID`}
+              title={t`ID Model`}
               description={
                 showModelSelect
-                  ? t`Select a known model or add a custom one`
-                  : t`The model identifier used by the provider API`
+                  ? t`Pilih model yang dikenal atau tambahkan model kustom`
+                  : t`Pengenal model yang digunakan oleh API penyedia`
               }
             />
             {showModelSelect ? (
@@ -322,7 +322,7 @@ export const SettingsAdminNewAiModel = () => {
                     withSearchInput
                     fullWidth
                     callToActionButton={{
-                      text: t`Custom model ID`,
+                      text: t`ID model kustom`,
                       onClick: () => setIsCustomModelId(true),
                       Icon: IconPlus,
                     }}
@@ -352,7 +352,7 @@ export const SettingsAdminNewAiModel = () => {
           <Section>
             <H2Title
               title={t`Label`}
-              description={t`Display name for the model`}
+              description={t`Nama tampilan untuk model`}
             />
             <Controller
               name="label"
@@ -374,8 +374,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Pricing`}
-              description={t`Cost per million tokens (USD)`}
+              title={t`Harga`}
+              description={t`Biaya per juta token (USD)`}
             />
             <StyledComboInputContainer>
               <Controller
@@ -383,7 +383,7 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Input`}
+                    label={t`Masukan`}
                     value={value}
                     onChange={onChange}
                     placeholder={t`e.g. 2.50`}
@@ -396,7 +396,7 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Output`}
+                    label={t`Keluaran`}
                     value={value}
                     onChange={onChange}
                     placeholder={t`e.g. 10.00`}
@@ -409,8 +409,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Cache pricing`}
-              description={t`Cost per million tokens for cached input (USD)`}
+              title={t`Harga cache`}
+              description={t`Biaya per juta token untuk masukan yang di-cache (USD)`}
             />
             <StyledComboInputContainer>
               <Controller
@@ -418,7 +418,7 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Cache read`}
+                    label={t`Baca cache`}
                     value={value}
                     onChange={onChange}
                     placeholder={t`e.g. 1.25`}
@@ -431,7 +431,7 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Cache write`}
+                    label={t`Tulis cache`}
                     value={value}
                     onChange={onChange}
                     placeholder={t`e.g. 3.75`}
@@ -444,8 +444,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Limits`}
-              description={t`Token limits for context and output`}
+              title={t`Batas`}
+              description={t`Batas token untuk konteks dan keluaran`}
             />
             <StyledComboInputContainer>
               <Controller
@@ -453,7 +453,7 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Context window`}
+                    label={t`Jendela konteks`}
                     value={value}
                     onChange={onChange}
                     placeholder={t`e.g. 128000`}
@@ -466,7 +466,7 @@ export const SettingsAdminNewAiModel = () => {
                 control={form.control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
-                    label={t`Max output`}
+                    label={t`Maks. keluaran`}
                     value={value}
                     onChange={onChange}
                     placeholder={t`e.g. 16384`}
@@ -479,8 +479,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Supported input types`}
-              description={t`Types of content this model can process besides text`}
+              title={t`Jenis masukan yang didukung`}
+              description={t`Jenis konten yang dapat diproses model ini selain teks`}
             />
             <Controller
               name="modalities"
@@ -527,8 +527,8 @@ export const SettingsAdminNewAiModel = () => {
 
           <Section>
             <H2Title
-              title={t`Supports reasoning`}
-              description={t`Whether this model supports chain-of-thought reasoning`}
+              title={t`Mendukung penalaran`}
+              description={t`Apakah model ini mendukung penalaran berantai`}
             />
             <Controller
               name="supportsReasoning"

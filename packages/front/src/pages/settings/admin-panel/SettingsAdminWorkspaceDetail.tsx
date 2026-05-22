@@ -157,7 +157,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.BILLING,
-            title: t`Billing`,
+            title: t`Tagihan`,
             Icon: IconCreditCard,
           },
         ]
@@ -166,7 +166,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.MEMBERS,
-            title: t`Members`,
+            title: t`Anggota`,
             Icon: IconUsers,
           },
         ]
@@ -175,7 +175,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.FEATURE_FLAGS,
-            title: t`Feature Flags`,
+            title: t`Fitur Eksperimen`,
             Icon: IconFlag,
           },
         ]
@@ -184,7 +184,7 @@ export const SettingsAdminWorkspaceDetail = () => {
       ? [
           {
             id: WORKSPACE_DETAIL_TAB_IDS.CHATS,
-            title: t`Chats`,
+            title: t`Obrolan`,
             Icon: IconMessage,
           },
         ]
@@ -201,11 +201,11 @@ export const SettingsAdminWorkspaceDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - AI`,
+          children: t`Panel Admin - AI`,
           href: AI_ADMIN_PATH,
         },
         {
@@ -237,13 +237,13 @@ export const SettingsAdminWorkspaceDetail = () => {
 
         {effectiveTabId === WORKSPACE_DETAIL_TAB_IDS.MEMBERS && workspace && (
           <Section>
-            <H2Title title={t`Members`} description={t`Workspace members`} />
+            <H2Title title={t`Anggota`} description={t`Anggota ruang kerja`} />
             <Table>
               <TableBody>
                 <TableRow gridTemplateColumns="1fr 2fr 100px">
-                  <TableHeader>{t`Name`}</TableHeader>
-                  <TableHeader>{t`Email`}</TableHeader>
-                  <TableHeader align="right">{t`Actions`}</TableHeader>
+                  <TableHeader>{t`Nama`}</TableHeader>
+                  <TableHeader>{t`Surel`}</TableHeader>
+                  <TableHeader align="right">{t`Tindakan`}</TableHeader>
                 </TableRow>
                 {workspace.users?.map((user) => {
                   const userId = user.id;
@@ -287,7 +287,7 @@ export const SettingsAdminWorkspaceDetail = () => {
                             Icon={IconEyeShare}
                             variant="secondary"
                             size="small"
-                            title={t`Impersonate`}
+                            title={t`Tiru identitas`}
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
@@ -309,8 +309,8 @@ export const SettingsAdminWorkspaceDetail = () => {
           workspace && (
             <Section>
               <H2Title
-                title={t`Feature Flags`}
-                description={t`Manage feature flags for this workspace`}
+                title={t`Fitur Eksperimen`}
+                description={t`Kelola fitur eksperimen untuk ruang kerja ini`}
               />
               <Table>
                 <TableBody>
@@ -318,7 +318,7 @@ export const SettingsAdminWorkspaceDetail = () => {
                     gridAutoColumns="1fr 100px"
                     mobileGridAutoColumns="1fr 80px"
                   >
-                    <TableHeader>{t`Feature Flag`}</TableHeader>
+                    <TableHeader>{t`Fitur Eksperimen`}</TableHeader>
                     <TableHeader align="right">{t`Status`}</TableHeader>
                   </TableRow>
                   {workspace.featureFlags?.map((flag) => {
@@ -357,8 +357,8 @@ export const SettingsAdminWorkspaceDetail = () => {
         {effectiveTabId === WORKSPACE_DETAIL_TAB_IDS.CHATS && (
           <Section>
             <H2Title
-              title={t`Chat Sessions`}
-              description={t`AI chat threads for this workspace`}
+              title={t`Sesi Obrolan`}
+              description={t`Utas obrolan AI untuk ruang kerja ini`}
             />
             {isLoadingThreads ? (
               <SettingsSectionSkeletonLoader />
@@ -369,16 +369,16 @@ export const SettingsAdminWorkspaceDetail = () => {
                     color={themeCssVariables.font.color.tertiary}
                     align="center"
                   >
-                    {t`No chat threads found.`}
+                    {t`Belum ada utas obrolan.`}
                   </TableCell>
                 </TableRow>
               </Card>
             ) : (
               <Table>
                 <TableRow gridTemplateColumns="1fr 120px 120px">
-                  <TableHeader>{t`Title`}</TableHeader>
-                  <TableHeader align="right">{t`Messages`}</TableHeader>
-                  <TableHeader align="right">{t`Updated`}</TableHeader>
+                  <TableHeader>{t`Judul`}</TableHeader>
+                  <TableHeader align="right">{t`Pesan`}</TableHeader>
+                  <TableHeader align="right">{t`Diperbarui`}</TableHeader>
                 </TableRow>
                 {threads.map((thread) => (
                   <TableRow
@@ -393,7 +393,7 @@ export const SettingsAdminWorkspaceDetail = () => {
                     )}
                   >
                     <TableCell color={themeCssVariables.font.color.primary}>
-                      {thread.title || t`Untitled`}
+                      {thread.title || t`Tanpa judul`}
                     </TableCell>
                     <TableCell align="right">
                       {thread.conversationSize}

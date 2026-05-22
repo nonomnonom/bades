@@ -111,11 +111,11 @@ export const SettingsApplicationRegistrationConfigVariableDetail = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Applications - Developer`,
+          children: t`Aplikasi - Pengembang`,
           href: getSettingsPath(
             SettingsPath.Applications,
             undefined,

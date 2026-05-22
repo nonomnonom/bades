@@ -27,7 +27,7 @@ export const SettingsEmailingDomainDetail = () => {
   );
 
   if (loading) {
-    return <SettingsEmptyPlaceholder>{t`Loading...`}</SettingsEmptyPlaceholder>;
+    return <SettingsEmptyPlaceholder>{t`Memuat...`}</SettingsEmptyPlaceholder>;
   }
 
   if (isDefined(error) || !isDefined(emailingDomain)) {

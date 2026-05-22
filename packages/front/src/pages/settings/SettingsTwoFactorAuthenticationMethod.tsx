@@ -103,7 +103,7 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
 
     const secret = extractSecretFromOtpUri(qrCode);
     if (secret !== null) {
-      await copyToClipboard(secret, t`Setup key copied to clipboard`);
+      await copyToClipboard(secret, t`Kunci penyiapan tersalin ke papan klip`);
     }
   };
 
@@ -111,18 +111,18 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...verificationForm.formConfig}>
       <SubMenuTopBarContainer
-        title={t`Two Factor Authentication`}
+        title={t`Autentikasi Dua Faktor`}
         links={[
           {
-            children: <Trans>User</Trans>,
+            children: <Trans>Pengguna</Trans>,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: <Trans>Profile</Trans>,
+            children: <Trans>Profil</Trans>,
             href: getSettingsPath(SettingsPath.ProfilePage),
           },
           {
-            children: <Trans>Two-Factor Authentication</Trans>,
+            children: <Trans>Autentikasi Dua Faktor</Trans>,
           },
         ]}
         actionButton={
@@ -148,8 +148,8 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
             <Section>
               <TwoFactorAuthenticationSetupForSettingsEffect />
               <H2Title
-                title={t`Authenticator app`}
-                description={t`Authenticator apps and browser extensions like 1Password, Authy, Microsoft Authenticator, etc. generate one-time passwords that are used as a second factor to verify your identity when prompted during sign-in.`}
+                title={t`Aplikasi autentikator`}
+                description={t`Aplikasi autentikator dan ekstensi browser seperti 1Password, Authy, Microsoft Authenticator, dll. membuat kata sandi sekali pakai sebagai faktor kedua untuk memverifikasi identitas Anda saat masuk.`}
               />
               <StyledQRCodeContainer>
                 {!qrCode ? (
@@ -162,9 +162,9 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
                       </StyledQRCodeSizer>
                     </StyledQRCodeWrapper>
                     <StyledCopySetupKeyText>
-                      <Trans>Can't scan? Copy the</Trans>{' '}
+                      <Trans>Tidak bisa pindai? Salin</Trans>{' '}
                       <StyledCopySetupKeyLink onClick={handleCopySetupKey}>
-                        <Trans>setup key</Trans>
+                        <Trans>kunci penyiapan</Trans>
                       </StyledCopySetupKeyLink>
                     </StyledCopySetupKeyText>
                   </>
@@ -174,8 +174,8 @@ export const SettingsTwoFactorAuthenticationMethod = () => {
               <StyledDivider />
 
               <H2Title
-                title={t`Verify the code from the app`}
-                description={t`Copy paste the code below`}
+                title={t`Verifikasi kode dari aplikasi`}
+                description={t`Salin dan tempelkan kode di bawah ini`}
               />
               <StyledOTPContainer>
                 <TwoFactorAuthenticationVerificationForSettings />

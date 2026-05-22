@@ -119,11 +119,11 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
       }
 
       enqueueSuccessSnackBar({
-        message: t`App deleted successfully`,
+        message: t`Aplikasi berhasil dihapus`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error deleting app`,
+        message: t`Terjadi kesalahan saat menghapus aplikasi`,
       });
     } finally {
       setIsLoading(false);
@@ -146,13 +146,13 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
         },
       });
       enqueueSuccessSnackBar({
-        message: t`Ownership transferred successfully`,
+        message: t`Kepemilikan berhasil dipindahkan`,
       });
       setTransferSubdomain('');
       navigate(SettingsPath.Applications);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to transfer ownership. Check that the subdomain is correct.`,
+        message: t`Gagal memindahkan kepemilikan. Periksa apakah subdomain sudah benar.`,
       });
     } finally {
       setIsTransferring(false);
@@ -165,15 +165,15 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
     <>
       <Section>
         <H2Title
-          title={t`Danger zone`}
-          description={t`Delete or transfer this app registration`}
+          title={t`Zona berbahaya`}
+          description={t`Hapus atau pindahkan registrasi aplikasi ini`}
         />
         <StyledDangerButtonGroup>
           <Button
             id={DELETE_REGISTRATION_BUTTON_ID}
             accent="danger"
             variant="secondary"
-            title={t`Delete app`}
+            title={t`Hapus aplikasi`}
             Icon={IconTrash}
             disabled={hasActiveInstalls}
             onClick={() => openModal(DELETE_REGISTRATION_MODAL_ID)}
@@ -181,7 +181,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           {hasActiveInstalls && (
             <AppTooltip
               anchorSelect={`#${DELETE_REGISTRATION_BUTTON_ID}`}
-              content={t`Uninstall this app from all workspaces before deleting it`}
+              content={t`Copot pemasangan aplikasi ini dari semua ruang kerja sebelum menghapusnya`}
               noArrow
               place="bottom"
               positionStrategy="fixed"
@@ -191,7 +191,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           <Button
             accent="default"
             variant="secondary"
-            title={t`Transfer ownership`}
+            title={t`Pindahkan kepemilikan`}
             Icon={IconShare}
             onClick={() => openModal(TRANSFER_OWNERSHIP_MODAL_ID)}
           />
@@ -202,16 +202,16 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
         confirmationPlaceholder={confirmationValue}
         confirmationValue={confirmationValue}
         modalInstanceId={DELETE_REGISTRATION_MODAL_ID}
-        title={t`Delete app`}
+        title={t`Hapus aplikasi`}
         subtitle={
           <Trans>
-            Please type {`"${confirmationValue}"`} to confirm you want to delete
-            this app. All workspace installations linked to it will lose their
-            OAuth credentials.
+            Ketik {`"${confirmationValue}"`} untuk mengonfirmasi penghapusan
+            aplikasi ini. Semua instalasi ruang kerja yang terhubung akan
+            kehilangan kredensial OAuth-nya.
           </Trans>
         }
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={t`Hapus`}
         loading={isLoading}
       />
 
@@ -224,7 +224,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
       >
         <StyledAppModalTitle>
           <H1Title
-            title={t`Transfer ownership`}
+            title={t`Pindahkan kepemilikan`}
             fontColor={H1TitleFontColor.Primary}
           />
         </StyledAppModalTitle>
@@ -232,17 +232,17 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
           alignment={SectionAlignment.Center}
           fontColor={SectionFontColor.Primary}
         >
-          {t`Enter the workspace subdomain to transfer this app to. You will lose access to manage it.`}
+          {t`Masukkan subdomain ruang kerja tujuan pemindahan aplikasi ini. Anda akan kehilangan akses untuk mengelolanya.`}
         </StyledAppModalSection>
         <Section>
           <SettingsTextInput
             instanceId="transfer-ownership-subdomain"
             value={transferSubdomain}
             onChange={setTransferSubdomain}
-            placeholder={t`e.g. my-workspace`}
+            placeholder={t`cth. my-workspace`}
             fullWidth
             disableHotkeys
-            label={t`Target workspace subdomain`}
+            label={t`Subdomain ruang kerja tujuan`}
             autoFocusOnMount
           />
         </Section>
@@ -252,14 +252,14 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
             setTransferSubdomain('');
           }}
           variant="secondary"
-          title={t`Cancel`}
+          title={t`Batal`}
           fullWidth
         />
         <StyledAppModalButton
           onClick={handleTransferOwnership}
           variant="secondary"
           accent="danger"
-          title={t`Transfer`}
+          title={t`Pindahkan`}
           disabled={
             !isNonEmptyString(transferSubdomain.trim()) || isTransferring
           }

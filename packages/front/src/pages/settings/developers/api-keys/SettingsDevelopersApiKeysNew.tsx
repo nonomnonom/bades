@@ -125,17 +125,17 @@ export const SettingsDevelopersApiKeysNew = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`New key`}
+      title={t`Kunci baru`}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`APIs & Webhooks`,
+          children: t`API & Webhook`,
           href: getSettingsPath(SettingsPath.ApiWebhooks),
         },
-        { children: t`New Key` },
+        { children: t`Kunci Baru` },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -149,10 +149,10 @@ export const SettingsDevelopersApiKeysNew = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title={t`Name`} description={t`Name of your API key`} />
+          <H2Title title={t`Nama`} description={t`Nama kunci API ini`} />
           <SettingsTextInput
             instanceId="api-key-new-name"
-            placeholder={t`E.g. backoffice integration`}
+            placeholder={t`Cth. integrasi backoffice`}
             value={formValues.name}
             onKeyDown={(e) => {
               if (e.key === Key.Enter) {
@@ -170,8 +170,8 @@ export const SettingsDevelopersApiKeysNew = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Role`}
-            description={t`What this API can do: Select a user role to define its permissions.`}
+            title={t`Peran`}
+            description={t`Apa yang dapat dilakukan API ini: Pilih peran pengguna untuk menentukan izinnya.`}
           />
           <SettingsDevelopersRoleSelector
             value={formValues.roleId}
@@ -186,8 +186,8 @@ export const SettingsDevelopersApiKeysNew = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Expiration Date`}
-            description={t`When the API key will expire.`}
+            title={t`Tanggal Kedaluwarsa`}
+            description={t`Kapan kunci API akan kedaluwarsa.`}
           />
           <Select
             dropdownId="object-field-type-select"

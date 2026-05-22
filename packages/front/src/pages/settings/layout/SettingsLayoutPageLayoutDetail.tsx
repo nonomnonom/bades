@@ -39,13 +39,13 @@ export const SettingsLayoutPageLayoutDetail = () => {
     ? [
         {
           key: 'universalIdentifier',
-          label: t`Universal identifier`,
+          label: t`Identifier universal`,
           value: pageLayout.universalIdentifier,
         },
-        { key: 'type', label: t`Type`, value: pageLayout.type ?? t`Default` },
+        { key: 'type', label: t`Tipe`, value: pageLayout.type ?? t`Bawaan` },
         {
           key: 'object',
-          label: t`Object`,
+          label: t`Objek`,
           value: objectLabel ?? pageLayout.objectUniversalIdentifier,
         },
       ]
@@ -59,9 +59,9 @@ export const SettingsLayoutPageLayoutDetail = () => {
     <SettingsLayoutDetailScaffold
       applicationId={applicationId}
       applicationName={application?.name}
-      entityName={pageLayout?.name ?? t`Page layout`}
-      entityTypeLabel={t`page layout`}
-      categoryLabel={t`Page layouts`}
+      entityName={pageLayout?.name ?? t`Tata letak halaman`}
+      entityTypeLabel={t`tata letak halaman`}
+      categoryLabel={t`Tata letak halaman`}
       detailRows={detailRows}
       isLoading={isLoading}
     >
@@ -71,7 +71,7 @@ export const SettingsLayoutPageLayoutDetail = () => {
 
         const descriptionParts: string[] = [];
         if (isDefined(tab.layoutMode)) {
-          descriptionParts.push(t`Layout mode: ${tab.layoutMode}`);
+          descriptionParts.push(t`Mode tata letak: ${tab.layoutMode}`);
         }
         if (widgets.length > 0) {
           descriptionParts.push(
@@ -81,7 +81,7 @@ export const SettingsLayoutPageLayoutDetail = () => {
         const description =
           descriptionParts.length > 0
             ? descriptionParts.join(' · ')
-            : t`Empty tab`;
+            : t`Tab kosong`;
 
         return (
           <SettingsLayoutItemTable
@@ -90,8 +90,8 @@ export const SettingsLayoutPageLayoutDetail = () => {
             description={description}
             columns={[
               { key: 'title', label: t`Widget` },
-              { key: 'type', label: t`Type`, width: '160px' },
-              { key: 'object', label: t`Object`, width: '180px' },
+              { key: 'type', label: t`Tipe`, width: '160px' },
+              { key: 'object', label: t`Objek`, width: '180px' },
             ]}
             rows={widgets.map((widget) => ({
               key: widget.universalIdentifier,

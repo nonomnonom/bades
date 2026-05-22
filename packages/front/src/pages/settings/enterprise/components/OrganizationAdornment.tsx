@@ -18,6 +18,6 @@ const StyledPillContainer = styled.span`
 export const OrganizationAdornment = () => (
   <StyledPillContainer>
     <IconLock size={12} />
-    {t`Organization`}
+    {t`Organisasi`}
   </StyledPillContainer>
 );

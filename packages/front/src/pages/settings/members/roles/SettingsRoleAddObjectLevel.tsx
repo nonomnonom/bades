@@ -36,7 +36,7 @@ export const SettingsRoleAddObjectLevel = () => {
     fromAgentId && isDefined(agent)
       ? [
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
@@ -50,25 +50,25 @@ export const SettingsRoleAddObjectLevel = () => {
             }),
           },
           {
-            children: t`Add object permission`,
+            children: t`Tambah izin objek`,
           },
         ]
       : [
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Members`,
+            children: t`Anggota`,
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
-          { children: t`Roles`, href: getSettingsPath(SettingsPath.Roles) },
+          { children: t`Peran`, href: getSettingsPath(SettingsPath.Roles) },
           {
             children: settingsDraftRole.label ?? '',
             href: getSettingsPath(SettingsPath.RoleDetail, { roleId }),
           },
           {
-            children: t`Add object permission`,
+            children: t`Tambah izin objek`,
             href: getSettingsPath(SettingsPath.RoleAddObjectLevel, { roleId }),
           },
         ];

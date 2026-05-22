@@ -100,7 +100,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
     const result = await deleteWorkspaceInvitation({ appTokenId });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Error deleting invitation`,
+        message: t`Gagal menghapus undangan`,
         options: {
           duration: 2000,
         },
@@ -112,7 +112,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
     const result = await resendInvitation({ appTokenId });
     if (isDefined(result.error)) {
       enqueueErrorSnackBar({
-        message: t`Error resending invitation`,
+        message: t`Gagal mengirim ulang undangan`,
         options: {
           duration: 2000,
         },
@@ -122,7 +122,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
 
   const getExpiresAtText = (expiresAt: string) => {
     const expirationDate = new Date(expiresAt);
-    if (expirationDate.getTime() <= Date.now()) return t`Expired`;
+    if (expirationDate.getTime() <= Date.now()) return t`Kedaluwarsa`;
     return formatDistanceToNow(expirationDate, { locale: localeCatalog });
   };
 
@@ -132,8 +132,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
         currentWorkspace?.isPublicInviteLinkEnabled && (
           <Section>
             <H2Title
-              title={t`Invite by link`}
-              description={t`Share this link to invite users to join your workspace`}
+              title={t`Undang lewat tautan`}
+              description={t`Bagikan tautan ini untuk mengundang pengguna bergabung ke ruang kerja`}
             />
             <WorkspaceInviteLink
               inviteLink={`${window.location.origin}/invite/${currentWorkspace?.inviteHash}`}
@@ -142,8 +142,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
         )}
       <Section>
         <H2Title
-          title={t`Invite by email`}
-          description={t`Send an invite email to your team`}
+          title={t`Undang lewat surel`}
+          description={t`Kirim surel undangan ke anggota tim`}
         />
         <WorkspaceInviteTeam roles={roles} />
         {isNonEmptyArray(workspaceInvitations) && (
@@ -154,14 +154,14 @@ export const SettingsWorkspaceMembersInviteTab = () => {
                 mobileGridAutoColumns="2fr 1fr 1fr 72px"
               >
                 <TableHeader>
-                  <Trans>Email</Trans>
+                  <Trans>Surel</Trans>
                 </TableHeader>
                 <TableHeader>
-                  <Trans>Role</Trans>
+                  <Trans>Peran</Trans>
                 </TableHeader>
                 <TableHeader align="center">
                   <StyledExpiresInHeader>
-                    <Trans>Expires in</Trans>
+                    <Trans>Berakhir dalam</Trans>
                   </StyledExpiresInHeader>
                 </TableHeader>
                 <TableHeader></TableHeader>
@@ -197,7 +197,7 @@ export const SettingsWorkspaceMembersInviteTab = () => {
                     <TableCell minWidth="0" overflow="hidden">
                       <StyledTextContainerWithEllipsis>
                         {rolesById.get(workspaceInvitation.roleId ?? '')
-                          ?.label ?? t`Default role`}
+                          ?.label ?? t`Peran bawaan`}
                       </StyledTextContainerWithEllipsis>
                     </TableCell>
                     <TableCell align="center">
@@ -239,8 +239,8 @@ export const SettingsWorkspaceMembersInviteTab = () => {
       </Section>
       <Section>
         <H2Title
-          title={t`Approved Domains`}
-          description={t`Anyone with an email address at these domains is allowed to sign up for this workspace.`}
+          title={t`Domain yang Disetujui`}
+          description={t`Siapa pun dengan alamat surel di domain ini diizinkan mendaftar ke ruang kerja ini.`}
         />
         <SettingsApprovedAccessDomainsListCard />
       </Section>

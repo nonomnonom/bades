@@ -152,7 +152,7 @@ export const SettingsObjectFieldTable = ({
     <>
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Search a field...`}
+          placeholder={t`Cari kolom...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -168,7 +168,7 @@ export const SettingsObjectFieldTable = ({
                       LeftIcon={IconArchive}
                       onToggleChange={() => setShowInactive(!showInactive)}
                       toggled={showInactive}
-                      text={t`Inactive`}
+                      text={t`Tidak aktif`}
                       toggleSize="small"
                     />
                     {isAdvancedModeEnabled && (
@@ -178,7 +178,7 @@ export const SettingsObjectFieldTable = ({
                           setShowSystemFields(!showSystemFields)
                         }
                         toggled={showSystemFields}
-                        text={t`System fields`}
+                        text={t`Kolom sistem`}
                         toggleSize="small"
                       />
                     )}

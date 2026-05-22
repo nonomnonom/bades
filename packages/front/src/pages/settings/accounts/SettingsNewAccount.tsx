@@ -8,17 +8,17 @@ import { getSettingsPath } from 'shared/utils';
 export const SettingsNewAccount = () => {
   return (
     <SubMenuTopBarContainer
-      title={t`New Account`}
+      title={t`Akun Baru`}
       links={[
         {
-          children: t`User`,
+          children: t`Pengguna`,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: t`Accounts`,
+          children: t`Akun`,
           href: getSettingsPath(SettingsPath.Accounts),
         },
-        { children: t`New` },
+        { children: t`Baru` },
       ]}
     >
       <SettingsPageContainer>

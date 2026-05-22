@@ -26,18 +26,18 @@ export const SettingsAccountsConfigurationStepCalendar = ({
   const { t } = useLingui();
 
   const stepNumber = isDefined(messageChannel) ? 2 : 1;
-  const stepTitle = t`${stepNumber}. Calendar`;
+  const stepTitle = t`${stepNumber}. Kalender`;
 
   return (
     <SubMenuTopBarContainer
       title={stepTitle}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: <Trans>Pengguna</Trans>,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: <Trans>Account</Trans>,
+          children: <Trans>Akun</Trans>,
           href: getSettingsPath(SettingsPath.Accounts),
         },
         {
@@ -47,7 +47,7 @@ export const SettingsAccountsConfigurationStepCalendar = ({
       actionButton={
         <Button
           Icon={IconDeviceFloppy}
-          title={t`Finish Setup`}
+          title={t`Selesaikan Penyiapan`}
           accent="blue"
           size="small"
           variant="primary"

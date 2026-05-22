@@ -167,7 +167,7 @@ export const SettingsObjectNewFieldConfigure = () => {
       }
       default: {
         enqueueErrorSnackBar({
-          message: t`Please select at least one destination object for this relation.`,
+          message: t`Pilih setidaknya satu objek tujuan untuk relasi ini.`,
         });
         return setIsSaving(false);
       }
@@ -181,14 +181,14 @@ export const SettingsObjectNewFieldConfigure = () => {
       {...formConfig}
     >
       <SubMenuTopBarContainer
-        title={t`2. Configure field`}
+        title={t`2. Konfigurasi kolom`}
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Objects`,
+            children: t`Objek`,
             href: getSettingsPath(SettingsPath.Objects),
           },
           {
@@ -223,8 +223,8 @@ export const SettingsObjectNewFieldConfigure = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Icon and Name`}
-              description={t`The name and icon of this field`}
+              title={t`Ikon dan Nama`}
+              description={t`Nama dan ikon kolom ini`}
             />
             <SettingsDataModelFieldIconLabelForm
               maxLength={FIELD_NAME_MAXIMUM_LENGTH}
@@ -233,8 +233,8 @@ export const SettingsObjectNewFieldConfigure = () => {
           </Section>
           <Section>
             <H2Title
-              title={t`Customization`}
-              description={t`Customize field settings`}
+              title={t`Kustomisasi`}
+              description={t`Sesuaikan pengaturan kolom`}
             />
             <SettingsDataModelFieldSettingsFormCard
               fieldType={fieldType}

@@ -11,17 +11,17 @@ export const SettingsAccountsCalendars = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Calendars`}
+      title={t`Kalender`}
       links={[
         {
-          children: <Trans>User</Trans>,
+          children: <Trans>Pengguna</Trans>,
           href: getSettingsPath(SettingsPath.ProfilePage),
         },
         {
-          children: <Trans>Accounts</Trans>,
+          children: <Trans>Akun</Trans>,
           href: getSettingsPath(SettingsPath.Accounts),
         },
-        { children: <Trans>Calendars</Trans> },
+        { children: <Trans>Kalender</Trans> },
       ]}
     >
       <SettingsPageContainer>

@@ -129,7 +129,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (!values.label.trim()) {
       form.setError('label', {
         type: 'manual',
-        message: t`Label is required`,
+        message: t`Label wajib diisi`,
       });
 
       return;
@@ -140,7 +140,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (!providerName) {
       form.setError('label', {
         type: 'manual',
-        message: t`Label must contain at least one alphanumeric character`,
+        message: t`Label harus mengandung setidaknya satu karakter alfanumerik`,
       });
 
       return;
@@ -167,7 +167,7 @@ export const SettingsAdminNewAiProvider = () => {
       if (!values.region.trim()) {
         form.setError('region', {
           type: 'manual',
-          message: t`Region is required for Bedrock`,
+          message: t`Wilayah wajib diisi untuk Bedrock`,
         });
 
         return;
@@ -185,7 +185,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (!isBedrock && !isOpenAiCompatible && !values.apiKey.trim()) {
       form.setError('apiKey', {
         type: 'manual',
-        message: t`API key is required`,
+        message: t`Kunci API wajib diisi`,
       });
 
       return;
@@ -194,7 +194,7 @@ export const SettingsAdminNewAiProvider = () => {
     if (isOpenAiCompatible && !values.baseUrl.trim()) {
       form.setError('baseUrl', {
         type: 'manual',
-        message: t`Base URL is required`,
+        message: t`URL Dasar wajib diisi`,
       });
 
       return;
@@ -215,12 +215,12 @@ export const SettingsAdminNewAiProvider = () => {
       });
 
       enqueueSuccessSnackBar({
-        message: t`Provider "${values.label.trim()}" added`,
+        message: t`Penyedia "${values.label.trim()}" ditambahkan`,
       });
       navigate(AI_ADMIN_PATH);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Failed to add provider`,
+        message: t`Gagal menambahkan penyedia`,
       });
     } finally {
       setIsSubmitting(false);
@@ -230,13 +230,13 @@ export const SettingsAdminNewAiProvider = () => {
   return (
     <form onSubmit={form.handleSubmit(handleSave)}>
       <SubMenuTopBarContainer
-        title={t`New AI Provider`}
+        title={t`Penyedia AI Baru`}
         links={[
           {
-            children: <Trans>Admin Panel</Trans>,
+            children: <Trans>Panel Admin</Trans>,
             href: getSettingsPath(SettingsPath.AdminPanel),
           },
-          { children: <Trans>New AI Provider</Trans> },
+          { children: <Trans>Penyedia AI Baru</Trans> },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -249,8 +249,8 @@ export const SettingsAdminNewAiProvider = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Provider`}
-              description={t`Select a known provider or create a custom one`}
+              title={t`Penyedia`}
+              description={t`Pilih penyedia yang dikenal atau buat yang kustom`}
             />
             <Select
               dropdownId="ai-provider-models-dev-select"
@@ -260,7 +260,7 @@ export const SettingsAdminNewAiProvider = () => {
               withSearchInput
               fullWidth
               callToActionButton={{
-                text: t`Custom provider`,
+                text: t`Penyedia kustom`,
                 onClick: handleCustomMode,
                 Icon: IconPlus,
               }}
@@ -270,7 +270,7 @@ export const SettingsAdminNewAiProvider = () => {
           {isModelsDevWithoutNativeSdk && (
             <Info
               accent="blue"
-              text={t`This provider doesn't have a native SDK yet — it will use OpenAI-compatible mode. Need native support? Reach out to us.`}
+              text={t`Penyedia ini belum memiliki SDK native — akan menggunakan mode kompatibel OpenAI. Butuh dukungan native? Hubungi kami.`}
             />
           )}
 
@@ -279,7 +279,7 @@ export const SettingsAdminNewAiProvider = () => {
               <Section>
                 <H2Title
                   title={t`Label`}
-                  description={t`A display name for this provider`}
+                  description={t`Nama tampilan untuk penyedia ini`}
                 />
                 <Controller
                   name="label"
@@ -293,8 +293,8 @@ export const SettingsAdminNewAiProvider = () => {
                       onChange={onChange}
                       placeholder={
                         isCustomMode
-                          ? t`e.g. My OpenAI Proxy`
-                          : t`e.g. OpenAI EU`
+                          ? t`cth. Proxy OpenAI Saya`
+                          : t`cth. OpenAI EU`
                       }
                       fullWidth
                       error={error?.message}
@@ -306,8 +306,8 @@ export const SettingsAdminNewAiProvider = () => {
               {needsApiKey && (
                 <Section>
                   <H2Title
-                    title={t`API Key`}
-                    description={t`Your provider API key for authentication`}
+                    title={t`Kunci API`}
+                    description={t`Kunci API penyedia Anda untuk autentikasi`}
                   />
                   <Controller
                     name="apiKey"
@@ -332,8 +332,8 @@ export const SettingsAdminNewAiProvider = () => {
               {isOpenAiCompatible && (
                 <Section>
                   <H2Title
-                    title={t`Base URL`}
-                    description={t`The API endpoint for your OpenAI-compatible provider`}
+                    title={t`URL Dasar`}
+                    description={t`Endpoint API untuk penyedia kompatibel OpenAI Anda`}
                   />
                   <Controller
                     name="baseUrl"
@@ -356,8 +356,8 @@ export const SettingsAdminNewAiProvider = () => {
 
               <Section>
                 <H2Title
-                  title={t`Data Residency`}
-                  description={t`Region where inference data is processed (optional)`}
+                  title={t`Residensi Data`}
+                  description={t`Wilayah tempat data inferensi diproses (opsional)`}
                 />
                 <Controller
                   name="dataResidency"
@@ -368,7 +368,7 @@ export const SettingsAdminNewAiProvider = () => {
                       value={value}
                       onChange={onChange}
                       options={[
-                        { value: '', label: t`None` },
+                        { value: '', label: t`Tidak ada` },
                         ...DATA_RESIDENCY_OPTIONS,
                       ]}
                       fullWidth
@@ -381,8 +381,8 @@ export const SettingsAdminNewAiProvider = () => {
                 <>
                   <Section>
                     <H2Title
-                      title={t`Region`}
-                      description={t`The AWS region for Bedrock`}
+                      title={t`Wilayah`}
+                      description={t`Wilayah AWS untuk Bedrock`}
                     />
                     <Controller
                       name="region"
@@ -404,8 +404,8 @@ export const SettingsAdminNewAiProvider = () => {
 
                   <Section>
                     <H2Title
-                      title={t`Access Key ID`}
-                      description={t`Optional — uses IAM role if empty`}
+                      title={t`ID Kunci Akses`}
+                      description={t`Opsional — menggunakan peran IAM jika kosong`}
                     />
                     <Controller
                       name="accessKeyId"
@@ -423,8 +423,8 @@ export const SettingsAdminNewAiProvider = () => {
 
                   <Section>
                     <H2Title
-                      title={t`Secret Access Key`}
-                      description={t`Optional — uses IAM role if empty`}
+                      title={t`Kunci Akses Rahasia`}
+                      description={t`Opsional — menggunakan peran IAM jika kosong`}
                     />
                     <Controller
                       name="secretAccessKey"

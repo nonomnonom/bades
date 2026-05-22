@@ -16,13 +16,13 @@ export const SettingsBilling = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Billing`}
+      title={t`Tagihan`}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Billing</Trans> },
+        { children: <Trans>Tagihan</Trans> },
       ]}
     >
       {currentWorkspace && isPlansLoaded ? <SettingsBillingContent /> : <></>}

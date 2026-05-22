@@ -100,11 +100,11 @@ export const SettingsAdminConfigVariableDetails = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.AdminPanel),
         },
         {
-          children: t`Admin Panel - Config`,
+          children: t`Panel Admin - Konfigurasi`,
           href: getSettingsPath(
             SettingsPath.AdminPanel,
             undefined,

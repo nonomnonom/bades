@@ -54,12 +54,12 @@ export const SettingsApplicationTableRow = ({
         <ApplicationDisplay application={application} />
       </StyledNameTableCell>
       <TableCell color={themeCssVariables.font.color.tertiary}>
-        {sourceType ? SOURCE_TYPE_LABELS[sourceType] : t`Seeded`}
+        {sourceType ? SOURCE_TYPE_LABELS[sourceType] : t`Bawaan`}
       </TableCell>
       <TableCell gap={themeCssVariables.spacing[2]} minWidth="0">
         <OverflowingTextWithTooltip text={descriptionSummary} />
         {hasUpdate === true && (
-          <Tag color="blue" text={t`Update`} weight="medium" />
+          <Tag color="blue" text={t`Perbarui`} weight="medium" />
         )}
       </TableCell>
       <TableCell

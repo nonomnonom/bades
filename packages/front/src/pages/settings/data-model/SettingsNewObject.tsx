@@ -78,17 +78,17 @@ export const SettingsNewObject = () => {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <FormProvider {...formConfig}>
       <SubMenuTopBarContainer
-        title={t`New Object`}
+        title={t`Objek Baru`}
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Objects`,
+            children: t`Objek`,
             href: getSettingsPath(SettingsPath.Objects),
           },
-          { children: t`New` },
+          { children: t`Baru` },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -103,8 +103,8 @@ export const SettingsNewObject = () => {
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`About`}
-              description={t`Define the name and description of your object`}
+              title={t`Tentang`}
+              description={t`Tentukan nama dan deskripsi objek Anda`}
             />
             <SettingsDataModelObjectAboutForm
               onNewDirtyField={() => formConfig.trigger()}

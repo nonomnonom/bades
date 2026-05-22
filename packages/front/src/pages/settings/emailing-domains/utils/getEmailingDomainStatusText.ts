@@ -4,14 +4,14 @@ import { EmailingDomainStatus } from '~/generated-metadata/graphql';
 export const getTextByEmailingDomainStatus = (status: EmailingDomainStatus) => {
   switch (status) {
     case EmailingDomainStatus.VERIFIED:
-      return t`Verified`;
+      return t`Terverifikasi`;
     case EmailingDomainStatus.PENDING:
-      return t`Pending`;
+      return t`Menunggu`;
     case EmailingDomainStatus.TEMPORARY_FAILURE:
-      return t`Temporary Failure`;
+      return t`Kegagalan Sementara`;
     case EmailingDomainStatus.FAILED:
-      return t`Failed`;
+      return t`Gagal`;
     default:
-      return t`Unknown`;
+      return t`Tidak diketahui`;
   }
 };

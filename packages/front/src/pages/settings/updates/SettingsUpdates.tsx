@@ -18,20 +18,20 @@ export const SettingsUpdates = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <SubMenuTopBarContainer
-      title={t`Updates`}
+      title={t`Pembaruan`}
       links={[
         {
-          children: t`Other`,
+          children: t`Lainnya`,
           href: getSettingsPath(SettingsPath.Updates),
         },
-        { children: t`Updates` },
+        { children: t`Pembaruan` },
       ]}
     >
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Releases`}
-            description={t`Check out our latest releases`}
+            title={t`Rilis`}
+            description={t`Lihat rilis terbaru kami`}
           />
           <StyledCardLink
             href="https://bades.id/releases"
@@ -45,15 +45,15 @@ export const SettingsUpdates = () => {
                   stroke={theme.icon.stroke.sm}
                 />
               }
-              title={t`Read changelog`}
+              title={t`Baca catatan perubahan`}
             />
           </StyledCardLink>
         </Section>
 
         <Section>
           <H2Title
-            title={t`Early access`}
-            description={t`Try our upcoming features. Note they are still in beta. Please bear with us and report any issues you find.`}
+            title={t`Akses awal`}
+            description={t`Coba fitur-fitur mendatang kami. Fitur ini masih dalam tahap beta. Laporkan masalah yang Anda temukan.`}
           />
           <SettingsLabContent />
         </Section>

@@ -105,19 +105,19 @@ export const SettingsObjectDetailPage = () => {
   const tabs = [
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.FIELDS,
-      title: t`Fields`,
+      title: t`Kolom`,
       Icon: IconListDetails,
       hide: false,
     },
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Settings`,
+      title: t`Pengaturan`,
       Icon: IconSettings,
       hide: false,
     },
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.LAYOUT,
-      title: t`Layout`,
+      title: t`Tata Letak`,
       Icon: IconLayout,
       hide:
         objectMetadataItem.isRemote ||
@@ -125,7 +125,7 @@ export const SettingsObjectDetailPage = () => {
     },
     {
       id: SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.INDEXES,
-      title: t`Indexes`,
+      title: t`Indeks`,
       Icon: IconCodeCircle,
       hide: !isAdvancedModeEnabled || !isUniqueIndexesEnabled,
       pill: (
@@ -165,11 +165,11 @@ export const SettingsObjectDetailPage = () => {
         title={objectMetadataItem.labelPlural}
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Objects`,
+            children: t`Objek`,
             href: getSettingsPath(SettingsPath.Objects),
           },
           {
@@ -181,7 +181,7 @@ export const SettingsObjectDetailPage = () => {
           activeTabId === SETTINGS_OBJECT_DETAIL_TABS.TABS_IDS.FIELDS && (
             <UndecoratedLink to="./new-field/select">
               <Button
-                title={t`New Field`}
+                title={t`Kolom Baru`}
                 variant="primary"
                 size="small"
                 accent="blue"
@@ -200,7 +200,7 @@ export const SettingsObjectDetailPage = () => {
             rightComponent={
               <Button
                 Icon={IconArrowUpRight}
-                title={t`See records`}
+                title={t`Lihat catatan`}
                 variant="tertiary"
                 size="small"
                 to={getAppPath(AppPath.RecordIndexPage, {

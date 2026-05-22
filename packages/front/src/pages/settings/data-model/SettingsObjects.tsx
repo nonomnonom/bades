@@ -22,12 +22,12 @@ export const SettingsObjects = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Data model`}
+      title={t`Model data`}
       actionButton={
         isDDLLocked ? (
           <Button
             Icon={IconPlus}
-            title={t`Add object`}
+            title={t`Tambah objek`}
             accent="blue"
             size="small"
             disabled
@@ -36,7 +36,7 @@ export const SettingsObjects = () => {
           <UndecoratedLink to={getSettingsPath(SettingsPath.NewObject)}>
             <Button
               Icon={IconPlus}
-              title={t`Add object`}
+              title={t`Tambah objek`}
               accent="blue"
               size="small"
             />
@@ -45,17 +45,17 @@ export const SettingsObjects = () => {
       }
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Objects</Trans> },
+        { children: <Trans>Objek</Trans> },
       ]}
     >
       <SettingsPageContainer>
         <>
           <SettingsObjectCoverImage />
           <Section>
-            <H2Title title={t`Existing objects`} />
+            <H2Title title={t`Objek yang ada`} />
 
             <SettingsObjectTable objectMetadataItems={objectMetadataItems} />
           </Section>

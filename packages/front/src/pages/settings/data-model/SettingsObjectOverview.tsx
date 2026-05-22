@@ -11,12 +11,12 @@ export const SettingsObjectOverview = () => {
     <SubMenuTopBarContainer
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`Objects`, href: getSettingsPath(SettingsPath.Objects) },
+        { children: t`Objek`, href: getSettingsPath(SettingsPath.Objects) },
         {
-          children: t`Overview`,
+          children: t`Ikhtisar`,
         },
       ]}
     >
