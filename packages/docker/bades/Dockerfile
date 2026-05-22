@@ -44,11 +44,6 @@ COPY ./packages/shared /app/packages/shared
 COPY ./packages/client-sdk /app/packages/client-sdk
 COPY ./packages/server /app/packages/server
 
-RUN npx nx run server:lingui:extract && \
-    npx nx run server:lingui:compile && \
-    npx nx run emails:lingui:extract && \
-    npx nx run emails:lingui:compile
-
 RUN npx nx run server:build
 
 # Clean server build output (type declarations and compiled tests are not needed at runtime;
@@ -67,8 +62,6 @@ COPY ./packages/ui /app/packages/ui
 COPY ./packages/shared /app/packages/shared
 COPY ./packages/sdk /app/packages/sdk
 COPY ./packages/client-sdk /app/packages/client-sdk
-RUN npx nx run front:lingui:extract && \
-    npx nx run front:lingui:compile
 # To skip the memory-intensive frontend build, pre-build on the host:
 #   npx nx build front
 # The check below will use packages/front/build/ if it already exists.
