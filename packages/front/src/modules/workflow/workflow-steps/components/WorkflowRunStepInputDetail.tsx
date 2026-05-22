@@ -103,11 +103,11 @@ export const WorkflowRunStepInputDetail = ({ stepId }: { stepId: string }) => {
       <WorkflowRunStepJsonContainer>
         <JsonTreeContextProvider
           value={{
-            emptyArrayLabel: t`Empty Array`,
-            emptyObjectLabel: t`Empty Object`,
-            emptyStringLabel: t`[empty string]`,
-            arrowButtonCollapsedLabel: t`Expand`,
-            arrowButtonExpandedLabel: t`Collapse`,
+            emptyArrayLabel: t`Array Kosong`,
+            emptyObjectLabel: t`Objek Kosong`,
+            emptyStringLabel: t`[teks kosong]`,
+            arrowButtonCollapsedLabel: t`Tampilkan`,
+            arrowButtonExpandedLabel: t`Ciutkan`,
             getNodeHighlighting,
             shouldExpandNodeInitially: isFirstNodeDepthOfPreviousStep,
             onNodeValueClick: copyToClipboard,

@@ -27,7 +27,7 @@ export const WorkflowFormFieldSettingsNumber = ({
   return (
     <StyledContainer>
       <FormFieldInputContainer>
-        <InputLabel>{t`Label`}</InputLabel>
+        <InputLabel>{t`Nama Field`}</InputLabel>
         <FormTextFieldInput
           onChange={(newLabel: string) => {
             onChange({
@@ -43,7 +43,7 @@ export const WorkflowFormFieldSettingsNumber = ({
         />
       </FormFieldInputContainer>
       <FormFieldInputContainer>
-        <InputLabel>{t`Placeholder`}</InputLabel>
+        <InputLabel>{t`Teks Petunjuk`}</InputLabel>
         <FormTextFieldInput
           onChange={(newPlaceholder: string) => {
             onChange({

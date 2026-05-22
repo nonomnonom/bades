@@ -20,7 +20,7 @@ export const WorkflowAiAgentPermissionsObjectsList = ({
   readonly,
 }: WorkflowAiAgentPermissionsObjectsListProps) => {
   return (
-    <SidePanelGroup heading={t`Objects`}>
+    <SidePanelGroup heading={t`Objek`}>
       {objects.map((objectMetadata) => (
         <WorkflowAiAgentPermissionsObjectRow
           key={objectMetadata.id}

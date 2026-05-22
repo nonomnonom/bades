@@ -54,7 +54,7 @@ export default defineConfig(() => {
 
   return {
     root: __dirname,
-    cacheDir: '../../node_modules/.vite/packages/create-twenty-app',
+    cacheDir: '../../node_modules/.vite/packages/create-bades-app',
     plugins: [
       tsconfigPaths({
         root: __dirname,
@@ -69,7 +69,7 @@ export default defineConfig(() => {
     ],
     build: {
       outDir: 'dist',
-      lib: { entry: entries, name: 'create-twenty-app' },
+      lib: { entry: entries, name: 'create-bades-app' },
       rollupOptions: {
         external: (id: string) => {
           if (/^node:/.test(id)) {

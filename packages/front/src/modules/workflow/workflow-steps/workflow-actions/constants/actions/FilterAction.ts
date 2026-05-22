@@ -5,7 +5,7 @@ export const FILTER_ACTION: {
   type: Extract<WorkflowActionType, 'FILTER'>;
   icon: string;
 } = {
-  defaultLabel: 'Filter',
+  defaultLabel: 'Filter Data',
   type: 'FILTER',
   icon: 'IconFilter',
 };

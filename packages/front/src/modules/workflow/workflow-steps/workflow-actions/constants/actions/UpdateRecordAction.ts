@@ -5,7 +5,7 @@ export const UPDATE_RECORD_ACTION: {
   type: Extract<WorkflowActionType, 'UPDATE_RECORD'>;
   icon: string;
 } = {
-  defaultLabel: 'Update Record',
+  defaultLabel: 'Perbarui Data',
   type: 'UPDATE_RECORD',
   icon: 'IconReload',
 };

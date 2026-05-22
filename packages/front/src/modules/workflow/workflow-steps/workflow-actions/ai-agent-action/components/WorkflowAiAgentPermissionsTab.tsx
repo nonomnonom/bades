@@ -189,7 +189,7 @@ export const WorkflowAiAgentPermissionsTab = ({
       {shouldShowBackButton && (
         <StyledBackButtonContainer>
           <SidePanelSubPageNavigationHeader
-            title={t`Add permission`}
+            title={t`Tambah izin`}
             onBackClick={handleBack}
           />
         </StyledBackButtonContainer>
@@ -200,7 +200,7 @@ export const WorkflowAiAgentPermissionsTab = ({
           fullWidth
           value={searchQuery}
           onChange={(value: string) => setSearchQuery(value)}
-          placeholder={t`Type anything...`}
+          placeholder={t`Ketik untuk mencari...`}
           onKeyDown={(event) => {
             if (isNonTextWritingKey(event.key)) {
               event.stopPropagation();
@@ -235,7 +235,7 @@ export const WorkflowAiAgentPermissionsTab = ({
               readonly={readonly}
             />
             <WorkflowAiAgentPermissionsFlagList
-              title={t`Actions`}
+              title={t`Tindakan`}
               permissions={filteredActionPermissions}
               enabledPermissionFlagKeys={permissionFlagKeys}
               readonly={readonly}
@@ -253,7 +253,7 @@ export const WorkflowAiAgentPermissionsTab = ({
               searchQuery={searchQuery}
             />
             <WorkflowAiAgentPermissionsFlagList
-              title={t`Actions`}
+              title={t`Tindakan`}
               permissions={filteredEnabledActionPermissions}
               enabledPermissionFlagKeys={permissionFlagKeys}
               readonly={readonly}

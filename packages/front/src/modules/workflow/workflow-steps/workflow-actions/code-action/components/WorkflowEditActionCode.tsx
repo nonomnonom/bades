@@ -174,7 +174,7 @@ export const WorkflowEditActionCode = ({
               isLeaf: true,
               icon: 'IconVariable',
               tab: 'test',
-              label: t`Generate Function Output`,
+              label: t`Buat Keluaran Fungsi`,
             },
             _outputSchemaType: 'LINK',
           },
@@ -271,12 +271,12 @@ export const WorkflowEditActionCode = ({
   const tabs = [
     {
       id: WorkflowLogicFunctionTabId.CODE,
-      title: t`Code`,
+      title: t`Kode`,
       Icon: IconCode,
     },
     {
       id: WorkflowLogicFunctionTabId.TEST,
-      title: t`Test`,
+      title: t`Uji Coba`,
       Icon: IconPlayerPlay,
     },
   ];
@@ -294,7 +294,7 @@ export const WorkflowEditActionCode = ({
 
   const breadcrumbLinks: BreadcrumbProps['links'] = [
     {
-      children: workflow?.name?.trim() || t`Untitled Workflow`,
+      children: workflow?.name?.trim() || t`Alur Kerja Tanpa Nama`,
       href: '#',
     },
     {
@@ -302,7 +302,7 @@ export const WorkflowEditActionCode = ({
       href: '#',
     },
     {
-      children: t`Code Editor`,
+      children: t`Editor Kode`,
     },
   ];
 
@@ -417,7 +417,7 @@ export const WorkflowEditActionCode = ({
                 readonly={actionOptions.readonly}
               />
               <StyledCodeEditorContainer>
-                <InputLabel>{t`Result`}</InputLabel>
+                <InputLabel>{t`Hasil`}</InputLabel>
                 <LogicFunctionExecutionResult
                   logicFunctionTestData={logicFunctionTestData}
                   isTesting={isExecuting}
@@ -441,7 +441,7 @@ export const WorkflowEditActionCode = ({
               activeTabId === WorkflowLogicFunctionTabId.TEST
                 ? [
                     <WorkflowStepCmdEnterButton
-                      title={t`Test`}
+                      title={t`Uji Coba`}
                       onClick={handleTestFunction}
                       disabled={isExecuting}
                     />,

@@ -185,7 +185,7 @@ export const WorkflowEditActionFindRecords = ({
     <>
       <WorkflowStepBody>
         <StyledRecordTypeSelectContainer fullWidth>
-          <StyledLabel>{t`Object`}</StyledLabel>
+          <StyledLabel>{t`Objek`}</StyledLabel>
           <Dropdown
             dropdownId={dropdownId}
             dropdownPlacement="bottom-start"
@@ -262,7 +262,7 @@ export const WorkflowEditActionFindRecords = ({
         {isDefined(selectedObjectMetadataItem) && (
           <>
             <div>
-              <InputLabel>{t`Sort`}</InputLabel>
+              <InputLabel>{t`Urutan`}</InputLabel>
               <WorkflowFindRecordsSorts
                 recordSorts={formData.orderBy?.recordSorts ?? []}
                 objectMetadataItem={selectedObjectMetadataItem}
@@ -299,11 +299,11 @@ export const WorkflowEditActionFindRecords = ({
         )}
 
         <FormNumberFieldInput
-          label={t`Limit`}
+          label={t`Batas Data`}
           defaultValue={formData.limit}
-          placeholder={t`Enter limit`}
+          placeholder={t`Masukkan batas`}
           readonly={isFormDisabled}
-          hint={t`This action can return up to ${maxRecordsFormatted} records.`}
+          hint={t`Aksi ini dapat mengembalikan hingga ${maxRecordsFormatted} data.`}
           error={limitError}
           onChange={(limit) => {
             if (isFormDisabled === true || !isNumber(limit)) {
@@ -313,7 +313,7 @@ export const WorkflowEditActionFindRecords = ({
             const normalizedLimit = Math.floor(limit);
 
             if (normalizedLimit <= 0) {
-              setLimitError(t`Limit must be greater than 0.`);
+              setLimitError(t`Batas harus lebih dari 0.`);
               return;
             }
 
@@ -321,7 +321,7 @@ export const WorkflowEditActionFindRecords = ({
 
             setLimitError(
               normalizedLimit > QUERY_MAX_RECORDS
-                ? t`Limit cannot exceed ${maxRecordsFormatted} records.`
+                ? t`Batas tidak boleh melebihi ${maxRecordsFormatted} data.`
                 : undefined,
             );
 

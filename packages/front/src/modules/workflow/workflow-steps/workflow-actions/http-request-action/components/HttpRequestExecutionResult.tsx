@@ -45,12 +45,12 @@ export const HttpRequestExecutionResult = ({
             ? ` - ${httpRequestTestData.output.duration}ms`
             : ''
         }`
-      : t`Request Failed`,
+      : t`Permintaan Gagal`,
     additionalInfo:
       isSuccess && headersCount > 0
-        ? t`${headersCount} headers received`
+        ? t`${headersCount} header diterima`
         : isError
-          ? t`An error occurred`
+          ? t`Terjadi kesalahan`
           : undefined,
   };
 
@@ -61,8 +61,8 @@ export const HttpRequestExecutionResult = ({
       height="100%"
       status={status}
       isTesting={isTesting}
-      loadingMessage={t`Sending request...`}
-      idleMessage={t`Response`}
+      loadingMessage={t`Mengirim permintaan...`}
+      idleMessage={t`Respons`}
     />
   );
 };

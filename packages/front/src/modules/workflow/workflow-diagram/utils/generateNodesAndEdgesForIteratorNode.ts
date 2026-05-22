@@ -61,7 +61,7 @@ export const generateNodesAndEdgesForIteratorNode = ({
         y: yPos,
       },
       defaultHandleOptions: {
-        label: msg`completed`,
+        label: msg`selesai`,
       },
       rightHandleOptions: {
         id: WORKFLOW_DIAGRAM_ITERATOR_NODE_LOOP_HANDLE_ID,
@@ -102,7 +102,7 @@ export const generateNodesAndEdgesForIteratorNode = ({
         ...WORKFLOW_VISUALIZER_EDGE_DEFAULT_CONFIGURATION.data,
         labelOptions: {
           position: Position.Right,
-          label: msg`loop`,
+          label: msg`ulang`,
         },
         edgePathStrategy: 'smooth-step-path-to-target',
       },
@@ -130,7 +130,7 @@ export const generateNodesAndEdgesForIteratorNode = ({
           ...WORKFLOW_VISUALIZER_EDGE_DEFAULT_CONFIGURATION.data,
           labelOptions: {
             position: Position.Bottom,
-            label: msg`completed`,
+            label: msg`selesai`,
           },
           edgePathStrategy: getEdgePathStrategy({
             step,

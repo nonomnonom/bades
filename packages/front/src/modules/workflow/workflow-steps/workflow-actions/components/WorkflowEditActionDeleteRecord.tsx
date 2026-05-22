@@ -117,11 +117,11 @@ export const WorkflowEditActionDeleteRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-action-record-delete-object-name"
-          label={t`Object`}
+          label={t`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectNameSingular}
-          emptyOption={{ label: t`Select an option`, value: '' }}
+          emptyOption={{ label: t`Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(objectNameSingular) => {
             const newFormData: DeleteRecordFormData = {
@@ -142,7 +142,7 @@ export const WorkflowEditActionDeleteRecord = ({
 
         {isDefined(objectNameSingular) && (
           <FormSingleRecordPicker
-            label={t`Record`}
+            label={t`Data`}
             onChange={(objectRecordId) =>
               handleFieldChange('objectRecordId', objectRecordId)
             }

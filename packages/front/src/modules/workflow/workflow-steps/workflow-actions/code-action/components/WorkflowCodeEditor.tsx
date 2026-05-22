@@ -53,7 +53,7 @@ export const WorkflowCodeEditor = ({
           <LightIconButton
             Icon={IconMaximize}
             onClick={onEnterFullScreen}
-            title={t`Expand to Full Screen`}
+            title={t`Perluas ke Layar Penuh`}
             size="small"
             accent="tertiary"
           />

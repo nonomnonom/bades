@@ -217,11 +217,11 @@ export const WorkflowEditActionUpsertRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-upsert-record-object-name"
-          label={t`Object`}
+          label={t`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectName}
-          emptyOption={{ label: t`Select an option`, value: '' }}
+          emptyOption={{ label: t`Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             const newFormData: UpsertRecordFormData = {
@@ -241,7 +241,7 @@ export const WorkflowEditActionUpsertRecord = ({
           isDefined(uniqueFieldMetadataItems) &&
           uniqueFieldMetadataItems.length > 0 && (
             <WorkflowFieldsMultiSelect
-              label={t`Unique fields`}
+              label={t`Field unik`}
               objectMetadataItem={objectMetadataItem}
               handleFieldsChange={() => {}}
               defaultFields={
@@ -249,9 +249,9 @@ export const WorkflowEditActionUpsertRecord = ({
                   (fieldMetadataItem) => fieldMetadataItem.name,
                 ) ?? []
               }
-              placeholder={t`Object unique fields`}
+              placeholder={t`Field unik objek`}
               readonly
-              hint={t`We match on these fields. If a ${objectLabelSingular} already exists, we update it. Otherwise, we create a new one.`}
+              hint={t`Kami mencocokkan berdasarkan field-field ini. Jika ${objectLabelSingular} sudah ada, kami memperbaruinya. Jika belum, kami membuat yang baru.`}
               actionType="UPSERT_RECORD"
             />
           )}
@@ -266,7 +266,7 @@ export const WorkflowEditActionUpsertRecord = ({
               <FormSingleRecordPicker
                 key="id"
                 testId="workflow-upsert-record-id"
-                label={t`Record (ID)`}
+                label={t`Data (ID)`}
                 onChange={(recordId) => {
                   handleFieldChange('id', recordId);
                 }}

@@ -87,9 +87,9 @@ export const useWorkflowAiAgentPermissionActions = ({
     const agentDisplayName =
       workflowAiAgentActionAgent.label ??
       workflowAiAgentActionAgent.name ??
-      t`Agent`;
+      t`Agen`;
     const agentIdPrefix = workflowAiAgentActionAgent.id.substring(0, 8);
-    const roleName = t`${agentDisplayName} role (${agentIdPrefix})`;
+    const roleName = t`Peran ${agentDisplayName} (${agentIdPrefix})`;
     const generatedRoleId = v4();
 
     await createRole({
@@ -97,7 +97,7 @@ export const useWorkflowAiAgentPermissionActions = ({
         createRoleInput: {
           id: generatedRoleId,
           label: roleName,
-          description: t`Auto-generated role for ${agentDisplayName}`,
+          description: t`Peran otomatis untuk ${agentDisplayName}`,
           icon: 'IconRobot',
           canAccessAllTools: false,
           canUpdateAllSettings: false,
@@ -291,7 +291,7 @@ export const useWorkflowAiAgentPermissionActions = ({
 
     if (isDefined(permissionLabel)) {
       enqueueSuccessSnackBar({
-        message: t`${permissionLabel} Permission removed`,
+        message: t`Izin ${permissionLabel} dihapus`,
       });
     }
   };
@@ -353,7 +353,7 @@ export const useWorkflowAiAgentPermissionActions = ({
 
     if (isDefined(permissionLabel)) {
       enqueueSuccessSnackBar({
-        message: t`${permissionLabel} permission removed`,
+        message: t`Izin ${permissionLabel} dihapus`,
       });
     }
   };

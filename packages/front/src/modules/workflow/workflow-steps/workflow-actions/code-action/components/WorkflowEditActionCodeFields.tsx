@@ -149,7 +149,7 @@ export const WorkflowEditActionCodeFields = ({
           <FormTextFieldInput
             key={pathKey}
             label={displayLabel}
-            placeholder={t`Enter value`}
+            placeholder={t`Masukkan nilai`}
             defaultValue={inputValue ? `${inputValue}` : ''}
             readonly={readonly}
             onChange={(value) => onInputChange?.(value, currentPath)}

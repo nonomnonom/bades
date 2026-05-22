@@ -24,8 +24,8 @@ export const WorkflowStepFilterAddRootStepFilterButton = () => {
         variant="secondary"
         accent="default"
         onClick={addRootStepFilter}
-        ariaLabel={t`Add first filter`}
-        title={t`Add first filter`}
+        ariaLabel={t`Tambah filter pertama`}
+        title={t`Tambah filter pertama`}
         disabled={readonly}
       />
     </StyledButtonContainer>

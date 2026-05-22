@@ -179,7 +179,7 @@ export const WorkflowStepFilterValueInput = ({
         onChange={handleValueChange}
         readonly={readonly}
         VariablePicker={WorkflowVariablePicker}
-        placeholder={t`Enter value`}
+        placeholder={t`Masukkan nilai`}
       />
     );
   }
@@ -283,7 +283,7 @@ export const WorkflowStepFilterValueInput = ({
       onClear={handleClearValue}
       readonly={readonly}
       VariablePicker={WorkflowVariablePicker}
-      placeholder={t`Enter value`}
+      placeholder={t`Masukkan nilai`}
       timeZone={WORKFLOW_TIMEZONE}
     />
   );

@@ -5,7 +5,7 @@ export const DELETE_RECORD_ACTION: {
   type: Extract<WorkflowActionType, 'DELETE_RECORD'>;
   icon: string;
 } = {
-  defaultLabel: 'Delete Record',
+  defaultLabel: 'Hapus Data',
   type: 'DELETE_RECORD',
   icon: 'IconTrash',
 };

@@ -240,7 +240,7 @@ export const WorkflowDropdownStepOutputItems = ({
             hasSubMenu={false}
             LeftIcon={subStepObjectIconProps?.Icon}
             leftIconColor={subStepObjectIconProps?.iconThemeColor}
-            contextualText={t`Pick a ${objectLabel} record`}
+            contextualText={t`Pilih data ${objectLabel}`}
           />
         )}
         {filteredOptions.length > 0 && shouldDisplaySubStepObject && (

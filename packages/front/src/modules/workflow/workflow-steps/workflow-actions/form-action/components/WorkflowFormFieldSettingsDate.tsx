@@ -18,7 +18,7 @@ export const WorkflowFormFieldSettingsDate = ({
 }: WorkflowFormFieldSettingsDateProps) => {
   return (
     <FormFieldInputContainer>
-      <InputLabel>{t`Label`}</InputLabel>
+      <InputLabel>{t`Nama Field`}</InputLabel>
       <FormTextFieldInput
         onChange={(newLabel: string) => {
           onChange({

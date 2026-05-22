@@ -19,7 +19,7 @@ export const getHoursDescription = (
   const use24Hour = options.use24HourTimeFormat ?? true;
 
   if (hours === '*') {
-    return t`every hour`;
+    return t`setiap jam`;
   }
 
   if (isStepValue(hours)) {
@@ -28,10 +28,10 @@ export const getHoursDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every hour`;
+        return t`setiap jam`;
       }
       const stepNumStr = stepNum.toString();
-      return t`every ${stepNumStr} hours`;
+      return t`setiap ${stepNumStr} jam`;
     }
 
     if (range.includes('-')) {
@@ -49,11 +49,11 @@ export const getHoursDescription = (
         use24HourFormat: use24Hour,
         appendUTC: true,
       });
-      return t`every ${stepNumStr} hours, between ${startTime} and ${endTime}`;
+      return t`setiap ${stepNumStr} jam, antara ${startTime} dan ${endTime}`;
     }
 
     const stepNumStr = stepNum.toString();
-    return t`every ${stepNumStr} hours`;
+    return t`setiap ${stepNumStr} jam`;
   }
 
   if (isNumericRange(hours) && hours.includes('-')) {
@@ -70,7 +70,7 @@ export const getHoursDescription = (
       use24HourFormat: use24Hour,
       appendUTC: true,
     });
-    return t`between ${startTime} and ${endTime}`;
+    return t`antara ${startTime} dan ${endTime}`;
   }
 
   if (isListValue(hours)) {
@@ -87,11 +87,11 @@ export const getHoursDescription = (
     if (formattedTimes.length === 2) {
       const firstTime = formattedTimes[0];
       const secondTime = formattedTimes[1];
-      return t`at ${firstTime} and ${secondTime}`;
+      return t`pukul ${firstTime} dan ${secondTime}`;
     }
     const lastTime = formattedTimes.pop();
     const remainingTimes = formattedTimes.join(', ');
-    return t`at ${remainingTimes} and ${lastTime}`;
+    return t`pukul ${remainingTimes} dan ${lastTime}`;
   }
 
   const hourNum = parseInt(hours, 10);
@@ -102,7 +102,7 @@ export const getHoursDescription = (
       use24HourFormat: use24Hour,
       appendUTC: true,
     });
-    return t`at ${formattedTime}`;
+    return t`pukul ${formattedTime}`;
   }
 
   return hours;

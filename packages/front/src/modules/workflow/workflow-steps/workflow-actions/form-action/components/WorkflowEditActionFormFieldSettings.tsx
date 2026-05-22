@@ -72,7 +72,7 @@ export const WorkflowEditActionFormFieldSettings = ({
             size={theme.icon.size.md}
             color={theme.font.color.primary}
           />
-          {t`Input settings`}
+          {t`Pengaturan input`}
         </StyledTitleContainer>
         <StyledCloseButtonContainer>
           <LightIconButton
@@ -86,7 +86,7 @@ export const WorkflowEditActionFormFieldSettings = ({
       </StyledSettingsHeader>
       <StyledSettingsContent>
         <FormFieldInputContainer>
-          <InputLabel>{t`Type`}</InputLabel>
+          <InputLabel>{t`Tipe`}</InputLabel>
           <FormSelectFieldInput
             options={FORM_SELECT_FIELD_TYPE_OPTIONS}
             onChange={(newType: string | null) => {

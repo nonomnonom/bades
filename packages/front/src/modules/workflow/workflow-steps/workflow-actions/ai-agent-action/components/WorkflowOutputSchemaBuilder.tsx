@@ -155,13 +155,13 @@ export const WorkflowOutputSchemaBuilder = ({
 
   return (
     <StyledOutputSchemaContainer>
-      <InputLabel>{t`Output`}</InputLabel>
+      <InputLabel>{t`Keluaran`}</InputLabel>
 
       {fields.length === 0 && (
         <StyledOutputSchemaFieldContainer>
           <StyledMessageContentContainer>
             <StyledMessageDescription data-testid="empty-output-schema-message-description">
-              {t`Click on "Add Output Field" below to define the structure of your AI agent's response. These fields will be used to format and validate the AI's output when the workflow is executed, and can be referenced by subsequent workflow steps.`}
+              {t`Klik "Tambah Field Keluaran" di bawah untuk mendefinisikan struktur respons agen otomatis. Field-field ini akan digunakan untuk memformat dan memvalidasi keluaran saat alur kerja dijalankan, dan dapat dirujuk oleh langkah-langkah selanjutnya.`}
             </StyledMessageDescription>
           </StyledMessageContentContainer>
         </StyledOutputSchemaFieldContainer>
@@ -181,7 +181,7 @@ export const WorkflowOutputSchemaBuilder = ({
                 >
                   <StyledTitleContainer>
                     <IconVariable size={theme.icon.size.sm} />
-                    <span>{field.name || t`Untitled field`}</span>
+                    <span>{field.name || t`Field tanpa nama`}</span>
                   </StyledTitleContainer>
                   <AnimatedLightIconButton
                     Icon={IconChevronDown}
@@ -207,8 +207,8 @@ export const WorkflowOutputSchemaBuilder = ({
                   <StyledSettingsContent>
                     <FormFieldInputContainer>
                       <FormTextFieldInput
-                        label={t`Variable Name`}
-                        placeholder={t`e.g., summary, status, count`}
+                        label={t`Nama Variabel`}
+                        placeholder={t`mis., ringkasan, status, jumlah`}
                         defaultValue={field.name}
                         onChange={(value) =>
                           updateField(field.id, { name: value.trim() })
@@ -230,8 +230,8 @@ export const WorkflowOutputSchemaBuilder = ({
 
                     <FormFieldInputContainer>
                       <FormTextFieldInput
-                        label={t`Instruction for AI`}
-                        placeholder={t`Brief explanation of this output field`}
+                        label={t`Instruksi untuk Agen`}
+                        placeholder={t`Penjelasan singkat field keluaran ini`}
                         defaultValue={field.description}
                         onChange={(value) =>
                           updateField(field.id, { description: value })
@@ -251,7 +251,7 @@ export const WorkflowOutputSchemaBuilder = ({
         <StyledAddFieldButtonContainer>
           <MenuItem
             LeftIcon={IconPlus}
-            text={t`Add Output Field`}
+            text={t`Tambah Field Keluaran`}
             onClick={addField}
           />
         </StyledAddFieldButtonContainer>

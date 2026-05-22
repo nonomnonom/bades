@@ -83,7 +83,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
   const isFieldFilteringSupported = isUpdateEvent || isUpsertEvent;
 
   const defaultSelectedOption = useMemo(
-    () => ({ label: t`Select an option`, value: '' }),
+    () => ({ label: t`Pilih opsi`, value: '' }),
     [t],
   );
 
@@ -176,7 +176,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
     <>
       <WorkflowStepBody>
         <StyledRecordTypeSelectContainer fullWidth>
-          <StyledLabel>{t`Record Type`}</StyledLabel>
+          <StyledLabel>{t`Tipe Data`}</StyledLabel>
           <Dropdown
             dropdownId="workflow-edit-trigger-record-type"
             dropdownPlacement="bottom-start"
@@ -201,7 +201,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
                           />
                         }
                       >
-                        <Trans>Advanced</Trans>
+                        <Trans>Lanjutan</Trans>
                       </DropdownMenuHeader>
                       <DropdownMenuSearchInput
                         autoFocus
@@ -244,7 +244,7 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
                             searchInputValue.toLowerCase(),
                           )) && (
                           <MenuItem
-                            text={t`Advanced`}
+                            text={t`Lanjutan`}
                             LeftIcon={IconSettings}
                             onClick={handleSystemObjectsClick}
                             hasSubMenu
@@ -260,8 +260,8 @@ export const WorkflowEditTriggerDatabaseEventForm = ({
         </StyledRecordTypeSelectContainer>
         {isDefined(selectedObjectMetadataItem) && isFieldFilteringSupported && (
           <WorkflowFieldsMultiSelect
-            label={t`Fields (Optional)`}
-            placeholder={t`Select specific fields to listen to`}
+            label={t`Field (Opsional)`}
+            placeholder={t`Pilih field tertentu untuk dipantau`}
             objectMetadataItem={selectedObjectMetadataItem}
             handleFieldsChange={handleFieldsChange}
             readonly={triggerOptions.readonly ?? false}

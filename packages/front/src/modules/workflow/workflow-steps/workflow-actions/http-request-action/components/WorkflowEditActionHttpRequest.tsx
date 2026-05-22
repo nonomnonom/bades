@@ -118,10 +118,10 @@ export const WorkflowEditActionHttpRequest = ({
   const tabs = [
     {
       id: WorkflowHttpRequestTabId.CONFIGURATION,
-      title: t`Configuration`,
+      title: t`Konfigurasi`,
       Icon: IconSettings,
     },
-    { id: WorkflowHttpRequestTabId.TEST, title: t`Test`, Icon: IconPlayerPlay },
+    { id: WorkflowHttpRequestTabId.TEST, title: t`Uji Coba`, Icon: IconPlayerPlay },
   ];
 
   useEffect(() => () => saveAction.flush(), [saveAction]);
@@ -147,7 +147,7 @@ export const WorkflowEditActionHttpRequest = ({
               VariablePicker={WorkflowVariablePicker}
             />
             <Select
-              label={t`HTTP Method`}
+              label={t`Metode HTTP`}
               dropdownId="http-method"
               options={[...HTTP_METHODS]}
               value={formData.method}
@@ -161,12 +161,12 @@ export const WorkflowEditActionHttpRequest = ({
 
             <KeyValuePairInput
               key={getBodyTypeFromHeaders(formData.headers) || 'none'}
-              label={t`Headers Input`}
+              label={t`Header Permintaan`}
               defaultValue={formData.headers}
               onChange={(value) => handleFieldChange('headers', value)}
               readonly={actionOptions.readonly}
-              keyPlaceholder={t`Header name`}
-              valuePlaceholder={t`Header value`}
+              keyPlaceholder={t`Nama header`}
+              valuePlaceholder={t`Nilai header`}
             />
 
             {isMethodWithBody(formData.method) && (
@@ -182,7 +182,7 @@ export const WorkflowEditActionHttpRequest = ({
 
             <StyledFullHeightFormRawJsonFieldInputContainer>
               <FormRawJsonFieldInput
-                label={t`Expected Response Body`}
+                label={t`Format Respons yang Diharapkan`}
                 placeholder={JSON_RESPONSE_PLACEHOLDER}
                 defaultValue={outputSchema}
                 onChange={handleOutputSchemaChange}
@@ -213,7 +213,7 @@ export const WorkflowEditActionHttpRequest = ({
             activeTabId === WorkflowHttpRequestTabId.TEST
               ? [
                   <WorkflowStepCmdEnterButton
-                    title={t`Test`}
+                    title={t`Uji Coba`}
                     onClick={handleTestRequest}
                     disabled={isTesting}
                   />,

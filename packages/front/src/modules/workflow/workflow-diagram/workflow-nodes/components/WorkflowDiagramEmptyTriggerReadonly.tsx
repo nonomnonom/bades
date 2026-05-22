@@ -65,7 +65,7 @@ export const WorkflowDiagramEmptyTriggerReadonly = ({ id }: { id: string }) => {
     openWorkflowViewStepInSidePanel({
       workflowId: workflowVisualizerWorkflowId,
       workflowVersionId: workflowVisualizerWorkflowVersionId,
-      title: t`Add a Trigger`,
+      title: t`Tambah Pemicu`,
       icon: getIcon(null),
       stepId: TRIGGER_STEP_ID,
     });
@@ -82,12 +82,12 @@ export const WorkflowDiagramEmptyTriggerReadonly = ({ id }: { id: string }) => {
       <WorkflowNodeRightPart>
         <WorkflowNodeLabelWithCounterPart>
           <WorkflowNodeLabel selected={selected}>
-            {t`Trigger`}
+            {t`Pemicu`}
           </WorkflowNodeLabel>
         </WorkflowNodeLabelWithCounterPart>
 
         <WorkflowNodeTitle selected={selected}>
-          {t`Add a Trigger`}
+          {t`Tambah Pemicu`}
         </WorkflowNodeTitle>
       </WorkflowNodeRightPart>
     </WorkflowNodeContainer>

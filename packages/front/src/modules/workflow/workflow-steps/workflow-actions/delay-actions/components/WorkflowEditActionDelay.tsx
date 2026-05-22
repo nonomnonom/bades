@@ -71,12 +71,12 @@ export const WorkflowEditActionDelay = ({
 
   const delayOptions: Array<SelectOption<'SCHEDULED_DATE' | 'DURATION'>> = [
     {
-      label: t`At a specific date or time`,
+      label: t`Pada tanggal atau waktu tertentu`,
       value: 'SCHEDULED_DATE',
       Icon: IconCalendar,
     },
     {
-      label: t`After a set amount of time`,
+      label: t`Setelah durasi waktu tertentu`,
       value: 'DURATION',
       Icon: IconHourglassHigh,
     },
@@ -174,7 +174,7 @@ export const WorkflowEditActionDelay = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-action-delay-type"
-          label={t`Resume`}
+          label={t`Lanjutkan`}
           options={delayOptions}
           dropdownWidth={GenericDropdownContentWidth.Large}
           value={action.settings.input.delayType}
@@ -185,18 +185,18 @@ export const WorkflowEditActionDelay = ({
 
         {action.settings.input.delayType === 'SCHEDULED_DATE' && (
           <FormDateTimeFieldInput
-            label={t`Delay until date`}
+            label={t`Tunda hingga tanggal`}
             defaultValue={action.settings.input.scheduledDateTime ?? undefined}
             onChange={handleDateTimeChange}
             readonly={actionOptions.readonly}
             VariablePicker={WorkflowVariablePicker}
-            placeholder={t`Select a date`}
+            placeholder={t`Pilih tanggal`}
           />
         )}
         {action.settings.input.delayType === 'DURATION' && (
           <>
             <FormNumberFieldInput
-              label={t`Days`}
+              label={t`Hari`}
               defaultValue={localDuration.days}
               onChange={(value) => handleDurationDraftChange('days', value)}
               onBlur={handleDurationCommit}
@@ -205,7 +205,7 @@ export const WorkflowEditActionDelay = ({
               placeholder={t`0`}
             />
             <FormNumberFieldInput
-              label={t`Hours`}
+              label={t`Jam`}
               defaultValue={localDuration.hours}
               onChange={(value) => handleDurationDraftChange('hours', value)}
               onBlur={handleDurationCommit}
@@ -214,7 +214,7 @@ export const WorkflowEditActionDelay = ({
               placeholder={t`0`}
             />
             <FormNumberFieldInput
-              label={t`Minutes`}
+              label={t`Menit`}
               defaultValue={localDuration.minutes}
               onChange={(value) => handleDurationDraftChange('minutes', value)}
               onBlur={handleDurationCommit}
@@ -223,7 +223,7 @@ export const WorkflowEditActionDelay = ({
               placeholder={t`0`}
             />
             <FormNumberFieldInput
-              label={t`Seconds`}
+              label={t`Detik`}
               defaultValue={localDuration.seconds}
               onChange={(value) => handleDurationDraftChange('seconds', value)}
               onBlur={handleDurationCommit}

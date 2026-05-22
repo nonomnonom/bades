@@ -50,7 +50,7 @@ export const getMonthsDescription = (
       if (stepNum === 1) {
         return '';
       }
-      return t`every ${stepNumStr} months`;
+      return t`setiap ${stepNumStr} bulan`;
     }
 
     // Range with step (e.g., "1-6/2")
@@ -66,10 +66,10 @@ export const getMonthsDescription = (
         monthStartIndexZero,
         localeCatalog,
       );
-      return t`every ${stepNumStr} months, between ${startMonth} and ${endMonth}`;
+      return t`setiap ${stepNumStr} bulan, antara ${startMonth} dan ${endMonth}`;
     }
 
-    return t`every ${stepNumStr} months`;
+    return t`setiap ${stepNumStr} bulan`;
   }
 
   // Range values (e.g., "1-6")
@@ -85,7 +85,7 @@ export const getMonthsDescription = (
       monthStartIndexZero,
       localeCatalog,
     );
-    return t`between ${startMonth} and ${endMonth}`;
+    return t`antara ${startMonth} dan ${endMonth}`;
   }
 
   // List values (e.g., "1,6,12")
@@ -100,16 +100,16 @@ export const getMonthsDescription = (
 
     if (monthNames.length === 1) {
       const monthName = monthNames[0];
-      return t`only in ${monthName}`;
+      return t`hanya pada ${monthName}`;
     }
     if (monthNames.length === 2) {
       const firstMonth = monthNames[0];
       const secondMonth = monthNames[1];
-      return t`only in ${firstMonth} and ${secondMonth}`;
+      return t`hanya pada ${firstMonth} dan ${secondMonth}`;
     }
     const lastMonth = monthNames.pop();
     const remainingMonths = monthNames.join(', ');
-    return t`only in ${remainingMonths} and ${lastMonth}`;
+    return t`hanya pada ${remainingMonths} dan ${lastMonth}`;
   }
 
   // Single month value
@@ -120,7 +120,7 @@ export const getMonthsDescription = (
       monthStartIndexZero,
       localeCatalog,
     );
-    return t`only in ${monthName}`;
+    return t`hanya pada ${monthName}`;
   }
 
   return months;

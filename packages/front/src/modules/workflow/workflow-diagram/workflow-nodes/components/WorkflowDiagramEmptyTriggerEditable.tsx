@@ -70,12 +70,12 @@ export const WorkflowDiagramEmptyTriggerEditable = ({ id }: { id: string }) => {
       <WorkflowNodeRightPart>
         <WorkflowNodeLabelWithCounterPart>
           <WorkflowNodeLabel selected={selected}>
-            {t`Trigger`}
+            {t`Pemicu`}
           </WorkflowNodeLabel>
         </WorkflowNodeLabelWithCounterPart>
 
         <WorkflowNodeTitle selected={selected}>
-          {t`Add a Trigger`}
+          {t`Tambah Pemicu`}
         </WorkflowNodeTitle>
       </WorkflowNodeRightPart>
     </WorkflowNodeContainer>

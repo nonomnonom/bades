@@ -17,12 +17,12 @@ export const getDayOfMonthDescription = (
 
   // Every day
   if (dayOfMonth === '*') {
-    return t`every day`;
+    return t`setiap hari`;
   }
 
   // Last day of month
   if (dayOfMonth === 'L') {
-    return t`on the last day of the month`;
+    return t`pada hari terakhir bulan ini`;
   }
 
   // Weekday (W) - closest weekday to the given date
@@ -31,9 +31,9 @@ export const getDayOfMonthDescription = (
     const dayNum = parseInt(day, 10);
     if (!isNaN(dayNum)) {
       const ordinalDay = getOrdinalNumber(dayNum);
-      return t`on the weekday closest to the ${ordinalDay} of the month`;
+      return t`pada hari kerja terdekat dengan tanggal ${ordinalDay} bulan ini`;
     }
-    return t`on weekdays only`;
+    return t`hanya pada hari kerja`;
   }
 
   // Step values (e.g., "*/5" = every 5 days)
@@ -43,10 +43,10 @@ export const getDayOfMonthDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every day`;
+        return t`setiap hari`;
       }
       const stepNumStr = stepNum.toString();
-      return t`every ${stepNumStr} days`;
+      return t`setiap ${stepNumStr} hari`;
     }
 
     // Range with step (e.g., "1-15/3")
@@ -55,11 +55,11 @@ export const getDayOfMonthDescription = (
       const stepNumStr = stepNum.toString();
       const startOrdinal = getOrdinalNumber(parseInt(start, 10));
       const endOrdinal = getOrdinalNumber(parseInt(end, 10));
-      return t`every ${stepNumStr} days, between the ${startOrdinal} and ${endOrdinal} of the month`;
+      return t`setiap ${stepNumStr} hari, antara tanggal ${startOrdinal} dan ${endOrdinal} bulan ini`;
     }
 
     const stepNumStr = stepNum.toString();
-    return t`every ${stepNumStr} days`;
+    return t`setiap ${stepNumStr} hari`;
   }
 
   // Range values (e.g., "1-15")
@@ -69,7 +69,7 @@ export const getDayOfMonthDescription = (
     const endNum = parseInt(end, 10);
     const startOrdinal = getOrdinalNumber(startNum);
     const endOrdinal = getOrdinalNumber(endNum);
-    return t`between the ${startOrdinal} and ${endOrdinal} of the month`;
+    return t`antara tanggal ${startOrdinal} dan ${endOrdinal} bulan ini`;
   }
 
   // List values (e.g., "1,15,30")
@@ -83,18 +83,18 @@ export const getDayOfMonthDescription = (
     if (ordinalDays.length === 2) {
       const firstDay = ordinalDays[0];
       const secondDay = ordinalDays[1];
-      return t`on the ${firstDay} and ${secondDay} of the month`;
+      return t`pada tanggal ${firstDay} dan ${secondDay} bulan ini`;
     }
     const lastDay = ordinalDays.pop();
     const remainingDays = ordinalDays.join(', ');
-    return t`on the ${remainingDays} and ${lastDay} of the month`;
+    return t`pada tanggal ${remainingDays} dan ${lastDay} bulan ini`;
   }
 
   // Single day value
   const dayNum = parseInt(dayOfMonth, 10);
   if (!isNaN(dayNum)) {
     const ordinalDay = getOrdinalNumber(dayNum);
-    return t`on the ${ordinalDay} of the month`;
+    return t`pada tanggal ${ordinalDay} bulan ini`;
   }
 
   return dayOfMonth;

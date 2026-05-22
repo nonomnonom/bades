@@ -134,7 +134,7 @@ export const useTestHttpRequest = (actionId: string) => {
       const duration = Date.now() - startTime;
 
       const rawErrorMessage =
-        error instanceof Error ? error.message : t`HTTP request failed`;
+        error instanceof Error ? error.message : t`Permintaan HTTP gagal`;
 
       const jsonParsedErrorMessage = parseJson(rawErrorMessage);
 

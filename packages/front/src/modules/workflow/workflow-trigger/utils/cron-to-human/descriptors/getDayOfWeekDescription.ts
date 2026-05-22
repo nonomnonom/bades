@@ -54,7 +54,7 @@ export const getDayOfWeekDescription = (
         dayOfWeekStartIndexZero,
         localeCatalog,
       );
-      return t`on the last ${dayName} of the month`;
+      return t`pada ${dayName} terakhir bulan ini`;
     }
   }
 
@@ -71,15 +71,15 @@ export const getDayOfWeekDescription = (
         localeCatalog,
       );
       const getOrdinals = () => [
-        t`first`,
-        t`second`,
-        t`third`,
-        t`fourth`,
-        t`fifth`,
+        t`pertama`,
+        t`kedua`,
+        t`ketiga`,
+        t`keempat`,
+        t`kelima`,
       ];
       const ordinals = getOrdinals();
       const ordinal = ordinals[occurrenceNum - 1] || occurrenceNum.toString();
-      return t`on the ${ordinal} ${dayName} of the month`;
+      return t`pada ${dayName} ${ordinal} bulan ini`;
     }
   }
 
@@ -90,13 +90,13 @@ export const getDayOfWeekDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every day`;
+        return t`setiap hari`;
       }
       const stepNumStr = stepNum.toString();
-      return t`every ${stepNumStr} days`;
+      return t`setiap ${stepNumStr} hari`;
     }
 
-    return t`every ${stepNum} days`;
+    return t`setiap ${stepNum} hari`;
   }
 
   // Range values (e.g., "1-5" = Monday to Friday)
@@ -115,13 +115,13 @@ export const getDayOfWeekDescription = (
 
     // Special case for weekdays
     if (start === '1' && end === '5' && dayOfWeekStartIndexZero) {
-      return t`on weekdays`;
+      return t`hanya hari kerja`;
     }
     if (start === '2' && end === '6' && !dayOfWeekStartIndexZero) {
-      return t`on weekdays`;
+      return t`hanya hari kerja`;
     }
 
-    return t`from ${startDay} to ${endDay}`;
+    return t`dari ${startDay} hingga ${endDay}`;
   }
 
   // List values (e.g., "1,3,5")
@@ -136,23 +136,23 @@ export const getDayOfWeekDescription = (
 
     if (dayNames.length === 1) {
       const dayName = dayNames[0];
-      return t`only on ${dayName}`;
+      return t`hanya pada ${dayName}`;
     }
     if (dayNames.length === 2) {
       const firstDay = dayNames[0];
       const secondDay = dayNames[1];
-      return t`only on ${firstDay} and ${secondDay}`;
+      return t`hanya pada ${firstDay} dan ${secondDay}`;
     }
     const lastDay = dayNames.pop();
     const remainingDays = dayNames.join(', ');
-    return t`only on ${remainingDays} and ${lastDay}`;
+    return t`hanya pada ${remainingDays} dan ${lastDay}`;
   }
 
   // Single day value
   const dayNum = parseInt(dayOfWeek, 10);
   if (!isNaN(dayNum)) {
     const dayName = getDayName(dayNum, dayOfWeekStartIndexZero, localeCatalog);
-    return t`only on ${dayName}`;
+    return t`hanya pada ${dayName}`;
   }
 
   return dayOfWeek;

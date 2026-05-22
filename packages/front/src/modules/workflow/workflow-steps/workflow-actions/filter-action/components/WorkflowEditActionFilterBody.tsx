@@ -81,7 +81,7 @@ export const WorkflowEditActionFilterBody = ({
       }}
     >
       <WorkflowStepBody rowGap={themeCssVariables.spacing[0]}>
-        <InputLabel>{t`Conditions`}</InputLabel>
+        <InputLabel>{t`Kondisi`}</InputLabel>
         {isDefined(rootStepFilterGroup) ? (
           <StyledContainer>
             <StyledChildContainer>

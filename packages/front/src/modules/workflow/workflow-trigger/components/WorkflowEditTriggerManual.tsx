@@ -74,9 +74,9 @@ export const WorkflowEditTriggerManual = ({
   const availability = trigger.settings.availability;
 
   const availabilityDescriptions = {
-    SINGLE_RECORD: t`The selected record will be passed to your workflow`,
-    BULK_RECORDS: t`The selected records (up to ${maxRecordsFormatted}) will be passed to your workflow`,
-    GLOBAL: t`No record is required to trigger this workflow`,
+    SINGLE_RECORD: t`Data yang dipilih akan diteruskan ke alur kerja`,
+    BULK_RECORDS: t`Data yang dipilih (hingga ${maxRecordsFormatted}) akan diteruskan ke alur kerja`,
+    GLOBAL: t`Tidak perlu memilih data untuk menjalankan alur kerja ini`,
   };
 
   return (
@@ -84,7 +84,7 @@ export const WorkflowEditTriggerManual = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-edit-manual-trigger-availability"
-          label={t`Availability`}
+          label={t`Ketersediaan`}
           description={
             availability?.type
               ? availabilityDescriptions[availability.type]
@@ -117,8 +117,8 @@ export const WorkflowEditTriggerManual = ({
         availability?.type === 'BULK_RECORDS' ? (
           <Select
             dropdownId="workflow-edit-manual-trigger-object"
-            label={t`Object`}
-            description={t`On which object(s) should this trigger be available`}
+            label={t`Objek`}
+            description={t`Pada objek mana pemicu ini tersedia`}
             fullWidth
             value={availability?.objectNameSingular}
             options={availableMetadata}
@@ -165,7 +165,7 @@ export const WorkflowEditTriggerManual = ({
                 }
               }}
             >
-              <StyledLabel>{t`Command Icon`}</StyledLabel>
+              <StyledLabel>{t`Ikon Perintah`}</StyledLabel>
               <SelectControl
                 isDisabled={triggerOptions.readonly}
                 selectedOption={{
@@ -174,7 +174,7 @@ export const WorkflowEditTriggerManual = ({
                   label: '',
                 }}
               />
-              <StyledDescription>{t`The icon your workflow trigger will display in the command menu`}</StyledDescription>
+              <StyledDescription>{t`Ikon yang ditampilkan pemicu alur kerja di menu perintah`}</StyledDescription>
             </StyledIconPickerContainer>
           }
           onChange={({ iconKey }) => {
@@ -194,8 +194,8 @@ export const WorkflowEditTriggerManual = ({
 
         <Select
           dropdownId="workflow-edit-manual-trigger-navbar"
-          label={t`Navbar`}
-          description={t`Display a button in the top navbar to trigger this workflow`}
+          label={t`Bilah Atas`}
+          description={t`Tampilkan tombol di bilah atas untuk menjalankan alur kerja ini`}
           fullWidth
           value={trigger.settings.isPinned}
           options={MANUAL_TRIGGER_IS_PINNED_OPTIONS}

@@ -149,11 +149,11 @@ export const WorkflowEditActionUpdateRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-update-record-object-name"
-          label={t`Object`}
+          label={t`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectNameSingular}
-          emptyOption={{ label: t`Select an option`, value: '' }}
+          emptyOption={{ label: t`Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             const newFormData: UpdateRecordFormData = {
@@ -176,7 +176,7 @@ export const WorkflowEditActionUpdateRecord = ({
         {isDefined(objectNameSingular) && (
           <FormSingleRecordPicker
             testId="workflow-update-record-object-record-id"
-            label={t`Record`}
+            label={t`Data`}
             onChange={(objectRecordId) =>
               handleFieldChange('objectRecordId', objectRecordId)
             }
@@ -189,8 +189,8 @@ export const WorkflowEditActionUpdateRecord = ({
 
         {isDefined(selectedObjectMetadataItem) && (
           <WorkflowFieldsMultiSelect
-            label={t`Fields to update`}
-            placeholder={t`Select fields to update`}
+            label={t`Field yang diperbarui`}
+            placeholder={t`Pilih field untuk diperbarui`}
             objectMetadataItem={selectedObjectMetadataItem}
             handleFieldsChange={(fieldsToUpdate) =>
               handleFieldChange('fieldsToUpdate', fieldsToUpdate)

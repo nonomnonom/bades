@@ -118,14 +118,14 @@ export const CronExpressionHelper = ({
     CronExpressionParser.parse(normalized);
   } catch (error) {
     isValid = false;
-    errorMessage = error instanceof Error ? error.message : t`Unknown error`;
+    errorMessage = error instanceof Error ? error.message : t`Kesalahan tidak diketahui`;
   }
 
   if (!isValid) {
     return (
       <StyledContainer>
         <InputHint danger>
-          {errorMessage || t`Please check your cron expression syntax.`}
+          {errorMessage || t`Periksa sintaks ekspresi cron Anda.`}
         </InputHint>
       </StyledContainer>
     );
@@ -137,7 +137,7 @@ export const CronExpressionHelper = ({
     <StyledContainer>
       {isScheduleVisible && (
         <StyledSection>
-          <StyledScheduleTitle>{t`Schedule`}</StyledScheduleTitle>
+          <StyledScheduleTitle>{t`Jadwal`}</StyledScheduleTitle>
           <StyledScheduleDescription>
             {customDescription}
           </StyledScheduleDescription>
@@ -145,7 +145,7 @@ export const CronExpressionHelper = ({
       )}
       {nextExecutions.length > 0 && isUpcomingExecutionVisible && (
         <StyledSection>
-          <StyledScheduleTitle>{t`Upcoming execution time (${timeZone})`}</StyledScheduleTitle>
+          <StyledScheduleTitle>{t`Waktu eksekusi berikutnya (${timeZone})`}</StyledScheduleTitle>
           {nextExecutions.slice(0, 3).map((execution, index) => (
             <StyledExecutionItem key={index}>
               {formatDateTimeString({

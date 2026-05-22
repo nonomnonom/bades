@@ -101,12 +101,12 @@ export const WorkflowEditActionAiAgent = ({
   const tabs: SingleTabProps[] = [
     {
       id: WORKFLOW_AI_AGENT_TABS.PROMPT,
-      title: t`Prompt`,
+      title: t`Instruksi`,
       Icon: IconSparkles,
     },
     {
       id: WORKFLOW_AI_AGENT_TABS.PERMISSIONS,
-      title: t`Permissions`,
+      title: t`Izin`,
       Icon: IconLock,
     },
   ];
@@ -149,7 +149,7 @@ export const WorkflowEditActionAiAgent = ({
       return [
         <WorkflowStepCmdEnterButton
           key="view-role"
-          title={t`View role`}
+          title={t`Lihat peran`}
           onClick={handleViewRole}
           disabled={!isDefined(role?.id)}
         />,
@@ -163,7 +163,7 @@ export const WorkflowEditActionAiAgent = ({
     return [
       <WorkflowStepCmdEnterButton
         key="add-permission"
-        title={t`Add permission`}
+        title={t`Tambah izin`}
         onClick={() => setWorkflowAiAgentPermissionsIsAddingPermission(true)}
       />,
     ];

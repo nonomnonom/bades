@@ -100,8 +100,8 @@ export const WorkflowEditActionIterator = ({
     <>
       <WorkflowStepBody>
         <FormArrayFieldInput
-          label={t`Items to iterate over`}
-          placeholder={t`Enter array of items or variable expression`}
+          label={t`Data yang diulang`}
+          placeholder={t`Masukkan array atau ekspresi variabel`}
           defaultValue={formData.items}
           onChange={(value: string | FieldArrayValue) =>
             handleFieldChange('items', value)
@@ -110,13 +110,13 @@ export const WorkflowEditActionIterator = ({
           VariablePicker={WorkflowVariablePicker}
         />
         <FormBooleanFieldToggleInput
-          description={t`Continue on iteration failure`}
+          description={t`Lanjutkan saat pengulangan gagal`}
           value={formData.shouldContinueOnIterationFailure}
           onChange={(value) =>
             handleFieldChange('shouldContinueOnIterationFailure', value)
           }
           disabled={actionOptions.readonly}
-          hint={t`Will continue to the next iteration even if the current one fails`}
+          hint={t`Akan melanjutkan ke pengulangan berikutnya meski yang sekarang gagal`}
         />
       </WorkflowStepBody>
       {!actionOptions.readonly && <WorkflowStepFooter stepId={action.id} />}

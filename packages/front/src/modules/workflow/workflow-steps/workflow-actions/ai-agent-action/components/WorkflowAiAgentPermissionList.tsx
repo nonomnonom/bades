@@ -94,7 +94,7 @@ export const WorkflowAiAgentPermissionList = ({
   }
 
   return (
-    <SidePanelGroup heading={t`CRUD`}>
+    <SidePanelGroup heading={t`Hak Akses Data`}>
       {filteredPermissions.map((permission) => (
         <WorkflowAiAgentPermissionsPermissionRow
           key={`${permission.objectMetadataId}-${permission.permissionKey}`}

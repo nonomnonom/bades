@@ -1,5 +1,5 @@
 const jestConfig = {
-  displayName: 'create-twenty-app',
+  displayName: 'create-bades-app',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transformIgnorePatterns: ['../../node_modules/'],

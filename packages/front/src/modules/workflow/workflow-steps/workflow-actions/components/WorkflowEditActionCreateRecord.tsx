@@ -200,11 +200,11 @@ export const WorkflowEditActionCreateRecord = ({
       <WorkflowStepBody>
         <Select
           dropdownId="workflow-create-record-object-name"
-          label={t`Object`}
+          label={t`Objek`}
           fullWidth
           disabled={isFormDisabled}
           value={formData.objectName}
-          emptyOption={{ label: t`Select an option`, value: '' }}
+          emptyOption={{ label: t`Pilih opsi`, value: '' }}
           options={availableMetadata}
           onChange={(updatedObjectName) => {
             const newFormData: CreateRecordFormData = {

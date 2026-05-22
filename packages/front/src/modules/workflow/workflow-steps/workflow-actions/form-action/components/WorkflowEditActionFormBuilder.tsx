@@ -243,12 +243,12 @@ export const WorkflowEditActionFormBuilder = ({
             <Callout
               variant={'warning'}
               Icon={IconAlertTriangle}
-              title={t`This form will appear in workflow runs.`}
-              description={t`Because this workflow is not using a manual trigger, the form will not open on top of the interface. To fill it, open the corresponding workflow run and complete the form there.`}
+              title={t`Formulir ini akan muncul pada eksekusi alur kerja.`}
+              description={t`Karena alur kerja ini tidak menggunakan pemicu manual, formulir tidak akan terbuka di atas antarmuka. Untuk mengisinya, buka eksekusi alur kerja yang sesuai dan isi formulir di sana.`}
               isClosable
               onClose={() => setIsCalloutVisible(false)}
               action={{
-                label: t`Learn more`,
+                label: t`Pelajari lebih lanjut`,
                 onClick: () =>
                   window.open(
                     'https://docs.bades.id/user-guide/workflows/capabilities/workflow-actions#form',
@@ -264,8 +264,8 @@ export const WorkflowEditActionFormBuilder = ({
             <Callout
               variant={'neutral'}
               isClosable={false}
-              title={t`Add inputs to your form`}
-              description={t`Click on "Add Field" below to add the first input to your form. The form will pop up on the user's screen when the workflow is launched from a manual trigger. For other types of triggers, it will be displayed in the Workflow run record page.`}
+              title={t`Tambahkan input ke formulir Anda`}
+              description={t`Klik "Tambah Field" di bawah untuk menambahkan input pertama pada formulir Anda. Formulir akan muncul di layar pengguna saat alur kerja dijalankan dari pemicu manual. Untuk jenis pemicu lain, formulir ditampilkan di halaman eksekusi alur kerja.`}
             />
           </StyledNotClosableCalloutContainer>
         )}
@@ -303,7 +303,7 @@ export const WorkflowEditActionFormBuilder = ({
                           <StyledGripButtonContainer>
                             <LightIconButton
                               Icon={IconGripVertical}
-                              aria-label={t`Reorder field`}
+                              aria-label={t`Susun ulang field`}
                             />
                           </StyledGripButtonContainer>
                         )}
@@ -350,7 +350,7 @@ export const WorkflowEditActionFormBuilder = ({
                           <StyledTrashButtonContainer>
                             <LightIconButton
                               Icon={IconTrash}
-                              aria-label={t`Delete field`}
+                              aria-label={t`Hapus field`}
                               onClick={() => {
                                 const updatedFormData = formData.filter(
                                   (currentField) =>
@@ -426,7 +426,7 @@ export const WorkflowEditActionFormBuilder = ({
                   <StyledFieldContainer>
                     <StyledAddFieldButtonContentContainer>
                       <IconPlus size={theme.icon.size.sm} />
-                      {t`Add Field`}
+                      {t`Tambah Field`}
                     </StyledAddFieldButtonContentContainer>
                   </StyledFieldContainer>
                 </FormFieldInputInnerContainer>

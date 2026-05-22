@@ -186,12 +186,12 @@ export const WorkflowEditActionLogicFunction = ({
   const tabs = [
     {
       id: INPUT_TAB_ID,
-      title: t`Input`,
+      title: t`Masukan`,
       Icon: IconSettingsAutomation,
     },
     {
       id: TEST_TAB_ID,
-      title: t`Test`,
+      title: t`Uji Coba`,
       Icon: IconPlayerPlay,
     },
   ];
@@ -220,7 +220,7 @@ export const WorkflowEditActionLogicFunction = ({
               readonly={actionOptions.readonly}
             />
             <StyledResultContainer>
-              <InputLabel>{t`Result`}</InputLabel>
+              <InputLabel>{t`Hasil`}</InputLabel>
               <LogicFunctionExecutionResult
                 logicFunctionTestData={logicFunctionTestData}
                 isTesting={isExecuting}
@@ -251,8 +251,8 @@ export const WorkflowEditActionLogicFunction = ({
             ) : (
               <Callout
                 variant={'neutral'}
-                title={t`No input fields for this action`}
-                description={t`You can see the function logic in your application settings.`}
+                title={t`Tidak ada field input untuk aksi ini`}
+                description={t`Anda dapat melihat logika fungsi di pengaturan aplikasi.`}
               />
             )}
           </StyledContainer>
@@ -265,7 +265,7 @@ export const WorkflowEditActionLogicFunction = ({
             activeTabId === TEST_TAB_ID
               ? [
                   <WorkflowStepCmdEnterButton
-                    title={t`Test`}
+                    title={t`Uji Coba`}
                     onClick={handleTestFunction}
                     disabled={isExecuting}
                   />,

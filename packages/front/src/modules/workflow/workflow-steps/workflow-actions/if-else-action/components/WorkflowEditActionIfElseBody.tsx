@@ -247,7 +247,7 @@ export const WorkflowEditActionIfElseBody = ({
 
   return (
     <WorkflowStepBody rowGap={themeCssVariables.spacing[2]}>
-      <InputLabel>{t`Conditions`}</InputLabel>
+      <InputLabel>{t`Kondisi`}</InputLabel>
       <StyledContainer>
         {branches.map((branch, branchIndex) => {
           const branchFilterGroup = isDefined(branch.filterGroupId)
@@ -266,7 +266,7 @@ export const WorkflowEditActionIfElseBody = ({
                   <HorizontalSeparator noMargin />
                   <Button
                     Icon={IconPlus}
-                    title={t`Add route`}
+                    title={t`Tambah cabang`}
                     variant="secondary"
                     size="small"
                     onClick={(event: React.MouseEvent<HTMLButtonElement>) =>

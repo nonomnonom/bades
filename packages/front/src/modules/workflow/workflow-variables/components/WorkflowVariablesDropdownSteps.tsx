@@ -44,7 +44,7 @@ export const WorkflowVariablesDropdownSteps = ({
           />
         }
       >
-        <OverflowingTextWithTooltip text={t`Select Step`} />
+        <OverflowingTextWithTooltip text={t`Pilih Langkah`} />
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
@@ -69,7 +69,7 @@ export const WorkflowVariablesDropdownSteps = ({
           <MenuItem
             key="no-steps"
             onClick={() => {}}
-            text={t`No variables available`}
+            text={t`Tidak ada variabel tersedia`}
             LeftIcon={undefined}
             hasSubMenu={false}
           />

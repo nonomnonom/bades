@@ -5,7 +5,7 @@ export const WEBHOOK_TRIGGER: {
   type: WorkflowTriggerType;
   icon: string;
 } = {
-  defaultLabel: 'Webhook',
+  defaultLabel: 'Webhook (Integrasi)',
   type: 'WEBHOOK',
   icon: 'IconWebhook',
 };

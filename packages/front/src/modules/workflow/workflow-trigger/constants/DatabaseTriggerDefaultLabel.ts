@@ -1,6 +1,6 @@
 export enum DatabaseTriggerDefaultLabel {
-  RECORD_IS_CREATED = 'Record is created',
-  RECORD_IS_UPDATED = 'Record is updated',
-  RECORD_IS_DELETED = 'Record is deleted',
-  RECORD_UPSERTED = 'Record is created or updated',
+  RECORD_IS_CREATED = 'Data dibuat',
+  RECORD_IS_UPDATED = 'Data diperbarui',
+  RECORD_IS_DELETED = 'Data dihapus',
+  RECORD_UPSERTED = 'Data dibuat atau diperbarui',
 }

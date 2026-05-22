@@ -34,7 +34,7 @@ export const WorkflowFormFieldSettingsSelect = ({
 }: WorkflowFormFieldSettingsSelectProps) => {
   const selectTypeOptions = [
     {
-      label: t`Existing Field`,
+      label: t`Field yang Ada`,
       value: 'EXISTING_FIELD',
     },
   ];
@@ -67,7 +67,7 @@ export const WorkflowFormFieldSettingsSelect = ({
     <StyledFormFieldSettingsSelect>
       <StyledRowContainer>
         <FormFieldInputContainer>
-          <InputLabel>{t`Label`}</InputLabel>
+          <InputLabel>{t`Nama Field`}</InputLabel>
           <FormTextFieldInput
             onChange={(newLabel: string) => {
               onChange({
@@ -81,7 +81,7 @@ export const WorkflowFormFieldSettingsSelect = ({
           />
         </FormFieldInputContainer>
         <FormFieldInputContainer>
-          <InputLabel>{t`Select Type`}</InputLabel>
+          <InputLabel>{t`Tipe Pilihan`}</InputLabel>
           <FormSelectFieldInput
             onChange={(newSelectType: string | null) => {
               if (newSelectType === null) {

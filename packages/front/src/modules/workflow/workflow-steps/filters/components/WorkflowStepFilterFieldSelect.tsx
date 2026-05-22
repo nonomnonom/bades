@@ -88,7 +88,7 @@ export const WorkflowStepFilterFieldSelect = ({
 
   const isSelectedFieldNotFound = !isDefined(variableLabel);
   const label = isSelectedFieldNotFound
-    ? t`Select a field from a previous step`
+    ? t`Pilih field dari langkah sebelumnya`
     : variableLabel;
 
   const fullRecordIconProps = stepFilter.isFullRecord
@@ -107,7 +107,7 @@ export const WorkflowStepFilterFieldSelect = ({
 
   if (readonly || noAvailableVariables) {
     const disabledLabel = noAvailableVariables
-      ? t`No available fields to select`
+      ? t`Tidak ada field yang tersedia`
       : label;
 
     return (

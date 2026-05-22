@@ -15,7 +15,7 @@ export const getMinutesDescription = (
   }
 
   if (minutes === '*') {
-    return t`every minute`;
+    return t`setiap menit`;
   }
 
   if (isStepValue(minutes)) {
@@ -25,22 +25,22 @@ export const getMinutesDescription = (
 
     if (range === '*') {
       if (stepNum === 1) {
-        return t`every minute`;
+        return t`setiap menit`;
       }
-      return t`every ${stepNumStr} minutes`;
+      return t`setiap ${stepNumStr} menit`;
     }
 
     if (range.includes('-')) {
       const [start, end] = range.split('-');
-      return t`every ${stepNumStr} minutes, between minute ${start} and ${end}`;
+      return t`setiap ${stepNumStr} menit, antara menit ke-${start} dan ${end}`;
     }
 
-    return t`every ${stepNumStr} minutes`;
+    return t`setiap ${stepNumStr} menit`;
   }
 
   if (isNumericRange(minutes) && minutes.includes('-')) {
     const [start, end] = minutes.split('-');
-    return t`between minute ${start} and ${end}`;
+    return t`antara menit ke-${start} dan ${end}`;
   }
 
   if (isListValue(minutes)) {
@@ -48,23 +48,23 @@ export const getMinutesDescription = (
     if (values.length === 2) {
       const firstValue = values[0];
       const secondValue = values[1];
-      return t`at minutes ${firstValue} and ${secondValue}`;
+      return t`pada menit ${firstValue} dan ${secondValue}`;
     }
     const lastValue = values.pop();
     const remainingValues = values.join(', ');
-    return t`at minutes ${remainingValues} and ${lastValue}`;
+    return t`pada menit ${remainingValues} dan ${lastValue}`;
   }
 
   const minuteNum = parseInt(minutes, 10);
   if (!isNaN(minuteNum)) {
     if (minuteNum === 0) {
-      return t`at the top of the hour`;
+      return t`tepat di awal jam`;
     }
     if (minuteNum === 1) {
-      return t`at 1 minute past the hour`;
+      return t`pada menit ke-1 setiap jam`;
     }
     const minuteNumStr = minuteNum.toString();
-    return t`at ${minuteNumStr} minutes past the hour`;
+    return t`pada menit ke-${minuteNumStr} setiap jam`;
   }
 
   return minutes;

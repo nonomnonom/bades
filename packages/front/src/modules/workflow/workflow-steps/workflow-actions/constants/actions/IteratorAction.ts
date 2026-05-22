@@ -5,7 +5,7 @@ export const ITERATOR_ACTION: {
   type: Extract<WorkflowActionType, 'ITERATOR'>;
   icon: string;
 } = {
-  defaultLabel: 'Iterator',
+  defaultLabel: 'Pengulang',
   type: 'ITERATOR',
   icon: 'IconRepeat',
 };

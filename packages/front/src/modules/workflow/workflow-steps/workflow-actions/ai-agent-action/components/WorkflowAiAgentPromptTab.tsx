@@ -114,8 +114,8 @@ export const WorkflowAiAgentPromptTab = ({
       <FormTextFieldInput
         multiline
         VariablePicker={WorkflowVariablePicker}
-        label={t`Input (Prompt)`}
-        placeholder={t`Describe what you want the AI to do...`}
+        label={t`Masukan (Prompt)`}
+        placeholder={t`Jelaskan apa yang ingin Anda otomatiskan...`}
         defaultValue={prompt}
         onChange={onPromptChange}
         readonly={readonly}

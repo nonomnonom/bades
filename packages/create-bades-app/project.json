@@ -12,7 +12,7 @@
       "executor": "nx:run-commands",
       "dependsOn": ["build"],
       "options": {
-        "cwd": "packages/create-twenty-app",
+        "cwd": "packages/create-bades-app",
         "command": "tsx src/cli.ts"
       }
     },
@@ -20,7 +20,7 @@
       "executor": "nx:run-commands",
       "dependsOn": ["build"],
       "options": {
-        "cwd": "packages/create-twenty-app",
+        "cwd": "packages/create-bades-app",
         "command": "node dist/cli.cjs"
       }
     },
