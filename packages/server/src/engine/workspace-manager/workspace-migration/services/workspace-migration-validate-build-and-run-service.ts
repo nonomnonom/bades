@@ -89,12 +89,12 @@ export class WorkspaceMigrationValidateBuildAndRunService {
         applicationUniversalIdentifier
       ];
 
-    const twentyStandardApplicationId =
+    const badesStandardApplicationId =
       flatApplicationMaps.idByUniversalIdentifier[
         BADES_STANDARD_APPLICATION.universalIdentifier
       ];
 
-    if (!isDefined(twentyStandardApplicationId) || !isDefined(applicationId)) {
+    if (!isDefined(badesStandardApplicationId) || !isDefined(applicationId)) {
       throw new FlatEntityMapsException(
         'Application to build and its dependent application not found',
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
@@ -103,12 +103,12 @@ export class WorkspaceMigrationValidateBuildAndRunService {
 
     applicationIds.add(applicationId);
 
-    const isBuildingTwentyStandardApplication =
+    const isBuildingBadesStandardApplication =
       applicationUniversalIdentifier ===
       BADES_STANDARD_APPLICATION.universalIdentifier;
 
-    if (!isBuildingTwentyStandardApplication) {
-      applicationIds.add(twentyStandardApplicationId);
+    if (!isBuildingBadesStandardApplication) {
+      applicationIds.add(badesStandardApplicationId);
     }
 
     for (const metadataName of Object.keys(
