@@ -139,7 +139,7 @@ export const ViewPickerListContent = () => {
       {workspaceViews.length > 0 && (
         <>
           {shouldShowSectionLabels && (
-            <DropdownMenuSectionLabel label={t`Workspace`} />
+            <DropdownMenuSectionLabel label={t`Bersama`} />
           )}
           <DropdownMenuItemsContainer hasMaxHeight>
             <DraggableList
@@ -172,7 +172,7 @@ export const ViewPickerListContent = () => {
         <>
           {shouldShowSectionLabels && <DropdownMenuSeparator />}
           {shouldShowSectionLabels && (
-            <DropdownMenuSectionLabel label={t`My unlisted views`} />
+            <DropdownMenuSectionLabel label={t`Tampilan pribadi saya`} />
           )}
           <DropdownMenuItemsContainer hasMaxHeight>
             <DraggableList
@@ -207,7 +207,7 @@ export const ViewPickerListContent = () => {
           <MenuItem
             onClick={handleAddViewButtonClick}
             LeftIcon={IconPlus}
-            text={t`Add view`}
+            text={t`Tambah tampilan`}
           />
         </DropdownMenuItemsContainer>
       </StyledBoldDropdownMenuItemsContainerWrapper>

@@ -94,7 +94,7 @@ export const ViewFieldsSearchDropdownSection = ({
           );
         })
       ) : (
-        <MenuItem disabled text={t`No results`} accent="placeholder" />
+        <MenuItem disabled text={t`Tidak ada hasil`} accent="placeholder" />
       )}
     </DropdownMenuItemsContainer>
   );

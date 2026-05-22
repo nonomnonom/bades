@@ -22,7 +22,7 @@ export const ViewBarFilterDropdownAnyFieldSearchInputDropdownHeader = () => {
         />
       }
     >
-      {t`Search any field`}
+      {t`Cari di semua kolom`}
     </DropdownMenuHeader>
   );
 };

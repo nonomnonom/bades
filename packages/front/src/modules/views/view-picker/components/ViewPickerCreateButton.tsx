@@ -43,7 +43,7 @@ export const ViewPickerCreateButton = () => {
   if (viewPickerMode === 'edit') {
     return (
       <Button
-        title={t`Delete`}
+        title={t`Hapus`}
         onClick={destroyViewFromCurrentState}
         accent="danger"
         fullWidth
@@ -62,7 +62,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Go to Settings`}
+        title={t`Buka Pengaturan`}
         onClick={navigateToSelectSettings}
         size="small"
         accent="blue"
@@ -78,7 +78,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Go to Settings`}
+        title={t`Buka Pengaturan`}
         onClick={navigateToDateFieldSettings}
         size="small"
         accent="blue"
@@ -94,9 +94,9 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title={t`Create`}
+        title={t`Buat`}
         onClick={handleCreateButtonClick}
-        ariaLabel={t`Create new view`}
+        ariaLabel={t`Buat tampilan baru`}
         accent="blue"
         fullWidth
         size="small"

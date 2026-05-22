@@ -280,7 +280,7 @@ export const ViewBarDetails = ({
           <LightButton
             data-testid="cancel-button"
             accent="tertiary"
-            title={t`Reset`}
+            title={t`Batalkan perubahan`}
             onClick={handleCancelClick}
           />
         )}

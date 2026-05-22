@@ -24,7 +24,7 @@ export const ViewBarDetailsAddFilterButton = () => {
     <LightButton
       onClick={handleClick}
       Icon={IconPlus}
-      title={t`Add filter`}
+      title={t`Tambah filter`}
       accent="tertiary"
     />
   );

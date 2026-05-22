@@ -46,7 +46,7 @@ export const ViewBarFilterDropdownAnyFieldSearchButtonMenuItem = ({
         LeftIcon={IconSearch}
         text={
           <>
-            {t`Search any field`}
+            {t`Cari di semua kolom`}
             {objectFilterDropdownSearchInput && (
               <StyledSearchText>{t`· ${objectFilterDropdownSearchInput}`}</StyledSearchText>
             )}

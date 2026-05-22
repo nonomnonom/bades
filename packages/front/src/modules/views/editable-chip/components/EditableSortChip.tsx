@@ -100,13 +100,13 @@ export const EditableSortChip = ({ recordSort }: EditableSortChipProps) => {
           <DropdownMenuItemsContainer>
             <MenuItemSelect
               LeftIcon={IconArrowUp}
-              text={t`Ascending`}
+              text={t`A ke Z`}
               selected={recordSort.direction === ViewSortDirection.ASC}
               onClick={() => handleDirectionSelect(ViewSortDirection.ASC)}
             />
             <MenuItemSelect
               LeftIcon={IconArrowDown}
-              text={t`Descending`}
+              text={t`Z ke A`}
               selected={recordSort.direction === ViewSortDirection.DESC}
               onClick={() => handleDirectionSelect(ViewSortDirection.DESC)}
             />

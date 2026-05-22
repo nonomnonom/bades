@@ -158,7 +158,7 @@ export const ViewPickerContentCreateMode = () => {
           <DropdownMenuHeaderLeftComponent onClick={handleClose} Icon={IconX} />
         }
       >
-        {t`Create view`}
+        {t`Buat tampilan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <ViewPickerIconAndNameContainer>
@@ -174,7 +174,7 @@ export const ViewPickerContentCreateMode = () => {
         </ViewPickerIconAndNameContainer>
         <ViewPickerSelectContainer>
           <Select
-            label={t`View type`}
+            label={t`Jenis tampilan`}
             fullWidth
             value={viewPickerType}
             onChange={(value) => {
@@ -192,7 +192,7 @@ export const ViewPickerContentCreateMode = () => {
           <>
             <ViewPickerSelectContainer>
               <Select
-                label={t`Stages`}
+                label={t`Tahapan`}
                 fullWidth
                 value={viewPickerMainGroupByFieldMetadataId}
                 onChange={(value) => {
@@ -205,7 +205,7 @@ export const ViewPickerContentCreateMode = () => {
                         value: field.id,
                         label: field.label,
                       }))
-                    : [{ value: '', label: t`No Select field` }]
+                    : [{ value: '', label: t`Tidak ada kolom pilihan` }]
                 }
                 dropdownId={VIEW_PICKER_KANBAN_FIELD_DROPDOWN_ID}
               />
@@ -213,7 +213,7 @@ export const ViewPickerContentCreateMode = () => {
             {availableFieldsForGrouping.length === 0 && (
               <StyledFieldAvailableContainer>
                 <Trans>
-                  Set up a Select field on {objectLabel} to create a Kanban
+                  Tambahkan kolom pilihan pada {objectLabel} untuk membuat tampilan Kanban
                 </Trans>
               </StyledFieldAvailableContainer>
             )}
@@ -223,7 +223,7 @@ export const ViewPickerContentCreateMode = () => {
           <>
             <ViewPickerSelectContainer>
               <Select
-                label={t`Date field`}
+                label={t`Kolom tanggal`}
                 fullWidth
                 value={viewPickerCalendarFieldMetadataId}
                 onChange={(value) => {
@@ -236,7 +236,7 @@ export const ViewPickerContentCreateMode = () => {
                         value: field.id,
                         label: field.label,
                       }))
-                    : [{ value: '', label: t`No Date field` }]
+                    : [{ value: '', label: t`Tidak ada kolom tanggal` }]
                 }
                 dropdownId={VIEW_PICKER_CALENDAR_FIELD_DROPDOWN_ID}
               />
@@ -244,7 +244,7 @@ export const ViewPickerContentCreateMode = () => {
             {availableFieldsForCalendar.length === 0 && (
               <StyledFieldAvailableContainer>
                 <Trans>
-                  Set up a Date field on {objectLabel} to create a Calendar
+                  Tambahkan kolom tanggal pada {objectLabel} untuk membuat tampilan Kalender
                 </Trans>
               </StyledFieldAvailableContainer>
             )}

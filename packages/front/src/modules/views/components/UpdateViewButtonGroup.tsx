@@ -108,7 +108,7 @@ export const UpdateViewButtonGroup = () => {
       {currentView?.key !== 'INDEX' ? (
         <ButtonGroup size="small" accent="blue">
           <Button
-            title={t`Update view`}
+            title={t`Perbarui tampilan`}
             onClick={handleUpdateViewClick}
             disabled={!canPersistChanges}
           />
@@ -128,7 +128,7 @@ export const UpdateViewButtonGroup = () => {
                   <MenuItem
                     onClick={handleCreateViewClick}
                     LeftIcon={IconPlus}
-                    text={t`Create view`}
+                    text={t`Buat tampilan`}
                   />
                 </DropdownMenuItemsContainer>
               </DropdownContent>
@@ -137,7 +137,7 @@ export const UpdateViewButtonGroup = () => {
         </ButtonGroup>
       ) : (
         <Button
-          title={t`Save as new view`}
+          title={t`Simpan sebagai tampilan baru`}
           onClick={handleSaveAsNewViewClick}
           accent="blue"
           size="small"

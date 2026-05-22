@@ -76,7 +76,7 @@ export const ViewPickerContentEditMode = () => {
           />
         }
       >
-        {t`Edit view`}
+        {t`Ubah tampilan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <ViewPickerIconAndNameContainer>

@@ -23,7 +23,7 @@ export const AnyFieldSearchChip = () => {
   return (
     <SortOrFilterChip
       testId={ViewBarFilterDropdownIds.ADVANCED}
-      labelKey={t`Any field`}
+      labelKey={t`Semua kolom`}
       labelValue={`: ${anyFieldFilterValue}`}
       Icon={IconFilter}
       onRemove={handleRemoveClick}

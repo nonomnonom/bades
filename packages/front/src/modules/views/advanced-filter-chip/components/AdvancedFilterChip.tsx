@@ -70,8 +70,8 @@ export const AdvancedFilterChip = () => {
   const advancedFilterCount = childRecordFiltersAndRecordFilterGroups.length;
 
   const chipLabel = plural(advancedFilterCount, {
-    one: `${advancedFilterCount} advanced rule`,
-    other: `${advancedFilterCount} advanced rules`,
+    one: `${advancedFilterCount} aturan lanjutan`,
+    other: `${advancedFilterCount} aturan lanjutan`,
   });
 
   const { objectMetadataItems } = useObjectMetadataItems();

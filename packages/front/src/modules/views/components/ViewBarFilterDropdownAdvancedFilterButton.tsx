@@ -143,7 +143,7 @@ export const ViewBarFilterDropdownAdvancedFilterButton = () => {
       onEnter={handleClick}
     >
       <MenuItem
-        text={t`Advanced filter`}
+        text={t`Filter lanjutan`}
         onClick={handleClick}
         LeftIcon={IconFilter}
         focused={isSelectedItemId}

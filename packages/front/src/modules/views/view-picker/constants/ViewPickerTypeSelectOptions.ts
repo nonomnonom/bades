@@ -4,7 +4,7 @@ import { msg } from '@lingui/core/macro';
 export const VIEW_PICKER_TYPE_SELECT_OPTIONS = [
   {
     value: ViewType.TABLE,
-    label: msg`Table`,
+    label: msg`Tabel`,
     Icon: viewTypeIconMapping(ViewType.TABLE),
   },
   {
@@ -14,7 +14,7 @@ export const VIEW_PICKER_TYPE_SELECT_OPTIONS = [
   },
   {
     value: ViewType.CALENDAR,
-    label: msg`Calendar`,
+    label: msg`Kalender`,
     Icon: viewTypeIconMapping(ViewType.CALENDAR),
   },
 ];
