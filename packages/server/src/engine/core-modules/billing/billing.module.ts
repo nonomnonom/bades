@@ -11,6 +11,7 @@ import { BillingSyncCustomerDataCommand } from 'src/engine/core-modules/billing/
 import { BillingSyncPlansDataCommand } from 'src/engine/core-modules/billing/commands/billing-sync-plans-data.command';
 import { BillingUpdateSubscriptionPriceCommand } from 'src/engine/core-modules/billing/commands/billing-update-subscription-price.command';
 import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/billing-customer.entity';
+import { BillingMidtransTransactionEntity } from 'src/engine/core-modules/billing/entities/billing-midtrans-transaction.entity';
 import { BillingEntitlementEntity } from 'src/engine/core-modules/billing/entities/billing-entitlement.entity';
 import { BillingMeterEntity } from 'src/engine/core-modules/billing/entities/billing-meter.entity';
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
@@ -33,6 +34,7 @@ import { BillingUsageService } from 'src/engine/core-modules/billing/services/bi
 import { BillingService } from 'src/engine/core-modules/billing/services/billing.service';
 import { ResourceCreditService } from 'src/engine/core-modules/billing/services/resource-credit.service';
 import { WorkspaceBillingSubscriptionCacheService } from 'src/engine/core-modules/billing/services/workspace-billing-subscription-cache.service';
+import { MidtransModule } from 'src/engine/core-modules/billing/midtrans/midtrans.module';
 import { StripeModule } from 'src/engine/core-modules/billing/stripe/stripe.module';
 import { WorkspaceDomainsModule } from 'src/engine/core-modules/domain/workspace-domains/workspace-domains.module';
 import { EnterpriseModule } from 'src/engine/core-modules/enterprise/enterprise.module';
@@ -49,6 +51,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
   imports: [
     ClickHouseModule,
     FeatureFlagModule,
+    MidtransModule,
     StripeModule,
     MessageQueueModule,
     PermissionsModule,
@@ -58,6 +61,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
       BillingSubscriptionEntity,
       BillingSubscriptionItemEntity,
       BillingCustomerEntity,
+      BillingMidtransTransactionEntity,
       BillingProductEntity,
       BillingPriceEntity,
       BillingMeterEntity,

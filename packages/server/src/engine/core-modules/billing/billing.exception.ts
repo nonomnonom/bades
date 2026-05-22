@@ -32,6 +32,9 @@ export enum BillingExceptionCode {
   BILLING_SUBSCRIPTION_PHASE_NOT_FOUND = 'BILLING_SUBSCRIPTION_PHASE_NOT_FOUND',
   BILLING_TOO_MUCH_SUBSCRIPTIONS_FOUND = 'BILLING_TOO_MUCH_SUBSCRIPTIONS_FOUND',
   BILLING_CREDITS_EXHAUSTED = 'BILLING_CREDITS_EXHAUSTED',
+  BILLING_PAYMENT_REQUIRED = 'BILLING_PAYMENT_REQUIRED',
+  BILLING_MIDTRANS_SIGNATURE_INVALID = 'BILLING_MIDTRANS_SIGNATURE_INVALID',
+  BILLING_MIDTRANS_TRANSACTION_NOT_FOUND = 'BILLING_MIDTRANS_TRANSACTION_NOT_FOUND',
 }
 
 const getBillingExceptionUserFriendlyMessage = (code: BillingExceptionCode) => {
@@ -86,6 +89,12 @@ const getBillingExceptionUserFriendlyMessage = (code: BillingExceptionCode) => {
       return msg`Multiple subscriptions found where one was expected.`;
     case BillingExceptionCode.BILLING_CREDITS_EXHAUSTED:
       return msg`You have exhausted your credits. Please upgrade your plan to continue.`;
+    case BillingExceptionCode.BILLING_PAYMENT_REQUIRED:
+      return msg`Pembayaran diperlukan. Silakan lakukan pembayaran terlebih dahulu.`;
+    case BillingExceptionCode.BILLING_MIDTRANS_SIGNATURE_INVALID:
+      return msg`Verifikasi tanda tangan pembayaran gagal.`;
+    case BillingExceptionCode.BILLING_MIDTRANS_TRANSACTION_NOT_FOUND:
+      return msg`Transaksi pembayaran tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

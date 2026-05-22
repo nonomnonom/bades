@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AuditModule } from 'src/engine/core-modules/audit/audit.module';
+import { BillingMidtransWebhookController } from 'src/engine/core-modules/billing-webhook/billing-midtrans-webhook.controller';
 import { BillingWebhookController } from 'src/engine/core-modules/billing-webhook/billing-webhook.controller';
 import { BillingWebhookAlertService } from 'src/engine/core-modules/billing-webhook/services/billing-webhook-alert.service';
 import { BillingWebhookCustomerService } from 'src/engine/core-modules/billing-webhook/services/billing-webhook-customer.service';
@@ -11,14 +12,17 @@ import { BillingWebhookPriceService } from 'src/engine/core-modules/billing-webh
 import { BillingWebhookProductService } from 'src/engine/core-modules/billing-webhook/services/billing-webhook-product.service';
 import { BillingWebhookSubscriptionScheduleService } from 'src/engine/core-modules/billing-webhook/services/billing-webhook-subscription-schedule.service';
 import { BillingWebhookSubscriptionService } from 'src/engine/core-modules/billing-webhook/services/billing-webhook-subscription.service';
+import { BillingMidtransWebhookService } from 'src/engine/core-modules/billing-webhook/services/billing-midtrans-webhook.service';
 import { BillingModule } from 'src/engine/core-modules/billing/billing.module';
 import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/billing-customer.entity';
+import { BillingMidtransTransactionEntity } from 'src/engine/core-modules/billing/entities/billing-midtrans-transaction.entity';
 import { BillingEntitlementEntity } from 'src/engine/core-modules/billing/entities/billing-entitlement.entity';
 import { BillingMeterEntity } from 'src/engine/core-modules/billing/entities/billing-meter.entity';
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
 import { BillingProductEntity } from 'src/engine/core-modules/billing/entities/billing-product.entity';
 import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/entities/billing-subscription-item.entity';
 import { BillingSubscriptionEntity } from 'src/engine/core-modules/billing/entities/billing-subscription.entity';
+import { MidtransModule } from 'src/engine/core-modules/billing/midtrans/midtrans.module';
 import { StripeModule } from 'src/engine/core-modules/billing/stripe/stripe.module';
 import { FeatureFlagEntity } from 'src/engine/core-modules/feature-flag/feature-flag.entity';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
@@ -34,6 +38,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
   imports: [
     AuditModule,
     FeatureFlagModule,
+    MidtransModule,
     StripeModule,
     MessageQueueModule,
     PermissionsModule,
@@ -44,6 +49,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
       BillingSubscriptionEntity,
       BillingSubscriptionItemEntity,
       BillingCustomerEntity,
+      BillingMidtransTransactionEntity,
       BillingProductEntity,
       BillingPriceEntity,
       BillingMeterEntity,
@@ -54,7 +60,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
     ]),
     RowLevelPermissionModule,
   ],
-  controllers: [BillingWebhookController],
+  controllers: [BillingWebhookController, BillingMidtransWebhookController],
   providers: [
     BillingWebhookProductService,
     BillingWebhookPriceService,
@@ -64,6 +70,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
     BillingWebhookSubscriptionService,
     BillingWebhookSubscriptionScheduleService,
     BillingWebhookEntitlementService,
+    BillingMidtransWebhookService,
   ],
 })
 export class BillingWebhookModule {}

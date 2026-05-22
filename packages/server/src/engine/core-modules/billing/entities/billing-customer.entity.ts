@@ -38,8 +38,20 @@ export class BillingCustomerEntity extends WorkspaceRelatedEntity {
   @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
-  @Column({ nullable: false, unique: true })
-  stripeCustomerId: string;
+  /**
+   * ID pelanggan Stripe (tetap ada untuk kompatibilitas pelanggan lama).
+   * Nullable karena pelanggan Midtrans-only tidak memiliki stripeCustomerId.
+   * unique + nullable valid di Postgres (NULL tidak dianggap duplikat).
+   */
+  @Column({ nullable: true, unique: true })
+  stripeCustomerId: string | null;
+
+  /**
+   * Referensi pelanggan di sisi Midtrans (opsional).
+   * Diisi saat workspace menggunakan Midtrans sebagai gateway utama.
+   */
+  @Column({ nullable: true, type: 'varchar' })
+  midtransCustomerRef: string | null;
 
   @Column({
     type: 'bigint',

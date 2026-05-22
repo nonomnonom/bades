@@ -9,6 +9,10 @@ import { WorkspaceActivationStatus } from 'shared/workspace';
 import { MetadataResolver } from 'src/engine/api/graphql/graphql-config/decorators/metadata-resolver.decorator';
 import { type ApiKeyEntity } from 'src/engine/core-modules/api-key/api-key.entity';
 import { type AuthContextUser } from 'src/engine/core-modules/auth/types/auth-context.type';
+import {
+  BillingException,
+  BillingExceptionCode,
+} from 'src/engine/core-modules/billing/billing.exception';
 import { BillingEndTrialPeriodDTO } from 'src/engine/core-modules/billing/dtos/billing-end-trial-period.dto';
 import { BillingResourceCreditUsageDTO } from 'src/engine/core-modules/billing/dtos/billing-resource-credit-usage.dto';
 import { BillingPlanDTO } from 'src/engine/core-modules/billing/dtos/billing-plan.dto';
@@ -16,14 +20,17 @@ import { BillingSessionDTO } from 'src/engine/core-modules/billing/dtos/billing-
 import { BillingUpdateDTO } from 'src/engine/core-modules/billing/dtos/billing-update.dto';
 import { BillingCheckoutSessionInput } from 'src/engine/core-modules/billing/dtos/inputs/billing-checkout-session.input';
 import { BillingSessionInput } from 'src/engine/core-modules/billing/dtos/inputs/billing-session.input';
+import { BillingTopUpCreditSessionInput } from 'src/engine/core-modules/billing/dtos/inputs/billing-topup-credit-session.input';
 import { BillingUpdateSubscriptionItemPriceInput } from 'src/engine/core-modules/billing/dtos/inputs/billing-update-subscription-item-price.input';
 import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
+import { MidtransSnapService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-snap.service';
 import { BillingPlanService } from 'src/engine/core-modules/billing/services/billing-plan.service';
 import { BillingPortalWorkspaceService } from 'src/engine/core-modules/billing/services/billing-portal.workspace-service';
 import { BillingSubscriptionUpdateService } from 'src/engine/core-modules/billing/services/billing-subscription-update.service';
 import { BillingSubscriptionService } from 'src/engine/core-modules/billing/services/billing-subscription.service';
 import { BillingUsageService } from 'src/engine/core-modules/billing/services/billing-usage.service';
 import { BillingService } from 'src/engine/core-modules/billing/services/billing.service';
+import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
 import { formatBillingDatabaseProductToGraphqlDTO } from 'src/engine/core-modules/billing/utils/format-database-product-to-graphql-dto.util';
 import { PreventNestToAutoLogGraphqlErrorsFilter } from 'src/engine/core-modules/graphql/filters/prevent-nest-to-auto-log-graphql-errors.filter';
 import { ResolverValidationPipe } from 'src/engine/core-modules/graphql/pipes/resolver-validation.pipe';
@@ -62,6 +69,8 @@ export class BillingResolver {
     private readonly billingService: BillingService,
     private readonly billingUsageService: BillingUsageService,
     private readonly permissionsService: PermissionsService,
+    private readonly midtransSnapService: MidtransSnapService,
+    private readonly twentyConfigService: TwentyConfigService,
   ) {}
 
   @Query(() => BillingSessionDTO)
@@ -73,12 +82,49 @@ export class BillingResolver {
     @AuthWorkspace() workspace: WorkspaceEntity,
     @Args() { returnUrlPath }: BillingSessionInput,
   ) {
+    // Midtrans tidak menyediakan portal pelanggan seperti Stripe.
+    // Kembalikan URL halaman billing internal Bades sebagai pengganti.
+    if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+      const frontendUrl = this.twentyConfigService.get('FRONTEND_URL') ?? '';
+      const portalUrl = returnUrlPath
+        ? `${frontendUrl}${returnUrlPath}`
+        : `${frontendUrl}/settings/billing`;
+
+      return { url: portalUrl };
+    }
+
     return {
       url: await this.billingPortalWorkspaceService.computeBillingPortalSessionURLOrThrow(
         workspace,
         returnUrlPath,
       ),
     };
+  }
+
+  @Mutation(() => BillingSessionDTO)
+  @UseGuards(WorkspaceAuthGuard, UserAuthGuard, NoPermissionGuard)
+  async createTopUpCreditSession(
+    @AuthWorkspace() workspace: WorkspaceEntity,
+    @AuthUser() user: AuthContextUser,
+    @Args() { grossAmount, itemName, callbackFinishUrl }: BillingTopUpCreditSessionInput,
+  ) {
+    if (!this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+      throw new BillingException(
+        'Top up kredit hanya tersedia saat IS_BILLING_MIDTRANS_ENABLED aktif.',
+        BillingExceptionCode.BILLING_PAYMENT_REQUIRED,
+      );
+    }
+
+    const snapResult = await this.midtransSnapService.createSnapTransaction({
+      workspaceId: workspace.id,
+      grossAmount,
+      transactionType: 'TOP_UP_CREDIT',
+      customerEmail: user.email,
+      itemName,
+      callbackFinishUrl,
+    });
+
+    return { url: snapResult.snapRedirectUrl };
   }
 
   @Mutation(() => BillingSessionDTO)
@@ -111,14 +157,31 @@ export class BillingResolver {
       requirePaymentMethod,
     };
 
+    // Jika Midtrans aktif, gunakan Snap untuk checkout subscription
+    if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+      const snapResult = await this.midtransSnapService.createSnapTransaction({
+        workspaceId: workspace.id,
+        // Jumlah placeholder untuk subscription — nominal nyata ditentukan per paket
+        grossAmount: 0,
+        transactionType: 'MONTHLY_BILLING',
+        customerEmail: user.email,
+        itemName: `Langganan Bades - Paket ${checkoutSessionParams.plan}`,
+        callbackFinishUrl: successUrlPath
+          ? `${this.twentyConfigService.get('FRONTEND_URL')}${successUrlPath}`
+          : undefined,
+      });
+
+      return { url: snapResult.snapRedirectUrl };
+    }
+
     const billingPricesPerPlan =
       await this.billingPlanService.getPricesPerPlanByInterval({
         planKey: checkoutSessionParams.plan,
         interval: recurringInterval,
       });
 
-    // For 7-day trials (no payment method required), create subscription directly
-    // For 30-day trials (payment method required), use checkout session flow
+    // Untuk trial 7 hari (tanpa metode pembayaran): buat subscription langsung
+    // Untuk trial 30 hari (dengan metode pembayaran): gunakan checkout session
     if (!requirePaymentMethod) {
       const successUrl =
         await this.billingPortalWorkspaceService.createDirectSubscription({

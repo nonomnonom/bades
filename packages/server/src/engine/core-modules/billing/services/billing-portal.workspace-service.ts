@@ -68,7 +68,7 @@ export class BillingPortalWorkspaceService {
         stripeSubscriptionLineItems,
         successUrl,
         cancelUrl,
-        stripeCustomerId: customer?.stripeCustomerId,
+        stripeCustomerId: customer?.stripeCustomerId ?? undefined,
         plan,
         requirePaymentMethod,
         withTrialPeriod:
@@ -118,7 +118,7 @@ export class BillingPortalWorkspaceService {
         user,
         workspace,
         stripeSubscriptionLineItems,
-        stripeCustomerId: customer?.stripeCustomerId,
+        stripeCustomerId: customer?.stripeCustomerId ?? undefined,
         plan,
         requirePaymentMethod,
         withTrialPeriod:

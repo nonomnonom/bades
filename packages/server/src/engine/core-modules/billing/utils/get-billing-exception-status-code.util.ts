@@ -26,7 +26,12 @@ export const getBillingExceptionStatusCode = (
     case BillingExceptionCode.BILLING_MISSING_REQUEST_BODY:
       return 400;
     case BillingExceptionCode.BILLING_CREDITS_EXHAUSTED:
+    case BillingExceptionCode.BILLING_PAYMENT_REQUIRED:
       return 402;
+    case BillingExceptionCode.BILLING_MIDTRANS_SIGNATURE_INVALID:
+      return 400;
+    case BillingExceptionCode.BILLING_MIDTRANS_TRANSACTION_NOT_FOUND:
+      return 404;
     case BillingExceptionCode.BILLING_CUSTOMER_EVENT_WORKSPACE_NOT_FOUND:
     case BillingExceptionCode.BILLING_PRICE_NOT_FOUND:
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID:
