@@ -74,7 +74,7 @@ export const SettingsAgentSettingsTab = ({
           <StyledNameContainer>
             <SettingsTextInput
               instanceId="agent-label-input"
-              placeholder={t`Enter agent name*`}
+              placeholder={t`Masukkan nama agen*`}
               value={formValues.label}
               onChange={(value) => {
                 onFieldChange('label', value);
@@ -89,7 +89,7 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-description-textarea"
-          placeholder={t`Write a description for this agent`}
+          placeholder={t`Tulis deskripsi untuk agen ini`}
           minRows={3}
           value={formValues.description || ''}
           onChange={(value) => onFieldChange('description', value)}
@@ -99,8 +99,8 @@ export const SettingsAgentSettingsTab = ({
       <StyledFormContainer>
         <TextArea
           textAreaId="agent-prompt-textarea"
-          label={t`System Prompt`}
-          placeholder={t`Enter the system prompt that defines this agent's behavior and capabilities`}
+          label={t`Prompt Sistem`}
+          placeholder={t`Masukkan prompt sistem yang mendefinisikan perilaku dan kemampuan agen ini`}
           minRows={6}
           maxRows={15}
           value={formValues.prompt}
@@ -119,11 +119,11 @@ export const SettingsAgentSettingsTab = ({
       </StyledFormContainer>
       {!disabled && agent && formValues.isCustom && (
         <Section>
-          <H2Title title={t`Danger zone`} description={t`Delete this agent`} />
+          <H2Title title={t`Zona berbahaya`} description={t`Hapus agen ini`} />
           <Button
             accent="danger"
             variant="secondary"
-            title={t`Delete Agent`}
+            title={t`Hapus Agen`}
             Icon={IconTrash}
             onClick={() => openModal(DELETE_AGENT_MODAL_ID)}
           />

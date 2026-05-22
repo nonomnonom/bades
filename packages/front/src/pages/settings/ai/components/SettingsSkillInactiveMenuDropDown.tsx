@@ -40,7 +40,7 @@ export const SettingsSkillInactiveMenuDropDown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <LightIconButton
-          aria-label={t`Inactive Skill Options`}
+          aria-label={t`Opsi Keahlian Tidak Aktif`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -49,13 +49,13 @@ export const SettingsSkillInactiveMenuDropDown = ({
         <DropdownContent widthInPixels={GenericDropdownContentWidth.Narrow}>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Activate`}
+              text={t`Aktifkan`}
               LeftIcon={IconArchiveOff}
               onClick={handleActivate}
             />
             {isCustomSkill && (
               <MenuItem
-                text={t`Delete`}
+                text={t`Hapus`}
                 LeftIcon={IconTrash}
                 accent="danger"
                 onClick={handleDelete}

@@ -81,7 +81,7 @@ export const SettingsAiModelHoverCard = ({
   const items: HoverCardItem[] = [
     {
       Icon: IconTag,
-      label: t`Name`,
+      label: t`Nama`,
       value: (
         <StyledChipContainer>
           <Chip
@@ -103,7 +103,7 @@ export const SettingsAiModelHoverCard = ({
     },
     {
       Icon: IconBuildingSkyscraper,
-      label: t`Provider`,
+      label: t`Penyedia`,
       value: <StyledValueText>{providerLabel}</StyledValueText>,
     },
     ...(isDefined(model.inputCostPerMillionTokens) ||
@@ -111,7 +111,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconUsers,
-            label: t`Cost per 1M tokens`,
+            label: t`Biaya per 1 juta token`,
             value: (
               <StyledValueText>
                 {formatCost(
@@ -127,7 +127,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconWindow,
-            label: t`Context`,
+            label: t`Konteks`,
             value: (
               <StyledValueText>
                 {`${formatNumber(model.contextWindowTokens, {
@@ -143,7 +143,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconBolt,
-            label: t`Max output`,
+            label: t`Maks. output`,
             value: (
               <StyledValueText>
                 {`${formatNumber(model.maxOutputTokens, {
@@ -159,7 +159,7 @@ export const SettingsAiModelHoverCard = ({
       ? [
           {
             Icon: IconFlag,
-            label: t`Data residency`,
+            label: t`Lokasi data`,
             value: (
               <StyledValueText>
                 {getDataResidencyDisplay(model.dataResidency)}

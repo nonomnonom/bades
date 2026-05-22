@@ -37,7 +37,7 @@ export const SettingsAiUsageUserDetail = () => {
 
   const breadcrumbLinks = [
     {
-      children: <Trans>Workspace</Trans>,
+      children: <Trans>Ruang Kerja</Trans>,
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
@@ -50,7 +50,7 @@ export const SettingsAiUsageUserDetail = () => {
   if (isInitialLoading) {
     return (
       <SubMenuTopBarContainer
-        title={tLingui`AI User Usage`}
+        title={tLingui`Pemakaian AI Pengguna`}
         links={breadcrumbLinks}
       >
         <SettingsPageContainer>
@@ -68,24 +68,24 @@ export const SettingsAiUsageUserDetail = () => {
           <Section>
             <SubscriptionInfoContainer>
               <SettingsBillingLabelValueItem
-                label={t`No usage data`}
-                value={t`No AI consumption recorded for this user.`}
+                label={t`Belum ada data pemakaian`}
+                value={t`Tidak ada pemakaian AI tercatat untuk pengguna ini.`}
               />
             </SubscriptionInfoContainer>
           </Section>
         )}
 
         <UsageDailyChartSection
-          title={t`Daily AI Usage`}
-          description={t`Per-day AI consumption.`}
+          title={t`Pemakaian AI Harian`}
+          description={t`Konsumsi AI per hari.`}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
           chartId="ai-user-daily"
-          chartLabel={t`AI Usage`}
+          chartLabel={t`Pemakaian AI`}
         />
         <UsageBreakdownPieSection
-          title={t`AI Usage by Type`}
+          title={t`Pemakaian AI per Jenis`}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}
@@ -93,8 +93,8 @@ export const SettingsAiUsageUserDetail = () => {
           sectionId="ai-user-type"
         />
         <UsageBreakdownPieSection
-          title={t`AI Usage by Model`}
-          description={t`Breakdown across AI models.`}
+          title={t`Pemakaian AI per Model`}
+          description={t`Rincian lintas model AI.`}
           operationTypes={AI_OPERATION_TYPES}
           userWorkspaceId={userWorkspaceId}
           skip={!userWorkspaceId}

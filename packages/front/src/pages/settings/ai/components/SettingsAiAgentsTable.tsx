@@ -68,7 +68,7 @@ export const SettingsAiAgentsTable = () => {
     <>
       <StyledSearchContainer>
         <SearchInput
-          placeholder={t`Search an agent...`}
+          placeholder={t`Cari agen...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -86,7 +86,7 @@ export const SettingsAiAgentsTable = () => {
                         setShowWorkflowAgents(!showWorkflowAgents)
                       }
                       toggled={showWorkflowAgents}
-                      text={t`Workflow agents`}
+                      text={t`Agen workflow`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>

@@ -48,16 +48,16 @@ export const SettingsAgentDeleteConfirmationModal = ({
       confirmationValue={agentName}
       confirmationPlaceholder={agentName}
       modalInstanceId={DELETE_AGENT_MODAL_ID}
-      title={t`Delete Agent`}
+      title={t`Hapus Agen`}
       subtitle={
         <Trans>
-          This action cannot be undone. This will permanently delete your agent.
+          Tindakan ini tidak dapat dibatalkan. Agen Anda akan dihapus secara permanen.
           <br />
-          Please type in the agent name to confirm.
+          Ketik nama agen untuk mengkonfirmasi.
         </Trans>
       }
       onConfirmClick={handleDelete}
-      confirmButtonText={t`Delete Agent`}
+      confirmButtonText={t`Hapus Agen`}
     />
   );
 };

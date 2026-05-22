@@ -159,10 +159,10 @@ export const SettingsToolDetail = () => {
     });
 
     if (result.status === 'successful') {
-      enqueueSuccessSnackBar({ message: t`Tool deleted` });
+      enqueueSuccessSnackBar({ message: t`Alat berhasil dihapus` });
       navigate(getSettingsPath(SettingsPath.AI, undefined, undefined, 'tools'));
     } else {
-      enqueueErrorSnackBar({ message: t`Failed to delete tool` });
+      enqueueErrorSnackBar({ message: t`Gagal menghapus alat` });
     }
 
     setIsDeleting(false);
@@ -182,7 +182,7 @@ export const SettingsToolDetail = () => {
       }
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
@@ -210,8 +210,8 @@ export const SettingsToolDetail = () => {
           <>
             <Section>
               <H2Title
-                title={t`Parameters`}
-                description={t`Input parameters accepted by this tool`}
+                title={t`Parameter`}
+                description={t`Parameter input yang diterima oleh alat ini`}
               />
               <SettingsToolParameterTable
                 schemaProperties={inputSchema?.properties ?? {}}
@@ -222,12 +222,12 @@ export const SettingsToolDetail = () => {
 
             <Section>
               <H2Title
-                title={t`Description`}
-                description={t`Define what this tool does`}
+                title={t`Deskripsi`}
+                description={t`Tentukan apa yang dilakukan alat ini`}
               />
               <TextArea
                 textAreaId="tool-description-textarea"
-                placeholder={t`Write a description`}
+                placeholder={t`Tulis deskripsi`}
                 minRows={3}
                 value={editedDescription ?? description ?? ''}
                 onChange={handleDescriptionChange}
@@ -238,12 +238,12 @@ export const SettingsToolDetail = () => {
             {isCustomTool && !isManaged && (
               <Section>
                 <H2Title
-                  title={t`Danger zone`}
-                  description={t`Delete this tool`}
+                  title={t`Zona berbahaya`}
+                  description={t`Hapus alat ini`}
                 />
                 <Button
                   Icon={IconTrash}
-                  title={t`Delete`}
+                  title={t`Hapus`}
                   accent="danger"
                   size="small"
                   variant="secondary"
@@ -256,10 +256,10 @@ export const SettingsToolDetail = () => {
       </SettingsPageContainer>
       <ConfirmationModal
         modalInstanceId={DELETE_TOOL_MODAL_ID}
-        title={t`Delete Tool`}
-        subtitle={t`Are you sure you want to delete this tool? This action cannot be undone.`}
+        title={t`Hapus Alat`}
+        subtitle={t`Yakin ingin menghapus alat ini? Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleDelete}
-        confirmButtonText={t`Delete`}
+        confirmButtonText={t`Hapus`}
         loading={isDeleting}
       />
     </SubMenuTopBarContainer>

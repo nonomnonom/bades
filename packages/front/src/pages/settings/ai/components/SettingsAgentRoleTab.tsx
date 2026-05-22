@@ -87,14 +87,14 @@ export const SettingsAgentRoleTab = ({
     setIsCreatingRole(true);
     try {
       const roleId = v4();
-      const roleName = t`${agentLabel} Agent Role`;
+      const roleName = t`Peran Agen ${agentLabel}`;
 
       const { data } = await createRole({
         variables: {
           createRoleInput: {
             id: roleId,
             label: roleName,
-            description: t`Role for ${agentLabel} agent`,
+            description: t`Peran untuk agen ${agentLabel}`,
             icon: 'IconLock',
             canUpdateAllSettings: false,
             canAccessAllTools: false,
@@ -150,12 +150,12 @@ export const SettingsAgentRoleTab = ({
       {!formValues.role ? (
         <>
           <H2Title
-            title={t`Role`}
-            description={t`Create a role to define permissions for this agent.`}
+            title={t`Peran`}
+            description={t`Buat peran untuk menentukan izin agen ini.`}
           />
           <Button
             Icon={IconPlus}
-            title={t`Create Role`}
+            title={t`Buat Peran`}
             variant="secondary"
             onClick={handleCreateRole}
             disabled={disabled || isCreatingRole}
@@ -167,7 +167,7 @@ export const SettingsAgentRoleTab = ({
             <>
               {isRoleShared && (
                 <StyledWarningText>
-                  {t`This role is shared with other users or agents and cannot be edited here.`}
+                  {t`Peran ini digunakan bersama pengguna atau agen lain dan tidak dapat diedit di sini.`}
                 </StyledWarningText>
               )}
               <SettingsRolePermissions

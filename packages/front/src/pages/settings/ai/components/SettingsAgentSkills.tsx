@@ -73,20 +73,20 @@ export const SettingsAgentSkills = () => {
   const handleActivate = async (skillId: string) => {
     try {
       await activateSkill({ variables: { id: skillId } });
-      enqueueSuccessSnackBar({ message: t`Skill activated` });
+      enqueueSuccessSnackBar({ message: t`Keahlian diaktifkan` });
       refetch();
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to activate skill` });
+      enqueueErrorSnackBar({ message: t`Gagal mengaktifkan keahlian` });
     }
   };
 
   const handleDelete = async (skillId: string) => {
     try {
       await deleteSkill({ variables: { id: skillId } });
-      enqueueSuccessSnackBar({ message: t`Skill deleted` });
+      enqueueSuccessSnackBar({ message: t`Keahlian dihapus` });
       refetch();
     } catch {
-      enqueueErrorSnackBar({ message: t`Failed to delete skill` });
+      enqueueErrorSnackBar({ message: t`Gagal menghapus keahlian` });
     }
   };
 
@@ -100,12 +100,12 @@ export const SettingsAgentSkills = () => {
       <StyledCoverImage style={{ backgroundImage: `url('${coverImage}')` }} />
       <Section>
         <H2Title
-          title={t`Skills`}
-          description={t`Use filter to see existing tools or create your own`}
+          title={t`Keahlian`}
+          description={t`Gunakan filter untuk melihat keahlian yang ada atau buat keahlian Anda sendiri`}
         />
 
         <StyledSearchInput
-          placeholder={t`Search a skill...`}
+          placeholder={t`Cari keahlian...`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton) => (
@@ -123,7 +123,7 @@ export const SettingsAgentSkills = () => {
                         setShowDeactivated(!showDeactivated)
                       }
                       toggled={showDeactivated}
-                      text={t`Deactivated`}
+                      text={t`Dinonaktifkan`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>

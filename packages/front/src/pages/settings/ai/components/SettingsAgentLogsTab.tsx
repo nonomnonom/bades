@@ -108,7 +108,7 @@ export const SettingsAgentLogsTab = ({
           });
         }
         enqueueSuccessSnackBar({
-          message: t`Turn evaluated successfully`,
+          message: t`Giliran berhasil dievaluasi`,
         });
         refetch();
       },
@@ -124,7 +124,7 @@ export const SettingsAgentLogsTab = ({
         return next;
       });
       enqueueErrorSnackBar({
-        message: t`Failed to evaluate turn`,
+        message: t`Gagal mengevaluasi giliran`,
       });
     });
   };
@@ -152,8 +152,8 @@ export const SettingsAgentLogsTab = ({
         <Table>
           <StyledTableHeaderRowContainer>
             <TableRow gridTemplateColumns="140px 80px 1fr 40px">
-              <TableHeader>{t`Date`}</TableHeader>
-              <TableHeader>{t`Score`}</TableHeader>
+              <TableHeader>{t`Tanggal`}</TableHeader>
+              <TableHeader>{t`Skor`}</TableHeader>
               <TableHeader>{t`Input`}</TableHeader>
               <TableHeader />
             </TableRow>
@@ -172,10 +172,10 @@ export const SettingsAgentLogsTab = ({
         <AnimatedPlaceholder type="emptyTimeline" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`No logs yet`}
+            {t`Belum ada log`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`Agent interactions will appear here once the agent is used in conversations`}
+            {t`Riwayat percakapan agen akan muncul di sini setelah agen digunakan`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>
@@ -187,8 +187,8 @@ export const SettingsAgentLogsTab = ({
       <Table>
         <StyledTableHeaderRowContainer>
           <TableRow gridTemplateColumns="140px 80px 1fr 40px">
-            <TableHeader>{t`Date`}</TableHeader>
-            <TableHeader>{t`Score`}</TableHeader>
+            <TableHeader>{t`Tanggal`}</TableHeader>
+            <TableHeader>{t`Skor`}</TableHeader>
             <TableHeader>{t`Input`}</TableHeader>
             <TableHeader />
           </TableRow>
@@ -200,7 +200,7 @@ export const SettingsAgentLogsTab = ({
           return (
             <TableRow key={turn.id} gridTemplateColumns="140px 80px 1fr 40px">
               <TableCell color={themeCssVariables.font.color.tertiary}>
-                {new Date(turn.createdAt).toLocaleDateString('en-US', {
+                {new Date(turn.createdAt).toLocaleDateString('id-ID', {
                   month: 'short',
                   day: 'numeric',
                   hour: '2-digit',
@@ -215,14 +215,14 @@ export const SettingsAgentLogsTab = ({
                   />
                 ) : evaluatingTurnIds.has(turn.id) ||
                   backgroundEvaluatingTurnIds.has(turn.id) ? (
-                  <Status color="blue" text={t`Evaluating`} isLoaderVisible />
+                  <Status color="blue" text={t`Mengevaluasi`} isLoaderVisible />
                 ) : (
                   <Button
                     size="small"
                     variant="secondary"
                     onClick={() => handleEvaluateTurn(turn.id)}
                     disabled={evaluating}
-                    title={t`Evaluate`}
+                    title={t`Evaluasi`}
                   />
                 )}
               </TableCell>
@@ -231,7 +231,7 @@ export const SettingsAgentLogsTab = ({
                 textOverflow="ellipsis"
                 whiteSpace="nowrap"
               >
-                {userInput || t`No input`}
+                {userInput || t`Tidak ada input`}
               </TableCell>
               <TableCell
                 align="right"
@@ -245,7 +245,7 @@ export const SettingsAgentLogsTab = ({
                   >
                     <LightIconButton
                       Icon={IconChevronRight}
-                      title={t`View all evaluations`}
+                      title={t`Lihat semua evaluasi`}
                       accent="tertiary"
                     />
                   </UndecoratedLink>

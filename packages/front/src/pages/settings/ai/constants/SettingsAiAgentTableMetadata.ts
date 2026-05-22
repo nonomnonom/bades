@@ -6,13 +6,13 @@ export const SETTINGS_AI_AGENT_TABLE_METADATA: TableMetadata<Agent> = {
   tableId: 'settingsAiAgent',
   fields: [
     {
-      fieldLabel: msg`Name`,
+      fieldLabel: msg`Nama`,
       fieldName: 'name',
       fieldType: 'string',
       align: 'left',
     },
     {
-      fieldLabel: msg`Type`,
+      fieldLabel: msg`Tipe`,
       fieldName: 'isCustom',
       fieldType: 'string',
       align: 'left',

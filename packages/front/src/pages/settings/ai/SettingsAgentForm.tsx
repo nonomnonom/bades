@@ -121,7 +121,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         setOriginalFormValues(initialValues);
       } else {
         enqueueErrorSnackBar({
-          message: t`Agent not found`,
+          message: t`Agen tidak ditemukan`,
         });
         navigateApp(AppPath.NotFound);
       }
@@ -197,7 +197,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             const errorMessage =
               error instanceof Error ? error.message : String(error);
             enqueueErrorSnackBar({
-              message: t`Failed to save role permissions: ${errorMessage}`,
+              message: t`Gagal menyimpan izin peran: ${errorMessage}`,
             });
           }
           setIsSubmitting(false);
@@ -261,22 +261,22 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
   const tabs = [
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Settings`,
+      title: t`Pengaturan`,
       Icon: IconSettings,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.ROLE,
-      title: t`Role`,
+      title: t`Peran`,
       Icon: IconLock,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.EVALS,
-      title: t`Evals`,
+      title: t`Evaluasi`,
       Icon: IconListCheck,
     },
     {
       id: SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.LOGS,
-      title: t`Logs`,
+      title: t`Log`,
       Icon: IconList,
     },
   ];
@@ -305,7 +305,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             const errorMessage =
               error instanceof Error ? error.message : String(error);
             enqueueErrorSnackBar({
-              message: t`Failed to save role permissions: ${errorMessage}`,
+              message: t`Gagal menyimpan izin peran: ${errorMessage}`,
             });
           }
           setIsSubmitting(false);
@@ -378,14 +378,14 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
 
   const title = !isCreateMode
     ? loading
-      ? t`Agent`
+      ? t`Agen`
       : agent?.label
-    : t`New Agent`;
+    : t`Agen Baru`;
   const breadcrumbText = !isCreateMode
     ? loading
-      ? t`Agent`
+      ? t`Agen`
       : agent?.label
-    : t`New Agent`;
+    : t`Agen Baru`;
 
   const isRoleTab = activeTabId === SETTINGS_AGENT_DETAIL_TABS.TABS_IDS.ROLE;
   const isSettingsTab =
@@ -416,7 +416,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
         }
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
