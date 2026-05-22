@@ -102,7 +102,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
     const items: TableItem[] = [
       {
         Icon: IconWorld,
-        label: t`Universal ID`,
+        label: t`ID Universal`,
         value: registration.universalIdentifier,
       },
     ];
@@ -110,7 +110,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
     if (isDefined(ownerWorkspace?.displayName)) {
       items.push({
         Icon: IconTag,
-        label: t`Owner`,
+        label: t`Pemilik`,
         value: (
           <Chip
             size={ChipSize.Large}
@@ -132,14 +132,14 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
       case ApplicationRegistrationSourceType.NPM:
         items.push({
           Icon: IconBox,
-          label: t`Package`,
+          label: t`Paket`,
           value: 'NPM',
         });
         break;
       case ApplicationRegistrationSourceType.TARBALL:
         items.push({
           Icon: IconBox,
-          label: t`Source`,
+          label: t`Sumber`,
           value: isNonEmptyString(
             tarballUrlData?.applicationRegistrationTarballUrl,
           ) ? (
@@ -149,7 +149,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
                 href={tarballUrlData.applicationRegistrationTarballUrl}
                 download
               >
-                <Trans>Download</Trans>
+                <Trans>Unduh</Trans>
               </StyledDownloadLink>
             </StyledSourceRow>
           ) : (
@@ -160,14 +160,14 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
       case ApplicationRegistrationSourceType.LOCAL:
         items.push({
           Icon: IconBox,
-          label: t`Source`,
-          value: 'Local',
+          label: t`Sumber`,
+          value: 'Lokal',
         });
         break;
       case ApplicationRegistrationSourceType.OAUTH_ONLY:
         items.push({
           Icon: IconBox,
-          label: t`Source`,
+          label: t`Sumber`,
           value: 'OAuth',
         });
         break;
@@ -176,18 +176,18 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
     if (isNonEmptyString(registration.latestAvailableVersion)) {
       items.push({
         Icon: IconGitBranch,
-        label: t`Latest version`,
+        label: t`Versi terbaru`,
         value: registration.latestAvailableVersion,
       });
     }
 
     items.push({
       Icon: IconDownload,
-      label: t`Installed`,
+      label: t`Terpasang`,
       value: isApplicationInstalled ? (
-        <Tag color="green" text={t`Yes`} />
+        <Tag color="green" text={t`Ya`} />
       ) : (
-        <Tag color="orange" text={t`No`} />
+        <Tag color="orange" text={t`Tidak`} />
       ),
     });
 
@@ -196,7 +196,7 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
 
   return (
     <Section>
-      <H2Title title={t`General`} description={t`About your app`} />
+      <H2Title title={t`Umum`} description={t`Tentang aplikasi Anda`} />
       <StyledGeneralContainer>
         <SettingsTableCard
           rounded

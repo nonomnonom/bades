@@ -119,20 +119,20 @@ export const SettingsAvailableApplicationDetails = () => {
     {
       icon: IconBox,
       count: (manifest?.objects ?? []).length,
-      one: t`object`,
-      many: t`objects`,
+      one: t`objek`,
+      many: t`objek`,
     },
     {
       icon: IconListDetails,
       count: (manifest?.fields ?? []).length,
       one: t`field`,
-      many: t`fields`,
+      many: t`field`,
     },
     {
       icon: IconCommand,
       count: (manifest?.logicFunctions ?? []).length,
-      one: t`logic function`,
-      many: t`logic functions`,
+      one: t`fungsi logika`,
+      many: t`fungsi logika`,
     },
     {
       icon: IconGraph,
@@ -143,7 +143,7 @@ export const SettingsAvailableApplicationDetails = () => {
             .includes(fc.universalIdentifier),
       ).length,
       one: t`widget`,
-      many: t`widgets`,
+      many: t`widget`,
     },
     {
       icon: IconCommand,
@@ -154,8 +154,8 @@ export const SettingsAvailableApplicationDetails = () => {
             .map((cm) => cm.frontComponentUniversalIdentifier)
             .includes(fc.universalIdentifier),
       ).length,
-      one: t`command`,
-      many: t`commands`,
+      one: t`perintah`,
+      many: t`perintah`,
     },
     {
       icon: IconShield,
@@ -164,20 +164,20 @@ export const SettingsAvailableApplicationDetails = () => {
           role.universalIdentifier !==
           manifest?.application.defaultRoleUniversalIdentifier,
       ).length,
-      one: t`role`,
-      many: t`roles`,
+      one: t`peran`,
+      many: t`peran`,
     },
     {
       icon: IconBook,
       count: (manifest?.skills ?? []).length,
-      one: t`skill`,
-      many: t`skills`,
+      one: t`keahlian`,
+      many: t`keahlian`,
     },
     {
       icon: IconLego,
       count: (manifest?.agents ?? []).length,
-      one: t`agent`,
-      many: t`agents`,
+      one: t`agen`,
+      many: t`agen`,
     },
   ];
 
@@ -187,9 +187,9 @@ export const SettingsAvailableApplicationDetails = () => {
   );
 
   const tabs = [
-    { id: 'about', title: t`About`, Icon: IconInfoCircle },
-    { id: 'content', title: t`Content`, Icon: IconBox },
-    { id: 'permissions', title: t`Permissions`, Icon: IconLock },
+    { id: 'about', title: t`Tentang`, Icon: IconInfoCircle },
+    { id: 'content', title: t`Konten`, Icon: IconBox },
+    { id: 'permissions', title: t`Izin`, Icon: IconLock },
   ];
 
   const renderActiveTabContent = () => {
@@ -262,11 +262,11 @@ export const SettingsAvailableApplicationDetails = () => {
       <SubMenuTopBarContainer
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Applications`,
+            children: t`Aplikasi`,
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: displayName },

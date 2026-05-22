@@ -31,11 +31,11 @@ export const SettingsApplicationDetailEnvironmentVariablesTable = ({
   );
   const description =
     editedEnvVariables.length > 0
-      ? t`Set your application configuration variables`
-      : t`No variables to set for this application`;
+      ? t`Atur variabel konfigurasi aplikasi Anda`
+      : t`Tidak ada variabel yang perlu diatur untuk aplikasi ini`;
   return (
     <Section>
-      <H2Title title={t`Configuration`} description={description} />
+      <H2Title title={t`Konfigurasi`} description={description} />
       <StyledContainer>
         {editedEnvVariables.map((editedEnvVariable) => (
           <TextInput
@@ -53,7 +53,7 @@ export const SettingsApplicationDetailEnvironmentVariablesTable = ({
               );
               onUpdateDebounced({ ...editedEnvVariable, value: newValue });
             }}
-            placeholder={t`Value`}
+            placeholder={t`Nilai`}
             fullWidth
           />
         ))}

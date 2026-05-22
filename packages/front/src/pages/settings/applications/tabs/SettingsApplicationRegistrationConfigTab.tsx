@@ -30,7 +30,7 @@ export const SettingsApplicationRegistrationConfigTab = ({
   const configVariables = variables.map((variable) => ({
     name: variable.key,
     description: variable.description,
-    value: variable.value ?? <Status color="gray" text={t`Not set`} />,
+    value: variable.value ?? <Status color="gray" text={t`Belum diisi`} />,
     to: getSettingsPath(
       SettingsPath.ApplicationRegistrationConfigVariableDetails,
       {
@@ -44,8 +44,8 @@ export const SettingsApplicationRegistrationConfigTab = ({
     variables.length > 0 && (
       <Section>
         <H2Title
-          title={t`Server Variables`}
-          description={t`Server variables are applied to all workspace installations.`}
+          title={t`Variabel Server`}
+          description={t`Variabel server diterapkan ke semua instalasi ruang kerja.`}
         />
         <ConfigVariableTable configVariables={configVariables} />
       </Section>

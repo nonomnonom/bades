@@ -62,57 +62,57 @@ export const SettingsApplicationCommandMenuItemSettingsTab = ({
     },
     {
       key: 'shortLabel',
-      label: t`Short label`,
-      value: shortLabel ?? t`Not set`,
+      label: t`Label singkat`,
+      value: shortLabel ?? t`Belum diisi`,
     },
     {
       key: 'icon',
-      label: t`Icon`,
-      value: icon ? <StyledMonoText>{icon}</StyledMonoText> : t`Not set`,
+      label: t`Ikon`,
+      value: icon ? <StyledMonoText>{icon}</StyledMonoText> : t`Belum diisi`,
     },
     {
       key: 'isPinned',
-      label: t`Pinned`,
-      value: isPinned ? t`Yes` : t`No`,
+      label: t`Disematkan`,
+      value: isPinned ? t`Ya` : t`Tidak`,
     },
     {
       key: 'availabilityType',
-      label: t`Availability`,
+      label: t`Ketersediaan`,
       value: <StyledMonoText>{availabilityType}</StyledMonoText>,
     },
     {
       key: 'conditionalAvailabilityExpression',
-      label: t`Conditional availability`,
+      label: t`Ekspresi ketersediaan kondisional`,
       value: conditionalAvailabilityExpression ? (
         <StyledMonoText>{conditionalAvailabilityExpression}</StyledMonoText>
       ) : (
-        t`Not set`
+        t`Belum diisi`
       ),
     },
     {
       key: 'frontComponent',
-      label: t`Front component`,
+      label: t`Komponen tampilan`,
       value: frontComponentName ? (
         <StyledMonoText>{frontComponentName}</StyledMonoText>
       ) : (
-        t`Not set`
+        t`Belum diisi`
       ),
     },
     {
       key: 'universalIdentifier',
-      label: t`Universal identifier`,
+      label: t`Identifier universal`,
       value: (
-        <StyledMonoText>{universalIdentifier ?? t`Not set`}</StyledMonoText>
+        <StyledMonoText>{universalIdentifier ?? t`Belum diisi`}</StyledMonoText>
       ),
     },
     {
       key: 'createdAt',
-      label: t`Created`,
+      label: t`Dibuat`,
       value: formatDateTime(createdAt),
     },
     {
       key: 'updatedAt',
-      label: t`Updated`,
+      label: t`Diperbarui`,
       value: formatDateTime(updatedAt),
     },
   ];
@@ -120,15 +120,15 @@ export const SettingsApplicationCommandMenuItemSettingsTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Details`}
-        description={t`Configuration of this command menu item`}
+        title={t`Detail`}
+        description={t`Konfigurasi item menu perintah ini`}
       />
       <Table>
         <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-          <TableHeader>{t`Property`}</TableHeader>
-          <TableHeader>{t`Value`}</TableHeader>
+          <TableHeader>{t`Properti`}</TableHeader>
+          <TableHeader>{t`Nilai`}</TableHeader>
         </TableRow>
-        <TableSection title={t`Command menu item`}>
+        <TableSection title={t`Item menu perintah`}>
           {detailRows.map((row) => (
             <TableRow key={row.key} gridTemplateColumns={GRID_TEMPLATE}>
               <TableCell color={themeCssVariables.font.color.secondary}>

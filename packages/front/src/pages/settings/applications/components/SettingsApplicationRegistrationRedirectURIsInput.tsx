@@ -40,11 +40,11 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
         redirectUri: z
           .string()
           .trim()
-          .min(1, 'URI is required')
-          .url(t`Please enter a valid URL`)
+          .min(1, 'URI wajib diisi')
+          .url(t`Masukkan URL yang valid`)
           .refine(
             (value) => !redirectUris.includes(value),
-            t`URI is already in redirect URIs list`,
+            t`URI sudah ada dalam daftar Redirect URI`,
           ),
       })
       .required();
@@ -88,7 +88,7 @@ export const SettingsApplicationRegistrationRedirectURIsInput = ({
             )}
           />
         </StyledLinkContainer>
-        <Button title={t`Add URI`} type="submit" />
+        <Button title={t`Tambah URI`} type="submit" />
       </StyledContainer>
     </form>
   );

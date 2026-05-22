@@ -128,7 +128,7 @@ export const SettingsApplicationDetailAboutTab = ({
   const markdownText =
     aboutDescription ??
     description ??
-    t`No description available for this application`;
+    t`Tidak ada deskripsi untuk aplikasi ini`;
 
   const getActionButton = () => {
     if (!canInstallMarketplaceApps) {
@@ -139,7 +139,7 @@ export const SettingsApplicationDetailAboutTab = ({
       return (
         <Button
           Icon={IconDownload}
-          title={isInstalling ? t`Installing...` : t`Install`}
+          title={isInstalling ? t`Memasang...` : t`Pasang`}
           variant={'primary'}
           accent={'blue'}
           onClick={onInstall}
@@ -154,8 +154,8 @@ export const SettingsApplicationDetailAboutTab = ({
           Icon={IconUpload}
           title={
             isUpgrading
-              ? t`Upgrading...`
-              : t`Upgrade to ${latestAvailableVersion}`
+              ? t`Memperbarui...`
+              : t`Perbarui ke ${latestAvailableVersion}`
           }
           variant={'secondary'}
           accent={'blue'}
@@ -169,7 +169,7 @@ export const SettingsApplicationDetailAboutTab = ({
       return (
         <Button
           Icon={IconTrash}
-          title={isUninstalling ? t`Uninstalling...` : t`Uninstall`}
+          title={isUninstalling ? t`Menghapus...` : t`Hapus`}
           variant={'secondary'}
           accent={'danger'}
           onClick={() => openModal(UNINSTALL_APPLICATION_MODAL_ID)}
@@ -181,7 +181,7 @@ export const SettingsApplicationDetailAboutTab = ({
     return (
       <Button
         Icon={IconCheck}
-        title={t`Installed`}
+        title={t`Terpasang`}
         variant={'secondary'}
         accent={'default'}
         disabled={true}
@@ -225,15 +225,15 @@ export const SettingsApplicationDetailAboutTab = ({
           confirmationPlaceholder={confirmationValue}
           confirmationValue={confirmationValue}
           modalInstanceId={UNINSTALL_APPLICATION_MODAL_ID}
-          title={t`Uninstall Application?`}
+          title={t`Hapus Aplikasi?`}
           subtitle={
             <Trans>
-              Please type {`"${confirmationValue}"`} to confirm you want to
-              uninstall this application.
+              Ketik {`"${confirmationValue}"`} untuk mengonfirmasi bahwa Anda ingin
+              menghapus aplikasi ini.
             </Trans>
           }
           onConfirmClick={onUninstall}
-          confirmButtonText={t`Uninstall`}
+          confirmButtonText={t`Hapus`}
           loading={isUninstalling}
         />
       )}

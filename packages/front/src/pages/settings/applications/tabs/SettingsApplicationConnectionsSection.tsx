@@ -66,7 +66,7 @@ const AddConnectionDropdown = ({
       dropdownPlacement="bottom-start"
       clickableComponent={
         <Button
-          title={t`Add connection`}
+          title={t`Tambah koneksi`}
           Icon={IconPlus}
           variant="secondary"
           accent="default"
@@ -77,12 +77,12 @@ const AddConnectionDropdown = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Just for me`}
+              text={t`Hanya untuk saya`}
               LeftIcon={IconUser}
               onClick={() => handleSelect('user')}
             />
             <MenuItem
-              text={t`Workspace shared`}
+              text={t`Dibagikan ke ruang kerja`}
               LeftIcon={IconUsers}
               onClick={() => handleSelect('workspace')}
             />
@@ -124,12 +124,12 @@ export const SettingsApplicationConnectionsSection = ({
           <Section key={provider.id}>
             <H2Title
               title={provider.displayName}
-              description={t`Manage connections used by this app to call ${provider.displayName}.`}
+              description={t`Kelola koneksi yang digunakan aplikasi ini untuk mengakses ${provider.displayName}.`}
             />
             {isOAuth && !isClientCredentialsConfigured && (
               <Info
                 accent="danger"
-                text={t`${provider.displayName} OAuth is not yet set up by your server administrator. They need to fill in the OAuth client ID and secret on the application registration before you can add a connection.`}
+                text={t`OAuth ${provider.displayName} belum dikonfigurasi oleh administrator server. Mereka perlu mengisi Client ID dan secret OAuth pada registrasi aplikasi sebelum Anda dapat menambah koneksi.`}
               />
             )}
             {providerConnections.length > 0 && (
@@ -139,9 +139,9 @@ export const SettingsApplicationConnectionsSection = ({
                     CONNECTION_TABLE_ROW_GRID_TEMPLATE_COLUMNS
                   }
                 >
-                  <TableHeader>{t`Connection`}</TableHeader>
+                  <TableHeader>{t`Koneksi`}</TableHeader>
                   <TableHeader>{t`Status`}</TableHeader>
-                  <TableHeader>{t`Visibility`}</TableHeader>
+                  <TableHeader>{t`Visibilitas`}</TableHeader>
                   <TableHeader />
                 </TableRow>
                 <StyledTableRowsContainer>
@@ -170,9 +170,9 @@ export const SettingsApplicationConnectionsSection = ({
                       </TableCell>
                       <TableCell clickable>
                         {connection.authFailedAt ? (
-                          <Status color="red" text={t`Reconnect needed`} />
+                          <Status color="red" text={t`Perlu sambung ulang`} />
                         ) : (
-                          <Status color="green" text={t`Connected`} />
+                          <Status color="green" text={t`Terhubung`} />
                         )}
                       </TableCell>
                       <TableCell clickable>
@@ -184,8 +184,8 @@ export const SettingsApplicationConnectionsSection = ({
                           }
                           text={
                             connection.visibility === 'workspace'
-                              ? t`Workspace shared`
-                              : t`Just for me`
+                              ? t`Dibagikan ke ruang kerja`
+                              : t`Hanya untuk saya`
                           }
                         />
                       </TableCell>

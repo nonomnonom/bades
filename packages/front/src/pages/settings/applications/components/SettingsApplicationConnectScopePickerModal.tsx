@@ -30,13 +30,13 @@ export const SettingsApplicationConnectScopePickerModal = ({
   const options = [
     {
       value: 'user',
-      title: t`Just for me`,
-      description: t`Only you can use this credential.`,
+      title: t`Hanya untuk saya`,
+      description: t`Hanya Anda yang dapat menggunakan kredensial ini.`,
     },
     {
       value: 'workspace',
-      title: t`Workspace shared`,
-      description: t`Anyone in this workspace can use this credential.`,
+      title: t`Dibagikan ke ruang kerja`,
+      description: t`Semua anggota ruang kerja dapat menggunakan kredensial ini.`,
     },
   ];
 
@@ -44,7 +44,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
     <StyledAppModal modalId={modalInstanceId} isClosable padding="large">
       <StyledAppModalTitle>
         <H1Title
-          title={t`Connect ${providerDisplayName}`}
+          title={t`Sambungkan ${providerDisplayName}`}
           fontColor={H1TitleFontColor.Primary}
         />
       </StyledAppModalTitle>
@@ -61,7 +61,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
       <StyledAppModalButton
         onClick={() => closeModal(modalInstanceId)}
         variant="secondary"
-        title={t`Cancel`}
+        title={t`Batal`}
         fullWidth
         justify="center"
       />
@@ -72,7 +72,7 @@ export const SettingsApplicationConnectScopePickerModal = ({
         }}
         variant="secondary"
         accent="blue"
-        title={t`Continue`}
+        title={t`Lanjutkan`}
         fullWidth
         justify="center"
       />

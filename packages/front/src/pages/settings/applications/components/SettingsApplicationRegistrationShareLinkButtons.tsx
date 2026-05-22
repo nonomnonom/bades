@@ -52,7 +52,7 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       {installable && (
         <Button
           Icon={IconDownload}
-          title={isInstalling ? t`Installing...` : t`Install`}
+          title={isInstalling ? t`Memasang...` : t`Pasang`}
           variant={'secondary'}
           onClick={handleInstall}
           disabled={isInstalling}
@@ -61,14 +61,14 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       {withCopyButton && (
         <Button
           Icon={IconCopy}
-          title={t`Copy sharing link`}
+          title={t`Salin tautan berbagi`}
           variant="secondary"
           disabled={!shareLink}
           onClick={async () => {
             if (shareLink) {
               await copyToClipboard(
                 `${window.location.origin}${shareLink}`,
-                t`Sharing link copied to clipboard`,
+                t`Tautan berbagi disalin ke clipboard`,
               );
             }
           }}
@@ -76,7 +76,7 @@ export const SettingsApplicationRegistrationShareLinkButtons = ({
       )}
       <Button
         Icon={isNpmSource ? IconArrowUpRight : IconInfoCircle}
-        title={isNpmSource ? t`See on marketplace` : t`See app page`}
+        title={isNpmSource ? t`Lihat di katalog` : t`Lihat halaman aplikasi`}
         variant="secondary"
         disabled={!shareLink}
         to={shareLink}

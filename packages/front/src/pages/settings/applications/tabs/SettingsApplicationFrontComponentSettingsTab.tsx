@@ -62,39 +62,39 @@ export const SettingsApplicationFrontComponentSettingsTab = ({
   const detailRows: { key: string; label: string; value: ReactNode }[] = [
     {
       key: 'componentName',
-      label: t`Component name`,
+      label: t`Nama komponen`,
       value: <StyledMonoText>{componentName}</StyledMonoText>,
     },
     {
       key: 'universalIdentifier',
-      label: t`Universal identifier`,
+      label: t`Identifier universal`,
       value: (
-        <StyledMonoText>{universalIdentifier ?? t`Not set`}</StyledMonoText>
+        <StyledMonoText>{universalIdentifier ?? t`Belum diisi`}</StyledMonoText>
       ),
     },
     {
       key: 'isHeadless',
-      label: t`Headless`,
-      value: isHeadless ? t`Yes` : t`No`,
+      label: t`Tanpa UI`,
+      value: isHeadless ? t`Ya` : t`Tidak`,
     },
     {
       key: 'usesSdkClient',
-      label: t`Uses SDK client`,
-      value: usesSdkClient ? t`Yes` : t`No`,
+      label: t`Menggunakan SDK client`,
+      value: usesSdkClient ? t`Ya` : t`Tidak`,
     },
     {
       key: 'builtComponentChecksum',
-      label: t`Build checksum`,
+      label: t`Checksum build`,
       value: <StyledMonoText>{builtComponentChecksum}</StyledMonoText>,
     },
     {
       key: 'createdAt',
-      label: t`Created`,
+      label: t`Dibuat`,
       value: formatDateTime(createdAt),
     },
     {
       key: 'updatedAt',
-      label: t`Updated`,
+      label: t`Diperbarui`,
       value: formatDateTime(updatedAt),
     },
   ];
@@ -104,23 +104,23 @@ export const SettingsApplicationFrontComponentSettingsTab = ({
       {trimmedDescription !== undefined && trimmedDescription.length > 0 && (
         <Section>
           <H2Title
-            title={t`About`}
-            description={t`Description provided by the application`}
+            title={t`Tentang`}
+            description={t`Deskripsi yang disediakan oleh aplikasi`}
           />
           <StyledDescription>{trimmedDescription}</StyledDescription>
         </Section>
       )}
       <Section>
         <H2Title
-          title={t`Details`}
-          description={t`Build and runtime metadata for this component`}
+          title={t`Detail`}
+          description={t`Metadata build dan runtime untuk komponen ini`}
         />
         <Table>
           <TableRow gridTemplateColumns={GRID_TEMPLATE}>
-            <TableHeader>{t`Property`}</TableHeader>
-            <TableHeader>{t`Value`}</TableHeader>
+            <TableHeader>{t`Properti`}</TableHeader>
+            <TableHeader>{t`Nilai`}</TableHeader>
           </TableRow>
-          <TableSection title={t`Front component`}>
+          <TableSection title={t`Komponen tampilan`}>
             {detailRows.map((row) => (
               <TableRow key={row.key} gridTemplateColumns={GRID_TEMPLATE}>
                 <TableCell color={themeCssVariables.font.color.secondary}>

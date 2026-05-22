@@ -86,7 +86,7 @@ export const SettingsApplicationDetailTitle = ({
       {isUnlisted && (
         <StyledUnlistedBanner>
           <IconEyeOff size={16} />
-          {t`Application not listed on the marketplace. It was shared via a direct link`}
+          {t`Aplikasi ini tidak terdaftar di katalog. Dibagikan melalui tautan langsung`}
         </StyledUnlistedBanner>
       )}
       <StyledHeader>

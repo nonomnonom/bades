@@ -126,13 +126,13 @@ export const SettingsApplicationConnectionDetail = () => {
       connectionProvider.id === connection?.connectionProviderId,
   );
 
-  const applicationName = application?.name ?? t`Application`;
+  const applicationName = application?.name ?? t`Aplikasi`;
   const connectionLabel =
     connection?.name !== null &&
     connection?.name !== undefined &&
     connection.name.trim() !== ''
       ? connection.name
-      : (connection?.handle ?? t`Connection`);
+      : (connection?.handle ?? t`Koneksi`);
   const deleteModalId = `delete-application-connection-modal-${connectedAccountId}`;
   const changeVisibilityModalId = `change-application-connection-visibility-modal-${connectedAccountId}`;
   const applicationSettingsPath = getSettingsPath(
@@ -204,7 +204,7 @@ export const SettingsApplicationConnectionDetail = () => {
     return [
       {
         key: 'provider',
-        label: t`Provider`,
+        label: t`Penyedia`,
         value: provider.displayName,
       },
       {
@@ -214,14 +214,14 @@ export const SettingsApplicationConnectionDetail = () => {
       },
       {
         key: 'visibility',
-        label: t`Visibility`,
+        label: t`Visibilitas`,
         value: (
           <Status
             color={connection.visibility === 'workspace' ? 'blue' : 'gray'}
             text={
               connection.visibility === 'workspace'
-                ? t`Workspace shared`
-                : t`Just for me`
+                ? t`Dibagikan ke ruang kerja`
+                : t`Hanya untuk saya`
             }
           />
         ),
@@ -230,14 +230,14 @@ export const SettingsApplicationConnectionDetail = () => {
         key: 'status',
         label: t`Status`,
         value: connection.authFailedAt ? (
-          <Status color="red" text={t`Reconnect needed`} />
+          <Status color="red" text={t`Perlu sambung ulang`} />
         ) : (
-          <Status color="green" text={t`Connected`} />
+          <Status color="green" text={t`Terhubung`} />
         ),
       },
       {
         key: 'scopes',
-        label: t`Granted OAuth scopes`,
+        label: t`Cakupan OAuth yang diberikan`,
         value:
           scopes.length > 0 ? (
             <StyledScopeList>
@@ -251,27 +251,27 @@ export const SettingsApplicationConnectionDetail = () => {
       },
       {
         key: 'lastSignedInAt',
-        label: t`Last signed in`,
+        label: t`Terakhir masuk`,
         value: formatDateTime(connection.lastSignedInAt),
       },
       {
         key: 'lastCredentialsRefreshedAt',
-        label: t`Last refreshed`,
+        label: t`Terakhir diperbarui`,
         value: formatDateTime(connection.lastCredentialsRefreshedAt),
       },
       {
         key: 'authFailedAt',
-        label: t`Auth failed at`,
+        label: t`Autentikasi gagal pada`,
         value: formatDateTime(connection.authFailedAt),
       },
       {
         key: 'createdAt',
-        label: t`Created`,
+        label: t`Dibuat`,
         value: formatDateTime(connection.createdAt),
       },
       {
         key: 'updatedAt',
-        label: t`Updated`,
+        label: t`Diperbarui`,
         value: formatDateTime(connection.updatedAt),
       },
     ];
@@ -287,11 +287,11 @@ export const SettingsApplicationConnectionDetail = () => {
       title={connectionLabel}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Applications`,
+          children: t`Aplikasi`,
           href: getSettingsPath(SettingsPath.Applications),
         },
         {
@@ -307,8 +307,8 @@ export const SettingsApplicationConnectionDetail = () => {
         ) : connection === undefined || provider === undefined ? (
           <Section>
             <H2Title
-              title={t`Connection not found`}
-              description={t`This connection does not exist or is not available for this application.`}
+              title={t`Koneksi tidak ditemukan`}
+              description={t`Koneksi ini tidak ada atau tidak tersedia untuk aplikasi ini.`}
             />
           </Section>
         ) : (
@@ -316,12 +316,12 @@ export const SettingsApplicationConnectionDetail = () => {
             <Section>
               <H2Title
                 title={connectionLabel}
-                description={t`Manage this application's OAuth connection.`}
+                description={t`Kelola koneksi OAuth aplikasi ini.`}
               />
               <StyledActions>
                 {connection.authFailedAt && (
                   <Button
-                    title={t`Reconnect`}
+                    title={t`Sambung ulang`}
                     Icon={IconRefresh}
                     variant="secondary"
                     accent="blue"
@@ -331,8 +331,8 @@ export const SettingsApplicationConnectionDetail = () => {
                 <Button
                   title={
                     connection.visibility === 'workspace'
-                      ? t`Make private`
-                      : t`Share with workspace`
+                      ? t`Jadikan privat`
+                      : t`Bagikan ke ruang kerja`
                   }
                   Icon={
                     connection.visibility === 'workspace' ? IconUser : IconUsers
@@ -342,7 +342,7 @@ export const SettingsApplicationConnectionDetail = () => {
                   onClick={() => openModal(changeVisibilityModalId)}
                 />
                 <Button
-                  title={t`Disconnect`}
+                  title={t`Putuskan koneksi`}
                   Icon={IconTrash}
                   variant="secondary"
                   accent="danger"
@@ -352,15 +352,15 @@ export const SettingsApplicationConnectionDetail = () => {
             </Section>
             <Section>
               <H2Title
-                title={t`Details`}
-                description={t`OAuth credential metadata for this application connection`}
+                title={t`Detail`}
+                description={t`Metadata kredensial OAuth untuk koneksi aplikasi ini`}
               />
               <Table>
                 <TableRow gridTemplateColumns={DETAIL_GRID_TEMPLATE}>
-                  <TableHeader>{t`Property`}</TableHeader>
-                  <TableHeader>{t`Value`}</TableHeader>
+                  <TableHeader>{t`Properti`}</TableHeader>
+                  <TableHeader>{t`Nilai`}</TableHeader>
                 </TableRow>
-                <TableSection title={t`Connection`}>
+                <TableSection title={t`Koneksi`}>
                   {detailRows.map((row) => (
                     <TableRow
                       key={row.key}
@@ -379,27 +379,27 @@ export const SettingsApplicationConnectionDetail = () => {
             </Section>
             <ConfirmationModal
               modalInstanceId={deleteModalId}
-              title={t`Disconnect connection?`}
+              title={t`Putuskan koneksi?`}
               subtitle={
                 <Trans>
-                  This will disconnect {connectionLabel} from this application.
+                  Tindakan ini akan memutuskan {connectionLabel} dari aplikasi ini.
                 </Trans>
               }
               onConfirmClick={handleDelete}
-              confirmButtonText={t`Disconnect`}
+              confirmButtonText={t`Putuskan koneksi`}
               loading={isDeleting}
             />
             <ConfirmationModal
               modalInstanceId={changeVisibilityModalId}
-              title={t`Change visibility?`}
+              title={t`Ubah visibilitas?`}
               subtitle={
                 <Trans>
-                  Changing visibility requires reconnecting this OAuth
-                  connection. You will be redirected to authorize it again.
+                  Mengubah visibilitas memerlukan sambung ulang koneksi OAuth ini.
+                  Anda akan diarahkan untuk mengotorisasi ulang.
                 </Trans>
               }
               onConfirmClick={handleChangeVisibility}
-              confirmButtonText={t`Reconnect and change visibility`}
+              confirmButtonText={t`Sambung ulang dan ubah visibilitas`}
               confirmButtonAccent="blue"
             />
           </>

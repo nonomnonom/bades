@@ -62,12 +62,12 @@ export const SettingsApplicationsTable = ({
   return (
     <Section>
       <H2Title
-        title={t`Installed apps`}
-        description={t`All the applications currently installed on this workspace`}
+        title={t`Aplikasi terpasang`}
+        description={t`Semua aplikasi yang saat ini terpasang di ruang kerja ini`}
       />
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search an application`}
+          placeholder={t`Cari aplikasi`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -76,9 +76,9 @@ export const SettingsApplicationsTable = ({
         <TableRow
           gridTemplateColumns={APPLICATION_TABLE_ROW_GRID_TEMPLATE_COLUMNS}
         >
-          <TableHeader> {t`Name`}</TableHeader>
-          <TableHeader> {t`Type`}</TableHeader>
-          <TableHeader> {t`Description`}</TableHeader>
+          <TableHeader> {t`Nama`}</TableHeader>
+          <TableHeader> {t`Tipe`}</TableHeader>
+          <TableHeader> {t`Deskripsi`}</TableHeader>
           <TableHeader> {''}</TableHeader>
           <TableHeader />
         </TableRow>

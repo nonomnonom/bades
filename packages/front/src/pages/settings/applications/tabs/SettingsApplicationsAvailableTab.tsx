@@ -80,7 +80,7 @@ export const SettingsApplicationsAvailableTab = () => {
     <Section>
       <StyledSearchInputContainer>
         <SearchInput
-          placeholder={t`Search an application`}
+          placeholder={t`Cari aplikasi`}
           value={searchTerm}
           onChange={setSearchTerm}
           filterDropdown={(filterButton: ReactNode) => (
@@ -98,7 +98,7 @@ export const SettingsApplicationsAvailableTab = () => {
                         setShowFeaturedOnly(!showFeaturedOnly)
                       }
                       toggled={showFeaturedOnly}
-                      text={t`Featured only`}
+                      text={t`Unggulan saja`}
                       toggleSize="small"
                     />
                   </DropdownMenuItemsContainer>
@@ -112,11 +112,11 @@ export const SettingsApplicationsAvailableTab = () => {
       {filteredApplications.length === 0 ? (
         <SettingsEmptyPlaceholder padding="4">
           {showNonFeaturedHint
-            ? t`No featured applications found. ${nonFeaturedCount} non-featured result(s) available — `
-            : t`No applications available`}
+            ? t`Tidak ada aplikasi unggulan yang ditemukan. ${nonFeaturedCount} hasil non-unggulan tersedia — `
+            : t`Belum ada aplikasi tersedia`}
           {showNonFeaturedHint && (
             <StyledHintLink onClick={() => setShowFeaturedOnly(false)}>
-              {t`show all`}
+              {t`tampilkan semua`}
             </StyledHintLink>
           )}
         </SettingsEmptyPlaceholder>

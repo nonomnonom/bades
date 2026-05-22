@@ -90,7 +90,7 @@ export const SettingsApplicationDetails = () => {
   const resolvedDescription = useResolvedApplicationDescription(application);
 
   const displayName =
-    app?.displayName ?? application?.name ?? t`Application details`;
+    app?.displayName ?? application?.name ?? t`Detail aplikasi`;
   const description = app?.description ?? resolvedDescription;
 
   const getScreenshots = () => {
@@ -150,11 +150,11 @@ export const SettingsApplicationDetails = () => {
         variables: { universalIdentifier: application.universalIdentifier },
       });
       enqueueSuccessSnackBar({
-        message: t`Application successfully uninstalled.`,
+        message: t`Aplikasi berhasil dihapus.`,
       });
       navigate(SettingsPath.Applications);
     } catch {
-      enqueueErrorSnackBar({ message: t`Error uninstalling application.` });
+      enqueueErrorSnackBar({ message: t`Gagal menghapus aplikasi.` });
     } finally {
       setIsUninstalling(false);
     }
@@ -185,44 +185,44 @@ export const SettingsApplicationDetails = () => {
     {
       icon: IconBox,
       count: (application?.objects ?? []).length,
-      one: t`object`,
-      many: t`objects`,
+      one: t`objek`,
+      many: t`objek`,
     },
     {
       icon: IconListDetails,
       count: appFieldExtensionsCount,
       one: t`field`,
-      many: t`fields`,
+      many: t`field`,
     },
     {
       icon: IconCommand,
       count: (application?.logicFunctions ?? []).length,
-      one: t`logic function`,
-      many: t`logic functions`,
+      one: t`fungsi logika`,
+      many: t`fungsi logika`,
     },
     {
       icon: IconGraph,
       count: (application?.frontComponents ?? []).length,
-      one: t`front component`,
-      many: t`front components`,
+      one: t`komponen tampilan`,
+      many: t`komponen tampilan`,
     },
     {
       icon: IconLego,
       count: (application?.agents ?? []).length,
-      one: t`agent`,
-      many: t`agents`,
+      one: t`agen`,
+      many: t`agen`,
     },
   ];
 
   const tabs: SingleTabProps[] = [
-    { id: 'about', title: t`About`, Icon: IconInfoCircle },
-    { id: 'content', title: t`Content`, Icon: IconBox },
+    { id: 'about', title: t`Tentang`, Icon: IconInfoCircle },
+    { id: 'content', title: t`Konten`, Icon: IconBox },
     {
       id: 'permissions',
-      title: t`Permissions`,
+      title: t`Izin`,
       Icon: IconLock,
       tooltipContent: !isDefined(application?.defaultRoleId)
-        ? t`No permission defined for this application`
+        ? t`Tidak ada izin yang didefinisikan untuk aplikasi ini`
         : undefined,
       disabled: !isDefined(application?.defaultRoleId),
     },
@@ -233,16 +233,16 @@ export const SettingsApplicationDetails = () => {
 
       return {
         id: 'settings',
-        title: t`Settings`,
+        title: t`Pengaturan`,
         Icon: IconSettings,
         tooltipContent: hasNothingToConfigure
-          ? t`Nothing to configure for this application`
+          ? t`Tidak ada yang perlu dikonfigurasi untuk aplikasi ini`
           : undefined,
         disabled: hasNothingToConfigure,
       };
     })(),
     ...(isDefined(settingsCustomTabFrontComponentId)
-      ? [{ id: 'custom', title: t`Custom`, Icon: IconApps }]
+      ? [{ id: 'custom', title: t`Kustom`, Icon: IconApps }]
       : []),
   ];
 
@@ -335,11 +335,11 @@ export const SettingsApplicationDetails = () => {
         }
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Applications`,
+            children: t`Aplikasi`,
             href: getSettingsPath(SettingsPath.Applications),
           },
           { children: displayName },

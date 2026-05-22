@@ -72,10 +72,10 @@ export const SettingsApplicationRegistrationOAuthTab = ({
           },
         },
       });
-      enqueueSuccessSnackBar({ message: t`Redirect URIs updated` });
+      enqueueSuccessSnackBar({ message: t`Redirect URI berhasil diperbarui` });
       setFormRedirectUris(newFormRedirectUris);
     } catch {
-      enqueueErrorSnackBar({ message: t`Error updating redirect URIs` });
+      enqueueErrorSnackBar({ message: t`Gagal memperbarui Redirect URI` });
     } finally {
       setIsLoading(false);
     }
@@ -93,12 +93,12 @@ export const SettingsApplicationRegistrationOAuthTab = ({
       if (isNonEmptyString(secret)) {
         setRotatedSecret(secret);
         enqueueSuccessSnackBar({
-          message: t`Client secret rotated. Copy it now — it won't be shown again.`,
+          message: t`Client secret dirotasi. Salin sekarang — tidak akan ditampilkan lagi.`,
         });
       }
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error rotating client secret`,
+        message: t`Gagal merotasi client secret`,
       });
     } finally {
       setIsLoading(false);
@@ -112,12 +112,12 @@ export const SettingsApplicationRegistrationOAuthTab = ({
   const credentialItems = [
     {
       Icon: IconKey,
-      label: t`Client ID`,
+      label: t`ID Klien`,
       value: registration.oAuthClientId,
     },
     {
       Icon: IconShield,
-      label: t`Scopes`,
+      label: t`Cakupan`,
       value: (registration.oAuthScopes ?? []).join(', ') || '—',
     },
   ];
@@ -127,7 +127,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
       <Section>
         <H2Title
           title={t`OAuth`}
-          description={t`Credentials and scopes for OAuth authorization flows`}
+          description={t`Kredensial dan cakupan untuk alur otorisasi OAuth`}
         />
         <SettingsTableCard
           rounded
@@ -137,7 +137,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         <StyledRotateContainer>
           <Button
             Icon={IconRefresh}
-            title={t`Rotate client secret`}
+            title={t`Rotasi client secret`}
             variant="secondary"
             onClick={() => openModal(ROTATE_SECRET_MODAL_ID)}
           />
@@ -148,7 +148,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         <Section>
           <H2Title
             title={t`Client Secret`}
-            description={t`Copy this secret as it will not be visible again`}
+            description={t`Salin secret ini sekarang karena tidak akan ditampilkan lagi`}
           />
           <ApiKeyInput apiKey={displayedSecret} />
         </Section>
@@ -156,8 +156,8 @@ export const SettingsApplicationRegistrationOAuthTab = ({
 
       <Section>
         <H2Title
-          title={t`Redirect URIs`}
-          description={t`Allowed redirect URIs for OAuth flows`}
+          title={t`Redirect URI`}
+          description={t`Redirect URI yang diizinkan untuk alur OAuth`}
         />
         <SettingsApplicationRegistrationRedirectURIsInput
           redirectUris={formRedirectUris}
@@ -173,16 +173,16 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         confirmationPlaceholder={confirmationValue}
         confirmationValue={confirmationValue}
         modalInstanceId={ROTATE_SECRET_MODAL_ID}
-        title={t`Rotate client secret`}
+        title={t`Rotasi client secret`}
         subtitle={
           <Trans>
-            If you rotate this secret, any integration using the current secret
-            will stop working. Please type {`"${confirmationValue}"`} to
-            confirm.
+            Jika Anda merotasi secret ini, semua integrasi yang menggunakan
+            secret saat ini akan berhenti bekerja. Ketik {`"${confirmationValue}"`} untuk
+            mengonfirmasi.
           </Trans>
         }
         onConfirmClick={handleRotateSecret}
-        confirmButtonText={t`Rotate secret`}
+        confirmButtonText={t`Rotasi secret`}
         loading={isLoading}
       />
     </>

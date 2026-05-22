@@ -48,10 +48,10 @@ export const SettingsApplicationRegistrationDetails = () => {
   }
 
   const tabs = [
-    { id: 'general', title: t`General`, Icon: IconInfoCircle },
+    { id: 'general', title: t`Umum`, Icon: IconInfoCircle },
     { id: 'oauth', title: t`OAuth`, Icon: IconKey },
-    { id: 'distribution', title: t`Distribution`, Icon: IconWorld },
-    { id: 'config', title: t`Config`, Icon: IconSettings },
+    { id: 'distribution', title: t`Distribusi`, Icon: IconWorld },
+    { id: 'config', title: t`Konfigurasi`, Icon: IconSettings },
   ];
 
   const renderActiveTabContent = () => {
@@ -87,14 +87,14 @@ export const SettingsApplicationRegistrationDetails = () => {
   return (
     <SubMenuTopBarContainer
       title={registration.name}
-      tag={<Tag text={t`Owner`} color={'gray'} />}
+      tag={<Tag text={t`Pemilik`} color={'gray'} />}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Applications - Developer`,
+          children: t`Aplikasi - Pengembangan Internal`,
           href: getSettingsPath(
             SettingsPath.Applications,
             undefined,

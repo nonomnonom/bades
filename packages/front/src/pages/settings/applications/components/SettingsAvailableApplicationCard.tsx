@@ -72,7 +72,7 @@ export const SettingsAvailableApplicationCard = ({
               </StyledSettingsCardTitle>
               <StyledDescription>{descriptionSummary}</StyledDescription>
               <StyledSettingsCardThirdLine>
-                {t`by {author}`} {application.author}
+                {t`oleh`} {application.author}
               </StyledSettingsCardThirdLine>
             </div>
           </StyledSettingsCardContent>

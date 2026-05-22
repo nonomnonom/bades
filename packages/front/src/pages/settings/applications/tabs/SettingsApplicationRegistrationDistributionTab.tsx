@@ -28,14 +28,14 @@ export const SettingsApplicationRegistrationDistributionTab = ({
     availableApplicationId: registration.universalIdentifier,
   });
 
-  const publishCommands = ['yarn twenty app:publish'];
+  const publishCommands = ['yarn bades app:publish'];
 
   return (
     <>
       <Section>
         <H2Title
-          title={t`Public`}
-          description={t`Publish your app to the marketplace so others can install it`}
+          title={t`Publik`}
+          description={t`Rilis aplikasi ke katalog internal Bades agar dapat dipasang di ruang kerja lain`}
         />
         {isNpmSource && (
           <SettingsApplicationRegistrationShareLinkButtons
@@ -52,10 +52,10 @@ export const SettingsApplicationRegistrationDistributionTab = ({
                 onClick={() => {
                   copyToClipboard(
                     publishCommands.join('\n'),
-                    t`Command copied to clipboard`,
+                    t`Perintah disalin ke clipboard`,
                   );
                 }}
-                ariaLabel={t`Copy command`}
+                ariaLabel={t`Salin perintah`}
                 Icon={IconCopy}
               />
             }
@@ -65,8 +65,8 @@ export const SettingsApplicationRegistrationDistributionTab = ({
       {isTarballSource && (
         <Section>
           <H2Title
-            title={t`Private`}
-            description={t`Share your app to other workspaces without pushing it on the marketplace`}
+            title={t`Privat`}
+            description={t`Bagikan aplikasi ke ruang kerja lain tanpa merilis ke katalog`}
           />
           <SettingsApplicationRegistrationShareLinkButtons
             shareLink={shareLink}
