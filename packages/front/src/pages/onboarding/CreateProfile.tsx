@@ -50,8 +50,8 @@ const StyledComboInputContainer = styled.div`
   }
 `;
 
-const firstNameErrorMessage = msg`First name can not be empty`;
-const lastNameErrorMessage = msg`Last name can not be empty`;
+const firstNameErrorMessage = msg`Nama depan tidak boleh kosong`;
+const lastNameErrorMessage = msg`Nama belakang tidak boleh kosong`;
 
 const validationSchema = z
   .object({
@@ -174,14 +174,14 @@ export const CreateProfile = () => {
   return (
     <ModalContent isVerticallyCentered isHorizontallyCentered>
       <Title noMarginTop>
-        <Trans>Create profile</Trans>
+        <Trans>Buat profil</Trans>
       </Title>
       <SubTitle>
-        <Trans>How you'll be identified on the app.</Trans>
+        <Trans>Cara Anda dikenali dalam aplikasi.</Trans>
       </SubTitle>
       <StyledContentContainer>
         <StyledSectionContainer>
-          <H2Title title={t`Picture`} />
+          <H2Title title={t`Foto`} />
           {currentWorkspaceMember?.id && (
             <WorkspaceMemberPictureUploader
               workspaceMemberId={currentWorkspaceMember.id}
@@ -190,8 +190,8 @@ export const CreateProfile = () => {
         </StyledSectionContainer>
         <StyledSectionContainer>
           <H2Title
-            title={t`Name`}
-            description={t`Your name as it will be displayed on the app`}
+            title={t`Nama`}
+            description={t`Nama Anda yang akan ditampilkan dalam aplikasi`}
           />
           {/* TODO: When react-web-hook-form is added to edit page we should create a dedicated component with context */}
           <StyledComboInputContainer>
@@ -204,7 +204,7 @@ export const CreateProfile = () => {
               }) => (
                 <TextInput
                   autoFocus
-                  label={t`First Name`}
+                  label={t`Nama Depan`}
                   value={value}
                   onFocus={() => setIsEditingMode(true)}
                   onBlur={() => {
@@ -212,7 +212,7 @@ export const CreateProfile = () => {
                     setIsEditingMode(false);
                   }}
                   onChange={onChange}
-                  placeholder={t`Tim`}
+                  placeholder={t`Budi`}
                   error={error?.message}
                   fullWidth
                 />
@@ -226,7 +226,7 @@ export const CreateProfile = () => {
                 fieldState: { error },
               }) => (
                 <TextInput
-                  label={t`Last Name`}
+                  label={t`Nama Belakang`}
                   value={value}
                   onFocus={() => setIsEditingMode(true)}
                   onBlur={() => {
@@ -234,7 +234,7 @@ export const CreateProfile = () => {
                     setIsEditingMode(false);
                   }}
                   onChange={onChange}
-                  placeholder={t`Cook`}
+                  placeholder={t`Santoso`}
                   error={error?.message}
                   fullWidth
                 />
@@ -245,7 +245,7 @@ export const CreateProfile = () => {
       </StyledContentContainer>
       <StyledButtonContainer>
         <MainButton
-          title={t`Continue`}
+          title={t`Lanjutkan`}
           onClick={handleSubmit(onSubmit)}
           disabled={!isValid || isSubmitting}
           fullWidth

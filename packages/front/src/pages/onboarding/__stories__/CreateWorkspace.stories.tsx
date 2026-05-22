@@ -44,7 +44,7 @@ export type Story = StoryObj<typeof CreateWorkspace>;
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.findByText('Create your workspace', undefined, {
+    await canvas.findByText('Buat ruang kerja Anda', undefined, {
       timeout: 3000,
     });
   },

@@ -106,18 +106,18 @@ export const InviteTeam = () => {
       return 'kades@sukamaju.desa.id';
     }
     if (emailIndex === 1) {
-      return 'phil@apple.com';
+      return 'sekdes@sukamaju.desa.id';
     }
     if (emailIndex === 2) {
-      return 'jony@apple.com';
+      return 'bendahara@sukamaju.desa.id';
     }
-    return 'craig@apple.com';
+    return 'kaur@sukamaju.desa.id';
   };
 
   const copyInviteLink = () => {
     if (isDefined(currentWorkspace?.inviteHash)) {
       const inviteLink = `${window.location.origin}/invite/${currentWorkspace?.inviteHash}`;
-      copyToClipboard(inviteLink, t`Link copied to clipboard`);
+      copyToClipboard(inviteLink, t`Tautan berhasil disalin`);
     }
   };
 
@@ -139,7 +139,7 @@ export const InviteTeam = () => {
 
       if (emails.length > 0) {
         enqueueSuccessSnackBar({
-          message: t`Invite link sent to email addresses`,
+          message: t`Tautan undangan telah dikirim ke alamat email`,
           options: {
             duration: 2000,
           },
@@ -167,7 +167,7 @@ export const InviteTeam = () => {
   return (
     <ModalContent isVerticallyCentered isHorizontallyCentered>
       <Title>
-        <Trans>Invite your team</Trans>
+        <Trans>Undang tim Anda</Trans>
       </Title>
       <SubTitle>
         <Trans>Undang rekan kerja Anda untuk mulai berkolaborasi bersama.</Trans>
@@ -199,11 +199,11 @@ export const InviteTeam = () => {
         {isDefined(currentWorkspace?.inviteHash) && (
           <>
             <SeparatorLineText>
-              <Trans>or</Trans>
+              <Trans>atau</Trans>
             </SeparatorLineText>
             <StyledActionLinkContainer>
               <LightButton
-                title={t`Copy invitation link`}
+                title={t`Salin tautan undangan`}
                 accent="tertiary"
                 onClick={copyInviteLink}
                 Icon={IconCopy}
@@ -214,7 +214,7 @@ export const InviteTeam = () => {
       </StyledAnimatedContainer>
       <StyledButtonContainer>
         <MainButton
-          title={hasCalendarBooking ? t`Continue` : t`Finish`}
+          title={hasCalendarBooking ? t`Lanjutkan` : t`Selesai`}
           disabled={!isValid || isSubmitting}
           onClick={handleSubmit(onSubmit)}
           fullWidth
@@ -222,7 +222,7 @@ export const InviteTeam = () => {
       </StyledButtonContainer>
       <StyledActionSkipLinkContainer>
         <ClickToActionLink onClick={handleSkip}>
-          <Trans>Skip</Trans>
+          <Trans>Lewati</Trans>
         </ClickToActionLink>
       </StyledActionSkipLinkContainer>
     </ModalContent>

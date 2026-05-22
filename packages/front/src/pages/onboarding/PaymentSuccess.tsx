@@ -56,7 +56,7 @@ export const PaymentSuccess = () => {
       }
 
       throw new Error(
-        t`We're waiting for a confirmation from our payment provider (Stripe).\nPlease try again in a few seconds, sorry.`,
+        t`Menunggu konfirmasi dari penyedia pembayaran.\nSilakan coba lagi dalam beberapa detik.`,
       );
     } catch (error) {
       setIsLoading(false);
@@ -70,11 +70,11 @@ export const PaymentSuccess = () => {
         <OnboardingModalCircularIcon Icon={IconCheck} />
       </AnimatedEaseIn>
       <StyledTitleContainer>
-        <Title noMarginTop>{t`All set!`}</Title>
-        <SubTitle>{t`Your account has been activated.`}</SubTitle>
+        <Title noMarginTop>{t`Siap digunakan!`}</Title>
+        <SubTitle>{t`Akun Anda telah berhasil diaktifkan.`}</SubTitle>
       </StyledTitleContainer>
       <MainButton
-        title={t`Start`}
+        title={t`Mulai`}
         width={200}
         onClick={navigateWithSubscriptionCheck}
         Icon={() => (isLoading ? <Loader /> : null)}

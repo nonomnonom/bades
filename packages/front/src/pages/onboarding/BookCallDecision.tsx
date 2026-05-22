@@ -55,12 +55,12 @@ export const BookCallDecision = () => {
     <ModalContent gap={8} isVerticallyCentered isHorizontallyCentered>
       <StyledTitleContainer>
         <Title noMarginTop>
-          <Trans>Book your onboarding</Trans>
+          <Trans>Jadwalkan sesi orientasi</Trans>
         </Title>
         <SubTitle>
           <Trans>
-            Our team can help you set up your workspace to match your specific
-            needs and workflows.
+            Tim kami dapat membantu menyiapkan ruang kerja Anda sesuai
+            kebutuhan dan alur kerja administrasi desa.
           </Trans>
         </SubTitle>
       </StyledTitleContainer>
@@ -68,10 +68,10 @@ export const BookCallDecision = () => {
       <StyledButtonContainer>
         <StyledLinkContainer>
           <Link to={AppPath.BookCall}>
-            <MainButton title={t`Book onboarding`} width={198} />
+            <MainButton title={t`Jadwalkan sekarang`} width={198} />
           </Link>
         </StyledLinkContainer>
-        <LightButton title={t`Finish`} onClick={handleFinish} />
+        <LightButton title={t`Selesai`} onClick={handleFinish} />
       </StyledButtonContainer>
     </ModalContent>
   );

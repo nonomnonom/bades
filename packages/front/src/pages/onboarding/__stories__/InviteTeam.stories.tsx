@@ -44,6 +44,6 @@ export type Story = StoryObj<typeof InviteTeam>;
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.findByText('Invite your team');
+    await canvas.findByText('Undang tim Anda');
   },
 };

@@ -119,15 +119,15 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
       return {
         organizationBenefits: [
           t`SSO (SAML / OIDC)`,
-          t`20,000 workflow node executions`,
-          t`Priority support`,
+          t`20.000 eksekusi node workflow`,
+          t`Dukungan prioritas`,
         ],
         standardBenefits: [
-          t`Full access`,
-          t`Unlimited contacts`,
-          t`Email integration`,
-          t`Custom objects`,
-          t`API & Webhooks`,
+          t`Akses penuh`,
+          t`Data warga tidak terbatas`,
+          t`Integrasi email`,
+          t`Objek data kustom`,
+          t`API & Webhook`,
         ],
       };
     }
@@ -135,12 +135,12 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     return {
       organizationBenefits: [],
       standardBenefits: [
-        t`Full access`,
-        t`Unlimited contacts`,
-        t`Email integration`,
-        t`Custom objects`,
-        t`API & Webhooks`,
-        t`50,000 workflow node executions`,
+        t`Akses penuh`,
+        t`Data warga tidak terbatas`,
+        t`Integrasi email`,
+        t`Objek data kustom`,
+        t`API & Webhook`,
+        t`50.000 eksekusi node workflow`,
       ],
     };
   };
@@ -200,15 +200,15 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     <>
       <Title noMarginTop>
         {hasWithoutCreditCardTrialPeriod
-          ? t`Choose your Trial`
-          : t`Get your subscription`}
+          ? t`Pilih paket percobaan`
+          : t`Aktifkan langganan Anda`}
       </Title>
       {hasWithoutCreditCardTrialPeriod ? (
         <SubTitle>{baseProduct.name}</SubTitle>
       ) : (
         withCreditCardTrialPeriod && (
           <SubTitle>
-            {t`Enjoy a ${withCreditCardTrialPeriodDuration}-days free trial`}
+            {t`Nikmati uji coba gratis ${withCreditCardTrialPeriodDuration} hari`}
           </SubTitle>
         )
       )}
@@ -256,7 +256,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
         </StyledChooseTrialContainer>
       )}
       <MainButton
-        title={t`Continue`}
+        title={t`Lanjutkan`}
         onClick={handleCheckoutSession}
         width={200}
         Icon={() => isSubmitting && <Loader />}
@@ -264,7 +264,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
       />
       <StyledLinkGroup>
         <ClickToActionLink onClick={signOut}>
-          <Trans>Log out</Trans>
+          <Trans>Keluar</Trans>
         </ClickToActionLink>
         <span />
         <ClickToActionLink
@@ -272,16 +272,16 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
           target={calendarBookingPageId ? '_self' : '_blank'}
           rel={calendarBookingPageId ? '' : 'noreferrer'}
         >
-          <Trans>Book a Call</Trans>
+          <Trans>Jadwalkan sesi</Trans>
         </ClickToActionLink>
         <span />
         {currentPlanKey === BillingPlanKey.PRO ? (
           <ClickToActionLink href={planChangeLink(BillingPlanKey.ENTERPRISE)}>
-            <Trans>Organization plan</Trans>
+            <Trans>Paket Organisasi</Trans>
           </ClickToActionLink>
         ) : (
           <ClickToActionLink href={planChangeLink(BillingPlanKey.PRO)}>
-            <Trans>Pro plan</Trans>
+            <Trans>Paket Pro</Trans>
           </ClickToActionLink>
         )}
       </StyledLinkGroup>

@@ -11,8 +11,8 @@ type OnboardingEmailVisibilityProps = {
 const { ONBOARDING_SYNC_EMAILS_OPTIONS } = {
   ONBOARDING_SYNC_EMAILS_OPTIONS: [
     {
-      title: msg`Everything`,
-      description: msg`Your emails and events content will be shared with your team.`,
+      title: msg`Semua konten`,
+      description: msg`Isi email dan acara Anda akan dibagikan dengan tim.`,
       value: MessageChannelVisibility.SHARE_EVERYTHING,
       cardMediaProps: {
         metadata: 'active',
@@ -21,8 +21,8 @@ const { ONBOARDING_SYNC_EMAILS_OPTIONS } = {
       } as OnboardingEmailVisibilityProps,
     },
     {
-      title: msg`Subject and metadata`,
-      description: msg`Your email subjects and meeting titles will be shared with your team.`,
+      title: msg`Subjek dan metadata`,
+      description: msg`Subjek email dan judul rapat Anda akan dibagikan dengan tim.`,
       value: MessageChannelVisibility.SUBJECT,
       cardMediaProps: {
         metadata: 'active',
@@ -31,8 +31,8 @@ const { ONBOARDING_SYNC_EMAILS_OPTIONS } = {
       } as OnboardingEmailVisibilityProps,
     },
     {
-      title: msg`Metadata`,
-      description: msg`Only the timestamp & participants will be shared with your team.`,
+      title: msg`Metadata saja`,
+      description: msg`Hanya waktu dan peserta yang akan dibagikan dengan tim.`,
       value: MessageChannelVisibility.METADATA,
       cardMediaProps: {
         metadata: 'active',

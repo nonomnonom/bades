@@ -45,7 +45,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Choose your Trial', undefined, {
+    await canvas.findByText('Pilih paket percobaan', undefined, {
       timeout: 3000,
     });
   },

@@ -118,9 +118,9 @@ export const SyncEmails = () => {
 
   return (
     <ModalContent isVerticallyCentered isHorizontallyCentered>
-      <Title noMarginTop>{t`Emails and Calendar`}</Title>
+      <Title noMarginTop>{t`Email dan Kalender`}</Title>
       <SubTitle>
-        {t`Sync your Emails and Calendar with Bades. Choose your privacy settings.`}
+        {t`Sinkronkan Email dan Kalender Anda dengan Bades. Pilih pengaturan privasi Anda.`}
       </SubTitle>
       <StyledSyncEmailsContainer>
         <OnboardingSyncEmailsSettingsCard
@@ -131,7 +131,7 @@ export const SyncEmails = () => {
       <StyledProviderContainer>
         {!userAuthenticatedWithSSO && isGoogleProviderEnabled && (
           <MainButton
-            title={t`Sync with Google`}
+            title={t`Sambungkan dengan Google`}
             onClick={() => handleButtonClick(ConnectedAccountProvider.GOOGLE)}
             width={200}
             Icon={() => <IconGoogle size={theme.icon.size.sm} />}
@@ -139,7 +139,7 @@ export const SyncEmails = () => {
         )}
         {!userAuthenticatedWithSSO && isMicrosoftProviderEnabled && (
           <MainButton
-            title={t`Sync with Outlook`}
+            title={t`Sambungkan dengan Outlook`}
             onClick={() =>
               handleButtonClick(ConnectedAccountProvider.MICROSOFT)
             }
@@ -149,14 +149,14 @@ export const SyncEmails = () => {
         )}
         {!isMicrosoftProviderEnabled && !isGoogleProviderEnabled && (
           <MainButton
-            title={t`Continue`}
+            title={t`Lanjutkan`}
             onClick={continueWithoutSync}
             width={144}
           />
         )}
         {userAuthenticatedWithSSO && isMicrosoftProviderEnabled && (
           <MainButton
-            title={t`Continue`}
+            title={t`Lanjutkan`}
             onClick={() =>
               handleButtonClick(ConnectedAccountProvider.MICROSOFT)
             }
@@ -165,7 +165,7 @@ export const SyncEmails = () => {
         )}
         {userAuthenticatedWithSSO && isGoogleProviderEnabled && (
           <MainButton
-            title={t`Continue`}
+            title={t`Lanjutkan`}
             onClick={() => handleButtonClick(ConnectedAccountProvider.GOOGLE)}
             width={144}
           />
@@ -173,7 +173,7 @@ export const SyncEmails = () => {
       </StyledProviderContainer>
       <StyledActionLinkContainer>
         <ClickToActionLink onClick={continueWithoutSync}>
-          {t`Continue without sync`}
+          {t`Lanjutkan tanpa sinkronisasi`}
         </ClickToActionLink>
       </StyledActionLinkContainer>
     </ModalContent>
