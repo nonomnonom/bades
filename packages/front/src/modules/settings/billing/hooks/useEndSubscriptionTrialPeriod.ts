@@ -38,7 +38,7 @@ export const useEndSubscriptionTrialPeriod = () => {
         }
 
         enqueueErrorSnackBar({
-          message: t`No payment method found. Please update your billing details.`,
+          message: t`Metode pembayaran belum diatur. Silakan lengkapi informasi pembayaran Anda.`,
         });
 
         return { success: false };
@@ -59,13 +59,13 @@ export const useEndSubscriptionTrialPeriod = () => {
       }
 
       enqueueSuccessSnackBar({
-        message: t`Subscription activated.`,
+        message: t`Langganan berhasil diaktifkan.`,
       });
 
       return { success: true };
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error while ending trial period. Please contact Bades team.`,
+        message: t`Terjadi kesalahan saat mengakhiri masa uji coba. Silakan hubungi tim Bades.`,
       });
       return { success: false };
     } finally {
