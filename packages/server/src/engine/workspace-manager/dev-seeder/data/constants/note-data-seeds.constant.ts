@@ -95,7 +95,7 @@ const PERSON_NOTE_TEMPLATES = [
 ];
 
 // Catatan terkait lembaga/organisasi desa
-const COMPANY_NOTE_TEMPLATES = [
+const LEMBAGA_NOTE_TEMPLATES = [
   {
     title: 'Rapat Koordinasi Lembaga',
     content:
@@ -175,10 +175,10 @@ const GENERATE_NOTE_SEEDS = (): NoteDataSeed[] => {
     });
   }
 
-  // Company notes (ID_1201 to ID_1800)
+  // Catatan lembaga desa (ID_1201 to ID_1800)
   for (let INDEX = 1201; INDEX <= 1800; INDEX++) {
-    const TEMPLATE_INDEX = (INDEX - 1201) % COMPANY_NOTE_TEMPLATES.length;
-    const TEMPLATE = COMPANY_NOTE_TEMPLATES[TEMPLATE_INDEX];
+    const TEMPLATE_INDEX = (INDEX - 1201) % LEMBAGA_NOTE_TEMPLATES.length;
+    const TEMPLATE = LEMBAGA_NOTE_TEMPLATES[TEMPLATE_INDEX];
 
     NOTE_SEEDS.push({
       id: NOTE_DATA_SEED_IDS[`ID_${INDEX}`],

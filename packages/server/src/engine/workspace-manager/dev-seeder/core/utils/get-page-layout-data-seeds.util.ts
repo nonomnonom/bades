@@ -15,10 +15,10 @@ export const getPageLayoutFlatEntitySeeds = ({
 
   return [
     {
-      id: generateSeedId(workspaceId, PAGE_LAYOUT_SEEDS.SALES_DASHBOARD),
+      id: generateSeedId(workspaceId, PAGE_LAYOUT_SEEDS.LAYANAN_DESA_DASHBOARD),
       universalIdentifier: generateSeedId(
         workspaceId,
-        PAGE_LAYOUT_SEEDS.SALES_DASHBOARD,
+        PAGE_LAYOUT_SEEDS.LAYANAN_DESA_DASHBOARD,
       ),
       applicationId: flatApplication.id,
       applicationUniversalIdentifier: flatApplication.universalIdentifier,
@@ -36,10 +36,10 @@ export const getPageLayoutFlatEntitySeeds = ({
       deletedAt: null,
     },
     {
-      id: generateSeedId(workspaceId, PAGE_LAYOUT_SEEDS.CUSTOMER_DASHBOARD),
+      id: generateSeedId(workspaceId, PAGE_LAYOUT_SEEDS.KEPENDUDUKAN_DASHBOARD),
       universalIdentifier: generateSeedId(
         workspaceId,
-        PAGE_LAYOUT_SEEDS.CUSTOMER_DASHBOARD,
+        PAGE_LAYOUT_SEEDS.KEPENDUDUKAN_DASHBOARD,
       ),
       applicationId: flatApplication.id,
       applicationUniversalIdentifier: flatApplication.universalIdentifier,
@@ -89,7 +89,7 @@ export const getPageLayoutFlatEntitySeeds = ({
       applicationId: flatApplication.id,
       applicationUniversalIdentifier: flatApplication.universalIdentifier,
       workspaceId,
-      name: 'Documentation',
+      name: 'Dokumentasi',
       type: PageLayoutType.STANDALONE_PAGE,
       objectMetadataId: null,
       objectMetadataUniversalIdentifier: null,

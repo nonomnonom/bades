@@ -45,7 +45,7 @@ const GENERATE_TASK_IDS = (): Record<string, string> => {
     TASK_IDS[`ID_${INDEX}`] = `20202020-${HEX_INDEX}-4e7c-8001-123456789def`;
   }
 
-  // Company tasks (ID_1201 to ID_1800)
+  // Tugas lembaga desa (ID_1201 to ID_1800)
   for (let INDEX = 1201; INDEX <= 1800; INDEX++) {
     const HEX_INDEX = INDEX.toString(16).padStart(4, '0');
 
@@ -110,7 +110,7 @@ const PERSON_TASK_TEMPLATES = [
 ];
 
 // Tugas perangkat desa terkait lembaga/organisasi
-const COMPANY_TASK_TEMPLATES = [
+const LEMBAGA_TASK_TEMPLATES = [
   {
     title: 'Koordinasi dengan BPD',
     body: 'Jadwalkan rapat koordinasi dengan Badan Permusyawaratan Desa untuk pembahasan anggaran.',
@@ -222,10 +222,10 @@ const GENERATE_TASK_SEEDS = (): TaskDataSeed[] => {
     });
   }
 
-  // Company tasks (ID_1201 to ID_1800)
+  // Tugas lembaga desa (ID_1201 to ID_1800)
   for (let INDEX = 1201; INDEX <= 1800; INDEX++) {
-    const TEMPLATE_INDEX = (INDEX - 1201) % COMPANY_TASK_TEMPLATES.length;
-    const TEMPLATE = COMPANY_TASK_TEMPLATES[TEMPLATE_INDEX];
+    const TEMPLATE_INDEX = (INDEX - 1201) % LEMBAGA_TASK_TEMPLATES.length;
+    const TEMPLATE = LEMBAGA_TASK_TEMPLATES[TEMPLATE_INDEX];
 
     TASK_SEEDS.push({
       id: TASK_DATA_SEED_IDS[`ID_${INDEX}`],

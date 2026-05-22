@@ -35,7 +35,7 @@ import { IsAWSRegion } from 'src/engine/core-modules/bades-config/decorators/is-
 import { IsDuration } from 'src/engine/core-modules/bades-config/decorators/is-duration.decorator';
 import { IsOptionalOrEmptyString } from 'src/engine/core-modules/bades-config/decorators/is-optional-or-empty-string.decorator';
 import { IsStrictlyLowerThan } from 'src/engine/core-modules/bades-config/decorators/is-strictly-lower-than.decorator';
-import { IsTwentySemVer } from 'src/engine/core-modules/bades-config/decorators/is-twenty-semver.decorator';
+import { IsBadesSemVer } from 'src/engine/core-modules/bades-config/decorators/is-bades-semver.decorator';
 import { ConfigVariableType } from 'src/engine/core-modules/bades-config/enums/config-variable-type.enum';
 import { ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
 import {
@@ -1673,7 +1673,7 @@ export class ConfigVariables {
     isHiddenInAdminPanel: true,
   })
   @IsOptionalOrEmptyString()
-  @IsTwentySemVer()
+  @IsBadesSemVer()
   APP_VERSION?: string;
 
   @ConfigVariablesMetadata({

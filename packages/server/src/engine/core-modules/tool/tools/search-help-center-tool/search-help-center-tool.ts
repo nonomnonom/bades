@@ -32,15 +32,19 @@ export class SearchHelpCenterTool implements Tool {
       const MINTLIFY_SUBDOMAIN =
         this.badesConfigService.get('MINTLIFY_SUBDOMAIN');
 
-      const useDirectApi = MINTLIFY_API_KEY && MINTLIFY_SUBDOMAIN;
+      if (!MINTLIFY_API_KEY || !MINTLIFY_SUBDOMAIN) {
+        return {
+          success: true,
+          message: `Pencarian pusat bantuan belum dikonfigurasi.`,
+          result: [],
+        };
+      }
 
-      const endpoint = useDirectApi
-        ? `https://api-dsc.mintlify.com/v1/search/${MINTLIFY_SUBDOMAIN}`
-        : 'https://twenty-help-search.com/search/twenty';
+      const endpoint = `https://api-dsc.mintlify.com/v1/search/${MINTLIFY_SUBDOMAIN}`;
 
       const headers = {
         'Content-Type': 'application/json',
-        ...(useDirectApi && { Authorization: `Bearer ${MINTLIFY_API_KEY}` }),
+        Authorization: `Bearer ${MINTLIFY_API_KEY}`,
       };
 
       const httpClient = this.secureHttpClientService.getHttpClient();
@@ -56,14 +60,14 @@ export class SearchHelpCenterTool implements Tool {
       if (results.length === 0) {
         return {
           success: true,
-          message: `No help center articles found for "${query}"`,
+          message: `Tidak ada artikel pusat bantuan yang ditemukan untuk "${query}"`,
           result: [],
         };
       }
 
       return {
         success: true,
-        message: `Found ${results.length} relevant help center article${results.length === 1 ? '' : 's'} for "${query}"`,
+        message: `Ditemukan ${results.length} artikel pusat bantuan yang relevan untuk "${query}"`,
         result: results,
       };
     } catch (error) {
@@ -71,11 +75,11 @@ export class SearchHelpCenterTool implements Tool {
         ? error.response?.data?.message || error.message
         : error instanceof Error
           ? error.message
-          : 'Help center search failed';
+          : 'Pencarian pusat bantuan gagal';
 
       return {
         success: false,
-        message: `Failed to search help center for "${query}"`,
+        message: `Gagal mencari pusat bantuan untuk "${query}"`,
         error: errorDetail,
       };
     }

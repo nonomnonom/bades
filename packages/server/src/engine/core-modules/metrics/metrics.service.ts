@@ -15,7 +15,7 @@ import { CacheStorageNamespace } from 'src/engine/core-modules/cache-storage/typ
 import { MetricsCacheService } from 'src/engine/core-modules/metrics/metrics-cache.service';
 import { type MetricsKeys } from 'src/engine/core-modules/metrics/types/metrics-keys.type';
 
-const METER_NAME = 'twenty-server';
+const METER_NAME = 'bades-server';
 const METRICS_CACHE_TTL = 60 * 1000; // 1 minute
 
 @Injectable()

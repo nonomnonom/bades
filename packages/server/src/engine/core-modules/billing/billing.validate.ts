@@ -142,7 +142,7 @@ const assertIsSubscription = (
       'Subscription must have exactly two subscription items. Check that stripe and database are in sync',
       BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID,
       {
-        userFriendlyMessage: msg`Your billing subscription is corrupted. Please contact support.`,
+        userFriendlyMessage: msg`Langganan tagihan Anda bermasalah. Silakan hubungi dukungan.`,
       },
     );
   }

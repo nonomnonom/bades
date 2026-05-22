@@ -12,7 +12,7 @@ import {
   ObjectMetadataExceptionCode,
 } from 'src/engine/metadata-modules/object-metadata/object-metadata.exception';
 import { type ObjectMetadataStandardOverridesProperties } from 'src/engine/metadata-modules/object-metadata/types/object-metadata-standard-overrides-properties.types';
-import { belongsToTwentyStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-twenty-standard-app.util';
+import { belongsToBadesStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-bades-standard-app.util';
 
 type SanitizeRawUpdateObjectInputArgs = {
   rawUpdateObjectInput: UpdateOneObjectInput;
@@ -23,7 +23,7 @@ export const sanitizeRawUpdateObjectInput = ({
   existingFlatObjectMetadata,
   rawUpdateObjectInput,
 }: SanitizeRawUpdateObjectInputArgs) => {
-  const isStandardObject = belongsToTwentyStandardApp(
+  const isStandardObject = belongsToBadesStandardApp(
     existingFlatObjectMetadata,
   );
   const updatedEditableObjectProperties = extractAndSanitizeObjectStringFields(

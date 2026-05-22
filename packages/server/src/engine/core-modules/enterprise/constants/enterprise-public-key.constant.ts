@@ -1,5 +1,5 @@
-// RS256 public key for verifying enterprise license JWTs signed by twenty.com
-// The corresponding private key is held exclusively by twenty.com
+// RS256 public key untuk verifikasi enterprise license JWT yang ditandatangani oleh otoritas lisensi Bades
+// Private key yang bersesuaian hanya dipegang oleh otoritas lisensi Bades
 export const ENTERPRISE_JWT_PUBLIC_KEY = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl12Me8NXrQhsgBTr8slx
 2lTZNJCLwWCIs3zRWZzuHelUgNj2wFEM7R7wx0v/OxQHoXzXqAbgEu67HHNXTAnA

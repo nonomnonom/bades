@@ -19,7 +19,7 @@ export const billingGraphqlApiExceptionHandler = (error: Error) => {
   if (error instanceof Stripe.errors.StripeError) {
     throw new InternalServerError(error.message, {
       subCode: BillingExceptionCode.BILLING_STRIPE_ERROR,
-      userFriendlyMessage: msg`A payment processing error occurred.`,
+      userFriendlyMessage: msg`Terjadi kesalahan pada pemrosesan pembayaran.`,
     });
   }
 

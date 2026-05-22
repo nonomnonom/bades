@@ -22,7 +22,7 @@ export class WorkspaceMemberDeleteManyPreQueryHook
       'Please use /deleteUserFromWorkspace to remove a workspace member.',
       CommonQueryRunnerExceptionCode.BAD_REQUEST,
       {
-        userFriendlyMessage: msg`Please use Settings to remove a workspace member.`,
+        userFriendlyMessage: msg`Gunakan menu Pengaturan untuk menghapus anggota workspace.`,
       },
     );
   }

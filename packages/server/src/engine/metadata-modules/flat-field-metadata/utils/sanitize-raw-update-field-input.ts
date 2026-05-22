@@ -15,7 +15,7 @@ import { type FlatFieldMetadataEditableProperties } from 'src/engine/metadata-mo
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { isCompositeFieldMetadataType } from 'src/engine/metadata-modules/field-metadata/utils/is-composite-field-metadata-type.util';
 import { nullifyEmptyCompositeDefaultValue } from 'src/engine/metadata-modules/flat-field-metadata/utils/nullify-empty-composite-default-value.util';
-import { belongsToTwentyStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-twenty-standard-app.util';
+import { belongsToBadesStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-bades-standard-app.util';
 
 type SanitizeRawUpdateFieldInputArgs = {
   rawUpdateFieldInput: UpdateFieldInput;
@@ -27,7 +27,7 @@ export const sanitizeRawUpdateFieldInput = ({
   rawUpdateFieldInput,
   isSystemBuild,
 }: SanitizeRawUpdateFieldInputArgs) => {
-  const isStandardField = belongsToTwentyStandardApp(existingFlatFieldMetadata);
+  const isStandardField = belongsToBadesStandardApp(existingFlatFieldMetadata);
   const updatedEditableFieldProperties = extractAndSanitizeObjectStringFields(
     rawUpdateFieldInput,
     [

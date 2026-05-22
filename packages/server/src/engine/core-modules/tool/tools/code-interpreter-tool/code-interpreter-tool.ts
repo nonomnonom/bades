@@ -27,7 +27,7 @@ import { FileService } from 'src/engine/core-modules/file/services/file.service'
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
 import { CodeInterpreterInputZodSchema } from 'src/engine/core-modules/tool/tools/code-interpreter-tool/code-interpreter-tool.schema';
-import { TWENTY_MCP_HELPER } from 'src/engine/core-modules/tool/tools/code-interpreter-tool/twenty-mcp-helper.const';
+import { BADES_MCP_HELPER } from 'src/engine/core-modules/tool/tools/code-interpreter-tool/bades-mcp-helper.const';
 import {
   type CodeInterpreterFileInput,
   type CodeInterpreterInput,
@@ -120,15 +120,15 @@ export class CodeInterpreterTool implements Tool {
         `MCP session: workspaceId=${workspaceId}, userId=${userId}, userWorkspaceId=${userWorkspaceId}, serverUrl=${serverUrl}`,
       );
 
-      const codeWithHelper = TWENTY_MCP_HELPER + '\n\n' + code;
+      const codeWithHelper = BADES_MCP_HELPER + '\n\n' + code;
 
       const result = await this.codeInterpreterService.execute(
         codeWithHelper,
         inputFiles,
         {
           env: {
-            TWENTY_SERVER_URL: serverUrl,
-            TWENTY_API_TOKEN: sessionToken,
+            BADES_SERVER_URL: serverUrl,
+            BADES_API_TOKEN: sessionToken,
           },
         },
         {

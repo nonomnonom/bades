@@ -17,7 +17,7 @@ import {
   ObjectMetadataException,
   ObjectMetadataExceptionCode,
 } from 'src/engine/metadata-modules/object-metadata/object-metadata.exception';
-import { belongsToTwentyStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-twenty-standard-app.util';
+import { belongsToBadesStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-bades-standard-app.util';
 import { type UniversalFlatObjectMetadata } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-object-metadata.type';
 import { mergeUpdateInExistingRecord } from 'src/utils/merge-update-in-existing-record.util';
 
@@ -61,7 +61,7 @@ export const fromUpdateObjectInputToFlatObjectMetadataAndRelatedFlatEntities =
       );
     }
 
-    const isStandardObject = belongsToTwentyStandardApp(
+    const isStandardObject = belongsToBadesStandardApp(
       existingFlatObjectMetadata,
     );
     const { standardOverrides, updatedEditableObjectProperties } =

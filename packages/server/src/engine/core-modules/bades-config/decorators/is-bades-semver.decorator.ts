@@ -8,7 +8,7 @@ import {
 import semver from 'semver';
 
 @ValidatorConstraint({ async: false })
-export class IsTwentySemVerValidator implements ValidatorConstraintInterface {
+export class IsBadesSemVerValidator implements ValidatorConstraintInterface {
   validate(version: string) {
     const parsed = semver.parse(version);
 
@@ -20,7 +20,7 @@ export class IsTwentySemVerValidator implements ValidatorConstraintInterface {
   }
 }
 
-export const IsTwentySemVer =
+export const IsBadesSemVer =
   (validationOptions?: ValidationOptions) =>
   (object: object, propertyName: string) => {
     registerDecorator({
@@ -28,6 +28,6 @@ export const IsTwentySemVer =
       propertyName: propertyName,
       options: validationOptions,
       constraints: [],
-      validator: IsTwentySemVerValidator,
+      validator: IsBadesSemVerValidator,
     });
   };
