@@ -1,17 +1,14 @@
-import { Trans } from '@lingui/react';
 import { BaseEmail } from 'src/components/BaseEmail';
 import { CallToAction } from 'src/components/CallToAction';
 import { MainText } from 'src/components/MainText';
 import { Title } from 'src/components/Title';
-import { createI18nInstance } from 'src/utils/i18n.utils';
-import { type APP_LOCALES } from 'shared/translations';
 
 type WarnSuspendedWorkspaceEmailProps = {
   daysSinceInactive: number;
   inactiveDaysBeforeDelete: number;
   userName: string;
   workspaceDisplayName: string | undefined;
-  locale: keyof typeof APP_LOCALES;
+  locale?: string;
 };
 
 export const WarnSuspendedWorkspaceEmail = ({
@@ -19,46 +16,32 @@ export const WarnSuspendedWorkspaceEmail = ({
   inactiveDaysBeforeDelete,
   userName,
   workspaceDisplayName,
-  locale,
 }: WarnSuspendedWorkspaceEmailProps) => {
-  const i18n = createI18nInstance(locale);
   const daysLeft = inactiveDaysBeforeDelete - daysSinceInactive;
-  const dayOrDays = daysLeft > 1 ? 'hari' : 'hari';
   const remainingDays = daysLeft > 0 ? daysLeft : 0;
 
   return (
-    <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Ruang Kerja Ditangguhkan')} />
+    <BaseEmail width={333}>
+      <Title value="Ruang Kerja Ditangguhkan" />
       <MainText>
-        {userName?.length > 1 ? (
-          <Trans id="Halo {userName}," values={{ userName }} />
-        ) : (
-          <Trans id="Halo," />
-        )}
+        {userName?.length > 1 ? `Halo ${userName},` : 'Halo,'}
         <br />
         <br />
-        <Trans
-          id="Ruang kerja <0>{workspaceDisplayName}</0> Anda telah ditangguhkan selama {daysSinceInactive} hari."
-          values={{ workspaceDisplayName, daysSinceInactive }}
-          components={{ 0: <b /> }}
-        />
+        Ruang kerja <b>{workspaceDisplayName}</b> Anda telah ditangguhkan
+        selama {daysSinceInactive} hari.
         <br />
         <br />
-        <Trans
-          id="Ruang kerja akan dinonaktifkan dalam {remainingDays} {dayOrDays}, dan seluruh datanya akan dihapus."
-          values={{ remainingDays, dayOrDays }}
-        />
+        Ruang kerja akan dinonaktifkan dalam {remainingDays} hari, dan seluruh
+        datanya akan dihapus.
         <br />
         <br />
-        <Trans
-          id="Jika Anda ingin terus menggunakan Bades, silakan perbarui langganan Anda dalam {remainingDays} {dayOrDays} ke depan."
-          values={{ remainingDays, dayOrDays }}
-        />
+        Jika Anda ingin terus menggunakan Bades, silakan perbarui langganan
+        Anda dalam {remainingDays} hari ke depan.
       </MainText>
       <br />
       <CallToAction
         href="https://app.bades.id/settings/billing"
-        value={i18n._('Perbarui langganan')}
+        value="Perbarui langganan"
       />
       <br />
       <br />
@@ -71,7 +54,6 @@ WarnSuspendedWorkspaceEmail.PreviewProps = {
   inactiveDaysBeforeDelete: 14,
   userName: 'Budi Santoso',
   workspaceDisplayName: 'Desa Contoh',
-  locale: 'id-ID',
 };
 
 export default WarnSuspendedWorkspaceEmail;

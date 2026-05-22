@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/react';
 import { Img } from '@react-email/components';
 import { emailTheme } from 'src/common-style';
 
@@ -11,8 +10,6 @@ import { MainText } from 'src/components/MainText';
 import { Title } from 'src/components/Title';
 import { WhatIsBades } from 'src/components/WhatIsBades';
 import { capitalize } from 'src/utils/capitalize';
-import { createI18nInstance } from 'src/utils/i18n.utils';
-import { type APP_LOCALES } from 'shared/translations';
 import { getImageAbsoluteURI } from 'shared/utils';
 
 type SendInviteLinkEmailProps = {
@@ -24,7 +21,7 @@ type SendInviteLinkEmailProps = {
     lastName: string;
   };
   serverUrl: string;
-  locale: keyof typeof APP_LOCALES;
+  locale?: string;
 };
 
 export const SendInviteLinkEmail = ({
@@ -32,9 +29,7 @@ export const SendInviteLinkEmail = ({
   workspace,
   sender,
   serverUrl,
-  locale,
 }: SendInviteLinkEmailProps) => {
-  const i18n = createI18nInstance(locale);
   const workspaceLogo = workspace.logo
     ? getImageAbsoluteURI({ imageUrl: workspace.logo, baseUrl: serverUrl })
     : null;
@@ -44,23 +39,17 @@ export const SendInviteLinkEmail = ({
   const workspaceName = workspace.name;
 
   return (
-    <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Bergabung dengan tim di Bades')} />
+    <BaseEmail width={333}>
+      <Title value="Bergabung dengan tim di Bades" />
       <MainText>
-        <Trans
-          id="{senderName} (<0>{senderEmail}</0>) mengundang Anda untuk bergabung ke ruang kerja <1>{workspaceName}</1>."
-          values={{ senderName, senderEmail, workspaceName }}
-          components={{
-            0: (
-              <Link
-                href={`mailto:${senderEmail}`}
-                value={senderEmail}
-                color={emailTheme.font.colors.blue}
-              />
-            ),
-            1: <b />,
-          }}
+        {senderName} (
+        <Link
+          href={`mailto:${senderEmail}`}
+          value={senderEmail}
+          color={emailTheme.font.colors.blue}
         />
+        ) mengundang Anda untuk bergabung ke ruang kerja{' '}
+        <b>{workspaceName}</b>.
         <br />
       </MainText>
       <HighlightedContainer>
@@ -75,9 +64,9 @@ export const SendInviteLinkEmail = ({
           <></>
         )}
         {workspace.name ? <HighlightedText value={workspace.name} /> : <></>}
-        <CallToAction href={link} value={i18n._('Terima undangan')} />
+        <CallToAction href={link} value="Terima undangan" />
       </HighlightedContainer>
-      <WhatIsBades i18n={i18n} />
+      <WhatIsBades />
     </BaseEmail>
   );
 };
@@ -94,7 +83,6 @@ SendInviteLinkEmail.PreviewProps = {
     lastName: 'Santoso',
   },
   serverUrl: 'https://app.bades.id',
-  locale: 'id-ID',
 } as SendInviteLinkEmailProps;
 
 export default SendInviteLinkEmail;

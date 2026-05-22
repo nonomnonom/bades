@@ -1,7 +1,5 @@
-import { lingui } from '@lingui/vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import * as path from 'path';
-import { APP_LOCALES } from 'shared/translations';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -17,12 +15,7 @@ export default defineConfig({
   },
 
   plugins: [
-    react({
-      plugins: [['@lingui/swc-plugin', {}]],
-    }),
-    lingui({
-      configPath: path.resolve(__dirname, './lingui.config.ts'),
-    }),
+    react(),
     tsconfigPaths({
       root: __dirname,
     }),
@@ -37,13 +30,6 @@ export default defineConfig({
     lib: {
       entry: {
         index: 'src/index.ts',
-        ...Object.values(APP_LOCALES).reduce(
-          (acc, locale) => ({
-            ...acc,
-            [`locales/generated/${locale}`]: `src/locales/generated/${locale}.ts`,
-          }),
-          {},
-        ),
       },
       name: 'emails',
       formats: ['es', 'cjs'],

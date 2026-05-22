@@ -1,9 +1,10 @@
+import React from 'react';
 import { Text } from '@react-email/components';
 
 import { emailTheme } from 'src/common-style';
 
 type MainTextProps = {
-  children: JSX.Element | JSX.Element[] | string;
+  children: React.ReactNode;
 };
 
 const mainTextStyle = {
