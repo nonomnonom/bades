@@ -490,7 +490,9 @@ export class DevSeederDataService {
     entityManager: WorkspaceEntityManager,
     fileSeedMetadata: AttachmentFileSeedMetadata[],
   ): Promise<void> {
-    const IS_BUILT = __dirname.includes('/dist/');
+    // Windows: __dirname uses backslashes, so check both variants
+    const IS_BUILT =
+      __dirname.includes('/dist/') || __dirname.includes('\\dist\\');
     const sampleFilesDir = IS_BUILT
       ? join(
           __dirname,
@@ -504,7 +506,12 @@ export class DevSeederDataService {
     for (const sampleFile of ATTACHMENT_SAMPLE_FILES) {
       const filePath = join(sampleFilesDir, sampleFile.filename);
 
-      sampleFileBuffers.push(await readFile(filePath));
+      try {
+        sampleFileBuffers.push(await readFile(filePath));
+      } catch {
+        // Gracefully skip if sample files are not available
+        return;
+      }
     }
 
     const fieldUniversalIdentifier =

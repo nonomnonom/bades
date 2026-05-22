@@ -303,7 +303,7 @@ const GENERATE_MESSAGE_PARTICIPANT_SEEDS = (
 };
 
 export const getMessageParticipantDataSeeds = (
-  workspaceId: string,
+  _workspaceId: string,
 ): MessageParticipantDataSeed[] => {
-  return GENERATE_MESSAGE_PARTICIPANT_SEEDS(workspaceId);
+  return [];
 };
