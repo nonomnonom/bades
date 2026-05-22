@@ -75,15 +75,15 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
       : apiKeysData?.apiKeys) || []) as EntityData[];
   }, [isAgent, agentsData?.findManyAgents, apiKeysData?.apiKeys]);
 
-  const placeholder = isAgent ? t`Search agents` : t`Search API keys`;
+  const placeholder = isAgent ? t`Cari agen` : t`Cari kunci API`;
 
   const getEmptyStateMessage = () => {
     if (searchFilter !== '') {
       return isAgent
-        ? t`No agents match your search`
-        : t`No API keys match your search`;
+        ? t`Tidak ada agen yang sesuai pencarian`
+        : t`Tidak ada kunci API yang sesuai pencarian`;
     } else {
-      return isAgent ? t`No agents available` : t`No API keys available`;
+      return isAgent ? t`Tidak ada agen tersedia` : t`Tidak ada kunci API tersedia`;
     }
   };
 
@@ -120,7 +120,7 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer hasMaxHeight>
         {loading ? (
-          <StyledLoadingContainer>{t`Loading...`}</StyledLoadingContainer>
+          <StyledLoadingContainer>{t`Memuat...`}</StyledLoadingContainer>
         ) : filteredEntities.length > 0 ? (
           filteredEntities.map((entity) => (
             <StyledDropdownItem

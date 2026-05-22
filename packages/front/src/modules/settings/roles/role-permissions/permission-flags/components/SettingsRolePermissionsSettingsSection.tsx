@@ -56,14 +56,14 @@ export const SettingsRolePermissionsSettingsSection = ({
 
   return (
     <Section>
-      <H2Title title={t`Settings`} description={t`Settings permissions`} />
+      <H2Title title={t`Pengaturan`} description={t`Izin pengaturan`} />
       {shouldShowAllAccessToggle && (
         <StyledCardContainer>
           <Card rounded>
             <SettingsOptionCardContentToggle
               Icon={IconSettings}
-              title={t`Settings All Access`}
-              description={t`Ability to edit all settings`}
+              title={t`Akses Penuh Pengaturan`}
+              description={t`Kemampuan untuk mengubah semua pengaturan`}
               checked={settingsDraftRole.canUpdateAllSettings}
               disabled={!isEditable}
               onChange={() => {

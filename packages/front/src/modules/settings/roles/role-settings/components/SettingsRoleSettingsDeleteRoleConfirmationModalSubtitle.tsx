@@ -16,6 +16,6 @@ export const SettingsRoleSettingsDeleteRoleConfirmationModalSubtitle = ({
   const roleName = settingsDraftRole.label;
 
   return (
-    <>{t`Confirm deletion of ${roleName} role? This cannot be undone. All members will be reassigned to the default role.`}</>
+    <>{t`Konfirmasi penghapusan peran ${roleName}? Tindakan ini tidak dapat dibatalkan. Semua anggota akan dialihkan ke peran default.`}</>
   );
 };

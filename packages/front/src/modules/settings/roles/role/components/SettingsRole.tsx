@@ -78,17 +78,17 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
   const tabs = [
     {
       id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.PERMISSIONS,
-      title: t`Permissions`,
+      title: t`Izin`,
       Icon: IconLockOpen,
     },
     {
       id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.ASSIGNMENT,
-      title: t`Assignment`,
+      title: t`Penugasan`,
       Icon: IconUserPlus,
     },
     {
       id: SETTINGS_ROLE_DETAIL_TABS.TABS_IDS.SETTINGS,
-      title: t`Settings`,
+      title: t`Pengaturan`,
       Icon: IconSettings,
     },
   ];
@@ -116,7 +116,7 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
 
     if (isDefined(dirtyFields.label) && dirtyFields.label === '') {
       enqueueErrorSnackBar({
-        message: t`Role name cannot be empty`,
+        message: t`Nama peran tidak boleh kosong`,
       });
       return;
     }
@@ -138,15 +138,15 @@ export const SettingsRole = ({ roleId, isCreateMode }: SettingsRoleProps) => {
       title={<SettingsRoleLabelContainer roleId={roleId} />}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`Members`,
+          children: t`Anggota`,
           href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
         },
         {
-          children: t`Roles`,
+          children: t`Peran`,
           href: getSettingsPath(SettingsPath.Roles),
         },
         {

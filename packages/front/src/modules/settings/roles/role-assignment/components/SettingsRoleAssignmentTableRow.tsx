@@ -109,7 +109,7 @@ export const SettingsRoleAssignmentTableRow = ({
               dateFormat,
               localeCatalog: dateLocale.localeCatalog,
             })
-          : t`Never expires`;
+          : t`Tidak kedaluwarsa`;
     }
   };
 

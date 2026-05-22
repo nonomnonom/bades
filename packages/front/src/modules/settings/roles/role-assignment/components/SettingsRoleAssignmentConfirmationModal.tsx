@@ -21,7 +21,7 @@ export const SettingsRoleAssignmentConfirmationModal = ({
 }: SettingsRoleAssignmentConfirmationModalProps) => {
   const roleTargetName = selectedRoleTarget.name;
 
-  const title = t`Assign ${roleTargetName}?`;
+  const title = t`Tetapkan ${roleTargetName}?`;
 
   return (
     <ConfirmationModal
@@ -34,12 +34,12 @@ export const SettingsRoleAssignmentConfirmationModal = ({
             onRoleClick={onRoleClick}
           />
         ) : (
-          t`${roleTargetName} will be assigned to the "${newRoleName}" role.`
+          t`${roleTargetName} akan ditetapkan ke peran "${newRoleName}".`
         )
       }
       onClose={onClose}
       onConfirmClick={onConfirm}
-      confirmButtonText={t`Confirm`}
+      confirmButtonText={t`Konfirmasi`}
       confirmButtonAccent="danger"
     />
   );

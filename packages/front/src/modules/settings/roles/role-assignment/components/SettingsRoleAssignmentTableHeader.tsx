@@ -4,7 +4,7 @@ import { t } from '@lingui/core/macro';
 
 export const SettingsRoleAssignmentTableHeader = () => (
   <TableRow gridAutoColumns="2fr 4fr">
-    <TableHeader>{t`Name`}</TableHeader>
+    <TableHeader>{t`Nama`}</TableHeader>
     <TableHeader>{t`Email`}</TableHeader>
   </TableRow>
 );

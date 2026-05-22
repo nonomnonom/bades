@@ -53,25 +53,25 @@ export const SettingsRoleApplicability = ({
   const options = [
     {
       key: 'canBeAssignedToUsers' as const,
-      label: t`Assignable to Workspace Members`,
+      label: t`Dapat ditetapkan ke Anggota Ruang Kerja`,
       Icon: IconUsers,
     },
     {
       key: 'canBeAssignedToAgents' as const,
-      label: t`Assignable to Agents`,
+      label: t`Dapat ditetapkan ke Agen`,
       Icon: IconRobot,
     },
     {
       key: 'canBeAssignedToApiKeys' as const,
-      label: t`Assignable to API Keys`,
+      label: t`Dapat ditetapkan ke Kunci API`,
       Icon: IconKey,
     },
   ];
   return (
     <Section>
       <H2Title
-        title={t`Applicability`}
-        description={t`Control which types of entities this role can be assigned to`}
+        title={t`Penerapan`}
+        description={t`Kontrol jenis entitas yang dapat menerima peran ini`}
       />
       <div>
         {options.map((option) => (

@@ -11,10 +11,10 @@ export const SettingsRolesTableHeader = () => {
         gridAutoColumns="332px 3fr 2fr 1fr"
       >
         <TableHeader>
-          <Trans>Name</Trans>
+          <Trans>Nama</Trans>
         </TableHeader>
         <TableHeader align="right">
-          <Trans>Assigned to</Trans>
+          <Trans>Ditugaskan ke</Trans>
         </TableHeader>
         <TableHeader></TableHeader>
         <TableHeader></TableHeader>

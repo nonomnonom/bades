@@ -5,7 +5,7 @@ import { t } from '@lingui/core/macro';
 export const SettingsRolePermissionsObjectLevelObjectFormObjectLevelTableHeader =
   () => (
     <TableRow gridAutoColumns="1fr 48px">
-      <TableHeader>{t`Name`}</TableHeader>
-      <TableHeader aria-label={t`Actions`}></TableHeader>
+      <TableHeader>{t`Nama`}</TableHeader>
+      <TableHeader aria-label={t`Tindakan`}></TableHeader>
     </TableRow>
   );

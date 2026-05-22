@@ -44,19 +44,19 @@ export const SettingsRolePermissionsObjectLevelRecordLevelSection = ({
     return (
       <Section>
         <H2Title
-          title={t`Record-level`}
-          description={t`Ability to filter the records a user can interact with`}
+          title={t`Tingkat Data`}
+          description={t`Kemampuan memfilter data yang dapat diakses pengguna`}
           adornment={<OrganizationAdornment />}
         />
         <StyledCardContainer>
           <Card rounded>
             <SettingsOptionCardContentButton
               Icon={IconLock}
-              title={t`Upgrade to access`}
-              description={t`This feature is part of the Enterprise Plan`}
+              title={t`Tingkatkan untuk mengakses`}
+              description={t`Fitur ini tersedia di Paket Enterprise`}
               Button={
                 <Button
-                  title={t`Upgrade`}
+                  title={t`Tingkatkan`}
                   variant="primary"
                   accent="blue"
                   size="small"
@@ -80,8 +80,8 @@ export const SettingsRolePermissionsObjectLevelRecordLevelSection = ({
   return (
     <Section>
       <H2Title
-        title={t`Record-level`}
-        description={t`Ability to filter the records a user can interact with.`}
+        title={t`Tingkat Data`}
+        description={t`Kemampuan memfilter data yang dapat diakses pengguna.`}
       />
       <StyledContent>
         <SettingsRolePermissionsObjectLevelRecordLevelPermissionFilterBuilder

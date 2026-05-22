@@ -61,21 +61,21 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
 
   const tableConfig = {
     member: {
-      columns: [t`Name`, t`Email`],
-      displayName: t`Members`,
-      emptyStateText: t`No members assigned`,
+      columns: [t`Nama`, t`Email`],
+      displayName: t`Anggota`,
+      emptyStateText: t`Belum ada anggota yang ditugaskan`,
       roleTargets: settingsDraftRole.workspaceMembers,
     },
     agent: {
-      columns: [t`Name`, t`Description`],
-      displayName: t`Agents`,
-      emptyStateText: t`No agents assigned`,
+      columns: [t`Nama`, t`Deskripsi`],
+      displayName: t`Agen`,
+      emptyStateText: t`Belum ada agen yang ditugaskan`,
       roleTargets: settingsDraftRole.agents,
     },
     apiKey: {
-      columns: [t`Name`, t`Expires`],
-      displayName: t`API keys`,
-      emptyStateText: t`No API keys assigned`,
+      columns: [t`Nama`, t`Kedaluwarsa`],
+      displayName: t`Kunci API`,
+      emptyStateText: t`Belum ada kunci API yang ditugaskan`,
       roleTargets: settingsDraftRole.apiKeys,
     },
   };
@@ -140,8 +140,8 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
   return (
     <>
       <H2Title
-        title={t`Assigned ${roleTargetDisplayName}`}
-        description={t`This role is assigned to these ${roleTargetDisplayName}.`}
+        title={t`${roleTargetDisplayName} yang ditugaskan`}
+        description={t`Peran ini ditetapkan ke ${roleTargetDisplayName} berikut.`}
       />
       <StyledSearchContainer>
         <StyledSearchInputContainer>
@@ -149,7 +149,7 @@ export const SettingsRoleAssignmentTable = <T extends RoleTargetType>({
             instanceId={`role-assignment-${roleTargetType}-search`}
             value={searchFilter}
             onChange={handleSearchChange}
-            placeholder={t`Search an assigned ${roleTargetDisplayName}...`}
+            placeholder={t`Cari ${roleTargetDisplayName} yang ditugaskan...`}
             fullWidth
             LeftIcon={IconSearch}
             sizeVariant="lg"

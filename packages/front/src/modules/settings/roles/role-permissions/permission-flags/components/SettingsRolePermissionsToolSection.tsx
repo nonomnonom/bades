@@ -57,14 +57,14 @@ export const SettingsRolePermissionsToolSection = ({
 
   return (
     <Section>
-      <H2Title title={t`Actions`} description={t`Actions permissions`} />
+      <H2Title title={t`Tindakan`} description={t`Izin tindakan`} />
       {shouldShowAllAccessToggle && (
         <StyledCardContainer>
           <Card rounded>
             <SettingsOptionCardContentToggle
               Icon={IconTool}
-              title={t`All Actions Access`}
-              description={t`Grants permission to perform all available actions without restriction`}
+              title={t`Akses Penuh Tindakan`}
+              description={t`Memberikan izin untuk melakukan semua tindakan yang tersedia tanpa pembatasan`}
               checked={settingsDraftRole.canAccessAllTools}
               disabled={!isEditable}
               onChange={() => {

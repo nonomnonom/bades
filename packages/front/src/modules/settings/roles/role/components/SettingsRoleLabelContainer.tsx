@@ -48,7 +48,7 @@ export const SettingsRoleLabelContainer = ({
         sizeVariant="md"
         value={settingsDraftRole.label}
         onChange={handleChange}
-        placeholder={t`Role name`}
+        placeholder={t`Nama peran`}
       />
     </StyledHeaderTitle>
   );

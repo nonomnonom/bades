@@ -42,7 +42,7 @@ export const SettingsRolePermissionsObjectsSection = ({
   const objectPermissionsConfig: SettingsRolePermissionsObjectPermission[] = [
     {
       key: 'canReadObjectRecords',
-      label: t`See Records on All Objects`,
+      label: t`Lihat Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -72,7 +72,7 @@ export const SettingsRolePermissionsObjectsSection = ({
     },
     {
       key: 'canUpdateObjectRecords',
-      label: t`Edit Records on All Objects`,
+      label: t`Ubah Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -100,7 +100,7 @@ export const SettingsRolePermissionsObjectsSection = ({
     },
     {
       key: 'canSoftDeleteObjectRecords',
-      label: t`Delete Records on All Objects`,
+      label: t`Hapus Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -128,7 +128,7 @@ export const SettingsRolePermissionsObjectsSection = ({
     },
     {
       key: 'canDestroyObjectRecords',
-      label: t`Destroy Records on All Objects`,
+      label: t`Hapus Permanen Data di Semua Objek`,
       grantedBy:
         objectPermissions?.filter(
           (permission) =>
@@ -159,8 +159,8 @@ export const SettingsRolePermissionsObjectsSection = ({
   return (
     <Section>
       <H2Title
-        title={t`Objects`}
-        description={t`Objects and fields permissions settings`}
+        title={t`Objek`}
+        description={t`Pengaturan izin objek dan kolom`}
       />
       <StyledTable>
         <SettingsRolePermissionsObjectsTableHeader

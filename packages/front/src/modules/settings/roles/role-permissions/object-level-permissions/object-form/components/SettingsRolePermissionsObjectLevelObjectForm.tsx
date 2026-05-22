@@ -73,7 +73,7 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
     fromAgentId && isDefined(agent)
       ? [
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
@@ -87,20 +87,20 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
             }),
           },
           {
-            children: t`Permissions · ${objectLabelSingular}`,
+            children: t`Izin · ${objectLabelSingular}`,
           },
         ]
       : [
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`Members`,
+            children: t`Anggota`,
             href: getSettingsPath(SettingsPath.WorkspaceMembersPage),
           },
           {
-            children: t`Roles`,
+            children: t`Peran`,
             href: getSettingsPath(SettingsPath.Roles),
           },
           {
@@ -110,7 +110,7 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
             }),
           },
           {
-            children: t`Permissions · ${objectLabelSingular}`,
+            children: t`Izin · ${objectLabelSingular}`,
           },
         ];
 
@@ -139,11 +139,11 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
 
   return (
     <SubMenuTopBarContainer
-      title={t`2. Set ${objectLabelPlural} permissions`}
+      title={t`2. Atur izin ${objectLabelPlural}`}
       links={breadcrumbLinks}
       actionButton={
         <Button
-          title={t`Finish`}
+          title={t`Selesai`}
           variant="secondary"
           size="small"
           accent="blue"

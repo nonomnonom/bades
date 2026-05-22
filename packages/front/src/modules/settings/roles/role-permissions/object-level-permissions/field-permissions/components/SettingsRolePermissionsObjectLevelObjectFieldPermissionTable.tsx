@@ -97,14 +97,14 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
   return (
     <Section>
       <H2Title
-        title={t`Fields Permissions`}
-        description={t`Ability to interact with this object's fields.`}
+        title={t`Izin Kolom`}
+        description={t`Kemampuan berinteraksi dengan kolom-kolom objek ini.`}
       />
       <StyledSearchInputContainer>
         <SettingsTextInput
           instanceId="object-field-table-search"
           LeftIcon={IconSearch}
-          placeholder={t`Search a field...`}
+          placeholder={t`Cari kolom...`}
           value={searchTerm}
           onChange={setSearchTerm}
         />
@@ -115,25 +115,25 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTable = ({
         >
           <SortableTableHeader
             fieldName="label"
-            label={t`Name`}
+            label={t`Nama`}
             tableId={
               SETTINGS_ROLE_PERMISSION_OBJECT_LEVEL_FIELD_PERMISSION_TABLE_ID
             }
             initialSort={{ fieldName: 'label', orderBy: 'AscNullsFirst' }}
           />
           <TableHeader>
-            <TableHeaderText>{t`Data type`}</TableHeaderText>
+            <TableHeaderText>{t`Tipe data`}</TableHeaderText>
           </TableHeader>
           <>
             {shouldShowEmptyTableHeader && <TableHeader />}
             {shouldShowSeeTableHeader && (
               <TableHeader>
-                <TableHeaderText>{t`See`}</TableHeaderText>
+                <TableHeaderText>{t`Lihat`}</TableHeaderText>
               </TableHeader>
             )}
             {shouldShowUpdateTableHeader && (
               <TableHeader>
-                <TableHeaderText>{t`Edit`}</TableHeaderText>
+                <TableHeaderText>{t`Ubah`}</TableHeaderText>
               </TableHeader>
             )}
           </>

@@ -38,17 +38,17 @@ export const SettingsRolePermissionsObjectsTableHeader = ({
 
   return (
     <TableRow>
-      <TableHeader>{t`All Objects`}</TableHeader>
+      <TableHeader>{t`Semua Objek`}</TableHeader>
       <TableHeader
         align="right"
         padding={`0 ${themeCssVariables.spacing[1]} 0 ${themeCssVariables.spacing[2]}`}
-        aria-label={t`Actions`}
+        aria-label={t`Tindakan`}
       >
         <Checkbox
           checked={allPermissionsEnabled}
           indeterminate={somePermissionsEnabled && !allPermissionsEnabled}
           disabled={!isEditable}
-          aria-label={t`Toggle all object permissions`}
+          aria-label={t`Aktifkan/nonaktifkan semua izin objek`}
           onChange={() => {
             const newValue = !allPermissionsEnabled;
 

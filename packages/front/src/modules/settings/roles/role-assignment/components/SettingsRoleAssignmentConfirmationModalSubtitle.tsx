@@ -35,7 +35,7 @@ export const SettingsRoleAssignmentConfirmationModalSubtitle = ({
 
   return (
     <>
-      {t`${workspaceMemberName} will be unassigned from the following role:`}
+      {t`${workspaceMemberName} akan dicopot dari peran berikut:`}
       <StyledSettingsCardContainer>
         <SettingsCard
           title={selectedRoleTarget.role?.label || ''}

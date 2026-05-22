@@ -67,16 +67,16 @@ export const SettingsRolePermissionsObjectsTableRow = ({
             <>
               {' · '}
               {plural(revokedBy, {
-                one: `Revoked for ${revokedBy} object`,
-                other: `Revoked for ${revokedBy} objects`,
+                one: `Dicabut untuk ${revokedBy} objek`,
+                other: `Dicabut untuk ${revokedBy} objek`,
               })}
             </>
           ) : grantedBy && grantedBy > 0 ? (
             <>
               {' · '}
               {plural(grantedBy, {
-                one: `Granted for ${grantedBy} object`,
-                other: `Granted for ${grantedBy} objects`,
+                one: `Diberikan untuk ${grantedBy} objek`,
+                other: `Diberikan untuk ${grantedBy} objek`,
               })}
             </>
           ) : null}

@@ -81,8 +81,8 @@ export const SettingsRolesList = () => {
   return (
     <Section>
       <H2Title
-        title={t`All roles`}
-        description={t`Assign roles to specify access permissions`}
+        title={t`Semua peran`}
+        description={t`Tetapkan peran untuk menentukan izin akses`}
       />
 
       <StyledSearchAndFilterContainer>
@@ -90,7 +90,7 @@ export const SettingsRolesList = () => {
           <SettingsTextInput
             instanceId="settings-roles-search"
             LeftIcon={IconSearch}
-            placeholder={t`Search a role...`}
+            placeholder={t`Cari peran...`}
             value={searchTerm}
             onChange={setSearchTerm}
           />
@@ -115,14 +115,14 @@ export const SettingsRolesList = () => {
                   LeftIcon={IconRobot}
                   onToggleChange={() => setShowAgentRoles(!showAgentRoles)}
                   toggled={showAgentRoles}
-                  text={t`Agent roles`}
+                  text={t`Peran agen`}
                   toggleSize="small"
                 />
                 <MenuItemToggle
                   LeftIcon={IconKey}
                   onToggleChange={() => setShowApiKeyRoles(!showApiKeyRoles)}
                   toggled={showApiKeyRoles}
-                  text={t`API key roles`}
+                  text={t`Peran kunci API`}
                   toggleSize="small"
                 />
               </DropdownMenuItemsContainer>
@@ -136,7 +136,7 @@ export const SettingsRolesList = () => {
         <StyledTableRows>
           {filteredRoles.length === 0 ? (
             <TableCell color={themeCssVariables.font.color.tertiary}>
-              {t`No roles found`}
+              {t`Tidak ada peran ditemukan`}
             </TableCell>
           ) : (
             filteredRoles.map((role) => (
@@ -149,7 +149,7 @@ export const SettingsRolesList = () => {
         <Section>
           <Button
             Icon={IconPlus}
-            title={t`Create Role`}
+            title={t`Buat Peran`}
             variant="secondary"
             size="small"
             onClick={() => navigateSettings(SettingsPath.RoleCreate)}

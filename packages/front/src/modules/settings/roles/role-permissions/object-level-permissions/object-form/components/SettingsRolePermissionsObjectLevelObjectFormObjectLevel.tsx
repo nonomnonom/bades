@@ -44,22 +44,22 @@ export const SettingsRolePermissionsObjectLevelObjectFormObjectLevel = ({
     [
       {
         key: 'canReadObjectRecords',
-        label: t`See ${objectLabelPlural}`,
+        label: t`Lihat ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canReadObjectRecords,
       },
       {
         key: 'canUpdateObjectRecords',
-        label: t`Edit ${objectLabelPlural}`,
+        label: t`Ubah ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canUpdateObjectRecords,
       },
       {
         key: 'canSoftDeleteObjectRecords',
-        label: t`Delete ${objectLabelPlural}`,
+        label: t`Hapus ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canSoftDeleteObjectRecords,
       },
       {
         key: 'canDestroyObjectRecords',
-        label: t`Destroy ${objectLabelPlural}`,
+        label: t`Hapus permanen ${objectLabelPlural}`,
         value: settingsDraftRoleObjectPermissions?.canDestroyObjectRecords,
       },
     ];
@@ -67,8 +67,8 @@ export const SettingsRolePermissionsObjectLevelObjectFormObjectLevel = ({
   return (
     <Section>
       <H2Title
-        title={t`Object-Level`}
-        description={t`Actions users can perform on this object`}
+        title={t`Tingkat Objek`}
+        description={t`Tindakan yang dapat dilakukan pengguna pada objek ini`}
       />
       <StyledTable>
         <SettingsRolePermissionsObjectLevelObjectFormObjectLevelTableHeader />

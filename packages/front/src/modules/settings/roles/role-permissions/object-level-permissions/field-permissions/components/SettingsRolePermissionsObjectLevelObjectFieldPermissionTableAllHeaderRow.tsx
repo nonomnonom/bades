@@ -102,7 +102,7 @@ export const SettingsRolePermissionsObjectLevelObjectFieldPermissionTableAllHead
     return (
       <>
         <StyledSectionHeader>
-          <Label>{t`All`}</Label>
+          <Label>{t`Semua`}</Label>
           <div></div>
           <>
             {shouldShowEmptyTableHeader && <div />}

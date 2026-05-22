@@ -45,12 +45,12 @@ export const SettingsRolePermissionsSettingsTableHeader = ({
 
   return (
     <TableRow gridAutoColumns="3fr 4fr 24px">
-      <TableHeader>{t`Name`}</TableHeader>
-      <TableHeader>{t`Description`}</TableHeader>
+      <TableHeader>{t`Nama`}</TableHeader>
+      <TableHeader>{t`Deskripsi`}</TableHeader>
       <TableHeader
         align="right"
         padding={`0 ${themeCssVariables.spacing[1]} 0 ${themeCssVariables.spacing[2]}`}
-        aria-label={t`Actions`}
+        aria-label={t`Tindakan`}
       >
         <Checkbox
           checked={allSettingsPermissionsEnabled}
@@ -58,7 +58,7 @@ export const SettingsRolePermissionsSettingsTableHeader = ({
             someSettingsPermissionsEnabled && !allSettingsPermissionsEnabled
           }
           disabled={!isEditable}
-          aria-label={t`Toggle all settings permissions`}
+          aria-label={t`Aktifkan/nonaktifkan semua izin pengaturan`}
           onChange={() => {
             const newValue = !allSettingsPermissionsEnabled;
 
