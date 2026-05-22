@@ -19,17 +19,8 @@ export const Footer = ({ i18n }: FooterProps) => {
           <ShadowText>
             <Link
               href="https://bades.id/"
-              value={i18n._('Website')}
-              aria-label={i18n._("Visit Bades's website")}
-            />
-          </ShadowText>
-        </Column>
-        <Column>
-          <ShadowText>
-            <Link
-              href="https://github.com/badesid/bades"
-              value={i18n._('Github')}
-              aria-label={i18n._("Visit Bades's GitHub repository")}
+              value={i18n._('Situs web')}
+              aria-label={i18n._('Kunjungi situs web Bades')}
             />
           </ShadowText>
         </Column>
@@ -37,17 +28,8 @@ export const Footer = ({ i18n }: FooterProps) => {
           <ShadowText>
             <Link
               href="https://docs.bades.id/getting-started/introduction"
-              value={i18n._('User guide')}
-              aria-label={i18n._("Read Bades's user guide")}
-            />
-          </ShadowText>
-        </Column>
-        <Column>
-          <ShadowText>
-            <Link
-              href="https://docs.bades.id/"
-              value={i18n._('Developers')}
-              aria-label={i18n._("Visit Bades's developer documentation")}
+              value={i18n._('Panduan pengguna')}
+              aria-label={i18n._('Baca panduan pengguna Bades')}
             />
           </ShadowText>
         </Column>
