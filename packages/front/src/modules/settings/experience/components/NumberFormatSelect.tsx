@@ -42,33 +42,33 @@ export const NumberFormatSelect = ({
     <Select
       dropdownId="number-format-select"
       dropdownWidth={218}
-      label={t`Number format`}
+      label={t`Format angka`}
       dropdownWidthAuto
       fullWidth
       value={value}
       pinnedOption={{
-        label: t`System settings`,
+        label: t`Ikuti sistem`,
         value: NumberFormat.SYSTEM,
         contextualText: systemNumberFormatLabel,
       }}
       options={[
         {
-          label: t`Commas and dot`,
+          label: t`Koma dan titik`,
           value: NumberFormat.COMMAS_AND_DOT,
           contextualText: commasAndDotExample,
         },
         {
-          label: t`Spaces and comma`,
+          label: t`Spasi dan koma`,
           value: NumberFormat.SPACES_AND_COMMA,
           contextualText: spacesAndCommaExample,
         },
         {
-          label: t`Dots and comma`,
+          label: t`Titik dan koma`,
           value: NumberFormat.DOTS_AND_COMMA,
           contextualText: dotsAndCommaExample,
         },
         {
-          label: t`Apostrophe and dot`,
+          label: t`Apostrof dan titik`,
           value: NumberFormat.APOSTROPHE_AND_DOT,
           contextualText: apostropheAndDotExample,
         },

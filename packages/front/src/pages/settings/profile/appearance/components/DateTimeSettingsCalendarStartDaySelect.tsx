@@ -19,16 +19,16 @@ export const DateTimeSettingsCalendarStartDaySelect = ({
 
   const systemDayContextualText =
     systemCalendarStartDay === CalendarStartDay.SUNDAY
-      ? t`Sunday`
+      ? t`Minggu`
       : systemCalendarStartDay === CalendarStartDay.MONDAY
-        ? t`Monday`
-        : t`Saturday`;
+        ? t`Senin`
+        : t`Sabtu`;
 
   const options: SelectOption<CalendarStartDay>[] = useMemo(
     () => [
-      { label: t`Sunday`, value: CalendarStartDay.SUNDAY },
-      { label: t`Monday`, value: CalendarStartDay.MONDAY },
-      { label: t`Saturday`, value: CalendarStartDay.SATURDAY },
+      { label: t`Minggu`, value: CalendarStartDay.SUNDAY },
+      { label: t`Senin`, value: CalendarStartDay.MONDAY },
+      { label: t`Sabtu`, value: CalendarStartDay.SATURDAY },
     ],
     [],
   );
@@ -37,12 +37,12 @@ export const DateTimeSettingsCalendarStartDaySelect = ({
     <Select
       dropdownId="datetime-settings-calendar-start-day"
       dropdownWidth={218}
-      label={t`Calendar start day`}
+      label={t`Hari awal kalender`}
       fullWidth
       dropdownWidthAuto
       value={value}
       pinnedOption={{
-        label: t`System settings`,
+        label: t`Ikuti sistem`,
         value: CalendarStartDay.SYSTEM,
         contextualText: systemDayContextualText,
       }}
