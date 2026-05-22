@@ -28,7 +28,7 @@ export const WarnSuspendedWorkspaceEmail = ({
 
   return (
     <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Workspace Ditangguhkan')} />
+      <Title value={i18n._('Ruang Kerja Ditangguhkan')} />
       <MainText>
         {userName?.length > 1 ? (
           <Trans id="Halo {userName}," values={{ userName }} />
@@ -38,14 +38,14 @@ export const WarnSuspendedWorkspaceEmail = ({
         <br />
         <br />
         <Trans
-          id="Workspace <0>{workspaceDisplayName}</0> Anda telah ditangguhkan selama {daysSinceInactive} hari."
+          id="Ruang kerja <0>{workspaceDisplayName}</0> Anda telah ditangguhkan selama {daysSinceInactive} hari."
           values={{ workspaceDisplayName, daysSinceInactive }}
           components={{ 0: <b /> }}
         />
         <br />
         <br />
         <Trans
-          id="Workspace akan dinonaktifkan dalam {remainingDays} {dayOrDays}, dan seluruh datanya akan dihapus."
+          id="Ruang kerja akan dinonaktifkan dalam {remainingDays} {dayOrDays}, dan seluruh datanya akan dihapus."
           values={{ remainingDays, dayOrDays }}
         />
         <br />

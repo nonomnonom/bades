@@ -49,7 +49,7 @@ export const SendApprovedAccessDomainValidation = ({
       <Title value={i18n._('Validasi domain')} />
       <MainText>
         <Trans
-          id="{senderName} (<0>{senderEmail}</0>): Silakan validasi domain ini agar pengguna dengan alamat email <1>@{domain}</1> dapat bergabung ke workspace Anda tanpa perlu undangan."
+          id="{senderName} (<0>{senderEmail}</0>): Silakan validasi domain ini agar pengguna dengan alamat email <1>@{domain}</1> dapat bergabung ke ruang kerja Anda tanpa perlu undangan."
           values={{ senderName, senderEmail, domain }}
           components={{
             0: (
@@ -69,7 +69,7 @@ export const SendApprovedAccessDomainValidation = ({
           src={workspaceLogo ?? DEFAULT_WORKSPACE_LOGO}
           width={40}
           height={40}
-          alt={workspace.name ?? 'Logo workspace'}
+          alt={workspace.name ?? 'Logo ruang kerja'}
         />
         {workspace.name ? <HighlightedText value={workspace.name} /> : <></>}
         <CallToAction href={link} value={i18n._('Validasi domain')} />

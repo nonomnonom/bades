@@ -14,7 +14,7 @@ export const TestEmail = ({ locale }: TestEmailProps) => {
 
   return (
     <BaseEmail locale={locale}>
-      <Title value={i18n._('Test email')} />
+      <Title value={i18n._('Email uji coba')} />
       <br />
       <br />
     </BaseEmail>
@@ -22,7 +22,7 @@ export const TestEmail = ({ locale }: TestEmailProps) => {
 };
 
 TestEmail.PreviewProps = {
-  locale: 'en',
+  locale: 'id-ID',
 };
 
 export default TestEmail;

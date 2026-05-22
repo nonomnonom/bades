@@ -48,7 +48,7 @@ export const SendInviteLinkEmail = ({
       <Title value={i18n._('Bergabung dengan tim di Bades')} />
       <MainText>
         <Trans
-          id="{senderName} (<0>{senderEmail}</0>) mengundang Anda untuk bergabung ke workspace <1>{workspaceName}</1>."
+          id="{senderName} (<0>{senderEmail}</0>) mengundang Anda untuk bergabung ke ruang kerja <1>{workspaceName}</1>."
           values={{ senderName, senderEmail, workspaceName }}
           components={{
             0: (
@@ -69,7 +69,7 @@ export const SendInviteLinkEmail = ({
             src={workspaceLogo}
             width={40}
             height={40}
-            alt="Workspace logo"
+            alt="Logo ruang kerja"
           />
         ) : (
           <></>
@@ -88,7 +88,11 @@ SendInviteLinkEmail.PreviewProps = {
     name: 'Desa Contoh',
     logo: 'https://fakeimg.pl/200x200/?text=DESA&font=lobster',
   },
-  sender: { email: 'john.doe@example.com', firstName: 'John', lastName: 'Doe' },
+  sender: {
+    email: 'budi.santoso@desa-suka-maju.id',
+    firstName: 'Budi',
+    lastName: 'Santoso',
+  },
   serverUrl: 'https://app.bades.id',
   locale: 'id-ID',
 } as SendInviteLinkEmailProps;

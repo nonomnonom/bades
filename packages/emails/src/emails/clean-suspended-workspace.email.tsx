@@ -23,7 +23,7 @@ export const CleanSuspendedWorkspaceEmail = ({
 
   return (
     <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Workspace Dihapus')} />
+      <Title value={i18n._('Ruang Kerja Dihapus')} />
       <MainText>
         {userName?.length > 1 ? (
           <Trans id="Halo {userName}," values={{ userName }} />
@@ -33,21 +33,21 @@ export const CleanSuspendedWorkspaceEmail = ({
         <br />
         <br />
         <Trans
-          id="Workspace <0>{workspaceDisplayName}</0> Anda telah dihapus karena langganan berakhir {daysSinceInactive} hari lalu."
+          id="Ruang kerja <0>{workspaceDisplayName}</0> Anda telah dihapus karena langganan berakhir {daysSinceInactive} hari lalu."
           values={{ workspaceDisplayName, daysSinceInactive }}
           components={{ 0: <b /> }}
         />
         <br />
         <br />
-        <Trans id="Semua data dalam workspace tersebut telah dihapus secara permanen." />
+        <Trans id="Semua data dalam ruang kerja tersebut telah dihapus secara permanen." />
         <br />
         <br />
-        <Trans id="Jika Anda ingin menggunakan Bades lagi, Anda dapat membuat workspace baru." />
+        <Trans id="Jika Anda ingin menggunakan Bades lagi, Anda dapat membuat ruang kerja baru." />
       </MainText>
       <br />
       <CallToAction
         href="https://app.bades.id/"
-        value={i18n._('Buat workspace baru')}
+        value={i18n._('Buat ruang kerja baru')}
       />
       <br />
       <br />
@@ -58,7 +58,7 @@ export const CleanSuspendedWorkspaceEmail = ({
 CleanSuspendedWorkspaceEmail.PreviewProps = {
   daysSinceInactive: 1,
   userName: 'Budi Santoso',
-  workspaceDisplayName: 'Workspace Saya',
+  workspaceDisplayName: 'Desa Contoh',
   locale: 'id-ID',
 };
 

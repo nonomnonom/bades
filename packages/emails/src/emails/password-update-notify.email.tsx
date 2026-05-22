@@ -39,7 +39,7 @@ export const PasswordUpdateNotifyEmail = ({
         />
         <br />
         <br />
-        <Trans id="Jika Anda tidak melakukan perubahan ini, segera hubungi pemilik workspace Anda." />
+        <Trans id="Jika Anda tidak melakukan perubahan ini, segera hubungi pemilik ruang kerja Anda." />
         <br />
       </MainText>
       <br />
