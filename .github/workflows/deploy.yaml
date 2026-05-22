@@ -1,0 +1,173 @@
+name: Deploy to AWS App Runner
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STAGING  — push ke branch `staging` atau merge ke `main` (selalu latest)
+# ─────────────────────────────────────────────────────────────────────────────
+on:
+  push:
+    branches:
+      - staging
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+
+#─────────────────────────────────────────────────────────────────────────────
+# production deploy juga bisa dipicu dari release tag (v*.*.*)
+# ─────────────────────────────────────────────────────────────────────────────
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  DOCKERFILE_PATH: packages/docker/bades/Dockerfile
+  DOCKER_TARGET: twenty-app-dev   # all-in-one: server+worker+postgres+redis
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────────────
+  # STAGING
+  # ──────────────────────────────────────────────────────────────────────────
+  deploy-staging:
+    if: github.ref == 'refs/heads/staging' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging')
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      ENVIRONMENT: staging
+      ECR_REPOSITORY_URI: ${{ secrets.AWS_ECR_STAGING_REPOSITORY_URI }}
+      APP_RUNNER_SERVICE_ARN: ${{ secrets.AWS_APPRUNNER_STAGING_SERVICE_ARN }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      IMAGE_TAG: staging-${{ github.sha }}
+
+    steps:
+      - name: Build and push to ECR
+        uses: ./.github/actions/build-and-push-ecr
+        with:
+          environment: staging
+          ecr-repository-uri: ${{ env.ECR_REPOSITORY_URI }}
+          dockerfile-path: ${{ env.DOCKERFILE_PATH }}
+          docker-build-target: ${{ env.DOCKER_TARGET }}
+          app-version: ${{ env.IMAGE_TAG }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@012353e6d0b8aadb2d1f05b0c9f4cad81cd0c8e6 # v4.2.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to App Runner (staging)
+        shell: bash
+        run: |
+          echo "Updating App Runner service..."
+          aws apprunner update-service \
+            --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
+            --image-uri "${{ env.ECR_REPOSITORY_URI }}:${{ env.IMAGE_TAG }}" \
+            --region "${{ env.AWS_REGION }}" \
+            --operational-state "RUNNING" \
+            --output json
+
+          echo "Waiting for deployment to complete..."
+          aws apprunner wait service-active \
+            --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
+            --region "${{ env.AWS_REGION }}"
+
+          SERVICE=$(aws apprunner describe-service \
+            --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
+            --region "${{ env.AWS_REGION }}" \
+            --query 'Service.Service.Url' \
+            --output text)
+
+          echo "✅ Staging deployed at: https://$SERVICE"
+
+      - name: Notify deployment
+        if: always()
+        shell: bash
+        run: |
+          STATUS="${{ job.status }}"
+          if [ "$STATUS" = "success" ]; then
+            echo "✅ Staging deployment completed successfully"
+          else
+            echo "❌ Staging deployment failed"
+            exit 1
+          fi
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PRODUCTION — dipicu oleh tag v*.*.* atau workflow_dispatch production
+  # ──────────────────────────────────────────────────────────────────────────
+  deploy-production:
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production')
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      ENVIRONMENT: production
+      ECR_REPOSITORY_URI: ${{ secrets.AWS_ECR_PRODUCTION_REPOSITORY_URI }}
+      APP_RUNNER_SERVICE_ARN: ${{ secrets.AWS_APPRUNNER_PRODUCTION_SERVICE_ARN }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      # Tag dari refs/tags/v1.2.3 → 1.2.3
+      IMAGE_TAG: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && format('{0}', github.ref) || github.event.inputs.tag || github.sha }}
+
+    steps:
+      - name: Build and push to ECR
+        uses: ./.github/actions/build-and-push-ecr
+        with:
+          environment: production
+          ecr-repository-uri: ${{ env.ECR_REPOSITORY_URI }}
+          dockerfile-path: ${{ env.DOCKERFILE_PATH }}
+          docker-build-target: ${{ env.DOCKER_TARGET }}
+          app-version: ${{ env.IMAGE_TAG }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@012353e6d0b8aadb2d1f05b0c9f4cad81cd0c8e6 # v4.2.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to App Runner (production)
+        shell: bash
+        run: |
+          echo "Updating App Runner service..."
+          aws apprunner update-service \
+            --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
+            --image-uri "${{ env.ECR_REPOSITORY_URI }}:${{ env.IMAGE_TAG }}" \
+            --region "${{ env.AWS_REGION }}" \
+            --operational-state "RUNNING" \
+            --output json
+
+          echo "Waiting for deployment to complete..."
+          aws apprunner wait service-active \
+            --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
+            --region "${{ env.AWS_REGION }}"
+
+          SERVICE=$(aws apprunner describe-service \
+            --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
+            --region "${{ env.AWS_REGION }}" \
+            --query 'Service.Service.Url' \
+            --output text)
+
+          echo "✅ Production deployed at: https://$SERVICE"
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@5131932a8b6b8c6a6c1072d2e2a3c0e6c4b6d5e # v2.2.0
+        with:
+          generate_release_notes: true
+          files: |
+            packages/docker/bades/Dockerfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -72,6 +72,10 @@ terkait administrasi warga.
   developer seperti API key, webhook, app platform, SDK exposure, GraphQL/REST
   playground, automation builder teknis, dan menu developer lain yang
   mengasumsikan user paham konsep engineering.
+- Setup deploy automation harus menjadi bagian dari operasional internal
+  Bades di AWS: pipeline, release, environment promotion, dan pengiriman build
+  dibentuk untuk mendukung tim Bades, bukan untuk mendorong UX developer atau
+  self-hosting workflow pada user akhir.
 - Rebrand codebase harus dibantu **script/audit replacement** untuk menemukan
   dan mengganti semua brand `Twenty` pada copy, asset reference, metadata,
   email template, docs, title, env example, dan sample data.
@@ -102,6 +106,9 @@ terkait administrasi warga.
   berinteraksi dengan nama lama itu di produk akhir.
 - Cakupan rebrand meliputi UI, docs, emails, website, favicon, manifest,
   metadata SEO, sample workspace, onboarding, dan seed data.
+- Reset `.github` secara eksplisit agar isi workflow, issue template, PR
+  template, repo metadata, dan contributor guidance sesuai kebutuhan Bades,
+  bukan sekadar turunan dari baseline Twenty.
 - Jika ada nama teknis internal yang belum aman diubah, pisahkan antara
   **branding publik** dan **identifier internal sementara**, tetapi target akhir
   tetap eliminasi penuh brand lama pada surface user-facing.
