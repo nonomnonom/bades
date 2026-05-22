@@ -8,7 +8,6 @@ import {
 } from '@lingui/core';
 import { type APP_LOCALES, SOURCE_LOCALE } from 'shared/translations';
 
-import { messages as enMessages } from 'src/engine/core-modules/i18n/locales/generated/en';
 import { messages as idMessages } from 'src/engine/core-modules/i18n/locales/generated/id-ID';
 
 @Injectable()
@@ -17,10 +16,11 @@ export class I18nService implements OnModuleInit {
     {} as Record<keyof typeof APP_LOCALES, I18n>;
 
   async loadTranslations() {
-    const messagesByLocale: Record<keyof typeof APP_LOCALES, Messages> = {
-      en: enMessages,
-      'id-ID': idMessages,
-    };
+    // Bades single-language: hanya katalog Bahasa Indonesia yang dimuat.
+    const messagesByLocale: Partial<Record<keyof typeof APP_LOCALES, Messages>> =
+      {
+        'id-ID': idMessages,
+      };
 
     (
       Object.entries(messagesByLocale) as [keyof typeof APP_LOCALES, Messages][]

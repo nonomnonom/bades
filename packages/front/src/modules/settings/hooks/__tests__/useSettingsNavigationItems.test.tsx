@@ -22,7 +22,7 @@ import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
 import { Provider as JotaiProvider } from 'jotai';
 import { SOURCE_LOCALE } from 'shared/translations';
-import { messages } from '~/locales/generated/en';
+import { messages } from '~/locales/generated/id-ID';
 
 i18n.load({
   [SOURCE_LOCALE]: messages,

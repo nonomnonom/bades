@@ -2,7 +2,6 @@ import { i18n } from '@lingui/core';
 import { addDays, format, formatDistanceToNow, subDays } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { SOURCE_LOCALE } from 'shared/translations';
-import { messages as enMessages } from '~/locales/generated/en';
 import { messages as idMessages } from '~/locales/generated/id-ID';
 
 import {
@@ -16,7 +15,7 @@ import {
 } from '~/utils/date-utils';
 import { logError } from '~/utils/logError';
 
-i18n.load(SOURCE_LOCALE, enMessages);
+i18n.load(SOURCE_LOCALE, idMessages);
 i18n.activate(SOURCE_LOCALE);
 
 jest.mock('~/utils/logError');
@@ -299,9 +298,9 @@ describe('Indonesian locale tests', () => {
   });
 
   afterAll(() => {
-    // Restore English for other tests
-    i18n.load('en', enMessages);
-    i18n.activate('en');
+    // Kembalikan ke locale tunggal Bades (id-ID) untuk test lain
+    i18n.load(SOURCE_LOCALE, idMessages);
+    i18n.activate(SOURCE_LOCALE);
   });
 
   describe('beautifyPastDateRelativeToNow with Indonesian locale', () => {

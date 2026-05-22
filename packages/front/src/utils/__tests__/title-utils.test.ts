@@ -1,9 +1,9 @@
 import { i18n } from '@lingui/core';
-import { messages as enMessages } from '~/locales/generated/en';
+import { messages as idMessages } from '~/locales/generated/id-ID';
 import { getPageTitleFromPath } from '~/utils/title-utils';
 
-i18n.load('en', enMessages);
-i18n.activate('en');
+i18n.load('id-ID', idMessages);
+i18n.activate('id-ID');
 
 describe('title-utils', () => {
   it('should return the correct title for a given path', () => {
