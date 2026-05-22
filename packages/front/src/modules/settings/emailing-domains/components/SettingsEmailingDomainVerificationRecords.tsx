@@ -38,7 +38,7 @@ export const SettingsEmailingDomainVerificationRecords = ({
         },
       });
       enqueueSuccessSnackBar({
-        message: t`Started verification process`,
+        message: t`Proses verifikasi dimulai`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
@@ -50,8 +50,8 @@ export const SettingsEmailingDomainVerificationRecords = ({
   return (
     <Section>
       <H2Title
-        title={t`DNS Records`}
-        description={t`Add these records to verify your domain.`}
+        title={t`Rekaman DNS`}
+        description={t`Tambahkan rekaman berikut untuk memverifikasi domain Anda.`}
         adornment={
           <Button
             onClick={handleVerifyEmailingDomain}
@@ -59,7 +59,7 @@ export const SettingsEmailingDomainVerificationRecords = ({
             variant="secondary"
             Icon={IconRefresh}
             size="small"
-            title={t`Check verification`}
+            title={t`Periksa verifikasi`}
             disabled={isVerifying}
           />
         }

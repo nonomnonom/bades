@@ -19,8 +19,8 @@ export const SettingsDomainRecords = ({
   const currentWorkspace = useAtomStateValue(currentWorkspaceState);
 
   const rowsDefinitions = [
-    { name: 'Domain Setup', validationType: 'redirection' as const },
-    { name: 'Secure Connection', validationType: 'ssl' as const },
+    { name: 'Pengaturan Domain', validationType: 'redirection' as const },
+    { name: 'Koneksi Aman', validationType: 'ssl' as const },
   ];
 
   const defaultValues: { status: string; statusColor: ThemeColor } =
@@ -59,8 +59,8 @@ export const SettingsDomainRecords = ({
   return (
     <Section>
       <H2Title
-        title={t`Domain Setup`}
-        description={t`Configure these DNS records with your domain provider`}
+        title={t`Pengaturan Domain`}
+        description={t`Konfigurasikan rekaman DNS berikut di penyedia domain Anda`}
       />
       <SettingsDnsRecordsTable records={transformedRecords} />
     </Section>

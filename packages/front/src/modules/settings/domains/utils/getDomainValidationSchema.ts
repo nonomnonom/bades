@@ -7,13 +7,13 @@ export const getDomainValidationSchema = () =>
     .regex(
       /^([a-zA-Z0-9][a-zA-Z0-9-]*\.)+[a-zA-Z0-9][a-zA-Z0-9-]*\.[a-zA-Z]{2,}$/,
       {
-        message: t`Invalid domain. Please include at least one subdomain (e.g., sub.example.com).`,
+        message: t`Domain tidak valid. Sertakan setidaknya satu subdomain (contoh: sub.example.com).`,
       },
     )
     .regex(
       /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$/,
       {
-        message: t`Invalid domain. Domains have to be smaller than 256 characters in length, cannot be IP addresses, cannot contain spaces, cannot contain any special characters such as _~\`!@#$%^*()=+{}[]|\\;:'",<>/? and cannot begin or end with a '-' character.`,
+        message: t`Domain tidak valid. Domain harus kurang dari 256 karakter, tidak boleh berupa alamat IP, tidak boleh mengandung spasi, tidak boleh mengandung karakter khusus seperti _~\`!@#$%^*()=+{}[]|\\;:'",<>/? dan tidak boleh diawali atau diakhiri dengan karakter '-'.`,
       },
     )
     .max(256)

@@ -63,7 +63,7 @@ export const useSettingsCustomDomain = () => {
           ...currentWorkspace,
           customDomain: domainValue,
         });
-        enqueueSuccessSnackBar({ message: t`Custom domain updated` });
+        enqueueSuccessSnackBar({ message: t`Domain kustom diperbarui` });
         setIsSubmitting(false);
         checkCustomDomainRecords();
       },
@@ -72,7 +72,7 @@ export const useSettingsCustomDomain = () => {
           CombinedGraphQLErrors.is(mutationError) &&
           mutationError.errors[0]?.extensions?.code === 'CONFLICT'
         ) {
-          setError(t`Domain already taken`);
+          setError(t`Domain sudah digunakan`);
           setIsSubmitting(false);
 
           return;

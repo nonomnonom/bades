@@ -39,14 +39,14 @@ export const SettingsWorkspaceDomainCard = () => {
       {isCloudflareIntegrationEnabled && (
         <UndecoratedLink to={getSettingsPath(SettingsPath.CustomDomain)}>
           <SettingsCard
-            title={t`Custom Domain`}
+            title={t`Domain Kustom`}
             Icon={<IconWorld />}
             Status={
               currentWorkspace?.customDomain &&
               currentWorkspace?.isCustomDomainEnabled ? (
-                <Status text={t`Active`} color="turquoise" />
+                <Status text={t`Aktif`} color="turquoise" />
               ) : currentWorkspace?.customDomain ? (
-                <Status text={t`Inactive`} color="orange" />
+                <Status text={t`Nonaktif`} color="orange" />
               ) : undefined
             }
           />

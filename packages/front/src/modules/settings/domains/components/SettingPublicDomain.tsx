@@ -92,7 +92,7 @@ export const SettingPublicDomain = () => {
 
   const applicationPinnedOption: SelectOption<string | null> = {
     value: null,
-    label: t`Workspace (all apps)`,
+    label: t`Ruang Kerja (semua aplikasi)`,
   };
 
   const applicationOptions: SelectOption<string | null>[] = (
@@ -116,7 +116,7 @@ export const SettingPublicDomain = () => {
       variables: { domain: selectedPublicDomain.domain },
       onCompleted: () => {
         enqueueSuccessSnackBar({
-          message: t`Public domain successfully deleted`,
+          message: t`Domain publik berhasil dihapus`,
         });
         navigate(SettingsPath.Applications);
         refetchPublicDomains();
@@ -152,7 +152,7 @@ export const SettingPublicDomain = () => {
       onCompleted: (data) => {
         setSelectedPublicDomain(data.createPublicDomain);
         enqueueSuccessSnackBar({
-          message: t`Public domain created successfully`,
+          message: t`Domain publik berhasil dibuat`,
         });
       },
       onError: (error) => {
@@ -182,7 +182,7 @@ export const SettingPublicDomain = () => {
       onCompleted: (data) => {
         setSelectedPublicDomain(data.updatePublicDomain);
         enqueueSuccessSnackBar({
-          message: t`Public domain updated successfully`,
+          message: t`Domain publik berhasil diperbarui`,
         });
         refetchPublicDomains();
       },
@@ -195,17 +195,17 @@ export const SettingPublicDomain = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Public domain`}
+      title={t`Domain Publik`}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Apps</Trans>,
+          children: <Trans>Aplikasi</Trans>,
           href: getSettingsPath(SettingsPath.Applications),
         },
-        { children: <Trans>Public Domain</Trans> },
+        { children: <Trans>Domain Publik</Trans> },
       ]}
       actionButton={
         <SaveAndCancelButtons
@@ -218,8 +218,8 @@ export const SettingPublicDomain = () => {
       <SettingsPageContainer>
         <Section>
           <H2Title
-            title={t`Public domain`}
-            description={t`Set the name of your public domain and configure your DNS records.`}
+            title={t`Domain Publik`}
+            description={t`Atur nama domain publik Anda dan konfigurasikan rekaman DNS.`}
           />
           {isDefined(selectedPublicDomain) && (
             <CheckPublicDomainValidRecordsEffect
@@ -243,7 +243,7 @@ export const SettingPublicDomain = () => {
                     <Button
                       isLoading={isLoading}
                       Icon={IconReload}
-                      title={t`Reload`}
+                      title={t`Muat ulang`}
                       variant="primary"
                       onClick={() =>
                         checkPublicDomainRecords(selectedPublicDomain.domain)
@@ -272,12 +272,12 @@ export const SettingPublicDomain = () => {
         </Section>
         <Section>
           <H2Title
-            title={t`Bound App`}
-            description={t`Restrict this domain to the HTTP routes of a specific app. Leave empty to expose all workspace HTTP routes.`}
+            title={t`Aplikasi Terhubung`}
+            description={t`Batasi domain ini ke rute HTTP aplikasi tertentu. Kosongkan untuk mengekspos semua rute HTTP ruang kerja.`}
           />
           <Select
             dropdownId="public-domain-application"
-            label={t`Application`}
+            label={t`Aplikasi`}
             fullWidth
             value={selectedApplicationId}
             pinnedOption={applicationPinnedOption}

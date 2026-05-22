@@ -45,7 +45,7 @@ export const SettingsEmailingDomainRowDropdownMenu = ({
       });
 
       enqueueSuccessSnackBar({
-        message: t`Emailing domain deleted successfully`,
+        message: t`Domain email berhasil dihapus`,
       });
 
       await refetchEmailingDomains();
@@ -69,7 +69,7 @@ export const SettingsEmailingDomainRowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text={t`Delete`}
+              text={t`Hapus`}
               onClick={() => {
                 handleDeleteEmailingDomain();
                 closeDropdown(dropdownId);

@@ -45,11 +45,11 @@ export const SettingsSubdomain = () => {
         title={t`Subdomain`}
         links={[
           {
-            children: <Trans>Workspace</Trans>,
+            children: <Trans>Ruang Kerja</Trans>,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: <Trans>General</Trans>,
+            children: <Trans>Umum</Trans>,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           { children: <Trans>Subdomain</Trans> },
@@ -67,7 +67,7 @@ export const SettingsSubdomain = () => {
           <Section>
             <H2Title
               title={t`Subdomain`}
-              description={t`Set the name of your subdomain`}
+              description={t`Atur nama subdomain Anda`}
             />
             <StyledDomainFormWrapper>
               <TextInput
@@ -89,8 +89,8 @@ export const SettingsSubdomain = () => {
       </SubMenuTopBarContainer>
       <ConfirmationModal
         modalInstanceId={SUBDOMAIN_CHANGE_CONFIRMATION_MODAL_ID}
-        title={t`Change subdomain?`}
-        subtitle={t`You're about to change your workspace subdomain. This action will log out all users.`}
+        title={t`Ubah subdomain?`}
+        subtitle={t`Anda akan mengubah subdomain ruang kerja. Tindakan ini akan mengeluarkan semua pengguna.`}
         onConfirmClick={handleConfirm}
       />
     </>
