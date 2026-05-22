@@ -52,7 +52,7 @@ export const ObjectOptionsDropdownCustomView = ({
     ? {
         ...currentView,
         key: null,
-        name: currentView.name || t`Custom View`,
+        name: currentView.name || t`Tampilan Kustom`,
       }
     : null;
 
@@ -142,7 +142,7 @@ export const ObjectOptionsDropdownCustomView = ({
               LeftIcon={viewTypeIconMapping(
                 customViewData?.type ?? ViewType.TABLE,
               )}
-              text={t`Layout`}
+              text={t`Tata letak`}
               contextualText={`${capitalize(customViewData?.type ?? '')}`}
               contextualTextPosition="right"
               hasSubMenu
@@ -156,11 +156,11 @@ export const ObjectOptionsDropdownCustomView = ({
               focused={selectedItemId === 'Visibility'}
               onClick={() => onContentChange('visibility')}
               LeftIcon={IconShare}
-              text={t`Visibility`}
+              text={t`Visibilitas`}
               contextualText={
                 customViewData?.visibility === 'UNLISTED'
-                  ? t`Unlisted`
-                  : t`Workspace`
+                  ? t`Tidak terdaftar`
+                  : t`Ruang Kerja`
               }
               contextualTextPosition="right"
               hasSubMenu
@@ -180,10 +180,10 @@ export const ObjectOptionsDropdownCustomView = ({
                     focused={selectedItemId === 'CalendarDateField'}
                     onClick={() => onContentChange('calendarFields')}
                     LeftIcon={IconCalendar}
-                    text={t`Date field`}
+                    text={t`Kolom tanggal`}
                     contextualText={
                       isDefaultView
-                        ? t`Not available on Default View`
+                        ? t`Tidak tersedia di Tampilan Bawaan`
                         : calendarFieldMetadata?.label
                     }
                     contextualTextPosition="right"
@@ -200,13 +200,13 @@ export const ObjectOptionsDropdownCustomView = ({
                   focused={selectedItemId === 'CalendarView'}
                   onClick={() => onContentChange('calendarView')}
                   LeftIcon={IconCalendarWeek}
-                  text={t`Calendar view`}
+                  text={t`Tampilan kalender`}
                   contextualText={
                     recordIndexCalendarLayout === ViewCalendarLayout.MONTH
-                      ? t`Month`
+                      ? t`Bulan`
                       : recordIndexCalendarLayout === ViewCalendarLayout.WEEK
-                        ? t`Week`
-                        : t`Day`
+                        ? t`Minggu`
+                        : t`Hari`
                   }
                   contextualTextPosition="right"
                 />
@@ -221,8 +221,8 @@ export const ObjectOptionsDropdownCustomView = ({
               focused={selectedItemId === 'Fields'}
               onClick={() => onContentChange('fields')}
               LeftIcon={IconListDetails}
-              text={t`Fields`}
-              contextualText={t`${visibleFieldsCount} shown`}
+              text={t`Kolom`}
+              contextualText={t`${visibleFieldsCount} ditampilkan`}
               contextualTextPosition="right"
               hasSubMenu
             />
@@ -245,10 +245,10 @@ export const ObjectOptionsDropdownCustomView = ({
                       : onContentChange('recordGroupFields')
                   }
                   LeftIcon={IconLayoutList}
-                  text={t`Group`}
+                  text={t`Kelompok`}
                   contextualText={
                     isDefaultView
-                      ? t`Not available on Default View`
+                      ? t`Tidak tersedia di Tampilan Bawaan`
                       : recordIndexGroupFieldMetadataItem?.label
                   }
                   contextualTextPosition="right"
@@ -261,7 +261,7 @@ export const ObjectOptionsDropdownCustomView = ({
           {isDefaultView && (
             <AppTooltip
               anchorSelect={`#group-by-menu-item`}
-              content={t`Not available on Default View`}
+              content={t`Tidak tersedia di Tampilan Bawaan`}
               noArrow
               place="bottom"
               width="100%"
@@ -279,7 +279,7 @@ export const ObjectOptionsDropdownCustomView = ({
                 focused={selectedItemId === 'Delete view'}
                 onClick={() => handleDelete()}
                 LeftIcon={IconTrash}
-                text={t`Delete view`}
+                text={t`Hapus tampilan`}
                 disabled={isDefaultView || isLastView}
               />
             </SelectableListItem>
@@ -289,8 +289,8 @@ export const ObjectOptionsDropdownCustomView = ({
               anchorSelect={`#delete-view-menu-item`}
               content={
                 isDefaultView
-                  ? t`Not available on Default View`
-                  : t`Cannot delete the only view`
+                  ? t`Tidak tersedia di Tampilan Bawaan`
+                  : t`Tidak dapat menghapus satu-satunya tampilan`
               }
               noArrow
               place="bottom"

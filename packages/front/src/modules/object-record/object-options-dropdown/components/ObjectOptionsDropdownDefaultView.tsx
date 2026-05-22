@@ -65,7 +65,7 @@ export const ObjectOptionsDropdownDefaultView = () => {
     <DropdownContent>
       <DropdownMenuItemsContainer scrollable={false}>
         <MenuItem
-          text={t`Default View`}
+          text={t`Tampilan Bawaan`}
           LeftIcon={MainIcon}
           RightIcon={IconLock}
           disabled={true}
@@ -86,8 +86,8 @@ export const ObjectOptionsDropdownDefaultView = () => {
               focused={selectedItemId === 'Fields'}
               onClick={() => onContentChange('fields')}
               LeftIcon={IconListDetails}
-              text={t`Fields`}
-              contextualText={t`${visibleFieldsCount} shown`}
+              text={t`Kolom`}
+              contextualText={t`${visibleFieldsCount} ditampilkan`}
               contextualTextPosition="right"
               hasSubMenu
             />
@@ -99,17 +99,17 @@ export const ObjectOptionsDropdownDefaultView = () => {
             itemId="Copy link to view"
             onEnter={() => {
               const currentUrl = window.location.href;
-              copyToClipboard(currentUrl, t`Link copied to clipboard`);
+              copyToClipboard(currentUrl, t`Tautan disalin`);
             }}
           >
             <MenuItem
               focused={selectedItemId === 'Copy link to view'}
               onClick={() => {
                 const currentUrl = window.location.href;
-                copyToClipboard(currentUrl, t`Link copied to clipboard`);
+                copyToClipboard(currentUrl, t`Tautan disalin`);
               }}
               LeftIcon={IconCopy}
-              text={t`Copy link to view`}
+              text={t`Salin tautan tampilan`}
             />
           </SelectableListItem>
           <SelectableListItem
@@ -120,7 +120,7 @@ export const ObjectOptionsDropdownDefaultView = () => {
               focused={selectedItemId === 'Create custom view'}
               onClick={handleCreateCustomView}
               LeftIcon={IconLayout}
-              text={t`Create custom view`}
+              text={t`Buat tampilan kustom`}
               contextualTextPosition="right"
             />
           </SelectableListItem>

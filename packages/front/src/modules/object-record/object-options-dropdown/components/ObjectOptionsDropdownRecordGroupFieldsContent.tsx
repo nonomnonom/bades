@@ -117,19 +117,19 @@ export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {
           />
         }
       >
-        {t`Group by`}
+        {t`Kelompokkan berdasarkan`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
         value={recordGroupFieldSearchInput}
-        placeholder={t`Search fields`}
+        placeholder={t`Cari kolom`}
         onChange={(event) => setRecordGroupFieldSearchInput(event.target.value)}
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer>
         {viewType === ViewType.TABLE && (
           <MenuItemSelect
-            text={t`None`}
+            text={t`Tidak ada`}
             selected={!isDefined(recordIndexGroupFieldMetadataItem)}
             onClick={handleResetRecordGroupField}
           />
@@ -155,7 +155,7 @@ export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {
             closeDropdown();
           }}
         >
-          <MenuItem LeftIcon={IconSettings} text={t`Create select field`} />
+          <MenuItem LeftIcon={IconSettings} text={t`Buat kolom pilihan`} />
         </UndecoratedLink>
       </DropdownMenuItemsContainer>
     </DropdownContent>

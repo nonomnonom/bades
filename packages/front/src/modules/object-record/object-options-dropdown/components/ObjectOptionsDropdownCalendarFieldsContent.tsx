@@ -66,12 +66,12 @@ export const ObjectOptionsDropdownCalendarFieldsContent = () => {
           />
         }
       >
-        {t`Date field`}
+        {t`Kolom tanggal`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
         value={searchInput}
-        placeholder={t`Search fields`}
+        placeholder={t`Cari kolom`}
         onChange={(event) => setSearchInput(event.target.value)}
       />
       <DropdownMenuSeparator />
@@ -90,7 +90,7 @@ export const ObjectOptionsDropdownCalendarFieldsContent = () => {
       <DropdownMenuItemsContainer scrollable={false}>
         <MenuItem
           LeftIcon={IconSettings}
-          text={t`Create date field`}
+          text={t`Buat kolom tanggal`}
           onClick={() => {
             navigateToDateFieldSettings();
             closeDropdown();

@@ -88,10 +88,10 @@ export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
           />
         }
       >
-        {t`Hidden`} {recordIndexGroupFieldMetadataItem?.label}
+        {t`Tersembunyi`} {recordIndexGroupFieldMetadataItem?.label}
       </DropdownMenuHeader>
       <RecordGroupsVisibilityDropdownSection
-        title={`${t`Hidden`} ${recordIndexGroupFieldMetadataItem?.label}`}
+        title={`${t`Tersembunyi`} ${recordIndexGroupFieldMetadataItem?.label}`}
         recordGroupIds={hiddenRecordGroupIds}
         onVisibilityChange={handleRecordGroupVisibilityChange}
         isDraggable={false}
@@ -108,7 +108,7 @@ export const ObjectOptionsDropdownHiddenRecordGroupsContent = () => {
         }}
       >
         <DropdownMenuItemsContainer>
-          <MenuItem LeftIcon={IconSettings} text={t`Edit field values`} />
+          <MenuItem LeftIcon={IconSettings} text={t`Ubah nilai kolom`} />
         </DropdownMenuItemsContainer>
       </UndecoratedLink>
     </DropdownContent>

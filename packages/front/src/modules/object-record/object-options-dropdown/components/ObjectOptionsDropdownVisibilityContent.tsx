@@ -59,7 +59,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
 
   const handleCopyLink = async () => {
     const currentUrl = window.location.href;
-    await copyToClipboard(currentUrl, t`Link copied to clipboard`);
+    await copyToClipboard(currentUrl, t`Tautan disalin`);
   };
 
   const currentVisibility = currentView?.visibility ?? ViewVisibility.WORKSPACE;
@@ -74,7 +74,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
           />
         }
       >
-        {t`Visibility`}
+        {t`Visibilitas`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -94,8 +94,8 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
               <div id="workspace-visibility-option">
                 <MenuItemSelect
                   LeftIcon={IconCircle}
-                  text={t`Workspace`}
-                  contextualText={t`Everyone`}
+                  text={t`Ruang Kerja`}
+                  contextualText={t`Semua orang`}
                   selected={currentVisibility === ViewVisibility.WORKSPACE}
                   focused={selectedItemId === ViewVisibility.WORKSPACE}
                   onClick={() =>
@@ -108,7 +108,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
                 createPortal(
                   <AppTooltip
                     anchorSelect="#workspace-visibility-option"
-                    content={t`Workspace views require manage views permission`}
+                    content={t`Tampilan Ruang Kerja memerlukan izin kelola tampilan`}
                     positionStrategy="fixed"
                   />,
                   document.body,
@@ -124,8 +124,8 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconCircleDashed}
-              text={t`Unlisted`}
-              contextualText={t`Visible to you`}
+              text={t`Tidak terdaftar`}
+              contextualText={t`Hanya terlihat oleh Anda`}
               selected={currentVisibility === ViewVisibility.UNLISTED}
               focused={selectedItemId === ViewVisibility.UNLISTED}
               onClick={() => handleVisibilityChange(ViewVisibility.UNLISTED)}
@@ -143,7 +143,7 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
                   focused={selectedItemId === 'Copy view link'}
                   onClick={handleCopyLink}
                   LeftIcon={IconCopy}
-                  text={t`Copy view link`}
+                  text={t`Salin tautan tampilan`}
                 />
               </SelectableListItem>
             </>

@@ -15,7 +15,7 @@ import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
+import { useLingui } from '@lingui/react/macro';
 import {
   IconChevronLeft,
   IconHandMove,
@@ -25,6 +25,7 @@ import {
 import { MenuItemSelect } from 'ui/navigation';
 
 export const ObjectOptionsDropdownRecordGroupSortContent = () => {
+  const { t } = useLingui();
   const { currentContentId, onContentChange } = useObjectOptionsDropdown();
 
   const hiddenRecordGroupIds = useAtomComponentSelectorValue(
@@ -68,7 +69,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
           />
         }
       >
-        {t`Sort`}
+        {t`Urutkan`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <SelectableList
@@ -85,7 +86,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
                 handleRecordGroupSortChange(RecordGroupSort.Manual)
               }
               LeftIcon={IconHandMove}
-              text={RecordGroupSort.Manual}
+              text={t`Manual`}
               selected={recordIndexRecordGroupSort === RecordGroupSort.Manual}
               focused={selectedItemId === RecordGroupSort.Manual}
             />
@@ -101,7 +102,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
                 handleRecordGroupSortChange(RecordGroupSort.Alphabetical)
               }
               LeftIcon={IconSortAZ}
-              text={RecordGroupSort.Alphabetical}
+              text={t`Alfabetis`}
               selected={
                 recordIndexRecordGroupSort === RecordGroupSort.Alphabetical
               }
@@ -119,7 +120,7 @@ export const ObjectOptionsDropdownRecordGroupSortContent = () => {
                 handleRecordGroupSortChange(RecordGroupSort.ReverseAlphabetical)
               }
               LeftIcon={IconSortZA}
-              text={RecordGroupSort.ReverseAlphabetical}
+              text={t`Alfabetis terbalik`}
               selected={
                 recordIndexRecordGroupSort ===
                 RecordGroupSort.ReverseAlphabetical
