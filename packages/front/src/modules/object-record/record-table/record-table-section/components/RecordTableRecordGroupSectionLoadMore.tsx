@@ -31,7 +31,7 @@ export const RecordTableRecordGroupSectionLoadMore = () => {
   return (
     <RecordTableActionRow
       LeftIcon={IconArrowDown}
-      text={t`Load more`}
+      text={t`Muat lagi`}
       onClick={handleLoadMore}
     />
   );

@@ -6,12 +6,12 @@ export const getEmptyStateTitle = (
   objectLabel: string,
 ) => {
   if (objectNameSingular === CoreObjectNameSingular.WorkflowVersion) {
-    return t`No workflow versions yet`;
+    return t`Belum ada versi alur kerja`;
   }
 
   if (objectNameSingular === CoreObjectNameSingular.WorkflowRun) {
-    return t`No workflow runs yet`;
+    return t`Belum ada eksekusi alur kerja`;
   }
 
-  return t`Add your first ${objectLabel}`;
+  return t`Tambah ${objectLabel} pertama Anda`;
 };

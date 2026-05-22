@@ -36,7 +36,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`More options`}
+          title={t`Opsi lainnya`}
         />
       );
     }
@@ -50,7 +50,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Count`}
+          title={t`Jumlah`}
         />
       );
     }
@@ -64,7 +64,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Percent`}
+          title={t`Persentase`}
         />
       );
     }
@@ -78,7 +78,7 @@ export const RecordTableColumnAggregateFooterDropdownContent = () => {
       return (
         <RecordTableColumnAggregateFooterDropdownSubmenuContent
           aggregateOperations={aggregateOperations}
-          title={t`Date`}
+          title={t`Tanggal`}
         />
       );
     }

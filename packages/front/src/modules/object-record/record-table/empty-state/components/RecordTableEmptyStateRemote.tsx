@@ -14,9 +14,9 @@ export const RecordTableEmptyStateRemote = () => {
 
   return (
     <RecordTableEmptyStateDisplay
-      buttonTitle={t`Go to Settings`}
-      subTitle={t`If this is unexpected, please verify your settings.`}
-      title={t`No Data Available for Remote Table`}
+      buttonTitle={t`Buka Pengaturan`}
+      subTitle={t`Jika ini tidak terduga, periksa kembali pengaturan Anda.`}
+      title={t`Tidak ada data tersedia untuk tabel jarak jauh`}
       ButtonIcon={IconSettings}
       animatedPlaceholderType="noRecord"
       onClick={handleButtonClick}

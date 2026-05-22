@@ -60,7 +60,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
           onClick={() => {
             onContentChange('countAggregateOperationsOptions');
           }}
-          text={t`Count`}
+          text={t`Jumlah`}
           hasSubMenu
         />
         {!fieldIsRelation && (
@@ -68,7 +68,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             onClick={() => {
               onContentChange('percentAggregateOperationsOptions');
             }}
-            text={t`Percent`}
+            text={t`Persentase`}
             hasSubMenu
           />
         )}
@@ -77,7 +77,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             onClick={() => {
               onContentChange('datesAggregateOperationsOptions');
             }}
-            text={t`Date`}
+            text={t`Tanggal`}
             hasSubMenu
           />
         )}
@@ -86,7 +86,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             onClick={() => {
               onContentChange('moreAggregateOperationOptions');
             }}
-            text={t`More options`}
+            text={t`Opsi lainnya`}
             hasSubMenu
           />
         ) : null}
@@ -97,7 +97,7 @@ export const RecordTableColumnAggregateFooterMenuContent = () => {
             resetContent();
             closeDropdown(dropdownId);
           }}
-          text={t`None`}
+          text={t`Tidak ada`}
           RightIcon={
             !isDefined(currentViewFieldAggregateOperation)
               ? IconCheck

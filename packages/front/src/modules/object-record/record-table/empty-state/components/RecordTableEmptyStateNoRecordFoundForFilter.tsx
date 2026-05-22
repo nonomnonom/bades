@@ -18,11 +18,11 @@ export const RecordTableEmptyStateNoRecordFoundForFilter = () => {
 
   const objectLabelSingular = useObjectLabel(objectMetadataItem);
 
-  const buttonTitle = t`Add a ${objectLabelSingular}`;
+  const buttonTitle = t`Tambah ${objectLabelSingular}`;
 
-  const title = t`No ${objectLabelSingular} found`;
+  const title = t`Tidak ada ${objectLabelSingular} ditemukan`;
 
-  const subTitle = t`No records matching the filter criteria were found.`;
+  const subTitle = t`Tidak ada data yang sesuai dengan kriteria filter.`;
 
   return (
     <RecordTableEmptyStateDisplay

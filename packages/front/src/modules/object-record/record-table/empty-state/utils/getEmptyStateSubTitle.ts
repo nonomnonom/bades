@@ -6,12 +6,12 @@ export const getEmptyStateSubTitle = (
   objectLabel: string,
 ) => {
   if (objectNameSingular === CoreObjectNameSingular.WorkflowVersion) {
-    return t`Create a workflow and return here to view its versions`;
+    return t`Buat alur kerja dan kembali ke sini untuk melihat versinya`;
   }
 
   if (objectNameSingular === CoreObjectNameSingular.WorkflowRun) {
-    return t`Run a workflow and return here to view its executions`;
+    return t`Jalankan alur kerja dan kembali ke sini untuk melihat eksekusinya`;
   }
 
-  return t`Use our API or add your first ${objectLabel} manually`;
+  return t`Tambahkan ${objectLabel} pertama Anda secara manual`;
 };

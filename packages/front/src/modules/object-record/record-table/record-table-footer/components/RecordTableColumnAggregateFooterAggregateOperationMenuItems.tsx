@@ -54,7 +54,7 @@ export const RecordTableColumnAggregateFooterAggregateOperationMenuItems = ({
           resetContent();
           closeDropdown(dropdownId);
         }}
-        text={t`None`}
+        text={t`Tidak ada`}
         RightIcon={
           !isDefined(currentViewFieldAggregateOperation) ? IconCheck : undefined
         }

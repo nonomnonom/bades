@@ -85,7 +85,7 @@ export const RecordTableHeaderPlusButtonContent = () => {
           <DropdownMenuSearchInput
             autoFocus
             value={searchInput}
-            placeholder={t`Search fields`}
+            placeholder={t`Cari kolom`}
             onChange={(event) => setSearchInput(event.target.value)}
           />
           <DropdownMenuSeparator />
@@ -109,8 +109,8 @@ export const RecordTableHeaderPlusButtonContent = () => {
             accent="placeholder"
             text={
               hasAvailableFields
-                ? t`No results`
-                : t`All fields are already visible`
+                ? t`Tidak ada hasil`
+                : t`Semua kolom sudah ditampilkan`
             }
           />
         )}
@@ -126,7 +126,7 @@ export const RecordTableHeaderPlusButtonContent = () => {
             setNavigationMemorizedUrl(location.pathname + location.search);
           }}
         >
-          <MenuItem LeftIcon={IconSettings} text={t`Customize fields`} />
+          <MenuItem LeftIcon={IconSettings} text={t`Atur kolom`} />
         </UndecoratedLink>
       </DropdownMenuItemsContainer>
     </DropdownContent>
