@@ -188,7 +188,7 @@ export const AdvancedFilterFieldSelectMenu = ({
       >
         {shouldShowVisibleFields && (
           <>
-            <DropdownMenuSectionLabel label={t`Visible fields`} />
+            <DropdownMenuSectionLabel label={t`Kolom terlihat`} />
             <DropdownMenuItemsContainer>
               {visibleFieldMetadataItems.map(
                 (visibleFieldMetadataItem, index) => (
@@ -213,7 +213,7 @@ export const AdvancedFilterFieldSelectMenu = ({
         {shouldShowHiddenFields && (
           <>
             {visibleFieldMetadataItems.length > 0 && (
-              <DropdownMenuSectionLabel label={t`Hidden fields`} />
+              <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
             )}
             <DropdownMenuItemsContainer>
               {hiddenColumnsFieldMetadataItems.map(

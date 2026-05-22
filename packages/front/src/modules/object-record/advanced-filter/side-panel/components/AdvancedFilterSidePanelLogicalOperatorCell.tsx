@@ -40,7 +40,7 @@ export const AdvancedFilterSidePanelLogicalOperatorCell = ({
   return (
     <StyledContainer>
       {index === 0 ? (
-        <StyledText>{t`Where`}</StyledText>
+        <StyledText>{t`Dimana`}</StyledText>
       ) : index === 1 ? (
         readonly ? (
           <Select

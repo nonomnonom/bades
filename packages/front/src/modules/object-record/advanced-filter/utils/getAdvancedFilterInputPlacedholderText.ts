@@ -15,21 +15,21 @@ export const getAdvancedFilterInputPlaceholderText = (
     case FieldMetadataType.PHONES:
     case FieldMetadataType.ARRAY:
     case FieldMetadataType.FULL_NAME:
-      return `Enter value for ${fieldMetadataItem.label}`;
+      return `Masukkan nilai untuk ${fieldMetadataItem.label}`;
     case FieldMetadataType.NUMBER:
-      return 'Enter number';
+      return 'Masukkan angka';
     case FieldMetadataType.DATE:
     case FieldMetadataType.DATE_TIME:
-      return 'Enter date';
+      return 'Masukkan tanggal';
     case FieldMetadataType.ACTOR:
-      return 'Select actor';
+      return 'Pilih pelaku';
     case FieldMetadataType.RELATION:
-      return `Select ${fieldMetadataItem.relation?.targetObjectMetadata.nameSingular}`;
+      return `Pilih ${fieldMetadataItem.relation?.targetObjectMetadata.nameSingular}`;
     case FieldMetadataType.SELECT:
     case FieldMetadataType.MULTI_SELECT:
-      return `Select ${fieldMetadataItem.label}`;
+      return `Pilih ${fieldMetadataItem.label}`;
 
     default:
-      return 'Enter value';
+      return 'Masukkan nilai';
   }
 };

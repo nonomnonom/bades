@@ -45,7 +45,7 @@ export const AdvancedFilterSidePanelRecordFilterOperandSelect = ({
         selectedOption={{
           label: filter?.operand
             ? getOperandLabel(filter.operand, timeZoneAbbreviation)
-            : t`Select operand`,
+            : t`Pilih operand`,
           value: null,
         }}
         isDisabled

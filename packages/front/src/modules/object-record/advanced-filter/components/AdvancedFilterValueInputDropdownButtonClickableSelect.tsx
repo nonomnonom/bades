@@ -59,7 +59,7 @@ export const AdvancedFilterValueInputDropdownButtonClickableSelect = ({
 
   const placeholderText = isDefined(fieldMetadataItem)
     ? getAdvancedFilterInputPlaceholderText(fieldMetadataItem)
-    : t`Enter filter`;
+    : t`Masukkan filter`;
 
   const recordFilterDisplayValue = getRecordFilterDisplayValue(recordFilter);
 

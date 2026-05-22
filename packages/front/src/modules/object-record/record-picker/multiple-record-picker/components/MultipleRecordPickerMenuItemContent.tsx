@@ -60,7 +60,7 @@ export const MultipleRecordPickerMenuItemContent = ({
 
   const labelSingular = objectMetadataItem.labelSingular;
   const displayText =
-    searchRecord.label?.trim() || t`Untitled ${labelSingular}`;
+    searchRecord.label?.trim() || t`${labelSingular} tanpa judul`;
 
   const multipleRecordPickerSearchableObjectMetadataItems =
     useAtomComponentStateValue(

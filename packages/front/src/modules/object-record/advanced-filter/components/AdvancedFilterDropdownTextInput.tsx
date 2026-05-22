@@ -21,7 +21,7 @@ export const AdvancedFilterDropdownTextInput = ({
     <TextInput
       value={recordFilter.value}
       onChange={handleChange}
-      placeholder={t`Enter value`}
+      placeholder={t`Masukkan nilai`}
       fullWidth
     />
   );

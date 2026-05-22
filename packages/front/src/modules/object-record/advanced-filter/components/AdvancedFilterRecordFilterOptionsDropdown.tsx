@@ -69,7 +69,7 @@ export const AdvancedFilterRecordFilterOptionsDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <IconButton
-          aria-label={t`Record filter rule options`}
+          aria-label={t`Opsi aturan filter`}
           variant="tertiary"
           Icon={IconDotsVertical}
         />
@@ -78,7 +78,7 @@ export const AdvancedFilterRecordFilterOptionsDropdown = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Remove rule`}
+              text={t`Hapus aturan`}
               onClick={handleRemove}
               LeftIcon={IconTrash}
               accent="danger"

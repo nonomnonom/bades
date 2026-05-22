@@ -101,7 +101,7 @@ export const useRecordGroupActions = ({
   const recordGroupActions: RecordGroupAction[] = [
     {
       id: 'edit',
-      label: t`Edit`,
+      label: t`Ubah`,
       icon: IconSettings,
       position: 0,
       condition: hasAccessToDataModelSettings,
@@ -109,7 +109,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'moveRight',
-      label: t`Move right`,
+      label: t`Geser kanan`,
       icon: IconArrowRight,
       condition:
         !isCurrentRecordGroupNotFound &&
@@ -123,7 +123,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'moveLeft',
-      label: t`Move left`,
+      label: t`Geser kiri`,
       icon: IconArrowLeft,
       condition: !isCurrentRecordGroupNotFound && currentIndex > 0,
       position: 2,
@@ -135,7 +135,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'hide',
-      label: t`Hide`,
+      label: t`Sembunyikan`,
       icon: IconEyeOff,
       position: 3,
       callback: () =>

@@ -38,7 +38,7 @@ export const AdvancedFilterFieldSelectSearchInput = () => {
     <StyledInput
       value={objectFilterDropdownSearchInput}
       autoFocus
-      placeholder={t`Search fields`}
+      placeholder={t`Cari kolom`}
       onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
         setObjectFilterDropdownSearchInput(event.target.value)
       }

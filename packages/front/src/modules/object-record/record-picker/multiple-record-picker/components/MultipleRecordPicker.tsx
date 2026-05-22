@@ -114,7 +114,7 @@ export const MultipleRecordPicker = ({
         <CreateNewButton
           onClick={handleCreateNewButtonClick}
           LeftIcon={IconPlus}
-          text={t`Add New`}
+          text={t`Tambah Baru`}
         />
       </DropdownMenuItemsContainer>
     ) : null;
