@@ -55,7 +55,7 @@ jobs:
           KEEPALIVE_DISPATCH_TIME: ${{ github.event.pull_request.updated_at }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          gh api repos/twentyhq/ci-privileged/dispatches \
+          gh api repos/badesid/ci-privileged/dispatches \
             -f event_type=preview-env-url \
             -f "client_payload[pr_number]=$PR_NUMBER" \
             -f "client_payload[keepalive_dispatch_time]=$KEEPALIVE_DISPATCH_TIME" \

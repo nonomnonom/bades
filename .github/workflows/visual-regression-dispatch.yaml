@@ -137,7 +137,7 @@ jobs:
           BRANCH: ${{ github.event.workflow_run.head_branch }}
           COMMIT: ${{ github.event.workflow_run.head_sha }}
         run: |
-          gh api repos/twentyhq/ci-privileged/dispatches \
+          gh api repos/badesid/ci-privileged/dispatches \
             -f event_type=visual-regression \
             -f "client_payload[pr_number]=$PR_NUMBER" \
             -f "client_payload[run_id]=$RUN_ID" \

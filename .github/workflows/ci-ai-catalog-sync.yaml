@@ -62,6 +62,6 @@ jobs:
       - name: Trigger automerge
         if: steps.changes.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.TWENTY_INFRA_TOKEN }}
+          GH_TOKEN: ${{ secrets.BADES_INFRA_TOKEN }}
         run: |
-          gh api repos/twentyhq/twenty-infra/dispatches -f event_type=automated-pr-ready
+          gh api repos/badesid/bades-infra/dispatches -f event_type=automated-pr-ready

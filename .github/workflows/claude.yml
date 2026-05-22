@@ -157,9 +157,9 @@ jobs:
             const p = context.payload.client_payload;
             let prompt;
             if (p.comment_body) {
-              prompt = `You are responding to a comment on issue #${p.issue_number} ("${p.issue_title}") in the ${p.repo_full_name} repository.\n\nThe comment by @${p.sender} says:\n\n${p.comment_body}\n\nIssue body:\n\n${p.issue_body}\n\nPlease help with this request. The code you are working with is the twenty codebase (this repository).`;
+              prompt = `You are responding to a comment on issue #${p.issue_number} ("${p.issue_title}") in the ${p.repo_full_name} repository.\n\nThe comment by @${p.sender} says:\n\n${p.comment_body}\n\nIssue body:\n\n${p.issue_body}\n\nPlease help with this request. The code you are working with is the bades codebase (this repository).`;
             } else {
-              prompt = `You are responding to issue #${p.issue_number} ("${p.issue_title}") in the ${p.repo_full_name} repository, opened by @${p.sender}.\n\nIssue body:\n\n${p.issue_body}\n\nPlease help with this request. The code you are working with is the twenty codebase (this repository).`;
+              prompt = `You are responding to issue #${p.issue_number} ("${p.issue_title}") in the ${p.repo_full_name} repository, opened by @${p.sender}.\n\nIssue body:\n\n${p.issue_body}\n\nPlease help with this request. The code you are working with is the bades codebase (this repository).`;
             }
             core.setOutput('prompt', prompt);
             core.setOutput('repo', p.repo_full_name);
@@ -188,7 +188,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          gh api repos/twentyhq/ci-privileged/dispatches \
+          gh api repos/badesid/ci-privileged/dispatches \
             -f event_type=claude-cross-repo-response \
             -f "client_payload[repo]=$REPO" \
             -f "client_payload[issue_number]=$ISSUE_NUMBER" \

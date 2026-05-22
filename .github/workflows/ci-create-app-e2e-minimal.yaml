@@ -19,11 +19,11 @@ jobs:
     uses: ./.github/workflows/changed-files.yaml
     with:
       files: |
-        packages/create-twenty-app/**
+        packages/create-bades-app/**
         packages/sdk/**
         packages/client-sdk/**
         packages/shared/**
-        !packages/create-twenty-app/package.json
+        !packages/create-bades-app/package.json
         !packages/sdk/package.json
         !packages/client-sdk/package.json
         !packages/shared/package.json
@@ -50,9 +50,9 @@ jobs:
         ports:
           - 6379:6379
     env:
-      PUBLISHABLE_PACKAGES: client-sdk sdk create-twenty-app
-      TWENTY_API_URL: http://localhost:3000
-      TWENTY_API_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDIwMjAyMC1lNmI1LTQ2ODAtOGEzMi1iODIwOTczNzE1NmIiLCJ1c2VySWQiOiIyMDIwMjAyMC1lNmI1LTQ2ODAtOGEzMi1iODIwOTczNzE1NmIiLCJ3b3Jrc3BhY2VJZCI6IjIwMjAyMDIwLTFjMjUtNGQwMi1iZjI1LTZhZWNjZjdlYTQxOSIsIndvcmtzcGFjZU1lbWJlcklkIjoiMjAyMDIwMjAtNDYzZi00MzViLTgyOGMtMTA3ZTAwN2EyNzExIiwidXNlcldvcmtzcGFjZUlkIjoiMjAyMDIwMjAtMWU3Yy00M2Q5LWE1ZGItNjg1YjUwNjlkODE2IiwidHlwZSI6IkFDQ0VTUyIsImF1dGhQcm92aWRlciI6InBhc3N3b3JkIiwiaWF0IjoxNzUxMjgxNzA0LCJleHAiOjIwNjY4NTc3MDR9.HMGqCsVlOAPVUBhKSGlD1X86VoHKt4LIUtET3CGIdik
+      PUBLISHABLE_PACKAGES: client-sdk sdk create-bades-app
+      BADES_API_URL: http://localhost:3000
+      BADES_API_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDIwMjAyMC1lNmI1LTQ2ODAtOGEzMi1iODIwOTczNzE1NmIiLCJ1c2VySWQiOiIyMDIwMjAyMC1lNmI1LTQ2ODAtOGEzMi1iODIwOTczNzE1NmIiLCJ3b3Jrc3BhY2VJZCI6IjIwMjAyMDIwLTFjMjUtNGQwMi1iZjI1LTZhZWNjZjdlYTQxOSIsIndvcmtzcGFjZU1lbWJlcklkIjoiMjAyMDIwMjAtNDYzZi00MzViLTgyOGMtMTA3ZTAwN2EyNzExIiwidXNlcldvcmtzcGFjZUlkIjoiMjAyMDIwMjAtMWU3Yy00M2Q5LWE1ZGItNjg1YjUwNjlkODE2IiwidHlwZSI6IkFDQ0VTUyIsImF1dGhQcm92aWRlciI6InBhc3N3b3JkIiwiaWF0IjoxNzUxMjgxNzA0LCJleHAiOjIwNjY4NTc3MDR9.HMGqCsVlOAPVUBhKSGlD1X86VoHKt4LIUtET3CGIdik
     steps:
       - name: Fetch custom Github Actions and base branch history
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
@@ -153,7 +153,7 @@ jobs:
       - name: Authenticate with Bades server
         run: |
           cd /tmp/e2e-test-workspace/test-app
-          npx --no-install bades remote:add --api-key ${{ env.TWENTY_API_KEY }} --url ${{ env.TWENTY_API_URL }}
+          npx --no-install bades remote:add --api-key ${{ env.BADES_API_KEY }} --url ${{ env.BADES_API_URL }}
 
       - name: Run scaffolded app integration test (deploys, installs, and verifies the app)
         run: |

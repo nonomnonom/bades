@@ -70,7 +70,7 @@ jobs:
           REPOSITORY: ${{ github.repository }}
           BRANCH_STATE: ${{ github.event.workflow_run.head_branch }}
         run: |
-          gh api repos/twentyhq/ci-privileged/dispatches \
+          gh api repos/badesid/ci-privileged/dispatches \
             -f event_type=breaking-changes-report \
             -f "client_payload[pr_number]=$PR_NUMBER" \
             -f "client_payload[run_id]=$RUN_ID" \

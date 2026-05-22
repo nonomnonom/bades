@@ -60,7 +60,7 @@ jobs:
       - name: Stash any changes before pulling translations
         run: |
           git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@twenty.com'
+          git config --global user.email 'ci@bades.id'
           git add .
           git stash
 
@@ -129,6 +129,6 @@ jobs:
       - name: Trigger i18n automerge
         if: steps.compile_translations.outputs.changes_detected == 'true'
         env:
-          GH_TOKEN: ${{ secrets.TWENTY_INFRA_TOKEN }}
+          GH_TOKEN: ${{ secrets.BADES_INFRA_TOKEN }}
         run: |
-          gh api repos/twentyhq/twenty-infra/dispatches -f event_type=i18n-pr-ready
+          gh api repos/badesid/bades-infra/dispatches -f event_type=i18n-pr-ready

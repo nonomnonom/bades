@@ -29,13 +29,13 @@ jobs:
           # change image to localbuild using yq
           yq eval 'del(.services.server.image)' -i packages/docker/docker-compose.yml
           yq eval '.services.server.build.context = "../../"' -i packages/docker/docker-compose.yml
-          yq eval '.services.server.build.dockerfile = "./packages/docker/twenty/Dockerfile"' -i packages/docker/docker-compose.yml
-          yq eval '.services.server.build.target = "twenty"' -i packages/docker/docker-compose.yml
+          yq eval '.services.server.build.dockerfile = "./packages/docker/bades/Dockerfile"' -i packages/docker/docker-compose.yml
+          yq eval '.services.server.build.target = "bades"' -i packages/docker/docker-compose.yml
 
           yq eval 'del(.services.worker.image)' -i packages/docker/docker-compose.yml
           yq eval '.services.worker.build.context = "../../"' -i packages/docker/docker-compose.yml
-          yq eval '.services.worker.build.dockerfile = "./packages/docker/twenty/Dockerfile"' -i packages/docker/docker-compose.yml
-          yq eval '.services.worker.build.target = "twenty"' -i packages/docker/docker-compose.yml
+          yq eval '.services.worker.build.dockerfile = "./packages/docker/bades/Dockerfile"' -i packages/docker/docker-compose.yml
+          yq eval '.services.worker.build.target = "bades"' -i packages/docker/docker-compose.yml
 
           echo "Adding SIGN_IN_PREFILLED environment variable to server service..."
           yq eval '.services.server.environment.SIGN_IN_PREFILLED = "${SIGN_IN_PREFILLED}"' -i packages/docker/docker-compose.yml
@@ -126,7 +126,7 @@ jobs:
 
           echo "Waiting for services to be ready..."
           count=0
-          while [ ! $(docker inspect --format='{{.State.Health.Status}}' twenty-db-1) = "healthy" ] || [ ! $(docker inspect --format='{{.State.Health.Status}}' twenty-server-1) = "healthy" ]; do
+          while [ ! $(docker inspect --format='{{.State.Health.Status}}' bades-db-1) = "healthy" ] || [ ! $(docker inspect --format='{{.State.Health.Status}}' bades-server-1) = "healthy" ]; do
               sleep 5
               count=$((count+1))
               if [ $count -gt 60 ]; then

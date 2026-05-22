@@ -81,14 +81,14 @@ RUN if [ -d /app/packages/front/build ]; then \
 
 # ===========================================================================
 # Target: twenty-server (server only, no frontend)
-#   docker build --target twenty-server -f packages/docker/twenty/Dockerfile .
+#   docker build --target twenty-server -f packages/docker/bades/Dockerfile .
 # ===========================================================================
 
 FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS twenty-server
 
 RUN apk add --no-cache curl jq postgresql-client
 
-COPY ./packages/docker/twenty/entrypoint.sh /app/entrypoint.sh
+COPY ./packages/docker/bades/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 WORKDIR /app/packages/server
 
@@ -128,7 +128,7 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 
 # ===========================================================================
 # Target: twenty-server-aws (server only + aws-cli, no frontend)
-#   docker build --target twenty-server-aws -f packages/docker/twenty/Dockerfile .
+#   docker build --target twenty-server-aws -f packages/docker/bades/Dockerfile .
 # ===========================================================================
 
 FROM twenty-server AS twenty-server-aws
@@ -140,7 +140,7 @@ USER 1000
 
 # ===========================================================================
 # Target: twenty (server + frontend)
-#   docker build --target twenty -f packages/docker/twenty/Dockerfile .
+#   docker build --target twenty -f packages/docker/bades/Dockerfile .
 # ===========================================================================
 
 FROM twenty-server AS twenty
@@ -152,7 +152,7 @@ LABEL org.opencontainers.image.description="Bades image with backend and fronten
 
 # ===========================================================================
 # Target: twenty-aws (server + frontend + aws-cli)
-#   docker build --target twenty-aws -f packages/docker/twenty/Dockerfile .
+#   docker build --target twenty-aws -f packages/docker/bades/Dockerfile .
 # ===========================================================================
 
 FROM twenty AS twenty-aws
@@ -164,7 +164,7 @@ USER 1000
 
 # ===========================================================================
 # Target: twenty-app-dev (all-in-one with Postgres + Redis)
-#   docker build --target twenty-app-dev -f packages/docker/twenty/Dockerfile .
+#   docker build --target twenty-app-dev -f packages/docker/bades/Dockerfile .
 # ===========================================================================
 
 FROM alpine:3.20 AS s6-fetch

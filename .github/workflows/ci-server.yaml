@@ -97,7 +97,7 @@ jobs:
           steps.changed-files.outputs.any_changed == 'true' &&
           !contains(github.event.pull_request.labels.*.name, 'ci:allow-previous-version-upgrade-mutation')
         run: |
-          VERSION_CONSTANT_FILE="packages/server/src/engine/core-modules/upgrade/constants/twenty-current-version.constant.ts"
+          VERSION_CONSTANT_FILE="packages/server/src/engine/core-modules/upgrade/constants/bades-current-version.constant.ts"
 
           CURRENT_VERSION=$(sed -n "s/.*TWENTY_CURRENT_VERSION = '\([0-9.]*\)'.*/\1/p" "$VERSION_CONSTANT_FILE")
 
@@ -324,7 +324,7 @@ jobs:
         image: clickhouse/clickhouse-server:25.8.8
         env:
           CLICKHOUSE_PASSWORD: clickhousePassword
-          CLICKHOUSE_URL: "http://default:clickhousePassword@localhost:8123/twenty"
+          CLICKHOUSE_URL: "http://default:clickhousePassword@localhost:8123/bades"
         ports:
           - 8123:8123
           - 9000:9000
@@ -336,7 +336,7 @@ jobs:
     env:
       NODE_ENV: test
       ANALYTICS_ENABLED: true
-      CLICKHOUSE_URL: "http://default:clickhousePassword@localhost:8123/twenty"
+      CLICKHOUSE_URL: "http://default:clickhousePassword@localhost:8123/bades"
       CLICKHOUSE_PASSWORD: clickhousePassword
       SHARD_COUNTER: 10
     steps:
