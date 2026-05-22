@@ -13,8 +13,8 @@ export const PageLayoutWidgetInvalidConfigDisplay = () => {
   const widget = useCurrentWidget();
   const tooltipId = `widget-invalid-config-tooltip-${widget.id}`;
 
-  const text = t`Invalid Configuration`;
-  const tooltipContent = t`Invalid configuration. Click edit to configure this widget.`;
+  const text = t`Konfigurasi tidak valid`;
+  const tooltipContent = t`Konfigurasi tidak valid. Klik ubah untuk mengonfigurasi widget ini.`;
 
   return (
     <StyledInvalidConfigContainer>

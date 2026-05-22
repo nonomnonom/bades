@@ -78,10 +78,10 @@ export const FieldWidget = ({ widget }: FieldWidgetProps) => {
             <AnimatedPlaceholder type="noRecord" />
             <AnimatedPlaceholderEmptyTextContainer>
               <AnimatedPlaceholderEmptyTitle>
-                {t`No field configured`}
+                {t`Tidak ada kolom dikonfigurasi`}
               </AnimatedPlaceholderEmptyTitle>
               <AnimatedPlaceholderEmptySubTitle>
-                {t`Select a field to display in this widget`}
+                {t`Pilih kolom untuk ditampilkan di widget ini`}
               </AnimatedPlaceholderEmptySubTitle>
             </AnimatedPlaceholderEmptyTextContainer>
           </AnimatedPlaceholderEmptyContainer>

@@ -62,7 +62,7 @@ export const EmailThreadWidget = ({
     return (
       <StyledWrapper>
         <StyledContainer>
-          <EmailLoader loadingText={t`Loading thread`} />
+          <EmailLoader loadingText={t`Memuat percakapan`} />
         </StyledContainer>
       </StyledWrapper>
     );

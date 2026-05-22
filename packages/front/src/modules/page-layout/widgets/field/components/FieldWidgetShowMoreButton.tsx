@@ -45,7 +45,7 @@ export const FieldWidgetShowMoreButton = ({
       <StyledIconContainer>
         <IconChevronDown />
       </StyledIconContainer>
-      {t`More (${remainingCount})`}
+      {t`Lainnya (${remainingCount})`}
     </StyledButton>
   );
 };

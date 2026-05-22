@@ -60,7 +60,7 @@ export const DashboardColorSelectionMenu = ({
   return (
     <DropdownContent>
       <DropdownMenuItemsContainer hasMaxHeight>
-        <DropdownMenuSectionLabel label={t`Text Colors`} />
+        <DropdownMenuSectionLabel label={t`Warna Teks`} />
 
         {BLOCKNOTE_COLORS.map((colorName) => (
           <StyledColorMenuItem
@@ -81,7 +81,7 @@ export const DashboardColorSelectionMenu = ({
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuSectionLabel label={t`Background Colors`} />
+        <DropdownMenuSectionLabel label={t`Warna Latar`} />
         {BLOCKNOTE_COLORS.map((colorName) => (
           <StyledColorMenuItem
             key={`bg-${colorName}`}

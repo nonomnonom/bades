@@ -61,27 +61,27 @@ export const RecordPageAddWidgetSection = () => {
           stroke={theme.icon.stroke.md}
           color={theme.font.color.extraLight}
         />
-        {t`Add widget`}
+        {t`Tambah widget`}
       </StyledHeader>
       <StyledMenuItemList>
         <MenuItem
           LeftIcon={IconListDetails}
           withIconContainer
-          text={t`Fields group`}
-          contextualText={t`Group multiple fields from this record`}
+          text={t`Grup kolom`}
+          contextualText={t`Kelompokkan beberapa kolom dari data ini`}
           onClick={createRecordPageFieldsWidget}
         />
         <MenuItem
           LeftIcon={IconListSearch}
           withIconContainer
-          text={t`Field`}
-          contextualText={t`Single field with smart formats`}
+          text={t`Kolom`}
+          contextualText={t`Satu kolom dengan format cerdas`}
           onClick={createRecordPageFieldWidget}
         />
         <MenuItem
           LeftIcon={IconPlus}
           withIconContainer
-          text={t`More widgets`}
+          text={t`Widget lainnya`}
           hasSubMenu
           onClick={navigateToMoreWidgets}
         />

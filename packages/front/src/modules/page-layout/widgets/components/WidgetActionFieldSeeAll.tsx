@@ -129,7 +129,7 @@ export const WidgetActionFieldSeeAll = () => {
   const tooltipId = `widget-see-all-${widget.id}`;
   const relationLabelPlural =
     targetObjectMetadataItem.labelPlural.toLowerCase();
-  const tooltipContent = t`See all ${relationLabelPlural} linked to this record`;
+  const tooltipContent = t`Lihat semua ${relationLabelPlural} yang terhubung dengan data ini`;
 
   return (
     <>

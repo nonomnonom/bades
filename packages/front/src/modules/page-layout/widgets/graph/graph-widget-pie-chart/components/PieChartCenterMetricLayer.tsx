@@ -74,7 +74,7 @@ export const PieChartCenterMetric = ({
           }}
         >
           {hasNoData ? (
-            <StyledNoDataText>{t`No data`}</StyledNoDataText>
+            <StyledNoDataText>{t`Tidak ada data`}</StyledNoDataText>
           ) : (
             <>
               <StyledValue>{centerMetricValue}</StyledValue>

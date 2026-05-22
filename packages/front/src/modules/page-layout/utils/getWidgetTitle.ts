@@ -14,23 +14,23 @@ export const getWidgetTitle = (
 ): string => {
   switch (configuration.configurationType) {
     case WidgetConfigurationType.AGGREGATE_CHART:
-      return `${t`Aggregate Chart`} ${index + 1}`;
+      return `${t`Grafik Agregat`} ${index + 1}`;
     case WidgetConfigurationType.GAUGE_CHART:
-      return `${t`Gauge Chart`} ${index + 1}`;
+      return `${t`Grafik Gauge`} ${index + 1}`;
     case WidgetConfigurationType.PIE_CHART:
-      return `${t`Pie Chart`} ${index + 1}`;
+      return `${t`Grafik Lingkaran`} ${index + 1}`;
     case WidgetConfigurationType.BAR_CHART:
       if (configuration.layout === BarChartLayout.VERTICAL) {
-        return `${t`Vertical Bar Chart`} ${index + 1}`;
+        return `${t`Grafik Batang Vertikal`} ${index + 1}`;
       } else {
-        return `${t`Horizontal Bar Chart`} ${index + 1}`;
+        return `${t`Grafik Batang Horizontal`} ${index + 1}`;
       }
     case WidgetConfigurationType.LINE_CHART:
-      return `${t`Line Chart`} ${index + 1}`;
+      return `${t`Grafik Garis`} ${index + 1}`;
     case WidgetConfigurationType.IFRAME:
       return `${t`Iframe`} ${index + 1}`;
     case WidgetConfigurationType.STANDALONE_RICH_TEXT:
-      return `${t`Rich Text`} ${index + 1}`;
+      return `${t`Teks Kaya`} ${index + 1}`;
     case WidgetConfigurationType.FIELD:
     case WidgetConfigurationType.FIELDS:
     case WidgetConfigurationType.CALENDAR:

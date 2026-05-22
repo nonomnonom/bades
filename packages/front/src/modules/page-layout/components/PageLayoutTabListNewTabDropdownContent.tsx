@@ -74,18 +74,18 @@ export const PageLayoutTabListNewTabDropdownContent = ({
 
   return (
     <DropdownContent>
-      <DropdownMenuHeader>{t`New tab`}</DropdownMenuHeader>
+      <DropdownMenuHeader>{t`Tab baru`}</DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <MenuItem
           LeftIcon={IconPlus}
-          text={t`Empty tab`}
+          text={t`Tab kosong`}
           onClick={handleCreateEmptyTab}
         />
       </DropdownMenuItemsContainer>
       {inactiveTabs.length > 0 && (
         <>
           <DropdownMenuSeparator />
-          <DropdownMenuSectionLabel label={t`Disabled`} />
+          <DropdownMenuSectionLabel label={t`Dinonaktifkan`} />
           <DropdownMenuItemsContainer>
             {inactiveTabs.map((tab) => (
               <MenuItem

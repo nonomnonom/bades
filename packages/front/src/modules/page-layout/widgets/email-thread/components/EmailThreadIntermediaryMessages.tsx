@@ -39,7 +39,7 @@ export const EmailThreadIntermediaryMessages = ({
     <StyledButtonContainer>
       <Button
         Icon={IconArrowsVertical}
-        title={t`${messagesLength} emails`}
+        title={t`${messagesLength} surel`}
         size="small"
         onClick={() => setAreMessagesOpen(true)}
       />

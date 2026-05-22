@@ -62,13 +62,13 @@ export const FieldsConfigurationGroupRenameInput = ({
         autoFocus
         fullWidth
         sizeVariant="sm"
-        placeholder={t`Group name`}
+        placeholder={t`Nama grup`}
       />
       <Button
         variant="primary"
         accent="blue"
         size="small"
-        title="Done"
+        title="Selesai"
         onClick={handleSave}
       />
     </StyledContainer>

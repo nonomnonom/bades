@@ -96,7 +96,7 @@ export const GraphWidgetGaugeChart = ({
   const { createTooltipData } = useGaugeChartTooltip({
     value: data.value,
     normalizedValue,
-    label: data.label || t`Value`,
+    label: data.label || t`Nilai`,
     colorScheme,
     formatOptions,
   });
@@ -152,7 +152,7 @@ export const GraphWidgetGaugeChart = ({
           items={[
             {
               id: 'gauge',
-              label: data.label || t`Value`,
+              label: data.label || t`Nilai`,
               color: colorScheme.solid,
             },
           ]}

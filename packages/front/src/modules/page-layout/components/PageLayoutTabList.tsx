@@ -345,7 +345,7 @@ export const PageLayoutTabList = ({
                 <TabButton
                   id="add-tab"
                   LeftIcon={IconPlus}
-                  title={t`New Tab`}
+                  title={t`Tab baru`}
                   disableTestId
                 />
               </StyledAddButton>
@@ -395,7 +395,7 @@ export const PageLayoutTabList = ({
                   <TabButton
                     id="add-tab"
                     LeftIcon={IconPlus}
-                    title={t`New Tab`}
+                    title={t`Tab baru`}
                     onClick={() => addTabStrategy.onCreate()}
                     disableTestId
                   />
@@ -409,7 +409,7 @@ export const PageLayoutTabList = ({
                       <TabButton
                         id="add-tab"
                         LeftIcon={IconPlus}
-                        title={t`New Tab`}
+                        title={t`Tab baru`}
                         disableTestId
                       />
                     }
@@ -458,7 +458,7 @@ export const PageLayoutTabList = ({
                 <TabButton
                   id="add-tab"
                   LeftIcon={IconPlus}
-                  title={t`New Tab`}
+                  title={t`Tab baru`}
                   onClick={() => addTabStrategy.onCreate()}
                   disableTestId
                 />
@@ -472,7 +472,7 @@ export const PageLayoutTabList = ({
                     <TabButton
                       id="add-tab"
                       LeftIcon={IconPlus}
-                      title={t`New Tab`}
+                      title={t`Tab baru`}
                       disableTestId
                     />
                   }

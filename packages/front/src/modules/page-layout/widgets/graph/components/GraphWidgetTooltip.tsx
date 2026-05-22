@@ -169,7 +169,7 @@ export const GraphWidgetTooltip = ({
           )}
           <StyledTooltipRowContainer>
             {filteredItems.length === 0 ? (
-              <StyledNoDataMessage>{t`No data`}</StyledNoDataMessage>
+              <StyledNoDataMessage>{t`Tidak ada data`}</StyledNoDataMessage>
             ) : (
               filteredItems.map((item) => {
                 const isHighlighted =
@@ -197,7 +197,7 @@ export const GraphWidgetTooltip = ({
           <StyledTooltipSeparator />
           <StyledHorizontalSectionPadding addBottom>
             <StyledTooltipLink onClick={onGraphWidgetTooltipClick}>
-              <span>{t`Click to see data`}</span>
+              <span>{t`Klik untuk melihat data`}</span>
               <IconArrowUpRight size={theme.icon.size.sm} />
             </StyledTooltipLink>
           </StyledHorizontalSectionPadding>

@@ -184,7 +184,7 @@ export const FieldsConfigurationGroupEditor = ({
           >
             {sortedFields.length === 0 && (
               <StyledEmptyGroupDropZone>
-                {t`Drop fields here`}
+                {t`Taruh kolom di sini`}
               </StyledEmptyGroupDropZone>
             )}
             {sortedFields.map((field, fieldIndex) => {
