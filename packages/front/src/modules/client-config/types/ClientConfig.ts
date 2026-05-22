@@ -3,7 +3,6 @@ import {
   type AuthProviders,
   type Billing,
   type Captcha,
-  type ClientAiModelConfig,
   type ClientConfigMaintenanceMode,
   type PublicFeatureFlag,
   type Sentry,
@@ -12,7 +11,6 @@ import {
 
 export type ClientConfig = {
   appVersion?: string;
-  aiModels: Array<ClientAiModelConfig>;
   analyticsEnabled: boolean;
   api: ApiConfig;
   authProviders: AuthProviders;
