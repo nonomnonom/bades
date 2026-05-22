@@ -32,8 +32,8 @@ export const SettingsLogicFunctionCronTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`Cron`}
-      description={t`Triggers the function at regular intervals`}
+      title={t`Terjadwal`}
+      description={t`Menjalankan fungsi secara berkala sesuai jadwal`}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_CRON_SETTINGS : null)
@@ -44,7 +44,7 @@ export const SettingsLogicFunctionCronTriggerSection = ({
         <>
           <SettingsTextInput
             instanceId="logic-function-cron-trigger-pattern"
-            label={t`Expression`}
+            label={t`Ekspresi`}
             placeholder="0 */1 * * *"
             value={value.pattern}
             onChange={(newPattern: string) =>
@@ -54,11 +54,11 @@ export const SettingsLogicFunctionCronTriggerSection = ({
             fullWidth
           />
           <StyledHint>
-            {t`Format: [Minute] [Hour] [Day of Month] [Month] [Day of Week]`}
+            {t`Format: [Menit] [Jam] [Tanggal] [Bulan] [Hari dalam Minggu]`}
           </StyledHint>
           <SettingsLogicFunctionTriggerPayloadFormat
             payload={{}}
-            hint={t`Cron triggers pass no payload — the handler is called with an empty object.`}
+            hint={t`Pemicu terjadwal tidak mengirim payload — handler dipanggil dengan objek kosong.`}
           />
         </>
       )}

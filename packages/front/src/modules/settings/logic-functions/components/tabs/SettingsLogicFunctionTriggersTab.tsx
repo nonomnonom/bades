@@ -52,13 +52,13 @@ export const SettingsLogicFunctionTriggersTab = ({
         <Callout
           variant="info"
           Icon={IconInfoCircle}
-          title={t`Bundled with ${applicationName}`}
-          description={t`This function has no trigger configured, so it can only be invoked from the Test tab or by other functions.`}
+          title={t`Disertakan bersama ${applicationName}`}
+          description={t`Fungsi ini tidak memiliki pemicu yang dikonfigurasi, sehingga hanya dapat dipanggil dari tab Uji Coba atau oleh fungsi lain.`}
         />
       </StyledCalloutWrapper>
     ) : (
       <StyledEmptyState>
-        {t`No trigger is configured for this function.`}
+        {t`Tidak ada pemicu yang dikonfigurasi untuk fungsi ini.`}
       </StyledEmptyState>
     );
   }
@@ -92,7 +92,7 @@ export const SettingsLogicFunctionTriggersTab = ({
       />
       {!readonly && !hasAnyTrigger && (
         <StyledEmptyState>
-          {t`No trigger is enabled. Toggle one of the options above to choose how this function gets invoked.`}
+          {t`Tidak ada pemicu yang aktif. Aktifkan salah satu opsi di atas untuk memilih cara fungsi ini dipanggil.`}
         </StyledEmptyState>
       )}
     </>

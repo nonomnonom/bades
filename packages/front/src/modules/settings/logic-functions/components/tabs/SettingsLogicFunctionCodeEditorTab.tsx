@@ -37,7 +37,7 @@ export const SettingsLogicFunctionCodeEditorTab = ({
   );
   const TestButton = (
     <Button
-      title={t`Test`}
+      title={t`Uji coba`}
       variant="primary"
       accent="blue"
       size="small"
@@ -61,8 +61,8 @@ export const SettingsLogicFunctionCodeEditorTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Code your function`}
-        description={t`Write your function (in typescript) below`}
+        title={t`Tulis kode fungsi`}
+        description={t`Tulis fungsi Anda (dalam TypeScript) di bawah ini`}
       />
       <CoreEditorHeader leftNodes={[HeaderTabList]} rightNodes={[TestButton]} />
       {activeTabId && (

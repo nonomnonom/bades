@@ -40,8 +40,8 @@ export const SettingsLogicFunctionDatabaseEventTriggerSection = ({
 
   return (
     <SettingsLogicFunctionTriggerSection
-      title={t`Database event`}
-      description={t`Triggers the function when a record changes`}
+      title={t`Perubahan data`}
+      description={t`Menjalankan fungsi saat ada rekaman yang berubah`}
       enabled={isDefined(value)}
       onEnabledChange={(checked) =>
         onChange(checked ? DEFAULT_DATABASE_EVENT_SETTINGS : null)
@@ -66,7 +66,7 @@ export const SettingsLogicFunctionDatabaseEventTriggerSection = ({
           />
           <SettingsLogicFunctionTriggerPayloadFormat
             payload={buildDatabaseEventPayload(value)}
-            hint={t`Your handler receives this event object. "after" holds the new state, "before" the previous one (null for created), and "updatedFields" lists the field names that changed on update.`}
+            hint={t`Handler Anda menerima objek event ini. "after" berisi kondisi terbaru, "before" kondisi sebelumnya (null untuk rekaman baru), dan "updatedFields" berisi daftar nama kolom yang berubah.`}
           />
         </>
       )}

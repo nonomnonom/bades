@@ -31,13 +31,13 @@ export const SettingsLogicFunctionNewForm = ({
   return (
     <Section>
       <H2Title
-        title={t`About`}
-        description={t`Name and describe your function`}
+        title={t`Tentang`}
+        description={t`Beri nama dan deskripsi untuk fungsi ini`}
       />
       <StyledInputsContainer>
         <SettingsTextInput
           instanceId={nameTextInputId}
-          placeholder={t`Name`}
+          placeholder={t`Nama`}
           fullWidth
           autoFocusOnMount
           value={formValues.name}
@@ -46,7 +46,7 @@ export const SettingsLogicFunctionNewForm = ({
         />
         <TextArea
           textAreaId={descriptionTextAreaId}
-          placeholder={t`Description`}
+          placeholder={t`Deskripsi`}
           minRows={4}
           value={formValues.description}
           onChange={onChange('description')}
@@ -55,8 +55,8 @@ export const SettingsLogicFunctionNewForm = ({
         <Card rounded>
           <SettingsOptionCardContentCounter
             Icon={IconClockHour8}
-            title={t`Timeout`}
-            description={t`Maximum execution time in seconds (1-900)`}
+            title={t`Batas waktu`}
+            description={t`Waktu eksekusi maksimum dalam detik (1-900)`}
             value={formValues.timeoutSeconds}
             onChange={onChange('timeoutSeconds')}
             minValue={1}

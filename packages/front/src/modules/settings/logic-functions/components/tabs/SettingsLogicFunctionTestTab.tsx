@@ -83,17 +83,17 @@ export const SettingsLogicFunctionTestTab = ({
     triggerButtons.push({ kind: 'http', label: t`HTTP`, Icon: IconWebhook });
   }
   if (isDefined(cronTriggerSettings)) {
-    triggerButtons.push({ kind: 'cron', label: t`Cron`, Icon: IconClock });
+    triggerButtons.push({ kind: 'cron', label: t`Terjadwal`, Icon: IconClock });
   }
   if (isDefined(databaseEventTriggerSettings)) {
     triggerButtons.push({
       kind: 'databaseEvent',
-      label: t`Database event`,
+      label: t`Perubahan data`,
       Icon: IconDatabase,
     });
   }
   if (isDefined(toolTriggerSettings)) {
-    triggerButtons.push({ kind: 'tool', label: t`AI tool`, Icon: IconTool });
+    triggerButtons.push({ kind: 'tool', label: t`Alat AI`, Icon: IconTool });
   }
 
   const onChange = (value: string) => {
@@ -127,13 +127,13 @@ export const SettingsLogicFunctionTestTab = ({
   return (
     <Section>
       <H2Title
-        title={t`Test your function`}
-        description={t`Insert a JSON input, then press "Run Function".`}
+        title={t`Uji coba fungsi`}
+        description={t`Masukkan input JSON, lalu tekan "Jalankan Fungsi".`}
       />
       <StyledInputsContainer>
         {triggerButtons.length > 0 && (
           <div>
-            <StyledTriggerLabel>{t`Fill with sample input from`}</StyledTriggerLabel>
+            <StyledTriggerLabel>{t`Isi dengan contoh masukan dari`}</StyledTriggerLabel>
             <StyledTriggerButtonRow>
               {triggerButtons.map((trigger) => (
                 <Button
@@ -150,10 +150,10 @@ export const SettingsLogicFunctionTestTab = ({
         )}
         <StyledCodeEditorContainer>
           <CoreEditorHeader
-            title={t`Input`}
+            title={t`Masukan`}
             rightNodes={[
               <Button
-                title={t`Run Function`}
+                title={t`Jalankan Fungsi`}
                 variant="primary"
                 accent="blue"
                 size="small"

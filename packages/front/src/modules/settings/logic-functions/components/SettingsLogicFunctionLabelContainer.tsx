@@ -32,7 +32,7 @@ export const SettingsLogicFunctionLabelContainer = ({
         sizeVariant="md"
         value={value}
         onChange={onChange}
-        placeholder={t`Function name`}
+        placeholder={t`Nama fungsi`}
         disabled={readonly}
       />
     </StyledHeaderTitle>

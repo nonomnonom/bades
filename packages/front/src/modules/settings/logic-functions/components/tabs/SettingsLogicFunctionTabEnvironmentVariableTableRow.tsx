@@ -62,7 +62,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
           onChange={(newKey) =>
             setEditedEnvVariable({ ...editedEnvVariable, key: newKey })
           }
-          placeholder={t`Name`}
+          placeholder={t`Nama`}
           fullWidth
         />
       </TableCell>
@@ -72,7 +72,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
           onChange={(newValue) =>
             setEditedEnvVariable({ ...editedEnvVariable, value: newValue })
           }
-          placeholder={t`Value`}
+          placeholder={t`Nilai`}
           fullWidth
         />
       </TableCell>
@@ -114,7 +114,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
           dropdownId={dropDownId}
           clickableComponent={
             <LightIconButton
-              aria-label={t`Env Variable Options`}
+              aria-label={t`Opsi Variabel Lingkungan`}
               Icon={IconDotsVertical}
               accent="tertiary"
             />
@@ -123,7 +123,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
             <DropdownContent>
               <DropdownMenuItemsContainer>
                 <MenuItem
-                  text={t`Edit`}
+                  text={t`Ubah`}
                   LeftIcon={IconPencil}
                   onClick={() => {
                     setEditMode(true);
@@ -131,7 +131,7 @@ export const SettingsLogicFunctionTabEnvironmentVariableTableRow = ({
                   }}
                 />
                 <MenuItem
-                  text={t`Delete`}
+                  text={t`Hapus`}
                   LeftIcon={IconTrash}
                   onClick={() => {
                     onDelete();
