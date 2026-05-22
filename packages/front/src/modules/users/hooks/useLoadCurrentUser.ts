@@ -12,7 +12,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { workspaceAuthBypassProvidersState } from '@/workspace/states/workspaceAuthBypassProvidersState';
 import { useCallback } from 'react';
-import { SOURCE_LOCALE, type APP_LOCALES } from 'shared/translations';
+import { SOURCE_LOCALE } from 'shared/translations';
 import { type ObjectPermissions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { type ColorScheme } from 'ui/input';
@@ -95,9 +95,8 @@ export const useLoadCurrentUser = () => {
 
       // Initialize unified format preferences state
       initializeFormatPreferences(workspaceMember);
-      dynamicActivate(
-        (workspaceMember.locale as keyof typeof APP_LOCALES) ?? SOURCE_LOCALE,
-      );
+      // Bades dikunci single-language: selalu aktifkan katalog id-ID.
+      dynamicActivate(SOURCE_LOCALE);
     }
 
     const workspace = isDefined(user.currentWorkspace)

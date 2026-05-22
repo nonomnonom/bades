@@ -140,13 +140,12 @@ export const UserMetadataProviderInitialEffect = () => {
         affectDefaultValuesOnEmptyWorkspaceMemberFields(workspaceMember);
       setCurrentWorkspaceMember(updatedWorkspaceMember);
 
-      updateLocaleCatalog(updatedWorkspaceMember.locale);
+      // Bades dikunci single-language: abaikan locale tersimpan, selalu id-ID.
+      updateLocaleCatalog(SOURCE_LOCALE);
 
       initializeFormatPreferences(updatedWorkspaceMember);
 
-      dynamicActivate(
-        (workspaceMember.locale as keyof typeof APP_LOCALES) ?? SOURCE_LOCALE,
-      );
+      dynamicActivate(SOURCE_LOCALE);
     }
 
     if (isDefined(workspaceMembers)) {
