@@ -52,6 +52,8 @@ export { IconMicrosoftOutlook } from './icon/components/IconMicrosoftOutlook';
 export { IconModelClaude } from './icon/components/IconModelClaude';
 export { IconProviderOpenai } from './icon/components/IconProviderOpenai';
 export { IconRelationManyToOne } from './icon/components/IconRelationManyToOne';
+export { IconStarBades } from './icon/components/IconStarBades';
+export { IconStarBadesFilled } from './icon/components/IconStarBadesFilled';
 export { IconTrashXOff } from './icon/components/IconTrashXOff';
 export { IconTwentyStar } from './icon/components/IconTwentyStar';
 export { IconTwentyStarFilled } from './icon/components/IconTwentyStarFilled';
