@@ -15,7 +15,7 @@ export const useVerifyLogin = () => {
       await getAuthTokensFromLoginToken(loginToken);
     } catch {
       enqueueErrorSnackBar({
-        message: t`Authentication failed`,
+        message: t`Autentikasi gagal`,
       });
       navigate(AppPath.SignInUp);
     }

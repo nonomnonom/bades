@@ -32,7 +32,7 @@ export const DeleteWorkspace = () => {
   return (
     <>
       <H2Title
-        title={t`Danger zone`}
+        title={t`Zona berbahaya`}
         description={t`Hapus seluruh ruang kerja Anda`}
       />
       <Button

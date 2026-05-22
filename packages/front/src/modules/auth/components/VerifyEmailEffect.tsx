@@ -50,7 +50,7 @@ export const VerifyEmailEffect = () => {
     const verifyEmailToken = async () => {
       if (!email || !emailVerificationToken) {
         enqueueErrorSnackBar({
-          message: t`Invalid email verification link.`,
+          message: t`Tautan verifikasi email tidak valid.`,
           options: {
             dedupeKey: 'email-verification-link-dedupe-key',
           },
@@ -59,7 +59,7 @@ export const VerifyEmailEffect = () => {
       }
 
       const successSnackbarParams = {
-        message: t`Email verified.`,
+        message: t`Email berhasil diverifikasi.`,
         options: {
           dedupeKey: 'email-verification-dedupe-key',
         },
@@ -98,7 +98,7 @@ export const VerifyEmailEffect = () => {
         enqueueErrorSnackBar({
           ...(CombinedGraphQLErrors.is(error)
             ? { apolloError: error }
-            : { message: t`Email verification failed` }),
+            : { message: t`Verifikasi email gagal` }),
           options: {
             dedupeKey: 'email-verification-error-dedupe-key',
           },

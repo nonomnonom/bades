@@ -99,7 +99,7 @@ export const FooterNote = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Trans>Privacy Policy</Trans>
+        <Trans>Kebijakan Privasi</Trans>
       </a>
       <StyledSeparator>•</StyledSeparator>
       <a
@@ -107,7 +107,7 @@ export const FooterNote = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Trans>Terms of Service</Trans>
+        <Trans>Ketentuan Layanan</Trans>
       </a>
     </StyledLinksContainer>
   );

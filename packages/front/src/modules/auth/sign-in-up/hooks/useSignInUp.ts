@@ -66,16 +66,16 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
     setSignInUpStep(SignInUpStep.Email);
   }, [setSignInUpStep]);
 
-  const errorMsgUserAlreadyExist = t`An error occurred while checking user existence`;
+  const errorMsgUserAlreadyExist = t`Terjadi kesalahan saat memeriksa akun`;
   const continueWithCredentials = useCallback(async () => {
     if (!form.getValues('email')) {
       return enqueueErrorSnackBar({
-        message: t`Email is required`,
+        message: t`Email wajib diisi`,
       });
     }
     if (!isCaptchaReady) {
       return enqueueErrorSnackBar({
-        message: t`Captcha (anti-bot check) is still loading, try again`,
+        message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
       });
     }
     try {
@@ -121,7 +121,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
 
       if (!isCaptchaReady) {
         return enqueueErrorSnackBar({
-          message: t`Captcha (anti-bot check) is still loading, try again`,
+          message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
         });
       }
 

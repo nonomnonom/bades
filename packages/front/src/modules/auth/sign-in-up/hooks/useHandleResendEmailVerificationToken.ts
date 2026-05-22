@@ -19,7 +19,7 @@ export const useHandleResendEmailVerificationToken = () => {
       return async () => {
         if (!email) {
           enqueueErrorSnackBar({
-            message: t`Invalid email`,
+            message: t`Email tidak valid`,
           });
           return;
         }
@@ -34,7 +34,7 @@ export const useHandleResendEmailVerificationToken = () => {
 
           if (data?.resendEmailVerificationToken?.success === true) {
             enqueueSuccessSnackBar({
-              message: t`Email verification link resent!`,
+              message: t`Tautan verifikasi email telah dikirim ulang!`,
             });
           } else {
             enqueueErrorSnackBar({});

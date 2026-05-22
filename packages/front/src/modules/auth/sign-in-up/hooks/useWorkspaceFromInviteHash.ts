@@ -53,8 +53,8 @@ export const useWorkspaceFromInviteHash = () => {
       initiallyLoggedIn &&
         enqueueInfoSnackBar({
           message: workspaceDisplayName
-            ? t`You already belong to the workspace ${workspaceDisplayName}`
-            : t`You already belong to this workspace`,
+            ? t`Anda sudah tergabung di ruang kerja ${workspaceDisplayName}`
+            : t`Anda sudah tergabung di ruang kerja ini`,
         });
       navigate(AppPath.Index);
     }

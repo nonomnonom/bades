@@ -24,9 +24,9 @@ export const LastUsedPill = () => {
     <StyledPillContainer>
       <Pill
         label={t({
-          message: 'Last',
+          message: 'Terakhir',
           comment:
-            'Short label (keep brief) indicating the most recently used login method',
+            'Label singkat yang menunjukkan metode masuk yang terakhir digunakan',
         })}
       />
     </StyledPillContainer>

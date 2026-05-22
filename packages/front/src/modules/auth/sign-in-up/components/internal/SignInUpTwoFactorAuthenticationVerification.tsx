@@ -194,7 +194,7 @@ export const SignInUpTOTPVerification = () => {
     try {
       if (!isCaptchaReady) {
         enqueueErrorSnackBar({
-          message: t`Captcha (anti-bot check) is still loading, try again`,
+          message: t`Captcha (pemeriksaan anti-bot) masih dimuat, coba lagi`,
         });
         setIsLoading(false);
         return;
@@ -211,7 +211,7 @@ export const SignInUpTOTPVerification = () => {
       form.setValue('otp', '');
 
       enqueueErrorSnackBar({
-        message: t`Invalid verification code. Please try again.`,
+        message: t`Kode verifikasi tidak valid. Silakan coba lagi.`,
         options: {
           dedupeKey: 'invalid-otp-dedupe-key',
         },
@@ -228,7 +228,7 @@ export const SignInUpTOTPVerification = () => {
   return (
     <StyledForm onSubmit={form.handleSubmit(submitOTP)}>
       <StyledTextContainer>
-        <Trans>Paste the code below</Trans>
+        <Trans>Tempel kode di bawah ini</Trans>
       </StyledTextContainer>
       <StyledMainContentContainer>
         {/* // oxlint-disable-next-line react/jsx-props-no-spreading */}
@@ -271,7 +271,7 @@ export const SignInUpTOTPVerification = () => {
         />
       </StyledMainContentContainer>
       <MainButton
-        title={t`Submit`}
+        title={t`Kirim`}
         type="submit"
         variant="primary"
         fullWidth
@@ -279,7 +279,7 @@ export const SignInUpTOTPVerification = () => {
       />
       <StyledActionBackLinkContainer>
         <ClickToActionLink onClick={handleBack}>
-          <Trans>Back</Trans>
+          <Trans>Kembali</Trans>
         </ClickToActionLink>
       </StyledActionBackLinkContainer>
     </StyledForm>

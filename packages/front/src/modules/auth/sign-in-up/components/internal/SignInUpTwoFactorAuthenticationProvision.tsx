@@ -83,7 +83,7 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
 
     const secret = extractSecretFromOtpUri(qrCode);
     if (secret !== null) {
-      await copyToClipboard(secret, t`Setup key copied to clipboard`);
+      await copyToClipboard(secret, t`Kunci pengaturan disalin ke clipboard`);
     }
   };
 
@@ -93,8 +93,8 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
       <StyledForm>
         <StyledTextContainer>
           <Trans>
-            Use authenticator apps and browser extensions like 1Password, Authy,
-            Microsoft Authenticator to generate one-time passwords
+            Gunakan aplikasi autentikator seperti 1Password, Authy, atau
+            Microsoft Authenticator untuk menghasilkan kode satu kali pakai
           </Trans>
         </StyledTextContainer>
         <StyledMainContentContainer>
@@ -102,12 +102,12 @@ export const SignInUpTwoFactorAuthenticationProvision = () => {
           {qrCode && (
             <StyledCopySetupKeyLink onClick={handleCopySetupKey}>
               <IconCopy size={theme.icon.size.sm} />
-              <Trans>Copy Setup Key</Trans>
+              <Trans>Salin Kunci Pengaturan</Trans>
             </StyledCopySetupKeyLink>
           )}
         </StyledMainContentContainer>
         <MainButton
-          title={t`Next`}
+          title={t`Lanjutkan`}
           onClick={handleClick}
           variant="primary"
           fullWidth

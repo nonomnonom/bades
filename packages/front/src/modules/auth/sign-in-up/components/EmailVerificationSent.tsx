@@ -113,23 +113,25 @@ export const EmailVerificationSent = ({
     setSignInUpStep(SignInUpStep.Email);
   };
 
-  const title = isError ? t`Email Verification Failed` : t`Check your Emails`;
+  const title = isError
+    ? t`Verifikasi Email Gagal`
+    : t`Periksa Email Anda`;
   const subtitle = isError
-    ? t`We encountered an issue verifying`
-    : t`A verification email has been sent to`;
+    ? t`Kami menemui kendala saat memverifikasi`
+    : t`Email verifikasi telah dikirim ke`;
 
   const Icon = isError ? IconMailX : IconMail;
 
   const mainButtons = isError ? (
     <>
       <MainButton
-        title={t`Try with another email`}
+        title={t`Coba dengan email lain`}
         onClick={handleChangeEmail}
         variant="secondary"
         fullWidth
       />
       <MainButton
-        title={isLoading ? t`Sending...` : t`Resend email`}
+        title={isLoading ? t`Mengirim...` : t`Kirim ulang email`}
         onClick={handleResendEmailVerificationToken(email)}
         disabled={isLoading}
         fullWidth
@@ -138,14 +140,14 @@ export const EmailVerificationSent = ({
   ) : (
     <>
       <MainButton
-        title={t`Open Gmail`}
+        title={t`Buka Gmail`}
         onClick={handleOpenGmail}
         Icon={IconGmail}
         variant="secondary"
         fullWidth
       />
       <MainButton
-        title={t`Open Outlook`}
+        title={t`Buka Outlook`}
         onClick={handleOpenOutlook}
         Icon={IconMicrosoft}
         variant="secondary"
@@ -177,11 +179,11 @@ export const EmailVerificationSent = ({
             onClick={handleResendEmailVerificationToken(email)}
             disabled={isLoading}
           >
-            {isLoading ? t`Sending...` : t`Resend email`}
+            {isLoading ? t`Mengirim...` : t`Kirim ulang email`}
           </StyledLinkButton>
           <StyledDot />
           <StyledLinkButton onClick={handleChangeEmail}>
-            {t`Change email`}
+            {t`Ganti email`}
           </StyledLinkButton>
         </StyledBottomLinks>
       )}

@@ -8,7 +8,7 @@ const createOtpValidationSchema = () =>
     otp: z
       .string()
       .trim()
-      .length(6, t`OTP must be exactly 6 digits`),
+      .length(6, t`OTP harus tepat 6 digit`),
   });
 
 export type OTPFormValues = z.infer<
