@@ -15,6 +15,7 @@
 !.claude/settings.json
 !.claude/loop.md
 .claude/settings.local.json
+packages/*/.claude/
 .cursor/debug-*.log
 **/**/node_modules/
 .cache
