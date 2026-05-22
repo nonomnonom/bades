@@ -276,22 +276,6 @@
         "command": "nx ts-node-no-deps-transpile-only -- src/database/clickHouse/seeds/run-seeds.ts"
       }
     },
-    "lingui:extract": {
-      "executor": "nx:run-commands",
-      "dependsOn": ["^build"],
-      "options": {
-        "cwd": "{projectRoot}",
-        "command": "lingui extract --overwrite --clean"
-      }
-    },
-    "lingui:compile": {
-      "executor": "nx:run-commands",
-      "dependsOn": ["^build"],
-      "options": {
-        "cwd": "{projectRoot}",
-        "command": "lingui compile --typescript"
-      }
-    },
     "version:bump": {
       "executor": "nx:run-commands",
       "options": {

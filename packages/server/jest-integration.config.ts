@@ -55,16 +55,6 @@ const jestConfig: JestConfigWithTsJest = {
             'src/*': ['./src/*'],
             'test/*': ['./test/*'],
           },
-          experimental: {
-            plugins: [
-              [
-                '@lingui/swc-plugin',
-                {
-                  stripNonEssentialFields: false,
-                },
-              ],
-            ],
-          },
         },
       },
     ],
