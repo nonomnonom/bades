@@ -33,7 +33,7 @@ export const InformationBannerReconnectAccountInsufficientPermissions = () => {
     <InformationBanner
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
-      message={t`Sync lost with mailbox ${mailboxHandle}. Please reconnect for updates:`}
+      message={t`Sinkronisasi terputus dengan kotak surat ${mailboxHandle}. Sambungkan ulang untuk pembaruan:`}
       buttonTitle={t`Reconnect`}
       buttonIcon={IconRefresh}
       buttonOnClick={() =>

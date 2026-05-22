@@ -12,7 +12,7 @@ import {
 
 export const AppErrorDisplay = ({
   resetErrorBoundary,
-  title = t`Sorry, something went wrong`,
+  title = t`Maaf, terjadi kesalahan`,
 }: AppErrorDisplayProps) => {
   return (
     <AnimatedPlaceholderEmptyContainer>
@@ -20,7 +20,7 @@ export const AppErrorDisplay = ({
       <AnimatedPlaceholderEmptyTextContainer>
         <AnimatedPlaceholderEmptyTitle>{title}</AnimatedPlaceholderEmptyTitle>
         <AnimatedPlaceholderEmptySubTitle>
-          {t`Please refresh the page.`}
+          {t`Silakan muat ulang halaman.`}
         </AnimatedPlaceholderEmptySubTitle>
       </AnimatedPlaceholderEmptyTextContainer>
       <Button

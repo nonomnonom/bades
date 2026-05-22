@@ -33,7 +33,7 @@ export const InformationBannerReconnectAccountEmailAliases = () => {
     <InformationBanner
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
-      message={t`Please reconnect your mailbox ${mailboxHandle} to update your email aliases:`}
+      message={t`Sambungkan ulang kotak surat ${mailboxHandle} untuk memperbarui alias email Anda:`}
       buttonTitle={t`Reconnect`}
       buttonIcon={IconRefresh}
       buttonOnClick={() =>

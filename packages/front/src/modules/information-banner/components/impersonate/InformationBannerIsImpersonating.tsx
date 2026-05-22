@@ -22,8 +22,8 @@ export const InformationBannerIsImpersonating = () => {
   return (
     <InformationBanner
       componentInstanceId="information-banner-is-impersonating"
-      message={t`Logged in as ${impersonatedUser}`}
-      buttonTitle={t`Stop impersonating`}
+      message={t`Masuk sebagai ${impersonatedUser}`}
+      buttonTitle={t`Hentikan peniruan identitas`}
       buttonIcon={IconLogout}
       buttonOnClick={stopImpersonating}
     />

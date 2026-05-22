@@ -101,7 +101,7 @@ const StyledIconContainer = styled.span`
 
 export const AppRootErrorFallback = ({
   resetErrorBoundary,
-  title = t`Sorry, something went wrong`,
+  title = t`Maaf, terjadi kesalahan`,
 }: AppRootErrorFallbackProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -116,13 +116,13 @@ export const AppRootErrorFallback = ({
             />
             <StyledInnerImage
               src="/images/placeholders/moving-image/error_index.png"
-              alt={t`Error illustration`}
+              alt={t`Ilustrasi kesalahan`}
             />
           </StyledImageContainer>
           <StyledEmptyTextContainer>
             <StyledEmptyTitle>{title}</StyledEmptyTitle>
             <StyledEmptySubTitle>
-              {t`Please refresh the page.`}
+              {t`Silakan muat ulang halaman.`}
             </StyledEmptySubTitle>
           </StyledEmptyTextContainer>
           <StyledButton onClick={resetErrorBoundary}>

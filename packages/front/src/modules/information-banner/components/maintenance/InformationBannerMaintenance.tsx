@@ -47,7 +47,7 @@ export const InformationBannerMaintenance = () => {
     timeZone,
   );
 
-  const message = t`Scheduled maintenance: ${startFormatted} — ${endFormatted}`;
+  const message = t`Pemeliharaan terjadwal: ${startFormatted} — ${endFormatted}`;
   const maintenanceLink = getSafeUrl(maintenanceMode.link?.trim());
 
   return (
@@ -55,7 +55,7 @@ export const InformationBannerMaintenance = () => {
       componentInstanceId="information-banner-maintenance"
       variant="secondary"
       message={message}
-      buttonTitle={isDefined(maintenanceLink) ? t`Learn more` : undefined}
+      buttonTitle={isDefined(maintenanceLink) ? t`Pelajari lebih lanjut` : undefined}
       buttonIcon={isDefined(maintenanceLink) ? IconExternalLink : undefined}
       buttonOnClick={
         isDefined(maintenanceLink)
