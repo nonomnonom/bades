@@ -3,7 +3,7 @@ import { type AppErrorDisplayProps } from '@/error-handler/types/AppErrorDisplay
 import { PageBody } from '@/ui/layout/page/components/PageBody';
 import { PageContainer } from '@/ui/layout/page/components/PageContainer';
 import { PageHeader } from '@/ui/layout/page/components/PageHeader';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 type AppPageErrorFallbackProps = AppErrorDisplayProps;
 
