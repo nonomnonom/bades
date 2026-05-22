@@ -125,13 +125,13 @@ export const ChartDataSourceDropdownContent = () => {
             />
           }
         >
-          <Trans>Advanced objects</Trans>
+          <Trans>Objek sistem</Trans>
         </DropdownMenuHeader>
       )}
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search objects`}
+        placeholder={t`Cari objek`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />
@@ -176,7 +176,7 @@ export const ChartDataSourceDropdownContent = () => {
               onEnter={handleAdvancedObjectsClick}
             >
               <MenuItem
-                text={t`Advanced objects`}
+                text={t`Objek sistem`}
                 LeftIcon={IconSettings}
                 onClick={handleAdvancedObjectsClick}
                 hasSubMenu

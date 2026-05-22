@@ -24,7 +24,7 @@ export const useOpenAskAiPageInSidePanel = () => {
 
       navigateSidePanelMenu({
         page: SidePanelPages.AskAI,
-        pageTitle: t`Ask AI`,
+        pageTitle: t`Tanya AI`,
         pageIcon: IconSparkles,
         pageId: v4(),
         resetNavigationStack: shouldReset,

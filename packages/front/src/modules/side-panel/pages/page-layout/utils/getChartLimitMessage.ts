@@ -32,16 +32,16 @@ export const getChartLimitMessage = ({
     const granularityLabel = getDateGranularityPluralLabel(
       primaryAxisDateGranularity,
     );
-    return t`Undisplayed data: max ${maxItems} ${granularityLabel} per chart.`;
+    return t`Data tidak ditampilkan: maks ${maxItems} ${granularityLabel} per grafik.`;
   }
 
   if (widgetConfigurationType === WidgetConfigurationType.LINE_CHART) {
-    return t`Undisplayed data: max ${maxItems} data points per chart.`;
+    return t`Data tidak ditampilkan: maks ${maxItems} titik data per grafik.`;
   }
 
   if (widgetConfigurationType === WidgetConfigurationType.BAR_CHART) {
-    return t`Undisplayed data: max ${maxItems} bars per chart.`;
+    return t`Data tidak ditampilkan: maks ${maxItems} batang per grafik.`;
   }
 
-  return t`Undisplayed data: max ${maxItems} slices per chart.`;
+  return t`Data tidak ditampilkan: maks ${maxItems} irisan per grafik.`;
 };

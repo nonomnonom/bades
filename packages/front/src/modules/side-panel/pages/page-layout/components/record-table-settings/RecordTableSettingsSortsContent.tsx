@@ -112,8 +112,8 @@ export const RecordTableSettingsSortsContent = ({
           variant="secondary"
           accent="default"
           onClick={handleAddSort}
-          ariaLabel={t`Add sort`}
-          title={t`Add sort`}
+          ariaLabel={t`Tambah urutan`}
+          title={t`Tambah urutan`}
         />
       </StyledAddButtonContainer>
     </>

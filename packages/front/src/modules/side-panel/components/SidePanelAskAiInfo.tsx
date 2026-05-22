@@ -23,7 +23,7 @@ export const SidePanelAskAiInfo = () => {
   return (
     <StyledPageTitle>
       <OverflowingTextWithTooltip
-        text={currentAiChatThreadTitle ?? t`Ask AI`}
+        text={currentAiChatThreadTitle ?? t`Tanya AI`}
       />
     </StyledPageTitle>
   );

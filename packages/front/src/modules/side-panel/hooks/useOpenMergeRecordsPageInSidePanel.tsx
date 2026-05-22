@@ -61,7 +61,7 @@ export const useOpenMergeRecordsPageInSidePanel = ({
 
     navigateSidePanel({
       page: SidePanelPages.MergeRecords,
-      pageTitle: t(msg`Merge records`),
+      pageTitle: t(msg`Gabungkan data`),
       pageIcon: IconArrowMerge,
       pageId,
     });

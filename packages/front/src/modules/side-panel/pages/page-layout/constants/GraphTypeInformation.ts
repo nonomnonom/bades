@@ -27,32 +27,32 @@ export const GRAPH_TYPE_INFORMATION: Record<
   }
 > = {
   [GraphType.VERTICAL_BAR]: {
-    label: msg`Vertical Bar Chart`,
+    label: msg`Grafik Batang Vertikal`,
     icon: IconChartBar,
     settings: getBarChartSettings(BarChartLayout.VERTICAL),
   },
   [GraphType.HORIZONTAL_BAR]: {
-    label: msg`Horizontal Bar Chart`,
+    label: msg`Grafik Batang Horizontal`,
     icon: IconChartBarHorizontal,
     settings: getBarChartSettings(BarChartLayout.HORIZONTAL),
   },
   [GraphType.PIE]: {
-    label: msg`Pie Chart`,
+    label: msg`Grafik Lingkaran`,
     icon: IconChartPie,
     settings: PIE_CHART_SETTINGS,
   },
   [GraphType.LINE]: {
-    label: msg`Line Chart`,
+    label: msg`Grafik Garis`,
     icon: IconChartLine,
     settings: LINE_CHART_SETTINGS,
   },
   [GraphType.AGGREGATE]: {
-    label: msg`Aggregate Chart`,
+    label: msg`Grafik Agregat`,
     icon: IconSum,
     settings: AGGREGATE_CHART_SETTINGS,
   },
   [GraphType.GAUGE]: {
-    label: msg`Gauge Chart`,
+    label: msg`Grafik Pengukur`,
     icon: IconGauge,
     settings: GAUGE_CHART_SETTINGS,
   },

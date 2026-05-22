@@ -10,5 +10,5 @@ export const SUFFIX_SETTING: ChartSettingsItem = {
   label: CHART_CONFIGURATION_SETTING_LABELS.SUFFIX,
   id: CHART_CONFIGURATION_SETTING_IDS.SUFFIX,
   isTextInput: true,
-  inputPlaceholder: msg`unit`,
+  inputPlaceholder: msg`satuan`,
 };

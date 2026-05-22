@@ -51,7 +51,7 @@ export const DeleteTwoFactorAuthentication = () => {
       )
     ) {
       enqueueErrorSnackBar({
-        message: t`Invalid 2FA information.`,
+        message: t`Informasi 2FA tidak valid.`,
         options: {
           dedupeKey: '2fa-dedupe-key',
         },
@@ -69,7 +69,7 @@ export const DeleteTwoFactorAuthentication = () => {
     });
 
     enqueueSuccessSnackBar({
-      message: t`2FA Method has been deleted successfully.`,
+      message: t`Metode 2FA berhasil dihapus.`,
       options: {
         dedupeKey: '2fa-dedupe-key',
       },
@@ -86,43 +86,44 @@ export const DeleteTwoFactorAuthentication = () => {
   return (
     <>
       <H2Title
-        title={t`Delete Two-Factor Authentication Method`}
-        description={t`Deleting this method will remove it permanently from your account.`}
+        title={t`Hapus Metode Autentikasi Dua Faktor`}
+        description={t`Menghapus metode ini akan menghapusnya secara permanen dari akun Anda.`}
       />
 
       <Button
         accent="danger"
         onClick={() => openModal(DELETE_TWO_FACTOR_AUTHENTICATION_MODAL_ID)}
         variant="secondary"
-        title={t`Reset 2FA`}
+        title={t`Setel ulang 2FA`}
       />
 
       <ConfirmationModal
         confirmationValue={userEmail}
         confirmationPlaceholder={userEmail ?? ''}
         modalInstanceId={DELETE_TWO_FACTOR_AUTHENTICATION_MODAL_ID}
-        title={t`2FA Method Reset`}
+        title={t`Setel Ulang Metode 2FA`}
         subtitle={
           isTwoFactorAuthenticationEnforced ? (
             <Trans>
-              This will permanently delete your two factor authentication
-              method.
+              Ini akan menghapus metode autentikasi dua faktor Anda secara
+              permanen.
               <br />
-              Since 2FA is mandatory in your workspace, you will be logged out
-              after deletion and will be asked to configure it again upon login.{' '}
+              Karena 2FA diwajibkan di ruang kerja Anda, Anda akan keluar
+              setelah penghapusan dan diminta untuk mengonfigurasinya kembali
+              saat masuk.{' '}
               <br />
-              Please type in your email to confirm.
+              Ketik email Anda untuk mengonfirmasi.
             </Trans>
           ) : (
             <Trans>
-              This action cannot be undone. This will permanently reset your two
-              factor authentication method. <br /> Please type in your email to
-              confirm.
+              Tindakan ini tidak dapat dibatalkan. Ini akan menyetel ulang
+              metode autentikasi dua faktor Anda secara permanen. <br /> Ketik
+              email Anda untuk mengonfirmasi.
             </Trans>
           )
         }
         onConfirmClick={reset2FA}
-        confirmButtonText={t`Reset 2FA`}
+        confirmButtonText={t`Setel ulang 2FA`}
       />
     </>
   );

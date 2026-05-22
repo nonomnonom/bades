@@ -31,5 +31,5 @@ export const getCurrentGraphTypeFromConfig = (
     return GraphType.GAUGE;
   }
 
-  throw new Error(t`Unknown chart configuration type`);
+  throw new Error(t`Jenis konfigurasi grafik tidak dikenal`);
 };

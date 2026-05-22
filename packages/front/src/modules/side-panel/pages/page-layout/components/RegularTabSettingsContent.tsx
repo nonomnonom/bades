@@ -69,7 +69,7 @@ export const RegularTabSettingsContent = ({
   return (
     <>
       <SidePanelList selectableItemIds={selectableItemIds}>
-        <SidePanelGroup heading={t`Settings`}>
+        <SidePanelGroup heading={t`Pengaturan`}>
           {canMoveLeft && (
             <SelectableListItem
               itemId={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_LEFT}
@@ -78,7 +78,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_LEFT}
                 Icon={IconChevronLeft}
-                label={t`Move left`}
+                label={t`Pindah ke kiri`}
                 onClick={onMoveLeft}
               />
             </SelectableListItem>
@@ -91,7 +91,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_RIGHT}
                 Icon={IconChevronRight}
-                label={t`Move right`}
+                label={t`Pindah ke kanan`}
                 onClick={onMoveRight}
               />
             </SelectableListItem>
@@ -104,7 +104,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.SET_AS_PINNED}
                 Icon={IconPinned}
-                label={t`Set as pinned tab`}
+                label={t`Setel sebagai tab disematkan`}
                 onClick={onSetAsPinned}
               />
             </SelectableListItem>
@@ -116,7 +116,7 @@ export const RegularTabSettingsContent = ({
             <CommandMenuItem
               id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.DUPLICATE}
               Icon={IconCopyPlus}
-              label={t`Duplicate`}
+              label={t`Duplikat`}
               onClick={onDuplicate}
             />
           </SelectableListItem>
@@ -128,7 +128,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
                 Icon={IconRefreshDot}
-                label={t`Reset to default`}
+                label={t`Setel ulang ke bawaan`}
                 onClick={handleResetToDefault}
                 disabled={isResetToDefaultDisabled}
               />
@@ -137,7 +137,7 @@ export const RegularTabSettingsContent = ({
           {isResetToDefaultDisabled && (
             <AppTooltip
               anchorSelect={`#${RESET_TAB_TO_DEFAULT_MENU_ITEM_ID}`}
-              content={t`No default configuration available for this tab`}
+              content={t`Tidak ada konfigurasi bawaan untuk tab ini`}
               noArrow
               place="bottom"
             />
@@ -150,7 +150,7 @@ export const RegularTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.DELETE}
                 Icon={IconTrash}
-                label={t`Delete`}
+                label={t`Hapus`}
                 onClick={onDelete}
               />
             </SelectableListItem>
@@ -159,10 +159,10 @@ export const RegularTabSettingsContent = ({
       </SidePanelList>
       <ConfirmationModal
         modalInstanceId={RESET_TAB_TO_DEFAULT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This will cancel all modifications done on the tab and its widgets. Edit mode will be canceled and the page will refresh. This action cannot be undone.`}
+        title={t`Setel ulang ke bawaan`}
+        subtitle={t`Ini akan membatalkan semua perubahan pada tab dan widget-nya. Mode edit akan dibatalkan dan halaman akan dimuat ulang. Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={onResetToDefault}
-        confirmButtonText={t`Reset`}
+        confirmButtonText={t`Setel ulang`}
         confirmButtonAccent="danger"
       />
     </>

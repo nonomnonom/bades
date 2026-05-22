@@ -97,18 +97,18 @@ export const SidePanelRecordPageFieldsSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Data and display`}>
+          <SidePanelGroup heading={t`Data dan tampilan`}>
             <SelectableListItem
               itemId="layout"
               onEnter={handleNavigateToLayout}
             >
               <CommandMenuItem
                 id="layout"
-                label={t`Layout`}
+                label={t`Tata Letak`}
                 Icon={IconLayoutSidebarRight}
                 hasSubMenu
                 onClick={handleNavigateToLayout}
-                description={t`${totalFieldsCount} visible fields`}
+                description={t`${totalFieldsCount} kolom terlihat`}
                 contextualTextPosition="right"
               />
             </SelectableListItem>
@@ -118,7 +118,7 @@ export const SidePanelRecordPageFieldsSettings = () => {
             >
               <CommandMenuItemToggle
                 LeftIcon={IconChevronDown}
-                text={t`Display "More fields" button`}
+                text={t`Tampilkan tombol "Kolom lainnya"`}
                 id="display-more-fields-button"
                 toggled={isShouldAllowUserToSeeHiddenFieldsToggled}
                 onToggleChange={handleToggleShouldAllowUserToSeeHiddenFields}

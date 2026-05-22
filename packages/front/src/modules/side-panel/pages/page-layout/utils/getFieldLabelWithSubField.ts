@@ -19,7 +19,7 @@ export const getFieldLabelWithSubField = ({
   objectMetadataItems?: EnrichedObjectMetadataItem[];
 }): string => {
   if (!isDefined(field?.label)) {
-    return t`Field`;
+    return t`Kolom`;
   }
 
   if (!isDefined(subFieldName)) {

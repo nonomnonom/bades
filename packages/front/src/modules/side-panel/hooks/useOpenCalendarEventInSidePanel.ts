@@ -49,7 +49,7 @@ export const useOpenCalendarEventInSidePanel = () => {
 
       navigateSidePanel({
         page: SidePanelPages.ViewCalendarEvent,
-        pageTitle: t`Calendar Event`,
+        pageTitle: t`Acara Kalender`,
         pageIcon: IconCalendarEvent,
         pageId: pageComponentInstanceId,
       });

@@ -66,8 +66,8 @@ export const ChartRatioOptionValueSelectionDropdownContent = ({
   const getOptionsForField = (): RatioOption[] => {
     if (selectedField.type === FieldMetadataType.BOOLEAN) {
       return [
-        { value: 'true', label: t`True` },
-        { value: 'false', label: t`False` },
+        { value: 'true', label: t`Ya` },
+        { value: 'false', label: t`Tidak` },
       ];
     }
 
@@ -105,12 +105,12 @@ export const ChartRatioOptionValueSelectionDropdownContent = ({
           />
         }
       >
-        {t`Select value`}
+        {t`Pilih nilai`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search options`}
+        placeholder={t`Cari opsi`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

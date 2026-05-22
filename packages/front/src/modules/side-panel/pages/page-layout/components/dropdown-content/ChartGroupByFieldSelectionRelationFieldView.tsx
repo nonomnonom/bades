@@ -126,14 +126,14 @@ export const ChartGroupByFieldSelectionRelationFieldView = ({
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search fields`}
+        placeholder={t`Cari kolom`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer>
         {availableFields.length === 0 ? (
-          <MenuItem text={t`No fields available`} />
+          <MenuItem text={t`Tidak ada kolom tersedia`} />
         ) : (
           <SelectableList
             selectableListInstanceId={dropdownId}

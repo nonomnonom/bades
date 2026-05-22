@@ -46,7 +46,7 @@ export const MoveToTabDropdownContent = () => {
   if (eligibleTabs.length === 0) {
     return (
       <DropdownMenuItemsContainer>
-        <MenuItem text={t`No available tabs`} />
+        <MenuItem text={t`Tidak ada tab tersedia`} />
       </DropdownMenuItemsContainer>
     );
   }

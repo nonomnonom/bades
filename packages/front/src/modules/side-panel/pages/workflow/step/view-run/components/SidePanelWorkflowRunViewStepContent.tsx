@@ -98,7 +98,7 @@ export const SidePanelWorkflowRunViewStepContent = () => {
   const tabs: SingleTabProps<TabId>[] = [
     {
       id: WorkflowRunTabId.OUTPUT,
-      title: t`Output`,
+      title: t`Keluaran`,
       Icon: IconLogout,
       disabled: isOutputTabDisabled,
     },
@@ -109,7 +109,7 @@ export const SidePanelWorkflowRunViewStepContent = () => {
     },
     {
       id: WorkflowRunTabId.INPUT,
-      title: t`Input`,
+      title: t`Masukan`,
       Icon: IconLogin2,
       disabled: isInputTabDisabled,
     },

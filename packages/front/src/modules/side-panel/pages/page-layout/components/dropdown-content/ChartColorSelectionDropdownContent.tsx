@@ -115,7 +115,7 @@ export const ChartColorSelectionDropdownContent = () => {
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search colors`}
+        placeholder={t`Cari warna`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

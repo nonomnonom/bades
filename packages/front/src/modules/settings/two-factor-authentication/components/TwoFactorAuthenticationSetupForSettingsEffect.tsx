@@ -43,7 +43,7 @@ export const TwoFactorAuthenticationSetupForSettingsEffect = () => {
         );
       } catch {
         enqueueErrorSnackBar({
-          message: t`Two factor authentication provisioning failed.`,
+          message: t`Penyediaan autentikasi dua faktor gagal.`,
           options: {
             dedupeKey:
               'two-factor-authentication-provisioning-initiation-failed',

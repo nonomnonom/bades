@@ -96,11 +96,11 @@ export const MemberPermissionsTab = ({
         },
         refetchQueries: ['GetRoles'],
       });
-      enqueueSuccessSnackBar({ message: t`Role updated successfully` });
+      enqueueSuccessSnackBar({ message: t`Peran berhasil diperbarui` });
     } catch (error) {
       enqueueErrorSnackBar({
         message:
-          error instanceof Error ? error.message : t`Failed to update role`,
+          error instanceof Error ? error.message : t`Gagal memperbarui peran`,
       });
     } finally {
       setPendingRole(null);
@@ -115,7 +115,7 @@ export const MemberPermissionsTab = ({
 
   if (!isDefined(primaryRole)) {
     return (
-      <StyledNoRoleContainer>{t`No role assigned to this member`}</StyledNoRoleContainer>
+      <StyledNoRoleContainer>{t`Tidak ada peran yang ditetapkan untuk anggota ini`}</StyledNoRoleContainer>
     );
   }
 
@@ -126,8 +126,8 @@ export const MemberPermissionsTab = ({
     <>
       <Section>
         <H2Title
-          title={t`Role`}
-          description={t`Customize what this user can view and perform`}
+          title={t`Peran`}
+          description={t`Atur apa yang dapat dilihat dan dilakukan pengguna ini`}
         />
         <StyledRoleContainer>
           <StyledRoleSelector>
@@ -142,7 +142,7 @@ export const MemberPermissionsTab = ({
           </StyledRoleSelector>
           <Button
             Icon={IconArrowUpRight}
-            title={t`Open in Roles`}
+            title={t`Buka di Peran`}
             variant="secondary"
             onClick={handleOpenRole}
           />
@@ -153,10 +153,10 @@ export const MemberPermissionsTab = ({
       {pendingRole && (
         <ConfirmationModal
           modalInstanceId={CONFIRM_ROLE_CHANGE_MODAL_ID}
-          title={t`Confirm role update`}
-          subtitle={t`Are you sure you want to update the role of this user from "${oldRoleLabel}" to "${newRoleLabel}"?`}
+          title={t`Konfirmasi perubahan peran`}
+          subtitle={t`Apakah Anda yakin ingin mengubah peran pengguna ini dari "${oldRoleLabel}" menjadi "${newRoleLabel}"?`}
           onConfirmClick={handleConfirmRoleChange}
-          confirmButtonText={t`Update role`}
+          confirmButtonText={t`Perbarui peran`}
           confirmButtonAccent="blue"
         />
       )}

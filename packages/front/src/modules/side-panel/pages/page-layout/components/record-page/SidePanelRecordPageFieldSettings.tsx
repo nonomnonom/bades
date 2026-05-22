@@ -60,8 +60,8 @@ export const SidePanelRecordPageFieldSettings = () => {
   const fieldLabel = currentFieldMetadataItem?.label ?? '';
 
   const displayModeLabels: Record<string, string> = {
-    [FieldDisplayMode.FIELD]: t`Field`,
-    [FieldDisplayMode.CARD]: t`Card`,
+    [FieldDisplayMode.FIELD]: t`Kolom`,
+    [FieldDisplayMode.CARD]: t`Kartu`,
     [FieldDisplayMode.EDITOR]: t`Editor`,
   };
 
@@ -83,11 +83,11 @@ export const SidePanelRecordPageFieldSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={selectableItemIds}>
-          <SidePanelGroup heading={t`Data and display`}>
+          <SidePanelGroup heading={t`Data dan tampilan`}>
             <SelectableListItem itemId="field">
               <CommandMenuItemDropdown
                 id="field"
-                label={t`Field`}
+                label={t`Kolom`}
                 Icon={IconListDetails}
                 dropdownId="field"
                 dropdownComponents={
@@ -103,7 +103,7 @@ export const SidePanelRecordPageFieldSettings = () => {
             <SelectableListItem itemId="layout">
               <CommandMenuItemDropdown
                 id="layout"
-                label={t`Layout`}
+                label={t`Tata Letak`}
                 Icon={IconLayoutSidebarRight}
                 dropdownId="layout"
                 dropdownComponents={

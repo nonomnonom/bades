@@ -34,8 +34,8 @@ export const SidePanelFolderInfo = () => {
   const items = useNavigationMenuItemSectionItems();
   const { updateFolderInDraft } = useUpdateFolderInDraft();
 
-  const defaultLabel = t`New folder`;
-  const placeholder = t`Folder name`;
+  const defaultLabel = t`Folder baru`;
+  const placeholder = t`Nama folder`;
 
   const selectedItem = selectedNavigationMenuItemIdInEditMode
     ? items.find(

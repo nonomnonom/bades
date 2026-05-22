@@ -93,7 +93,7 @@ export const SidePanelWorkflowSelectTriggerTypeContent = () => {
       })}
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Others`}
+        {t`Lainnya`}
       </SidePanelWorkflowSelectStepTitle>
       {OTHER_TRIGGER_TYPES.map((action) => {
         const Icon = getIcon(action.icon);

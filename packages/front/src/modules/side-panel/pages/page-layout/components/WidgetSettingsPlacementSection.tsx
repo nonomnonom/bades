@@ -113,7 +113,7 @@ export const WidgetSettingsPlacementSection = ({
   };
 
   return (
-    <SidePanelGroup heading={t`Placement`}>
+    <SidePanelGroup heading={t`Penempatan`}>
       {showMoveUp && (
         <SelectableListItem
           itemId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_UP}
@@ -122,7 +122,7 @@ export const WidgetSettingsPlacementSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_UP}
             Icon={IconChevronUp}
-            label={t`Move Up`}
+            label={t`Naikkan`}
             onClick={handleMoveUp}
           />
         </SelectableListItem>
@@ -135,7 +135,7 @@ export const WidgetSettingsPlacementSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_DOWN}
             Icon={IconChevronDown}
-            label={t`Move Down`}
+            label={t`Turunkan`}
             onClick={handleMoveDown}
           />
         </SelectableListItem>
@@ -145,7 +145,7 @@ export const WidgetSettingsPlacementSection = ({
       >
         <CommandMenuItemDropdown
           id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_TO_TAB}
-          label={t`Move to another tab`}
+          label={t`Pindah ke tab lain`}
           Icon={IconArrowsVertical}
           dropdownId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_TO_TAB}
           dropdownComponents={
@@ -163,7 +163,7 @@ export const WidgetSettingsPlacementSection = ({
         <CommandMenuItem
           id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.ADD_WIDGET_ABOVE}
           Icon={IconRowInsertTop}
-          label={t`Add widget above`}
+          label={t`Tambah widget di atas`}
           onClick={handleAddWidgetAbove}
         />
       </SelectableListItem>
@@ -174,7 +174,7 @@ export const WidgetSettingsPlacementSection = ({
         <CommandMenuItem
           id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.ADD_WIDGET_BELOW}
           Icon={IconRowInsertBottom}
-          label={t`Add widget below`}
+          label={t`Tambah widget di bawah`}
           onClick={handleAddWidgetBelow}
         />
       </SelectableListItem>

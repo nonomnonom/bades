@@ -107,7 +107,7 @@ export const FieldWidgetFieldDropdownContent = () => {
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search fields`}
+        placeholder={t`Cari kolom`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

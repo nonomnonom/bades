@@ -87,7 +87,7 @@ export const SidePanelContextChip = ({
       {text?.trim?.() ? (
         <OverflowingTextWithTooltip text={text} />
       ) : !forceEmptyText ? (
-        <StyledEmptyText>{t`Untitled`}</StyledEmptyText>
+        <StyledEmptyText>{t`Tanpa judul`}</StyledEmptyText>
       ) : (
         ''
       )}

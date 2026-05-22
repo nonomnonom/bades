@@ -65,7 +65,7 @@ export const SidePanelWorkflowSelectAction = ({
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Flow`}
+        {t`Alur`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={FLOW_ACTIONS}
@@ -73,7 +73,7 @@ export const SidePanelWorkflowSelectAction = ({
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Core`}
+        {t`Inti`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={CORE_ACTIONS}
@@ -81,7 +81,7 @@ export const SidePanelWorkflowSelectAction = ({
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {t`Human Input`}
+        {t`Input Manual`}
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={HUMAN_INPUT_ACTIONS}
@@ -91,7 +91,7 @@ export const SidePanelWorkflowSelectAction = ({
       {toolFunctions.length > 0 && (
         <>
           <SidePanelWorkflowSelectStepTitle>
-            {t`Applications`}
+            {t`Aplikasi`}
           </SidePanelWorkflowSelectStepTitle>
           {toolFunctions.map((fn) => (
             <MenuItem

@@ -166,7 +166,7 @@ export const useOpenRecordInSidePanel = () => {
       navigateSidePanelMenu({
         page: SidePanelPages.ViewRecord,
         pageTitle: isNewRecord
-          ? t`New ${objectLabelSingular}`
+          ? t`${objectLabelSingular} baru`
           : objectLabelSingular,
         pageIcon: Icon,
         pageIconColor: IconColor,

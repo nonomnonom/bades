@@ -86,7 +86,7 @@ export const ChartManualSortSubMenuContent = ({
           />
         }
       >
-        {t`Reorder options`}
+        {t`Susun ulang opsi`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         <DraggableList

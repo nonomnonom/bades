@@ -73,21 +73,21 @@ export const useSidePanelMenu = () => {
     ) {
       navigateSidePanel({
         page: SidePanelPages.NavigationMenuItemEdit,
-        pageTitle: t`Edit`,
+        pageTitle: t`Ubah`,
         pageIcon: IconDotsVertical,
         resetNavigationStack: true,
       });
     } else if (isLayoutCustomizationModeEnabled) {
       navigateSidePanel({
         page: SidePanelPages.NavigationMenuAddItem,
-        pageTitle: t`New menu item`,
+        pageTitle: t`Item menu baru`,
         pageIcon: IconColumnInsertRight,
         resetNavigationStack: true,
       });
     } else {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuDisplay,
-        pageTitle: t`Command Menu`,
+        pageTitle: t`Menu Perintah`,
         pageIcon: IconDotsVertical,
         resetNavigationStack: true,
       });

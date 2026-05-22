@@ -44,7 +44,7 @@ export const MemberInfosTab = ({
   return (
     <>
       <Section>
-        <H2Title title={t`Picture`} />
+        <H2Title title={t`Foto`} />
         <WorkspaceMemberPictureUploader
           workspaceMemberId={member.id}
           avatarUrl={avatarUrl}
@@ -54,8 +54,8 @@ export const MemberInfosTab = ({
 
       <Section>
         <H2Title
-          title={t`Name`}
-          description={t`As it will be displayed in the workspace`}
+          title={t`Nama`}
+          description={t`Nama yang akan ditampilkan di ruang kerja`}
         />
         <StyledNameRow>
           <MemberNameFields
@@ -78,7 +78,7 @@ export const MemberInfosTab = ({
       <Section>
         <H2Title
           title={t`Email`}
-          description={t`The email associated to this account`}
+          description={t`Email yang terhubung dengan akun ini`}
         />
         <MemberEmailField email={member.userEmail} />
       </Section>
@@ -86,12 +86,12 @@ export const MemberInfosTab = ({
       <Section>
         <H2Title
           title={t`Admin`}
-          description={t`Perform administrative actions or permanently delete this user`}
+          description={t`Lakukan tindakan administratif atau hapus pengguna ini secara permanen`}
         />
         <StyledActionRow>
           {onImpersonate && (
             <Button
-              title={t`Impersonate`}
+              title={t`Masuk sebagai pengguna`}
               variant="secondary"
               size="small"
               onClick={onImpersonate}
@@ -99,7 +99,7 @@ export const MemberInfosTab = ({
           )}
           <Button
             accent="danger"
-            title={t`Delete account`}
+            title={t`Hapus akun`}
             variant="secondary"
             size="small"
             onClick={onDelete}

@@ -17,7 +17,7 @@ export const useOpenUpdateMultipleRecordsPageInSidePanel = ({
   const openUpdateMultipleRecordsPageInSidePanel = useCallback(async () => {
     navigateSidePanel({
       page: SidePanelPages.UpdateRecords,
-      pageTitle: t(msg`Update records`),
+      pageTitle: t(msg`Perbarui data`),
       pageIcon: IconBoxMultiple,
       pageId: contextStoreInstanceId,
     });

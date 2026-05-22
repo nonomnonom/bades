@@ -6,21 +6,21 @@ import { assertUnreachable } from 'shared/utils';
 export const getPageLayoutPageTitle = (page: PageLayoutSidePanelPage) => {
   switch (page) {
     case SidePanelPages.PageLayoutDashboardWidgetTypeSelect:
-      return t`Add Widget`;
+      return t`Tambah Widget`;
     case SidePanelPages.DashboardChartSettings:
-      return t`Select Graph Type`;
+      return t`Pilih Jenis Grafik`;
     case SidePanelPages.DashboardIframeSettings:
-      return t`iFrame Settings`;
+      return t`Pengaturan iFrame`;
     case SidePanelPages.PageLayoutTabSettings:
-      return t`Tab Settings`;
+      return t`Pengaturan Tab`;
     case SidePanelPages.RecordPageFieldsSettings:
-      return t`Fields Settings`;
+      return t`Pengaturan Kolom`;
     case SidePanelPages.RecordPageFieldSettings:
-      return t`Field widget`;
+      return t`Widget kolom tunggal`;
     case SidePanelPages.DashboardRecordTableSettings:
-      return t`Record Table Settings`;
+      return t`Pengaturan Tabel Data`;
     case SidePanelPages.PageLayoutRecordPageWidgetTypeSelect:
-      return t`New widget`;
+      return t`Widget baru`;
     default:
       assertUnreachable(page);
   }

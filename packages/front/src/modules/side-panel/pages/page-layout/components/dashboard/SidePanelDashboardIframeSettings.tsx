@@ -58,7 +58,7 @@ export const SidePanelDashboardIframeSettings = () => {
     }
 
     if (!isValidUrl(trimmedUrl)) {
-      setUrlError(t`Please enter a valid URL`);
+      setUrlError(t`Masukkan URL yang valid`);
       return false;
     }
 
@@ -88,7 +88,7 @@ export const SidePanelDashboardIframeSettings = () => {
     <StyledContainer>
       <StyledSidePanelContainer>
         <SidePanelList selectableItemIds={[]}>
-          <SidePanelGroup heading={t`URL to Embed`}>
+          <SidePanelGroup heading={t`URL untuk Ditanamkan`}>
             <SidePanelGroupFormContainer>
               <FormTextFieldInput
                 placeholder={t`https://example.com/embed`}

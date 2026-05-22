@@ -154,7 +154,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         removePageLayoutWidgetAndPreservePosition(pageLayoutEditingWidgetId);
       }
 
-      const newWidget = createPageLayoutIframeWidget(t`Untitled iFrame`, null);
+      const newWidget = createPageLayoutIframeWidget(t`iFrame tanpa judul`, null);
       setPageLayoutEditingWidgetId(newWidget.id);
     }
 
@@ -245,14 +245,14 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
 
   return (
     <SidePanelList selectableItemIds={selectableItemIds}>
-      <SidePanelGroup heading={t`Widget type`}>
+      <SidePanelGroup heading={t`Jenis widget`}>
         <SelectableListItem
           itemId="chart"
           onEnter={handleNavigateToGraphTypeSelect}
         >
           <CommandMenuItem
             Icon={IconChartPie}
-            label={t`Chart`}
+            label={t`Grafik`}
             id="chart"
             onClick={handleNavigateToGraphTypeSelect}
           />
@@ -263,7 +263,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         >
           <CommandMenuItem
             Icon={IconTable}
-            label={t`View`}
+            label={t`Tampilan`}
             id="record-table"
             onClick={handleNavigateToRecordTableSettings}
           />
@@ -286,7 +286,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         >
           <CommandMenuItem
             Icon={IconAlignBoxLeftTop}
-            label={t`Rich Text`}
+            label={t`Teks Kaya`}
             id="rich-text"
             onClick={handleNavigateToRichTextSettings}
           />
@@ -294,7 +294,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
       </SidePanelGroup>
 
       {frontComponentsWithSelectItemId.length > 0 && (
-        <SidePanelGroup heading={t`Front Components`}>
+        <SidePanelGroup heading={t`Komponen Bades`}>
           {frontComponentsWithSelectItemId.map(
             ({ frontComponent, selectItemId }) => (
               <SelectableListItem

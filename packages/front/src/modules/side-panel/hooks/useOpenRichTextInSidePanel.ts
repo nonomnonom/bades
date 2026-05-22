@@ -22,7 +22,7 @@ export const useOpenRichTextInSidePanel = () => {
       openSidePanelMenu();
       navigateSidePanelMenu({
         page: SidePanelPages.EditRichText,
-        pageTitle: t`Rich Text`,
+        pageTitle: t`Teks Kaya`,
         pageIcon: IconPencil,
       });
     },

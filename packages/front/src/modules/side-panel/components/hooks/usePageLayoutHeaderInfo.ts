@@ -79,7 +79,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: resolvedTabIcon ?? IconAppWindow,
         headerIconColor: iconColor,
-        headerType: isCanvasTab ? t`Full tab widget` : t`Tab`,
+        headerType: isCanvasTab ? t`Widget tab penuh` : t`Tab`,
         title,
         isReadonly: false,
         tab,
@@ -111,7 +111,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconFrame,
         headerIconColor: iconColor,
-        headerType: t`iFrame Widget`,
+        headerType: t`Widget iFrame`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -152,7 +152,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: graphTypeInfo.icon,
         headerIconColor: iconColor,
-        headerType: t`Chart`,
+        headerType: t`Grafik`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -184,7 +184,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconList,
         headerIconColor: iconColor,
-        headerType: t`Fields Widget`,
+        headerType: t`Widget Kolom`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -216,7 +216,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconList,
         headerIconColor: iconColor,
-        headerType: t`Field Widget`,
+        headerType: t`Widget Kolom Tunggal`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -248,7 +248,7 @@ export const usePageLayoutHeaderInfo = ({
       return {
         headerIcon: IconTable,
         headerIconColor: iconColor,
-        headerType: t`View`,
+        headerType: t`Tampilan`,
         title,
         isReadonly: false,
         tab: undefined,
@@ -263,7 +263,7 @@ export const usePageLayoutHeaderInfo = ({
         headerIcon: IconPlus,
         headerIconColor: iconColor,
         headerType: '',
-        title: t`New widget`,
+        title: t`Widget baru`,
         isReadonly: true,
         tab: undefined,
         widgetInEditMode: undefined,
@@ -277,7 +277,7 @@ export const usePageLayoutHeaderInfo = ({
         headerIcon: IconPlus,
         headerIconColor: iconColor,
         headerType: '',
-        title: t`New widget`,
+        title: t`Widget baru`,
         isReadonly: true,
         tab: undefined,
         widgetInEditMode: undefined,

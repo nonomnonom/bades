@@ -7,29 +7,29 @@ export const getSidePanelSubPageTitle = (
 ): string => {
   switch (subPage) {
     case SidePanelSubPages.PageLayoutGraphFilter:
-      return t`Filters`;
+      return t`Filter`;
     case SidePanelSubPages.PageLayoutFieldsLayout:
-      return t`Layout`;
+      return t`Tata Letak`;
     case SidePanelSubPages.PageLayoutRecordTableFilter:
-      return t`Filters`;
+      return t`Filter`;
     case SidePanelSubPages.PageLayoutRecordTableSort:
-      return t`Sorts`;
+      return t`Urutan`;
     case SidePanelSubPages.NewSidebarItemMainMenu:
-      return t`Add menu item`;
+      return t`Tambah item menu`;
     case SidePanelSubPages.NewSidebarItemViewObjectPicker:
-      return t`Pick an object`;
+      return t`Pilih objek`;
     case SidePanelSubPages.NewSidebarItemViewPicker:
-      return t`Pick a view`;
+      return t`Pilih tampilan`;
     case SidePanelSubPages.NewSidebarItemViewSystemPicker:
-      return t`System objects`;
+      return t`Objek sistem`;
     case SidePanelSubPages.NewSidebarItemObjectPicker:
-      return t`Pick an object`;
+      return t`Pilih objek`;
     case SidePanelSubPages.NewSidebarItemObjectSystemPicker:
-      return t`System objects`;
+      return t`Objek sistem`;
     case SidePanelSubPages.NewSidebarItemRecord:
-      return t`Add a record`;
+      return t`Tambah data`;
     case SidePanelSubPages.EditFolderPicker:
-      return t`Move to a folder`;
+      return t`Pindah ke folder`;
     default:
       assertUnreachable(subPage);
   }

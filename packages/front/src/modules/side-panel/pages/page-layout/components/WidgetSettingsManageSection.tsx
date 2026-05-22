@@ -95,13 +95,13 @@ export const WidgetSettingsManageSection = ({
 
   return (
     <>
-      <SidePanelGroup heading={t`Manage`}>
+      <SidePanelGroup heading={t`Kelola`}>
         <SelectableListItem
           itemId={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
         >
           <CommandMenuItemDropdown
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
-            label={t`Visibility Restriction`}
+            label={t`Pembatasan Visibilitas`}
             Icon={IconEyeX}
             dropdownId={
               WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION
@@ -124,7 +124,7 @@ export const WidgetSettingsManageSection = ({
             <CommandMenuItem
               id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
               Icon={IconRefreshDot}
-              label={t`Reset to default`}
+              label={t`Setel ulang ke bawaan`}
               onClick={handleResetToDefault}
               disabled={isResetToDefaultDisabled}
             />
@@ -133,7 +133,7 @@ export const WidgetSettingsManageSection = ({
         {isResetToDefaultDisabled && (
           <AppTooltip
             anchorSelect={`#${RESET_WIDGET_TO_DEFAULT_MENU_ITEM_ID}`}
-            content={t`No default configuration available for this widget`}
+            content={t`Tidak ada konfigurasi bawaan untuk widget ini`}
             noArrow
             place="bottom"
           />
@@ -145,7 +145,7 @@ export const WidgetSettingsManageSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.REPLACE_WIDGET}
             Icon={IconSwitchHorizontal}
-            label={t`Replace widget`}
+            label={t`Ganti widget`}
             hasSubMenu
             onClick={handleReplaceWidget}
           />
@@ -157,17 +157,17 @@ export const WidgetSettingsManageSection = ({
           <CommandMenuItem
             id={WIDGET_SETTINGS_SELECTABLE_ITEM_IDS.DELETE_WIDGET}
             Icon={IconTrash}
-            label={t`Delete widget`}
+            label={t`Hapus widget`}
             onClick={handleDeleteWidget}
           />
         </SelectableListItem>
       </SidePanelGroup>
       <ConfirmationModal
         modalInstanceId={RESET_WIDGET_TO_DEFAULT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This will cancel all modifications done on the widget. This action cannot be undone.`}
+        title={t`Setel ulang ke bawaan`}
+        subtitle={t`Ini akan membatalkan semua perubahan pada widget. Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleConfirmReset}
-        confirmButtonText={t`Reset`}
+        confirmButtonText={t`Setel ulang`}
         confirmButtonAccent="danger"
       />
     </>

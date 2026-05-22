@@ -37,7 +37,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowTriggerSelectType,
-        pageTitle: t`Trigger Type`,
+        pageTitle: t`Jenis Pemicu`,
         pageIcon: IconBolt,
         pageId,
       });
@@ -58,7 +58,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowStepCreate,
-        pageTitle: t`Select Action`,
+        pageTitle: t`Pilih Aksi`,
         pageIcon: IconSettingsAutomation,
         pageId,
       });
@@ -121,7 +121,7 @@ export const useSidePanelWorkflowNavigation = () => {
 
       navigateSidePanel({
         page: SidePanelPages.WorkflowStepEditType,
-        pageTitle: t`Select action`,
+        pageTitle: t`Pilih aksi`,
         pageIcon: IconSettingsAutomation,
         pageId,
       });

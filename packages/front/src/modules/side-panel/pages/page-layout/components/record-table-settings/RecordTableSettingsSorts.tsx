@@ -72,18 +72,18 @@ export const RecordTableSettingsSorts = ({
 
   const directionOptions: Array<SelectOption<ViewSortDirection>> = [
     {
-      label: t`Ascending`,
+      label: t`Menaik`,
       value: ViewSortDirection.ASC,
     },
     {
-      label: t`Descending`,
+      label: t`Menurun`,
       value: ViewSortDirection.DESC,
     },
   ];
 
   return (
     <StyledSortSettingsContainer>
-      <InputLabel>{t`Sorts`}</InputLabel>
+      <InputLabel>{t`Urutan`}</InputLabel>
       <RecordSortsComponentInstanceContext.Provider
         value={{ instanceId: recordIndexId }}
       >
