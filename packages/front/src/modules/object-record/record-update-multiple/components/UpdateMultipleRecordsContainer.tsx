@@ -77,7 +77,7 @@ export const UpdateMultipleRecordsContainer = ({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to update records. Please try again.`,
+            : t`Gagal memperbarui data. Silakan coba lagi.`,
       });
     }
   };

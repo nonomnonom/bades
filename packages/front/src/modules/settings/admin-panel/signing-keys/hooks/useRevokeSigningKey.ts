@@ -32,7 +32,7 @@ export const useRevokeSigningKey = (onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Failed to revoke signing key. Please try again later.`,
+          : t`Gagal mencabut kunci tanda tangan. Silakan coba lagi nanti.`,
       });
     } finally {
       setIsRevoking(false);

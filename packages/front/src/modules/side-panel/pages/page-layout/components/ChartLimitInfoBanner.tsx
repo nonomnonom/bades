@@ -25,8 +25,8 @@ export const ChartLimitInfoBanner = ({
       })}
       tooltipMessage={
         isPrimaryAxisDate
-          ? t`Consider adding a filter or changing the date granularity to display more data.`
-          : t`Consider adding a filter to display more data.`
+          ? t`Pertimbangkan menambahkan filter atau mengubah granularitas tanggal untuk menampilkan lebih banyak data.`
+          : t`Pertimbangkan menambahkan filter untuk menampilkan lebih banyak data.`
       }
       variant="warning"
     />

@@ -52,7 +52,7 @@ export const SettingsDevelopersWebhookForm = ({
 
   const getTitle = () => {
     if (isCreationMode) {
-      return t`New Webhook`;
+      return t`Webhook Baru`;
     }
 
     const targetUrl = formConfig.watch('targetUrl');
@@ -77,14 +77,14 @@ export const SettingsDevelopersWebhookForm = ({
         reserveTitleSpace
         links={[
           {
-            children: t`Workspace`,
+            children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`APIs & Webhooks`,
+            children: t`API & Webhook`,
             href: getSettingsPath(SettingsPath.ApiWebhooks),
           },
-          { children: isCreationMode ? t`New` : getTitle() },
+          { children: isCreationMode ? t`Baru` : getTitle() },
         ]}
         actionButton={
           <SaveAndCancelButtons
@@ -98,8 +98,8 @@ export const SettingsDevelopersWebhookForm = ({
         <SettingsPageContainer>
           <Section>
             <H2Title
-              title={t`Endpoint URL`}
-              description={t`We will send a POST request to this endpoint for each new event in application/json format`}
+              title={t`URL Endpoint`}
+              description={t`Kami akan mengirim permintaan POST ke endpoint ini untuk setiap event baru dalam format application/json`}
             />
             <Controller
               name="targetUrl"
@@ -124,8 +124,8 @@ export const SettingsDevelopersWebhookForm = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Description`}
-              description={t`We will send a POST request to this endpoint for each new event in application/json format.`}
+              title={t`Deskripsi`}
+              description={t`Kami akan mengirim permintaan POST ke endpoint ini untuk setiap event baru dalam format application/json.`}
             />
             <Controller
               name="description"
@@ -133,7 +133,7 @@ export const SettingsDevelopersWebhookForm = ({
               render={({ field: { onChange, value } }) => (
                 <TextArea
                   textAreaId={descriptionTextAreaId}
-                  placeholder={t`Write a description`}
+                  placeholder={t`Tulis deskripsi`}
                   minRows={4}
                   value={value || ''}
                   onChange={onChange}
@@ -143,8 +143,8 @@ export const SettingsDevelopersWebhookForm = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Filters`}
-              description={t`Select the events you wish to send to this endpoint`}
+              title={t`Filter`}
+              description={t`Pilih event yang ingin dikirim ke endpoint ini`}
             />
             <Controller
               name="operations"
@@ -160,8 +160,8 @@ export const SettingsDevelopersWebhookForm = ({
           </Section>
           <Section>
             <H2Title
-              title={t`Secret`}
-              description={t`Optional secret used to compute the HMAC signature for webhook payloads`}
+              title={t`Rahasia`}
+              description={t`Secret opsional untuk menghitung tanda tangan HMAC pada payload webhook`}
             />
             <Controller
               name="secret"
@@ -169,7 +169,7 @@ export const SettingsDevelopersWebhookForm = ({
               render={({ field: { onChange, value } }) => (
                 <SettingsTextInput
                   instanceId={secretTextInputId}
-                  placeholder={t`Secret (optional)`}
+                  placeholder={t`Rahasia (opsional)`}
                   value={value || ''}
                   onChange={onChange}
                   fullWidth
@@ -180,13 +180,13 @@ export const SettingsDevelopersWebhookForm = ({
           {!isCreationMode && (
             <Section>
               <H2Title
-                title={t`Danger zone`}
-                description={t`Delete this webhook`}
+                title={t`Zona bahaya`}
+                description={t`Hapus webhook ini`}
               />
               <Button
                 accent="danger"
                 variant="secondary"
-                title={t`Delete`}
+                title={t`Hapus`}
                 Icon={IconTrash}
                 onClick={() => openModal(DELETE_WEBHOOK_MODAL_ID)}
               />
@@ -199,14 +199,14 @@ export const SettingsDevelopersWebhookForm = ({
           confirmationPlaceholder={t`yes`}
           confirmationValue={t`yes`}
           modalInstanceId={DELETE_WEBHOOK_MODAL_ID}
-          title={t`Delete webhook`}
+          title={t`Hapus webhook`}
           subtitle={
             <Trans>
-              Please type "yes" to confirm you want to delete this webhook.
+              Ketik "yes" untuk mengonfirmasi penghapusan webhook ini.
             </Trans>
           }
           onConfirmClick={handleDelete}
-          confirmButtonText={t`Delete`}
+          confirmButtonText={t`Hapus`}
         />
       )}
     </FormProvider>

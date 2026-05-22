@@ -23,7 +23,7 @@ export const useUploadWorkflowFile = () => {
         const fileName = file.name;
         const maxUploadSize = formatFileSize(MAX_ATTACHMENT_SIZE);
         enqueueErrorSnackBar({
-          message: t`File "${fileName}" exceeds ${maxUploadSize}`,
+          message: t`Berkas "${fileName}" melebihi ${maxUploadSize}`,
         });
         return null;
       }
@@ -45,7 +45,7 @@ export const useUploadWorkflowFile = () => {
 
       const fileName = file.name;
       enqueueSuccessSnackBar({
-        message: t`File "${fileName}" uploaded successfully`,
+        message: t`Berkas "${fileName}" berhasil diunggah`,
       });
 
       return workflowFile;
@@ -54,7 +54,7 @@ export const useUploadWorkflowFile = () => {
 
       const fileNameForError = file.name;
       enqueueErrorSnackBar({
-        message: t`Failed to upload "${fileNameForError}"`,
+        message: t`Gagal mengunggah "${fileNameForError}"`,
       });
 
       return null;

@@ -67,8 +67,8 @@ export const SettingsDataModelFieldCurrencyForm = ({
         render={({ field: { onChange, value } }) => (
           <SettingsOptionCardContentSelect
             Icon={IconCurrencyDollar}
-            title={t`Default Value`}
-            description={t`Choose the default currency that will apply`}
+            title={t`Nilai Bawaan`}
+            description={t`Pilih mata uang bawaan yang akan digunakan`}
           >
             <Select<string>
               dropdownWidth={220}
@@ -100,7 +100,7 @@ export const SettingsDataModelFieldCurrencyForm = ({
               <SettingsOptionCardContentSelect
                 Icon={IconCheckbox}
                 title={t`Format`}
-                description={t`Choose between Short and Full`}
+                description={t`Pilih antara Singkat dan Penuh`}
               >
                 <Select<FieldCurrencyFormat>
                   dropdownWidth={140}
@@ -117,8 +117,8 @@ export const SettingsDataModelFieldCurrencyForm = ({
                   disabled={disabled}
                   dropdownId="object-field-format-select"
                   options={[
-                    { label: 'Short', value: fieldMetadataCurrencyFormat[0] },
-                    { label: 'Full', value: fieldMetadataCurrencyFormat[1] },
+                    { label: t`Singkat`, value: fieldMetadataCurrencyFormat[0] },
+                    { label: t`Penuh`, value: fieldMetadataCurrencyFormat[1] },
                   ]}
                   selectSizeVariant="small"
                   withSearchInput={false}
@@ -128,10 +128,10 @@ export const SettingsDataModelFieldCurrencyForm = ({
               {format === 'full' && (
                 <SettingsOptionCardContentCounter
                   Icon={IconDecimal}
-                  title={t`Number of decimals`}
+                  title={t`Jumlah desimal`}
                   description={plural(decimals, {
-                    one: `E.g. ${(1000).toFixed(decimals)} for ${decimals} decimal`,
-                    other: `E.g. ${(1000).toFixed(decimals)} for ${decimals} decimals`,
+                    one: `Contoh: ${(1000).toFixed(decimals)} untuk ${decimals} desimal`,
+                    other: `Contoh: ${(1000).toFixed(decimals)} untuk ${decimals} desimal`,
                   })}
                   value={decimals}
                   onChange={(newDecimals: number) =>

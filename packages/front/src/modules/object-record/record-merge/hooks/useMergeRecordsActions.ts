@@ -49,7 +49,7 @@ export const useMergeRecordsActions = ({
       const recordCount = selectedRecords.length;
 
       enqueueSuccessSnackBar({
-        message: t`Successfully merged ${recordCount} records`,
+        message: t`Berhasil menggabungkan ${recordCount} data`,
       });
       closeSidePanelMenu();
 
@@ -62,7 +62,7 @@ export const useMergeRecordsActions = ({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to merge records. Please try again.`,
+            : t`Gagal menggabungkan data. Silakan coba lagi.`,
       });
     } finally {
       setIsMergeInProgress(false);

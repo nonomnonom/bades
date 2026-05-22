@@ -27,7 +27,7 @@ export const LayoutCustomizationBarResetConfirmationModal = ({
     <ConfirmationModal
       modalInstanceId={RESET_RECORD_PAGE_LAYOUT_MODAL_ID}
       title={t`Reset to default`}
-      subtitle={t`This action cannot be undone.`}
+      subtitle={t`Tindakan ini tidak dapat dibatalkan.`}
       onConfirmClick={handleConfirmReset}
       confirmButtonText={t`Reset`}
       confirmButtonAccent="danger"

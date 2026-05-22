@@ -49,7 +49,7 @@ export const SidePanelObjectPickerSubView = ({
 
   const noResultsText = hasSearchQuery
     ? t`No results found`
-    : (emptyNoResultsText ?? t`All objects are already in the sidebar`);
+    : (emptyNoResultsText ?? t`Semua objek sudah ada di bilah samping`);
 
   const isAddVariant = objectMenuItemVariant === 'add';
 

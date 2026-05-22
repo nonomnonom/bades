@@ -46,7 +46,7 @@ export const useEnterLayoutCustomizationMode = () => {
 
       if (isDashboardInEditMode) {
         enqueueWarningSnackBar({
-          message: t`Save or cancel dashboard changes before editing the layout.`,
+          message: t`Simpan atau batalkan perubahan dasbor sebelum mengubah tata letak.`,
         });
 
         return;

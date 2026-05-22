@@ -281,7 +281,7 @@ export class ApolloFactory implements ApolloManager {
               case 'APP_VERSION_MISMATCH': {
                 onAppVersionMismatch?.(
                   (graphQLError.extensions?.userFriendlyMessage as string) ||
-                    t`Your app version is out of date. Please refresh the page.`,
+                    t`Versi aplikasi Anda sudah usang. Silakan muat ulang halaman.`,
                 );
                 return;
               }

@@ -27,13 +27,13 @@ export const SettingsUsageAnalyticsSection = () => {
     return (
       <Section>
         <H2Title
-          title={t`Usage Analytics`}
-          description={t`Credit usage breakdown for your workspace.`}
+          title={t`Analitik Penggunaan`}
+          description={t`Rincian penggunaan kredit untuk ruang kerja Anda.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`ClickHouse Not Configured`}
-            value={t`Usage analytics requires ClickHouse. Contact your administrator.`}
+            label={t`ClickHouse Belum Dikonfigurasi`}
+            value={t`Analitik penggunaan memerlukan ClickHouse. Hubungi administrator Anda.`}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -54,13 +54,13 @@ export const SettingsUsageAnalyticsSection = () => {
     return (
       <Section>
         <H2Title
-          title={t`Usage Analytics`}
-          description={t`Credit usage breakdown for your workspace.`}
+          title={t`Analitik Penggunaan`}
+          description={t`Rincian penggunaan kredit untuk ruang kerja Anda.`}
         />
         <SubscriptionInfoContainer>
           <SettingsBillingLabelValueItem
-            label={t`No usage data yet`}
-            value={t`Usage analytics will appear here once you start using credits.`}
+            label={t`Belum ada data penggunaan`}
+            value={t`Analitik penggunaan akan muncul di sini setelah Anda mulai menggunakan kredit.`}
           />
         </SubscriptionInfoContainer>
       </Section>
@@ -70,19 +70,19 @@ export const SettingsUsageAnalyticsSection = () => {
   return (
     <>
       <UsageBreakdownPieSection
-        title={t`Usage by Type`}
+        title={t`Penggunaan per Jenis`}
         breakdownField="operationType"
         sectionId="usage-type"
       />
       <UsageDailyChartSection
-        title={t`Daily Usage`}
-        description={t`Credit consumption over time.`}
+        title={t`Penggunaan Harian`}
+        description={t`Konsumsi kredit dari waktu ke waktu.`}
         chartId="usage-daily"
         chartLabel={t`Credits`}
       />
       <UsageByUserTableSection
-        title={t`Usage by User`}
-        description={t`Click a user to see their daily breakdown.`}
+        title={t`Penggunaan per Pengguna`}
+        description={t`Klik pengguna untuk melihat rincian harian mereka.`}
         getDetailPath={(userWorkspaceId) =>
           getSettingsPath(SettingsPath.UsageUserDetail, {
             userWorkspaceId,
@@ -97,7 +97,7 @@ export const SettingsUsageAnalyticsSection = () => {
         >
           <Button
             Icon={IconSparkles}
-            title={t`View AI usage breakdown`}
+            title={t`Lihat rincian penggunaan AI`}
             variant="secondary"
           />
         </Link>

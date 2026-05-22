@@ -35,27 +35,27 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
 
         if (retriedCount === -1) {
           enqueueSuccessSnackBar({
-            message: t`All failed jobs have been retried`,
+            message: t`Semua tugas gagal telah dicoba ulang`,
           });
         } else if (retriedCount > 0) {
           if (failedResults.length > 0) {
             enqueueSuccessSnackBar({
               message: plural(retriedCount, {
-                one: `Successfully retried ${retriedCount} job`,
-                other: `Successfully retried ${retriedCount} jobs`,
+                one: `${retriedCount} tugas berhasil dicoba ulang`,
+                other: `${retriedCount} tugas berhasil dicoba ulang`,
               }),
             });
             enqueueErrorSnackBar({
               message: plural(failedResults.length, {
-                one: `${failedResults.length} job could not be retried`,
-                other: `${failedResults.length} jobs could not be retried`,
+                one: `${failedResults.length} tugas tidak dapat dicoba ulang`,
+                other: `${failedResults.length} tugas tidak dapat dicoba ulang`,
               }),
             });
           } else {
             enqueueSuccessSnackBar({
               message: plural(retriedCount, {
-                one: `Successfully retried ${retriedCount} job`,
-                other: `Successfully retried ${retriedCount} jobs`,
+                one: `${retriedCount} tugas berhasil dicoba ulang`,
+                other: `${retriedCount} tugas berhasil dicoba ulang`,
               }),
             });
           }
@@ -67,7 +67,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
             errorMessages.length > 0 ? `: ${errorMessages[0]}` : '';
 
           enqueueErrorSnackBar({
-            message: t`No jobs were retried${errorDetails}`,
+            message: t`Tidak ada tugas yang dicoba ulang${errorDetails}`,
           });
         }
 
@@ -77,7 +77,7 @@ export const useRetryJobs = (queueName: string, onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Failed to retry jobs. Please try again later.`,
+          : t`Gagal mencoba ulang tugas. Silakan coba lagi nanti.`,
       });
     } finally {
       setIsRetrying(false);

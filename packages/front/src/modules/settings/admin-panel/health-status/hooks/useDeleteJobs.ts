@@ -37,21 +37,21 @@ export const useDeleteJobs = (queueName: string, onSuccess?: () => void) => {
           if (failedResults.length > 0) {
             enqueueSuccessSnackBar({
               message: plural(deletedCount, {
-                one: `Successfully deleted ${deletedCount} job`,
-                other: `Successfully deleted ${deletedCount} jobs`,
+                one: `${deletedCount} tugas berhasil dihapus`,
+                other: `${deletedCount} tugas berhasil dihapus`,
               }),
             });
             enqueueErrorSnackBar({
               message: plural(failedResults.length, {
-                one: `${failedResults.length} job could not be deleted`,
-                other: `${failedResults.length} jobs could not be deleted`,
+                one: `${failedResults.length} tugas tidak dapat dihapus`,
+                other: `${failedResults.length} tugas tidak dapat dihapus`,
               }),
             });
           } else {
             enqueueSuccessSnackBar({
               message: plural(deletedCount, {
-                one: `Successfully deleted ${deletedCount} job`,
-                other: `Successfully deleted ${deletedCount} jobs`,
+                one: `${deletedCount} tugas berhasil dihapus`,
+                other: `${deletedCount} tugas berhasil dihapus`,
               }),
             });
           }
@@ -65,7 +65,7 @@ export const useDeleteJobs = (queueName: string, onSuccess?: () => void) => {
             errorMessages.length > 0 ? `: ${errorMessages[0]}` : '';
 
           enqueueErrorSnackBar({
-            message: t`No jobs were deleted${errorDetails}`,
+            message: t`Tidak ada tugas yang dihapus${errorDetails}`,
           });
         }
       }
@@ -73,7 +73,7 @@ export const useDeleteJobs = (queueName: string, onSuccess?: () => void) => {
       enqueueErrorSnackBar({
         message: CombinedGraphQLErrors.is(error)
           ? getErrorMessageFromApolloError(error)
-          : t`Failed to delete jobs. Please try again later.`,
+          : t`Gagal menghapus tugas. Silakan coba lagi nanti.`,
       });
     } finally {
       setIsDeleting(false);

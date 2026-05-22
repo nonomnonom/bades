@@ -16,11 +16,11 @@ export const getDateGranularityLabel = (
     case ObjectRecordGroupByDateGranularity.YEAR:
       return t`Year`;
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
-      return t`Day of the week`;
+      return t`Hari dalam seminggu`;
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
-      return t`Month of the year`;
+      return t`Bulan dalam setahun`;
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
-      return t`Quarter of the year`;
+      return t`Kuartal dalam setahun`;
     case ObjectRecordGroupByDateGranularity.NONE:
       return t`None`;
     default:

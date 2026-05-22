@@ -85,7 +85,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
     }
   }, [webhookData, formConfig]);
 
-  useSnackBarOnQueryError(error, t`Failed to load webhook`);
+  useSnackBarOnQueryError(error, t`Gagal memuat webhook`);
 
   const { isDirty, isValid, isSubmitting } = formConfig.formState;
   const canSave = isCreationMode
@@ -103,7 +103,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
         : '';
 
       enqueueSuccessSnackBar({
-        message: t`Webhook ${targetUrl} created successfully`,
+        message: t`Webhook ${targetUrl} berhasil dibuat`,
       });
 
       navigate(
@@ -120,7 +120,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
   const handleUpdate = async (formValues: WebhookFormValues) => {
     if (!webhookId) {
       enqueueErrorSnackBar({
-        message: t`Webhook ID is required for updates`,
+        message: t`ID webhook diperlukan untuk pembaruan`,
       });
       return;
     }
@@ -139,7 +139,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
         : '';
 
       enqueueSuccessSnackBar({
-        message: t`Webhook ${targetUrl} updated successfully`,
+        message: t`Webhook ${targetUrl} berhasil diperbarui`,
       });
     } catch (error) {
       enqueueErrorSnackBar({
@@ -184,7 +184,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
   const handleDelete = async () => {
     if (!webhookId) {
       enqueueErrorSnackBar({
-        message: t`Webhook ID is required for deletion`,
+        message: t`ID webhook diperlukan untuk penghapusan`,
       });
       return;
     }
@@ -194,7 +194,7 @@ export const useWebhookForm = ({ webhookId, mode }: UseWebhookFormProps) => {
         variables: { id: webhookId },
       });
       enqueueSuccessSnackBar({
-        message: t`Webhook deleted successfully`,
+        message: t`Webhook berhasil dihapus`,
       });
 
       navigate(SettingsPath.ApiWebhooks);

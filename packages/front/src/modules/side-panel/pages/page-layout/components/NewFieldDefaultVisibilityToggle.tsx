@@ -36,7 +36,7 @@ export const NewFieldDefaultVisibilityToggle = ({
     >
       <CommandMenuItemToggle
         LeftIcon={IconEye}
-        text={t`Set fields created in the future as "visible"`}
+        text={t`Jadikan kolom yang dibuat nanti sebagai "terlihat"`}
         id="new-field-default-visibility"
         toggled={newFieldDefaultVisibility}
         onToggleChange={handleToggle}

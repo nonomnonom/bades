@@ -18,7 +18,7 @@ export const PageLayoutWidgetForbiddenDisplay = ({
   const getTooltipContent = () => {
     if (restriction.type === 'object' && isDefined(restriction.objectName)) {
       const objectName = restriction.objectName;
-      return t`You do not have permission to access the ${objectName} object`;
+      return t`Anda tidak memiliki izin untuk mengakses objek ${objectName}`;
     }
 
     if (
@@ -28,12 +28,12 @@ export const PageLayoutWidgetForbiddenDisplay = ({
     ) {
       const fieldsList = restriction.fieldNames.join(', ');
       return plural(restriction.fieldNames.length, {
-        one: `You do not have permission to access the ${fieldsList} field`,
-        other: `You do not have permission to access the ${fieldsList} fields`,
+        one: `Anda tidak memiliki izin untuk mengakses kolom ${fieldsList}`,
+        other: `Anda tidak memiliki izin untuk mengakses kolom-kolom ${fieldsList}`,
       });
     }
 
-    return t`You do not have permission to view this widget`;
+    return t`Anda tidak memiliki izin untuk melihat widget ini`;
   };
 
   return (
