@@ -726,8 +726,8 @@ penuh ke Midtrans; docs ditunda.
   pada DB lokal untuk cek migrasi `up`/`down`.
 - **Fase 4 sisa**: narasi self-hosting/CRM di katalog marketing website
   (`packages/website` — besar; agen transformasi gagal karena limit kuota
-  org, belum jalan), istilah CRM di `id-ID.po`, hapus seed legacy
-  pet/rocket/survey.
+  org, belum jalan), istilah CRM di `id-ID.po`.
+  (Seed legacy pet/rocket/survey — ✅ SUDAH dihapus, commit `fc66c91a`.)
 - **Fase 5**: jalankan `nx test front`/`server`, perbaiki test usang.
 - **Fase 6**: konfirmasi developer surface.
 - **Fase 7**: verifikasi penuh (build server/front/website, docker build).
