@@ -30,7 +30,7 @@ import { LogicFunctionDriverFactory } from 'src/engine/core-modules/logic-functi
 import { buildEnvVar } from 'src/engine/core-modules/logic-function/logic-function-executor/utils/build-env-var';
 import { SecretEncryptionService } from 'src/engine/core-modules/secret-encryption/secret-encryption.service';
 import { ThrottlerService } from 'src/engine/core-modules/throttler/throttler.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { USAGE_RECORDED } from 'src/engine/core-modules/usage/constants/usage-recorded.constant';
 import { UsageOperationType } from 'src/engine/core-modules/usage/enums/usage-operation-type.enum';
 import { UsageResourceType } from 'src/engine/core-modules/usage/enums/usage-resource-type.enum';
@@ -66,7 +66,7 @@ export class LogicFunctionExecutorService {
   constructor(
     private readonly logicFunctionDriverFactory: LogicFunctionDriverFactory,
     private readonly throttlerService: ThrottlerService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly applicationTokenService: ApplicationTokenService,
     private readonly secretEncryptionService: SecretEncryptionService,

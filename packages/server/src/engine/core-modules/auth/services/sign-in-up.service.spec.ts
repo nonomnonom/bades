@@ -39,7 +39,7 @@ const createSignInUpServiceForTests = () => {
     SERVER_URL: 'http://localhost:3000',
   };
 
-  const mockTwentyConfigService = {
+  const mockBadesConfigService = {
     get: jest.fn(
       (configKey: keyof MockConfigurationValues) =>
         mockConfigurationValues[configKey],
@@ -76,7 +76,7 @@ const createSignInUpServiceForTests = () => {
     {
       emitCustomBatchEvent: jest.fn(),
     } as any,
-    mockTwentyConfigService as any,
+    mockBadesConfigService as any,
     {
       generateSubdomain: jest.fn(),
     } as any,

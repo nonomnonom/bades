@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { google } from 'googleapis';
 import { isDefined } from 'shared/utils';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import {
   ConnectedAccountRefreshAccessTokenException,
   ConnectedAccountRefreshAccessTokenExceptionCode,
@@ -13,7 +13,7 @@ import { parseGoogleOAuthError } from 'src/modules/connected-account/refresh-tok
 
 @Injectable()
 export class GoogleAPIRefreshAccessTokenService {
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   async refreshTokens(refreshToken: string): Promise<ConnectedAccountTokens> {
     const oAuth2Client = new google.auth.OAuth2(

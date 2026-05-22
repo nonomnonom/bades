@@ -37,7 +37,7 @@ import { MetricsService } from 'src/engine/core-modules/metrics/metrics.service'
 import { MetricsKeys } from 'src/engine/core-modules/metrics/types/metrics-keys.type';
 import { OnboardingService } from 'src/engine/core-modules/onboarding/onboarding.service';
 import { TelemetryEventType } from 'src/engine/core-modules/telemetry/telemetry-event.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceService } from 'src/engine/core-modules/user-workspace/user-workspace.service';
 import { UserService } from 'src/engine/core-modules/user/services/user.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
@@ -61,7 +61,7 @@ export class SignInUpService {
     private readonly userWorkspaceService: UserWorkspaceService,
     private readonly onboardingService: OnboardingService,
     private readonly workspaceEventEmitter: WorkspaceEventEmitter,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly subdomainManagerService: SubdomainManagerService,
     private readonly userService: UserService,
     private readonly metricsService: MetricsService,

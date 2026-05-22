@@ -2,7 +2,7 @@ import { ForbiddenException, Injectable, Logger } from '@nestjs/common';
 
 import SnsPayloadValidator from 'sns-payload-validator';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 type SnsPayload = SnsPayloadValidator.SnsPayload;
 
@@ -11,7 +11,7 @@ export class SnsSignatureVerifierService {
   private readonly logger = new Logger(SnsSignatureVerifierService.name);
   private readonly validator = new SnsPayloadValidator();
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   async assertAllowedAndSigned(payload: SnsPayload): Promise<void> {
     if (!this.isTopicAllowlisted(payload.TopicArn)) {

@@ -9,13 +9,13 @@ export const usePlanByPriceId = () => {
       listPlans(),
       (plan) =>
         plan.baseProducts.some((p) =>
-          p.prices?.some((price) => price.stripePriceId === priceId),
+          p.prices?.some((price) => price.priceId === priceId),
         ) ||
         plan.resourceCreditProducts.some((p) =>
-          p.prices?.some((price) => price.stripePriceId === priceId),
+          p.prices?.some((price) => price.priceId === priceId),
         ) ||
         plan.meteredProducts.some((p) =>
-          p.prices?.some((price) => price.stripePriceId === priceId),
+          p.prices?.some((price) => price.priceId === priceId),
         ),
     );
 

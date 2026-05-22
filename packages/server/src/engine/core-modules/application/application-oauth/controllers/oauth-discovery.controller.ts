@@ -5,7 +5,7 @@ import { type Request } from 'express';
 import { ALL_OAUTH_SCOPES } from 'src/engine/core-modules/application/application-oauth/constants/oauth-scopes';
 import { ApplicationRegistrationService } from 'src/engine/core-modules/application/application-registration/application-registration.service';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
 import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 import { cleanServerUrl } from 'src/utils/clean-server-url';
@@ -14,7 +14,7 @@ import { TWENTY_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manage
 @Controller('.well-known')
 export class OAuthDiscoveryController {
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly domainServerConfigService: DomainServerConfigService,
     private readonly applicationRegistrationService: ApplicationRegistrationService,
   ) {}

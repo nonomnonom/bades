@@ -15,7 +15,7 @@ import {
   type ImapSmtpCaldavParams,
 } from 'src/engine/core-modules/imap-smtp-caldav-connection/types/imap-smtp-caldav-connection.type';
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { CalDavClientService } from 'src/modules/calendar/calendar-event-import-manager/drivers/caldav/services/caldav-client.service';
 import { CalDavFetchEventsService } from 'src/modules/calendar/calendar-event-import-manager/drivers/caldav/services/caldav-fetch-events.service';
 
@@ -25,7 +25,7 @@ export class ImapSmtpCaldavService {
 
   constructor(
     private readonly secureHttpClientService: SecureHttpClientService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly caldavClientService: CalDavClientService,
     private readonly caldavFetchEventsService: CalDavFetchEventsService,
     private readonly imapSmtpCaldavValidatorService: ImapSmtpCaldavValidatorService,

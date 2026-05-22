@@ -6,7 +6,7 @@ import { isDefined } from 'shared/utils';
 import { DataSource } from 'typeorm';
 
 import { LoggerService } from 'src/engine/core-modules/logger/logger.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceManyOrAllFlatEntityMapsCacheService } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.service';
 import { AllFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/all-flat-entity-maps.type';
 import { getMetadataFlatEntityMapsKey } from 'src/engine/metadata-modules/flat-entity/utils/get-metadata-flat-entity-maps-key.util';
@@ -36,7 +36,7 @@ export class WorkspaceMigrationRunnerService {
     private readonly workspaceCacheStorageService: WorkspaceCacheStorageService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly logger: LoggerService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   private getLegacyCacheInvalidationPromises({

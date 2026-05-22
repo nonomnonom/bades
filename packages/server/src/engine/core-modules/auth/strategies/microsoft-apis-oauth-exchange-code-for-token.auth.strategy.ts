@@ -7,11 +7,11 @@ import { MicrosoftAPIsOauthCommonStrategy } from 'src/engine/core-modules/auth/s
 import { type APIsOAuthRequest } from 'src/engine/core-modules/auth/types/apis-oauth-request.type';
 import { type APIsOAuthState } from 'src/engine/core-modules/auth/types/apis-oauth-state.type';
 import { type MicrosoftPassportProfile } from 'src/engine/core-modules/auth/types/microsoft-passport-profile.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class MicrosoftAPIsOauthExchangeCodeForTokenStrategy extends MicrosoftAPIsOauthCommonStrategy {
-  constructor(twentyConfigService: TwentyConfigService) {
+  constructor(twentyConfigService: BadesConfigService) {
     super(twentyConfigService);
   }
 

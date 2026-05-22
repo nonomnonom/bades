@@ -11,7 +11,7 @@ import {
   createClient,
 } from '@clickhouse/client';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
@@ -20,7 +20,7 @@ export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
   private isClientInitializing: Map<string, boolean> = new Map();
   private readonly logger = new Logger(ClickHouseService.name);
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {
+  constructor(private readonly twentyConfigService: BadesConfigService) {
     if (this.twentyConfigService.get('CLICKHOUSE_URL')) {
       this.mainClient = createClient({
         url: this.twentyConfigService.get('CLICKHOUSE_URL'),

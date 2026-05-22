@@ -15,7 +15,7 @@ import {
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
 import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserService } from 'src/engine/core-modules/user/services/user.service';
 import { type UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
@@ -38,7 +38,7 @@ describe('ResetPasswordService', () => {
   let workspaceRepository: Repository<WorkspaceEntity>;
   let appTokenRepository: Repository<AppTokenEntity>;
   let emailService: EmailService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let workspaceDomainsService: WorkspaceDomainsService;
 
   beforeEach(async () => {
@@ -73,7 +73,7 @@ describe('ResetPasswordService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -98,7 +98,7 @@ describe('ResetPasswordService', () => {
       getRepositoryToken(AppTokenEntity),
     );
     emailService = module.get<EmailService>(EmailService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     workspaceDomainsService = module.get<WorkspaceDomainsService>(
       WorkspaceDomainsService,
     );

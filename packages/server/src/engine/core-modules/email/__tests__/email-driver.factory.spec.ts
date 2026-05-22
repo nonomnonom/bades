@@ -2,15 +2,15 @@ import { Test, type TestingModule } from '@nestjs/testing';
 
 import { EmailDriverFactory } from 'src/engine/core-modules/email/email-driver.factory';
 import { EmailDriver } from 'src/engine/core-modules/email/enums/email-driver.enum';
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 describe('EmailDriverFactory', () => {
   let factory: EmailDriverFactory;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let configGroupHashService: ConfigGroupHashService;
 
-  const mockTwentyConfigService = {
+  const mockBadesConfigService = {
     get: jest.fn(),
   };
   const mockConfigGroupHashService = {
@@ -22,8 +22,8 @@ describe('EmailDriverFactory', () => {
       providers: [
         EmailDriverFactory,
         {
-          provide: TwentyConfigService,
-          useValue: mockTwentyConfigService,
+          provide: BadesConfigService,
+          useValue: mockBadesConfigService,
         },
         {
           provide: ConfigGroupHashService,
@@ -33,7 +33,7 @@ describe('EmailDriverFactory', () => {
     }).compile();
 
     factory = module.get<EmailDriverFactory>(EmailDriverFactory);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     configGroupHashService = module.get<ConfigGroupHashService>(
       ConfigGroupHashService,
     );

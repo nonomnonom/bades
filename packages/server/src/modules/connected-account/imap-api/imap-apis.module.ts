@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/engine/core-modules/auth/auth.module';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
 import { MessageQueueModule } from 'src/engine/core-modules/message-queue/message-queue.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { CalendarChannelEntity } from 'src/engine/metadata-modules/calendar-channel/entities/calendar-channel.entity';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
@@ -30,7 +30,7 @@ import { MessagingFolderSyncManagerModule } from 'src/modules/messaging/message-
     ]),
     MessageQueueModule,
     WorkspaceEventEmitterModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     SidOrmModule,
     FeatureFlagModule,
     AuthModule,

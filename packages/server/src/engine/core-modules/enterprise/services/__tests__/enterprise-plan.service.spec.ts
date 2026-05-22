@@ -5,12 +5,12 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 
 import { AppTokenEntity } from 'src/engine/core-modules/app-token/app-token.entity';
 import { EnterprisePlanService } from 'src/engine/core-modules/enterprise/services/enterprise-plan.service';
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 import {
   ConfigVariableException,
   ConfigVariableExceptionCode,
-} from 'src/engine/core-modules/twenty-config/twenty-config.exception';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+} from 'src/engine/core-modules/bades-config/bades-config.exception';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const mockCryptoVerify = jest.fn();
 
@@ -114,7 +114,7 @@ describe('EnterprisePlanService', () => {
       providers: [
         EnterprisePlanService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: configGetMock,
             set: configSetMock,

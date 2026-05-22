@@ -38,7 +38,7 @@ export class ResourceCreditService {
 
     const matchingPrice =
       resourceCreditItem.billingProduct?.billingPrices?.find(
-        (price) => price.stripePriceId === resourceCreditItem.stripePriceId,
+        (price) => price.priceId === resourceCreditItem.priceId,
       );
 
     if (!isDefined(matchingPrice)) {

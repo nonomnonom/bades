@@ -33,7 +33,7 @@ import { FileUrlService } from 'src/engine/core-modules/file/file-url/file-url.s
 import { FileService } from 'src/engine/core-modules/file/services/file.service';
 import { PreventNestToAutoLogGraphqlErrorsFilter } from 'src/engine/core-modules/graphql/filters/prevent-nest-to-auto-log-graphql-errors.filter';
 import { ResolverValidationPipe } from 'src/engine/core-modules/graphql/pipes/resolver-validation.pipe';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceService } from 'src/engine/core-modules/user-workspace/user-workspace.service';
 import { ActivateWorkspaceInput } from 'src/engine/core-modules/workspace/dtos/activate-workspace-input';
 import {
@@ -90,7 +90,7 @@ export class WorkspaceResolver {
     private readonly workspaceService: WorkspaceService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly userWorkspaceService: UserWorkspaceService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly fileService: FileService,
     private readonly fileUrlService: FileUrlService,
     private readonly billingSubscriptionService: BillingSubscriptionService,

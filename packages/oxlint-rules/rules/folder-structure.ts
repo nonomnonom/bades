@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'folder-structure';
+export const RULE_NAME = 'bades/folder-structure';
 
 const KEBAB_CASE_REGEX = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 const USE_PASCAL_CASE_FILE_REGEX = /^use[A-Z][a-zA-Z0-9]*\.(ts|tsx)$/;

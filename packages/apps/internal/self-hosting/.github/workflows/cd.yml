@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  TWENTY_DEPLOY_URL: http://localhost:3000
+  BADES_DEPLOY_URL: http://localhost:3000
 
 concurrency:
   group: cd-${{ github.ref }}
@@ -30,13 +30,13 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Deploy
-        uses: twentyhq/twenty/.github/actions/deploy-twenty-app@main
+        uses: badesid/bades/.github/actions/deploy-bades-app@main
         with:
-          api-url: ${{ env.TWENTY_DEPLOY_URL }}
-          api-key: ${{ secrets.TWENTY_DEPLOY_API_KEY }}
+          api-url: ${{ env.BADES_DEPLOY_URL }}
+          api-key: ${{ secrets.BADES_DEPLOY_API_KEY }}
 
       - name: Install
-        uses: twentyhq/twenty/.github/actions/install-twenty-app@main
+        uses: badesid/bades/.github/actions/install-bades-app@main
         with:
-          api-url: ${{ env.TWENTY_DEPLOY_URL }}
-          api-key: ${{ secrets.TWENTY_DEPLOY_API_KEY }}
+          api-url: ${{ env.BADES_DEPLOY_URL }}
+          api-key: ${{ secrets.BADES_DEPLOY_API_KEY }}

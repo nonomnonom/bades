@@ -4,7 +4,7 @@ import { GraphQLError } from 'graphql';
 
 import { type ExceptionHandlerUser } from 'src/engine/core-modules/exception-handler/interfaces/exception-handler-user.interface';
 import { type ExceptionHandlerWorkspace } from 'src/engine/core-modules/exception-handler/interfaces/exception-handler-workspace.interface';
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 
 import { type ExceptionHandlerService } from 'src/engine/core-modules/exception-handler/exception-handler.service';
 import {

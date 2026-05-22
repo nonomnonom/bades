@@ -3,15 +3,15 @@ import { Test, type TestingModule } from '@nestjs/testing';
 import { AdminPanelConfigService } from 'src/engine/core-modules/admin-panel/services/admin-panel-config.service';
 import { AdminPanelVersionService } from 'src/engine/core-modules/admin-panel/services/admin-panel-version.service';
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
-const TwentyConfigServiceGetAllMock = jest.fn();
-const TwentyConfigServiceGetVariableWithMetadataMock = jest.fn();
+const BadesConfigServiceGetAllMock = jest.fn();
+const BadesConfigServiceGetVariableWithMetadataMock = jest.fn();
 const mockHttpClientGet = jest.fn();
 const mockGetHttpClient = jest.fn().mockReturnValue({ get: mockHttpClientGet });
 
 jest.mock(
-  'src/engine/core-modules/twenty-config/constants/config-variables-group-metadata',
+  'src/engine/core-modules/bades-config/constants/config-variables-group-metadata',
   () => ({
     CONFIG_VARIABLES_GROUP_METADATA: {
       SERVER_CONFIG: {
@@ -41,11 +41,11 @@ describe('AdminPanelConfigService', () => {
       providers: [
         AdminPanelConfigService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
-            getAll: TwentyConfigServiceGetAllMock,
+            getAll: BadesConfigServiceGetAllMock,
             getVariableWithMetadata:
-              TwentyConfigServiceGetVariableWithMetadataMock,
+              BadesConfigServiceGetVariableWithMetadataMock,
           },
         },
       ],
@@ -62,7 +62,7 @@ describe('AdminPanelConfigService', () => {
 
   describe('getConfigVariablesGrouped', () => {
     it('should correctly group and sort config variables', () => {
-      TwentyConfigServiceGetAllMock.mockReturnValue({
+      BadesConfigServiceGetAllMock.mockReturnValue({
         SERVER_URL: {
           value: 'http://localhost',
           metadata: {
@@ -180,7 +180,7 @@ describe('AdminPanelConfigService', () => {
     });
 
     it('should handle empty config variables', () => {
-      TwentyConfigServiceGetAllMock.mockReturnValue({});
+      BadesConfigServiceGetAllMock.mockReturnValue({});
 
       const result = configService.getConfigVariablesGrouped();
 
@@ -190,7 +190,7 @@ describe('AdminPanelConfigService', () => {
     });
 
     it('should handle variables with undefined metadata fields', () => {
-      TwentyConfigServiceGetAllMock.mockReturnValue({
+      BadesConfigServiceGetAllMock.mockReturnValue({
         TEST_VAR: {
           value: 'test',
           metadata: {
@@ -219,7 +219,7 @@ describe('AdminPanelConfigService', () => {
 
   describe('getConfigVariable', () => {
     it('should return config variable with all fields', () => {
-      TwentyConfigServiceGetVariableWithMetadataMock.mockReturnValue({
+      BadesConfigServiceGetVariableWithMetadataMock.mockReturnValue({
         value: 'test-value',
         metadata: {
           group: 'SERVER_CONFIG',
@@ -247,7 +247,7 @@ describe('AdminPanelConfigService', () => {
     });
 
     it('should throw error when variable not found', () => {
-      TwentyConfigServiceGetVariableWithMetadataMock.mockReturnValue(undefined);
+      BadesConfigServiceGetVariableWithMetadataMock.mockReturnValue(undefined);
 
       expect(() => configService.getConfigVariable('INVALID_VAR')).toThrow(
         'Config variable INVALID_VAR not found',
@@ -264,7 +264,7 @@ describe('AdminPanelVersionService', () => {
       providers: [
         AdminPanelVersionService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },

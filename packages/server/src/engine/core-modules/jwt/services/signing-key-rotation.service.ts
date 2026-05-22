@@ -5,7 +5,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { isDefined } from 'shared/utils';
 
 import { JwtKeyManagerService } from 'src/engine/core-modules/jwt/services/jwt-key-manager.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -21,7 +21,7 @@ export class SigningKeyRotationService {
 
   constructor(
     private readonly jwtKeyManagerService: JwtKeyManagerService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async rotateIfDue(): Promise<SigningKeyRotationResult> {

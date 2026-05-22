@@ -33,7 +33,7 @@ import { BillingSubscriptionUpdateService } from 'src/engine/core-modules/billin
 import { BillingSubscriptionService } from 'src/engine/core-modules/billing/services/billing-subscription.service';
 import { BillingUsageService } from 'src/engine/core-modules/billing/services/billing-usage.service';
 import { BillingService } from 'src/engine/core-modules/billing/services/billing.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { formatBillingDatabaseProductToGraphqlDTO } from 'src/engine/core-modules/billing/utils/format-database-product-to-graphql-dto.util';
 import { PreventNestToAutoLogGraphqlErrorsFilter } from 'src/engine/core-modules/graphql/filters/prevent-nest-to-auto-log-graphql-errors.filter';
 import { ResolverValidationPipe } from 'src/engine/core-modules/graphql/pipes/resolver-validation.pipe';
@@ -74,7 +74,7 @@ export class BillingResolver {
     private readonly permissionsService: PermissionsService,
     private readonly midtransSnapService: MidtransSnapService,
     private readonly midtransTransactionService: MidtransTransactionService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   @Query(() => BillingSessionDTO)

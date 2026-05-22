@@ -16,7 +16,7 @@ export const CURRENT_BILLING_SUBSCRIPTION_FRAGMENT = gql`
       id
       hasReachedCurrentPeriodCap
       quantity
-      stripePriceId
+      priceId
       billingProduct {
         name
         description

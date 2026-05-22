@@ -10,14 +10,14 @@ import {
   makeTrackEvent,
 } from 'src/engine/core-modules/audit/utils/analytics.utils';
 import { type PageviewProperties } from 'src/engine/core-modules/audit/utils/events/pageview/pageview';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class AuditService {
   private readonly logger = new Logger(AuditService.name);
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly clickHouseService: ClickHouseService,
   ) {}
 

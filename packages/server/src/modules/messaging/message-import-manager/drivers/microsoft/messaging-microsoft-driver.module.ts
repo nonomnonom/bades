@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { ObjectMetadataRepositoryModule } from 'src/engine/object-metadata-repository/object-metadata-repository.module';
 import { WorkspaceDataSourceModule } from 'src/engine/workspace-datasource/workspace-datasource.module';
 import { OAuth2ClientManagerModule } from 'src/modules/connected-account/oauth2-client-manager/oauth2-client-manager.module';
@@ -16,7 +16,7 @@ import { MicrosoftGetMessageListService } from './services/microsoft-get-message
 
 @Module({
   imports: [
-    TwentyConfigModule,
+    BadesConfigModule,
     MessagingCommonModule,
     FeatureFlagModule,
     OAuth2ClientManagerModule,

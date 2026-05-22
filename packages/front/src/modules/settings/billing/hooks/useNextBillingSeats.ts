@@ -10,7 +10,7 @@ export const useNextBillingSeats = () => {
     isDefined(nextBasePrice) && nextBillingPhase
       ? findOrThrow(
           nextBillingPhase?.items,
-          ({ price }) => nextBasePrice.stripePriceId === price,
+          ({ price }) => nextBasePrice.priceId === price,
         ).quantity
       : undefined;
 

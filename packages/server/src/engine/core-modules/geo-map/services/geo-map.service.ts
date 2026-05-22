@@ -8,13 +8,13 @@ import { type GeoMapAutocompleteSanitizedResult } from 'src/engine/core-modules/
 import { sanitizeAutocompleteResults } from 'src/engine/core-modules/geo-map/utils/sanitize-autocomplete-results.util';
 import { sanitizePlaceDetailsResults } from 'src/engine/core-modules/geo-map/utils/sanitize-place-details-results.util';
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class GeoMapService {
   private apiMapKey: string | undefined;
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {
     if (

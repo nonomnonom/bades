@@ -54,9 +54,9 @@ import { PreventNestToAutoLogGraphqlErrorsFilter } from 'src/engine/core-modules
 import { ResolverValidationPipe } from 'src/engine/core-modules/graphql/pipes/resolver-validation.pipe';
 import { UserInputError } from 'src/engine/core-modules/graphql/utils/graphql-errors.util';
 import { type MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
-import { type ConfigVariables } from 'src/engine/core-modules/twenty-config/config-variables';
-import { ConfigVariableGraphqlApiExceptionFilter } from 'src/engine/core-modules/twenty-config/filters/config-variable-graphql-api-exception.filter';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type ConfigVariables } from 'src/engine/core-modules/bades-config/config-variables';
+import { ConfigVariableGraphqlApiExceptionFilter } from 'src/engine/core-modules/bades-config/filters/config-variable-graphql-api-exception.filter';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UsageBreakdownItemDTO } from 'src/engine/core-modules/usage/dtos/usage-breakdown-item.dto';
 import { UsageAnalyticsService } from 'src/engine/core-modules/usage/services/usage-analytics.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
@@ -107,7 +107,7 @@ export class AdminPanelResolver {
     private readonly applicationRegistrationService: ApplicationRegistrationService,
     private adminPanelQueueService: AdminPanelQueueService,
     private featureFlagService: FeatureFlagService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly aiModelRegistryService: AiModelRegistryService,
     private readonly aiModelPreferencesService: AiModelPreferencesService,
     private readonly defaultAiCatalogService: DefaultAiCatalogService,

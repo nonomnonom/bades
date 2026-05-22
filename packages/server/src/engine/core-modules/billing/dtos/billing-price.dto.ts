@@ -13,7 +13,7 @@ export class BillingPriceDTO {
   amount: number;
 
   @Field(() => String)
-  stripePriceId: string;
+  priceId: string;
 
   @Field(() => SubscriptionInterval)
   recurringInterval: SubscriptionInterval;

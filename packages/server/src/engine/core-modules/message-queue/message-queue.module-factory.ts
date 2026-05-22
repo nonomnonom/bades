@@ -5,7 +5,7 @@ import {
 } from 'src/engine/core-modules/message-queue/interfaces';
 import { type MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
 import { type RedisClientService } from 'src/engine/core-modules/redis-client/redis-client.service';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 /**
  * MessageQueue Module factory
@@ -15,7 +15,7 @@ import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/
  * @param metricsService
  */
 export const messageQueueModuleFactory = async (
-  _twentyConfigService: TwentyConfigService,
+  _twentyConfigService: BadesConfigService,
   redisClientService: RedisClientService,
   metricsService: MetricsService,
 ): Promise<MessageQueueModuleOptions> => {

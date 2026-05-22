@@ -5,7 +5,7 @@ import { msg } from '@lingui/core/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { type DataSource, type EntityManager, Repository } from 'typeorm';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import {
   PermissionsException,
@@ -24,7 +24,7 @@ export class WorkspaceDataSourceService {
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   private assertDDLNotLocked(): void {

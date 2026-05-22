@@ -1,19 +1,19 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'enforce-module-boundaries';
+export const RULE_NAME = 'bades/enforce-module-boundaries';
 
 const PACKAGE_TAG_MAP: Record<string, string[]> = {
-  'twenty-front': ['scope:frontend'],
-  'twenty-server': ['scope:backend'],
+  'front': ['scope:frontend'],
+  'server': ['scope:backend'],
   'ui': ['scope:shared'],
   'shared': ['scope:shared'],
   'emails': ['scope:backend'],
   'sdk': ['scope:sdk', 'scope:shared'],
-  'twenty-zapier': ['scope:zapier'],
-  'twenty-oxlint-rules': ['scope:shared'],
-  'twenty-docs': ['scope:docs'],
-  'twenty-e2e-testing': ['scope:testing'],
-  'create-twenty-app': ['scope:create-app'],
+  'zapier': ['scope:zapier'],
+  'oxlint-rules': ['scope:shared'],
+  'docs': ['scope:docs'],
+  'e2e-testing': ['scope:testing'],
+  'create-bades-app': ['scope:create-app'],
 };
 
 const WORKSPACE_PACKAGES = Object.keys(PACKAGE_TAG_MAP);

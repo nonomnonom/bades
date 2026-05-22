@@ -18,8 +18,8 @@ import { StripeSubscriptionItemService } from 'src/engine/core-modules/billing/s
   description: 'Update subscription price',
 })
 export class BillingUpdateSubscriptionPriceCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
-  private stripePriceIdToUpdate: string;
-  private newStripePriceId: string;
+  private priceIdToUpdate: string;
+  private newPriceId: string;
   private clearUsage = false;
 
   constructor(
@@ -33,23 +33,23 @@ export class BillingUpdateSubscriptionPriceCommand extends ActiveOrSuspendedWork
   }
 
   @Option({
-    flags: '--price-to-update-id [stripe_price_id]',
-    description: 'Stripe price id to update',
+    flags: '--price-to-update-id [price_id]',
+    description: 'Price id to update',
     required: true,
   })
-  parseStripePriceIdToMigrate(val: string): string {
-    this.stripePriceIdToUpdate = val;
+  parsePriceIdToMigrate(val: string): string {
+    this.priceIdToUpdate = val;
 
     return val;
   }
 
   @Option({
-    flags: '--new-price-id [stripe_price_id]',
-    description: 'New Stripe price id',
+    flags: '--new-price-id [price_id]',
+    description: 'New price id',
     required: true,
   })
-  parseNewStripePriceId(val: string): string {
-    this.newStripePriceId = val;
+  parseNewPriceId(val: string): string {
+    this.newPriceId = val;
 
     return val;
   }
@@ -73,7 +73,7 @@ export class BillingUpdateSubscriptionPriceCommand extends ActiveOrSuspendedWork
       );
 
     const subscriptionItemToUpdate = subscription.billingSubscriptionItems.find(
-      (item) => item.stripePriceId === this.stripePriceIdToUpdate,
+      (item) => item.priceId === this.priceIdToUpdate,
     );
 
     if (!isDefined(subscriptionItemToUpdate)) {
@@ -90,7 +90,7 @@ export class BillingUpdateSubscriptionPriceCommand extends ActiveOrSuspendedWork
 
       await this.stripeSubscriptionItemService.createSubscriptionItem(
         subscription.stripeSubscriptionId,
-        this.newStripePriceId,
+        this.newPriceId,
         isDefined(subscriptionItemToUpdate.quantity)
           ? subscriptionItemToUpdate.quantity
           : undefined,
@@ -98,7 +98,7 @@ export class BillingUpdateSubscriptionPriceCommand extends ActiveOrSuspendedWork
     }
 
     this.logger.log(
-      `Update subscription replacing price ${subscriptionItemToUpdate.stripePriceId} by ${this.newStripePriceId} with clear usage ${this.clearUsage} - workspace ${workspaceId}`,
+      `Update subscription replacing price ${subscriptionItemToUpdate.priceId} by ${this.newPriceId} with clear usage ${this.clearUsage} - workspace ${workspaceId}`,
     );
   }
 }

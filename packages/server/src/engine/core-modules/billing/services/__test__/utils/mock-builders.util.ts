@@ -26,20 +26,20 @@ export const repoMock = <T extends ObjectLiteral>() =>
   }) as unknown as jest.Mocked<Repository<T>>;
 
 export const buildBillingPriceEntity = ({
-  stripePriceId,
+  priceId,
   planKey,
   interval,
   isMetered,
   tiers,
 }: {
-  stripePriceId: string;
+  priceId: string;
   planKey: BillingPlanKey;
   interval: SubscriptionInterval;
   isMetered: boolean;
   tiers?: Stripe.Price.Tier[];
 }): BillingPriceEntity | BillingMeterPrice =>
   ({
-    stripePriceId,
+    priceId,
     interval,
     billingProduct: {
       metadata: {
@@ -105,8 +105,8 @@ export const arrangeBillingPriceRepositoryFindOneOrFail = (
   jest
     .spyOn(billingPriceRepository, 'findOneOrFail')
     .mockImplementation(async (criteria: unknown) => {
-      const where = (criteria as { where?: { stripePriceId?: string } })?.where;
-      const priceId = where?.stripePriceId;
+      const where = (criteria as { where?: { priceId?: string } })?.where;
+      const priceId = where?.priceId;
 
       if (priceId && priceIdToPriceMap[priceId]) {
         return priceIdToPriceMap[priceId] as BillingPriceEntity;
@@ -118,11 +118,11 @@ export const arrangeBillingPriceRepositoryFindOneOrFail = (
   jest
     .spyOn(billingPriceRepository, 'find')
     .mockImplementation(async (criteria?: unknown) => {
-      const where = (criteria as { where?: { stripePriceId?: unknown } })
+      const where = (criteria as { where?: { priceId?: unknown } })
         ?.where;
-      const stripePriceIdCondition = where?.stripePriceId;
+      const priceIdCondition = where?.priceId;
 
-      const resolveStripePriceIds = (cond: unknown): string[] => {
+      const resolvePriceIds = (cond: unknown): string[] => {
         if (typeof cond === 'string') {
           return [cond];
         }
@@ -140,10 +140,10 @@ export const arrangeBillingPriceRepositoryFindOneOrFail = (
         return [];
       };
 
-      const stripePriceIds = resolveStripePriceIds(stripePriceIdCondition);
+      const priceIds = resolvePriceIds(priceIdCondition);
 
-      return stripePriceIds
-        .map((stripePriceId) => priceIdToPriceMap[stripePriceId])
+      return priceIds
+        .map((priceId) => priceIdToPriceMap[priceId])
         .filter(
           (entity): entity is BillingPriceEntity =>
             entity !== null && entity !== undefined,

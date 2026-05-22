@@ -16,7 +16,7 @@ const LIST_PLANS_QUERY = `
         }
         ... on BillingLicensedProduct {
           prices {
-            stripePriceId
+            priceId
             unitAmount
             recurringInterval
             priceUsageType
@@ -36,7 +36,7 @@ const LIST_PLANS_QUERY = `
           prices {
             priceUsageType
             recurringInterval
-            stripePriceId
+            priceId
             tiers {
               flatAmount
               unitAmount

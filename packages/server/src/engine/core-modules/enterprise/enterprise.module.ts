@@ -7,11 +7,11 @@ import { AppTokenEntity } from 'src/engine/core-modules/app-token/app-token.enti
 import { EnterpriseKeyValidationCronJob } from 'src/engine/core-modules/enterprise/cron/jobs/enterprise-key-validation.cron.job';
 import { EnterpriseResolver } from 'src/engine/core-modules/enterprise/enterprise.resolver';
 import { EnterprisePlanService } from 'src/engine/core-modules/enterprise/services/enterprise-plan.service';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 
 @Module({
   imports: [
-    TwentyConfigModule,
+    BadesConfigModule,
     TypeOrmModule.forFeature([AppTokenEntity]),
   ],
   providers: [

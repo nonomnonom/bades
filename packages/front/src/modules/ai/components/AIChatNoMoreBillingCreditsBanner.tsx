@@ -90,7 +90,7 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
     if (!isDefined(nextPrice)) return;
     try {
       const { data } = await setResourceCreditSubscriptionPrice({
-        variables: { priceId: nextPrice.stripePriceId },
+        variables: { priceId: nextPrice.priceId },
       });
       if (
         isDefined(

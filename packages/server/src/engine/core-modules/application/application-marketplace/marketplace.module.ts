@@ -9,7 +9,7 @@ import { MarketplaceQueryService } from 'src/engine/core-modules/application/app
 import { MarketplaceResolver } from 'src/engine/core-modules/application/application-marketplace/marketplace.resolver';
 import { MarketplaceService } from 'src/engine/core-modules/application/application-marketplace/marketplace.service';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permissions.module';
 import { MarketplaceCatalogSyncCommand } from 'src/engine/core-modules/application/application-marketplace/crons/commands/marketplace-catalog-sync.command';
 
@@ -19,7 +19,7 @@ import { MarketplaceCatalogSyncCommand } from 'src/engine/core-modules/applicati
     ApplicationInstallModule,
     FeatureFlagModule,
     PermissionsModule,
-    TwentyConfigModule,
+    BadesConfigModule,
   ],
   providers: [
     MarketplaceService,

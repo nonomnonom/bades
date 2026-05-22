@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { USER_SIGNUP_EVENT_NAME } from 'src/engine/api/graphql/workspace-query-runner/constants/user-signup-event-name.constants';
 import { TelemetryEventType } from 'src/engine/core-modules/telemetry/telemetry-event.type';
 
@@ -15,7 +15,7 @@ type TelemetryEventPayload = TelemetrySignUpEvent;
 @Injectable()
 export class TelemetryService {
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {}
 

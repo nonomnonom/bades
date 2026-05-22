@@ -160,7 +160,7 @@ export class BillingSyncPlansDataCommand extends MigrationCommandRunner {
 
     if (!options.dryRun) {
       await this.billingPriceRepository.upsert(transformedPrices, {
-        conflictPaths: ['stripePriceId'],
+        conflictPaths: ['priceId'],
       });
     }
   }

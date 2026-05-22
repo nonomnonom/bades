@@ -20,7 +20,7 @@ import { isDefined } from 'shared/utils';
 import { AppBillingService } from 'src/engine/core-modules/billing/app-billing/app-billing.service';
 import { ChargeDto } from 'src/engine/core-modules/billing/app-billing/dtos/charge.dto';
 import { ThrottlerService } from 'src/engine/core-modules/throttler/throttler.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { JwtAuthGuard } from 'src/engine/guards/jwt-auth.guard';
 import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
 import { WorkspaceAuthGuard } from 'src/engine/guards/workspace-auth.guard';
@@ -36,7 +36,7 @@ export class AppBillingController {
   constructor(
     private readonly appBillingService: AppBillingService,
     private readonly throttlerService: ThrottlerService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   @Post('charge')

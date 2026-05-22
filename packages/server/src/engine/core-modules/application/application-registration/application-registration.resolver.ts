@@ -46,7 +46,7 @@ import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
 import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 import { SettingsPermissionGuard } from 'src/engine/guards/settings-permission.guard';
 import { WorkspaceAuthGuard } from 'src/engine/guards/workspace-auth.guard';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { streamToBuffer } from 'src/utils/stream-to-buffer';
 import { ApplicationRegistrationVariableDTO } from 'src/engine/core-modules/application/application-registration-variable/dtos/application-registration-variable.dto';
 import {
@@ -67,7 +67,7 @@ export class ApplicationRegistrationResolver {
     private readonly applicationRegistrationVariableService: ApplicationRegistrationVariableService,
     private readonly applicationTarballService: ApplicationTarballService,
     private readonly fileUrlService: FileUrlService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   @UseGuards(PublicEndpointGuard, NoPermissionGuard)

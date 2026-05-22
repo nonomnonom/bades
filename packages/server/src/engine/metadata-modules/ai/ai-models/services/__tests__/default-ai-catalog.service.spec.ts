@@ -3,14 +3,14 @@ import { Test, type TestingModule } from '@nestjs/testing';
 import { Readable } from 'stream';
 
 import { FileStorageDriverFactory } from 'src/engine/core-modules/file-storage/file-storage-driver.factory';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { DefaultAiCatalogService } from 'src/engine/metadata-modules/ai/ai-models/services/default-ai-catalog.service';
 
 const mockReadFile = jest.fn();
 
 describe('DefaultAiCatalogService', () => {
   let service: DefaultAiCatalogService;
-  let mockConfigService: jest.Mocked<TwentyConfigService>;
+  let mockConfigService: jest.Mocked<BadesConfigService>;
 
   beforeEach(async () => {
     jest.clearAllMocks();
@@ -26,7 +26,7 @@ describe('DefaultAiCatalogService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         DefaultAiCatalogService,
-        { provide: TwentyConfigService, useValue: mockConfigService },
+        { provide: BadesConfigService, useValue: mockConfigService },
         { provide: FileStorageDriverFactory, useValue: mockDriverFactory },
       ],
     }).compile();

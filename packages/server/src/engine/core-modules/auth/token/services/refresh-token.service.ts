@@ -19,14 +19,14 @@ import {
   JwtTokenTypeEnum,
 } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 
 @Injectable()
 export class RefreshTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(AppTokenEntity)
     private readonly appTokenRepository: Repository<AppTokenEntity>,
     @InjectRepository(UserEntity)

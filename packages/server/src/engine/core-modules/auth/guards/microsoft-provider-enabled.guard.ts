@@ -10,12 +10,12 @@ import {
 } from 'src/engine/core-modules/auth/auth.exception';
 import { MicrosoftStrategy } from 'src/engine/core-modules/auth/strategies/microsoft.auth.strategy';
 import { GuardRedirectService } from 'src/engine/core-modules/guard-redirect/services/guard-redirect.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class MicrosoftProviderEnabledGuard implements CanActivate {
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly guardRedirectService: GuardRedirectService,
   ) {}
 

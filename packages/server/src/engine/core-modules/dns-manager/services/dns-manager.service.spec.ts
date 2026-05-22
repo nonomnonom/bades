@@ -9,14 +9,14 @@ import { AuditService } from 'src/engine/core-modules/audit/services/audit.servi
 import { DnsManagerException } from 'src/engine/core-modules/dns-manager/exceptions/dns-manager.exception';
 import { DnsManagerService } from 'src/engine/core-modules/dns-manager/services/dns-manager.service';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 
 jest.mock('cloudflare');
 
 describe('DnsManagerService', () => {
   let dnsManagerService: DnsManagerService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let domainServerConfigService: DomainServerConfigService;
 
   beforeEach(async () => {
@@ -24,7 +24,7 @@ describe('DnsManagerService', () => {
       providers: [
         DnsManagerService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -52,7 +52,7 @@ describe('DnsManagerService', () => {
     }).compile();
 
     dnsManagerService = module.get<DnsManagerService>(DnsManagerService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     domainServerConfigService = module.get<DomainServerConfigService>(
       DomainServerConfigService,
     );

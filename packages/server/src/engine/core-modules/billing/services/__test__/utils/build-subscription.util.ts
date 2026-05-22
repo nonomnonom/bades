@@ -40,7 +40,7 @@ export const buildSubscription = ({
       {
         stripeSubscriptionItemId: 'si_licensed',
         stripeProductId: 'prod_base',
-        stripePriceId: licensedPriceId,
+        priceId: licensedPriceId,
         quantity: seats,
         billingProduct: {
           metadata: {
@@ -53,7 +53,7 @@ export const buildSubscription = ({
       {
         stripeSubscriptionItemId: 'si_resource_credit',
         stripeProductId: 'prod_resource_credit',
-        stripePriceId: resourceCreditPriceId,
+        priceId: resourceCreditPriceId,
         billingProduct: {
           metadata: {
             planKey,

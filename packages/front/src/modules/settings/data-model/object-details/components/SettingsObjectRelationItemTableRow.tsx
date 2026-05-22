@@ -126,7 +126,7 @@ export const SettingsObjectRelationItemTableRow = ({
     fieldName: fieldMetadataItem.name,
   });
 
-  // oxlint-disable-next-line twenty/no-navigate-prefer-link
+  // oxlint-disable-next-line bades/no-navigate-prefer-link
   const navigateToFieldEdit = () =>
     navigate(SettingsPath.ObjectFieldEdit, {
       objectNamePlural: objectMetadataItem.namePlural,

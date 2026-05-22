@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  TWENTY_VERSION: latest
+  BADES_VERSION: latest
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -23,11 +23,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Spawn Twenty test instance
-        id: twenty
-        uses: twentyhq/twenty/.github/actions/spawn-twenty-app-dev-test@main
+      - name: Spawn Bades test instance
+        id: bades
+        uses: badesid/bades/.github/actions/spawn-bades-app-dev-test@main
         with:
-          twenty-version: ${{ env.TWENTY_VERSION }}
+          bades-version: ${{ env.BADES_VERSION }}
 
       - name: Enable Corepack
         run: corepack enable
@@ -44,5 +44,5 @@ jobs:
       - name: Run integration tests
         run: yarn test
         env:
-          TWENTY_API_URL: ${{ steps.twenty.outputs.server-url }}
-          TWENTY_API_KEY: ${{ steps.twenty.outputs.api-key }}
+          BADES_API_URL: ${{ steps.bades.outputs.server-url }}
+          BADES_API_KEY: ${{ steps.bades.outputs.api-key }}

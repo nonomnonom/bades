@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { ConfidentialClientApplication } from '@azure/msal-node';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import {
   ConnectedAccountRefreshAccessTokenException,
   ConnectedAccountRefreshAccessTokenExceptionCode,
@@ -12,7 +12,7 @@ import { parseMsalError } from 'src/modules/connected-account/refresh-tokens-man
 
 @Injectable()
 export class MicrosoftAPIRefreshAccessTokenService {
-  constructor(private readonly config: TwentyConfigService) {}
+  constructor(private readonly config: BadesConfigService) {}
 
   async refreshTokens(refreshToken: string): Promise<ConnectedAccountTokens> {
     const msalClient = new ConfidentialClientApplication({

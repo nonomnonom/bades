@@ -5,7 +5,7 @@ import { type Repository } from 'typeorm';
 
 import { AuthException } from 'src/engine/core-modules/auth/auth.exception';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { WorkspaceAgnosticTokenService } from 'src/engine/core-modules/auth/token/services/workspace-agnostic-token.service';
 import { AuthProviderEnum } from 'src/engine/core-modules/workspace/types/workspace.type';
@@ -14,7 +14,7 @@ import { JwtTokenTypeEnum } from 'src/engine/core-modules/auth/types/auth-contex
 describe('WorkspaceAgnosticToken', () => {
   let service: WorkspaceAgnosticTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let userRepository: Repository<UserEntity>;
 
   beforeEach(async () => {
@@ -30,7 +30,7 @@ describe('WorkspaceAgnosticToken', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -48,7 +48,7 @@ describe('WorkspaceAgnosticToken', () => {
       WorkspaceAgnosticTokenService,
     );
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     userRepository = module.get<Repository<UserEntity>>(
       getRepositoryToken(UserEntity),
     );

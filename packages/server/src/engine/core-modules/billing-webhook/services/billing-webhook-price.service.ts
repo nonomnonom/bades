@@ -67,13 +67,13 @@ export class BillingWebhookPriceService {
         await this.stripePriceService.getPriceByPriceId(data.object.id),
       ),
       {
-        conflictPaths: ['stripePriceId'],
+        conflictPaths: ['priceId'],
         skipUpdateIfNoValuesChanged: true,
       },
     );
 
     return {
-      stripePriceId: data.object.id,
+      priceId: data.object.id,
       stripeMeterId: meterId,
     };
   }

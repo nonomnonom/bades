@@ -18,7 +18,7 @@ import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queu
 import { type MessageQueueService } from 'src/engine/core-modules/message-queue/services/message-queue.service';
 import { getQueueToken } from 'src/engine/core-modules/message-queue/utils/get-queue-token.util';
 import { OnboardingService } from 'src/engine/core-modules/onboarding/onboarding.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { UserWorkspaceService } from 'src/engine/core-modules/user-workspace/user-workspace.service';
 import { UserService } from 'src/engine/core-modules/user/services/user.service';
@@ -117,7 +117,7 @@ describe('WorkspaceService', () => {
           DnsManagerService,
           CustomDomainManagerService,
           SubdomainManagerService,
-          TwentyConfigService,
+          BadesConfigService,
           EmailService,
           OnboardingService,
           WorkspaceInvitationService,

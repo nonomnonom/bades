@@ -66,7 +66,7 @@ export class BillingSubscriptionItemEntity {
   stripeProductId: string;
 
   @Column({ nullable: false })
-  stripePriceId: string;
+  priceId: string;
 
   @Column({ nullable: false, unique: true })
   stripeSubscriptionItemId: string;

@@ -9,13 +9,13 @@ import {
   type InputFile,
   type StreamCallbacks,
 } from 'src/engine/core-modules/code-interpreter/drivers/interfaces/code-interpreter-driver.interface';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class CodeInterpreterService implements CodeInterpreterDriver {
   constructor(
     private readonly codeInterpreterDriverFactory: CodeInterpreterDriverFactory,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   isEnabled(): boolean {

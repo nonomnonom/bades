@@ -20,7 +20,7 @@ export const mockBillingPlans = {
           prices: [
             {
               __typename: 'BillingPriceLicensed',
-              stripePriceId: 'price_1RyF4BQh1LFc4XrXvt7DwNjS',
+              priceId: 'price_1RyF4BQh1LFc4XrXvt7DwNjS',
               unitAmount: 1200,
               recurringInterval: 'Month',
               priceUsageType: 'LICENSED',
@@ -28,7 +28,7 @@ export const mockBillingPlans = {
             },
             {
               __typename: 'BillingPriceLicensed',
-              stripePriceId: 'price_1RyF4BQh1LFc4XrXK0QSeC7f',
+              priceId: 'price_1RyF4BQh1LFc4XrXK0QSeC7f',
               unitAmount: 10800,
               recurringInterval: 'Year',
               priceUsageType: 'LICENSED',
@@ -55,7 +55,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S5247Qh1LFc4XrXz7p0wdAc',
+              priceId: 'price_1S5247Qh1LFc4XrXz7p0wdAc',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -75,7 +75,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S5246Qh1LFc4XrX2SdtgqXV',
+              priceId: 'price_1S5246Qh1LFc4XrX2SdtgqXV',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -95,7 +95,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S5246Qh1LFc4XrXs78BMPQ9',
+              priceId: 'price_1S5246Qh1LFc4XrXs78BMPQ9',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -115,7 +115,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S5246Qh1LFc4XrXyMEu78zC',
+              priceId: 'price_1S5246Qh1LFc4XrXyMEu78zC',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -135,7 +135,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S5245Qh1LFc4XrXcNX3ZHn2',
+              priceId: 'price_1S5245Qh1LFc4XrXcNX3ZHn2',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -155,7 +155,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S5245Qh1LFc4XrXBSZDK2pI',
+              priceId: 'price_1S5245Qh1LFc4XrXBSZDK2pI',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -175,7 +175,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S5245Qh1LFc4XrXPCSjYIq0',
+              priceId: 'price_1S5245Qh1LFc4XrXPCSjYIq0',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -195,7 +195,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S5244Qh1LFc4XrXswQAQfQh',
+              priceId: 'price_1S5244Qh1LFc4XrXswQAQfQh',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -215,7 +215,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S5244Qh1LFc4XrXB8yPMpce',
+              priceId: 'price_1S5244Qh1LFc4XrXB8yPMpce',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -235,7 +235,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S5244Qh1LFc4XrXa5wYhu1M',
+              priceId: 'price_1S5244Qh1LFc4XrXa5wYhu1M',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -255,7 +255,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S5243Qh1LFc4XrX1rtoEZD3',
+              priceId: 'price_1S5243Qh1LFc4XrX1rtoEZD3',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -275,7 +275,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S5243Qh1LFc4XrXaeDkjNQq',
+              priceId: 'price_1S5243Qh1LFc4XrXaeDkjNQq',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -313,7 +313,7 @@ export const mockBillingPlans = {
           prices: [
             {
               __typename: 'BillingPriceLicensed',
-              stripePriceId: 'price_1RyF49Qh1LFc4XrX2W6yGRpc',
+              priceId: 'price_1RyF49Qh1LFc4XrX2W6yGRpc',
               unitAmount: 2500,
               recurringInterval: 'Month',
               priceUsageType: 'LICENSED',
@@ -321,7 +321,7 @@ export const mockBillingPlans = {
             },
             {
               __typename: 'BillingPriceLicensed',
-              stripePriceId: 'price_1RyF48Qh1LFc4XrXw5Tr704k',
+              priceId: 'price_1RyF48Qh1LFc4XrXw5Tr704k',
               unitAmount: 22800,
               recurringInterval: 'Year',
               priceUsageType: 'LICENSED',
@@ -348,7 +348,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S4GiuQh1LFc4XrX9IZ68tqy',
+              priceId: 'price_1S4GiuQh1LFc4XrX9IZ68tqy',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -368,7 +368,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S4GirQh1LFc4XrXJxV0yJEX',
+              priceId: 'price_1S4GirQh1LFc4XrXJxV0yJEX',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -388,7 +388,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S4GirQh1LFc4XrX6fK2qrQm',
+              priceId: 'price_1S4GirQh1LFc4XrX6fK2qrQm',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -408,7 +408,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S4GipQh1LFc4XrXeamfdifM',
+              priceId: 'price_1S4GipQh1LFc4XrXeamfdifM',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -428,7 +428,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S4GipQh1LFc4XrXKxrUDfnE',
+              priceId: 'price_1S4GipQh1LFc4XrXKxrUDfnE',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -448,7 +448,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Year',
-              stripePriceId: 'price_1S4GioQh1LFc4XrXMTbLurFo',
+              priceId: 'price_1S4GioQh1LFc4XrXMTbLurFo',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -468,7 +468,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S4GinQh1LFc4XrXP3sgt8Cn',
+              priceId: 'price_1S4GinQh1LFc4XrXP3sgt8Cn',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -488,7 +488,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S4GigQh1LFc4XrXGsuGslfk',
+              priceId: 'price_1S4GigQh1LFc4XrXGsuGslfk',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -508,7 +508,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S4GifQh1LFc4XrXCsT2PvH2',
+              priceId: 'price_1S4GifQh1LFc4XrXCsT2PvH2',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -528,7 +528,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S4GifQh1LFc4XrXZ0ZIrjeM',
+              priceId: 'price_1S4GifQh1LFc4XrXZ0ZIrjeM',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -548,7 +548,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S4GieQh1LFc4XrX8njwswjQ',
+              priceId: 'price_1S4GieQh1LFc4XrX8njwswjQ',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',
@@ -568,7 +568,7 @@ export const mockBillingPlans = {
               __typename: 'BillingPriceMetered',
               priceUsageType: 'METERED',
               recurringInterval: 'Month',
-              stripePriceId: 'price_1S4GieQh1LFc4XrXDpVbLuuE',
+              priceId: 'price_1S4GieQh1LFc4XrXDpVbLuuE',
               tiers: [
                 {
                   __typename: 'BillingPriceTier',

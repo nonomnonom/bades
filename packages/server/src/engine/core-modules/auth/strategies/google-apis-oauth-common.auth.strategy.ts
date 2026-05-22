@@ -3,7 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, type VerifyCallback } from 'passport-google-oauth20';
 
 import { getGoogleApisOauthScopes } from 'src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 export type GoogleAPIScopeConfig = {
   isCalendarEnabled?: boolean;
@@ -14,7 +14,7 @@ export abstract class GoogleAPIsOauthCommonStrategy extends PassportStrategy(
   Strategy,
   'google-apis',
 ) {
-  constructor(twentyConfigService: TwentyConfigService) {
+  constructor(twentyConfigService: BadesConfigService) {
     const scopes = getGoogleApisOauthScopes();
 
     super({

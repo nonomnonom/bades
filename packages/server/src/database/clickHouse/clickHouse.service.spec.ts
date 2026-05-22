@@ -2,7 +2,7 @@ import { Test, type TestingModule } from '@nestjs/testing';
 
 import { type ClickHouseClient } from '@clickhouse/client';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 import { ClickHouseService } from './clickHouse.service';
 
@@ -22,7 +22,7 @@ jest.mock('@clickhouse/client', () => ({
 
 describe('ClickHouseService', () => {
   let service: ClickHouseService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let mockClickHouseClient: jest.Mocked<ClickHouseClient>;
   let loggerErrorSpy: jest.SpyInstance;
 
@@ -43,7 +43,7 @@ describe('ClickHouseService', () => {
       providers: [
         ClickHouseService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn((key) => {
               if (key === 'CLICKHOUSE_URL') return 'http://localhost:8123';
@@ -56,7 +56,7 @@ describe('ClickHouseService', () => {
     }).compile();
 
     service = module.get<ClickHouseService>(ClickHouseService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
 
     // Mock logger error method to avoid polluting test output
     loggerErrorSpy = jest
@@ -83,7 +83,7 @@ describe('ClickHouseService', () => {
         providers: [
           ClickHouseService,
           {
-            provide: TwentyConfigService,
+            provide: BadesConfigService,
             useValue: twentyConfigService,
           },
         ],

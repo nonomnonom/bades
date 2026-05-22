@@ -3,8 +3,8 @@ import { Injectable, Logger } from '@nestjs/common';
 import { type LanguageModel } from 'ai';
 import { type AiSdkPackage } from 'shared/ai';
 
-import { ConfigVariablesGroup } from 'src/engine/core-modules/twenty-config/enums/config-variables-group.enum';
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
+import { ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
 import { AiModelRole } from 'src/engine/metadata-modules/ai/ai-models/types/ai-model-role.enum';
 
 import {

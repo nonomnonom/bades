@@ -15,7 +15,7 @@ import { ApplicationRegistrationModule } from 'src/engine/core-modules/applicati
 import { TokenModule } from 'src/engine/core-modules/auth/token/token.module';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
 import { ThrottlerModule } from 'src/engine/core-modules/throttler/throttler.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permissions.module';
 import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/workspace-cache-storage.module';
@@ -37,7 +37,7 @@ import { DomainServerConfigModule } from 'src/engine/core-modules/domain/domain-
     FeatureFlagModule,
     PermissionsModule,
     ThrottlerModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     WorkspaceCacheStorageModule,
   ],
   controllers: [

@@ -27,7 +27,7 @@ import {
 import { type I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { type MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
 import { MetricsKeys } from 'src/engine/core-modules/metrics/types/metrics-keys.type';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import {
   graphQLErrorCodesToFilter,
   shouldCaptureException,
@@ -51,7 +51,7 @@ type GraphQLErrorHandlerHookOptions = {
 
   i18nService: I18nService;
 
-  twentyConfigService: TwentyConfigService;
+  twentyConfigService: BadesConfigService;
   /**
    * The key of the event id in the error's extension. `null` to disable.
    * @default exceptionEventId

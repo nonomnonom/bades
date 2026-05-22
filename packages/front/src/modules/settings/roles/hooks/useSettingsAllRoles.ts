@@ -5,7 +5,7 @@ import { useStore } from 'jotai';
 import { isDefined } from 'shared/utils';
 
 export const useSettingsAllRoles = () => {
-  // oxlint-disable-next-line twenty/matching-state-variable
+  // oxlint-disable-next-line bades/matching-state-variable
   const roleIds = useAtomStateValue(settingsRoleIdsState);
   const store = useStore();
 

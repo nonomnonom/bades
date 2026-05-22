@@ -12,7 +12,7 @@ export const transformStripePriceEventToDatabasePrice = (
   data: Stripe.Price,
 ) => {
   return {
-    stripePriceId: data.id,
+    priceId: data.id,
     active: data.active,
     stripeProductId: String(data.product),
     stripeMeterId: data.recurring?.meter,

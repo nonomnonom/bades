@@ -146,7 +146,7 @@ const CommandMenuItemSelectableRenderer = ({
   );
 };
 
-// oxlint-disable-next-line twenty/effect-components
+// oxlint-disable-next-line bades/effect-components
 export const CommandMenuItemRenderer = ({
   item,
 }: CommandMenuItemRendererProps) => {

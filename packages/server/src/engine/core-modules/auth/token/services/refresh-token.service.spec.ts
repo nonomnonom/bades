@@ -10,7 +10,7 @@ import {
 import { AuthException } from 'src/engine/core-modules/auth/auth.exception';
 import { JwtTokenTypeEnum } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 
 import { RefreshTokenService } from './refresh-token.service';
@@ -18,7 +18,7 @@ import { RefreshTokenService } from './refresh-token.service';
 describe('RefreshTokenService', () => {
   let service: RefreshTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let appTokenRepository: Repository<AppTokenEntity>;
   let userRepository: Repository<UserEntity>;
 
@@ -36,7 +36,7 @@ describe('RefreshTokenService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -54,7 +54,7 @@ describe('RefreshTokenService', () => {
 
     service = module.get<RefreshTokenService>(RefreshTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     appTokenRepository = module.get<Repository<AppTokenEntity>>(
       getRepositoryToken(AppTokenEntity),
     );

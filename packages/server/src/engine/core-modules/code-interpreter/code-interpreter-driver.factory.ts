@@ -6,16 +6,16 @@ import { CodeInterpreterDriverType } from 'src/engine/core-modules/code-interpre
 import { DisabledDriver } from 'src/engine/core-modules/code-interpreter/drivers/disabled.driver';
 import { E2BDriver } from 'src/engine/core-modules/code-interpreter/drivers/e2b.driver';
 import { LocalDriver } from 'src/engine/core-modules/code-interpreter/drivers/local.driver';
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
-import { DriverFactoryBase } from 'src/engine/core-modules/twenty-config/dynamic-factory.base';
-import { ConfigVariablesGroup } from 'src/engine/core-modules/twenty-config/enums/config-variables-group.enum';
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
+import { DriverFactoryBase } from 'src/engine/core-modules/bades-config/dynamic-factory.base';
+import { ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class CodeInterpreterDriverFactory extends DriverFactoryBase<CodeInterpreterDriver> {
   constructor(
-    twentyConfigService: TwentyConfigService,
+    twentyConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
   ) {
     super(twentyConfigService, configGroupHashService);

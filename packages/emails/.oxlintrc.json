@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["react", "typescript", "import", "unicorn"],
-  "jsPlugins": ["../twenty-oxlint-rules/dist/oxlint-plugin.mjs"],
+  "jsPlugins": ["../oxlint-rules/dist/oxlint-plugin.mjs"],
   "categories": {
     "correctness": "off"
   },
@@ -62,7 +62,7 @@
       }
     ],
 
-    "twenty/enforce-module-boundaries": [
+    "bades/enforce-module-boundaries": [
       "error",
       {
         "depConstraints": [

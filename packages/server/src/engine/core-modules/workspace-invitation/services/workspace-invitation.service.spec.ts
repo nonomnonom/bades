@@ -12,7 +12,7 @@ import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { OnboardingService } from 'src/engine/core-modules/onboarding/onboarding.service';
 import { ThrottlerService } from 'src/engine/core-modules/throttler/throttler.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { WorkspaceInvitationException } from 'src/engine/core-modules/workspace-invitation/workspace-invitation.exception';
 import { WorkspaceService } from 'src/engine/core-modules/workspace/services/workspace.service';
@@ -41,7 +41,7 @@ describe('WorkspaceInvitationService', () => {
   let service: WorkspaceInvitationService;
   let appTokenRepository: Repository<AppTokenEntity>;
   let userWorkspaceRepository: Repository<UserWorkspaceEntity>;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let emailService: EmailService;
   let onboardingService: OnboardingService;
 
@@ -76,7 +76,7 @@ describe('WorkspaceInvitationService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -138,7 +138,7 @@ describe('WorkspaceInvitationService', () => {
     userWorkspaceRepository = module.get<Repository<UserWorkspaceEntity>>(
       getRepositoryToken(UserWorkspaceEntity),
     );
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     emailService = module.get<EmailService>(EmailService);
     onboardingService = module.get<OnboardingService>(OnboardingService);
   });

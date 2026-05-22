@@ -15,7 +15,7 @@ import {
 } from 'src/engine/core-modules/billing/billing.exception';
 import { BillingMidtransTransactionEntity } from 'src/engine/core-modules/billing/entities/billing-midtrans-transaction.entity';
 import { MidtransSDKService } from 'src/engine/core-modules/billing/midtrans/midtrans-sdk/services/midtrans-sdk.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 /**
  * Layanan untuk memverifikasi status transaksi Midtrans melalui GET Status API.
@@ -28,7 +28,7 @@ export class MidtransTransactionService {
   private coreApi: CoreApi;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly midtransSDKService: MidtransSDKService,
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,

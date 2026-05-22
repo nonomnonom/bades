@@ -5,7 +5,7 @@ import { type Manifest } from 'shared/application';
 import { z } from 'zod';
 
 import { buildRegistryCdnUrl } from 'src/engine/core-modules/application/application-marketplace/utils/build-registry-cdn-url.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 export type RegistryPackageInfo = {
   name: string;
@@ -39,7 +39,7 @@ const registrySearchResultSchema = z.object({
 export class MarketplaceService {
   private readonly logger = new Logger(MarketplaceService.name);
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   async fetchManifestFromRegistryCdn(
     packageName: string,

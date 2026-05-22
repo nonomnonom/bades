@@ -6,7 +6,7 @@ import { McpProtocolService } from 'src/engine/api/mcp/services/mcp-protocol.ser
 import { McpToolExecutorService } from 'src/engine/api/mcp/services/mcp-tool-executor.service';
 import { ApiKeyModule } from 'src/engine/core-modules/api-key/api-key.module';
 import { TokenModule } from 'src/engine/core-modules/auth/token/token.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { ToolProviderModule } from 'src/engine/core-modules/tool-provider/tool-provider.module';
 import { JwtAuthGuard } from 'src/engine/guards/jwt-auth.guard';
 import { WorkspaceAuthGuard } from 'src/engine/guards/workspace-auth.guard';
@@ -22,7 +22,7 @@ import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/
     UserRoleModule,
     ToolProviderModule,
     SkillModule,
-    TwentyConfigModule,
+    BadesConfigModule,
   ],
   controllers: [McpCoreController],
   exports: [McpProtocolService],

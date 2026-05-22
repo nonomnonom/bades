@@ -17,7 +17,7 @@ import {
   EmailVerificationException,
   EmailVerificationExceptionCode,
 } from 'src/engine/core-modules/email-verification/email-verification.exception';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class EmailVerificationTokenService {
     private readonly appTokenRepository: Repository<AppTokenEntity>,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async generateToken(userId: string, email: string): Promise<AuthToken> {

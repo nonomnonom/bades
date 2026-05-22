@@ -26,7 +26,7 @@ import { SyncMessageFoldersService } from 'src/modules/messaging/message-folder-
 import { InjectMessageQueue } from 'src/engine/core-modules/message-queue/decorators/message-queue.decorator';
 import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
 import { MessageQueueService } from 'src/engine/core-modules/message-queue/services/message-queue.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { CalendarChannelEntity } from 'src/engine/metadata-modules/calendar-channel/entities/calendar-channel.entity';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
@@ -56,7 +56,7 @@ export class GoogleAPIsService {
     private readonly messageQueueService: MessageQueueService,
     @InjectMessageQueue(MessageQueue.calendarQueue)
     private readonly calendarQueueService: MessageQueueService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly accountsToReconnectService: AccountsToReconnectService,
     private readonly createMessageChannelService: CreateMessageChannelService,
     private readonly messagingChannelSyncStatusService: MessageChannelSyncStatusService,

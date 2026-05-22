@@ -1,4 +1,4 @@
-/* oxlint-disable twenty/no-navigate-prefer-link */
+/* oxlint-disable bades/no-navigate-prefer-link */
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';
 import { SettingsCard } from '@/settings/components/SettingsCard';
 import { useFilterObjectMetadataItemsWithPermissionOverride } from '@/settings/roles/role-permissions/object-level-permissions/hooks/useFilterObjectWithPermissionOverride';

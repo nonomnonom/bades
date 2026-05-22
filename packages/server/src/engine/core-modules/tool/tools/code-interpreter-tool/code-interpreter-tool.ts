@@ -36,7 +36,7 @@ import { type ToolExecutionContext } from 'src/engine/core-modules/tool/types/to
 import { type ToolInput } from 'src/engine/core-modules/tool/types/tool-input.type';
 import { type ToolOutput } from 'src/engine/core-modules/tool/types/tool-output.type';
 import { type Tool } from 'src/engine/core-modules/tool/types/tool.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { AuthProviderEnum } from 'src/engine/core-modules/workspace/types/workspace.type';
 
 @Injectable()
@@ -55,7 +55,7 @@ export class CodeInterpreterTool implements Tool {
     private readonly fileUrlService: FileUrlService,
     private readonly applicationService: ApplicationService,
     private readonly secureHttpClientService: SecureHttpClientService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly jwtWrapperService: JwtWrapperService,
   ) {}
 

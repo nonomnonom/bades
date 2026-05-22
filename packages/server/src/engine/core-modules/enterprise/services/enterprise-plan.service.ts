@@ -21,12 +21,12 @@ import {
   type EnterpriseLicenseInfo,
   type EnterpriseValidityPayload,
 } from 'src/engine/core-modules/enterprise/types/enterprise-key-payload.type';
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 import {
   ConfigVariableException,
   ConfigVariableExceptionCode,
-} from 'src/engine/core-modules/twenty-config/twenty-config.exception';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+} from 'src/engine/core-modules/bades-config/bades-config.exception';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class EnterprisePlanService implements OnModuleInit {
@@ -35,7 +35,7 @@ export class EnterprisePlanService implements OnModuleInit {
   private cachedKeyPayload: EnterpriseKeyPayload | null = null;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(AppTokenEntity)
     private readonly appTokenRepository: Repository<AppTokenEntity>,
   ) {}
@@ -191,8 +191,8 @@ export class EnterprisePlanService implements OnModuleInit {
         error.code === ConfigVariableExceptionCode.DATABASE_CONFIG_DISABLED
       ) {
         throw new ConfigVariableException(
-          'IS_CONFIG_VARIABLES_IN_DB_ENABLED is false on your server. ' +
-            'Please add ENTERPRISE_KEY to your .env file manually.',
+          'IS_CONFIG_VARIABLES_IN_DB_ENABLED adalah false di server Anda. ' +
+            'Silakan tambahkan ENTERPRISE_KEY ke file .env secara manual.',
           ConfigVariableExceptionCode.DATABASE_CONFIG_DISABLED,
         );
       }
@@ -262,7 +262,7 @@ export class EnterprisePlanService implements OnModuleInit {
       await this.saveNewValidityTokenToDb(data.validityToken);
       await this.loadValidityToken();
 
-      this.logger.log('Token validitas enterprise berhasil di-refresh');
+      this.logger.log('Token validitas berhasil di-refresh');
 
       return true;
     } catch (error) {

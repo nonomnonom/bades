@@ -31,7 +31,7 @@ export class BillingSubscriptionPhaseService {
   async getDetailsFromPhase(phase: BillingSubscriptionSchedulePhaseDTO) {
     const meteredPrice = await this.billingPriceRepository.findOneOrFail({
       where: {
-        stripePriceId: findOrThrow(
+        priceId: findOrThrow(
           phase.items,
           ({ quantity }) => !isDefined(quantity),
         ).price,
@@ -45,12 +45,12 @@ export class BillingSubscriptionPhaseService {
 
     const licensedPrice = await this.billingPriceRepository.findOneOrFail({
       where: {
-        stripePriceId: licensedItemPriceId,
+        priceId: licensedItemPriceId,
       },
     });
 
     const plan = await this.billingPlanService.getPlanByPriceId(
-      meteredPrice.stripePriceId,
+      meteredPrice.priceId,
     );
 
     if (!isDefined(quantity)) {

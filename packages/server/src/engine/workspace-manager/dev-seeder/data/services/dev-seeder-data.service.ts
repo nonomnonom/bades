@@ -15,60 +15,13 @@ import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-meta
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 import { computeTableName } from 'src/engine/utils/compute-table-name.util';
-import {
-  ATTACHMENT_DATA_SEED_COLUMNS,
-  ATTACHMENT_SAMPLE_FILES,
-  type AttachmentFileSeedMetadata,
-  generateAttachmentSeedsForWorkspace,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/attachment-data-seeds.constant';
-import {
-  CALENDAR_CHANNEL_EVENT_ASSOCIATION_DATA_SEED_COLUMNS,
-  CALENDAR_CHANNEL_EVENT_ASSOCIATION_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-channel-event-association-data-seeds.constant';
-import {
-  CALENDAR_EVENT_DATA_SEED_COLUMNS,
-  CALENDAR_EVENT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-event-data-seeds.constant';
-import {
-  CALENDAR_EVENT_PARTICIPANT_DATA_SEED_COLUMNS,
-  getCalendarEventParticipantDataSeeds,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/calendar-event-participant-data-seeds.constant';
-import {
-  CONNECTED_ACCOUNT_DATA_SEED_COLUMNS,
-  CONNECTED_ACCOUNT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/connected-account-data-seeds.constant';
+// Seed SID-native saja. CRM seeds dihapus karena tidak relevan untuk konteks
+// administrasi desa Indonesia. Seed warga, keluarga, surat, bantuan, anggaran,
+// dan aset desa tetap berjalan normal.
 import {
   DASHBOARD_DATA_SEED_COLUMNS,
   getDashboardDataSeeds,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/dashboard-data-seeds.constant';
-import {
-  MESSAGE_CHANNEL_DATA_SEED_COLUMNS,
-  MESSAGE_CHANNEL_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/message-channel-data-seeds.constant';
-import {
-  MESSAGE_CHANNEL_MESSAGE_ASSOCIATION_DATA_SEED_COLUMNS,
-  MESSAGE_CHANNEL_MESSAGE_ASSOCIATION_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/message-channel-message-association-data-seeds.constant';
-import {
-  MESSAGE_DATA_SEED_COLUMNS,
-  MESSAGE_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/message-data-seeds.constant';
-import {
-  getMessageParticipantDataSeeds,
-  MESSAGE_PARTICIPANT_DATA_SEED_COLUMNS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/message-participant-data-seeds.constant';
-import {
-  MESSAGE_THREAD_DATA_SEED_COLUMNS,
-  MESSAGE_THREAD_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/message-thread-data-seeds.constant';
-import {
-  NOTE_DATA_SEED_COLUMNS,
-  NOTE_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/note-data-seeds.constant';
-import {
-  NOTE_TARGET_DATA_SEED_COLUMNS,
-  NOTE_TARGET_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/note-target-data-seeds.constant';
 import {
   PENDUDUK_DATA_SEED_COLUMNS,
   PENDUDUK_DATA_SEEDS,
@@ -118,17 +71,14 @@ import {
   UMKM_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/umkm-data-seeds.constant';
 import {
-  TASK_DATA_SEED_COLUMNS,
-  TASK_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/task-data-seeds.constant';
-import {
-  TASK_TARGET_DATA_SEED_COLUMNS,
-  TASK_TARGET_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/task-target-data-seeds.constant';
-import {
   getWorkspaceMemberDataSeeds,
   WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
+import {
+  ATTACHMENT_SAMPLE_FILES,
+  type AttachmentFileSeedMetadata,
+  generateAttachmentSeedsForWorkspace,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/attachment-data-seeds.constant';
 import { TimelineActivitySeederService } from 'src/engine/workspace-manager/dev-seeder/data/services/timeline-activity-seeder.service';
 import { prefillFrontComponentCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-command-menu-items.util';
 import { prefillWorkflowCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-command-menu-items.util';
@@ -145,7 +95,6 @@ type RecordSeedConfig = {
 // Organize seeds into dependency batches for parallel insertion
 const getRecordSeedsBatches = (
   workspaceId: string,
-  attachmentSeeds: RecordSeedConfig['recordSeeds'],
   _featureFlags?: Record<FeatureFlagKey, boolean>,
 ): RecordSeedConfig[][] => {
   // Batch 1: No dependencies
@@ -164,14 +113,9 @@ const getRecordSeedsBatches = (
       pgColumns: DASHBOARD_DATA_SEED_COLUMNS,
       recordSeeds: getDashboardDataSeeds(workspaceId),
     },
-    {
-      tableName: 'connectedAccount',
-      pgColumns: CONNECTED_ACCOUNT_DATA_SEED_COLUMNS,
-      recordSeeds: CONNECTED_ACCOUNT_DATA_SEEDS,
-    },
   ];
 
-  // Batch 3: Depends on connectedAccount
+  // Batch 3: SID entities - depends on workspaceMember
   const batch3: RecordSeedConfig[] = [
     {
       tableName: '_penduduk',
@@ -188,35 +132,10 @@ const getRecordSeedsBatches = (
       pgColumns: JENIS_SURAT_DATA_SEED_COLUMNS,
       recordSeeds: JENIS_SURAT_DATA_SEEDS,
     },
-    {
-      tableName: 'messageChannel',
-      pgColumns: MESSAGE_CHANNEL_DATA_SEED_COLUMNS,
-      recordSeeds: MESSAGE_CHANNEL_DATA_SEEDS,
-    },
   ];
 
-  // Batch 4: Depends on penduduk/messageChannel or independent
+  // Batch 4: SID entities - depends on batch 3 or independent
   const batch4: RecordSeedConfig[] = [
-    {
-      tableName: 'note',
-      pgColumns: NOTE_DATA_SEED_COLUMNS,
-      recordSeeds: NOTE_DATA_SEEDS,
-    },
-    {
-      tableName: 'task',
-      pgColumns: TASK_DATA_SEED_COLUMNS,
-      recordSeeds: TASK_DATA_SEEDS,
-    },
-    {
-      tableName: 'calendarEvent',
-      pgColumns: CALENDAR_EVENT_DATA_SEED_COLUMNS,
-      recordSeeds: CALENDAR_EVENT_DATA_SEEDS,
-    },
-    {
-      tableName: 'messageThread',
-      pgColumns: MESSAGE_THREAD_DATA_SEED_COLUMNS,
-      recordSeeds: MESSAGE_THREAD_DATA_SEEDS,
-    },
     {
       tableName: '_permohonanSurat',
       pgColumns: PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
@@ -264,55 +183,7 @@ const getRecordSeedsBatches = (
     },
   ];
 
-  // Batch 5: Depends on batch 4 entities
-  const batch5: RecordSeedConfig[] = [
-    {
-      tableName: 'noteTarget',
-      pgColumns: NOTE_TARGET_DATA_SEED_COLUMNS,
-      recordSeeds: NOTE_TARGET_DATA_SEEDS,
-    },
-    {
-      tableName: 'taskTarget',
-      pgColumns: TASK_TARGET_DATA_SEED_COLUMNS,
-      recordSeeds: TASK_TARGET_DATA_SEEDS,
-    },
-    {
-      tableName: 'calendarChannelEventAssociation',
-      pgColumns: CALENDAR_CHANNEL_EVENT_ASSOCIATION_DATA_SEED_COLUMNS,
-      recordSeeds: CALENDAR_CHANNEL_EVENT_ASSOCIATION_DATA_SEEDS,
-    },
-    {
-      tableName: 'calendarEventParticipant',
-      pgColumns: CALENDAR_EVENT_PARTICIPANT_DATA_SEED_COLUMNS,
-      recordSeeds: getCalendarEventParticipantDataSeeds(workspaceId),
-    },
-    {
-      tableName: 'message',
-      pgColumns: MESSAGE_DATA_SEED_COLUMNS,
-      recordSeeds: MESSAGE_DATA_SEEDS,
-    },
-  ];
-
-  // Batch 6: Depends on batch 5 entities
-  const batch6: RecordSeedConfig[] = [
-    {
-      tableName: 'messageChannelMessageAssociation',
-      pgColumns: MESSAGE_CHANNEL_MESSAGE_ASSOCIATION_DATA_SEED_COLUMNS,
-      recordSeeds: MESSAGE_CHANNEL_MESSAGE_ASSOCIATION_DATA_SEEDS,
-    },
-    {
-      tableName: 'messageParticipant',
-      pgColumns: MESSAGE_PARTICIPANT_DATA_SEED_COLUMNS,
-      recordSeeds: getMessageParticipantDataSeeds(workspaceId),
-    },
-    {
-      tableName: 'attachment',
-      pgColumns: ATTACHMENT_DATA_SEED_COLUMNS,
-      recordSeeds: attachmentSeeds,
-    },
-  ];
-
-  return [batch1, batch2, batch3, batch4, batch5, batch6];
+  return [batch1, batch2, batch3, batch4];
 };
 
 @Injectable()
@@ -350,7 +221,7 @@ export class DevSeederDataService {
         },
       );
 
-    const { seeds: attachmentSeeds, fileSeedMetadata: attachmentFileMeta } =
+    const { fileSeedMetadata: attachmentFileMeta } =
       generateAttachmentSeedsForWorkspace(workspaceId);
 
     await this.coreDataSource.transaction(
@@ -359,7 +230,6 @@ export class DevSeederDataService {
           entityManager,
           schemaName,
           workspaceId,
-          attachmentSeeds,
           featureFlags,
           objectMetadataItems,
           light,
@@ -410,7 +280,6 @@ export class DevSeederDataService {
     entityManager,
     schemaName,
     workspaceId,
-    attachmentSeeds,
     featureFlags,
     objectMetadataItems,
     light = false,
@@ -418,14 +287,12 @@ export class DevSeederDataService {
     entityManager: WorkspaceEntityManager;
     schemaName: string;
     workspaceId: string;
-    attachmentSeeds: RecordSeedConfig['recordSeeds'];
     featureFlags?: Record<FeatureFlagKey, boolean>;
     objectMetadataItems: FlatObjectMetadata[];
     light?: boolean;
   }) {
     const batches = getRecordSeedsBatches(
       workspaceId,
-      attachmentSeeds,
       featureFlags,
     );
 

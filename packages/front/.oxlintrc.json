@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["react", "typescript", "unicorn", "import"],
-  "jsPlugins": ["../twenty-oxlint-rules/dist/oxlint-plugin.mjs"],
+  "jsPlugins": ["../oxlint-rules/dist/oxlint-plugin.mjs"],
   "categories": {
     "correctness": "off"
   },
@@ -97,18 +97,18 @@
       "allowAny": true
     }],
 
-    "twenty/effect-components": "error",
-    "twenty/no-hardcoded-colors": "error",
-    "twenty/matching-state-variable": "error",
-    "twenty/sort-css-properties-alphabetically": "error",
-    "twenty/styled-components-prefixed-with-styled": "error",
-    "twenty/no-state-useref": "error",
-    "twenty/component-props-naming": "error",
-    "twenty/no-navigate-prefer-link": "error",
-    "twenty/no-jotai-store-in-selector": "error",
-    "twenty/no-direct-atom-family-in-selector": "error",
-    "twenty/folder-structure": "error",
-    "twenty/enforce-module-boundaries": ["error", {
+    "bades/effect-components": "error",
+    "bades/no-hardcoded-colors": "error",
+    "bades/matching-state-variable": "error",
+    "bades/sort-css-properties-alphabetically": "error",
+    "bades/styled-components-prefixed-with-styled": "error",
+    "bades/no-state-useref": "error",
+    "bades/component-props-naming": "error",
+    "bades/no-navigate-prefer-link": "error",
+    "bades/no-jotai-store-in-selector": "error",
+    "bades/no-direct-atom-family-in-selector": "error",
+    "bades/folder-structure": "error",
+    "bades/enforce-module-boundaries": ["error", {
       "depConstraints": [
         {
           "sourceTag": "scope:frontend",
@@ -121,7 +121,7 @@
     {
       "files": ["**/constants/*.ts", "**/*.constants.ts"],
       "rules": {
-        "twenty/max-consts-per-file": ["error", { "max": 1 }]
+        "bades/max-consts-per-file": ["error", { "max": 1 }]
       }
     }
   ]

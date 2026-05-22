@@ -33,7 +33,7 @@ import { StripeSubscriptionScheduleService } from 'src/engine/core-modules/billi
 import { StripeSubscriptionService } from 'src/engine/core-modules/billing/stripe/services/stripe-subscription.service';
 import { getPlanKeyFromSubscription } from 'src/engine/core-modules/billing/utils/get-plan-key-from-subscription.util';
 import { EnterprisePlanService } from 'src/engine/core-modules/enterprise/services/enterprise-plan.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 
 @Injectable()
@@ -49,7 +49,7 @@ export class BillingSubscriptionService {
     @InjectRepository(BillingSubscriptionEntity)
     private readonly billingSubscriptionRepository: Repository<BillingSubscriptionEntity>,
     private readonly stripeCustomerService: StripeCustomerService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
     private readonly stripeSubscriptionScheduleService: StripeSubscriptionScheduleService,

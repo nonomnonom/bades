@@ -8,7 +8,7 @@ import { type QueryRunner, Repository } from 'typeorm';
 
 import { BillingService } from 'src/engine/core-modules/billing/services/billing.service';
 import { OnboardingStatus } from 'src/engine/core-modules/onboarding/enums/onboarding-status.enum';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserVarsService } from 'src/engine/core-modules/user/user-vars/services/user-vars.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
@@ -32,7 +32,7 @@ export class OnboardingService {
   constructor(
     private readonly billingService: BillingService,
     private readonly userVarsService: UserVarsService<OnboardingKeyValueTypeMap>,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
   ) {}

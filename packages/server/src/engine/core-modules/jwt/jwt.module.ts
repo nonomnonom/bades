@@ -16,11 +16,11 @@ import { SigningKeyEntityCacheProviderService } from 'src/engine/core-modules/jw
 import { SigningKeyRotationService } from 'src/engine/core-modules/jwt/services/signing-key-rotation.service';
 import { SigningKeyVerifyCounterService } from 'src/engine/core-modules/jwt/services/signing-key-verify-counter.service';
 import { SecretEncryptionModule } from 'src/engine/core-modules/secret-encryption/secret-encryption.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const InternalJwtModule = NestJwtModule.registerAsync({
-  useFactory: async (twentyConfigService: TwentyConfigService) => {
+  useFactory: async (twentyConfigService: BadesConfigService) => {
     return {
       secret: twentyConfigService.get('APP_SECRET'),
       signOptions: {
@@ -32,13 +32,13 @@ const InternalJwtModule = NestJwtModule.registerAsync({
       },
     };
   },
-  inject: [TwentyConfigService],
+  inject: [BadesConfigService],
 });
 
 @Module({
   imports: [
     InternalJwtModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     TypeOrmModule.forFeature([SigningKeyEntity]),
     CoreEntityCacheModule,
     SecretEncryptionModule,

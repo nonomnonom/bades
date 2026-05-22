@@ -12,12 +12,12 @@ import {
 import { Response } from 'express';
 import { isDefined } from 'shared/utils';
 
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 
 import { AuthRestApiExceptionFilter } from 'src/engine/core-modules/auth/filters/auth-rest-api-exception.filter';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
 import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 
@@ -26,7 +26,7 @@ import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 export class OAuthPropagatorController {
   constructor(
     private readonly domainServerConfigService: DomainServerConfigService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
   ) {}
 

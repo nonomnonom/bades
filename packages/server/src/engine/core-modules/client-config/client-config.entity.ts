@@ -8,7 +8,7 @@ import {
 import { type AiSdkPackage } from 'shared/ai';
 import { FeatureFlagKey } from 'shared/types';
 
-import { SupportDriver } from 'src/engine/core-modules/twenty-config/interfaces/support.interface';
+import { SupportDriver } from 'src/engine/core-modules/bades-config/interfaces/support.interface';
 
 import { BillingTrialPeriodDTO } from 'src/engine/core-modules/billing/dtos/billing-trial-period.dto';
 import { CaptchaDriverType } from 'src/engine/core-modules/captcha/interfaces';

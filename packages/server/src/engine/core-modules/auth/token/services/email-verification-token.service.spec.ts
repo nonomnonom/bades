@@ -13,7 +13,7 @@ import {
   EmailVerificationException,
   EmailVerificationExceptionCode,
 } from 'src/engine/core-modules/email-verification/email-verification.exception';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 
 import { EmailVerificationTokenService } from './email-verification-token.service';
@@ -22,7 +22,7 @@ describe('EmailVerificationTokenService', () => {
   let service: EmailVerificationTokenService;
   let appTokenRepository: Repository<AppTokenEntity>;
   let userRepository: Repository<UserEntity>;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -39,7 +39,7 @@ describe('EmailVerificationTokenService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -56,7 +56,7 @@ describe('EmailVerificationTokenService', () => {
     userRepository = module.get<Repository<UserEntity>>(
       getRepositoryToken(UserEntity),
     );
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   describe('generateToken', () => {

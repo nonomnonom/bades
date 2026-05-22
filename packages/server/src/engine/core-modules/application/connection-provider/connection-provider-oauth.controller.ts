@@ -17,7 +17,7 @@ import {
 import { TransientTokenService } from 'src/engine/core-modules/auth/token/services/transient-token.service';
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
 import { GuardRedirectService } from 'src/engine/core-modules/guard-redirect/services/guard-redirect.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { NoPermissionGuard } from 'src/engine/guards/no-permission.guard';
@@ -34,7 +34,7 @@ export class ConnectionProviderOAuthController {
     private readonly transientTokenService: TransientTokenService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly guardRedirectService: GuardRedirectService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(UserWorkspaceEntity)

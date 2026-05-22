@@ -30,7 +30,7 @@ import {
 import { InjectMessageQueue } from 'src/engine/core-modules/message-queue/decorators/message-queue.decorator';
 import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
 import { MessageQueueService } from 'src/engine/core-modules/message-queue/services/message-queue.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UpgradeMigrationService } from 'src/engine/core-modules/upgrade/services/upgrade-migration.service';
 import { UpgradeSequenceReaderService } from 'src/engine/core-modules/upgrade/services/upgrade-sequence-reader.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
@@ -115,7 +115,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     private readonly billingSubscriptionService: BillingSubscriptionService,
     private readonly billingService: BillingService,
     private readonly userWorkspaceService: UserWorkspaceService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly exceptionHandlerService: ExceptionHandlerService,
     private readonly permissionsService: PermissionsService,
     private readonly dnsManagerService: DnsManagerService,

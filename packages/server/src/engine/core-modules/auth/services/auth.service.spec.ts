@@ -22,7 +22,7 @@ import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspac
 import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { GuardRedirectService } from 'src/engine/core-modules/guard-redirect/services/guard-redirect.service';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceService } from 'src/engine/core-modules/user-workspace/user-workspace.service';
 import { UserService } from 'src/engine/core-modules/user/services/user.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
@@ -108,7 +108,7 @@ describe('AuthService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: twentyConfigServiceGetMock,
           },

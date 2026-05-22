@@ -7,14 +7,14 @@ import type session from 'express-session';
 
 import { CacheStorageType } from 'src/engine/core-modules/cache-storage/types/cache-storage-type.enum';
 import { resolveSessionCookieSecretsOrThrow } from 'src/engine/core-modules/secret-encryption/utils/resolve-session-cookie-secrets.util';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const sessionStorageLogger = new Logger('SessionStorage');
 
 const REDIS_PING_INTERVAL_MS = 60_000;
 
 export const getSessionStorageOptions = (
-  twentyConfigService: TwentyConfigService,
+  twentyConfigService: BadesConfigService,
 ): session.SessionOptions => {
   const cacheStorageType = CacheStorageType.Redis;
 

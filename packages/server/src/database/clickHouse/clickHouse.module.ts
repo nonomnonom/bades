@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 
 import { ClickHouseService } from './clickHouse.service';
 
 @Module({
-  imports: [TwentyConfigModule],
+  imports: [BadesConfigModule],
   providers: [ClickHouseService],
   exports: [ClickHouseService],
 })

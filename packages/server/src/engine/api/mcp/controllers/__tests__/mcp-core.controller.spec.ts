@@ -13,7 +13,7 @@ import { type FlatApiKey } from 'src/engine/core-modules/api-key/types/flat-api-
 import { type FlatWorkspace } from 'src/engine/core-modules/workspace/types/flat-workspace.type';
 import { AccessTokenService } from 'src/engine/core-modules/auth/token/services/access-token.service';
 import { HttpExceptionHandlerService } from 'src/engine/core-modules/exception-handler/http-exception-handler.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { JwtAuthGuard } from 'src/engine/guards/jwt-auth.guard';
 import { WorkspaceCacheStorageService } from 'src/engine/workspace-cache-storage/workspace-cache-storage.service';
@@ -53,7 +53,7 @@ describe('McpCoreController', () => {
           useValue: { canActivate: jest.fn().mockReturnValue(true) },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: { get: jest.fn().mockReturnValue('http://localhost:3000') },
         },
         McpAuthGuard,

@@ -92,7 +92,7 @@ export class BillingSubscriptionUpdateService {
       getCurrentResourceCreditSubscriptionItemOrThrow(billingSubscription);
     const subscriptionUpdate = {
       type: SubscriptionUpdateType.RESOURCE_CREDIT_PRICE,
-      newResourceCreditPriceId: currentResourceCreditPrice.stripePriceId,
+      newResourceCreditPriceId: currentResourceCreditPrice.priceId,
     } as const;
 
     await this.updateSubscription(billingSubscription.id, subscriptionUpdate);
@@ -197,8 +197,8 @@ export class BillingSubscriptionUpdateService {
     const toUpdateCurrentPrices = await this.computeSubscriptionPricesUpdate(
       subscriptionUpdate,
       {
-        licensedPriceId: licensedItem.stripePriceId,
-        resourceCreditPriceId: resourceCreditItem.stripePriceId,
+        licensedPriceId: licensedItem.priceId,
+        resourceCreditPriceId: resourceCreditItem.priceId,
         seats: licensedItem.quantity,
       },
     );
@@ -268,7 +268,7 @@ export class BillingSubscriptionUpdateService {
         assertIsDefinedOrThrow(resourceCreditItem);
         await this.createResourceCreditUpgradeInvoice({
           subscription,
-          currentResourceCreditPriceId: resourceCreditItem.stripePriceId,
+          currentResourceCreditPriceId: resourceCreditItem.priceId,
           newResourceCreditPriceId: subscriptionUpdate.newResourceCreditPriceId,
         });
       }
@@ -339,7 +339,7 @@ export class BillingSubscriptionUpdateService {
   }): Promise<void> {
     const prices = await this.billingPriceRepository.find({
       where: {
-        stripePriceId: In([
+        priceId: In([
           currentResourceCreditPriceId,
           newResourceCreditPriceId,
         ]),
@@ -347,10 +347,10 @@ export class BillingSubscriptionUpdateService {
     });
 
     const currentPrice = prices.find(
-      (price) => price.stripePriceId === currentResourceCreditPriceId,
+      (price) => price.priceId === currentResourceCreditPriceId,
     );
     const newPrice = prices.find(
-      (price) => price.stripePriceId === newResourceCreditPriceId,
+      (price) => price.priceId === newResourceCreditPriceId,
     );
 
     assertIsDefinedOrThrow(currentPrice);
@@ -378,7 +378,7 @@ export class BillingSubscriptionUpdateService {
       .map((item) => normalizePriceRef(item.price));
 
     const licensedItemPrices = await this.billingPriceRepository.find({
-      where: { stripePriceId: In(licensedItemPriceIds) },
+      where: { priceId: In(licensedItemPriceIds) },
       relations: ['billingProduct'],
     });
 
@@ -392,7 +392,7 @@ export class BillingSubscriptionUpdateService {
 
     const basePlanPhaseItem = findOrThrow(
       phase.items,
-      (item) => normalizePriceRef(item.price) === basePlanPrice.stripePriceId,
+      (item) => normalizePriceRef(item.price) === basePlanPrice.priceId,
     );
 
     assertIsDefinedOrThrow(basePlanPhaseItem.quantity);
@@ -406,9 +406,9 @@ export class BillingSubscriptionUpdateService {
     assertIsDefinedOrThrow(resourceCreditPrice);
 
     return {
-      licensedPriceId: basePlanPrice.stripePriceId,
+      licensedPriceId: basePlanPrice.priceId,
       seats: basePlanPhaseItem.quantity,
-      resourceCreditPriceId: resourceCreditPrice.stripePriceId,
+      resourceCreditPriceId: resourceCreditPrice.priceId,
     };
   }
 
@@ -530,17 +530,17 @@ export class BillingSubscriptionUpdateService {
             (item) =>
               item.billingProduct?.metadata.productKey ===
               BillingProductKey.RESOURCE_CREDIT,
-          )?.stripePriceId;
+          )?.priceId;
 
         assertIsDefinedOrThrow(currentResourceCreditPriceId);
         const currentResourceCreditPrice =
           await this.billingPriceRepository.findOneOrFail({
-            where: { stripePriceId: currentResourceCreditPriceId },
+            where: { priceId: currentResourceCreditPriceId },
             relations: ['billingProduct'],
           });
         const newResourceCreditPrice =
           await this.billingPriceRepository.findOneOrFail({
-            where: { stripePriceId: update.newResourceCreditPriceId },
+            where: { priceId: update.newResourceCreditPriceId },
             relations: ['billingProduct'],
           });
 
@@ -625,7 +625,7 @@ export class BillingSubscriptionUpdateService {
   ): Promise<SubscriptionStripePrices> {
     const currentLicensedPrice =
       await this.billingPriceRepository.findOneOrFail({
-        where: { stripePriceId: currentPrices.licensedPriceId },
+        where: { priceId: currentPrices.licensedPriceId },
         relations: ['billingProduct'],
       });
     const currentInterval = currentLicensedPrice.interval;
@@ -636,7 +636,7 @@ export class BillingSubscriptionUpdateService {
 
     const newResourceCreditPrice =
       await this.billingPriceRepository.findOneOrFail({
-        where: { stripePriceId: newResourceCreditPriceId },
+        where: { priceId: newResourceCreditPriceId },
         relations: ['billingProduct'],
       });
 
@@ -665,7 +665,7 @@ export class BillingSubscriptionUpdateService {
 
     return {
       ...currentPrices,
-      resourceCreditPriceId: newEquivalentResourceCreditPrice.stripePriceId,
+      resourceCreditPriceId: newEquivalentResourceCreditPrice.priceId,
     };
   }
 
@@ -675,7 +675,7 @@ export class BillingSubscriptionUpdateService {
   ): Promise<SubscriptionStripePrices> {
     const currentLicensedPrice =
       await this.billingPriceRepository.findOneOrFail({
-        where: { stripePriceId: currentPrices.licensedPriceId },
+        where: { priceId: currentPrices.licensedPriceId },
         relations: ['billingProduct'],
       });
 
@@ -703,7 +703,7 @@ export class BillingSubscriptionUpdateService {
 
     const currentResourceCreditPrice =
       await this.billingPriceRepository.findOneOrFail({
-        where: { stripePriceId: currentPrices.resourceCreditPriceId },
+        where: { priceId: currentPrices.resourceCreditPriceId },
         relations: ['billingProduct'],
       });
 
@@ -722,8 +722,8 @@ export class BillingSubscriptionUpdateService {
 
     return {
       ...currentPrices,
-      licensedPriceId: targetLicensedPrice.stripePriceId,
-      resourceCreditPriceId: targetResourceCreditPrice.stripePriceId,
+      licensedPriceId: targetLicensedPrice.priceId,
+      resourceCreditPriceId: targetResourceCreditPrice.priceId,
     };
   }
 
@@ -733,7 +733,7 @@ export class BillingSubscriptionUpdateService {
   ): Promise<SubscriptionStripePrices> {
     const currentLicensedPrice =
       await this.billingPriceRepository.findOneOrFail({
-        where: { stripePriceId: currentPrices.licensedPriceId },
+        where: { priceId: currentPrices.licensedPriceId },
         relations: ['billingProduct'],
       });
 
@@ -761,7 +761,7 @@ export class BillingSubscriptionUpdateService {
 
     const currentResourceCreditPrice =
       await this.billingPriceRepository.findOneOrFail({
-        where: { stripePriceId: currentPrices.resourceCreditPriceId },
+        where: { priceId: currentPrices.resourceCreditPriceId },
         relations: ['billingProduct'],
       });
 
@@ -780,8 +780,8 @@ export class BillingSubscriptionUpdateService {
 
     return {
       ...currentPrices,
-      licensedPriceId: targetLicensedPrice.stripePriceId,
-      resourceCreditPriceId: targetResourceCreditPrice.stripePriceId,
+      licensedPriceId: targetLicensedPrice.priceId,
+      resourceCreditPriceId: targetResourceCreditPrice.priceId,
     };
   }
 }

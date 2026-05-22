@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'effect-components';
+export const RULE_NAME = 'bades/effect-components';
 
 const isPascalCase = (input: string) => !!input.match(/^[A-Z][a-zA-Z0-9_]*/);
 

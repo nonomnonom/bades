@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'matching-state-variable';
+export const RULE_NAME = 'bades/matching-state-variable';
 
 const VALUE_HOOKS = [
   'useAtomStateValue',

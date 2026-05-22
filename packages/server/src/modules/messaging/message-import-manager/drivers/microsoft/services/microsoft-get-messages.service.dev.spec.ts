@@ -3,7 +3,7 @@ import { Test, type TestingModule } from '@nestjs/testing';
 
 import { ConnectedAccountProvider } from 'shared/types';
 
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { ConnectedAccountTokenEncryptionService } from 'src/engine/metadata-modules/connected-account/services/connected-account-token-encryption.service';
 import { MicrosoftOAuth2ClientManagerService } from 'src/modules/connected-account/oauth2-client-manager/drivers/microsoft/microsoft-oauth2-client-manager.service';
 import { OAuth2ClientManagerService } from 'src/modules/connected-account/oauth2-client-manager/services/oauth2-client-manager.service';
@@ -25,7 +25,7 @@ xdescribe('Microsoft dev tests : get messages service', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [TwentyConfigModule.forRoot()],
+      imports: [BadesConfigModule.forRoot()],
       providers: [
         MicrosoftGetMessagesService,
         {

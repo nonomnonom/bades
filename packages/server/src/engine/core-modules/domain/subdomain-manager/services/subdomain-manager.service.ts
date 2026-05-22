@@ -8,7 +8,7 @@ import { generateRandomSubdomain } from 'src/engine/core-modules/domain/subdomai
 import { getSubdomainFromEmail } from 'src/engine/core-modules/domain/subdomain-manager/utils/get-subdomain-from-email.util';
 import { getSubdomainNameFromDisplayName } from 'src/engine/core-modules/domain/subdomain-manager/utils/get-subdomain-name-from-display-name.util';
 import { isSubdomainValid } from 'src/engine/core-modules/domain/subdomain-manager/utils/is-subdomain-valid.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import {
   WorkspaceException,
@@ -20,7 +20,7 @@ export class SubdomainManagerService {
   constructor(
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async generateSubdomain({

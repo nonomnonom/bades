@@ -11,8 +11,8 @@ import {
   AI_SDK_BEDROCK,
   AI_SDK_OPENAI,
 } from 'src/engine/metadata-modules/ai/ai-models/constants/ai-sdk-package.const';
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
-import { SupportDriver } from 'src/engine/core-modules/twenty-config/interfaces/support.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
+import { SupportDriver } from 'src/engine/core-modules/bades-config/interfaces/support.interface';
 
 import { MaintenanceModeService } from 'src/engine/core-modules/admin-panel/maintenance-mode.service';
 import {
@@ -22,7 +22,7 @@ import {
 } from 'src/engine/core-modules/client-config/client-config.entity';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
 import { PUBLIC_FEATURE_FLAGS } from 'src/engine/core-modules/feature-flag/constants/public-feature-flag.const';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import {
   AUTO_SELECT_FAST_MODEL_ID,
   AUTO_SELECT_SMART_MODEL_ID,
@@ -33,7 +33,7 @@ import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models
 @Injectable()
 export class ClientConfigService {
   constructor(
-    private twentyConfigService: TwentyConfigService,
+    private twentyConfigService: BadesConfigService,
     private domainServerConfigService: DomainServerConfigService,
     private aiModelRegistryService: AiModelRegistryService,
     private maintenanceModeService: MaintenanceModeService,

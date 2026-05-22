@@ -37,7 +37,7 @@ describe('transformStripePriceToDatabasePrice', () => {
     const result = transformStripePriceToDatabasePrice(mockPrice);
 
     expect(result).toEqual({
-      stripePriceId: 'price_123',
+      priceId: 'price_123',
       active: true,
       stripeProductId: 'prod_123',
       stripeMeterId: null,

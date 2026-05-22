@@ -10,7 +10,7 @@ import { BillingUsageType } from 'src/engine/core-modules/billing/enums/billing-
 
 export const transformStripePriceToDatabasePrice = (data: Stripe.Price) => {
   return {
-    stripePriceId: data.id,
+    priceId: data.id,
     active: data.active,
     stripeProductId: String(data.product),
     stripeMeterId: data.recurring?.meter,

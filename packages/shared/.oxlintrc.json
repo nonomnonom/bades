@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "jsPlugins": ["../twenty-oxlint-rules/dist/oxlint-plugin.mjs"],
+  "jsPlugins": ["../oxlint-rules/dist/oxlint-plugin.mjs"],
   "plugins": ["typescript", "import", "unicorn"],
   "categories": {
     "correctness": "off"
@@ -47,7 +47,7 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "twenty/enforce-module-boundaries": [
+    "bades/enforce-module-boundaries": [
       "error",
       {
         "depConstraints": [
@@ -63,7 +63,7 @@
     {
       "files": ["**/constants/*.ts", "**/*.constants.ts"],
       "rules": {
-        "twenty/max-consts-per-file": ["error", { "max": 1 }]
+        "bades/max-consts-per-file": ["error", { "max": 1 }]
       }
     }
   ]

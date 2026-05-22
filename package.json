@@ -55,7 +55,7 @@
       "packages/front-component-renderer",
       "packages/client-sdk",
       "packages/cli",
-      "packages/create-twenty-app",
+      "packages/create-bades-app",
       "packages/oxlint-rules",
       "packages/companion",
       "packages/claude-skills"

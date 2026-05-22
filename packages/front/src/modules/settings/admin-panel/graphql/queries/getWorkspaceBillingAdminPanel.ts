@@ -21,7 +21,7 @@ export const GET_WORKSPACE_BILLING_ADMIN_PANEL = gql`
         items {
           productName
           productKey
-          stripePriceId
+          priceId
           quantity
           unitAmount
           includedCredits

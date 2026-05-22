@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { type ConfigVariables } from 'src/engine/core-modules/twenty-config/config-variables';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type ConfigVariables } from 'src/engine/core-modules/bades-config/config-variables';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { DefaultAiCatalogService } from 'src/engine/metadata-modules/ai/ai-models/services/default-ai-catalog.service';
 
 import { type AiProviderConfig } from 'src/engine/metadata-modules/ai/ai-models/types/ai-provider-config.type';
@@ -11,7 +11,7 @@ import { extractConfigVariableName } from 'src/engine/metadata-modules/ai/ai-mod
 @Injectable()
 export class ProviderConfigService {
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly defaultAiCatalogService: DefaultAiCatalogService,
   ) {}
 

@@ -57,8 +57,8 @@ import { RedisClientService } from 'src/engine/core-modules/redis-client/redis-c
 import { SearchModule } from 'src/engine/core-modules/search/search.module';
 import { WorkspaceSSOModule } from 'src/engine/core-modules/sso/sso.module';
 import { TelemetryModule } from 'src/engine/core-modules/telemetry/telemetry.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UsageModule } from 'src/engine/core-modules/usage/usage.module';
 import { UserModule } from 'src/engine/core-modules/user/user.module';
 import { WorkflowApiModule } from 'src/engine/core-modules/workflow/workflow-api.module';
@@ -83,7 +83,7 @@ import { FileModule } from './file/file.module';
 @Module({
   imports: [
     EnvironmentModule,
-    TwentyConfigModule.forRoot(),
+    BadesConfigModule.forRoot(),
     HealthModule,
     AuditModule,
     AuthModule,
@@ -132,20 +132,20 @@ import { FileModule } from './file/file.module';
     FileStorageModule.forRoot(),
     LoggerModule.forRootAsync({
       useFactory: loggerModuleFactory,
-      inject: [TwentyConfigService],
+      inject: [BadesConfigService],
     }),
     MetricsModule,
     MessageQueueModule.registerAsync({
       useFactory: messageQueueModuleFactory,
-      inject: [TwentyConfigService, RedisClientService, MetricsService],
+      inject: [BadesConfigService, RedisClientService, MetricsService],
     }),
     ExceptionHandlerModule.forRootAsync({
       useFactory: exceptionHandlerModuleFactory,
-      inject: [TwentyConfigService, HttpAdapterHost],
+      inject: [BadesConfigService, HttpAdapterHost],
     }),
     ApplicationLogsModule.forRootAsync({
       useFactory: applicationLogsModuleFactory,
-      inject: [TwentyConfigService],
+      inject: [BadesConfigService],
     }),
     EmailModule.forRoot(),
     CaptchaModule.forRoot(),

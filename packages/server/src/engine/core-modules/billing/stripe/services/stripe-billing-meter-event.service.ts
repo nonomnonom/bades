@@ -7,7 +7,7 @@ import type Stripe from 'stripe';
 import { STRIPE_BILLING_METER_EVENT_NAME } from 'src/engine/core-modules/billing/stripe/constants/stripe-billing-meter-event-name.constant';
 import { StripeSDKService } from 'src/engine/core-modules/billing/stripe/stripe-sdk/services/stripe-sdk.service';
 import { type UsageEvent } from 'src/engine/core-modules/usage/types/usage-event.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class StripeBillingMeterEventService {
@@ -15,7 +15,7 @@ export class StripeBillingMeterEventService {
   private readonly stripe: Stripe;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly stripeSDKService: StripeSDKService,
   ) {
     if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {

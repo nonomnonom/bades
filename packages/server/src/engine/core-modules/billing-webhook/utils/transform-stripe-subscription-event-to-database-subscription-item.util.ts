@@ -16,7 +16,7 @@ export const transformStripeSubscriptionEventToDatabaseSubscriptionItem = (
       workspaceId,
       stripeSubscriptionId: data.object.id,
       stripeProductId: String(item.price.product),
-      stripePriceId: item.price.id,
+      priceId: item.price.id,
       stripeSubscriptionItemId: item.id,
       quantity: item.quantity,
       metadata: item.metadata,

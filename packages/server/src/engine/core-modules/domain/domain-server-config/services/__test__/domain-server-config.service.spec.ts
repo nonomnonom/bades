@@ -3,12 +3,12 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 
 import { ApprovedAccessDomainEntity } from 'src/engine/core-modules/approved-access-domain/approved-access-domain.entity';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 
 describe('SubdomainManagerService', () => {
   let domainServerConfigService: DomainServerConfigService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -28,7 +28,7 @@ describe('SubdomainManagerService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -39,7 +39,7 @@ describe('SubdomainManagerService', () => {
     domainServerConfigService = module.get<DomainServerConfigService>(
       DomainServerConfigService,
     );
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   describe('buildBaseUrl', () => {

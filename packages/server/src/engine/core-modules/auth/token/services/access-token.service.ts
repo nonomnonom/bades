@@ -21,7 +21,7 @@ import {
   JwtTokenTypeEnum,
 } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { UserWorkspaceNotFoundDefaultError } from 'src/engine/core-modules/user-workspace/user-workspace.exception';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
@@ -37,7 +37,7 @@ export class AccessTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
     private readonly jwtStrategy: JwtAuthStrategy,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     @InjectRepository(WorkspaceEntity)

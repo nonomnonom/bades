@@ -100,24 +100,24 @@ export class BillingPlanService {
     });
   }
 
-  async getPlanByPriceId(stripePriceId: string) {
+  async getPlanByPriceId(priceId: string) {
     const plans = await this.listPlans();
 
     return findOrThrow(plans, (plan) => {
       return (
         plan.meteredProducts.some((product) =>
           product.billingPrices.some(
-            (price) => price.stripePriceId === stripePriceId,
+            (price) => price.priceId === priceId,
           ),
         ) ||
         plan.baseProducts.some((product) =>
           product.billingPrices.some(
-            (price) => price.stripePriceId === stripePriceId,
+            (price) => price.priceId === priceId,
           ),
         ) ||
         plan.resourceCreditProducts.some((product) =>
           product.billingPrices.some(
-            (price) => price.stripePriceId === stripePriceId,
+            (price) => price.priceId === priceId,
           ),
         )
       );

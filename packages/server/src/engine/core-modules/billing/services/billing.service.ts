@@ -10,13 +10,13 @@ import { BillingSubscriptionEntity } from 'src/engine/core-modules/billing/entit
 import { type BillingEntitlementKey } from 'src/engine/core-modules/billing/enums/billing-entitlement-key.enum';
 import { BillingProductService } from 'src/engine/core-modules/billing/services/billing-product.service';
 import { BillingSubscriptionService } from 'src/engine/core-modules/billing/services/billing-subscription.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class BillingService {
   protected readonly logger = new Logger(BillingService.name);
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly billingSubscriptionService: BillingSubscriptionService,
     private readonly billingProductService: BillingProductService,
     @InjectRepository(BillingSubscriptionEntity)

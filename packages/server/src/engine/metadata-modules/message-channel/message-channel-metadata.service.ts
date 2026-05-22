@@ -17,7 +17,7 @@ import {
 } from 'shared/types';
 
 import { StorageDriverType } from 'src/engine/core-modules/file-storage/interfaces/file-storage.interface';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { ConnectedAccountMetadataService } from 'src/engine/metadata-modules/connected-account/connected-account-metadata.service';
 import { CreateEmailGroupChannelOutput } from 'src/engine/metadata-modules/message-channel/dtos/create-email-group-channel.output';
 import { MessageChannelDTO } from 'src/engine/metadata-modules/message-channel/dtos/message-channel.dto';
@@ -35,7 +35,7 @@ export class MessageChannelMetadataService {
     @InjectRepository(MessageChannelEntity)
     private readonly repository: Repository<MessageChannelEntity>,
     private readonly connectedAccountMetadataService: ConnectedAccountMetadataService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async findAll(workspaceId: string): Promise<MessageChannelDTO[]> {

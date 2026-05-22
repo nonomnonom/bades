@@ -156,7 +156,7 @@ describe('isFieldValueEmpty', () => {
           primaryLinkUrl: null,
           primaryLinkLabel: null,
           secondaryLinks: [
-            { url: 'https://docs.twenty.com', label: 'Documentation' },
+            { url: 'https://bades.id/docs', label: 'Dokumentasi' },
           ],
         },
       }),
@@ -170,7 +170,7 @@ describe('isFieldValueEmpty', () => {
           primaryLinkUrl: 'lydia,com',
           primaryLinkLabel: 'Invalid URL',
           secondaryLinks: [
-            { url: 'https://docs.twenty.com', label: 'Documentation' },
+            { url: 'https://bades.id/docs', label: 'Dokumentasi' },
           ],
         },
       }),

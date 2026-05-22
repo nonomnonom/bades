@@ -4,7 +4,7 @@ import IORedis from 'ioredis';
 import { isDefined } from 'shared/utils';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class RedisClientService implements OnModuleDestroy {
@@ -12,7 +12,7 @@ export class RedisClientService implements OnModuleDestroy {
   private redisQueueClient: IORedis | null = null;
   private redisPubSubClient: RedisPubSub | null = null;
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   getQueueClient() {
     if (!this.redisQueueClient) {

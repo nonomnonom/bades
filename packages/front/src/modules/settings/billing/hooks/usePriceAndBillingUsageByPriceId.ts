@@ -23,7 +23,7 @@ export const usePriceAndBillingUsageByPriceId = () => {
     const licensed = allBillingPrices.find(
       (p) =>
         p.priceUsageType === BillingUsageType.LICENSED &&
-        p.stripePriceId === priceId,
+        p.priceId === priceId,
     ) as BillingPriceLicensed | undefined;
 
     if (isDefined(licensed))
@@ -32,7 +32,7 @@ export const usePriceAndBillingUsageByPriceId = () => {
     const metered = allBillingPrices.find(
       (p) =>
         p.priceUsageType === BillingUsageType.METERED &&
-        p.stripePriceId === priceId,
+        p.priceId === priceId,
     ) as BillingPriceMetered | undefined;
     if (isDefined(metered))
       return { price: metered, billingUsage: BillingUsageType.METERED };

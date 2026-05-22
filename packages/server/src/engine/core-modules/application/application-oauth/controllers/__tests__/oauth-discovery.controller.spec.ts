@@ -5,7 +5,7 @@ import { type Request } from 'express';
 import { OAuthDiscoveryController } from 'src/engine/core-modules/application/application-oauth/controllers/oauth-discovery.controller';
 import { ApplicationRegistrationService } from 'src/engine/core-modules/application/application-registration/application-registration.service';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 describe('OAuthDiscoveryController', () => {
   let controller: OAuthDiscoveryController;
@@ -22,7 +22,7 @@ describe('OAuthDiscoveryController', () => {
       controllers: [OAuthDiscoveryController],
       providers: [
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn().mockReturnValue('https://api.example.com'),
           },

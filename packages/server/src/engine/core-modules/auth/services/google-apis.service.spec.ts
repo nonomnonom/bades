@@ -18,7 +18,7 @@ import { UpdateConnectedAccountOnReconnectService } from 'src/engine/core-module
 import { FeatureFlagService } from 'src/engine/core-modules/feature-flag/services/feature-flag.service';
 import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
 import { getQueueToken } from 'src/engine/core-modules/message-queue/utils/get-queue-token.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { CalendarChannelEntity } from 'src/engine/metadata-modules/calendar-channel/entities/calendar-channel.entity';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
@@ -73,7 +73,7 @@ describe('GoogleAPIsService', () => {
     }),
   };
 
-  const mockTwentyConfigService = {
+  const mockBadesConfigService = {
     get: jest.fn(),
   };
 
@@ -112,8 +112,8 @@ describe('GoogleAPIsService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
-          useValue: mockTwentyConfigService,
+          provide: BadesConfigService,
+          useValue: mockBadesConfigService,
         },
         {
           provide: CalendarChannelSyncStatusService,
@@ -237,7 +237,7 @@ describe('GoogleAPIsService', () => {
 
   describe('refreshGoogleRefreshToken', () => {
     it('should reset calendar channels with FAILED_UNKNOWN syncStatus and FAILED syncStage', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'CALENDAR_PROVIDER_GOOGLE_ENABLED') return true;
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;
 

@@ -14,7 +14,7 @@ export class BillingPriceLicensedDTO {
   unitAmount: number;
 
   @Field(() => String)
-  stripePriceId: string;
+  priceId: string;
 
   @Field(() => BillingUsageType)
   priceUsageType: BillingUsageType.LICENSED;

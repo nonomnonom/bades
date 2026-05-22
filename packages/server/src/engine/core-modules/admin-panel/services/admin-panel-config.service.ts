@@ -3,14 +3,14 @@ import { Injectable } from '@nestjs/common';
 import { type ConfigVariableDTO } from 'src/engine/core-modules/admin-panel/dtos/config-variable.dto';
 import { type ConfigVariablesGroupDataDTO } from 'src/engine/core-modules/admin-panel/dtos/config-variables-group.dto';
 import { type ConfigVariablesDTO } from 'src/engine/core-modules/admin-panel/dtos/config-variables.dto';
-import { type ConfigVariables } from 'src/engine/core-modules/twenty-config/config-variables';
-import { CONFIG_VARIABLES_GROUP_METADATA } from 'src/engine/core-modules/twenty-config/constants/config-variables-group-metadata';
-import { type ConfigVariablesGroup } from 'src/engine/core-modules/twenty-config/enums/config-variables-group.enum';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type ConfigVariables } from 'src/engine/core-modules/bades-config/config-variables';
+import { CONFIG_VARIABLES_GROUP_METADATA } from 'src/engine/core-modules/bades-config/constants/config-variables-group-metadata';
+import { type ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class AdminPanelConfigService {
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   getConfigVariablesGrouped(): ConfigVariablesDTO {
     const rawEnvVars = this.twentyConfigService.getAll();

@@ -13,7 +13,7 @@ import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/e
 import { BillingProductKey } from 'src/engine/core-modules/billing/enums/billing-product-key.enum';
 import { SubscriptionStatus } from 'src/engine/core-modules/billing/enums/billing-subscription-status.enum';
 import { ResourceCreditService } from 'src/engine/core-modules/billing/services/resource-credit.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { Not, Raw, Repository } from 'typeorm';
 
 export type BillingCapEvaluation =
@@ -40,7 +40,7 @@ export class BillingUsageCapService {
   constructor(
     private readonly clickHouseService: ClickHouseService,
     private readonly resourceCreditService: ResourceCreditService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
   ) {}

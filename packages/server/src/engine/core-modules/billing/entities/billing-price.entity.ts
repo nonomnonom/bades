@@ -39,7 +39,7 @@ export class BillingPriceEntity {
   updatedAt: Date;
 
   @Column({ nullable: false, unique: true })
-  stripePriceId: string;
+  priceId: string;
 
   @Column({ nullable: false })
   active: boolean;

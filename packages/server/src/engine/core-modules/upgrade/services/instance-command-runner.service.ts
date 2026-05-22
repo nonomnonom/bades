@@ -3,7 +3,7 @@ import { InjectDataSource } from '@nestjs/typeorm';
 
 import { DataSource } from 'typeorm';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type FastInstanceCommand } from 'src/engine/core-modules/upgrade/interfaces/fast-instance-command.interface';
 import { type SlowInstanceCommand } from 'src/engine/core-modules/upgrade/interfaces/slow-instance-command.interface';
 import { UpgradeMigrationService } from 'src/engine/core-modules/upgrade/services/upgrade-migration.service';
@@ -22,7 +22,7 @@ export class InstanceCommandRunnerService {
   constructor(
     @InjectDataSource()
     private readonly dataSource: DataSource,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly upgradeMigrationService: UpgradeMigrationService,
     private readonly workspaceVersionService: WorkspaceVersionService,
     private readonly upgradeStatusService: UpgradeStatusService,

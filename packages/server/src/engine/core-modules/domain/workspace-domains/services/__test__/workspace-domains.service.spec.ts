@@ -6,12 +6,12 @@ import { type Repository } from 'typeorm';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
 import { PublicDomainEntity } from 'src/engine/core-modules/public-domain/public-domain.entity';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 
 describe('WorkspaceDomainsService', () => {
   let workspaceDomainsService: WorkspaceDomainsService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let workspaceRepository: Repository<WorkspaceEntity>;
   let publicDomainRepository: Repository<PublicDomainEntity>;
 
@@ -34,7 +34,7 @@ describe('WorkspaceDomainsService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -52,7 +52,7 @@ describe('WorkspaceDomainsService', () => {
       WorkspaceDomainsService,
     );
 
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   describe('getWorkspaceUrls', () => {

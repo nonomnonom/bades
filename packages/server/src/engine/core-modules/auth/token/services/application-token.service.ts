@@ -24,7 +24,7 @@ import {
   AuthException,
   AuthExceptionCode,
 } from 'src/engine/core-modules/auth/auth.exception';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const APPLICATION_REFRESH_TOKEN_INVALID_OR_EXPIRED_MESSAGE =
   'Application refresh token invalid or expired';
@@ -38,7 +38,7 @@ export class ApplicationTokenService {
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(ApplicationEntity)
     private readonly applicationRepository: Repository<ApplicationEntity>,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async generateApplicationAccessToken({

@@ -14,7 +14,7 @@ import { JwtTokenTypeEnum } from 'src/engine/core-modules/auth/types/auth-contex
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
 import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
 
@@ -36,7 +36,7 @@ describe('ApprovedAccessDomainService', () => {
   let service: ApprovedAccessDomainService;
   let approvedAccessDomainRepository: Repository<ApprovedAccessDomainEntity>;
   let emailService: EmailService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let workspaceDomainsService: WorkspaceDomainsService;
   let jwtWrapperService: jest.Mocked<JwtWrapperService>;
 
@@ -60,7 +60,7 @@ describe('ApprovedAccessDomainService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -96,7 +96,7 @@ describe('ApprovedAccessDomainService', () => {
       getRepositoryToken(ApprovedAccessDomainEntity),
     );
     emailService = module.get<EmailService>(EmailService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     workspaceDomainsService = module.get<WorkspaceDomainsService>(
       WorkspaceDomainsService,
     );

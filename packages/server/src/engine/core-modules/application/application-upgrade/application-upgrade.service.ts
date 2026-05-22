@@ -13,7 +13,7 @@ import {
   ApplicationException,
   ApplicationExceptionCode,
 } from 'src/engine/core-modules/application/application.exception';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const npmPackageMetadataSchema = z.object({
   version: z.string(),
@@ -29,7 +29,7 @@ export class ApplicationUpgradeService {
     @InjectRepository(ApplicationEntity)
     private readonly applicationRepository: Repository<ApplicationEntity>,
     private readonly applicationInstallService: ApplicationInstallService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async checkForUpdates(

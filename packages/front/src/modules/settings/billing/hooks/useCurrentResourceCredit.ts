@@ -37,8 +37,8 @@ export const useCurrentResourceCredit = () => {
 
   const currentResourceCreditBillingPrice = resourceCreditPrices.find(
     (price) =>
-      price.stripePriceId ===
-      currentResourceCreditSubscriptionItem?.stripePriceId,
+      price.priceId ===
+      currentResourceCreditSubscriptionItem?.priceId,
   );
 
   return {

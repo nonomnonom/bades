@@ -8,7 +8,7 @@ import { InjectDataSource } from '@nestjs/typeorm';
 import { isDefined } from 'shared/utils';
 import { DataSource } from 'typeorm';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { GlobalWorkspaceDataSource } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-datasource';
 import { WorkspaceEventEmitter } from 'src/engine/workspace-event-emitter/workspace-event-emitter';
 
@@ -21,7 +21,7 @@ export class GlobalWorkspaceDataSourceService
     null;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly workspaceEventEmitter: WorkspaceEventEmitter,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,

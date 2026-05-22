@@ -6,14 +6,14 @@ import { redisInsStore } from 'cache-manager-redis-yet';
 import { createClient } from 'redis';
 
 import { CacheStorageType } from 'src/engine/core-modules/cache-storage/types/cache-storage-type.enum';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const cacheStorageLogger = new Logger('CacheStorage');
 
 const REDIS_PING_INTERVAL_MS = 60_000;
 
 export const cacheStorageModuleFactory = (
-  twentyConfigService: TwentyConfigService,
+  twentyConfigService: BadesConfigService,
 ): CacheModuleOptions => {
   const cacheStorageType = CacheStorageType.Redis;
   const cacheStorageTtl = twentyConfigService.get('CACHE_STORAGE_TTL');

@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { isDefined } from 'shared/utils';
 
-import { EnvironmentConfigDriver } from 'src/engine/core-modules/twenty-config/drivers/environment-config.driver';
+import { EnvironmentConfigDriver } from 'src/engine/core-modules/bades-config/drivers/environment-config.driver';
 
 import { computeEncryptionKeyId } from './utils/compute-encryption-key-id.util';
 import { decryptAesCtrOrThrow } from './utils/decrypt-aes-ctr-or-throw.util';

@@ -6,11 +6,11 @@ import { Command, CommandRunner, Option } from 'nest-commander';
 import { isDefined } from 'shared/utils';
 import { Repository } from 'typeorm';
 
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 
 import { ApiKeyEntity } from 'src/engine/core-modules/api-key/api-key.entity';
 import { ApiKeyService } from 'src/engine/core-modules/api-key/services/api-key.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { RoleEntity } from 'src/engine/metadata-modules/role/role.entity';
 import { STANDARD_ROLE } from 'src/engine/workspace-manager/twenty-standard-application/constants/standard-role.constant';
@@ -36,7 +36,7 @@ export class GenerateApiKeyCommand extends CommandRunner {
     @InjectRepository(RoleEntity)
     private readonly roleRepository: Repository<RoleEntity>,
     private readonly apiKeyService: ApiKeyService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {
     super();
   }

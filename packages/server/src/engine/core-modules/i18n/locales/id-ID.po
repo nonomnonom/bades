@@ -16,23 +16,23 @@ msgstr ""
 #. js-lingui-id: SsRDX3
 #: src/engine/core-modules/user/utils/assert-workspace-member-update-non-custom-fields.util.ts
 msgid "\"{payloadKey}\" is not a valid workspace member field."
-msgstr "\"{payloadKey}\" is not a valid workspace member field."
+msgstr "\"{payloadKey}\" bukan field anggota workspace yang valid."
 
 #. js-lingui-id: Q0ISF1
 #: src/engine/sid-orm/utils/compute-relation-connect-query-configs.util.ts
 msgid "{fieldName} and {fieldName}Id cannot be both provided."
-msgstr "{fieldName} and {fieldName}Id cannot be both provided."
+msgstr "{fieldName} dan {fieldName}Id tidak boleh keduanya diisi sekaligus."
 
 #. js-lingui-id: ZkHTHm
 #: src/engine/workspace-manager/workspace-migration/workspace-migration-builder/validators/services/flat-index-metadata-validator.service.ts
 #: src/engine/metadata-modules/index-metadata/utils/validate-can-create-unique-index.util.ts
 msgid "{fieldType} fields cannot be unique."
-msgstr "{fieldType} fields cannot be unique."
+msgstr "Field {fieldType} tidak dapat dibuat unik."
 
 #. js-lingui-id: LeIJhm
 #: src/engine/workspace-manager/workspace-migration/workspace-migration-builder/validators/services/flat-index-metadata-validator.service.ts
 msgid "{fieldType} fields cannot have a default value."
-msgstr "{fieldType} fields cannot have a default value."
+msgstr "Field {fieldType} tidak dapat memiliki nilai default."
 
 #. js-lingui-id: VEmyIu
 #: src/engine/metadata-modules/page-layout-widget/utils/validate-chart-configuration-field-references.util.ts
@@ -42,7 +42,7 @@ msgstr "{fullMessage}"
 #. js-lingui-id: iEZavm
 #: src/engine/core-modules/dns-manager/services/dns-manager.service.ts
 msgid "{hostnameCount} hostnames found for domain '{domainName}'. Expect 1"
-msgstr "{hostnameCount} hostnames found for domain '{domainName}'. Expect 1"
+msgstr "{hostnameCount} hostname ditemukan untuk domain '{domainName}'. Seharusnya 1"
 
 #. js-lingui-id: 0eYXBl
 #: src/engine/workspace-manager/twenty-standard-application/utils/field-metadata/compute-workspace-member-standard-flat-field-metadata.util.ts

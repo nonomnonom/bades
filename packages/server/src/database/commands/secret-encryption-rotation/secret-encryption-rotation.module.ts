@@ -10,13 +10,13 @@ import { SigningKeyEntity } from 'src/engine/core-modules/jwt/entities/signing-k
 import { KeyValuePairEntity } from 'src/engine/core-modules/key-value-pair/key-value-pair.entity';
 import { SecretEncryptionModule } from 'src/engine/core-modules/secret-encryption/secret-encryption.module';
 import { TwoFactorAuthenticationMethodEntity } from 'src/engine/core-modules/two-factor-authentication/entities/two-factor-authentication-method.entity';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
 
 @Module({
   imports: [
     SecretEncryptionModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     TypeOrmModule.forFeature([
       ApplicationRegistrationVariableEntity,
       ApplicationVariableEntity,

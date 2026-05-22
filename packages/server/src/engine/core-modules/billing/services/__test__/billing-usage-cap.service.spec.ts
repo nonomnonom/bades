@@ -8,12 +8,12 @@ import { ClickHouseService } from 'src/database/clickHouse/clickHouse.service';
 import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/entities/billing-subscription-item.entity';
 import { BillingUsageCapService } from 'src/engine/core-modules/billing/services/billing-usage-cap.service';
 import { ResourceCreditService } from 'src/engine/core-modules/billing/services/resource-credit.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 describe('BillingUsageCapService', () => {
   let service: BillingUsageCapService;
   let clickHouseService: jest.Mocked<ClickHouseService>;
-  let twentyConfigService: jest.Mocked<TwentyConfigService>;
+  let twentyConfigService: jest.Mocked<BadesConfigService>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -32,7 +32,7 @@ describe('BillingUsageCapService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -49,7 +49,7 @@ describe('BillingUsageCapService', () => {
 
     service = module.get<BillingUsageCapService>(BillingUsageCapService);
     clickHouseService = module.get(ClickHouseService);
-    twentyConfigService = module.get(TwentyConfigService);
+    twentyConfigService = module.get(BadesConfigService);
   });
 
   afterEach(() => {

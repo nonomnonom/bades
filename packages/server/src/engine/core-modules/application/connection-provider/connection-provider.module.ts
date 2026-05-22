@@ -10,7 +10,7 @@ import { ApplicationEntity } from 'src/engine/core-modules/application/applicati
 import { JwtModule } from 'src/engine/core-modules/jwt/jwt.module';
 import { SecretEncryptionModule } from 'src/engine/core-modules/secret-encryption/secret-encryption.module';
 import { SecureHttpClientModule } from 'src/engine/core-modules/secure-http-client/secure-http-client.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
 import { ConnectedAccountTokenEncryptionModule } from 'src/engine/metadata-modules/connected-account/services/connected-account-token-encryption.module';
 import { FlatConnectionProviderModule } from 'src/engine/metadata-modules/flat-connection-provider/flat-connection-provider.module';
@@ -26,7 +26,7 @@ import { FlatConnectionProviderModule } from 'src/engine/metadata-modules/flat-c
     JwtModule,
     SecretEncryptionModule,
     SecureHttpClientModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     FlatConnectionProviderModule,
     ConnectedAccountTokenEncryptionModule,
   ],

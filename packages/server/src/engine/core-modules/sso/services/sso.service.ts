@@ -23,7 +23,7 @@ import {
   type SAMLConfiguration,
   type SSOConfiguration,
 } from 'src/engine/core-modules/sso/types/SSOConfigurations.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class SSOService {
@@ -31,7 +31,7 @@ export class SSOService {
   constructor(
     @InjectRepository(WorkspaceSSOIdentityProviderEntity)
     private readonly workspaceSSOIdentityProviderRepository: Repository<WorkspaceSSOIdentityProviderEntity>,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly billingService: BillingService,
     private readonly exceptionHandlerService: ExceptionHandlerService,
   ) {}

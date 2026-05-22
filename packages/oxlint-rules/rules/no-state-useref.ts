@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'no-state-useref';
+export const RULE_NAME = 'bades/no-state-useref';
 
 export const rule = defineRule({
   meta: {
@@ -10,7 +10,7 @@ export const rule = defineRule({
     messages: {
       test: 'test',
       noStateUseRef:
-        "Don't use useRef for state management. See https://docs.twenty.com/developer/frontend/best-practices#do-not-use-useref-to-store-state for more details.",
+        "Jangan gunakan useRef untuk mengelola state. Lihat https://bades.id/docs/frontend/best-practices#do-not-use-useref-to-store-state untuk detailnya.",
     },
     type: 'suggestion',
     schema: [],

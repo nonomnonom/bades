@@ -7,7 +7,7 @@ import { isDefined } from 'shared/utils';
 import type Stripe from 'stripe';
 
 import { StripeSDKService } from 'src/engine/core-modules/billing/stripe/stripe-sdk/services/stripe-sdk.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class StripeSubscriptionItemService {
@@ -15,7 +15,7 @@ export class StripeSubscriptionItemService {
   private readonly stripe: Stripe;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly stripeSDKService: StripeSDKService,
   ) {
     if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
@@ -35,12 +35,12 @@ export class StripeSubscriptionItemService {
 
   async createSubscriptionItem(
     stripeSubscriptionId: string,
-    stripePriceId: string,
+    priceId: string,
     quantity?: number,
   ) {
     return this.stripe.subscriptionItems.create({
       subscription: stripeSubscriptionId,
-      price: stripePriceId,
+      price: priceId,
       ...(isDefined(quantity) ? { quantity } : {}),
     });
   }

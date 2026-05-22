@@ -19,7 +19,7 @@ import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
 import { MetricsKeys } from 'src/engine/core-modules/metrics/types/metrics-keys.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { UserService } from 'src/engine/core-modules/user/services/user.service';
 import { UserVarsService } from 'src/engine/core-modules/user/user-vars/services/user-vars.service';
@@ -52,7 +52,7 @@ export class CleanerWorkspaceService {
   private readonly maxNumberOfWorkspacesDeletedPerExecution: number;
   constructor(
     private readonly workspaceService: WorkspaceService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly userVarsService: UserVarsService,
     private readonly userService: UserService,
     private readonly emailService: EmailService,

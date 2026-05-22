@@ -24,7 +24,7 @@ import {
   computeMidtransSignature,
   verifyMidtransSignature,
 } from 'src/engine/core-modules/billing/midtrans/utils/midtrans-signature.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 /**
  * Payload yang diterima dari notifikasi HTTP Midtrans.
@@ -57,7 +57,7 @@ export class BillingMidtransWebhookService {
   protected readonly logger = new Logger(BillingMidtransWebhookService.name);
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly midtransTransactionService: MidtransTransactionService,
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,

@@ -5,15 +5,15 @@ import { type EmailDriverInterface } from 'src/engine/core-modules/email/drivers
 import { LoggerDriver } from 'src/engine/core-modules/email/drivers/logger.driver';
 import { SmtpDriver } from 'src/engine/core-modules/email/drivers/smtp.driver';
 import { EmailDriver } from 'src/engine/core-modules/email/enums/email-driver.enum';
-import { DriverFactoryBase } from 'src/engine/core-modules/twenty-config/dynamic-factory.base';
-import { ConfigVariablesGroup } from 'src/engine/core-modules/twenty-config/enums/config-variables-group.enum';
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { DriverFactoryBase } from 'src/engine/core-modules/bades-config/dynamic-factory.base';
+import { ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class EmailDriverFactory extends DriverFactoryBase<EmailDriverInterface> {
   constructor(
-    twentyConfigService: TwentyConfigService,
+    twentyConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
   ) {
     super(twentyConfigService, configGroupHashService);

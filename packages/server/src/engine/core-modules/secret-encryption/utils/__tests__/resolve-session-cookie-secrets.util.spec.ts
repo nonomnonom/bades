@@ -2,7 +2,7 @@ import { createHash } from 'crypto';
 
 import { deriveInstanceHmacKey } from 'src/engine/core-modules/secret-encryption/utils/derive-instance-hmac-key.util';
 import { resolveSessionCookieSecretsOrThrow } from 'src/engine/core-modules/secret-encryption/utils/resolve-session-cookie-secrets.util';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 type EnvMap = Partial<{
   ENCRYPTION_KEY: string;
@@ -10,7 +10,7 @@ type EnvMap = Partial<{
   APP_SECRET: string;
 }>;
 
-const buildConfig = (env: EnvMap): Pick<TwentyConfigService, 'get'> => ({
+const buildConfig = (env: EnvMap): Pick<BadesConfigService, 'get'> => ({
   get: jest.fn((key: keyof EnvMap) => env[key]) as never,
 });
 

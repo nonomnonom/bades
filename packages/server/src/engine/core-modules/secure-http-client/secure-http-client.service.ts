@@ -8,7 +8,7 @@ import { buildAxiosFetch } from '@lifeomic/axios-fetch';
 
 import { createSsrfSafeAgent } from 'src/engine/core-modules/secure-http-client/utils/create-ssrf-safe-agent.util';
 import { resolveAndValidateHostname } from 'src/engine/core-modules/secure-http-client/utils/resolve-and-validate-hostname.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 import { type OutboundRequestContext } from './outbound-request-context.type';
 
@@ -24,7 +24,7 @@ type SecureHttpClientConfig = CreateAxiosDefaults & {
 export class SecureHttpClientService {
   private readonly logger = new Logger(SecureHttpClientService.name);
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   // Returns an SSRF-protected HTTP client for external requests.
   // Protection is enforced at the connection level via custom agents

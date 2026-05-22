@@ -8,14 +8,14 @@ import { STRIPE_BILLING_METER_EVENT_NAME } from 'src/engine/core-modules/billing
 import { StripeBillingMeterEventService } from 'src/engine/core-modules/billing/stripe/services/stripe-billing-meter-event.service';
 import { StripeBillingMeterService } from 'src/engine/core-modules/billing/stripe/services/stripe-billing-meter.service';
 import { StripeSDKService } from 'src/engine/core-modules/billing/stripe/stripe-sdk/services/stripe-sdk.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class StripeBillingAlertService {
   private readonly stripe: Stripe;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly stripeSDKService: StripeSDKService,
     private readonly stripeBillingMeterService: StripeBillingMeterService,
     private readonly stripeBillingMeterEventService: StripeBillingMeterEventService,

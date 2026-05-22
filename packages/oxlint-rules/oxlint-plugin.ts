@@ -70,7 +70,7 @@ import {
 } from './rules/upgrade-command-filename';
 
 export default definePlugin({
-  meta: { name: 'twenty' },
+  meta: { name: 'bades' },
   rules: {
     [componentPropsNamingName]: componentPropsNaming,
     [effectComponentsName]: effectComponents,

@@ -25,7 +25,7 @@ import { buildBillingUsageAvailableCreditsCacheKey } from 'src/engine/core-modul
 import { InjectCacheStorage } from 'src/engine/core-modules/cache-storage/decorators/cache-storage.decorator';
 import { CacheStorageService } from 'src/engine/core-modules/cache-storage/services/cache-storage.service';
 import { CacheStorageNamespace } from 'src/engine/core-modules/cache-storage/types/cache-storage-namespace.enum';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
 
@@ -40,7 +40,7 @@ export class BillingUsageService {
     @InjectRepository(BillingCustomerEntity)
     private readonly billingCustomerRepository: Repository<BillingCustomerEntity>,
     private readonly billingSubscriptionService: BillingSubscriptionService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly billingSubscriptionItemService: BillingSubscriptionItemService,
     @InjectCacheStorage(CacheStorageNamespace.EngineBillingUsage)
     private readonly billingUsageCacheStorage: CacheStorageService,
@@ -261,7 +261,7 @@ export class BillingUsageService {
 
     const resourceCreditPrice =
       resourceCreditItem?.billingProduct.billingPrices.find(
-        (price) => price.stripePriceId === resourceCreditItem.stripePriceId,
+        (price) => price.priceId === resourceCreditItem.priceId,
       );
 
     if (!isDefined(resourceCreditPrice)) {

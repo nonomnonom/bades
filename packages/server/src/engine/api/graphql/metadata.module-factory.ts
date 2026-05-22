@@ -2,7 +2,7 @@ import { type YogaDriverConfig } from '@graphql-yoga/nestjs';
 import * as Sentry from '@sentry/node';
 import GraphQLJSON from 'graphql-type-json';
 
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 
 import { useCachedMetadata } from 'src/engine/api/graphql/graphql-config/hooks/use-cached-metadata';
 import { MetadataGraphQLApiModule } from 'src/engine/api/graphql/metadata-graphql-api.module';
@@ -16,12 +16,12 @@ import { useGraphQLErrorHandlerHook } from 'src/engine/core-modules/graphql/hook
 import { useValidateGraphqlQueryComplexity } from 'src/engine/core-modules/graphql/hooks/use-validate-graphql-query-complexity.hook';
 import { type I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { type MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type DataloaderService } from 'src/engine/dataloaders/dataloader.service';
 import { renderApolloPlayground } from 'src/engine/utils/render-apollo-playground.util';
 
 export const metadataModuleFactory = async (
-  twentyConfigService: TwentyConfigService,
+  twentyConfigService: BadesConfigService,
   exceptionHandlerService: ExceptionHandlerService,
   dataloaderService: DataloaderService,
   cacheStorageService: CacheStorageService,

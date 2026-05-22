@@ -8,7 +8,7 @@ import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
 import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
 import { BillingSubscriptionService } from 'src/engine/core-modules/billing/services/billing-subscription.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const CREDIT_BALANCE_MICRO_UNIT = 1_000_000;
 
@@ -24,7 +24,7 @@ export class AdminPanelBillingService {
     @InjectRepository(BillingPriceEntity)
     private readonly billingPriceRepository: Repository<BillingPriceEntity>,
     private readonly billingSubscriptionService: BillingSubscriptionService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async getWorkspaceBilling(
@@ -60,14 +60,14 @@ export class AdminPanelBillingService {
     }
 
     const items = subscription.billingSubscriptionItems ?? [];
-    const priceIds = items.map((item) => item.stripePriceId);
+    const priceIds = items.map((item) => item.priceId);
     const prices = priceIds.length
       ? await this.billingPriceRepository.find({
-          where: { stripePriceId: In(priceIds) },
+          where: { priceId: In(priceIds) },
         })
       : [];
     const priceByStripeId = new Map(
-      prices.map((price) => [price.stripePriceId, price]),
+      prices.map((price) => [price.priceId, price]),
     );
 
     const planValue = subscription.metadata?.plan;
@@ -93,14 +93,14 @@ export class AdminPanelBillingService {
         canceledAt: subscription.canceledAt,
         cancelAtPeriodEnd: subscription.cancelAtPeriodEnd,
         items: items.map((item) => {
-          const price = priceByStripeId.get(item.stripePriceId);
+          const price = priceByStripeId.get(item.priceId);
           const firstTier = price?.tiers?.[0];
           const productKey = item.billingProduct?.metadata?.productKey;
 
           return {
             productName: item.billingProduct?.name ?? '',
             productKey: typeof productKey === 'string' ? productKey : null,
-            stripePriceId: item.stripePriceId,
+            priceId: item.priceId,
             quantity: item.quantity != null ? Number(item.quantity) : null,
             unitAmount:
               price?.unitAmount != null ? Number(price.unitAmount) : null,

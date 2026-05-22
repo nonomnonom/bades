@@ -26,7 +26,7 @@ import {
 } from 'src/engine/core-modules/email-verification/email-verification.exception';
 import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 
 @Injectable()
@@ -39,7 +39,7 @@ export class EmailVerificationService {
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly domainsServerConfigService: DomainServerConfigService,
     private readonly emailService: EmailService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly emailVerificationTokenService: EmailVerificationTokenService,
     private readonly i18nService: I18nService,
   ) {}

@@ -19,7 +19,7 @@ export class BillingSubscriptionItemDTO {
   quantity: number | null;
 
   @Field(() => String)
-  stripePriceId: string;
+  priceId: string;
 
   @Field(() => BillingProductDTO)
   billingProduct: BillingProductDTO;

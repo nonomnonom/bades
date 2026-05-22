@@ -9,7 +9,7 @@ export class AdminPanelWorkspaceSubscriptionItemDTO {
   productKey: string | null;
 
   @Field(() => String)
-  stripePriceId: string;
+  priceId: string;
 
   @Field(() => Float, { nullable: true })
   quantity: number | null;

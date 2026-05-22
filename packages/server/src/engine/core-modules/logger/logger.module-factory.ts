@@ -2,7 +2,7 @@ import {
   LoggerDriverType,
   type LoggerModuleOptions,
 } from 'src/engine/core-modules/logger/interfaces';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 /**
  * Logger Module factory
@@ -10,7 +10,7 @@ import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/
  * @param twentyConfigService
  */
 export const loggerModuleFactory = async (
-  twentyConfigService: TwentyConfigService,
+  twentyConfigService: BadesConfigService,
 ): Promise<LoggerModuleOptions> => {
   const driverType = twentyConfigService.get('LOGGER_DRIVER');
   const logLevels = twentyConfigService.get('LOG_LEVELS');

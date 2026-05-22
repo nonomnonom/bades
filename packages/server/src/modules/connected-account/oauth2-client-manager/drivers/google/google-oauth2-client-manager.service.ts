@@ -2,12 +2,12 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { google, type Auth } from 'googleapis';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class GoogleOAuth2ClientManagerService {
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly logger: Logger,
   ) {}
 

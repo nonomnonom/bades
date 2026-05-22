@@ -300,11 +300,11 @@ export class BillingPortalWorkspaceService {
 
     return [
       {
-        price: defaultBaseProductPrice.stripePriceId,
+        price: defaultBaseProductPrice.priceId,
         quantity,
       },
       {
-        price: defaultResourceCreditPrice.stripePriceId,
+        price: defaultResourceCreditPrice.priceId,
         quantity: 1,
       },
     ];

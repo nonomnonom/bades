@@ -41,7 +41,7 @@ import { FeatureFlagService } from 'src/engine/core-modules/feature-flag/service
 import { MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
 import { MetricsKeys } from 'src/engine/core-modules/metrics/types/metrics-keys.type';
 import { ThrottlerService } from 'src/engine/core-modules/throttler/throttler.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
@@ -88,7 +88,7 @@ export abstract class CommonBaseQueryRunnerService<
   @Inject()
   protected readonly throttlerService: ThrottlerService;
   @Inject()
-  protected readonly twentyConfigService: TwentyConfigService;
+  protected readonly twentyConfigService: BadesConfigService;
   @Inject()
   protected readonly metricsService: MetricsService;
   @Inject()

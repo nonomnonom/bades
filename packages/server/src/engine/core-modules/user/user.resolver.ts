@@ -11,7 +11,7 @@ import { isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 import { In, Repository } from 'typeorm';
 
-import { SupportDriver } from 'src/engine/core-modules/twenty-config/interfaces/support.interface';
+import { SupportDriver } from 'src/engine/core-modules/bades-config/interfaces/support.interface';
 
 import { MetadataResolver } from 'src/engine/api/graphql/graphql-config/decorators/metadata-resolver.decorator';
 import { ApiKeyEntity } from 'src/engine/core-modules/api-key/api-key.entity';
@@ -26,7 +26,7 @@ import {
   OnboardingService,
   OnboardingStepKeys,
 } from 'src/engine/core-modules/onboarding/onboarding.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { buildTwoFactorAuthenticationMethodSummary } from 'src/engine/core-modules/two-factor-authentication/utils/two-factor-authentication-method.presenter';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { UserWorkspaceService } from 'src/engine/core-modules/user-workspace/user-workspace.service';
@@ -86,7 +86,7 @@ export class UserResolver {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     private readonly userService: UserService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly onboardingService: OnboardingService,
     private readonly userVarService: UserVarsService,
     @InjectRepository(UserWorkspaceEntity)

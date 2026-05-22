@@ -6,13 +6,13 @@ import { ApplicationVersionValidationService } from 'src/engine/core-modules/app
 import { ApplicationEntity } from 'src/engine/core-modules/application/application.entity';
 import { FileStorageModule } from 'src/engine/core-modules/file-storage/file-storage.module';
 import { FileEntity } from 'src/engine/core-modules/file/entities/file.entity';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { UpgradeModule } from 'src/engine/core-modules/upgrade/upgrade.module';
 
 @Module({
   imports: [
     FileStorageModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     UpgradeModule,
     TypeOrmModule.forFeature([FileEntity, ApplicationEntity]),
   ],

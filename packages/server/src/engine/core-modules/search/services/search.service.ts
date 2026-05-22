@@ -35,7 +35,7 @@ import {
 import { type RecordsWithObjectMetadataItem } from 'src/engine/core-modules/search/types/records-with-object-metadata-item';
 import { escapeForIlike } from 'src/engine/core-modules/search/utils/escape-for-ilike';
 import { formatSearchTerms } from 'src/engine/core-modules/search/utils/format-search-terms';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { findFlatEntityByIdInFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-id-in-flat-entity-maps.util';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
@@ -62,7 +62,7 @@ export class SearchService {
   constructor(
     private readonly globalWorkspaceOrmManager: GlobalWorkspaceOrmManager,
     private readonly fileUrlService: FileUrlService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async getAllRecordsWithObjectMetadataItems({

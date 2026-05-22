@@ -1,7 +1,7 @@
 import { Injectable, Logger, type OnModuleInit } from '@nestjs/common';
 
 import { FileStorageDriverFactory } from 'src/engine/core-modules/file-storage/file-storage-driver.factory';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import defaultAiProviders from 'src/engine/metadata-modules/ai/ai-models/ai-providers.json';
 import { aiProvidersConfigSchema } from 'src/engine/metadata-modules/ai/ai-models/types/ai-providers-config.schema';
 import { type AiProvidersConfig } from 'src/engine/metadata-modules/ai/ai-models/types/ai-providers-config.type';
@@ -16,7 +16,7 @@ export class DefaultAiCatalogService implements OnModuleInit {
   );
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly fileStorageDriverFactory: FileStorageDriverFactory,
   ) {}
 

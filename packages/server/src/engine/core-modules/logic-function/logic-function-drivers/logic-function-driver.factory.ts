@@ -13,16 +13,16 @@ import { LambdaDriver } from 'src/engine/core-modules/logic-function/logic-funct
 import { LocalDriver } from 'src/engine/core-modules/logic-function/logic-function-drivers/drivers/local.driver';
 import { LogicFunctionResourceService } from 'src/engine/core-modules/logic-function/logic-function-resource/logic-function-resource.service';
 import { SdkClientArchiveService } from 'src/engine/core-modules/sdk-client/sdk-client-archive.service';
-import { DriverFactoryBase } from 'src/engine/core-modules/twenty-config/dynamic-factory.base';
-import { ConfigVariablesGroup } from 'src/engine/core-modules/twenty-config/enums/config-variables-group.enum';
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { DriverFactoryBase } from 'src/engine/core-modules/bades-config/dynamic-factory.base';
+import { ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
 
 @Injectable()
 export class LogicFunctionDriverFactory extends DriverFactoryBase<LogicFunctionDriver> {
   constructor(
-    twentyConfigService: TwentyConfigService,
+    twentyConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
     private readonly logicFunctionResourceService: LogicFunctionResourceService,
     private readonly sdkClientArchiveService: SdkClientArchiveService,

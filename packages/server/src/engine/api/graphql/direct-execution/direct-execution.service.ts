@@ -66,7 +66,7 @@ import { type WorkspaceSchemaBuilderContext } from 'src/engine/api/graphql/works
 import { UserInputError } from 'src/engine/core-modules/graphql/utils/graphql-errors.util';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceManyOrAllFlatEntityMapsCacheService } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.service';
 import { buildObjectIdByNameMaps } from 'src/engine/metadata-modules/flat-object-metadata/utils/build-object-id-by-name-maps.util';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
@@ -89,7 +89,7 @@ export class DirectExecutionService {
     private readonly workspaceFlatEntityMapsCacheService: WorkspaceManyOrAllFlatEntityMapsCacheService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly workspaceGraphqlSchemaSDLService: WorkspaceGraphqlSchemaSDLService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly i18nService: I18nService,
     private readonly metricsService: MetricsService,
     private readonly findManyResolverFactory: FindManyResolverFactory,

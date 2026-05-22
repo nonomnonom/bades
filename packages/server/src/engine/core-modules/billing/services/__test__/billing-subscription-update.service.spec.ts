@@ -194,13 +194,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -215,13 +215,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -275,26 +275,26 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
           tiers: buildDefaultMeteredTiers(),
         }),
         [LICENSE_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_YEAR_ID,
+          priceId: LICENSE_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_YEAR_ID,
+          priceId: METER_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -315,13 +315,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -411,13 +411,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -443,13 +443,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -507,26 +507,26 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
           tiers: buildDefaultMeteredTiers(),
         }),
         [LICENSE_PRICE_ENTERPRISE_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_YEAR_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_YEAR_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_ENTERPRISE_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_YEAR_ID,
+          priceId: METER_PRICE_ENTERPRISE_YEAR_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -556,13 +556,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -619,13 +619,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -640,13 +640,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_YEAR_ID,
+          priceId: LICENSE_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_YEAR_ID,
+          priceId: METER_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -697,26 +697,26 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
           tiers: buildDefaultMeteredTiers(),
         }),
         [LICENSE_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_YEAR_ID,
+          priceId: LICENSE_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_YEAR_ID,
+          priceId: METER_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -754,13 +754,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_YEAR_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_YEAR_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_YEAR_ID,
+          priceId: METER_PRICE_ENTERPRISE_YEAR_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -831,13 +831,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_YEAR_ID,
+          priceId: LICENSE_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_YEAR_ID,
+          priceId: METER_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -863,13 +863,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -927,26 +927,26 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_ENTERPRISE_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_YEAR_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_YEAR_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_ENTERPRISE_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_YEAR_ID,
+          priceId: METER_PRICE_ENTERPRISE_YEAR_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Year,
           isMetered: true,
           tiers: buildDefaultMeteredTiers(),
         }),
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -976,13 +976,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingProductServiceGetProductPrices(billingProductService, [
         buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }) as BillingPriceEntity,
         buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -1039,13 +1039,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -1100,26 +1100,26 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: LICENSE_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_ENTERPRISE_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_ENTERPRISE_MONTH_ID,
+          priceId: METER_PRICE_ENTERPRISE_MONTH_ID,
           planKey: BillingPlanKey.ENTERPRISE,
           interval: SubscriptionInterval.Month,
           isMetered: true,
           tiers: buildDefaultMeteredTiers(),
         }),
         [LICENSE_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_YEAR_ID,
+          priceId: LICENSE_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_YEAR_ID,
+          priceId: METER_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: true,
@@ -1217,13 +1217,13 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
@@ -1278,26 +1278,26 @@ describe('BillingSubscriptionUpdateService', () => {
 
       arrangeBillingPriceRepositoryFindOneOrFail(billingPriceRepository, {
         [LICENSE_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_MONTH_ID,
+          priceId: LICENSE_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: false,
         }),
         [METER_PRICE_PRO_MONTH_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_MONTH_ID,
+          priceId: METER_PRICE_PRO_MONTH_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Month,
           isMetered: true,
           tiers: buildDefaultMeteredTiers(),
         }),
         [LICENSE_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: LICENSE_PRICE_PRO_YEAR_ID,
+          priceId: LICENSE_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: false,
         }),
         [METER_PRICE_PRO_YEAR_ID]: buildBillingPriceEntity({
-          stripePriceId: METER_PRICE_PRO_YEAR_ID,
+          priceId: METER_PRICE_PRO_YEAR_ID,
           planKey: BillingPlanKey.PRO,
           interval: SubscriptionInterval.Year,
           isMetered: true,

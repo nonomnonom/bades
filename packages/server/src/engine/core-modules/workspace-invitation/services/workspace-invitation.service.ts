@@ -26,7 +26,7 @@ import { FileUrlService } from 'src/engine/core-modules/file/file-url/file-url.s
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { OnboardingService } from 'src/engine/core-modules/onboarding/onboarding.service';
 import { ThrottlerService } from 'src/engine/core-modules/throttler/throttler.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { type SendInvitationsDTO } from 'src/engine/core-modules/workspace-invitation/dtos/send-invitations.dto';
 import { castAppTokenToWorkspaceInvitationUtil } from 'src/engine/core-modules/workspace-invitation/utils/cast-app-token-to-workspace-invitation.util';
@@ -47,7 +47,7 @@ export class WorkspaceInvitationService {
     @InjectRepository(UserWorkspaceEntity)
     private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
     private readonly roleValidationService: RoleValidationService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly emailService: EmailService,
     private readonly onboardingService: OnboardingService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,

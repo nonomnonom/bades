@@ -4,7 +4,7 @@ import { InjectCacheStorage } from 'src/engine/core-modules/cache-storage/decora
 import { CacheStorageService } from 'src/engine/core-modules/cache-storage/services/cache-storage.service';
 import { CacheStorageNamespace } from 'src/engine/core-modules/cache-storage/types/cache-storage-namespace.enum';
 import { type MetricsKeys } from 'src/engine/core-modules/metrics/types/metrics-keys.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const CACHE_BUCKET_DURATION_MS = 15000; // 15 seconds window for each cache bucket
 
@@ -16,7 +16,7 @@ export class MetricsCacheService {
   constructor(
     @InjectCacheStorage(CacheStorageNamespace.EngineMetrics)
     private readonly cacheStorage: CacheStorageService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {
     this.healthMetricsTimeWindowInMinutes = this.twentyConfigService.get(
       'HEALTH_METRICS_TIME_WINDOW_IN_MINUTES',

@@ -7,7 +7,7 @@ import { v4 } from 'uuid';
 import { ApplicationRegistrationService } from 'src/engine/core-modules/application/application-registration/application-registration.service';
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { SdkClientGenerationService } from 'src/engine/core-modules/sdk-client/sdk-client-generation.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UpgradeMigrationService } from 'src/engine/core-modules/upgrade/services/upgrade-migration.service';
 import { UpgradeSequenceReaderService } from 'src/engine/core-modules/upgrade/services/upgrade-sequence-reader.service';
 import { type UpgradeMigrationStatus } from 'src/engine/core-modules/upgrade/upgrade-migration.entity';
@@ -47,7 +47,7 @@ import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspa
 export class DevSeederService {
   constructor(
     private readonly workspaceCacheStorageService: WorkspaceCacheStorageService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly workspaceDataSourceService: WorkspaceDataSourceService,
     private readonly twentyStandardApplicationService: TwentyStandardApplicationService,
     private readonly devSeederMetadataService: DevSeederMetadataService,

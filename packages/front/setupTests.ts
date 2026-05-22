@@ -11,10 +11,10 @@ import {
 
 import { i18n } from '@lingui/core';
 import { SOURCE_LOCALE } from 'shared/translations';
-import { messages as enMessages } from '~/locales/generated/en';
+// Inisialisasi i18n dengan locale SOURCE_LOCALE (id-ID) untuk test
+import { messages as idMessages } from '~/locales/generated/id-ID';
 
-// Initialize i18n for all tests
-i18n.load({ [SOURCE_LOCALE]: enMessages });
+i18n.load({ [SOURCE_LOCALE]: idMessages });
 i18n.activate(SOURCE_LOCALE);
 
 const globalWithWebStreams = globalThis as Record<string, unknown>;

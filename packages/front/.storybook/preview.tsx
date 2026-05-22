@@ -17,10 +17,10 @@ import 'ui/theme-light.css';
 import 'ui/theme-dark.css';
 import { ThemeProvider } from 'ui/theme-constants';
 // oxlint-disable-next-line no-restricted-imports
-import { messages as enMessages } from '../src/locales/generated/en';
+import { messages as idMessages } from '../src/locales/generated/id-ID';
 
-// Initialize i18n globally for all stories
-i18n.load({ [SOURCE_LOCALE]: enMessages });
+// Inisialisasi i18n dengan locale SOURCE_LOCALE (id-ID) untuk semua stories
+i18n.load({ [SOURCE_LOCALE]: idMessages });
 i18n.activate(SOURCE_LOCALE);
 import { mockedUserJWT } from '~/testing/mock-data/jwt';
 // oxlint-disable-next-line no-restricted-imports

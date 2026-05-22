@@ -1,10 +1,10 @@
 import { type HttpAdapterHost } from '@nestjs/core';
 
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 
 import { type OPTIONS_TYPE } from 'src/engine/core-modules/exception-handler/exception-handler.module-definition';
 import { ExceptionHandlerDriver } from 'src/engine/core-modules/exception-handler/interfaces';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 /**
  * ExceptionHandler Module factory
@@ -13,7 +13,7 @@ import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/
  * @param adapterHost
  */
 export const exceptionHandlerModuleFactory = async (
-  twentyConfigService: TwentyConfigService,
+  twentyConfigService: BadesConfigService,
   adapterHost: HttpAdapterHost,
 ): Promise<typeof OPTIONS_TYPE> => {
   const driverType = twentyConfigService.get('EXCEPTION_HANDLER_DRIVER');

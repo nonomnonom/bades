@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { type WorkspaceIteratorContext } from 'src/database/commands/command-runners/workspace-iterator.service';
 import { type ParsedUpgradeCommandOptions } from 'src/database/commands/upgrade-version-command/upgrade.command';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/services/upgrade-command-registry.service';
 import { UpgradeMigrationService } from 'src/engine/core-modules/upgrade/services/upgrade-migration.service';
 import { UpgradeStatusService } from 'src/engine/core-modules/upgrade/services/upgrade-status.service';
@@ -24,7 +24,7 @@ export class WorkspaceCommandRunnerService {
   private readonly logger = new Logger(WorkspaceCommandRunnerService.name);
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly upgradeMigrationService: UpgradeMigrationService,
     private readonly upgradeStatusService: UpgradeStatusService,
   ) {}

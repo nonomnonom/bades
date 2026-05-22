@@ -5,84 +5,80 @@
       "path": "../"
     },
     {
-      "name": "packages/twenty-docker",
-      "path": "../packages/twenty-docker"
+      "name": "packages/front",
+      "path": "../packages/front"
     },
     {
-      "name": "packages/twenty-front",
-      "path": "../packages/twenty-front"
+      "name": "packages/server",
+      "path": "../packages/server"
     },
     {
-      "name": "packages/twenty-ui",
-      "path": "../packages/twenty-ui"
+      "name": "packages/ui",
+      "path": "../packages/ui"
     },
     {
-      "name": "packages/twenty-emails",
-      "path": "../packages/twenty-emails"
+      "name": "packages/emails",
+      "path": "../packages/emails"
     },
     {
-      "name": "packages/twenty-shared",
-      "path": "../packages/twenty-shared"
+      "name": "packages/shared",
+      "path": "../packages/shared"
     },
     {
-      "name": "packages/twenty-server",
-      "path": "../packages/twenty-server"
+      "name": "packages/utils",
+      "path": "../packages/utils"
     },
     {
-      "name": "packages/twenty-utils",
-      "path": "../packages/twenty-utils"
+      "name": "packages/zapier",
+      "path": "../packages/zapier"
     },
     {
-      "name": "packages/twenty-zapier",
-      "path": "../packages/twenty-zapier"
+      "name": "packages/oxlint-rules",
+      "path": "../packages/oxlint-rules"
     },
     {
-      "name": "packages/twenty-oxlint-rules",
-      "path": "../packages/twenty-oxlint-rules"
+      "name": "packages/e2e-testing",
+      "path": "../packages/e2e-testing"
     },
     {
-      "name": "packages/twenty-e2e-testing",
-      "path": "../packages/twenty-e2e-testing"
+      "name": "packages/docs",
+      "path": "../packages/docs"
     },
     {
-      "name": "packages/twenty-docs",
-      "path": "../packages/twenty-docs"
+      "name": "packages/create-bades-app",
+      "path": "../packages/create-bades-app"
     },
     {
-      "name": "packages/create-twenty-app",
-      "path": "../packages/create-twenty-app"
+      "name": "packages/apps",
+      "path": "../packages/apps"
     },
     {
-      "name": "packages/twenty-apps",
-      "path": "../packages/twenty-apps"
+      "name": "packages/claude-skills",
+      "path": "../packages/claude-skills"
     },
     {
-      "name": "packages/twenty-claude-skills",
-      "path": "../packages/twenty-claude-skills"
+      "name": "packages/cli",
+      "path": "../packages/cli"
     },
     {
-      "name": "packages/twenty-cli",
-      "path": "../packages/twenty-cli"
+      "name": "packages/client-sdk",
+      "path": "../packages/client-sdk"
     },
     {
-      "name": "packages/twenty-client-sdk",
-      "path": "../packages/twenty-client-sdk"
+      "name": "packages/companion",
+      "path": "../packages/companion"
     },
     {
-      "name": "packages/twenty-companion",
-      "path": "../packages/twenty-companion"
+      "name": "packages/front-component-renderer",
+      "path": "../packages/front-component-renderer"
     },
     {
-      "name": "packages/twenty-front-component-renderer",
-      "path": "../packages/twenty-front-component-renderer"
+      "name": "packages/sdk",
+      "path": "../packages/sdk"
     },
     {
-      "name": "packages/twenty-sdk",
-      "path": "../packages/twenty-sdk"
-    },
-    {
-      "name": "packages/twenty-website",
-      "path": "../packages/twenty-website"
+      "name": "packages/website",
+      "path": "../packages/website"
     }
   ],
   "settings": {
@@ -126,7 +122,7 @@
       "mdx"
     ],
     "cSpell.words": [
-      "twentyhq"
+      "badesid"
     ],
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "[javascript][typescript][typescriptreact]": {
@@ -136,7 +132,7 @@
       }
     },
     "search.exclude": {
-      "**/.yarn": true,
+      "**/.yarn": true
     },
     "files.exclude": {
       "packages/": true
@@ -145,10 +141,9 @@
     "jest.runMode": "on-demand",
     "jest.disabledWorkspaceFolders": [
       "ROOT",
-      "packages/twenty-zapier",
-      "packages/twenty-docker",
-      "packages/twenty-utils",
-      "packages/twenty-postgres"
+      "packages/zapier",
+      "packages/utils",
+      "packages/postgres"
     ]
   }
 }

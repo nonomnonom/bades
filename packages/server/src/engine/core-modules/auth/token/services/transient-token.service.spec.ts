@@ -1,7 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { JwtTokenTypeEnum } from 'src/engine/core-modules/auth/types/auth-context.type';
 
 import { TransientTokenService } from './transient-token.service';
@@ -9,7 +9,7 @@ import { TransientTokenService } from './transient-token.service';
 describe('TransientTokenService', () => {
   let service: TransientTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -24,7 +24,7 @@ describe('TransientTokenService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -34,7 +34,7 @@ describe('TransientTokenService', () => {
 
     service = module.get<TransientTokenService>(TransientTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   it('should be defined', () => {

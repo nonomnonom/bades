@@ -22,7 +22,7 @@ import {
 } from 'src/engine/core-modules/jwt/constants/jwt-algorithm.constant';
 import { JwtKeyManagerService } from 'src/engine/core-modules/jwt/services/jwt-key-manager.service';
 import { SigningKeyVerifyCounterService } from 'src/engine/core-modules/jwt/services/signing-key-verify-counter.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { decodeJwtHeader } from 'src/engine/core-modules/jwt/utils/decode-jwt-header.util';
 import { decodeJwtPayload } from 'src/engine/core-modules/jwt/utils/decode-jwt-payload.util';
 import { isAsymmetricJwtHeader } from 'src/engine/core-modules/jwt/utils/is-asymmetric-jwt-header.util';
@@ -44,7 +44,7 @@ const APP_SECRET_BODY_USER_SCHEMA = z.object({
 export class JwtWrapperService {
   constructor(
     private readonly jwtService: JwtService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly jwtKeyManagerService: JwtKeyManagerService,
     private readonly signingKeyVerifyCounterService: SigningKeyVerifyCounterService,
   ) {}

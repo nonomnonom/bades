@@ -1,7 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
-import { NodeEnvironment } from 'src/engine/core-modules/twenty-config/interfaces/node-environment.interface';
+import { NodeEnvironment } from 'src/engine/core-modules/bades-config/interfaces/node-environment.interface';
 
 import { AuditService } from 'src/engine/core-modules/audit/services/audit.service';
 import {
@@ -11,7 +11,7 @@ import {
 import { LoginTokenService } from 'src/engine/core-modules/auth/token/services/login-token.service';
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
 import { ImpersonationService } from 'src/engine/core-modules/impersonation/services/impersonation.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { OTPStatus } from 'src/engine/core-modules/two-factor-authentication/strategies/otp/otp.constants';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
@@ -20,13 +20,13 @@ import { PermissionsService } from 'src/engine/metadata-modules/permissions/perm
 const UserWorkspaceFindOneMock = jest.fn();
 const LoginTokenServiceGenerateLoginTokenMock = jest.fn();
 const PermissionsServiceUserHasWorkspaceSettingPermissionMock = jest.fn();
-const TwentyConfigServiceGetMock = jest.fn();
+const BadesConfigServiceGetMock = jest.fn();
 
 describe('ImpersonationService', () => {
   let service: ImpersonationService;
 
   beforeEach(async () => {
-    TwentyConfigServiceGetMock.mockImplementation((key: string) => {
+    BadesConfigServiceGetMock.mockImplementation((key: string) => {
       if (key === 'NODE_ENV') {
         return NodeEnvironment.PRODUCTION;
       }
@@ -55,9 +55,9 @@ describe('ImpersonationService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
-            get: TwentyConfigServiceGetMock,
+            get: BadesConfigServiceGetMock,
           },
         },
         {
@@ -551,7 +551,7 @@ describe('ImpersonationService', () => {
 
   describe('2FA requirements for server-level impersonation', () => {
     it('should allow server-level impersonation when 2FA is enabled and verified', async () => {
-      TwentyConfigServiceGetMock.mockImplementation((key: string) => {
+      BadesConfigServiceGetMock.mockImplementation((key: string) => {
         if (key === 'NODE_ENV') {
           return NodeEnvironment.PRODUCTION;
         }
@@ -618,7 +618,7 @@ describe('ImpersonationService', () => {
     });
 
     it('should throw an error when 2FA is not enabled for server-level impersonation in production', async () => {
-      TwentyConfigServiceGetMock.mockImplementation((key: string) => {
+      BadesConfigServiceGetMock.mockImplementation((key: string) => {
         if (key === 'NODE_ENV') {
           return NodeEnvironment.PRODUCTION;
         }
@@ -667,7 +667,7 @@ describe('ImpersonationService', () => {
     });
 
     it('should throw an error when 2FA is not verified for server-level impersonation in production', async () => {
-      TwentyConfigServiceGetMock.mockImplementation((key: string) => {
+      BadesConfigServiceGetMock.mockImplementation((key: string) => {
         if (key === 'NODE_ENV') {
           return NodeEnvironment.PRODUCTION;
         }
@@ -722,7 +722,7 @@ describe('ImpersonationService', () => {
     });
 
     it('should allow server-level impersonation without 2FA in development environment', async () => {
-      TwentyConfigServiceGetMock.mockImplementation((key: string) => {
+      BadesConfigServiceGetMock.mockImplementation((key: string) => {
         if (key === 'NODE_ENV') {
           return NodeEnvironment.DEVELOPMENT;
         }

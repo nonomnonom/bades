@@ -4,13 +4,13 @@ import { S3Client, type S3ClientConfig } from '@aws-sdk/client-s3';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { StorageDriverType } from 'src/engine/core-modules/file-storage/interfaces/file-storage.interface';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class InboundEmailS3ClientProvider {
   private s3Client: S3Client | null = null;
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   isConfigured(): boolean {
     const storageType = this.twentyConfigService.get('STORAGE_TYPE');

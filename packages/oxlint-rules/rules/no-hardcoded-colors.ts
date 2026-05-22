@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'no-hardcoded-colors';
+export const RULE_NAME = 'bades/no-hardcoded-colors';
 
 export const rule = defineRule({
   meta: {

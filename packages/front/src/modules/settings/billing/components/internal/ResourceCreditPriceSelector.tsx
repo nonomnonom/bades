@@ -68,7 +68,7 @@ export const ResourceCreditPriceSelector = ({
 
     return {
       label: t`${credits} kredit - Rp${priceDisplay}`,
-      value: price.stripePriceId,
+      value: price.priceId,
     };
   };
 
@@ -88,12 +88,12 @@ export const ResourceCreditPriceSelector = ({
   );
 
   const selectedPrice = resourceCreditPrices.find(
-    ({ stripePriceId }) => stripePriceId === selectedPriceId,
+    ({ priceId }) => priceId === selectedPriceId,
   );
 
   const isChanged =
     isDefined(selectedPriceId) &&
-    selectedPriceId !== currentResourceCreditPrice?.stripePriceId;
+    selectedPriceId !== currentResourceCreditPrice?.priceId;
 
   const isUpgrade = () => {
     if (
@@ -129,7 +129,7 @@ export const ResourceCreditPriceSelector = ({
     if (!selectedPrice) return;
     try {
       const { data } = await setResourceCreditPrice({
-        variables: { priceId: selectedPrice.stripePriceId },
+        variables: { priceId: selectedPrice.priceId },
       });
       if (
         isDefined(
@@ -151,7 +151,7 @@ export const ResourceCreditPriceSelector = ({
         message: t`Kredit sumber daya berhasil diperbarui.`,
       });
       const newPrice = resourceCreditPrices.find(
-        ({ stripePriceId }) => stripePriceId === selectedPrice.stripePriceId,
+        ({ priceId }) => priceId === selectedPrice.priceId,
       );
       if (isDefined(newPrice)) {
         setCurrentResourceCreditPrice(newPrice);
@@ -176,7 +176,7 @@ export const ResourceCreditPriceSelector = ({
             dropdownId="settings_billing-resource-credit-price"
             options={options}
             value={
-              selectedPriceId ?? currentResourceCreditPrice?.stripePriceId ?? ''
+              selectedPriceId ?? currentResourceCreditPrice?.priceId ?? ''
             }
             onChange={handleChange}
             disabled={isUpdating || isTrialing}

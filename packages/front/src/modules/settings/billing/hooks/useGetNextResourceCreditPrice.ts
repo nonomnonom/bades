@@ -55,8 +55,8 @@ export const useGetNextResourceCreditPrice =
       );
 
     const currentIndex = pricesForInterval.findIndex(
-      ({ stripePriceId }) =>
-        stripePriceId === currentResourceCreditItem.stripePriceId,
+      ({ priceId }) =>
+        priceId === currentResourceCreditItem.priceId,
     );
 
     if (currentIndex === -1 || currentIndex === pricesForInterval.length - 1) {

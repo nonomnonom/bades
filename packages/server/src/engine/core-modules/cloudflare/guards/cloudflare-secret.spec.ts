@@ -1,6 +1,6 @@
 import { type ExecutionContext } from '@nestjs/common';
 
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { CloudflareSecretMatchGuard } from 'src/engine/core-modules/cloudflare/guards/cloudflare-secret.guard';
 
 const buildMockContext = (headers: Record<string, unknown>) =>
@@ -12,12 +12,12 @@ const buildMockContext = (headers: Record<string, unknown>) =>
 
 describe('CloudflareSecretMatchGuard.canActivate', () => {
   let guard: CloudflareSecretMatchGuard;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
 
   beforeEach(() => {
     twentyConfigService = {
       get: jest.fn(),
-    } as unknown as TwentyConfigService;
+    } as unknown as BadesConfigService;
     guard = new CloudflareSecretMatchGuard(twentyConfigService);
   });
 

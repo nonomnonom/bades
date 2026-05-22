@@ -2,7 +2,7 @@ import { defineRule } from '@oxlint/plugins';
 
 import { typedTokenHelpers } from '../utils/typedTokenHelpers';
 
-export const RULE_NAME = 'rest-api-methods-should-be-guarded';
+export const RULE_NAME = 'bades/rest-api-methods-should-be-guarded';
 
 export const restApiMethodsShouldBeGuarded = (node: any) => {
   const hasRestApiMethodDecorator =

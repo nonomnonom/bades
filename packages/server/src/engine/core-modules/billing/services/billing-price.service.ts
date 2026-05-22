@@ -31,7 +31,7 @@ export class BillingPriceService {
   async getBillingThresholdsByMeterPriceId(meterPriceId: string) {
     const price = await this.billingPriceRepository.findOneOrFail({
       where: {
-        stripePriceId: meterPriceId,
+        priceId: meterPriceId,
       },
       relations: ['billingProduct'],
     });

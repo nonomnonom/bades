@@ -16,7 +16,7 @@ export const useSelectableListHotKeys = (
   focusId: string,
   onSelect?: (itemId: string) => void,
 ) => {
-  // oxlint-disable-next-line twenty/no-state-useref
+  // oxlint-disable-next-line bades/no-state-useref
   const lastBlurredInputRef = useRef<HTMLInputElement | null>(null);
 
   const store = useStore();

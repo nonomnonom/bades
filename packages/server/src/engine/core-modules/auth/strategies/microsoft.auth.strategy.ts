@@ -14,7 +14,7 @@ import {
 import { type MicrosoftPassportProfile } from 'src/engine/core-modules/auth/types/microsoft-passport-profile.type';
 import { type SocialSSOSignInUpActionType } from 'src/engine/core-modules/auth/types/signInUp.type';
 import { type SocialSSOState } from 'src/engine/core-modules/auth/types/social-sso-state.type';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 export type MicrosoftRequest = Omit<
   Request,
@@ -36,7 +36,7 @@ export type MicrosoftRequest = Omit<
 
 @Injectable()
 export class MicrosoftStrategy extends PassportStrategy(Strategy, 'microsoft') {
-  constructor(twentyConfigService: TwentyConfigService) {
+  constructor(twentyConfigService: BadesConfigService) {
     super({
       clientID: twentyConfigService.get('AUTH_MICROSOFT_CLIENT_ID'),
       clientSecret: twentyConfigService.get('AUTH_MICROSOFT_CLIENT_SECRET'),

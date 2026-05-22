@@ -2,7 +2,7 @@ import { defineRule } from '@oxlint/plugins';
 
 import { isNodeInsideAncestor } from '../utils/isNodeInsideAncestor';
 
-export const RULE_NAME = 'no-direct-atom-family-in-selector';
+export const RULE_NAME = 'bades/no-direct-atom-family-in-selector';
 
 const SELECTOR_FACTORY_NAMES = [
   'createAtomComponentSelector',

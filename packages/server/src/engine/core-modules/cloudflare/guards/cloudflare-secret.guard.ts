@@ -9,11 +9,11 @@ import {
 
 import { timingSafeEqual } from 'crypto';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class CloudflareSecretMatchGuard implements CanActivate {
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   canActivate(context: ExecutionContext): boolean {
     const cloudflareWebhookSecret = this.twentyConfigService.get(

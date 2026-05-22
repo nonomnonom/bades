@@ -18,9 +18,9 @@ import {
 } from 'src/engine/core-modules/key-value-pair/key-value-pair.entity';
 import { SECRET_ENCRYPTION_ENVELOPE_V2_PREFIX } from 'src/engine/core-modules/secret-encryption/constants/secret-encryption.constant';
 import { SecretEncryptionService } from 'src/engine/core-modules/secret-encryption/secret-encryption.service';
-import { ConfigVariables } from 'src/engine/core-modules/twenty-config/config-variables';
-import { type ConfigVariablesMetadataMap } from 'src/engine/core-modules/twenty-config/decorators/config-variables-metadata.decorator';
-import { ConfigVariableType } from 'src/engine/core-modules/twenty-config/enums/config-variable-type.enum';
+import { ConfigVariables } from 'src/engine/core-modules/bades-config/config-variables';
+import { type ConfigVariablesMetadataMap } from 'src/engine/core-modules/bades-config/decorators/config-variables-metadata.decorator';
+import { ConfigVariableType } from 'src/engine/core-modules/bades-config/enums/config-variable-type.enum';
 import { TypedReflect } from 'src/utils/typed-reflect';
 
 @Injectable()

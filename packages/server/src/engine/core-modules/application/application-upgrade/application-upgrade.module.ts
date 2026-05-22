@@ -9,7 +9,7 @@ import { ApplicationRegistrationEntity } from 'src/engine/core-modules/applicati
 import { ApplicationUpgradeResolver } from 'src/engine/core-modules/application/application-upgrade/application-upgrade.resolver';
 import { ApplicationEntity } from 'src/engine/core-modules/application/application.entity';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permissions.module';
 
 @Module({
@@ -21,7 +21,7 @@ import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permi
     ApplicationInstallModule,
     FeatureFlagModule,
     PermissionsModule,
-    TwentyConfigModule,
+    BadesConfigModule,
   ],
   providers: [
     ApplicationUpgradeService,

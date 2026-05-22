@@ -3,15 +3,15 @@ import { Test, type TestingModule } from '@nestjs/testing';
 import { StorageDriverType } from 'src/engine/core-modules/file-storage/interfaces/file-storage.interface';
 
 import { FileStorageDriverFactory } from 'src/engine/core-modules/file-storage/file-storage-driver.factory';
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 describe('FileStorageDriverFactory', () => {
   let factory: FileStorageDriverFactory;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let configGroupHashService: ConfigGroupHashService;
 
-  const mockTwentyConfigService = {
+  const mockBadesConfigService = {
     get: jest.fn(),
   };
   const mockConfigGroupHashService = {
@@ -23,8 +23,8 @@ describe('FileStorageDriverFactory', () => {
       providers: [
         FileStorageDriverFactory,
         {
-          provide: TwentyConfigService,
-          useValue: mockTwentyConfigService,
+          provide: BadesConfigService,
+          useValue: mockBadesConfigService,
         },
         {
           provide: ConfigGroupHashService,
@@ -34,7 +34,7 @@ describe('FileStorageDriverFactory', () => {
     }).compile();
 
     factory = module.get<FileStorageDriverFactory>(FileStorageDriverFactory);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     configGroupHashService = module.get<ConfigGroupHashService>(
       ConfigGroupHashService,
     );

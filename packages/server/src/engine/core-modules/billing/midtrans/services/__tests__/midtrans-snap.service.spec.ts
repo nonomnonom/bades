@@ -8,7 +8,7 @@ import { BillingMidtransTransactionEntity } from 'src/engine/core-modules/billin
 import { MidtransSDKMockService } from 'src/engine/core-modules/billing/midtrans/midtrans-sdk/mocks/midtrans-sdk-mock.service';
 import { MidtransSDKService } from 'src/engine/core-modules/billing/midtrans/midtrans-sdk/services/midtrans-sdk.service';
 import { MidtransSnapService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-snap.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 describe('MidtransSnapService', () => {
   let service: MidtransSnapService;
@@ -47,7 +47,7 @@ describe('MidtransSnapService', () => {
       providers: [
         MidtransSnapService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: configMidtransAktif,
         },
         {
@@ -115,7 +115,7 @@ describe('MidtransSnapService', () => {
         providers: [
           MidtransSnapService,
           {
-            provide: TwentyConfigService,
+            provide: BadesConfigService,
             useValue: configMidtransNonaktif,
           },
           {

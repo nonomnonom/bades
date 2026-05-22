@@ -2,7 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { WorkspaceManyOrAllFlatEntityMapsCacheModule } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.module';
 import { ObjectMetadataEntity } from 'src/engine/metadata-modules/object-metadata/object-metadata.entity';
@@ -27,7 +27,7 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
     PermissionsModule,
     WorkspaceFeatureFlagsMapCacheModule,
     FeatureFlagModule,
-    TwentyConfigModule,
+    BadesConfigModule,
     WorkspaceCacheModule,
   ],
   providers: [...entitySchemaFactories],

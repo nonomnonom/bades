@@ -12,7 +12,7 @@ import { AuthException } from 'src/engine/core-modules/auth/auth.exception';
 import { JwtAuthStrategy } from 'src/engine/core-modules/auth/strategies/jwt.auth.strategy';
 import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { AuthProviderEnum } from 'src/engine/core-modules/workspace/types/workspace.type';
@@ -24,7 +24,7 @@ import { AccessTokenService } from './access-token.service';
 describe('AccessTokenService', () => {
   let service: AccessTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: TwentyConfigService;
+  let twentyConfigService: BadesConfigService;
   let userRepository: Repository<UserEntity>;
   let workspaceRepository: Repository<WorkspaceEntity>;
   let globalWorkspaceOrmManager: GlobalWorkspaceOrmManager;
@@ -51,7 +51,7 @@ describe('AccessTokenService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: jest.fn(),
           },
@@ -90,7 +90,7 @@ describe('AccessTokenService', () => {
 
     service = module.get<AccessTokenService>(AccessTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<TwentyConfigService>(TwentyConfigService);
+    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
     userRepository = module.get<Repository<UserEntity>>(
       getRepositoryToken(UserEntity),
     );

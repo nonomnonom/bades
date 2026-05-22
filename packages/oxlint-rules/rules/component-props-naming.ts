@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'component-props-naming';
+export const RULE_NAME = 'bades/component-props-naming';
 
 const checkPropsTypeName = ({
   node,

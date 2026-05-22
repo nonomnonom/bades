@@ -4,7 +4,7 @@ import { Strategy } from 'passport-microsoft';
 import { type VerifyCallback } from 'passport-google-oauth20';
 
 import { getMicrosoftApisOauthScopes } from 'src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 export type MicrosoftAPIScopeConfig = {
   isCalendarEnabled?: boolean;
@@ -15,7 +15,7 @@ export abstract class MicrosoftAPIsOauthCommonStrategy extends PassportStrategy(
   Strategy,
   'microsoft-apis',
 ) {
-  constructor(twentyConfigService: TwentyConfigService) {
+  constructor(twentyConfigService: BadesConfigService) {
     const scopes = getMicrosoftApisOauthScopes();
 
     super({

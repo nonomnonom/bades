@@ -3,7 +3,7 @@ import { Test, type TestingModule } from '@nestjs/testing';
 import { google } from 'googleapis';
 
 import { GoogleApisServiceAvailabilityService } from 'src/engine/core-modules/auth/services/google-apis-service-availability.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 jest.mock('googleapis', () => ({
   google: {
@@ -19,10 +19,10 @@ jest.mock('googleapis', () => ({
 
 describe('GoogleApisServiceAvailabilityService', () => {
   let service: GoogleApisServiceAvailabilityService;
-  let mockTwentyConfigService: { get: jest.Mock };
+  let mockBadesConfigService: { get: jest.Mock };
 
   beforeEach(async () => {
-    mockTwentyConfigService = {
+    mockBadesConfigService = {
       get: jest.fn(),
     };
 
@@ -30,8 +30,8 @@ describe('GoogleApisServiceAvailabilityService', () => {
       providers: [
         GoogleApisServiceAvailabilityService,
         {
-          provide: TwentyConfigService,
-          useValue: mockTwentyConfigService,
+          provide: BadesConfigService,
+          useValue: mockBadesConfigService,
         },
       ],
     }).compile();
@@ -47,7 +47,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
 
   describe('checkServicesAvailability', () => {
     it('should return both services available when Gmail and Calendar are enabled and accessible', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;
@@ -80,7 +80,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
     });
 
     it('should return messaging unavailable when messaging provider is disabled', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return false;
@@ -106,7 +106,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
     });
 
     it('should return messaging unavailable when messaging service is not enabled in Google Workspace', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;
@@ -159,7 +159,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
     });
 
     it('should return Calendar unavailable when Calendar service is not enabled in Google Workspace', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;
@@ -212,7 +212,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
     });
 
     it('should return messaging unavailable when Google returns generic precondition check failed error', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;
@@ -265,7 +265,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
     });
 
     it('should return Calendar unavailable when Google returns generic precondition check failed error', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;
@@ -318,7 +318,7 @@ describe('GoogleApisServiceAvailabilityService', () => {
     });
 
     it('should throw error for non-service-availability related errors', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'AUTH_GOOGLE_CLIENT_ID') return 'client-id';
         if (key === 'AUTH_GOOGLE_CLIENT_SECRET') return 'client-secret';
         if (key === 'MESSAGING_PROVIDER_GMAIL_ENABLED') return true;

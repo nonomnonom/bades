@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["typescript", "import", "unicorn"],
-  "jsPlugins": ["../twenty-oxlint-rules/dist/oxlint-plugin.mjs"],
+  "jsPlugins": ["../oxlint-rules/dist/oxlint-plugin.mjs"],
   "options": {
     "typeAware": true
   },
@@ -65,11 +65,11 @@
       "argsIgnorePattern": "^_"
     }],
 
-    "twenty/inject-workspace-repository": "warn",
-    "twenty/rest-api-methods-should-be-guarded": "error",
-    "twenty/graphql-resolvers-should-be-guarded": "error",
-    "twenty/upgrade-command-filename": "error",
-    "twenty/enforce-module-boundaries": ["error", {
+    "bades/inject-workspace-repository": "warn",
+    "bades/rest-api-methods-should-be-guarded": "error",
+    "bades/graphql-resolvers-should-be-guarded": "error",
+    "bades/upgrade-command-filename": "error",
+    "bades/enforce-module-boundaries": ["error", {
       "depConstraints": [
         {
           "sourceTag": "scope:backend",
@@ -88,7 +88,7 @@
     {
       "files": ["**/constants/*.ts", "**/*.constants.ts"],
       "rules": {
-        "twenty/max-consts-per-file": "off"
+        "bades/max-consts-per-file": "off"
       }
     }
   ]

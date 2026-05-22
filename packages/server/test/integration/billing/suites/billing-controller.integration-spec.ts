@@ -36,7 +36,7 @@ describe('BillingController (integration)', () => {
       .send(JSON.stringify(priceCreatedPayload))
       .expect(200)
       .then((res) => {
-        expect(res.body.stripePriceId).toBeDefined();
+        expect(res.body.priceId).toBeDefined();
         expect(res.body.stripeMeterId).toBeDefined();
       });
   });

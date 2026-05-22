@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'styled-components-prefixed-with-styled';
+export const RULE_NAME = 'bades/styled-components-prefixed-with-styled';
 
 export const rule = defineRule({
   meta: {

@@ -32,7 +32,7 @@ import { type PasswordResetToken } from 'src/engine/core-modules/auth/types/pass
 import { WorkspaceDomainsService } from 'src/engine/core-modules/domain/workspace-domains/services/workspace-domains.service';
 import { EmailService } from 'src/engine/core-modules/email/email.service';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserService } from 'src/engine/core-modules/user/services/user.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { WorkspaceNotFoundDefaultError } from 'src/engine/core-modules/workspace/workspace.exception';
@@ -40,7 +40,7 @@ import { WorkspaceNotFoundDefaultError } from 'src/engine/core-modules/workspace
 @Injectable()
 export class ResetPasswordService {
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,

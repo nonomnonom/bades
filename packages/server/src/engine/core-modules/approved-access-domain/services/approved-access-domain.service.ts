@@ -24,7 +24,7 @@ import { FileUrlService } from 'src/engine/core-modules/file/file-url/file-url.s
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
 import { decodeJwtHeader } from 'src/engine/core-modules/jwt/utils/decode-jwt-header.util';
 import { isAsymmetricJwtHeader } from 'src/engine/core-modules/jwt/utils/is-asymmetric-jwt-header.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
 import { isWorkDomain } from 'src/utils/is-work-email';
@@ -39,7 +39,7 @@ export class ApprovedAccessDomainService {
     @InjectRepository(ApprovedAccessDomainEntity)
     private readonly approvedAccessDomainRepository: Repository<ApprovedAccessDomainEntity>,
     private readonly emailService: EmailService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly fileUrlService: FileUrlService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly jwtWrapperService: JwtWrapperService,

@@ -21,7 +21,7 @@ import { ConnectionProviderService } from 'src/engine/core-modules/application/c
 import { JwtTokenTypeEnum } from 'src/engine/core-modules/auth/types/auth-context.type';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { SECRET_ENCRYPTION_ENVELOPE_V2_PREFIX } from 'src/engine/core-modules/secret-encryption/constants/secret-encryption.constant';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
 import { ConnectedAccountTokenEncryptionService } from 'src/engine/metadata-modules/connected-account/services/connected-account-token-encryption.service';
@@ -106,7 +106,7 @@ describe('ConnectionProviderOAuthFlowService', () => {
         { provide: JwtWrapperService, useValue: jwtWrapperService },
         { provide: SecureHttpClientService, useValue: secureHttpClientService },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: { get: jest.fn(() => 'https://api.example.com') },
         },
         {

@@ -9,11 +9,11 @@ import { parseJson } from 'shared/utils';
 import { GoogleAPIsOauthCommonStrategy } from 'src/engine/core-modules/auth/strategies/google-apis-oauth-common.auth.strategy';
 import { type APIsOAuthRequest } from 'src/engine/core-modules/auth/types/apis-oauth-request.type';
 import { type APIsOAuthState } from 'src/engine/core-modules/auth/types/apis-oauth-state.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class GoogleAPIsOauthExchangeCodeForTokenStrategy extends GoogleAPIsOauthCommonStrategy {
-  constructor(twentyConfigService: TwentyConfigService) {
+  constructor(twentyConfigService: BadesConfigService) {
     super(twentyConfigService);
   }
 

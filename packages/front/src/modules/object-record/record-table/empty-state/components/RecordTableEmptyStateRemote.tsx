@@ -1,4 +1,4 @@
-/* oxlint-disable twenty/no-navigate-prefer-link */
+/* oxlint-disable bades/no-navigate-prefer-link */
 import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty-state/components/RecordTableEmptyStateDisplay';
 import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';

@@ -19,7 +19,7 @@ type PageLayoutInitializationQueryEffectProps = {
   pageLayoutId: string;
 };
 
-// oxlint-disable-next-line twenty/effect-components
+// oxlint-disable-next-line bades/effect-components
 export const PageLayoutInitializationQueryEffect = ({
   pageLayoutId,
 }: PageLayoutInitializationQueryEffectProps) => {

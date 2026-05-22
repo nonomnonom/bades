@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
 import { MessageChannelEntity } from 'src/engine/metadata-modules/message-channel/entities/message-channel.entity';
 import { WorkspaceDataSourceModule } from 'src/engine/workspace-datasource/workspace-datasource.module';
@@ -11,7 +11,7 @@ import { InboundEmailStorageService } from 'src/modules/messaging/message-import
 
 @Module({
   imports: [
-    TwentyConfigModule,
+    BadesConfigModule,
     WorkspaceDataSourceModule,
     TypeOrmModule.forFeature([MessageChannelEntity, ConnectedAccountEntity]),
   ],

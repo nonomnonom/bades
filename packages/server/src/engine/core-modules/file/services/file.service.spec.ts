@@ -5,7 +5,7 @@ import { ApplicationEntity } from 'src/engine/core-modules/application/applicati
 import { FileStorageService } from 'src/engine/core-modules/file-storage/file-storage.service';
 import { FileEntity } from 'src/engine/core-modules/file/entities/file.entity';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 import { FileService } from './file.service';
 
@@ -21,7 +21,7 @@ describe('FileService', () => {
       providers: [
         FileService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {},
         },
         {

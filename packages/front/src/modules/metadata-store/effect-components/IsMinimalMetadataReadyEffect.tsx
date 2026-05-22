@@ -18,7 +18,7 @@ export const IsMinimalMetadataReadyEffect = () => {
     metadataStoreState,
     'objectMetadataItems',
   );
-  // oxlint-disable-next-line twenty/matching-state-variable
+  // oxlint-disable-next-line bades/matching-state-variable
   const metadataStoreViews = useAtomFamilyStateValue(
     metadataStoreState,
     'views',

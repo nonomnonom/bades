@@ -3,7 +3,7 @@ import { createHash } from 'crypto';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { deriveInstanceHmacKey } from 'src/engine/core-modules/secret-encryption/utils/derive-instance-hmac-key.util';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const SESSION_COOKIE_HMAC_PURPOSE = 'session-cookie';
 
@@ -13,7 +13,7 @@ const buildLegacySessionSecret = (appSecret: string) =>
 export const resolveSessionCookieSecretsOrThrow = ({
   twentyConfigService,
 }: {
-  twentyConfigService: Pick<TwentyConfigService, 'get'>;
+  twentyConfigService: Pick<BadesConfigService, 'get'>;
 }): string[] => {
   const encryptionKey = twentyConfigService.get('ENCRYPTION_KEY');
   const fallbackEncryptionKey = twentyConfigService.get(

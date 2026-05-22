@@ -4,7 +4,7 @@ import * as https from 'https';
 import axiosRetry from 'axios-retry';
 
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
-import { type TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { type BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 jest.mock('axios-retry', () => ({
   __esModule: true,
@@ -32,7 +32,7 @@ const mockResolveAndValidate = jest.mocked(resolveAndValidateHostname);
 
 const createMockConfigService = (
   overrides: Record<string, unknown> = {},
-): TwentyConfigService => {
+): BadesConfigService => {
   const defaults: Record<string, unknown> = {
     OUTBOUND_HTTP_SAFE_MODE_ENABLED: false,
   };
@@ -40,7 +40,7 @@ const createMockConfigService = (
 
   return {
     get: jest.fn((key: string) => config[key]),
-  } as unknown as TwentyConfigService;
+  } as unknown as BadesConfigService;
 };
 
 describe('SecureHttpClientService', () => {

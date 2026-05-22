@@ -17,9 +17,9 @@ inputs:
     required: false
     default: 'packages/docker/bades/Dockerfile'
   docker-build-target:
-    description: 'Docker build target to use (e.g. twenty-app-dev, twenty, twenty-server)'
+    description: 'Docker build target to use (e.g. bades-app, bades, bades-server)'
     required: false
-    default: 'twenty-app-dev'
+    default: 'bades-app'
   app-version:
     description: 'Docker image tag / APP_VERSION build arg'
     required: true

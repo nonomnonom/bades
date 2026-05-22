@@ -8,7 +8,7 @@ import { type ToolInput } from 'src/engine/core-modules/tool/types/tool-input.ty
 import { type ToolOutput } from 'src/engine/core-modules/tool/types/tool-output.type';
 import { type ToolExecutionContext } from 'src/engine/core-modules/tool/types/tool-execution-context.type';
 import { type Tool } from 'src/engine/core-modules/tool/types/tool.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class SearchHelpCenterTool implements Tool {
@@ -17,7 +17,7 @@ export class SearchHelpCenterTool implements Tool {
   inputSchema = SearchHelpCenterInputZodSchema;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {}
 

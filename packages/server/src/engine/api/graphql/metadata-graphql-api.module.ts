@@ -12,7 +12,7 @@ import { I18nModule } from 'src/engine/core-modules/i18n/i18n.module';
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
 import { MetricsModule } from 'src/engine/core-modules/metrics/metrics.module';
 import { MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { DataloaderModule } from 'src/engine/dataloaders/dataloader.module';
 import { DataloaderService } from 'src/engine/dataloaders/dataloader.service';
 import { MetadataEngineModule } from 'src/engine/metadata-modules/metadata-engine.module';
@@ -29,7 +29,7 @@ import { MetadataEngineModule } from 'src/engine/metadata-modules/metadata-engin
         I18nModule,
       ],
       inject: [
-        TwentyConfigService,
+        BadesConfigService,
         ExceptionHandlerService,
         DataloaderService,
         CacheStorageNamespace.EngineWorkspace,

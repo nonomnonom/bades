@@ -1,6 +1,6 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 
-import { EnvironmentConfigDriver } from 'src/engine/core-modules/twenty-config/drivers/environment-config.driver';
+import { EnvironmentConfigDriver } from 'src/engine/core-modules/bades-config/drivers/environment-config.driver';
 
 import { SecretEncryptionService } from './secret-encryption.service';
 

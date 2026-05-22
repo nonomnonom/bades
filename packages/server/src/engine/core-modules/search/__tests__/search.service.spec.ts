@@ -7,7 +7,7 @@ import {
 } from 'src/engine/core-modules/__mocks__/mockFlatObjectMetadatas';
 import { FileUrlService } from 'src/engine/core-modules/file/file-url/file-url.service';
 import { SearchService } from 'src/engine/core-modules/search/services/search.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 
 describe('SearchService', () => {
@@ -20,7 +20,7 @@ describe('SearchService', () => {
         { provide: GlobalWorkspaceOrmManager, useValue: {} },
         { provide: FileUrlService, useValue: {} },
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: {
             get: (key: string) =>
               key === 'SEARCH_ILIKE_FALLBACK_TIMEOUT_MS' ? 500 : false,

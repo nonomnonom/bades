@@ -4,7 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { ClickHouseService } from 'src/database/clickHouse/clickHouse.service';
 import { formatDateTimeForClickHouse } from 'src/database/clickHouse/clickHouse.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type UsageEvent } from 'src/engine/core-modules/usage/types/usage-event.type';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class UsageEventWriterService {
 
   constructor(
     private readonly clickHouseService: ClickHouseService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   writeToClickHouse(workspaceId: string, usageEvents: UsageEvent[]): void {

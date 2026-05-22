@@ -1,7 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 
-import { ConfigGroupHashService } from 'src/engine/core-modules/twenty-config/services/config-group-hash.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { ConfigGroupHashService } from 'src/engine/core-modules/bades-config/services/config-group-hash.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { AiModelPreferencesService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-preferences.service';
 import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
 import { ProviderConfigService } from 'src/engine/metadata-modules/ai/ai-models/services/provider-config.service';
@@ -10,7 +10,7 @@ import { AUTO_SELECT_SMART_MODEL_ID } from 'shared/constants';
 
 describe('AiModelRegistryService', () => {
   let service: AiModelRegistryService;
-  let mockConfigService: jest.Mocked<TwentyConfigService>;
+  let mockConfigService: jest.Mocked<BadesConfigService>;
   let mockPreferencesService: {
     getPreferences: jest.Mock;
     getRecommendedModelIds: jest.Mock;
@@ -34,7 +34,7 @@ describe('AiModelRegistryService', () => {
       providers: [
         AiModelRegistryService,
         {
-          provide: TwentyConfigService,
+          provide: BadesConfigService,
           useValue: mockConfigService,
         },
         {

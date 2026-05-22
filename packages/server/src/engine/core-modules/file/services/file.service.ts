@@ -13,7 +13,7 @@ import { type FileResponse } from 'src/engine/core-modules/file/types/file-respo
 import { getContentDisposition } from 'src/engine/core-modules/file/utils/get-content-disposition.utils';
 import { removeFileFolderFromFileEntityPath } from 'src/engine/core-modules/file/utils/remove-file-folder-from-file-entity-path.utils';
 import { JwtWrapperService } from 'src/engine/core-modules/jwt/services/jwt-wrapper.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { streamToBuffer } from 'src/utils/stream-to-buffer';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class FileService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
     private readonly fileStorageService: FileStorageService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     @InjectRepository(FileEntity)
     private readonly fileRepository: Repository<FileEntity>,
     @InjectRepository(ApplicationEntity)

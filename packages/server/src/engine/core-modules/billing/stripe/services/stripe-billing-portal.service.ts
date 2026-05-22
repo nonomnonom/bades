@@ -6,7 +6,7 @@ import type Stripe from 'stripe';
 
 import { StripeSDKService } from 'src/engine/core-modules/billing/stripe/stripe-sdk/services/stripe-sdk.service';
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 @Injectable()
 export class StripeBillingPortalService {
@@ -14,7 +14,7 @@ export class StripeBillingPortalService {
   private readonly stripe: Stripe;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly domainServerConfigService: DomainServerConfigService,
     private readonly stripeSDKService: StripeSDKService,
   ) {

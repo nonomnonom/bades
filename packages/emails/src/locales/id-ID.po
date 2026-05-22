@@ -158,12 +158,12 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/components/WhatIsTwenty.js
 msgid "What is Bades.id?"
-msgstr ""
+msgstr "Apa itu Bades.id?"
 
 #. js-lingui-explicit-id
 #: src/components/WhatIsTwenty.js
 msgid "It's a CRM, a software to help businesses manage their customer data and relationships efficiently."
-msgstr ""
+msgstr "Bades adalah Sistem Informasi Desa (SID) yang membantu mengelola data dan administrasi pemerintahan desa secara efisien."
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx

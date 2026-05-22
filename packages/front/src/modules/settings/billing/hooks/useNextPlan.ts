@@ -6,7 +6,7 @@ export const useNextPlan = () => {
   const { getPlanByPriceId } = usePlanByPriceId();
 
   const nextPlan = splitedPhaseItemsInPrices.nextBasePrice
-    ? getPlanByPriceId(splitedPhaseItemsInPrices.nextBasePrice.stripePriceId)
+    ? getPlanByPriceId(splitedPhaseItemsInPrices.nextBasePrice.priceId)
     : undefined;
 
   return {

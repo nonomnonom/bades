@@ -18,7 +18,7 @@ import {
   type MidtransTransactionType,
 } from 'src/engine/core-modules/billing/entities/billing-midtrans-transaction.entity';
 import { MidtransSDKService } from 'src/engine/core-modules/billing/midtrans/midtrans-sdk/services/midtrans-sdk.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 export type MidtransSnapResult = {
   snapToken: string;
@@ -37,7 +37,7 @@ export class MidtransSnapService {
   private snap: Snap;
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly midtransSDKService: MidtransSDKService,
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,

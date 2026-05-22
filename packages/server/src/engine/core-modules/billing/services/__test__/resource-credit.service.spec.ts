@@ -19,12 +19,12 @@ describe('ResourceCreditService', () => {
     id: 'sub_123',
     billingSubscriptionItems: [
       {
-        stripePriceId: 'price_rc_123',
+        priceId: 'price_rc_123',
         billingProduct: {
           metadata: { productKey: BillingProductKey.RESOURCE_CREDIT },
           billingPrices: [
             {
-              stripePriceId: 'price_rc_123',
+              priceId: 'price_rc_123',
               metadata: { credit_amount: String(creditAmount) },
               unitAmount,
             },
@@ -74,7 +74,7 @@ describe('ResourceCreditService', () => {
       const subscription = {
         billingSubscriptionItems: [
           {
-            stripePriceId: 'price_base',
+            priceId: 'price_base',
             billingProduct: {
               metadata: { productKey: BillingProductKey.BASE_PRODUCT },
               billingPrices: [],
@@ -100,12 +100,12 @@ describe('ResourceCreditService', () => {
       const subscription = {
         billingSubscriptionItems: [
           {
-            stripePriceId: 'price_rc_different',
+            priceId: 'price_rc_different',
             billingProduct: {
               metadata: { productKey: BillingProductKey.RESOURCE_CREDIT },
               billingPrices: [
                 {
-                  stripePriceId: 'price_rc_other',
+                  priceId: 'price_rc_other',
                   metadata: { credit_amount: '500' },
                 },
               ],

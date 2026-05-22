@@ -7,7 +7,7 @@ import {
 import { isDefined } from 'shared/utils';
 
 import { FlatApplicationCacheMaps } from 'src/engine/core-modules/application/types/flat-application-cache-maps.type';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { ALL_MANY_TO_ONE_METADATA_RELATIONS } from 'src/engine/metadata-modules/flat-entity/constant/all-many-to-one-metadata-relations.constant';
 import { createEmptyFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/constant/create-empty-flat-entity-maps.constant';
 import {
@@ -63,7 +63,7 @@ export class WorkspaceMigrationValidateBuildAndRunService {
     private readonly workspaceMigrationBuildOrchestratorService: WorkspaceMigrationBuildOrchestratorService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly metadataEventEmitter: MetadataEventEmitter,
-    twentyConfigService: TwentyConfigService,
+    twentyConfigService: BadesConfigService,
   ) {
     const logLevels = twentyConfigService.get('LOG_LEVELS');
 

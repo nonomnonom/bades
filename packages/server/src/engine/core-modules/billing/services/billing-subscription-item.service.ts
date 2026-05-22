@@ -12,7 +12,7 @@ import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/bil
 import { BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/entities/billing-subscription-item.entity';
 import { BillingSubscriptionEntity } from 'src/engine/core-modules/billing/entities/billing-subscription.entity';
 import { BillingProductKey } from 'src/engine/core-modules/billing/enums/billing-product-key.enum';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { isDefined } from 'shared/utils';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class BillingSubscriptionItemService {
   constructor(
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
   ) {}
 
   async getResourceCreditSubscriptionItemDetails(
@@ -78,7 +78,7 @@ export class BillingSubscriptionItemService {
     item: BillingSubscriptionItemEntity,
   ): BillingPriceEntity {
     const matchingPrice = item.billingProduct.billingPrices.find(
-      (price) => price.stripePriceId === item.stripePriceId,
+      (price) => price.priceId === item.priceId,
     );
 
     if (!matchingPrice) {

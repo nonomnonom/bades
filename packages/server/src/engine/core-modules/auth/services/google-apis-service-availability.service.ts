@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { google } from 'googleapis';
 
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 export type GoogleApisServiceAvailability = {
   isMessagingAvailable: boolean;
@@ -15,7 +15,7 @@ export class GoogleApisServiceAvailabilityService {
     GoogleApisServiceAvailabilityService.name,
   );
 
-  constructor(private readonly twentyConfigService: TwentyConfigService) {}
+  constructor(private readonly twentyConfigService: BadesConfigService) {}
 
   async checkServicesAvailability(
     accessToken: string,

@@ -15,7 +15,7 @@ import { MicrosoftAPIsService } from 'src/engine/core-modules/auth/services/micr
 import { UpdateConnectedAccountOnReconnectService } from 'src/engine/core-modules/auth/services/update-connected-account-on-reconnect.service';
 import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
 import { getQueueToken } from 'src/engine/core-modules/message-queue/utils/get-queue-token.util';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { CalendarChannelEntity } from 'src/engine/metadata-modules/calendar-channel/entities/calendar-channel.entity';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
@@ -70,7 +70,7 @@ describe('MicrosoftAPIsService', () => {
     }),
   };
 
-  const mockTwentyConfigService = {
+  const mockBadesConfigService = {
     get: jest.fn(),
   };
 
@@ -109,8 +109,8 @@ describe('MicrosoftAPIsService', () => {
           },
         },
         {
-          provide: TwentyConfigService,
-          useValue: mockTwentyConfigService,
+          provide: BadesConfigService,
+          useValue: mockBadesConfigService,
         },
         {
           provide: CalendarChannelSyncStatusService,
@@ -211,7 +211,7 @@ describe('MicrosoftAPIsService', () => {
 
   describe('refreshMicrosoftRefreshToken', () => {
     it('should reset calendar channels and message channels', async () => {
-      mockTwentyConfigService.get.mockImplementation((key) => {
+      mockBadesConfigService.get.mockImplementation((key) => {
         if (key === 'CALENDAR_PROVIDER_MICROSOFT_ENABLED') return true;
         if (key === 'MESSAGING_PROVIDER_MICROSOFT_ENABLED') return true;
 

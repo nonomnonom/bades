@@ -5,7 +5,7 @@ import { config } from 'dotenv';
 import { DataSource, type Repository } from 'typeorm';
 
 import { WorkspaceIteratorService } from 'src/database/commands/command-runners/workspace-iterator.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { TwentyConfigService } from 'src/engine/core-modules/bades-config/twenty-config.service';
 import { InstanceCommandRunnerService } from 'src/engine/core-modules/upgrade/services/instance-command-runner.service';
 import { UpgradeMigrationService } from 'src/engine/core-modules/upgrade/services/upgrade-migration.service';
 import {

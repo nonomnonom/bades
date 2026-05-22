@@ -37,7 +37,7 @@ import { FileStorageService } from 'src/engine/core-modules/file-storage/file-st
 import { FileDTO } from 'src/engine/core-modules/file/dtos/file.dto';
 import { ResolverValidationPipe } from 'src/engine/core-modules/graphql/pipes/resolver-validation.pipe';
 import { SdkClientGenerationService } from 'src/engine/core-modules/sdk-client/sdk-client-generation.service';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { AuthUser } from 'src/engine/decorators/auth/auth-user.decorator';
 import { AuthUserWorkspaceId } from 'src/engine/decorators/auth/auth-user-workspace-id.decorator';
@@ -68,7 +68,7 @@ export class ApplicationDevelopmentResolver {
     private readonly applicationRegistrationVariableService: ApplicationRegistrationVariableService,
     private readonly fileStorageService: FileStorageService,
     private readonly sdkClientGenerationService: SdkClientGenerationService,
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly throttlerService: ThrottlerService,
   ) {}
 

@@ -29,7 +29,7 @@ import { resolvePackageContentDir } from 'src/engine/core-modules/application/ap
 import { FileStorageService } from 'src/engine/core-modules/file-storage/file-storage.service';
 import { FileEntity } from 'src/engine/core-modules/file/entities/file.entity';
 import { removeFileFolderFromFileEntityPath } from 'src/engine/core-modules/file/utils/remove-file-folder-from-file-entity-path.utils';
-import { TwentyConfigService } from 'src/engine/core-modules/twenty-config/twenty-config.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { streamToBuffer } from 'src/utils/stream-to-buffer';
 
 const execFilePromise = promisify(execFile);
@@ -49,7 +49,7 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
   private readonly logger = new Logger(ApplicationPackageFetcherService.name);
 
   constructor(
-    private readonly twentyConfigService: TwentyConfigService,
+    private readonly twentyConfigService: BadesConfigService,
     private readonly fileStorageService: FileStorageService,
     @InjectRepository(FileEntity)
     private readonly fileRepository: Repository<FileEntity>,

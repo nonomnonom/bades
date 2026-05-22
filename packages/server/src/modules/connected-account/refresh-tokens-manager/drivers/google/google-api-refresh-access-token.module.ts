@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 
-import { TwentyConfigModule } from 'src/engine/core-modules/twenty-config/twenty-config.module';
+import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 import { GoogleAPIRefreshAccessTokenService } from 'src/modules/connected-account/refresh-tokens-manager/drivers/google/services/google-api-refresh-tokens.service';
 
 @Module({
-  imports: [TwentyConfigModule],
+  imports: [BadesConfigModule],
   providers: [GoogleAPIRefreshAccessTokenService],
   exports: [GoogleAPIRefreshAccessTokenService],
 })

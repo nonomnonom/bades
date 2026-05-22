@@ -111,7 +111,7 @@ export const mockCurrentWorkspace = {
         id: '11111111-1111-4111-8111-111111111111',
         hasReachedCurrentPeriodCap: false,
         quantity: 1,
-        stripePriceId: PRO_BASE_MONTHLY_PRICE.stripePriceId,
+        priceId: PRO_BASE_MONTHLY_PRICE.priceId,
         billingProduct: {
           name: PRO_BASE_LICENSED_PRODUCT.name,
           description: PRO_BASE_LICENSED_PRODUCT.description,
@@ -124,7 +124,7 @@ export const mockCurrentWorkspace = {
         id: '11111111-1111-4111-8111-111111111112',
         hasReachedCurrentPeriodCap: false,
         quantity: null,
-        stripePriceId: PRO_METERED_MONTHLY_PRICE.stripePriceId,
+        priceId: PRO_METERED_MONTHLY_PRICE.priceId,
         billingProduct: {
           name: PRO_METERED_PRODUCT.name,
           description: PRO_METERED_PRODUCT.description,
@@ -148,7 +148,7 @@ export const mockCurrentWorkspace = {
           id: '22222222-2222-4222-8222-222222222222',
           hasReachedCurrentPeriodCap: false,
           quantity: 1,
-          stripePriceId: PRO_BASE_MONTHLY_PRICE.stripePriceId,
+          priceId: PRO_BASE_MONTHLY_PRICE.priceId,
           billingProduct: {
             name: PRO_BASE_LICENSED_PRODUCT.name,
             description: PRO_BASE_LICENSED_PRODUCT.description,
