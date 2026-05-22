@@ -8,7 +8,7 @@ type ConfigVariableSourceOption = {
 };
 
 export const CONFIG_VARIABLE_SOURCE_OPTIONS: ConfigVariableSourceOption[] = [
-  { value: 'all', label: 'All Sources', color: 'transparent' },
+  { value: 'all', label: 'Semua Sumber', color: 'transparent' },
   { value: 'database', label: 'Database', color: 'blue' },
   { value: 'environment', label: 'Environment', color: 'green' },
   { value: 'default', label: 'Default', color: 'gray' },

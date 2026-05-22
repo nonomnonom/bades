@@ -42,14 +42,14 @@ export const ConfigVariableValueInput = ({
           disabled={disabled}
           placeholder={
             disabled
-              ? t`Undefined`
+              ? t`Tidak terdefinisi`
               : variable.isSensitive
-                ? t`Enter a new secret value`
-                : t`Enter a value to store in database`
+                ? t`Masukkan nilai rahasia baru`
+                : t`Masukkan nilai untuk disimpan di database`
           }
         />
       ) : (
-        <TextInput value={String(value)} disabled label={t`Value`} fullWidth />
+        <TextInput value={String(value)} disabled label={t`Nilai`} fullWidth />
       )}
     </StyledValueContainer>
   );

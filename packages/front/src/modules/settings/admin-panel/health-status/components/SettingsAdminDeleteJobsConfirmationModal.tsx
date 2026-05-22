@@ -15,13 +15,13 @@ export const SettingsAdminDeleteJobsConfirmationModal = ({
   onClose,
 }: SettingsAdminDeleteJobsConfirmationModalProps) => {
   const title = plural(jobCount, {
-    one: `Delete ${jobCount} Job`,
-    other: `Delete ${jobCount} Jobs`,
+    one: `Hapus ${jobCount} Pekerjaan`,
+    other: `Hapus ${jobCount} Pekerjaan`,
   });
 
   const subtitle = plural(jobCount, {
-    one: `This will permanently remove it from the queue. This action cannot be undone.`,
-    other: `This will permanently remove them from the queue. This action cannot be undone.`,
+    one: `Ini akan menghapus pekerjaan tersebut secara permanen dari antrian. Tindakan ini tidak dapat dibatalkan.`,
+    other: `Ini akan menghapus semua pekerjaan yang dipilih secara permanen dari antrian. Tindakan ini tidak dapat dibatalkan.`,
   });
 
   return (
@@ -31,7 +31,7 @@ export const SettingsAdminDeleteJobsConfirmationModal = ({
       subtitle={subtitle}
       onConfirmClick={onConfirm}
       onClose={onClose}
-      confirmButtonText={t`Delete`}
+      confirmButtonText={t`Hapus`}
       confirmButtonAccent="danger"
     />
   );

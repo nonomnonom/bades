@@ -89,11 +89,11 @@ export const SettingsAdminApps = () => {
   return (
     <Section>
       <H2Title
-        title={t`All App Registrations`}
-        description={t`All application registrations across the platform, including orphaned marketplace apps`}
+        title={t`Semua Registrasi Aplikasi`}
+        description={t`Semua registrasi aplikasi di seluruh platform, termasuk aplikasi yang tidak terhubung`}
       />
       <SearchInput
-        placeholder={t`Search registrations...`}
+        placeholder={t`Cari registrasi...`}
         value={searchQuery}
         onChange={setSearchQuery}
         filterDropdown={(filterButton: ReactNode) => (
@@ -111,7 +111,7 @@ export const SettingsAdminApps = () => {
                       setShowPreInstalledOnly(!showPreInstalledOnly)
                     }
                     toggled={showPreInstalledOnly}
-                    text={t`Pre-installed only`}
+                    text={t`Pra-terpasang saja`}
                     toggleSize="small"
                   />
                 </DropdownMenuItemsContainer>
@@ -126,10 +126,10 @@ export const SettingsAdminApps = () => {
             gridAutoColumns={TABLE_GRID}
             mobileGridAutoColumns={TABLE_GRID_MOBILE}
           >
-            <TableHeader>{t`Name`}</TableHeader>
-            <TableHeader align="right">{t`Source`}</TableHeader>
-            <TableHeader align="right">{t`Listed`}</TableHeader>
-            <TableHeader align="right">{t`Configured`}</TableHeader>
+            <TableHeader>{t`Nama`}</TableHeader>
+            <TableHeader align="right">{t`Sumber`}</TableHeader>
+            <TableHeader align="right">{t`Terdaftar`}</TableHeader>
+            <TableHeader align="right">{t`Dikonfigurasi`}</TableHeader>
             <TableHeader></TableHeader>
           </TableRow>
           <TableBody>
@@ -188,12 +188,12 @@ const SettingsAdminAppsTableRow = ({
         {getFormattedSource(registration)}
       </TableCell>
       <TableCell align="right">
-        {registration.isListed ? t`Yes` : t`No`}
+        {registration.isListed ? t`Ya` : t`Tidak`}
       </TableCell>
       <TableCell align="right">
         <Tag
           color={registration.isConfigured ? 'green' : 'red'}
-          text={registration.isConfigured ? t`Yes` : t`No`}
+          text={registration.isConfigured ? t`Ya` : t`Tidak`}
         />
       </TableCell>
       <TableCell align="right">

@@ -41,14 +41,14 @@ const getStatusTag = (
   signingKey: Pick<SigningKeyDto, 'isCurrent' | 'revokedAt'>,
 ): { text: string; color: TagColor } => {
   if (isDefined(signingKey.revokedAt)) {
-    return { text: t`Revoked`, color: 'red' };
+    return { text: t`Dicabut`, color: 'red' };
   }
 
   if (signingKey.isCurrent === true) {
-    return { text: t`Current`, color: 'green' };
+    return { text: t`Aktif Sekarang`, color: 'green' };
   }
 
-  return { text: t`Active`, color: 'gray' };
+  return { text: t`Aktif`, color: 'gray' };
 };
 
 export const SettingsAdminSigningKeysTable = () => {
@@ -94,11 +94,11 @@ export const SettingsAdminSigningKeysTable = () => {
       <Table>
         <TableBody>
           <TableRow gridTemplateColumns={SIGNING_KEYS_GRID_TEMPLATE_COLUMNS}>
-            <TableHeader>{t`Key ID`}</TableHeader>
-            <TableHeader>{t`Revoked`}</TableHeader>
+            <TableHeader>{t`ID Kunci`}</TableHeader>
+            <TableHeader>{t`Dicabut`}</TableHeader>
             <TableHeader>{t`Status`}</TableHeader>
             <TableHeader align="right">
-              {t`Uses (last ${verifyWindowDays}d)`}
+              {t`Penggunaan (${verifyWindowDays}h terakhir)`}
             </TableHeader>
             <TableHeader />
           </TableRow>
@@ -114,16 +114,16 @@ export const SettingsAdminSigningKeysTable = () => {
                 <TableCell overflow="hidden" gap={themeCssVariables.spacing[1]}>
                   <OverflowingTextWithTooltip
                     text={signingKey.id}
-                    tooltipContent={t`Created on ${beautifyExactDateTime(signingKey.createdAt)}`}
+                    tooltipContent={t`Dibuat pada ${beautifyExactDateTime(signingKey.createdAt)}`}
                     alwaysShowTooltip
                   />
                   <Button
                     Icon={IconCopy}
                     size="small"
                     variant="tertiary"
-                    ariaLabel={t`Copy key ID`}
+                    ariaLabel={t`Salin ID kunci`}
                     onClick={() =>
-                      copyToClipboard(signingKey.id, t`Key ID copied`)
+                      copyToClipboard(signingKey.id, t`ID kunci disalin`)
                     }
                   />
                 </TableCell>
@@ -148,7 +148,7 @@ export const SettingsAdminSigningKeysTable = () => {
                 </TableCell>
                 <TableCell align="right">
                   <Button
-                    title={t`Revoke`}
+                    title={t`Cabut`}
                     size="small"
                     variant="secondary"
                     accent="danger"
@@ -167,14 +167,14 @@ export const SettingsAdminSigningKeysTable = () => {
           <TableRow gridTemplateColumns={SIGNING_KEYS_GRID_TEMPLATE_COLUMNS}>
             <TableCell overflow="hidden">
               <OverflowingTextWithTooltip
-                text={t`Legacy (HS256)`}
-                tooltipContent={t`Legacy HS256 verifications across all tokens`}
+                text={t`Warisan (HS256)`}
+                tooltipContent={t`Verifikasi HS256 warisan di semua token`}
                 alwaysShowTooltip
               />
             </TableCell>
             <TableCell>{EM_DASH}</TableCell>
             <TableCell>
-              <Tag text={t`Legacy`} color="gray" />
+              <Tag text={t`Warisan`} color="gray" />
             </TableCell>
             <TableCell align="right">{legacyVerifyCountInWindow}</TableCell>
             <TableCell align="right" />

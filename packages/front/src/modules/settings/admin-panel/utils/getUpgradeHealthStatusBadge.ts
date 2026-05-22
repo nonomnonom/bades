@@ -12,12 +12,12 @@ export const getUpgradeHealthStatusBadge = (
 ): UpgradeHealthStatusBadge => {
   switch (health) {
     case UpgradeHealth.UP_TO_DATE:
-      return { color: 'green', label: t`Up to date` };
+      return { color: 'green', label: t`Mutakhir` };
     case UpgradeHealth.BEHIND:
-      return { color: 'orange', label: t`Behind` };
+      return { color: 'orange', label: t`Tertinggal` };
     case UpgradeHealth.FAILED:
-      return { color: 'red', label: t`Failed` };
+      return { color: 'red', label: t`Gagal` };
     default:
-      return { color: 'gray', label: t`Unknown` };
+      return { color: 'gray', label: t`Tidak diketahui` };
   }
 };

@@ -44,8 +44,8 @@ export const SettingsAdminHealthStatus = () => {
       <SettingsAdminMaintenanceModeFetchEffect />
       <Section>
         <H2Title
-          title={t`Health Status`}
-          description={t`How your system is doing`}
+          title={t`Status Kesehatan`}
+          description={t`Kondisi sistem Anda`}
         />
         <SettingsAdminHealthStatusListCard
           services={services}
@@ -55,16 +55,16 @@ export const SettingsAdminHealthStatus = () => {
       {upgradeStatus && (
         <Section>
           <H2Title
-            title={t`Upgrade Status`}
-            description={t`Upgrade health across instance and workspaces`}
+            title={t`Status Pembaruan`}
+            description={t`Kesehatan pembaruan di seluruh instansi dan ruang kerja`}
           />
           <SettingsAdminUpgradeStatusListCard upgradeStatus={upgradeStatus} />
         </Section>
       )}
       <Section>
         <H2Title
-          title={t`Signing Keys`}
-          description={t`Asymmetric public keys used to sign and verify access tokens. Revoking a key immediately invalidates every JWT signed with it.`}
+          title={t`Kunci Penandatanganan`}
+          description={t`Kunci publik asimetris yang digunakan untuk menandatangani dan memverifikasi token akses. Mencabut kunci segera membatalkan semua JWT yang ditandatangani dengannya.`}
         />
         <SettingsAdminSigningKeysTable />
       </Section>

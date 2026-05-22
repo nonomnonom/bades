@@ -40,7 +40,7 @@ export const SettingsAdminQueueJobRowDropdownMenu = ({
       dropdownPlacement="right-start"
       clickableComponent={
         <LightIconButton
-          aria-label={t`Job Actions`}
+          aria-label={t`Tindakan Pekerjaan`}
           Icon={IconDotsVertical}
           accent="tertiary"
         />
@@ -50,14 +50,14 @@ export const SettingsAdminQueueJobRowDropdownMenu = ({
           <DropdownMenuItemsContainer>
             {jobState === JobState.FAILED && onRetry && (
               <MenuItem
-                text={t`Retry`}
+                text={t`Coba Ulang`}
                 LeftIcon={IconRefresh}
                 onClick={handleRetry}
               />
             )}
             <MenuItem
               accent="danger"
-              text={t`Delete`}
+              text={t`Hapus`}
               LeftIcon={IconTrash}
               onClick={handleDelete}
             />

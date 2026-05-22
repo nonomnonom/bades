@@ -35,13 +35,13 @@ export const SettingsAdminConnectedAccountHealthStatus = () => {
 
   const getErrorMessage = () => {
     if (isMessageSyncDown && isCalendarSyncDown) {
-      return t`Message Sync and Calendar Sync are not available because the service is down`;
+      return t`Sinkronisasi Pesan dan Sinkronisasi Kalender tidak tersedia karena layanan sedang mati`;
     }
     if (isMessageSyncDown) {
-      return t`Message Sync is not available because the service is down`;
+      return t`Sinkronisasi Pesan tidak tersedia karena layanan sedang mati`;
     }
     if (isCalendarSyncDown) {
-      return t`Calendar Sync is not available because the service is down`;
+      return t`Sinkronisasi Kalender tidak tersedia karena layanan sedang mati`;
     }
     return null;
   };
@@ -55,16 +55,16 @@ export const SettingsAdminConnectedAccountHealthStatus = () => {
       {!isMessageSyncDown && serviceDetails.messageSync?.details && (
         <SettingsAdminHealthAccountSyncCountersTable
           details={serviceDetails.messageSync.details}
-          title={t`Message Sync`}
-          description={t`Monitor the execution of your emails sync job`}
+          title={t`Sinkronisasi Pesan`}
+          description={t`Pantau eksekusi pekerjaan sinkronisasi email Anda`}
         />
       )}
 
       {!isCalendarSyncDown && serviceDetails.calendarSync?.details && (
         <SettingsAdminHealthAccountSyncCountersTable
           details={serviceDetails.calendarSync.details}
-          title={t`Calendar Sync`}
-          description={t`Monitor the execution of your calendar events sync job`}
+          title={t`Sinkronisasi Kalender`}
+          description={t`Pantau eksekusi pekerjaan sinkronisasi acara kalender Anda`}
         />
       )}
     </StyledContainer>

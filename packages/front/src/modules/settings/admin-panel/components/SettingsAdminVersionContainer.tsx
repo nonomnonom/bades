@@ -16,23 +16,23 @@ export const SettingsAdminVersionContainer = () => {
   const versionItems = [
     {
       Icon: IconCircleDot,
-      label: t`Current version`,
+      label: t`Versi saat ini`,
       value: (
         <SettingsAdminVersionDisplay
           version={currentVersion}
           loading={loading}
-          noVersionMessage={t`Unknown`}
+          noVersionMessage={t`Tidak diketahui`}
         />
       ),
     },
     {
       Icon: IconStatusChange,
-      label: t`Latest version`,
+      label: t`Versi terbaru`,
       value: (
         <SettingsAdminVersionDisplay
           version={latestVersion}
           loading={loading}
-          noVersionMessage={t`No latest version found`}
+          noVersionMessage={t`Tidak ada versi terbaru`}
         />
       ),
     },

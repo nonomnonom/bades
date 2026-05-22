@@ -114,7 +114,7 @@ export const SettingsAdminWorkspacesByHealthAccordion = ({
                       { workspaceId: workspace.id },
                     )}
                   >
-                    {workspace.name ?? t`Unknown workspace`}
+                    {workspace.name ?? t`Ruang kerja tidak diketahui`}
                     {' - '}
                     {workspace.id}
                   </StyledWorkspaceLink>

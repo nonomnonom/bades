@@ -36,9 +36,9 @@ const getProviderDescription = (provider: AiProviderItem): string => {
   if (provider.authType === 'role') {
     parts.push(t`IAM role`);
   } else if (provider.apiKey) {
-    parts.push(t`API key configured`);
+    parts.push(t`API key dikonfigurasi`);
   } else if (provider.hasAccessKey) {
-    parts.push(t`IAM credentials`);
+    parts.push(t`Kredensial IAM`);
   }
 
   return parts.join(' · ');
@@ -57,7 +57,7 @@ export const SettingsAdminAiProviderListCard = ({
     return (
       <StyledLinkContainer>
         <Link to={getSettingsPath(SettingsPath.AdminPanelNewAiProvider)}>
-          <SettingsCard title={t`Add Custom Provider`} Icon={<IconPlug />} />
+          <SettingsCard title={t`Tambah Penyedia Kustom`} Icon={<IconPlug />} />
         </Link>
       </StyledLinkContainer>
     );
@@ -76,9 +76,9 @@ export const SettingsAdminAiProviderListCard = ({
       getItemDescription={getProviderDescription}
       RowRightComponent={({ item: provider }) =>
         isProviderConfigured(provider) ? (
-          <Status color="green" text={t`Configured`} weight="medium" />
+          <Status color="green" text={t`Dikonfigurasi`} weight="medium" />
         ) : (
-          <Status color="orange" text={t`No credentials`} weight="medium" />
+          <Status color="orange" text={t`Tanpa kredensial`} weight="medium" />
         )
       }
       to={(provider) =>
@@ -87,7 +87,7 @@ export const SettingsAdminAiProviderListCard = ({
         })
       }
       hasFooter={showAddButton}
-      footerButtonLabel={t`Add Custom Provider`}
+      footerButtonLabel={t`Tambah Penyedia Kustom`}
       onFooterButtonClick={() =>
         navigate(getSettingsPath(SettingsPath.AdminPanelNewAiProvider))
       }

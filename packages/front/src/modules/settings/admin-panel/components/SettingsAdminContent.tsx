@@ -25,13 +25,13 @@ export const SettingsAdminContent = () => {
   const tabs = [
     {
       id: SETTINGS_ADMIN_TABS.GENERAL,
-      title: t`General`,
+      title: t`Umum`,
       Icon: IconSettings2,
       disabled: !canAccessFullAdminPanel && !canImpersonate,
     },
     {
       id: SETTINGS_ADMIN_TABS.APPS,
-      title: t`Apps`,
+      title: t`Aplikasi`,
       Icon: IconApps,
       disabled: !canAccessFullAdminPanel,
     },
@@ -43,13 +43,13 @@ export const SettingsAdminContent = () => {
     },
     {
       id: SETTINGS_ADMIN_TABS.CONFIG_VARIABLES,
-      title: t`Config`,
+      title: t`Konfigurasi`,
       Icon: IconVariable,
       disabled: !canAccessFullAdminPanel,
     },
     {
       id: SETTINGS_ADMIN_TABS.HEALTH_STATUS,
-      title: t`Health`,
+      title: t`Kesehatan`,
       Icon: IconHeart,
       disabled: !canAccessFullAdminPanel,
     },

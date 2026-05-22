@@ -46,7 +46,7 @@ export const SettingsAdminJobStateBadge = ({
     <StyledContainer>
       <Tag color={color} text={state} />
       {showAttempts && (
-        <StyledAttemptBadge>{attemptsMade} attempts</StyledAttemptBadge>
+        <StyledAttemptBadge>{attemptsMade} percobaan</StyledAttemptBadge>
       )}
     </StyledContainer>
   );

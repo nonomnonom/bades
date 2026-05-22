@@ -52,11 +52,11 @@ export const SettingsAdminWorkerQueueMetricsSection = ({
     <StyledContainer>
       <Section>
         <StyledControlsContainer>
-          <H2Title title={queue.queueName} description={t`Queue performance`} />
+          <H2Title title={queue.queueName} description={t`Performa antrian`} />
           <StyledRightControls>
             <Button
               Icon={IconList}
-              title={t`View Jobs`}
+              title={t`Lihat Pekerjaan`}
               size="small"
               variant="secondary"
               to={getSettingsPath(SettingsPath.AdminPanelQueueDetail, {

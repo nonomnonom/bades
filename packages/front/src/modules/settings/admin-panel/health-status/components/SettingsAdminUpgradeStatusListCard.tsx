@@ -62,19 +62,19 @@ export const SettingsAdminUpgradeStatusListCard = ({
     {
       id: 'inferred-version',
       kind: 'inferred-version',
-      label: t`Inferred version`,
+      label: t`Versi terdeteksi`,
       ...sharedRowProps,
     },
     {
       id: 'instance-status',
       kind: 'instance-status',
-      label: t`Instance status`,
+      label: t`Status instansi`,
       ...sharedRowProps,
     },
     {
       id: 'workspaces-status',
       kind: 'workspaces-status',
-      label: t`Workspaces status`,
+      label: t`Status ruang kerja`,
       ...sharedRowProps,
     },
   ];

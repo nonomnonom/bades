@@ -74,7 +74,7 @@ export const SettingsAdminWorkspaceContent = ({
   const workspaceInfoItems = [
     {
       Icon: IconHome,
-      label: t`Name`,
+      label: t`Nama`,
       value: activeWorkspace?.id ? (
         <LinkChip
           label={activeWorkspace?.name ?? ''}
@@ -106,7 +106,7 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconId,
-      label: t`Schema name`,
+      label: t`Nama skema`,
       value: isDefined(activeWorkspace?.id)
         ? getWorkspaceSchemaName(activeWorkspace.id)
         : '',
@@ -120,7 +120,7 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconUser,
-      label: t`Members`,
+      label: t`Anggota`,
       value: activeWorkspace?.totalUsers,
     },
     {
@@ -130,7 +130,7 @@ export const SettingsAdminWorkspaceContent = ({
     },
     {
       Icon: IconCalendar,
-      label: t`Created`,
+      label: t`Dibuat`,
       value: activeWorkspace?.createdAt
         ? new Date(activeWorkspace.createdAt).toLocaleDateString()
         : '',
@@ -143,8 +143,8 @@ export const SettingsAdminWorkspaceContent = ({
     <StyledContainer>
       <Section>
         <H2Title
-          title={t`Workspace Info`}
-          description={t`About this workspace`}
+          title={t`Info Ruang Kerja`}
+          description={t`Tentang ruang kerja ini`}
         />
         <SettingsTableCard
           items={workspaceInfoItems}
@@ -154,8 +154,8 @@ export const SettingsAdminWorkspaceContent = ({
       {workspaceUpgradeStatus && (
         <Section>
           <H2Title
-            title={t`Upgrade Status`}
-            description={t`Workspace upgrade health`}
+            title={t`Status Pembaruan`}
+            description={t`Kesehatan pembaruan ruang kerja`}
           />
           <SettingsTableCard
             items={[
@@ -172,12 +172,12 @@ export const SettingsAdminWorkspaceContent = ({
               },
               {
                 Icon: IconId,
-                label: t`Inferred version`,
-                value: workspaceUpgradeStatus.inferredVersion ?? t`Unknown`,
+                label: t`Versi terdeteksi`,
+                value: workspaceUpgradeStatus.inferredVersion ?? t`Tidak diketahui`,
               },
               {
                 Icon: IconCalendar,
-                label: t`Last command`,
+                label: t`Perintah terakhir`,
                 value: (
                   <OverflowingTextWithTooltip
                     text={
@@ -185,32 +185,32 @@ export const SettingsAdminWorkspaceContent = ({
                         ? formatUpgradeCommandName(
                             workspaceUpgradeStatus.latestCommand.name,
                           )
-                        : t`None`
+                        : t`Tidak ada`
                     }
                   />
                 ),
               },
               {
                 Icon: IconCalendar,
-                label: t`Last updated`,
+                label: t`Terakhir diperbarui`,
                 value: isNonEmptyString(formattedLastUpdated)
                   ? formattedLastUpdated
-                  : t`N/A`,
+                  : t`T/A`,
               },
               {
                 Icon: IconStatusChange,
-                label: t`Last command result`,
+                label: t`Hasil perintah terakhir`,
                 value: workspaceUpgradeStatus.latestCommand?.status
                   ? workspaceUpgradeStatus.latestCommand.status === 'completed'
-                    ? t`Completed`
-                    : t`Failed`
-                  : t`N/A`,
+                    ? t`Selesai`
+                    : t`Gagal`
+                  : t`T/A`,
               },
               ...(workspaceUpgradeStatus.latestCommand?.errorMessage
                 ? [
                     {
                       Icon: IconStatusChange,
-                      label: t`Last error`,
+                      label: t`Error terakhir`,
                       value: (
                         <OverflowingTextWithTooltip
                           text={

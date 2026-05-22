@@ -7,22 +7,22 @@ export const getWorkspacesUpgradeHealthText = (
 ): string => {
   if (failedCount > 0 && behindCount > 0) {
     return plural(failedCount + behindCount, {
-      one: '# workspace failed or behind',
-      other: '# workspaces failed or behind',
+      one: '# ruang kerja gagal atau tertinggal',
+      other: '# ruang kerja gagal atau tertinggal',
     });
   }
 
   if (failedCount > 0) {
     return plural(failedCount, {
-      one: '# workspace failed',
-      other: '# workspaces failed',
+      one: '# ruang kerja gagal',
+      other: '# ruang kerja gagal',
     });
   }
 
   if (behindCount > 0) {
     return plural(behindCount, {
-      one: '# workspace behind',
-      other: '# workspaces behind',
+      one: '# ruang kerja tertinggal',
+      other: '# ruang kerja tertinggal',
     });
   }
 

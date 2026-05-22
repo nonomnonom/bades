@@ -46,7 +46,7 @@ export const SettingsAdminJsonDataIndicatorHealthStatus = () => {
       {isDown && (
         <StyledErrorMessage>
           {indicatorHealth.errorMessage ||
-            t`${serviceLabel} service is unreachable`}
+            t`Layanan ${serviceLabel} tidak dapat dijangkau`}
         </StyledErrorMessage>
       )}
       {parsedDetails && (
@@ -54,11 +54,11 @@ export const SettingsAdminJsonDataIndicatorHealthStatus = () => {
           <JsonTree
             value={parsedDetails}
             shouldExpandNodeInitially={isAnyNode}
-            emptyArrayLabel={t`Empty Array`}
-            emptyObjectLabel={t`Empty Object`}
-            emptyStringLabel={t`[empty string]`}
-            arrowButtonCollapsedLabel={t`Expand`}
-            arrowButtonExpandedLabel={t`Collapse`}
+            emptyArrayLabel={t`Array Kosong`}
+            emptyObjectLabel={t`Objek Kosong`}
+            emptyStringLabel={t`[string kosong]`}
+            arrowButtonCollapsedLabel={t`Perluas`}
+            arrowButtonExpandedLabel={t`Ciutkan`}
             onNodeValueClick={copyToClipboard}
           />
         </StyledDetailsContainer>

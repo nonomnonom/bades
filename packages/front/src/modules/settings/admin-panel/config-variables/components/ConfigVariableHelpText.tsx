@@ -33,10 +33,10 @@ export const ConfigVariableHelpText = ({
   if (isReadOnly) {
     return (
       <StyledHelpText>
-        {t`Database configuration is currently disabled.`}{' '}
+        {t`Konfigurasi database saat ini dinonaktifkan.`}{' '}
         {isFromEnvironment
-          ? t`Value is set in the server environment, it may be a different value on the worker.`
-          : t`Using default application value. Configure via environment variables.`}
+          ? t`Nilai diatur di environment server, mungkin berbeda di worker.`
+          : t`Menggunakan nilai default aplikasi. Konfigurasikan melalui variabel environment.`}
       </StyledHelpText>
     );
   }
@@ -44,7 +44,7 @@ export const ConfigVariableHelpText = ({
   if (isConfigVariablesInDbEnabled && variable.isEnvOnly) {
     return (
       <StyledHelpText>
-        {t`This setting can only be configured through environment variables.`}
+        {t`Pengaturan ini hanya dapat dikonfigurasi melalui variabel environment.`}
       </StyledHelpText>
     );
   }
@@ -53,8 +53,8 @@ export const ConfigVariableHelpText = ({
     return (
       <StyledHelpText>
         {isFromDatabase
-          ? t`Click on the checkmark to apply your changes.`
-          : t`This value will be saved to the database.`}
+          ? t`Klik tanda centang untuk menerapkan perubahan Anda.`
+          : t`Nilai ini akan disimpan ke database.`}
       </StyledHelpText>
     );
   }
@@ -64,10 +64,10 @@ export const ConfigVariableHelpText = ({
       return (
         <>
           <StyledHelpText>
-            {t`This database value overrides environment settings. `}
+            {t`Nilai database ini menggantikan pengaturan environment. `}
           </StyledHelpText>
           <StyledHelpText>
-            {t`Clear the field or "X" to revert to environment/default value.`}
+            {t`Kosongkan kolom atau tekan "X" untuk kembali ke nilai environment/default.`}
           </StyledHelpText>
         </>
       );
@@ -75,12 +75,12 @@ export const ConfigVariableHelpText = ({
       return (
         <StyledHelpText>
           {isFromEnvironment
-            ? t`Current value from server environment. Set a custom value to override.`
-            : t`Using default value. Set a custom value to override.`}
+            ? t`Nilai saat ini berasal dari environment server. Atur nilai kustom untuk menggantikannya.`
+            : t`Menggunakan nilai default. Atur nilai kustom untuk menggantikannya.`}
         </StyledHelpText>
       );
     }
   }
 
-  return <StyledHelpText>{t`This should never happen`}</StyledHelpText>;
+  return <StyledHelpText>{t`Ini seharusnya tidak terjadi`}</StyledHelpText>;
 };

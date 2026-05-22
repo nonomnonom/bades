@@ -83,13 +83,13 @@ export const SettingsAdminQueueJobsTable = ({
   const { openModal } = useModal();
 
   const jobStateOptions: { value: JobState; label: string }[] = [
-    { value: JobState.COMPLETED, label: t`Completed` },
-    { value: JobState.FAILED, label: t`Failed` },
-    { value: JobState.ACTIVE, label: t`Active` },
-    { value: JobState.WAITING, label: t`Waiting` },
-    { value: JobState.DELAYED, label: t`Delayed` },
-    { value: JobState.PRIORITIZED, label: t`Prioritized` },
-    { value: JobState.WAITING_CHILDREN, label: t`Waiting Children` },
+    { value: JobState.COMPLETED, label: t`Selesai` },
+    { value: JobState.FAILED, label: t`Gagal` },
+    { value: JobState.ACTIVE, label: t`Aktif` },
+    { value: JobState.WAITING, label: t`Menunggu` },
+    { value: JobState.DELAYED, label: t`Ditunda` },
+    { value: JobState.PRIORITIZED, label: t`Diprioritaskan` },
+    { value: JobState.WAITING_CHILDREN, label: t`Menunggu Anak` },
   ];
 
   const offset = page * LIMIT;
@@ -222,8 +222,8 @@ export const SettingsAdminQueueJobsTable = ({
             <Button
               Icon={IconTrash}
               title={plural(selectedCount, {
-                one: `Delete ${selectedCount} Job`,
-                other: `Delete ${selectedCount} Jobs`,
+                one: `Hapus ${selectedCount} Pekerjaan`,
+                other: `Hapus ${selectedCount} Pekerjaan`,
               })}
               onClick={handleDeleteSelected}
               disabled={isDeleting || loading}
@@ -236,8 +236,8 @@ export const SettingsAdminQueueJobsTable = ({
             <Button
               Icon={IconRefresh}
               title={plural(selectedCount, {
-                one: `Retry ${selectedCount} Job`,
-                other: `Retry ${selectedCount} Jobs`,
+                one: `Coba Ulang ${selectedCount} Pekerjaan`,
+                other: `Coba Ulang ${selectedCount} Pekerjaan`,
               })}
               onClick={handleRetrySelected}
               disabled={isRetrying || loading}
@@ -248,7 +248,7 @@ export const SettingsAdminQueueJobsTable = ({
           {failedJobs.length > 0 && selectedCount === 0 && (
             <Button
               Icon={IconRefresh}
-              title={t`Retry All Failed`}
+              title={t`Coba Ulang Semua yang Gagal`}
               onClick={handleRetrySelected}
               disabled={isRetrying || loading}
               size="small"
@@ -259,9 +259,9 @@ export const SettingsAdminQueueJobsTable = ({
       </StyledControlsContainer>
 
       {loading && jobs.length === 0 ? (
-        <SettingsEmptyPlaceholder>{t`Loading jobs...`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder>{t`Memuat pekerjaan...`}</SettingsEmptyPlaceholder>
       ) : jobs.length === 0 ? (
-        <SettingsEmptyPlaceholder>{t`No jobs found`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder>{t`Tidak ada pekerjaan`}</SettingsEmptyPlaceholder>
       ) : (
         <>
           <Table>
@@ -278,9 +278,9 @@ export const SettingsAdminQueueJobsTable = ({
                   />
                 )}
               </TableHeader>
-              <TableHeader>{t`Job Name`}</TableHeader>
-              <TableHeader>{t`State`}</TableHeader>
-              <TableHeader align="right">{t`Timestamp`}</TableHeader>
+              <TableHeader>{t`Nama Pekerjaan`}</TableHeader>
+              <TableHeader>{t`Status`}</TableHeader>
+              <TableHeader align="right">{t`Waktu`}</TableHeader>
               <TableHeader></TableHeader>
             </TableRow>
             <TableBody>
@@ -359,18 +359,18 @@ export const SettingsAdminQueueJobsTable = ({
 
           <StyledPaginationContainer>
             <Button
-              title={t`Previous`}
+              title={t`Sebelumnya`}
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0 || loading}
               size="small"
               variant="secondary"
             />
             <div>
-              {t`Page`} {page + 1} {totalCount > 0 ? t`of` : ''}{' '}
+              {t`Halaman`} {page + 1} {totalCount > 0 ? t`dari` : ''}{' '}
               {totalCount > 0 ? Math.max(1, Math.ceil(totalCount / LIMIT)) : ''}
             </div>
             <Button
-              title={t`Next`}
+              title={t`Berikutnya`}
               onClick={() => setPage((p) => p + 1)}
               disabled={!hasMore || loading}
               size="small"

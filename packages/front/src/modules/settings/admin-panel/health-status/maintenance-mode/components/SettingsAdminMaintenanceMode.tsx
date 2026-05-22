@@ -99,7 +99,7 @@ export const SettingsAdminMaintenanceMode = () => {
           message:
             error instanceof Error
               ? error.message
-              : t`Failed to set maintenance mode.`,
+              : t`Gagal mengatur mode pemeliharaan.`,
         });
       }
     },
@@ -184,19 +184,19 @@ export const SettingsAdminMaintenanceMode = () => {
     : '';
 
   const toggleDescription = isScheduled
-    ? t`Planned for ${formattedStartDate}`
+    ? t`Direncanakan untuk ${formattedStartDate}`
     : undefined;
 
   return (
     <Section>
       <H2Title
-        title={t`Maintenance`}
-        description={t`Schedule a maintenance window and notify all users`}
+        title={t`Pemeliharaan`}
+        description={t`Jadwalkan jendela pemeliharaan dan beri tahu semua pengguna`}
       />
       <Card rounded>
         <SettingsOptionCardContentToggle
           Icon={IconTool}
-          title={t`Maintenance mode`}
+          title={t`Mode pemeliharaan`}
           description={toggleDescription}
           checked={isEnabled}
           onChange={handleToggle}
@@ -205,25 +205,25 @@ export const SettingsAdminMaintenanceMode = () => {
           <CardContent>
             <StyledFormContainer>
               <SettingsDatePickerInput
-                label={t`Start date`}
+                label={t`Tanggal mulai`}
                 value={startDate}
                 onChange={handleDateChange('startAt')}
               />
               <div>
                 <SettingsDatePickerInput
-                  label={t`End date`}
+                  label={t`Tanggal selesai`}
                   value={endDate}
                   onChange={handleDateChange('endAt')}
                 />
                 {isDefined(startDate) &&
                   isDefined(endDate) &&
                   !hasValidDateRange && (
-                    <InputHint>{t`End date must be after start date.`}</InputHint>
+                    <InputHint>{t`Tanggal selesai harus setelah tanggal mulai.`}</InputHint>
                   )}
               </div>
               <div>
                 <TextInput
-                  label={t`Link`}
+                  label={t`Tautan`}
                   type="url"
                   value={adminPanelMaintenanceMode.link ?? ''}
                   onChange={handleLinkChange}
@@ -233,14 +233,14 @@ export const SettingsAdminMaintenanceMode = () => {
                   fullWidth
                 />
                 <InputHint>
-                  {t`If there's no link, no button will appear.`}
+                  {t`Jika tidak ada tautan, tombol tidak akan muncul.`}
                 </InputHint>
               </div>
               {isScheduled && (
                 <StyledStatusRow>
                   <Status
                     color="orange"
-                    text={t`Planned for ${formattedStartDate}`}
+                    text={t`Direncanakan untuk ${formattedStartDate}`}
                   />
                 </StyledStatusRow>
               )}

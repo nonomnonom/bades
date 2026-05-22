@@ -79,7 +79,7 @@ export const SettingsAdminChatThreadMessageList = ({
             color={themeCssVariables.font.color.tertiary}
             align="center"
           >
-            {t`No messages found.`}
+            {t`Tidak ada pesan.`}
           </TableCell>
         </TableRow>
       </Card>
@@ -113,7 +113,7 @@ export const SettingsAdminChatThreadMessageList = ({
             )}
             {toolParts.map((part, index) => (
               <StyledMessageContent key={index} isUser={false}>
-                {t`Tool call: ${part.toolName}`}
+                {t`Panggilan alat: ${part.toolName}`}
               </StyledMessageContent>
             ))}
             <StyledTimestamp>

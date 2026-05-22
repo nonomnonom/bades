@@ -91,17 +91,17 @@ export const SettingsAdminWorkerMetricsGraph = ({
   const getAxisLabel = () => {
     switch (timeRange) {
       case QueueMetricsTimeRange.OneHour:
-        return t`Last 1 Hour (oldest → newest)`;
+        return t`1 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.FourHours:
-        return t`Last 4 Hours (oldest → newest)`;
+        return t`4 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.TwelveHours:
-        return t`Last 12 Hours (oldest → newest)`;
+        return t`12 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.OneDay:
-        return t`Last 24 Hours (oldest → newest)`;
+        return t`24 Jam Terakhir (terlama → terbaru)`;
       case QueueMetricsTimeRange.SevenDays:
-        return t`Last 7 Days (oldest → newest)`;
+        return t`7 Hari Terakhir (terlama → terbaru)`;
       default:
-        return t`Recent Events (oldest → newest)`;
+        return t`Kejadian Terbaru (terlama → terbaru)`;
     }
   };
 
@@ -109,7 +109,7 @@ export const SettingsAdminWorkerMetricsGraph = ({
     <>
       <StyledGraphContainer>
         {loading ? (
-          <StyledNoDataMessage>{t`Loading metrics data...`}</StyledNoDataMessage>
+          <StyledNoDataMessage>{t`Memuat data metrik...`}</StyledNoDataMessage>
         ) : hasData ? (
           <ResponsiveLine
             data={metricsData}
@@ -198,7 +198,7 @@ export const SettingsAdminWorkerMetricsGraph = ({
             ]}
           />
         ) : (
-          <StyledNoDataMessage>{t`No metrics data available`}</StyledNoDataMessage>
+          <StyledNoDataMessage>{t`Tidak ada data metrik tersedia`}</StyledNoDataMessage>
         )}
       </StyledGraphContainer>
       {isDefined(metricsDetails) && (

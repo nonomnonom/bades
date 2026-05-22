@@ -79,8 +79,8 @@ export const SettingsAdminGeneral = () => {
       {canAccessFullAdminPanel && (
         <Section>
           <H2Title
-            title={t`About`}
-            description={t`Version of the application`}
+            title={t`Tentang`}
+            description={t`Versi aplikasi`}
           />
           <SettingsAdminVersionContainer />
         </Section>
@@ -90,25 +90,25 @@ export const SettingsAdminGeneral = () => {
         <>
           <Section>
             <H2Title
-              title={t`Recent Users`}
+              title={t`Pengguna Terbaru`}
               description={
                 canManageFeatureFlags
-                  ? t`Last 10 users created. Click to manage feature flags or impersonate.`
-                  : t`Last 10 users created. Click to impersonate.`
+                  ? t`10 pengguna terakhir yang dibuat. Klik untuk mengelola feature flag atau impersonasi.`
+                  : t`10 pengguna terakhir yang dibuat. Klik untuk impersonasi.`
               }
             />
             <SettingsTextInput
               instanceId="admin-panel-user-search"
               value={userSearchTerm}
               onChange={setUserSearchTerm}
-              placeholder={t`Search by name, email, or user ID...`}
+              placeholder={t`Cari berdasarkan nama, email, atau ID pengguna...`}
               fullWidth
             />
             {isLoadingUsers ? (
               <SettingsSectionSkeletonLoader />
             ) : recentUsers.length === 0 ? (
               <StyledEmptyState>
-                {t`No users found matching your search criteria.`}
+                {t`Tidak ada pengguna yang cocok dengan kriteria pencarian Anda.`}
               </StyledEmptyState>
             ) : (
               <Table>
@@ -116,9 +116,9 @@ export const SettingsAdminGeneral = () => {
                   <TableRow
                     gridTemplateColumns={RECENT_USERS_GRID_TEMPLATE_COLUMNS}
                   >
-                    <TableHeader>{t`Name`}</TableHeader>
+                    <TableHeader>{t`Nama`}</TableHeader>
                     <TableHeader>{t`Email`}</TableHeader>
-                    <TableHeader>{t`Workspace`}</TableHeader>
+                    <TableHeader>{t`Ruang Kerja`}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   {recentUsers.map((user) => (
@@ -188,21 +188,21 @@ export const SettingsAdminGeneral = () => {
 
           <Section>
             <H2Title
-              title={t`Top Workspaces`}
-              description={t`Top 10 workspaces by number of users`}
+              title={t`Ruang Kerja Teratas`}
+              description={t`10 ruang kerja teratas berdasarkan jumlah pengguna`}
             />
             <SettingsTextInput
               instanceId="admin-panel-workspace-search"
               value={workspaceSearchTerm}
               onChange={setWorkspaceSearchTerm}
-              placeholder={t`Search by workspace name, subdomain, or ID...`}
+              placeholder={t`Cari berdasarkan nama, subdomain, atau ID ruang kerja...`}
               fullWidth
             />
             {isLoadingWorkspaces ? (
               <SettingsSectionSkeletonLoader />
             ) : topWorkspaces.length === 0 ? (
               <StyledEmptyState>
-                {t`No workspaces found matching your search criteria.`}
+                {t`Tidak ada ruang kerja yang cocok dengan kriteria pencarian Anda.`}
               </StyledEmptyState>
             ) : (
               <Table>
@@ -210,8 +210,8 @@ export const SettingsAdminGeneral = () => {
                   <TableRow
                     gridTemplateColumns={TOP_WORKSPACES_GRID_TEMPLATE_COLUMNS}
                   >
-                    <TableHeader>{t`Workspace`}</TableHeader>
-                    <TableHeader align="right">{t`Users`}</TableHeader>
+                    <TableHeader>{t`Ruang Kerja`}</TableHeader>
+                    <TableHeader align="right">{t`Pengguna`}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   {topWorkspaces.map((workspace) => (

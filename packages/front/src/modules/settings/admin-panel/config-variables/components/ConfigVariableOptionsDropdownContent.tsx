@@ -51,12 +51,12 @@ export const ConfigVariableOptionsDropdownContent = ({
       <DropdownContent>
         <DropdownMenuItemsContainer>
           <MenuItemSelectTag
-            text={t`Source`}
+            text={t`Sumber`}
             color="transparent"
             onClick={() => onSelectCategory('source')}
           />
           <MenuItemSelectTag
-            text={t`Group`}
+            text={t`Grup`}
             color="transparent"
             onClick={() => onSelectCategory('group')}
           />
@@ -66,8 +66,8 @@ export const ConfigVariableOptionsDropdownContent = ({
           <MenuItem
             text={
               showHiddenGroupVariables
-                ? t`Hide hidden groups`
-                : t`Show hidden groups`
+                ? t`Sembunyikan grup tersembunyi`
+                : t`Tampilkan grup tersembunyi`
             }
             LeftIcon={() =>
               showHiddenGroupVariables ? (
@@ -99,8 +99,8 @@ export const ConfigVariableOptionsDropdownContent = ({
           />
         }
       >
-        {selectedCategory === 'source' && t`Select Source`}
-        {selectedCategory === 'group' && t`Select Group`}
+        {selectedCategory === 'source' && t`Pilih Sumber`}
+        {selectedCategory === 'group' && t`Pilih Grup`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {selectedCategory === 'source' && (

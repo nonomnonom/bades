@@ -127,7 +127,7 @@ export const ConfigVariableDatabaseInput = ({
                     label:
                       Array.isArray(value) && value.length > 0
                         ? value.join(', ')
-                        : t`Select options`,
+                        : t`Pilih opsi`,
                   }}
                   isDisabled={disabled}
                   hasRightElement={false}
@@ -170,7 +170,7 @@ export const ConfigVariableDatabaseInput = ({
                 }
               }}
               disabled={disabled}
-              placeholder={placeholder || t`Enter JSON array`}
+              placeholder={placeholder || t`Masukkan array JSON`}
             />
           )}
         </>
@@ -202,7 +202,7 @@ export const ConfigVariableDatabaseInput = ({
           }
           onChange={(text) => onChange(text)}
           disabled={disabled}
-          placeholder={placeholder || t`Enter value`}
+          placeholder={placeholder || t`Masukkan nilai`}
           fullWidth
         />
       );

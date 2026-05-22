@@ -15,17 +15,17 @@ export const SettingsAdminRevokeSigningKeyConfirmationModal = ({
   onClose,
 }: SettingsAdminRevokeSigningKeyConfirmationModalProps) => {
   const subtitle = isCurrent
-    ? t`This is the current signing key. Revoking it will invalidate every JWT signed with it and users may need to sign in again. A new signing key will be generated automatically on the next request.`
-    : t`Revoking this key will invalidate every JWT signed with it. Users with active tokens signed by this key will be logged out.`;
+    ? t`Ini adalah kunci penandatanganan aktif saat ini. Mencabutnya akan membatalkan semua JWT yang ditandatangani dengannya dan pengguna mungkin perlu masuk kembali. Kunci penandatanganan baru akan dibuat secara otomatis pada permintaan berikutnya.`
+    : t`Mencabut kunci ini akan membatalkan semua JWT yang ditandatangani dengannya. Pengguna dengan token aktif yang ditandatangani dengan kunci ini akan keluar.`;
 
   return (
     <ConfirmationModal
       modalInstanceId={modalInstanceId}
-      title={t`Revoke signing key`}
+      title={t`Cabut kunci penandatanganan`}
       subtitle={subtitle}
       onConfirmClick={onConfirm}
       onClose={onClose}
-      confirmButtonText={t`Revoke`}
+      confirmButtonText={t`Cabut`}
       confirmButtonAccent="danger"
     />
   );

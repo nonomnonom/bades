@@ -15,13 +15,13 @@ export const SettingsAdminRetryJobsConfirmationModal = ({
   onClose,
 }: SettingsAdminRetryJobsConfirmationModalProps) => {
   const title = plural(jobCount, {
-    one: `Retry ${jobCount} Job`,
-    other: `Retry ${jobCount} Jobs`,
+    one: `Coba Ulang ${jobCount} Pekerjaan`,
+    other: `Coba Ulang ${jobCount} Pekerjaan`,
   });
 
   const subtitle = plural(jobCount, {
-    one: `This will retry the selected job. It will be re-executed from the beginning.`,
-    other: `This will retry the selected jobs. They will be re-executed from the beginning.`,
+    one: `Ini akan mencoba ulang pekerjaan yang dipilih. Pekerjaan akan dijalankan ulang dari awal.`,
+    other: `Ini akan mencoba ulang pekerjaan-pekerjaan yang dipilih. Setiap pekerjaan akan dijalankan ulang dari awal.`,
   });
 
   return (
@@ -31,7 +31,7 @@ export const SettingsAdminRetryJobsConfirmationModal = ({
       subtitle={subtitle}
       onConfirmClick={onConfirm}
       onClose={onClose}
-      confirmButtonText={t`Retry`}
+      confirmButtonText={t`Coba Ulang`}
       confirmButtonAccent="blue"
     />
   );

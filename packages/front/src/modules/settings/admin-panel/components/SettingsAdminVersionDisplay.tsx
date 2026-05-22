@@ -35,7 +35,7 @@ export const SettingsAdminVersionDisplay = ({
   noVersionMessage,
 }: SettingsAdminVersionDisplayProps) => {
   if (loading) {
-    return <StyledSpan>{t`Loading...`}</StyledSpan>;
+    return <StyledSpan>{t`Memuat...`}</StyledSpan>;
   }
 
   if (!version) {

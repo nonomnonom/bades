@@ -42,7 +42,7 @@ export const ConfigVariableFilterDropdown = ({
         <Button
           variant="secondary"
           size="medium"
-          title={t`Options`}
+          title={t`Opsi`}
           Icon={IconSettings}
         />
       }

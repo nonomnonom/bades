@@ -12,7 +12,7 @@ export const ConfigVariableSearchInput = ({
 }: ConfigVariableSearchInputProps) => {
   return (
     <SearchInput
-      placeholder={t`Search config variables`}
+      placeholder={t`Cari variabel konfigurasi`}
       value={value}
       onChange={onChange}
     />
