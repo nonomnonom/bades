@@ -2,11 +2,6 @@ import {
   formatExpiration,
   isExpired,
 } from '@/settings/developers/utils/formatExpiration';
-import { i18n } from '~/utils/i18n/badesI18n';
-import { messages as idMessages } from '~/locales/generated/id-ID';
-
-i18n.load('id-ID', idMessages);
-i18n.activate('id-ID');
 
 jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
 

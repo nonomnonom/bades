@@ -1,9 +1,4 @@
-import { i18n } from '~/utils/i18n/badesI18n';
-import { messages as idMessages } from '~/locales/generated/id-ID';
 import { getPageTitleFromPath } from '~/utils/title-utils';
-
-i18n.load('id-ID', idMessages);
-i18n.activate('id-ID');
 
 describe('title-utils', () => {
   it('should return the correct title for a given path', () => {

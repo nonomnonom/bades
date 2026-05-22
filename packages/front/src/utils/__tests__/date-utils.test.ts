@@ -1,8 +1,5 @@
-import { i18n } from '~/utils/i18n/badesI18n';
 import { addDays, format, formatDistanceToNow, subDays } from 'date-fns';
 import { id } from 'date-fns/locale';
-import { SOURCE_LOCALE } from 'shared/translations';
-import { messages as idMessages } from '~/locales/generated/id-ID';
 
 import {
   beautifyDateDiff,
@@ -14,9 +11,6 @@ import {
   parseDate,
 } from '~/utils/date-utils';
 import { logError } from '~/utils/logError';
-
-i18n.load(SOURCE_LOCALE, idMessages);
-i18n.activate(SOURCE_LOCALE);
 
 jest.mock('~/utils/logError');
 jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
@@ -291,18 +285,6 @@ describe('beautifyDateDiff', () => {
 });
 
 describe('Indonesian locale tests', () => {
-  beforeAll(() => {
-    // Setup Indonesian i18n for these tests
-    i18n.load('id-ID', idMessages);
-    i18n.activate('id-ID');
-  });
-
-  afterAll(() => {
-    // Kembalikan ke locale tunggal Bades (id-ID) untuk test lain
-    i18n.load(SOURCE_LOCALE, idMessages);
-    i18n.activate(SOURCE_LOCALE);
-  });
-
   describe('beautifyPastDateRelativeToNow with Indonesian locale', () => {
     it('should format very recent dates as "now" in Indonesian', () => {
       const pastDate = '2023-12-31T23:59:45.000Z'; // 15 seconds ago

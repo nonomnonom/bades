@@ -1,4 +1,3 @@
-import { lingui } from '@lingui/vite-plugin';
 import { isNonEmptyString } from '@sniptt/guards';
 import react from '@vitejs/plugin-react-swc';
 import wyw from '@wyw-in-js/vite';
@@ -71,17 +70,12 @@ export default defineConfig(({ mode }) => {
     },
 
     plugins: [
-      react({
-        plugins: [['@lingui/swc-plugin', {}]],
-      }),
+      react(),
       tsconfigPaths({
         root: __dirname,
         projects: ['tsconfig.json'],
       }),
       svgr(),
-      lingui({
-        configPath: path.resolve(__dirname, './lingui.config.ts'),
-      }),
       createWywProfilingPlugin(
         wyw({
           include: [path.resolve(__dirname, 'src') + '/**/*.{ts,tsx}'],
