@@ -17,7 +17,7 @@ export class AuditService {
   private readonly logger = new Logger(AuditService.name);
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly clickHouseService: ClickHouseService,
   ) {}
 
@@ -83,7 +83,7 @@ export class AuditService {
   private async preventIfDisabled(
     sendEventOrPageviewFunction: () => Promise<{ success: boolean }>,
   ): Promise<{ success: boolean }> {
-    if (!this.twentyConfigService.get('CLICKHOUSE_URL')) {
+    if (!this.badesConfigService.get('CLICKHOUSE_URL')) {
       return { success: true };
     }
 

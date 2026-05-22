@@ -37,7 +37,7 @@ export class OAuthService {
     private readonly applicationRegistrationService: ApplicationRegistrationService,
     private readonly applicationService: ApplicationService,
     private readonly applicationInstallService: ApplicationInstallService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async exchangeAuthorizationCode(params: {
@@ -477,7 +477,7 @@ export class OAuthService {
         token_type: 'Bearer',
         scope: clientValidation.oAuthScopes.join(' '),
         aud: decoded.workspaceId,
-        iss: this.twentyConfigService.get('SERVER_URL'),
+        iss: this.badesConfigService.get('SERVER_URL'),
         exp: decoded.exp,
         iat: decoded.iat,
       };
@@ -507,7 +507,7 @@ export class OAuthService {
           token_type: 'Bearer',
           scope: clientValidation.oAuthScopes.join(' '),
           aud: payload.workspaceId,
-          iss: this.twentyConfigService.get('SERVER_URL'),
+          iss: this.badesConfigService.get('SERVER_URL'),
         };
       } catch {
         return { active: false };
@@ -600,7 +600,7 @@ export class OAuthService {
 
   // OAuth RFC 6749 requires expires_in as seconds
   private getAccessTokenExpiresInSeconds(): number {
-    const duration = this.twentyConfigService.get(
+    const duration = this.badesConfigService.get(
       'APPLICATION_ACCESS_TOKEN_EXPIRES_IN',
     );
 

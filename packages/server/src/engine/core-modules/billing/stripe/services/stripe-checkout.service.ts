@@ -19,15 +19,15 @@ export class StripeCheckoutService {
   private readonly stripe: Stripe;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly stripeSDKService: StripeSDKService,
     private readonly stripeCustomerService: StripeCustomerService,
   ) {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return;
     }
     this.stripe = this.stripeSDKService.getStripe(
-      this.twentyConfigService.get('BILLING_STRIPE_API_KEY'),
+      this.badesConfigService.get('BILLING_STRIPE_API_KEY'),
     );
   }
 
@@ -146,7 +146,7 @@ export class StripeCheckoutService {
   ) {
     return withTrialPeriod
       ? {
-          trial_period_days: this.twentyConfigService.get(
+          trial_period_days: this.badesConfigService.get(
             requirePaymentMethod
               ? 'BILLING_FREE_TRIAL_WITH_CREDIT_CARD_DURATION_IN_DAYS'
               : 'BILLING_FREE_TRIAL_WITHOUT_CREDIT_CARD_DURATION_IN_DAYS',

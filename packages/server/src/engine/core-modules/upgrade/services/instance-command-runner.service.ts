@@ -22,7 +22,7 @@ export class InstanceCommandRunnerService {
   constructor(
     @InjectDataSource()
     private readonly dataSource: DataSource,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly upgradeMigrationService: UpgradeMigrationService,
     private readonly workspaceVersionService: WorkspaceVersionService,
     private readonly upgradeStatusService: UpgradeStatusService,
@@ -36,7 +36,7 @@ export class InstanceCommandRunnerService {
     name: string;
   }): Promise<RunSingleMigrationResult> {
     const executedByVersion =
-      this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+      this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
     const isAlreadyCompleted =
       await this.upgradeMigrationService.isLastAttemptCompleted({
@@ -141,7 +141,7 @@ export class InstanceCommandRunnerService {
 
     if (!skipDataMigration) {
       const executedByVersion =
-        this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+        this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
       try {
         this.logger.log(`${name} starting data migration...`);

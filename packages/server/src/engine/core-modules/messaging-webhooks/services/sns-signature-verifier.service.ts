@@ -11,7 +11,7 @@ export class SnsSignatureVerifierService {
   private readonly logger = new Logger(SnsSignatureVerifierService.name);
   private readonly validator = new SnsPayloadValidator();
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   async assertAllowedAndSigned(payload: SnsPayload): Promise<void> {
     if (!this.isTopicAllowlisted(payload.TopicArn)) {
@@ -33,7 +33,7 @@ export class SnsSignatureVerifierService {
   }
 
   private isTopicAllowlisted(topicArn: string): boolean {
-    const allowlist = this.twentyConfigService.get(
+    const allowlist = this.badesConfigService.get(
       'SES_SNS_TOPIC_ARN_ALLOWLIST',
     );
 

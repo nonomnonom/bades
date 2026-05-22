@@ -36,7 +36,7 @@ describe('ApprovedAccessDomainService', () => {
   let service: ApprovedAccessDomainService;
   let approvedAccessDomainRepository: Repository<ApprovedAccessDomainEntity>;
   let emailService: EmailService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let workspaceDomainsService: WorkspaceDomainsService;
   let jwtWrapperService: jest.Mocked<JwtWrapperService>;
 
@@ -96,7 +96,7 @@ describe('ApprovedAccessDomainService', () => {
       getRepositoryToken(ApprovedAccessDomainEntity),
     );
     emailService = module.get<EmailService>(EmailService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     workspaceDomainsService = module.get<WorkspaceDomainsService>(
       WorkspaceDomainsService,
     );
@@ -310,7 +310,7 @@ describe('ApprovedAccessDomainService', () => {
         .mockReturnValue(new URL('https://sub.twenty.com'));
 
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'EMAIL_FROM_ADDRESS') return 'no-reply@example.com';
           if (key === 'SERVER_URL') return 'https://api.example.com';

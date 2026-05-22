@@ -52,7 +52,7 @@ export class CleanerWorkspaceService {
   private readonly maxNumberOfWorkspacesDeletedPerExecution: number;
   constructor(
     private readonly workspaceService: WorkspaceService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly userVarsService: UserVarsService,
     private readonly userService: UserService,
     private readonly emailService: EmailService,
@@ -66,17 +66,17 @@ export class CleanerWorkspaceService {
     private readonly i18nService: I18nService,
     private readonly metricsService: MetricsService,
   ) {
-    this.inactiveDaysBeforeSoftDelete = this.twentyConfigService.get(
+    this.inactiveDaysBeforeSoftDelete = this.badesConfigService.get(
       'WORKSPACE_INACTIVE_DAYS_BEFORE_SOFT_DELETION',
     );
-    this.inactiveDaysBeforeDelete = this.twentyConfigService.get(
+    this.inactiveDaysBeforeDelete = this.badesConfigService.get(
       'WORKSPACE_INACTIVE_DAYS_BEFORE_DELETION',
     );
-    this.inactiveDaysBeforeWarn = this.twentyConfigService.get(
+    this.inactiveDaysBeforeWarn = this.badesConfigService.get(
       'WORKSPACE_INACTIVE_DAYS_BEFORE_NOTIFICATION',
     );
     this.maxNumberOfWorkspacesDeletedPerExecution =
-      this.twentyConfigService.get(
+      this.badesConfigService.get(
         'MAX_NUMBER_OF_WORKSPACES_DELETED_PER_EXECUTION',
       );
   }
@@ -136,9 +136,9 @@ export class CleanerWorkspaceService {
 
     await this.emailService.send({
       to: workspaceMember.userEmail,
-      from: `${this.twentyConfigService.get(
+      from: `${this.badesConfigService.get(
         'EMAIL_FROM_NAME',
-      )} <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      )} <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       subject,
       html,
       text,
@@ -214,9 +214,9 @@ export class CleanerWorkspaceService {
 
     await this.emailService.send({
       to: workspaceMember.userEmail,
-      from: `${this.twentyConfigService.get(
+      from: `${this.badesConfigService.get(
         'EMAIL_FROM_NAME',
-      )} <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      )} <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       subject: 'Your workspace has been deleted',
       html,
       text,
@@ -306,7 +306,7 @@ export class CleanerWorkspaceService {
               userWorkspace.userId,
             );
           }
-          if (this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+          if (this.badesConfigService.get('IS_BILLING_ENABLED')) {
             await this.billingSubscriptionService.deleteSubscriptions(
               workspace.id,
             );
@@ -481,7 +481,7 @@ export class CleanerWorkspaceService {
         continue;
       }
 
-      if (this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+      if (this.badesConfigService.get('IS_BILLING_ENABLED')) {
         const activeBillingSubscription =
           await this.billingSubscriptionRepository.findOne({
             where: {

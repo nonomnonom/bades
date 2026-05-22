@@ -7,13 +7,13 @@ import { type BadesConfigService } from 'src/engine/core-modules/bades-config/ba
 /**
  * Logger Module factory
  * @returns LoggerModuleOptions
- * @param twentyConfigService
+ * @param badesConfigService
  */
 export const loggerModuleFactory = async (
-  twentyConfigService: BadesConfigService,
+  badesConfigService: BadesConfigService,
 ): Promise<LoggerModuleOptions> => {
-  const driverType = twentyConfigService.get('LOGGER_DRIVER');
-  const logLevels = twentyConfigService.get('LOG_LEVELS');
+  const driverType = badesConfigService.get('LOGGER_DRIVER');
+  const logLevels = badesConfigService.get('LOG_LEVELS');
 
   switch (driverType) {
     case LoggerDriverType.CONSOLE: {

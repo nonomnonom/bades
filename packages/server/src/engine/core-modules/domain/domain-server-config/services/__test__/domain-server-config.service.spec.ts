@@ -8,7 +8,7 @@ import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.ent
 
 describe('SubdomainManagerService', () => {
   let domainServerConfigService: DomainServerConfigService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -39,13 +39,13 @@ describe('SubdomainManagerService', () => {
     domainServerConfigService = module.get<DomainServerConfigService>(
       DomainServerConfigService,
     );
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   describe('buildBaseUrl', () => {
     it('should build the base URL from environment variables', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -62,7 +62,7 @@ describe('SubdomainManagerService', () => {
 
     it('should append default subdomain if multiworkspace is enabled', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',

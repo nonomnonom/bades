@@ -38,7 +38,7 @@ describe('ResetPasswordService', () => {
   let workspaceRepository: Repository<WorkspaceEntity>;
   let appTokenRepository: Repository<AppTokenEntity>;
   let emailService: EmailService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let workspaceDomainsService: WorkspaceDomainsService;
 
   beforeEach(async () => {
@@ -98,7 +98,7 @@ describe('ResetPasswordService', () => {
       getRepositoryToken(AppTokenEntity),
     );
     emailService = module.get<EmailService>(EmailService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     workspaceDomainsService = module.get<WorkspaceDomainsService>(
       WorkspaceDomainsService,
     );
@@ -119,7 +119,7 @@ describe('ResetPasswordService', () => {
       jest
         .spyOn(appTokenRepository, 'save')
         .mockResolvedValue({} as AppTokenEntity);
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
 
       const result = await service.generatePasswordResetToken(
         'test@example.com',
@@ -151,7 +151,7 @@ describe('ResetPasswordService', () => {
       jest
         .spyOn(appTokenRepository, 'save')
         .mockResolvedValue({} as AppTokenEntity);
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
 
       const result =
         await service.generatePasswordResetToken('test@example.com');
@@ -171,7 +171,7 @@ describe('ResetPasswordService', () => {
         .spyOn(userService, 'findUserByEmailOrThrow')
         .mockResolvedValue(mockUser as UserEntity);
       jest.spyOn(workspaceRepository, 'findOne').mockResolvedValue(null);
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
 
       await expect(
         service.generatePasswordResetToken('test@example.com'),
@@ -208,7 +208,7 @@ describe('ResetPasswordService', () => {
       jest
         .spyOn(appTokenRepository, 'findOne')
         .mockResolvedValue(mockExistingToken as AppTokenEntity);
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
 
       await expect(
         service.generatePasswordResetToken('test@example.com', 'workspace-id'),
@@ -232,7 +232,7 @@ describe('ResetPasswordService', () => {
         .spyOn(workspaceRepository, 'findOneBy')
         .mockResolvedValue({ id: 'workspace-id' } as WorkspaceEntity);
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockReturnValue('http://localhost:3000');
       jest
         .spyOn(workspaceDomainsService, 'buildWorkspaceURL')

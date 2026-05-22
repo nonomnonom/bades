@@ -80,13 +80,13 @@ export class WorkspaceGraphqlSchemaSDLService {
     let flatIndexMaps = allFlatIndexMaps;
 
     if (isDefined(applicationId)) {
-      const twentyStandardApplicationId =
+      const badesStandardApplicationId =
         flatApplicationMaps?.idByUniversalIdentifier[
           BADES_STANDARD_APPLICATION.universalIdentifier
         ];
 
-      const applicationIds = isDefined(twentyStandardApplicationId)
-        ? [twentyStandardApplicationId, applicationId]
+      const applicationIds = isDefined(badesStandardApplicationId)
+        ? [badesStandardApplicationId, applicationId]
         : [applicationId];
 
       flatObjectMetadataMaps = this.filterFlatEntityMapsByApplicationIds(

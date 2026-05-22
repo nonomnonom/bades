@@ -61,7 +61,7 @@ export class PageLayoutTabResolver {
     return resolvePageLayoutTabTitle({
       title: tab.title,
       applicationId: tab.applicationId,
-      twentyStandardApplicationId: badesStandardFlatApplication.id,
+      badesStandardApplicationId: badesStandardFlatApplication.id,
       overrides: tab.overrides,
       i18nInstance: i18n,
     });

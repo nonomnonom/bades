@@ -15,20 +15,20 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class MicrosoftProviderEnabledGuard implements CanActivate {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly guardRedirectService: GuardRedirectService,
   ) {}
 
   canActivate(context: ExecutionContext): boolean {
     try {
-      if (!this.twentyConfigService.get('AUTH_MICROSOFT_ENABLED')) {
+      if (!this.badesConfigService.get('AUTH_MICROSOFT_ENABLED')) {
         throw new AuthException(
           'Microsoft auth is not enabled',
           AuthExceptionCode.MICROSOFT_API_AUTH_DISABLED,
         );
       }
 
-      new MicrosoftStrategy(this.twentyConfigService);
+      new MicrosoftStrategy(this.badesConfigService);
 
       return true;
     } catch (err) {

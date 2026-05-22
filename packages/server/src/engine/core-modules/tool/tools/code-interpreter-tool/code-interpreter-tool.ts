@@ -55,7 +55,7 @@ export class CodeInterpreterTool implements Tool {
     private readonly fileUrlService: FileUrlService,
     private readonly applicationService: ApplicationService,
     private readonly secureHttpClientService: SecureHttpClientService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly jwtWrapperService: JwtWrapperService,
   ) {}
 
@@ -109,7 +109,7 @@ export class CodeInterpreterTool implements Tool {
         this.buildExecutionState(executionId, 'running', code, '', '', []),
       );
 
-      const serverUrl = this.twentyConfigService.get('SERVER_URL');
+      const serverUrl = this.badesConfigService.get('SERVER_URL');
       const sessionToken = await this.generateSessionToken(
         workspaceId,
         userId,

@@ -38,7 +38,7 @@ import { AuthService } from './auth.service';
 
 jest.mock('bcrypt');
 
-const twentyConfigServiceGetMock = jest.fn();
+const badesConfigServiceGetMock = jest.fn();
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -110,7 +110,7 @@ describe('AuthService', () => {
         {
           provide: BadesConfigService,
           useValue: {
-            get: twentyConfigServiceGetMock,
+            get: badesConfigServiceGetMock,
           },
         },
         {
@@ -214,7 +214,7 @@ describe('AuthService', () => {
   });
 
   beforeEach(() => {
-    twentyConfigServiceGetMock.mockReturnValue(false);
+    badesConfigServiceGetMock.mockReturnValue(false);
     signInUpServiceMock.validatePassword.mockClear();
   });
 

@@ -62,7 +62,7 @@ export class SearchService {
   constructor(
     private readonly globalWorkspaceOrmManager: GlobalWorkspaceOrmManager,
     private readonly fileUrlService: FileUrlService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async getAllRecordsWithObjectMetadataItems({
@@ -359,7 +359,7 @@ export class SearchService {
     limit: number;
     filter: ObjectRecordFilterInput;
   }) {
-    const timeoutMs = this.twentyConfigService.get(
+    const timeoutMs = this.badesConfigService.get(
       'SEARCH_ILIKE_FALLBACK_TIMEOUT_MS',
     );
 
@@ -614,7 +614,7 @@ export class SearchService {
 
     if (
       flatObjectMetadata.nameSingular === 'company' &&
-      this.twentyConfigService.get('ALLOW_REQUESTS_TO_FAVICON_SERVICE')
+      this.badesConfigService.get('ALLOW_REQUESTS_TO_FAVICON_SERVICE')
     ) {
       return getLogoUrlFromDomainName(record.domainNamePrimaryLinkUrl) || '';
     }

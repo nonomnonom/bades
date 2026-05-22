@@ -53,7 +53,7 @@ import { getServerUrl } from 'src/utils/get-server-url';
 export class OpenApiService {
   constructor(
     private readonly accessTokenService: AccessTokenService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly flatEntityMapsCacheService: WorkspaceManyOrAllFlatEntityMapsCacheService,
   ) {}
 
@@ -96,7 +96,7 @@ export class OpenApiService {
 
   async generateCoreSchema(request: Request): Promise<OpenAPIV3_1.Document> {
     const baseUrl = getServerUrl({
-      serverUrlEnv: this.twentyConfigService.get('SERVER_URL'),
+      serverUrlEnv: this.badesConfigService.get('SERVER_URL'),
       serverUrlFallback: `${request.protocol}://${request.get('host')}`,
     });
 
@@ -254,7 +254,7 @@ export class OpenApiService {
     request: Request,
   ): Promise<OpenAPIV3_1.Document> {
     const baseUrl = getServerUrl({
-      serverUrlEnv: this.twentyConfigService.get('SERVER_URL'),
+      serverUrlEnv: this.badesConfigService.get('SERVER_URL'),
       serverUrlFallback: `${request.protocol}://${request.get('host')}`,
     });
 

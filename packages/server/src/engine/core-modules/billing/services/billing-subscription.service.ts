@@ -49,7 +49,7 @@ export class BillingSubscriptionService {
     @InjectRepository(BillingSubscriptionEntity)
     private readonly billingSubscriptionRepository: Repository<BillingSubscriptionEntity>,
     private readonly stripeCustomerService: StripeCustomerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
     private readonly stripeSubscriptionScheduleService: StripeSubscriptionScheduleService,
@@ -174,7 +174,7 @@ export class BillingSubscriptionService {
   async getWorkspaceEntitlements(
     workspaceId: string,
   ): Promise<BillingEntitlementDTO[]> {
-    const isBillingEnabled = this.twentyConfigService.get('IS_BILLING_ENABLED');
+    const isBillingEnabled = this.badesConfigService.get('IS_BILLING_ENABLED');
     const hasValidEnterprisePlan = this.enterprisePlanService.isValid();
 
     const entitlements = isBillingEnabled
@@ -362,12 +362,12 @@ export class BillingSubscriptionService {
           )
         : 0;
 
-    const trialWithCreditCardDuration = this.twentyConfigService.get(
+    const trialWithCreditCardDuration = this.badesConfigService.get(
       'BILLING_FREE_TRIAL_WITH_CREDIT_CARD_DURATION_IN_DAYS',
     );
 
     return Number(
-      this.twentyConfigService.get(
+      this.badesConfigService.get(
         trialDuration === trialWithCreditCardDuration
           ? 'BILLING_FREE_WORKFLOW_CREDITS_FOR_TRIAL_PERIOD_WITH_CREDIT_CARD'
           : 'BILLING_FREE_WORKFLOW_CREDITS_FOR_TRIAL_PERIOD_WITHOUT_CREDIT_CARD',

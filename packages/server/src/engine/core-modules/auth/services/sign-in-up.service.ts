@@ -62,7 +62,7 @@ export class SignInUpService {
     private readonly userWorkspaceService: UserWorkspaceService,
     private readonly onboardingService: OnboardingService,
     private readonly workspaceEventEmitter: WorkspaceEventEmitter,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly subdomainManagerService: SubdomainManagerService,
     private readonly userService: UserService,
     private readonly metricsService: MetricsService,
@@ -378,8 +378,8 @@ export class SignInUpService {
           userFirstName: newUserWithPicture.firstName,
           userLastName: newUserWithPicture.lastName,
           locale: newUserWithPicture.locale,
-          serverUrl: this.twentyConfigService.get('SERVER_URL'),
-          serverId: this.twentyConfigService.get('SERVER_ID'),
+          serverUrl: this.badesConfigService.get('SERVER_URL'),
+          serverId: this.badesConfigService.get('SERVER_ID'),
         },
       ],
       undefined,
@@ -397,7 +397,7 @@ export class SignInUpService {
     const workspaceCount = await this.workspaceRepository.count();
 
     return (
-      this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED') ||
+      this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED') ||
       workspaceCount === 0
     );
   }
@@ -433,7 +433,7 @@ export class SignInUpService {
     await this.assertWorkspaceCountWithinLimit(workspaceCount);
 
     if (
-      !this.twentyConfigService.get(
+      !this.badesConfigService.get(
         'IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS',
       )
     ) {

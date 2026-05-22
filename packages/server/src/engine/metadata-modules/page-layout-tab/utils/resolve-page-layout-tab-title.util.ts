@@ -8,17 +8,17 @@ import { type PageLayoutTabOverrides } from 'src/engine/metadata-modules/page-la
 export const resolvePageLayoutTabTitle = ({
   title,
   applicationId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   overrides,
   i18nInstance,
 }: {
   title: string;
   applicationId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   overrides?: PageLayoutTabOverrides | null;
   i18nInstance: I18n;
 }): string => {
-  if (applicationId !== twentyStandardApplicationId) {
+  if (applicationId !== badesStandardApplicationId) {
     return title;
   }
 

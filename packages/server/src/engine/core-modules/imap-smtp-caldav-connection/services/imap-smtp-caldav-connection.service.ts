@@ -25,7 +25,7 @@ export class ImapSmtpCaldavService {
 
   constructor(
     private readonly secureHttpClientService: SecureHttpClientService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly caldavClientService: CalDavClientService,
     private readonly caldavFetchEventsService: CalDavFetchEventsService,
     private readonly imapSmtpCaldavValidatorService: ImapSmtpCaldavValidatorService,
@@ -191,7 +191,7 @@ export class ImapSmtpCaldavService {
     accountType: AccountType;
   }): Promise<boolean> {
     if (
-      !this.twentyConfigService.get(
+      !this.badesConfigService.get(
         'IS_IMAP_SMTP_CALDAV_CONNECTION_TEST_ENABLED',
       )
     ) {

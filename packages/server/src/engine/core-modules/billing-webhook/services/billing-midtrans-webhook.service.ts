@@ -57,7 +57,7 @@ export class BillingMidtransWebhookService {
   protected readonly logger = new Logger(BillingMidtransWebhookService.name);
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly midtransTransactionService: MidtransTransactionService,
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,
@@ -74,7 +74,7 @@ export class BillingMidtransWebhookService {
   async processNotification(
     payload: MidtransNotificationPayload,
   ): Promise<void> {
-    const serverKey = this.twentyConfigService.get('MIDTRANS_SERVER_KEY');
+    const serverKey = this.badesConfigService.get('MIDTRANS_SERVER_KEY');
 
     // Verifikasi signature jika ada di payload
     if (isDefined(payload.signature_key)) {
@@ -214,7 +214,7 @@ export class BillingMidtransWebhookService {
     grossAmount: string,
     receivedSignature: string,
   ): boolean {
-    const serverKey = this.twentyConfigService.get('MIDTRANS_SERVER_KEY');
+    const serverKey = this.badesConfigService.get('MIDTRANS_SERVER_KEY');
 
     return verifyMidtransSignature(
       orderId,
@@ -233,7 +233,7 @@ export class BillingMidtransWebhookService {
     statusCode: string,
     grossAmount: string,
   ): string {
-    const serverKey = this.twentyConfigService.get('MIDTRANS_SERVER_KEY');
+    const serverKey = this.badesConfigService.get('MIDTRANS_SERVER_KEY');
 
     return computeMidtransSignature(orderId, statusCode, grossAmount, serverKey);
   }

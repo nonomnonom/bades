@@ -62,7 +62,7 @@ export class UpgradeStatusCommand extends CommandRunner {
 
   constructor(
     private readonly upgradeStatusService: UpgradeStatusService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {
     super();
   }
@@ -112,7 +112,7 @@ export class UpgradeStatusCommand extends CommandRunner {
   }
 
   private formatHeader(): string[] {
-    const appVersion = this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+    const appVersion = this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
     return ['', chalk.bold(`APP_VERSION: ${appVersion}`), ''];
   }

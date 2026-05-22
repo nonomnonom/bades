@@ -44,7 +44,7 @@ const APP_SECRET_BODY_USER_SCHEMA = z.object({
 export class JwtWrapperService {
   constructor(
     private readonly jwtService: JwtService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly jwtKeyManagerService: JwtKeyManagerService,
     private readonly signingKeyVerifyCounterService: SigningKeyVerifyCounterService,
   ) {}
@@ -184,7 +184,7 @@ export class JwtWrapperService {
   }
 
   generateAppSecret(type: JwtTokenTypeEnum, appSecretBody: string): string {
-    const appSecret = this.twentyConfigService.get('APP_SECRET');
+    const appSecret = this.badesConfigService.get('APP_SECRET');
 
     if (!appSecret) {
       throw new Error('APP_SECRET is not set');

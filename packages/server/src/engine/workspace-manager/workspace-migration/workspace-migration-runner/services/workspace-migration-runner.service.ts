@@ -36,7 +36,7 @@ export class WorkspaceMigrationRunnerService {
     private readonly workspaceCacheStorageService: WorkspaceCacheStorageService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly logger: LoggerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   private getLegacyCacheInvalidationPromises({
@@ -178,7 +178,7 @@ export class WorkspaceMigrationRunnerService {
     metadataEvents: MetadataEvent[];
     hasSchemaMetadataChanged: boolean;
   }> => {
-    if (this.twentyConfigService.get('WORKSPACE_SCHEMA_DDL_LOCKED')) {
+    if (this.badesConfigService.get('WORKSPACE_SCHEMA_DDL_LOCKED')) {
       throw new WorkspaceMigrationRunnerException({
         message:
           'Workspace schema DDL changes are locked. This is typically set during hot upgrades.',

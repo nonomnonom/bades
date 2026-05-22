@@ -17,17 +17,17 @@ import { resolveAbsolutePath } from 'src/utils/resolve-absolute-path';
 @Injectable()
 export class FileStorageDriverFactory extends DriverFactoryBase<StorageDriver> {
   constructor(
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
   ) {
-    super(twentyConfigService, configGroupHashService);
+    super(badesConfigService, configGroupHashService);
   }
 
   protected buildConfigKey(): string {
-    const storageType = this.twentyConfigService.get('STORAGE_TYPE');
+    const storageType = this.badesConfigService.get('STORAGE_TYPE');
 
     if (storageType === StorageDriverType.LOCAL) {
-      const storagePath = this.twentyConfigService.get('STORAGE_LOCAL_PATH');
+      const storagePath = this.badesConfigService.get('STORAGE_LOCAL_PATH');
 
       return `local|${storagePath}`;
     }
@@ -44,12 +44,12 @@ export class FileStorageDriverFactory extends DriverFactoryBase<StorageDriver> {
   }
 
   protected createDriver(): StorageDriver {
-    const storageType = this.twentyConfigService.get('STORAGE_TYPE');
+    const storageType = this.badesConfigService.get('STORAGE_TYPE');
     let rawDriver: StorageDriver;
 
     switch (storageType) {
       case StorageDriverType.LOCAL: {
-        const storagePath = this.twentyConfigService.get('STORAGE_LOCAL_PATH');
+        const storagePath = this.badesConfigService.get('STORAGE_LOCAL_PATH');
 
         rawDriver = new LocalDriver({
           storagePath: resolveAbsolutePath(storagePath),
@@ -58,19 +58,19 @@ export class FileStorageDriverFactory extends DriverFactoryBase<StorageDriver> {
       }
 
       case StorageDriverType.S_3: {
-        const bucketName = this.twentyConfigService.get('STORAGE_S3_NAME');
-        const endpoint = this.twentyConfigService.get('STORAGE_S3_ENDPOINT');
-        const region = this.twentyConfigService.get('STORAGE_S3_REGION');
-        const accessKeyId = this.twentyConfigService.get(
+        const bucketName = this.badesConfigService.get('STORAGE_S3_NAME');
+        const endpoint = this.badesConfigService.get('STORAGE_S3_ENDPOINT');
+        const region = this.badesConfigService.get('STORAGE_S3_REGION');
+        const accessKeyId = this.badesConfigService.get(
           'STORAGE_S3_ACCESS_KEY_ID',
         );
-        const secretAccessKey = this.twentyConfigService.get(
+        const secretAccessKey = this.badesConfigService.get(
           'STORAGE_S3_SECRET_ACCESS_KEY',
         );
-        const presignEnabled = this.twentyConfigService.get(
+        const presignEnabled = this.badesConfigService.get(
           'STORAGE_S3_PRESIGNED_URL_ENABLED',
         );
-        const presignEndpointOverride = this.twentyConfigService.get(
+        const presignEndpointOverride = this.badesConfigService.get(
           'STORAGE_S3_PRESIGNED_URL_BASE',
         );
 

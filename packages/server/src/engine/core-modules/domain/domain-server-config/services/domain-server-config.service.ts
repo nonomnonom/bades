@@ -5,12 +5,12 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class DomainServerConfigService {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   getFrontUrl() {
     return new URL(
-      this.twentyConfigService.get('FRONTEND_URL') ??
-        this.twentyConfigService.get('SERVER_URL'),
+      this.badesConfigService.get('FRONTEND_URL') ??
+        this.badesConfigService.get('SERVER_URL'),
     );
   }
 
@@ -18,17 +18,17 @@ export class DomainServerConfigService {
     const baseUrl = this.getFrontUrl();
 
     if (
-      this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED') &&
-      this.twentyConfigService.get('DEFAULT_SUBDOMAIN')
+      this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED') &&
+      this.badesConfigService.get('DEFAULT_SUBDOMAIN')
     ) {
-      baseUrl.hostname = `${this.twentyConfigService.get('DEFAULT_SUBDOMAIN')}.${baseUrl.hostname}`;
+      baseUrl.hostname = `${this.badesConfigService.get('DEFAULT_SUBDOMAIN')}.${baseUrl.hostname}`;
     }
 
     return baseUrl;
   }
 
   getPublicDomainUrl(): URL {
-    return new URL(this.twentyConfigService.get('PUBLIC_DOMAIN_URL'));
+    return new URL(this.badesConfigService.get('PUBLIC_DOMAIN_URL'));
   }
 
   buildBaseUrl({
@@ -64,6 +64,6 @@ export class DomainServerConfigService {
   };
 
   isDefaultSubdomain(subdomain: string) {
-    return subdomain === this.twentyConfigService.get('DEFAULT_SUBDOMAIN');
+    return subdomain === this.badesConfigService.get('DEFAULT_SUBDOMAIN');
   }
 }

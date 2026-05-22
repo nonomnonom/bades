@@ -86,7 +86,7 @@ export class UserResolver {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     private readonly userService: UserService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly onboardingService: OnboardingService,
     private readonly userVarService: UserVarsService,
     @InjectRepository(UserWorkspaceEntity)
@@ -353,11 +353,11 @@ export class UserResolver {
   })
   supportUserHash(@Parent() parent: UserEntity): string | null {
     if (
-      this.twentyConfigService.get('SUPPORT_DRIVER') !== SupportDriver.FRONT
+      this.badesConfigService.get('SUPPORT_DRIVER') !== SupportDriver.FRONT
     ) {
       return null;
     }
-    const key = this.twentyConfigService.get('SUPPORT_FRONT_HMAC_KEY');
+    const key = this.badesConfigService.get('SUPPORT_FRONT_HMAC_KEY');
 
     return getHMACKey(parent.email, key);
   }

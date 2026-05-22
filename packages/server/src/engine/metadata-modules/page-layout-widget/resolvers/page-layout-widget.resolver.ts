@@ -62,7 +62,7 @@ export class PageLayoutWidgetResolver {
     return resolvePageLayoutWidgetTitle({
       title: widget.title,
       applicationId: widget.applicationId,
-      twentyStandardApplicationId: badesStandardFlatApplication.id,
+      badesStandardApplicationId: badesStandardFlatApplication.id,
       overrides: widget.overrides,
       i18nInstance: i18n,
     });

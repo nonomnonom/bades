@@ -36,7 +36,7 @@ export class AppBillingController {
   constructor(
     private readonly appBillingService: AppBillingService,
     private readonly throttlerService: ThrottlerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @Post('charge')
@@ -48,7 +48,7 @@ export class AppBillingController {
   ): Promise<void> {
     // Billing disabled: no listener consumes the event — fail fast so apps
     // don't silently discard charges on Community instances.
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       throw new NotFoundException();
     }
 

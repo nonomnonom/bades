@@ -16,12 +16,12 @@ export class DefaultAiCatalogService implements OnModuleInit {
   );
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly fileStorageDriverFactory: FileStorageDriverFactory,
   ) {}
 
   async onModuleInit(): Promise<void> {
-    const catalogPath = this.twentyConfigService.get('AI_CATALOG_STORAGE_PATH');
+    const catalogPath = this.badesConfigService.get('AI_CATALOG_STORAGE_PATH');
 
     if (!catalogPath) {
       this.logger.log(

@@ -13,10 +13,10 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class CloudflareSecretMatchGuard implements CanActivate {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   canActivate(context: ExecutionContext): boolean {
-    const cloudflareWebhookSecret = this.twentyConfigService.get(
+    const cloudflareWebhookSecret = this.badesConfigService.get(
       'CLOUDFLARE_WEBHOOK_SECRET',
     );
 

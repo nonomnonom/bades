@@ -20,7 +20,7 @@ export class SubdomainManagerService {
   constructor(
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async generateSubdomain({
@@ -76,7 +76,7 @@ export class SubdomainManagerService {
 
     if (
       !isAvailable ||
-      this.twentyConfigService.get('DEFAULT_SUBDOMAIN') === subdomain
+      this.badesConfigService.get('DEFAULT_SUBDOMAIN') === subdomain
     ) {
       throw new WorkspaceException(
         'Subdomain already taken',

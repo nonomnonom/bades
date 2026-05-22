@@ -13,14 +13,14 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class EmailDriverFactory extends DriverFactoryBase<EmailDriverInterface> {
   constructor(
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
   ) {
-    super(twentyConfigService, configGroupHashService);
+    super(badesConfigService, configGroupHashService);
   }
 
   protected buildConfigKey(): string {
-    const driver = this.twentyConfigService.get('EMAIL_DRIVER');
+    const driver = this.badesConfigService.get('EMAIL_DRIVER');
 
     if (driver === EmailDriver.LOGGER) {
       return 'logger';
@@ -38,18 +38,18 @@ export class EmailDriverFactory extends DriverFactoryBase<EmailDriverInterface> 
   }
 
   protected createDriver(): EmailDriverInterface {
-    const driver = this.twentyConfigService.get('EMAIL_DRIVER');
+    const driver = this.badesConfigService.get('EMAIL_DRIVER');
 
     switch (driver) {
       case EmailDriver.LOGGER:
         return new LoggerDriver();
 
       case EmailDriver.SMTP: {
-        const host = this.twentyConfigService.get('EMAIL_SMTP_HOST');
-        const port = this.twentyConfigService.get('EMAIL_SMTP_PORT');
-        const user = this.twentyConfigService.get('EMAIL_SMTP_USER');
-        const pass = this.twentyConfigService.get('EMAIL_SMTP_PASSWORD');
-        const noTLS = this.twentyConfigService.get('EMAIL_SMTP_NO_TLS');
+        const host = this.badesConfigService.get('EMAIL_SMTP_HOST');
+        const port = this.badesConfigService.get('EMAIL_SMTP_PORT');
+        const user = this.badesConfigService.get('EMAIL_SMTP_USER');
+        const pass = this.badesConfigService.get('EMAIL_SMTP_PASSWORD');
+        const noTLS = this.badesConfigService.get('EMAIL_SMTP_NO_TLS');
 
         if (!host || !port) {
           throw new Error('SMTP driver requires host and port to be defined');

@@ -13,7 +13,7 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 describe('BillingUsageCapService', () => {
   let service: BillingUsageCapService;
   let clickHouseService: jest.Mocked<ClickHouseService>;
-  let twentyConfigService: jest.Mocked<BadesConfigService>;
+  let badesConfigService: jest.Mocked<BadesConfigService>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -49,7 +49,7 @@ describe('BillingUsageCapService', () => {
 
     service = module.get<BillingUsageCapService>(BillingUsageCapService);
     clickHouseService = module.get(ClickHouseService);
-    twentyConfigService = module.get(BadesConfigService);
+    badesConfigService = module.get(BadesConfigService);
   });
 
   afterEach(() => {
@@ -58,13 +58,13 @@ describe('BillingUsageCapService', () => {
 
   describe('isClickHouseEnabled', () => {
     it('returns true when CLICKHOUSE_URL is configured', () => {
-      twentyConfigService.get.mockReturnValue('http://clickhouse:8123');
+      badesConfigService.get.mockReturnValue('http://clickhouse:8123');
 
       expect(service.isClickHouseEnabled()).toBe(true);
     });
 
     it('returns false when CLICKHOUSE_URL is empty', () => {
-      twentyConfigService.get.mockReturnValue('');
+      badesConfigService.get.mockReturnValue('');
 
       expect(service.isClickHouseEnabled()).toBe(false);
     });
@@ -72,11 +72,11 @@ describe('BillingUsageCapService', () => {
 
   describe('getBatchPeriodCreditsUsed', () => {
     beforeEach(() => {
-      twentyConfigService.get.mockReturnValue('http://clickhouse:8123');
+      badesConfigService.get.mockReturnValue('http://clickhouse:8123');
     });
 
     it('returns empty map when ClickHouse is disabled', async () => {
-      twentyConfigService.get.mockReturnValue('');
+      badesConfigService.get.mockReturnValue('');
 
       const result = await service.getBatchPeriodCreditsUsed(
         ['ws_1', 'ws_2'],

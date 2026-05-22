@@ -12,17 +12,17 @@ const buildMockContext = (headers: Record<string, unknown>) =>
 
 describe('CloudflareSecretMatchGuard.canActivate', () => {
   let guard: CloudflareSecretMatchGuard;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
 
   beforeEach(() => {
-    twentyConfigService = {
+    badesConfigService = {
       get: jest.fn(),
     } as unknown as BadesConfigService;
-    guard = new CloudflareSecretMatchGuard(twentyConfigService);
+    guard = new CloudflareSecretMatchGuard(badesConfigService);
   });
 
   it('should return true when the webhook secret matches', () => {
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue('valid-secret');
+    jest.spyOn(badesConfigService, 'get').mockReturnValue('valid-secret');
 
     const context = buildMockContext({
       'cf-webhook-auth': 'valid-secret',
@@ -32,7 +32,7 @@ describe('CloudflareSecretMatchGuard.canActivate', () => {
   });
 
   it('should throw InternalServerErrorException when env is not set', () => {
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue(undefined);
+    jest.spyOn(badesConfigService, 'get').mockReturnValue(undefined);
 
     const context = buildMockContext({
       'cf-webhook-auth': 'any-value',
@@ -44,7 +44,7 @@ describe('CloudflareSecretMatchGuard.canActivate', () => {
   });
 
   it('should return false when the header is missing', () => {
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue('valid-secret');
+    jest.spyOn(badesConfigService, 'get').mockReturnValue('valid-secret');
 
     const context = buildMockContext({});
 
@@ -52,7 +52,7 @@ describe('CloudflareSecretMatchGuard.canActivate', () => {
   });
 
   it('should return false when the header value is wrong', () => {
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue('valid-secret');
+    jest.spyOn(badesConfigService, 'get').mockReturnValue('valid-secret');
 
     const context = buildMockContext({
       'cf-webhook-auth': 'wrong-secret',
@@ -62,7 +62,7 @@ describe('CloudflareSecretMatchGuard.canActivate', () => {
   });
 
   it('should return false when the header is an empty string', () => {
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue('valid-secret');
+    jest.spyOn(badesConfigService, 'get').mockReturnValue('valid-secret');
 
     const context = buildMockContext({
       'cf-webhook-auth': '',
@@ -72,7 +72,7 @@ describe('CloudflareSecretMatchGuard.canActivate', () => {
   });
 
   it('should return false when header length differs from secret', () => {
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue('short');
+    jest.spyOn(badesConfigService, 'get').mockReturnValue('short');
 
     const context = buildMockContext({
       'cf-webhook-auth': 'much-longer-value',

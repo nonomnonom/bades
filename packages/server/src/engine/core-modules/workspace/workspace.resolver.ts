@@ -90,7 +90,7 @@ export class WorkspaceResolver {
     private readonly workspaceService: WorkspaceService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly userWorkspaceService: UserWorkspaceService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly fileService: FileService,
     private readonly fileUrlService: FileUrlService,
     private readonly billingSubscriptionService: BillingSubscriptionService,
@@ -178,7 +178,7 @@ export class WorkspaceResolver {
   async billingSubscriptions(
     @Parent() workspace: WorkspaceEntity,
   ): Promise<BillingSubscriptionEntity[] | undefined> {
-    if (!this.twentyConfigService.isBillingEnabled()) {
+    if (!this.badesConfigService.isBillingEnabled()) {
       return [];
     }
 
@@ -274,7 +274,7 @@ export class WorkspaceResolver {
   async currentBillingSubscription(
     @Parent() workspace: WorkspaceEntity,
   ): Promise<BillingSubscriptionEntity | undefined> {
-    if (!this.twentyConfigService.isBillingEnabled()) {
+    if (!this.badesConfigService.isBillingEnabled()) {
       return;
     }
 
@@ -334,7 +334,7 @@ export class WorkspaceResolver {
   isGoogleAuthEnabled(@Parent() workspace: WorkspaceEntity) {
     return (
       workspace.isGoogleAuthEnabled &&
-      this.twentyConfigService.get('AUTH_GOOGLE_ENABLED')
+      this.badesConfigService.get('AUTH_GOOGLE_ENABLED')
     );
   }
 
@@ -347,7 +347,7 @@ export class WorkspaceResolver {
   isMicrosoftAuthEnabled(@Parent() workspace: WorkspaceEntity) {
     return (
       workspace.isMicrosoftAuthEnabled &&
-      this.twentyConfigService.get('AUTH_MICROSOFT_ENABLED')
+      this.badesConfigService.get('AUTH_MICROSOFT_ENABLED')
     );
   }
 
@@ -355,7 +355,7 @@ export class WorkspaceResolver {
   isPasswordAuthEnabled(@Parent() workspace: WorkspaceEntity) {
     return (
       workspace.isPasswordAuthEnabled &&
-      this.twentyConfigService.get('AUTH_PASSWORD_ENABLED')
+      this.badesConfigService.get('AUTH_PASSWORD_ENABLED')
     );
   }
 
@@ -376,10 +376,10 @@ export class WorkspaceResolver {
   ): Promise<PublicWorkspaceDataDTO | undefined> {
     try {
       const systemEnabledProviders: AuthProvidersDTO = {
-        google: this.twentyConfigService.get('AUTH_GOOGLE_ENABLED'),
+        google: this.badesConfigService.get('AUTH_GOOGLE_ENABLED'),
         magicLink: false,
-        password: this.twentyConfigService.get('AUTH_PASSWORD_ENABLED'),
-        microsoft: this.twentyConfigService.get('AUTH_MICROSOFT_ENABLED'),
+        password: this.badesConfigService.get('AUTH_PASSWORD_ENABLED'),
+        microsoft: this.badesConfigService.get('AUTH_MICROSOFT_ENABLED'),
         sso: [],
       };
 

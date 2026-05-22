@@ -24,7 +24,7 @@ import { AccessTokenService } from './access-token.service';
 describe('AccessTokenService', () => {
   let service: AccessTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let userRepository: Repository<UserEntity>;
   let workspaceRepository: Repository<WorkspaceEntity>;
   let globalWorkspaceOrmManager: GlobalWorkspaceOrmManager;
@@ -90,7 +90,7 @@ describe('AccessTokenService', () => {
 
     service = module.get<AccessTokenService>(AccessTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     userRepository = module.get<Repository<UserEntity>>(
       getRepositoryToken(UserEntity),
     );
@@ -124,7 +124,7 @@ describe('AccessTokenService', () => {
       const mockWorkspaceMember = { id: randomUUID() };
       const mockToken = 'mock-token';
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
       jest
         .spyOn(userRepository, 'findOne')
         .mockResolvedValue(mockUser as UserEntity);
@@ -177,7 +177,7 @@ describe('AccessTokenService', () => {
       const mockWorkspaceMember = { id: randomUUID() };
       const mockToken = 'mock-token';
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
       jest
         .spyOn(userRepository, 'findOne')
         .mockResolvedValue(mockUser as UserEntity);
@@ -222,7 +222,7 @@ describe('AccessTokenService', () => {
     });
 
     it('should throw an error if user is not found', async () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
       jest.spyOn(userRepository, 'findOne').mockResolvedValue(null);
 
       await expect(

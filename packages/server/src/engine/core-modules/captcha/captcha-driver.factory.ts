@@ -14,15 +14,15 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class CaptchaDriverFactory extends DriverFactoryBase<CaptchaDriver | null> {
   constructor(
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {
-    super(twentyConfigService, configGroupHashService);
+    super(badesConfigService, configGroupHashService);
   }
 
   protected buildConfigKey(): string {
-    const driver = this.twentyConfigService.get('CAPTCHA_DRIVER');
+    const driver = this.badesConfigService.get('CAPTCHA_DRIVER');
 
     if (!driver) {
       return 'disabled';
@@ -32,9 +32,9 @@ export class CaptchaDriverFactory extends DriverFactoryBase<CaptchaDriver | null
   }
 
   protected createDriver(): CaptchaDriver | null {
-    const driver = this.twentyConfigService.get('CAPTCHA_DRIVER');
-    const siteKey = this.twentyConfigService.get('CAPTCHA_SITE_KEY');
-    const secretKey = this.twentyConfigService.get('CAPTCHA_SECRET_KEY');
+    const driver = this.badesConfigService.get('CAPTCHA_DRIVER');
+    const siteKey = this.badesConfigService.get('CAPTCHA_SITE_KEY');
+    const secretKey = this.badesConfigService.get('CAPTCHA_SECRET_KEY');
 
     if (!driver) {
       return null;
@@ -70,7 +70,7 @@ export class CaptchaDriverFactory extends DriverFactoryBase<CaptchaDriver | null
   }
 
   getCurrentDriver(): CaptchaDriver | null {
-    const driver = this.twentyConfigService.get('CAPTCHA_DRIVER');
+    const driver = this.badesConfigService.get('CAPTCHA_DRIVER');
 
     if (!driver) {
       return null;

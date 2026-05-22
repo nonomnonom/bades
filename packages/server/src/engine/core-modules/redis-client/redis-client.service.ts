@@ -12,13 +12,13 @@ export class RedisClientService implements OnModuleDestroy {
   private redisQueueClient: IORedis | null = null;
   private redisPubSubClient: RedisPubSub | null = null;
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   getQueueClient() {
     if (!this.redisQueueClient) {
       const redisQueueUrl =
-        this.twentyConfigService.get('REDIS_QUEUE_URL') ??
-        this.twentyConfigService.get('REDIS_URL');
+        this.badesConfigService.get('REDIS_QUEUE_URL') ??
+        this.badesConfigService.get('REDIS_URL');
 
       if (!redisQueueUrl) {
         throw new Error('REDIS_QUEUE_URL or REDIS_URL must be defined');
@@ -34,7 +34,7 @@ export class RedisClientService implements OnModuleDestroy {
 
   getClient() {
     if (!this.redisClient) {
-      const redisUrl = this.twentyConfigService.get('REDIS_URL');
+      const redisUrl = this.badesConfigService.get('REDIS_URL');
 
       if (!redisUrl) {
         throw new Error('REDIS_URL must be defined');

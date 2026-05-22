@@ -29,7 +29,7 @@ export class ApplicationUpgradeService {
     @InjectRepository(ApplicationEntity)
     private readonly applicationRepository: Repository<ApplicationEntity>,
     private readonly applicationInstallService: ApplicationInstallService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async checkForUpdates(
@@ -39,7 +39,7 @@ export class ApplicationUpgradeService {
       return null;
     }
 
-    const registryUrl = this.twentyConfigService.get('APP_REGISTRY_URL');
+    const registryUrl = this.badesConfigService.get('APP_REGISTRY_URL');
 
     if (!appRegistration.sourcePackage) {
       return null;

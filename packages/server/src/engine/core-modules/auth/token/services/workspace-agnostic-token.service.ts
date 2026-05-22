@@ -25,7 +25,7 @@ import { userValidator } from 'src/engine/core-modules/user/user.validate';
 export class WorkspaceAgnosticTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
   ) {}
@@ -37,7 +37,7 @@ export class WorkspaceAgnosticTokenService {
     userId: string;
     authProvider: WorkspaceAgnosticTokenJwtPayload['authProvider'];
   }): Promise<AuthToken> {
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'WORKSPACE_AGNOSTIC_TOKEN_EXPIRES_IN',
     );
 

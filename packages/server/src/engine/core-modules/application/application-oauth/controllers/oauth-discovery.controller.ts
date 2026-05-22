@@ -14,7 +14,7 @@ import { BADES_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manager
 @Controller('.well-known')
 export class OAuthDiscoveryController {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly domainServerConfigService: DomainServerConfigService,
     private readonly applicationRegistrationService: ApplicationRegistrationService,
   ) {}
@@ -100,7 +100,7 @@ export class OAuthDiscoveryController {
   }
 
   private isApiHost(request: Request): boolean {
-    const serverUrl = this.twentyConfigService.get('SERVER_URL');
+    const serverUrl = this.badesConfigService.get('SERVER_URL');
 
     return request.get('host') === new URL(serverUrl).host;
   }

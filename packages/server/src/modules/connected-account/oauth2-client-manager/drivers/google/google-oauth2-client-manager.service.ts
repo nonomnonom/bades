@@ -7,15 +7,15 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class GoogleOAuth2ClientManagerService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly logger: Logger,
   ) {}
 
   public async getOAuth2Client(
     refreshToken: string,
   ): Promise<Auth.OAuth2Client> {
-    const gmailClientId = this.twentyConfigService.get('AUTH_GOOGLE_CLIENT_ID');
-    const gmailClientSecret = this.twentyConfigService.get(
+    const gmailClientId = this.badesConfigService.get('AUTH_GOOGLE_CLIENT_ID');
+    const gmailClientSecret = this.badesConfigService.get(
       'AUTH_GOOGLE_CLIENT_SECRET',
     );
 

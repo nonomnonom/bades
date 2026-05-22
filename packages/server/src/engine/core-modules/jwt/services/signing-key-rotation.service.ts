@@ -21,11 +21,11 @@ export class SigningKeyRotationService {
 
   constructor(
     private readonly jwtKeyManagerService: JwtKeyManagerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async rotateIfDue(): Promise<SigningKeyRotationResult> {
-    const rotationDays = this.twentyConfigService.get(
+    const rotationDays = this.badesConfigService.get(
       'SIGNING_KEY_ROTATION_DAYS',
     );
 

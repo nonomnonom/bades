@@ -12,7 +12,7 @@ export class AuthSsoService {
   constructor(
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   private getAuthProviderColumnNameByProvider(authProvider: AuthProviderEnum) {
@@ -36,7 +36,7 @@ export class AuthSsoService {
     workspaceId?: string,
   ) {
     if (
-      this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED') &&
+      this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED') &&
       !workspaceId
     ) {
       // Multi-workspace enable mode but on non workspace url.

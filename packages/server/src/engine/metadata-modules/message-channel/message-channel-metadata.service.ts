@@ -35,7 +35,7 @@ export class MessageChannelMetadataService {
     @InjectRepository(MessageChannelEntity)
     private readonly repository: Repository<MessageChannelEntity>,
     private readonly connectedAccountMetadataService: ConnectedAccountMetadataService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async findAll(workspaceId: string): Promise<MessageChannelDTO[]> {
@@ -194,10 +194,10 @@ export class MessageChannelMetadataService {
     userWorkspaceId: string;
     workspaceId: string;
   }): Promise<CreateEmailGroupChannelOutput> {
-    const inboundEmailDomain = this.twentyConfigService.get(
+    const inboundEmailDomain = this.badesConfigService.get(
       'INBOUND_EMAIL_DOMAIN',
     );
-    const storageType = this.twentyConfigService.get('STORAGE_TYPE');
+    const storageType = this.badesConfigService.get('STORAGE_TYPE');
 
     if (
       !isNonEmptyString(inboundEmailDomain) ||

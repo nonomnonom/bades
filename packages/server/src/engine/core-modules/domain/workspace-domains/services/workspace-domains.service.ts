@@ -17,7 +17,7 @@ import { SEED_SUKAMAJU_WORKSPACE_ID } from 'src/engine/workspace-manager/dev-see
 export class WorkspaceDomainsService {
   constructor(
     private readonly domainServerConfigService: DomainServerConfigService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(PublicDomainEntity)
@@ -59,7 +59,7 @@ export class WorkspaceDomainsService {
   }
 
   private async getDefaultWorkspace() {
-    if (this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED')) {
+    if (this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED')) {
       throw new Error(
         'Default workspace does not exist when multi-workspace is enabled',
       );
@@ -101,7 +101,7 @@ export class WorkspaceDomainsService {
     const { subdomain, domain } =
       this.domainServerConfigService.getSubdomainAndDomainFromUrl(origin);
 
-    if (!this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED')) {
+    if (!this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED')) {
       // Single-workspace: workspace is always the default. Still resolve a
       // matching public domain so the route trigger can scope by application.
       const publicDomain = isDefined(domain)
@@ -155,7 +155,7 @@ export class WorkspaceDomainsService {
   private getTwentyWorkspaceUrl(subdomain: string) {
     const url = this.domainServerConfigService.getFrontUrl();
 
-    url.hostname = this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED')
+    url.hostname = this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED')
       ? `${subdomain}.${url.hostname}`
       : url.hostname;
 
@@ -167,7 +167,7 @@ export class WorkspaceDomainsService {
   ) {
     if (!workspace) {
       return {
-        subdomain: this.twentyConfigService.get('DEFAULT_SUBDOMAIN'),
+        subdomain: this.badesConfigService.get('DEFAULT_SUBDOMAIN'),
         customDomain: null,
         isCustomDomainEnabled: false,
       };

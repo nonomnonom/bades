@@ -16,7 +16,7 @@ export class MicrosoftAPIsOauthExchangeCodeForTokenGuard extends AuthGuard(
 ) {
   constructor(
     private readonly guardRedirectService: GuardRedirectService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {
     super();
   }
@@ -27,8 +27,8 @@ export class MicrosoftAPIsOauthExchangeCodeForTokenGuard extends AuthGuard(
       const state = JSON.parse(request.query.state);
 
       if (
-        !this.twentyConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED') &&
-        !this.twentyConfigService.get('CALENDAR_PROVIDER_MICROSOFT_ENABLED')
+        !this.badesConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED') &&
+        !this.badesConfigService.get('CALENDAR_PROVIDER_MICROSOFT_ENABLED')
       ) {
         throw new AuthException(
           'Microsoft apis auth is not enabled',
@@ -37,7 +37,7 @@ export class MicrosoftAPIsOauthExchangeCodeForTokenGuard extends AuthGuard(
       }
 
       new MicrosoftAPIsOauthExchangeCodeForTokenStrategy(
-        this.twentyConfigService,
+        this.badesConfigService,
       );
 
       setRequestExtraParams(request, {

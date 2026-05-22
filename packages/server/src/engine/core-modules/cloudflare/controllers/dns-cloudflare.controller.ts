@@ -17,7 +17,7 @@ import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 export class DnsCloudflareController {
   constructor(
     protected readonly dnsCloudflareService: DnsCloudflareService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @Post(['cloudflare/custom-hostname-webhooks', 'webhooks/cloudflare'])
@@ -26,8 +26,8 @@ export class DnsCloudflareController {
     const hostname = req.body?.data?.data?.hostname;
 
     const zoneIds = [
-      this.twentyConfigService.get('CLOUDFLARE_PUBLIC_DOMAIN_ZONE_ID'),
-      this.twentyConfigService.get('CLOUDFLARE_ZONE_ID'),
+      this.badesConfigService.get('CLOUDFLARE_PUBLIC_DOMAIN_ZONE_ID'),
+      this.badesConfigService.get('CLOUDFLARE_ZONE_ID'),
     ];
 
     // since notification are not scoped to a zone, we need to check if the zone is in the list of zones

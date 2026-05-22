@@ -40,7 +40,7 @@ export class BillingUsageService {
     @InjectRepository(BillingCustomerEntity)
     private readonly billingCustomerRepository: Repository<BillingCustomerEntity>,
     private readonly billingSubscriptionService: BillingSubscriptionService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly billingSubscriptionItemService: BillingSubscriptionItemService,
     @InjectCacheStorage(CacheStorageNamespace.EngineBillingUsage)
     private readonly billingUsageCacheStorage: CacheStorageService,
@@ -52,7 +52,7 @@ export class BillingUsageService {
   ) {}
 
   async canFeatureBeUsed(workspaceId: string): Promise<boolean> {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return true;
     }
 
@@ -240,15 +240,15 @@ export class BillingUsageService {
           ? differenceInDays(subscription.trialEnd, subscription.trialStart)
           : 0;
 
-      const trialWithCreditCardDuration = this.twentyConfigService.get(
+      const trialWithCreditCardDuration = this.badesConfigService.get(
         'BILLING_FREE_TRIAL_WITH_CREDIT_CARD_DURATION_IN_DAYS',
       );
 
       return trialDuration === trialWithCreditCardDuration
-        ? this.twentyConfigService.get(
+        ? this.badesConfigService.get(
             'BILLING_FREE_WORKFLOW_CREDITS_FOR_TRIAL_PERIOD_WITH_CREDIT_CARD',
           )
-        : this.twentyConfigService.get(
+        : this.badesConfigService.get(
             'BILLING_FREE_WORKFLOW_CREDITS_FOR_TRIAL_PERIOD_WITHOUT_CREDIT_CARD',
           );
     }
@@ -337,7 +337,7 @@ export class BillingUsageService {
   }
 
   async hasAvailableCredits(workspaceId: string): Promise<boolean> {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return true;
     }
 

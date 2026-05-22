@@ -21,7 +21,7 @@ export class GoogleAPIsOauthExchangeCodeForTokenGuard extends AuthGuard(
 ) {
   constructor(
     private readonly guardRedirectService: GuardRedirectService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly transientTokenService: TransientTokenService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
@@ -36,8 +36,8 @@ export class GoogleAPIsOauthExchangeCodeForTokenGuard extends AuthGuard(
       const state = JSON.parse(request.query.state);
 
       if (
-        !this.twentyConfigService.get('MESSAGING_PROVIDER_GMAIL_ENABLED') &&
-        !this.twentyConfigService.get('CALENDAR_PROVIDER_GOOGLE_ENABLED')
+        !this.badesConfigService.get('MESSAGING_PROVIDER_GMAIL_ENABLED') &&
+        !this.badesConfigService.get('CALENDAR_PROVIDER_GOOGLE_ENABLED')
       ) {
         throw new AuthException(
           'Google apis auth is not enabled',
@@ -49,7 +49,7 @@ export class GoogleAPIsOauthExchangeCodeForTokenGuard extends AuthGuard(
         state.transientToken,
       );
 
-      new GoogleAPIsOauthExchangeCodeForTokenStrategy(this.twentyConfigService);
+      new GoogleAPIsOauthExchangeCodeForTokenStrategy(this.badesConfigService);
 
       setRequestExtraParams(request, {
         transientToken: state.transientToken,

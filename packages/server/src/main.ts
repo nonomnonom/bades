@@ -44,16 +44,16 @@ const bootstrap = async () => {
       : {}),
   });
   const logger = app.get(LoggerService);
-  const twentyConfigService = app.get(BadesConfigService);
+  const badesConfigService = app.get(BadesConfigService);
 
-  const trustProxyRaw = twentyConfigService.get('TRUST_PROXY');
+  const trustProxyRaw = badesConfigService.get('TRUST_PROXY');
   const trustProxy = /^\d+$/.test(trustProxyRaw)
     ? Number(trustProxyRaw)
     : (configTransformers.boolean(trustProxyRaw) ?? trustProxyRaw);
 
   app.set('trust proxy', trustProxy);
 
-  app.use(session(getSessionStorageOptions(twentyConfigService)));
+  app.use(session(getSessionStorageOptions(badesConfigService)));
 
   // Apply class-validator container so that we can use injection in validators
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
@@ -90,7 +90,7 @@ const bootstrap = async () => {
   // Inject the server url in the frontend page
   generateFrontConfig();
 
-  await app.listen(twentyConfigService.get('NODE_PORT'));
+  await app.listen(badesConfigService.get('NODE_PORT'));
 };
 
 void bootstrap();

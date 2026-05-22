@@ -27,7 +27,7 @@ export class ImpersonationService {
     private readonly auditService: AuditService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly loginTokenService: LoginTokenService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(UserWorkspaceEntity)
     private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
     private readonly permissionsService: PermissionsService,
@@ -80,7 +80,7 @@ export class ImpersonationService {
       }
 
       const isDevelopment =
-        this.twentyConfigService.get('NODE_ENV') ===
+        this.badesConfigService.get('NODE_ENV') ===
         NodeEnvironment.DEVELOPMENT;
 
       if (isDevelopment) {

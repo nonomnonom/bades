@@ -11,8 +11,8 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class MicrosoftAPIsOauthExchangeCodeForTokenStrategy extends MicrosoftAPIsOauthCommonStrategy {
-  constructor(twentyConfigService: BadesConfigService) {
-    super(twentyConfigService);
+  constructor(badesConfigService: BadesConfigService) {
+    super(badesConfigService);
   }
 
   async validate(

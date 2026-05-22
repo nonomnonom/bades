@@ -31,7 +31,7 @@ export class SSOService {
   constructor(
     @InjectRepository(WorkspaceSSOIdentityProviderEntity)
     private readonly workspaceSSOIdentityProviderRepository: Repository<WorkspaceSSOIdentityProviderEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly billingService: BillingService,
     private readonly exceptionHandlerService: ExceptionHandlerService,
   ) {}
@@ -139,7 +139,7 @@ export class SSOService {
   buildCallbackUrl(
     identityProvider: Pick<WorkspaceSSOIdentityProviderEntity, 'type' | 'id'>,
   ) {
-    const callbackURL = new URL(this.twentyConfigService.get('SERVER_URL'));
+    const callbackURL = new URL(this.badesConfigService.get('SERVER_URL'));
 
     callbackURL.pathname = `/auth/${identityProvider.type.toLowerCase()}/callback`;
 
@@ -155,7 +155,7 @@ export class SSOService {
     searchParams?: Record<string, string | boolean>,
   ) {
     const authorizationUrl = new URL(
-      this.twentyConfigService.get('SERVER_URL'),
+      this.badesConfigService.get('SERVER_URL'),
     );
 
     authorizationUrl.pathname = `/auth/${identityProvider.type.toLowerCase()}/login/${identityProvider.id}`;

@@ -18,7 +18,7 @@ import { RefreshTokenService } from './refresh-token.service';
 describe('RefreshTokenService', () => {
   let service: RefreshTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let appTokenRepository: Repository<AppTokenEntity>;
   let userRepository: Repository<UserEntity>;
 
@@ -54,7 +54,7 @@ describe('RefreshTokenService', () => {
 
     service = module.get<RefreshTokenService>(RefreshTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     appTokenRepository = module.get<Repository<AppTokenEntity>>(
       getRepositoryToken(AppTokenEntity),
     );
@@ -95,7 +95,7 @@ describe('RefreshTokenService', () => {
         .spyOn(appTokenRepository, 'findOneBy')
         .mockResolvedValue(mockAppToken);
       jest.spyOn(userRepository, 'findOneBy').mockResolvedValue(mockUser);
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
 
       const result = await service.verifyRefreshToken(mockToken);
 
@@ -124,7 +124,7 @@ describe('RefreshTokenService', () => {
       const mockToken = 'mock-refresh-token';
       const mockExpiresIn = '7d';
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue(mockExpiresIn);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(mockExpiresIn);
       jest
         .spyOn(jwtWrapperService, 'signAsyncOrThrow')
         .mockResolvedValue(mockToken);
@@ -162,7 +162,7 @@ describe('RefreshTokenService', () => {
     });
 
     it('should throw an error if expiration time is not set', async () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue(undefined);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(undefined);
 
       await expect(
         service.generateRefreshToken({

@@ -28,19 +28,19 @@ export class MidtransTransactionService {
   private coreApi: CoreApi;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly midtransSDKService: MidtransSDKService,
     @InjectRepository(BillingMidtransTransactionEntity)
     private readonly midtransTransactionRepository: Repository<BillingMidtransTransactionEntity>,
   ) {
-    if (!this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
       return;
     }
 
     this.coreApi = this.midtransSDKService.getCoreApi(
-      this.twentyConfigService.get('MIDTRANS_SERVER_KEY'),
-      this.twentyConfigService.get('MIDTRANS_CLIENT_KEY'),
-      this.twentyConfigService.get('MIDTRANS_IS_PRODUCTION'),
+      this.badesConfigService.get('MIDTRANS_SERVER_KEY'),
+      this.badesConfigService.get('MIDTRANS_CLIENT_KEY'),
+      this.badesConfigService.get('MIDTRANS_IS_PRODUCTION'),
     );
   }
 

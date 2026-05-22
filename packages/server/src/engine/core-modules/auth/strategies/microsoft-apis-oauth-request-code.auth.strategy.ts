@@ -7,8 +7,8 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class MicrosoftAPIsOauthRequestCodeStrategy extends MicrosoftAPIsOauthCommonStrategy {
-  constructor(twentyConfigService: BadesConfigService) {
-    super(twentyConfigService);
+  constructor(badesConfigService: BadesConfigService) {
+    super(badesConfigService);
   }
 
   // oxlint-disable-next-line @typescripttypescript/no-explicit-any

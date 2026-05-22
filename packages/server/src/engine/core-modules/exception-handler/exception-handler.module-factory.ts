@@ -9,14 +9,14 @@ import { type BadesConfigService } from 'src/engine/core-modules/bades-config/ba
 /**
  * ExceptionHandler Module factory
  * @returns ExceptionHandlerModuleOptions
- * @param twentyConfigService
+ * @param badesConfigService
  * @param adapterHost
  */
 export const exceptionHandlerModuleFactory = async (
-  twentyConfigService: BadesConfigService,
+  badesConfigService: BadesConfigService,
   adapterHost: HttpAdapterHost,
 ): Promise<typeof OPTIONS_TYPE> => {
-  const driverType = twentyConfigService.get('EXCEPTION_HANDLER_DRIVER');
+  const driverType = badesConfigService.get('EXCEPTION_HANDLER_DRIVER');
 
   switch (driverType) {
     case ExceptionHandlerDriver.CONSOLE: {
@@ -28,12 +28,12 @@ export const exceptionHandlerModuleFactory = async (
       return {
         type: ExceptionHandlerDriver.SENTRY,
         options: {
-          environment: twentyConfigService.get('SENTRY_ENVIRONMENT'),
-          release: twentyConfigService.get('APP_VERSION'),
-          dsn: twentyConfigService.get('SENTRY_DSN') ?? '',
+          environment: badesConfigService.get('SENTRY_ENVIRONMENT'),
+          release: badesConfigService.get('APP_VERSION'),
+          dsn: badesConfigService.get('SENTRY_DSN') ?? '',
           serverInstance: adapterHost.httpAdapter?.getInstance(),
           debug:
-            twentyConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT,
+            badesConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT,
         },
       };
     }

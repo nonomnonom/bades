@@ -13,7 +13,7 @@ import { MaintenanceModeService } from 'src/engine/core-modules/admin-panel/main
 
 describe('ClientConfigService', () => {
   let service: ClientConfigService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let domainServerConfigService: DomainServerConfigService;
 
   beforeEach(async () => {
@@ -53,7 +53,7 @@ describe('ClientConfigService', () => {
     }).compile();
 
     service = module.get<ClientConfigService>(ClientConfigService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     domainServerConfigService = module.get<DomainServerConfigService>(
       DomainServerConfigService,
     );
@@ -67,7 +67,7 @@ describe('ClientConfigService', () => {
     beforeEach(() => {
       // Setup default mock values
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const mockValues: Record<string, any> = {
             IS_BILLING_ENABLED: true,
@@ -181,7 +181,7 @@ describe('ClientConfigService', () => {
 
     it('should handle production environment correctly', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'NODE_ENV') return NodeEnvironment.PRODUCTION;
           if (key === 'IS_BILLING_ENABLED') return false;
@@ -197,7 +197,7 @@ describe('ClientConfigService', () => {
 
     it('should handle missing captcha driver', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'CAPTCHA_DRIVER') return undefined;
           if (key === 'CAPTCHA_SITE_KEY') return 'site-key';
@@ -214,7 +214,7 @@ describe('ClientConfigService', () => {
 
     it('should handle missing support driver', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'SUPPORT_DRIVER') return undefined;
 
@@ -229,7 +229,7 @@ describe('ClientConfigService', () => {
 
     it('should handle billing enabled with feature flags', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'NODE_ENV') return NodeEnvironment.PRODUCTION;
           if (key === 'IS_BILLING_ENABLED') return true;

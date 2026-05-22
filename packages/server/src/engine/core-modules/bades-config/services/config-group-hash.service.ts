@@ -9,14 +9,14 @@ import { TypedReflect } from 'src/utils/typed-reflect';
 
 @Injectable()
 export class ConfigGroupHashService {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   computeHash(group: ConfigVariablesGroup): string {
     const groupVariables = this.getConfigVariablesByGroup(group);
 
     const configValues = groupVariables
       .map(
-        (key) => `${key}=${JSON.stringify(this.twentyConfigService.get(key))}`,
+        (key) => `${key}=${JSON.stringify(this.badesConfigService.get(key))}`,
       )
       .sort()
       .join('|');

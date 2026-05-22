@@ -21,7 +21,7 @@ export class FileService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
     private readonly fileStorageService: FileStorageService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(FileEntity)
     private readonly fileRepository: Repository<FileEntity>,
     @InjectRepository(ApplicationEntity)
@@ -134,7 +134,7 @@ export class FileService {
 
     const presignedUrl = await this.fileStorageService.getPresignedUrl({
       ...resourceIdentifier,
-      expiresInSeconds: this.twentyConfigService.get(
+      expiresInSeconds: this.badesConfigService.get(
         'STORAGE_S3_PRESIGNED_URL_EXPIRES_IN',
       ),
       responseContentType: mimeType,

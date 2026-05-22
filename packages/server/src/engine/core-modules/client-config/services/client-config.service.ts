@@ -33,7 +33,7 @@ import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models
 @Injectable()
 export class ClientConfigService {
   constructor(
-    private twentyConfigService: BadesConfigService,
+    private badesConfigService: BadesConfigService,
     private domainServerConfigService: DomainServerConfigService,
     private aiModelRegistryService: AiModelRegistryService,
     private maintenanceModeService: MaintenanceModeService,
@@ -54,15 +54,15 @@ export class ClientConfigService {
 
   private isCloudflareIntegrationEnabled(): boolean {
     return (
-      !!this.twentyConfigService.get('CLOUDFLARE_API_KEY') &&
-      !!this.twentyConfigService.get('CLOUDFLARE_ZONE_ID')
+      !!this.badesConfigService.get('CLOUDFLARE_API_KEY') &&
+      !!this.badesConfigService.get('CLOUDFLARE_ZONE_ID')
     );
   }
 
   async getClientConfig(): Promise<ClientConfig> {
-    const captchaProvider = this.twentyConfigService.get('CAPTCHA_DRIVER');
-    const supportDriver = this.twentyConfigService.get('SUPPORT_DRIVER');
-    const calendarBookingPageId = this.twentyConfigService.get(
+    const captchaProvider = this.badesConfigService.get('CAPTCHA_DRIVER');
+    const supportDriver = this.badesConfigService.get('SUPPORT_DRIVER');
+    const calendarBookingPageId = this.badesConfigService.get(
       'CALENDAR_BOOKING_PAGE_ID',
     );
 
@@ -166,19 +166,19 @@ export class ClientConfigService {
     }
 
     const clientConfig: ClientConfig = {
-      appVersion: this.twentyConfigService.get('APP_VERSION'),
+      appVersion: this.badesConfigService.get('APP_VERSION'),
       billing: {
-        isBillingEnabled: this.twentyConfigService.get('IS_BILLING_ENABLED'),
-        billingUrl: this.twentyConfigService.get('BILLING_PLAN_REQUIRED_LINK'),
+        isBillingEnabled: this.badesConfigService.get('IS_BILLING_ENABLED'),
+        billingUrl: this.badesConfigService.get('BILLING_PLAN_REQUIRED_LINK'),
         trialPeriods: [
           {
-            duration: this.twentyConfigService.get(
+            duration: this.badesConfigService.get(
               'BILLING_FREE_TRIAL_WITH_CREDIT_CARD_DURATION_IN_DAYS',
             ),
             isCreditCardRequired: true,
           },
           {
-            duration: this.twentyConfigService.get(
+            duration: this.badesConfigService.get(
               'BILLING_FREE_TRIAL_WITHOUT_CREDIT_CARD_DURATION_IN_DAYS',
             ),
             isCreditCardRequired: false,
@@ -187,81 +187,81 @@ export class ClientConfigService {
       },
       aiModels,
       authProviders: {
-        google: this.twentyConfigService.get('AUTH_GOOGLE_ENABLED'),
+        google: this.badesConfigService.get('AUTH_GOOGLE_ENABLED'),
         magicLink: false,
-        password: this.twentyConfigService.get('AUTH_PASSWORD_ENABLED'),
-        microsoft: this.twentyConfigService.get('AUTH_MICROSOFT_ENABLED'),
+        password: this.badesConfigService.get('AUTH_PASSWORD_ENABLED'),
+        microsoft: this.badesConfigService.get('AUTH_MICROSOFT_ENABLED'),
         sso: [],
       },
-      signInPrefilled: this.twentyConfigService.get('SIGN_IN_PREFILLED'),
-      isMultiWorkspaceEnabled: this.twentyConfigService.get(
+      signInPrefilled: this.badesConfigService.get('SIGN_IN_PREFILLED'),
+      isMultiWorkspaceEnabled: this.badesConfigService.get(
         'IS_MULTIWORKSPACE_ENABLED',
       ),
-      isEmailVerificationRequired: this.twentyConfigService.get(
+      isEmailVerificationRequired: this.badesConfigService.get(
         'IS_EMAIL_VERIFICATION_REQUIRED',
       ),
-      defaultSubdomain: this.twentyConfigService.get('DEFAULT_SUBDOMAIN'),
+      defaultSubdomain: this.badesConfigService.get('DEFAULT_SUBDOMAIN'),
       frontDomain: this.domainServerConfigService.getFrontUrl().hostname,
       support: {
         supportDriver: supportDriver ? supportDriver : SupportDriver.NONE,
-        supportFrontChatId: this.twentyConfigService.get(
+        supportFrontChatId: this.badesConfigService.get(
           'SUPPORT_FRONT_CHAT_ID',
         ),
       },
       sentry: {
-        environment: this.twentyConfigService.get('SENTRY_ENVIRONMENT'),
-        release: this.twentyConfigService.get('APP_VERSION'),
-        dsn: this.twentyConfigService.get('SENTRY_FRONT_DSN'),
+        environment: this.badesConfigService.get('SENTRY_ENVIRONMENT'),
+        release: this.badesConfigService.get('APP_VERSION'),
+        dsn: this.badesConfigService.get('SENTRY_FRONT_DSN'),
       },
       captcha: {
         provider: captchaProvider ? captchaProvider : undefined,
-        siteKey: this.twentyConfigService.get('CAPTCHA_SITE_KEY'),
+        siteKey: this.badesConfigService.get('CAPTCHA_SITE_KEY'),
       },
       api: {
-        mutationMaximumAffectedRecords: this.twentyConfigService.get(
+        mutationMaximumAffectedRecords: this.badesConfigService.get(
           'MUTATION_MAXIMUM_AFFECTED_RECORDS',
         ),
       },
-      isAttachmentPreviewEnabled: this.twentyConfigService.get(
+      isAttachmentPreviewEnabled: this.badesConfigService.get(
         'IS_ATTACHMENT_PREVIEW_ENABLED',
       ),
-      analyticsEnabled: this.twentyConfigService.get('ANALYTICS_ENABLED'),
+      analyticsEnabled: this.badesConfigService.get('ANALYTICS_ENABLED'),
       canManageFeatureFlags:
-        this.twentyConfigService.get('NODE_ENV') ===
+        this.badesConfigService.get('NODE_ENV') ===
           NodeEnvironment.DEVELOPMENT ||
-        this.twentyConfigService.get('IS_BILLING_ENABLED'),
+        this.badesConfigService.get('IS_BILLING_ENABLED'),
       publicFeatureFlags: PUBLIC_FEATURE_FLAGS,
-      isMicrosoftMessagingEnabled: this.twentyConfigService.get(
+      isMicrosoftMessagingEnabled: this.badesConfigService.get(
         'MESSAGING_PROVIDER_MICROSOFT_ENABLED',
       ),
-      isMicrosoftCalendarEnabled: this.twentyConfigService.get(
+      isMicrosoftCalendarEnabled: this.badesConfigService.get(
         'CALENDAR_PROVIDER_MICROSOFT_ENABLED',
       ),
-      isGoogleMessagingEnabled: this.twentyConfigService.get(
+      isGoogleMessagingEnabled: this.badesConfigService.get(
         'MESSAGING_PROVIDER_GMAIL_ENABLED',
       ),
-      isGoogleCalendarEnabled: this.twentyConfigService.get(
+      isGoogleCalendarEnabled: this.badesConfigService.get(
         'CALENDAR_PROVIDER_GOOGLE_ENABLED',
       ),
-      isConfigVariablesInDbEnabled: this.twentyConfigService.get(
+      isConfigVariablesInDbEnabled: this.badesConfigService.get(
         'IS_CONFIG_VARIABLES_IN_DB_ENABLED',
       ),
-      isImapSmtpCaldavEnabled: this.twentyConfigService.get(
+      isImapSmtpCaldavEnabled: this.badesConfigService.get(
         'IS_IMAP_SMTP_CALDAV_ENABLED',
       ),
       isEmailGroupEnabled:
-        this.twentyConfigService.get('STORAGE_TYPE') ===
+        this.badesConfigService.get('STORAGE_TYPE') ===
           StorageDriverType.S_3 &&
-        isNonEmptyString(this.twentyConfigService.get('INBOUND_EMAIL_DOMAIN')),
-      allowRequestsToFaviconService: this.twentyConfigService.get(
+        isNonEmptyString(this.badesConfigService.get('INBOUND_EMAIL_DOMAIN')),
+      allowRequestsToFaviconService: this.badesConfigService.get(
         'ALLOW_REQUESTS_TO_FAVICON_SERVICE',
       ),
       calendarBookingPageId: isNonEmptyString(calendarBookingPageId)
         ? calendarBookingPageId
         : undefined,
       isCloudflareIntegrationEnabled: this.isCloudflareIntegrationEnabled(),
-      isClickHouseConfigured: !!this.twentyConfigService.get('CLICKHOUSE_URL'),
-      isWorkspaceSchemaDDLLocked: this.twentyConfigService.get(
+      isClickHouseConfigured: !!this.badesConfigService.get('CLICKHOUSE_URL'),
+      isWorkspaceSchemaDDLLocked: this.badesConfigService.get(
         'WORKSPACE_SCHEMA_DDL_LOCKED',
       ),
     };

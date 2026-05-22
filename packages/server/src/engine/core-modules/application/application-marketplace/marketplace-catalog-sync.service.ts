@@ -14,7 +14,7 @@ export class MarketplaceCatalogSyncService {
   constructor(
     private readonly applicationRegistrationService: ApplicationRegistrationService,
     private readonly marketplaceService: MarketplaceService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async syncCatalog(): Promise<void> {
@@ -59,7 +59,7 @@ export class MarketplaceCatalogSyncService {
             }
           : fetchedManifest;
 
-        const cdnBaseUrl = this.twentyConfigService.get('APP_REGISTRY_CDN_URL');
+        const cdnBaseUrl = this.badesConfigService.get('APP_REGISTRY_CDN_URL');
 
         const manifestWithResolvedUrls = resolveManifestAssetUrls(
           manifest,

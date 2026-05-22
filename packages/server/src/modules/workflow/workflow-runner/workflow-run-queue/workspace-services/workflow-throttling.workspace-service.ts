@@ -17,14 +17,14 @@ export class WorkflowThrottlingWorkspaceService {
     private readonly cacheStorage: CacheStorageService,
     private readonly globalWorkspaceOrmManager: GlobalWorkspaceOrmManager,
     private readonly throttlerService: ThrottlerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async getRemainingRunsToEnqueueCount(workspaceId: string) {
     return this.throttlerService.getAvailableTokensCount(
       this.getWorkflowExecutionSoftThrottleCacheKey(workspaceId),
-      this.twentyConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_LIMIT'),
-      this.twentyConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_TTL'),
+      this.badesConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_LIMIT'),
+      this.badesConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_TTL'),
     );
   }
 
@@ -35,8 +35,8 @@ export class WorkflowThrottlingWorkspaceService {
     await this.throttlerService.consumeTokens(
       this.getWorkflowExecutionSoftThrottleCacheKey(workspaceId),
       runsToConsume,
-      this.twentyConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_LIMIT'),
-      this.twentyConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_TTL'),
+      this.badesConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_LIMIT'),
+      this.badesConfigService.get('WORKFLOW_EXEC_SOFT_THROTTLE_TTL'),
     );
   }
 
@@ -44,8 +44,8 @@ export class WorkflowThrottlingWorkspaceService {
     await this.throttlerService.tokenBucketThrottleOrThrow(
       this.getWorkflowExecutionHardThrottleCacheKey(workspaceId),
       1,
-      this.twentyConfigService.get('WORKFLOW_EXEC_HARD_THROTTLE_LIMIT'),
-      this.twentyConfigService.get('WORKFLOW_EXEC_HARD_THROTTLE_TTL'),
+      this.badesConfigService.get('WORKFLOW_EXEC_HARD_THROTTLE_LIMIT'),
+      this.badesConfigService.get('WORKFLOW_EXEC_HARD_THROTTLE_TTL'),
     );
   }
 

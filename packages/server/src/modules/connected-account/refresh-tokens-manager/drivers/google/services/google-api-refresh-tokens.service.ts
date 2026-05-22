@@ -13,12 +13,12 @@ import { parseGoogleOAuthError } from 'src/modules/connected-account/refresh-tok
 
 @Injectable()
 export class GoogleAPIRefreshAccessTokenService {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   async refreshTokens(refreshToken: string): Promise<ConnectedAccountTokens> {
     const oAuth2Client = new google.auth.OAuth2(
-      this.twentyConfigService.get('AUTH_GOOGLE_CLIENT_ID'),
-      this.twentyConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
+      this.badesConfigService.get('AUTH_GOOGLE_CLIENT_ID'),
+      this.badesConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
     );
 
     oAuth2Client.setCredentials({

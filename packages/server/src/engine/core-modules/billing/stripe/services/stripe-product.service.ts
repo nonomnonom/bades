@@ -13,14 +13,14 @@ export class StripeProductService {
   private readonly stripe: Stripe;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly stripeSDKService: StripeSDKService,
   ) {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return;
     }
     this.stripe = this.stripeSDKService.getStripe(
-      this.twentyConfigService.get('BILLING_STRIPE_API_KEY'),
+      this.badesConfigService.get('BILLING_STRIPE_API_KEY'),
     );
   }
 

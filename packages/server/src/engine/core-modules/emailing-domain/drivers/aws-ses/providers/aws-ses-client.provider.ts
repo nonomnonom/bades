@@ -11,19 +11,19 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 export class AwsSesClientProvider {
   private sesClient: SESClient | null = null;
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   public getSESClient(): SESClient {
     if (!this.sesClient) {
       const config: SESClientConfig = {
-        region: this.twentyConfigService.get('AWS_SES_REGION'),
+        region: this.badesConfigService.get('AWS_SES_REGION'),
       };
 
-      const accessKeyId = this.twentyConfigService.get('AWS_SES_ACCESS_KEY_ID');
-      const secretAccessKey = this.twentyConfigService.get(
+      const accessKeyId = this.badesConfigService.get('AWS_SES_ACCESS_KEY_ID');
+      const secretAccessKey = this.badesConfigService.get(
         'AWS_SES_SECRET_ACCESS_KEY',
       );
-      const sessionToken = this.twentyConfigService.get(
+      const sessionToken = this.badesConfigService.get(
         'AWS_SES_SESSION_TOKEN',
       );
 

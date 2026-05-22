@@ -24,13 +24,13 @@ export class AdminPanelBillingService {
     @InjectRepository(BillingPriceEntity)
     private readonly billingPriceRepository: Repository<BillingPriceEntity>,
     private readonly billingSubscriptionService: BillingSubscriptionService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async getWorkspaceBilling(
     workspaceId: string,
   ): Promise<AdminPanelWorkspaceBillingDTO | null> {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return null;
     }
 

@@ -22,18 +22,18 @@ import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/works
 @Injectable()
 export class LogicFunctionDriverFactory extends DriverFactoryBase<LogicFunctionDriver> {
   constructor(
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
     private readonly logicFunctionResourceService: LogicFunctionResourceService,
     private readonly sdkClientArchiveService: SdkClientArchiveService,
     private readonly cacheLockService: CacheLockService,
     private readonly workspaceCacheService: WorkspaceCacheService,
   ) {
-    super(twentyConfigService, configGroupHashService);
+    super(badesConfigService, configGroupHashService);
   }
 
   protected buildConfigKey(): string {
-    const driverType = this.twentyConfigService.get('LOGIC_FUNCTION_TYPE');
+    const driverType = this.badesConfigService.get('LOGIC_FUNCTION_TYPE');
 
     if (driverType === LogicFunctionDriverType.LAMBDA) {
       return `lambda|${this.configGroupHashService.computeHash(ConfigVariablesGroup.LOGIC_FUNCTION_CONFIG)}`;
@@ -43,7 +43,7 @@ export class LogicFunctionDriverFactory extends DriverFactoryBase<LogicFunctionD
   }
 
   protected createDriver(): LogicFunctionDriver {
-    const driverType = this.twentyConfigService.get('LOGIC_FUNCTION_TYPE');
+    const driverType = this.badesConfigService.get('LOGIC_FUNCTION_TYPE');
 
     switch (driverType) {
       case LogicFunctionDriverType.DISABLED:
@@ -58,28 +58,28 @@ export class LogicFunctionDriverFactory extends DriverFactoryBase<LogicFunctionD
         });
 
       case LogicFunctionDriverType.LAMBDA: {
-        const region = this.twentyConfigService.get(
+        const region = this.badesConfigService.get(
           'LOGIC_FUNCTION_LAMBDA_REGION',
         );
-        const accessKeyId = this.twentyConfigService.get(
+        const accessKeyId = this.badesConfigService.get(
           'LOGIC_FUNCTION_LAMBDA_ACCESS_KEY_ID',
         );
-        const secretAccessKey = this.twentyConfigService.get(
+        const secretAccessKey = this.badesConfigService.get(
           'LOGIC_FUNCTION_LAMBDA_SECRET_ACCESS_KEY',
         );
-        const lambdaRole = this.twentyConfigService.get(
+        const lambdaRole = this.badesConfigService.get(
           'LOGIC_FUNCTION_LAMBDA_ROLE',
         );
-        const subhostingRole = this.twentyConfigService.get(
+        const subhostingRole = this.badesConfigService.get(
           'LOGIC_FUNCTION_LAMBDA_SUBHOSTING_ROLE',
         );
-        const s3BucketName = this.twentyConfigService.get('STORAGE_S3_NAME');
+        const s3BucketName = this.badesConfigService.get('STORAGE_S3_NAME');
         const layerBucket =
-          this.twentyConfigService.get('LOGIC_FUNCTION_LAMBDA_LAYER_BUCKET') ??
+          this.badesConfigService.get('LOGIC_FUNCTION_LAMBDA_LAYER_BUCKET') ??
           s3BucketName ??
           'twenty-lambda-layer';
         const layerBucketRegion =
-          this.twentyConfigService.get(
+          this.badesConfigService.get(
             'LOGIC_FUNCTION_LAMBDA_LAYER_BUCKET_REGION',
           ) ?? region;
 

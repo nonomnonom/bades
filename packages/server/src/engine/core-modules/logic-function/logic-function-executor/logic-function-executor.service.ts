@@ -66,7 +66,7 @@ export class LogicFunctionExecutorService {
   constructor(
     private readonly logicFunctionDriverFactory: LogicFunctionDriverFactory,
     private readonly throttlerService: ThrottlerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly applicationTokenService: ApplicationTokenService,
     private readonly secretEncryptionService: SecretEncryptionService,
@@ -157,8 +157,8 @@ export class LogicFunctionExecutorService {
       await this.throttlerService.tokenBucketThrottleOrThrow(
         `${workspaceId}-logic-function-execution`,
         1,
-        this.twentyConfigService.get('LOGIC_FUNCTION_EXEC_THROTTLE_LIMIT'),
-        this.twentyConfigService.get('LOGIC_FUNCTION_EXEC_THROTTLE_TTL'),
+        this.badesConfigService.get('LOGIC_FUNCTION_EXEC_THROTTLE_LIMIT'),
+        this.badesConfigService.get('LOGIC_FUNCTION_EXEC_THROTTLE_TTL'),
       );
     } catch {
       throw new LogicFunctionExecutionException(
@@ -247,7 +247,7 @@ export class LogicFunctionExecutorService {
         userWorkspaceId,
       });
 
-    const baseUrl = cleanServerUrl(this.twentyConfigService.get('SERVER_URL'));
+    const baseUrl = cleanServerUrl(this.badesConfigService.get('SERVER_URL'));
 
     const serverVariables = await this.buildServerVariableEnvMap(
       flatApplication.applicationRegistrationId,

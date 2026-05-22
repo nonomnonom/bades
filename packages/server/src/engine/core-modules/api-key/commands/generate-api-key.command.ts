@@ -36,7 +36,7 @@ export class GenerateApiKeyCommand extends CommandRunner {
     @InjectRepository(RoleEntity)
     private readonly roleRepository: Repository<RoleEntity>,
     private readonly apiKeyService: ApiKeyService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {
     super();
   }
@@ -78,7 +78,7 @@ export class GenerateApiKeyCommand extends CommandRunner {
     _passedParams: string[],
     options: GenerateApiKeyCommandOptions,
   ): Promise<void> {
-    const nodeEnv = this.twentyConfigService.get('NODE_ENV');
+    const nodeEnv = this.badesConfigService.get('NODE_ENV');
 
     if (
       nodeEnv !== NodeEnvironment.DEVELOPMENT &&

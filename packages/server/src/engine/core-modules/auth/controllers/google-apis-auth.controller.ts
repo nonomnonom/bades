@@ -37,7 +37,7 @@ export class GoogleAPIsAuthController {
   constructor(
     private readonly googleAPIsService: GoogleAPIsService,
     private readonly transientTokenService: TransientTokenService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly onboardingService: OnboardingService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly guardRedirectService: GuardRedirectService,
@@ -143,7 +143,7 @@ export class GoogleAPIsAuthController {
         this.guardRedirectService.getRedirectErrorUrlAndCaptureExceptions({
           error,
           workspace: workspace ?? {
-            subdomain: this.twentyConfigService.get('DEFAULT_SUBDOMAIN'),
+            subdomain: this.badesConfigService.get('DEFAULT_SUBDOMAIN'),
             customDomain: null,
           },
           pathname: getSettingsPath(SettingsPath.Accounts),

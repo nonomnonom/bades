@@ -39,7 +39,7 @@ export class ApprovedAccessDomainService {
     @InjectRepository(ApprovedAccessDomainEntity)
     private readonly approvedAccessDomainRepository: Repository<ApprovedAccessDomainEntity>,
     private readonly emailService: EmailService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly fileUrlService: FileUrlService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly jwtWrapperService: JwtWrapperService,
@@ -107,7 +107,7 @@ export class ApprovedAccessDomainService {
         firstName: sender.name.firstName,
         lastName: sender.name.lastName,
       },
-      serverUrl: this.twentyConfigService.get('SERVER_URL'),
+      serverUrl: this.badesConfigService.get('SERVER_URL'),
       locale: sender.locale,
     });
     const html = await render(emailTemplate);
@@ -116,7 +116,7 @@ export class ApprovedAccessDomainService {
     });
 
     await this.emailService.send({
-      from: `${sender.name.firstName} ${sender.name.lastName} (via Bades) <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      from: `${sender.name.firstName} ${sender.name.lastName} (via Bades) <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       to,
       subject: 'Approve your access domain',
       text,

@@ -15,12 +15,12 @@ type TelemetryEventPayload = TelemetrySignUpEvent;
 @Injectable()
 export class TelemetryService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {}
 
   async publish(payload: TelemetryEventPayload) {
-    if (!this.twentyConfigService.get('TELEMETRY_ENABLED')) {
+    if (!this.badesConfigService.get('TELEMETRY_ENABLED')) {
       return { success: true };
     }
 

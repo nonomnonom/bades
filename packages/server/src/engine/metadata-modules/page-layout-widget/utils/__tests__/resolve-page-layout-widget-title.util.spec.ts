@@ -28,7 +28,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
     const result = resolvePageLayoutWidgetTitle({
       title: 'Fields',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -44,7 +44,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
     const result = resolvePageLayoutWidgetTitle({
       title: 'My Custom Widget',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -60,7 +60,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
     const result = resolvePageLayoutWidgetTitle({
       title: '',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -97,7 +97,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
       const result = resolvePageLayoutWidgetTitle({
         title: source,
         applicationId: STANDARD_APPLICATION_ID,
-        twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+        badesStandardApplicationId: STANDARD_APPLICATION_ID,
         i18nInstance: mockI18n,
       });
 
@@ -114,7 +114,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
     const result = resolvePageLayoutWidgetTitle({
       title: 'Fields',
       applicationId: customAppId,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -130,7 +130,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
     const result = resolvePageLayoutWidgetTitle({
       title: 'Fields',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       overrides: { title: 'Fields' },
       i18nInstance: mockI18n,
     });
@@ -147,7 +147,7 @@ describe('resolvePageLayoutWidgetTitle', () => {
     const result = resolvePageLayoutWidgetTitle({
       title: 'Fields',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       overrides: { conditionalAvailabilityExpression: 'device == "MOBILE"' },
       i18nInstance: mockI18n,
     });

@@ -41,7 +41,7 @@ describe('WorkspaceInvitationService', () => {
   let service: WorkspaceInvitationService;
   let appTokenRepository: Repository<AppTokenEntity>;
   let userWorkspaceRepository: Repository<UserWorkspaceEntity>;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let emailService: EmailService;
   let onboardingService: OnboardingService;
 
@@ -138,7 +138,7 @@ describe('WorkspaceInvitationService', () => {
     userWorkspaceRepository = module.get<Repository<UserWorkspaceEntity>>(
       getRepositoryToken(UserWorkspaceEntity),
     );
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     emailService = module.get<EmailService>(EmailService);
     onboardingService = module.get<OnboardingService>(OnboardingService);
   });
@@ -204,7 +204,7 @@ describe('WorkspaceInvitationService', () => {
         type: AppTokenType.InvitationToken,
       } as AppTokenEntity);
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockReturnValue('http://localhost:3000');
       jest.spyOn(emailService, 'send').mockResolvedValue({} as any);
       jest

@@ -27,11 +27,11 @@ export class EmailVerificationTokenService {
     private readonly appTokenRepository: Repository<AppTokenEntity>,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async generateToken(userId: string, email: string): Promise<AuthToken> {
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'EMAIL_VERIFICATION_TOKEN_EXPIRES_IN',
     );
     const expiresAt = addMilliseconds(new Date().getTime(), ms(expiresIn));

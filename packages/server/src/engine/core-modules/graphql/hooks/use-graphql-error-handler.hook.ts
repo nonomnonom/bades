@@ -51,7 +51,7 @@ type GraphQLErrorHandlerHookOptions = {
 
   i18nService: I18nService;
 
-  twentyConfigService: BadesConfigService;
+  badesConfigService: BadesConfigService;
   /**
    * The key of the event id in the error's extension. `null` to disable.
    * @default exceptionEventId
@@ -270,7 +270,7 @@ export const useGraphQLErrorHandlerHook = <
         const currentMetadataVersion = context.req.workspaceMetadataVersion;
         const requestMetadataVersion = headers[SCHEMA_VERSION_HEADER];
         const backendAppVersion =
-          options.twentyConfigService.get('APP_VERSION');
+          options.badesConfigService.get('APP_VERSION');
         const appVersionHeaderValue = headers[APP_VERSION_HEADER];
         const frontEndAppVersion =
           appVersionHeaderValue && Array.isArray(appVersionHeaderValue)

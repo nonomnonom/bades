@@ -17,7 +17,7 @@ export class SearchHelpCenterTool implements Tool {
   inputSchema = SearchHelpCenterInputZodSchema;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {}
 
@@ -28,9 +28,9 @@ export class SearchHelpCenterTool implements Tool {
     const { query } = parameters;
 
     try {
-      const MINTLIFY_API_KEY = this.twentyConfigService.get('MINTLIFY_API_KEY');
+      const MINTLIFY_API_KEY = this.badesConfigService.get('MINTLIFY_API_KEY');
       const MINTLIFY_SUBDOMAIN =
-        this.twentyConfigService.get('MINTLIFY_SUBDOMAIN');
+        this.badesConfigService.get('MINTLIFY_SUBDOMAIN');
 
       const useDirectApi = MINTLIFY_API_KEY && MINTLIFY_SUBDOMAIN;
 

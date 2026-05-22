@@ -74,7 +74,7 @@ export class BillingResolver {
     private readonly permissionsService: PermissionsService,
     private readonly midtransSnapService: MidtransSnapService,
     private readonly midtransTransactionService: MidtransTransactionService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @Query(() => BillingSessionDTO)
@@ -88,8 +88,8 @@ export class BillingResolver {
   ) {
     // Midtrans tidak menyediakan portal pelanggan seperti Stripe.
     // Kembalikan URL halaman billing internal Bades sebagai pengganti.
-    if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
-      const frontendUrl = this.twentyConfigService.get('FRONTEND_URL') ?? '';
+    if (this.badesConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+      const frontendUrl = this.badesConfigService.get('FRONTEND_URL') ?? '';
       const portalUrl = returnUrlPath
         ? `${frontendUrl}${returnUrlPath}`
         : `${frontendUrl}/settings/billing`;
@@ -117,7 +117,7 @@ export class BillingResolver {
       callbackFinishUrl,
     }: BillingTopUpCreditSessionInput,
   ) {
-    if (!this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
       throw new BillingException(
         'Top up kredit hanya tersedia saat IS_BILLING_MIDTRANS_ENABLED aktif.',
         BillingExceptionCode.BILLING_PAYMENT_REQUIRED,
@@ -167,7 +167,7 @@ export class BillingResolver {
     };
 
     // Jika Midtrans aktif, gunakan Snap untuk checkout langganan
-    if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+    if (this.badesConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
       const grossAmount = await this.computeMidtransSubscriptionAmount(
         checkoutSessionParams.plan,
         recurringInterval,
@@ -180,7 +180,7 @@ export class BillingResolver {
         customerEmail: user.email,
         itemName: `Langganan Bades - Paket ${checkoutSessionParams.plan}`,
         callbackFinishUrl: successUrlPath
-          ? `${this.twentyConfigService.get('FRONTEND_URL')}${successUrlPath}`
+          ? `${this.badesConfigService.get('FRONTEND_URL')}${successUrlPath}`
           : undefined,
       });
 

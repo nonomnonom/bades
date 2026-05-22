@@ -10,10 +10,10 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class DevelopmentGuard implements CanActivate {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   canActivate(): boolean {
-    const nodeEnv = this.twentyConfigService.get('NODE_ENV');
+    const nodeEnv = this.badesConfigService.get('NODE_ENV');
 
     if (
       nodeEnv !== NodeEnvironment.DEVELOPMENT &&

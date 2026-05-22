@@ -115,7 +115,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     private readonly billingSubscriptionService: BillingSubscriptionService,
     private readonly billingService: BillingService,
     private readonly userWorkspaceService: UserWorkspaceService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly exceptionHandlerService: ExceptionHandlerService,
     private readonly permissionsService: PermissionsService,
     private readonly dnsManagerService: DnsManagerService,
@@ -195,9 +195,9 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     }
 
     const authProvidersBySystem = {
-      google: this.twentyConfigService.get('AUTH_GOOGLE_ENABLED'),
-      password: this.twentyConfigService.get('AUTH_PASSWORD_ENABLED'),
-      microsoft: this.twentyConfigService.get('AUTH_MICROSOFT_ENABLED'),
+      google: this.badesConfigService.get('AUTH_GOOGLE_ENABLED'),
+      password: this.badesConfigService.get('AUTH_PASSWORD_ENABLED'),
+      microsoft: this.badesConfigService.get('AUTH_MICROSOFT_ENABLED'),
     };
 
     if (payload.isGoogleAuthEnabled && !authProvidersBySystem.google) {
@@ -409,7 +409,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
       );
 
     const executedByVersion =
-      this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+      this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
     const queryRunner = this.coreDataSource.createQueryRunner();
 

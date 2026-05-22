@@ -13,10 +13,10 @@ const cacheStorageLogger = new Logger('CacheStorage');
 const REDIS_PING_INTERVAL_MS = 60_000;
 
 export const cacheStorageModuleFactory = (
-  twentyConfigService: BadesConfigService,
+  badesConfigService: BadesConfigService,
 ): CacheModuleOptions => {
   const cacheStorageType = CacheStorageType.Redis;
-  const cacheStorageTtl = twentyConfigService.get('CACHE_STORAGE_TTL');
+  const cacheStorageTtl = badesConfigService.get('CACHE_STORAGE_TTL');
   const cacheModuleOptions: CacheModuleOptions = {
     isGlobal: true,
     ttl: cacheStorageTtl * 1000,
@@ -27,7 +27,7 @@ export const cacheStorageModuleFactory = (
       return cacheModuleOptions;
     }*/
     case CacheStorageType.Redis: {
-      const redisUrl = twentyConfigService.get('REDIS_URL');
+      const redisUrl = badesConfigService.get('REDIS_URL');
 
       if (!redisUrl) {
         throw new Error(

@@ -49,7 +49,7 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
   private readonly logger = new Logger(ApplicationPackageFetcherService.name);
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly fileStorageService: FileStorageService,
     @InjectRepository(FileEntity)
     private readonly fileRepository: Repository<FileEntity>,
@@ -114,9 +114,9 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
     await fs.mkdir(workDir, { recursive: true });
 
     try {
-      const registryUrl = this.twentyConfigService.get('APP_REGISTRY_URL');
+      const registryUrl = this.badesConfigService.get('APP_REGISTRY_URL');
 
-      const authToken = this.twentyConfigService.get('APP_REGISTRY_TOKEN');
+      const authToken = this.badesConfigService.get('APP_REGISTRY_TOKEN');
 
       assertValidNpmPackageName(packageName);
 

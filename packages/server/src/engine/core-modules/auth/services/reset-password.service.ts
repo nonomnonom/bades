@@ -40,7 +40,7 @@ import { WorkspaceNotFoundDefaultError } from 'src/engine/core-modules/workspace
 @Injectable()
 export class ResetPasswordService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
@@ -66,7 +66,7 @@ export class ResetPasswordService {
       workspaceId ??
       (await this.findFirstPasswordAuthEnabledWorkspaceIdOrThrow(user.id));
 
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'PASSWORD_RESET_TOKEN_EXPIRES_IN',
     );
 
@@ -181,9 +181,9 @@ export class ResetPasswordService {
     const subject = i18n._(subjectTemplate);
 
     await this.emailService.send({
-      from: `${this.twentyConfigService.get(
+      from: `${this.badesConfigService.get(
         'EMAIL_FROM_NAME',
-      )} <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      )} <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       to: user.email,
       subject,
       text,

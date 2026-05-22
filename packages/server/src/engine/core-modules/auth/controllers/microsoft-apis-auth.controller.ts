@@ -37,7 +37,7 @@ export class MicrosoftAPIsAuthController {
   constructor(
     private readonly microsoftAPIsService: MicrosoftAPIsService,
     private readonly transientTokenService: TransientTokenService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly onboardingService: OnboardingService,
     private readonly guardRedirectService: GuardRedirectService,
@@ -150,7 +150,7 @@ export class MicrosoftAPIsAuthController {
         this.guardRedirectService.getRedirectErrorUrlAndCaptureExceptions({
           error,
           workspace: workspace ?? {
-            subdomain: this.twentyConfigService.get('DEFAULT_SUBDOMAIN'),
+            subdomain: this.badesConfigService.get('DEFAULT_SUBDOMAIN'),
             customDomain: null,
           },
           pathname: AppPath.Verify,
