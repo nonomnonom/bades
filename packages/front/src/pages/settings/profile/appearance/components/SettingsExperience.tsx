@@ -8,7 +8,6 @@ import { getSettingsPath } from 'shared/utils';
 import { H2Title } from 'ui/display';
 import { ColorSchemePicker } from 'ui/input';
 import { Section } from 'ui/layout';
-import { LocalePicker } from '~/pages/settings/profile/appearance/components/LocalePicker';
 
 export const SettingsExperience = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
@@ -35,14 +34,6 @@ export const SettingsExperience = () => {
             darkLabel={t`Gelap`}
             systemLabel={t`Ikuti sistem`}
           />
-        </Section>
-
-        <Section>
-          <H2Title
-            title={t`Bahasa`}
-            description={t`Pilih bahasa yang Anda gunakan`}
-          />
-          <LocalePicker />
         </Section>
 
         <Section>

@@ -144,6 +144,7 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Mertua', value: 'MERTUA', position: 7 },
       { label: 'Famili Lain', value: 'FAMILI_LAIN', position: 8 },
       { label: 'Pembantu', value: 'PEMBANTU', position: 9 },
+      { label: 'Lainnya', value: 'LAINNYA', position: 10 },
     ],
   },
   {

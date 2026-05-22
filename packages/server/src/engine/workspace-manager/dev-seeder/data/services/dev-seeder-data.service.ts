@@ -174,17 +174,17 @@ const getRecordSeedsBatches = (
   // Batch 3: Depends on connectedAccount
   const batch3: RecordSeedConfig[] = [
     {
-      tableName: 'penduduk',
+      tableName: '_penduduk',
       pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
       recordSeeds: PENDUDUK_DATA_SEEDS,
     },
     {
-      tableName: 'keluarga',
+      tableName: '_keluarga',
       pgColumns: KELUARGA_DATA_SEED_COLUMNS,
       recordSeeds: KELUARGA_DATA_SEEDS,
     },
     {
-      tableName: 'jenisSurat',
+      tableName: '_jenisSurat',
       pgColumns: JENIS_SURAT_DATA_SEED_COLUMNS,
       recordSeeds: JENIS_SURAT_DATA_SEEDS,
     },
@@ -218,47 +218,47 @@ const getRecordSeedsBatches = (
       recordSeeds: MESSAGE_THREAD_DATA_SEEDS,
     },
     {
-      tableName: 'permohonanSurat',
+      tableName: '_permohonanSurat',
       pgColumns: PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
       recordSeeds: PERMOHONAN_SURAT_DATA_SEEDS,
     },
     {
-      tableName: 'jabatan',
+      tableName: '_jabatan',
       pgColumns: JABATAN_DATA_SEED_COLUMNS,
       recordSeeds: JABATAN_DATA_SEEDS,
     },
     {
-      tableName: 'lembagaDesa',
+      tableName: '_lembagaDesa',
       pgColumns: LEMBAGA_DESA_DATA_SEED_COLUMNS,
       recordSeeds: LEMBAGA_DESA_DATA_SEEDS,
     },
     {
-      tableName: 'anggaran',
+      tableName: '_anggaran',
       pgColumns: ANGGARAN_DATA_SEED_COLUMNS,
       recordSeeds: ANGGARAN_DATA_SEEDS,
     },
     {
-      tableName: 'realisasiAnggaran',
+      tableName: '_realisasiAnggaran',
       pgColumns: REALISASI_ANGGARAN_DATA_SEED_COLUMNS,
       recordSeeds: REALISASI_ANGGARAN_DATA_SEEDS,
     },
     {
-      tableName: 'programBantuan',
+      tableName: '_programBantuan',
       pgColumns: PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
       recordSeeds: PROGRAM_BANTUAN_DATA_SEEDS,
     },
     {
-      tableName: 'penerimaBantuan',
+      tableName: '_penerimaBantuan',
       pgColumns: PENERIMA_BANTUAN_DATA_SEED_COLUMNS,
       recordSeeds: PENERIMA_BANTUAN_DATA_SEEDS,
     },
     {
-      tableName: 'asetDesa',
+      tableName: '_asetDesa',
       pgColumns: ASET_DESA_DATA_SEED_COLUMNS,
       recordSeeds: ASET_DESA_DATA_SEEDS,
     },
     {
-      tableName: 'umkm',
+      tableName: '_umkm',
       pgColumns: UMKM_DATA_SEED_COLUMNS,
       recordSeeds: UMKM_DATA_SEEDS,
     },
