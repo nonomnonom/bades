@@ -11,7 +11,7 @@ const mockPartialUserPayload: SignInUpNewUserPayload = {
   email: 'first.user@acme.dev',
   firstName: 'First',
   lastName: 'User',
-  locale: 'en',
+  locale: 'id-ID',
   isEmailAlreadyVerified: true,
 };
 

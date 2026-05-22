@@ -48,6 +48,7 @@ import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/works
 import { WorkspaceEventEmitter } from 'src/engine/workspace-event-emitter/workspace-event-emitter';
 import { getDomainNameByEmail } from 'src/utils/get-domain-name-by-email';
 import { isWorkEmail } from 'src/utils/is-work-email';
+import { SOURCE_LOCALE } from 'shared/translations';
 
 @Injectable()
 // oxlint-disable-next-line twenty/inject-workspace-repository
@@ -93,7 +94,7 @@ export class SignInUpService {
       firstName: newUserPayload.firstName ?? '',
       lastName: newUserPayload.lastName ?? '',
       picture: newUserPayload.picture ?? '',
-      locale: newUserPayload.locale ?? 'en',
+      locale: newUserPayload.locale ?? SOURCE_LOCALE,
       isEmailVerified: newUserPayload.isEmailAlreadyVerified,
     };
 

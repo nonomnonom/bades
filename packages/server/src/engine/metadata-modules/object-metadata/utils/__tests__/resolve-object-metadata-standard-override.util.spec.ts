@@ -285,7 +285,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
       const result = resolveObjectMetadataStandardOverride(
         objectMetadata,
         'labelSingular',
-        'en',
+        'id-ID',
         mockI18n,
       );
 

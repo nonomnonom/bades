@@ -245,7 +245,7 @@ describe('ResetPasswordService', () => {
       const result = await service.sendEmailPasswordResetLink({
         resetToken: mockToken,
         email: 'test@example.com',
-        locale: 'en',
+        locale: 'id-ID',
       });
 
       expect(result.success).toBe(true);
@@ -269,7 +269,7 @@ describe('ResetPasswordService', () => {
         service.sendEmailPasswordResetLink({
           resetToken: mockToken,
           email: 'nonexistent@example.com',
-          locale: 'en',
+          locale: 'id-ID',
         }),
       ).rejects.toThrow(AuthException);
     });

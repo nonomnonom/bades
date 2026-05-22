@@ -2,13 +2,12 @@ import { type APP_LOCALES } from 'shared/translations';
 
 type AppLocale = keyof typeof APP_LOCALES;
 export const getDateFnsLocaleImport = (locale: AppLocale) => {
+  // Bades single-language: selalu pakai locale tanggal Indonesia.
   switch (locale) {
-    case 'en':
-      return import('date-fns/locale/en-US');
     case 'id-ID':
       return import('date-fns/locale/id');
     default: {
-      return import('date-fns/locale/en-US');
+      return import('date-fns/locale/id');
     }
   }
 };
