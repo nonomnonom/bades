@@ -13,7 +13,6 @@ import { AGENT_CHAT_SEND_MESSAGE_EVENT_NAME } from '@/ai/constants/AgentChatSend
 import { AGENT_CHAT_STOP_EVENT_NAME } from '@/ai/constants/AgentChatStopEventName';
 import { SEND_CHAT_MESSAGE } from '@/ai/graphql/mutations/sendChatMessage';
 import { STOP_AGENT_CHAT_STREAM } from '@/ai/graphql/mutations/stopAgentChatStream';
-import { useAgentChatModelId } from '@/ai/hooks/useAgentChatModelId';
 import { useGetBrowsingContext } from '@/ai/hooks/useBrowsingContext';
 import { useOptimisticallyUnarchiveOnSend } from '@/ai/hooks/useOptimisticallyUnarchiveOnSend';
 import {
@@ -35,7 +34,6 @@ import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomStat
 export const useAgentChat = (
   ensureThreadIdForSend: () => Promise<string | null>,
 ) => {
-  const { modelIdForRequest } = useAgentChatModelId();
   const { getBrowsingContext } = useGetBrowsingContext();
   const { applyOptimisticUnarchive } = useOptimisticallyUnarchiveOnSend();
   const apolloClient = useApolloClient();
@@ -152,7 +150,6 @@ export const useAgentChat = (
           text: contentToSend,
           messageId,
           browsingContext: browsingContext ?? null,
-          modelId: modelIdForRequest ?? undefined,
           fileAttachments:
             fileAttachments.length > 0 ? fileAttachments : undefined,
         },
@@ -224,7 +221,6 @@ export const useAgentChat = (
     getBrowsingContext,
     setAgentChatUploadedFiles,
     setAgentChatDraftsByThreadId,
-    modelIdForRequest,
     setCurrentAiChatThread,
     apolloClient,
     applyOptimisticUnarchive,
