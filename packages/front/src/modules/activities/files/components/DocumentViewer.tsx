@@ -226,24 +226,24 @@ export const DocumentViewer = ({
       <StyledDocumentViewerContainer>
         <StyledUnavailablePreviewContainer>
           <StyledTitle>
-            <Trans>Preview Not Available</Trans>
+            <Trans>Pratinjau Tidak Tersedia</Trans>
           </StyledTitle>
           <StyledMessage>
             {fileCategory === 'ARCHIVE' ? (
               <Trans>
-                Archive files cannot be previewed. Please download the file to
-                access its contents.
+                Berkas arsip tidak dapat ditampilkan. Unduh berkas untuk
+                mengakses isinya.
               </Trans>
             ) : (
               <Trans>
-                This file type cannot be previewed. Please download the file to
-                view it.
+                Jenis berkas ini tidak dapat ditampilkan. Unduh berkas untuk
+                melihat isinya.
               </Trans>
             )}
           </StyledMessage>
           <Button
             Icon={IconDownload}
-            title={t`Download File`}
+            title={t`Unduh Berkas`}
             onClick={() => downloadFile(documentUrl, documentName)}
             variant="secondary"
           />
@@ -256,7 +256,7 @@ export const DocumentViewer = ({
     if (!isDefined(csvPreview)) {
       return (
         <StyledDocumentViewerContainer>
-          <Trans>Loading csv ... </Trans>
+          <Trans>Memuat CSV ... </Trans>
         </StyledDocumentViewerContainer>
       );
     }
@@ -290,12 +290,12 @@ export const DocumentViewer = ({
         <StyledUnavailablePreviewContainer>
           <StyledLightMessage>
             <Trans>
-              This file cannot be previewed because it is hosted locally.
+              Berkas ini tidak dapat ditampilkan karena tersimpan secara lokal.
             </Trans>
           </StyledLightMessage>
           <Button
             Icon={IconDownload}
-            title={t`Download`}
+            title={t`Unduh`}
             onClick={() => downloadFile(documentUrl, documentName)}
             variant="secondary"
             size="small"

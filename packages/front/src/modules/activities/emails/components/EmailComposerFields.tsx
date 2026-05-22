@@ -63,7 +63,7 @@ export const EmailComposerFields = ({
       {hasMultipleAccounts && (
         <Select
           dropdownId="email-composer-from-account"
-          label={t`From`}
+          label={t`Dari`}
           fullWidth
           value={composerState.connectedAccountId}
           options={accountOptions}
@@ -72,10 +72,10 @@ export const EmailComposerFields = ({
       )}
       <StyledToRow>
         <FormMultiTextFieldInput
-          label={t`To`}
+          label={t`Kepada`}
           defaultValue={composerState.defaultTo}
           onChange={composerState.setTo}
-          placeholder={t`Recipients`}
+          placeholder={t`Penerima`}
         />
         {!composerState.showCcBcc && (
           <StyledCcBccToggle onClick={() => composerState.setShowCcBcc(true)}>
@@ -100,21 +100,21 @@ export const EmailComposerFields = ({
         </>
       )}
       <FormTextFieldInput
-        label={t`Subject`}
+        label={t`Subjek`}
         defaultValue={composerState.defaultSubject}
         onChange={composerState.setSubject}
-        placeholder={t`Subject`}
+        placeholder={t`Subjek`}
       />
       <FormAdvancedTextFieldInput
         defaultValue=""
         onChange={composerState.setBody}
-        placeholder={t`Type something or press "/" to see commands`}
+        placeholder={t`Ketik sesuatu atau tekan "/" untuk melihat perintah`}
         minHeight={120}
         maxWidth={600}
         contentType="html"
       />
       <EmailAttachmentsField
-        label={t`Attachments`}
+        label={t`Lampiran`}
         files={composerState.files}
         onChange={composerState.setFiles}
       />

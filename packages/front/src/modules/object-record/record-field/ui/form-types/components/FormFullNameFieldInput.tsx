@@ -42,7 +42,7 @@ export const FormFullNameFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`First Name`}
+          label={t`Nama Depan`}
           defaultValue={defaultValue?.firstName}
           onChange={handleFirstNameChange}
           placeholder={
@@ -52,7 +52,7 @@ export const FormFullNameFieldInput = ({
           VariablePicker={VariablePicker}
         />
         <FormTextFieldInput
-          label={t`Last Name`}
+          label={t`Nama Belakang`}
           defaultValue={defaultValue?.lastName}
           onChange={handleLastNameChange}
           placeholder={

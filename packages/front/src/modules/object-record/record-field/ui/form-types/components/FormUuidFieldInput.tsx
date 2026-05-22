@@ -97,7 +97,7 @@ export const FormUuidFieldInput = ({
           {draftValue.type === 'static' ? (
             <TextInput
               instanceId={instanceId}
-              placeholder={placeholder ?? t`Enter a UUID`}
+              placeholder={placeholder ?? t`Masukkan UUID`}
               value={draftValue.value}
               copyButton={false}
               disabled={readonly}

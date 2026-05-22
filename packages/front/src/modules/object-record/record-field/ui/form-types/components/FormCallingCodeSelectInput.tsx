@@ -41,7 +41,7 @@ export const FormCallingCodeSelectInput = ({
     );
     return [
       {
-        label: t`No calling code`,
+        label: t`Tanpa kode panggil`,
         value: '',
         Icon: IconCircleOff,
       },

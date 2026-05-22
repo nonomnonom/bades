@@ -40,7 +40,7 @@ export const FormTextFieldInput = ({
   const instanceId = useId();
 
   const editor = useTextVariableEditor({
-    placeholder: placeholder ?? t`Enter text`,
+    placeholder: placeholder ?? t`Masukkan teks`,
     multiline,
     readonly,
     defaultValue,

@@ -31,15 +31,15 @@ export const VariableChip = ({
   });
 
   const isVariableNotFound = !isDefined(variableLabel);
-  const label = isVariableNotFound ? t`Not Found` : variableLabel;
-  const title = isVariableNotFound ? t`Variable not found` : variablePathLabel;
+  const label = isVariableNotFound ? t`Tidak Ditemukan` : variableLabel;
+  const title = isVariableNotFound ? t`Variabel tidak ditemukan` : variablePathLabel;
 
   return (
     <BaseChip
       label={label}
       title={title}
       onRemove={onRemove}
-      removeAriaLabel={t`Remove variable`}
+      removeAriaLabel={t`Hapus variabel`}
       danger={isVariableNotFound}
       leftIcon={
         isVariableNotFound ? (

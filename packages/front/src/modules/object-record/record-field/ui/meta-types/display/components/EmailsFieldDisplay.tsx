@@ -26,7 +26,7 @@ export const EmailsFieldDisplay = () => {
   ) => {
     if (onClickAction === FieldMetadataSettingsOnClickAction.COPY) {
       event.preventDefault();
-      copyToClipboard(email, t`Email copied to clipboard`);
+      copyToClipboard(email, t`Email berhasil disalin`);
 
       return;
     }

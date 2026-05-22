@@ -19,7 +19,7 @@ export const LinksFieldDisplay = () => {
   ) => {
     if (onClickAction === FieldMetadataSettingsOnClickAction.COPY) {
       event.preventDefault();
-      copyToClipboard(url, t`Link copied to clipboard`);
+      copyToClipboard(url, t`Tautan berhasil disalin`);
     }
   };
 

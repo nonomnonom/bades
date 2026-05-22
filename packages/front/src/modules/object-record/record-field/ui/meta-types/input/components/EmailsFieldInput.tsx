@@ -77,7 +77,7 @@ export const EmailsFieldInput = () => {
   };
 
   const handleCopy = (email: string) => {
-    copyToClipboard(email, t`Email copied to clipboard`);
+    copyToClipboard(email, t`Email berhasil disalin`);
   };
 
   const handleClickOutside = (

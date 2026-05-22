@@ -71,7 +71,7 @@ export const BaseChip = ({
   label,
   title,
   onRemove,
-  removeAriaLabel = 'Remove',
+  removeAriaLabel = 'Hapus',
   danger = false,
   leftIcon,
 }: BaseChipProps) => {

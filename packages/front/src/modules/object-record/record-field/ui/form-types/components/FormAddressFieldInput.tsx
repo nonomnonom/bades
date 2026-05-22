@@ -45,47 +45,47 @@ export const FormAddressFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`Address 1`}
+          label={t`Alamat 1`}
           defaultValue={defaultValue?.addressStreet1 ?? ''}
           onChange={handleChange('addressStreet1')}
           readonly={readonly}
           VariablePicker={VariablePicker}
-          placeholder={t`Street address`}
+          placeholder={t`Jalan / nama jalan`}
         />
         <FormTextFieldInput
-          label={t`Address 2`}
+          label={t`Alamat 2`}
           defaultValue={defaultValue?.addressStreet2 ?? ''}
           onChange={handleChange('addressStreet2')}
           readonly={readonly}
           VariablePicker={VariablePicker}
-          placeholder={t`Street address 2`}
+          placeholder={t`Nomor / detail alamat`}
         />
         <FormTextFieldInput
-          label={t`City`}
+          label={t`Kota`}
           defaultValue={defaultValue?.addressCity ?? ''}
           onChange={handleChange('addressCity')}
           readonly={readonly}
           VariablePicker={VariablePicker}
-          placeholder={t`City`}
+          placeholder={t`Kota`}
         />
         <FormTextFieldInput
-          label={t`State`}
+          label={t`Provinsi`}
           defaultValue={defaultValue?.addressState ?? ''}
           onChange={handleChange('addressState')}
           readonly={readonly}
           VariablePicker={VariablePicker}
-          placeholder={t`State`}
+          placeholder={t`Provinsi`}
         />
         <FormTextFieldInput
-          label={t`Post Code`}
+          label={t`Kode Pos`}
           defaultValue={defaultValue?.addressPostcode ?? ''}
           onChange={handleChange('addressPostcode')}
           readonly={readonly}
           VariablePicker={VariablePicker}
-          placeholder={t`Post Code`}
+          placeholder={t`Kode Pos`}
         />
         <FormCountrySelectInput
-          label={t`Country`}
+          label={t`Negara`}
           selectedCountryName={defaultValue?.addressCountry ?? ''}
           onChange={handleChange('addressCountry')}
           readonly={readonly}

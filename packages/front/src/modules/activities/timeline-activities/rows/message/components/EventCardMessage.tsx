@@ -148,7 +148,7 @@ export const EventCardMessage = ({
             {message.subject !==
             FIELD_RESTRICTED_ADDITIONAL_PERMISSIONS_REQUIRED
               ? message.subject
-              : t`Subject not shared`}
+              : t`Subjek tidak dibagikan`}
           </StyledEmailTitle>
           <StyledEmailParticipants>
             <OverflowingTextWithTooltip text={messageParticipantHandles} />

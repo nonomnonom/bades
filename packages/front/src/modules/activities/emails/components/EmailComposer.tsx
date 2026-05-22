@@ -64,7 +64,7 @@ export const EmailComposer = ({
       <StyledFooter>
         {composerState.exceedsRecipientLimit && (
           <StyledFooterWarning>
-            {t`Too many recipients (${composerState.recipientCount}/${composerState.maxRecipients}).`}
+            {t`Terlalu banyak penerima (${composerState.recipientCount}/${composerState.maxRecipients}).`}
           </StyledFooterWarning>
         )}
         <StyledFooterActions>
@@ -72,7 +72,7 @@ export const EmailComposer = ({
             <Button
               size="small"
               variant="secondary"
-              title={t`Cancel`}
+              title={t`Batal`}
               onClick={onClose}
             />
           )}
@@ -80,7 +80,7 @@ export const EmailComposer = ({
             size="small"
             variant="primary"
             accent="blue"
-            title={t`Send`}
+            title={t`Kirim`}
             Icon={IconArrowBackUp}
             onClick={composerState.handleSend}
             disabled={!composerState.canSend}

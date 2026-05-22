@@ -56,7 +56,7 @@ export const EmailThreadHeader = ({
         <StyledHeading>{subject}</StyledHeading>
         {lastMessageSentAt && (
           <StyledContent>
-            {t`Last message ${lastMessageSentAtFormatted}`}
+            {t`Pesan terakhir ${lastMessageSentAtFormatted}`}
           </StyledContent>
         )}
       </StyledHead>

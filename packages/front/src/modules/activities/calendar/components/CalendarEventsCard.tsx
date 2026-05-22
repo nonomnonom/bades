@@ -114,10 +114,10 @@ export const CalendarEventsCard = () => {
         <AnimatedPlaceholder type="noMatchRecord" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`No Events`}
+            {t`Belum ada jadwal`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`No events have been scheduled with this ${objectName} yet.`}
+            {t`Belum ada jadwal yang tercatat untuk data ini.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

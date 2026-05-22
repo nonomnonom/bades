@@ -108,7 +108,7 @@ export const RelationManyToOneFieldInput = () => {
       focusId={instanceId}
       componentInstanceId={instanceId}
       EmptyIcon={IconForbid}
-      emptyLabel={t`No ${fieldLabel}`}
+      emptyLabel={t`Tidak ada ${fieldLabel}`}
       onCancel={onCancel}
       onCreate={
         isDefined(createNewRecordAndOpenSidePanel) ? handleCreateNew : undefined

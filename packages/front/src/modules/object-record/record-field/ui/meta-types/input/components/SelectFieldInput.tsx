@@ -80,7 +80,7 @@ export const SelectFieldInput = () => {
 
   const fieldLabel = fieldDefinition.label;
   const optionIds = [
-    t`No ${fieldLabel}`,
+    t`Tidak ada ${fieldLabel}`,
     ...filteredOptions.map((option) => option.value),
   ];
 

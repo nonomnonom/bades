@@ -35,10 +35,10 @@ export const FormEmailsFieldInput = ({
       {label ? <InputLabel>{label}</InputLabel> : null}
       <FormNestedFieldInputContainer>
         <FormTextFieldInput
-          label={t`Primary Email`}
+          label={t`Email Utama`}
           defaultValue={defaultValue?.primaryEmail}
           onChange={handleChange}
-          placeholder={t`Primary Email`}
+          placeholder={t`Email Utama`}
           readonly={readonly}
           VariablePicker={VariablePicker}
         />

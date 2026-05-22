@@ -110,10 +110,10 @@ export const FilesCard = () => {
             <AnimatedPlaceholder type="noFile" />
             <AnimatedPlaceholderEmptyTextContainer>
               <AnimatedPlaceholderEmptyTitle>
-                <Trans>No Files</Trans>
+                <Trans>Belum ada berkas</Trans>
               </AnimatedPlaceholderEmptyTitle>
               <AnimatedPlaceholderEmptySubTitle>
-                <Trans>There are no associated files with this record.</Trans>
+                <Trans>Tidak ada berkas yang terkait dengan data ini.</Trans>
               </AnimatedPlaceholderEmptySubTitle>
             </AnimatedPlaceholderEmptyTextContainer>
             <StyledFileInput
@@ -125,7 +125,7 @@ export const FilesCard = () => {
             {canUploadFiles && (
               <Button
                 Icon={IconPlus}
-                title={t`Add file`}
+                title={t`Tambah berkas`}
                 variant="secondary"
                 onClick={handleUploadFileClick}
               />
@@ -146,7 +146,7 @@ export const FilesCard = () => {
       />
       <AttachmentList
         targetableObject={targetRecord}
-        title={t`All`}
+        title={t`Semua`}
         attachments={attachments ?? []}
         button={
           canUploadFiles && (
@@ -154,7 +154,7 @@ export const FilesCard = () => {
               Icon={IconPlus}
               size="small"
               variant="secondary"
-              title={t`Add file`}
+              title={t`Tambah berkas`}
               onClick={handleUploadFileClick}
             ></Button>
           )

@@ -49,7 +49,7 @@ export const FormPhoneFieldInput = ({
       {label && <InputLabel>{label}</InputLabel>}
       <FormNestedFieldInputContainer>
         <FormCallingCodeSelectInput
-          label={t`Calling Code`}
+          label={t`Kode Panggil`}
           selectedCountryCode={defaultValue?.primaryPhoneCountryCode ?? ''}
           selectedCallingCode={defaultValue?.primaryPhoneCallingCode}
           onChange={handleCallingCodeChange}
@@ -57,12 +57,12 @@ export const FormPhoneFieldInput = ({
           VariablePicker={VariablePicker}
         />
         <FormNumberFieldInput
-          label={t`Phone Number`}
+          label={t`Nomor Telepon`}
           defaultValue={defaultValue?.primaryPhoneNumber ?? ''}
           onChange={handleNumberChange}
           VariablePicker={VariablePicker}
-          placeholder={t`Enter phone number`}
-          hint={t`Without calling code`}
+          placeholder={t`Masukkan nomor telepon`}
+          hint={t`Tanpa kode panggil`}
           readonly={readonly}
         />
       </FormNestedFieldInputContainer>

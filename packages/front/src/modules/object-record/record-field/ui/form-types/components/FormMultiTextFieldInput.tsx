@@ -30,7 +30,7 @@ export const FormMultiTextFieldInput = ({
   const instanceId = useId();
 
   const editor = useMultiItemFieldEditor({
-    placeholder: placeholder ?? t`Enter values, comma-separated`,
+    placeholder: placeholder ?? t`Masukkan nilai, pisahkan dengan koma`,
     readonly,
     defaultValue,
     onUpdate: (editor) => {

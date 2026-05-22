@@ -96,7 +96,7 @@ export const FormSelectFieldInput = ({
   );
 
   const defaultEmptyOption = {
-    label: label ? t`No ${label}` : t`No value`,
+    label: label ? t`Tidak ada ${label}` : t`Tidak ada nilai`,
     value: '',
     icon: IconCircleOff,
   };

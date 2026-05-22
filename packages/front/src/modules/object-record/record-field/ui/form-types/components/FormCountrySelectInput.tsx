@@ -33,7 +33,7 @@ export const FormCountrySelectInput = ({
     );
     return [
       {
-        label: t`No country`,
+        label: t`Tanpa negara`,
         value: '',
         Icon: IconCircleOff,
       },

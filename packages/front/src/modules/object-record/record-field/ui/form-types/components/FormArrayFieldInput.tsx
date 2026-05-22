@@ -319,7 +319,7 @@ export const FormArrayFieldInput = ({
               <StyledInputContainer>
                 <TextInput
                   instanceId={formFieldInputInstanceId}
-                  placeholder={t`Enter an item`}
+                  placeholder={t`Masukkan item`}
                   value={newItemDraftValue}
                   copyButton={false}
                   onChange={handleFirstItemInputChange}
@@ -379,7 +379,7 @@ export const FormArrayFieldInput = ({
                         <MenuItem
                           onClick={handleAddItemButtonClick}
                           LeftIcon={IconPlus}
-                          text={t`Add item`}
+                          text={t`Tambah item`}
                         />
                       </DropdownMenuItemsContainer>
                     )}

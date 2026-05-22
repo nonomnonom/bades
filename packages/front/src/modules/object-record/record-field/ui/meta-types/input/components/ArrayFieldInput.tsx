@@ -63,13 +63,13 @@ export const ArrayFieldInput = () => {
 
   return (
     <MultiItemFieldInput
-      newItemLabel={t`Add Item`}
+      newItemLabel={t`Tambah Item`}
       items={arrayItems}
       onChange={handleChange}
       onEnter={handleEnter}
       onEscape={handleEscape}
       onClickOutside={handleClickOutside}
-      placeholder={t`Enter value`}
+      placeholder={t`Masukkan nilai`}
       fieldMetadataType={FieldMetadataType.ARRAY}
       renderItem={({ value, index, handleEdit, handleDelete }) => (
         <ArrayFieldMenuItem

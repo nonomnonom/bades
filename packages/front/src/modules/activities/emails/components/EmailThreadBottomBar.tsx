@@ -18,19 +18,19 @@ export const ThreadBottomBar = () => {
     <StyledThreadBottomBar>
       <Button
         Icon={IconArrowBackUp}
-        title={t`Reply`}
+        title={t`Balas`}
         variant="secondary"
         accent="default"
       />
       <Button
         Icon={IconArrowBackUp}
-        title={t`Reply to all`}
+        title={t`Balas semua`}
         variant="secondary"
         accent="default"
       />
       <Button
         Icon={IconUserCircle}
-        title={t`Share`}
+        title={t`Bagikan`}
         variant="secondary"
         accent="default"
       />

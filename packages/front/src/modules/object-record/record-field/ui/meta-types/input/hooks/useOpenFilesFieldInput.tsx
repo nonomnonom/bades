@@ -89,7 +89,7 @@ export const useOpenFilesFieldInput = () => {
         onUpload: async (selectedFiles: File[]) => {
           if (selectedFiles.length + currentFileCount > maxNumberOfValues) {
             enqueueErrorSnackBar({
-              message: t`Cannot upload more than ${maxNumberOfValues} files`,
+              message: t`Tidak dapat mengunggah lebih dari ${maxNumberOfValues} berkas`,
             });
 
             store.set(

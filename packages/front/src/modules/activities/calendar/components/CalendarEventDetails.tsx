@@ -219,7 +219,7 @@ export const CalendarEventDetails = ({
             variant={ChipVariant.Highlighted}
             clickable={false}
             leftComponent={<AvatarOrIcon Icon={IconCalendarEvent} />}
-            label={t`Event`}
+            label={t`Jadwal`}
           />
         </StyledEventChipWrapper>
         <StyledHeader>
@@ -227,7 +227,7 @@ export const CalendarEventDetails = ({
             {calendarEvent.title}
           </StyledTitle>
           <StyledCreatedAt>
-            {t`Created`}{' '}
+            {t`Dibuat`}{' '}
             {beautifyPastDateRelativeToNow(
               new Date(calendarEvent.externalCreatedAt),
             )}

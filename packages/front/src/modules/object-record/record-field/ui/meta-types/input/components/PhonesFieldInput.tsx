@@ -159,7 +159,7 @@ export const PhonesFieldInput = () => {
       onClickOutside={handleClickOutside}
       onEscape={handleEscape}
       onEnter={handleEnter}
-      placeholder={t`Phone`}
+      placeholder={t`Telepon`}
       fieldMetadataType={FieldMetadataType.PHONES}
       validateInput={validateInput}
       formatInput={(input) => {

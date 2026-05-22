@@ -77,7 +77,7 @@ export const FormBooleanFieldInput = ({
   );
 
   const defaultEmptyOption = {
-    label: t`Select a value`,
+    label: t`Pilih nilai`,
     value: '',
     icon: IconCircleOff,
   };
@@ -124,8 +124,8 @@ export const FormBooleanFieldInput = ({
           <Select
             dropdownId={`${instanceId}-select-display`}
             options={[
-              { label: 'True', value: 'true', Icon: IconCheck },
-              { label: 'False', value: 'false', Icon: IconX },
+              { label: t`Ya`, value: 'true', Icon: IconCheck },
+              { label: t`Tidak`, value: 'false', Icon: IconX },
             ]}
             value={castBooleanToStringifiedBoolean(draftValue.value)}
             onChange={onSelect}

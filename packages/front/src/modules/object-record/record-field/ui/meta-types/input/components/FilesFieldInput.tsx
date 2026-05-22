@@ -84,7 +84,7 @@ export const FilesFieldInput = () => {
           files.length > 0
         ) {
           enqueueErrorSnackBar({
-            message: t`Cannot upload more than ${maxNumberOfValues} files`,
+            message: t`Tidak dapat mengunggah lebih dari ${maxNumberOfValues} berkas`,
           });
           return;
         }
@@ -191,7 +191,7 @@ export const FilesFieldInput = () => {
       onEnter={handleEnter}
       onEscape={handleEscape}
       onClickOutside={handleClickOutside}
-      placeholder={t`File label`}
+      placeholder={t`Label berkas`}
       fieldMetadataType={FieldMetadataType.FILES}
       validateInput={validateInput}
       formatInput={formatInput}
@@ -205,7 +205,7 @@ export const FilesFieldInput = () => {
           onClick={() => handlePreview(file)}
         />
       )}
-      newItemLabel={isUploading ? t`Uploading...` : t`Upload file`}
+      newItemLabel={isUploading ? t`Mengunggah...` : t`Unggah berkas`}
       onAddClick={handleUploadClick}
       onError={handleError}
       maxItemCount={maxNumberOfValues}

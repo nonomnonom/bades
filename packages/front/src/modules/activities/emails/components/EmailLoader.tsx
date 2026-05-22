@@ -12,7 +12,7 @@ export const EmailLoader = ({ loadingText }: { loadingText?: string }) => (
     <AnimatedPlaceholder type="loadingMessages" />
     <AnimatedPlaceholderEmptyTextContainer>
       <AnimatedPlaceholderEmptyTitle>
-        {loadingText || t`Loading emails`}
+        {loadingText || t`Memuat email`}
       </AnimatedPlaceholderEmptyTitle>
       <Loader />
     </AnimatedPlaceholderEmptyTextContainer>

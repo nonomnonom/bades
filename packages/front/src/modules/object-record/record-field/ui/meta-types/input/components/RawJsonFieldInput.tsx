@@ -186,11 +186,11 @@ export const RawJsonFieldInput = () => {
           <StyledJsonTreeContainer>
             <JsonTree
               value={precomputedDraftValue}
-              emptyArrayLabel={t`Empty Array`}
-              emptyObjectLabel={t`Empty Object`}
-              emptyStringLabel={t`[empty string]`}
-              arrowButtonCollapsedLabel={t`Expand`}
-              arrowButtonExpandedLabel={t`Collapse`}
+              emptyArrayLabel={t`Array Kosong`}
+              emptyObjectLabel={t`Objek Kosong`}
+              emptyStringLabel={t`[string kosong]`}
+              arrowButtonCollapsedLabel={t`Perluas`}
+              arrowButtonExpandedLabel={t`Ciutkan`}
               shouldExpandNodeInitially={isTwoFirstDepths}
               onNodeValueClick={copyToClipboard}
             />

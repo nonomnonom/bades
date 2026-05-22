@@ -73,7 +73,7 @@ export const FormSingleRecordFieldChip = ({
     return (
       <StyledNoRecordContainer>
         <IconForbid size={12} />
-        {t`No record`}
+        {t`Tidak ada data`}
       </StyledNoRecordContainer>
     );
   }
@@ -91,7 +91,7 @@ export const FormSingleRecordFieldChip = ({
 
   return (
     <StyledPlaceholderContainer>
-      <FormFieldPlaceholder>{t`Select`}</FormFieldPlaceholder>
+      <FormFieldPlaceholder>{t`Pilih`}</FormFieldPlaceholder>
     </StyledPlaceholderContainer>
   );
 };

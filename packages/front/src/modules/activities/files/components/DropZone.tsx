@@ -90,9 +90,9 @@ export const DropZone = ({
               size={theme.icon.size.lg}
             />
           </StyledUploadIconContainer>
-          <StyledUploadDragTitle>{t`Upload files`}</StyledUploadDragTitle>
+          <StyledUploadDragTitle>{t`Unggah berkas`}</StyledUploadDragTitle>
           <StyledUploadDragSubTitle>
-            {t`Drag and Drop Here`}
+            {t`Seret dan Lepas di Sini`}
           </StyledUploadDragSubTitle>
         </>
       )}

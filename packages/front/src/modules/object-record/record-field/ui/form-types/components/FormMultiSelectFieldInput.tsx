@@ -240,7 +240,7 @@ export const FormMultiSelectFieldInput = ({
                 data-open={draftValue.editingMode === 'edit'}
                 onClick={handleDisplayModeClick}
               >
-                <VisibilityHidden>{t`Edit`}</VisibilityHidden>
+                <VisibilityHidden>{t`Ubah`}</VisibilityHidden>
 
                 {isDefined(selectedOptions) && selectedOptions.length > 0 ? (
                   <MultiSelectDisplay

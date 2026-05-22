@@ -89,7 +89,7 @@ export const MorphRelationManyToOneFieldInput = () => {
       focusId={instanceId}
       componentInstanceId={instanceId}
       EmptyIcon={IconForbid}
-      emptyLabel={t`No ${fieldLabel}`}
+      emptyLabel={t`Tidak ada ${fieldLabel}`}
       onCancel={onCancel}
       onMorphItemSelected={handleMorphItemSelected}
       objectNameSingulars={objectNameSingulars}

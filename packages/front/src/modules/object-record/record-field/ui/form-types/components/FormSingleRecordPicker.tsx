@@ -220,7 +220,7 @@ export const FormSingleRecordPicker = ({
                 focusId={dropdownId}
                 componentInstanceId={dropdownId}
                 EmptyIcon={IconForbid}
-                emptyLabel={t`No record`}
+                emptyLabel={t`Tidak ada data`}
                 onCancel={() => closeDropdown(dropdownId)}
                 onMorphItemSelected={handleMorphItemSelected}
                 objectNameSingulars={objectNameSingulars}

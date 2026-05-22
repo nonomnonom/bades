@@ -78,16 +78,16 @@ export const TaskGroups = ({ targetableObject }: TaskGroupsProps) => {
         <AnimatedPlaceholder type="noTask" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            {t`Mission accomplished!`}
+            {t`Semua tugas selesai!`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            {t`All tasks addressed. Maintain the momentum.`}
+            {t`Semua tugas sudah ditangani. Pertahankan semangat kerjanya.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
         {hasObjectUpdatePermissions && (
           <Button
             Icon={IconPlus}
-            title={t`New task`}
+            title={t`Tugas baru`}
             variant="secondary"
             onClick={() =>
               openCreateActivity({
