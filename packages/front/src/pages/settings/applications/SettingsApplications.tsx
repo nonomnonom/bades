@@ -37,11 +37,11 @@ export const SettingsApplications = () => {
 
   const tabs = [
     ...(isMarketplaceSettingTabVisible
-      ? [{ id: 'marketplace', title: t`Marketplace`, Icon: IconDownload }]
+      ? [{ id: 'marketplace', title: t`Katalog Aplikasi`, Icon: IconDownload }]
       : []),
     { id: 'installed', title: t`Terpasang`, Icon: IconApps },
     ...(hasDeveloperAccess
-      ? [{ id: 'developer', title: t`Developer`, Icon: IconCode }]
+      ? [{ id: 'developer', title: t`Pengembangan Internal`, Icon: IconCode }]
       : []),
   ];
 

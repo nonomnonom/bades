@@ -68,7 +68,7 @@ export const SettingsApplicationsAvailableTab = () => {
   if (isLoading) {
     return (
       <Section>
-        <SettingsEmptyPlaceholder padding="4">{t`Loading applications...`}</SettingsEmptyPlaceholder>
+        <SettingsEmptyPlaceholder padding="4">{t`Memuat aplikasi...`}</SettingsEmptyPlaceholder>
       </Section>
     );
   }

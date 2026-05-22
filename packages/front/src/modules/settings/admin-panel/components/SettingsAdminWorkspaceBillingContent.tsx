@@ -85,14 +85,14 @@ const STATUS_COLORS: Record<SubscriptionStatus, ThemeColor> = {
 };
 
 const STATUS_LABELS: Record<SubscriptionStatus, string> = {
-  [SubscriptionStatus.Active]: 'Active',
-  [SubscriptionStatus.Trialing]: 'Trialing',
-  [SubscriptionStatus.PastDue]: 'Past Due',
-  [SubscriptionStatus.Canceled]: 'Canceled',
-  [SubscriptionStatus.Unpaid]: 'Unpaid',
-  [SubscriptionStatus.Paused]: 'Paused',
-  [SubscriptionStatus.Incomplete]: 'Incomplete',
-  [SubscriptionStatus.IncompleteExpired]: 'Incomplete Expired',
+  [SubscriptionStatus.Active]: 'Aktif',
+  [SubscriptionStatus.Trialing]: 'Masa Percobaan',
+  [SubscriptionStatus.PastDue]: 'Jatuh Tempo',
+  [SubscriptionStatus.Canceled]: 'Dibatalkan',
+  [SubscriptionStatus.Unpaid]: 'Belum Dibayar',
+  [SubscriptionStatus.Paused]: 'Dijeda',
+  [SubscriptionStatus.Incomplete]: 'Tidak Lengkap',
+  [SubscriptionStatus.IncompleteExpired]: 'Tidak Lengkap & Kedaluwarsa',
 };
 
 const formatCurrency = (amountMinor: number, currency: string): string => {
@@ -164,7 +164,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
         <Section>
           <H2Title
             title={t`Billing`}
-            description={t`No billing data is available for this workspace.`}
+            description={t`Tidak ada data billing untuk workspace ini.`}
           />
         </Section>
       </StyledContainer>
@@ -176,7 +176,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
   const customerItems = [
     {
       Icon: IconId,
-      label: t`Stripe customer`,
+      label: t`Akun billing`,
       value: isDefined(stripeCustomerId) ? (
         <StripeLink path="customers" id={stripeCustomerId} />
       ) : (
@@ -185,18 +185,18 @@ export const SettingsAdminWorkspaceBillingContent = ({
     },
     {
       Icon: IconCoins,
-      label: t`Credit balance`,
+      label: t`Saldo kredit`,
       value: isDefined(creditBalance)
-        ? `${formatNumber(creditBalance, { abbreviate: true, decimals: 2 })} ${t`credits`}`
+        ? `${formatNumber(creditBalance, { abbreviate: true, decimals: 2 })} ${t`kredit`}`
         : EM_DASH,
     },
   ];
 
   const intervalLabel =
     subscription?.interval === SubscriptionInterval.Month
-      ? t`Monthly`
+      ? t`Bulanan`
       : subscription?.interval === SubscriptionInterval.Year
-        ? t`Yearly`
+        ? t`Tahunan`
         : null;
 
   const formatPeriod = (start: string, end: string): string =>
@@ -213,11 +213,11 @@ export const SettingsAdminWorkspaceBillingContent = ({
     const parts: string[] = [];
 
     if (isDefined(item.quantity)) {
-      parts.push(`${formatNumber(item.quantity)} ${t`seats`}`);
+      parts.push(`${formatNumber(item.quantity)} ${t`pengguna`}`);
     }
     if (isDefined(item.includedCredits)) {
       parts.push(
-        `${formatNumber(item.includedCredits, { abbreviate: true, decimals: 2 })} ${t`credits/period`}`,
+        `${formatNumber(item.includedCredits, { abbreviate: true, decimals: 2 })} ${t`kredit/periode`}`,
       );
     }
     if (isDefined(item.unitAmount) && isDefined(subscription)) {
@@ -231,7 +231,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
     ? [
         {
           Icon: IconCreditCard,
-          label: t`Stripe subscription`,
+          label: t`Langganan billing`,
           value: (
             <StripeLink
               path="subscriptions"
@@ -253,7 +253,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconTag,
-                label: t`Plan`,
+                label: t`Paket`,
                 value: <PlansTags plan={planKey} isTrialPeriod={isTrialing} />,
               },
             ]
@@ -262,14 +262,14 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCalendarEvent,
-                label: t`Billing interval`,
+                label: t`Interval tagihan`,
                 value: intervalLabel,
               },
             ]
           : []),
         {
           Icon: IconCalendarRepeat,
-          label: t`Current period`,
+          label: t`Periode berjalan`,
           value: formatPeriod(
             subscription.currentPeriodStart,
             subscription.currentPeriodEnd,
@@ -280,7 +280,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCalendarRepeat,
-                label: t`Trial period`,
+                label: t`Periode percobaan`,
                 value: formatPeriod(
                   subscription.trialStart,
                   subscription.trialEnd,
@@ -292,8 +292,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Cancels at period end`,
-                value: t`Yes`,
+                label: t`Dibatalkan di akhir periode`,
+                value: t`Ya`,
               },
             ]
           : []),
@@ -301,7 +301,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Cancels at`,
+                label: t`Dibatalkan pada`,
                 value: beautifyExactDate(subscription.cancelAt),
               },
             ]
@@ -310,7 +310,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
           ? [
               {
                 Icon: IconCircleX,
-                label: t`Canceled at`,
+                label: t`Dibatalkan tanggal`,
                 value: beautifyExactDate(subscription.canceledAt),
               },
             ]
@@ -322,7 +322,7 @@ export const SettingsAdminWorkspaceBillingContent = ({
               : item.productKey === RESOURCE_CREDIT_KEY
                 ? IconCoins
                 : IconBox,
-          label: item.productName || t`Unnamed product`,
+          label: item.productName || t`Produk tanpa nama`,
           value: (
             <StyledItemValue>
               <span>{formatItemValue(item)}</span>
@@ -339,8 +339,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
     <StyledContainer>
       <Section>
         <H2Title
-          title={t`Customer`}
-          description={t`Stripe customer linked to this workspace`}
+          title={t`Pelanggan billing`}
+          description={t`Akun billing yang terhubung ke workspace ini`}
         />
         <SettingsTableCard
           rounded
@@ -351,11 +351,11 @@ export const SettingsAdminWorkspaceBillingContent = ({
 
       <Section>
         <H2Title
-          title={t`Subscription`}
+          title={t`Langganan`}
           description={
             subscription
-              ? t`Current subscription state and line items`
-              : t`No active subscription.`
+              ? t`Status langganan aktif dan rincian item`
+              : t`Tidak ada langganan aktif.`
           }
         />
         {subscription && (

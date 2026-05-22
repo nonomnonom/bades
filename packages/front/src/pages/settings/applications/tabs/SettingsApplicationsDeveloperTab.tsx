@@ -118,10 +118,10 @@ export const SettingsApplicationsDeveloperTab = () => {
       onClick={() => {
         copyToClipboard(
           createCommands.join('\n'),
-          t`Commands copied to clipboard`,
+          t`Perintah disalin ke clipboard`,
         );
       }}
-      ariaLabel={t`Copy commands`}
+      ariaLabel={t`Salin perintah`}
       Icon={IconCopy}
     />
   );
@@ -137,8 +137,8 @@ export const SettingsApplicationsDeveloperTab = () => {
     <>
       <Section>
         <H2Title
-          title={t`Create an application`}
-          description={t`You can either create a private app or share it to others`}
+          title={t`Buat aplikasi baru`}
+          description={t`Buat aplikasi privat atau distribusikan ke tim Bades`}
         />
         <CommandBlock commands={createCommands} button={createCopyButton} />
         <StyledButtonContainer>
@@ -146,7 +146,7 @@ export const SettingsApplicationsDeveloperTab = () => {
             Icon={IconArrowUpRight}
             variant={'secondary'}
             size={'small'}
-            title={t`Read documentation`}
+            title={t`Baca dokumentasi`}
             onClick={() =>
               window.open(
                 getDocumentationUrl({
@@ -163,12 +163,12 @@ export const SettingsApplicationsDeveloperTab = () => {
       {registrations.length > 0 && (
         <Section>
           <H2Title
-            title={t`My apps`}
-            description={t`Apps you're the developer of`}
+            title={t`Aplikasi saya`}
+            description={t`Aplikasi yang Anda kembangkan`}
           />
           <StyledSearchInputContainer>
             <SearchInput
-              placeholder={t`Search an application`}
+              placeholder={t`Cari aplikasi`}
               value={myAppsSearchTerm}
               onChange={setMyAppsSearchTerm}
             />
@@ -177,7 +177,7 @@ export const SettingsApplicationsDeveloperTab = () => {
             <TableRow
               gridTemplateColumns={APPLICATION_TABLE_ROW_GRID_TEMPLATE_COLUMNS}
             >
-              <TableHeader> {t`Name`}</TableHeader>
+              <TableHeader> {t`Nama`}</TableHeader>
               <TableHeader>{''}</TableHeader>
               <TableHeader>{''}</TableHeader>
               <TableHeader />
@@ -207,8 +207,8 @@ export const SettingsApplicationsDeveloperTab = () => {
       {isEmailingDomainEnabled && (
         <Section>
           <H2Title
-            title={t`Emailing Domains`}
-            description={t`Configure and verify domains for emailing from this workspace.`}
+            title={t`Domain Pengiriman Email`}
+            description={t`Konfigurasi dan verifikasi domain untuk pengiriman email dari ruang kerja ini.`}
           />
           <SettingsEmailingDomains />
         </Section>
@@ -217,8 +217,8 @@ export const SettingsApplicationsDeveloperTab = () => {
       {isPublicDomainEnabled && (
         <Section>
           <H2Title
-            title={t`Public Domains`}
-            description={t`Provision a complete and secure hosting environment on these domains. Bind a domain to a specific app to expose only that app's HTTP routes.`}
+            title={t`Domain Publik`}
+            description={t`Sediakan lingkungan hosting yang lengkap dan aman pada domain ini. Ikat domain ke aplikasi tertentu untuk mengekspos hanya rute HTTP aplikasi tersebut.`}
           />
           <SettingsPublicDomainsListCard />
         </Section>
@@ -227,14 +227,14 @@ export const SettingsApplicationsDeveloperTab = () => {
       {!isMarketplaceSettingTabVisible && (
         <Section>
           <H2Title
-            title={t`NPM packages`}
-            description={t`Apps made by other developers published on npm`}
+            title={t`Paket NPM`}
+            description={t`Aplikasi dari pengembang lain yang dipublikasikan di npm`}
           />
           <InlineBanner
             color={'danger'}
-            message={t`These apps are not vetted. Use at your own risk.`}
+            message={t`Aplikasi ini belum diverifikasi. Gunakan dengan risiko sendiri.`}
             button={{
-              title: t`Access`,
+              title: t`Akses`,
               hidden: displayNotVettedApps,
               onClick: () => setDisplayNotVettedApps(true),
             }}
@@ -243,18 +243,18 @@ export const SettingsApplicationsDeveloperTab = () => {
             <>
               <StyledSearchInputContainer>
                 <SearchInput
-                  placeholder={t`Search an application`}
+                  placeholder={t`Cari aplikasi`}
                   value={marketplaceAppSearchTerm}
                   onChange={setMarketplaceAppSearchTerm}
                 />
               </StyledSearchInputContainer>
               {filteredMarketplaceApps.length === 0 ? (
-                <SettingsEmptyPlaceholder>{t`No application found`}</SettingsEmptyPlaceholder>
+                <SettingsEmptyPlaceholder>{t`Tidak ada aplikasi yang ditemukan`}</SettingsEmptyPlaceholder>
               ) : (
                 <Table>
                   <TableRow gridAutoColumns={NPM_PACKAGES_GRID_COLUMNS}>
-                    <TableHeader>{t`Name`}</TableHeader>
-                    <TableHeader>{t`Description`}</TableHeader>
+                    <TableHeader>{t`Nama`}</TableHeader>
+                    <TableHeader>{t`Deskripsi`}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   <StyledTableRowsContainer>
