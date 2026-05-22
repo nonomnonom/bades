@@ -5,13 +5,10 @@ import {
   type IconComponent,
   IconFileText,
   IconHeart,
+  IconHome,
   IconLayoutDashboard,
   IconNotes,
-  IconRocket,
-  IconStar,
-  IconTargetArrow,
-  IconUser,
-  IconUserCircle,
+  IconUsers,
 } from 'ui/display';
 import { type ThemeColor } from 'ui/theme';
 
@@ -22,17 +19,13 @@ export type BackgroundMockNavigationItem = {
 };
 
 export const BACKGROUND_MOCK_WORKSPACE_ITEMS = [
-  { label: 'Companies', Icon: IconBuildingSkyscraper, color: 'blue' },
-  { label: 'People', Icon: IconUser, color: 'blue' },
-  { label: 'Opportunities', Icon: IconTargetArrow, color: 'red' },
-  { label: 'Tasks', Icon: IconCheckbox, color: 'turquoise' },
-  { label: 'Notes', Icon: IconNotes, color: 'turquoise' },
-  { label: 'Dashboards', Icon: IconLayoutDashboard, color: 'orange' },
-  { label: 'Workflows', Icon: IconRocket, color: 'pink' },
-  { label: 'Rockets', Icon: IconRocket, color: 'sky' },
-  { label: 'Pets', Icon: IconHeart, color: 'orange' },
-  { label: 'Survey results', Icon: IconStar, color: 'yellow' },
-  { label: 'Employment Histories', Icon: IconUserCircle, color: 'green' },
-  { label: 'Pet Care Agreements', Icon: IconFileText, color: 'purple' },
-  { label: 'Star History', Icon: IconCalendarEvent, color: 'red' },
+  { label: 'Penduduk', Icon: IconUsers, color: 'blue' },
+  { label: 'Keluarga', Icon: IconHome, color: 'blue' },
+  { label: 'Lembaga Desa', Icon: IconBuildingSkyscraper, color: 'green' },
+  { label: 'Surat', Icon: IconFileText, color: 'purple' },
+  { label: 'Bantuan Sosial', Icon: IconHeart, color: 'red' },
+  { label: 'Tugas', Icon: IconCheckbox, color: 'turquoise' },
+  { label: 'Catatan', Icon: IconNotes, color: 'turquoise' },
+  { label: 'Dasbor', Icon: IconLayoutDashboard, color: 'orange' },
+  { label: 'Agenda', Icon: IconCalendarEvent, color: 'yellow' },
 ] satisfies BackgroundMockNavigationItem[];

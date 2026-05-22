@@ -41,14 +41,14 @@ export const CustomSideMenu = ({ editor }: CustomSideMenuProps) => {
                 <BlockColorsItem>
                   <CustomSideMenuOptions
                     LeftIcon={IconColorSwatch}
-                    text={t`Change Color`}
+                    text={t`Ubah Warna`}
                     Variant="normal"
                   />
                 </BlockColorsItem>
                 <RemoveBlockItem>
                   <CustomSideMenuOptions
                     LeftIcon={IconTrash}
-                    text={t`Delete`}
+                    text={t`Hapus`}
                     Variant="danger"
                   />
                 </RemoveBlockItem>

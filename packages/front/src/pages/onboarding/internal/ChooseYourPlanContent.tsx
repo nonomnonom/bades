@@ -118,7 +118,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
     if (planKey === BillingPlanKey.ENTERPRISE) {
       return {
         organizationBenefits: [
-          t`SSO (SAML / OIDC)`,
+          t`Masuk Tunggal (SSO / SAML / OIDC)`,
           t`20.000 eksekusi node workflow`,
           t`Dukungan prioritas`,
         ],
@@ -127,7 +127,7 @@ export const ChooseYourPlanContent = ({ billing }: { billing: Billing }) => {
           t`Data warga tidak terbatas`,
           t`Integrasi email`,
           t`Objek data kustom`,
-          t`API & Webhook`,
+          t`Akses API & Integrasi`,
         ],
       };
     }

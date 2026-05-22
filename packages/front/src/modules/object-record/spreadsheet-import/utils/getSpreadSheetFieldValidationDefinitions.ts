@@ -19,7 +19,7 @@ const getNumberValidationDefinition = (
 ): SpreadsheetImportFieldValidationDefinition => ({
   rule: 'function',
   isValid: (value: string) => !isNaN(+value),
-  errorMessage: `${fieldName} ${t`must be a number`}`,
+  errorMessage: `${fieldName} ${t`harus berupa angka`}`,
   level: 'error',
 });
 
@@ -51,7 +51,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
         {
           rule: 'function',
           isValid: (value: string) => isValidUuid(value),
-          errorMessage: `${fieldName} ${t`is not a valid UUID`}`,
+          errorMessage: `${fieldName} ${t`bukan UUID yang valid`}`,
           level: 'error',
         },
       ];
@@ -69,7 +69,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: (email: string) => emailSchema.safeParse(email).success,
-              errorMessage: `${fieldName} ${t`is not a valid email`}`,
+              errorMessage: `${fieldName} ${t`bukan alamat email yang valid`}`,
               level: 'error',
             },
           ];
@@ -90,7 +90,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                   return false;
                 }
               },
-              errorMessage: `${fieldName} ${t`must be an array of valid emails`}`,
+              errorMessage: `${fieldName} ${t`harus berupa larik email yang valid`}`,
               level: 'error',
             },
           ];
@@ -107,7 +107,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                 if (!isDefined(primaryLinkUrl)) return true;
                 return absoluteUrlSchema.safeParse(primaryLinkUrl).success;
               },
-              errorMessage: `${fieldName} ${t`is not a valid URL`}`,
+              errorMessage: `${fieldName} ${t`bukan URL yang valid`}`,
               level: 'error',
             },
           ];
@@ -127,7 +127,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                   return false;
                 }
               },
-              errorMessage: `${fieldName} ${t`must be an array of object with valid url and label (format: '[{"url":"valid.url", "label":"label value")}]'`}`,
+              errorMessage: `${fieldName} ${t`harus berupa larik objek dengan url dan label yang valid (format: '[{"url":"valid.url", "label":"nilai label")}]'`}`,
               level: 'error',
             },
           ];
@@ -143,7 +143,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             const date = new Date(value);
             return isDate(date) && !isNaN(date.getTime());
           },
-          errorMessage: `${fieldName} ${t`is not a valid date time (format: '2021-12-01T00:00:00Z')`}`,
+          errorMessage: `${fieldName} ${t`bukan tanggal waktu yang valid (format: '2021-12-01T00:00:00Z')`}`,
           level: 'error',
         },
       ];
@@ -155,7 +155,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             const date = new Date(value);
             return isDate(date) && !isNaN(date.getTime());
           },
-          errorMessage: `${fieldName} ${t`is not a valid date (format: '2021-12-01')`}`,
+          errorMessage: `${fieldName} ${t`bukan tanggal yang valid (format: '2021-12-01')`}`,
           level: 'error',
         },
       ];
@@ -166,7 +166,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: isValidPhoneNumber,
-              errorMessage: `${fieldName} ${t`is not a valid phone number`}`,
+              errorMessage: `${fieldName} ${t`bukan nomor telepon yang valid`}`,
               level: 'error',
             },
           ];
@@ -175,7 +175,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: isValidCallingCode,
-              errorMessage: `${fieldName} ${t`is not a valid calling code`}`,
+              errorMessage: `${fieldName} ${t`bukan kode panggilan yang valid`}`,
               level: 'error',
             },
           ];
@@ -184,7 +184,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
             {
               rule: 'function',
               isValid: isValidCountryCode,
-              errorMessage: `${fieldName} ${t`is not a valid country code`}`,
+              errorMessage: `${fieldName} ${t`bukan kode negara yang valid`}`,
               level: 'error',
             },
           ];
@@ -212,7 +212,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
                   return false;
                 }
               },
-              errorMessage: `${fieldName} ${t`must be an array of object with valid phone, calling code and country code (format: '[{"number":"123456789", "callingCode":"+33", "countryCode":"FR"}]')`}`,
+              errorMessage: `${fieldName} ${t`harus berupa larik objek dengan nomor telepon, kode panggilan, dan kode negara yang valid (format: '[{"number":"123456789", "callingCode":"+62", "countryCode":"ID"}]')`}`,
               level: 'error',
             },
           ];
@@ -231,7 +231,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
               return false;
             }
           },
-          errorMessage: `${fieldName} ${t`is not a valid JSON`}`,
+          errorMessage: `${fieldName} ${t`bukan JSON yang valid`}`,
           level: 'error',
         },
       ];
@@ -250,7 +250,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
               return false;
             }
           },
-          errorMessage: `${fieldName} ${t`is not a valid array`}`,
+          errorMessage: `${fieldName} ${t`bukan larik yang valid`}`,
           level: 'error',
         },
       ];
@@ -261,7 +261,7 @@ export const getSpreadSheetFieldValidationDefinitions = (
         {
           rule: 'function',
           isValid: isFieldRatingValue,
-          errorMessage: `${fieldName} ${t` must be one of ${ratingValues} values`}`,
+          errorMessage: `${fieldName} ${t` harus salah satu dari nilai ${ratingValues}`}`,
           level: 'error',
         },
       ];

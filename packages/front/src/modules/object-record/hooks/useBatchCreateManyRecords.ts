@@ -87,7 +87,7 @@ export const useBatchCreateManyRecords = <
       ) {
         const formattedCreatedRecordsCount = formatNumber(createdRecordsCount);
         enqueueWarningSnackBar({
-          message: t`Record creation stopped. ${formattedCreatedRecordsCount} records created.`,
+          message: t`Pembuatan data dihentikan. ${formattedCreatedRecordsCount} data berhasil dibuat.`,
           options: {
             duration: 5000,
           },

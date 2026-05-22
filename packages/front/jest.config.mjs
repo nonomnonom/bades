@@ -42,9 +42,6 @@ const jestConfig = {
               runtime: 'automatic',
             },
           },
-          experimental: {
-            plugins: [['@lingui/swc-plugin', {}]],
-          },
         },
       },
     ],

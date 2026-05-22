@@ -60,10 +60,10 @@ export const SettingsRolePermissionsObjectLevelSeeFieldsValueForObject = ({
       {objectReadIsRestricted
         ? '-'
         : canReadAll
-          ? t`All`
+          ? t`Semua`
           : canReadSome
-            ? t`Some`
-            : t`No`}
+            ? t`Sebagian`
+            : t`Tidak ada`}
     </>
   );
 };

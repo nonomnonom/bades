@@ -176,7 +176,7 @@ export const useChartSettingsValues = ({
 
           const optionValue = configuration.ratioAggregateConfig.optionValue;
           const getBooleanLabel = (value: string) =>
-            value === 'true' ? t`True` : t`False`;
+            value === 'true' ? t`Ya` : t`Tidak`;
 
           const ratioOptionLabel =
             ratioField?.options?.find((option) => option.value === optionValue)
@@ -185,7 +185,7 @@ export const useChartSettingsValues = ({
               ? getBooleanLabel(optionValue)
               : capitalize(optionValue));
 
-          return [aggregateField?.label, `(${t`Ratio`}: ${ratioOptionLabel})`]
+          return [aggregateField?.label, `(${t`Rasio`}: ${ratioOptionLabel})`]
             .filter(isDefined)
             .join(' ');
         }

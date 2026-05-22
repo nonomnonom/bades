@@ -1,4 +1,4 @@
-const SIGN_OUT_CHANNEL_NAME = 'twenty-sign-out';
+const SIGN_OUT_CHANNEL_NAME = 'bades-sign-out';
 
 let sharedChannel: BroadcastChannel | null = null;
 

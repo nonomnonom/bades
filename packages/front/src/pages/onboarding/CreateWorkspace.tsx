@@ -118,7 +118,7 @@ export const CreateWorkspace = () => {
         });
 
         if (isDefined(result.error)) {
-          throw result.error ?? new Error(t`Unknown error`);
+          throw result.error ?? new Error(t`Terjadi kesalahan tidak diketahui`);
         }
 
         await loadCurrentUser();

@@ -33,13 +33,13 @@ export const BackgroundMockNavigationDrawer = ({
         <StyledMainSectionWrapper>
           <NavigationDrawerSection>
             <NavigationDrawerItem
-              label={t`Search`}
+              label={t`Cari`}
               Icon={IconSearch}
               onClick={() => {}}
               modifier={{ keyboard: [getOsControlSymbol(), 'K'] }}
             />
             <NavigationDrawerItem
-              label={t`Settings`}
+              label={t`Pengaturan`}
               to={getSettingsPath(SettingsPath.ProfilePage)}
               onClick={() => {}}
               Icon={IconSettings}
@@ -48,7 +48,7 @@ export const BackgroundMockNavigationDrawer = ({
         </StyledMainSectionWrapper>
       )}
       <NavigationDrawerSection>
-        <NavigationDrawerSectionTitle label={t`Workspace`} />
+        <NavigationDrawerSectionTitle label={t`Ruang Kerja`} />
         {BACKGROUND_MOCK_WORKSPACE_ITEMS.map((item, index) => (
           <NavigationDrawerItem
             key={item.label}
@@ -61,7 +61,7 @@ export const BackgroundMockNavigationDrawer = ({
         ))}
       </NavigationDrawerSection>
       <NavigationDrawerSection>
-        <NavigationDrawerSectionTitle label={t`Other`} />
+        <NavigationDrawerSectionTitle label={t`Lainnya`} />
         {BACKGROUND_MOCK_OTHER_ITEMS.map((item) => (
           <NavigationDrawerItem
             key={item.label}

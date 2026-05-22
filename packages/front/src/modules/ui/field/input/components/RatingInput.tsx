@@ -60,7 +60,7 @@ export const RatingInput = ({
   return (
     <StyledContainer
       role="slider"
-      aria-label={t`Rating`}
+      aria-label={t`Penilaian`}
       aria-valuemax={RATING_VALUES.length}
       aria-valuemin={1}
       aria-valuenow={selectedIndex + 1}

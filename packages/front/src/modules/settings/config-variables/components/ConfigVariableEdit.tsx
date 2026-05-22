@@ -71,11 +71,11 @@ export const ConfigVariableEdit = ({
       setIsSubmitting(true);
       await onSave?.();
       enqueueSuccessSnackBar({
-        message: t`Variable ${title} updated`,
+        message: t`Variabel ${title} diperbarui`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error updating variable`,
+        message: t`Gagal memperbarui variabel`,
       });
     } finally {
       setIsSubmitting(false);
@@ -88,11 +88,11 @@ export const ConfigVariableEdit = ({
       setIsSubmitting(true);
       await onConfirmReset?.();
       enqueueSuccessSnackBar({
-        message: t`Variable ${title} reset`,
+        message: t`Variabel ${title} direset`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error resetting variable`,
+        message: t`Gagal mereset variabel`,
       });
     } finally {
       setIsSubmitting(false);
@@ -155,8 +155,8 @@ export const ConfigVariableEdit = ({
           )}
           <ConfirmationModal
             modalInstanceId={RESET_VARIABLE_MODAL_ID}
-            title={t`Reset variable`}
-            subtitle={t`Are you sure you want to reset this variable?`}
+            title={t`Reset variabel`}
+            subtitle={t`Apakah Anda yakin ingin mereset variabel ini?`}
             onConfirmClick={handleConfirmReset}
             confirmButtonText={t`Reset`}
             confirmButtonAccent="danger"

@@ -81,7 +81,7 @@ export const PlaygroundSetupForm = () => {
 
       return true;
     } catch {
-      throw new Error(t`Invalid API key`);
+      throw new Error(t`Kunci API tidak valid`);
     }
   };
 
@@ -137,7 +137,7 @@ export const PlaygroundSetupForm = () => {
         render={({ field: { onChange, value } }) => (
           <Select
             dropdownId="schema"
-            label={t`Schema`}
+            label={t`Skema`}
             options={SETTINGS_PLAYGROUND_FORM_SCHEMA_SELECT_OPTIONS.map(
               (option) => ({
                 ...option,
@@ -175,7 +175,7 @@ export const PlaygroundSetupForm = () => {
         )}
       />
       <Button
-        title={t`Launch`}
+        title={t`Mulai`}
         variant="primary"
         accent="blue"
         type="submit"

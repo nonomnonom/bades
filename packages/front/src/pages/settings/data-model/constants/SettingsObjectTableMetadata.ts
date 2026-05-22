@@ -7,25 +7,25 @@ export const GET_SETTINGS_OBJECT_TABLE_METADATA: TableMetadata<SettingsObjectTab
     tableId: 'settingsObject',
     fields: [
       {
-        fieldLabel: msg`Name`,
+        fieldLabel: msg`Nama`,
         fieldName: 'labelPlural',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`App`,
+        fieldLabel: msg`Aplikasi`,
         fieldName: 'objectTypeLabel',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Fields`,
+        fieldLabel: msg`Kolom`,
         fieldName: 'fieldsCount',
         fieldType: 'number',
         align: 'right',
       },
       {
-        fieldLabel: msg`Instances`,
+        fieldLabel: msg`Instansi`,
         fieldName: 'totalObjectCount',
         fieldType: 'number',
         align: 'right',

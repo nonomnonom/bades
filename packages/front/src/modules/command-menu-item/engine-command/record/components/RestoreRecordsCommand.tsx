@@ -68,10 +68,10 @@ export const RestoreRecordsCommand = () => {
     ? objectMetadataItem.labelSingular
     : objectMetadataItem.labelPlural;
 
-  const title = t`Restore ${objectLabel}`;
+  const title = t`Pulihkan ${objectLabel}`;
   const subtitle = isSingleRecord
-    ? t`Are you sure you want to restore this ${objectMetadataItem.labelSingular}?`
-    : t`Are you sure you want to restore these ${objectMetadataItem.labelPlural}?`;
+    ? t`Apakah Anda yakin ingin memulihkan ${objectMetadataItem.labelSingular} ini?`
+    : t`Apakah Anda yakin ingin memulihkan ${objectMetadataItem.labelPlural} ini?`;
 
   return (
     <HeadlessConfirmationModalEngineCommandEffect

@@ -1,5 +1,6 @@
 import { type AgentResponseSchema } from 'shared/ai';
 import { z } from 'zod';
+import { t } from '~/utils/i18n/badesI18n';
 import { zodNonEmptyString } from '~/types/ZodNonEmptyString';
 
 export const settingsAiAgentFormSchema = z.object({
@@ -7,7 +8,7 @@ export const settingsAiAgentFormSchema = z.object({
   label: zodNonEmptyString,
   description: z.string().nullish(),
   icon: z.string().optional(),
-  modelId: z.union([z.string().min(1, 'Model is required'), z.literal('auto')]),
+  modelId: z.union([z.string().min(1, t`Model wajib diisi`), z.literal('auto')]),
   role: z.string().nullish(),
   prompt: zodNonEmptyString,
   isCustom: z.boolean().default(true),

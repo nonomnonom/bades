@@ -24,10 +24,10 @@ export type SlashCommandConfig = {
 export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   {
     id: 'paragraph',
-    title: msg`Text`,
-    description: msg`Plain text paragraph`,
+    title: msg`Teks`,
+    description: msg`Paragraf teks biasa`,
     icon: IconPilcrow,
-    keywords: [msg`paragraph`, msg`text`, msg`p`],
+    keywords: [msg`paragraf`, msg`teks`, msg`p`],
     getIsActive: (editor) => editor.isActive('paragraph'),
     getIsVisible: (editor) => editor.can().setParagraph?.() ?? false,
     getOnSelect: (editor, range) => () => {
@@ -36,10 +36,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'h1',
-    title: msg`Heading 1`,
-    description: msg`Large section heading`,
+    title: msg`Judul 1`,
+    description: msg`Judul bagian besar`,
     icon: IconH1,
-    keywords: [msg`heading`, msg`h1`, msg`title`],
+    keywords: [msg`judul`, msg`h1`, msg`title`],
     getIsActive: (editor) => editor.isActive('heading', { level: 1 }),
     getIsVisible: (editor) => editor.can().setHeading?.({ level: 1 }) ?? false,
     getOnSelect: (editor, range) => () =>
@@ -47,10 +47,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'h2',
-    title: msg`Heading 2`,
-    description: msg`Medium section heading`,
+    title: msg`Judul 2`,
+    description: msg`Judul bagian sedang`,
     icon: IconH2,
-    keywords: [msg`heading`, msg`h2`, msg`subtitle`],
+    keywords: [msg`judul`, msg`h2`, msg`subjudul`],
     getIsActive: (editor) => editor.isActive('heading', { level: 2 }),
     getIsVisible: (editor) => editor.can().setHeading?.({ level: 2 }) ?? false,
     getOnSelect: (editor, range) => () =>
@@ -58,10 +58,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'h3',
-    title: msg`Heading 3`,
-    description: msg`Small section heading`,
+    title: msg`Judul 3`,
+    description: msg`Judul bagian kecil`,
     icon: IconH3,
-    keywords: [msg`heading`, msg`h3`, msg`subheading`],
+    keywords: [msg`judul`, msg`h3`, msg`subjudul`],
     getIsActive: (editor) => editor.isActive('heading', { level: 3 }),
     getIsVisible: (editor) => editor.can().setHeading?.({ level: 3 }) ?? false,
     getOnSelect: (editor, range) => () =>
@@ -69,10 +69,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'bulletList',
-    title: msg`Bullet List`,
-    description: msg`Unordered list with bullets`,
+    title: msg`Daftar Poin`,
+    description: msg`Daftar tak berurutan dengan poin`,
     icon: IconList,
-    keywords: [msg`bullet`, msg`list`, msg`ul`, msg`unordered`],
+    keywords: [msg`poin`, msg`daftar`, msg`ul`, msg`tak berurutan`],
     getIsActive: (editor) => editor.isActive('bulletList'),
     getIsVisible: (editor) => editor.can().toggleBulletList?.() ?? false,
     getOnSelect: (editor, range) => () =>
@@ -80,10 +80,10 @@ export const DEFAULT_SLASH_COMMANDS: SlashCommandConfig[] = [
   },
   {
     id: 'orderedList',
-    title: msg`Ordered List`,
-    description: msg`Numbered list`,
+    title: msg`Daftar Bernomor`,
+    description: msg`Daftar berurutan dengan nomor`,
     icon: IconListNumbers,
-    keywords: [msg`ordered`, msg`list`, msg`ol`, msg`numbered`, msg`number`],
+    keywords: [msg`bernomor`, msg`daftar`, msg`ol`, msg`nomor`, msg`urutan`],
     getIsActive: (editor) => editor.isActive('orderedList'),
     getIsVisible: (editor) => editor.can().toggleOrderedList?.() ?? false,
     getOnSelect: (editor, range) => () =>

@@ -6,15 +6,15 @@ export const getDateGranularityLabel = (
 ): string => {
   switch (granularity) {
     case ObjectRecordGroupByDateGranularity.DAY:
-      return t`Day`;
+      return t`Hari`;
     case ObjectRecordGroupByDateGranularity.WEEK:
-      return t`Week`;
+      return t`Minggu`;
     case ObjectRecordGroupByDateGranularity.MONTH:
-      return t`Month`;
+      return t`Bulan`;
     case ObjectRecordGroupByDateGranularity.QUARTER:
-      return t`Quarter`;
+      return t`Kuartal`;
     case ObjectRecordGroupByDateGranularity.YEAR:
-      return t`Year`;
+      return t`Tahun`;
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
       return t`Hari dalam seminggu`;
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
@@ -22,7 +22,7 @@ export const getDateGranularityLabel = (
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
       return t`Kuartal dalam setahun`;
     case ObjectRecordGroupByDateGranularity.NONE:
-      return t`None`;
+      return t`Tidak ada`;
     default:
       return granularity;
   }

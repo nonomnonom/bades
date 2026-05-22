@@ -32,7 +32,7 @@ export const useOpenAddItemToFolderPage = () => {
     setSelectedNavigationMenuItemIdInEditMode(null);
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`New menu item`,
+      pageTitle: t`Item menu baru`,
       pageIcon: IconColumnInsertRight,
       resetNavigationStack,
     });

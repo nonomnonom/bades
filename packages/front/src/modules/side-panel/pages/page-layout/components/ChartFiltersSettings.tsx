@@ -77,7 +77,7 @@ export const ChartFiltersSettings = ({
   return (
     <StyledChartFiltersPageContainer>
       <div>
-        <InputLabel>{t`Conditions`}</InputLabel>
+        <InputLabel>{t`Kondisi`}</InputLabel>
         <RecordFilterGroupsComponentInstanceContext.Provider
           value={{ instanceId }}
         >

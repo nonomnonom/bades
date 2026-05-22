@@ -224,7 +224,7 @@ export const useRecordShowPagePagination = (
 
   const currentRank = rankInView + 1;
   const viewNameWithCount = rankFoundInView
-    ? t`${currentRank} of ${totalCount} in ${objectLabelPlural}`
+    ? t`${currentRank} dari ${totalCount} di ${objectLabelPlural}`
     : t`${objectLabelPlural} (${totalCount})`;
 
   return {

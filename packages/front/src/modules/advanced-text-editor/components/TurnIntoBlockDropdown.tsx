@@ -50,7 +50,7 @@ export const TurnIntoBlockDropdown = ({
 
   const options = useTurnIntoBlockOptions(editor);
   const activeItem = options.find((option) => option.isActive());
-  const { icon: ActiveIcon = IconPilcrow, title: activeTitle = t`Paragraph` } =
+  const { icon: ActiveIcon = IconPilcrow, title: activeTitle = t`Paragraf` } =
     activeItem ?? {};
 
   return (

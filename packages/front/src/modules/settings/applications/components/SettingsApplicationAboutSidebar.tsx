@@ -130,21 +130,21 @@ export const SettingsApplicationAboutSidebar = ({
 
       {isDefined(author) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Created by`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{t`Dibuat oleh`}</StyledSidebarLabel>
           <StyledSidebarValue>{author}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {isDefined(category) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Category`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{t`Kategori`}</StyledSidebarLabel>
           <StyledSidebarValue>{category}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {filteredContentEntries.length > 0 && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Content`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{t`Konten`}</StyledSidebarLabel>
           <StyledContentList>
             {filteredContentEntries.map((entry) => (
               <Tag
@@ -162,21 +162,21 @@ export const SettingsApplicationAboutSidebar = ({
 
       {isDefined(currentVersion) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Current`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{t`Versi saat ini`}</StyledSidebarLabel>
           <StyledSidebarValue>{currentVersion}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {isDefined(latestAvailableVersion) && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Latest`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{t`Versi terbaru`}</StyledSidebarLabel>
           <StyledSidebarValue>{latestAvailableVersion}</StyledSidebarValue>
         </StyledSidebarSection>
       )}
 
       {hasDeveloperLinks && (
         <StyledSidebarSection>
-          <StyledSidebarLabel>{t`Developers links`}</StyledSidebarLabel>
+          <StyledSidebarLabel>{t`Tautan pengembang`}</StyledSidebarLabel>
           {isSafeUrl(developerLinks.websiteUrl) && (
             <StyledLink
               href={developerLinks.websiteUrl}
@@ -184,7 +184,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconWorld size={16} />
-              {t`Website`}
+              {t`Situs web`}
             </StyledLink>
           )}
           {isSafeUrl(developerLinks.termsUrl) && (
@@ -194,7 +194,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconLink size={16} />
-              {t`Terms / Privacy`}
+              {t`Syarat / Privasi`}
             </StyledLink>
           )}
           {isNonEmptyString(developerLinks.emailSupport) && (
@@ -204,7 +204,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconMail size={16} />
-              {t`Email support`}
+              {t`Dukungan email`}
             </StyledLink>
           )}
           {isSafeUrl(developerLinks.issueReportUrl) && (
@@ -214,7 +214,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconAlertTriangle size={16} />
-              {t`Report an issue`}
+              {t`Laporkan masalah`}
             </StyledLink>
           )}
           {isSafeUrl(developerLinks.sourcePackageUrl) && (
@@ -224,7 +224,7 @@ export const SettingsApplicationAboutSidebar = ({
               rel="noopener noreferrer"
             >
               <IconBrandNpm size={16} />
-              {t`Npm package`}
+              {t`Paket npm`}
             </StyledLink>
           )}
         </StyledSidebarSection>

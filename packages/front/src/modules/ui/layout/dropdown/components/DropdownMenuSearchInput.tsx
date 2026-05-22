@@ -47,7 +47,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const defaultSearchPlaceholder = msg`Search`;
+const defaultSearchPlaceholder = msg`Cari`;
 
 export const DropdownMenuSearchInput = forwardRef<
   HTMLInputElement,

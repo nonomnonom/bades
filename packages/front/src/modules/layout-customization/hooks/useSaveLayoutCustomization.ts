@@ -151,7 +151,7 @@ export const useSaveLayoutCustomization = () => {
 
       if (hasAnyFailure) {
         enqueueErrorSnackBar({
-          message: t`Some layout changes could not be saved`,
+          message: t`Beberapa perubahan tata letak tidak dapat disimpan`,
         });
         return;
       }

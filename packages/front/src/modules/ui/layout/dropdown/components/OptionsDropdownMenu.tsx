@@ -67,7 +67,7 @@ export const OptionsDropdownMenu = ({
       data-select-disable
       clickableComponent={
         <Button
-          title={t`Options`}
+          title={t`Opsi`}
           hotkeys={[getOsControlSymbol(), 'O']}
           size="small"
         />

@@ -111,7 +111,7 @@ export const WorkflowSendEmailAttachments = ({
         ) : (
           <StyledUploadAreaLabel>
             <IconUpload size={theme.icon.size.sm} />
-            <span>{t`Upload file`}</span>
+            <span>{t`Unggah berkas`}</span>
           </StyledUploadAreaLabel>
         )}
       </StyledUploadArea>

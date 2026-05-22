@@ -109,7 +109,7 @@ export const BackgroundMockTableRow = ({
       <StyledCheckboxColumn>
         <Checkbox hoverable checked={false} />
       </StyledCheckboxColumn>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Name}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Nama}>
         <Chip
           label={company.name}
           size={ChipSize.Small}
@@ -143,19 +143,19 @@ export const BackgroundMockTableRow = ({
           }
         />
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Created by']}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Dibuat oleh']}>
         <PersonChip fullName={company.createdBy} />
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Account Owner']}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Penanggung jawab']}>
         <PersonChip fullName={company.accountOwner} />
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Creation date']}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Tanggal dibuat']}>
         <StyledMutedText>{company.creationDate}</StyledMutedText>
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Employees}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Anggota}>
         <StyledTruncated>{formatNumber(company.employees)}</StyledTruncated>
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Address}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Alamat}>
         <StyledTruncated>{company.address}</StyledTruncated>
       </StyledCell>
       <StyledLastEmptyCell />

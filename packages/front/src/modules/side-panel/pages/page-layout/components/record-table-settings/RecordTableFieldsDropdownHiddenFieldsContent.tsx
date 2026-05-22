@@ -97,7 +97,7 @@ export const RecordTableFieldsDropdownHiddenFieldsContent = ({
           />
         }
       >
-        {t`Hidden Fields`}
+        {t`Kolom Tersembunyi`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {hiddenFieldMetadataItems.map((fieldMetadataItem) => (

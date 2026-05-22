@@ -26,7 +26,7 @@ export const useRevokeSigningKey = (onSuccess?: () => void) => {
         awaitRefetchQueries: true,
       });
 
-      enqueueSuccessSnackBar({ message: t`Signing key revoked` });
+      enqueueSuccessSnackBar({ message: t`Kunci penandatanganan dicabut` });
       onSuccess?.();
     } catch (error) {
       enqueueErrorSnackBar({

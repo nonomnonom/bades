@@ -154,7 +154,7 @@ export const ImageInput = ({
               Icon={IconX}
               onClick={onAbort}
               variant="secondary"
-              title={t`Abort`}
+              title={t`Batalkan`}
               disabled={!pictureURI || disabled}
             />
           ) : (
@@ -162,7 +162,7 @@ export const ImageInput = ({
               Icon={IconUpload}
               onClick={onUploadButtonClick}
               variant="secondary"
-              title={t`Upload`}
+              title={t`Unggah`}
               disabled={disabled}
             />
           )}
@@ -170,12 +170,12 @@ export const ImageInput = ({
             Icon={IconTrash}
             onClick={onRemove}
             variant="secondary"
-            title={t`Remove`}
+            title={t`Hapus`}
             disabled={!pictureURI || disabled}
           />
         </StyledButtonContainer>
         <StyledText>
-          <Trans>We support your square PNGs, JPEGs and GIFs under 10MB</Trans>
+          <Trans>Kami mendukung PNG, JPEG, dan GIF persegi di bawah 10MB</Trans>
         </StyledText>
         {errorMessage && <StyledErrorText>{errorMessage}</StyledErrorText>}
       </StyledContent>

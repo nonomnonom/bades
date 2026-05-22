@@ -34,7 +34,7 @@ export const ConfigVariableValueInput = ({
     <StyledValueContainer>
       {isConfigVariablesInDbEnabled && !variable.isEnvOnly ? (
         <ConfigVariableDatabaseInput
-          label={t`Value`}
+          label={t`Nilai`}
           value={value}
           onChange={onChange}
           type={variable.type}

@@ -147,7 +147,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                   />
                   <MenuItem
                     LeftIcon={IconLogout}
-                    text={t`Log out`}
+                    text={t`Keluar`}
                     onClick={signOut}
                   />
                 </DropdownMenuItemsContainer>
@@ -179,7 +179,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                   }}
                 >
                   <MenuItemSelectAvatar
-                    text={availableWorkspace.displayName ?? t`(No name)`}
+                    text={availableWorkspace.displayName ?? t`(Tanpa nama)`}
                     avatar={
                       <Avatar
                         placeholder={availableWorkspace.displayName || ''}
@@ -195,7 +195,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             {availableWorkspacesCount > 4 && (
               <MenuItem
                 LeftIcon={IconSwitchHorizontal}
-                text={t`Other workspaces`}
+                text={t`Ruang kerja lain`}
                 onClick={() => setMultiWorkspaceDropdown('workspaces-list')}
                 hasSubMenu={true}
               />
@@ -209,7 +209,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
           LeftIcon={colorSchemeList.find(({ id }) => id === colorScheme)?.icon}
           text={
             <>
-              {t`Theme `}
+              {t`Tema `}
               <StyledDescription>{` · ${colorScheme}`}</StyledDescription>
             </>
           }
@@ -222,7 +222,7 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             closeDropdown(MULTI_WORKSPACE_DROPDOWN_ID);
           }}
         >
-          <MenuItem LeftIcon={IconUserPlus} text={t`Invite user`} />
+          <MenuItem LeftIcon={IconUserPlus} text={t`Undang pengguna`} />
         </UndecoratedLink>
         <UndecoratedLink
           to={getSettingsPath(SettingsPath.ProfilePage)}
@@ -231,12 +231,12 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             closeDropdown(MULTI_WORKSPACE_DROPDOWN_ID);
           }}
         >
-          <MenuItem LeftIcon={IconSettings} text={t`Settings`} />
+          <MenuItem LeftIcon={IconSettings} text={t`Pengaturan`} />
         </UndecoratedLink>
         {isSupportChatConfigured && (
           <MenuItem
             LeftIcon={IconMessage}
-            text={t`Support`}
+            text={t`Bantuan`}
             onClick={handleSupport}
           />
         )}

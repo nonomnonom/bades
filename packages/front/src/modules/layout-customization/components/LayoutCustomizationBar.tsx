@@ -93,8 +93,8 @@ const LayoutCustomizationBarContent = () => {
       : undefined;
 
   const title = isDefined(recordPageLayoutObject)
-    ? t`${recordPageLayoutObject.labelPlural} layout edition`
-    : t`Layout customization`;
+    ? t`Ubah tata letak ${recordPageLayoutObject.labelPlural}`
+    : t`Sesuaikan tata letak`;
 
   return (
     <motion.div

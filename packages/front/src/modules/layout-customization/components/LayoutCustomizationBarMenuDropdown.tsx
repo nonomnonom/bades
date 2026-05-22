@@ -47,7 +47,7 @@ export const LayoutCustomizationBarMenuDropdown = () => {
           <LightIconButton
             Icon={IconDotsVertical}
             accent="tertiary"
-            aria-label={t`Layout customization menu`}
+            aria-label={t`Menu penyesuaian tata letak`}
           />
         </StyledInvertedIconButtonWrapper>
       }
@@ -56,7 +56,7 @@ export const LayoutCustomizationBarMenuDropdown = () => {
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconReload}
-              text={t`Reset record page layout`}
+              text={t`Setel ulang tata letak halaman data`}
               onClick={handleResetClick}
             />
           </DropdownMenuItemsContainer>

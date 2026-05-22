@@ -53,14 +53,14 @@ export const SettingsDatabaseEventsForm = ({
       isDefined(updatedFields) && updatedFields.length > 0;
 
     return [
-      { label: t`All`, value: '*', Icon: IconNorthStar },
-      { label: t`Created`, value: 'created', Icon: IconPlus },
+      { label: t`Semua`, value: '*', Icon: IconNorthStar },
+      { label: t`Dibuat`, value: 'created', Icon: IconPlus },
       {
-        label: hasSpecificFields ? t`Updated (on specific fields)` : t`Updated`,
+        label: hasSpecificFields ? t`Diperbarui (pada kolom tertentu)` : t`Diperbarui`,
         value: 'updated',
         Icon: IconBox,
       },
-      { label: t`Deleted`, value: 'deleted', Icon: IconTrash },
+      { label: t`Dihapus`, value: 'deleted', Icon: IconTrash },
     ];
   };
 

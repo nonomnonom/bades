@@ -30,7 +30,7 @@ export const SidePanelObjectFilterDropdown = ({
           variant="tertiary"
           accent={isFilterActive ? 'blue' : 'default'}
           size="small"
-          ariaLabel={t`Filter by object type`}
+          ariaLabel={t`Filter berdasarkan jenis objek`}
         />
       }
       dropdownComponents={

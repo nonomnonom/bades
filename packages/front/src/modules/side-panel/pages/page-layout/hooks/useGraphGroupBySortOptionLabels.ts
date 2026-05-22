@@ -52,7 +52,7 @@ export const useGraphGroupBySortOptionLabels = ({
       case GraphOrderBy.VALUE_DESC:
         return '';
       case GraphOrderBy.MANUAL:
-        return t`Manual`;
+        return t`Manual (susun sendiri)`;
       default:
         assertUnreachable(graphOrderBy);
     }

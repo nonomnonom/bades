@@ -26,47 +26,47 @@ export const mockedTableMetadata: TableMetadata<MockedTableType> = {
 
 export const mockedTableData = [
   {
-    labelPlural: 'Opportunities',
+    labelPlural: 'Permohonan Layanan',
     fieldsCount: 11,
   },
   {
-    labelPlural: 'Contact',
+    labelPlural: 'Penduduk',
     fieldsCount: 3,
   },
   {
-    labelPlural: 'Leads',
+    labelPlural: 'Program Bantuan',
     fieldsCount: 4,
   },
   {
-    labelPlural: 'Tasks',
+    labelPlural: 'Kegiatan Desa',
     fieldsCount: 5,
   },
 ];
 
 export const tableDataSortedBylabelInAscendingOrder = [
-  { labelPlural: 'Contact', fieldsCount: 3 },
-  { labelPlural: 'Leads', fieldsCount: 4 },
-  { labelPlural: 'Opportunities', fieldsCount: 11 },
-  { labelPlural: 'Tasks', fieldsCount: 5 },
+  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Penduduk', fieldsCount: 3 },
+  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
+  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
 ];
 
 export const tableDataSortedBylabelInDescendingOrder = [
-  { labelPlural: 'Tasks', fieldsCount: 5 },
-  { labelPlural: 'Opportunities', fieldsCount: 11 },
-  { labelPlural: 'Leads', fieldsCount: 4 },
-  { labelPlural: 'Contact', fieldsCount: 3 },
+  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
+  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
+  { labelPlural: 'Penduduk', fieldsCount: 3 },
+  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
 ];
 
 export const tableDataSortedByFieldsCountInAscendingOrder = [
-  { labelPlural: 'Contact', fieldsCount: 3 },
-  { labelPlural: 'Leads', fieldsCount: 4 },
-  { labelPlural: 'Tasks', fieldsCount: 5 },
-  { labelPlural: 'Opportunities', fieldsCount: 11 },
+  { labelPlural: 'Penduduk', fieldsCount: 3 },
+  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
+  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
 ];
 
 export const tableDataSortedByFieldsCountInDescendingOrder = [
-  { labelPlural: 'Opportunities', fieldsCount: 11 },
-  { labelPlural: 'Tasks', fieldsCount: 5 },
-  { labelPlural: 'Leads', fieldsCount: 4 },
-  { labelPlural: 'Contact', fieldsCount: 3 },
+  { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
+  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Program Bantuan', fieldsCount: 4 },
+  { labelPlural: 'Penduduk', fieldsCount: 3 },
 ];

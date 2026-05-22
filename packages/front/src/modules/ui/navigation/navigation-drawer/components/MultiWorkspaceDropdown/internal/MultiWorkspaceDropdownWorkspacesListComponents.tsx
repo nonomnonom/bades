@@ -34,10 +34,10 @@ export const MultiWorkspaceDropdownWorkspacesListComponents = () => {
           />
         }
       >
-        {t`Other workspaces`}
+        {t`Ruang kerja lain`}
       </DropdownMenuHeader>
       <DropdownMenuSearchInput
-        placeholder={t`Search`}
+        placeholder={t`Cari`}
         autoFocus
         onChange={(event) => {
           setSearchValue(event.target.value);

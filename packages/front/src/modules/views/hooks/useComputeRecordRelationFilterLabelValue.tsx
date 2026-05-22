@@ -79,11 +79,11 @@ export const useComputeRecordRelationFilterLabelValue = ({
   });
 
   if (loading) {
-    return { labelValue: t`: Loading...` };
+    return { labelValue: t`: Memuat...` };
   }
 
   const labelValueItems = [
-    ...(isCurrentWorkspaceMemberSelected ? [t`Me`] : []),
+    ...(isCurrentWorkspaceMemberSelected ? [t`Saya`] : []),
     ...selectedRecords.map((record) => record.name),
   ];
 

@@ -24,7 +24,7 @@ export const TabMoreButton = ({
       <TabButton
         id="tab-more-button"
         active={active}
-        title={`+${hiddenTabsCount} ${t`More`}`}
+        title={`+${hiddenTabsCount} ${t`Lainnya`}`}
         RightIcon={IconChevronDown}
         className={className}
       />

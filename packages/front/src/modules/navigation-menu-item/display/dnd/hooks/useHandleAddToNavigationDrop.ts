@@ -116,7 +116,7 @@ export const useHandleAddToNavigationDrop = () => {
         }
         case NavigationMenuItemType.LINK: {
           const newLinkId = addLinkToDraft(
-            payload.name || t`Link label`,
+            payload.name || t`Label tautan`,
             payload.link,
             currentDraft,
             folderId,

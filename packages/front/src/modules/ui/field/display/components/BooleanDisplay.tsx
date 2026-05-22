@@ -28,7 +28,7 @@ export const BooleanDisplay = ({ value }: BooleanDisplayProps) => {
     <StyledContainer>
       {isTrue ? <IconCheck size={iconSizeSm} /> : <IconX size={iconSizeSm} />}
       <StyledBooleanFieldValue>
-        {isTrue ? t`True` : t`False`}
+        {isTrue ? t`Ya` : t`Tidak`}
       </StyledBooleanFieldValue>
     </StyledContainer>
   );

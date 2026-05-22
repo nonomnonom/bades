@@ -56,7 +56,7 @@ export const FileChip = ({
           label={file.label}
           alwaysShowTooltip={isDeleted}
           tooltipLabel={
-            isDeleted ? t`File no longer exists - ${file.label}` : undefined
+            isDeleted ? t`File tidak lagi tersedia - ${file.label}` : undefined
           }
           disabled={isDeleted}
           maxWidth={MAX_WIDTH}

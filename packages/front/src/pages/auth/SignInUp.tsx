@@ -126,7 +126,7 @@ export const SignInUp = () => {
     }
 
     if (isGlobalScope) {
-      return t`Welcome to Bades.id`;
+      return t`Selamat datang di Bades.id`;
     }
 
     const workspaceName = workspacePublicData?.displayName;

@@ -40,20 +40,20 @@ export const SettingsObjectIndexTable = ({
     tableId: 'settingsObjectIndexs',
     fields: [
       {
-        fieldLabel: msg`Fields`,
+        fieldLabel: msg`Kolom`,
         fieldName: 'indexFields',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Unique`,
+        fieldLabel: msg`Unik`,
         FieldIcon: IconSquareKey,
         fieldName: 'isUnique',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Type`,
+        fieldLabel: msg`Tipe`,
         fieldName: 'indexType',
         fieldType: 'string',
         align: 'right',

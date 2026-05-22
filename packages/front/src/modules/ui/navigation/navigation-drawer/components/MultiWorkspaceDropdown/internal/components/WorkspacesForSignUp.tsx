@@ -21,7 +21,7 @@ export const WorkspacesForSignUp = ({
 
   return (
     <>
-      <StyledDropdownMenuSubheader>{t`Invitations`}</StyledDropdownMenuSubheader>
+      <StyledDropdownMenuSubheader>{t`Undangan`}</StyledDropdownMenuSubheader>
       <DropdownMenuItemsContainer scrollable={false}>
         {searchAvailableWorkspaces(
           searchValue,

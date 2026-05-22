@@ -52,7 +52,7 @@ export const useGraphXSortOptionLabels = ({
     const valueLabel =
       aggregateField?.label && isDefined(aggregateOperation)
         ? getAggregateOperationLabel(aggregateOperation)
-        : t`Value`;
+        : t`Nilai`;
 
     const groupBySortLabelSuffix = getSortLabelSuffixForFieldType({
       fieldType: groupByField?.type,
@@ -74,7 +74,7 @@ export const useGraphXSortOptionLabels = ({
       case GraphOrderBy.VALUE_DESC:
         return `${valueLabel} ${aggregateSortLabelSuffix}`;
       case GraphOrderBy.MANUAL:
-        return t`Manual`;
+        return t`Manual (susun sendiri)`;
       default:
         assertUnreachable(graphOrderBy);
     }

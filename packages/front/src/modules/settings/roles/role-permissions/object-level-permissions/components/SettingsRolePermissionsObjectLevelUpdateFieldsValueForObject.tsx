@@ -60,10 +60,10 @@ export const SettingsRolePermissionsObjectLevelUpdateFieldsValueForObject = ({
       {objectUpdateIsRestricted
         ? '-'
         : canUpdateAll
-          ? t`All`
+          ? t`Semua`
           : canUpdateSome
-            ? t`Some`
-            : t`No`}
+            ? t`Sebagian`
+            : t`Tidak ada`}
     </>
   );
 };

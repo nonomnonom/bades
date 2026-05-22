@@ -300,7 +300,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
           ))}
           {filteredMenuItems.length === 0 && (
             <MenuItem
-              text={t`No compatible fields`}
+              text={t`Tidak ada kolom yang kompatibel`}
               onClick={() => {}}
               disabled
             />

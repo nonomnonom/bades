@@ -26,10 +26,10 @@ export const LayoutCustomizationBarResetConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={RESET_RECORD_PAGE_LAYOUT_MODAL_ID}
-      title={t`Reset to default`}
+      title={t`Setel ulang ke bawaan`}
       subtitle={t`Tindakan ini tidak dapat dibatalkan.`}
       onConfirmClick={handleConfirmReset}
-      confirmButtonText={t`Reset`}
+      confirmButtonText={t`Setel ulang`}
       confirmButtonAccent="danger"
     />
   );

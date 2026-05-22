@@ -53,7 +53,7 @@ const LegacyMentionRenderer = ({
   if (!isDefined(objectMetadataItem)) {
     return (
       <Chip
-        label={t`Unknown object`}
+        label={t`Objek tidak dikenal`}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -63,7 +63,7 @@ const LegacyMentionRenderer = ({
   if (!isDefined(record)) {
     return (
       <Chip
-        label={t`Deleted record`}
+        label={t`Data telah dihapus`}
         variant={ChipVariant.Transparent}
         disabled
       />

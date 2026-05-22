@@ -196,7 +196,7 @@ export const RecordDetailRelationSection = ({
                 to: filterLinkHref,
                 label:
                   relationRecordsCount > 0
-                    ? t`All (${relationRecordsCount})`
+                    ? t`Semua (${relationRecordsCount})`
                     : '',
               }
             : undefined

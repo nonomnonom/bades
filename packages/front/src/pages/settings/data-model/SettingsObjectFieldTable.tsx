@@ -39,19 +39,19 @@ const SETTINGS_OBJECT_FIELD_TABLE_METADATA: TableMetadata<SettingsObjectDetailTa
     tableId: 'settingsObjectDetail',
     fields: [
       {
-        fieldLabel: msg`Name`,
+        fieldLabel: msg`Nama`,
         fieldName: 'label',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`App`,
+        fieldLabel: msg`Aplikasi`,
         fieldName: 'fieldType',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Data type`,
+        fieldLabel: msg`Tipe data`,
         fieldName: 'dataType',
         fieldType: 'string',
         align: 'left',

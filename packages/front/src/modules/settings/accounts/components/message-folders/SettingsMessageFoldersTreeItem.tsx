@@ -181,7 +181,7 @@ export const SettingsMessageFoldersTreeItem = ({
                 <StyledChildCount>{childCount}</StyledChildCount>
                 <StyledExpandButton
                   aria-label={
-                    isExpanded ? t`Collapse folder` : t`Expand folder`
+                    isExpanded ? t`Ciutkan folder` : t`Perluas folder`
                   }
                   onClick={handleExpandToggle}
                 >
