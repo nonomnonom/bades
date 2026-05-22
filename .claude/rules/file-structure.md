@@ -4,23 +4,23 @@
 
 ```text
 packages/front/src/
-├── modules/        # Product features and workflows
-├── pages/          # Route-level pages
-├── generated/      # Generated GraphQL/types artifacts
-├── locales/        # Lingui catalogs such as id-ID.po
-├── testing/        # Test helpers and mock data
-└── utils/          # Shared frontend helpers
+|- modules/      # Product features and workflows
+|- pages/        # Route-level pages
+|- generated/    # Generated GraphQL/types artifacts
+|- locales/      # Legacy translation catalogs if not yet removed
+|- testing/      # Test helpers and mock data
+`- utils/        # Shared frontend helpers
 ```
 
 ## Backend Layout
 
 ```text
 packages/server/src/
-├── engine/         # Core platform, metadata, workspace migration
-├── modules/        # Feature modules outside the engine tree
-├── database/       # DB scripts, upgrade commands, migrations
-├── utils/          # Shared backend helpers
-└── command/        # Command entrypoints
+|- engine/       # Core platform, metadata, workspace migration
+|- modules/      # Feature modules outside the engine tree
+|- database/     # DB scripts, upgrade commands, migrations
+|- utils/        # Shared backend helpers
+`- command/      # Command entrypoints
 ```
 
 ## Naming and Exports

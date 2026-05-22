@@ -17,6 +17,8 @@ Fokus utama:
 3. Cari drift terhadap arah produk:
    - istilah `Twenty` atau CRM generik bocor ke surface user-facing,
    - Bahasa Indonesia terasa campur atau tidak natural,
+   - surface multi-language, locale switcher, atau wiring Lingui/i18n baru
+     masih dipertahankan atau malah ditambah,
    - surface developer-first muncul untuk pengguna desa,
    - capability platform salah lapisan dan seharusnya admin/internal-only,
    - narasi self-hosting, open-source, atau sejarah asal-usul produk masih

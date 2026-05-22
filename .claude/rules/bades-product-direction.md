@@ -3,12 +3,8 @@
 Use this rule for any task that affects branding, copy, onboarding, docs,
 navigation, defaults, demo data, seeds, or screenshots.
 
-Untuk aturan yang lebih spesifik, baca juga:
-
-- `bahasa-indonesia-total.md`
-- `anti-brand-leak.md`
-- `non-technical-product.md`
-- `seed-desa-indonesia.md`
+Ini adalah rule identitas utama Bades. Jika ada rule lain yang tumpang tindih,
+ikuti file ini lebih dulu, lalu gunakan rule path-scoped yang relevan.
 
 ## Identity
 
@@ -24,13 +20,19 @@ Untuk aturan yang lebih spesifik, baca juga:
 ## User-Facing Language
 
 - Default to natural Bahasa Indonesia for user-facing text.
+- Bades diarahkan sebagai **single-language product**: Bahasa Indonesia saja
+  pada pengalaman produk utama.
 - Avoid mixed Indonesian/English wording that reads like an unfinished
   translation.
+- Jangan menambah language switcher, locale picker, fallback translation, atau
+  surface multi-language baru pada produk utama.
 - Replace CRM terms with domain-appropriate village/government terminology when
   the text is visible to end users.
 - Do not introduce new public-facing mentions of `Twenty`, `twenty`, or legacy
   CRM naming such as `company`, `deal`, `opportunity`, or `pipeline` unless the
   task explicitly requires technical disclosure.
+- Jangan membuat pengalaman utama terasa seperti portal developer, builder
+  platform, atau produk self-hosting.
 
 ## Code and Internal Writing Language
 
@@ -40,11 +42,24 @@ Untuk aturan yang lebih spesifik, baca juga:
   kuat untuk mempertahankan nama Inggris.
 - Hindari menulis code baru dengan istilah bisnis Inggris generik jika ada
   padanan Indonesia yang lebih cocok untuk konteks Bades.
+- Jangan memperluas penggunaan Lingui, katalog `.po`, atau wiring i18n baru
+  kecuali task memang khusus membongkar compatibility layer lama.
 - Bahasa Inggris hanya boleh dipakai untuk:
   - syntax/keyword bahasa pemrograman,
   - nama API framework/library,
   - kontrak teknis eksternal,
   - identifier legacy yang belum aman diubah.
+
+## Audience and Product Posture
+
+- Pengguna utama Bades adalah perangkat desa dan operator administratif
+  non-teknis.
+- Saat memilih copy, navigasi, onboarding, atau prioritas surface, dahulukan
+  alur kerja administrasi desa dibanding jargon SaaS generik atau workflow
+  engineering.
+- Jika sebuah surface mengasumsikan user paham credential, endpoint, schema,
+  webhook, SDK, atau deployment, perlakukan itu sebagai debt pada produk utama
+  kecuali surface itu memang jelas admin/internal-only.
 
 ## Data and Defaults
 

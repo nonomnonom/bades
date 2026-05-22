@@ -1,9 +1,7 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code when working in this repository.
-
-Project-level Claude settings live in `.claude/settings.json`, and the response
-language for this repository is intentionally set to Indonesian.
+This file is the operator guide for Claude Code in this repository.
+Project-level settings live in `.claude/settings.json`.
 
 ## Project Overview
 
@@ -14,6 +12,9 @@ Twenty engine. Treat this repository as **Bades-first**:
 - Bahasa default proyek adalah **Bahasa Indonesia native** untuk produk,
   dokumentasi, komentar, test, fixture, seed, contoh data, dan penamaan
   konsep bisnis.
+- Bades diarahkan sebagai **single-language product**: Bahasa Indonesia saja
+  pada pengalaman produk utama. Jangan menambah locale picker, language
+  switcher, fallback translation, atau workflow multi-language baru.
 - Bades diposisikan sebagai **produk SaaS swasta terkelola** untuk konteks
   Indonesia, bukan self-hosting-first product untuk end user.
 - AI user-facing di Bades harus terasa seperti **satu model operasional**,
@@ -22,10 +23,19 @@ Twenty engine. Treat this repository as **Bades-first**:
   those identifiers must not leak into user-visible surfaces unless the task is
   explicitly about migration or upstream compatibility.
 
-Read [GOAL.md](D:/bades/GOAL.md) before making product-facing changes.
-Treat `GOAL.md` as the primary product source of truth for any task that can
-affect branding, language, seed data, user-facing behavior, docs, or domain
-terminology.
+Read [GOAL.md](D:/bades/GOAL.md) before making product-facing changes. Treat it
+as the primary source of truth for branding, language, seed data, user-facing
+behavior, docs, and domain terminology.
+
+## Claude Operating Order
+
+Saat perlu orientasi cepat, baca dalam urutan ini:
+
+1. `GOAL.md`
+2. `CLAUDE.md`
+3. `.claude/rules/bades-product-direction.md`
+4. rule path-scoped yang sesuai area file
+5. skill atau agent hanya jika task memang membutuhkannya
 
 ## Key Commands
 
@@ -92,15 +102,10 @@ npx nx run server:database:migrate
 npx nx run server:database:migrate:generate --name <name> --type <fast|slow>
 ```
 
-### GraphQL and Localization
+### GraphQL
 ```bash
 npx nx run front:graphql:generate
 npx nx run front:graphql:generate --configuration=metadata
-
-npx nx run front:lingui:extract
-npx nx run front:lingui:compile
-npx nx run server:lingui:extract
-npx nx run server:lingui:compile
 ```
 
 ## Architecture Overview
@@ -109,7 +114,8 @@ npx nx run server:lingui:compile
 - Frontend: React 18, TypeScript, Jotai, Linaria, Vite, Apollo Client
 - Backend: NestJS, TypeORM, PostgreSQL, Redis, GraphQL Yoga
 - Monorepo: Nx workspace with Yarn 4
-- Localization: Lingui with `.po` catalogs
+- Localization direction: single-language Bahasa Indonesia; sisa Lingui/i18n
+  diperlakukan sebagai debt legacy sampai dibersihkan
 
 ### Key Packages
 ```text
@@ -119,14 +125,9 @@ packages/
 - shared                 # Shared types, metadata, helpers
 - ui                     # Shared UI primitives
 - emails                 # Email rendering/templates
-- website                # Marketing website and release content
-- docs                   # Documentation sources
-- sdk                    # App SDK and CLI support
-- client-sdk             # Generated/API client assets
-- e2e-testing            # End-to-end tests
+- website                # Legacy marketing surface; not active product focus
+- docs                   # Legacy docs surface; not active product focus
 - utils                  # Repo utilities and scripts
-- claude-skills          # Additional Claude-facing assets
-- create-twenty-app      # Scaffolding package still carrying legacy naming
 ```
 
 ### Product Direction Rules
@@ -148,7 +149,6 @@ packages/
 - Prefer `type` over `interface` unless extending third-party types.
 - Prefer string unions over enums except where GraphQL or existing platform
   APIs require enums.
-- Use Lingui macros (`Trans`, `msg`, `useLingui`) for translatable UI text.
 - Follow existing Linaria patterns in `packages/ui` and `packages/front`;
   do not introduce `styled-components`.
 - Use the Jotai helper utilities already in the repo such as
@@ -156,6 +156,8 @@ packages/
 - Use Bahasa Indonesia for business-facing identifiers, comments, test names,
   fixtures, and examples unless English is required by an external API,
   framework convention, or compatibility constraint.
+- Jangan menambah penggunaan baru `Lingui`, katalog `.po`, atau wiring i18n
+  kecuali task memang khusus membongkar compatibility layer legacy.
 
 ## Backend Conventions
 
@@ -174,11 +176,12 @@ packages/
 2. Check for an existing `.claude/rules/*` rule or `.claude/skills/*` skill that
    applies to the area you are touching. For parallel or autonomous work, also
    check `.claude/agents/*` and `.claude/loop.md`.
-   Prioritize the Bades core rules: `bahasa-indonesia-total.md`,
-   `anti-brand-leak.md`, `non-technical-product.md`, and
-   `goal-gatekeeping-workflow.md`.
+   Prioritize `bades-product-direction.md` and
+   `goal-gatekeeping-workflow.md`, lalu rule path-scoped yang sesuai area.
 3. Prefer diff-based linting and focused test runs before broader suites.
-4. Regenerate GraphQL or localization artifacts when the change requires it.
+4. Regenerate GraphQL artifacts when the change requires it. Jangan
+   meregenerasi atau memperluas artifact Lingui/i18n kecuali task-nya memang
+   tentang cleanup debt localization lama.
 5. Avoid introducing new public-facing references to Twenty unless the task is
    specifically about migration, provenance, or upstream compatibility.
 6. Evaluate the task against `GOAL.md` on the files and surfaces being touched.
@@ -186,17 +189,23 @@ packages/
 7. Default to autonomous execution when the goal direction is clear. Raise a
    question only when ambiguity materially changes the approach or could cause a
    risky regression.
-8. If the task changes React UI files in `front`, `ui`, or `website`, use the
+8. Jika task ini murni operasi Claude Code (`CLAUDE.md`, `.claude/rules`,
+   `.claude/skills`, `.claude/agents`, `.claude/loop.md`), fokuskan perubahan
+   pada kualitas instruksi, beban context, dan workflow operator; jangan
+   melebar ke audit kode aplikasi kecuali diminta.
+9. If the task changes React UI files in `front`, `ui`, or `website`, use the
    `react-doctor` workflow as part of closing verification.
-9. If the task touches billing, checkout, payment notifications, enterprise
+10. If the task touches billing, checkout, payment notifications, enterprise
    billing APIs, or Stripe cleanup, use the `migrasi-midtrans` skill and the
    `midtrans-first-billing.md` rule as the default workflow.
-10. If the task touches AI chat, AI settings, agent surfaces, or model
+11. If the task touches AI chat, AI settings, agent surfaces, or model
     selection/routing, use the `ai-single-model.md` rule and keep the user
     experience single-model.
 
 ### Localization Rules
 - User-facing Bades UI should be Bahasa Indonesia native by default.
+- Anggap produk utama sebagai **single-language**. Jangan tambahkan locale
+  switcher, pilihan bahasa, atau fallback translation baru.
 - Avoid mixed-language copy, comments, tests, or examples that feel like an
   unfinished translation.
 - Use English only for language keywords, framework/library APIs, external

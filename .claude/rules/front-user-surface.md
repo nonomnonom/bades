@@ -13,6 +13,8 @@ surface interaksi pengguna.
 ## Prioritas UI
 
 - Semua copy baru harus Bahasa Indonesia native.
+- Anggap produk utama sebagai **single-language**. Jangan tambahkan pemilih
+  bahasa, locale switcher, atau wording yang mengasumsikan multi-language.
 - Pilih istilah yang terasa seperti aplikasi kerja administrasi desa, bukan
   CRM atau SaaS generik.
 - Jangan biarkan surface utama menonjolkan konsep developer atau istilah brand

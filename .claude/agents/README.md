@@ -5,6 +5,9 @@ Folder ini berisi role subagent yang bisa dipakai langsung sebagai:
 - subagent biasa dalam satu sesi, atau
 - teammate role saat membuat **agent team** Claude Code.
 
+Pakai agent hanya jika task memang terbantu oleh pemisahan peran. Jangan
+spawn agent hanya untuk membaca file yang masih bisa ditangani langsung.
+
 ## Role yang tersedia
 
 - `penjaga-goal-bades` - audit drift terhadap `GOAL.md`
@@ -45,9 +48,12 @@ Pastikan tidak ada file conflict antarteammate.
 
 ## Aturan praktis
 
-- Mulai dengan 3-5 teammate.
-- Gunakan `penjaga-goal-bades` atau `verifikator-bades` pada task yang menyentuh
-  branding, seed, email, workflow GitHub, atau penghapusan/arsip website dan
-  docs.
+- Default sederhana:
+  - 1 agent untuk audit
+  - 1 agent untuk frontend atau backend
+  - 1 agent untuk verifikasi jika task-nya cukup besar
+- Gunakan `penjaga-goal-bades` saat takut drift terhadap `GOAL.md`.
+- Gunakan `verifikator-bades` hanya saat diff sudah cukup besar untuk ditinjau
+  terpisah.
 - Untuk maintenance branch aktif saat Anda tidak memantau terus, gunakan
   bare `/loop` atau skill `operasi-otonom-bades`.

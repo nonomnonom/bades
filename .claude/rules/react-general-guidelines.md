@@ -13,5 +13,6 @@ paths:
 - Match the existing styling system in the package you are editing. In `front`
   and `ui`, that usually means Linaria rather than introducing a new styling
   library.
-- For user-facing copy, use Lingui macros instead of raw hard-coded strings
-  when the text belongs in the localization pipeline.
+- Untuk copy user-facing, utamakan hasil akhir yang sederhana dan konsisten
+  dengan produk single-language Bahasa Indonesia. Jangan menambah dependency
+  baru ke pipeline i18n/Lingui.

@@ -5,7 +5,8 @@
 - Frontend: React 18, TypeScript, Jotai, Linaria, Vite, Apollo Client
 - Backend: NestJS, TypeORM, PostgreSQL, Redis, GraphQL Yoga
 - Monorepo tooling: Nx + Yarn 4
-- Localization: Lingui with `.po` catalogs
+- Localization direction: single-language Bahasa Indonesia; sisa Lingui/i18n
+  harus diperlakukan sebagai debt legacy jika masih ada di codebase
 
 ## Repository Shape
 
@@ -45,6 +46,8 @@ packages/
   work.
 - `packages/docs` is a legacy documentation surface and should not be treated as
   an active product stream except for cleanup, archive, or removal work.
+- `packages/front/src/locales` atau katalog terjemahan lain, jika masih ada,
+  harus diperlakukan sebagai surface legacy yang sedang menuju penghapusan.
 
 ## Architectural Principles
 

@@ -13,8 +13,9 @@
 
 - Frontend styling should follow Linaria conventions already used in `ui` and
   `front`.
-- Localization should use Lingui macros and utilities, not ad hoc string
-  wrappers.
+- Do not introduce new Lingui-based localization wiring, translation catalogs,
+  or i18n wrappers unless the task is explicitly about removing or isolating
+  legacy localization debt.
 - When shared helpers already exist, prefer those imports over custom local
   reimplementation.
 - Comments, test names, fixtures, docs internal, and business-domain naming

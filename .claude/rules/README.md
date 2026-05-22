@@ -11,11 +11,8 @@ Autonomous workflow helpers for this repo also live in:
 
 ## Rule Set
 
-- `bades-product-direction.md` - Always-on product identity and anti-leak rules
+- `bades-product-direction.md` - Always-on arah identitas, bahasa, audience, dan anti-leak utama
 - `goal-gatekeeping-workflow.md` - Always-on workflow rule for checking each active task against `GOAL.md`
-- `bahasa-indonesia-total.md` - Always-on Indonesia-first writing rules
-- `anti-brand-leak.md` - Always-on forbidden brand and CRM term guardrails
-- `non-technical-product.md` - Always-on product guardrails for non-technical users
 - `architecture.md` - Current monorepo structure and technical boundaries
 - `code-style.md` - Shared coding conventions
 - `file-structure.md` - Package and directory layout guidance
@@ -28,7 +25,6 @@ Autonomous workflow helpers for this repo also live in:
 - `ai-single-model.md` - Path-scoped guidance for single-model AI surfaces and routing
 - `platform-internal-bades.md` - Path-scoped guidance for app system, marketplace, API/webhook, and internal-platform boundaries
 - `seed-desa-indonesia.md` - Path-scoped rules for seed data, fixtures, stories, and examples
-- `translations.md` - Lingui and Indonesian-first localization workflow
 - `testing-guidelines.md` - Practical unit/integration test guidance
 - `react-general-guidelines.md` - React component patterns
 - `react-state-management.md` - Jotai patterns used in the frontend
@@ -45,11 +41,20 @@ Autonomous workflow helpers for this repo also live in:
   data.
 - `goal-gatekeeping-workflow.md` defines how to apply `GOAL.md` per active
   task while staying autonomous when the direction is already clear.
-- `bahasa-indonesia-total.md`, `anti-brand-leak.md`, and
-  `non-technical-product.md` are the core Bades identity rules and should win
-  over stale upstream habits.
-- `goal-gatekeeping-workflow.md` is the core workflow rule that prevents drift
-  when a task is technically valid but product-directionally wrong.
+- `bades-product-direction.md` adalah single source untuk identitas inti
+  Bades.
+- Path-scoped rules sebaiknya tetap sempit agar hanya masuk context saat
+  dibutuhkan.
+
+## Operator Heuristic
+
+- Saat ragu, baca berurutan: `GOAL.md` -> `CLAUDE.md` ->
+  `bades-product-direction.md`.
+- Jangan menambah rule always-on baru jika isinya masih muat sebagai tambahan
+  singkat ke `bades-product-direction.md` atau
+  `goal-gatekeeping-workflow.md`.
+- Jika sebuah rule jarang relevan, lebih baik jadikan path-scoped atau pindah
+  ke skill daripada menambah beban context semua sesi.
 
 ## Maintenance Standard
 

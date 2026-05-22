@@ -1,8 +1,8 @@
-Lanjutkan transformasi Bades secara **otonom** pada sesi dan branch aktif ini.
+Lanjutkan pekerjaan pada sesi dan branch aktif ini secara
+**otonom-terkendali**.
 
-Jangan menunggu user memecah task. Jika tidak ada task aktif yang eksplisit,
-**pilih sendiri** task berikutnya dari `GOAL.md`, `CLAUDE.md`, diff branch, CI,
-TODO terdekat, dan area produk yang paling jelas nilainya.
+Mode default `/loop` di repo ini adalah menjaga pekerjaan aktif tetap rapi dan
+selaras, bukan berburu inisiatif repo-wide baru.
 
 ## Arah utama
 
@@ -22,9 +22,9 @@ hanya jika perlu:
 
 1. Cek dulu apakah ada pekerjaan setengah jalan di transcript, diff, test
    gagal, review comment, atau CI merah. Jika ada, lanjutkan itu sampai tuntas.
-2. Jika tidak ada task aktif yang jelas, **buat sendiri task kerja internal**
-   yang kecil tapi bernilai, lalu langsung eksekusi. Jangan minta user
-   menuliskan subtasks untukmu.
+2. Jika tidak ada task aktif yang jelas, pilih cleanup kecil yang paling dekat
+   dengan branch aktif, file yang baru disentuh, atau instruksi yang memang
+   sedang dibenahi. Jangan lompat ke migrasi besar tanpa sinyal jelas.
 3. Ambil **satu slice yang bisa diverifikasi** per iterasi:
    - satu bug,
    - satu refactor terarah,
@@ -37,8 +37,8 @@ hanya jika perlu:
    - sesuaikan test/fixture/copy/config bila perlu,
    - jalankan verifikasi yang relevan,
    - rapikan hasil.
-5. Setelah slice itu selesai, jangan berhenti. Pilih slice berikutnya yang
-   masih paling bernilai dan lanjutkan.
+5. Setelah slice itu selesai, lanjutkan hanya ke slice berikutnya yang masih
+   satu jalur dengan pekerjaan aktif atau intent branch yang sama.
 
 ## Prioritas pemilihan task
 
@@ -46,18 +46,19 @@ Urutkan pilihan kerja seperti ini:
 
 1. pekerjaan aktif yang belum selesai
 2. test/lint/typecheck/build yang merah akibat perubahan aktif
-3. kebocoran arah produk terhadap `GOAL.md` pada `engine`, `server worker`,
-   atau `front`
-4. surface developer-first yang masih bocor ke user-facing product
-5. billing Midtrans-first pada area aplikasi inti
-6. seed/demo/sample data yang masih warisan lama
-7. baru setelah itu cleanup repo metadata, website, atau docs bila memang
-   masih relevan
+3. drift terhadap `GOAL.md` pada file atau surface yang sedang disentuh
+4. cleanup kecil atas wiring legacy **multi-language / i18n / Lingui** jika
+   memang berdekatan dengan pekerjaan aktif
+5. surface developer-first yang bocor ke hasil aktif
+6. baru setelah itu cleanup metadata, website, atau docs bila memang masih
+   satu jalur dengan branch aktif
 
 ## Aturan otonomi
 
 - Jangan berhenti hanya untuk bertanya "lanjut?" atau "mau saya kerjakan apa?".
 - Ambil asumsi paling masuk akal dan lanjutkan.
+- Jangan memulai audit repo atau migrasi besar hanya karena menemukan debt yang
+  menarik, kecuali transcript atau user memang mengarah ke sana.
 - Jika ada beberapa opsi teknis yang masuk akal, pilih yang:
   - paling kecil blast radius-nya,
   - paling mudah diverifikasi,
@@ -74,6 +75,8 @@ Urutkan pilihan kerja seperti ini:
 
 - Semua update, komentar, dan ringkasan dalam **Bahasa Indonesia**.
 - Jangan bocorkan branding `Twenty` atau istilah CRM generik ke surface baru.
+- Jangan menambah multi-language, locale switcher, atau penggunaan Lingui baru
+  pada surface utama produk.
 - Jangan membuat surface makin developer-first untuk perangkat desa.
 - Jangan memperluas task kecil menjadi migrasi repo-wide tanpa alasan kuat.
 - Untuk refactor besar, pecah menjadi langkah kecil yang bisa diverifikasi satu
@@ -101,8 +104,8 @@ Sebuah iterasi dianggap selesai hanya jika:
 
 ## Kapan berhenti
 
-Jika berjalan lewat `/loop`, teruskan pekerjaan otonom selama masih ada task
-bernilai yang bisa diambil dari area fokus. Berhenti sendiri hanya jika:
+Jika berjalan lewat `/loop`, teruskan selama masih ada task yang relevan dengan
+branch aktif atau intent sesi. Berhenti sendiri hanya jika:
 
 - target goal yang aktif sudah terbukti tercapai, atau
 - tidak ada lagi pekerjaan bermakna yang bisa dikerjakan tanpa input user.
