@@ -12,7 +12,7 @@ export const buildPersonStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'person'>, 'context'>): Record<
   AllStandardObjectIndexName<'person'>,
   FlatIndexMetadata
@@ -26,7 +26,7 @@ export const buildPersonStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   emailsUniqueIndex: createStandardIndexFlatMetadata({
@@ -39,7 +39,7 @@ export const buildPersonStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVectorGinIndex: createStandardIndexFlatMetadata({
@@ -52,7 +52,7 @@ export const buildPersonStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

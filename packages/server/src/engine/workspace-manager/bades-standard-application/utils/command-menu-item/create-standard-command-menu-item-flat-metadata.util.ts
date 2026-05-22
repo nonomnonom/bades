@@ -11,14 +11,14 @@ export const createStandardCommandMenuItemFlatMetadata = ({
   commandMenuItemName,
   commandMenuItemId,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   dependencyFlatEntityMaps: { flatObjectMetadataMaps },
   now,
 }: {
   commandMenuItemName: keyof typeof STANDARD_COMMAND_MENU_ITEMS;
   commandMenuItemId: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   dependencyFlatEntityMaps: {
     flatObjectMetadataMaps: FlatEntityMaps<FlatObjectMetadata>;
   };
@@ -50,7 +50,7 @@ export const createStandardCommandMenuItemFlatMetadata = ({
   return {
     id: commandMenuItemId,
     universalIdentifier: definition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

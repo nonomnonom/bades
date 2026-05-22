@@ -44,13 +44,13 @@ export class DevSeederPermissionsService {
   ) {}
 
   public async initPermissions({
-    twentyStandardFlatApplication,
+    badesStandardFlatApplication,
     workspaceCustomFlatApplication,
     workspaceId,
     light = false,
   }: {
     workspaceId: string;
-    twentyStandardFlatApplication: FlatApplication;
+    badesStandardFlatApplication: FlatApplication;
     workspaceCustomFlatApplication: FlatApplication;
     light?: boolean;
   }) {
@@ -72,7 +72,7 @@ export class DevSeederPermissionsService {
         roleId: adminRole.id,
         targetId: API_KEY_DATA_SEED_IDS.ID_1,
         targetMetadataForeignKey: 'apiKeyId',
-        applicationId: twentyStandardFlatApplication.id,
+        applicationId: badesStandardFlatApplication.id,
       },
       workspaceId,
     });

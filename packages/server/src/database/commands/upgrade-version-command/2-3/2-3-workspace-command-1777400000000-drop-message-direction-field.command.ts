@@ -66,7 +66,7 @@ export class DropMessageDirectionFieldCommand extends ActiveOrSuspendedWorkspace
       return;
     }
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -83,7 +83,7 @@ export class DropMessageDirectionFieldCommand extends ActiveOrSuspendedWorkspace
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

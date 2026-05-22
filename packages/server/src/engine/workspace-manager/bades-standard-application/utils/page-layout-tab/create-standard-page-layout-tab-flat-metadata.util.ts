@@ -19,7 +19,7 @@ export type CreateStandardPageLayoutTabContext = {
 export type CreateStandardPageLayoutTabArgs = {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   standardPageLayoutMetadataRelatedEntityIds: StandardPageLayoutMetadataRelatedEntityIds;
   context: CreateStandardPageLayoutTabContext;
 };
@@ -27,7 +27,7 @@ export type CreateStandardPageLayoutTabArgs = {
 export const createStandardPageLayoutTabFlatMetadata = ({
   context: { layoutName, tabTitle, title, position, icon, layoutMode },
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   standardPageLayoutMetadataRelatedEntityIds,
   now,
 }: CreateStandardPageLayoutTabArgs): FlatPageLayoutTab => {
@@ -58,7 +58,7 @@ export const createStandardPageLayoutTabFlatMetadata = ({
   return {
     id: tabIds.id,
     universalIdentifier: tabDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

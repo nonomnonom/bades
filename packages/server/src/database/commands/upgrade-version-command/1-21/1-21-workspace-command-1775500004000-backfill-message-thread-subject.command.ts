@@ -203,7 +203,7 @@ export class BackfillMessageThreadSubjectCommand extends ActiveOrSuspendedWorksp
       return;
     }
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -221,7 +221,7 @@ export class BackfillMessageThreadSubjectCommand extends ActiveOrSuspendedWorksp
           universalIdentifier:
             STANDARD_OBJECTS.messageThread.fields.subject.universalIdentifier,
         },
-        flatApplication: twentyStandardFlatApplication,
+        flatApplication: badesStandardFlatApplication,
         objectMetadataUniversalIdentifier:
           messageThreadObjectMetadata.universalIdentifier,
       }),
@@ -240,7 +240,7 @@ export class BackfillMessageThreadSubjectCommand extends ActiveOrSuspendedWorksp
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

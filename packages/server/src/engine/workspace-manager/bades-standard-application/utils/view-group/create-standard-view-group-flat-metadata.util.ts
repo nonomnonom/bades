@@ -36,7 +36,7 @@ export const createStandardViewGroupFlatMetadata = <
   objectName,
   context: { viewName, viewGroupName, isVisible, fieldValue, position },
   standardObjectMetadataRelatedEntityIds,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardViewGroupArgs<O, V>): FlatViewGroup => {
   // @ts-expect-error ignore
@@ -56,7 +56,7 @@ export const createStandardViewGroupFlatMetadata = <
   return {
     id: v4(),
     universalIdentifier: viewGroupDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

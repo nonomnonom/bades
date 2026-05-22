@@ -30,12 +30,12 @@ const WORKFLOWS_FOLDER_ITEM_NAMES = [
 export const buildStandardFlatNavigationMenuItemMaps = ({
   now,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   dependencyFlatEntityMaps: { flatViewMaps },
 }: {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   dependencyFlatEntityMaps: {
     flatViewMaps: FlatEntityMaps<FlatView>;
   };
@@ -60,7 +60,7 @@ export const buildStandardFlatNavigationMenuItemMaps = ({
         dependencyFlatEntityMaps: {
           flatViewMaps,
         },
-        twentyStandardApplicationId,
+        badesStandardApplicationId,
         now,
       },
     );
@@ -81,7 +81,7 @@ export const buildStandardFlatNavigationMenuItemMaps = ({
     position: workflowsFolderDefinition.position,
     navigationMenuItemId: workflowsFolderId,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   });
 
@@ -101,7 +101,7 @@ export const buildStandardFlatNavigationMenuItemMaps = ({
       position: folderItemDefinition.position,
       navigationMenuItemId: v4(),
       workspaceId,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       dependencyFlatEntityMaps: {
         flatViewMaps,
       },

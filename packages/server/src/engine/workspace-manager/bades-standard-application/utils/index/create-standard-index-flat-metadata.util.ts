@@ -45,7 +45,7 @@ export const createStandardIndexFlatMetadata = <
   },
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps: { flatFieldMetadataMaps, flatObjectMetadataMaps },
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardIndexArgs<O>): FlatIndexMetadata => {
   const objectIndexes = STANDARD_OBJECTS[objectName].indexes;
@@ -121,7 +121,7 @@ export const createStandardIndexFlatMetadata = <
 
   return {
     ...unviersalFlatIndex,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     id: v4(),
     flatIndexFieldMetadatas: relatedFieldIds.map<FlatIndexFieldMetadata>(
       (fieldMetadataId, index) => ({

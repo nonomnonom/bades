@@ -22,7 +22,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<
   CreateStandardFieldArgs<'dashboard', FieldMetadataType>,
   'context'
@@ -44,7 +44,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdAt: createStandardFieldFlatMetadata({
@@ -64,7 +64,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedAt: createStandardFieldFlatMetadata({
@@ -84,7 +84,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   deletedAt: createStandardFieldFlatMetadata({
@@ -103,7 +103,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 
@@ -121,7 +121,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   position: createStandardFieldFlatMetadata({
@@ -139,7 +139,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   pageLayoutId: createStandardFieldFlatMetadata({
@@ -156,7 +156,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdBy: createStandardFieldFlatMetadata({
@@ -179,7 +179,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedBy: createStandardFieldFlatMetadata({
@@ -204,7 +204,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVector: createStandardFieldFlatMetadata({
@@ -227,7 +227,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 
@@ -251,7 +251,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   attachments: createStandardRelationFieldFlatMetadata({
@@ -273,7 +273,7 @@ export const buildDashboardStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

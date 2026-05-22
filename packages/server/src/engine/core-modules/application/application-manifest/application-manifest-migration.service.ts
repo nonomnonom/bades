@@ -84,7 +84,7 @@ export class ApplicationManifestMigrationService {
 
     const now = new Date().toISOString();
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -115,8 +115,8 @@ export class ApplicationManifestMigrationService {
       applicationIds:
         ownerFlatApplication.universalIdentifier ===
         BADES_STANDARD_APPLICATION.universalIdentifier
-          ? [twentyStandardFlatApplication.id]
-          : [ownerFlatApplication.id, twentyStandardFlatApplication.id],
+          ? [badesStandardFlatApplication.id]
+          : [ownerFlatApplication.id, badesStandardFlatApplication.id],
       fromAllFlatEntityMaps: existingAllFlatEntityMaps,
     });
 
@@ -168,7 +168,7 @@ export class ApplicationManifestMigrationService {
   }> {
     const now = new Date().toISOString();
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -199,8 +199,8 @@ export class ApplicationManifestMigrationService {
       applicationIds:
         ownerFlatApplication.universalIdentifier ===
         BADES_STANDARD_APPLICATION.universalIdentifier
-          ? [twentyStandardFlatApplication.id]
-          : [ownerFlatApplication.id, twentyStandardFlatApplication.id],
+          ? [badesStandardFlatApplication.id]
+          : [ownerFlatApplication.id, badesStandardFlatApplication.id],
       fromAllFlatEntityMaps: existingAllFlatEntityMaps,
     });
 

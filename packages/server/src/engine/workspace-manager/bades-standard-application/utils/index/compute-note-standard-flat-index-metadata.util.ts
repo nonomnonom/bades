@@ -12,7 +12,7 @@ export const buildNoteStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'note'>, 'context'>): Record<
   AllStandardObjectIndexName<'note'>,
   FlatIndexMetadata
@@ -27,7 +27,7 @@ export const buildNoteStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

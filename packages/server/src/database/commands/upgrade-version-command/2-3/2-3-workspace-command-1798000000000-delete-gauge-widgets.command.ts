@@ -77,7 +77,7 @@ export class DeleteGaugeWidgetsCommand extends ActiveOrSuspendedWorkspaceCommand
       return;
     }
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -94,7 +94,7 @@ export class DeleteGaugeWidgetsCommand extends ActiveOrSuspendedWorkspaceCommand
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

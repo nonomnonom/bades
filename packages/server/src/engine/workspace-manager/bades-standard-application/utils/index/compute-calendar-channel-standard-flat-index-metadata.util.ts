@@ -11,7 +11,7 @@ export const buildCalendarChannelStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'calendarChannel'>, 'context'>): Record<
   AllStandardObjectIndexName<'calendarChannel'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildCalendarChannelStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

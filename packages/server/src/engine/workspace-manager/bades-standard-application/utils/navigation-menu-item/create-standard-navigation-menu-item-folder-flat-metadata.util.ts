@@ -12,7 +12,7 @@ export const createStandardNavigationMenuItemFolderFlatMetadata = ({
   position,
   navigationMenuItemId,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: {
   universalIdentifier: string;
@@ -21,13 +21,13 @@ export const createStandardNavigationMenuItemFolderFlatMetadata = ({
   position: number;
   navigationMenuItemId: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   now: string;
 }): FlatNavigationMenuItem => ({
   id: navigationMenuItemId,
   type: NavigationMenuItemType.FOLDER,
   universalIdentifier,
-  applicationId: twentyStandardApplicationId,
+  applicationId: badesStandardApplicationId,
   applicationUniversalIdentifier:
     BADES_STANDARD_APPLICATION.universalIdentifier,
   workspaceId,
@@ -58,7 +58,7 @@ export const createStandardNavigationMenuItemFolderItemFlatMetadata = ({
   position,
   navigationMenuItemId,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   dependencyFlatEntityMaps: { flatViewMaps },
   now,
 }: {
@@ -69,7 +69,7 @@ export const createStandardNavigationMenuItemFolderItemFlatMetadata = ({
   position: number;
   navigationMenuItemId: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   dependencyFlatEntityMaps: {
     flatViewMaps: FlatEntityMaps<FlatView>;
   };
@@ -90,7 +90,7 @@ export const createStandardNavigationMenuItemFolderItemFlatMetadata = ({
     id: navigationMenuItemId,
     type: NavigationMenuItemType.OBJECT,
     universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

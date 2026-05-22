@@ -25,7 +25,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
     workspaceId,
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
   }: Omit<
     CreateStandardFieldArgs<
       'messageChannelMessageAssociation',
@@ -52,7 +52,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     createdAt: createStandardFieldFlatMetadata({
@@ -72,7 +72,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     updatedAt: createStandardFieldFlatMetadata({
@@ -92,7 +92,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     deletedAt: createStandardFieldFlatMetadata({
@@ -111,7 +111,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     createdBy: createStandardFieldFlatMetadata({
@@ -134,7 +134,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     updatedBy: createStandardFieldFlatMetadata({
@@ -159,7 +159,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     position: createStandardFieldFlatMetadata({
@@ -179,7 +179,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     searchVector: createStandardFieldFlatMetadata({
@@ -202,7 +202,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageExternalId: createStandardFieldFlatMetadata({
@@ -219,7 +219,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageThreadExternalId: createStandardFieldFlatMetadata({
@@ -236,7 +236,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     direction: createStandardFieldFlatMetadata({
@@ -270,7 +270,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageChannelId: createStandardFieldFlatMetadata({
@@ -287,7 +287,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageThread: createStandardRelationFieldFlatMetadata({
@@ -312,7 +312,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     message: createStandardRelationFieldFlatMetadata({
@@ -337,7 +337,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageFolders: createStandardRelationFieldFlatMetadata({
@@ -362,7 +362,7 @@ export const buildMessageChannelMessageAssociationStandardFlatFieldMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
   });

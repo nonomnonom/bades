@@ -17,7 +17,7 @@ export type BuildStandardFlatPageLayoutTabMetadataMapsArgs = Omit<
 export const buildStandardFlatPageLayoutTabMetadataMaps = ({
   now,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   standardPageLayoutMetadataRelatedEntityIds,
 }: BuildStandardFlatPageLayoutTabMetadataMapsArgs): FlatEntityMaps<FlatPageLayoutTab> => {
   const allPageLayoutTabMetadatas: FlatPageLayoutTab[] = [];
@@ -34,7 +34,7 @@ export const buildStandardFlatPageLayoutTabMetadataMaps = ({
         createStandardPageLayoutTabFlatMetadata({
           now,
           workspaceId,
-          twentyStandardApplicationId,
+          badesStandardApplicationId,
           standardPageLayoutMetadataRelatedEntityIds,
           context: {
             layoutName,

@@ -59,7 +59,7 @@ export const createStandardViewFlatMetadata = <
     calendarFieldName,
   },
   standardObjectMetadataRelatedEntityIds,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardViewArgs<O>): FlatView => {
   // @ts-expect-error ignore
@@ -120,7 +120,7 @@ export const createStandardViewFlatMetadata = <
     objectMetadataUniversalIdentifier,
     id: standardObjectMetadataRelatedEntityIds[objectName].views[viewName].id,
     universalIdentifier: viewDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

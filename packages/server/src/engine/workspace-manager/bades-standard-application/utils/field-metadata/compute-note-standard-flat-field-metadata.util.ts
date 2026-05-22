@@ -22,7 +22,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardFieldArgs<'note', FieldMetadataType>, 'context'>): Record<
   AllStandardObjectFieldName<'note'>,
   FlatFieldMetadata
@@ -44,7 +44,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdAt: createStandardFieldFlatMetadata({
@@ -66,7 +66,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedAt: createStandardFieldFlatMetadata({
@@ -88,7 +88,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   deletedAt: createStandardFieldFlatMetadata({
@@ -109,7 +109,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 
@@ -129,7 +129,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   title: createStandardFieldFlatMetadata({
@@ -145,7 +145,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   bodyV2: createStandardFieldFlatMetadata({
@@ -161,7 +161,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdBy: createStandardFieldFlatMetadata({
@@ -184,7 +184,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedBy: createStandardFieldFlatMetadata({
@@ -209,7 +209,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVector: createStandardFieldFlatMetadata({
@@ -232,7 +232,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 
@@ -256,7 +256,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   attachments: createStandardRelationFieldFlatMetadata({
@@ -278,7 +278,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   timelineActivities: createStandardRelationFieldFlatMetadata({
@@ -300,7 +300,7 @@ export const buildNoteStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

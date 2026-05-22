@@ -54,13 +54,13 @@ export class SdkClientGenerationService {
   async enqueueSdkClientGenerationForWorkspace(
     workspaceId: string,
   ): Promise<void> {
-    const { twentyStandardFlatApplication, workspaceCustomFlatApplication } =
+    const { badesStandardFlatApplication, workspaceCustomFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
     await Promise.all(
-      [twentyStandardFlatApplication, workspaceCustomFlatApplication].map(
+      [badesStandardFlatApplication, workspaceCustomFlatApplication].map(
         (application) =>
           this.messageQueueService.add<GenerateSdkClientJobData>(
             GENERATE_SDK_CLIENT_JOB_NAME,

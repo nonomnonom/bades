@@ -94,7 +94,7 @@ export class BackfillImageIdentifierFieldMetadataIdCommand extends ActiveOrSuspe
       return;
     }
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -118,7 +118,7 @@ export class BackfillImageIdentifierFieldMetadataIdCommand extends ActiveOrSuspe
           workspaceId,
           isSystemBuild: true,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

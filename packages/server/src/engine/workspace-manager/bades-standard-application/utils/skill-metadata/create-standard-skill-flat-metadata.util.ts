@@ -23,7 +23,7 @@ export type CreateStandardSkillArgs = StandardBuilderArgs<'skill'> & {
 export const createStandardSkillFlatMetadata = ({
   context: { skillName, name, label, icon, description, content, isCustom },
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardSkillArgs): FlatSkill => {
   const universalIdentifier = STANDARD_SKILL[skillName].universalIdentifier;
@@ -39,7 +39,7 @@ export const createStandardSkillFlatMetadata = ({
     isCustom,
     isActive: true,
     workspaceId,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     createdAt: now,

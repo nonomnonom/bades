@@ -11,7 +11,7 @@ export const buildBlocklistStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'blocklist'>, 'context'>): Record<
   AllStandardObjectIndexName<'blocklist'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildBlocklistStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

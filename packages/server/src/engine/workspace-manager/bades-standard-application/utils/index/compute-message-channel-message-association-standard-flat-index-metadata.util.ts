@@ -12,7 +12,7 @@ export const buildMessageChannelMessageAssociationStandardFlatIndexMetadatas =
     workspaceId,
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
   }: Omit<
     CreateStandardIndexArgs<'messageChannelMessageAssociation'>,
     'context'
@@ -29,7 +29,7 @@ export const buildMessageChannelMessageAssociationStandardFlatIndexMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageIdIndex: createStandardIndexFlatMetadata({
@@ -41,7 +41,7 @@ export const buildMessageChannelMessageAssociationStandardFlatIndexMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
     messageChannelIdMessageIdUniqueIndex: createStandardIndexFlatMetadata({
@@ -55,7 +55,7 @@ export const buildMessageChannelMessageAssociationStandardFlatIndexMetadatas =
       },
       standardObjectMetadataRelatedEntityIds,
       dependencyFlatEntityMaps,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       now,
     }),
   });

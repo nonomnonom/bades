@@ -17,7 +17,7 @@ import { RoleModule } from 'src/engine/metadata-modules/role/role.module';
 import { UserRoleModule } from 'src/engine/metadata-modules/user-role/user-role.module';
 import { WorkspaceDataSourceModule } from 'src/engine/workspace-datasource/workspace-datasource.module';
 import { DevSeederModule } from 'src/engine/workspace-manager/dev-seeder/dev-seeder.module';
-import { TwentyStandardApplicationModule } from 'src/engine/workspace-manager/bades-standard-application/bades-standard-application.module';
+import { BadesStandardApplicationModule } from 'src/engine/workspace-manager/bades-standard-application/bades-standard-application.module';
 import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace-migration/workspace-migration.module';
 
 import { WorkspaceManagerService } from './workspace-manager.service';
@@ -31,7 +31,7 @@ import { WorkspaceManagerService } from './workspace-manager.service';
     FeatureFlagModule,
     PermissionsModule,
     AiAgentModule,
-    TwentyStandardApplicationModule,
+    BadesStandardApplicationModule,
     WorkspaceManyOrAllFlatEntityMapsCacheModule,
     TypeOrmModule.forFeature([UserWorkspaceEntity, WorkspaceEntity]),
     RoleModule,

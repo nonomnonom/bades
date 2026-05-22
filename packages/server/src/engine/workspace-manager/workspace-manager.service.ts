@@ -12,7 +12,7 @@ import { RoleService } from 'src/engine/metadata-modules/role/role.service';
 import { UserRoleService } from 'src/engine/metadata-modules/user-role/user-role.service';
 import { WorkspaceDataSourceService } from 'src/engine/workspace-datasource/workspace-datasource.service';
 import { STANDARD_ROLE } from 'src/engine/workspace-manager/bades-standard-application/constants/standard-role.constant';
-import { TwentyStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
+import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
 
 @Injectable()
 export class WorkspaceManagerService {
@@ -24,7 +24,7 @@ export class WorkspaceManagerService {
     private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
     private readonly roleService: RoleService,
     private readonly userRoleService: UserRoleService,
-    private readonly twentyStandardApplicationService: TwentyStandardApplicationService,
+    private readonly badesStandardApplicationService: BadesStandardApplicationService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(RoleEntity)
@@ -58,11 +58,11 @@ export class WorkspaceManagerService {
       databaseSchema: schemaName,
     });
 
-    await this.applicationService.createTwentyStandardApplication({
+    await this.applicationService.createBadesStandardApplication({
       workspaceId,
     });
 
-    await this.twentyStandardApplicationService.synchronizeTwentyStandardApplicationOrThrow(
+    await this.badesStandardApplicationService.synchronizeBadesStandardApplicationOrThrow(
       {
         workspaceId,
       },

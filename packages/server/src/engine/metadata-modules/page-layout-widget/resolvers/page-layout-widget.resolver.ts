@@ -54,7 +54,7 @@ export class PageLayoutWidgetResolver {
   ): Promise<string> {
     const i18n = this.i18nService.getI18nInstance(context.req.locale);
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspace },
       );
@@ -62,7 +62,7 @@ export class PageLayoutWidgetResolver {
     return resolvePageLayoutWidgetTitle({
       title: widget.title,
       applicationId: widget.applicationId,
-      twentyStandardApplicationId: twentyStandardFlatApplication.id,
+      twentyStandardApplicationId: badesStandardFlatApplication.id,
       overrides: widget.overrides,
       i18nInstance: i18n,
     });

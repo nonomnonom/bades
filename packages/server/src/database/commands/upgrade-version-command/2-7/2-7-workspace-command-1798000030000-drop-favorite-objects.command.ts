@@ -61,7 +61,7 @@ export class DropFavoriteObjectsCommand extends ActiveOrSuspendedWorkspaceComman
       `${isDryRun ? '[DRY RUN] ' : ''}Starting legacy favorite objects removal for workspace ${workspaceId}`,
     );
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -96,7 +96,7 @@ export class DropFavoriteObjectsCommand extends ActiveOrSuspendedWorkspaceComman
         deleteObjectInput: { id: flatObjectMetadata.id },
         workspaceId,
         isSystemBuild: true,
-        ownerFlatApplication: twentyStandardFlatApplication,
+        ownerFlatApplication: badesStandardFlatApplication,
       });
 
       this.logger.log(`Deleted ${label} object for workspace ${workspaceId}`);

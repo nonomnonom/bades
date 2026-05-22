@@ -7,7 +7,7 @@ import { type RunOnWorkspaceArgs } from 'src/database/commands/command-runners/w
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
-import { computeTwentyStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
+import { computeBadesStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 @RegisteredWorkspaceCommand('2.7.0', 1798000020000)
@@ -36,7 +36,7 @@ export class SyncCommandMenuItemAvailabilityExpressionsCommand extends ActiveOrS
       `${isDryRun ? '[DRY RUN] ' : ''}Syncing command menu item availability expressions for workspace ${workspaceId}`,
     );
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -47,10 +47,10 @@ export class SyncCommandMenuItemAvailabilityExpressionsCommand extends ActiveOrS
       ]);
 
     const { allFlatEntityMaps: standardAllFlatEntityMaps } =
-      computeTwentyStandardApplicationAllFlatEntityMaps({
+      computeBadesStandardApplicationAllFlatEntityMaps({
         now: new Date().toISOString(),
         workspaceId,
-        twentyStandardApplicationId: twentyStandardFlatApplication.id,
+        badesStandardApplicationId: badesStandardFlatApplication.id,
       });
 
     const itemsToUpdate = Object.values(
@@ -112,7 +112,7 @@ export class SyncCommandMenuItemAvailabilityExpressionsCommand extends ActiveOrS
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

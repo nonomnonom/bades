@@ -11,7 +11,7 @@ export const buildMessageChannelStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'messageChannel'>, 'context'>): Record<
   AllStandardObjectIndexName<'messageChannel'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildMessageChannelStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

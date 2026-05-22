@@ -11,7 +11,7 @@ export const buildMessageParticipantStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'messageParticipant'>, 'context'>): Record<
   AllStandardObjectIndexName<'messageParticipant'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildMessageParticipantStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   personIdIndex: createStandardIndexFlatMetadata({
@@ -37,7 +37,7 @@ export const buildMessageParticipantStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   workspaceMemberIdIndex: createStandardIndexFlatMetadata({
@@ -49,7 +49,7 @@ export const buildMessageParticipantStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

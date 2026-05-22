@@ -51,7 +51,7 @@ export const createStandardViewFieldFlatMetadata = <
     viewFieldGroupName = null,
   },
   standardObjectMetadataRelatedEntityIds,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardViewFieldArgs<O, V>): FlatViewField => {
   const objectDefinition = STANDARD_OBJECTS[objectName] as {
@@ -104,7 +104,7 @@ export const createStandardViewFieldFlatMetadata = <
   return {
     id: v4(),
     universalIdentifier: viewFieldDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

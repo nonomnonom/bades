@@ -1,19 +1,19 @@
-This is a [Twenty](https://bades.id) application bootstrapped with [`create-twenty-app`](https://www.npmjs.com/package/create-twenty-app).
+This is a Bades application bootstrapped with [`create-bades-app`](https://www.npmjs.com/package/create-bades-app).
 
 ## Overview
 
-**Bades.id for Bades.id** is the official internal Twenty app. It is organized into modules, each integrating a third-party service with Twenty.
+**Bades.id for Bades.id** is the official internal Bades app. It is organized into modules, each integrating a third-party service with Bades.
 
 ### Resend module (`src/modules/resend/`)
 
-Two-way sync between Twenty and the [Resend](https://resend.com) email platform. The module syncs contacts, segments, templates, broadcasts, and emails.
+Two-way sync between Bades and the [Resend](https://resend.com) email platform. The module syncs contacts, segments, templates, broadcasts, and emails.
 
-**Inbound (Resend -> Twenty):**
+**Inbound (Resend -> Bades.id):**
 
 - A cron job runs every 5 minutes to pull all entities from the Resend API
 - A webhook endpoint receives real-time events for contacts and emails
 
-**Outbound (Twenty -> Resend):**
+**Outbound (Bades.id -> Resend):**
 
 - Database event triggers push contact and segment changes back to Resend when records are created, updated, or deleted in Bades.id
 
@@ -29,7 +29,7 @@ This registers the app with your local Bades.id instance at `http://localhost:30
 
 ### 2. Configure app variables
 
-In Twenty, go to **Settings > Applications > Bades.id for Bades.id** and set:
+In Bades, go to **Settings > Applications > Bades.id for Bades.id** and set:
 
 - **RESEND_API_KEY** -- Your Resend API key. Create one at https://resend.com/api-keys (full access recommended).
 - **RESEND_WEBHOOK_SECRET** -- The signing secret for verifying inbound webhooks (see "Webhook setup" below).
@@ -93,7 +93,7 @@ To trigger test events, create or update a contact in the [Resend dashboard](htt
 
 | Source | Mechanism | Entities |
 |---|---|---|
-| Cron (every 5 min) | Polls Resend API, upserts into Twenty | Contacts, segments, templates, broadcasts, emails |
+| Cron (every 5 min) | Polls Resend API, upserts into Bades | Contacts, segments, templates, broadcasts, emails |
 | Webhook (real-time) | Receives Resend events via HTTP | Contacts, emails |
 
 ### Outbound sync
@@ -116,7 +116,7 @@ Run `yarn bades help` to list all available commands.
 
 ## Learn More
 
-- [Twenty Apps documentation](https://docs.bades.id/developers/extend/apps/getting-started)
-- [twenty-sdk CLI reference](https://www.npmjs.com/package/twenty-sdk)
+- [Bades Apps documentation](https://docs.bades.id/developers/extend/apps/getting-started)
+- [bades-sdk CLI reference](https://www.npmjs.com/package/bades-sdk)
 - [Resend API documentation](https://resend.com/docs)
 - [Discord](https://discord.gg/cx5n4Jzs57)

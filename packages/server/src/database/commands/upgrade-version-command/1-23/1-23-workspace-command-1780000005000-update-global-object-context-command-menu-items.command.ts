@@ -8,7 +8,7 @@ import { ApplicationService } from 'src/engine/core-modules/application/applicat
 import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
 import { STANDARD_COMMAND_MENU_ITEMS } from 'src/engine/workspace-manager/bades-standard-application/constants/standard-command-menu-item.constant';
-import { computeTwentyStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
+import { computeBadesStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 const UNIVERSAL_IDENTIFIERS_TO_FIX = new Set<string>([
@@ -46,7 +46,7 @@ export class UpdateGlobalObjectContextCommandMenuItemsCommand extends ActiveOrSu
       `${isDryRun ? '[DRY RUN] ' : ''}Starting GLOBAL_OBJECT_CONTEXT availability type update for workspace ${workspaceId}`,
     );
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -57,10 +57,10 @@ export class UpdateGlobalObjectContextCommandMenuItemsCommand extends ActiveOrSu
       ]);
 
     const { allFlatEntityMaps: standardAllFlatEntityMaps } =
-      computeTwentyStandardApplicationAllFlatEntityMaps({
+      computeBadesStandardApplicationAllFlatEntityMaps({
         now: new Date().toISOString(),
         workspaceId,
-        twentyStandardApplicationId: twentyStandardFlatApplication.id,
+        badesStandardApplicationId: badesStandardFlatApplication.id,
       });
 
     const itemsToUpdate = [...UNIVERSAL_IDENTIFIERS_TO_FIX]
@@ -121,7 +121,7 @@ export class UpdateGlobalObjectContextCommandMenuItemsCommand extends ActiveOrSu
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

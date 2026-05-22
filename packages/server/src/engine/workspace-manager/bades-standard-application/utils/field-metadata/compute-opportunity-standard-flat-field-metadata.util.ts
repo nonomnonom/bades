@@ -23,7 +23,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<
   CreateStandardFieldArgs<'opportunity', FieldMetadataType>,
   'context'
@@ -45,7 +45,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdAt: createStandardFieldFlatMetadata({
@@ -67,7 +67,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedAt: createStandardFieldFlatMetadata({
@@ -89,7 +89,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   deletedAt: createStandardFieldFlatMetadata({
@@ -110,7 +110,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 
@@ -128,7 +128,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   amount: createStandardFieldFlatMetadata({
@@ -144,7 +144,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   closeDate: createStandardFieldFlatMetadata({
@@ -160,7 +160,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   stage: createStandardFieldFlatMetadata({
@@ -214,7 +214,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   position: createStandardFieldFlatMetadata({
@@ -232,7 +232,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdBy: createStandardFieldFlatMetadata({
@@ -255,7 +255,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedBy: createStandardFieldFlatMetadata({
@@ -280,7 +280,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVector: createStandardFieldFlatMetadata({
@@ -303,7 +303,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 
@@ -329,7 +329,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   company: createStandardRelationFieldFlatMetadata({
@@ -353,7 +353,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   taskTargets: createStandardRelationFieldFlatMetadata({
@@ -376,7 +376,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   noteTargets: createStandardRelationFieldFlatMetadata({
@@ -399,7 +399,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   attachments: createStandardRelationFieldFlatMetadata({
@@ -421,7 +421,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   timelineActivities: createStandardRelationFieldFlatMetadata({
@@ -445,7 +445,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   owner: createStandardRelationFieldFlatMetadata({
@@ -469,7 +469,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

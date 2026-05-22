@@ -18,12 +18,12 @@ const STANDARD_COMMAND_MENU_ITEM_NAMES = Object.keys(
 export const buildStandardFlatCommandMenuItemMaps = ({
   now,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   dependencyFlatEntityMaps: { flatObjectMetadataMaps },
 }: {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   dependencyFlatEntityMaps: {
     flatObjectMetadataMaps: FlatEntityMaps<FlatObjectMetadata>;
   };
@@ -36,7 +36,7 @@ export const buildStandardFlatCommandMenuItemMaps = ({
       commandMenuItemName,
       commandMenuItemId: v4(),
       workspaceId,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       dependencyFlatEntityMaps: {
         flatObjectMetadataMaps,
       },
@@ -71,7 +71,7 @@ export const buildStandardFlatCommandMenuItemMaps = ({
     const navigationItem = buildNavigationFlatCommandMenuItem({
       objectMetadata: flatObject,
       commandMenuItemId: v4(),
-      applicationId: twentyStandardApplicationId,
+      applicationId: badesStandardApplicationId,
       workspaceId,
       position,
       now,

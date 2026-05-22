@@ -11,7 +11,7 @@ export const buildWorkflowAutomatedTriggerStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<
   CreateStandardIndexArgs<'workflowAutomatedTrigger'>,
   'context'
@@ -28,7 +28,7 @@ export const buildWorkflowAutomatedTriggerStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

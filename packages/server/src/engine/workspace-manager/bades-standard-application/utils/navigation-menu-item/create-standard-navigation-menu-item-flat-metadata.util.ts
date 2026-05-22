@@ -18,7 +18,7 @@ export const createStandardNavigationMenuItemFlatMetadata = ({
   position,
   navigationMenuItemId,
   dependencyFlatEntityMaps: { flatViewMaps },
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: {
   workspaceId: string;
@@ -29,7 +29,7 @@ export const createStandardNavigationMenuItemFlatMetadata = ({
   dependencyFlatEntityMaps: {
     flatViewMaps: FlatEntityMaps<FlatView>;
   };
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   now: string;
 }): FlatNavigationMenuItem => {
   const navigationMenuItemDefinition =
@@ -59,7 +59,7 @@ export const createStandardNavigationMenuItemFlatMetadata = ({
     id: navigationMenuItemId,
     type: navigationMenuItemDefinition.type,
     universalIdentifier: navigationMenuItemDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

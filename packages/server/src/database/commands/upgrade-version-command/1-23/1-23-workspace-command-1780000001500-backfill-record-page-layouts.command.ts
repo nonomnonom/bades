@@ -18,7 +18,7 @@ import { computeFlatViewFieldsToCreate } from 'src/engine/metadata-modules/objec
 import { WidgetConfigurationType } from 'src/engine/metadata-modules/page-layout-widget/enums/widget-configuration-type.type';
 import { PageLayoutType } from 'src/engine/metadata-modules/page-layout/enums/page-layout-type.enum';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
-import { computeTwentyStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
+import { computeBadesStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 import { type UniversalFlatViewField } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-view-field.type';
 import { type UniversalFlatView } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-view.type';
@@ -67,24 +67,24 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
       return;
     }
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
     await this.deleteAllRecordPageLayoutEntities({
       workspaceId,
-      twentyStandardFlatApplication,
+      badesStandardFlatApplication,
     });
 
     await this.createStandardRecordPageLayouts({
       workspaceId,
-      twentyStandardFlatApplication,
+      badesStandardFlatApplication,
     });
 
     await this.createCustomObjectPageLayouts({
       workspaceId,
-      twentyStandardFlatApplication,
+      badesStandardFlatApplication,
     });
 
     await this.featureFlagService.enableFeatureFlags(
@@ -104,10 +104,10 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
 
   private async deleteAllRecordPageLayoutEntities({
     workspaceId,
-    twentyStandardFlatApplication,
+    badesStandardFlatApplication,
   }: {
     workspaceId: string;
-    twentyStandardFlatApplication: FlatApplication;
+    badesStandardFlatApplication: FlatApplication;
   }): Promise<void> {
     const {
       flatPageLayoutMaps,
@@ -218,7 +218,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 
@@ -234,16 +234,16 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
 
   private async createStandardRecordPageLayouts({
     workspaceId,
-    twentyStandardFlatApplication,
+    badesStandardFlatApplication,
   }: {
     workspaceId: string;
-    twentyStandardFlatApplication: FlatApplication;
+    badesStandardFlatApplication: FlatApplication;
   }): Promise<void> {
     const { allFlatEntityMaps: standardMaps } =
-      computeTwentyStandardApplicationAllFlatEntityMaps({
+      computeBadesStandardApplicationAllFlatEntityMaps({
         now: new Date().toISOString(),
         workspaceId,
-        twentyStandardApplicationId: twentyStandardFlatApplication.id,
+        badesStandardApplicationId: badesStandardFlatApplication.id,
       });
 
     const { flatObjectMetadataMaps, flatFieldMetadataMaps } =
@@ -436,7 +436,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 
@@ -452,10 +452,10 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
 
   private async createCustomObjectPageLayouts({
     workspaceId,
-    twentyStandardFlatApplication,
+    badesStandardFlatApplication,
   }: {
     workspaceId: string;
-    twentyStandardFlatApplication: FlatApplication;
+    badesStandardFlatApplication: FlatApplication;
   }): Promise<void> {
     const {
       flatObjectMetadataMaps,
@@ -510,7 +510,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
     for (const customObject of customObjectsWithoutPageLayout) {
       const fieldsView = computeFlatRecordPageFieldsViewToCreate({
         objectMetadata: customObject,
-        flatApplication: twentyStandardFlatApplication,
+        flatApplication: badesStandardFlatApplication,
       });
 
       const objectFieldMetadatas = Object.values(
@@ -522,7 +522,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
       const viewFields = computeFlatViewFieldsToCreate({
         objectFlatFieldMetadatas: objectFieldMetadatas,
         viewUniversalIdentifier: fieldsView.universalIdentifier,
-        flatApplication: twentyStandardFlatApplication,
+        flatApplication: badesStandardFlatApplication,
         labelIdentifierFieldMetadataUniversalIdentifier:
           customObject.labelIdentifierFieldMetadataUniversalIdentifier,
         excludeLabelIdentifier: true,
@@ -531,7 +531,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
       const { pageLayouts, pageLayoutTabs, pageLayoutWidgets } =
         computeFlatDefaultRecordPageLayoutToCreate({
           objectMetadata: customObject,
-          flatApplication: twentyStandardFlatApplication,
+          flatApplication: badesStandardFlatApplication,
           recordPageFieldsView: fieldsView,
           workspaceId,
         });
@@ -575,7 +575,7 @@ export class BackfillRecordPageLayoutsCommand extends ActiveOrSuspendedWorkspace
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

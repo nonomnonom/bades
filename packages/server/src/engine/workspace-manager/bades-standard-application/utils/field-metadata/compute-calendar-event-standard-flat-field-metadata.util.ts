@@ -22,7 +22,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<
   CreateStandardFieldArgs<'calendarEvent', FieldMetadataType>,
   'context'
@@ -43,7 +43,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdAt: createStandardFieldFlatMetadata({
@@ -63,7 +63,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedAt: createStandardFieldFlatMetadata({
@@ -83,7 +83,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   deletedAt: createStandardFieldFlatMetadata({
@@ -102,7 +102,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   createdBy: createStandardFieldFlatMetadata({
@@ -125,7 +125,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   updatedBy: createStandardFieldFlatMetadata({
@@ -150,7 +150,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   position: createStandardFieldFlatMetadata({
@@ -168,7 +168,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVector: createStandardFieldFlatMetadata({
@@ -191,7 +191,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   title: createStandardFieldFlatMetadata({
@@ -208,7 +208,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   isCanceled: createStandardFieldFlatMetadata({
@@ -226,7 +226,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   isFullDay: createStandardFieldFlatMetadata({
@@ -244,7 +244,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   startsAt: createStandardFieldFlatMetadata({
@@ -261,7 +261,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   endsAt: createStandardFieldFlatMetadata({
@@ -278,7 +278,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   externalCreatedAt: createStandardFieldFlatMetadata({
@@ -295,7 +295,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   externalUpdatedAt: createStandardFieldFlatMetadata({
@@ -312,7 +312,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   description: createStandardFieldFlatMetadata({
@@ -330,7 +330,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   location: createStandardFieldFlatMetadata({
@@ -347,7 +347,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   iCalUid: createStandardFieldFlatMetadata({
@@ -364,7 +364,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   conferenceSolution: createStandardFieldFlatMetadata({
@@ -381,7 +381,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   conferenceLink: createStandardFieldFlatMetadata({
@@ -398,7 +398,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   calendarChannelEventAssociations: createStandardRelationFieldFlatMetadata({
@@ -421,7 +421,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   calendarEventParticipants: createStandardRelationFieldFlatMetadata({
@@ -444,7 +444,7 @@ export const buildCalendarEventStandardFlatFieldMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

@@ -63,7 +63,7 @@ describe('SdkClientGenerationService', () => {
   describe('enqueueSdkClientGenerationForWorkspace', () => {
     const workspaceId = 'workspace-1';
     const apps = {
-      twentyStandardFlatApplication: {
+      badesStandardFlatApplication: {
         id: 'std-app-id',
         universalIdentifier: 'twenty-standard',
       },

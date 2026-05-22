@@ -11,7 +11,7 @@ export const buildNoteTargetStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'noteTarget'>, 'context'>): Record<
   AllStandardObjectIndexName<'noteTarget'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildNoteTargetStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   personIdIndex: createStandardIndexFlatMetadata({
@@ -37,7 +37,7 @@ export const buildNoteTargetStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   companyIdIndex: createStandardIndexFlatMetadata({
@@ -49,7 +49,7 @@ export const buildNoteTargetStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   opportunityIdIndex: createStandardIndexFlatMetadata({
@@ -61,7 +61,7 @@ export const buildNoteTargetStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

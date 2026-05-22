@@ -7,10 +7,10 @@ import { GlobalWorkspaceDataSourceModule } from 'src/engine/sid-orm/global-works
 import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache.module';
 import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace-migration/workspace-migration.module';
 
-import { TwentyStandardApplicationService } from './services/bades-standard-application.service';
+import { BadesStandardApplicationService } from './services/bades-standard-application.service';
 
 @Module({
-  providers: [TwentyStandardApplicationService],
+  providers: [BadesStandardApplicationService],
   imports: [
     ApplicationModule,
     BadesConfigModule,
@@ -19,6 +19,6 @@ import { TwentyStandardApplicationService } from './services/bades-standard-appl
     GlobalWorkspaceDataSourceModule,
     WorkspaceManyOrAllFlatEntityMapsCacheModule,
   ],
-  exports: [TwentyStandardApplicationService],
+  exports: [BadesStandardApplicationService],
 })
-export class TwentyStandardApplicationModule {}
+export class BadesStandardApplicationModule {}

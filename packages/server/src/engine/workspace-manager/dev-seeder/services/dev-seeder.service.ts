@@ -40,7 +40,7 @@ import { PrefillFrontComponentService } from 'src/engine/workspace-manager/stand
 import { PrefillLogicFunctionService } from 'src/engine/workspace-manager/standard-objects-prefill-data/services/prefill-logic-function.service';
 import { getSeedFrontComponentDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-definitions.util';
 import { getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-code-step-logic-functions.util';
-import { TwentyStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
+import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 @Injectable()
@@ -49,7 +49,7 @@ export class DevSeederService {
     private readonly workspaceCacheStorageService: WorkspaceCacheStorageService,
     private readonly twentyConfigService: BadesConfigService,
     private readonly workspaceDataSourceService: WorkspaceDataSourceService,
-    private readonly twentyStandardApplicationService: TwentyStandardApplicationService,
+    private readonly badesStandardApplicationService: BadesStandardApplicationService,
     private readonly devSeederMetadataService: DevSeederMetadataService,
     private readonly devSeederPermissionsService: DevSeederPermissionsService,
     private readonly devSeederDataService: DevSeederDataService,
@@ -106,14 +106,14 @@ export class DevSeederService {
       databaseSchema: schemaName,
     });
 
-    const { workspaceCustomFlatApplication, twentyStandardFlatApplication } =
+    const { workspaceCustomFlatApplication, badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
         },
       );
 
-    await this.twentyStandardApplicationService.synchronizeTwentyStandardApplicationOrThrow(
+    await this.badesStandardApplicationService.synchronizeBadesStandardApplicationOrThrow(
       {
         workspaceId,
       },
@@ -121,9 +121,9 @@ export class DevSeederService {
 
     await this.sdkClientGenerationService.generateSdkClientForApplication({
       workspaceId,
-      applicationId: twentyStandardFlatApplication.id,
+      applicationId: badesStandardFlatApplication.id,
       applicationUniversalIdentifier:
-        twentyStandardFlatApplication.universalIdentifier,
+        badesStandardFlatApplication.universalIdentifier,
     });
 
     await this.devSeederMetadataService.seed({
@@ -145,7 +145,7 @@ export class DevSeederService {
 
     await this.devSeederPermissionsService.initPermissions({
       workspaceId,
-      twentyStandardFlatApplication,
+      badesStandardFlatApplication,
       workspaceCustomFlatApplication,
       light,
     });
@@ -172,7 +172,7 @@ export class DevSeederService {
 
     await seedPageLayouts({
       workspaceId,
-      flatApplication: twentyStandardFlatApplication,
+      flatApplication: badesStandardFlatApplication,
       objectMetadataItems,
       workspaceMigrationValidateBuildAndRunService:
         this.workspaceMigrationValidateBuildAndRunService,
@@ -226,7 +226,7 @@ export class DevSeederService {
         queryRunner,
       );
 
-      await this.applicationService.createTwentyStandardApplication(
+      await this.applicationService.createBadesStandardApplication(
         {
           workspaceId,
           skipCacheInvalidation: true,
@@ -309,7 +309,7 @@ export class DevSeederService {
       await seedUsers({ queryRunner, schemaName });
       await seedUserWorkspaces({ queryRunner, schemaName, workspaceId });
 
-      await this.applicationService.createTwentyStandardApplication(
+      await this.applicationService.createBadesStandardApplication(
         {
           workspaceId,
           skipCacheInvalidation: true,

@@ -12,7 +12,7 @@ export const buildWorkflowRunStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'workflowRun'>, 'context'>): Record<
   AllStandardObjectIndexName<'workflowRun'>,
   FlatIndexMetadata
@@ -26,7 +26,7 @@ export const buildWorkflowRunStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   workflowIdIndex: createStandardIndexFlatMetadata({
@@ -38,7 +38,7 @@ export const buildWorkflowRunStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVectorGinIndex: createStandardIndexFlatMetadata({
@@ -51,7 +51,7 @@ export const buildWorkflowRunStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

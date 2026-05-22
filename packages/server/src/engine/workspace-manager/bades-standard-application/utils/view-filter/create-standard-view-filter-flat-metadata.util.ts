@@ -50,7 +50,7 @@ export const createStandardViewFilterFlatMetadata = <
     positionInViewFilterGroup = null,
   },
   standardObjectMetadataRelatedEntityIds,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardViewFilterArgs<O, V>): FlatViewFilter => {
   const objectDefinition = STANDARD_OBJECTS[objectName] as {
@@ -81,7 +81,7 @@ export const createStandardViewFilterFlatMetadata = <
   return {
     id: v4(),
     universalIdentifier: viewFilterDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

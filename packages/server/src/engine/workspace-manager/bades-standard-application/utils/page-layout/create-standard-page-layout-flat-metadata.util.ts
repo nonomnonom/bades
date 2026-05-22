@@ -19,7 +19,7 @@ export type CreateStandardPageLayoutContext = {
 export type CreateStandardPageLayoutArgs = {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   standardObjectMetadataRelatedEntityIds: StandardObjectMetadataRelatedEntityIds;
   standardPageLayoutMetadataRelatedEntityIds: StandardPageLayoutMetadataRelatedEntityIds;
   context: CreateStandardPageLayoutContext;
@@ -70,7 +70,7 @@ export const createStandardPageLayoutFlatMetadata = ({
     defaultTabUniversalIdentifier,
   },
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   standardObjectMetadataRelatedEntityIds,
   standardPageLayoutMetadataRelatedEntityIds,
   now,
@@ -111,7 +111,7 @@ export const createStandardPageLayoutFlatMetadata = ({
   return {
     id: layoutIds.id,
     universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

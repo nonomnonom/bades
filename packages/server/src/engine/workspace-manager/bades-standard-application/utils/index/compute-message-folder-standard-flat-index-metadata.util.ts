@@ -11,7 +11,7 @@ export const buildMessageFolderStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'messageFolder'>, 'context'>): Record<
   AllStandardObjectIndexName<'messageFolder'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildMessageFolderStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

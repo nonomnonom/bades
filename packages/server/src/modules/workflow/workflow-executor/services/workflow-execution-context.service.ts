@@ -94,7 +94,7 @@ export class WorkflowExecutionContextService {
     workspaceId: string,
   ): Promise<WorkflowExecutionContext> {
     const { application, workspace } =
-      await this.applicationService.findTwentyStandardApplicationOrThrow(
+      await this.applicationService.findBadesStandardApplicationOrThrow(
         workspaceId,
       );
 

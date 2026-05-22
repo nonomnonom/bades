@@ -101,25 +101,25 @@ export class ApplicationService {
         'flatApplicationMaps',
       ]);
 
-    const twentyStandardApplicationId =
+    const badesStandardApplicationId =
       flatApplicationMaps.idByUniversalIdentifier[
         BADES_STANDARD_APPLICATION.universalIdentifier
       ];
 
-    if (!isDefined(twentyStandardApplicationId)) {
+    if (!isDefined(badesStandardApplicationId)) {
       throw new ApplicationException(
         `Could not find workspace Standard applicationId in cache ${workspaceId}`,
         ApplicationExceptionCode.APPLICATION_NOT_FOUND,
       );
     }
 
-    const twentyStandardFlatApplication =
-      flatApplicationMaps.byId[twentyStandardApplicationId];
+    const badesStandardFlatApplication =
+      flatApplicationMaps.byId[badesStandardApplicationId];
     const workspaceCustomFlatApplication =
       flatApplicationMaps.byId[workspace.workspaceCustomApplicationId];
 
     if (
-      !isDefined(twentyStandardFlatApplication) ||
+      !isDefined(badesStandardFlatApplication) ||
       !isDefined(workspaceCustomFlatApplication)
     ) {
       throw new ApplicationException(
@@ -129,7 +129,7 @@ export class ApplicationService {
     }
 
     return {
-      twentyStandardFlatApplication,
+      badesStandardFlatApplication,
       workspaceCustomFlatApplication,
     };
   }
@@ -271,7 +271,7 @@ export class ApplicationService {
     });
   }
 
-  async findTwentyStandardApplicationOrThrow(workspaceId: string): Promise<{
+  async findBadesStandardApplicationOrThrow(workspaceId: string): Promise<{
     application: ApplicationEntity;
     workspace: WorkspaceEntity;
   }> {
@@ -286,14 +286,14 @@ export class ApplicationService {
       );
     }
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.findWorkspaceBadesStandardAndCustomApplicationOrThrow({
         workspace,
       });
 
     const application = await this.applicationRepository.findOne({
       where: {
-        id: twentyStandardFlatApplication.id,
+        id: badesStandardFlatApplication.id,
         workspaceId: workspace.id,
       },
     });
@@ -308,7 +308,7 @@ export class ApplicationService {
     return { application, workspace };
   }
 
-  async createTwentyStandardApplication(
+  async createBadesStandardApplication(
     {
       workspaceId,
       skipCacheInvalidation = false,

@@ -247,7 +247,7 @@ const buildFieldWidgetConfiguration = ({
 const computeRecordPageWidgets = ({
   now,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   standardObjectMetadataRelatedEntityIds,
   standardPageLayoutMetadataRelatedEntityIds,
 }: BuildStandardFlatPageLayoutWidgetMetadataMapsArgs): FlatPageLayoutWidget[] => {
@@ -301,7 +301,7 @@ const computeRecordPageWidgets = ({
           createStandardPageLayoutWidgetFlatMetadata({
             now,
             workspaceId,
-            twentyStandardApplicationId,
+            badesStandardApplicationId,
             standardObjectMetadataRelatedEntityIds,
             standardPageLayoutMetadataRelatedEntityIds,
             objectMetadataUniversalIdentifier,

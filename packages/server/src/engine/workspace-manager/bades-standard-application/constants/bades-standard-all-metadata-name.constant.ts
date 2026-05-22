@@ -1,6 +1,6 @@
 import { type AllMetadataName } from 'shared/metadata';
 
-export const TWENTY_STANDARD_ALL_METADATA_NAME = [
+export const BADES_STANDARD_ALL_METADATA_NAME = [
   'index',
   'objectMetadata',
   'fieldMetadata',

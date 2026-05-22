@@ -11,7 +11,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'attachment'>, 'context'>): Record<
   AllStandardObjectIndexName<'attachment'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   noteIdIndex: createStandardIndexFlatMetadata({
@@ -37,7 +37,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   personIdIndex: createStandardIndexFlatMetadata({
@@ -49,7 +49,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   companyIdIndex: createStandardIndexFlatMetadata({
@@ -61,7 +61,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   opportunityIdIndex: createStandardIndexFlatMetadata({
@@ -73,7 +73,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   dashboardIdIndex: createStandardIndexFlatMetadata({
@@ -85,7 +85,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   workflowIdIndex: createStandardIndexFlatMetadata({
@@ -97,7 +97,7 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

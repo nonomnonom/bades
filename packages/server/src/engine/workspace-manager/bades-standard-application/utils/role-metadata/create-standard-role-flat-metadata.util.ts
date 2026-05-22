@@ -45,7 +45,7 @@ export const createStandardRoleFlatMetadata = ({
     canBeAssignedToApiKeys,
   },
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardRoleArgs): FlatRole => {
   const universalIdentifier = STANDARD_ROLE[roleName].universalIdentifier;
@@ -67,7 +67,7 @@ export const createStandardRoleFlatMetadata = ({
     canBeAssignedToAgents,
     canBeAssignedToApiKeys,
     workspaceId,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     createdAt: now,

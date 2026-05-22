@@ -59,7 +59,7 @@ export const createStandardFieldFlatMetadata = <
     options: fieldOptions = null,
   },
   standardObjectMetadataRelatedEntityIds,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardFieldArgs<O, T>): FlatFieldMetadata => {
   const objectFields = STANDARD_OBJECTS[objectName].fields;
@@ -71,7 +71,7 @@ export const createStandardFieldFlatMetadata = <
   return {
     id: fieldIds[fieldName].id,
     universalIdentifier: fieldDefinition.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     workspaceId,
     objectMetadataId: standardObjectMetadataRelatedEntityIds[objectName].id,
     type,
@@ -101,7 +101,7 @@ export const createStandardFieldFlatMetadata = <
     mainGroupByFieldMetadataViewIds: [],
     createdAt: now,
     updatedAt: now,
-    applicationUniversalIdentifier: twentyStandardApplicationId,
+    applicationUniversalIdentifier: badesStandardApplicationId,
     objectMetadataUniversalIdentifier:
       STANDARD_OBJECTS[objectName].universalIdentifier,
     relationTargetObjectMetadataUniversalIdentifier: null,

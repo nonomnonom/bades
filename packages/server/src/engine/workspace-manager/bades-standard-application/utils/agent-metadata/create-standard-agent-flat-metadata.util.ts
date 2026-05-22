@@ -42,7 +42,7 @@ export const createStandardAgentFlatMetadata = ({
     evaluationInputs,
   },
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardAgentArgs): FlatAgent => {
   const universalIdentifier = STANDARD_AGENT[agentName].universalIdentifier;
@@ -61,7 +61,7 @@ export const createStandardAgentFlatMetadata = ({
     modelConfiguration,
     evaluationInputs,
     workspaceId,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     createdAt: now,

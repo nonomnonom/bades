@@ -52,7 +52,7 @@ export const createStandardObjectFlatMetadata = <
   },
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   now,
 }: CreateStandardObjectArgs<O>): FlatObjectMetadata => {
   const labelIdentifierFieldMetadataUniversalIdentifier =
@@ -71,7 +71,7 @@ export const createStandardObjectFlatMetadata = <
 
   return {
     universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     workspaceId,
     nameSingular,
     namePlural,
@@ -109,7 +109,7 @@ export const createStandardObjectFlatMetadata = <
     createdAt: now,
     updatedAt: now,
     id: standardObjectMetadataRelatedEntityIds[nameSingular].id,
-    applicationUniversalIdentifier: twentyStandardApplicationId,
+    applicationUniversalIdentifier: badesStandardApplicationId,
     fieldUniversalIdentifiers: [],
     objectPermissionUniversalIdentifiers: [],
     fieldPermissionUniversalIdentifiers: [],

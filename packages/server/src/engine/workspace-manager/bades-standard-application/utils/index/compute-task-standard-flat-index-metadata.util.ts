@@ -12,7 +12,7 @@ export const buildTaskStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'task'>, 'context'>): Record<
   AllStandardObjectIndexName<'task'>,
   FlatIndexMetadata
@@ -26,7 +26,7 @@ export const buildTaskStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   searchVectorGinIndex: createStandardIndexFlatMetadata({
@@ -39,7 +39,7 @@ export const buildTaskStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

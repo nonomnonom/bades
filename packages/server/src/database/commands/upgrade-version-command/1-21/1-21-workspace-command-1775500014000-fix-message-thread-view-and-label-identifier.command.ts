@@ -11,7 +11,7 @@ import { findFlatEntityByUniversalIdentifier } from 'src/engine/metadata-modules
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
 import { type FlatView } from 'src/engine/metadata-modules/flat-view/types/flat-view.type';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
-import { computeTwentyStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
+import { computeBadesStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 import { type UniversalFlatObjectMetadata } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-object-metadata.type';
 import { type UniversalFlatView } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-view.type';
@@ -49,7 +49,7 @@ const filterViewFieldsByViewUniversalIdentifier = ({
 @Command({
   name: 'upgrade:1-21:fix-message-thread-view-and-label-identifier',
   description:
-    'Sync the allMessageThreads standard view fields with the current standard definition (adds subject and updatedAt columns) and repoint messageThread.labelIdentifierFieldMetadataId to the subject field. Fixes workspaces upgraded from <1.21 where PR #19351 changes were not applied because the twenty-standard application is not re-synced on existing workspaces.',
+    'Sync the allMessageThreads standard view fields with the current standard definition (adds subject and updatedAt columns) and repoint messageThread.labelIdentifierFieldMetadataId to the subject field. Fixes workspaces upgraded from <1.21 where PR #19351 changes were not applied because the bades-standard application is not re-synced on existing workspaces.',
 })
 export class FixMessageThreadViewAndLabelIdentifierCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
   constructor(
@@ -67,16 +67,16 @@ export class FixMessageThreadViewAndLabelIdentifierCommand extends ActiveOrSuspe
   }: RunOnWorkspaceArgs): Promise<void> {
     const isDryRun = options.dryRun ?? false;
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
 
     const { allFlatEntityMaps: standardAllFlatEntityMaps } =
-      computeTwentyStandardApplicationAllFlatEntityMaps({
+      computeBadesStandardApplicationAllFlatEntityMaps({
         now: new Date().toISOString(),
         workspaceId,
-        twentyStandardApplicationId: twentyStandardFlatApplication.id,
+        badesStandardApplicationId: badesStandardFlatApplication.id,
       });
 
     const {
@@ -170,7 +170,7 @@ export class FixMessageThreadViewAndLabelIdentifierCommand extends ActiveOrSuspe
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
           isSystemBuild: true,
         },
       );
@@ -197,7 +197,7 @@ export class FixMessageThreadViewAndLabelIdentifierCommand extends ActiveOrSuspe
     existingFlatViewMaps,
   }: {
     standardAllFlatEntityMaps: ReturnType<
-      typeof computeTwentyStandardApplicationAllFlatEntityMaps
+      typeof computeBadesStandardApplicationAllFlatEntityMaps
     >['allFlatEntityMaps'];
     existingFlatViewMaps: FlatViewMaps;
   }): UniversalFlatView | undefined {
@@ -247,7 +247,7 @@ export class FixMessageThreadViewAndLabelIdentifierCommand extends ActiveOrSuspe
     existingFlatFieldMetadataMaps,
   }: {
     standardAllFlatEntityMaps: ReturnType<
-      typeof computeTwentyStandardApplicationAllFlatEntityMaps
+      typeof computeBadesStandardApplicationAllFlatEntityMaps
     >['allFlatEntityMaps'];
     existingFlatFieldMetadataMaps: FlatFieldMetadataMaps;
   }): UniversalFlatViewField[] {

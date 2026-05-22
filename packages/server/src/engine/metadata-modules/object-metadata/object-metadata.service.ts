@@ -74,7 +74,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     updateObjectInput: UpdateOneObjectInput;
     ownerFlatApplication?: FlatApplication;
   }): Promise<FlatObjectMetadata> {
-    const { workspaceCustomFlatApplication, twentyStandardFlatApplication } =
+    const { workspaceCustomFlatApplication, badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -145,7 +145,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
         existingFlatObjectMetadata,
         flatCommandMenuItemMaps: existingFlatCommandMenuItemMaps,
         workspaceId,
-        applicationId: twentyStandardFlatApplication.id,
+        applicationId: badesStandardFlatApplication.id,
       });
 
     const validateAndBuildResult =
@@ -207,7 +207,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
             },
             workspaceId,
             applicationUniversalIdentifier:
-              twentyStandardFlatApplication.universalIdentifier,
+              badesStandardFlatApplication.universalIdentifier,
           },
         );
 
@@ -464,7 +464,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     workspaceId: string;
     ownerFlatApplication?: FlatApplication;
   }): Promise<FlatObjectMetadata> {
-    const { workspaceCustomFlatApplication, twentyStandardFlatApplication } =
+    const { workspaceCustomFlatApplication, badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         {
           workspaceId,
@@ -524,7 +524,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
       {
         objectMetadata: flatObjectMetadataToCreate,
         workspaceId,
-        applicationId: twentyStandardFlatApplication.id,
+        applicationId: badesStandardFlatApplication.id,
         flatCommandMenuItemMaps,
       },
     );
@@ -597,7 +597,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 
@@ -611,12 +611,12 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     const flatRecordPageFieldsViewToCreate =
       this.computeFlatRecordPageFieldsViewToCreate({
         objectMetadata: flatObjectMetadataToCreate,
-        flatApplication: twentyStandardFlatApplication,
+        flatApplication: badesStandardFlatApplication,
       });
 
     const flatRecordPageFieldsViewFieldsToCreate =
       computeFlatViewFieldsToCreate({
-        flatApplication: twentyStandardFlatApplication,
+        flatApplication: badesStandardFlatApplication,
         objectFlatFieldMetadatas: flatFieldMetadataToCreateOnObject,
         labelIdentifierFieldMetadataUniversalIdentifier:
           flatObjectMetadataToCreate.labelIdentifierFieldMetadataUniversalIdentifier,
@@ -628,7 +628,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
     const flatDefaultRecordPageLayoutsToCreate =
       this.computeFlatDefaultRecordPageLayoutToCreate({
         objectMetadata: flatObjectMetadataToCreate,
-        flatApplication: twentyStandardFlatApplication,
+        flatApplication: badesStandardFlatApplication,
         recordPageFieldsView: flatRecordPageFieldsViewToCreate,
         workspaceId,
       });
@@ -668,7 +668,7 @@ export class ObjectMetadataService extends TypeOrmQueryService<ObjectMetadataEnt
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

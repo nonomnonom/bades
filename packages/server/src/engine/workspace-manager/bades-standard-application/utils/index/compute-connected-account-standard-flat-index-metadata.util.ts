@@ -11,7 +11,7 @@ export const buildConnectedAccountStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'connectedAccount'>, 'context'>): Record<
   AllStandardObjectIndexName<'connectedAccount'>,
   FlatIndexMetadata
@@ -25,7 +25,7 @@ export const buildConnectedAccountStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

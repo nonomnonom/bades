@@ -10,11 +10,11 @@ import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/bades-s
 export const buildStandardFlatPermissionFlagMetadataMaps = ({
   now,
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
 }): FlatEntityMaps<FlatPermissionFlag> => {
   let flatPermissionFlagMaps = createEmptyFlatEntityMaps();
 
@@ -24,7 +24,7 @@ export const buildStandardFlatPermissionFlagMetadataMaps = ({
         id: v4(),
         ...permissionFlagDefinition,
         workspaceId,
-        applicationId: twentyStandardApplicationId,
+        applicationId: badesStandardApplicationId,
         universalIdentifier: permissionFlagDefinition.universalIdentifier,
         applicationUniversalIdentifier:
           BADES_STANDARD_APPLICATION.universalIdentifier,

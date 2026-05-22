@@ -11,7 +11,7 @@ export const buildCalendarEventParticipantStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<
   CreateStandardIndexArgs<'calendarEventParticipant'>,
   'context'
@@ -28,7 +28,7 @@ export const buildCalendarEventParticipantStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   personIdIndex: createStandardIndexFlatMetadata({
@@ -40,7 +40,7 @@ export const buildCalendarEventParticipantStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
   workspaceMemberIdIndex: createStandardIndexFlatMetadata({
@@ -52,7 +52,7 @@ export const buildCalendarEventParticipantStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

@@ -12,7 +12,7 @@ export const buildDashboardStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'dashboard'>, 'context'>): Record<
   AllStandardObjectIndexName<'dashboard'>,
   FlatIndexMetadata
@@ -27,7 +27,7 @@ export const buildDashboardStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

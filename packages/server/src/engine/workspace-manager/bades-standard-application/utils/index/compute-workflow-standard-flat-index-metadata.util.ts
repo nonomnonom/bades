@@ -12,7 +12,7 @@ export const buildWorkflowStandardFlatIndexMetadatas = ({
   workspaceId,
   standardObjectMetadataRelatedEntityIds,
   dependencyFlatEntityMaps,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
 }: Omit<CreateStandardIndexArgs<'workflow'>, 'context'>): Record<
   AllStandardObjectIndexName<'workflow'>,
   FlatIndexMetadata
@@ -27,7 +27,7 @@ export const buildWorkflowStandardFlatIndexMetadatas = ({
     },
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     now,
   }),
 });

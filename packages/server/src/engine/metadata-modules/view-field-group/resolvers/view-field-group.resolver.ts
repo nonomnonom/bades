@@ -53,7 +53,7 @@ export class ViewFieldGroupResolver {
   ): Promise<string> {
     const i18n = this.i18nService.getI18nInstance(context.req.locale);
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspace },
       );
@@ -61,7 +61,7 @@ export class ViewFieldGroupResolver {
     return resolveViewFieldGroupName({
       name: viewFieldGroup.name,
       applicationId: viewFieldGroup.applicationId,
-      twentyStandardApplicationId: twentyStandardFlatApplication.id,
+      twentyStandardApplicationId: badesStandardFlatApplication.id,
       overrides: viewFieldGroup.overrides,
       i18nInstance: i18n,
     });

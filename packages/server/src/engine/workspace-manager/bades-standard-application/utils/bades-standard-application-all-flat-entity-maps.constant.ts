@@ -2,8 +2,8 @@ import { isDefined } from 'shared/utils';
 
 import { createEmptyFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/constant/create-empty-flat-entity-maps.constant';
 import { getMetadataFlatEntityMapsKey } from 'src/engine/metadata-modules/flat-entity/utils/get-metadata-flat-entity-maps-key.util';
-import { TWENTY_STANDARD_ALL_METADATA_NAME } from 'src/engine/workspace-manager/bades-standard-application/constants/twenty-standard-all-metadata-name.constant';
-import { type TwentyStandardAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/types/twenty-standard-all-flat-entity-maps.type';
+import { BADES_STANDARD_ALL_METADATA_NAME } from 'src/engine/workspace-manager/bades-standard-application/constants/bades-standard-all-metadata-name.constant';
+import { type BadesStandardAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/types/bades-standard-all-flat-entity-maps.type';
 import { buildStandardFlatAgentMetadataMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/agent-metadata/build-standard-flat-agent-metadata-maps.util';
 import { buildStandardFlatFieldMetadataMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/build-standard-flat-field-metadata-maps.util';
 import { getStandardObjectMetadataRelatedEntityIds } from 'src/engine/workspace-manager/bades-standard-application/utils/get-standard-object-metadata-related-entity-ids.util';
@@ -25,18 +25,18 @@ import { buildStandardFlatViewGroupMetadataMaps } from 'src/engine/workspace-man
 import { buildStandardFlatViewMetadataMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/view/build-standard-flat-view-metadata-maps.util';
 import { type IdByUniversalIdentifierByMetadataName } from 'src/engine/workspace-manager/workspace-migration/services/utils/enrich-create-workspace-migration-action-with-ids.util';
 
-export type ComputeTwentyStandardApplicationAllFlatEntityMapsArgs = {
+export type ComputeBadesStandardApplicationAllFlatEntityMapsArgs = {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
 };
 
-export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
+export const computeBadesStandardApplicationAllFlatEntityMaps = ({
   now,
   workspaceId,
-  twentyStandardApplicationId,
-}: ComputeTwentyStandardApplicationAllFlatEntityMapsArgs): {
-  allFlatEntityMaps: TwentyStandardAllFlatEntityMaps;
+  badesStandardApplicationId,
+}: ComputeBadesStandardApplicationAllFlatEntityMapsArgs): {
+  allFlatEntityMaps: BadesStandardAllFlatEntityMaps;
   // TODO remove once all metadatas has fully been universal migrated
   idByUniversalIdentifierByMetadataName: IdByUniversalIdentifierByMetadataName;
 } => {
@@ -47,7 +47,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     now,
     workspaceId,
     standardObjectMetadataRelatedEntityIds,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     dependencyFlatEntityMaps: {
       flatFieldMetadataMaps: createEmptyFlatEntityMaps(),
     },
@@ -60,7 +60,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     dependencyFlatEntityMaps: {
       flatObjectMetadataMaps,
     },
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
   });
 
   const flatIndexMaps = buildStandardFlatIndexMetadataMaps({
@@ -71,7 +71,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     now,
     standardObjectMetadataRelatedEntityIds,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
   });
 
   const flatViewMaps = buildStandardFlatViewMetadataMaps({
@@ -81,7 +81,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     },
     now,
     standardObjectMetadataRelatedEntityIds,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     workspaceId,
   });
 
@@ -92,7 +92,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     },
     now,
     standardObjectMetadataRelatedEntityIds,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     workspaceId,
   });
 
@@ -104,7 +104,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     },
     now,
     standardObjectMetadataRelatedEntityIds,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     workspaceId,
   });
 
@@ -116,7 +116,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     },
     now,
     standardObjectMetadataRelatedEntityIds,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     workspaceId,
   });
 
@@ -129,14 +129,14 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     },
     now,
     standardObjectMetadataRelatedEntityIds,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     workspaceId,
   });
 
   const flatRoleMaps = buildStandardFlatRoleMetadataMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps: undefined,
   });
@@ -144,13 +144,13 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const flatPermissionFlagMaps = buildStandardFlatPermissionFlagMetadataMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
   });
 
   const flatAgentMaps = buildStandardFlatAgentMetadataMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps: {
       flatRoleMaps,
@@ -160,7 +160,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const flatSkillMaps = buildStandardFlatSkillMetadataMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     standardObjectMetadataRelatedEntityIds,
     dependencyFlatEntityMaps: undefined,
   });
@@ -171,7 +171,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const flatPageLayoutMaps = buildStandardFlatPageLayoutMetadataMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     standardObjectMetadataRelatedEntityIds,
     standardPageLayoutMetadataRelatedEntityIds,
   });
@@ -179,7 +179,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const flatPageLayoutTabMaps = buildStandardFlatPageLayoutTabMetadataMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     standardPageLayoutMetadataRelatedEntityIds,
   });
 
@@ -187,7 +187,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
     buildStandardFlatPageLayoutWidgetMetadataMaps({
       now,
       workspaceId,
-      twentyStandardApplicationId,
+      badesStandardApplicationId,
       standardObjectMetadataRelatedEntityIds,
       standardPageLayoutMetadataRelatedEntityIds,
     });
@@ -195,7 +195,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const flatNavigationMenuItemMaps = buildStandardFlatNavigationMenuItemMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     dependencyFlatEntityMaps: {
       flatViewMaps,
     },
@@ -204,13 +204,13 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const flatCommandMenuItemMaps = buildStandardFlatCommandMenuItemMaps({
     now,
     workspaceId,
-    twentyStandardApplicationId,
+    badesStandardApplicationId,
     dependencyFlatEntityMaps: {
       flatObjectMetadataMaps,
     },
   });
 
-  const allFlatEntityMaps: TwentyStandardAllFlatEntityMaps = {
+  const allFlatEntityMaps: BadesStandardAllFlatEntityMaps = {
     flatViewFieldMaps,
     flatViewFieldGroupMaps,
     flatViewFilterMaps,
@@ -233,7 +233,7 @@ export const computeTwentyStandardApplicationAllFlatEntityMaps = ({
   const idByUniversalIdentifierByMetadataName: IdByUniversalIdentifierByMetadataName =
     {};
 
-  for (const metadataName of TWENTY_STANDARD_ALL_METADATA_NAME) {
+  for (const metadataName of BADES_STANDARD_ALL_METADATA_NAME) {
     const flatEntityMapsKey = getMetadataFlatEntityMapsKey(metadataName);
     const flatEntityMaps = allFlatEntityMaps[flatEntityMapsKey];
 

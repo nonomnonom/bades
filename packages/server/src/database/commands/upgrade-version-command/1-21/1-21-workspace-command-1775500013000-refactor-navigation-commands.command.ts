@@ -126,7 +126,7 @@ export class RefactorNavigationCommandsCommand extends ActiveOrSuspendedWorkspac
       `${isDryRun ? '[DRY RUN] ' : ''}Refactoring navigation commands for workspace ${workspaceId}`,
     );
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -142,7 +142,7 @@ export class RefactorNavigationCommandsCommand extends ActiveOrSuspendedWorkspac
     ).filter(isDefined);
 
     const standardAppCommandMenuItems = allCommandMenuItems.filter(
-      (item) => item.applicationId === twentyStandardFlatApplication.id,
+      (item) => item.applicationId === badesStandardFlatApplication.id,
     );
 
     const goToItemsToDelete = standardAppCommandMenuItems.filter((item) =>
@@ -196,7 +196,7 @@ export class RefactorNavigationCommandsCommand extends ActiveOrSuspendedWorkspac
         buildNavigationFlatCommandMenuItem({
           objectMetadata,
           commandMenuItemId: v4(),
-          applicationId: twentyStandardFlatApplication.id,
+          applicationId: badesStandardFlatApplication.id,
           workspaceId,
           position: nextPosition++,
           now,
@@ -218,7 +218,7 @@ export class RefactorNavigationCommandsCommand extends ActiveOrSuspendedWorkspac
       flatCommandMenuItemsToCreate.push({
         id: v4(),
         universalIdentifier: commandMenuItem.universalIdentifier,
-        applicationId: twentyStandardFlatApplication.id,
+        applicationId: badesStandardFlatApplication.id,
         applicationUniversalIdentifier:
           BADES_STANDARD_APPLICATION.universalIdentifier,
         workspaceId,
@@ -295,7 +295,7 @@ export class RefactorNavigationCommandsCommand extends ActiveOrSuspendedWorkspac
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 

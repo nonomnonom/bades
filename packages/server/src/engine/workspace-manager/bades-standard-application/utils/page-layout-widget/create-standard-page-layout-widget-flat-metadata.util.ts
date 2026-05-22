@@ -36,7 +36,7 @@ export type CreateStandardPageLayoutWidgetContext = {
 export type CreateStandardPageLayoutWidgetArgs = {
   now: string;
   workspaceId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   standardObjectMetadataRelatedEntityIds: StandardObjectMetadataRelatedEntityIds;
   standardPageLayoutMetadataRelatedEntityIds: StandardPageLayoutMetadataRelatedEntityIds;
   context: CreateStandardPageLayoutWidgetContext;
@@ -58,7 +58,7 @@ export const createStandardPageLayoutWidgetFlatMetadata = ({
     conditionalAvailabilityExpression,
   },
   workspaceId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   standardPageLayoutMetadataRelatedEntityIds,
   objectMetadataUniversalIdentifier,
   now,
@@ -92,7 +92,7 @@ export const createStandardPageLayoutWidgetFlatMetadata = ({
   return {
     id: widgetIds.id,
     universalIdentifier: widgetDef.universalIdentifier,
-    applicationId: twentyStandardApplicationId,
+    applicationId: badesStandardApplicationId,
     applicationUniversalIdentifier:
       BADES_STANDARD_APPLICATION.universalIdentifier,
     workspaceId,

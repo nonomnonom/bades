@@ -11,7 +11,7 @@ import { v4 } from 'uuid';
 
 import { ALL_OAUTH_SCOPES } from 'src/engine/core-modules/application/application-oauth/constants/oauth-scopes';
 import { ApplicationRegistrationEntity } from 'src/engine/core-modules/application/application-registration/application-registration.entity';
-import { TWENTY_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manager/bades-standard-application/constants/twenty-cli-application-registration.constant';
+import { BADES_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manager/bades-standard-application/constants/bades-cli-application-registration.constant';
 import {
   ApplicationRegistrationException,
   ApplicationRegistrationExceptionCode,
@@ -332,7 +332,7 @@ export class ApplicationRegistrationService {
 
   async createCliRegistrationIfNotExists(): Promise<ApplicationRegistrationEntity | null> {
     const existing = await this.findOneByUniversalIdentifier(
-      TWENTY_CLI_APPLICATION_REGISTRATION.universalIdentifier,
+      BADES_CLI_APPLICATION_REGISTRATION.universalIdentifier,
     );
 
     if (isDefined(existing)) {
@@ -341,12 +341,12 @@ export class ApplicationRegistrationService {
 
     const registration = this.applicationRegistrationRepository.create({
       universalIdentifier:
-        TWENTY_CLI_APPLICATION_REGISTRATION.universalIdentifier,
-      name: TWENTY_CLI_APPLICATION_REGISTRATION.name,
+        BADES_CLI_APPLICATION_REGISTRATION.universalIdentifier,
+      name: BADES_CLI_APPLICATION_REGISTRATION.name,
       oAuthClientId: v4(),
       oAuthClientSecretHash: null,
       oAuthRedirectUris: [],
-      oAuthScopes: TWENTY_CLI_APPLICATION_REGISTRATION.oAuthScopes,
+      oAuthScopes: BADES_CLI_APPLICATION_REGISTRATION.oAuthScopes,
       ownerWorkspaceId: null,
       sourceType: ApplicationRegistrationSourceType.OAUTH_ONLY,
       createdByUserId: null,

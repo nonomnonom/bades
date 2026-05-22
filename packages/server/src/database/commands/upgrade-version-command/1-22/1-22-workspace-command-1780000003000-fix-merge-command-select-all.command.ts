@@ -8,7 +8,7 @@ import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/deco
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/workspace-cache.service';
 import { STANDARD_COMMAND_MENU_ITEMS } from 'src/engine/workspace-manager/bades-standard-application/constants/standard-command-menu-item.constant';
-import { computeTwentyStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
+import { computeBadesStandardApplicationAllFlatEntityMaps } from 'src/engine/workspace-manager/bades-standard-application/utils/bades-standard-application-all-flat-entity-maps.constant';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 const UNIVERSAL_IDENTIFIERS_TO_FIX = new Set<string>([
@@ -41,7 +41,7 @@ export class FixMergeCommandSelectAllCommand extends ActiveOrSuspendedWorkspaceC
       `${isDryRun ? '[DRY RUN] ' : ''}Starting merge command select-all expression fix for workspace ${workspaceId}`,
     );
 
-    const { twentyStandardFlatApplication } =
+    const { badesStandardFlatApplication } =
       await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
         { workspaceId },
       );
@@ -52,10 +52,10 @@ export class FixMergeCommandSelectAllCommand extends ActiveOrSuspendedWorkspaceC
       ]);
 
     const { allFlatEntityMaps: standardAllFlatEntityMaps } =
-      computeTwentyStandardApplicationAllFlatEntityMaps({
+      computeBadesStandardApplicationAllFlatEntityMaps({
         now: new Date().toISOString(),
         workspaceId,
-        twentyStandardApplicationId: twentyStandardFlatApplication.id,
+        badesStandardApplicationId: badesStandardFlatApplication.id,
       });
 
     const itemsToUpdate = [...UNIVERSAL_IDENTIFIERS_TO_FIX]
@@ -118,7 +118,7 @@ export class FixMergeCommandSelectAllCommand extends ActiveOrSuspendedWorkspaceC
           },
           workspaceId,
           applicationUniversalIdentifier:
-            twentyStandardFlatApplication.universalIdentifier,
+            badesStandardFlatApplication.universalIdentifier,
         },
       );
 
