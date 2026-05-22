@@ -76,7 +76,7 @@ export const PlaygroundSetupForm = () => {
       const openAPIReference = await response.json();
 
       if (!openAPIReference.tags) {
-        throw new Error('Invalid API Key');
+        throw new Error(t`Kunci API tidak valid`);
       }
 
       return true;
@@ -105,7 +105,7 @@ export const PlaygroundSetupForm = () => {
         message:
           error instanceof Error
             ? error.message
-            : t`An unexpected error occurred`,
+            : t`Terjadi kesalahan yang tidak diharapkan`,
       });
     }
   };
@@ -119,7 +119,7 @@ export const PlaygroundSetupForm = () => {
           <SettingsTextInput
             instanceId="playground-api-key"
             label={t`API Key`}
-            placeholder={t`Enter your API key`}
+            placeholder={t`Masukkan kunci API Anda`}
             value={value}
             onChange={(newValue) => {
               onChange(newValue);

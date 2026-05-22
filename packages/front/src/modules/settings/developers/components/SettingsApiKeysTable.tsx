@@ -26,13 +26,13 @@ export const SettingsApiKeysTable = () => {
     <Table>
       <TableRow gridAutoColumns={gridAutoColumns}>
         <TableHeader>
-          <Trans>Name</Trans>
+          <Trans>Nama</Trans>
         </TableHeader>
         <TableHeader>
-          <Trans>Role</Trans>
+          <Trans>Peran</Trans>
         </TableHeader>
         <TableHeader>
-          <Trans>Expiration</Trans>
+          <Trans>Kedaluwarsa</Trans>
         </TableHeader>
         <TableHeader></TableHeader>
       </TableRow>

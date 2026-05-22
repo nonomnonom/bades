@@ -33,21 +33,21 @@ export const SettingsApiKeys = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`APIs`}
+      title={t`API`}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>APIs</Trans> },
+        { children: <Trans>API</Trans> },
       ]}
     >
       <SettingsPageContainer>
         <StyledContainer>
           <Section>
             <H2Title
-              title={t`Documentation`}
-              description={t`Try our REST or GraphQL API playgrounds.`}
+              title={t`Dokumentasi`}
+              description={t`Coba playground API REST atau GraphQL kami.`}
             />
             <StyledSettingsApiPlaygroundCoverImage />
             <PlaygroundSetupForm />
@@ -56,14 +56,14 @@ export const SettingsApiKeys = () => {
         <StyledContainer>
           <Section>
             <H2Title
-              title={t`API keys`}
-              description={t`Active API keys created by you or your team.`}
+              title={t`Kunci API`}
+              description={t`Kunci API aktif yang dibuat oleh Anda atau tim Anda.`}
             />
             <SettingsApiKeysTable />
             <StyledButtonContainer>
               <Button
                 Icon={IconPlus}
-                title={t`Create API key`}
+                title={t`Buat Kunci API`}
                 size="small"
                 variant="secondary"
                 to={getSettingsPath(SettingsPath.NewApiKey)}

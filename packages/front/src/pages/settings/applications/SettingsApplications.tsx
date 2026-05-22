@@ -39,7 +39,7 @@ export const SettingsApplications = () => {
     ...(isMarketplaceSettingTabVisible
       ? [{ id: 'marketplace', title: t`Marketplace`, Icon: IconDownload }]
       : []),
-    { id: 'installed', title: t`Installed`, Icon: IconApps },
+    { id: 'installed', title: t`Terpasang`, Icon: IconApps },
     ...(hasDeveloperAccess
       ? [{ id: 'developer', title: t`Developer`, Icon: IconCode }]
       : []),
@@ -64,13 +64,13 @@ export const SettingsApplications = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={t`Applications`}
+      title={t`Aplikasi`}
       links={[
         {
-          children: t`Workspace`,
+          children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`Applications` },
+        { children: t`Aplikasi` },
       ]}
     >
       <SettingsPageContainer>
