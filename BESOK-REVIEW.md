@@ -697,3 +697,45 @@ penuh ke Midtrans; docs ditunda.
 - **Fase 7 — Verifikasi penuh & push final**.
 
 *Fase 1 production-ready — 2026-05-22, sesi otonom Claude Code.*
+
+---
+
+# STATUS PRODUCTION-READY TERKINI (2026-05-22)
+
+| Fase | Status | Commit |
+|------|--------|--------|
+| 1 — baseline + typecheck server | ✅ SELESAI | `2271ee0b`, `d4de4a2c` |
+| 3 — Docker deployable | ✅ SELESAI | `e8babff8` |
+| 4 — brand leak website + typecheck website | ✅ sebagian | `b6864bed`, `69446b1e` |
+| 2 — Midtrans **sisi server** | ✅ SELESAI (typecheck hijau) | `facca4ff` |
+| Docker rename `twenty`→`bades` (oleh proses paralel) | ✅ dirapikan | `ad8fb4b6` |
+
+## Sudah hijau & ter-push
+- `nx typecheck server`, `nx typecheck front`, `nx typecheck website` — semua lulus.
+- Workflow CI: 26 file YAML valid; `docker compose config` valid.
+- Modul billing Midtrans (Snap) lengkap di sisi server: SDK wrapper+mock,
+  service Snap & transaction, webhook `/webhooks/midtrans`, entity +
+  migrasi + instance command, feature flag `IS_BILLING_MIDTRANS_ENABLED`,
+  env Midtrans. Modul Stripe dipertahankan di belakang flag.
+
+## Sisa pekerjaan (belum selesai)
+- **Fase 2 sisi frontend** (`packages/front/src/modules/settings/billing/`):
+  copy checkout Midtrans-first, redirect Snap, surface top-up credit.
+- **Verifikasi Midtrans end-to-end**: butuh kredensial Midtrans **sandbox**
+  (Server Key + Client Key) dari user; dan `nx run server:database:migrate`
+  pada DB lokal untuk cek migrasi `up`/`down`.
+- **Fase 4 sisa**: narasi self-hosting/CRM di katalog marketing website
+  (`packages/website` — besar; agen transformasi gagal karena limit kuota
+  org, belum jalan), istilah CRM di `id-ID.po`, hapus seed legacy
+  pet/rocket/survey.
+- **Fase 5**: jalankan `nx test front`/`server`, perbaiki test usang.
+- **Fase 6**: konfirmasi developer surface.
+- **Fase 7**: verifikasi penuh (build server/front/website, docker build).
+
+## Catatan
+- Limit kuota bulanan org sempat tercapai saat sesi ini — agen background
+  website gagal sebelum mengubah apa pun (working tree tetap bersih).
+- Ada proses paralel lain yang ikut menyentuh repo (rename docker dir,
+  update 26 workflow). Sudah dirapikan & divalidasi pada commit `ad8fb4b6`.
+
+*Status production-ready — 2026-05-22, sesi otonom Claude Code.*
