@@ -34,7 +34,7 @@ export const CustomSideMenu = ({ editor }: CustomSideMenuProps) => {
                 <CustomAddBlockItem editor={editor}>
                   <CustomSideMenuOptions
                     LeftIcon={IconPlus}
-                    text={t`Add Block`}
+                    text={t`Tambah Blok`}
                     Variant="normal"
                   />
                 </CustomAddBlockItem>

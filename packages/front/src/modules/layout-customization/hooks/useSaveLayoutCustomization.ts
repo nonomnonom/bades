@@ -160,7 +160,7 @@ export const useSaveLayoutCustomization = () => {
     } catch (error) {
       logError(error);
       enqueueErrorSnackBar({
-        message: t`Failed to save layout customization`,
+        message: t`Gagal menyimpan penyesuaian tata letak`,
       });
     } finally {
       setIsSaving(false);

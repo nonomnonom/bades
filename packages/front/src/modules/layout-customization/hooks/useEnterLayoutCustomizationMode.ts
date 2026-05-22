@@ -77,7 +77,7 @@ export const useEnterLayoutCustomizationMode = () => {
     ) {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuEdit,
-        pageTitle: t`Edit actions`,
+        pageTitle: t`Ubah aksi`,
         pageIcon: IconPencil,
         resetNavigationStack: true,
       });

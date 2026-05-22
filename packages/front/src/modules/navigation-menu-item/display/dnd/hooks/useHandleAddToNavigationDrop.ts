@@ -108,7 +108,7 @@ export const useHandleAddToNavigationDrop = () => {
             index,
           );
           openEditForNewNavItem(newFolderId, {
-            pageTitle: t`Edit folder`,
+            pageTitle: t`Ubah folder`,
             pageIcon: IconFolder,
             focusTitleInput: true,
           });
@@ -123,7 +123,7 @@ export const useHandleAddToNavigationDrop = () => {
             index,
           );
           openEditForNewNavItem(newLinkId, {
-            pageTitle: t`Edit link`,
+            pageTitle: t`Ubah tautan`,
             pageIcon: IconLink,
             focusTitleInput: true,
           });

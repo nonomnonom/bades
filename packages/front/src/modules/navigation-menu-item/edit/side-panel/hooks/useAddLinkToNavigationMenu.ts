@@ -40,7 +40,7 @@ export const useAddLinkToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Edit link`,
+      pageTitle: t`Ubah tautan`,
       pageIcon: IconLink,
       focusTitleInput: true,
     });

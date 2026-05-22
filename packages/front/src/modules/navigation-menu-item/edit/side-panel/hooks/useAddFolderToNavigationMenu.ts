@@ -39,7 +39,7 @@ export const useAddFolderToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Edit folder`,
+      pageTitle: t`Ubah folder`,
       pageIcon: IconFolder,
       focusTitleInput: true,
     });
