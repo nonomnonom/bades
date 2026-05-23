@@ -23,14 +23,13 @@
       },
       "environment": [
         { "name": "NODE_ENV", "value": "production" },
-        { "name": "NODE_PORT", "value": "3000" }
+        { "name": "NODE_PORT", "value": "3000" },
+        { "name": "IS_BILLING_ENABLED", "value": "false" }
       ],
       "secrets": [
         { "name": "APP_SECRET", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/APP_SECRET" },
         { "name": "PG_DATABASE_URL", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/PG_DATABASE_URL" },
         { "name": "REDIS_URL", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/REDIS_URL" },
-        { "name": "MIDTRANS_SERVER_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/MIDTRANS_SERVER_KEY" },
-        { "name": "MIDTRANS_CLIENT_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/MIDTRANS_CLIENT_KEY" },
         { "name": "OPENROUTER_API_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/OPENROUTER_API_KEY" }
       ],
       "logConfiguration": {

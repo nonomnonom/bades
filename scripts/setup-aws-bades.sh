@@ -592,14 +592,13 @@ write_task_def() {
       },
       "environment": [
         { "name": "NODE_ENV", "value": "production" },
-        { "name": "NODE_PORT", "value": "3000" }
+        { "name": "NODE_PORT", "value": "3000" },
+        { "name": "IS_BILLING_ENABLED", "value": "false" }
       ],
       "secrets": [
         { "name": "APP_SECRET", "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:bades/${env}/APP_SECRET" },
         { "name": "PG_DATABASE_URL", "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:bades/${env}/PG_DATABASE_URL" },
         { "name": "REDIS_URL", "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:bades/${env}/REDIS_URL" },
-        { "name": "MIDTRANS_SERVER_KEY", "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:bades/${env}/MIDTRANS_SERVER_KEY" },
-        { "name": "MIDTRANS_CLIENT_KEY", "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:bades/${env}/MIDTRANS_CLIENT_KEY" },
         { "name": "OPENROUTER_API_KEY", "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:bades/${env}/OPENROUTER_API_KEY" }
       ],
       "logConfiguration": {
