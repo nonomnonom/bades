@@ -30,6 +30,14 @@ import { UMKM_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder
 import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/wilayah-custom-field-seeds.constant';
 import { RUMAH_TANGGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/rumah-tangga-custom-field-seeds.constant';
 import { PERIODE_JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/periode-jabatan-custom-field-seeds.constant';
+import { POSYANDU_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/posyandu-custom-field-seeds.constant';
+import { BIDANG_TANAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/bidang-tanah-custom-field-seeds.constant';
+import { KEGIATAN_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/kegiatan-desa-custom-field-seeds.constant';
+import { SURAT_KELUAR_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/surat-keluar-custom-field-seeds.constant';
+import { SURAT_MASUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/surat-masuk-custom-field-seeds.constant';
+import { BIDANG_ANGGARAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/bidang-anggaran-custom-field-seeds.constant';
+import { SUMBER_DANA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/sumber-dana-custom-field-seeds.constant';
+import { KEGIATAN_ANGGARAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/kegiatan-anggaran-custom-field-seeds.constant';
 import { PENDUDUK_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penduduk-custom-object-seed.constant';
 import { KELUARGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/keluarga-custom-object-seed.constant';
 import { JENIS_SURAT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/jenis-surat-custom-object-seed.constant';
@@ -45,6 +53,14 @@ import { UMKM_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder
 import { WILAYAH_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/wilayah-custom-object-seed.constant';
 import { RUMAH_TANGGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/rumah-tangga-custom-object-seed.constant';
 import { PERIODE_JABATAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/periode-jabatan-custom-object-seed.constant';
+import { POSYANDU_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/posyandu-custom-object-seed.constant';
+import { BIDANG_TANAH_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/bidang-tanah-custom-object-seed.constant';
+import { KEGIATAN_DESA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/kegiatan-desa-custom-object-seed.constant';
+import { SURAT_KELUAR_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/surat-keluar-custom-object-seed.constant';
+import { SURAT_MASUK_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/surat-masuk-custom-object-seed.constant';
+import { BIDANG_ANGGARAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/bidang-anggaran-custom-object-seed.constant';
+import { SUMBER_DANA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/sumber-dana-custom-object-seed.constant';
+import { KEGIATAN_ANGGARAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/kegiatan-anggaran-custom-object-seed.constant';
 import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
 import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
 
@@ -110,6 +126,14 @@ export class DevSeederMetadataService {
         { seed: PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED, fields: PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS },
         { seed: ASET_DESA_CUSTOM_OBJECT_SEED, fields: ASET_DESA_CUSTOM_FIELD_SEEDS },
         { seed: UMKM_CUSTOM_OBJECT_SEED, fields: UMKM_CUSTOM_FIELD_SEEDS },
+        { seed: POSYANDU_CUSTOM_OBJECT_SEED, fields: POSYANDU_CUSTOM_FIELD_SEEDS },
+        { seed: BIDANG_TANAH_CUSTOM_OBJECT_SEED, fields: BIDANG_TANAH_CUSTOM_FIELD_SEEDS },
+        { seed: KEGIATAN_DESA_CUSTOM_OBJECT_SEED, fields: KEGIATAN_DESA_CUSTOM_FIELD_SEEDS },
+        { seed: SURAT_KELUAR_CUSTOM_OBJECT_SEED, fields: SURAT_KELUAR_CUSTOM_FIELD_SEEDS },
+        { seed: SURAT_MASUK_CUSTOM_OBJECT_SEED, fields: SURAT_MASUK_CUSTOM_FIELD_SEEDS },
+        { seed: BIDANG_ANGGARAN_CUSTOM_OBJECT_SEED, fields: BIDANG_ANGGARAN_CUSTOM_FIELD_SEEDS },
+        { seed: SUMBER_DANA_CUSTOM_OBJECT_SEED, fields: SUMBER_DANA_CUSTOM_FIELD_SEEDS },
+        { seed: KEGIATAN_ANGGARAN_CUSTOM_OBJECT_SEED, fields: KEGIATAN_ANGGARAN_CUSTOM_FIELD_SEEDS },
       ],
       fields: [],
       morphRelations: [],
@@ -173,6 +197,26 @@ export class DevSeederMetadataService {
           targetObjectName: PERIODE_JABATAN_CUSTOM_OBJECT_SEED.nameSingular,
           targetFieldLabel: 'Pejabat',
           targetFieldIcon: 'IconUser',
+        },
+        // Bidang Anggaran -> Kegiatan Anggaran (satu bidang menampung banyak kegiatan)
+        {
+          sourceObjectName: BIDANG_ANGGARAN_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'kegiatan',
+          label: 'Kegiatan',
+          icon: 'IconClipboardList',
+          targetObjectName: KEGIATAN_ANGGARAN_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Bidang',
+          targetFieldIcon: 'IconCategory',
+        },
+        // Sumber Dana -> Kegiatan Anggaran (satu sumber dana mendanai banyak kegiatan)
+        {
+          sourceObjectName: SUMBER_DANA_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'kegiatan',
+          label: 'Kegiatan',
+          icon: 'IconClipboardList',
+          targetObjectName: KEGIATAN_ANGGARAN_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Sumber Dana',
+          targetFieldIcon: 'IconWallet',
         },
       ],
       junctionConfigs: [],

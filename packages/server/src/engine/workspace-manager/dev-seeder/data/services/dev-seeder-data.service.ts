@@ -83,6 +83,38 @@ import {
   PERIODE_JABATAN_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/periode-jabatan-data-seeds.constant';
 import {
+  POSYANDU_DATA_SEED_COLUMNS,
+  POSYANDU_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/posyandu-data-seeds.constant';
+import {
+  BIDANG_TANAH_DATA_SEED_COLUMNS,
+  BIDANG_TANAH_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/bidang-tanah-data-seeds.constant';
+import {
+  KEGIATAN_DESA_DATA_SEED_COLUMNS,
+  KEGIATAN_DESA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/kegiatan-desa-data-seeds.constant';
+import {
+  SURAT_KELUAR_DATA_SEED_COLUMNS,
+  SURAT_KELUAR_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-keluar-data-seeds.constant';
+import {
+  SURAT_MASUK_DATA_SEED_COLUMNS,
+  SURAT_MASUK_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-masuk-data-seeds.constant';
+import {
+  BIDANG_ANGGARAN_DATA_SEED_COLUMNS,
+  BIDANG_ANGGARAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/bidang-anggaran-data-seeds.constant';
+import {
+  SUMBER_DANA_DATA_SEED_COLUMNS,
+  SUMBER_DANA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/sumber-dana-data-seeds.constant';
+import {
+  KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS,
+  KEGIATAN_ANGGARAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/kegiatan-anggaran-data-seeds.constant';
+import {
   getWorkspaceMemberDataSeeds,
   WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
@@ -154,6 +186,16 @@ const getRecordSeedsBatches = (
       pgColumns: JABATAN_DATA_SEED_COLUMNS,
       recordSeeds: JABATAN_DATA_SEEDS,
     },
+    {
+      tableName: '_bidangAnggaran',
+      pgColumns: BIDANG_ANGGARAN_DATA_SEED_COLUMNS,
+      recordSeeds: BIDANG_ANGGARAN_DATA_SEEDS,
+    },
+    {
+      tableName: '_sumberDana',
+      pgColumns: SUMBER_DANA_DATA_SEED_COLUMNS,
+      recordSeeds: SUMBER_DANA_DATA_SEEDS,
+    },
   ];
 
   // Batch 4: SID entities - depends on batch 3 or independent
@@ -207,6 +249,36 @@ const getRecordSeedsBatches = (
       tableName: '_umkm',
       pgColumns: UMKM_DATA_SEED_COLUMNS,
       recordSeeds: UMKM_DATA_SEEDS,
+    },
+    {
+      tableName: '_posyandu',
+      pgColumns: POSYANDU_DATA_SEED_COLUMNS,
+      recordSeeds: POSYANDU_DATA_SEEDS,
+    },
+    {
+      tableName: '_bidangTanah',
+      pgColumns: BIDANG_TANAH_DATA_SEED_COLUMNS,
+      recordSeeds: BIDANG_TANAH_DATA_SEEDS,
+    },
+    {
+      tableName: '_kegiatanDesa',
+      pgColumns: KEGIATAN_DESA_DATA_SEED_COLUMNS,
+      recordSeeds: KEGIATAN_DESA_DATA_SEEDS,
+    },
+    {
+      tableName: '_suratKeluar',
+      pgColumns: SURAT_KELUAR_DATA_SEED_COLUMNS,
+      recordSeeds: SURAT_KELUAR_DATA_SEEDS,
+    },
+    {
+      tableName: '_suratMasuk',
+      pgColumns: SURAT_MASUK_DATA_SEED_COLUMNS,
+      recordSeeds: SURAT_MASUK_DATA_SEEDS,
+    },
+    {
+      tableName: '_kegiatanAnggaran',
+      pgColumns: KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS,
+      recordSeeds: KEGIATAN_ANGGARAN_DATA_SEEDS,
     },
   ];
 
