@@ -31,11 +31,11 @@ concurrency:
 
 permissions:
   contents: read
-  id-token: write
 
 env:
   DOCKERFILE_PATH: packages/docker/bades/Dockerfile
-  DOCKER_TARGET: bades-app-dev   # all-in-one: server+worker+postgres+redis
+  # Target produksi: server + frontend + aws-cli (DB & Redis di luar container)
+  DOCKER_TARGET: bades-aws
 
 jobs:
   # ──────────────────────────────────────────────────────────────────────────
@@ -45,6 +45,8 @@ jobs:
     if: github.ref == 'refs/heads/staging' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging')
     runs-on: ubuntu-latest
     environment: staging
+    permissions:
+      contents: read
     env:
       ENVIRONMENT: staging
       ECR_REPOSITORY_URI: ${{ secrets.AWS_ECR_STAGING_REPOSITORY_URI }}
@@ -63,7 +65,7 @@ jobs:
           app-version: ${{ env.IMAGE_TAG }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@012353e6d0b8aadb2d1f05b0c9f4cad81cd0c8e6 # v4.2.1
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -81,14 +83,14 @@ jobs:
             --output json
 
           echo "Waiting for deployment to complete..."
-          aws apprunner wait service-active \
+          aws apprunner wait service-updated \
             --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
             --region "${{ env.AWS_REGION }}"
 
           SERVICE=$(aws apprunner describe-service \
             --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
             --region "${{ env.AWS_REGION }}" \
-            --query 'Service.Service.Url' \
+            --query 'Service.ServiceUrl' \
             --output text)
 
           echo "✅ Staging deployed at: https://$SERVICE"
@@ -112,15 +114,31 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production')
     runs-on: ubuntu-latest
     environment: production
+    permissions:
+      contents: write   # untuk membuat GitHub Release saat tag v*.*.*
     env:
       ENVIRONMENT: production
       ECR_REPOSITORY_URI: ${{ secrets.AWS_ECR_PRODUCTION_REPOSITORY_URI }}
       APP_RUNNER_SERVICE_ARN: ${{ secrets.AWS_APPRUNNER_PRODUCTION_SERVICE_ARN }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
-      # Tag dari refs/tags/v1.2.3 → 1.2.3
-      IMAGE_TAG: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && format('{0}', github.ref) || github.event.inputs.tag || github.sha }}
 
     steps:
+      - name: Compute image tag
+        id: tag
+        shell: bash
+        env:
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          # refs/tags/v1.2.3 -> v1.2.3, fallback ke SHA pendek untuk dispatch manual
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            TAG="${GITHUB_REF#refs/tags/}"
+          else
+            TAG="manual-${GITHUB_SHA::12}"
+          fi
+          echo "IMAGE_TAG=$TAG" >> "$GITHUB_ENV"
+          echo "image_tag=$TAG" >> "$GITHUB_OUTPUT"
+
       - name: Build and push to ECR
         uses: ./.github/actions/build-and-push-ecr
         with:
@@ -131,7 +149,7 @@ jobs:
           app-version: ${{ env.IMAGE_TAG }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@012353e6d0b8aadb2d1f05b0c9f4cad81cd0c8e6 # v4.2.1
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -149,21 +167,21 @@ jobs:
             --output json
 
           echo "Waiting for deployment to complete..."
-          aws apprunner wait service-active \
+          aws apprunner wait service-updated \
             --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
             --region "${{ env.AWS_REGION }}"
 
           SERVICE=$(aws apprunner describe-service \
             --service-arn "${{ env.APP_RUNNER_SERVICE_ARN }}" \
             --region "${{ env.AWS_REGION }}" \
-            --query 'Service.Service.Url' \
+            --query 'Service.ServiceUrl' \
             --output text)
 
           echo "✅ Production deployed at: https://$SERVICE"
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@5131932a8b6b8c6a6c1072d2e2a3c0e6c4b6d5e # v2.2.0
+        uses: softprops/action-gh-release@7b4da11513bf3f43f9999e90eabced41ab8bb048 # v2.2.0
         with:
           generate_release_notes: true
           files: |
