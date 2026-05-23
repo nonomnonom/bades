@@ -367,6 +367,10 @@ jobs:
       - name: Server / Create Test DB
         run: |
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
+      - name: Server / Init schema + run migrations
+        env:
+          NODE_ENV: test
+        run: npx nx run server:database:init
       - name: Run ClickHouse migrations
         run: npx nx clickhouse:migrate server
       - name: Run ClickHouse seeds
