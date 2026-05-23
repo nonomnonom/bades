@@ -5,7 +5,6 @@ import { currentUserState } from '@/auth/states/currentUserState';
 import { billingState } from '@/client-config/states/billingState';
 import { supportChatState } from '@/client-config/states/supportChatState';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { getDocumentationUrl } from '@/support/utils/getDocumentationUrl';
 import {
   type NavigationDrawerItemIndentationLevel,
   type NavigationDrawerItemModifier,
@@ -21,7 +20,6 @@ import {
   type IconComponent,
   IconCurrencyDollar,
   IconDoorEnter,
-  IconHelpCircle,
   IconHierarchy2,
   IconKey,
   IconMail,
@@ -198,15 +196,6 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           onClick: () => window.FrontChat?.('show'),
           Icon: IconMessage,
           isHidden: !isSupportChatConfigured,
-        },
-        {
-          label: t`Dokumentasi`,
-          onClick: () =>
-            window.open(
-              getDocumentationUrl({}),
-              '_blank',
-            ),
-          Icon: IconHelpCircle,
         },
         {
           label: t`Keluar`,

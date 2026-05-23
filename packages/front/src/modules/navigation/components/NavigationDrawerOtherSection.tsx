@@ -1,9 +1,7 @@
 import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
-import { IconHelpCircle, IconSettings } from 'ui/display';
+import { IconSettings } from 'ui/display';
 import { AnimatedExpandableContainer } from 'ui/layout';
-
-import { getDocumentationUrl } from '@/support/utils/getDocumentationUrl';
 
 import { NavigationDrawerAnimatedCollapseWrapper } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerAnimatedCollapseWrapper';
 import { NavigationDrawerItem } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerItem';
@@ -48,11 +46,6 @@ export const NavigationDrawerOtherSection = () => {
           label={t`Pengaturan`}
           Icon={IconSettings}
           onClick={handleSettingsClick}
-        />
-        <NavigationDrawerItem
-          label={t`Dokumentasi`}
-          to={getDocumentationUrl({})}
-          Icon={IconHelpCircle}
         />
       </AnimatedExpandableContainer>
     </NavigationDrawerSection>
