@@ -6,4 +6,4 @@ Tambahkan skills di bawah `skills/<skill-name>/SKILL.md`.
 
 ## Skills
 
-- `twenty-record-presentation`: Retrieve and present Bades.id records as readable summaries or tables.
+- `bades-record-presentation`: Retrieve and present Bades.id records as readable summaries or tables.

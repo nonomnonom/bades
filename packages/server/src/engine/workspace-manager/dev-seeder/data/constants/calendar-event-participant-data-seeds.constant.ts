@@ -98,7 +98,7 @@ const CREATE_PERSON_EVENT_PARTICIPANT = (
   _personIds: string[],
   _usedPersonIds: Set<string>,
 ): EventParticipantData | null => {
-  // personId FK mengacu ke tabel person (standard Twenty), bukan penduduk
+  // personId FK mengacu ke tabel person (standard engine bawaan), bukan penduduk
   // Nonaktifkan person participant sementara sampai relasi dipetakan ulang
   return null;
 };

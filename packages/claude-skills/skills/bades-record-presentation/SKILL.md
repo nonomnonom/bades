@@ -1,17 +1,17 @@
 ---
-name: twenty-record-presentation
-description: "Retrieve and present Bades.id records as readable summaries or tables, using the connected Twenty MCP server to discover fields, fetch relevant data, format dates and values, build record links, and avoid raw API output."
+name: bades-record-presentation
+description: "Retrieve and present Bades.id records as readable summaries or tables, using the connected Bades MCP server to discover fields, fetch relevant data, format dates and values, build record links, and avoid raw API output."
 ---
 
-# Twenty Record Presentation
+# Bades Record Presentation
 
 ## Overview
 
-Retrieve the Twenty records needed to answer the user's question, then present them as a useful answer, not as raw API output. Always translate technical fields, timestamps, IDs, and nested structures into readable summaries that help the user scan, compare, and act.
+Retrieve the Bades records needed to answer the user's question, then present them as a useful answer, not as raw API output. Always translate technical fields, timestamps, IDs, and nested structures into readable summaries that help the user scan, compare, and act.
 
 ## Retrieval Workflow
 
-Use the selected connected Twenty MCP server when it is available
+Use the selected connected Bades MCP server when it is available
 
 - `get_tool_catalog` → `learn_tools` → `execute_tool`
 - Discover the relevant object, fields, filters, and sort options instead of guessing exact API names.
@@ -19,7 +19,7 @@ Use the selected connected Twenty MCP server when it is available
 - For "latest", "most recent", or "recent" requests, include the relevant timestamp field used for sorting.
 - If the user asks for a broad list, apply a practical limit and state how many records are shown.
 - If required context is missing and cannot be discovered from the tools, ask one concise clarifying question.
-- If no Twenty MCP tools are available, say that no callable Twenty MCP server is available in the current thread and ask the user to connect or expose the intended workspace.
+- If no Bades MCP tools are available, say that no callable Bades MCP server is available in the current thread and ask the user to connect or expose the intended workspace.
 
 ## Response Shape
 
@@ -35,10 +35,10 @@ Use English labels and prose. Keep user-provided names, record values, emails, U
 
 ## Record Links
 
-Link records back to their original Twenty context whenever the workspace origin and record identity are known.
+Link records back to their original Bades context whenever the workspace origin and record identity are known.
 
-- Build record links with the Twenty show-page path: `/object/:objectNameSingular/:objectRecordId`.
-- For absolute links, combine the workspace origin with that path, for example `https://example.twenty.com/object/person/record-id`.
+- Build record links with the Bades show-page path: `/object/:objectNameSingular/:objectRecordId`.
+- For absolute links, combine the workspace origin with that path, for example `https://example.bades.id/object/person/record-id`.
 - Use `recordReferences` from MCP responses when available to get `objectNameSingular`, `recordId`, and `displayName`.
 - If `recordReferences` is missing, use the record's `id` and the object name from the tool that returned it.
 - Prefer linking the record display name in tables and summaries instead of adding a raw ID column.
@@ -76,7 +76,7 @@ Convert raw field names into user-facing labels:
 - `workspaceMemberId` → Workspace member
 - `opportunityStage` → Opportunity stage
 
-Prefer the label users see in Twenty when it is available from metadata. Otherwise, split camelCase, snake_case, and kebab-case into normal words.
+Prefer the label users see in Bades when it is available from metadata. Otherwise, split camelCase, snake_case, and kebab-case into normal words.
 
 ## Value Formatting
 
@@ -108,7 +108,7 @@ Make tables easy to scan before making them visually decorative.
 - If the table is compact and the image is known to be consistently small, it is acceptable to put `![alt](url) [Name](record-url)` in one cell. Do not also add emoji or extra symbols before the name.
 - Keep fixed-format fields such as Created, Updated, Amount, and Source to the right of variable-width fields such as Name, Company, Person, and Domain.
 - Use a consistent date format within a table so rows line up visually, for example *May 5, 2026, 11:43 AM* or *May 5, 11:43*.
-- Prefer natural links over extra link columns: link the record name to Twenty, and link the domain or email only when that external destination is useful.
+- Prefer natural links over extra link columns: link the record name to Bades, and link the domain or email only when that external destination is useful.
 - Avoid raw ID columns in normal user-facing tables. IDs are long, visually dominant, and destroy alignment unless the user asks for them.
 
 ## Markdown Patterns
@@ -122,8 +122,8 @@ I found 5 recent opportunities, sorted by last updated date.
 
 | Name | Stage | Amount | Last updated |
 | :--- | :--- | ---: | :--- |
-| [Acme renewal](https://example.twenty.com/object/opportunity/record-id-1) | Negotiation | EUR 12,450 | May 5, 2026, 11:43 AM |
-| [Globex expansion](https://example.twenty.com/object/opportunity/record-id-2) | Discovery | EUR 8,000 | May 4, 2026, 4:10 PM |
+| [Acme renewal](https://example.bades.id/object/opportunity/record-id-1) | Negotiation | EUR 12,450 | May 5, 2026, 11:43 AM |
+| [Globex expansion](https://example.bades.id/object/opportunity/record-id-2) | Discovery | EUR 8,000 | May 4, 2026, 4:10 PM |
 ```
 
 ### Labeled block
@@ -131,7 +131,7 @@ I found 5 recent opportunities, sorted by last updated date.
 Use a labeled block for one important record:
 
 ```markdown
-**[Acme renewal](https://example.twenty.com/object/opportunity/record-id-1)**
+**[Acme renewal](https://example.bades.id/object/opportunity/record-id-1)**
 
 - Stage: Negotiation
 - Amount: EUR 12,450

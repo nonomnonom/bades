@@ -4,7 +4,7 @@ import { type FieldAddressValue } from '@/object-record/record-field/ui/types/Fi
 
 // When every user-editable text part of the address is empty, clear coordinates
 // so DB columns for addressLat/addressLng are updated (see formatCompositeField
-// in twenty-server: omitted keys are not written, leaving old coordinates in place).
+// in packages/server: omitted keys are not written, leaving old coordinates in place).
 export const normalizeAddressFieldValueForPersist = (
   address: FieldAddressValue,
 ): FieldAddressValue => {

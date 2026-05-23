@@ -12,7 +12,7 @@ Both are registered via decorators and automatically discovered by the upgrade p
 ### Generating an instance command
 
 ```bash
-npx nx run twenty-server:database:migrate:generate --name <name> --type <fast|slow>
+npx nx run server:database:migrate:generate --name <name> --type <fast|slow>
 ```
 
 This generates a timestamped file and auto-registers it in `instance-commands.constant.ts` — do not edit that file manually.
@@ -108,7 +108,7 @@ The base class `ActiveOrSuspendedWorkspaceCommandRunner` handles workspace itera
 
 ## Execution Order
 
-Within a given version of Twenty, the upgrade pipeline runs commands in this order, sorted by timestamp within each group:
+Within a given version of Bades, the upgrade pipeline runs commands in this order, sorted by timestamp within each group:
 
 1. **Instance fast** commands
 2. **Instance slow** commands

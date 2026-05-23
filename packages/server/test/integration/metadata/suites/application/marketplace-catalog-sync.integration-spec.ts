@@ -131,7 +131,7 @@ describe('Marketplace Catalog Sync (integration)', () => {
       await insertCatalogRegistration({
         universalIdentifier: curatedUid,
         name: 'Data Enrichment',
-        sourcePackage: '@twentyhq/app-data-enrichment',
+        sourcePackage: '@bades/app-data-enrichment',
         manifest: {
           application: {
             category: 'Data',
