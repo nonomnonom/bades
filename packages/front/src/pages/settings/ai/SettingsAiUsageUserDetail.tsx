@@ -40,7 +40,7 @@ export const SettingsAiUsageUserDetail = () => {
       href: getSettingsPath(SettingsPath.Workspace),
     },
     {
-      children: "AI,
+      children: "AI",
       href: getSettingsPath(SettingsPath.AI),
     },
     { children: isInitialLoading ? '' : displayName },

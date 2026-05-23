@@ -9,21 +9,21 @@ export const getDateGranularityPluralLabel = (
     case ObjectRecordGroupByDateGranularity.DAY:
       return "hari";
     case ObjectRecordGroupByDateGranularity.WEEK:
-      return ""weeks";
+      return "weeks";
     case ObjectRecordGroupByDateGranularity.MONTH:
-      return ""months";
+      return "months";
     case ObjectRecordGroupByDateGranularity.QUARTER:
-      return ""quarters";
+      return "quarters";
     case ObjectRecordGroupByDateGranularity.YEAR:
-      return ""years";
+      return "years";
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
       return "hari";
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
-      return ""months";
+      return "months";
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
-      return ""quarters";
+      return "quarters";
     case ObjectRecordGroupByDateGranularity.NONE:
-      return ""items";
+      return "items";
     default:
       assertUnreachable(granularity);
   }

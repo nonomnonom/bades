@@ -243,7 +243,7 @@ export const RecordDetailRelationRecordsListItem = ({
                 <DropdownMenuItemsContainer>
                   <MenuItem
                     LeftIcon={IconUnlink}
-                    text={""Detach"}
+                    text={"Detach"}
                     onClick={handleDetach}
                   />
                   {!isAccountOwnerRelation &&

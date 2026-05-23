@@ -14,7 +14,7 @@ export const formatValueForCSV = (value: any) => {
     stringValue.includes('\n') ||
     stringValue.includes('\r')
   ) {
-    return `"${stringValue.replace(/"/g, '""')}"`;
+    return `"${stringValue.replace(/"/g, '"')}"`;
   }
 
   return stringValue;

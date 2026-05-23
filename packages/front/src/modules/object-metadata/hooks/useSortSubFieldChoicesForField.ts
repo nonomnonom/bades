@@ -51,14 +51,14 @@ export const useSortSubFieldChoicesForField = ({
 
   if (fieldMetadataItem.type === FieldMetadataType.ADDRESS) {
     const labels: Record<AllowedAddressSubField, string> = {
-      addressStreet1: ""Address 1",
-      addressStreet2: ""Address 2",
+      addressStreet1: "Address 1",
+      addressStreet2: "Address 2",
       addressCity: "Kota",
       addressState: "Negara bagian",
-      addressPostcode: ""Postcode",
+      addressPostcode: "Postcode",
       addressCountry: "Negara",
-      addressLat: ""Latitude",
-      addressLng: ""Longitude",
+      addressLat: "Latitude",
+      addressLng: "Longitude",
     };
     const addressSettings = fieldMetadataItem.settings as
       | FieldMetadataSettingsMapping[FieldMetadataType.ADDRESS]

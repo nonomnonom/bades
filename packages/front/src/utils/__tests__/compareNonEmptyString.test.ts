@@ -25,7 +25,7 @@ describe('compareNonEmptyStrings', () => {
     expect(compareNonEmptyStrings('', undefined)).toBe(true);
   });
 
-  it('should return true for "" === ""', () => {
+  it('should return true for " === ""', () => {
     expect(compareNonEmptyStrings('', '')).toBe(true);
   });
 
@@ -45,7 +45,7 @@ describe('compareNonEmptyStrings', () => {
     expect(compareNonEmptyStrings(null, 'a')).toBe(false);
   });
 
-  it('should return false for "" === "a"', () => {
+  it('should return false for " === "a"', () => {
     expect(compareNonEmptyStrings('', 'a')).toBe(false);
   });
 });

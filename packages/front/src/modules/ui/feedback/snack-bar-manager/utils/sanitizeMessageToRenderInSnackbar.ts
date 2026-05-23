@@ -16,9 +16,9 @@ export const sanitizeMessageToRenderInSnackbar = (
     try {
       return JSON.stringify(messageToRenderInSnackbar);
     } catch {
-      return ""Cannot display message";
+      return "Cannot display message";
     }
   } else {
-    return ""Cannot display message";
+    return "Cannot display message";
   }
 };

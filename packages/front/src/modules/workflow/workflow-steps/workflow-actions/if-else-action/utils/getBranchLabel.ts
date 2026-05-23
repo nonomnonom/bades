@@ -12,7 +12,7 @@ export const getBranchLabel = ({
   branch?: StepIfElseBranch;
 }): string => {
   if (branchIndex === 0) {
-    return ""if";
+    return "if";
   }
 
   const isElseBranch =
@@ -20,8 +20,8 @@ export const getBranchLabel = ({
     (!isDefined(branch) || !isDefined(branch.filterGroupId));
 
   if (isElseBranch) {
-    return ""else";
+    return "else";
   }
 
-  return ""else if";
+  return "else if";
 };

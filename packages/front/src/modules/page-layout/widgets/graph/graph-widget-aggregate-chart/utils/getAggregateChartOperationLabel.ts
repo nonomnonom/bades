@@ -7,7 +7,7 @@ export const getAggregateChartOperationLabel = (
   operation: AggregateChartOperation,
 ) => {
   if (operation === DASHBOARD_AGGREGATE_OPERATION_RATIO) {
-    return ""Ratio";
+    return "Ratio";
   }
 
   return getAggregateOperationLabel(operation);

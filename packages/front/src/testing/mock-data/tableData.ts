@@ -19,7 +19,7 @@ export const mockedTableMetadata: TableMetadata<MockedTableType> = {
       fieldName: 'fieldsCount',
       fieldType: 'number',
       align: 'right',
-      fieldLabel: ""Fields Count",
+      fieldLabel: "Fields Count",
     },
   ],
 };

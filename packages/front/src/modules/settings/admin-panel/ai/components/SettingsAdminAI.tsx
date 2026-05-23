@@ -199,7 +199,7 @@ export const SettingsAdminAI = () => {
           description={t`Tambahkan endpoint kustom, gateway privat, atau region tambahan.`}
           adornment={
             <Tag
-              text={""Enterprise"}
+              text={"Enterprise"}
               color="transparent"
               Icon={IconLock}
               variant="border"
@@ -314,7 +314,7 @@ export const SettingsAdminAI = () => {
               />
             ) : (
               <Tag
-                text={""Enterprise"}
+                text={"Enterprise"}
                 color="transparent"
                 Icon={IconLock}
                 variant="border"

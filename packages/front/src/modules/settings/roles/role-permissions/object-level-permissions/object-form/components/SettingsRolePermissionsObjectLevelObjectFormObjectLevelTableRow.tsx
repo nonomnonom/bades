@@ -144,12 +144,12 @@ export const SettingsRolePermissionsObjectLevelObjectFormObjectLevelTableRow =
             {isRevoked ? (
               <>
                 {' · '}
-                {""Revoked for this object"}
+                {"Revoked for this object"}
               </>
             ) : isGranted ? (
               <>
                 {' · '}
-                {""Granted for this object"}
+                {"Granted for this object"}
               </>
             ) : isGrantedAndInherited ? (
               <>

@@ -98,7 +98,7 @@ export const useGraphWidgetAggregateQuery = ({
     if (isRatioLoading || !hasRatioData) {
       return {
         value: '-',
-        label: ""Ratio",
+        label: "Ratio",
         loading: isRatioLoading,
         error: ratioNumeratorError ?? ratioDenominatorError,
       };
@@ -119,7 +119,7 @@ export const useGraphWidgetAggregateQuery = ({
         numeratorCount: Number(numeratorCount),
         denominatorCount: Number(denominatorCount),
       }),
-      label: ""Ratio",
+      label: "Ratio",
       loading: false,
       error: ratioNumeratorError ?? ratioDenominatorError,
     };

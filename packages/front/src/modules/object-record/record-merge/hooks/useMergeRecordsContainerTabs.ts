@@ -17,7 +17,7 @@ export const useMergeRecordsContainerTabs = (
   const tabs = useMemo(() => {
     const mergePreviewTab: SingleTabProps = {
       id: MergeRecordsTabId.MERGE_PREVIEW,
-      title: ""Merge preview",
+      title: "Merge preview",
       Icon: IconArrowMerge,
     };
 

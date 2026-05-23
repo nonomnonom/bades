@@ -61,7 +61,7 @@ export const useAdvancedTextEditor = (
       Paragraph,
       Text,
       Placeholder.configure({
-        placeholder: placeholder ?? ""Enter text or Type '/' for commands",
+        placeholder: placeholder ?? "Enter text or Type '/' for commands",
       }),
       VariableTag,
       HardBreak.configure({

@@ -9,7 +9,7 @@ export const VIEW_PICKER_TYPE_SELECT_OPTIONS = [
   },
   {
     value: ViewType.KANBAN,
-    label: ""Kanban",
+    label: "Kanban",
     Icon: viewTypeIconMapping(ViewType.KANBAN),
   },
   {

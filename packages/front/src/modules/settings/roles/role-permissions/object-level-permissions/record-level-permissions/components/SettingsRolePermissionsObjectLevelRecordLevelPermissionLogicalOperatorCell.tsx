@@ -45,7 +45,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionLogicalOpera
     return (
       <StyledContainer>
         {index === 0 ? (
-          <StyledText>{""Where"}</StyledText>
+          <StyledText>{"Where"}</StyledText>
         ) : index === 1 ? (
           readonly ? (
             <Select

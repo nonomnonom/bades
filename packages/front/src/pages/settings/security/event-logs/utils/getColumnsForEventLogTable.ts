@@ -9,46 +9,46 @@ export type ColumnConfig = {
 };
 
 const DEFAULT_COLUMNS: ColumnConfig[] = [
-  { id: 'event', label: ""Event", minWidth: 100, defaultWidth: 200 },
+  { id: 'event', label: "Event", minWidth: 100, defaultWidth: 200 },
   {
     id: 'timestamp',
-    label: ""Timestamp",
+    label: "Timestamp",
     minWidth: 100,
     defaultWidth: 150,
   },
   { id: 'userId', label: "Pengguna", minWidth: 100, defaultWidth: 150 },
   {
     id: 'properties',
-    label: ""Properties",
+    label: "Properties",
     minWidth: 200,
     defaultWidth: 400,
   },
 ];
 
 const OBJECT_EVENT_COLUMNS: ColumnConfig[] = [
-  { id: 'event', label: ""Event", minWidth: 100, defaultWidth: 180 },
+  { id: 'event', label: "Event", minWidth: 100, defaultWidth: 180 },
   {
     id: 'timestamp',
-    label: ""Timestamp",
+    label: "Timestamp",
     minWidth: 100,
     defaultWidth: 130,
   },
   { id: 'userId', label: "Pengguna", minWidth: 100, defaultWidth: 130 },
   {
     id: 'recordId',
-    label: ""Record ID",
+    label: "Record ID",
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'objectMetadataId',
-    label: ""Object ID",
+    label: "Object ID",
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'properties',
-    label: ""Properties",
+    label: "Properties",
     minWidth: 150,
     defaultWidth: 300,
   },
@@ -57,13 +57,13 @@ const OBJECT_EVENT_COLUMNS: ColumnConfig[] = [
 const USAGE_EVENT_COLUMNS: ColumnConfig[] = [
   {
     id: 'event',
-    label: ""Resource Type",
+    label: "Resource Type",
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'timestamp',
-    label: ""Timestamp",
+    label: "Timestamp",
     minWidth: 100,
     defaultWidth: 140,
   },
@@ -85,7 +85,7 @@ const APPLICATION_LOG_COLUMNS: ColumnConfig[] = [
   },
   {
     id: 'timestamp',
-    label: ""Timestamp",
+    label: "Timestamp",
     minWidth: 100,
     defaultWidth: 140,
   },
@@ -98,7 +98,7 @@ const APPLICATION_LOG_COLUMNS: ColumnConfig[] = [
   },
   {
     id: 'executionId',
-    label: ""Execution ID",
+    label: "Execution ID",
     minWidth: 100,
     defaultWidth: 140,
   },

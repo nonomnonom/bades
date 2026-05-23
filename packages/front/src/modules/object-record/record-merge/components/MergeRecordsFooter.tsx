@@ -50,7 +50,7 @@ export const MergeRecordsFooter = ({
     <StyledFooterContainer>
       <StyledFooterActions>
         <Button
-          title={isMerging ? ""Merging..." : ""Merge"}
+          title={isMerging ? "Merging..." : "Merge"}
           variant="primary"
           accent="blue"
           size="medium"

@@ -161,7 +161,7 @@ export const SidePanelRecordInfo = ({
       }
       label={
         beautifiedCreatedAt ? (
-          "Created {beautifiedCreatedAt}
+          `Created ${beautifiedCreatedAt}`
         ) : undefined
       }
     />

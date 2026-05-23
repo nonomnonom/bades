@@ -100,7 +100,7 @@ export const beautifyPastDateRelativeToNow = (
 
     // For very recent times (less than 30 seconds), show "now"
     if (diffInSeconds < 30) {
-      return ""now";
+      return "now";
     }
 
     return formatDistanceToNow(parsedDate, {
@@ -124,7 +124,7 @@ export const beautifyPastDateRelativeToNowShort = (
       (now.getTime() - parsedDate.getTime()) / 1000,
     );
 
-    if (diffInSeconds < 60) return ""now";
+    if (diffInSeconds < 60) return "now";
 
     const diffInMinutes = Math.floor(diffInSeconds / 60);
     if (diffInMinutes < 60) return `${diffInMinutes}m`;
@@ -199,7 +199,7 @@ export const beautifyDateDiff = (
   }
 
   if (years !== 0 && days !== 0) {
-    result += ` ${""and"} `;
+    result += ` ${"and"} `;
   }
 
   if (days !== 0) {

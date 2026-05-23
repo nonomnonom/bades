@@ -79,23 +79,23 @@ export const EmailComposerFields = ({
         />
         {!composerState.showCcBcc && (
           <StyledCcBccToggle onClick={() => composerState.setShowCcBcc(true)}>
-            {""Cc/Bcc"}
+            {"Cc/Bcc"}
           </StyledCcBccToggle>
         )}
       </StyledToRow>
       {composerState.showCcBcc && (
         <>
           <FormMultiTextFieldInput
-            label={""Cc"}
+            label={"Cc"}
             defaultValue=""
             onChange={composerState.setCc}
-            placeholder={""Cc"}
+            placeholder={"Cc"}
           />
           <FormMultiTextFieldInput
-            label={""Bcc"}
+            label={"Bcc"}
             defaultValue=""
             onChange={composerState.setBcc}
-            placeholder={""Bcc"}
+            placeholder={"Bcc"}
           />
         </>
       )}

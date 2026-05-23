@@ -105,7 +105,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
           return {
             label: isDefined(layout)
               ? t`${layout.name} layout`
-              : ""Page layout",
+              : "Page layout",
             displayName: layout?.name,
           };
         }
@@ -119,7 +119,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
           };
         }
         case 'RECORD':
-          return { label: ""Record", displayName: ""Record" };
+          return { label: "Record", displayName: "Record" };
         default:
           return { label: undefined, displayName: undefined };
       }
@@ -179,7 +179,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
     const parts: string[] = [];
 
     if (provider.type === 'oauth') {
-      parts.push(""OAuth 2.0");
+      parts.push("OAuth 2.0");
       const scopeCount = provider.oauth.scopes.length;
       if (scopeCount > 0) {
         parts.push(scopeCount === 1 ? "1 cakupan" : t`${scopeCount} scopes`);

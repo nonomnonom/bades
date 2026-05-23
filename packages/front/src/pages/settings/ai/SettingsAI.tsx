@@ -108,7 +108,7 @@ export const SettingsAI = () => {
 
   return (
     <SubMenuTopBarContainer
-      title={""AI"}
+      title={"AI"}
       actionButton={
         isSkillsTab ? (
           <UndecoratedLink to={getSettingsPath(SettingsPath.AiNewSkill)}>
@@ -135,7 +135,7 @@ export const SettingsAI = () => {
           children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: ""AI" },
+        { children: "AI" },
       ]}
     >
       <SettingsPageContainer>

@@ -143,7 +143,7 @@ describe('parseAndValidateVariableFriendlyStringifiedJson', () => {
   describe('Edge cases', () => {
     it('should accept empty string key', () => {
       const result =
-        parseAndValidateVariableFriendlyStringifiedJson('{"": "value"}');
+        parseAndValidateVariableFriendlyStringifiedJson('{": "value"}');
 
       expect(result.isValid).toBe(true);
       expect(result.data).toEqual({ '': 'value' });

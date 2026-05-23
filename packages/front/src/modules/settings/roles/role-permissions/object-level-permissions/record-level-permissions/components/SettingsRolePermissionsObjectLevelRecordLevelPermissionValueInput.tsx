@@ -217,7 +217,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionValueInput =
             </StyledReadOnlyInput>
             <StyledIconContainer
               onClick={handleResetToStaticValue}
-              aria-label={""Reset to static value"}
+              aria-label={"Reset to static value"}
             >
               <IconEraser size={theme.icon.size.sm} />
             </StyledIconContainer>

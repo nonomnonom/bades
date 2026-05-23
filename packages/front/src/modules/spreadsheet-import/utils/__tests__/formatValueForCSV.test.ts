@@ -6,8 +6,8 @@ describe('formatValueForCSV', () => {
   });
 
   it('should format array or JSON values', () => {
-    expect(formatValueForCSV(['test', 'test'])).toBe('"[""test"",""test""]"');
-    expect(formatValueForCSV({ test: 'test' })).toBe('"{""test"":""test""}"');
+    expect(formatValueForCSV(['test', 'test'])).toBe('"["test"","test""]"');
+    expect(formatValueForCSV({ test: 'test' })).toBe('"{"test"":"test""}"');
   });
 
   it('should format null values', () => {

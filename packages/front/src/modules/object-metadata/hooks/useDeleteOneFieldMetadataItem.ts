@@ -82,7 +82,7 @@ export const useDeleteOneFieldMetadataItem = () => {
           operationType: CrudOperationType.DELETE,
         });
       } else {
-        enqueueErrorSnackBar({ message: ""An error occurred." });
+        enqueueErrorSnackBar({ message: "An error occurred." });
       }
 
       return {

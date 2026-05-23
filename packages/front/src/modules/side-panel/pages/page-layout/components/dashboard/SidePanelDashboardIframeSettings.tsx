@@ -91,7 +91,7 @@ export const SidePanelDashboardIframeSettings = () => {
           <SidePanelGroup heading={t`URL untuk Ditanamkan`}>
             <SidePanelGroupFormContainer>
               <FormTextFieldInput
-                placeholder={""https://example.com/embed"}
+                placeholder={"https://example.com/embed"}
                 defaultValue={url}
                 onChange={handleUrlChange}
                 error={urlError}

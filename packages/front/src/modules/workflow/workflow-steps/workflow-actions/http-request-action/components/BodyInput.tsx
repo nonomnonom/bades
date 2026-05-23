@@ -166,9 +166,9 @@ export const BodyInput = ({
       <StyledSelectDropdownContainer>
         <Select
           options={[
-            { label: ""Key/Value", value: BODY_TYPES.KEY_VALUE, Icon: IconKey },
+            { label: "Key/Value", value: BODY_TYPES.KEY_VALUE, Icon: IconKey },
             {
-              label: ""Raw JSON",
+              label: "Raw JSON",
               value: BODY_TYPES.RAW_JSON,
               Icon: IconFileText,
             },

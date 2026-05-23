@@ -15,7 +15,7 @@ export const ClientConfigProvider: React.FC<React.PropsWithChildren> = ({
       resetErrorBoundary={() => {
         window.location.reload();
       }}
-      title={""Unable to Reach Back-end"}
+      title={"Unable to Reach Back-end"}
     />
   ) : (
     children
