@@ -22,13 +22,17 @@ type SeedUsersArgs = {
 
 export const seedUsers = async ({ queryRunner, schemaName }: SeedUsersArgs) => {
   const originalUsers = [
+    // Bades dev convention: passwordHash = bcrypt(email) untuk 4 perangkat
+    // desa. Jadi password untuk login dev adalah email itu sendiri
+    // (mis. kades@sukamaju.desa.id login dengan password 'kades@sukamaju.desa.id').
+    // Pakai akun ini hanya di lingkungan dev/staging — production wajib reset.
     {
       id: USER_DATA_SEED_IDS.KADES,
       firstName: 'Drs.',
       lastName: 'H. Abdullah',
       email: 'kades@sukamaju.desa.id',
       passwordHash:
-        '$2b$10$3LwXjJRtLsfx4hLuuXhxt.3mWgismTiZFCZSG3z9kDrSfsrBl0fT6',
+        '$2b$10$UL7tCkjw6M/8xJ5kBc.P8.ZuJ.fHQ9.OhGM4iaE.Hpeo389h94j5O',
       canImpersonate: true,
       canAccessFullAdminPanel: true,
       isEmailVerified: true,
@@ -39,7 +43,7 @@ export const seedUsers = async ({ queryRunner, schemaName }: SeedUsersArgs) => {
       lastName: 'Hidayat',
       email: 'sekdes@sukamaju.desa.id',
       passwordHash:
-        '$2b$10$3LwXjJRtLsfx4hLuuXhxt.3mWgismTiZFCZSG3z9kDrSfsrBl0fT6',
+        '$2b$10$RdbbuC69dAklJwttSmfxl.zPuu9p8u3nzI7BF1FMY.oZErWQdNDOu',
       canImpersonate: true,
       canAccessFullAdminPanel: true,
       isEmailVerified: true,
@@ -50,7 +54,7 @@ export const seedUsers = async ({ queryRunner, schemaName }: SeedUsersArgs) => {
       lastName: 'Lestari',
       email: 'kaur@sukamaju.desa.id',
       passwordHash:
-        '$2b$10$3LwXjJRtLsfx4hLuuXhxt.3mWgismTiZFCZSG3z9kDrSfsrBl0fT6',
+        '$2b$10$WXZ4.cIN11pa.536L99FDe7eL8atoQzlYaVK65Iw1MV19tDC.QeuG',
       canImpersonate: true,
       canAccessFullAdminPanel: true,
       isEmailVerified: true,
@@ -61,7 +65,7 @@ export const seedUsers = async ({ queryRunner, schemaName }: SeedUsersArgs) => {
       lastName: 'Wijaya',
       email: 'kasi@sukamaju.desa.id',
       passwordHash:
-        '$2b$10$3LwXjJRtLsfx4hLuuXhxt.3mWgismTiZFCZSG3z9kDrSfsrBl0fT6',
+        '$2b$10$yDjcBv2PVZyNu5PX5oT3QePkQgIDQ0n.h1Ap/vLBc5XBjaICS6yAe',
       canImpersonate: true,
       canAccessFullAdminPanel: true,
       isEmailVerified: true,
