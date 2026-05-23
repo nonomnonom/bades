@@ -126,3 +126,96 @@ jobs:
 
       - name: Test front (unit)
         run: npx nx test front
+
+  integration-test:
+    name: Integration tests (server)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+      clickhouse:
+        image: clickhouse/clickhouse-server:25.8.8
+        env:
+          CLICKHOUSE_PASSWORD: clickhousePassword
+          CLICKHOUSE_URL: 'http://default:clickhousePassword@localhost:8123/bades'
+        ports:
+          - 8123:8123
+          - 9000:9000
+        options: >-
+          --health-cmd "clickhouse-client --host=localhost --port=9000 --user=default --password=clickhousePassword --query='SELECT 1'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      NODE_ENV: test
+      ANALYTICS_ENABLED: 'true'
+      CLICKHOUSE_URL: 'http://default:clickhousePassword@localhost:8123/bades'
+      CLICKHOUSE_PASSWORD: clickhousePassword
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Yarn install
+        uses: ./.github/actions/yarn-install
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Build shared and emails
+        run: |
+          npx nx build shared
+          npx nx build emails
+
+      - name: Build server
+        run: npx nx build server
+
+      - name: Prepare .env.test for integration tests
+        working-directory: packages/server
+        run: |
+          # Tambahkan flag billing dan redirect link netral (Midtrans-first; tidak
+          # ada credential Stripe yang masih dipakai di test path)
+          echo "" >> .env.test
+          echo "IS_BILLING_ENABLED=true" >> .env.test
+          echo "BILLING_PLAN_REQUIRED_LINK=http://localhost:3001/billing-redirection" >> .env.test
+
+      - name: Create test database
+        run: |
+          PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
+
+      - name: Init schema + run migrations (test DB)
+        working-directory: packages/server
+        env:
+          NODE_ENV: test
+          PG_DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
+        run: |
+          # .env.test sudah punya PG_DATABASE_URL=...test; copy ke .env supaya
+          # subprocess Nx/Nest yang dispawn oleh `database:init` membaca DB yang
+          # sama persis dengan integration test runtime.
+          cp .env.test .env
+          cd ../..
+          npx nx run server:database:init
+
+      - name: Run ClickHouse migrations
+        run: npx nx clickhouse:migrate server
+
+      - name: Run ClickHouse seeds
+        run: npx nx clickhouse:seed server
+
+      - name: Run integration tests (with DB reset)
+        env:
+          NODE_ENV: test
+          PG_DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
+        run: npx nx run server:test:integration:with-db-reset
