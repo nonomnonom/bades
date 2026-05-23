@@ -1553,5 +1553,22 @@
         "maxOutputTokens": 8192
       }
     ]
+  },
+  "openrouter": {
+    "npm": "@ai-sdk/openai-compatible",
+    "label": "Bades AI",
+    "apiKey": "{{OPENROUTER_API_KEY}}",
+    "baseURL": "https://openrouter.ai/api/v1",
+    "models": [
+      {
+        "name": "tencent/hy3-preview",
+        "label": "Bades AI",
+        "modelFamily": "GPT",
+        "inputCostPerMillionTokens": 0.5,
+        "outputCostPerMillionTokens": 2,
+        "contextWindowTokens": 128000,
+        "maxOutputTokens": 32000
+      }
+    ]
   }
 }
