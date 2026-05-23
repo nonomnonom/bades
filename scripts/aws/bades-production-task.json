@@ -1,0 +1,67 @@
+{
+  "family": "bades-production-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::256269125062:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::256269125062:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "bades",
+      "image": "256269125062.dkr.ecr.ap-southeast-3.amazonaws.com/bades:placeholder",
+      "essential": true,
+      "portMappings": [
+        { "containerPort": 3000, "protocol": "tcp" }
+      ],
+      "healthCheck": {
+        "command": ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/healthz || exit 1"],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      },
+      "environment": [
+        { "name": "NODE_ENV", "value": "production" },
+        { "name": "NODE_PORT", "value": "3000" },
+        { "name": "SERVER_URL", "value": "https://app.bades.id" },
+        { "name": "FRONTEND_URL", "value": "https://app.bades.id" },
+        { "name": "IS_MULTIWORKSPACE_ENABLED", "value": "true" },
+        { "name": "DEFAULT_SUBDOMAIN", "value": "app" },
+        { "name": "IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS", "value": "true" },
+        { "name": "STORAGE_TYPE", "value": "s3" },
+        { "name": "STORAGE_S3_REGION", "value": "ap-southeast-3" },
+        { "name": "STORAGE_S3_NAME", "value": "bades-prod-assets" },
+        { "name": "IS_BILLING_ENABLED", "value": "true" },
+        { "name": "IS_BILLING_MIDTRANS_ENABLED", "value": "true" },
+        { "name": "MIDTRANS_IS_PRODUCTION", "value": "true" },
+        { "name": "EMAIL_DRIVER", "value": "smtp" },
+        { "name": "IS_EMAIL_VERIFICATION_REQUIRED", "value": "true" },
+        { "name": "LOGGER_DRIVER", "value": "CONSOLE" },
+        { "name": "LOG_LEVELS", "value": "error,warn" },
+        { "name": "APPLICATION_LOG_DRIVER", "value": "CONSOLE" },
+        { "name": "EXCEPTION_HANDLER_DRIVER", "value": "sentry" },
+        { "name": "SENTRY_ENVIRONMENT", "value": "production" },
+        { "name": "API_RATE_LIMITING_TTL", "value": "60" },
+        { "name": "API_RATE_LIMITING_LIMIT", "value": "120" },
+        { "name": "HTTP_TOOL_SAFE_MODE_ENABLED", "value": "true" }
+      ],
+      "secrets": [
+        { "name": "APP_SECRET",          "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/APP_SECRET" },
+        { "name": "PG_DATABASE_URL",     "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/PG_DATABASE_URL" },
+        { "name": "REDIS_URL",           "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/REDIS_URL" },
+        { "name": "MIDTRANS_SERVER_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/MIDTRANS_SERVER_KEY" },
+        { "name": "MIDTRANS_CLIENT_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/MIDTRANS_CLIENT_KEY" },
+        { "name": "OPENROUTER_API_KEY",  "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/production/OPENROUTER_API_KEY" }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/bades-production",
+          "awslogs-region": "ap-southeast-3",
+          "awslogs-stream-prefix": "bades"
+        }
+      }
+    }
+  ]
+}

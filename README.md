@@ -68,26 +68,32 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 - NestJS, BullMQ, PostgreSQL, Redis
 - React, Jotai, Linaria
 
-## Deploy ke AWS App Runner
+## Deploy ke AWS ECS Fargate (Jakarta)
 
-Panduan lengkap ada di [`.github/DEPLOY.md`](./.github/DEPLOY.md).
-Ringkas, hanya 3 langkah untuk first deploy:
+Bades dideploy ke **AWS ECS Fargate region `ap-southeast-3` (Jakarta)**
+di belakang Application Load Balancer dengan host-based routing
+(`staging.bades.id` dan `app.bades.id`). Panduan lengkap di
+[`.github/DEPLOY.md`](./.github/DEPLOY.md). Ringkas, 3 langkah untuk first
+deploy:
 
 1. **Setup AWS** — jalankan sekali dari mesin operator yang sudah
    `aws configure`:
    ```bash
-   AWS_REGION=ap-southeast-1 bash scripts/setup-aws-bades.sh
+   AWS_REGION=ap-southeast-3 bash scripts/setup-aws-bades.sh
    ```
-   Script ini membuat ECR repo `bades-staging` + `bades`, IAM policy
-   `BadesDeployPolicy`, IAM user `bades-ci`, dan mencetak access key.
-2. **Isi GitHub Secrets** — di Settings → Environments (`staging` dan
-   `production`), isi 7 secret: `AWS_ACCESS_KEY_ID`,
-   `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`,
-   `AWS_ECR_STAGING_REPOSITORY_URI`,
-   `AWS_ECR_PRODUCTION_REPOSITORY_URI`,
-   `AWS_APPRUNNER_STAGING_SERVICE_ARN`,
-   `AWS_APPRUNNER_PRODUCTION_SERVICE_ARN`. Untuk env var App Runner,
-   pakai [`packages/server/.env.staging.example`](./packages/server/.env.staging.example)
+   Script idempotent ini membuat VPC + subnets + security groups, ECR
+   repo `bades`, ALB + 2 target group + listener, IAM roles
+   (`ecsTaskExecutionRole`, `ecsTaskRole`), IAM user `bades-ci`, ECS
+   cluster `bades-cluster`, 2 ECS service (`bades-staging-service`
+   desired=1, `bades-production-service` desired=2), template task
+   definition di `scripts/aws/`, lalu mencetak access key.
+2. **Isi GitHub Secrets + AWS Secrets Manager** — di Settings →
+   Environments (`staging` dan `production`), isi 9+ secret
+   (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`,
+   `AWS_ECR_REPOSITORY_URI`, `AWS_ECS_*`, `AWS_ALB_DNS`). Untuk env var
+   sensitif (DB URL, APP_SECRET, Midtrans, OpenRouter), buat entry di
+   AWS Secrets Manager prefix `bades/<env>/<KEY>`. Pakai
+   [`packages/server/.env.staging.example`](./packages/server/.env.staging.example)
    dan [`packages/server/.env.production.example`](./packages/server/.env.production.example)
    sebagai checklist.
 3. **Push** — `git push origin staging` untuk deploy staging,
