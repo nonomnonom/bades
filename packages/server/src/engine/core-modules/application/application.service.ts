@@ -318,6 +318,25 @@ export class ApplicationService {
     },
     queryRunner?: QueryRunner,
   ) {
+    // Bades: guard idempoten — jika Standard application sudah ada untuk
+    // workspace ini, kembalikan baris existing alih-alih insert. Mencegah
+    // duplicate-key crash saat dev seed dijalankan ulang dan
+    // synchronizeBadesStandardApplicationOrThrow di production flow tetap
+    // bisa update file paket setelah ini.
+    const repo = queryRunner
+      ? queryRunner.manager.getRepository(ApplicationEntity)
+      : this.applicationRepository;
+    const existing = await repo.findOne({
+      where: {
+        workspaceId,
+        universalIdentifier: BADES_STANDARD_APPLICATION.universalIdentifier,
+      },
+    });
+
+    if (isDefined(existing)) {
+      return existing;
+    }
+
     const defaultPackageFields = await getDefaultApplicationPackageFields();
 
     const badesStandardApplication = await this.create(

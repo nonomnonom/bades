@@ -154,10 +154,10 @@ export const ConfigVariableEdit = ({
           )}
           <ConfirmationModal
             modalInstanceId={RESET_VARIABLE_MODAL_ID}
-            title={t`Reset variabel`}
-            subtitle={t`Apakah Anda yakin ingin mereset variabel ini?`}
+            title={t`Setel ulang variabel`}
+            subtitle={t`Apakah Anda yakin ingin menyetel ulang variabel ini?`}
             onConfirmClick={handleConfirmReset}
-            confirmButtonText={t`Reset`}
+            confirmButtonText={t`Setel ulang`}
             confirmButtonAccent="danger"
           />
         </StyledRow>

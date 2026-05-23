@@ -172,7 +172,11 @@ export const BodyInput = ({
               value: BODY_TYPES.RAW_JSON,
               Icon: IconFileText,
             },
-            { label: t`Form Data`, value: BODY_TYPES.FORM_DATA, Icon: IconKey },
+            {
+              label: t`Data Formulir`,
+              value: BODY_TYPES.FORM_DATA,
+              Icon: IconKey,
+            },
             { label: t`Teks`, value: BODY_TYPES.TEXT, Icon: IconFileText },
             { label: t`Kosong`, value: BODY_TYPES.NONE, Icon: IconFileText },
           ]}

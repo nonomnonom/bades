@@ -1,5 +1,5 @@
 import { useComposeEmailForTargetRecord } from '@/activities/emails/hooks/useComposeEmailForTargetRecord';
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconMail } from 'ui/display';
 import { Button } from 'ui/input';
 import {
@@ -23,10 +23,10 @@ export const EmptyInboxPlaceholder = () => {
       <AnimatedPlaceholder type="emptyInbox" />
       <AnimatedPlaceholderEmptyTextContainer>
         <AnimatedPlaceholderEmptyTitle>
-          <Trans>Kotak Masuk Kosong</Trans>
+          Kotak Masuk Kosong
         </AnimatedPlaceholderEmptyTitle>
         <AnimatedPlaceholderEmptySubTitle>
-          <Trans>Belum ada pertukaran email dengan data ini.</Trans>
+          Belum ada pertukaran email dengan data ini.
         </AnimatedPlaceholderEmptySubTitle>
       </AnimatedPlaceholderEmptyTextContainer>
       <Button

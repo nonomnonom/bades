@@ -68,9 +68,3 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 - NestJS, BullMQ, PostgreSQL, Redis
 - React, Jotai, Linaria
 
-## Provenance
-
-Engine Bades dibangun di atas fork teknis dari proyek Twenty. Identifier
-internal tertentu masih mempertahankan penamaan legacy untuk menjaga
-kompatibilitas. Identitas produk publik Bades berdiri sendiri dan tidak
-diceritakan sebagai turunan rebrand.

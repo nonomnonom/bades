@@ -180,7 +180,7 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
         {
           // Update/release center adalah workflow operasional tim Bades, bukan
           // bagian dari pengalaman pengguna balai desa pada layanan terkelola.
-          label: t`Updates`,
+          label: t`Pembaruan`,
           path: SettingsPath.Updates,
           Icon: IconRocket,
           isHidden: true,

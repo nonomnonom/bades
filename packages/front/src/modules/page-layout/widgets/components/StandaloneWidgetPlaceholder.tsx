@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { Trans } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 import {
   AnimatedPlaceholder,
@@ -31,10 +30,10 @@ export const StandaloneWidgetPlaceholder = () => {
         <AnimatedPlaceholder type="noWidgets" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            <Trans>Belum ada konten</Trans>
+            Belum ada konten
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            <Trans>Halaman ini belum memiliki konten</Trans>
+            Halaman ini belum memiliki konten
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

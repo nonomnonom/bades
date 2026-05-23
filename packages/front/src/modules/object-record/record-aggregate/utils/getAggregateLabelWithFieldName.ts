@@ -16,5 +16,5 @@ export const getAggregateLabelWithFieldName = ({
 
   const fieldLabel = aggregateFieldMetadataItem.label;
 
-  return t`${aggregateLabel} of ${fieldLabel}`;
+  return t`${aggregateLabel} ${fieldLabel}`;
 };

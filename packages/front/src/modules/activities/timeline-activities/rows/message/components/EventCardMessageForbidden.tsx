@@ -1,6 +1,5 @@
 import { EventCardMessageBodyNotShared } from '@/activities/timeline-activities/rows/message/components/EventCardMessageBodyNotShared';
 import { styled } from '@linaria/react';
-import { Trans } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledEventCardMessageContainer = styled.div`
@@ -33,9 +32,7 @@ export const EventCardMessageForbidden = ({
   return (
     <StyledEventCardMessageContainer>
       <StyledEmailContent>
-        <StyledEmailTitle>
-          <Trans>Subjek tidak dibagikan</Trans>
-        </StyledEmailTitle>
+        <StyledEmailTitle>Subjek tidak dibagikan</StyledEmailTitle>
         <EventCardMessageBodyNotShared
           notSharedByFullName={notSharedByFullName}
         />

@@ -1,4 +1,3 @@
-import { Trans } from '~/utils/i18n/badesI18n';
 import { RECORD_TABLE_ROW_HEIGHT } from '@/object-record/record-table/constants/RecordTableRowHeight';
 import { useAggregateRecordsForRecordTableColumnFooter } from '@/object-record/record-table/record-table-footer/hooks/useAggregateRecordsForRecordTableColumnFooter';
 import { styled } from '@linaria/react';
@@ -69,9 +68,7 @@ export const RecordTableColumnAggregateFooterValue = ({
           )}
         </StyledValueContainer>
       ) : (
-        <StyledText id={sanitizedId}>
-          <Trans>Hitung</Trans>
-        </StyledText>
+        <StyledText id={sanitizedId}>Hitung</StyledText>
       )}
     </>
   );

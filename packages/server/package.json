@@ -1,7 +1,7 @@
 {
   "name": "server",
-  "description": "",
-  "author": "",
+  "description": "Backend API & worker Bades — sistem informasi desa Indonesia.",
+  "author": "Tim Bades",
   "private": true,
   "scripts": {
     "nx": "NX_DEFAULT_PROJECT=server node ../../node_modules/nx/bin/nx.js",

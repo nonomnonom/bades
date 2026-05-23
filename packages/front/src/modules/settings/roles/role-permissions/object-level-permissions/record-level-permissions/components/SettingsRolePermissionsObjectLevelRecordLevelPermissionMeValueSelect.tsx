@@ -260,12 +260,12 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
     const fieldTypeLabelLowercase = fieldTypeLabel?.toLowerCase() ?? '';
 
     const headerText = fieldTypeLabel
-      ? t`Select 1 ${fieldTypeLabelLowercase} field`
-      : 'Select 1 field';
+      ? t`Pilih 1 field ${fieldTypeLabelLowercase}`
+      : 'Pilih 1 field';
 
     const placeholderText = fieldTypeLabel
-      ? t`Search 1 ${fieldTypeLabelLowercase} field`
-      : 'Search 1 field';
+      ? t`Cari 1 field ${fieldTypeLabelLowercase}`
+      : 'Cari 1 field';
 
     return (
       <DropdownContent widthInPixels={GenericDropdownContentWidth.Medium}>

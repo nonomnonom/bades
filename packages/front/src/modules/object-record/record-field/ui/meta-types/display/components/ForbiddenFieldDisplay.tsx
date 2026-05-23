@@ -1,4 +1,3 @@
-import { Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
 import { IconLock } from 'ui/display';
@@ -27,7 +26,7 @@ export const ForbiddenFieldDisplay = () => {
   return (
     <StyledContainer>
       <IconLock size={theme.icon.size.sm} />
-      <Trans>Tidak dibagikan</Trans>
+      Tidak dibagikan
     </StyledContainer>
   );
 };
