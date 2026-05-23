@@ -8,7 +8,6 @@ import { ClientConfigService } from 'src/engine/core-modules/client-config/servi
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
 import { PUBLIC_FEATURE_FLAGS } from 'src/engine/core-modules/feature-flag/constants/public-feature-flag.const';
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
-import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
 import { MaintenanceModeService } from 'src/engine/core-modules/admin-panel/maintenance-mode.service';
 
 describe('ClientConfigService', () => {
@@ -30,17 +29,6 @@ describe('ClientConfigService', () => {
           provide: DomainServerConfigService,
           useValue: {
             getFrontUrl: jest.fn(),
-          },
-        },
-        {
-          provide: AiModelRegistryService,
-          useValue: {
-            getAdminFilteredModels: jest.fn().mockReturnValue([]),
-            getRecommendedModelIds: jest.fn().mockReturnValue(new Set()),
-            getModelConfig: jest.fn().mockReturnValue(undefined),
-            getResolvedProvidersForAdmin: jest.fn().mockReturnValue({}),
-            getDefaultSpeedModel: jest.fn().mockReturnValue(undefined),
-            getDefaultPerformanceModel: jest.fn().mockReturnValue(undefined),
           },
         },
         {
@@ -132,7 +120,6 @@ describe('ClientConfigService', () => {
             },
           ],
         },
-        aiModels: [],
         authProviders: {
           google: true,
           magicLink: false,
@@ -192,7 +179,6 @@ describe('ClientConfigService', () => {
       const result = await service.getClientConfig();
 
       expect(result.canManageFeatureFlags).toBe(false);
-      expect(result.aiModels).toEqual([]);
     });
 
     it('should handle missing captcha driver', async () => {
@@ -209,7 +195,6 @@ describe('ClientConfigService', () => {
 
       expect(result.captcha.provider).toBeUndefined();
       expect(result.captcha.siteKey).toBe('site-key');
-      expect(result.aiModels).toEqual([]);
     });
 
     it('should handle missing support driver', async () => {
@@ -224,7 +209,6 @@ describe('ClientConfigService', () => {
       const result = await service.getClientConfig();
 
       expect(result.support.supportDriver).toBe(SupportDriver.NONE);
-      expect(result.aiModels).toEqual([]);
     });
 
     it('should handle billing enabled with feature flags', async () => {

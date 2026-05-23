@@ -3,7 +3,6 @@ import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import {
   IconApps,
-  IconCode,
   IconCreditCard,
   IconHierarchy,
   IconKey,
@@ -38,16 +37,10 @@ export const useSettingsRolePermissionFlagConfig = ({
   const hasAssignmentCapabilities = assignmentCapabilities !== undefined;
 
   return useMemo(() => {
+    // Surface API key & webhook untuk perangkat desa sudah dihapus, jadi opsi
+    // toggle-nya tidak ditampilkan di UI role permission. Flag tetap ada di
+    // backend untuk kebutuhan internal tim Bades.
     const allPermissions: SettingsRolePermissionsSettingPermission[] = [
-      {
-        key: PermissionFlagType.API_KEYS_AND_WEBHOOKS,
-        name: t`Kunci API & Webhook`,
-        description: t`Kelola kunci API dan webhook`,
-        Icon: IconCode,
-        isRelevantForAgents: true,
-        isRelevantForApiKeys: true,
-        isRelevantForUsers: true,
-      },
       {
         key: PermissionFlagType.WORKSPACE,
         name: t`Ruang Kerja`,
