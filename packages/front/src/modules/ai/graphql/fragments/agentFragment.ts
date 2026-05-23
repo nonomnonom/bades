@@ -8,11 +8,9 @@ export const AGENT_FRAGMENT = gql`
     description
     icon
     prompt
-    modelId
     responseFormat
     roleId
     isCustom
-    modelConfiguration
     evaluationInputs
     applicationId
     createdAt

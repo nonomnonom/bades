@@ -196,7 +196,7 @@ export const BackgroundMockTable = () => {
           <StyledFooterCheckboxColumn />
           <StyledFooterCell width={BACKGROUND_MOCK_COLUMNS[0].width}>
             <StyledFooterLabel>
-              <OverflowingTextWithTooltip text="Calculate" />
+              <OverflowingTextWithTooltip text="Hitung" />
             </StyledFooterLabel>
             <IconChevronDown
               size={theme.icon.size.sm}
@@ -205,7 +205,7 @@ export const BackgroundMockTable = () => {
           </StyledFooterCell>
           <StyledFooterCell width={BACKGROUND_MOCK_COLUMNS[1].width}>
             <StyledFooterLabel>
-              <OverflowingTextWithTooltip text="Count all" />
+              <OverflowingTextWithTooltip text="Jumlah semua" />
             </StyledFooterLabel>
             <StyledFooterValue>599</StyledFooterValue>
           </StyledFooterCell>
@@ -214,13 +214,13 @@ export const BackgroundMockTable = () => {
           <StyledFooterCell width={BACKGROUND_MOCK_COLUMNS[4].width} />
           <StyledFooterCell width={BACKGROUND_MOCK_COLUMNS[5].width}>
             <StyledFooterLabel>
-              <OverflowingTextWithTooltip text="Max of Employees" />
+              <OverflowingTextWithTooltip text="Maksimum Anggota" />
             </StyledFooterLabel>
             <StyledFooterValue>284,571</StyledFooterValue>
           </StyledFooterCell>
           <StyledFooterCell width={BACKGROUND_MOCK_COLUMNS[6].width}>
             <StyledFooterLabel>
-              <OverflowingTextWithTooltip text="Not empty of Address" />
+              <OverflowingTextWithTooltip text="Terisi pada Alamat" />
             </StyledFooterLabel>
             <StyledFooterValue>599</StyledFooterValue>
           </StyledFooterCell>

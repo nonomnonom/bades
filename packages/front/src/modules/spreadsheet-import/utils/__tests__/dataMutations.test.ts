@@ -110,7 +110,7 @@ describe('addErrorsAndRunHooks', () => {
     level: 'error',
   };
   const requiredError: SpreadsheetImportInfo = {
-    message: 'Field is required',
+    message: 'Field wajib diisi',
     level: 'error',
   };
   const duplicatedError: SpreadsheetImportInfo = {

@@ -1,0 +1,128 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Yarn install
+        uses: ./.github/actions/yarn-install
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Build shared
+        run: npx nx build shared
+
+      - name: Build ui
+        run: npx nx build ui
+
+      - name: Build sdk
+        run: npx nx build sdk
+
+      - name: Build server
+        run: npx nx build server
+
+      - name: Build front
+        run: npx nx build front
+
+      - name: Build emails
+        run: npx nx build emails
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Yarn install
+        uses: ./.github/actions/yarn-install
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Build oxlint-rules plugin
+        run: npx nx build oxlint-rules
+
+      - name: Lint server
+        run: npx nx lint server
+
+      - name: Lint front
+        run: npx nx lint front
+
+      - name: Format check server
+        run: npx nx fmt server
+
+      - name: Format check front
+        run: npx nx fmt front
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Yarn install
+        uses: ./.github/actions/yarn-install
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Typecheck shared
+        run: npx nx typecheck shared
+
+      - name: Typecheck server
+        run: npx nx typecheck server
+
+      - name: Typecheck front
+        run: npx nx typecheck front
+
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LANG: id_ID.UTF-8
+      LC_ALL: id_ID.UTF-8
+      TZ: Asia/Jakarta
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Install Indonesian locale
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y locales
+          sudo locale-gen id_ID.UTF-8
+          sudo update-locale LANG=id_ID.UTF-8 LC_ALL=id_ID.UTF-8
+
+      - name: Yarn install
+        uses: ./.github/actions/yarn-install
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Build shared
+        run: npx nx build shared
+
+      - name: Test server (unit)
+        run: npx nx test server
+
+      - name: Test front (unit)
+        run: npx nx test front

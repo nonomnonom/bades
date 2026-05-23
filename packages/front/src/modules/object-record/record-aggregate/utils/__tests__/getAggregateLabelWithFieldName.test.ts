@@ -14,6 +14,6 @@ describe('getAggregateLabelWithFieldName', () => {
         aggregateFieldMetadataItem: mockFieldMetadataItem,
         aggregateOperation: AggregateOperations.COUNT,
       }),
-    ).toBe('Semua of Name');
+    ).toBe('Semua Name');
   });
 });

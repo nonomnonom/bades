@@ -57,7 +57,7 @@ Buka AWS Console → App Runner → Create Service.
    IS_BILLING_ENABLED=true
    ```
 7. **Auto-scaling**: default (scale to 0 aktif)
-8. **Health check**: path `/health` atau port `2020`
+8. **Health check**: path `/healthz`, port `2020`, protocol `HTTP`
 
 ### Konfigurasi untuk PRODUCTION
 
@@ -161,17 +161,7 @@ Cek di GitHub Actions tab untuk progress.
 
 ---
 
-## Deployment Triggers
-
-| Trigger | Target | Contoh |
-|---------|--------|--------|
-| Push ke `staging` branch | Staging | `git push origin staging` |
-| Push tag `v*.*.*` | Production | `git tag v1.0.0 && git push origin v1.0.0` |
-| Manual via GitHub Actions UI | Staging atau Production | Actions → "Deploy to AWS App Runner" → Run workflow |
-
----
-
-## Estimasi Biaya Bulanan (App Runner all-in-one)
+## Estimasi Biaya Bulanan (App Runner)
 
 | Komponen | Biaya |
 |----------|-------|
@@ -205,7 +195,7 @@ Ganti environment variable di App Runner service:
 
 ---
 
-## Arsitektur到最后
+## Arsitektur Akhir
 
 ```
 GitHub Actions (build + push)
@@ -214,15 +204,115 @@ GitHub Actions (build + push)
     ECR (bades-staging / bades)
         │
         ▼
-  AWS App Runner
-  (all-in-one container:
-   NestJS + worker +
-   PostgreSQL + Redis)
+  AWS App Runner (image target: bades-aws)
+   - NestJS API + worker + frontend statis
+   - DB & Redis di luar container (RDS / ElastiCache / managed)
         │
-        ├── Custom Domain
-        │     (Cloudflare)
+        ├── Custom Domain (Cloudflare CNAME)
         │
         └── HTTPS
               │
            Users (perangkat desa)
 ```
+
+---
+
+## Trigger Deployment
+
+| Trigger | Target | Catatan |
+|---------|--------|---------|
+| Push branch `staging` | Staging | Auto build + push + update App Runner staging |
+| Push branch `main` | (saat ini juga staging) | `main` masih ikut deploy-staging — kalau dirasa terlalu agresif, hilangkan `main` dari `on.push.branches` |
+| Push tag `v*.*.*` | Production | `git tag v1.0.0 && git push origin v1.0.0` |
+| `workflow_dispatch` | Pilih `staging`/`production` | Actions tab → "Deploy to AWS App Runner" → Run workflow |
+
+Tag image yang dipush ke ECR:
+- Staging: `staging-<sha>`
+- Production (dari tag): `v1.2.3` (apa adanya dari nama tag git)
+- Production (manual dispatch): `manual-<sha12>`
+
+---
+
+## Cara Rollback
+
+App Runner menyimpan riwayat deployment per service. Rollback dilakukan dengan
+mengarahkan service ke image-tag versi sebelumnya yang masih ada di ECR.
+
+```bash
+# 1. Daftar tag image yang tersedia di ECR
+aws ecr describe-images \
+  --repository-name bades \
+  --region ap-southeast-1 \
+  --query 'sort_by(imageDetails,&imagePushedAt)[*].imageTags' \
+  --output table
+
+# 2. Update service ke tag versi sebelumnya
+aws apprunner update-service \
+  --service-arn "$AWS_APPRUNNER_PRODUCTION_SERVICE_ARN" \
+  --image-uri "$ECR_URI:v1.1.0" \
+  --region ap-southeast-1
+
+# 3. Tunggu sampai stabil
+aws apprunner wait service-updated \
+  --service-arn "$AWS_APPRUNNER_PRODUCTION_SERVICE_ARN" \
+  --region ap-southeast-1
+```
+
+Alternatif: lewat Console → App Runner → service → Deployments → pilih revisi
+sebelumnya lalu "Redeploy".
+
+---
+
+## Monitoring
+
+- **CloudWatch Logs**: setiap service App Runner otomatis mengirim log ke
+  `application` dan `service` log group. Buka dari Console App Runner →
+  service → Logs.
+- **App Runner metrics**: Console App Runner → service → Metrics
+  (request count, latency p50/p99, 4xx/5xx, active instances).
+- **Health check**: `/healthz` di port `2020`. Bila gagal terus, App Runner
+  akan tandai deployment `FAILED`.
+- **Cost & usage**: AWS Billing → Cost Explorer, filter service `App Runner`
+  dan `EC2 Container Registry`.
+
+---
+
+## Rekomendasi Branding Pipeline GitHub (admin UI)
+
+Konfigurasi berikut dilakukan manual oleh admin repo GitHub karena memerlukan
+hak akses Settings dan tidak boleh di-otomasikan tanpa review:
+
+- **Branch protection `main`**: require pull request review, require status
+  checks `ci-server`, `ci-front`, `ci-ui`, `ci-shared`, `ci-emails`,
+  `lint`. Pastikan checks tersebut sudah stabil HIJAU minimal beberapa
+  PR terakhir sebelum dijadikan required.
+- **Environment `staging` dan `production`** di Settings → Environments,
+  isi GitHub secrets sesuai tabel di Step 3. `production` boleh diberi
+  required reviewer agar tag deploy minta approval manual.
+- **Secret scanning + push protection**: aktifkan di Settings → Code security.
+- **GITHUB_TOKEN default permissions**: set ke `read` di organisasi/repo.
+  Workflow ini sudah deklarasi `permissions:` minimal di level workflow.
+
+---
+
+## Status Audit (2026-05-23)
+
+Hasil audit terakhir oleh operator-github-bades:
+
+- Semua action third-party sudah pinned ke 40-char commit SHA hasil dari
+  GitHub API. Sebelumnya beberapa SHA tertulis bersifat fabricated (422 saat
+  divalidasi), termasuk `softprops/action-gh-release` yang sekarang dipin ke
+  `7b4da11513bf3f43f9999e90eabced41ab8bb048` (v2.2.0).
+- `DOCKER_TARGET` dikoreksi dari `bades-app-dev` (tidak ada di Dockerfile) ke
+  `bades-aws`.
+- Logika `IMAGE_TAG` produksi dipisah ke step `Compute image tag` agar tidak
+  menghasilkan tag invalid `refs/tags/v1.2.3`.
+- Endpoint healthcheck adalah `/healthz`, bukan `/health`.
+- `aws apprunner wait service-active` diganti ke `service-updated`
+  (waiter resmi App Runner CLI). Query `Service.Service.Url` dikoreksi ke
+  `Service.ServiceUrl`.
+
+Pipeline siap dijalankan setelah admin GitHub melengkapi:
+1. Secrets di environment `staging` dan `production`
+2. ECR repos + IAM user + policy sesuai Step 1–3
+3. App Runner services dengan healthcheck `/healthz`

@@ -97,7 +97,7 @@ export const addErrorsAndRunHooks = (
                   level: fieldValidationDefinition.level || 'error',
                   message:
                     fieldValidationDefinition.errorMessage ||
-                    'Field is required',
+                    'Field wajib diisi',
                 },
               };
             }

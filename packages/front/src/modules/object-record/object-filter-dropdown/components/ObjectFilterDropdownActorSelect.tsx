@@ -132,7 +132,7 @@ export const ObjectFilterDropdownActorSelect = ({
 
     const filterDisplayValue =
       numberOfSelectedItems > MAX_WORKSPACE_MEMBERS_TO_DISPLAY
-        ? t`${numberOfSelectedItems} workspace members`
+        ? t`${numberOfSelectedItems} anggota ruang kerja`
         : selectedItemNames.join(', ');
 
     const newFilterValue =

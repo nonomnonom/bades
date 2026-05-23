@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { Trans } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconLock } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
@@ -26,7 +25,7 @@ export const CalendarEventNotSharedContent = () => {
   return (
     <StyledContainer>
       <IconLock size={theme.icon.size.sm} />
-      <Trans>Tidak dibagikan</Trans>
+      Tidak dibagikan
     </StyledContainer>
   );
 };

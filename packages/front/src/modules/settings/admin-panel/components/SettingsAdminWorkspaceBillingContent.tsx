@@ -140,8 +140,8 @@ export const SettingsAdminWorkspaceBillingContent = ({
       <StyledContainer>
         <Section>
           <H2Title
-            title={t`Billing`}
-            description={t`Tidak ada data billing untuk workspace ini.`}
+            title={t`Tagihan`}
+            description={t`Tidak ada data tagihan untuk ruang kerja ini.`}
           />
         </Section>
       </StyledContainer>
