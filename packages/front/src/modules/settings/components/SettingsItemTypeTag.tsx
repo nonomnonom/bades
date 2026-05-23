@@ -22,15 +22,15 @@ export const SettingsItemTypeTag = ({
     return (
       <Chip
         className={className}
-        label="Remote"
+        label="Eksternal"
         variant={ChipVariant.Transparent}
         accent={ChipAccent.TextPrimary}
         leftComponent={
           <Avatar
             type="app"
             size="sm"
-            placeholder="Remote"
-            placeholderColorSeed="Remote"
+            placeholder="Eksternal"
+            placeholderColorSeed="Eksternal"
           />
         }
       />
