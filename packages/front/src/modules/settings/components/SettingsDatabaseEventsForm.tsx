@@ -1,4 +1,4 @@
-import { WebhookEntitySelect } from '@/settings/developers/components/WebhookEntitySelect';
+import { WebhookEntitySelect } from '@/settings/logic-functions/components/WebhookEntitySelect';
 import { Select } from '@/ui/input/components/Select';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { styled } from '@linaria/react';

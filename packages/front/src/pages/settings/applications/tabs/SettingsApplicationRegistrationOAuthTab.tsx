@@ -1,6 +1,6 @@
 import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
-import { ApiKeyInput } from '@/settings/developers/components/ApiKeyInput';
+import { ApiKeyInput } from '@/settings/applications/components/ApiKeyInput';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';

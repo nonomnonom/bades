@@ -8,22 +8,6 @@ import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { PermissionFlagType } from '~/generated-metadata/graphql';
 
-const SettingsGraphQLPlayground = lazy(() =>
-  import(
-    '~/pages/settings/developers/playground/SettingsGraphQLPlayground'
-  ).then((module) => ({
-    default: module.SettingsGraphQLPlayground,
-  })),
-);
-
-const SettingsRestPlayground = lazy(() =>
-  import('~/pages/settings/developers/playground/SettingsRestPlayground').then(
-    (module) => ({
-      default: module.SettingsRestPlayground,
-    }),
-  ),
-);
-
 const SettingsAccountsCalendars = lazy(() =>
   import('~/pages/settings/accounts/SettingsAccountsCalendars').then(
     (module) => ({
@@ -98,22 +82,6 @@ const SettingsObjectOverview = lazy(() =>
   ),
 );
 
-const SettingsDevelopersApiKeyDetail = lazy(() =>
-  import(
-    '~/pages/settings/developers/api-keys/SettingsDevelopersApiKeyDetail'
-  ).then((module) => ({
-    default: module.SettingsDevelopersApiKeyDetail,
-  })),
-);
-
-const SettingsDevelopersApiKeysNew = lazy(() =>
-  import(
-    '~/pages/settings/developers/api-keys/SettingsDevelopersApiKeysNew'
-  ).then((module) => ({
-    default: module.SettingsDevelopersApiKeysNew,
-  })),
-);
-
 const SettingsLogicFunctionDetail = lazy(() =>
   import('~/pages/settings/logic-functions/SettingsLogicFunctionDetail').then(
     (module) => ({
@@ -148,12 +116,6 @@ const SettingsCustomDomainPage = lazy(() =>
       default: module.SettingsCustomDomainPage,
     }),
   ),
-);
-
-const SettingsApiWebhooks = lazy(() =>
-  import('~/pages/settings/workspace/SettingsApiWebhooks').then((module) => ({
-    default: module.SettingsApiWebhooks,
-  })),
 );
 
 const SettingsAI = lazy(() =>
@@ -347,22 +309,6 @@ const SettingsUsageUserDetail = lazy(() =>
 const SettingsObjects = lazy(() =>
   import('~/pages/settings/data-model/SettingsObjects').then((module) => ({
     default: module.SettingsObjects,
-  })),
-);
-
-const SettingsDevelopersWebhookNew = lazy(() =>
-  import(
-    '~/pages/settings/developers/webhooks/components/SettingsDevelopersWebhookNew'
-  ).then((module) => ({
-    default: module.SettingsDevelopersWebhookNew,
-  })),
-);
-
-const SettingsDevelopersWebhookDetail = lazy(() =>
-  import(
-    '~/pages/settings/developers/webhooks/components/SettingsDevelopersWebhookDetail'
-  ).then((module) => ({
-    default: module.SettingsDevelopersWebhookDetail,
   })),
 );
 
@@ -636,10 +582,6 @@ export const SettingsRoutes = ({ isAdminPageEnabled }: SettingsRoutesProps) => (
           path={SettingsPath.EmailGroupChannelDetail}
           element={<SettingsWorkspaceEmailGroupChannelDetail />}
         />
-        <Route
-          path={SettingsPath.ApiWebhooks}
-          element={<SettingsApiWebhooks />}
-        />
         <Route path={SettingsPath.AI} element={<SettingsAI />} />
         <Route path={SettingsPath.AiPrompts} element={<SettingsAiPrompts />} />
         <Route
@@ -777,39 +719,6 @@ export const SettingsRoutes = ({ isAdminPageEnabled }: SettingsRoutesProps) => (
           element={<SettingsRoleAddObjectLevel />}
         />
       </Route>
-      <Route
-        element={
-          <SettingsProtectedRouteWrapper
-            settingsPermission={PermissionFlagType.API_KEYS_AND_WEBHOOKS}
-          />
-        }
-      >
-        <Route
-          path={`${SettingsPath.GraphQLPlayground}`}
-          element={<SettingsGraphQLPlayground />}
-        />
-        <Route
-          path={`${SettingsPath.RestPlayground}/*`}
-          element={<SettingsRestPlayground />}
-        />
-        <Route
-          path={SettingsPath.NewApiKey}
-          element={<SettingsDevelopersApiKeysNew />}
-        />
-        <Route
-          path={SettingsPath.ApiKeyDetail}
-          element={<SettingsDevelopersApiKeyDetail />}
-        />
-        <Route
-          path={SettingsPath.NewWebhook}
-          element={<SettingsDevelopersWebhookNew />}
-        />
-        <Route
-          path={SettingsPath.WebhookDetail}
-          element={<SettingsDevelopersWebhookDetail />}
-        />
-      </Route>
-
       <Route
         element={
           <SettingsProtectedRouteWrapper

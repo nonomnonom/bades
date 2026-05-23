@@ -10,7 +10,6 @@ import { getSettingsPath } from 'shared/utils';
 import { IconApps, IconDownload } from 'ui/display';
 import { FeatureFlagKey } from '~/generated-metadata/graphql';
 import { SettingsApplicationsAvailableTab } from '~/pages/settings/applications/tabs/SettingsApplicationsAvailableTab';
-import { SettingsApplicationsDeveloperTab } from '~/pages/settings/applications/tabs/SettingsApplicationsDeveloperTab';
 import { SettingsApplicationsInstalledTab } from '~/pages/settings/applications/tabs/SettingsApplicationsInstalledTab';
 
 const APPLICATIONS_TAB_LIST_ID = 'applications-tab-list';
@@ -40,8 +39,6 @@ export const SettingsApplications = () => {
         return <SettingsApplicationsAvailableTab />;
       case 'installed':
         return <SettingsApplicationsInstalledTab />;
-      case 'developer':
-        return <SettingsApplicationsDeveloperTab />;
       default:
         return isMarketplaceSettingTabVisible ? (
           <SettingsApplicationsAvailableTab />

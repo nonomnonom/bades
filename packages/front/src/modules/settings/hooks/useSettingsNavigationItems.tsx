@@ -14,7 +14,6 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import {
-  IconApi,
   // IconApps, // TODO: Re-enable when integrations page is ready
   IconAt,
   IconCalendarEvent,
@@ -140,16 +139,6 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           Icon: IconCurrencyDollar,
           isHidden:
             !isBillingEnabled || !permissionMap[PermissionFlagType.WORKSPACE],
-        },
-        {
-          // API key, webhook, dan playground adalah surface developer teknis.
-          // Disembunyikan dari navigasi pengguna utama sesuai arah produk Bades
-          // (kapabilitas internal tim, bukan fitur perangkat desa).
-          // Route tetap aktif untuk akses tim internal yang memiliki izin.
-          label: t`API & Webhook`,
-          path: SettingsPath.ApiWebhooks,
-          Icon: IconApi,
-          isHidden: true,
         },
         // TODO: Re-enable when integrations page is ready
         // {

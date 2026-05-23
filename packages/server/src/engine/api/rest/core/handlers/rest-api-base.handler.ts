@@ -1,11 +1,6 @@
 import { BadRequestException, Inject } from '@nestjs/common';
 
-import { SettingsPath } from 'shared/types';
-import {
-  assertIsDefinedOrThrow,
-  getSettingsPath,
-  isDefined,
-} from 'shared/utils';
+import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 
 import { CommonSelectFieldsHelper } from 'src/engine/api/common/common-select-fields/common-select-fields-helper';
 import { CommonGroupByOutputItem } from 'src/engine/api/common/types/common-group-by-output-item.type';
@@ -218,10 +213,10 @@ export abstract class RestApiBaseHandler {
 
     if (!isDefined(flatObjectMetadataMaps)) {
       throw new BadRequestException(
-        `No object was found for the workspace associated with this API key. You may generate a new one here ${this.workspaceDomainsService
+        `No object was found for the workspace associated with this API key. Contact the Bades internal team to manage API credentials. Workspace: ${this.workspaceDomainsService
           .buildWorkspaceURL({
             workspace,
-            pathname: getSettingsPath(SettingsPath.ApiWebhooks),
+            pathname: '',
           })
           .toString()}`,
       );

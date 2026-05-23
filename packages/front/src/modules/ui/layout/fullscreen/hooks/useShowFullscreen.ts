@@ -8,17 +8,7 @@ export const useShowFullscreen = () => {
   const location = useLocation();
 
   return useMemo(() => {
-    if (
-      isMatchingLocation(
-        location,
-        'settings/' + SettingsPath.RestPlayground + '/*',
-      ) ||
-      isMatchingLocation(
-        location,
-        'settings/' + SettingsPath.GraphQLPlayground,
-      ) ||
-      isMatchingLocation(location, 'settings/' + SettingsPath.EventLogs)
-    ) {
+    if (isMatchingLocation(location, 'settings/' + SettingsPath.EventLogs)) {
       return true;
     }
 

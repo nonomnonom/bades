@@ -7,7 +7,6 @@ enum SettingsPathPrefixes {
   Profile = `${AppBasePath.Settings}/${SettingsPath.ProfilePage}`,
   Objects = `${AppBasePath.Settings}/${SettingsPath.Objects}`,
   Members = `${AppBasePath.Settings}/${SettingsPath.WorkspaceMembersPage}`,
-  ApiWebhooks = `${AppBasePath.Settings}/${SettingsPath.ApiWebhooks}`,
   LogicFunctions = `${AppBasePath.Settings}/${SettingsPath.LogicFunctions}`,
   Integration = `${AppBasePath.Settings}/${SettingsPath.Integrations}`,
   General = `${AppBasePath.Settings}/${SettingsPath.Workspace}`,
@@ -45,8 +44,6 @@ export const getPageTitleFromPath = (pathname: string): string => {
       return t`Anggota - Pengaturan`;
     case SettingsPathPrefixes.Objects:
       return t`Model Data - Pengaturan`;
-    case SettingsPathPrefixes.ApiWebhooks:
-      return t`Kunci API - Pengaturan`;
     case SettingsPathPrefixes.LogicFunctions:
       return t`Fungsi - Pengaturan`;
     case SettingsPathPrefixes.Integration:
