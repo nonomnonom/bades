@@ -71,6 +71,18 @@ import {
   UMKM_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/umkm-data-seeds.constant';
 import {
+  WILAYAH_DATA_SEED_COLUMNS,
+  WILAYAH_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/wilayah-data-seeds.constant';
+import {
+  RUMAH_TANGGA_DATA_SEED_COLUMNS,
+  RUMAH_TANGGA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/rumah-tangga-data-seeds.constant';
+import {
+  PERIODE_JABATAN_DATA_SEED_COLUMNS,
+  PERIODE_JABATAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/periode-jabatan-data-seeds.constant';
+import {
   getWorkspaceMemberDataSeeds,
   WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
@@ -118,6 +130,11 @@ const getRecordSeedsBatches = (
   // Batch 3: SID entities - depends on workspaceMember
   const batch3: RecordSeedConfig[] = [
     {
+      tableName: '_wilayah',
+      pgColumns: WILAYAH_DATA_SEED_COLUMNS,
+      recordSeeds: WILAYAH_DATA_SEEDS,
+    },
+    {
       tableName: '_penduduk',
       pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
       recordSeeds: PENDUDUK_DATA_SEEDS,
@@ -132,6 +149,11 @@ const getRecordSeedsBatches = (
       pgColumns: JENIS_SURAT_DATA_SEED_COLUMNS,
       recordSeeds: JENIS_SURAT_DATA_SEEDS,
     },
+    {
+      tableName: '_jabatan',
+      pgColumns: JABATAN_DATA_SEED_COLUMNS,
+      recordSeeds: JABATAN_DATA_SEEDS,
+    },
   ];
 
   // Batch 4: SID entities - depends on batch 3 or independent
@@ -142,9 +164,14 @@ const getRecordSeedsBatches = (
       recordSeeds: PERMOHONAN_SURAT_DATA_SEEDS,
     },
     {
-      tableName: '_jabatan',
-      pgColumns: JABATAN_DATA_SEED_COLUMNS,
-      recordSeeds: JABATAN_DATA_SEEDS,
+      tableName: '_rumahTangga',
+      pgColumns: RUMAH_TANGGA_DATA_SEED_COLUMNS,
+      recordSeeds: RUMAH_TANGGA_DATA_SEEDS,
+    },
+    {
+      tableName: '_periodeJabatan',
+      pgColumns: PERIODE_JABATAN_DATA_SEED_COLUMNS,
+      recordSeeds: PERIODE_JABATAN_DATA_SEEDS,
     },
     {
       tableName: '_lembagaDesa',

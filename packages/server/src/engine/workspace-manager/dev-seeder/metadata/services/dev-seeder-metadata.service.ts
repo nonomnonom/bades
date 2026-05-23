@@ -27,6 +27,9 @@ import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager
 import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penerima-bantuan-custom-field-seeds.constant';
 import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/aset-desa-custom-field-seeds.constant';
 import { UMKM_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/umkm-custom-field-seeds.constant';
+import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/wilayah-custom-field-seeds.constant';
+import { RUMAH_TANGGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/rumah-tangga-custom-field-seeds.constant';
+import { PERIODE_JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/periode-jabatan-custom-field-seeds.constant';
 import { PENDUDUK_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penduduk-custom-object-seed.constant';
 import { KELUARGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/keluarga-custom-object-seed.constant';
 import { JENIS_SURAT_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/jenis-surat-custom-object-seed.constant';
@@ -39,6 +42,9 @@ import { PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager
 import { PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/penerima-bantuan-custom-object-seed.constant';
 import { ASET_DESA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/aset-desa-custom-object-seed.constant';
 import { UMKM_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/umkm-custom-object-seed.constant';
+import { WILAYAH_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/wilayah-custom-object-seed.constant';
+import { RUMAH_TANGGA_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/rumah-tangga-custom-object-seed.constant';
+import { PERIODE_JABATAN_CUSTOM_OBJECT_SEED } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-objects/constants/periode-jabatan-custom-object-seed.constant';
 import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
 import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
 
@@ -89,11 +95,14 @@ export class DevSeederMetadataService {
     [SEED_SUKAMAJU_WORKSPACE_ID]: {
       objects: [
         // Bades SID Objects - 6 Domain GOAL.md
+        { seed: WILAYAH_CUSTOM_OBJECT_SEED, fields: WILAYAH_CUSTOM_FIELD_SEEDS },
         { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },
         { seed: KELUARGA_CUSTOM_OBJECT_SEED, fields: KELUARGA_CUSTOM_FIELD_SEEDS },
+        { seed: RUMAH_TANGGA_CUSTOM_OBJECT_SEED, fields: RUMAH_TANGGA_CUSTOM_FIELD_SEEDS },
         { seed: JENIS_SURAT_CUSTOM_OBJECT_SEED, fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS },
         { seed: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED, fields: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS },
         { seed: JABATAN_CUSTOM_OBJECT_SEED, fields: JABATAN_CUSTOM_FIELD_SEEDS },
+        { seed: PERIODE_JABATAN_CUSTOM_OBJECT_SEED, fields: PERIODE_JABATAN_CUSTOM_FIELD_SEEDS },
         { seed: LEMBAGA_DESA_CUSTOM_OBJECT_SEED, fields: LEMBAGA_DESA_CUSTOM_FIELD_SEEDS },
         { seed: ANGGARAN_CUSTOM_OBJECT_SEED, fields: ANGGARAN_CUSTOM_FIELD_SEEDS },
         { seed: REALISASI_ANGGARAN_CUSTOM_OBJECT_SEED, fields: REALISASI_ANGGARAN_CUSTOM_FIELD_SEEDS },
@@ -134,6 +143,36 @@ export class DevSeederMetadataService {
           targetObjectName: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED.nameSingular,
           targetFieldLabel: 'Jenis Surat',
           targetFieldIcon: 'IconFileText',
+        },
+        // Penduduk -> Rumah Tangga (satu penduduk bisa menjadi kepala satu/lebih rumah tangga)
+        {
+          sourceObjectName: PENDUDUK_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'rumahTanggaDipimpin',
+          label: 'Rumah Tangga Dipimpin',
+          icon: 'IconHome2',
+          targetObjectName: RUMAH_TANGGA_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Kepala Rumah Tangga',
+          targetFieldIcon: 'IconUser',
+        },
+        // Jabatan -> Periode Jabatan (satu jabatan punya banyak periode historis)
+        {
+          sourceObjectName: JABATAN_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'periode',
+          label: 'Periode',
+          icon: 'IconCalendarTime',
+          targetObjectName: PERIODE_JABATAN_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Jabatan',
+          targetFieldIcon: 'IconBriefcase',
+        },
+        // Penduduk -> Periode Jabatan (satu penduduk bisa punya beberapa periode menjabat)
+        {
+          sourceObjectName: PENDUDUK_CUSTOM_OBJECT_SEED.nameSingular,
+          name: 'periodeJabatan',
+          label: 'Periode Jabatan',
+          icon: 'IconCalendarTime',
+          targetObjectName: PERIODE_JABATAN_CUSTOM_OBJECT_SEED.nameSingular,
+          targetFieldLabel: 'Pejabat',
+          targetFieldIcon: 'IconUser',
         },
       ],
       junctionConfigs: [],
