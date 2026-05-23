@@ -89,7 +89,7 @@ export const FooterNote = () => {
       {shouldOfferBypass && !shouldUseBypass && (
         <>
           <button type="button" onClick={enableBypass}>
-            <Trans>Bypass SSO</Trans>
+            "Bypass SSO
           </button>
           <StyledSeparator>•</StyledSeparator>
         </>

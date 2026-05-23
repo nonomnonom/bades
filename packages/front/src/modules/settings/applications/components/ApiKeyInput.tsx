@@ -32,9 +32,9 @@ export const ApiKeyInput = ({ apiKey }: ApiKeyInputProps) => {
       </StyledLinkContainer>
       <Button
         Icon={IconCopy}
-        title={t`Copy`}
+        title={"Salin"}
         onClick={() => {
-          copyToClipboard(apiKey, t`API Key copied to clipboard`);
+          copyToClipboard(apiKey, ""API Key copied to clipboard");
         }}
       />
     </StyledContainer>

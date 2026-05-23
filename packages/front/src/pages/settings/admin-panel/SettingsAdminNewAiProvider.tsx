@@ -319,7 +319,7 @@ export const SettingsAdminNewAiProvider = () => {
                       <TextInput
                         value={value}
                         onChange={onChange}
-                        placeholder={t`sk-...`}
+                        placeholder={""sk-..."}
                         fullWidth
                         type="password"
                         error={error?.message}
@@ -345,7 +345,7 @@ export const SettingsAdminNewAiProvider = () => {
                       <TextInput
                         value={value}
                         onChange={onChange}
-                        placeholder={t`https://api.example.com/v1`}
+                        placeholder={""https://api.example.com/v1"}
                         fullWidth
                         error={error?.message}
                       />
@@ -394,7 +394,7 @@ export const SettingsAdminNewAiProvider = () => {
                         <TextInput
                           value={value}
                           onChange={onChange}
-                          placeholder={t`us-east-1`}
+                          placeholder={""us-east-1"}
                           fullWidth
                           error={error?.message}
                         />
@@ -414,7 +414,7 @@ export const SettingsAdminNewAiProvider = () => {
                         <TextInput
                           value={value}
                           onChange={onChange}
-                          placeholder={t`AKIA...`}
+                          placeholder={""AKIA..."}
                           fullWidth
                         />
                       )}

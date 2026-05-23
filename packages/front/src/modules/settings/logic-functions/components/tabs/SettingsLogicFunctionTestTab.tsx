@@ -80,7 +80,7 @@ export const SettingsLogicFunctionTestTab = ({
 
   const triggerButtons: TriggerButton[] = [];
   if (isDefined(httpRouteTriggerSettings)) {
-    triggerButtons.push({ kind: 'http', label: t`HTTP`, Icon: IconWebhook });
+    triggerButtons.push({ kind: 'http', label: ""HTTP", Icon: IconWebhook });
   }
   if (isDefined(cronTriggerSettings)) {
     triggerButtons.push({ kind: 'cron', label: t`Terjadwal`, Icon: IconClock });

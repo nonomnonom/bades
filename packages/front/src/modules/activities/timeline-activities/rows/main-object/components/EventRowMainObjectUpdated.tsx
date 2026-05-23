@@ -80,7 +80,7 @@ export const EventRowMainObjectUpdated = ({
       <StyledRowContainer>
         <StyledRow>
           <EventRowItem>{authorFullName}</EventRowItem>
-          {t`updated`}
+          {""updated"}
           {diffEntries.length === 1 && (
             <EventFieldDiffContainer
               mainObjectMetadataItem={mainObjectMetadataItem}

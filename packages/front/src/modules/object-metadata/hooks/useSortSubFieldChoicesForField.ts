@@ -33,8 +33,8 @@ export const useSortSubFieldChoicesForField = ({
 
   if (fieldMetadataItem.type === FieldMetadataType.FULL_NAME) {
     const labels: Record<AllowedFullNameSortSubField, string> = {
-      firstName: t`First name`,
-      lastName: t`Last name`,
+      firstName: "Nama depan",
+      lastName: "Nama belakang",
     };
     const selectedValue = resolvePrimaryFullNameSortSubField({
       requestedPrimarySubField: primaryCompositeSubField,
@@ -51,14 +51,14 @@ export const useSortSubFieldChoicesForField = ({
 
   if (fieldMetadataItem.type === FieldMetadataType.ADDRESS) {
     const labels: Record<AllowedAddressSubField, string> = {
-      addressStreet1: t`Address 1`,
-      addressStreet2: t`Address 2`,
-      addressCity: t`City`,
-      addressState: t`State`,
-      addressPostcode: t`Postcode`,
-      addressCountry: t`Country`,
-      addressLat: t`Latitude`,
-      addressLng: t`Longitude`,
+      addressStreet1: ""Address 1",
+      addressStreet2: ""Address 2",
+      addressCity: "Kota",
+      addressState: "Negara bagian",
+      addressPostcode: ""Postcode",
+      addressCountry: "Negara",
+      addressLat: ""Latitude",
+      addressLng: ""Longitude",
     };
     const addressSettings = fieldMetadataItem.settings as
       | FieldMetadataSettingsMapping[FieldMetadataType.ADDRESS]

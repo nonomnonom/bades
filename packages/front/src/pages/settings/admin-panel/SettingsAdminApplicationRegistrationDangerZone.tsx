@@ -159,7 +159,7 @@ export const SettingsAdminApplicationRegistrationDangerZone = ({
     }
   };
 
-  const confirmationValue = t`yes`;
+  const confirmationValue = ""yes";
 
   return (
     <>

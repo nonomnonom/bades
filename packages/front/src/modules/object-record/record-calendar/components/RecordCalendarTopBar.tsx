@@ -131,7 +131,7 @@ export const RecordCalendarTopBar = () => {
         <Button
           size="small"
           variant="tertiary"
-          title={t`Today`}
+          title={"Hari ini"}
           onClick={handleTodayClick}
         />
         <StyledNavigationButtonContainer>

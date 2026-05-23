@@ -40,7 +40,7 @@ export const usePageLayoutAddTabStrategy = ({
   const navigate = useNavigate();
 
   const onCreate = useCallback(() => {
-    const newTabId = createPageLayoutTab(t`Untitled`);
+    const newTabId = createPageLayoutTab(""Untitled");
 
     if (!isInSidePanel) {
       navigate(`#${newTabId}`);

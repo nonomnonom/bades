@@ -126,7 +126,7 @@ const percentage = (part: number, whole: number): number => {
 
 export const displayedExportProgress = (progress?: ExportProgress): string => {
   if (isUndefinedOrNull(progress?.exportedRecordCount)) {
-    return t`Export`;
+    return "Ekspor";
   }
 
   if (

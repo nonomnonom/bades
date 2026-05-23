@@ -217,7 +217,7 @@ export const SettingsSecurity = () => {
                 description={t`Konfigurasi koneksi SSO`}
                 adornment={
                   <Tag
-                    text={t`Enterprise`}
+                    text={""Enterprise"}
                     color="transparent"
                     Icon={IconLock}
                     variant="border"
@@ -273,7 +273,7 @@ export const SettingsSecurity = () => {
               description={t`Lihat log aktivitas ruang kerja`}
               adornment={
                 <Tag
-                  text={t`Enterprise`}
+                  text={""Enterprise"}
                   color="transparent"
                   Icon={IconLock}
                   variant="border"

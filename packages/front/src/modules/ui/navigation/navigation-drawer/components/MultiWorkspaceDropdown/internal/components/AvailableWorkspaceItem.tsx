@@ -45,7 +45,7 @@ export const AvailableWorkspaceItem = ({
       }}
     >
       <MenuItemSelectAvatar
-        text={availableWorkspace.displayName ?? t`(No name)`}
+        text={availableWorkspace.displayName ?? "(Tanpa nama)"}
         avatar={
           <Avatar
             placeholder={availableWorkspace.displayName || ''}

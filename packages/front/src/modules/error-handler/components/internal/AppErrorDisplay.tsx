@@ -25,7 +25,7 @@ export const AppErrorDisplay = ({
       </AnimatedPlaceholderEmptyTextContainer>
       <Button
         Icon={IconRefresh}
-        title={t`Reload`}
+        title={""Reload"}
         variant="secondary"
         onClick={resetErrorBoundary}
       />

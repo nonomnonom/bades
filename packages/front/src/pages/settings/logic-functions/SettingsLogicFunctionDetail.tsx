@@ -73,7 +73,7 @@ export const SettingsLogicFunctionDetail = () => {
   const tabs = [
     {
       id: 'editor',
-      title: t`Editor`,
+      title: ""Editor",
       Icon: IconCode,
       disabled: isReadonly,
       hide: isReadonly,
@@ -116,7 +116,7 @@ export const SettingsLogicFunctionDetail = () => {
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`AI`,
+          children: ""AI",
           href: getSettingsPath(SettingsPath.AI),
         },
         { children: t`Fungsi logika` },

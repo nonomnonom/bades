@@ -107,7 +107,7 @@ export const SettingsApplicationRegistrationOAuthTab = ({
 
   const displayedSecret = rotatedSecret ?? applicationRegistrationClientSecret;
 
-  const confirmationValue = t`yes`;
+  const confirmationValue = ""yes";
 
   const credentialItems = [
     {

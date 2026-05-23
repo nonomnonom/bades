@@ -28,7 +28,7 @@ export const getWidgetTitle = (
     case WidgetConfigurationType.LINE_CHART:
       return `${t`Grafik Garis`} ${index + 1}`;
     case WidgetConfigurationType.IFRAME:
-      return `${t`Iframe`} ${index + 1}`;
+      return `${""Iframe"} ${index + 1}`;
     case WidgetConfigurationType.STANDALONE_RICH_TEXT:
       return `${t`Teks Kaya`} ${index + 1}`;
     case WidgetConfigurationType.FIELD:

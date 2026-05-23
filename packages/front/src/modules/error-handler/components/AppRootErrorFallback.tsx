@@ -112,7 +112,7 @@ export const AppRootErrorFallback = ({
           <StyledImageContainer>
             <StyledBackgroundImage
               src="/images/placeholders/background/error_index_bg.png"
-              alt={t`Background`}
+              alt={""Background"}
             />
             <StyledInnerImage
               src="/images/placeholders/moving-image/error_index.png"
@@ -129,7 +129,7 @@ export const AppRootErrorFallback = ({
             <StyledIconContainer>
               <IconReload size={theme.icon.size.md} />
             </StyledIconContainer>
-            {t`Reload`}
+            {""Reload"}
           </StyledButton>
         </StyledEmptyContainer>
       </StyledPanel>

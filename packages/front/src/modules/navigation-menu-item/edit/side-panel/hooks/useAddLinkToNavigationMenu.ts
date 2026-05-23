@@ -30,7 +30,7 @@ export const useAddLinkToNavigationMenu = () => {
 
   const handleAddLink = () => {
     const itemId = addLinkToDraft(
-      t`Link label`,
+      ""Link label",
       'www.example.com',
       currentDraft,
       pendingInsertionNavigationMenuItem?.folderId ?? null,

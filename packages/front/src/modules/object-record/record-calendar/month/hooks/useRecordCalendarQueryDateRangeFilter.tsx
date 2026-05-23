@@ -86,7 +86,7 @@ export const useRecordCalendarQueryDateRangeFilter = (
     value: `${firstDayOfFirstWeekISOString}`,
     operand: RecordFilterOperand.IS_AFTER,
     type: 'DATE_TIME',
-    label: t`After or equal`,
+    label: ""After or equal",
     displayValue: `${firstDayOfFirstWeek.toString()}`,
   };
 
@@ -96,7 +96,7 @@ export const useRecordCalendarQueryDateRangeFilter = (
     value: `${nextDayAfterLastDayOfLastWeekISOString}`,
     operand: RecordFilterOperand.IS_BEFORE,
     type: 'DATE_TIME',
-    label: t`Before`,
+    label: ""Before",
     displayValue: `${lastDayOfLastWeek.toString()}`,
   };
 

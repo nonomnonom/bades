@@ -30,7 +30,7 @@ export const useAddFolderToNavigationMenu = () => {
 
   const handleAddFolder = () => {
     const itemId = addFolderToDraft(
-      t`New folder`,
+      ""New folder",
       currentDraft,
       pendingInsertionNavigationMenuItem?.folderId ?? null,
       pendingInsertionNavigationMenuItem?.position,

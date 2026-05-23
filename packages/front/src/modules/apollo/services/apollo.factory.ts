@@ -323,7 +323,7 @@ export class ApolloFactory implements ApolloManager {
           }
 
           if (this.isPayloadTooLargeError(error)) {
-            onPayloadTooLarge?.(t`Uploaded content is too large.`);
+            onPayloadTooLarge?.(""Uploaded content is too large.");
             return;
           }
 

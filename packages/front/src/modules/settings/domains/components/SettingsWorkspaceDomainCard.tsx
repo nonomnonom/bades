@@ -34,7 +34,7 @@ export const SettingsWorkspaceDomainCard = () => {
   return (
     <StyledContainer>
       <UndecoratedLink to={getSettingsPath(SettingsPath.Subdomain)}>
-        <SettingsCard title={t`Subdomain`} Icon={<IconWorld />} />
+        <SettingsCard title={""Subdomain"} Icon={<IconWorld />} />
       </UndecoratedLink>
       {isCloudflareIntegrationEnabled && (
         <UndecoratedLink to={getSettingsPath(SettingsPath.CustomDomain)}>

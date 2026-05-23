@@ -40,7 +40,7 @@ export const LogicFunctionExecutionResult = ({
       height={150}
       status={status}
       isTesting={isTesting}
-      loadingMessage={t`Running function`}
+      loadingMessage={""Running function"}
       idleMessage={t`Output`}
     />
   );

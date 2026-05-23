@@ -106,7 +106,7 @@ export const ObjectOptionsDropdownCalendarViewContent = () => {
           >
             <MenuItemSelect
               LeftIcon={IconTimelineEvent}
-              text={t`Timeline`}
+              text={"Linimasa"}
               selected={recordIndexCalendarLayout === ViewCalendarLayout.DAY}
               focused={selectedItemId === ViewCalendarLayout.DAY}
               contextualText={<Pill label={t`Segera`} />}

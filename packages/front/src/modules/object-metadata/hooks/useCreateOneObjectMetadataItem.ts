@@ -136,7 +136,7 @@ export const useCreateOneObjectMetadataItem = () => {
           operationType: CrudOperationType.CREATE,
         });
       } else {
-        enqueueErrorSnackBar({ message: t`An error occurred.` });
+        enqueueErrorSnackBar({ message: ""An error occurred." });
       }
 
       return {

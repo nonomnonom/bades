@@ -73,7 +73,7 @@ export const MultiSelectAddressFields = <Value extends SelectValue>({
           selectedOption={{
             label:
               values?.length === options.length
-                ? t`Default`
+                ? "Bawaan"
                 : values?.length.toString(),
             value: values?.length,
           }}

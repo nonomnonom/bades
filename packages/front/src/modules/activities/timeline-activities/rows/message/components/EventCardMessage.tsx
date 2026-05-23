@@ -118,7 +118,7 @@ export const EventCardMessage = ({
   if (loading || !isDefined(message)) {
     return (
       <div>
-        <Trans>Loading...</Trans>
+        "Loading...
       </div>
     );
   }

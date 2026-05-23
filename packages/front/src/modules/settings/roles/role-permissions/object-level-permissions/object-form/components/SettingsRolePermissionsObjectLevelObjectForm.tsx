@@ -77,7 +77,7 @@ export const SettingsRolePermissionsObjectLevelObjectForm = ({
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`AI`,
+            children: ""AI",
             href: getSettingsPath(SettingsPath.AI),
           },
           {

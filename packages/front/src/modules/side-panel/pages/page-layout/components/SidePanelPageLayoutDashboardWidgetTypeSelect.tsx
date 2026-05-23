@@ -277,7 +277,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         >
           <CommandMenuItem
             Icon={IconFrame}
-            label={t`iFrame`}
+            label={""iFrame"}
             id="iframe"
             onClick={handleNavigateToIframeSettings}
           />

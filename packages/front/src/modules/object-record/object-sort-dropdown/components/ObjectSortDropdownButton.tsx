@@ -185,7 +185,7 @@ export const ObjectSortDropdownButton = () => {
               />
             }
           >
-            {t`Sort`}
+            {"Urutkan"}
           </DropdownMenuHeader>
           <DropdownMenuInnerSelect
             dropdownId="record-sort-direction-dropdown"
@@ -194,16 +194,16 @@ export const ObjectSortDropdownButton = () => {
                 value: sortDirection,
                 label:
                   sortDirection === ViewSortDirection.ASC
-                    ? t`Ascending`
-                    : t`Descending`,
+                    ? ""Ascending"
+                    : ""Descending",
               }),
             )}
             selectedOption={{
               value: selectedRecordSortDirection,
               label:
                 selectedRecordSortDirection === ViewSortDirection.ASC
-                  ? t`Ascending`
-                  : t`Descending`,
+                  ? ""Ascending"
+                  : ""Descending",
             }}
             onChange={(sortDirection) =>
               handleSortDirectionClick(sortDirection.value as ViewSortDirection)

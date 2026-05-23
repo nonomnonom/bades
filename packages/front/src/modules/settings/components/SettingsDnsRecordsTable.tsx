@@ -78,7 +78,7 @@ export const SettingsDnsRecordsTable = ({
           {hasPriorityRecords && (
             <TableHeader align="center">{t`Prioritas`}</TableHeader>
           )}
-          {hasTtlRecords && <TableHeader align="center">{t`TTL`}</TableHeader>}
+          {hasTtlRecords && <TableHeader align="center">{""TTL"}</TableHeader>}
           {hasStatusRecords && (
             <TableHeader align="center">{t`Status`}</TableHeader>
           )}

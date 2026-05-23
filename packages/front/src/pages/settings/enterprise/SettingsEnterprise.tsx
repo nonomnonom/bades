@@ -187,13 +187,13 @@ export const SettingsEnterprise = ({
 
   return (
     <SubMenuTopBarContainer
-      title={t`Enterprise`}
+      title={""Enterprise"}
       links={[
         {
           children: <Trans>Ruang Kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: <Trans>Enterprise</Trans> },
+        { children: "Enterprise },
       ]}
     >
       <SettingsPageContainer>{innerContent}</SettingsPageContainer>

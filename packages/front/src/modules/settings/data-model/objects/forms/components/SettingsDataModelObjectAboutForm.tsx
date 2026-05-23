@@ -261,7 +261,7 @@ export const SettingsDataModelObjectAboutForm = ({
                 color={'blue'}
                 message={t`Objek dengan nama ini sudah ada`}
                 button={{
-                  title: t`Open`,
+                  title: "Buka",
                   onClick: () =>
                     navigateSettings(SettingsPath.ObjectDetail, {
                       objectNamePlural:

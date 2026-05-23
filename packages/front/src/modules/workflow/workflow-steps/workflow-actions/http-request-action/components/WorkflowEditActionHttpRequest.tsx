@@ -144,7 +144,7 @@ export const WorkflowEditActionHttpRequest = ({
           <StyledConfigurationTabContent>
             <FormTextFieldInput
               label={t`URL`}
-              placeholder={t`https://api.example.com/endpoint`}
+              placeholder={""https://api.example.com/endpoint"}
               readonly={actionOptions.readonly}
               defaultValue={formData.url}
               onChange={(value) => handleFieldChange('url', value)}

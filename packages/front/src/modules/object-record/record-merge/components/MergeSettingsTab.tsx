@@ -44,7 +44,7 @@ export const MergeSettingsTab = () => {
           options={priorityOptions}
           value={mergeSettings.conflictPriorityIndex}
           onChange={handleSelectionChange}
-          label={t`Fields conflicts`}
+          label={""Fields conflicts"}
         />
       </Section>
     </StyledSectionContainer>

@@ -37,7 +37,7 @@ export const SettingsAdminContent = () => {
     },
     {
       id: SETTINGS_ADMIN_TABS.AI,
-      title: t`AI`,
+      title: ""AI",
       Icon: IconSparkles,
       disabled: !canAccessFullAdminPanel,
     },
@@ -57,7 +57,7 @@ export const SettingsAdminContent = () => {
       ? [
           {
             id: SETTINGS_ADMIN_TABS.ENTERPRISE,
-            title: t`Enterprise`,
+            title: ""Enterprise",
             Icon: IconKey,
             disabled: !canAccessFullAdminPanel && !canImpersonate,
           },

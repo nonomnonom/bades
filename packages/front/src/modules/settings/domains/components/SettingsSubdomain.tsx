@@ -42,7 +42,7 @@ export const SettingsSubdomain = () => {
   return (
     <>
       <SubMenuTopBarContainer
-        title={t`Subdomain`}
+        title={""Subdomain"}
         links={[
           {
             children: <Trans>Ruang Kerja</Trans>,
@@ -52,7 +52,7 @@ export const SettingsSubdomain = () => {
             children: <Trans>Umum</Trans>,
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: <Trans>Subdomain</Trans> },
+          { children: "Subdomain },
         ]}
         actionButton={
           <SaveAndCancelButtons

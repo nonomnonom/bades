@@ -61,7 +61,7 @@ export const SettingsObjectCoverImage = () => {
       <StyledButtonOverlay>
         <FloatingButton
           Icon={IconEye}
-          title={t`Visualize`}
+          title={""Visualize"}
           size="small"
           to={getSettingsPath(SettingsPath.ObjectOverview)}
         />

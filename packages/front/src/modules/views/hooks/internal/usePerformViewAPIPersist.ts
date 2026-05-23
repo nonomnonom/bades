@@ -73,7 +73,7 @@ export const usePerformViewAPIPersist = () => {
             operationType: CrudOperationType.CREATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred.` });
+          enqueueErrorSnackBar({ message: ""An error occurred." });
         }
 
         return {
@@ -112,7 +112,7 @@ export const usePerformViewAPIPersist = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred.` });
+          enqueueErrorSnackBar({ message: ""An error occurred." });
         }
 
         return {

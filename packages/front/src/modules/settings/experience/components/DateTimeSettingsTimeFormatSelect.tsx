@@ -57,12 +57,12 @@ export const DateTimeSettingsTimeFormatSelect = ({
       }}
       options={[
         {
-          label: t`24h`,
+          label: "24j",
           value: TimeFormat.HOUR_24,
           contextualText: hour24Label,
         },
         {
-          label: t`12h`,
+          label: "12j",
           value: TimeFormat.HOUR_12,
           contextualText: hour12Label,
         },

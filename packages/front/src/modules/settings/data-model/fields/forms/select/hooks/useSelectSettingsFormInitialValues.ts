@@ -9,7 +9,7 @@ import { type SettingsDataModelFieldSelectFormValues } from '@/settings/data-mod
 import { computeOptionValueFromLabel } from '~/pages/settings/data-model/utils/computeOptionValueFromLabel';
 
 const getDefaultOption = (): FieldMetadataItemOption => {
-  const label = t`Option 1`;
+  const label = ""Option 1";
   return {
     color: 'green',
     id: v4(),

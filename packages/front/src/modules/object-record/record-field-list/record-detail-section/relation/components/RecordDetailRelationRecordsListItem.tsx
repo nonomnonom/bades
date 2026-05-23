@@ -243,14 +243,14 @@ export const RecordDetailRelationRecordsListItem = ({
                 <DropdownMenuItemsContainer>
                   <MenuItem
                     LeftIcon={IconUnlink}
-                    text={t`Detach`}
+                    text={""Detach"}
                     onClick={handleDetach}
                   />
                   {!isAccountOwnerRelation &&
                     relationObjectPermissions.canSoftDeleteObjectRecords && (
                       <MenuItem
                         LeftIcon={IconTrash}
-                        text={t`Delete`}
+                        text={"Hapus"}
                         accent="danger"
                         onClick={handleDelete}
                       />

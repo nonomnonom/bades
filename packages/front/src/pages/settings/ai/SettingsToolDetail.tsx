@@ -186,7 +186,7 @@ export const SettingsToolDetail = () => {
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: t`AI`,
+          children: ""AI",
           href: getSettingsPath(SettingsPath.AI, undefined, undefined, 'tools'),
         },
         { children: editedName ?? name ?? '' },

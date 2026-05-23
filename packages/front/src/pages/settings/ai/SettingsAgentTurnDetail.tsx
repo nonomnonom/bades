@@ -81,7 +81,7 @@ export const SettingsAgentTurnDetail = () => {
             children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
+          { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
           {
             children: t`Agen`,
             href: getSettingsPath(SettingsPath.AiAgentDetail).replace(
@@ -127,7 +127,7 @@ export const SettingsAgentTurnDetail = () => {
           children: t`Ruang Kerja`,
           href: getSettingsPath(SettingsPath.Workspace),
         },
-        { children: t`AI`, href: getSettingsPath(SettingsPath.AI) },
+        { children: ""AI", href: getSettingsPath(SettingsPath.AI) },
         {
           children: t`Agen`,
           href: getSettingsPath(SettingsPath.AiAgentDetail).replace(

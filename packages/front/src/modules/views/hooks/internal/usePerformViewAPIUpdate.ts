@@ -40,7 +40,7 @@ export const usePerformViewAPIUpdate = () => {
             operationType: CrudOperationType.UPDATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: t`An error occurred.` });
+          enqueueErrorSnackBar({ message: ""An error occurred." });
         }
 
         return {

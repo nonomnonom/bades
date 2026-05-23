@@ -183,7 +183,7 @@ export const SettingsApplicationDetailAboutTab = ({
     );
   };
 
-  const confirmationValue = t`yes`;
+  const confirmationValue = ""yes";
 
   return (
     <>

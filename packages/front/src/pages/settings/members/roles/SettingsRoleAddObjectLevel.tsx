@@ -40,7 +40,7 @@ export const SettingsRoleAddObjectLevel = () => {
             href: getSettingsPath(SettingsPath.Workspace),
           },
           {
-            children: t`AI`,
+            children: ""AI",
             href: getSettingsPath(SettingsPath.AI),
           },
           {
@@ -77,7 +77,7 @@ export const SettingsRoleAddObjectLevel = () => {
     <>
       <SettingsRolesQueryEffect />
       <SubMenuTopBarContainer
-        title={t`1. Select an object`}
+        title={"1. Pilih objek"}
         links={breadcrumbLinks}
       >
         <SettingsPageContainer>

@@ -95,7 +95,7 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
                 value={value}
                 onChange={onChange}
                 fullWidth
-                placeholder={t`Google OIDC`}
+                placeholder={""Google OIDC"}
               />
             )}
           />

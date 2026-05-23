@@ -80,7 +80,7 @@ export const ObjectFilterDropdownCurrencySelect = () => {
       .filter((option) => newSelectedItemIds.includes(option.id))
       .map((option) => option.name);
 
-    const currenciesLabel = t`currencies`;
+    const currenciesLabel = ""currencies";
 
     const filterDisplayValue =
       selectedItemNames.length > MAX_ITEMS_TO_DISPLAY

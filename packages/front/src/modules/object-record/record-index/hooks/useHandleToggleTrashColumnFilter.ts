@@ -63,7 +63,7 @@ export const useHandleToggleTrashColumnFilter = ({
       operand: ViewFilterOperand.IS_NOT_EMPTY,
       displayValue: '',
       type: filterType,
-      label: t`Deleted`,
+      label: "Dihapus",
       value: '',
     };
 

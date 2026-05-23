@@ -8,28 +8,28 @@ import { msg } from '~/utils/i18n/badesI18n';
 
 export const getActionHeaderTypeOrThrow = (actionType: WorkflowActionType) => {
   if (FLOW_ACTIONS.some((action) => action.type === actionType)) {
-    return msg`Flow`;
+    return ""Flow";
   }
 
   if (CORE_ACTIONS.some((action) => action.type === actionType)) {
-    return msg`Core`;
+    return ""Core";
   }
 
   if (HUMAN_INPUT_ACTIONS.some((action) => action.type === actionType)) {
-    return msg`Human Input`;
+    return ""Human Input";
   }
 
   if (RECORD_ACTIONS.some((action) => action.type === actionType)) {
-    return msg`Record`;
+    return ""Record";
   }
 
   if (AI_ACTIONS.some((action) => action.type === actionType)) {
-    return msg`AI`;
+    return ""AI";
   }
 
   if (actionType === 'LOGIC_FUNCTION') {
-    return msg`Application`;
+    return ""Application";
   }
 
-  return msg`Action`;
+  return "Tindakan";
 };

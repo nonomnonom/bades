@@ -34,7 +34,7 @@ const getProviderDescription = (provider: AiProviderItem): string => {
   }
 
   if (provider.authType === 'role') {
-    parts.push(t`IAM role`);
+    parts.push(""IAM role");
   } else if (provider.apiKey) {
     parts.push(t`API key dikonfigurasi`);
   } else if (provider.hasAccessKey) {

@@ -219,7 +219,7 @@ export const SettingsAdminAiProviderDetail = () => {
       },
       {
         Icon: IconPlug,
-        label: t`SDK`,
+        label: ""SDK",
         value: provider.npm,
       },
     ];
