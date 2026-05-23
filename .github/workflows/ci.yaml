@@ -99,8 +99,19 @@ jobs:
     name: Unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      LANG: id_ID.UTF-8
+      LC_ALL: id_ID.UTF-8
+      TZ: Asia/Jakarta
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Install Indonesian locale
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y locales
+          sudo locale-gen id_ID.UTF-8
+          sudo update-locale LANG=id_ID.UTF-8 LC_ALL=id_ID.UTF-8
 
       - name: Yarn install
         uses: ./.github/actions/yarn-install
