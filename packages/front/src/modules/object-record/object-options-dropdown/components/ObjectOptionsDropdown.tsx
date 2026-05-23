@@ -47,7 +47,7 @@ export const ObjectOptionsDropdown = ({
         dropdownOffset={{ y: DROPDOWN_OFFSET_Y }}
         clickableComponent={
           <StyledHeaderDropdownButton isUnfolded={isDropdownOpen}>
-            <Trans>Options</Trans>
+            <Trans>Opsi</Trans>
           </StyledHeaderDropdownButton>
         }
         onClose={handleResetContent}

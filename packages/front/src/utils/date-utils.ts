@@ -83,7 +83,7 @@ export const beautifyExactDate = (dateToBeautify: Date | string | number) => {
   const parsedDate = parseDate(dateToBeautify);
   const isTodayDate = isToday(parsedDate);
   if (isTodayDate) {
-    return t`Today`;
+    return t`Hari ini`;
   }
   return formatDate(dateToBeautify, 'MMM d, yyyy');
 };

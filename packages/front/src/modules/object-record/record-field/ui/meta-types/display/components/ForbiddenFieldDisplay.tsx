@@ -27,7 +27,7 @@ export const ForbiddenFieldDisplay = () => {
   return (
     <StyledContainer>
       <IconLock size={theme.icon.size.sm} />
-      <Trans>Not shared</Trans>
+      <Trans>Tidak dibagikan</Trans>
     </StyledContainer>
   );
 };

@@ -102,7 +102,7 @@ export const EventCardMessage = ({
       if (shouldHandleNotFound) {
         return (
           <div>
-            <Trans>Message not found</Trans>
+            <Trans>Pesan tidak ditemukan</Trans>
           </div>
         );
       }
@@ -110,7 +110,7 @@ export const EventCardMessage = ({
 
     return (
       <div>
-        <Trans>Error loading message</Trans>
+        <Trans>Gagal memuat pesan</Trans>
       </div>
     );
   }

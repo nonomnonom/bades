@@ -34,7 +34,7 @@ export const EventCardMessageForbidden = ({
     <StyledEventCardMessageContainer>
       <StyledEmailContent>
         <StyledEmailTitle>
-          <Trans>Subject not shared</Trans>
+          <Trans>Subjek tidak dibagikan</Trans>
         </StyledEmailTitle>
         <EventCardMessageBodyNotShared
           notSharedByFullName={notSharedByFullName}

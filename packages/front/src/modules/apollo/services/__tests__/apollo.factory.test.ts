@@ -83,8 +83,6 @@ const mockWorkspace = {
   fastModel: AUTO_SELECT_FAST_MODEL_ID,
   smartModel: AUTO_SELECT_SMART_MODEL_ID,
   routerModel: 'auto',
-  enabledAiModelIds: [],
-  useRecommendedModels: true,
   isInternalMessagesImportEnabled: false,
   workspaceCustomApplication: CUSTOM_WORKSPACE_APPLICATION_MOCK,
   workspaceCustomApplicationId: CUSTOM_WORKSPACE_APPLICATION_MOCK.id,

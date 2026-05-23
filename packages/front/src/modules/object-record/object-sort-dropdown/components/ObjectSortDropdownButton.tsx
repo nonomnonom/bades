@@ -172,7 +172,7 @@ export const ObjectSortDropdownButton = () => {
       onOpen={handleDropdownOpen}
       clickableComponent={
         <StyledHeaderDropdownButton isUnfolded={isDropdownOpen}>
-          <Trans>Sort</Trans>
+          <Trans>Urutkan</Trans>
         </StyledHeaderDropdownButton>
       }
       dropdownComponents={
@@ -214,7 +214,7 @@ export const ObjectSortDropdownButton = () => {
           <DropdownMenuSearchInput
             autoFocus
             value={objectSortDropdownSearchInput}
-            placeholder={t`Search fields`}
+            placeholder={t`Cari kolom`}
             onChange={(event) =>
               setObjectSortDropdownSearchInput(event.target.value)
             }
@@ -226,7 +226,7 @@ export const ObjectSortDropdownButton = () => {
           >
             {shouldShowVisibleFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Visible fields`} />
+                <DropdownMenuSectionLabel label={t`Kolom tampil`} />
                 <DropdownMenuItemsContainer>
                   {visibleFieldMetadataItems.map(
                     (visibleFieldMetadataItem, index) => (
@@ -255,7 +255,7 @@ export const ObjectSortDropdownButton = () => {
             {shouldShowSeparator && <DropdownMenuSeparator />}
             {shouldShowHiddenFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Hidden fields`} />
+                <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
                 <DropdownMenuItemsContainer>
                   {hiddenFieldMetadataItemsSorted.map(
                     (hiddenFieldMetadataItem, index) => (

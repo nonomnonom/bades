@@ -22,7 +22,7 @@ export const KeyboardMenuDialog = ({
   return (
     <StyledDialog isMobile={isMobile}>
       <StyledHeading>
-        {t`Keyboard shortcuts`}
+        {t`Pintasan keyboard`}
         <IconButton variant="tertiary" Icon={IconX} onClick={onClose} />
       </StyledHeading>
       <StyledContainer>{children}</StyledContainer>

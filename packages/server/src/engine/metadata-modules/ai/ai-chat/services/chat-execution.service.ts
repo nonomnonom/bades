@@ -149,10 +149,7 @@ export class ChatExecutionService {
 
     const resolvedModelId = modelId ?? workspace.smartModel;
 
-    this.aiModelRegistryService.validateModelAvailability(
-      resolvedModelId,
-      workspace,
-    );
+    this.aiModelRegistryService.validateModelAvailability(resolvedModelId);
 
     const registeredModel =
       await this.aiModelRegistryService.resolveModelForAgent({

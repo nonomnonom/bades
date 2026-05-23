@@ -29,10 +29,6 @@ import { DEFAULT_MAX_OUTPUT_TOKENS } from 'src/engine/metadata-modules/ai/ai-mod
 import { buildCompositeModelId } from 'src/engine/metadata-modules/ai/ai-models/utils/composite-model-id.util';
 import { inferModelFamily } from 'src/engine/metadata-modules/ai/ai-models/utils/infer-model-family.util';
 import { isProviderConfigured } from 'src/engine/metadata-modules/ai/ai-models/utils/is-provider-configured.util';
-import {
-  isModelAllowedByWorkspace,
-  type WorkspaceModelAvailabilitySettings,
-} from 'src/engine/metadata-modules/ai/ai-models/utils/is-model-allowed.util';
 
 export interface RegisteredAiModel {
   modelId: string;
@@ -291,26 +287,10 @@ export class AiModelRegistryService {
     return !disabledModels.includes(modelId);
   }
 
-  validateModelAvailability(
-    modelId: string,
-    workspace: WorkspaceModelAvailabilitySettings,
-  ): void {
+  validateModelAvailability(modelId: string): void {
     if (!this.isModelAdminAllowed(modelId)) {
       throw new AiException(
         'The selected model has been disabled by the administrator.',
-        AiExceptionCode.AGENT_EXECUTION_FAILED,
-      );
-    }
-
-    if (
-      !isModelAllowedByWorkspace(
-        modelId,
-        workspace,
-        this.getRecommendedModelIds(),
-      )
-    ) {
-      throw new AiException(
-        'The selected model is not available in this workspace.',
         AiExceptionCode.AGENT_EXECUTION_FAILED,
       );
     }

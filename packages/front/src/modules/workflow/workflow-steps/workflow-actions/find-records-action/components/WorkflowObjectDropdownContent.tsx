@@ -107,7 +107,7 @@ export const WorkflowObjectDropdownContent = ({
             />
           }
         >
-          <Trans>Advanced</Trans>
+          <Trans>Lanjutan</Trans>
         </DropdownMenuHeader>
       )}
       <DropdownMenuSearchInput
@@ -129,7 +129,7 @@ export const WorkflowObjectDropdownContent = ({
         ))}
         {shouldShowAdvanced && (
           <MenuItem
-            text={<Trans>Advanced</Trans>}
+            text={<Trans>Lanjutan</Trans>}
             LeftIcon={IconSettings}
             onClick={handleAdvancedClick}
             hasSubMenu

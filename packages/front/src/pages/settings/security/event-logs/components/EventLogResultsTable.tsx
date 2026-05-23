@@ -216,7 +216,7 @@ export const EventLogResultsTable = ({
   if (!loading && records.length === 0) {
     return (
       <SettingsEmptyPlaceholder>
-        <Trans>No event logs found</Trans>
+        <Trans>Tidak ada log peristiwa</Trans>
       </SettingsEmptyPlaceholder>
     );
   }
@@ -328,7 +328,7 @@ export const EventLogResultsTable = ({
         <StyledIntersectionObserver ref={fetchMoreRef} />
         {loading && records.length > 0 && (
           <StyledLoadingMore>
-            <Trans>Loading more...</Trans>
+            <Trans>Memuat lainnya...</Trans>
           </StyledLoadingMore>
         )}
       </ScrollWrapper>

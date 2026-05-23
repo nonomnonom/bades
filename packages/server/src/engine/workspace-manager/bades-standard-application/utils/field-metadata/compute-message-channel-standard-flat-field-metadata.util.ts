@@ -40,8 +40,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'id',
       type: FieldMetadataType.UUID,
-      label: i18nLabel(msg`Id`),
-      description: i18nLabel(msg`Id`),
+      label: i18nLabel(msg`ID`),
+      description: i18nLabel(msg`ID`),
       icon: 'Icon123',
       isSystem: true,
       isNullable: false,
@@ -59,8 +59,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'createdAt',
       type: FieldMetadataType.DATE_TIME,
-      label: i18nLabel(msg`Creation date`),
-      description: i18nLabel(msg`Creation date`),
+      label: i18nLabel(msg`Tanggal Dibuat`),
+      description: i18nLabel(msg`Tanggal Dibuat`),
       icon: 'IconCalendar',
       isSystem: true,
       isNullable: false,
@@ -79,8 +79,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'updatedAt',
       type: FieldMetadataType.DATE_TIME,
-      label: i18nLabel(msg`Last update`),
-      description: i18nLabel(msg`Last time the record was changed`),
+      label: i18nLabel(msg`Pembaruan Terakhir`),
+      description: i18nLabel(msg`Waktu terakhir data diubah`),
       icon: 'IconCalendarClock',
       isSystem: true,
       isNullable: false,
@@ -99,8 +99,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'deletedAt',
       type: FieldMetadataType.DATE_TIME,
-      label: i18nLabel(msg`Deleted at`),
-      description: i18nLabel(msg`Date when the record was deleted`),
+      label: i18nLabel(msg`Dihapus pada`),
+      description: i18nLabel(msg`Tanggal data dihapus`),
       icon: 'IconCalendarMinus',
       isSystem: true,
       isNullable: true,
@@ -118,8 +118,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'createdBy',
       type: FieldMetadataType.ACTOR,
-      label: i18nLabel(msg`Created by`),
-      description: i18nLabel(msg`The creator of the record`),
+      label: i18nLabel(msg`Dibuat Oleh`),
+      description: i18nLabel(msg`Pembuat data ini`),
       icon: 'IconCreativeCommonsSa',
       isSystem: true,
       isUIReadOnly: true,
@@ -141,9 +141,9 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'updatedBy',
       type: FieldMetadataType.ACTOR,
-      label: i18nLabel(msg`Updated by`),
+      label: i18nLabel(msg`Diperbarui Oleh`),
       description: i18nLabel(
-        msg`The workspace member who last updated the record`,
+        msg`Anggota workspace yang terakhir memperbarui data`,
       ),
       icon: 'IconUserCircle',
       isSystem: true,
@@ -166,7 +166,7 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'position',
       type: FieldMetadataType.POSITION,
-      label: i18nLabel(msg`Position`),
+      label: i18nLabel(msg`Posisi`),
       description: i18nLabel(msg`Message Channel record position`),
       icon: 'IconHierarchy2',
       isSystem: true,
@@ -184,8 +184,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'searchVector',
       type: FieldMetadataType.TS_VECTOR,
-      label: i18nLabel(msg`Search vector`),
-      description: i18nLabel(msg`Field used for full-text search`),
+      label: i18nLabel(msg`Indeks Pencarian`),
+      description: i18nLabel(msg`Kolom untuk pencarian teks lengkap`),
       icon: 'IconUser',
       isSystem: true,
       isNullable: true,
@@ -224,7 +224,7 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
         {
           id: '20202020-6a42-40a8-b81e-28b7e591c598',
           value: 'SUBJECT',
-          label: i18nLabel(msg`Subject`),
+          label: i18nLabel(msg`Subjek`),
           position: 1,
           color: 'blue',
         },
@@ -248,8 +248,8 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'handle',
       type: FieldMetadataType.TEXT,
-      label: i18nLabel(msg`Handle`),
-      description: i18nLabel(msg`Handle`),
+      label: i18nLabel(msg`Identitas`),
+      description: i18nLabel(msg`Identitas`),
       icon: 'IconAt',
       isNullable: true,
       isUIReadOnly: true,
@@ -265,7 +265,7 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'type',
       type: FieldMetadataType.SELECT,
-      label: i18nLabel(msg`Type`),
+      label: i18nLabel(msg`Tipe`),
       description: i18nLabel(msg`Channel Type`),
       icon: 'IconMessage',
       isNullable: false,

@@ -223,20 +223,6 @@ export class WorkspaceResolver {
     return workspace.smartModel;
   }
 
-  @ResolveField(() => [String], { nullable: true })
-  async enabledAiModelIds(
-    @Parent() workspace: WorkspaceEntity,
-  ): Promise<string[]> {
-    return workspace.enabledAiModelIds;
-  }
-
-  @ResolveField(() => Boolean, { nullable: false })
-  async useRecommendedModels(
-    @Parent() workspace: WorkspaceEntity,
-  ): Promise<boolean> {
-    return workspace.useRecommendedModels;
-  }
-
   @ResolveField(() => ApplicationDTO, { nullable: true })
   async workspaceCustomApplication(
     @Parent() workspace: WorkspaceEntity,

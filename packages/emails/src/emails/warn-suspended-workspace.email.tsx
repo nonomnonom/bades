@@ -22,7 +22,7 @@ export const WarnSuspendedWorkspaceEmail = ({
 
   return (
     <BaseEmail width={333}>
-      <Title value="Ruang Kerja Ditangguhkan" />
+      <Title value="Ruang kerja ditangguhkan" />
       <MainText>
         {userName?.length > 1 ? `Halo ${userName},` : 'Halo,'}
         <br />
@@ -31,12 +31,18 @@ export const WarnSuspendedWorkspaceEmail = ({
         selama {daysSinceInactive} hari.
         <br />
         <br />
-        Ruang kerja akan dinonaktifkan dalam {remainingDays} hari, dan seluruh
-        datanya akan dihapus.
+        Jika langganan tidak diperbarui dalam {remainingDays} hari ke depan,
+        ruang kerja akan dinonaktifkan dan seluruh datanya akan dihapus
+        secara permanen.
         <br />
         <br />
-        Jika Anda ingin terus menggunakan Bades, silakan perbarui langganan
-        Anda dalam {remainingDays} hari ke depan.
+        Untuk tetap menggunakan Bades, silakan perbarui langganan melalui
+        tombol di bawah.
+        <br />
+        <br />
+        Salam,
+        <br />
+        Tim Bades
       </MainText>
       <br />
       <CallToAction

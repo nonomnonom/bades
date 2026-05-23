@@ -17,14 +17,24 @@ export const SendEmailVerificationLinkEmail = ({
     ? 'Konfirmasi alamat email baru'
     : 'Konfirmasi alamat email';
   const bodyText = isEmailUpdate
-    ? 'Kami menerima permintaan untuk mengubah alamat email yang terkait dengan akun Bades Anda. Klik di bawah untuk mengonfirmasi perubahan ini.'
-    : 'Terima kasih telah mendaftar untuk akun Bades! Sebelum kami mulai, kami perlu memastikan bahwa ini adalah Anda. Klik di bawah untuk memverifikasi alamat email Anda.';
+    ? 'Kami menerima permintaan untuk mengubah alamat email yang terkait dengan akun Bades Anda. Klik tombol di bawah untuk mengonfirmasi perubahan ini.'
+    : 'Selamat datang di Bades. Sebelum mulai, kami perlu memastikan bahwa ini benar Anda. Klik tombol di bawah untuk memverifikasi alamat email Anda.';
   const ctaLabel = isEmailUpdate ? 'Konfirmasi email baru' : 'Verifikasi email';
 
   return (
     <BaseEmail width={333}>
       <Title value={title} />
-      <MainText>{bodyText}</MainText>
+      <MainText>
+        Halo,
+        <br />
+        <br />
+        {bodyText}
+        <br />
+        <br />
+        Salam,
+        <br />
+        Tim Bades
+      </MainText>
       <br />
       <CallToAction href={link} value={ctaLabel} />
       <br />

@@ -9,7 +9,7 @@ export const RecordTableEmptyStateReadOnly = () => {
 
   const objectLabelSingular = useObjectLabel(objectMetadataItem);
 
-  const buttonTitle = `Add a ${objectLabelSingular}`;
+  const buttonTitle = t`Tambah ${objectLabelSingular}`;
 
   return (
     <RecordTableEmptyStateDisplay

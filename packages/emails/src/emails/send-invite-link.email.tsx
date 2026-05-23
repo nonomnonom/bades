@@ -40,8 +40,11 @@ export const SendInviteLinkEmail = ({
 
   return (
     <BaseEmail width={333}>
-      <Title value="Bergabung dengan tim di Bades" />
+      <Title value="Undangan bergabung di Bades" />
       <MainText>
+        Halo,
+        <br />
+        <br />
         {senderName} (
         <Link
           href={`mailto:${senderEmail}`}
@@ -49,7 +52,8 @@ export const SendInviteLinkEmail = ({
           color={emailTheme.font.colors.blue}
         />
         ) mengundang Anda untuk bergabung ke ruang kerja{' '}
-        <b>{workspaceName}</b>.
+        <b>{workspaceName}</b>. Klik tombol di bawah untuk menerima undangan
+        dan mulai bekerja bersama tim.
         <br />
       </MainText>
       <HighlightedContainer>

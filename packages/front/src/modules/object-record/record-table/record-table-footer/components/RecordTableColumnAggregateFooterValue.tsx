@@ -70,7 +70,7 @@ export const RecordTableColumnAggregateFooterValue = ({
         </StyledValueContainer>
       ) : (
         <StyledText id={sanitizedId}>
-          <Trans>Calculate</Trans>
+          <Trans>Hitung</Trans>
         </StyledText>
       )}
     </>

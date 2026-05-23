@@ -72,14 +72,14 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
           }
           links={[
             {
-              children: <Trans>Workspace</Trans>,
+              children: <Trans>Ruang kerja</Trans>,
               href: getSettingsPath(SettingsPath.Workspace),
             },
             {
-              children: <Trans>Security</Trans>,
+              children: <Trans>Keamanan</Trans>,
               href: getSettingsPath(SettingsPath.Security),
             },
-            { children: <Trans>New SSO provider</Trans> },
+            { children: <Trans>Penyedia SSO baru</Trans> },
           ]}
         >
           <SettingsSSOIdentitiesProvidersForm />

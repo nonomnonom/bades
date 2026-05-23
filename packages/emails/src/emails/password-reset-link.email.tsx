@@ -17,16 +17,33 @@ export const PasswordResetLinkEmail = ({
   link,
 }: PasswordResetLinkEmailProps) => {
   const headline = hasPassword ? 'Atur ulang kata sandi' : 'Buat kata sandi';
-  const ctaLabel = hasPassword ? 'Atur ulang' : 'Buat';
+  const ctaLabel = hasPassword ? 'Atur ulang sandi' : 'Buat sandi';
+  const intro = hasPassword
+    ? 'Kami menerima permintaan untuk mengatur ulang kata sandi akun Bades Anda. Klik tombol di bawah untuk membuat kata sandi baru.'
+    : 'Akun Bades Anda belum memiliki kata sandi. Klik tombol di bawah untuk membuat kata sandi baru.';
 
   return (
     <BaseEmail>
       <Title value={headline} />
       <MainText>
-        Tautan ini hanya berlaku selama {duration} ke depan. Jika tautan tidak
-        berfungsi, gunakan tautan verifikasi login berikut secara langsung:
+        Halo,
+        <br />
+        <br />
+        {intro}
+        <br />
+        <br />
+        Tautan ini hanya berlaku selama {duration} ke depan. Jika tombol tidak
+        berfungsi, salin dan tempel tautan berikut ke peramban Anda:
         <br />
         <Link href={link} value={link} />
+        <br />
+        <br />
+        Jika Anda tidak meminta perubahan ini, abaikan email ini.
+        <br />
+        <br />
+        Salam,
+        <br />
+        Tim Bades
       </MainText>
       <br />
       <CallToAction href={link} value={ctaLabel} />

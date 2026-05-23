@@ -44,7 +44,6 @@ import {
   WorkspaceNotFoundDefaultError,
 } from 'src/engine/core-modules/workspace/workspace.exception';
 import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
-import { isModelAllowedByWorkspace } from 'src/engine/metadata-modules/ai/ai-models/utils/is-model-allowed.util';
 import { FieldMetadataEntity } from 'src/engine/metadata-modules/field-metadata/field-metadata.entity';
 import { ALL_METADATA_ENTITY_BY_METADATA_NAME } from 'src/engine/metadata-modules/flat-entity/constant/all-metadata-entity-by-metadata-name.constant';
 import { ALL_METADATA_NAMES_SORTED_ATOMICALLY } from 'src/engine/metadata-modules/flat-entity/constant/all-metadata-names-sorted-atomically.constant';
@@ -98,8 +97,6 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     fastModel: PermissionFlagType.WORKSPACE,
     smartModel: PermissionFlagType.WORKSPACE,
     aiAdditionalInstructions: PermissionFlagType.WORKSPACE,
-    enabledAiModelIds: PermissionFlagType.AI_SETTINGS,
-    useRecommendedModels: PermissionFlagType.AI_SETTINGS,
     isInternalMessagesImportEnabled: PermissionFlagType.WORKSPACE,
   };
 
@@ -245,18 +242,8 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
 
     const isChangingModels =
       isDefined(payload.smartModel) || isDefined(payload.fastModel);
-    const isChangingAvailability =
-      payload.useRecommendedModels !== undefined ||
-      payload.enabledAiModelIds !== undefined;
 
-    if (isChangingModels || isChangingAvailability) {
-      const effectiveWorkspace = {
-        useRecommendedModels:
-          payload.useRecommendedModels ?? workspace.useRecommendedModels,
-        enabledAiModelIds:
-          payload.enabledAiModelIds ?? workspace.enabledAiModelIds,
-      };
-
+    if (isChangingModels) {
       const modelsToValidate = [
         payload.smartModel ?? workspace.smartModel,
         payload.fastModel ?? workspace.fastModel,
@@ -266,19 +253,6 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
         if (!this.aiModelRegistryService.isModelAdminAllowed(modelId)) {
           throw new WorkspaceException(
             'Selected model has been disabled by the administrator',
-            WorkspaceExceptionCode.ENVIRONMENT_VAR_NOT_ENABLED,
-          );
-        }
-
-        if (
-          !isModelAllowedByWorkspace(
-            modelId,
-            effectiveWorkspace,
-            this.aiModelRegistryService.getRecommendedModelIds(),
-          )
-        ) {
-          throw new WorkspaceException(
-            'Selected model is not available in this workspace',
             WorkspaceExceptionCode.ENVIRONMENT_VAR_NOT_ENABLED,
           );
         }

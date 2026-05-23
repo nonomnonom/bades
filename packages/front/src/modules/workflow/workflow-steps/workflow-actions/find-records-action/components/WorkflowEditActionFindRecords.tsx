@@ -45,7 +45,7 @@ const StyledRecordTypeSelectContainer = styled.div<{ fullWidth?: boolean }>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
 `;
 
-const defaultSelectedOptionMessage = msg`Select an option`;
+const defaultSelectedOptionMessage = msg`Pilih opsi`;
 
 type WorkflowEditActionFindRecordsProps = {
   action: WorkflowFindRecordsAction;

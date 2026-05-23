@@ -131,10 +131,7 @@ export class AgentChatResolver {
 
     const resolvedModelId = modelId ?? workspace.smartModel;
 
-    this.aiModelRegistryService.validateModelAvailability(
-      resolvedModelId,
-      workspace,
-    );
+    this.aiModelRegistryService.validateModelAvailability(resolvedModelId);
 
     await this.billingUsageService.hasAvailableCreditsOrThrow(workspace.id);
 

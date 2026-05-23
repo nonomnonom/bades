@@ -17,20 +17,26 @@ export const CleanSuspendedWorkspaceEmail = ({
 }: CleanSuspendedWorkspaceEmailProps) => {
   return (
     <BaseEmail width={333}>
-      <Title value="Ruang Kerja Dihapus" />
+      <Title value="Ruang kerja telah dihapus" />
       <MainText>
         {userName?.length > 1 ? `Halo ${userName},` : 'Halo,'}
         <br />
         <br />
         Ruang kerja <b>{workspaceDisplayName}</b> Anda telah dihapus karena
-        langganan berakhir {daysSinceInactive} hari lalu.
+        langganan berakhir {daysSinceInactive} hari yang lalu.
         <br />
         <br />
-        Semua data dalam ruang kerja tersebut telah dihapus secara permanen.
+        Seluruh data di dalam ruang kerja tersebut sudah dihapus secara
+        permanen dan tidak dapat dipulihkan.
         <br />
         <br />
-        Jika Anda ingin menggunakan Bades lagi, Anda dapat membuat ruang kerja
-        baru.
+        Jika Anda ingin kembali menggunakan Bades, silakan buat ruang kerja
+        baru melalui tombol di bawah.
+        <br />
+        <br />
+        Salam,
+        <br />
+        Tim Bades
       </MainText>
       <br />
       <CallToAction href="https://app.bades.id/" value="Buat ruang kerja baru" />

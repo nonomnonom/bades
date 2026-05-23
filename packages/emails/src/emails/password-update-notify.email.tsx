@@ -31,11 +31,15 @@ export const PasswordUpdateNotifyEmail = ({
         <br />
         <br />
         Jika Anda tidak melakukan perubahan ini, segera hubungi pemilik ruang
-        kerja Anda.
+        kerja Anda untuk mengamankan akun.
         <br />
+        <br />
+        Salam,
+        <br />
+        Tim Bades
       </MainText>
       <br />
-      <CallToAction value="Hubungi Bades" href={link} />
+      <CallToAction value="Buka aplikasi" href={link} />
       <br />
       <br />
     </BaseEmail>

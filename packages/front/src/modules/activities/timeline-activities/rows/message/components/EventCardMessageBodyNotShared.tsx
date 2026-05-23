@@ -47,7 +47,7 @@ export const EventCardMessageBodyNotShared = ({
           <IconLock />
         </StyledEmailBodyNotSharedIconContainer>
         <span>
-          <Trans>Not shared by {notSharedByFullName}</Trans>
+          <Trans>Tidak dibagikan oleh {notSharedByFullName}</Trans>
         </span>
       </StyledEmailBodyNotShared>
     </StyledEmailBodyNotSharedContainer>

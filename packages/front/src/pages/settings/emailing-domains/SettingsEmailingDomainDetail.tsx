@@ -32,7 +32,7 @@ export const SettingsEmailingDomainDetail = () => {
   if (isDefined(error) || !isDefined(emailingDomain)) {
     return (
       <SettingsEmptyPlaceholder>
-        <Trans>Domain not found</Trans>
+        <Trans>Domain tidak ditemukan</Trans>
       </SettingsEmptyPlaceholder>
     );
   }
@@ -42,11 +42,11 @@ export const SettingsEmailingDomainDetail = () => {
       title={emailingDomain.domain}
       links={[
         {
-          children: <Trans>Workspace</Trans>,
+          children: <Trans>Ruang kerja</Trans>,
           href: getSettingsPath(SettingsPath.Workspace),
         },
         {
-          children: <Trans>Emailing Domains</Trans>,
+          children: <Trans>Domain surel</Trans>,
           href: getSettingsPath(SettingsPath.Applications),
         },
         { children: emailingDomain.domain },

@@ -43,15 +43,18 @@ export const SendApprovedAccessDomainValidation = ({
     <BaseEmail width={333}>
       <Title value="Validasi domain" />
       <MainText>
+        Halo,
+        <br />
+        <br />
         {senderName} (
         <Link
           href={`mailto:${senderEmail}`}
           value={senderEmail}
           color={emailTheme.font.colors.blue}
         />
-        ): Silakan validasi domain ini agar pengguna dengan alamat email{' '}
-        <b>@{domain}</b> dapat bergabung ke ruang kerja Anda tanpa perlu
-        undangan.
+        ) meminta validasi domain ini. Setelah divalidasi, pengguna dengan
+        alamat email <b>@{domain}</b> dapat bergabung ke ruang kerja Anda
+        tanpa perlu undangan terpisah.
         <br />
       </MainText>
       <HighlightedContainer>
