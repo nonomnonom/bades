@@ -134,7 +134,7 @@ export class ApplicationInstallService {
     }
 
     const requiredServerVersion =
-      resolvedPackage.packageJson.engines?.['twenty'];
+      resolvedPackage.packageJson.engines?.['bades'];
 
     const versionValidation =
       await this.applicationVersionValidationService.validateServerCompatibility(

@@ -34,7 +34,7 @@ import { streamToBuffer } from 'src/utils/stream-to-buffer';
 
 const execFilePromise = promisify(execFile);
 
-const APP_FETCHER_TMPDIR = join(tmpdir(), 'twenty-app-fetcher');
+const APP_FETCHER_TMPDIR = join(tmpdir(), 'bades-app-fetcher');
 const RESOLUTION_TIMEOUT_MS = 30_000;
 
 export type ResolvedPackage = {
@@ -266,7 +266,7 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
     versionSpec: string,
   ): Promise<void> {
     const packageJson = {
-      name: 'twenty-app-resolver-workspace',
+      name: 'bades-app-resolver-workspace',
       private: true,
       dependencies: {
         [packageName]: versionSpec,

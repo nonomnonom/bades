@@ -34,7 +34,7 @@ export class ApplicationVersionValidationService {
       return {
         compatible: false,
         reason: 'INVALID_REQUIRED_VERSION',
-        message: `App manifest declares invalid engines.twenty value "${requiredServerVersion}". Must be a valid semver range.`,
+        message: `App manifest declares invalid engines.bades value "${requiredServerVersion}". Must be a valid semver range.`,
       };
     }
 

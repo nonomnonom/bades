@@ -111,7 +111,7 @@ export class MarketplaceService {
 
     try {
       const { data } = await axios.get(
-        `${registryUrl}/-/v1/search?text=keywords:twenty-app&size=250`,
+        `${registryUrl}/-/v1/search?text=keywords:bades-app&size=250`,
         {
           headers: { 'User-Agent': 'Bades-Marketplace' },
           timeout: 10_000,

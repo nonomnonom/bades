@@ -47,16 +47,12 @@
       "packages/emails",
       "packages/ui",
       "packages/utils",
-      "packages/zapier",
       "packages/e2e-testing",
       "packages/shared",
       "packages/sdk",
       "packages/front-component-renderer",
       "packages/client-sdk",
-      "packages/cli",
-      "packages/create-bades-app",
       "packages/oxlint-rules",
-      "packages/companion",
       "packages/claude-skills"
     ]
   },
