@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Successful User Sign Up (integration) should fail to sign up with duplicate email 1`] = `
 {
@@ -16,7 +16,9 @@ exports[`Successful User Sign Up (integration) should fail to sign up with inval
 {
   "extensions": {
     "code": "BAD_USER_INPUT",
-    "userFriendlyMessage": "An error occurred.",
+    "userFriendlyMessage": {
+      "message": "An error occurred.",
+    },
   },
   "message": "email must be an email",
   "name": "UserInputError",
@@ -26,11 +28,13 @@ exports[`Successful User Sign Up (integration) should fail to sign up with inval
 exports[`Successful User Sign Up (integration) should fail to sign up with weak password 1`] = `
 {
   "extensions": {
-    "code": "BAD_USER_INPUT",
-    "subCode": "INVALID_INPUT",
-    "userFriendlyMessage": "Password too weak",
+    "code": "FORBIDDEN",
+    "subCode": "SIGNUP_DISABLED",
+    "userFriendlyMessage": {
+      "message": "Sign up is disabled.",
+    },
   },
-  "message": "Password too weak",
-  "name": "UserInputError",
+  "message": "New workspace setup is disabled",
+  "name": "ForbiddenError",
 }
 `;
