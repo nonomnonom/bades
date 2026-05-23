@@ -2,11 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { type Request } from 'express';
 import { type OpenAPIV3_1 } from 'openapi-types';
-import {
-  assertIsDefinedOrThrow,
-  capitalize,
-  isDefined,
-} from 'shared/utils';
+import { assertIsDefinedOrThrow, capitalize, isDefined } from 'shared/utils';
 
 import { DatabaseEventAction } from 'src/engine/api/graphql/graphql-query-runner/enums/database-event-action';
 import { AccessTokenService } from 'src/engine/core-modules/auth/token/services/access-token.service';

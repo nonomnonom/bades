@@ -1,7 +1,6 @@
 import { type ErrorLike } from '@apollo/client';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { type MessageDescriptor } from '~/utils/i18n/badesI18n';
-import { t } from '~/utils/i18n/badesI18n';
+import { type MessageDescriptor, t } from '~/utils/i18n/badesI18n';
 import { type Nullable } from 'shared/types';
 import { isDefined } from 'shared/utils';
 

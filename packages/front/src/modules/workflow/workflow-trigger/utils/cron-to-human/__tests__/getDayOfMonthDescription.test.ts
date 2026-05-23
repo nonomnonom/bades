@@ -81,7 +81,9 @@ describe('getDayOfMonthDescription', () => {
     expect(getDayOfMonthDescription('1W', options)).toBe(
       'pada hari kerja terdekat dengan tanggal 1th bulan ini',
     );
-    expect(getDayOfMonthDescription('W', options)).toBe('hanya pada hari kerja');
+    expect(getDayOfMonthDescription('W', options)).toBe(
+      'hanya pada hari kerja',
+    );
   });
 
   it('should handle ordinal numbers via single-form plural shim', () => {

@@ -40,7 +40,8 @@ export class AdminPanelBillingService {
       return null;
     }
 
-    const billingCustomerId = customer?.id ?? subscription?.billingCustomerId ?? null;
+    const billingCustomerId =
+      customer?.id ?? subscription?.billingCustomerId ?? null;
     const creditBalance = customer
       ? customer.creditBalanceMicro / CREDIT_BALANCE_MICRO_UNIT
       : null;

@@ -32,7 +32,9 @@ export const VariableChip = ({
 
   const isVariableNotFound = !isDefined(variableLabel);
   const label = isVariableNotFound ? t`Tidak Ditemukan` : variableLabel;
-  const title = isVariableNotFound ? t`Variabel tidak ditemukan` : variablePathLabel;
+  const title = isVariableNotFound
+    ? t`Variabel tidak ditemukan`
+    : variablePathLabel;
 
   return (
     <BaseChip

@@ -1,9 +1,6 @@
 import { CalendarStartDay } from 'shared/constants';
 import { STANDARD_OBJECTS } from 'shared/metadata';
-import {
-  AggregateOperations,
-  PageLayoutTabLayoutMode,
-} from 'shared/types';
+import { AggregateOperations, PageLayoutTabLayoutMode } from 'shared/types';
 import { v4 } from 'uuid';
 
 import { type FlatPageLayoutWidget } from 'src/engine/metadata-modules/flat-page-layout-widget/types/flat-page-layout-widget.type';

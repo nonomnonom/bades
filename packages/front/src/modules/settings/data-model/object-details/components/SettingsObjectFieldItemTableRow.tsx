@@ -18,12 +18,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
 import { FieldMetadataType, SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
-import {
-  IconChevronRight,
-  IconMinus,
-  IconPlus,
-  useIcons,
-} from 'ui/display';
+import { IconChevronRight, IconMinus, IconPlus, useIcons } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { UndecoratedLink } from 'ui/navigation';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';

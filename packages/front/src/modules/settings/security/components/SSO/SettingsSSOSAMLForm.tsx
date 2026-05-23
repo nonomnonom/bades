@@ -204,7 +204,10 @@ export const SettingsSSOSAMLForm = () => {
                 Icon={IconCopy}
                 title={t`Salin`}
                 onClick={() => {
-                  copyToClipboard(entityID, t`ID Entitas disalin ke papan klip`);
+                  copyToClipboard(
+                    entityID,
+                    t`ID Entitas disalin ke papan klip`,
+                  );
                 }}
                 type="button"
               />

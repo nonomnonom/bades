@@ -145,9 +145,7 @@ export const buildWorkflowStandardFlatFieldMetadatas = ({
       fieldName: 'statuses',
       type: FieldMetadataType.MULTI_SELECT,
       label: i18nLabel(msg`Status`),
-      description: i18nLabel(
-        msg`Status terkini dari versi alur kerja`,
-      ),
+      description: i18nLabel(msg`Status terkini dari versi alur kerja`),
       icon: 'IconStatusChange',
       isNullable: true,
       isUIReadOnly: true,
@@ -323,9 +321,7 @@ export const buildWorkflowStandardFlatFieldMetadatas = ({
       morphId: null,
       fieldName: 'automatedTriggers',
       label: i18nLabel(msg`Pemicu Otomatis`),
-      description: i18nLabel(
-        msg`Pemicu otomatis terkait alur kerja ini.`,
-      ),
+      description: i18nLabel(msg`Pemicu otomatis terkait alur kerja ini.`),
       icon: 'IconSettingsAutomation',
       isUIReadOnly: true,
       isNullable: false,

@@ -187,7 +187,7 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
     description:
-      "Enable or disable requests to icon services to get company icons",
+      'Enable or disable requests to icon services to get company icons',
     type: ConfigVariableType.BOOLEAN,
   })
   ALLOW_REQUESTS_TO_FAVICON_SERVICE = true;
@@ -795,7 +795,8 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.BILLING_CONFIG,
     isSensitive: true,
-    description: 'Server Key Midtrans dari MAP (Midtrans Administration Portal)',
+    description:
+      'Server Key Midtrans dari MAP (Midtrans Administration Portal)',
     type: ConfigVariableType.STRING,
   })
   @ValidateIf((env) => env.IS_BILLING_ENABLED === true)

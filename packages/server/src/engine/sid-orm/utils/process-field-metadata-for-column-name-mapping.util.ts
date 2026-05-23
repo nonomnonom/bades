@@ -1,7 +1,4 @@
-import {
-  type CompositeType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { type CompositeType, compositeTypeDefinitions } from 'shared/types';
 
 import { RelationType } from 'src/engine/metadata-modules/field-metadata/interfaces/relation-type.interface';
 

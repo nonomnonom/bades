@@ -1,7 +1,4 @@
-import {
-  type FieldMetadataType,
-  type ObjectsPermissions,
-} from 'shared/types';
+import { type FieldMetadataType, type ObjectsPermissions } from 'shared/types';
 import { EntityManager } from 'typeorm';
 import { EntityPersistExecutor } from 'typeorm/persistence/EntityPersistExecutor';
 import { PlainObjectToDatabaseEntityTransformer } from 'typeorm/query-builder/transformer/PlainObjectToDatabaseEntityTransformer';
@@ -42,14 +39,11 @@ jest.mock('src/engine/sid-orm/utils/format-result.util', () => ({
   formatResult: jest.fn().mockReturnValue([]),
 }));
 
-jest.mock(
-  'src/engine/sid-orm/entity-manager/workspace-entity-manager',
-  () => ({
-    ...jest.requireActual(
-      'src/engine/sid-orm/entity-manager/workspace-entity-manager',
-    ),
-  }),
-);
+jest.mock('src/engine/sid-orm/entity-manager/workspace-entity-manager', () => ({
+  ...jest.requireActual(
+    'src/engine/sid-orm/entity-manager/workspace-entity-manager',
+  ),
+}));
 
 const mockedWorkspaceUpdateQueryBuilder = {
   set: jest.fn().mockImplementation(() => ({

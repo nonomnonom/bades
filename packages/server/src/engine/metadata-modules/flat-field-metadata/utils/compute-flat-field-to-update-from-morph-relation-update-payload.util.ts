@@ -1,7 +1,4 @@
-import {
-  FieldMetadataType,
-  type RelationUpdatePayload,
-} from 'shared/types';
+import { FieldMetadataType, type RelationUpdatePayload } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { computeMorphOrRelationFieldJoinColumnName } from 'src/engine/metadata-modules/field-metadata/utils/compute-morph-or-relation-field-join-column-name.util';

@@ -1,6 +1,7 @@
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { SettingsCard } from '@/settings/components/SettingsCard';
-import { SETTINGS_FIELD_TYPE_CATEGORIES, SETTINGS_FIELD_TYPE_CATEGORY_LABELS } from '@/settings/data-model/constants/SettingsFieldTypeCategories';
+import { SETTINGS_FIELD_TYPE_CATEGORIES } from '@/settings/data-model/constants/SettingsFieldTypeCategories';
+import { SETTINGS_FIELD_TYPE_CATEGORY_LABELS } from '@/settings/data-model/constants/SettingsFieldTypeCategoryLabels';
 import { SETTINGS_FIELD_TYPE_CATEGORY_DESCRIPTIONS } from '@/settings/data-model/constants/SettingsFieldTypeCategoryDescriptions';
 import { SETTINGS_FIELD_TYPE_CONFIGS } from '@/settings/data-model/constants/SettingsFieldTypeConfigs';
 import { type SettingsFieldTypeConfig } from '@/settings/data-model/constants/SettingsNonCompositeFieldTypeConfigs';

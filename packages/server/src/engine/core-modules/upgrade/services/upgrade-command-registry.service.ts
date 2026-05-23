@@ -58,10 +58,7 @@ const buildEmptyVersionBundle = (): VersionBundle => ({
 export class UpgradeCommandRegistryService implements OnModuleInit {
   private readonly logger = new Logger(UpgradeCommandRegistryService.name);
 
-  private readonly bundlesByVersion = new Map<
-    BadesAllVersion,
-    VersionBundle
-  >();
+  private readonly bundlesByVersion = new Map<BadesAllVersion, VersionBundle>();
 
   constructor(private readonly discoveryService: DiscoveryService) {}
 

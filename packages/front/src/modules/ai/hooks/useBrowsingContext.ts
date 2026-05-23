@@ -134,7 +134,8 @@ export const useGetBrowsingContext = () => {
           const fieldMetadataItem = objectMetadataItem.fields.find(
             (field) => field.id === filter.fieldMetadataId,
           );
-          const fieldLabel = fieldMetadataItem?.label ?? t`Kolom tidak diketahui`;
+          const fieldLabel =
+            fieldMetadataItem?.label ?? t`Kolom tidak diketahui`;
 
           return `${fieldLabel} ${filter.operand} "${filter.displayValue}"`;
         },

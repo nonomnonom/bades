@@ -1,7 +1,4 @@
-import {
-  workflowActionSchema,
-  workflowTriggerSchema,
-} from 'shared/workflow';
+import { workflowActionSchema, workflowTriggerSchema } from 'shared/workflow';
 import { z } from 'zod';
 
 import { type WorkflowAction } from 'src/modules/workflow/workflow-executor/workflow-actions/types/workflow-action.type';

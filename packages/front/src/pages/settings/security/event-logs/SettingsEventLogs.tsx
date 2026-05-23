@@ -168,8 +168,7 @@ export const SettingsEventLogs = () => {
 
     return {
       title: t`Gagal Memuat Log Audit`,
-      message:
-        errorMessage || t`Terjadi kesalahan tak terduga. Coba lagi.`,
+      message: errorMessage || t`Terjadi kesalahan tak terduga. Coba lagi.`,
     };
   };
 

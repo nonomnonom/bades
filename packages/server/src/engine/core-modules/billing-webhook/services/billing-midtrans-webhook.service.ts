@@ -16,9 +16,7 @@ import {
 import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/billing-customer.entity';
 import { BillingMidtransTransactionEntity } from 'src/engine/core-modules/billing/entities/billing-midtrans-transaction.entity';
 import { BillingSubscriptionEntity } from 'src/engine/core-modules/billing/entities/billing-subscription.entity';
-import {
-  MIDTRANS_SUCCESS_STATUSES,
-} from 'src/engine/core-modules/billing/midtrans/constants/midtrans-transaction-status.constant';
+import { MIDTRANS_SUCCESS_STATUSES } from 'src/engine/core-modules/billing/midtrans/constants/midtrans-transaction-status.constant';
 import { MidtransTransactionService } from 'src/engine/core-modules/billing/midtrans/services/midtrans-transaction.service';
 import {
   computeMidtransSignature,
@@ -114,11 +112,12 @@ export class BillingMidtransWebhookService {
     }
 
     // Perbarui database
-    const transaksi = await this.midtransTransactionService.updateTransactionStatus(
-      payload.order_id,
-      statusDariMidtrans,
-      payload as Record<string, unknown>,
-    );
+    const transaksi =
+      await this.midtransTransactionService.updateTransactionStatus(
+        payload.order_id,
+        statusDariMidtrans,
+        payload as Record<string, unknown>,
+      );
 
     // Ambil aksi finansial hanya jika status settlement/capture
     const isSettled = MIDTRANS_SUCCESS_STATUSES.includes(
@@ -235,6 +234,11 @@ export class BillingMidtransWebhookService {
   ): string {
     const serverKey = this.badesConfigService.get('MIDTRANS_SERVER_KEY');
 
-    return computeMidtransSignature(orderId, statusCode, grossAmount, serverKey);
+    return computeMidtransSignature(
+      orderId,
+      statusCode,
+      grossAmount,
+      serverKey,
+    );
   }
 }

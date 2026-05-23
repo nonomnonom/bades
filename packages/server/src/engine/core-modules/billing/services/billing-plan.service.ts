@@ -106,19 +106,13 @@ export class BillingPlanService {
     return findOrThrow(plans, (plan) => {
       return (
         plan.meteredProducts.some((product) =>
-          product.billingPrices.some(
-            (price) => price.priceId === priceId,
-          ),
+          product.billingPrices.some((price) => price.priceId === priceId),
         ) ||
         plan.baseProducts.some((product) =>
-          product.billingPrices.some(
-            (price) => price.priceId === priceId,
-          ),
+          product.billingPrices.some((price) => price.priceId === priceId),
         ) ||
         plan.resourceCreditProducts.some((product) =>
-          product.billingPrices.some(
-            (price) => price.priceId === priceId,
-          ),
+          product.billingPrices.some((price) => price.priceId === priceId),
         )
       );
     });

@@ -154,9 +154,7 @@ export class SSOService {
     identityProvider: Pick<WorkspaceSSOIdentityProviderEntity, 'id' | 'type'>,
     searchParams?: Record<string, string | boolean>,
   ) {
-    const authorizationUrl = new URL(
-      this.badesConfigService.get('SERVER_URL'),
-    );
+    const authorizationUrl = new URL(this.badesConfigService.get('SERVER_URL'));
 
     authorizationUrl.pathname = `/auth/${identityProvider.type.toLowerCase()}/login/${identityProvider.id}`;
 

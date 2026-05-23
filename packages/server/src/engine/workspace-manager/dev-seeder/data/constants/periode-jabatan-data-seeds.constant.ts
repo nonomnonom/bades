@@ -10,17 +10,18 @@ type PeriodeJabatanDataSeed = {
   position: number;
 };
 
-export const PERIODE_JABATAN_DATA_SEED_COLUMNS: (keyof PeriodeJabatanDataSeed)[] = [
-  'id',
-  'namaPejabat',
-  'namaJabatan',
-  'tanggalMulai',
-  'tanggalSelesai',
-  'nomorSk',
-  'statusPeriode',
-  'keterangan',
-  'position',
-];
+export const PERIODE_JABATAN_DATA_SEED_COLUMNS: (keyof PeriodeJabatanDataSeed)[] =
+  [
+    'id',
+    'namaPejabat',
+    'namaJabatan',
+    'tanggalMulai',
+    'tanggalSelesai',
+    'nomorSk',
+    'statusPeriode',
+    'keterangan',
+    'position',
+  ];
 
 // prettier-ignore
 export const PERIODE_JABATAN_DATA_SEED_IDS = {

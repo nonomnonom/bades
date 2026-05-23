@@ -269,8 +269,7 @@ export const useGraphQLErrorHandlerHook = <
         const headers = context.req.headers;
         const currentMetadataVersion = context.req.workspaceMetadataVersion;
         const requestMetadataVersion = headers[SCHEMA_VERSION_HEADER];
-        const backendAppVersion =
-          options.badesConfigService.get('APP_VERSION');
+        const backendAppVersion = options.badesConfigService.get('APP_VERSION');
         const appVersionHeaderValue = headers[APP_VERSION_HEADER];
         const frontEndAppVersion =
           appVersionHeaderValue && Array.isArray(appVersionHeaderValue)

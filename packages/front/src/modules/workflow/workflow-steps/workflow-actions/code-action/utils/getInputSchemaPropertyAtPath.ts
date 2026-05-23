@@ -1,7 +1,4 @@
-import {
-  type InputSchema,
-  type InputSchemaProperty,
-} from 'shared/workflow';
+import { type InputSchema, type InputSchemaProperty } from 'shared/workflow';
 import { isDefined } from 'shared/utils';
 
 export const getInputSchemaPropertyAtPath = (

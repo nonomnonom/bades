@@ -29,10 +29,7 @@ export const SettingsUpdates = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title
-            title={t`Rilis`}
-            description={t`Lihat rilis terbaru kami`}
-          />
+          <H2Title title={t`Rilis`} description={t`Lihat rilis terbaru kami`} />
           <StyledCardLink
             href="https://bades.id/releases"
             target="_blank"

@@ -30,11 +30,7 @@ import {
   IconLayoutList,
   IconSortDescending,
 } from 'ui/display';
-import {
-  MenuItem,
-  MenuItemNavigate,
-  MenuItemToggle,
-} from 'ui/navigation';
+import { MenuItem, MenuItemNavigate, MenuItemToggle } from 'ui/navigation';
 
 export const ObjectOptionsDropdownRecordGroupsContent = () => {
   const { t } = useLingui();

@@ -1,7 +1,4 @@
-import {
-  type FieldMetadataType,
-  type CompositeProperty,
-} from 'shared/types';
+import { type FieldMetadataType, type CompositeProperty } from 'shared/types';
 
 export const computeCompositePropertyTarget = (
   type: FieldMetadataType,

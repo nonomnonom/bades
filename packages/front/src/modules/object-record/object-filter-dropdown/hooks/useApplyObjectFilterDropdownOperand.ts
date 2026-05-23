@@ -16,10 +16,7 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { stringifyRelativeDateFilter } from '@/views/view-filter-value/utils/stringifyRelativeDateFilter';
 
 import { DEFAULT_RELATIVE_DATE_FILTER_VALUE } from 'shared/constants';
-import {
-  isDefined,
-  relativeDateFilterStringifiedSchema,
-} from 'shared/utils';
+import { isDefined, relativeDateFilterStringifiedSchema } from 'shared/utils';
 
 export const useApplyObjectFilterDropdownOperand = () => {
   const { userTimezone } = useUserTimezone();

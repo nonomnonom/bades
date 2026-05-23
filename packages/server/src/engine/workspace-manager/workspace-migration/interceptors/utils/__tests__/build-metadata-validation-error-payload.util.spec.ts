@@ -1,5 +1,4 @@
-import { msg } from 'src/utils/bades-i18n';
-import { type MessageDescriptor } from 'src/utils/bades-i18n';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 
 import { EMPTY_ORCHESTRATOR_FAILURE_REPORT } from 'src/engine/workspace-manager/workspace-migration/constant/empty-orchestrator-failure-report.constant';
 import { WorkspaceMigrationBuilderException } from 'src/engine/workspace-manager/workspace-migration/exceptions/workspace-migration-builder-exception';

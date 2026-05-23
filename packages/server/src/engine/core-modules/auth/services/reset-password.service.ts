@@ -10,11 +10,7 @@ import ms from 'ms';
 import { PasswordResetLinkEmail } from 'emails';
 import { type APP_LOCALES } from 'shared/translations';
 import { AppPath } from 'shared/types';
-import {
-  assertIsDefinedOrThrow,
-  getAppPath,
-  isDefined,
-} from 'shared/utils';
+import { assertIsDefinedOrThrow, getAppPath, isDefined } from 'shared/utils';
 import { IsNull, MoreThan, Repository } from 'typeorm';
 
 import {

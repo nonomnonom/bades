@@ -170,7 +170,9 @@ export const InviteTeam = () => {
         <Trans>Undang tim Anda</Trans>
       </Title>
       <SubTitle>
-        <Trans>Undang rekan kerja Anda untuk mulai berkolaborasi bersama.</Trans>
+        <Trans>
+          Undang rekan kerja Anda untuk mulai berkolaborasi bersama.
+        </Trans>
       </SubTitle>
       <StyledAnimatedContainer>
         {fields.map((field, index) => (

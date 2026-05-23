@@ -1,8 +1,5 @@
 import { msg } from 'src/utils/bades-i18n';
-import {
-  FieldMetadataType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 
 import { type FieldMetadataEntity } from 'src/engine/metadata-modules/field-metadata/field-metadata.entity';
 import {

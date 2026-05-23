@@ -6,10 +6,7 @@ import { isNonEmptyString } from '@sniptt/guards';
 
 import { type RecordGqlRefEdge } from '@/object-record/cache/types/RecordGqlRefEdge';
 
-import {
-  type OrderBy,
-  type RecordGqlOperationOrderBy,
-} from 'shared/types';
+import { type OrderBy, type RecordGqlOperationOrderBy } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { sortAsc, sortDesc, sortNullsFirst, sortNullsLast } from '~/utils/sort';
 

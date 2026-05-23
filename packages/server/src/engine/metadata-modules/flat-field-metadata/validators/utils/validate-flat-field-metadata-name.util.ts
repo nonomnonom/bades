@@ -1,4 +1,4 @@
-import { msg, t} from 'src/utils/bades-i18n';
+import { msg, t } from 'src/utils/bades-i18n';
 import {
   IDENTIFIER_MAX_CHAR_LENGTH,
   RESERVED_METADATA_NAME_KEYWORDS,

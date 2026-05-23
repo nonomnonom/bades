@@ -105,10 +105,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
       >
         <SettingsPageContainer>
           <Section>
-            <H2Title
-              title={t`Domain`}
-              description={t`Nama domain Anda`}
-            />
+            <H2Title title={t`Domain`} description={t`Nama domain Anda`} />
             <Controller
               name="domain"
               control={form.control}

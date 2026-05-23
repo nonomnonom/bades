@@ -381,12 +381,8 @@ export const STANDARD_FLAT_OBJECT_METADATA_BUILDERS_BY_OBJECT_NAME = {
             .universalIdentifier,
         nameSingular: 'messageChannelMessageAssociationMessageFolder',
         namePlural: 'messageChannelMessageAssociationMessageFolders',
-        labelSingular: i18nLabel(
-          msg`Relasi Folder Pesan Saluran`,
-        ),
-        labelPlural: i18nLabel(
-          msg`Relasi Folder Pesan Saluran`,
-        ),
+        labelSingular: i18nLabel(msg`Relasi Folder Pesan Saluran`),
+        labelPlural: i18nLabel(msg`Relasi Folder Pesan Saluran`),
         description: i18nLabel(
           msg`Tabel relasi antara pesan saluran dan folder pesan`,
         ),

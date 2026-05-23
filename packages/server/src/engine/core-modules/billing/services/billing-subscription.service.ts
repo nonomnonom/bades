@@ -276,8 +276,7 @@ export class BillingSubscriptionService {
     }
 
     const planKey = billingSubscription.planKey ?? BillingPlanKey.PRO;
-    const interval =
-      billingSubscription.interval ?? SubscriptionInterval.Month;
+    const interval = billingSubscription.interval ?? SubscriptionInterval.Month;
 
     const pricesPerPlan =
       await this.billingPlanService.getPricesPerPlanByInterval({

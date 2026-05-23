@@ -11,10 +11,7 @@ import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTab
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import React, { useCallback } from 'react';
-import {
-  MessageChannelSyncStage,
-  MessageChannelType,
-} from 'shared/types';
+import { MessageChannelSyncStage, MessageChannelType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 

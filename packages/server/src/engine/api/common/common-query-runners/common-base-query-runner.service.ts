@@ -355,9 +355,7 @@ export abstract class CommonBaseQueryRunnerService<
 
       const shortConfig = {
         key: `api:throttler:${workspaceId}-short-limit`,
-        maxTokens: this.badesConfigService.get(
-          'API_RATE_LIMITING_SHORT_LIMIT',
-        ),
+        maxTokens: this.badesConfigService.get('API_RATE_LIMITING_SHORT_LIMIT'),
         timeWindow: this.badesConfigService.get(
           'API_RATE_LIMITING_SHORT_TTL_IN_MS',
         ),

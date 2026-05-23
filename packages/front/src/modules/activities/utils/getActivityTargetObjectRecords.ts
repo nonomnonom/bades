@@ -10,10 +10,7 @@ import {
   FieldMetadataType,
   type Nullable,
 } from 'shared/types';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 
 type GetActivityTargetObjectRecordsProps = {
   activityRecord: Note | Task;

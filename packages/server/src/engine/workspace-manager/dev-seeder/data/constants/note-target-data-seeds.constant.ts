@@ -43,8 +43,7 @@ const GENERATE_NOTE_TARGET_SEEDS = (): NoteTargetDataSeed[] => {
     NOTE_TARGET_SEEDS.push({
       id: NOTE_TARGET_DATA_SEED_IDS[`ID_${INDEX}`],
       noteId: NOTE_DATA_SEED_IDS[`ID_${INDEX}`],
-      targetPendudukId:
-        PENDUDUK_ID_LIST[(INDEX - 1) % PENDUDUK_ID_LIST.length],
+      targetPendudukId: PENDUDUK_ID_LIST[(INDEX - 1) % PENDUDUK_ID_LIST.length],
     });
   }
 

@@ -1,4 +1,4 @@
-import { msg, t} from 'src/utils/bades-i18n';
+import { msg, t } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { type ValidateFlatPageLayoutWidgetTypeSpecificitiesForCreationArgs } from 'src/engine/metadata-modules/flat-page-layout-widget/services/flat-page-layout-widget-type-validator.service';

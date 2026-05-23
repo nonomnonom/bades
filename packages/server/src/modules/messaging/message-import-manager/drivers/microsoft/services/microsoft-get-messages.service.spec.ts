@@ -2,10 +2,7 @@ import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Test, type TestingModule } from '@nestjs/testing';
 
-import {
-  ConnectedAccountProvider,
-  MessageParticipantRole,
-} from 'shared/types';
+import { ConnectedAccountProvider, MessageParticipantRole } from 'shared/types';
 
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { ConnectedAccountTokenEncryptionService } from 'src/engine/metadata-modules/connected-account/services/connected-account-token-encryption.service';

@@ -1,7 +1,4 @@
-import {
-  ALL_METADATA_NAME,
-  type AllMetadataName,
-} from 'shared/metadata';
+import { ALL_METADATA_NAME, type AllMetadataName } from 'shared/metadata';
 
 import { createEmptyFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/constant/create-empty-flat-entity-maps.constant';
 import { type AllFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/all-flat-entity-maps.type';

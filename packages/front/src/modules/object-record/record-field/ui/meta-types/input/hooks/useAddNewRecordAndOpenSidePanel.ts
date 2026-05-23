@@ -13,10 +13,7 @@ import { viewableRecordNameSingularState } from '@/object-record/record-side-pan
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { buildRecordLabelPayload } from '@/object-record/utils/buildRecordLabelPayload';
 import { getOperationName } from '~/utils/getOperationName';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 import { FieldMetadataType, RelationType } from '~/generated-metadata/graphql';
 
 type useAddNewRecordAndOpenSidePanelProps = {

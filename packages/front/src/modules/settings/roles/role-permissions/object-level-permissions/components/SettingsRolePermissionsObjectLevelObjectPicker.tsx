@@ -119,10 +119,7 @@ export const SettingsRolePermissionsObjectLevelObjectPicker = ({
 
       {standardObjects.length > 0 && (
         <Section>
-          <H2Title
-            title={t`Standar`}
-            description={t`Semua objek standar`}
-          />
+          <H2Title title={t`Standar`} description={t`Semua objek standar`} />
           <StyledContainer>
             {standardObjects.map((objectMetadataItem) => (
               <StyledCardContainer

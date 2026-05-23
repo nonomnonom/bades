@@ -121,7 +121,11 @@ export const WorkflowEditActionHttpRequest = ({
       title: t`Konfigurasi`,
       Icon: IconSettings,
     },
-    { id: WorkflowHttpRequestTabId.TEST, title: t`Uji Coba`, Icon: IconPlayerPlay },
+    {
+      id: WorkflowHttpRequestTabId.TEST,
+      title: t`Uji Coba`,
+      Icon: IconPlayerPlay,
+    },
   ];
 
   useEffect(() => () => saveAction.flush(), [saveAction]);

@@ -14,11 +14,7 @@ import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
-import {
-  AppPath,
-  CoreObjectNameSingular,
-  SettingsPath,
-} from 'shared/types';
+import { AppPath, CoreObjectNameSingular, SettingsPath } from 'shared/types';
 import { generateILikeFiltersForCompositeFields } from 'shared/utils';
 import {
   AppTooltip,

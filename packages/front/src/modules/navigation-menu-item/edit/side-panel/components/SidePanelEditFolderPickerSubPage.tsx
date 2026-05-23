@@ -30,9 +30,7 @@ export const SidePanelEditFolderPickerSubPage = () => {
     ...(filteredFolders.length > 0 ? filteredFolders.map((f) => f.id) : []),
   ];
   const noResultsText =
-    searchValue.trim().length > 0
-      ? t`Tidak ada hasil`
-      : t`Belum ada folder`;
+    searchValue.trim().length > 0 ? t`Tidak ada hasil` : t`Belum ada folder`;
 
   return (
     <SidePanelSubViewWithSearch

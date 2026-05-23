@@ -130,5 +130,8 @@ export const getToolDisplayMessage = (
 
   const formattedName = formatToolName(resolvedToolName);
 
-  return byStatus(t`Menjalankan ${formattedName}`, t`Sedang menjalankan ${formattedName}`);
+  return byStatus(
+    t`Menjalankan ${formattedName}`,
+    t`Sedang menjalankan ${formattedName}`,
+  );
 };

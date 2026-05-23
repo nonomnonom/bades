@@ -1,8 +1,4 @@
-import {
-  FieldMetadataType,
-  FileFolder,
-  type ObjectRecord,
-} from 'shared/types';
+import { FieldMetadataType, FileFolder, type ObjectRecord } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { type QueryResultGetterHandlerInterface } from 'src/engine/api/graphql/workspace-query-runner/factories/query-result-getters/interfaces/query-result-getter-handler.interface';

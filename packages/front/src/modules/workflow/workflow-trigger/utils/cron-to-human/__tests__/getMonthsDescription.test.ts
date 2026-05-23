@@ -37,9 +37,7 @@ describe('getMonthsDescription', () => {
     expect(getMonthsDescription('1-6', options)).toBe(
       'antara January dan June',
     );
-    expect(getMonthsDescription('6-8', options)).toBe(
-      'antara June dan August',
-    );
+    expect(getMonthsDescription('6-8', options)).toBe('antara June dan August');
   });
 
   it('should handle lists', () => {

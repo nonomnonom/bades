@@ -23,8 +23,7 @@ import { type ApolloManager } from '@/apollo/types/apolloManager.interface';
 import { getTokenPair } from '@/apollo/utils/getTokenPair';
 import { loggerLink } from '@/apollo/utils/loggerLink';
 import { StreamingRestLink } from '@/apollo/utils/streamingRestLink';
-import { i18n } from '~/utils/i18n/badesI18n';
-import { t } from '~/utils/i18n/badesI18n';
+import { i18n, t } from '~/utils/i18n/badesI18n';
 import {
   type DefinitionNode,
   type DirectiveNode,

@@ -1,8 +1,5 @@
 import { isNonEmptyString } from '@sniptt/guards';
-import {
-  type RichTextMetadata,
-  richTextValueSchema,
-} from 'shared/types';
+import { type RichTextMetadata, richTextValueSchema } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import type { ServerBlockNoteEditor } from '@blocknote/server-util';

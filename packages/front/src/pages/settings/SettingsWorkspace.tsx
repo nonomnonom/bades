@@ -1,4 +1,3 @@
-
 import { useLingui } from '~/utils/i18n/badesI18n';
 import { isEmailGroupEnabledState } from '@/client-config/states/isEmailGroupEnabledState';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';

@@ -2,10 +2,7 @@ import { msg } from 'src/utils/bades-i18n';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import {
-  PermissionFlagType,
-  SystemPermissionFlag,
-} from 'shared/constants';
+import { PermissionFlagType, SystemPermissionFlag } from 'shared/constants';
 import { isDefined } from 'shared/utils';
 import { In, Repository } from 'typeorm';
 

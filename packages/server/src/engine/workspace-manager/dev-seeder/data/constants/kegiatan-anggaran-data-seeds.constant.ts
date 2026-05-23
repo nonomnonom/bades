@@ -11,18 +11,19 @@ type KegiatanAnggaranDataSeed = {
   position: number;
 };
 
-export const KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS: (keyof KegiatanAnggaranDataSeed)[] = [
-  'id',
-  'kode',
-  'namaKegiatan',
-  'namaBidang',
-  'namaSumberDana',
-  'paguKegiatan',
-  'tahunAnggaran',
-  'status',
-  'keterangan',
-  'position',
-];
+export const KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS: (keyof KegiatanAnggaranDataSeed)[] =
+  [
+    'id',
+    'kode',
+    'namaKegiatan',
+    'namaBidang',
+    'namaSumberDana',
+    'paguKegiatan',
+    'tahunAnggaran',
+    'status',
+    'keterangan',
+    'position',
+  ];
 
 // prettier-ignore
 export const KEGIATAN_ANGGARAN_DATA_SEED_IDS = {

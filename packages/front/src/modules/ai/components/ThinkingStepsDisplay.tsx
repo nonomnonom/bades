@@ -397,7 +397,9 @@ const ThinkingStepRow = ({
         )}
       </StyledIconContainer>
       <StyledRowLabelContainer>
-        <StyledRowLabel>{isActive ? t`Sedang berpikir` : t`Telah berpikir`}</StyledRowLabel>
+        <StyledRowLabel>
+          {isActive ? t`Sedang berpikir` : t`Telah berpikir`}
+        </StyledRowLabel>
       </StyledRowLabelContainer>
     </StyledRow>
   );

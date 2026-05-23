@@ -1,9 +1,5 @@
 import { type FieldMetadataType } from 'shared/types';
-import {
-  findOrThrow,
-  isDefined,
-  type SearchableFieldType,
-} from 'shared/utils';
+import { findOrThrow, isDefined, type SearchableFieldType } from 'shared/utils';
 
 import { type AllFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/all-flat-entity-maps.type';
 import { findFlatEntityByUniversalIdentifier } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-universal-identifier.util';

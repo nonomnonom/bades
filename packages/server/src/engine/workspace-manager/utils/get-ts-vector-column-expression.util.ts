@@ -1,7 +1,4 @@
-import {
-  FieldMetadataType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 import type { SearchableFieldType } from 'shared/utils';
 
 import {

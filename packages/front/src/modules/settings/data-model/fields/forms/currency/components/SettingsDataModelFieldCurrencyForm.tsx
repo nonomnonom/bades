@@ -14,11 +14,7 @@ import { CURRENCIES } from '@/settings/data-model/constants/Currencies';
 import { useCurrencySettingsFormInitialValues } from '@/settings/data-model/fields/forms/currency/hooks/useCurrencySettingsFormInitialValues';
 import { Select } from '@/ui/input/components/Select';
 import { plural, useLingui } from '~/utils/i18n/badesI18n';
-import {
-  IconCheckbox,
-  IconCurrencyDollar,
-  IconDecimal,
-} from 'ui/display';
+import { IconCheckbox, IconCurrencyDollar, IconDecimal } from 'ui/display';
 import { DEFAULT_DECIMAL_VALUE } from '~/utils/format/formatNumber';
 import { applySimpleQuotesToString } from '~/utils/string/applySimpleQuotesToString';
 
@@ -116,7 +112,10 @@ export const SettingsDataModelFieldCurrencyForm = ({
                   disabled={disabled}
                   dropdownId="object-field-format-select"
                   options={[
-                    { label: t`Singkat`, value: fieldMetadataCurrencyFormat[0] },
+                    {
+                      label: t`Singkat`,
+                      value: fieldMetadataCurrencyFormat[0],
+                    },
                     { label: t`Penuh`, value: fieldMetadataCurrencyFormat[1] },
                   ]}
                   selectSizeVariant="small"

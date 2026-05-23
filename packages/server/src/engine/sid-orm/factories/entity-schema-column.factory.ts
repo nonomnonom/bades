@@ -1,9 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  FieldMetadataType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { type ColumnType, type EntitySchemaColumnOptions } from 'typeorm';
 

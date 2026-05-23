@@ -43,7 +43,7 @@ export class BillingCustomerEntity extends WorkspaceRelatedEntity {
    * Nullable karena pelanggan Midtrans-only tidak memiliki stripeCustomerId.
    * unique + nullable valid di Postgres (NULL tidak dianggap duplikat).
    */
-  @Column({ nullable: true, unique: true })
+  @Column({ nullable: true, unique: true, type: 'varchar' })
   stripeCustomerId: string | null;
 
   /**

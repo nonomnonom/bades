@@ -25,11 +25,7 @@ import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSe
 import { useSaveRecordFields } from '@/views/hooks/useSaveRecordFields';
 import { useStore } from 'jotai';
 import { useCallback, useState } from 'react';
-import {
-  findById,
-  findByProperty,
-  throwIfNotDefined,
-} from 'shared/utils';
+import { findById, findByProperty, throwIfNotDefined } from 'shared/utils';
 
 export const useResizeTableHeader = () => {
   const { recordTableId, visibleRecordFields } = useRecordTableContextOrThrow();

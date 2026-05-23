@@ -1,8 +1,4 @@
-import {
-  ViewOpenRecordIn,
-  ViewType,
-  ViewVisibility,
-} from 'shared/types';
+import { ViewOpenRecordIn, ViewType, ViewVisibility } from 'shared/types';
 import { v4 } from 'uuid';
 
 import { type FlatApplication } from 'src/engine/core-modules/application/types/flat-application.type';

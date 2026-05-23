@@ -1,8 +1,5 @@
 import { t } from 'src/utils/bades-i18n';
-import {
-  extractAndSanitizeObjectStringFields,
-  isDefined,
-} from 'shared/utils';
+import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatViewSortMaps } from 'src/engine/metadata-modules/flat-view-sort/types/flat-view-sort-maps.type';
 import { type DeleteViewSortInput } from 'src/engine/metadata-modules/view-sort/dtos/inputs/delete-view-sort.input';

@@ -56,7 +56,8 @@ export const NotFound = () => {
             </AnimatedPlaceholderErrorTitle>
             <AnimatedPlaceholderErrorSubTitle>
               <Trans>
-                Halaman yang Anda cari tidak ada atau sudah dipindahkan. Mari kembali ke jalur yang benar
+                Halaman yang Anda cari tidak ada atau sudah dipindahkan. Mari
+                kembali ke jalur yang benar
               </Trans>
             </AnimatedPlaceholderErrorSubTitle>
           </AnimatedPlaceholderEmptyTextContainer>

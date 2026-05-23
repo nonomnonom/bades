@@ -13,12 +13,7 @@ import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTab
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
-import {
-  IconBolt,
-  IconCode,
-  IconPlayerPlay,
-  IconSettings,
-} from 'ui/display';
+import { IconBolt, IconCode, IconPlayerPlay, IconSettings } from 'ui/display';
 import { useQuery } from '@apollo/client/react';
 import { FindOneApplicationDocument } from '~/generated-metadata/graphql';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';

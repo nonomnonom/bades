@@ -1,4 +1,4 @@
-import { msg, t} from 'src/utils/bades-i18n';
+import { msg, t } from 'src/utils/bades-i18n';
 import { ViewType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 

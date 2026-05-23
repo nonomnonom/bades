@@ -173,7 +173,8 @@ export const SettingsAdminWorkspaceContent = ({
               {
                 Icon: IconId,
                 label: t`Versi terdeteksi`,
-                value: workspaceUpgradeStatus.inferredVersion ?? t`Tidak diketahui`,
+                value:
+                  workspaceUpgradeStatus.inferredVersion ?? t`Tidak diketahui`,
               },
               {
                 Icon: IconCalendar,

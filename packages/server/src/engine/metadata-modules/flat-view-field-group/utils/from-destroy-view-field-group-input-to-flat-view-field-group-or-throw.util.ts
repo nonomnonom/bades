@@ -1,8 +1,5 @@
 import { t } from 'src/utils/bades-i18n';
-import {
-  extractAndSanitizeObjectStringFields,
-  isDefined,
-} from 'shared/utils';
+import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatViewFieldGroupMaps } from 'src/engine/metadata-modules/flat-view-field-group/types/flat-view-field-group-maps.type';
 import { findFlatEntityByIdInFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-id-in-flat-entity-maps.util';

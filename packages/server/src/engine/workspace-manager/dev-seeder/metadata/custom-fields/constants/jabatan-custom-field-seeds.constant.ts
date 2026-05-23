@@ -15,10 +15,20 @@ export const JABATAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Tipe jabatan',
     options: [
       { label: 'Kepala Desa', value: 'KEPALA_DESA', position: 0, color: 'red' },
-      { label: 'Sekretaris Desa', value: 'SEKRETARIS', position: 1, color: 'blue' },
+      {
+        label: 'Sekretaris Desa',
+        value: 'SEKRETARIS',
+        position: 1,
+        color: 'blue',
+      },
       { label: 'Kaur', value: 'KAUR', position: 2, color: 'green' },
       { label: 'Kasi', value: 'KASI', position: 3, color: 'yellow' },
-      { label: 'Kepala Dusun', value: 'KEPALA_DUSUN', position: 4, color: 'purple' },
+      {
+        label: 'Kepala Dusun',
+        value: 'KEPALA_DUSUN',
+        position: 4,
+        color: 'purple',
+      },
       { label: 'RT', value: 'RT', position: 5, color: 'orange' },
       { label: 'RW', value: 'RW', position: 6, color: 'gray' },
     ],

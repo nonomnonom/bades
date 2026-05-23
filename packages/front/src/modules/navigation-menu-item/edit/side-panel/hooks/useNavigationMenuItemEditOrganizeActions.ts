@@ -152,7 +152,9 @@ export const useNavigationMenuItemEditOrganizeActions =
       if (!insertion) return;
 
       const title =
-        offset === 0 ? t`Tambah item menu sebelum` : t`Tambah item menu sesudah`;
+        offset === 0
+          ? t`Tambah item menu sebelum`
+          : t`Tambah item menu sesudah`;
 
       setPendingInsertionNavigationMenuItem(insertion);
       navigateToSidePanelSubPage(

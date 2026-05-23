@@ -1,9 +1,6 @@
 import { styled } from '@linaria/react';
 import { isDefined } from 'shared/utils';
-import {
-  IconColumnInsertRight,
-  OverflowingTextWithTooltip,
-} from 'ui/display';
+import { IconColumnInsertRight, OverflowingTextWithTooltip } from 'ui/display';
 
 import { selectedNavigationMenuItemIdInEditModeState } from '@/navigation-menu-item/common/states/selectedNavigationMenuItemIdInEditModeState';
 import { useNavigationMenuItemSectionItems } from '@/navigation-menu-item/display/hooks/useNavigationMenuItemSectionItems';

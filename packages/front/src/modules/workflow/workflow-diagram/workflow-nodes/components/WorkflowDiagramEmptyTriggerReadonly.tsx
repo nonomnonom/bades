@@ -81,9 +81,7 @@ export const WorkflowDiagramEmptyTriggerReadonly = ({ id }: { id: string }) => {
 
       <WorkflowNodeRightPart>
         <WorkflowNodeLabelWithCounterPart>
-          <WorkflowNodeLabel selected={selected}>
-            {t`Pemicu`}
-          </WorkflowNodeLabel>
+          <WorkflowNodeLabel selected={selected}>{t`Pemicu`}</WorkflowNodeLabel>
         </WorkflowNodeLabelWithCounterPart>
 
         <WorkflowNodeTitle selected={selected}>

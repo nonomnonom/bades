@@ -43,8 +43,7 @@ const GENERATE_TASK_TARGET_SEEDS = (): TaskTargetDataSeed[] => {
     TASK_TARGET_SEEDS.push({
       id: TASK_TARGET_DATA_SEED_IDS[`ID_${INDEX}`],
       taskId: TASK_DATA_SEED_IDS[`ID_${INDEX}`],
-      targetPendudukId:
-        PENDUDUK_ID_LIST[(INDEX - 1) % PENDUDUK_ID_LIST.length],
+      targetPendudukId: PENDUDUK_ID_LIST[(INDEX - 1) % PENDUDUK_ID_LIST.length],
     });
   }
 

@@ -390,10 +390,7 @@ export class DevSeederDataService {
     objectMetadataItems: FlatObjectMetadata[];
     light?: boolean;
   }) {
-    const batches = getRecordSeedsBatches(
-      workspaceId,
-      featureFlags,
-    );
+    const batches = getRecordSeedsBatches(workspaceId, featureFlags);
 
     // Process batches sequentially (respecting dependencies)
     // but entities within each batch in parallel

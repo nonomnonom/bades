@@ -1,7 +1,6 @@
 import { type MessageDescriptor, msg } from 'src/utils/bades-i18n';
 /* @license Enterprise */
 
-
 import {
   appendCommonExceptionCode,
   CustomException,

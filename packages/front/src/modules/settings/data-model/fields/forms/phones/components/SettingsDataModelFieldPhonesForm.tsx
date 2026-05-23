@@ -11,11 +11,7 @@ import { Select } from '@/ui/input/components/Select';
 import { useCountries } from '@/ui/input/components/internal/hooks/useCountries';
 import { useLingui } from '~/utils/i18n/badesI18n';
 import type { CountryCode } from 'libphonenumber-js';
-import {
-  IconCircleOff,
-  IconMap,
-  type IconComponentProps,
-} from 'ui/display';
+import { IconCircleOff, IconMap, type IconComponentProps } from 'ui/display';
 import { z } from 'zod';
 import { applySimpleQuotesToString } from '~/utils/string/applySimpleQuotesToString';
 import { stripSimpleQuotesFromString } from '~/utils/string/stripSimpleQuotesFromString';

@@ -42,9 +42,8 @@ export class AiModelPreferencesService implements OnModuleInit {
 
   getPreferences(): AiModelPreferences {
     const { source } =
-      this.badesConfigService.getVariableWithMetadata(
-        'AI_MODEL_PREFERENCES',
-      ) ?? {};
+      this.badesConfigService.getVariableWithMetadata('AI_MODEL_PREFERENCES') ??
+      {};
 
     if (source !== ConfigSource.DEFAULT) {
       return this.badesConfigService.get('AI_MODEL_PREFERENCES');

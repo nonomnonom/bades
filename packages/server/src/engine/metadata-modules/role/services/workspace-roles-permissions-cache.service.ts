@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import {
-  PermissionFlagType,
-  SystemPermissionFlag,
-} from 'shared/constants';
+import { PermissionFlagType, SystemPermissionFlag } from 'shared/constants';
 import { STANDARD_OBJECTS } from 'shared/metadata';
 import {
   type ObjectsPermissions,

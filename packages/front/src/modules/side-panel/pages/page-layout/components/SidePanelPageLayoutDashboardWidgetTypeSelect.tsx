@@ -154,7 +154,10 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         removePageLayoutWidgetAndPreservePosition(pageLayoutEditingWidgetId);
       }
 
-      const newWidget = createPageLayoutIframeWidget(t`iFrame tanpa judul`, null);
+      const newWidget = createPageLayoutIframeWidget(
+        t`iFrame tanpa judul`,
+        null,
+      );
       setPageLayoutEditingWidgetId(newWidget.id);
     }
 

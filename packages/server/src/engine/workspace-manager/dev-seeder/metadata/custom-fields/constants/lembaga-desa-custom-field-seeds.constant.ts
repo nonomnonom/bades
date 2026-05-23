@@ -16,7 +16,12 @@ export const LEMBAGA_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     options: [
       { label: 'BPD', value: 'BPD', position: 0, color: 'blue' },
       { label: 'PKK', value: 'PKK', position: 1, color: 'red' },
-      { label: 'Karang Taruna', value: 'KARANG_TARUNA', position: 2, color: 'green' },
+      {
+        label: 'Karang Taruna',
+        value: 'KARANG_TARUNA',
+        position: 2,
+        color: 'green',
+      },
       { label: 'LPM', value: 'LPM', position: 3, color: 'yellow' },
       { label: 'Posyandu', value: 'POSYANDU', position: 4, color: 'purple' },
       { label: 'Bumdes', value: 'BUMDES', position: 5, color: 'orange' },

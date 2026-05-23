@@ -7,10 +7,7 @@ import {
 } from '@/settings/components/SettingsOptions/SettingsCardContentBase';
 import { SettingsOptionIconCustomizer } from '@/settings/components/SettingsOptions/SettingsOptionIconCustomizer';
 import { styled } from '@linaria/react';
-import {
-  type IconComponent,
-  OverflowingTextWithTooltip,
-} from 'ui/display';
+import { type IconComponent, OverflowingTextWithTooltip } from 'ui/display';
 import { isDefined } from 'shared/utils';
 
 type SettingsOptionCardContentButtonProps = {

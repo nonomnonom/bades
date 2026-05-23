@@ -16,11 +16,7 @@ export class MidtransSDKService {
    * @param clientKey  - Client Key dari Midtrans MAP
    * @param isProduction - true untuk environment produksi
    */
-  getSnap(
-    serverKey: string,
-    clientKey: string,
-    isProduction: boolean,
-  ): Snap {
+  getSnap(serverKey: string, clientKey: string, isProduction: boolean): Snap {
     return new Snap({ serverKey, clientKey, isProduction });
   }
 

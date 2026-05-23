@@ -149,7 +149,8 @@ export const SettingsAccountsRowDropdownMenu = ({
         title={t`Hapus data`}
         subtitle={
           <Trans>
-            Semua email dan acara yang terhubung ke akun ini ({accountHandle}) akan dihapus
+            Semua email dan acara yang terhubung ke akun ini ({accountHandle})
+            akan dihapus
           </Trans>
         }
         onConfirmClick={deleteAccount}

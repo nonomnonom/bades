@@ -7,12 +7,7 @@ import { InputLabel } from '@/ui/input/components/InputLabel';
 import { styled } from '@linaria/react';
 import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
-import {
-  IconChevronDown,
-  IconPlus,
-  IconVariable,
-  IconX,
-} from 'ui/display';
+import { IconChevronDown, IconPlus, IconVariable, IconX } from 'ui/display';
 import { AnimatedLightIconButton, LightIconButton } from 'ui/input';
 import { AnimatedExpandableContainer } from 'ui/layout';
 import { MenuItem } from 'ui/navigation';

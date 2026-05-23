@@ -4,10 +4,7 @@ import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownM
 import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
-import {
-  DEFAULT_COLOR_LABELS,
-  MenuItemSelectColor,
-} from 'ui/navigation';
+import { DEFAULT_COLOR_LABELS, MenuItemSelectColor } from 'ui/navigation';
 import { type ThemeColor, MAIN_COLOR_NAMES } from 'ui/theme';
 
 type ThemeColorPickerMenuProps = {

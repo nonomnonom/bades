@@ -1,7 +1,4 @@
-import {
-  ALL_METADATA_NAME,
-  type AllMetadataName,
-} from 'shared/metadata';
+import { ALL_METADATA_NAME, type AllMetadataName } from 'shared/metadata';
 
 import {
   ALL_ENTITY_PROPERTIES_CONFIGURATION_BY_METADATA_NAME,

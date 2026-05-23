@@ -213,7 +213,8 @@ export const ViewPickerContentCreateMode = () => {
             {availableFieldsForGrouping.length === 0 && (
               <StyledFieldAvailableContainer>
                 <Trans>
-                  Tambahkan kolom pilihan pada {objectLabel} untuk membuat tampilan Kanban
+                  Tambahkan kolom pilihan pada {objectLabel} untuk membuat
+                  tampilan Kanban
                 </Trans>
               </StyledFieldAvailableContainer>
             )}
@@ -244,7 +245,8 @@ export const ViewPickerContentCreateMode = () => {
             {availableFieldsForCalendar.length === 0 && (
               <StyledFieldAvailableContainer>
                 <Trans>
-                  Tambahkan kolom tanggal pada {objectLabel} untuk membuat tampilan Kalender
+                  Tambahkan kolom tanggal pada {objectLabel} untuk membuat
+                  tampilan Kalender
                 </Trans>
               </StyledFieldAvailableContainer>
             )}

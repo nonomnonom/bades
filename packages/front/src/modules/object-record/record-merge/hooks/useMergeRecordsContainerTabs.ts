@@ -1,7 +1,6 @@
 import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
-
 import { IconArrowMerge, IconSettings } from 'ui/display';
 
 import { type ObjectRecord } from '@/object-record/types/ObjectRecord';

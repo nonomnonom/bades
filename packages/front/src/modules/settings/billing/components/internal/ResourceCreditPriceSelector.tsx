@@ -175,9 +175,7 @@ export const ResourceCreditPriceSelector = ({
           <Select
             dropdownId="settings_billing-resource-credit-price"
             options={options}
-            value={
-              selectedPriceId ?? currentResourceCreditPrice?.priceId ?? ''
-            }
+            value={selectedPriceId ?? currentResourceCreditPrice?.priceId ?? ''}
             onChange={handleChange}
             disabled={isUpdating || isTrialing}
             description={

@@ -2,10 +2,7 @@ import { useObjectMetadataItemById } from '@/object-metadata/hooks/useObjectMeta
 import { flattenedFieldMetadataItemsSelector } from '@/object-metadata/states/flattenedFieldMetadataItemsSelector';
 import { useFilterValueDependencies } from '@/object-record/record-filter/hooks/useFilterValueDependencies';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import {
-  computeRecordGqlOperationFilter,
-  isDefined,
-} from 'shared/utils';
+import { computeRecordGqlOperationFilter, isDefined } from 'shared/utils';
 import {
   type AggregateChartConfiguration,
   type BarChartConfiguration,

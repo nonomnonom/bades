@@ -6,7 +6,8 @@ export const WILAYAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.TEXT,
     label: 'Nama Wilayah',
     name: 'namaWilayah',
-    description: 'Nama wilayah administratif (mis. RT 001, RW 002, Dusun Krajan)',
+    description:
+      'Nama wilayah administratif (mis. RT 001, RW 002, Dusun Krajan)',
   },
   {
     type: FieldMetadataType.SELECT,
@@ -17,7 +18,12 @@ export const WILAYAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Dusun', value: 'DUSUN', position: 0, color: 'purple' },
       { label: 'RW', value: 'RW', position: 1, color: 'blue' },
       { label: 'RT', value: 'RT', position: 2, color: 'green' },
-      { label: 'Lingkungan', value: 'LINGKUNGAN', position: 3, color: 'orange' },
+      {
+        label: 'Lingkungan',
+        value: 'LINGKUNGAN',
+        position: 3,
+        color: 'orange',
+      },
     ],
   },
   {

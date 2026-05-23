@@ -3,11 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { isNonEmptyString } from '@sniptt/guards';
 import chunk from 'lodash.chunk';
 import { OBJECTS_WITH_CHANNEL_VISIBILITY_CONSTRAINTS } from 'shared/constants';
-import {
-  FieldMetadataType,
-  FileFolder,
-  ObjectRecord,
-} from 'shared/types';
+import { FieldMetadataType, FileFolder, ObjectRecord } from 'shared/types';
 import { getLogoUrlFromDomainName, isDefined } from 'shared/utils';
 import { Brackets, type ObjectLiteral } from 'typeorm';
 

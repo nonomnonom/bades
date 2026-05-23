@@ -382,7 +382,8 @@ export const SettingsApplicationConnectionDetail = () => {
               title={t`Putuskan koneksi?`}
               subtitle={
                 <Trans>
-                  Tindakan ini akan memutuskan {connectionLabel} dari aplikasi ini.
+                  Tindakan ini akan memutuskan {connectionLabel} dari aplikasi
+                  ini.
                 </Trans>
               }
               onConfirmClick={handleDelete}
@@ -394,8 +395,8 @@ export const SettingsApplicationConnectionDetail = () => {
               title={t`Ubah visibilitas?`}
               subtitle={
                 <Trans>
-                  Mengubah visibilitas memerlukan sambung ulang koneksi OAuth ini.
-                  Anda akan diarahkan untuk mengotorisasi ulang.
+                  Mengubah visibilitas memerlukan sambung ulang koneksi OAuth
+                  ini. Anda akan diarahkan untuk mengotorisasi ulang.
                 </Trans>
               }
               onConfirmClick={handleChangeVisibility}

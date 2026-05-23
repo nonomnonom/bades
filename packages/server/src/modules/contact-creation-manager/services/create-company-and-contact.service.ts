@@ -4,10 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { isNonEmptyString, isNull } from '@sniptt/guards';
 import chunk from 'lodash.chunk';
 import compact from 'lodash.compact';
-import {
-  ConnectedAccountProvider,
-  type FieldActorSource,
-} from 'shared/types';
+import { ConnectedAccountProvider, type FieldActorSource } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { type DeepPartial, type Repository } from 'typeorm';
 import { v4 } from 'uuid';

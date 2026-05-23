@@ -1,10 +1,7 @@
 import { FullScreenContainer } from '@/ui/layout/fullscreen/components/FullScreenContainer';
 import { styled } from '@linaria/react';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import {
-  ComponentDecorator,
-  ComponentWithRouterDecorator,
-} from 'ui/testing';
+import { ComponentDecorator, ComponentWithRouterDecorator } from 'ui/testing';
 
 const meta: Meta<typeof FullScreenContainer> = {
   title: 'UI/Layout/FullScreenContainer',

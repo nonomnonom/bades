@@ -1,7 +1,4 @@
-import {
-  type FieldMetadataType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { type FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 
 import { generateFakeValue } from 'src/engine/utils/generate-fake-value';
 import {

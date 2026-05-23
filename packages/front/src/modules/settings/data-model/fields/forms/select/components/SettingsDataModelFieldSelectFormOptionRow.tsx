@@ -18,11 +18,7 @@ import {
   IconX,
 } from 'ui/display';
 import { LightIconButton } from 'ui/input';
-import {
-  type ColorLabels,
-  MenuItem,
-  MenuItemSelectColor,
-} from 'ui/navigation';
+import { type ColorLabels, MenuItem, MenuItemSelectColor } from 'ui/navigation';
 import { computeOptionValueFromLabel } from '~/pages/settings/data-model/utils/computeOptionValueFromLabel';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { MAIN_COLOR_NAMES } from 'ui/theme';

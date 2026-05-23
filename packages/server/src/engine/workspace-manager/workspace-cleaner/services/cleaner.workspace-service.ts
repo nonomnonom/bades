@@ -75,10 +75,9 @@ export class CleanerWorkspaceService {
     this.inactiveDaysBeforeWarn = this.badesConfigService.get(
       'WORKSPACE_INACTIVE_DAYS_BEFORE_NOTIFICATION',
     );
-    this.maxNumberOfWorkspacesDeletedPerExecution =
-      this.badesConfigService.get(
-        'MAX_NUMBER_OF_WORKSPACES_DELETED_PER_EXECUTION',
-      );
+    this.maxNumberOfWorkspacesDeletedPerExecution = this.badesConfigService.get(
+      'MAX_NUMBER_OF_WORKSPACES_DELETED_PER_EXECUTION',
+    );
   }
 
   async computeDaysSinceSuspended(

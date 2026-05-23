@@ -352,9 +352,7 @@ export class UserResolver {
     nullable: true,
   })
   supportUserHash(@Parent() parent: UserEntity): string | null {
-    if (
-      this.badesConfigService.get('SUPPORT_DRIVER') !== SupportDriver.FRONT
-    ) {
+    if (this.badesConfigService.get('SUPPORT_DRIVER') !== SupportDriver.FRONT) {
       return null;
     }
     const key = this.badesConfigService.get('SUPPORT_FRONT_HMAC_KEY');

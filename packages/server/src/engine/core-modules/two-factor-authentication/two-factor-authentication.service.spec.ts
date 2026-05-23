@@ -25,7 +25,8 @@ const V2_ENVELOPE_PREFIX = 'enc:v2:';
 
 const totpStrategyMocks = {
   validate: jest.fn(),
-  initiate: jest.fn(() => ({        uri: 'otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace',
+  initiate: jest.fn(() => ({
+    uri: 'otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace',
     context: {
       secret: 'RAW_OTP_SECRET',
       status: 'PENDING',
@@ -246,8 +247,8 @@ describe('TwoFactorAuthenticationService', () => {
         workspace.displayName,
       );
 
-      expect(uri).toBe('otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace'
-,
+      expect(uri).toBe(
+        'otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace',
       );
       expect(repository.save).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -294,9 +295,8 @@ describe('TwoFactorAuthenticationService', () => {
       repository.findOne.mockResolvedValue(existingMethod);
       secretEncryptionService.decryptVersioned.mockReturnValue(rawSecret);
 
-      const expectedUri ='otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace'
-;
-
+      const expectedUri =
+        'otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace';
       const uri = await service.initiateStrategyConfiguration(
         mockUser.id,
         mockUser.email,
@@ -334,8 +334,8 @@ describe('TwoFactorAuthenticationService', () => {
         workspace.displayName,
       );
 
-      expect(uri).toBe('otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace'
-,
+      expect(uri).toBe(
+        'otpauth://totp/test@example.com?secret=RAW_OTP_SECRET&issuer=Bades%20-%20Test%20Workspace',
       );
       expect(simpleSecretEncryptionUtil.decryptSecret).toHaveBeenCalledWith(
         legacyCbcSecret,
@@ -367,7 +367,8 @@ describe('TwoFactorAuthenticationService', () => {
 
       // Should return a valid otpauth URI (don't check exact format due to mocking complexity)
       expect(uri).toMatch(/^otpauth:\/\/totp\//);
-      expect(uri).toContain('test@example.com');        expect(uri).toContain('Bades%20-%20Test%20Workspace');
+      expect(uri).toContain('test@example.com');
+      expect(uri).toContain('Bades%20-%20Test%20Workspace');
 
       // Should create new method since existing one is too old
       // (Don't check if totpStrategyMocks.initiate was called due to mocking complexity)
@@ -429,7 +430,8 @@ describe('TwoFactorAuthenticationService', () => {
 
       // Should return a valid otpauth URI (don't check exact format due to mocking complexity)
       expect(uri).toMatch(/^otpauth:\/\/totp\//);
-      expect(uri).toContain('test@example.com');        expect(uri).toContain('Bades%20-%20Test%20Workspace');
+      expect(uri).toContain('test@example.com');
+      expect(uri).toContain('Bades%20-%20Test%20Workspace');
 
       // Should create new method since createdAt is null
       // (Don't check if totpStrategyMocks.initiate was called due to mocking complexity)

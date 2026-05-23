@@ -37,7 +37,9 @@ export const AgentChatFilePreview = ({
   const setFilePreview = useSetAtomState(filePreviewState);
 
   const fileName =
-    file instanceof File ? file.name : (file.filename ?? t`File tidak diketahui`);
+    file instanceof File
+      ? file.name
+      : (file.filename ?? t`File tidak diketahui`);
 
   const fileUrl = file instanceof File ? undefined : file.url;
   const fileId = file instanceof File ? undefined : file.fileId;

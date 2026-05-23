@@ -22,13 +22,7 @@ import { isNonEmptyString } from '@sniptt/guards';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useQuery } from '@apollo/client/react';
-import {
-  AvatarOrIcon,
-  Chip,
-  ChipSize,
-  ChipVariant,
-  Tag,
-} from 'ui/components';
+import { AvatarOrIcon, Chip, ChipSize, ChipVariant, Tag } from 'ui/components';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { Section } from 'ui/layout';
 import { SettingsPath } from 'shared/types';

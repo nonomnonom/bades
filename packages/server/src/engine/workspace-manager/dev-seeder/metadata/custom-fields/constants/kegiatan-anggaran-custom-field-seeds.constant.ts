@@ -52,7 +52,12 @@ export const KEGIATAN_ANGGARAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Status pelaksanaan kegiatan',
     options: [
       { label: 'Rencana', value: 'RENCANA', position: 0, color: 'gray' },
-      { label: 'Pelaksanaan', value: 'PELAKSANAAN', position: 1, color: 'blue' },
+      {
+        label: 'Pelaksanaan',
+        value: 'PELAKSANAAN',
+        position: 1,
+        color: 'blue',
+      },
       { label: 'Selesai', value: 'SELESAI', position: 2, color: 'green' },
     ],
   },

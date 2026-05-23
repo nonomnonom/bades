@@ -1,5 +1,4 @@
-import { msg } from 'src/utils/bades-i18n';
-import type { MessageDescriptor } from 'src/utils/bades-i18n';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import {
   appendCommonExceptionCode,
   CustomException,

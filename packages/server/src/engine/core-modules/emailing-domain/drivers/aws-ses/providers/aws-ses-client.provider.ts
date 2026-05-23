@@ -23,9 +23,7 @@ export class AwsSesClientProvider {
       const secretAccessKey = this.badesConfigService.get(
         'AWS_SES_SECRET_ACCESS_KEY',
       );
-      const sessionToken = this.badesConfigService.get(
-        'AWS_SES_SESSION_TOKEN',
-      );
+      const sessionToken = this.badesConfigService.get('AWS_SES_SESSION_TOKEN');
 
       if (accessKeyId && secretAccessKey && sessionToken) {
         config.credentials = {

@@ -1,4 +1,3 @@
-
 import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { type CalendarChannel } from '@/accounts/types/CalendarChannel';
 import { type MessageChannel } from '@/accounts/types/MessageChannel';

@@ -1,5 +1,4 @@
-import { msg } from 'src/utils/bades-i18n';
-import { type MessageDescriptor } from 'src/utils/bades-i18n';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { assertUnreachable, CustomError } from 'shared/utils';
 
 import { type AllUniversalWorkspaceMigrationAction } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/types/workspace-migration-action-common';

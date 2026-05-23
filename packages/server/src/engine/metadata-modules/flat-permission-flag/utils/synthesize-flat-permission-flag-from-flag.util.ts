@@ -1,7 +1,4 @@
-import {
-  PermissionFlagType,
-  SystemPermissionFlag,
-} from 'shared/constants';
+import { PermissionFlagType, SystemPermissionFlag } from 'shared/constants';
 
 import { type FlatPermissionFlag } from 'src/engine/metadata-modules/flat-permission-flag/types/flat-permission-flag.type';
 import {

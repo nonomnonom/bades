@@ -1,8 +1,5 @@
 import { CalendarStartDay } from 'shared/constants';
-import {
-  AggregateOperations,
-  PageLayoutTabLayoutMode,
-} from 'shared/types';
+import { AggregateOperations, PageLayoutTabLayoutMode } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { type ObjectMetadataEntity } from 'src/engine/metadata-modules/object-metadata/object-metadata.entity';
@@ -39,7 +36,10 @@ export const getPageLayoutWidgetDataSeedsV2 = (
 
   const pendudukIdFieldId = getFieldId(pendudukObject, 'id');
   const pendudukCreatedAtFieldId = getFieldId(pendudukObject, 'createdAt');
-  const pendudukJenisKelaminFieldId = getFieldId(pendudukObject, 'jenisKelamin');
+  const pendudukJenisKelaminFieldId = getFieldId(
+    pendudukObject,
+    'jenisKelamin',
+  );
 
   const keluargaIdFieldId = getFieldId(keluargaObject, 'id');
   const keluargaCreatedAtFieldId = getFieldId(keluargaObject, 'createdAt');

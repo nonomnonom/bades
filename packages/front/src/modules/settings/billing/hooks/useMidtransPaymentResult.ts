@@ -29,6 +29,8 @@ export const useMidtransPaymentResult = () => {
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
   const orderId = searchParams.get('order_id');
+  // Flag idempotency untuk mencegah notifikasi ganda; bukan UI state.
+  // eslint-disable-next-line bades/no-state-useref
   const hasNotifiedRef = useRef(false);
 
   const { data } = useQuery<MidtransTransactionStatus>(

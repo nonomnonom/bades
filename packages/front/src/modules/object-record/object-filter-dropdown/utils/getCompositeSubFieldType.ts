@@ -1,8 +1,5 @@
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
-import {
-  compositeTypeDefinitions,
-  type FieldMetadataType,
-} from 'shared/types';
+import { compositeTypeDefinitions, type FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 export const getCompositeSubFieldType = (

@@ -111,29 +111,95 @@ export class DevSeederMetadataService {
     [SEED_SUKAMAJU_WORKSPACE_ID]: {
       objects: [
         // Bades SID Objects - 6 Domain GOAL.md
-        { seed: WILAYAH_CUSTOM_OBJECT_SEED, fields: WILAYAH_CUSTOM_FIELD_SEEDS },
-        { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },
-        { seed: KELUARGA_CUSTOM_OBJECT_SEED, fields: KELUARGA_CUSTOM_FIELD_SEEDS },
-        { seed: RUMAH_TANGGA_CUSTOM_OBJECT_SEED, fields: RUMAH_TANGGA_CUSTOM_FIELD_SEEDS },
-        { seed: JENIS_SURAT_CUSTOM_OBJECT_SEED, fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS },
-        { seed: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED, fields: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS },
-        { seed: JABATAN_CUSTOM_OBJECT_SEED, fields: JABATAN_CUSTOM_FIELD_SEEDS },
-        { seed: PERIODE_JABATAN_CUSTOM_OBJECT_SEED, fields: PERIODE_JABATAN_CUSTOM_FIELD_SEEDS },
-        { seed: LEMBAGA_DESA_CUSTOM_OBJECT_SEED, fields: LEMBAGA_DESA_CUSTOM_FIELD_SEEDS },
-        { seed: ANGGARAN_CUSTOM_OBJECT_SEED, fields: ANGGARAN_CUSTOM_FIELD_SEEDS },
-        { seed: REALISASI_ANGGARAN_CUSTOM_OBJECT_SEED, fields: REALISASI_ANGGARAN_CUSTOM_FIELD_SEEDS },
-        { seed: PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED, fields: PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS },
-        { seed: PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED, fields: PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS },
-        { seed: ASET_DESA_CUSTOM_OBJECT_SEED, fields: ASET_DESA_CUSTOM_FIELD_SEEDS },
+        {
+          seed: WILAYAH_CUSTOM_OBJECT_SEED,
+          fields: WILAYAH_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: PENDUDUK_CUSTOM_OBJECT_SEED,
+          fields: PENDUDUK_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: KELUARGA_CUSTOM_OBJECT_SEED,
+          fields: KELUARGA_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: RUMAH_TANGGA_CUSTOM_OBJECT_SEED,
+          fields: RUMAH_TANGGA_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: JENIS_SURAT_CUSTOM_OBJECT_SEED,
+          fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED,
+          fields: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: JABATAN_CUSTOM_OBJECT_SEED,
+          fields: JABATAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: PERIODE_JABATAN_CUSTOM_OBJECT_SEED,
+          fields: PERIODE_JABATAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: LEMBAGA_DESA_CUSTOM_OBJECT_SEED,
+          fields: LEMBAGA_DESA_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: ANGGARAN_CUSTOM_OBJECT_SEED,
+          fields: ANGGARAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: REALISASI_ANGGARAN_CUSTOM_OBJECT_SEED,
+          fields: REALISASI_ANGGARAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED,
+          fields: PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: PENERIMA_BANTUAN_CUSTOM_OBJECT_SEED,
+          fields: PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: ASET_DESA_CUSTOM_OBJECT_SEED,
+          fields: ASET_DESA_CUSTOM_FIELD_SEEDS,
+        },
         { seed: UMKM_CUSTOM_OBJECT_SEED, fields: UMKM_CUSTOM_FIELD_SEEDS },
-        { seed: POSYANDU_CUSTOM_OBJECT_SEED, fields: POSYANDU_CUSTOM_FIELD_SEEDS },
-        { seed: BIDANG_TANAH_CUSTOM_OBJECT_SEED, fields: BIDANG_TANAH_CUSTOM_FIELD_SEEDS },
-        { seed: KEGIATAN_DESA_CUSTOM_OBJECT_SEED, fields: KEGIATAN_DESA_CUSTOM_FIELD_SEEDS },
-        { seed: SURAT_KELUAR_CUSTOM_OBJECT_SEED, fields: SURAT_KELUAR_CUSTOM_FIELD_SEEDS },
-        { seed: SURAT_MASUK_CUSTOM_OBJECT_SEED, fields: SURAT_MASUK_CUSTOM_FIELD_SEEDS },
-        { seed: BIDANG_ANGGARAN_CUSTOM_OBJECT_SEED, fields: BIDANG_ANGGARAN_CUSTOM_FIELD_SEEDS },
-        { seed: SUMBER_DANA_CUSTOM_OBJECT_SEED, fields: SUMBER_DANA_CUSTOM_FIELD_SEEDS },
-        { seed: KEGIATAN_ANGGARAN_CUSTOM_OBJECT_SEED, fields: KEGIATAN_ANGGARAN_CUSTOM_FIELD_SEEDS },
+        {
+          seed: POSYANDU_CUSTOM_OBJECT_SEED,
+          fields: POSYANDU_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: BIDANG_TANAH_CUSTOM_OBJECT_SEED,
+          fields: BIDANG_TANAH_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: KEGIATAN_DESA_CUSTOM_OBJECT_SEED,
+          fields: KEGIATAN_DESA_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: SURAT_KELUAR_CUSTOM_OBJECT_SEED,
+          fields: SURAT_KELUAR_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: SURAT_MASUK_CUSTOM_OBJECT_SEED,
+          fields: SURAT_MASUK_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: BIDANG_ANGGARAN_CUSTOM_OBJECT_SEED,
+          fields: BIDANG_ANGGARAN_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: SUMBER_DANA_CUSTOM_OBJECT_SEED,
+          fields: SUMBER_DANA_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: KEGIATAN_ANGGARAN_CUSTOM_OBJECT_SEED,
+          fields: KEGIATAN_ANGGARAN_CUSTOM_FIELD_SEEDS,
+        },
       ],
       fields: [],
       morphRelations: [],
@@ -224,10 +290,22 @@ export class DevSeederMetadataService {
     [SEED_MEKARSARI_WORKSPACE_ID]: {
       objects: [
         // Bades SID Objects - only the core ones for second workspace
-        { seed: PENDUDUK_CUSTOM_OBJECT_SEED, fields: PENDUDUK_CUSTOM_FIELD_SEEDS },
-        { seed: KELUARGA_CUSTOM_OBJECT_SEED, fields: KELUARGA_CUSTOM_FIELD_SEEDS },
-        { seed: JENIS_SURAT_CUSTOM_OBJECT_SEED, fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS },
-        { seed: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED, fields: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS },
+        {
+          seed: PENDUDUK_CUSTOM_OBJECT_SEED,
+          fields: PENDUDUK_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: KELUARGA_CUSTOM_OBJECT_SEED,
+          fields: KELUARGA_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: JENIS_SURAT_CUSTOM_OBJECT_SEED,
+          fields: JENIS_SURAT_CUSTOM_FIELD_SEEDS,
+        },
+        {
+          seed: PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED,
+          fields: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS,
+        },
       ],
       fields: [],
     },

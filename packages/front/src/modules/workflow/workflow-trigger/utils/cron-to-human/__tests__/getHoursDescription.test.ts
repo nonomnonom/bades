@@ -45,19 +45,29 @@ describe('getHoursDescription', () => {
     it('should handle single values', () => {
       expect(getHoursDescription('9', '30', options24)).toBe('pukul 09:30 UTC');
       expect(getHoursDescription('0', '0', options24)).toBe('pukul 00:00 UTC');
-      expect(getHoursDescription('23', '59', options24)).toBe('pukul 23:59 UTC');
+      expect(getHoursDescription('23', '59', options24)).toBe(
+        'pukul 23:59 UTC',
+      );
     });
   });
 
   describe('12-hour format', () => {
     it('should format morning times', () => {
-      expect(getHoursDescription('9', '30', options12)).toBe('pukul 9:30 AM UTC');
-      expect(getHoursDescription('0', '0', options12)).toBe('pukul 12:00 AM UTC');
+      expect(getHoursDescription('9', '30', options12)).toBe(
+        'pukul 9:30 AM UTC',
+      );
+      expect(getHoursDescription('0', '0', options12)).toBe(
+        'pukul 12:00 AM UTC',
+      );
     });
 
     it('should format afternoon times', () => {
-      expect(getHoursDescription('14', '30', options12)).toBe('pukul 2:30 PM UTC');
-      expect(getHoursDescription('12', '0', options12)).toBe('pukul 12:00 PM UTC');
+      expect(getHoursDescription('14', '30', options12)).toBe(
+        'pukul 2:30 PM UTC',
+      );
+      expect(getHoursDescription('12', '0', options12)).toBe(
+        'pukul 12:00 PM UTC',
+      );
     });
 
     it('should format lists in 12-hour', () => {

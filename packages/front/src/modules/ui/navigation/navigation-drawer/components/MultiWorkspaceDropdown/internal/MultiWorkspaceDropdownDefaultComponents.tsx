@@ -39,11 +39,7 @@ import {
   IconUserPlus,
 } from 'ui/display';
 import { LightIconButton } from 'ui/input';
-import {
-  MenuItem,
-  MenuItemSelectAvatar,
-  UndecoratedLink,
-} from 'ui/navigation';
+import { MenuItem, MenuItemSelectAvatar, UndecoratedLink } from 'ui/navigation';
 import { useMutation } from '@apollo/client/react';
 import {
   type AvailableWorkspace,

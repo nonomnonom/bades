@@ -61,10 +61,10 @@ const YC_MESSAGE_FOLDER_IDS = {
 
 type WorkspaceSeedIds = {
   userWorkspaceIds: {
-  KADES: string;
-  SEKDES: string;
-  KAUR: string;
-  KASI: string;
+    KADES: string;
+    SEKDES: string;
+    KAUR: string;
+    KASI: string;
   };
   connectedAccountIds: typeof CONNECTED_ACCOUNT_DATA_SEED_IDS;
   messageChannelIds: typeof MESSAGE_CHANNEL_DATA_SEED_IDS;
@@ -76,10 +76,10 @@ const getSeedIds = (workspaceId: string): WorkspaceSeedIds => {
   if (workspaceId === SEED_MEKARSARI_WORKSPACE_ID) {
     return {
       userWorkspaceIds: {
-  KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME,
-  SEKDES: USER_WORKSPACE_DATA_SEED_IDS.SEKDES_ACME,
-  KAUR: USER_WORKSPACE_DATA_SEED_IDS.KAUR_ACME,
-  KASI: USER_WORKSPACE_DATA_SEED_IDS.KASI_ACME,
+        KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME,
+        SEKDES: USER_WORKSPACE_DATA_SEED_IDS.SEKDES_ACME,
+        KAUR: USER_WORKSPACE_DATA_SEED_IDS.KAUR_ACME,
+        KASI: USER_WORKSPACE_DATA_SEED_IDS.KASI_ACME,
       },
       connectedAccountIds: YC_CONNECTED_ACCOUNT_IDS,
       messageChannelIds: YC_MESSAGE_CHANNEL_IDS,
@@ -90,10 +90,10 @@ const getSeedIds = (workspaceId: string): WorkspaceSeedIds => {
 
   return {
     userWorkspaceIds: {
-  KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES,
-  SEKDES: USER_WORKSPACE_DATA_SEED_IDS.SEKDES,
-  KAUR: USER_WORKSPACE_DATA_SEED_IDS.KAUR,
-  KASI: USER_WORKSPACE_DATA_SEED_IDS.KASI,
+      KADES: USER_WORKSPACE_DATA_SEED_IDS.KADES,
+      SEKDES: USER_WORKSPACE_DATA_SEED_IDS.SEKDES,
+      KAUR: USER_WORKSPACE_DATA_SEED_IDS.KAUR,
+      KASI: USER_WORKSPACE_DATA_SEED_IDS.KASI,
     },
     connectedAccountIds: CONNECTED_ACCOUNT_DATA_SEED_IDS,
     messageChannelIds: MESSAGE_CHANNEL_DATA_SEED_IDS,

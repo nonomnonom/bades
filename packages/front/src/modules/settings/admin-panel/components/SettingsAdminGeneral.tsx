@@ -78,10 +78,7 @@ export const SettingsAdminGeneral = () => {
     <>
       {canAccessFullAdminPanel && (
         <Section>
-          <H2Title
-            title={t`Tentang`}
-            description={t`Versi aplikasi`}
-          />
+          <H2Title title={t`Tentang`} description={t`Versi aplikasi`} />
           <SettingsAdminVersionContainer />
         </Section>
       )}

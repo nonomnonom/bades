@@ -46,7 +46,9 @@ export const UploadStep = ({
           exceedsMaxRecords(workbook.Sheets[workbook.SheetNames[0]], maxRecords)
         ) {
           const maxRecordsString = maxRecords.toString();
-          onError(t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`);
+          onError(
+            t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
+          );
           return;
         }
         try {

@@ -123,8 +123,7 @@ export class ClientConfigService {
         'IS_IMAP_SMTP_CALDAV_ENABLED',
       ),
       isEmailGroupEnabled:
-        this.badesConfigService.get('STORAGE_TYPE') ===
-          StorageDriverType.S_3 &&
+        this.badesConfigService.get('STORAGE_TYPE') === StorageDriverType.S_3 &&
         isNonEmptyString(this.badesConfigService.get('INBOUND_EMAIL_DOMAIN')),
       allowRequestsToFaviconService: this.badesConfigService.get(
         'ALLOW_REQUESTS_TO_FAVICON_SERVICE',

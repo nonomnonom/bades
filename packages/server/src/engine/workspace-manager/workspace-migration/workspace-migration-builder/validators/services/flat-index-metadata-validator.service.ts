@@ -2,10 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { msg, t } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
-import {
-  FieldMetadataType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { FlatEntityMapsExceptionCode } from 'src/engine/metadata-modules/flat-entity/exceptions/flat-entity-maps.exception';

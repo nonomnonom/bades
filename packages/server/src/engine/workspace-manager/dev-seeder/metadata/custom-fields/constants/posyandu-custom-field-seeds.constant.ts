@@ -18,7 +18,8 @@ export const POSYANDU_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.TEXT,
     label: 'Jadwal Rutin',
     name: 'jadwalRutin',
-    description: 'Jadwal pelaksanaan Posyandu, misalnya setiap Selasa pekan ke-2',
+    description:
+      'Jadwal pelaksanaan Posyandu, misalnya setiap Selasa pekan ke-2',
   },
   {
     type: FieldMetadataType.TEXT,

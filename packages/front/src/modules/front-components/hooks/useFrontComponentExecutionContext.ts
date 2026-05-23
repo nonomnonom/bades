@@ -10,7 +10,6 @@ import {
   type SidePanelPages,
 } from 'shared/types';
 import { type CommandConfirmationModalAccent } from 'sdk/front-component';
-import { type getAppPath } from 'shared/utils';
 
 import { currentUserState } from '@/auth/states/currentUserState';
 import { useCommandMenuConfirmationModal } from '@/command-menu-item/confirmation-modal/hooks/useCommandMenuConfirmationModal';
@@ -23,7 +22,7 @@ import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomFamilyState } from '@/ui/utilities/state/jotai/hooks/useSetAtomFamilyState';
-import { assertUnreachable, isDefined } from 'shared/utils';
+import { assertUnreachable, type getAppPath, isDefined } from 'shared/utils';
 import { useIcons } from 'ui/display';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 

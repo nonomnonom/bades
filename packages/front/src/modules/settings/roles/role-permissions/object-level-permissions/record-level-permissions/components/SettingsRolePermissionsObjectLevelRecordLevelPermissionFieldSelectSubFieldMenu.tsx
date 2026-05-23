@@ -1,9 +1,6 @@
 /* @license Enterprise */
 
-import {
-  compositeTypeDefinitions,
-  FieldMetadataType,
-} from 'shared/types';
+import { compositeTypeDefinitions, FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { IconChevronLeft, useIcons } from 'ui/display';
 import { MenuItem } from 'ui/navigation';

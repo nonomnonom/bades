@@ -26,8 +26,7 @@ const interpolate = (
   }
 
   return Object.entries(values).reduce(
-    (acc, [key, value]) =>
-      acc.replaceAll(`{${key}}`, String(value ?? '')),
+    (acc, [key, value]) => acc.replaceAll(`{${key}}`, String(value ?? '')),
     text,
   );
 };
@@ -35,8 +34,7 @@ const interpolate = (
 const isTemplateStringsArray = (
   value: unknown,
 ): value is TemplateStringsArray =>
-  Array.isArray(value) &&
-  Array.isArray((value as { raw?: unknown }).raw);
+  Array.isArray(value) && Array.isArray((value as { raw?: unknown }).raw);
 
 /**
  * `t` — dipakai sebagai tagged template (t`Halo ${nama}`) maupun pemanggilan
@@ -58,10 +56,7 @@ export const t = (
     );
   }
 
-  return interpolate(
-    strings.message ?? strings.id ?? '',
-    strings.values,
-  );
+  return interpolate(strings.message ?? strings.id ?? '', strings.values);
 };
 
 /** `msg` — pada single-language berperilaku sama seperti `t`. */
@@ -108,7 +103,8 @@ export const i18n = {
   date: (
     value: Date | string | number,
     options?: Intl.DateTimeFormatOptions,
-  ): string => new Intl.DateTimeFormat('id-ID', options).format(new Date(value)),
+  ): string =>
+    new Intl.DateTimeFormat('id-ID', options).format(new Date(value)),
   number: (value: number, options?: Intl.NumberFormatOptions): string =>
     new Intl.NumberFormat('id-ID', options).format(value),
 };

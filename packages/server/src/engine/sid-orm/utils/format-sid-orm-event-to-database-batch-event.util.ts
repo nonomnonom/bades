@@ -8,11 +8,7 @@ import {
   type ObjectRecordDiff,
 } from 'shared/database-events';
 import { STANDARD_OBJECTS } from 'shared/metadata';
-import {
-  assertUnreachable,
-  isDefined,
-  isNonEmptyArray,
-} from 'shared/utils';
+import { assertUnreachable, isDefined, isNonEmptyArray } from 'shared/utils';
 
 import type { ObjectLiteral } from 'typeorm';
 

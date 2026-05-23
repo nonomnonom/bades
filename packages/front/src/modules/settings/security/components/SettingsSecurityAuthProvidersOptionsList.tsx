@@ -9,12 +9,7 @@ import { useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { ConnectedAccountProvider } from 'shared/types';
 import { capitalize } from 'shared/utils';
-import {
-  IconGoogle,
-  IconLink,
-  IconMicrosoft,
-  IconPassword,
-} from 'ui/display';
+import { IconGoogle, IconLink, IconMicrosoft, IconPassword } from 'ui/display';
 import { Card } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useMutation } from '@apollo/client/react';

@@ -1,5 +1,4 @@
-import { msg } from 'src/utils/bades-i18n';
-import type { MessageDescriptor } from 'src/utils/bades-i18n';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { CustomException } from 'src/utils/custom-exception';
 
 export class MicrosoftImportDriverException extends CustomException<string> {

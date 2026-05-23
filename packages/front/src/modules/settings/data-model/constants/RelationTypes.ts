@@ -1,7 +1,4 @@
-import {
-  type IconComponent,
-  IllustrationIconOneToMany,
-} from 'ui/display';
+import { type IconComponent, IllustrationIconOneToMany } from 'ui/display';
 import { RelationType } from '~/generated-metadata/graphql';
 import OneToManySvg from '@/settings/data-model/assets/OneToMany.svg';
 

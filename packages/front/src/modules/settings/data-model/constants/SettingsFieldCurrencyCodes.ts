@@ -1,7 +1,4 @@
-import {
-  CURRENCY_CODE_LABELS,
-  type CurrencyCode,
-} from 'shared/constants';
+import { CURRENCY_CODE_LABELS, type CurrencyCode } from 'shared/constants';
 import {
   IconCoins,
   IconCurrencyAfghani,

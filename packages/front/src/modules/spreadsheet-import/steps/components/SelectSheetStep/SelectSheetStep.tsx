@@ -61,7 +61,9 @@ export const SelectSheetStep = ({
         )
       ) {
         const maxRecordsString = maxRecords.toString();
-        onError(t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`);
+        onError(
+          t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
+        );
         return;
       }
       try {

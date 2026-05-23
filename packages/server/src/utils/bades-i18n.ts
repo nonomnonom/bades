@@ -30,8 +30,7 @@ const interpolate = (
   }
 
   return Object.entries(values).reduce(
-    (acc, [key, value]) =>
-      acc.split(`{${key}}`).join(String(value ?? '')),
+    (acc, [key, value]) => acc.split(`{${key}}`).join(String(value ?? '')),
     text,
   );
 };

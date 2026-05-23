@@ -1,7 +1,4 @@
-import {
-  ALL_METADATA_NAME,
-  type AllMetadataName,
-} from 'shared/metadata';
+import { ALL_METADATA_NAME, type AllMetadataName } from 'shared/metadata';
 
 import { getMetadataManyToOneRelatedNames } from 'src/engine/metadata-modules/flat-entity/utils/get-metadata-many-to-one-related-names.util';
 import { getMetadataOneToManyRelatedNames } from 'src/engine/metadata-modules/flat-entity/utils/get-metadata-one-to-many-related-names.util';

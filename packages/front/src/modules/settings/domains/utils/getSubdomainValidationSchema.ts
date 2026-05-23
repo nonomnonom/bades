@@ -1,8 +1,5 @@
 import { t } from '~/utils/i18n/badesI18n';
-import {
-  RESERVED_SUBDOMAINS,
-  SUBDOMAIN_PATTERN,
-} from 'shared/constants';
+import { RESERVED_SUBDOMAINS, SUBDOMAIN_PATTERN } from 'shared/constants';
 import { z } from 'zod';
 
 export const getSubdomainValidationSchema = () =>

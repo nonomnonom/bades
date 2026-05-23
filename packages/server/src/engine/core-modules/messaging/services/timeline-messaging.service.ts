@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import {
-  MessageChannelVisibility,
-  MessageParticipantRole,
-} from 'shared/types';
+import { MessageChannelVisibility, MessageParticipantRole } from 'shared/types';
 import { In, type Repository } from 'typeorm';
 
 import { type TimelineThreadDTO } from 'src/engine/core-modules/messaging/dtos/timeline-thread.dto';

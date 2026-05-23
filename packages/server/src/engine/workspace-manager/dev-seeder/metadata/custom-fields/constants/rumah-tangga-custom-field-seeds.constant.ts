@@ -32,11 +32,36 @@ export const RUMAH_TANGGA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'statusEkonomi',
     description: 'Klasifikasi tingkat kesejahteraan rumah tangga',
     options: [
-      { label: 'Pra Sejahtera', value: 'PRA_SEJAHTERA', position: 0, color: 'red' },
-      { label: 'Sejahtera I', value: 'SEJAHTERA_I', position: 1, color: 'orange' },
-      { label: 'Sejahtera II', value: 'SEJAHTERA_II', position: 2, color: 'yellow' },
-      { label: 'Sejahtera III', value: 'SEJAHTERA_III', position: 3, color: 'green' },
-      { label: 'Sejahtera III Plus', value: 'SEJAHTERA_III_PLUS', position: 4, color: 'blue' },
+      {
+        label: 'Pra Sejahtera',
+        value: 'PRA_SEJAHTERA',
+        position: 0,
+        color: 'red',
+      },
+      {
+        label: 'Sejahtera I',
+        value: 'SEJAHTERA_I',
+        position: 1,
+        color: 'orange',
+      },
+      {
+        label: 'Sejahtera II',
+        value: 'SEJAHTERA_II',
+        position: 2,
+        color: 'yellow',
+      },
+      {
+        label: 'Sejahtera III',
+        value: 'SEJAHTERA_III',
+        position: 3,
+        color: 'green',
+      },
+      {
+        label: 'Sejahtera III Plus',
+        value: 'SEJAHTERA_III_PLUS',
+        position: 4,
+        color: 'blue',
+      },
     ],
   },
   {

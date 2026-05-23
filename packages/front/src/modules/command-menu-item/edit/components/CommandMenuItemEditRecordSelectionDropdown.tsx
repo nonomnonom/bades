@@ -12,11 +12,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { styled } from '@linaria/react';
 import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
-import {
-  IconChevronDown,
-  IconSquareCheck,
-  IconSquareX,
-} from 'ui/display';
+import { IconChevronDown, IconSquareCheck, IconSquareX } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 

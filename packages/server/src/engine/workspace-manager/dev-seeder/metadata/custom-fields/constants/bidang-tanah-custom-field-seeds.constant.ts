@@ -6,7 +6,8 @@ export const BIDANG_TANAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.TEXT,
     label: 'Nomor Persil',
     name: 'nomorPersil',
-    description: 'Nomor unik bidang tanah pada buku C desa atau registry persil',
+    description:
+      'Nomor unik bidang tanah pada buku C desa atau registry persil',
   },
   {
     type: FieldMetadataType.NUMBER,
@@ -23,10 +24,30 @@ export const BIDANG_TANAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Hak Milik', value: 'HM', position: 0, color: 'green' },
       { label: 'Hak Guna Bangunan', value: 'HGB', position: 1, color: 'blue' },
       { label: 'Hak Pakai', value: 'HP', position: 2, color: 'turquoise' },
-      { label: 'Tanah Kas Desa', value: 'TANAH_KAS_DESA', position: 3, color: 'purple' },
-      { label: 'Tanah Bengkok', value: 'TANAH_BENGKOK', position: 4, color: 'pink' },
-      { label: 'Tanah Titisara', value: 'TANAH_TITISARA', position: 5, color: 'orange' },
-      { label: 'Belum Bersertifikat', value: 'BELUM_BERSERTIFIKAT', position: 6, color: 'gray' },
+      {
+        label: 'Tanah Kas Desa',
+        value: 'TANAH_KAS_DESA',
+        position: 3,
+        color: 'purple',
+      },
+      {
+        label: 'Tanah Bengkok',
+        value: 'TANAH_BENGKOK',
+        position: 4,
+        color: 'pink',
+      },
+      {
+        label: 'Tanah Titisara',
+        value: 'TANAH_TITISARA',
+        position: 5,
+        color: 'orange',
+      },
+      {
+        label: 'Belum Bersertifikat',
+        value: 'BELUM_BERSERTIFIKAT',
+        position: 6,
+        color: 'gray',
+      },
     ],
   },
   {
@@ -39,7 +60,8 @@ export const BIDANG_TANAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.TEXT,
     label: 'Pemilik',
     name: 'pemilik',
-    description: 'Nama pemilik bidang tanah atau "Pemerintah Desa" untuk tanah desa',
+    description:
+      'Nama pemilik bidang tanah atau "Pemerintah Desa" untuk tanah desa',
   },
   {
     type: FieldMetadataType.TEXT,
@@ -55,10 +77,25 @@ export const BIDANG_TANAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     options: [
       { label: 'Pemukiman', value: 'PEMUKIMAN', position: 0, color: 'blue' },
       { label: 'Pertanian', value: 'PERTANIAN', position: 1, color: 'green' },
-      { label: 'Perkebunan', value: 'PERKEBUNAN', position: 2, color: 'turquoise' },
-      { label: 'Fasilitas Umum', value: 'FASILITAS_UMUM', position: 3, color: 'purple' },
+      {
+        label: 'Perkebunan',
+        value: 'PERKEBUNAN',
+        position: 2,
+        color: 'turquoise',
+      },
+      {
+        label: 'Fasilitas Umum',
+        value: 'FASILITAS_UMUM',
+        position: 3,
+        color: 'purple',
+      },
       { label: 'Komersial', value: 'KOMERSIAL', position: 4, color: 'orange' },
-      { label: 'Tidak Digunakan', value: 'TIDAK_DIGUNAKAN', position: 5, color: 'gray' },
+      {
+        label: 'Tidak Digunakan',
+        value: 'TIDAK_DIGUNAKAN',
+        position: 5,
+        color: 'gray',
+      },
     ],
   },
   {

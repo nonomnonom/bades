@@ -10,10 +10,7 @@ import {
   type StepFilterGroup,
   type StepFilterWithPotentiallyDeprecatedOperand,
 } from 'shared/types';
-import {
-  convertViewFilterOperandToCoreOperand,
-  isDefined,
-} from 'shared/utils';
+import { convertViewFilterOperandToCoreOperand, isDefined } from 'shared/utils';
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 
 type FilterSettingsWithPotentiallyDeprecatedOperand = {

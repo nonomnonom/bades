@@ -1,12 +1,7 @@
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
 import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
-import {
-  AvatarOrIcon,
-  Chip,
-  ChipVariant,
-  LinkChip,
-} from 'ui/components';
+import { AvatarOrIcon, Chip, ChipVariant, LinkChip } from 'ui/components';
 
 type MentionRecordChipProps = {
   recordId: string;

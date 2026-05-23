@@ -1,7 +1,4 @@
-import type {
-  ExtendedUIMessage,
-  ExtendedUIMessagePart,
-} from 'shared/ai';
+import type { ExtendedUIMessage, ExtendedUIMessagePart } from 'shared/ai';
 
 import type { BrowsingContextType } from 'src/engine/metadata-modules/ai/ai-agent/types/browsingContext.type';
 

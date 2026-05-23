@@ -98,14 +98,13 @@ export class BillingSubscriptionPhaseService {
     };
   }
 
-  getLicensedPriceIdAndQuantityFromPhase(phase: BillingSubscriptionSchedulePhaseDTO): {
+  getLicensedPriceIdAndQuantityFromPhase(
+    phase: BillingSubscriptionSchedulePhaseDTO,
+  ): {
     price: string;
     quantity: number;
   } {
-    const licensedItem = findOrThrow(
-      phase.items,
-      (i) => i.quantity != null,
-    );
+    const licensedItem = findOrThrow(phase.items, (i) => i.quantity != null);
 
     if (!licensedItem.price || !isDefined(licensedItem.quantity)) {
       throw new Error('Item produk berlisensi tidak lengkap dalam phase');

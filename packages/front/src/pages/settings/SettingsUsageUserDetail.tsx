@@ -114,7 +114,10 @@ export const SettingsUsageUserDetail = () => {
   }
 
   return (
-    <SubMenuTopBarContainer title={tLingui`Pemakaian Pengguna`} links={breadcrumbLinks}>
+    <SubMenuTopBarContainer
+      title={tLingui`Pemakaian Pengguna`}
+      links={breadcrumbLinks}
+    >
       <SettingsPageContainer>
         <StyledUserHeader>
           <Avatar

@@ -235,9 +235,7 @@ export class MicrosoftAPIsService {
         }
 
         if (
-          this.badesConfigService.get(
-            'MESSAGING_PROVIDER_MICROSOFT_ENABLED',
-          ) &&
+          this.badesConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED') &&
           existingMessageChannels.length === 0
         ) {
           const newMessageChannel = await this.messageChannelRepository.findOne(

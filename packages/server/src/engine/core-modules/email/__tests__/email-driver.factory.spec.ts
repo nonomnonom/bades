@@ -43,9 +43,7 @@ describe('EmailDriverFactory', () => {
 
   describe('buildConfigKey', () => {
     it('should return "logger" for logger driver', () => {
-      jest
-        .spyOn(badesConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const result = factory['buildConfigKey']();
 
@@ -76,9 +74,7 @@ describe('EmailDriverFactory', () => {
 
   describe('createDriver', () => {
     it('should create logger driver', () => {
-      jest
-        .spyOn(badesConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver = factory['createDriver']();
 
@@ -146,9 +142,7 @@ describe('EmailDriverFactory', () => {
 
   describe('getCurrentDriver', () => {
     it('should return current driver for logger', () => {
-      jest
-        .spyOn(badesConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver = factory.getCurrentDriver();
 
@@ -157,9 +151,7 @@ describe('EmailDriverFactory', () => {
     });
 
     it('should reuse driver when config key unchanged', () => {
-      jest
-        .spyOn(badesConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver1 = factory.getCurrentDriver();
       const driver2 = factory.getCurrentDriver();
@@ -169,9 +161,7 @@ describe('EmailDriverFactory', () => {
 
     it('should create new driver when config key changes', () => {
       // First call with logger
-      jest
-        .spyOn(badesConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver1 = factory.getCurrentDriver();
 

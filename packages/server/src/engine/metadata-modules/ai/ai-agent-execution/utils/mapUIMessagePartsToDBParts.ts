@@ -1,8 +1,5 @@
 import { type ToolUIPart } from 'ai';
-import {
-  isExtendedFileUIPart,
-  type ExtendedUIMessagePart,
-} from 'shared/ai';
+import { isExtendedFileUIPart, type ExtendedUIMessagePart } from 'shared/ai';
 
 import { type AgentMessagePartEntity } from 'src/engine/metadata-modules/ai/ai-agent-execution/entities/agent-message-part.entity';
 

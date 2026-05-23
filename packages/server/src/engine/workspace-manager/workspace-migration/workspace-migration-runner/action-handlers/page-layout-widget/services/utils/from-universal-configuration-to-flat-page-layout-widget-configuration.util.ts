@@ -1,7 +1,4 @@
-import {
-  type ChartFilter,
-  type UniversalChartFilter,
-} from 'shared/types';
+import { type ChartFilter, type UniversalChartFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import {

@@ -207,7 +207,9 @@ export class EnterprisePlanService implements OnModuleInit {
     const enterpriseKey = this.badesConfigService.get('ENTERPRISE_KEY');
 
     if (!enterpriseKey) {
-      this.logger.warn('Tidak ada ENTERPRISE_KEY, skip refresh token validitas');
+      this.logger.warn(
+        'Tidak ada ENTERPRISE_KEY, skip refresh token validitas',
+      );
 
       return false;
     }

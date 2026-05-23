@@ -198,7 +198,9 @@ export const useClientConfig = (): UseClientConfigResult => {
       setIsImapSmtpCaldavEnabled(clientConfig?.isImapSmtpCaldavEnabled);
       setIsEmailGroupEnabled(clientConfig?.isEmailGroupEnabled ?? false);
       setIsEmailingDomainsEnabled(clientConfig?.isEmailingDomainsEnabled);
-      setAllowRequestsToFaviconService(clientConfig?.allowRequestsToFaviconService);
+      setAllowRequestsToFaviconService(
+        clientConfig?.allowRequestsToFaviconService,
+      );
       setIsCloudflareIntegrationEnabled(
         clientConfig?.isCloudflareIntegrationEnabled,
       );

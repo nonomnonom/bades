@@ -318,7 +318,10 @@ export class BillingSubscriptionUpdateService {
 
       if (isDefined(productKey)) {
         await this.billingSubscriptionItemRepository.update(
-          { billingSubscriptionId: subscriptionId, productCode: price.productCode },
+          {
+            billingSubscriptionId: subscriptionId,
+            productCode: price.productCode,
+          },
           { priceId: price.priceId },
         );
       }
@@ -330,7 +333,11 @@ export class BillingSubscriptionUpdateService {
     planKey: BillingPlanKey,
     interval: SubscriptionInterval,
   ): Promise<void> {
-    await this.updateSubscriptionItemsForPlan(subscriptionId, planKey, interval);
+    await this.updateSubscriptionItemsForPlan(
+      subscriptionId,
+      planKey,
+      interval,
+    );
   }
 
   async shouldUpdateAtSubscriptionPeriodEnd(
@@ -341,7 +348,8 @@ export class BillingSubscriptionUpdateService {
       case SubscriptionUpdateType.PLAN: {
         const currentPlan = subscription.planKey;
         const isDowngrade =
-          currentPlan !== update.newPlan && update.newPlan === BillingPlanKey.PRO;
+          currentPlan !== update.newPlan &&
+          update.newPlan === BillingPlanKey.PRO;
 
         return isDowngrade;
       }

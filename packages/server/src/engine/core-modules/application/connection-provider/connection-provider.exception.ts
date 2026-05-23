@@ -1,5 +1,4 @@
-import { msg } from 'src/utils/bades-i18n';
-import type { MessageDescriptor } from 'src/utils/bades-i18n';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { assertUnreachable } from 'shared/utils';
 
 import { ConnectionProviderExceptionCode } from 'src/engine/core-modules/application/connection-provider/connection-provider-exception-code.enum';

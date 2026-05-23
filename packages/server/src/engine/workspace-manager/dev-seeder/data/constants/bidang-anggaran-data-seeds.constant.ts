@@ -8,15 +8,16 @@ type BidangAnggaranDataSeed = {
   position: number;
 };
 
-export const BIDANG_ANGGARAN_DATA_SEED_COLUMNS: (keyof BidangAnggaranDataSeed)[] = [
-  'id',
-  'kode',
-  'namaBidang',
-  'tahunAnggaran',
-  'paguAnggaran',
-  'keterangan',
-  'position',
-];
+export const BIDANG_ANGGARAN_DATA_SEED_COLUMNS: (keyof BidangAnggaranDataSeed)[] =
+  [
+    'id',
+    'kode',
+    'namaBidang',
+    'tahunAnggaran',
+    'paguAnggaran',
+    'keterangan',
+    'position',
+  ];
 
 // prettier-ignore
 export const BIDANG_ANGGARAN_DATA_SEED_IDS = {
@@ -34,7 +35,8 @@ export const BIDANG_ANGGARAN_DATA_SEEDS: BidangAnggaranDataSeed[] = [
     namaBidang: 'Penyelenggaraan Pemerintahan Desa',
     tahunAnggaran: 2025,
     paguAnggaran: 420000000,
-    keterangan: 'Belanja operasional kantor desa, penghasilan perangkat, dan tunjangan',
+    keterangan:
+      'Belanja operasional kantor desa, penghasilan perangkat, dan tunjangan',
     position: 0,
   },
   {
@@ -43,7 +45,8 @@ export const BIDANG_ANGGARAN_DATA_SEEDS: BidangAnggaranDataSeed[] = [
     namaBidang: 'Pelaksanaan Pembangunan Desa',
     tahunAnggaran: 2025,
     paguAnggaran: 780000000,
-    keterangan: 'Belanja infrastruktur desa, sarana prasarana, dan fasilitas umum',
+    keterangan:
+      'Belanja infrastruktur desa, sarana prasarana, dan fasilitas umum',
     position: 1,
   },
   {
@@ -61,7 +64,8 @@ export const BIDANG_ANGGARAN_DATA_SEEDS: BidangAnggaranDataSeed[] = [
     namaBidang: 'Pemberdayaan Masyarakat',
     tahunAnggaran: 2025,
     paguAnggaran: 285000000,
-    keterangan: 'Belanja pelatihan, pemberdayaan ekonomi, dan kelompok masyarakat',
+    keterangan:
+      'Belanja pelatihan, pemberdayaan ekonomi, dan kelompok masyarakat',
     position: 3,
   },
   {

@@ -1,9 +1,6 @@
 import { plainToInstance } from 'class-transformer';
 import { validateSync } from 'class-validator';
-import {
-  FieldMetadataType,
-  type FieldMetadataOptions,
-} from 'shared/types';
+import { FieldMetadataType, type FieldMetadataOptions } from 'shared/types';
 
 import {
   FieldMetadataComplexOption,

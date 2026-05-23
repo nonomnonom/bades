@@ -43,7 +43,11 @@ export const SettingsAccountsConnectedAccountsRowRightContainer = ({
         />
       )}
       {status === SyncStatus.PENDING_CONFIGURATION && (
-        <Status color="orange" text={t`Pengaturan belum selesai`} weight="medium" />
+        <Status
+          color="orange"
+          text={t`Pengaturan belum selesai`}
+          weight="medium"
+        />
       )}
       <SettingsAccountsRowDropdownMenu account={account} />
     </StyledRowRightContainer>

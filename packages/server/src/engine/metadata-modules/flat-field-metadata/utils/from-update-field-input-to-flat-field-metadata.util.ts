@@ -1,9 +1,6 @@
 import { msg } from 'src/utils/bades-i18n';
 import { FieldMetadataType } from 'shared/types';
-import {
-  extractAndSanitizeObjectStringFields,
-  isDefined,
-} from 'shared/utils';
+import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 
 import { type FlatApplication } from 'src/engine/core-modules/application/types/flat-application.type';
 import { type UpdateFieldInput } from 'src/engine/metadata-modules/field-metadata/dtos/update-field.input';

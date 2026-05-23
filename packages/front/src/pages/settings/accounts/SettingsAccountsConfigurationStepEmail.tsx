@@ -1,4 +1,3 @@
-
 import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { type MessageChannel } from '@/accounts/types/MessageChannel';
 import { SettingsAccountsMessageChannelDetails } from '@/settings/accounts/components/SettingsAccountsMessageChannelDetails';

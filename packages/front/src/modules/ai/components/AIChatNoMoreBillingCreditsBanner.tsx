@@ -106,7 +106,9 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
             data.setResourceCreditSubscriptionPrice.billingSubscriptions,
         });
       }
-      enqueueSuccessSnackBar({ message: t`Paket kredit berhasil ditingkatkan.` });
+      enqueueSuccessSnackBar({
+        message: t`Paket kredit berhasil ditingkatkan.`,
+      });
     } catch {
       enqueueErrorSnackBar({ message: t`Gagal meningkatkan paket kredit.` });
     }

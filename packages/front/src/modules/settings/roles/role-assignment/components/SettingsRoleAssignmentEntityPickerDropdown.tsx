@@ -83,7 +83,9 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
         ? t`Tidak ada agen yang sesuai pencarian`
         : t`Tidak ada kunci API yang sesuai pencarian`;
     } else {
-      return isAgent ? t`Tidak ada agen tersedia` : t`Tidak ada kunci API tersedia`;
+      return isAgent
+        ? t`Tidak ada agen tersedia`
+        : t`Tidak ada kunci API tersedia`;
     }
   };
 

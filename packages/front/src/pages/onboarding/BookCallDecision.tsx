@@ -59,8 +59,8 @@ export const BookCallDecision = () => {
         </Title>
         <SubTitle>
           <Trans>
-            Tim kami dapat membantu menyiapkan ruang kerja Anda sesuai
-            kebutuhan dan alur kerja administrasi desa.
+            Tim kami dapat membantu menyiapkan ruang kerja Anda sesuai kebutuhan
+            dan alur kerja administrasi desa.
           </Trans>
         </SubTitle>
       </StyledTitleContainer>

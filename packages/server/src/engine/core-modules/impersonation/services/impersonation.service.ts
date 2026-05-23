@@ -80,8 +80,7 @@ export class ImpersonationService {
       }
 
       const isDevelopment =
-        this.badesConfigService.get('NODE_ENV') ===
-        NodeEnvironment.DEVELOPMENT;
+        this.badesConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT;
 
       if (isDevelopment) {
         return this.generateImpersonationLoginToken(

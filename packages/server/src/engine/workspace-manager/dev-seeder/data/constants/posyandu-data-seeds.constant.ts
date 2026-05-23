@@ -42,7 +42,8 @@ export const POSYANDU_DATA_SEEDS: PosyanduDataSeed[] = [
     jumlahBalita: 42,
     jumlahIbuHamil: 6,
     jumlahLansia: 18,
-    keterangan: 'Posyandu terpadu balita, ibu hamil, dan lansia di Dusun Krajan',
+    keterangan:
+      'Posyandu terpadu balita, ibu hamil, dan lansia di Dusun Krajan',
     position: 0,
   },
   {

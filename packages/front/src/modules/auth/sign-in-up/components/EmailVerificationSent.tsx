@@ -10,12 +10,7 @@ import {
 import { OnboardingModalCircularIcon } from '@/onboarding/components/OnboardingModalCircularIcon';
 import { t } from '~/utils/i18n/badesI18n';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import {
-  IconGmail,
-  IconMail,
-  IconMailX,
-  IconMicrosoft,
-} from 'ui/display';
+import { IconGmail, IconMail, IconMailX, IconMicrosoft } from 'ui/display';
 import { MainButton } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 import { AnimatedEaseIn } from 'ui/utilities';
@@ -113,9 +108,7 @@ export const EmailVerificationSent = ({
     setSignInUpStep(SignInUpStep.Email);
   };
 
-  const title = isError
-    ? t`Verifikasi Email Gagal`
-    : t`Periksa Email Anda`;
+  const title = isError ? t`Verifikasi Email Gagal` : t`Periksa Email Anda`;
   const subtitle = isError
     ? t`Kami menemui kendala saat memverifikasi`
     : t`Email verifikasi telah dikirim ke`;

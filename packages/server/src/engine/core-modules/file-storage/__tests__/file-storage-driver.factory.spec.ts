@@ -59,9 +59,7 @@ describe('FileStorageDriverFactory', () => {
 
       expect(result).toBe(`local|${storagePath}`);
       expect(badesConfigService.get).toHaveBeenCalledWith('STORAGE_TYPE');
-      expect(badesConfigService.get).toHaveBeenCalledWith(
-        'STORAGE_LOCAL_PATH',
-      );
+      expect(badesConfigService.get).toHaveBeenCalledWith('STORAGE_LOCAL_PATH');
     });
 
     it('should build config key for S3 storage', () => {
@@ -79,9 +77,7 @@ describe('FileStorageDriverFactory', () => {
     });
 
     it('should throw error for unsupported storage type', () => {
-      jest
-        .spyOn(badesConfigService, 'get')
-        .mockReturnValue('unsupported-type');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('unsupported-type');
 
       expect(() => factory['buildConfigKey']()).toThrow(
         'Unsupported storage type: unsupported-type',

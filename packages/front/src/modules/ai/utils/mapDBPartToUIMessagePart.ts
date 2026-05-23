@@ -1,8 +1,5 @@
 import { type ReasoningUIPart, type ToolUIPart } from 'ai';
-import {
-  type ExtendedFileUIPart,
-  type ExtendedUIMessagePart,
-} from 'shared/ai';
+import { type ExtendedFileUIPart, type ExtendedUIMessagePart } from 'shared/ai';
 import { type AgentMessagePart } from '~/generated-metadata/graphql';
 
 // Maps GraphQL DTO fields to UI message parts.

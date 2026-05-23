@@ -1,7 +1,4 @@
-import {
-  ALL_METADATA_NAME,
-  type AllMetadataName,
-} from 'shared/metadata';
+import { ALL_METADATA_NAME, type AllMetadataName } from 'shared/metadata';
 
 import { ALL_ENTITY_PROPERTIES_CONFIGURATION_BY_METADATA_NAME } from 'src/engine/metadata-modules/flat-entity/constant/all-entity-properties-configuration-by-metadata-name.constant';
 import { type MetadataFlatEntity } from 'src/engine/metadata-modules/flat-entity/types/metadata-flat-entity.type';

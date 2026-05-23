@@ -23,11 +23,7 @@ import { useMemo } from 'react';
 import { getOutputSchemaFromValue } from 'shared/logic-function';
 import { isDefined } from 'shared/utils';
 import { getFunctionInputFromInputSchema } from 'shared/workflow';
-import {
-  Callout,
-  IconPlayerPlay,
-  IconSettingsAutomation,
-} from 'ui/display';
+import { Callout, IconPlayerPlay, IconSettingsAutomation } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useDebouncedCallback } from 'use-debounce';
 

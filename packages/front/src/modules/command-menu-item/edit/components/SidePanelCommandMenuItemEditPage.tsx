@@ -20,10 +20,7 @@ import { type DropResult } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
 import { useLingui } from '~/utils/i18n/badesI18n';
 import { ContextStorePageType } from 'shared/types';
-import {
-  interpolateCommandMenuItemTemplate,
-  isDefined,
-} from 'shared/utils';
+import { interpolateCommandMenuItemTemplate, isDefined } from 'shared/utils';
 import {
   IconDotsVertical,
   IconPin,

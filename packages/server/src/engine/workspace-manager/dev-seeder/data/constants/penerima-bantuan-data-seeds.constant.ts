@@ -8,15 +8,16 @@ type PenerimaBantuanDataSeed = {
   position: number;
 };
 
-export const PENERIMA_BANTUAN_DATA_SEED_COLUMNS: (keyof PenerimaBantuanDataSeed)[] = [
-  'id',
-  'namaPenerima',
-  'nik',
-  'alamat',
-  'statusPenerimaan',
-  'keterangan',
-  'position',
-];
+export const PENERIMA_BANTUAN_DATA_SEED_COLUMNS: (keyof PenerimaBantuanDataSeed)[] =
+  [
+    'id',
+    'namaPenerima',
+    'nik',
+    'alamat',
+    'statusPenerimaan',
+    'keterangan',
+    'position',
+  ];
 
 export const PENERIMA_BANTUAN_DATA_SEED_IDS = {
   PENERIMA_1: '20202020-f001-41e7-8c72-ba44072a4c58',

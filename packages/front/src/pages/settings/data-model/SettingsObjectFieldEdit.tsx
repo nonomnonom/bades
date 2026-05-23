@@ -34,12 +34,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { styled } from '@linaria/react';
 import { AppPath, SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
-import {
-  H2Title,
-  IconArchive,
-  IconArchiveOff,
-  IconTrash,
-} from 'ui/display';
+import { H2Title, IconArchive, IconArchiveOff, IconTrash } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

@@ -56,7 +56,9 @@ export const SettingsDatabaseEventsForm = ({
       { label: t`Semua`, value: '*', Icon: IconNorthStar },
       { label: t`Dibuat`, value: 'created', Icon: IconPlus },
       {
-        label: hasSpecificFields ? t`Diperbarui (pada kolom tertentu)` : t`Diperbarui`,
+        label: hasSpecificFields
+          ? t`Diperbarui (pada kolom tertentu)`
+          : t`Diperbarui`,
         value: 'updated',
         Icon: IconBox,
       },

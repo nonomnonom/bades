@@ -56,7 +56,8 @@ export const BIDANG_TANAH_DATA_SEEDS: BidangTanahDataSeed[] = [
     pemilik: 'Pemerintah Desa',
     alamat: 'Blok Sawah Barat, Dusun Mekar Sari',
     penggunaan: 'PERTANIAN',
-    keterangan: 'Tanah bengkok untuk Kepala Desa, digarap dengan sistem bagi hasil',
+    keterangan:
+      'Tanah bengkok untuk Kepala Desa, digarap dengan sistem bagi hasil',
     position: 1,
   },
   {

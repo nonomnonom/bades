@@ -118,7 +118,8 @@ export const CronExpressionHelper = ({
     CronExpressionParser.parse(normalized);
   } catch (error) {
     isValid = false;
-    errorMessage = error instanceof Error ? error.message : t`Kesalahan tidak diketahui`;
+    errorMessage =
+      error instanceof Error ? error.message : t`Kesalahan tidak diketahui`;
   }
 
   if (!isValid) {

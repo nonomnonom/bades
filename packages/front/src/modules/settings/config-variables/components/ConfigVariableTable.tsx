@@ -6,10 +6,7 @@ import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { t } from '~/utils/i18n/badesI18n';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
-import {
-  IconChevronRight,
-  OverflowingTextWithTooltip,
-} from 'ui/display';
+import { IconChevronRight, OverflowingTextWithTooltip } from 'ui/display';
 import { useContext } from 'react';
 
 const StyledTableBodyContainer = styled.div`

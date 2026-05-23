@@ -1,10 +1,6 @@
 import { type MouseEvent, type ReactElement, useContext } from 'react';
 import { styled } from '@linaria/react';
-import {
-  type Avatar,
-  type AvatarProps,
-  type IconComponent,
-} from 'ui/display';
+import { type Avatar, type AvatarProps, type IconComponent } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 

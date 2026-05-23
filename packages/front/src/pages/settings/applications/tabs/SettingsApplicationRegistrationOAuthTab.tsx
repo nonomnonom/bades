@@ -177,8 +177,8 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         subtitle={
           <Trans>
             Jika Anda merotasi secret ini, semua integrasi yang menggunakan
-            secret saat ini akan berhenti bekerja. Ketik {`"${confirmationValue}"`} untuk
-            mengonfirmasi.
+            secret saat ini akan berhenti bekerja. Ketik{' '}
+            {`"${confirmationValue}"`} untuk mengonfirmasi.
           </Trans>
         }
         onConfirmClick={handleRotateSecret}

@@ -110,8 +110,7 @@ export const DeleteTwoFactorAuthentication = () => {
               <br />
               Karena 2FA diwajibkan di ruang kerja Anda, Anda akan keluar
               setelah penghapusan dan diminta untuk mengonfigurasinya kembali
-              saat masuk.{' '}
-              <br />
+              saat masuk. <br />
               Ketik email Anda untuk mengonfirmasi.
             </Trans>
           ) : (

@@ -71,7 +71,11 @@ export const WorkflowDiagramRightClickCommandMenu = () => {
         x={workflowDiagramRightClickMenuPosition.x}
         y={workflowDiagramRightClickMenuPosition.y}
       >
-        <MenuItem text={t`Tambah langkah`} LeftIcon={IconPlus} onClick={addNode} />
+        <MenuItem
+          text={t`Tambah langkah`}
+          LeftIcon={IconPlus}
+          onClick={addNode}
+        />
         <MenuItem
           text={t`Rapikan alur kerja`}
           LeftIcon={IconReorder}

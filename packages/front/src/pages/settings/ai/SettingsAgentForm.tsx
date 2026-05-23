@@ -17,12 +17,7 @@ import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTab
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { AppPath, SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
-import {
-  IconList,
-  IconListCheck,
-  IconLock,
-  IconSettings,
-} from 'ui/display';
+import { IconList, IconListCheck, IconLock, IconSettings } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useMutation, useQuery } from '@apollo/client/react';

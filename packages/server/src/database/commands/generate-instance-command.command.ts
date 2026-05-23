@@ -67,9 +67,7 @@ export class GenerateInstanceCommandCommand extends CommandRunner {
   })
   parseVersion(value: string): BadesAllVersion {
     if (
-      !BADES_ALL_VERSIONS.includes(
-        value as (typeof BADES_ALL_VERSIONS)[number],
-      )
+      !BADES_ALL_VERSIONS.includes(value as (typeof BADES_ALL_VERSIONS)[number])
     ) {
       throw new Error(
         `Invalid version "${value}". Must be one of: ${BADES_ALL_VERSIONS.join(', ')}`,

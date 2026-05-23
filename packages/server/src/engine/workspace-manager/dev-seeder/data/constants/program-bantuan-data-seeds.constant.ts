@@ -12,19 +12,20 @@ type ProgramBantuanDataSeed = {
   position: number;
 };
 
-export const PROGRAM_BANTUAN_DATA_SEED_COLUMNS: (keyof ProgramBantuanDataSeed)[] = [
-  'id',
-  'namaProgram',
-  'jenisBantuan',
-  'sumberDana',
-  'jumlahPenerima',
-  'nilaiPerOrang',
-  'tanggalMulai',
-  'tanggalSelesai',
-  'status',
-  'keterangan',
-  'position',
-];
+export const PROGRAM_BANTUAN_DATA_SEED_COLUMNS: (keyof ProgramBantuanDataSeed)[] =
+  [
+    'id',
+    'namaProgram',
+    'jenisBantuan',
+    'sumberDana',
+    'jumlahPenerima',
+    'nilaiPerOrang',
+    'tanggalMulai',
+    'tanggalSelesai',
+    'status',
+    'keterangan',
+    'position',
+  ];
 
 export const PROGRAM_BANTUAN_DATA_SEED_IDS = {
   PROG_1: '20202020-d001-41e7-8c72-ba44072a4c58',

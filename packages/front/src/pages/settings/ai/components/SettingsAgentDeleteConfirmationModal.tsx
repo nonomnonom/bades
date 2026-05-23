@@ -51,7 +51,8 @@ export const SettingsAgentDeleteConfirmationModal = ({
       title={t`Hapus Agen`}
       subtitle={
         <Trans>
-          Tindakan ini tidak dapat dibatalkan. Agen Anda akan dihapus secara permanen.
+          Tindakan ini tidak dapat dibatalkan. Agen Anda akan dihapus secara
+          permanen.
           <br />
           Ketik nama agen untuk mengkonfirmasi.
         </Trans>

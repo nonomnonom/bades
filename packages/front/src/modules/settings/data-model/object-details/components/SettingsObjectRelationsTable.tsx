@@ -16,12 +16,7 @@ import { styled } from '@linaria/react';
 import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { FieldMetadataType } from 'shared/types';
-import {
-  IconArchive,
-  IconFilter,
-  IconSearch,
-  IconSettings,
-} from 'ui/display';
+import { IconArchive, IconFilter, IconSearch, IconSettings } from 'ui/display';
 import { Button } from 'ui/input';
 import { MenuItemToggle } from 'ui/navigation';
 import { themeCssVariables } from 'ui/theme-constants';

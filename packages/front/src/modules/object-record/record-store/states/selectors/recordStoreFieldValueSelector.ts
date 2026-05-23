@@ -12,10 +12,7 @@ import { isFieldMorphRelation } from '@/object-record/record-field/ui/types/guar
 import { recordStoreFamilyState } from '@/object-record/record-store/states/recordStoreFamilyState';
 import { createAtomFamilySelector } from '@/ui/utilities/state/jotai/utils/createAtomFamilySelector';
 import { RelationType } from 'shared/types';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 
 const simpleFieldValueSelector = createAtomFamilySelector<
   unknown,

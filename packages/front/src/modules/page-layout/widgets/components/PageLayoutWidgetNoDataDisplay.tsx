@@ -13,7 +13,8 @@ export const PageLayoutWidgetNoDataDisplay = () => {
   const widget = useCurrentWidget();
   const tooltipId = `widget-incomplete-tooltip-${widget.id}`;
 
-  const text = widget.type === WidgetType.IFRAME ? t`URL tidak valid` : t`Tidak ada data`;
+  const text =
+    widget.type === WidgetType.IFRAME ? t`URL tidak valid` : t`Tidak ada data`;
   const tooltipContent =
     widget.type === WidgetType.IFRAME
       ? t`URL tidak valid. Klik ubah untuk mengonfigurasi widget ini.`

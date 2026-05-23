@@ -31,10 +31,7 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { createPortal } from 'react-dom';
-import {
-  computeMorphRelationGqlFieldName,
-  CustomError,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, CustomError } from 'shared/utils';
 import {
   IconChevronDown,
   IconDotsVertical,

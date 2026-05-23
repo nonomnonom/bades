@@ -22,9 +22,7 @@ import { WorkspaceAuthGuard } from 'src/engine/guards/workspace-auth.guard';
 @UsePipes(ResolverValidationPipe)
 @UseFilters(EnterpriseExceptionFilter, PreventNestToAutoLogGraphqlErrorsFilter)
 export class EnterpriseResolver {
-  constructor(
-    private readonly enterprisePlanService: EnterprisePlanService,
-  ) {}
+  constructor(private readonly enterprisePlanService: EnterprisePlanService) {}
 
   @Mutation(() => EnterpriseLicenseInfoDTO)
   @UseGuards(

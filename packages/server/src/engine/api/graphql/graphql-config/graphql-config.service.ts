@@ -66,8 +66,7 @@ export class GraphQLConfigService
         this.badesConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
       ),
       useValidateGraphqlQueryComplexity({
-        maximumAllowedFields:
-          this.badesConfigService.get('GRAPHQL_MAX_FIELDS'),
+        maximumAllowedFields: this.badesConfigService.get('GRAPHQL_MAX_FIELDS'),
         maximumAllowedRootResolvers: this.badesConfigService.get(
           'GRAPHQL_MAX_ROOT_RESOLVERS',
         ),

@@ -1,9 +1,6 @@
 import { CalendarStartDay } from 'shared/constants';
 import { STANDARD_OBJECTS } from 'shared/metadata';
-import {
-  AggregateOperations,
-  PageLayoutTabLayoutMode,
-} from 'shared/types';
+import { AggregateOperations, PageLayoutTabLayoutMode } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { type FlatApplication } from 'src/engine/core-modules/application/types/flat-application.type';
@@ -124,11 +121,17 @@ export const getPageLayoutWidgetDataSeeds = (
   // Field IDs untuk object Bades SID
   const pendudukIdFieldId = getFieldId(pendudukObject, 'id');
   const pendudukCreatedAtFieldId = getFieldId(pendudukObject, 'createdAt');
-  const pendudukJenisKelaminFieldId = getFieldId(pendudukObject, 'jenisKelamin');
+  const pendudukJenisKelaminFieldId = getFieldId(
+    pendudukObject,
+    'jenisKelamin',
+  );
   const pendudukDusunFieldId = getFieldId(pendudukObject, 'dusun');
   const keluargaIdFieldId = getFieldId(keluargaObject, 'id');
   const permohonanIdFieldId = getFieldId(permohonanSuratObject, 'id');
-  const permohonanCreatedAtFieldId = getFieldId(permohonanSuratObject, 'createdAt');
+  const permohonanCreatedAtFieldId = getFieldId(
+    permohonanSuratObject,
+    'createdAt',
+  );
 
   const v1Widgets: SeederFlatPageLayoutWidget[] = [
     // Ringkasan Layanan Tab (Dasbor Pelayanan Warga)

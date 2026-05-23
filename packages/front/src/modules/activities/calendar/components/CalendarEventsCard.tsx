@@ -98,8 +98,6 @@ export const CalendarEventsCard = () => {
     }
   };
 
-  const objectName = targetRecord.targetObjectNameSingular;
-
   if (firstQueryLoading) {
     return <SkeletonLoader />;
   }

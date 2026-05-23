@@ -40,7 +40,12 @@ export const PERIODE_JABATAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     options: [
       { label: 'Aktif', value: 'AKTIF', position: 0, color: 'green' },
       { label: 'Selesai', value: 'SELESAI', position: 1, color: 'gray' },
-      { label: 'Diberhentikan', value: 'DIBERHENTIKAN', position: 2, color: 'red' },
+      {
+        label: 'Diberhentikan',
+        value: 'DIBERHENTIKAN',
+        position: 2,
+        color: 'red',
+      },
     ],
   },
   {

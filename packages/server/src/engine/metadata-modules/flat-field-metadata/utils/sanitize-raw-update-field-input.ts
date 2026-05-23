@@ -1,7 +1,4 @@
-import {
-  extractAndSanitizeObjectStringFields,
-  isDefined,
-} from 'shared/utils';
+import { extractAndSanitizeObjectStringFields, isDefined } from 'shared/utils';
 import { v4 } from 'uuid';
 
 import { FIELD_METADATA_STANDARD_OVERRIDES_PROPERTIES } from 'src/engine/metadata-modules/field-metadata/constants/field-metadata-standard-overrides-properties.constant';

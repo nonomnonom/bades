@@ -222,7 +222,9 @@ describe('ThinkingStepsDisplay', () => {
     await userEvent.click(toolButton);
 
     expect(toolButton).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByRole('button', { name: 'Keluaran' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Keluaran' }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Masukan' })).toBeInTheDocument();
 
     await userEvent.click(toolButton);

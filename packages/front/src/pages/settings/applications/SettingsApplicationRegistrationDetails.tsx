@@ -8,12 +8,7 @@ import { FindOneApplicationRegistrationDocument } from '~/generated-metadata/gra
 import { Tag } from 'ui/components';
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
-import {
-  IconInfoCircle,
-  IconKey,
-  IconSettings,
-  IconWorld,
-} from 'ui/display';
+import { IconInfoCircle, IconKey, IconSettings, IconWorld } from 'ui/display';
 import { SettingsApplicationRegistrationConfigTab } from '~/pages/settings/applications/tabs/SettingsApplicationRegistrationConfigTab';
 import { SettingsApplicationRegistrationOAuthTab } from '~/pages/settings/applications/tabs/SettingsApplicationRegistrationOAuthTab';
 import { SettingsApplicationRegistrationDistributionTab } from '~/pages/settings/applications/tabs/SettingsApplicationRegistrationDistributionTab';

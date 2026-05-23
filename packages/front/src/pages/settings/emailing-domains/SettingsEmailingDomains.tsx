@@ -43,7 +43,10 @@ export const SettingsEmailingDomains = () => {
   return isLoading || !emailingDomains.length ? (
     <StyledLinkContainer>
       <Link to={getSettingsPath(SettingsPath.NewEmailingDomain)}>
-        <SettingsCard title={t`Tambah Domain Pengiriman Surel`} Icon={<IconMail />} />
+        <SettingsCard
+          title={t`Tambah Domain Pengiriman Surel`}
+          Icon={<IconMail />}
+        />
       </Link>
     </StyledLinkContainer>
   ) : (

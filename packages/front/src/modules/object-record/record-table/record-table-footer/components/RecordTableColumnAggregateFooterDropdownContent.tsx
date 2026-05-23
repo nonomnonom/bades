@@ -11,7 +11,6 @@ import { PERCENT_AGGREGATE_OPERATION_OPTIONS } from '@/object-record/record-tabl
 import { STANDARD_AGGREGATE_OPERATION_OPTIONS } from '@/object-record/record-table/record-table-footer/constants/standardAggregateOperationOptions';
 import { getAvailableAggregateOperationsForFieldMetadataType } from '@/object-record/record-table/record-table-footer/utils/getAvailableAggregateOperationsForFieldMetadataType';
 
-
 export const RecordTableColumnAggregateFooterDropdownContent = () => {
   const { t } = useLingui();
   const { currentContentId, fieldMetadataType } =

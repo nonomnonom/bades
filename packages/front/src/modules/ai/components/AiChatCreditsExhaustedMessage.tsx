@@ -29,7 +29,9 @@ export const AiChatCreditsExhaustedMessage = () => {
       : t`Kredit habis. Tingkatkan paket Anda untuk mendapatkan lebih banyak kredit.`
     : t`Kredit habis. Hubungi administrator ruang kerja Anda untuk meningkatkan paket.`;
 
-  const buttonTitle = isTrialing ? t`Berlangganan Sekarang` : t`Tingkatkan Paket`;
+  const buttonTitle = isTrialing
+    ? t`Berlangganan Sekarang`
+    : t`Tingkatkan Paket`;
 
   return (
     <AiChatBanner

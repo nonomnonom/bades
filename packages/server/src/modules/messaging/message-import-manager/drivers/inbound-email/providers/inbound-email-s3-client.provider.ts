@@ -62,9 +62,7 @@ export class InboundEmailS3ClientProvider {
       config.endpoint = endpoint;
     }
 
-    const accessKeyId = this.badesConfigService.get(
-      'STORAGE_S3_ACCESS_KEY_ID',
-    );
+    const accessKeyId = this.badesConfigService.get('STORAGE_S3_ACCESS_KEY_ID');
     const secretAccessKey = this.badesConfigService.get(
       'STORAGE_S3_SECRET_ACCESS_KEY',
     );

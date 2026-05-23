@@ -7,10 +7,7 @@ import {
   StyledSettingsCardTitle,
 } from '@/settings/components/SettingsOptions/SettingsCardContentBase';
 import { SettingsOptionIconCustomizer } from '@/settings/components/SettingsOptions/SettingsOptionIconCustomizer';
-import {
-  type IconComponent,
-  OverflowingTextWithTooltip,
-} from 'ui/display';
+import { type IconComponent, OverflowingTextWithTooltip } from 'ui/display';
 
 type SettingsOptionCardContentCounterProps = {
   Icon?: IconComponent;

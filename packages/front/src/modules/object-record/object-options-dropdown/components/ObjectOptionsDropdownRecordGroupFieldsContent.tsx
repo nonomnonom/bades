@@ -24,11 +24,7 @@ import { useLocation } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { IconChevronLeft, IconSettings, useIcons } from 'ui/display';
-import {
-  MenuItem,
-  MenuItemSelect,
-  UndecoratedLink,
-} from 'ui/navigation';
+import { MenuItem, MenuItemSelect, UndecoratedLink } from 'ui/navigation';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
 export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {

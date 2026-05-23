@@ -1,8 +1,6 @@
 /* @license Enterprise */
 
-import {
-  BillingException,
-} from 'src/engine/core-modules/billing/billing.exception';
+import { BillingException } from 'src/engine/core-modules/billing/billing.exception';
 import {
   ForbiddenError,
   InternalServerError,

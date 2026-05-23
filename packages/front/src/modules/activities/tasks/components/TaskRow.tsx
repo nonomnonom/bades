@@ -119,7 +119,9 @@ export const TaskRow = ({ task }: { task: Task }) => {
           />
         </StyledCheckboxContainer>
         <StyledTaskTitle completed={task.status === 'DONE'}>
-          {task.title || <StyledPlaceholder>{t`Judul tugas`}</StyledPlaceholder>}
+          {task.title || (
+            <StyledPlaceholder>{t`Judul tugas`}</StyledPlaceholder>
+          )}
         </StyledTaskTitle>
         <StyledTaskBody>
           <OverflowingTextWithTooltip text={body} />
