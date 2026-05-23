@@ -1,4 +1,3 @@
-import { msg } from '~/utils/i18n/badesI18n';
 import { EventLogTable } from '~/generated-metadata/graphql';
 
 export type ColumnConfig = {

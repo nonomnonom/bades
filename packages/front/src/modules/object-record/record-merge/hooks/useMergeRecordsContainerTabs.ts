@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { IconArrowMerge, IconSettings } from 'ui/display';
@@ -12,8 +11,6 @@ import { getPositionWordLabel } from '@/object-record/record-merge/utils/getPosi
 export const useMergeRecordsContainerTabs = (
   selectedRecords: ObjectRecord[],
 ): { tabs: SingleTabProps[] } => {
-  const { t } = useLingui();
-
   const tabs = useMemo(() => {
     const mergePreviewTab: SingleTabProps = {
       id: MergeRecordsTabId.MERGE_PREVIEW,
@@ -36,7 +33,7 @@ export const useMergeRecordsContainerTabs = (
     };
 
     return [mergePreviewTab, ...recordTabs, settingsTab];
-  }, [t, selectedRecords]);
+  }, [selectedRecords]);
 
   return { tabs };
 };

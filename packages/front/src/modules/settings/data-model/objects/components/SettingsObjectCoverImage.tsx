@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react';
 
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -46,7 +45,6 @@ const StyledButtonOverlay = styled.div`
 export const SettingsObjectCoverImage = () => {
   const { colorScheme } = useContext(ThemeContext);
 
-  const { t } = useLingui();
   return (
     <StyledCoverImageContainer>
       <StyledCoverImage

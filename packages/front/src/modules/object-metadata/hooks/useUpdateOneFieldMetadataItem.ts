@@ -12,7 +12,6 @@ import { type MetadataRequestResult } from '@/object-metadata/types/MetadataRequ
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { CrudOperationType } from 'shared/types';
 import { v4 as uuidv4 } from 'uuid';

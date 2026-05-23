@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 import { type PeriodPreset } from '@/settings/usage/utils/periodPreset';
 
 export const getPeriodOptions = (): {

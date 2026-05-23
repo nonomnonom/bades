@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useOpenMergeRecordsPageInSidePanel } from '@/side-panel/hooks/useOpenMergeRecordsPageInSidePanel';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { RecordChip } from '@/object-record/components/RecordChip';

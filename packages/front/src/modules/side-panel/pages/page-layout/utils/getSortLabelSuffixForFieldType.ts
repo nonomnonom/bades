@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType } from 'shared/types';
 import {
   isDefined,

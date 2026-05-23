@@ -1,6 +1,5 @@
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconCopy } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -19,7 +18,6 @@ const StyledLinkContainer = styled.div`
 type ApiKeyInputProps = { apiKey: string };
 
 export const ApiKeyInput = ({ apiKey }: ApiKeyInputProps) => {
-  const { t } = useLingui();
   const { copyToClipboard } = useCopyToClipboard();
   return (
     <StyledContainer>

@@ -11,7 +11,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useMutation } from '@apollo/client/react';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { getOperationName } from '~/utils/getOperationName';
-import { t } from '~/utils/i18n/badesI18n';
 import { CrudOperationType } from 'shared/types';
 import {
   type CreateOneLogicFunctionMutation,

@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { v4 } from 'uuid';

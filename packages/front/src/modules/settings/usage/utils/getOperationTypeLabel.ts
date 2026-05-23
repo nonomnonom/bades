@@ -1,5 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
-
 export const getOperationTypeLabel = (key: string): string => {
   switch (key) {
     case 'AI_CHAT_TOKEN':

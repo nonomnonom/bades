@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { type MUTATION_MAX_MERGE_RECORDS } from 'shared/constants';
 import { type FixedLengthArray } from '@/object-record/record-merge/types/FixedLengthArray';
 

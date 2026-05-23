@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableBody } from '@/ui/layout/table/components/TableBody';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';

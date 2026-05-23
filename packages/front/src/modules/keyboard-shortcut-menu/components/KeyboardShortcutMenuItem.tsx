@@ -4,7 +4,6 @@ import {
   StyledShortcutKeyContainer,
 } from '@/keyboard-shortcut-menu/components/KeyboardShortcutMenuStyles';
 import { type Shortcut } from '@/keyboard-shortcut-menu/types/Shortcut';
-import { t } from '~/utils/i18n/badesI18n';
 
 type KeyboardMenuItemProps = {
   shortcut: Shortcut;

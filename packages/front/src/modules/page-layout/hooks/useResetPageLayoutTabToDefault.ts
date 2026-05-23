@@ -1,6 +1,5 @@
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { useMutation } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { CrudOperationType } from 'shared/types';
 

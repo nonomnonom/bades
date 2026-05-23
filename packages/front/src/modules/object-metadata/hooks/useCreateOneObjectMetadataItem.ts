@@ -16,7 +16,6 @@ import { type MetadataRequestResult } from '@/object-metadata/types/MetadataRequ
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '~/utils/i18n/badesI18n';
 import { CrudOperationType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 

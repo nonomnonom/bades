@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 
 export const sanitizeMessageToRenderInSnackbar = (

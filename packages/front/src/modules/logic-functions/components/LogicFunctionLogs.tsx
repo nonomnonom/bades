@@ -1,4 +1,3 @@
-import { useLingui } from '~/utils/i18n/badesI18n';
 import { ResizeHandle, useResizeHandle } from 'ui/layout';
 import { TextArea } from '@/ui/input/components/TextArea';
 
@@ -11,8 +10,6 @@ export const LogicFunctionLogs = ({
   componentInstanceId,
   value,
 }: LogicFunctionLogsProps) => {
-  const { t } = useLingui();
-
   const {
     size: height,
     handleResizeStart,

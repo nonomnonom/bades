@@ -1,7 +1,6 @@
 /* @license Enterprise */
 
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useMemo } from 'react';
 import { FieldMetadataType, CoreObjectNameSingular } from 'shared/types';
 import { isDefined } from 'shared/utils';

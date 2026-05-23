@@ -8,7 +8,6 @@ import { shouldEnableTabEditingFeatures } from '@/page-layout/utils/shouldEnable
 import { useNavigatePageLayoutSidePanel } from '@/side-panel/pages/page-layout/hooks/useNavigatePageLayoutSidePanel';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SidePanelPages } from 'shared/types';

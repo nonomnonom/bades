@@ -10,7 +10,6 @@ import {
 import { buildErrorAction } from '@/ui/feedback/snack-bar-manager/utils/buildErrorAction';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { type ErrorLike } from '@apollo/client';
-import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { isDefined } from 'shared/utils';
 import { getErrorMessageFromApolloError } from '~/utils/get-error-message-from-apollo-error.util';

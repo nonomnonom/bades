@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { v4 } from 'uuid';
 
