@@ -1,26 +1,14 @@
-import { t } from '~/utils/i18n/badesI18n';
+export const getCustomApplicationDescription = (): string =>
+  `Modul internal yang menampung penyesuaian khusus untuk lingkungan kerja desa ini.
 
-export const getCustomApplicationDescription =
-  (): string => t`Host your workspace's customizations and overrides.
+#### Apa yang ada di sini
+Setiap penyesuaian yang dibuat di atas aplikasi standar Bades dikelompokkan ke dalam modul Kustom. Tempat ini menyatukan perubahan struktur data, perubahan tampilan, dan aturan kerja khusus desa.
 
-#### What it includes
-Every extension you create on top of the standard app is grouped under Custom. It keeps your schema changes, interface changes, and workspace-specific logic in one place.
+- Objek dan ruas data tambahan yang dibutuhkan desa
+- Tampilan, item navigasi, dan tata letak catatan yang menyesuaikan alur kerja perangkat desa
+- Otomasi dan tambahan logika yang memperluas kemampuan lingkungan kerja
 
-- Custom objects and fields for your own data model
-- Views, navigation items, and record layouts that shape how your village works
-- Logic functions, front components, and agents that automate or extend the workspace
+#### Untuk apa modul ini
+Gunakan modul ini untuk penyesuaian yang memang khusus untuk satu lingkungan kerja desa dan tidak perlu dibagikan ke lingkungan kerja lain.
 
-#### Why it exists
-Use this app for workspace-specific customization that should stay local to this workspace.
-
-If you are shaping one workspace for one village, keep it here. If you are building a reusable village app with its own data model, UI, and automation that should be versioned, shared, or installed across workspaces, create a dedicated app instead.
-
-#### Build your own app
-
-Scaffold a new app in one command:
-
-\`\`\`bash
-npx create-bades-app@latest my-bades-app
-\`\`\`
-
-See the [Getting Started guide](https://bades.id/developers/extend/apps/getting-started) for the full walkthrough, and [Building Apps](https://bades.id/developers/extend/apps/building) for the \`defineApplication\` / \`defineEntity\` APIs.`;
+Penyesuaian yang dibuat di sini hanya berlaku internal untuk tim Bades dan administrator yang dipercaya. Surface ini bukan ditujukan untuk operator desa harian.`;

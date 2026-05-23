@@ -1,36 +1,13 @@
 <p align="center">
-  <a href="https://bades.id">
-    <img src="./packages/front/public/bd.svg" width="100px" alt="Logo Bades.id" />
-  </a>
+  <img src="./packages/front/public/bd.svg" width="100px" alt="Logo Bades.id" />
 </p>
 
 <h2 align="center">Sistem Informasi Desa untuk Indonesia</h2>
 
 <p align="center">
-  <a href="https://bades.id">
-    <img src="./packages/website/public/images/readme/globe-icon.svg" width="12" height="12" />
-    Situs Web
-  </a>
+  <a href="https://bades.id">Situs Web</a>
   |
-  <a href="https://docs.bades.id">
-    <img src="./packages/website/public/images/readme/book-icon.svg" width="12" height="12" />
-    Dokumentasi
-  </a>
-  |
-  <a href="https://bades.id/kontak">
-    <img src="./packages/website/public/images/readme/message-icon.svg" width="12" height="12" />
-    Hubungi Kami
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://bades.id">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./packages/website/public/images/readme/github-cover-dark.webp" />
-      <source media="(prefers-color-scheme: light)" srcset="./packages/website/public/images/readme/github-cover-light.webp" />
-      <img src="./packages/website/public/images/readme/github-cover-light.webp" alt="Banner Bades.id" />
-    </picture>
-  </a>
+  <a href="https://bades.id/kontak">Hubungi Kami</a>
 </p>
 
 <br />
@@ -76,18 +53,24 @@ disesuaikan dengan kebutuhan administrasinya.
 
 <br />
 
-# Dokumentasi
+---
 
-Panduan penggunaan produk tersedia di
-[docs.bades.id](https://docs.bades.id/user-guide/introduction).
+# Catatan Internal
 
-<br />
+Bagian ini ditujukan untuk tim pengembang internal Bades dan bukan untuk
+audiens umum. Repositori ini adalah repo privat tim Bades; bukan distribusi
+open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 
-# Stack Teknologi
+## Stack Teknologi
 
-Bagian ini ditujukan untuk tim pengembang internal Bades.
+- TypeScript
+- Nx (monorepo)
+- NestJS, BullMQ, PostgreSQL, Redis
+- React, Jotai, Linaria
 
-- <a href="https://www.typescriptlang.org/"><img src="./packages/website/public/images/readme/stack-typescript.svg" width="14" height="14" /> TypeScript</a>
-- <a href="https://nx.dev/"><img src="./packages/website/public/images/readme/stack-nx.svg" width="14" height="14" /> Nx</a>
-- <a href="https://nestjs.com/"><img src="./packages/website/public/images/readme/stack-nestjs.svg" width="14" height="14" /> NestJS</a>, dengan <a href="https://bullmq.io/">BullMQ</a>, <a href="https://www.postgresql.org/"><img src="./packages/website/public/images/readme/stack-postgresql.svg" width="14" height="14" /> PostgreSQL</a>, dan <a href="https://redis.io/"><img src="./packages/website/public/images/readme/stack-redis.svg" width="14" height="14" /> Redis</a>
-- <a href="https://reactjs.org/"><img src="./packages/website/public/images/readme/stack-react.svg" width="14" height="14" /> React</a>, dengan <a href="https://jotai.org/">Jotai</a>, <a href="https://linaria.dev/">Linaria</a>, dan <a href="https://lingui.dev/">Lingui</a>
+## Provenance
+
+Engine Bades dibangun di atas fork teknis dari proyek Twenty. Identifier
+internal tertentu masih mempertahankan penamaan legacy untuk menjaga
+kompatibilitas. Identitas produk publik Bades berdiri sendiri dan tidak
+diceritakan sebagai turunan rebrand.

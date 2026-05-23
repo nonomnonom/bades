@@ -44,7 +44,6 @@ const testCases = [
   { loc: AppPath.RecordIndexPage, res: false },
   { loc: AppPath.RecordShowPage, res: false },
   { loc: AppPath.SettingsCatchAll, res: false },
-  { loc: AppPath.DevelopersCatchAll, res: false },
   { loc: AppPath.Authorize, res: false },
   { loc: AppPath.NotFoundWildcard, res: false },
   { loc: AppPath.NotFound, res: false },

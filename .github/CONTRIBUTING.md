@@ -1,48 +1,35 @@
-# Berkontribusi ke Bades.id
+# Kontribusi Internal Bades
 
-Terima kasih sudah mempertimbangkan untuk berkontribusi ke Bades.id!
+Repositori ini adalah repo privat tim Bades. Tidak ada alur kontribusi
+open-source, tidak ada fork-and-PR dari publik, dan tidak ada CLA.
 
-Silakan lihat [dokumentasi](https://docs.bades.id) terlebih dahulu sebelum mulai.
+Jika Anda anggota tim Bades, ikuti panduan internal berikut. Jika Anda
+mendapatkan akses ke repo ini di luar tim, hubungi tim Bades terlebih dahulu
+sebelum melakukan perubahan apa pun.
 
-## Cara Berkontribusi
+## Alur kerja internal
 
-1. **Fork Repositori:** Klik tombol 'Fork' di pojok kanan atas halaman GitHub repositori. Ini akan membuat salinan repositori di akun GitHub Anda.
+1. Buat branch baru dari `main` dengan nama yang deskriptif.
+2. Lakukan perubahan sesuai arah produk di `GOAL.md` dan rule di
+   `.claude/rules/`.
+3. Jalankan lint, typecheck, dan test relevan secara lokal sebelum push.
+4. Buka pull request ke `main`. Sertakan ringkasan singkat tentang dampak ke
+   pengguna desa atau ke surface internal yang disentuh.
+5. Tunggu review dari pemilik area terkait sebelum merge.
 
-2. **Clone Repositori:** Clone repositori fork Anda ke mesin lokal menggunakan `git clone`.
+## Standar perubahan
 
-```shell
-git clone https://github.com/namapenggunaanda/bades.git
-cd bades
-```
+- Bahasa pengalaman produk dan dokumentasi pengguna adalah Bahasa Indonesia
+  native, bukan terjemahan setengah jadi.
+- Bades adalah produk SaaS swasta terkelola untuk konteks desa Indonesia,
+  bukan distribusi self-hosting komunitas. Surface publik harus mencerminkan
+  itu.
+- Identifier teknis legacy boleh tetap ada di kode internal jika mengubahnya
+  berisiko, tetapi jangan biarkan bocor ke teks user-facing, email, judul,
+  atau help text.
 
-3. **Buat Branch Baru:** Buat branch baru untuk perubahan Anda, jangan menggunakan branch utama.
+## Pelaporan masalah
 
-```shell
-git checkout -b nama-branch-anda
-```
-
-4. **Lakukan Perubahan:** Lakukan perubahan yang diinginkan dan pastikan kode Anda mematuhi standar pengkodean Bades.id.
-
-5. **Uji Secara Lokal:** Uji perubahan Anda secara lokal untuk memastikan semuanya berjalan sesuai harapan.
-
-6. **Commit Perubahan:** Commit perubahan Anda dengan pesan commit yang jelas dan ringkas.
-
-```shell
-git commit -m "Tambahkan deskripsi detail Anda di sini"
-```
-
-7. **Push Perubahan:** Push perubahan Anda ke repositori fork Anda.
-
-```shell
-git push origin nama-branch-anda
-```
-
-8. **Buat Pull Request:** Buka repositori Bades.id asli dan buat pull request. Berikan deskripsi detail tentang perubahan Anda. Mengirimkan PR berarti Anda menyetujui CLA.
-
-9. **Review Kode:** Pull request Anda akan menjalani review kode oleh tim Bades.
-
-10. **Merge:** Setelah disetujui, maintainer akan menggabungkan pull request Anda ke repositori utama.
-
-## Melaporkan Isu
-
-Jika Anda mengalami masalah atau memiliki saran, silakan [buat isu di repositori GitHub Bades.id](https://github.com/badesid/bades/issues/new). Berikan informasi sebanyak mungkin untuk membantu tim menyelesaikan masalah dengan cepat.
+- Bug fungsional dan permintaan fitur dicatat lewat tracker internal tim,
+  bukan lewat issue publik di GitHub.
+- Untuk kerentanan keamanan, ikuti `SECURITY.md`.

@@ -825,28 +825,8 @@ export type CheckUserExist = {
   isEmailVerified: Scalars['Boolean'];
 };
 
-export type ClientAiModelConfig = {
-  __typename?: 'ClientAiModelConfig';
-  contextWindowTokens?: Maybe<Scalars['Float']>;
-  dataResidency?: Maybe<Scalars['String']>;
-  inputCostPerMillionTokens?: Maybe<Scalars['Float']>;
-  isDeprecated?: Maybe<Scalars['Boolean']>;
-  isRecommended?: Maybe<Scalars['Boolean']>;
-  label: Scalars['String'];
-  maxOutputTokens?: Maybe<Scalars['Float']>;
-  modelFamily?: Maybe<ModelFamily>;
-  modelFamilyLabel?: Maybe<Scalars['String']>;
-  modelId: Scalars['String'];
-  nativeCapabilities?: Maybe<NativeModelCapabilities>;
-  outputCostPerMillionTokens?: Maybe<Scalars['Float']>;
-  providerLabel?: Maybe<Scalars['String']>;
-  providerName?: Maybe<Scalars['String']>;
-  sdkPackage?: Maybe<Scalars['String']>;
-};
-
 export type ClientConfig = {
   __typename?: 'ClientConfig';
-  aiModels: Array<ClientAiModelConfig>;
   allowRequestsToFaviconService: Scalars['Boolean'];
   analyticsEnabled: Scalars['Boolean'];
   api: ApiConfig;
