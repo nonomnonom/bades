@@ -147,6 +147,14 @@
         "command": "ts-node --transpile-only"
       }
     },
+    "fmt": {
+      "options": {
+        "files": "src"
+      },
+      "configurations": {
+        "fix": {}
+      }
+    },
     "lint": {
       "executor": "nx:run-commands",
       "cache": true,
