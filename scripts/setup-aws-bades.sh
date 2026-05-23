@@ -28,6 +28,11 @@
 
 set -euo pipefail
 
+# Hindari Git Bash / MSYS mengkonversi argumen yang dimulai dengan '/'
+# menjadi path Windows (mis. '/healthz' → 'C:/Program Files/Git/healthz').
+export MSYS_NO_PATHCONV=1
+export MSYS2_ARG_CONV_EXCL='*'
+
 AWS_REGION="${AWS_REGION:-ap-southeast-3}"
 CREATE_NAT_GATEWAY="${CREATE_NAT_GATEWAY:-0}"
 SKIP_ACCESS_KEY="${SKIP_ACCESS_KEY:-0}"
@@ -56,9 +61,9 @@ TASK_ROLE_POLICY="BadesTaskRolePolicy"
 CI_USER="bades-ci"
 CI_POLICY="BadesDeployPolicy"
 
-bold()   { printf '\033[1m%s\033[0m\n' "$*"; }
-green()  { printf '\033[32m%s\033[0m\n' "$*"; }
-yellow() { printf '\033[33m%s\033[0m\n' "$*"; }
+bold()   { printf '\033[1m%s\033[0m\n' "$*" >&2; }
+green()  { printf '\033[32m%s\033[0m\n' "$*" >&2; }
+yellow() { printf '\033[33m%s\033[0m\n' "$*" >&2; }
 red()    { printf '\033[31m%s\033[0m\n' "$*" >&2; }
 
 require_cmd() {
@@ -624,8 +629,14 @@ if [ "$SKIP_ECS_SERVICES" != "1" ]; then
 
   for ENV_NAME in staging production; do
     TDF="$TPL_DIR/bades-${ENV_NAME}-task.json"
+    # Konversi path ke format yang dipahami AWS CLI di Windows + Unix
+    if command -v cygpath >/dev/null 2>&1; then
+      TDF_URI="file://$(cygpath -w "$TDF" | sed 's|\\\\|/|g')"
+    else
+      TDF_URI="file://${TDF}"
+    fi
     TD_ARN=$(aws ecs register-task-definition --region "$AWS_REGION" \
-      --cli-input-json "file://${TDF}" \
+      --cli-input-json "$TDF_URI" \
       --query 'taskDefinition.taskDefinitionArn' --output text)
     green "Task def '$ENV_NAME' registered : $TD_ARN"
 

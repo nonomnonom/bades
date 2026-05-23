@@ -23,28 +23,15 @@
       },
       "environment": [
         { "name": "NODE_ENV", "value": "production" },
-        { "name": "NODE_PORT", "value": "3000" },
-        { "name": "SERVER_URL", "value": "https://staging.bades.id" },
-        { "name": "FRONTEND_URL", "value": "https://staging.bades.id" },
-        { "name": "IS_MULTIWORKSPACE_ENABLED", "value": "true" },
-        { "name": "DEFAULT_SUBDOMAIN", "value": "app" },
-        { "name": "STORAGE_TYPE", "value": "s3" },
-        { "name": "STORAGE_S3_REGION", "value": "ap-southeast-3" },
-        { "name": "STORAGE_S3_NAME", "value": "bades-staging-assets" },
-        { "name": "IS_BILLING_ENABLED", "value": "true" },
-        { "name": "IS_BILLING_MIDTRANS_ENABLED", "value": "true" },
-        { "name": "MIDTRANS_IS_PRODUCTION", "value": "false" },
-        { "name": "LOGGER_DRIVER", "value": "CONSOLE" },
-        { "name": "LOG_LEVELS", "value": "error,warn,log" },
-        { "name": "APPLICATION_LOG_DRIVER", "value": "CONSOLE" }
+        { "name": "NODE_PORT", "value": "3000" }
       ],
       "secrets": [
-        { "name": "APP_SECRET",          "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/APP_SECRET" },
-        { "name": "PG_DATABASE_URL",     "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/PG_DATABASE_URL" },
-        { "name": "REDIS_URL",           "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/REDIS_URL" },
+        { "name": "APP_SECRET", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/APP_SECRET" },
+        { "name": "PG_DATABASE_URL", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/PG_DATABASE_URL" },
+        { "name": "REDIS_URL", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/REDIS_URL" },
         { "name": "MIDTRANS_SERVER_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/MIDTRANS_SERVER_KEY" },
         { "name": "MIDTRANS_CLIENT_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/MIDTRANS_CLIENT_KEY" },
-        { "name": "OPENROUTER_API_KEY",  "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/OPENROUTER_API_KEY" }
+        { "name": "OPENROUTER_API_KEY", "valueFrom": "arn:aws:secretsmanager:ap-southeast-3:256269125062:secret:bades/staging/OPENROUTER_API_KEY" }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
