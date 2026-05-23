@@ -51,7 +51,7 @@ import { isWorkEmail } from 'src/utils/is-work-email';
 import { SOURCE_LOCALE } from 'shared/translations';
 
 @Injectable()
-// oxlint-disable-next-line twenty/inject-workspace-repository
+// oxlint-disable-next-line bades/inject-workspace-repository
 export class SignInUpService {
   constructor(
     @InjectRepository(UserEntity)
