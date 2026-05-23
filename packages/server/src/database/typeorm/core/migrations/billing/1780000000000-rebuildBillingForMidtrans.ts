@@ -37,10 +37,14 @@ export class RebuildBillingForMidtrans1780000000000 implements MigrationInterfac
         AND sub."billingCustomerId" IS NULL
     `);
 
-    // FK constraint ke billingCustomer.id
+    // FK constraint ke billingCustomer.id (idempoten: drop dulu baru add)
     await queryRunner.query(`
       ALTER TABLE "core"."billingSubscription"
-        ADD CONSTRAINT IF NOT EXISTS "FK_billingSubscription_billingCustomerId"
+        DROP CONSTRAINT IF EXISTS "FK_billingSubscription_billingCustomerId"
+    `);
+    await queryRunner.query(`
+      ALTER TABLE "core"."billingSubscription"
+        ADD CONSTRAINT "FK_billingSubscription_billingCustomerId"
         FOREIGN KEY ("billingCustomerId")
         REFERENCES "core"."billingCustomer"("id")
         ON DELETE SET NULL ON UPDATE CASCADE
@@ -171,10 +175,14 @@ export class RebuildBillingForMidtrans1780000000000 implements MigrationInterfac
         DROP CONSTRAINT IF EXISTS "FK_billingEntitlement_stripeCustomerId"
     `);
 
-    // Tambah FK baru ke billingCustomer.id
+    // Tambah FK baru ke billingCustomer.id (idempoten: drop dulu baru add)
     await queryRunner.query(`
       ALTER TABLE "core"."billingEntitlement"
-        ADD CONSTRAINT IF NOT EXISTS "FK_billingEntitlement_billingCustomerId"
+        DROP CONSTRAINT IF EXISTS "FK_billingEntitlement_billingCustomerId"
+    `);
+    await queryRunner.query(`
+      ALTER TABLE "core"."billingEntitlement"
+        ADD CONSTRAINT "FK_billingEntitlement_billingCustomerId"
         FOREIGN KEY ("billingCustomerId")
         REFERENCES "core"."billingCustomer"("id")
         ON DELETE CASCADE ON UPDATE CASCADE

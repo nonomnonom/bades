@@ -55,12 +55,13 @@ describe('detectNumberFormat', () => {
     expect(detectNumberFormat()).toBe('COMMAS_AND_DOT');
   });
 
-  it('should handle invalid locale gracefully', () => {
+  it('should handle invalid locale gracefully (fallback to system id-ID)', () => {
     Object.defineProperty(navigator, 'language', {
       writable: true,
       value: 'invalid-locale',
     });
-    expect(detectNumberFormat()).toBe('COMMAS_AND_DOT');
+    // Lingkungan Bades default ke id-ID yang memakai titik ribuan + koma desimal.
+    expect(detectNumberFormat()).toBe('DOTS_AND_COMMA');
   });
 
   it('should handle missing navigator.language', () => {

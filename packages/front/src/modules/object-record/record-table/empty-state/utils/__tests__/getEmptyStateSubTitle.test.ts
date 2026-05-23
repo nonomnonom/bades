@@ -8,7 +8,7 @@ describe('getEmptyStateSubTitle', () => {
       'Workflow Version',
     );
     expect(subTitle).toBe(
-      'Create a workflow and return here to view its versions',
+      'Buat alur kerja dan kembali ke sini untuk melihat versinya',
     );
   });
 
@@ -18,12 +18,12 @@ describe('getEmptyStateSubTitle', () => {
       'Workflow Run',
     );
     expect(subTitle).toBe(
-      'Run a workflow and return here to view its executions',
+      'Jalankan alur kerja dan kembali ke sini untuk melihat eksekusinya',
     );
   });
 
   it('should return the correct sub title for other object', () => {
     const subTitle = getEmptyStateSubTitle('object', 'Object');
-    expect(subTitle).toBe('Use our API or add your first Object manually');
+    expect(subTitle).toBe('Tambahkan Object pertama Anda secara manual');
   });
 });

@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/no-state-useref';
+export const RULE_NAME = 'no-state-useref';
 
 export const rule = defineRule({
   meta: {

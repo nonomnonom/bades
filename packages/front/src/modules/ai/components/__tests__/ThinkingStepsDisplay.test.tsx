@@ -103,11 +103,11 @@ describe('ThinkingStepsDisplay', () => {
       ],
     });
 
-    expect(screen.queryByRole('button', { name: /steps/i })).toBeNull();
-    expect(screen.getByText('Thinking')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /langkah/i })).toBeNull();
+    expect(screen.getByText('Sedang berpikir')).toBeInTheDocument();
     expect(screen.getByText('Active reasoning content')).toBeInTheDocument();
     expect(
-      screen.getByText('Searched the web for crm software'),
+      screen.getByText('Mencari web untuk crm software'),
     ).toBeInTheDocument();
     expect(document.querySelector('svg[viewBox="0 0 14 14"]')).not.toBeNull();
   });
@@ -125,10 +125,10 @@ describe('ThinkingStepsDisplay', () => {
       ],
     });
 
-    const summaryButton = screen.getByRole('button', { name: /2 steps/i });
+    const summaryButton = screen.getByRole('button', { name: /2 langkah/i });
 
     expect(summaryButton).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.queryByText('Thought')).toBeNull();
+    expect(screen.queryByText('Telah berpikir')).toBeNull();
     expect(screen.queryByText('Completed reasoning content')).toBeNull();
   });
 
@@ -145,8 +145,8 @@ describe('ThinkingStepsDisplay', () => {
       ],
     });
 
-    expect(screen.queryByRole('button', { name: /steps/i })).toBeNull();
-    expect(screen.getByText('Thought')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /langkah/i })).toBeNull();
+    expect(screen.getByText('Telah berpikir')).toBeInTheDocument();
     expect(screen.getByText('Completed reasoning content')).toBeInTheDocument();
   });
 
@@ -163,10 +163,10 @@ describe('ThinkingStepsDisplay', () => {
       ],
     });
 
-    const summaryButton = screen.getByRole('button', { name: /2 steps/i });
+    const summaryButton = screen.getByRole('button', { name: /2 langkah/i });
 
     expect(summaryButton).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.queryByText('Thought')).toBeNull();
+    expect(screen.queryByText('Telah berpikir')).toBeNull();
     expect(screen.queryByText('Completed reasoning content')).toBeNull();
   });
 
@@ -183,15 +183,15 @@ describe('ThinkingStepsDisplay', () => {
       ],
     });
 
-    const summaryButton = screen.getByRole('button', { name: /2 steps/i });
+    const summaryButton = screen.getByRole('button', { name: /2 langkah/i });
 
     await userEvent.click(summaryButton);
 
     expect(summaryButton).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByText('Thought')).toBeInTheDocument();
+    expect(screen.getByText('Telah berpikir')).toBeInTheDocument();
     expect(screen.getByText('Completed reasoning content')).toBeInTheDocument();
     expect(
-      screen.getByText('Searched the web for crm software'),
+      screen.getByText('Mencari web untuk crm software'),
     ).toBeInTheDocument();
   });
 
@@ -208,29 +208,29 @@ describe('ThinkingStepsDisplay', () => {
       ],
     });
 
-    const summaryButton = screen.getByRole('button', { name: /2 steps/i });
+    const summaryButton = screen.getByRole('button', { name: /2 langkah/i });
     await userEvent.click(summaryButton);
 
     const toolButton = screen.getByRole('button', {
-      name: /searched the web for crm software/i,
+      name: /mencari web untuk crm software/i,
     });
 
     expect(toolButton).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.queryByRole('button', { name: 'Output' })).toBeNull();
-    expect(screen.queryByRole('button', { name: 'Input' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Keluaran' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Masukan' })).toBeNull();
 
     await userEvent.click(toolButton);
 
     expect(toolButton).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByRole('button', { name: 'Output' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Input' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Keluaran' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Masukan' })).toBeInTheDocument();
 
     await userEvent.click(toolButton);
 
     expect(toolButton).toHaveAttribute('aria-expanded', 'false');
     await waitFor(() => {
-      expect(screen.queryByRole('button', { name: 'Output' })).toBeNull();
-      expect(screen.queryByRole('button', { name: 'Input' })).toBeNull();
+      expect(screen.queryByRole('button', { name: 'Keluaran' })).toBeNull();
+      expect(screen.queryByRole('button', { name: 'Masukan' })).toBeNull();
     });
   });
 });

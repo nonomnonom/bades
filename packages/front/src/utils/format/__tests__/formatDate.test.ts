@@ -25,6 +25,8 @@ describe('formatToHumanReadableTime', () => {
     const date = new Date('2022-01-01T12:30:00Z');
     const result = formatToHumanReadableTime(date, 'UTC');
 
-    expect(['12:30 PM', '12:30 PM', '12:30 p.m.']).toContain(result);
+    // Bades default locale id-ID: jam 12.30; sediakan fallback untuk
+    // lingkungan dengan locale berbeda (CI, dev) agar test tetap stabil.
+    expect(['12.30', '12:30 PM', '12:30 p.m.']).toContain(result);
   });
 });

@@ -67,7 +67,7 @@ describe('useVerifyLogin', () => {
     await result.current.verifyLoginToken('test-token');
 
     expect(mockEnqueueErrorSnackBar).toHaveBeenCalledWith({
-      message: 'Authentication failed',
+      message: 'Autentikasi gagal',
     });
     expect(mockNavigate).toHaveBeenCalledWith(AppPath.SignInUp);
   });

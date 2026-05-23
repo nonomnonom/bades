@@ -19,18 +19,19 @@ const createBaseWorkspaceMember = (): CurrentWorkspaceMember => ({
 });
 
 describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
-  it('should not mutate the previous object', () => {
+  it('should not mutate the previous object and ignore locale updates', () => {
     const previous = createBaseWorkspaceMember();
     const update = { locale: 'fr-FR' };
 
     const result = mergeWorkspaceMemberSettingsIntoCurrent(previous, update);
 
+    // Bades single-language: payload locale tidak lagi diterapkan.
     expect(result).not.toBe(previous);
     expect(previous.locale).toBe('en');
-    expect(result.locale).toBe('fr-FR');
+    expect(result.locale).toBe('en');
   });
 
-  it('should merge locale and colorScheme', () => {
+  it('should merge colorScheme tanpa mengubah locale', () => {
     const previous = createBaseWorkspaceMember();
 
     const result = mergeWorkspaceMemberSettingsIntoCurrent(previous, {
@@ -38,7 +39,7 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
       colorScheme: 'Dark',
     });
 
-    expect(result.locale).toBe('de-DE');
+    expect(result.locale).toBe('en');
     expect(result.colorScheme).toBe('Dark');
     expect(result.userEmail).toBe(previous.userEmail);
     expect(result.id).toBe(previous.id);
@@ -132,7 +133,7 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
     expect(result.numberFormat).toBe('COMMAS_AND_DOT');
   });
 
-  it('should ignore unknown keys in Record payload', () => {
+  it('should ignore unknown keys and locale in Record payload', () => {
     const previous = createBaseWorkspaceMember();
 
     const result = mergeWorkspaceMemberSettingsIntoCurrent(previous, {
@@ -140,7 +141,8 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
       unknownField: 'ignored',
     } as Record<string, unknown>);
 
-    expect(result.locale).toBe('es');
+    // locale tidak lagi diterapkan; field unknown tetap diabaikan.
+    expect(result.locale).toBe('en');
     expect('unknownField' in result).toBe(false);
   });
 });

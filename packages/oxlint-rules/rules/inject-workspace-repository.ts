@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/inject-workspace-repository';
+export const RULE_NAME = 'inject-workspace-repository';
 
 export const rule = defineRule({
   meta: {

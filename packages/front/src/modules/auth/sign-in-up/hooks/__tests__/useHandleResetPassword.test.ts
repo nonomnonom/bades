@@ -70,7 +70,7 @@ describe('useHandleResetPassword', () => {
     await act(() => result.current.handleResetPassword('')());
 
     expect(enqueueErrorSnackBarMock).toHaveBeenCalledWith({
-      message: 'Invalid email',
+      message: 'Email tidak valid',
     });
   });
 
@@ -86,7 +86,7 @@ describe('useHandleResetPassword', () => {
       variables: { email: 'test@example.com', workspaceId: 'workspace-id' },
     });
     expect(enqueueSuccessSnackBarMock).toHaveBeenCalledWith({
-      message: 'Password reset link has been sent to the email',
+      message: 'Tautan atur ulang kata sandi telah dikirim ke email',
     });
   });
 
@@ -102,7 +102,7 @@ describe('useHandleResetPassword', () => {
       variables: { email: 'test@example.com' },
     });
     expect(enqueueSuccessSnackBarMock).toHaveBeenCalledWith({
-      message: 'Password reset link has been sent to the email',
+      message: 'Tautan atur ulang kata sandi telah dikirim ke email',
     });
   });
 

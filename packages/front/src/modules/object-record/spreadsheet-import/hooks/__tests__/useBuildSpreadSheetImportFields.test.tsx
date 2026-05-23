@@ -233,10 +233,10 @@ describe('useBuildSpreadSheetImportFields', () => {
     expect(spreadsheetImportFields.length).toBe(2);
 
     const firstNameField = spreadsheetImportFields.find((field) =>
-      field.key.includes('First Name'),
+      field.key.includes('Nama Depan'),
     );
     const lastNameField = spreadsheetImportFields.find((field) =>
-      field.key.includes('Last Name'),
+      field.key.includes('Nama Belakang'),
     );
 
     expect(firstNameField).toBeDefined();

@@ -97,7 +97,7 @@ describe('ClientConfigService', () => {
         });
 
       jest.spyOn(domainServerConfigService, 'getFrontUrl').mockReturnValue({
-        hostname: 'app.twenty.com',
+        hostname: 'app.bades.id',
       } as URL);
     });
 
@@ -163,6 +163,7 @@ describe('ClientConfigService', () => {
         calendarBookingPageId: 'team/twenty/talk-to-us',
         isCloudflareIntegrationEnabled: false,
         isClickHouseConfigured: false,
+        isWorkspaceSchemaDDLLocked: undefined,
       });
     });
 

@@ -82,7 +82,7 @@ describe('useOpenCalendarEventInSidePanel', () => {
 
     expect(mockNavigateSidePanel).toHaveBeenCalledWith({
       page: SidePanelPages.ViewCalendarEvent,
-      pageTitle: 'Calendar Event',
+      pageTitle: 'Acara Kalender',
       pageIcon: IconCalendarEvent,
       pageId: 'mocked-uuid',
     });

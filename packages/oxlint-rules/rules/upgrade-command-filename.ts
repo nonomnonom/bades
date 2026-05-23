@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/upgrade-command-filename';
+export const RULE_NAME = 'upgrade-command-filename';
 
 const WORKSPACE_COMMAND_REGEX =
   /^\d+-\d+-workspace-command-\d{13,}-[a-z0-9]+(?:-[a-z0-9]+)*\.command\.ts$/;

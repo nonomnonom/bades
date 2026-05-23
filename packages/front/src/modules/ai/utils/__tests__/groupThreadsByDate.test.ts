@@ -58,17 +58,17 @@ describe('groupThreadsByDate', () => {
     expect(result).toHaveLength(4);
     expect(result[0]).toMatchObject({
       id: 'today',
-      title: 'Today',
+      title: 'Hari ini',
       threads: [{ id: '1' }],
     });
     expect(result[1]).toMatchObject({
       id: 'yesterday',
-      title: 'Yesterday',
+      title: 'Kemarin',
       threads: [{ id: '2' }],
     });
     expect(result[2]).toMatchObject({
       id: 'previous-7-days',
-      title: 'Previous 7 days',
+      title: '7 hari terakhir',
       threads: [{ id: '3' }, { id: '4' }],
     });
     expect(result[3]).toMatchObject({

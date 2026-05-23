@@ -261,36 +261,9 @@ describe('resolveObjectMetadataStandardOverride', () => {
       ).toBe('Description traduite');
     });
 
-    it('should fallback when translation override is not available for the locale', () => {
-      const objectMetadata = {
-        labelSingular: 'Standard Label',
-        labelPlural: 'Standard Labels',
-        description: 'Standard Description',
-        icon: 'default-icon',
-        isCustom: false,
-        standardOverrides: {
-          translations: {
-            'id-ID': {
-              labelSingular: 'Label dalam Bahasa Indonesia',
-              labelPlural: 'Label-label dalam Bahasa Indonesia',
-              description: 'Deskripsi dalam Bahasa Indonesia',
-            },
-          },
-        },
-      };
-
-      mockGenerateMessageId.mockReturnValue('generated-message-id');
-      mockI18n._.mockReturnValue('generated-message-id');
-
-      const result = resolveObjectMetadataStandardOverride(
-        objectMetadata,
-        'labelSingular',
-        'id-ID',
-        mockI18n,
-      );
-
-      expect(result).toBe('Standard Label');
-    });
+    // Catatan Bades: test "fallback bila locale tidak tersedia" dihapus karena
+    // Bades single-language (id-ID == SOURCE_LOCALE); tidak ada lagi jalur
+    // antar-locale yang membedakan behavior fallback ini.
 
     it('should fallback when translation override is not available for the labelKey', () => {
       const objectMetadata = {
@@ -322,36 +295,9 @@ describe('resolveObjectMetadataStandardOverride', () => {
       expect(result).toBe('Standard Description');
     });
 
-    it('should not use translation overrides when locale is undefined', () => {
-      const objectMetadata = {
-        labelSingular: 'Standard Label',
-        labelPlural: 'Standard Labels',
-        description: 'Standard Description',
-        icon: 'default-icon',
-        isCustom: false,
-        standardOverrides: {
-          translations: {
-            'id-ID': {
-              labelSingular: 'Libellé traduit',
-              labelPlural: 'Libellés traduits',
-              description: 'Description traduite',
-            },
-          },
-        },
-      };
-
-      mockGenerateMessageId.mockReturnValue('generated-message-id');
-      mockI18n._.mockReturnValue('generated-message-id');
-
-      const result = resolveObjectMetadataStandardOverride(
-        objectMetadata,
-        'labelSingular',
-        undefined,
-        mockI18n,
-      );
-
-      expect(result).toBe('Standard Label');
-    });
+    // Catatan Bades: test "locale undefined" dihapus karena pada single-language
+    // locale undefined akan jatuh ke SOURCE_LOCALE (id-ID) dan menggunakan
+    // translation override.
   });
 
   describe('Standard objects - SOURCE_LOCALE overrides', () => {

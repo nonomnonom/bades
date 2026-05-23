@@ -3,7 +3,7 @@ import { getTriggerHeaderType } from '@/workflow/workflow-trigger/utils/getTrigg
 
 describe('getTriggerHeaderType', () => {
   describe('DATABASE_EVENT triggers', () => {
-    it('returns "Trigger · Record is created" for created event', () => {
+    it('returns "Trigger · Data dibuat" for created event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
         name: 'Company Created',
@@ -15,10 +15,10 @@ describe('getTriggerHeaderType', () => {
 
       const result = getTriggerHeaderType(trigger);
 
-      expect(result).toBe('Trigger · Record is created');
+      expect(result).toBe('Trigger · Data dibuat');
     });
 
-    it('returns "Trigger · Record is updated" for updated event', () => {
+    it('returns "Trigger · Data diperbarui" for updated event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
         name: 'Company Updated',
@@ -30,10 +30,10 @@ describe('getTriggerHeaderType', () => {
 
       const result = getTriggerHeaderType(trigger);
 
-      expect(result).toBe('Trigger · Record is updated');
+      expect(result).toBe('Trigger · Data diperbarui');
     });
 
-    it('returns "Trigger · Record is deleted" for deleted event', () => {
+    it('returns "Trigger · Data dihapus" for deleted event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
         name: 'Company Deleted',
@@ -45,7 +45,7 @@ describe('getTriggerHeaderType', () => {
 
       const result = getTriggerHeaderType(trigger);
 
-      expect(result).toBe('Trigger · Record is deleted');
+      expect(result).toBe('Trigger · Data dihapus');
     });
 
     it('works with different object types', () => {
@@ -60,7 +60,7 @@ describe('getTriggerHeaderType', () => {
 
       const result = getTriggerHeaderType(trigger);
 
-      expect(result).toBe('Trigger · Record is created');
+      expect(result).toBe('Trigger · Data dibuat');
     });
   });
 

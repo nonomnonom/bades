@@ -450,7 +450,7 @@ describe('EnterprisePlanService', () => {
       );
 
       await expect(service.setEnterpriseKey('key')).rejects.toThrow(
-        'IS_CONFIG_VARIABLES_IN_DB_ENABLED is false on your server',
+        'IS_CONFIG_VARIABLES_IN_DB_ENABLED adalah false di server Anda',
       );
     });
 

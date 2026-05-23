@@ -122,7 +122,7 @@ describe('useChartSettingsValues', () => {
         CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_Y,
       );
 
-      expect(value).toBe('Amount (Sum)');
+      expect(value).toBe('Amount (Jumlah)');
     });
 
     it('should return object label plural for SOURCE', () => {
@@ -194,7 +194,7 @@ describe('useChartSettingsValues', () => {
       );
 
       // Critical test: horizontal should return the SAME value as vertical
-      expect(value).toBe('Amount (Sum)');
+      expect(value).toBe('Amount (Jumlah)');
     });
 
     it('should return SAME sort label for SORT_BY_X (no swapping)', () => {

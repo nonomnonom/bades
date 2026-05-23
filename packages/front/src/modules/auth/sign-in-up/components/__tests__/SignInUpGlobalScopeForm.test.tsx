@@ -101,7 +101,7 @@ describe('SignInUpGlobalScopeForm', () => {
       </JotaiProvider>,
     );
 
-    const forgotPasswordLink = screen.getByText('Forgot your password?');
+    const forgotPasswordLink = screen.getByText('Lupa kata sandi?');
 
     expect(forgotPasswordLink).toBeInTheDocument();
     expect(handleResetPasswordMock).toHaveBeenCalledWith('person@example.com');

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`settingsDataModelObjectAboutFormSchema fails when color is not a valid theme color 1`] = `
 [ZodError: [
@@ -121,14 +121,14 @@ exports[`settingsDataModelObjectAboutFormSchema fails when singular and plural l
 [ZodError: [
   {
     "code": "custom",
-    "message": "Singular and plural names must be different",
+    "message": "Nama tunggal dan jamak harus berbeda",
     "path": [
       "nameSingular"
     ]
   },
   {
     "code": "custom",
-    "message": "Singular and plural names must be different",
+    "message": "Nama tunggal dan jamak harus berbeda",
     "path": [
       "namePlural"
     ]
@@ -140,14 +140,14 @@ exports[`settingsDataModelObjectAboutFormSchema fails when singular and plural n
 [ZodError: [
   {
     "code": "custom",
-    "message": "Singular and plural names must be different",
+    "message": "Nama tunggal dan jamak harus berbeda",
     "path": [
       "nameSingular"
     ]
   },
   {
     "code": "custom",
-    "message": "Singular and plural names must be different",
+    "message": "Nama tunggal dan jamak harus berbeda",
     "path": [
       "namePlural"
     ]

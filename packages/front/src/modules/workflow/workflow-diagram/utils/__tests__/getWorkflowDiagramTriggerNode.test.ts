@@ -132,26 +132,26 @@ describe('getWorkflowDiagramTriggerNode', () => {
       const result = getWorkflowDiagramTriggerNode({ trigger });
 
       expect(result).toMatchInlineSnapshot(`
-        {
-          "data": {
-            "hasNextStepIds": false,
-            "icon": "IconPlaylistAdd",
-            "name": "Record is created",
-            "nodeType": "trigger",
-            "position": {
-              "x": 0,
-              "y": 0,
-            },
-            "stepId": "trigger",
-            "triggerType": "DATABASE_EVENT",
-          },
-          "id": "trigger",
-          "position": {
-            "x": 0,
-            "y": 0,
-          },
-        }
-      `);
+{
+  "data": {
+    "hasNextStepIds": false,
+    "icon": "IconPlaylistAdd",
+    "name": "Data dibuat",
+    "nodeType": "trigger",
+    "position": {
+      "x": 0,
+      "y": 0,
+    },
+    "stepId": "trigger",
+    "triggerType": "DATABASE_EVENT",
+  },
+  "id": "trigger",
+  "position": {
+    "x": 0,
+    "y": 0,
+  },
+}
+`);
     });
 
     it('should create trigger node with empty label for DATABASE_EVENT trigger with unknown event', () => {

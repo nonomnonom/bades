@@ -15,13 +15,8 @@ describe('formatConnectRecordNotFoundErrorMessage', () => {
       errorMessage:
         'Expected 1 record to connect to connectFieldName, but found 0 for field1 = value1 and field2 = value2',
       userFriendlyMessage: expect.objectContaining({
-        id: expect.any(String),
         message:
-          "Can't connect to {connectFieldName}. No unique record found with condition: {formattedConnectCondition}",
-        values: {
-          connectFieldName: 'connectFieldName',
-          formattedConnectCondition: 'field1 = value1 and field2 = value2',
-        },
+          "Can't connect to connectFieldName. No unique record found with condition: field1 = value1 and field2 = value2",
       }),
     });
   });

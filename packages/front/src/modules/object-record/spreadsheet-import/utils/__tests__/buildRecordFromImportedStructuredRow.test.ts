@@ -337,27 +337,27 @@ describe('buildRecordFromImportedStructuredRow', () => {
       ratingField: '4',
       'BlockNote (richTextField)': 'Rich content in blocknote format',
       'Markdown (richTextField)': 'Content in markdown format',
-      'First Name (fullNameField)': 'John',
-      'Last Name (fullNameField)': 'Doe',
-      'Amount (currencyField)': '75',
-      'Currency (currencyField)': 'USD',
-      'Address 1 (addressField)': '123 Main St',
-      'Address 2 (addressField)': 'Apt 4B',
-      'City (addressField)': 'New York',
-      'Post Code (addressField)': '10001',
-      'State (addressField)': 'NY',
-      'Country (addressField)': 'USA',
-      'Primary Email (emailField)': 'john.doe@example.com',
-      'Additional Emails (emailField)':
+      'Nama Depan (fullNameField)': 'John',
+      'Nama Belakang (fullNameField)': 'Doe',
+      'Nominal (currencyField)': '75',
+      'Mata Uang (currencyField)': 'USD',
+      'Alamat 1 (addressField)': '123 Main St',
+      'Alamat 2 (addressField)': 'Apt 4B',
+      'Kota (addressField)': 'New York',
+      'Kode Pos (addressField)': '10001',
+      'Provinsi (addressField)': 'NY',
+      'Negara (addressField)': 'USA',
+      'Email Utama (emailField)': 'john.doe@example.com',
+      'Email Tambahan (emailField)':
         '["john.doe+work@example.com", "j.doe@company.com"]',
-      'Primary Phone Number (phoneField)': '+1-555-0123',
-      'Primary Phone Country Code (phoneField)': 'US',
-      'Primary Phone Calling Code (phoneField)': '+1',
-      'Additional Phones (phoneField)':
+      'Nomor Telepon Utama (phoneField)': '+1-555-0123',
+      'Kode Negara Telepon Utama (phoneField)': 'US',
+      'Kode Panggil Telepon Utama (phoneField)': '+1',
+      'Telepon Tambahan (phoneField)':
         '[{"number": "+1-555-0124", "callingCode": "+1", "countryCode": "US"}]',
-      'Link URL (linksField)': 'https://example.com',
-      'Link Label (linksField)': 'Example Website',
-      'Secondary Links (linksField)':
+      'URL Tautan (linksField)': 'https://example.com',
+      'Label Tautan (linksField)': 'Example Website',
+      'Tautan Sekunder (linksField)':
         '[{"url": "https://github.com/user", "label": "GitHub"}]',
     };
 
@@ -454,7 +454,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
 
   it('should successfully build a record from imported structured row with primary phone number (without calling code)', () => {
     const importedStructuredRow: ImportedStructuredRow = {
-      'Primary Phone Number (phoneField)': '5550123',
+      'Nomor Telepon Utama (phoneField)': '5550123',
     };
 
     const result = buildRecordFromImportedStructuredRow({

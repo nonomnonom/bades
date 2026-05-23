@@ -39,7 +39,6 @@ describe('TwoFactorAuthenticationExceptionFilter', () => {
         );
         expect(error.extensions.userFriendlyMessage).toEqual(
           expect.objectContaining({
-            id: expect.any(String),
             message: 'Invalid verification code. Please try again.',
           }),
         );

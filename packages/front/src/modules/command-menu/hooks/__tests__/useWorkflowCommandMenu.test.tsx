@@ -135,7 +135,7 @@ describe('useSidePanelWorkflowNavigation', () => {
 
     expect(mockNavigateCommandMenu).toHaveBeenCalledWith({
       page: SidePanelPages.WorkflowTriggerSelectType,
-      pageTitle: t`Trigger Type`,
+      pageTitle: t`Jenis Pemicu`,
       pageIcon: IconBolt,
       pageId: 'mocked-uuid',
     });
@@ -152,7 +152,7 @@ describe('useSidePanelWorkflowNavigation', () => {
 
     expect(mockNavigateCommandMenu).toHaveBeenCalledWith({
       page: SidePanelPages.WorkflowStepCreate,
-      pageTitle: t`Select Action`,
+      pageTitle: t`Pilih Aksi`,
       pageIcon: IconSettingsAutomation,
       pageId: 'mocked-uuid',
     });
@@ -169,7 +169,7 @@ describe('useSidePanelWorkflowNavigation', () => {
 
     expect(mockNavigateCommandMenu).toHaveBeenCalledWith({
       page: SidePanelPages.WorkflowStepEditType,
-      pageTitle: t`Select action`,
+      pageTitle: t`Pilih aksi`,
       pageIcon: IconSettingsAutomation,
       pageId: 'mocked-uuid',
     });

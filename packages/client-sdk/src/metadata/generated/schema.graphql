@@ -941,8 +941,6 @@ type Workspace {
   fastModel: String!
   smartModel: String!
   aiAdditionalInstructions: String
-  enabledAiModelIds: [String!]
-  useRecommendedModels: Boolean!
   routerModel: String!
   workspaceCustomApplication: Application
   featureFlags: [FeatureFlag!]
@@ -1822,24 +1820,6 @@ type NativeModelCapabilities {
   twitterSearch: Boolean
 }
 
-type ClientAiModelConfig {
-  modelId: String!
-  label: String!
-  modelFamily: ModelFamily
-  modelFamilyLabel: String
-  sdkPackage: String
-  inputCostPerMillionTokens: Float
-  outputCostPerMillionTokens: Float
-  nativeCapabilities: NativeModelCapabilities
-  isDeprecated: Boolean
-  isRecommended: Boolean
-  providerName: String
-  providerLabel: String
-  contextWindowTokens: Float
-  maxOutputTokens: Float
-  dataResidency: String
-}
-
 enum ModelFamily {
   GPT
   CLAUDE
@@ -1905,7 +1885,6 @@ type ClientConfig {
   appVersion: String
   authProviders: AuthProviders!
   billing: Billing!
-  aiModels: [ClientAiModelConfig!]!
   signInPrefilled: Boolean!
   isMultiWorkspaceEnabled: Boolean!
   isEmailVerificationRequired: Boolean!
@@ -4305,8 +4284,6 @@ input UpdateWorkspaceInput {
   smartModel: String
   aiAdditionalInstructions: String
   editableProfileFields: [String!]
-  enabledAiModelIds: [String!]
-  useRecommendedModels: Boolean
   isInternalMessagesImportEnabled: Boolean
 }
 

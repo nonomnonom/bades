@@ -164,7 +164,7 @@ describe('SettingsApplicationConnectionDetail', () => {
 
     fireEvent.click(
       screen.getByRole('button', {
-        name: /Share with workspace/,
+        name: /Bagikan ke ruang kerja/,
       }),
     );
 
@@ -174,7 +174,7 @@ describe('SettingsApplicationConnectionDetail', () => {
 
     fireEvent.click(
       screen.getByRole('button', {
-        name: 'Reconnect and change visibility',
+        name: 'Sambung ulang dan ubah visibilitas',
       }),
     );
 

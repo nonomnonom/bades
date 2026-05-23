@@ -65,7 +65,7 @@ describe('getCurrentGraphTypeFromConfig', () => {
     } as unknown as ChartConfiguration;
 
     expect(() => getCurrentGraphTypeFromConfig(unknownConfig)).toThrow(
-      'Unknown chart configuration type',
+      'Jenis konfigurasi grafik tidak dikenal',
     );
   });
 });
