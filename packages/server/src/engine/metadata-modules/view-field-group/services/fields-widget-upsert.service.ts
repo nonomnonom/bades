@@ -1,7 +1,7 @@
+import { t } from 'src/utils/bades-i18n';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { t } from '@lingui/core/macro';
 import {
   isDefined,
   isFieldMetadataEligibleForFieldsWidget,

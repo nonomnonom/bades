@@ -1,7 +1,6 @@
 import { type ErrorLike } from '@apollo/client';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { type MessageDescriptor } from '@lingui/core';
-import { t } from '@lingui/core/macro';
+import { type MessageDescriptor, t } from '~/utils/i18n/badesI18n';
 import { type Nullable } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
@@ -17,9 +16,5 @@ export const getErrorMessageFromApolloError = (error: ErrorLike): string => {
     return t`An error occurred.`;
   }
 
-  if (typeof userFriendlyMessage === 'object' && 'id' in userFriendlyMessage) {
-    return t(userFriendlyMessage);
-  }
-
-  return userFriendlyMessage;
+  return t(userFriendlyMessage);
 };

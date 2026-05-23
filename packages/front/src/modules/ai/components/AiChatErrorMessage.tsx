@@ -1,6 +1,6 @@
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconAlertCircle } from 'ui/display';
 import { useContext } from 'react';
 

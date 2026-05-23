@@ -6,8 +6,7 @@ import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 
 import { ModalStatefulWrapper } from '@/ui/layout/modal/components/ModalStatefulWrapper';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { H1Title, H1TitleFontColor } from 'ui/display';
 import { Button, type ButtonAccent } from 'ui/input';
 import {
@@ -79,7 +78,7 @@ export const StyledConfirmationButton = (
   </StyledConfirmationButtonContainer>
 );
 
-const defaultConfirmButtonText = msg`Confirm`;
+const defaultConfirmButtonText = msg`Konfirmasi`;
 
 export const ConfirmationModal = ({
   modalInstanceId,
@@ -176,7 +175,7 @@ export const ConfirmationModal = ({
       <StyledCenteredButton
         onClick={handleCancelClick}
         variant="secondary"
-        title={t`Cancel`}
+        title={t`Batal`}
         fullWidth
         justify="center"
         dataTestId="confirmation-modal-cancel-button"

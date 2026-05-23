@@ -1,5 +1,5 @@
 import { FieldDateDisplayFormat } from '@/object-record/record-field/ui/types/FieldMetadata';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 export const getDisplayFormatLabel = (
   displayFormat: FieldDateDisplayFormat,

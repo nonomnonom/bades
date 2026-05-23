@@ -4,7 +4,5 @@ import { type BADES_STANDARD_ALL_METADATA_NAME } from 'src/engine/workspace-mana
 
 export type BadesStandardAllFlatEntityMaps = Pick<
   AllFlatEntityMaps,
-  MetadataToFlatEntityMapsKey<
-    (typeof BADES_STANDARD_ALL_METADATA_NAME)[number]
-  >
+  MetadataToFlatEntityMapsKey<(typeof BADES_STANDARD_ALL_METADATA_NAME)[number]>
 >;

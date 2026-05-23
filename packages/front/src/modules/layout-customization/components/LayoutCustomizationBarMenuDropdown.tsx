@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconReload } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -47,7 +47,7 @@ export const LayoutCustomizationBarMenuDropdown = () => {
           <LightIconButton
             Icon={IconDotsVertical}
             accent="tertiary"
-            aria-label={t`Layout customization menu`}
+            aria-label={t`Menu penyesuaian tata letak`}
           />
         </StyledInvertedIconButtonWrapper>
       }
@@ -56,7 +56,7 @@ export const LayoutCustomizationBarMenuDropdown = () => {
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconReload}
-              text={t`Reset record page layout`}
+              text={t`Setel ulang tata letak halaman data`}
               onClick={handleResetClick}
             />
           </DropdownMenuItemsContainer>

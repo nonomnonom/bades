@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -5,7 +6,6 @@ import { SettingsPageContainer } from '@/settings/components/SettingsPageContain
 import { SettingsObjectCoverImage } from '@/settings/data-model/objects/components/SettingsObjectCoverImage';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconPlus } from 'ui/display';

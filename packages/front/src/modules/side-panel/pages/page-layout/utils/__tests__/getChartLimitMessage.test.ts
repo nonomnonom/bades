@@ -10,9 +10,9 @@ describe('getChartLimitMessage', () => {
       primaryAxisDateGranularity: ObjectRecordGroupByDateGranularity.DAY,
     });
 
-    expect(result).toContain('Undisplayed data');
+    expect(result).toContain('Data tidak ditampilkan');
     expect(result).toContain('days');
-    expect(result).toContain('per chart');
+    expect(result).toContain('per grafik');
   });
 
   it('returns bars message for bar chart without date axis', () => {
@@ -22,7 +22,7 @@ describe('getChartLimitMessage', () => {
       primaryAxisDateGranularity: null,
     });
 
-    expect(result).toContain('bars per chart');
+    expect(result).toContain('batang per grafik');
   });
 
   it('returns data points message for line chart without date axis', () => {
@@ -32,7 +32,7 @@ describe('getChartLimitMessage', () => {
       primaryAxisDateGranularity: null,
     });
 
-    expect(result).toContain('data points per chart');
+    expect(result).toContain('titik data per grafik');
   });
 
   it('returns slices message for pie chart', () => {
@@ -42,7 +42,7 @@ describe('getChartLimitMessage', () => {
       primaryAxisDateGranularity: null,
     });
 
-    expect(result).toContain('slices per chart');
+    expect(result).toContain('irisan per grafik');
   });
 
   it('returns date-based message with weeks granularity', () => {
@@ -62,6 +62,6 @@ describe('getChartLimitMessage', () => {
       primaryAxisDateGranularity: null,
     });
 
-    expect(result).toContain('slices per chart');
+    expect(result).toContain('irisan per grafik');
   });
 });

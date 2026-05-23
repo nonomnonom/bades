@@ -5,7 +5,7 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { type ChangeEvent, useContext, useRef } from 'react';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useFormContext } from 'react-hook-form';
 import { isDefined } from 'shared/utils';
 import {
@@ -204,7 +204,10 @@ export const SettingsSSOSAMLForm = () => {
                 Icon={IconCopy}
                 title={t`Salin`}
                 onClick={() => {
-                  copyToClipboard(entityID, t`ID Entitas disalin ke papan klip`);
+                  copyToClipboard(
+                    entityID,
+                    t`ID Entitas disalin ke papan klip`,
+                  );
                 }}
                 type="button"
               />

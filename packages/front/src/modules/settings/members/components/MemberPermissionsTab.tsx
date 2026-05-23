@@ -6,16 +6,11 @@ import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModa
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
-import {
-  H2Title,
-  IconArrowUpRight,
-  IconUser,
-  useIcons,
-} from 'ui/display';
+import { H2Title, IconArrowUpRight, IconUser, useIcons } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

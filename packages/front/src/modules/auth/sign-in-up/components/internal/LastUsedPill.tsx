@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Pill } from 'ui/components';
 import { themeCssVariables } from 'ui/theme-constants';
 

@@ -24,7 +24,7 @@ describe('getTriggerDefaultDefinition', () => {
       }),
     ).toStrictEqual({
       type: 'DATABASE_EVENT',
-      name: 'Record is created',
+      name: 'Data dibuat',
       settings: {
         eventName: `${getTestEnrichedObjectMetadataItemsMock()[0].nameSingular}.created`,
         outputSchema: {},
@@ -46,7 +46,7 @@ describe('getTriggerDefaultDefinition', () => {
       }),
     ).toStrictEqual({
       type: 'DATABASE_EVENT',
-      name: 'Record is updated',
+      name: 'Data diperbarui',
       settings: {
         eventName: `${getTestEnrichedObjectMetadataItemsMock()[0].nameSingular}.updated`,
         outputSchema: {},
@@ -68,7 +68,7 @@ describe('getTriggerDefaultDefinition', () => {
       }),
     ).toStrictEqual({
       type: 'DATABASE_EVENT',
-      name: 'Record is deleted',
+      name: 'Data dihapus',
       settings: {
         eventName: `${getTestEnrichedObjectMetadataItemsMock()[0].nameSingular}.deleted`,
         outputSchema: {},

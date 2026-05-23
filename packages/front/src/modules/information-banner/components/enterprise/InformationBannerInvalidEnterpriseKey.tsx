@@ -3,7 +3,7 @@ import { InformationBanner } from '@/information-banner/components/InformationBa
 import { informationBannerIsOpenComponentState } from '@/information-banner/states/informationBannerIsOpenComponentState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useNavigate } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

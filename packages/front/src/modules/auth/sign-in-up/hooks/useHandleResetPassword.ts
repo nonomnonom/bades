@@ -4,7 +4,7 @@ import { currentUserState } from '@/auth/states/currentUserState';
 import { workspacePublicDataState } from '@/auth/states/workspacePublicDataState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMutation } from '@apollo/client/react';
 import { EmailPasswordResetLinkDocument } from '~/generated-metadata/graphql';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';

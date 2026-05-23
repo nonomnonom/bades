@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { CoreObjectNameSingular } from 'shared/types';
-import { t } from '@lingui/core/macro';
 
 export const getEmptyStateTitle = (
   objectNameSingular: string,

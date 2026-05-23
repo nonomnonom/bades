@@ -6,7 +6,7 @@ import { EventList } from '@/activities/timeline-activities/components/EventList
 import { useTimelineActivities } from '@/activities/timeline-activities/hooks/useTimelineActivities';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,

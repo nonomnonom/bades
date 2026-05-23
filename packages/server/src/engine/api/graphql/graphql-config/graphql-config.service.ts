@@ -39,7 +39,7 @@ export class GraphQLConfigService
 {
   constructor(
     private readonly exceptionHandlerService: ExceptionHandlerService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly moduleRef: ModuleRef,
     private readonly metricsService: MetricsService,
     private readonly dataloaderService: DataloaderService,
@@ -50,7 +50,7 @@ export class GraphQLConfigService
 
   createGqlOptions(): YogaDriverConfig {
     const isDebugMode =
-      this.twentyConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT;
+      this.badesConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT;
     const plugins = [
       useDirectExecution({
         directExecutionService: this.directExecutionService,
@@ -60,15 +60,14 @@ export class GraphQLConfigService
         metricsService: this.metricsService,
         exceptionHandlerService: this.exceptionHandlerService,
         i18nService: this.i18nService,
-        twentyConfigService: this.twentyConfigService,
+        badesConfigService: this.badesConfigService,
       }),
       useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(
-        this.twentyConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
+        this.badesConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
       ),
       useValidateGraphqlQueryComplexity({
-        maximumAllowedFields:
-          this.twentyConfigService.get('GRAPHQL_MAX_FIELDS'),
-        maximumAllowedRootResolvers: this.twentyConfigService.get(
+        maximumAllowedFields: this.badesConfigService.get('GRAPHQL_MAX_FIELDS'),
+        maximumAllowedRootResolvers: this.badesConfigService.get(
           'GRAPHQL_MAX_ROOT_RESOLVERS',
         ),
         checkDuplicateRootResolvers: true,

@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 import { RESET_RECORD_PAGE_LAYOUT_MODAL_ID } from '@/layout-customization/constants/ResetRecordPageLayoutModalId';
 import { useRefreshPageLayoutAfterReset } from '@/page-layout/hooks/useRefreshPageLayoutAfterReset';
@@ -26,10 +26,10 @@ export const LayoutCustomizationBarResetConfirmationModal = ({
   return (
     <ConfirmationModal
       modalInstanceId={RESET_RECORD_PAGE_LAYOUT_MODAL_ID}
-      title={t`Reset to default`}
-      subtitle={t`This action cannot be undone.`}
+      title={t`Setel ulang ke bawaan`}
+      subtitle={t`Tindakan ini tidak dapat dibatalkan.`}
       onConfirmClick={handleConfirmReset}
-      confirmButtonText={t`Reset`}
+      confirmButtonText={t`Setel ulang`}
       confirmButtonAccent="danger"
     />
   );

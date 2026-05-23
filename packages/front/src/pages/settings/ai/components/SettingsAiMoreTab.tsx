@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { FormAdvancedTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormAdvancedTextFieldInput';
 import { SettingsCard } from '@/settings/components/SettingsCard';
@@ -6,7 +7,6 @@ import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { CombinedGraphQLErrors } from '@apollo/client';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { useContext, useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';

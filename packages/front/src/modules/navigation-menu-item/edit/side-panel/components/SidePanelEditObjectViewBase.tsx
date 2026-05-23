@@ -12,7 +12,7 @@ import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
 import { SidePanelList } from '@/side-panel/components/SidePanelList';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { viewsSelector } from '@/views/states/selectors/viewsSelector';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { parseThemeColor } from 'ui/utilities';
@@ -76,7 +76,7 @@ export const SidePanelEditObjectViewBase = ({
       {showColorOption &&
         isDefined(selectedItem) &&
         objectMetadataItem?.isSystem !== true && (
-          <SidePanelGroup heading={t`Customize`}>
+          <SidePanelGroup heading={t`Sesuaikan`}>
             <SidePanelEditColorOption
               navigationMenuItemId={selectedItem.id}
               color={parseThemeColor(displayColor)}

@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconFilter } from 'ui/display';
 import { IconButton } from 'ui/input';
@@ -30,7 +30,7 @@ export const SidePanelObjectFilterDropdown = ({
           variant="tertiary"
           accent={isFilterActive ? 'blue' : 'default'}
           size="small"
-          ariaLabel={t`Filter by object type`}
+          ariaLabel={t`Filter berdasarkan jenis objek`}
         />
       }
       dropdownComponents={

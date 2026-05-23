@@ -15,7 +15,7 @@ import { type WorkspaceEntity } from 'src/engine/core-modules/workspace/workspac
 export class FileUrlService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async signWorkspaceLogoUrl(
@@ -41,7 +41,7 @@ export class FileUrlService {
     workspaceId: string;
     fileFolder: FileFolder;
   }): Promise<string> {
-    const fileTokenExpiresIn = this.twentyConfigService.get(
+    const fileTokenExpiresIn = this.badesConfigService.get(
       'FILE_TOKEN_EXPIRES_IN',
     );
 
@@ -56,7 +56,7 @@ export class FileUrlService {
       expiresIn: fileTokenExpiresIn,
     });
 
-    const serverUrl = this.twentyConfigService.get('SERVER_URL');
+    const serverUrl = this.badesConfigService.get('SERVER_URL');
 
     return `${serverUrl}/file/${fileFolder}/${fileId}?token=${token}`;
   }
@@ -68,7 +68,7 @@ export class FileUrlService {
     fileId: string;
     fileFolder: FileFolder;
   }): string {
-    const serverUrl = this.twentyConfigService.get('SERVER_URL');
+    const serverUrl = this.badesConfigService.get('SERVER_URL');
 
     return `${serverUrl}/file/${fileFolder}/${fileId}`;
   }

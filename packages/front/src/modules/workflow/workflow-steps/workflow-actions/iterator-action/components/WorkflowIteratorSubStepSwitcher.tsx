@@ -7,7 +7,7 @@ import { getStepDefinitionOrThrow } from '@/workflow/utils/getStepDefinitionOrTh
 import { getIsDescendantOfIterator } from '@/workflow/workflow-steps/utils/getIsDescendantOfIterator';
 import { getWorkflowRunAllStepInfoHistory } from '@/workflow/workflow-steps/utils/getWorkflowRunAllStepInfoHistory';
 import { styled } from '@linaria/react';
-import { plural } from '@lingui/core/macro';
+import { plural } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconChevronLeft, IconChevronRight } from 'ui/display';
 import { IconButton } from 'ui/input';

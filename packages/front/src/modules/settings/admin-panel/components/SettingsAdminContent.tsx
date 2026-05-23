@@ -5,7 +5,7 @@ import { SETTINGS_ADMIN_TABS } from '@/settings/admin-panel/constants/SettingsAd
 import { SETTINGS_ADMIN_TABS_ID } from '@/settings/admin-panel/constants/SettingsAdminTabsId';
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   IconApps,
   IconHeart,

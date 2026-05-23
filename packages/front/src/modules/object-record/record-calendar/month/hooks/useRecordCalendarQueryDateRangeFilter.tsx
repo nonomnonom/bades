@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { flattenedFieldMetadataItemsSelector } from '@/object-metadata/states/flattenedFieldMetadataItemsSelector';
 import { useRecordCalendarContextOrThrow } from '@/object-record/record-calendar/contexts/RecordCalendarContext';
 import { useRecordCalendarMonthDaysRange } from '@/object-record/record-calendar/month/hooks/useRecordCalendarMonthDaysRange';
@@ -11,7 +12,6 @@ import { useUserTimezone } from '@/ui/input/components/internal/date/hooks/useUs
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useGetCurrentViewOnly } from '@/views/hooks/useGetCurrentViewOnly';
-import { t } from '@lingui/core/macro';
 import { type Temporal } from 'temporal-polyfill';
 import {
   combineFilters,

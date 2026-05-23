@@ -23,7 +23,7 @@ import { useUpdateFieldsWidgetEditorGroup } from '@/page-layout/widgets/fields/h
 import { getFieldsConfigurationGroupRenameDropdownId } from '@/page-layout/widgets/fields/utils/getFieldsConfigurationGroupRenameDropdownId';
 import { useOpenDropdown } from '@/ui/layout/dropdown/hooks/useOpenDropdown';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { IconNewSection } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
@@ -191,7 +191,7 @@ export const FieldsConfigurationEditor = ({
   };
 
   const handleAddGroup = ({ afterGroupId }: { afterGroupId?: string }) => {
-    const newGroupName = t`New Group`;
+    const newGroupName = t`Grup baru`;
     const newGroupId = createGroup({ name: newGroupName, afterGroupId });
 
     setRenamingGroupValue(newGroupName);
@@ -260,7 +260,7 @@ export const FieldsConfigurationEditor = ({
             <StyledAddGroupButtonContainer>
               <MenuItem
                 LeftIcon={IconNewSection}
-                text={t`Add a Group`}
+                text={t`Tambah grup`}
                 onClick={() => handleAddGroup({})}
                 withIconContainer
                 withIconContainerBackground={false}

@@ -1,5 +1,5 @@
 import { type AgentResponseFieldType } from 'shared/ai';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import {
   IllustrationIconNumbers,
   IllustrationIconText,
@@ -15,17 +15,17 @@ export interface OutputSchemaField {
 
 export const OUTPUT_FIELD_TYPE_OPTIONS = [
   {
-    label: msg`Text`,
+    label: msg`Teks`,
     value: 'string' as const,
     Icon: IllustrationIconText,
   },
   {
-    label: msg`Number`,
+    label: msg`Angka`,
     value: 'number' as const,
     Icon: IllustrationIconNumbers,
   },
   {
-    label: msg`Boolean`,
+    label: msg`Ya/Tidak`,
     value: 'boolean' as const,
     Icon: IllustrationIconToggle,
   },

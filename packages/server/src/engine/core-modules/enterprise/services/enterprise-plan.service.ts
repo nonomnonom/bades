@@ -35,7 +35,7 @@ export class EnterprisePlanService implements OnModuleInit {
   private cachedKeyPayload: EnterpriseKeyPayload | null = null;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(AppTokenEntity)
     private readonly appTokenRepository: Repository<AppTokenEntity>,
   ) {}
@@ -46,7 +46,7 @@ export class EnterprisePlanService implements OnModuleInit {
   }
 
   private refreshKeyPayload(): void {
-    const enterpriseKey = this.twentyConfigService.get('ENTERPRISE_KEY');
+    const enterpriseKey = this.badesConfigService.get('ENTERPRISE_KEY');
 
     if (!enterpriseKey) {
       this.cachedKeyPayload = null;
@@ -73,7 +73,7 @@ export class EnterprisePlanService implements OnModuleInit {
 
       const tokenValue =
         dbToken?.value ??
-        this.twentyConfigService.get('ENTERPRISE_VALIDITY_TOKEN');
+        this.badesConfigService.get('ENTERPRISE_VALIDITY_TOKEN');
 
       if (!tokenValue) {
         this.cachedValidityPayload = null;
@@ -152,7 +152,7 @@ export class EnterprisePlanService implements OnModuleInit {
 
   private checkLegacyKey(): boolean {
     // temporary
-    return isDefined(this.twentyConfigService.get('ENTERPRISE_KEY'));
+    return isDefined(this.badesConfigService.get('ENTERPRISE_KEY'));
   }
 
   isValidEnterpriseKeyFormat(key: string): boolean {
@@ -184,7 +184,7 @@ export class EnterprisePlanService implements OnModuleInit {
 
   async setEnterpriseKey(enterpriseKey: string): Promise<void> {
     try {
-      await this.twentyConfigService.set('ENTERPRISE_KEY', enterpriseKey);
+      await this.badesConfigService.set('ENTERPRISE_KEY', enterpriseKey);
     } catch (error) {
       if (
         error instanceof ConfigVariableException &&
@@ -204,10 +204,12 @@ export class EnterprisePlanService implements OnModuleInit {
   // Validasi token lisensi dari otoritas internal Bades; dipanggil oleh cron
   // dan dapat digunakan ulang saat kunci diganti secara manual.
   async refreshValidityToken(): Promise<boolean> {
-    const enterpriseKey = this.twentyConfigService.get('ENTERPRISE_KEY');
+    const enterpriseKey = this.badesConfigService.get('ENTERPRISE_KEY');
 
     if (!enterpriseKey) {
-      this.logger.warn('Tidak ada ENTERPRISE_KEY, skip refresh token validitas');
+      this.logger.warn(
+        'Tidak ada ENTERPRISE_KEY, skip refresh token validitas',
+      );
 
       return false;
     }
@@ -222,7 +224,7 @@ export class EnterprisePlanService implements OnModuleInit {
       return false;
     }
 
-    const apiUrl = this.twentyConfigService.get('ENTERPRISE_API_URL');
+    const apiUrl = this.badesConfigService.get('ENTERPRISE_API_URL');
 
     if (!apiUrl) {
       this.logger.warn(
@@ -277,7 +279,7 @@ export class EnterprisePlanService implements OnModuleInit {
   // In development and Jest integration tests, try both keys so production keys
   // work locally
   private getPublicKeysToTry(): string[] {
-    const nodeEnv = this.twentyConfigService.get('NODE_ENV');
+    const nodeEnv = this.badesConfigService.get('NODE_ENV');
 
     if (
       nodeEnv === NodeEnvironment.DEVELOPMENT ||

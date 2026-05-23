@@ -1,8 +1,8 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 
 import { detectCalendarStartDay } from '@/localization/utils/detection/detectCalendarStartDay';
 import { Select } from '@/ui/input/components/Select';
-import { t } from '@lingui/core/macro';
 import { CalendarStartDay } from 'shared/constants';
 import { type SelectOption } from 'ui/input';
 

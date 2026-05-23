@@ -4,7 +4,7 @@ import { NavigationDrawerFixedContent } from '@/ui/navigation/navigation-drawer/
 import { NavigationDrawerScrollableContent } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerScrollableContent';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AdvancedSettingsToggle } from 'ui/navigation';
 
 export const SettingsNavigationDrawer = ({

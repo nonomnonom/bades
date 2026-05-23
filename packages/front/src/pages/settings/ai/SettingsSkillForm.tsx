@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
 import { useParams } from 'react-router-dom';
@@ -14,7 +15,6 @@ import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { TextArea } from '@/ui/input/components/TextArea';
 import { TitleInput } from '@/ui/input/components/TitleInput';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
-import { t } from '@lingui/core/macro';
 import { AppPath, SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import {

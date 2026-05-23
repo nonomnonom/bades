@@ -16,7 +16,7 @@ jest.mock('cloudflare');
 
 describe('DnsManagerService', () => {
   let dnsManagerService: DnsManagerService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let domainServerConfigService: DomainServerConfigService;
 
   beforeEach(async () => {
@@ -52,7 +52,7 @@ describe('DnsManagerService', () => {
     }).compile();
 
     dnsManagerService = module.get<DnsManagerService>(DnsManagerService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     domainServerConfigService = module.get<DomainServerConfigService>(
       DomainServerConfigService,
     );
@@ -70,11 +70,11 @@ describe('DnsManagerService', () => {
   it('should initialize cloudflareClient when CLOUDFLARE_API_KEY is defined', () => {
     const mockApiKey = 'test-api-key';
 
-    jest.spyOn(twentyConfigService, 'get').mockReturnValue(mockApiKey);
+    jest.spyOn(badesConfigService, 'get').mockReturnValue(mockApiKey);
 
-    const instance = new DnsManagerService(twentyConfigService, {} as any);
+    const instance = new DnsManagerService(badesConfigService, {} as any);
 
-    expect(twentyConfigService.get).toHaveBeenCalledWith('CLOUDFLARE_API_KEY');
+    expect(badesConfigService.get).toHaveBeenCalledWith('CLOUDFLARE_API_KEY');
     expect(Cloudflare).toHaveBeenCalledWith({ apiToken: mockApiKey });
     expect(instance.cloudflareClient).toBeDefined();
   });
@@ -110,7 +110,7 @@ describe('DnsManagerService', () => {
         .spyOn(dnsManagerService, 'getHostnameId')
         .mockResolvedValueOnce(undefined);
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
       (dnsManagerService as any).cloudflareClient = cloudflareMock;
 
       await dnsManagerService.registerHostname(customDomain);
@@ -132,7 +132,7 @@ describe('DnsManagerService', () => {
         },
       };
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
       (dnsManagerService as any).cloudflareClient = cloudflareMock;
 
       const result = await dnsManagerService.getHostnameWithRecords(
@@ -163,7 +163,7 @@ describe('DnsManagerService', () => {
         },
       };
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
 
       jest
         .spyOn(domainServerConfigService, 'getBaseUrl')
@@ -203,7 +203,7 @@ describe('DnsManagerService', () => {
         },
       };
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
       jest
         .spyOn(domainServerConfigService, 'getBaseUrl')
         .mockReturnValue(new URL('https://front.domain'));
@@ -244,7 +244,7 @@ describe('DnsManagerService', () => {
         },
       };
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
       jest
         .spyOn(domainServerConfigService, 'getBaseUrl')
         .mockReturnValue(new URL('https://front.domain'));
@@ -277,7 +277,7 @@ describe('DnsManagerService', () => {
         },
       };
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
       (dnsManagerService as any).cloudflareClient = cloudflareMock;
 
       await expect(
@@ -332,7 +332,7 @@ describe('DnsManagerService', () => {
         },
       };
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('test-zone-id');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('test-zone-id');
       (dnsManagerService as any).cloudflareClient = cloudflareMock;
 
       await expect(

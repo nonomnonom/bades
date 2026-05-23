@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { RecordChip } from '@/object-record/components/RecordChip';
 import { FormFieldPlaceholder } from '@/object-record/record-field/ui/form-types/components/FormFieldPlaceholder';
 import {
@@ -8,7 +9,6 @@ import { VariableChipStandalone } from '@/object-record/record-field/ui/form-typ
 import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { isStandaloneVariableString } from '@/workflow/utils/isStandaloneVariableString';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { IconForbid } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';

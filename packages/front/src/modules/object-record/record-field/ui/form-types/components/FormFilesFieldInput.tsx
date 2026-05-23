@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -6,7 +7,6 @@ import { useTextVariableEditor } from '@/object-record/record-field/ui/form-type
 import { type VariablePickerComponent } from '@/object-record/record-field/ui/form-types/types/VariablePickerComponent';
 import { InputErrorHelper } from '@/ui/input/components/InputErrorHelper';
 import { InputLabel } from '@/ui/input/components/InputLabel';
-import { t } from '@lingui/core/macro';
 import { useId } from 'react';
 import { isDefined } from 'shared/utils';
 import { turnIntoEmptyStringIfWhitespacesOnly } from '~/utils/string/turnIntoEmptyStringIfWhitespacesOnly';

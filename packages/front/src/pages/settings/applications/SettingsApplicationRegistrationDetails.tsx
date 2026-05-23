@@ -1,19 +1,14 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useQuery } from '@apollo/client/react';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { FindOneApplicationRegistrationDocument } from '~/generated-metadata/graphql';
-import { useLingui } from '@lingui/react/macro';
 import { Tag } from 'ui/components';
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
-import {
-  IconInfoCircle,
-  IconKey,
-  IconSettings,
-  IconWorld,
-} from 'ui/display';
+import { IconInfoCircle, IconKey, IconSettings, IconWorld } from 'ui/display';
 import { SettingsApplicationRegistrationConfigTab } from '~/pages/settings/applications/tabs/SettingsApplicationRegistrationConfigTab';
 import { SettingsApplicationRegistrationOAuthTab } from '~/pages/settings/applications/tabs/SettingsApplicationRegistrationOAuthTab';
 import { SettingsApplicationRegistrationDistributionTab } from '~/pages/settings/applications/tabs/SettingsApplicationRegistrationDistributionTab';

@@ -170,8 +170,7 @@ export const getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions
       {
         id: findMatchingCompanyByDomainLogicFunctionId,
         name: 'Cari lembaga berdasarkan domain',
-        description:
-          'Mencari lembaga yang sudah ada dengan domain yang cocok.',
+        description: 'Mencari lembaga yang sudah ada dengan domain yang cocok.',
         sourceHandlerCode:
           FIND_MATCHING_COMPANY_BY_DOMAIN_LOGIC_FUNCTION_SOURCE,
       },

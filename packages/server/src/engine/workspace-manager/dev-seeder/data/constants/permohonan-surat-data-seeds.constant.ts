@@ -13,16 +13,17 @@ type PermohonanSuratDataSeed = {
   position: number;
 };
 
-export const PERMOHONAN_SURAT_DATA_SEED_COLUMNS: (keyof PermohonanSuratDataSeed)[] = [
-  'id',
-  'nomorPermohonan',
-  'tanggalPermohonan',
-  'status',
-  'keperluan',
-  'catatan',
-  'tanggalSelesai',
-  'position',
-];
+export const PERMOHONAN_SURAT_DATA_SEED_COLUMNS: (keyof PermohonanSuratDataSeed)[] =
+  [
+    'id',
+    'nomorPermohonan',
+    'tanggalPermohonan',
+    'status',
+    'keperluan',
+    'catatan',
+    'tanggalSelesai',
+    'position',
+  ];
 
 // prettier-ignore
 export const PERMOHONAN_SURAT_DATA_SEED_IDS = {

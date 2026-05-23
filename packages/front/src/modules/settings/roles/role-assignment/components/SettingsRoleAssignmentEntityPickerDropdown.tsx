@@ -5,7 +5,7 @@ import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/Dropdow
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { useQuery } from '@apollo/client/react';
 import {
@@ -83,7 +83,9 @@ export const SettingsRoleAssignmentEntityPickerDropdown = ({
         ? t`Tidak ada agen yang sesuai pencarian`
         : t`Tidak ada kunci API yang sesuai pencarian`;
     } else {
-      return isAgent ? t`Tidak ada agen tersedia` : t`Tidak ada kunci API tersedia`;
+      return isAgent
+        ? t`Tidak ada agen tersedia`
+        : t`Tidak ada kunci API tersedia`;
     }
   };
 

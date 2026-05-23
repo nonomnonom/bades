@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import React, { useMemo } from 'react';
 
 import { type FieldPhonesValue } from '@/object-record/record-field/ui/types/FieldMetadata';

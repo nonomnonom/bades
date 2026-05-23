@@ -14,18 +14,18 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 export class GeoMapService {
   private apiMapKey: string | undefined;
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {
     if (
-      !this.twentyConfigService.get(
+      !this.badesConfigService.get(
         'IS_MAPS_AND_ADDRESS_AUTOCOMPLETE_ENABLED',
       ) ||
-      !this.twentyConfigService.get('GOOGLE_MAP_API_KEY')
+      !this.badesConfigService.get('GOOGLE_MAP_API_KEY')
     ) {
       return;
     }
-    this.apiMapKey = this.twentyConfigService.get('GOOGLE_MAP_API_KEY');
+    this.apiMapKey = this.badesConfigService.get('GOOGLE_MAP_API_KEY');
   }
 
   public async getAutoCompleteAddress(

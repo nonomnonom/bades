@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { CurrentApplicationContext } from '@/applications/contexts/CurrentApplicationContext';
 import { useResolvedApplicationDescription } from '@/applications/hooks/useResolvedApplicationDescription';
 import { isBadesStandardApplication } from '@/applications/utils/isBadesStandardApplication';
@@ -15,7 +16,6 @@ import type { SingleTabProps } from '@/ui/layout/tab-list/types/SingleTabProps';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useMutation, useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
 import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { type Manifest } from 'shared/application';

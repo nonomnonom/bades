@@ -13,9 +13,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import type Stripe from 'stripe';
-
-import { BillingMeterEntity } from 'src/engine/core-modules/billing/entities/billing-meter.entity';
 import { BillingProductEntity } from 'src/engine/core-modules/billing/entities/billing-product.entity';
 import { BillingPriceBillingScheme } from 'src/engine/core-modules/billing/enums/billing-price-billing-scheme.enum';
 import { BillingPriceTaxBehavior } from 'src/engine/core-modules/billing/enums/billing-price-tax-behavior.enum';
@@ -23,6 +20,18 @@ import { BillingPriceType } from 'src/engine/core-modules/billing/enums/billing-
 import { SubscriptionInterval } from 'src/engine/core-modules/billing/enums/billing-subscription-interval.enum';
 import { BillingUsageType } from 'src/engine/core-modules/billing/enums/billing-usage-type.enum';
 import { BillingPriceMetadata } from 'src/engine/core-modules/billing/types/billing-price-metadata.type';
+
+/**
+ * Tier harga bertingkat (untuk METERED pricing).
+ * Menggunakan tipe lokal agar tidak bergantung pada tipe Stripe.
+ */
+export type BillingPriceTierLocal = {
+  up_to: number | null;
+  unit_amount: number | null;
+  unit_amount_decimal: string | null;
+  flat_amount: number | null;
+  flat_amount_decimal: string | null;
+};
 
 @Entity({ name: 'billingPrice', schema: 'core' })
 export class BillingPriceEntity {
@@ -38,14 +47,19 @@ export class BillingPriceEntity {
   @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
+  /** Slug harga internal Bades, mis. `bades-price-pro-monthly`. */
   @Column({ nullable: false, unique: true })
   priceId: string;
 
   @Column({ nullable: false })
   active: boolean;
 
+  /**
+   * Kode produk yang merujuk ke billingProduct.productCode.
+   * Menggantikan stripeProductId.
+   */
   @Column({ nullable: false })
-  stripeProductId: string;
+  productCode: string;
 
   @Column({ nullable: false })
   currency: string;
@@ -75,25 +89,13 @@ export class BillingPriceEntity {
   billingScheme: BillingPriceBillingScheme;
 
   @Column({ nullable: true, type: 'jsonb' })
-  currencyOptions: Stripe.Price.CurrencyOptions | null;
-
-  @Column({ nullable: true, type: 'jsonb' })
-  tiers: Stripe.Price.Tier[] | null;
-
-  @Column({ nullable: true, type: 'jsonb' })
-  recurring: Stripe.Price.Recurring | null;
-
-  @Column({ nullable: true, type: 'jsonb' })
-  transformQuantity: Stripe.Price.TransformQuantity | null;
+  tiers: BillingPriceTierLocal[] | null;
 
   @Column({ nullable: true, type: 'text' })
   unitAmountDecimal: string | null;
 
   @Column({ nullable: true, type: 'numeric' })
   unitAmount: number | null;
-
-  @Column({ nullable: true, type: 'text' })
-  stripeMeterId: string | null;
 
   @Column({ nullable: false, type: 'jsonb', default: {} })
   metadata: BillingPriceMetadata;
@@ -122,21 +124,8 @@ export class BillingPriceEntity {
     },
   )
   @JoinColumn({
-    referencedColumnName: 'stripeProductId',
-    name: 'stripeProductId',
+    referencedColumnName: 'productCode',
+    name: 'productCode',
   })
   billingProduct: Relation<BillingProductEntity> | null;
-
-  @ManyToOne(
-    () => BillingMeterEntity,
-    (billingMeter) => billingMeter.billingPrices,
-    {
-      nullable: true,
-    },
-  )
-  @JoinColumn({
-    referencedColumnName: 'stripeMeterId',
-    name: 'stripeMeterId',
-  })
-  billingMeter: Relation<BillingMeterEntity> | null;
 }

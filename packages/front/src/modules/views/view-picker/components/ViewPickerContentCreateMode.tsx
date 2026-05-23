@@ -36,7 +36,7 @@ import { viewPickerIsPersistingComponentState } from '@/views/view-picker/states
 import { viewPickerMainGroupByFieldMetadataIdComponentState } from '@/views/view-picker/states/viewPickerMainGroupByFieldMetadataIdComponentState';
 import { viewPickerSelectedIconComponentState } from '@/views/view-picker/states/viewPickerSelectedIconComponentState';
 import { viewPickerTypeComponentState } from '@/views/view-picker/states/viewPickerTypeComponentState';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { IconX } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -213,7 +213,8 @@ export const ViewPickerContentCreateMode = () => {
             {availableFieldsForGrouping.length === 0 && (
               <StyledFieldAvailableContainer>
                 <Trans>
-                  Tambahkan kolom pilihan pada {objectLabel} untuk membuat tampilan Kanban
+                  Tambahkan kolom pilihan pada {objectLabel} untuk membuat
+                  tampilan Kanban
                 </Trans>
               </StyledFieldAvailableContainer>
             )}
@@ -244,7 +245,8 @@ export const ViewPickerContentCreateMode = () => {
             {availableFieldsForCalendar.length === 0 && (
               <StyledFieldAvailableContainer>
                 <Trans>
-                  Tambahkan kolom tanggal pada {objectLabel} untuk membuat tampilan Kalender
+                  Tambahkan kolom tanggal pada {objectLabel} untuk membuat
+                  tampilan Kalender
                 </Trans>
               </StyledFieldAvailableContainer>
             )}

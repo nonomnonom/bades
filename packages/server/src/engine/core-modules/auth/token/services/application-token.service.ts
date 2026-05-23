@@ -38,7 +38,7 @@ export class ApplicationTokenService {
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(ApplicationEntity)
     private readonly applicationRepository: Repository<ApplicationEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async generateApplicationAccessToken({
@@ -54,7 +54,7 @@ export class ApplicationTokenService {
   }): Promise<AuthToken> {
     await this.validateWorkspaceAndApplication(workspaceId, applicationId);
 
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'APPLICATION_ACCESS_TOKEN_EXPIRES_IN',
     );
 
@@ -84,10 +84,10 @@ export class ApplicationTokenService {
   }> {
     await this.validateWorkspaceAndApplication(workspaceId, applicationId);
 
-    const accessTokenExpiresIn = this.twentyConfigService.get(
+    const accessTokenExpiresIn = this.badesConfigService.get(
       'APPLICATION_ACCESS_TOKEN_EXPIRES_IN',
     );
-    const refreshTokenExpiresIn = this.twentyConfigService.get(
+    const refreshTokenExpiresIn = this.badesConfigService.get(
       'APPLICATION_REFRESH_TOKEN_EXPIRES_IN',
     );
 

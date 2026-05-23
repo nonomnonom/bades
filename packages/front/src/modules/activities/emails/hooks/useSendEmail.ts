@@ -8,7 +8,7 @@ import { getTimelineThreadsFromOpportunityId } from '@/activities/emails/graphql
 import { getTimelineThreadsFromPersonId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPersonId';
 import { useApolloCoreClient } from '@/object-metadata/hooks/useApolloCoreClient';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   type SendEmailMutation,
   type SendEmailMutationVariables,
@@ -55,7 +55,7 @@ export const useSendEmail = () => {
 
         if (result.data?.sendEmail.success) {
           enqueueSuccessSnackBar({
-            message: t`Email sent successfully`,
+            message: t`Email berhasil dikirim`,
           });
 
           await apolloCoreClient.refetchQueries({
@@ -73,13 +73,13 @@ export const useSendEmail = () => {
         }
 
         enqueueErrorSnackBar({
-          message: result.data?.sendEmail.error ?? t`Failed to send email`,
+          message: result.data?.sendEmail.error ?? t`Gagal mengirim email`,
         });
 
         return false;
       } catch {
         enqueueErrorSnackBar({
-          message: t`Failed to send email`,
+          message: t`Gagal mengirim email`,
         });
 
         return false;

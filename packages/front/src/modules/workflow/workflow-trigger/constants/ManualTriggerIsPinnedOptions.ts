@@ -1,8 +1,4 @@
-import {
-  type IconComponent,
-  IconPinned,
-  IconPinnedOff,
-} from 'ui/display';
+import { type IconComponent, IconPinned, IconPinnedOff } from 'ui/display';
 
 export const MANUAL_TRIGGER_IS_PINNED_OPTIONS: Array<{
   label: string;

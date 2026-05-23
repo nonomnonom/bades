@@ -26,7 +26,12 @@ export const PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'statusPenerimaan',
     description: 'Status penerimaan',
     options: [
-      { label: 'Terverifikasi', value: 'TERVERIFIKASI', position: 0, color: 'green' },
+      {
+        label: 'Terverifikasi',
+        value: 'TERVERIFIKASI',
+        position: 0,
+        color: 'green',
+      },
       { label: 'Menunggu', value: 'MENUNGGU', position: 1, color: 'yellow' },
       { label: 'Ditolak', value: 'DITOLAK', position: 2, color: 'red' },
     ],

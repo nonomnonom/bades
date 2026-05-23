@@ -1,13 +1,13 @@
 ---
 paths:
   - "packages/sdk/**"
-  - "packages/create-twenty-app/**"
 ---
 
-# SDK and Scaffolder Dependency Guidance
+# SDK Dependency Guidance
 
-`packages/sdk` and `packages/create-twenty-app` need extra care because they
-ship reusable artifacts that may be consumed outside this monorepo.
+`packages/sdk` needs extra care because it ships reusable artifacts that may be
+consumed outside this monorepo. The legacy `packages/create-twenty-app`
+scaffolder has been removed and should not be reintroduced.
 
 ## Rules
 

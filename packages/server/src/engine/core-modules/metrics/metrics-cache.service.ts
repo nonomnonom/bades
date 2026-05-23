@@ -16,9 +16,9 @@ export class MetricsCacheService {
   constructor(
     @InjectCacheStorage(CacheStorageNamespace.EngineMetrics)
     private readonly cacheStorage: CacheStorageService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {
-    this.healthMetricsTimeWindowInMinutes = this.twentyConfigService.get(
+    this.healthMetricsTimeWindowInMinutes = this.badesConfigService.get(
       'HEALTH_METRICS_TIME_WINDOW_IN_MINUTES',
     );
     this.healthCacheTtl = this.healthMetricsTimeWindowInMinutes * 60000 * 2;

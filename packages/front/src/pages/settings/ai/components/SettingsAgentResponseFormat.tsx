@@ -1,10 +1,10 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type OutputSchemaField } from '@/ai/constants/OutputFieldTypeOptions';
 import { fieldsToSchema } from '@/ai/utils/fieldsToSchema';
 import { schemaToFields } from '@/ai/utils/schemaToFields';
 import { Select } from '@/ui/input/components/Select';
 import { WorkflowOutputSchemaBuilder } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/components/WorkflowOutputSchemaBuilder';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { useState } from 'react';
 import { type AgentResponseSchema } from 'shared/ai';
 import { themeCssVariables } from 'ui/theme-constants';

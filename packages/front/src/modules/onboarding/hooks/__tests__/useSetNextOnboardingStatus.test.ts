@@ -65,7 +65,7 @@ const renderHooks = (
         ? {
             id: v4(),
             status: SubscriptionStatus.Active,
-            metadata: {},
+            planKey: null,
             phases: [],
           }
         : undefined,

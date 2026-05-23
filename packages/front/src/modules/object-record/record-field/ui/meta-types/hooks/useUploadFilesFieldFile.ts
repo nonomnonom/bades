@@ -1,6 +1,6 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useApolloClient, useMutation } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
 import { isDefined } from 'shared/utils';
 import { UploadFilesFieldFileDocument } from '~/generated-metadata/graphql';
 
@@ -24,12 +24,12 @@ export const useUploadFilesFieldFile = () => {
       const uploadedFile = result?.data?.uploadFilesFieldFile;
 
       if (!isDefined(uploadedFile)) {
-        throw new Error(t`File upload failed`);
+        throw new Error(t`Unggahan berkas gagal`);
       }
 
       const fileName = file.name;
       enqueueSuccessSnackBar({
-        message: t`File "${fileName}" uploaded successfully`,
+        message: t`Berkas "${fileName}" berhasil diunggah`,
       });
 
       return {
@@ -42,11 +42,11 @@ export const useUploadFilesFieldFile = () => {
       const fileNameForError = file.name;
       const errorMessage = String(error);
       enqueueErrorSnackBar({
-        message: t`Failed to upload "${fileNameForError}"`,
+        message: t`Gagal mengunggah "${fileNameForError}"`,
       });
 
       throw new Error(
-        t`Failed to upload file "${fileNameForError}": ${errorMessage}`,
+        t`Gagal mengunggah berkas "${fileNameForError}": ${errorMessage}`,
       );
     }
   };

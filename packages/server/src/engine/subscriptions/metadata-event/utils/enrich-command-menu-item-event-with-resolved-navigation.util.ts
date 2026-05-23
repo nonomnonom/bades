@@ -1,9 +1,6 @@
-import { type I18n } from '@lingui/core';
+import type { I18n } from 'src/utils/bades-i18n';
 import { type APP_LOCALES } from 'shared/translations';
-import {
-  interpolateCommandMenuItemTemplate,
-  isDefined,
-} from 'shared/utils';
+import { interpolateCommandMenuItemTemplate, isDefined } from 'shared/utils';
 
 import { EngineComponentKey } from 'src/engine/metadata-modules/command-menu-item/enums/engine-component-key.enum';
 import { buildNavigationInterpolationContext } from 'src/engine/metadata-modules/command-menu-item/utils/build-navigation-interpolation-context.util';

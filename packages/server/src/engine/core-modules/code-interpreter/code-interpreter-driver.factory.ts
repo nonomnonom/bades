@@ -15,14 +15,14 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class CodeInterpreterDriverFactory extends DriverFactoryBase<CodeInterpreterDriver> {
   constructor(
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
   ) {
-    super(twentyConfigService, configGroupHashService);
+    super(badesConfigService, configGroupHashService);
   }
 
   protected buildConfigKey(): string {
-    const driverType = this.twentyConfigService.get('CODE_INTERPRETER_TYPE');
+    const driverType = this.badesConfigService.get('CODE_INTERPRETER_TYPE');
 
     if (driverType === CodeInterpreterDriverType.E_2_B) {
       return `e2b|${this.configGroupHashService.computeHash(ConfigVariablesGroup.CODE_INTERPRETER_CONFIG)}`;
@@ -32,8 +32,8 @@ export class CodeInterpreterDriverFactory extends DriverFactoryBase<CodeInterpre
   }
 
   protected createDriver(): CodeInterpreterDriver {
-    const driverType = this.twentyConfigService.get('CODE_INTERPRETER_TYPE');
-    const timeoutMs = this.twentyConfigService.get(
+    const driverType = this.badesConfigService.get('CODE_INTERPRETER_TYPE');
+    const timeoutMs = this.badesConfigService.get(
       'CODE_INTERPRETER_TIMEOUT_MS',
     );
 
@@ -44,7 +44,7 @@ export class CodeInterpreterDriverFactory extends DriverFactoryBase<CodeInterpre
         );
 
       case CodeInterpreterDriverType.LOCAL: {
-        const nodeEnv = this.twentyConfigService.get('NODE_ENV');
+        const nodeEnv = this.badesConfigService.get('NODE_ENV');
 
         if (nodeEnv === NodeEnvironment.PRODUCTION) {
           return new DisabledDriver(
@@ -56,7 +56,7 @@ export class CodeInterpreterDriverFactory extends DriverFactoryBase<CodeInterpre
       }
 
       case CodeInterpreterDriverType.E_2_B: {
-        const apiKey = this.twentyConfigService.get('E2B_API_KEY');
+        const apiKey = this.badesConfigService.get('E2B_API_KEY');
 
         if (!apiKey) {
           throw new Error(

@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { useAdvancedFilterFieldSelectDropdown } from '@/object-record/advanced-filter/hooks/useAdvancedFilterFieldSelectDropdown';
 import { useApplyAdvancedFilterCompositeSubField } from '@/object-record/advanced-filter/hooks/useApplyAdvancedFilterCompositeSubField';
@@ -21,7 +22,6 @@ import { selectedItemIdComponentState } from '@/ui/layout/selectable-list/states
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { IconChevronLeft, useIcons } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
@@ -150,7 +150,7 @@ export const AdvancedFilterCompositeSubFieldSelectMenu = ({
                     });
                   }}
                   LeftIcon={getIcon(fieldMetadataItemUsedInDropdown.icon)}
-                  text={t`Any ${fieldLabel} field`}
+                  text={t`Semua kolom ${fieldLabel}`}
                 />
               </SelectableListItem>
             )}

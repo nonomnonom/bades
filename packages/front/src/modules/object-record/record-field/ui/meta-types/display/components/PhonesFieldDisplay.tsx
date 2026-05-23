@@ -1,7 +1,7 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useFieldFocus } from '@/object-record/record-field/ui/hooks/useFieldFocus';
 import { usePhonesFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/usePhonesFieldDisplay';
 import { PhonesDisplay } from '@/ui/field/display/components/PhonesDisplay';
-import { useLingui } from '@lingui/react/macro';
 import React from 'react';
 import { FieldMetadataSettingsOnClickAction } from 'shared/types';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';

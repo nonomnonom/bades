@@ -1,6 +1,6 @@
 import { BadRequestException } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 
 import { type FieldValue } from 'src/engine/api/rest/core/types/field-value.type';
 import { formatFieldValue } from 'src/engine/api/rest/input-request-parsers/filter-parser-utils/format-field-values.util';

@@ -24,7 +24,7 @@ type SecureHttpClientConfig = CreateAxiosDefaults & {
 export class SecureHttpClientService {
   private readonly logger = new Logger(SecureHttpClientService.name);
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   // Returns an SSRF-protected HTTP client for external requests.
   // Protection is enforced at the connection level via custom agents
@@ -37,7 +37,7 @@ export class SecureHttpClientService {
   ): AxiosInstance {
     const { retries, shouldResetTimeout, ...axiosConfig } = config ?? {};
 
-    const isSafeModeEnabled = this.twentyConfigService.get(
+    const isSafeModeEnabled = this.badesConfigService.get(
       'OUTBOUND_HTTP_SAFE_MODE_ENABLED',
     );
 
@@ -120,6 +120,6 @@ export class SecureHttpClientService {
   }
 
   private isSafeModeEnabled(): boolean {
-    return this.twentyConfigService.get('OUTBOUND_HTTP_SAFE_MODE_ENABLED');
+    return this.badesConfigService.get('OUTBOUND_HTTP_SAFE_MODE_ENABLED');
   }
 }

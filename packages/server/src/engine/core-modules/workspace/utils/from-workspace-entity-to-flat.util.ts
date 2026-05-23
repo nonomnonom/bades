@@ -31,8 +31,6 @@ export const fromWorkspaceEntityToFlat = (
   fastModel: entity.fastModel,
   smartModel: entity.smartModel,
   aiAdditionalInstructions: entity.aiAdditionalInstructions,
-  enabledAiModelIds: entity.enabledAiModelIds,
-  useRecommendedModels: entity.useRecommendedModels,
   isInternalMessagesImportEnabled: entity.isInternalMessagesImportEnabled,
   workspaceCustomApplicationId: entity.workspaceCustomApplicationId,
   routerModel: entity.routerModel,

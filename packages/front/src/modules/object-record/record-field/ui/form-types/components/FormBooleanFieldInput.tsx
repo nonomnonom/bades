@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormFieldInputInnerContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputInnerContainer';
 import { FormFieldInputRowContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputRowContainer';
@@ -8,7 +9,6 @@ import { Select } from '@/ui/input/components/Select';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useRemoveFocusItemFromFocusStackById } from '@/ui/utilities/focus/hooks/useRemoveFocusItemFromFocusStackById';
 import { isStandaloneVariableString } from '@/workflow/utils/isStandaloneVariableString';
-import { useLingui } from '@lingui/react/macro';
 import { useContext, useId, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconCheck, IconCircleOff, IconX } from 'ui/display';

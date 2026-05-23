@@ -1,15 +1,11 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { SettingsPath } from 'shared/types';
-import {
-  getImageAbsoluteURI,
-  getSettingsPath,
-  isDefined,
-} from 'shared/utils';
+import { getImageAbsoluteURI, getSettingsPath, isDefined } from 'shared/utils';
 
 import { currentUserState } from '@/auth/states/currentUserState';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
@@ -142,7 +138,10 @@ export const SettingsAdminUserDetail = () => {
         {userLookupResult && (
           <>
             <Section>
-              <H2Title title={t`Info Pengguna`} description={t`Tentang pengguna ini`} />
+              <H2Title
+                title={t`Info Pengguna`}
+                description={t`Tentang pengguna ini`}
+              />
               <SettingsTableCard
                 items={userInfoItems}
                 rounded

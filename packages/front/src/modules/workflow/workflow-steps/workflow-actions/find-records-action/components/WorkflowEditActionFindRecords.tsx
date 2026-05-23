@@ -1,7 +1,5 @@
 import { styled } from '@linaria/react';
-import { i18n } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { i18n, msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isNumber } from '@sniptt/guards';
 import { useEffect, useState } from 'react';
 import { QUERY_MAX_RECORDS } from 'shared/constants';
@@ -47,7 +45,7 @@ const StyledRecordTypeSelectContainer = styled.div<{ fullWidth?: boolean }>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
 `;
 
-const defaultSelectedOptionMessage = msg`Select an option`;
+const defaultSelectedOptionMessage = msg`Pilih opsi`;
 
 type WorkflowEditActionFindRecordsProps = {
   action: WorkflowFindRecordsAction;

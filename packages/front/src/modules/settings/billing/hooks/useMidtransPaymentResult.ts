@@ -1,7 +1,7 @@
 import { GET_MIDTRANS_TRANSACTION_STATUS } from '@/settings/billing/graphql/queries/getMidtransTransactionStatus';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
@@ -29,6 +29,8 @@ export const useMidtransPaymentResult = () => {
   const { enqueueSuccessSnackBar, enqueueErrorSnackBar } = useSnackBar();
 
   const orderId = searchParams.get('order_id');
+  // Flag idempotency untuk mencegah notifikasi ganda; bukan UI state.
+  // eslint-disable-next-line bades/no-state-useref
   const hasNotifiedRef = useRef(false);
 
   const { data } = useQuery<MidtransTransactionStatus>(

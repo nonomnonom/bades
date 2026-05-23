@@ -15,14 +15,14 @@ export class GoogleApisServiceAvailabilityService {
     GoogleApisServiceAvailabilityService.name,
   );
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   async checkServicesAvailability(
     accessToken: string,
   ): Promise<GoogleApisServiceAvailability> {
     const oAuth2Client = new google.auth.OAuth2(
-      this.twentyConfigService.get('AUTH_GOOGLE_CLIENT_ID'),
-      this.twentyConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
+      this.badesConfigService.get('AUTH_GOOGLE_CLIENT_ID'),
+      this.badesConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
     );
 
     oAuth2Client.setCredentials({
@@ -43,7 +43,7 @@ export class GoogleApisServiceAvailabilityService {
   private async checkMessagingAvailability(
     oAuth2Client: InstanceType<typeof google.auth.OAuth2>,
   ): Promise<boolean> {
-    if (!this.twentyConfigService.get('MESSAGING_PROVIDER_GMAIL_ENABLED')) {
+    if (!this.badesConfigService.get('MESSAGING_PROVIDER_GMAIL_ENABLED')) {
       return false;
     }
 
@@ -74,7 +74,7 @@ export class GoogleApisServiceAvailabilityService {
   private async checkCalendarAvailability(
     oAuth2Client: InstanceType<typeof google.auth.OAuth2>,
   ): Promise<boolean> {
-    if (!this.twentyConfigService.get('CALENDAR_PROVIDER_GOOGLE_ENABLED')) {
+    if (!this.badesConfigService.get('CALENDAR_PROVIDER_GOOGLE_ENABLED')) {
       return false;
     }
 

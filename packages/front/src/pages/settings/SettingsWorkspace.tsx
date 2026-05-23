@@ -1,5 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
-
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isEmailGroupEnabledState } from '@/client-config/states/isEmailGroupEnabledState';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsWorkspaceDomainCard } from '@/settings/domains/components/SettingsWorkspaceDomainCard';

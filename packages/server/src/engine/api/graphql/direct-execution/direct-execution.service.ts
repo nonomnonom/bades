@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { type MessageDescriptor } from '@lingui/core';
+import { type MessageDescriptor } from 'src/utils/bades-i18n';
 import { type Request } from 'express';
 import {
   GraphQLError,
@@ -89,7 +89,7 @@ export class DirectExecutionService {
     private readonly workspaceFlatEntityMapsCacheService: WorkspaceManyOrAllFlatEntityMapsCacheService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly workspaceGraphqlSchemaSDLService: WorkspaceGraphqlSchemaSDLService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly i18nService: I18nService,
     private readonly metricsService: MetricsService,
     private readonly findManyResolverFactory: FindManyResolverFactory,
@@ -408,7 +408,7 @@ export class DirectExecutionService {
   }
 
   private checkRootResolverLimitsOrThrow(topLevelFields: FieldNode[]): void {
-    const maxRootResolvers = this.twentyConfigService.get(
+    const maxRootResolvers = this.badesConfigService.get(
       'GRAPHQL_MAX_ROOT_RESOLVERS',
     );
 

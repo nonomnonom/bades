@@ -2,7 +2,6 @@ import { WorkflowDiagramEdgeLabel } from '@/workflow/workflow-diagram/workflow-e
 import { WorkflowDiagramEdgeLabelContainer } from '@/workflow/workflow-diagram/workflow-edges/components/WorkflowDiagramEdgeLabelContainer';
 import { type WorkflowDiagramEdgeComponentProps } from '@/workflow/workflow-diagram/workflow-edges/types/WorkflowDiagramEdgeComponentProps';
 import { getEdgePath } from '@/workflow/workflow-diagram/workflow-edges/utils/getEdgePath';
-import { i18n } from '@lingui/core';
 import { BaseEdge, EdgeLabelRenderer } from '@xyflow/react';
 import { isDefined } from 'shared/utils';
 import { ThemeContext } from 'ui/theme-constants';
@@ -62,7 +61,7 @@ export const WorkflowDiagramDefaultEdgeReadonly = ({
             centerY={labelY}
           >
             <WorkflowDiagramEdgeLabel
-              label={i18n._(data.labelOptions.label)}
+              label={data.labelOptions.label}
               elseIfIndex={data.labelOptions.elseIfIndex}
             />
           </WorkflowDiagramEdgeLabelContainer>

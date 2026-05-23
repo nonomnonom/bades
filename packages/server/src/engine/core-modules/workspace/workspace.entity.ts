@@ -311,19 +311,6 @@ export class WorkspaceEntity {
   @Column({ type: 'text', nullable: true })
   aiAdditionalInstructions: string | null;
 
-  @Field(() => [String], { nullable: true })
-  @Column({
-    type: 'varchar',
-    array: true,
-    nullable: false,
-    default: '{}',
-  })
-  enabledAiModelIds: string[];
-
-  @Field(() => Boolean, { nullable: false })
-  @Column({ type: 'boolean', nullable: false, default: true })
-  useRecommendedModels: boolean;
-
   @Column({ nullable: false, type: 'uuid' })
   workspaceCustomApplicationId: string;
 

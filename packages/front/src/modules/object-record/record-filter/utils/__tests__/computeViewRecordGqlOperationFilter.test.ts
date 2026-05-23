@@ -5,10 +5,7 @@ import {
   ViewFilterOperand,
   type RecordFilterValueDependencies,
 } from 'shared/types';
-import {
-  computeRecordGqlOperationFilter,
-  isDefined,
-} from 'shared/utils';
+import { computeRecordGqlOperationFilter, isDefined } from 'shared/utils';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
 

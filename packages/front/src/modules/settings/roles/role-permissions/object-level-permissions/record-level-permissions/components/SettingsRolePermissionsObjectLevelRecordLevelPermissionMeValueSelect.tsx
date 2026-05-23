@@ -1,7 +1,7 @@
 /* @license Enterprise */
 
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import {
   compositeTypeDefinitions,
@@ -300,7 +300,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
           ))}
           {filteredMenuItems.length === 0 && (
             <MenuItem
-              text={t`No compatible fields`}
+              text={t`Tidak ada kolom yang kompatibel`}
               onClick={() => {}}
               disabled
             />

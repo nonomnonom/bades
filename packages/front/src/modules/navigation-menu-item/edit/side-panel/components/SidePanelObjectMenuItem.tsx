@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { CommandMenuItem } from '@/command-menu/components/CommandMenuItem';
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';
@@ -76,7 +76,9 @@ export const SidePanelObjectMenuItem = ({
           id={objectMetadataItem.id}
           onClick={handleClick}
           disabled={isDisabled}
-          description={isAlreadyInNavbar ? t`Already in navbar` : undefined}
+          description={
+            isAlreadyInNavbar ? t`Sudah ada di bilah sisi` : undefined
+          }
         />
       )}
     </SelectableListItem>

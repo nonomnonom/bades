@@ -6,27 +6,28 @@ type RealisasiAnggaranDataSeed = {
   volume: number;
   satuan: string;
   anggaran: number;
- realisasi: number;
+  realisasi: number;
   sisa: number;
   tanggalRealisasi: string;
   keterangan: string;
   position: number;
 };
 
-export const REALISASI_ANGGARAN_DATA_SEED_COLUMNS: (keyof RealisasiAnggaranDataSeed)[] = [
-  'id',
-  'tahunAnggaran',
-  'kodeRekening',
-  'namaKegiatan',
-  'volume',
-  'satuan',
-  'anggaran',
-  'realisasi',
-  'sisa',
-  'tanggalRealisasi',
-  'keterangan',
-  'position',
-];
+export const REALISASI_ANGGARAN_DATA_SEED_COLUMNS: (keyof RealisasiAnggaranDataSeed)[] =
+  [
+    'id',
+    'tahunAnggaran',
+    'kodeRekening',
+    'namaKegiatan',
+    'volume',
+    'satuan',
+    'anggaran',
+    'realisasi',
+    'sisa',
+    'tanggalRealisasi',
+    'keterangan',
+    'position',
+  ];
 
 export const REALISASI_ANGGARAN_DATA_SEED_IDS = {
   REAL_1: '20202020-ab01-41e7-8c72-ba44072a4c58',
@@ -43,7 +44,7 @@ export const REALISASI_ANGGARAN_DATA_SEEDS: RealisasiAnggaranDataSeed[] = [
     volume: 500,
     satuan: 'meter',
     anggaran: 200000000,
-   realisasi: 195000000,
+    realisasi: 195000000,
     sisa: 5000000,
     tanggalRealisasi: '2024-06-15',
     keterangan: 'Pembangunan jalan hotmix',
@@ -57,7 +58,7 @@ export const REALISASI_ANGGARAN_DATA_SEEDS: RealisasiAnggaranDataSeed[] = [
     volume: 300,
     satuan: 'meter',
     anggaran: 150000000,
-   realisasi: 148000000,
+    realisasi: 148000000,
     sisa: 2000000,
     tanggalRealisasi: '2024-07-20',
     keterangan: 'Saluran irigasi',
@@ -71,7 +72,7 @@ export const REALISASI_ANGGARAN_DATA_SEEDS: RealisasiAnggaranDataSeed[] = [
     volume: 50,
     satuan: 'keluarga',
     anggaran: 50000000,
-   realisasi: 50000000,
+    realisasi: 50000000,
     sisa: 0,
     tanggalRealisasi: '2024-03-10',
     keterangan: 'BLT DD bulan Januari-Maret',

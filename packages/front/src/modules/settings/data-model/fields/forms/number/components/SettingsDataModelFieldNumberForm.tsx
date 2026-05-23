@@ -8,8 +8,7 @@ import { SettingsOptionCardContentCounter } from '@/settings/components/Settings
 import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsOptions/SettingsOptionCardContentSelect';
 import { NUMBER_DATA_MODEL_SELECT_OPTIONS } from '@/settings/data-model/fields/forms/number/constants/NumberDataModelSelectOptions';
 import { Select } from '@/ui/input/components/Select';
-import { plural } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { plural, useLingui } from '~/utils/i18n/badesI18n';
 import { IconDecimal, IconEye } from 'ui/display';
 import { DEFAULT_DECIMAL_VALUE } from '~/utils/format/formatNumber';
 

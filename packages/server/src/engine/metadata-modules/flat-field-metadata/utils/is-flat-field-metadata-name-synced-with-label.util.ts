@@ -1,7 +1,7 @@
 import { computeMetadataNameFromLabel } from 'shared/metadata';
 
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
-import { isCallerTwentyStandardApp } from 'src/engine/metadata-modules/utils/is-caller-twenty-standard-app.util';
+import { isCallerBadesStandardApp } from 'src/engine/metadata-modules/utils/is-caller-bades-standard-app.util';
 import { type WorkspaceMigrationBuilderOptions } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/types/workspace-migration-builder-options.type';
 
 export const isFlatFieldMetadataNameSyncedWithLabel = ({
@@ -16,7 +16,7 @@ export const isFlatFieldMetadataNameSyncedWithLabel = ({
 }) => {
   const computedName = computeMetadataNameFromLabel({
     label: flatFieldMetadata.label,
-    applyCustomSuffix: !isCallerTwentyStandardApp(buildOptions),
+    applyCustomSuffix: !isCallerBadesStandardApp(buildOptions),
   });
 
   return flatFieldMetadata.name === computedName;

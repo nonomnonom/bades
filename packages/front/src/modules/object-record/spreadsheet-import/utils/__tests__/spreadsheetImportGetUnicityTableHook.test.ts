@@ -73,23 +73,23 @@ describe('spreadsheetImportGetUnicityTableHook', () => {
   it('should return row with error if row is not unique - index on composite field', () => {
     const hook = spreadsheetImportGetUnicityTableHook(mockObjectMetadataItem);
     const testData: ImportedStructuredRow[] = [
-      { 'Link URL (domainName)': 'https://duplicaTe.com' },
-      { 'Link URL (domainName)': 'https://duplicate.com' },
-      { 'Link URL (domainName)': 'https://other.com' },
+      { 'URL Tautan (domainName)': 'https://duplicaTe.com' },
+      { 'URL Tautan (domainName)': 'https://duplicate.com' },
+      { 'URL Tautan (domainName)': 'https://other.com' },
     ];
 
     const addErrorMock = jest.fn();
 
     const result = hook(testData, addErrorMock);
 
-    expect(addErrorMock).toHaveBeenCalledWith(0, 'Link URL (domainName)', {
+    expect(addErrorMock).toHaveBeenCalledWith(0, 'URL Tautan (domainName)', {
       message:
-        'This Link URL (domainName) value already exists in your import data',
+        'This URL Tautan (domainName) value already exists in your import data',
       level: 'error',
     });
-    expect(addErrorMock).toHaveBeenCalledWith(1, 'Link URL (domainName)', {
+    expect(addErrorMock).toHaveBeenCalledWith(1, 'URL Tautan (domainName)', {
       message:
-        'This Link URL (domainName) value already exists in your import data',
+        'This URL Tautan (domainName) value already exists in your import data',
       level: 'error',
     });
     expect(result).toBe(testData);
@@ -99,9 +99,9 @@ describe('spreadsheetImportGetUnicityTableHook', () => {
     const hook = spreadsheetImportGetUnicityTableHook(mockObjectMetadataItem);
 
     const testData: ImportedStructuredRow[] = [
-      { 'Link URL (domainName)': 'test.com', id: '1' },
-      { 'Link URL (domainName)': 'test2.com', id: '1' },
-      { 'Link URL (domainName)': 'test3.com', id: '3' },
+      { 'URL Tautan (domainName)': 'test.com', id: '1' },
+      { 'URL Tautan (domainName)': 'test2.com', id: '1' },
+      { 'URL Tautan (domainName)': 'test3.com', id: '3' },
     ];
 
     const addErrorMock = jest.fn();
@@ -157,19 +157,19 @@ describe('spreadsheetImportGetUnicityTableHook', () => {
     const testData: ImportedStructuredRow[] = [
       {
         name: 'test',
-        'Link URL (domainName)': 'test.com',
+        'URL Tautan (domainName)': 'test.com',
         employees: '100',
         id: '1',
       },
       {
         name: 'test',
-        'Link URL (domainName)': 'test2.com',
+        'URL Tautan (domainName)': 'test2.com',
         employees: '101',
         id: '2',
       },
       {
         name: 'test',
-        'Link URL (domainName)': 'test3.com',
+        'URL Tautan (domainName)': 'test3.com',
         employees: '102',
         id: '3',
       },

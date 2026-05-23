@@ -2,7 +2,7 @@ import { defineRule } from '@oxlint/plugins';
 
 import { typedTokenHelpers } from '../utils/typedTokenHelpers';
 
-export const RULE_NAME = 'bades/graphql-resolvers-should-be-guarded';
+export const RULE_NAME = 'graphql-resolvers-should-be-guarded';
 
 export const graphqlResolversShouldBeGuarded = (node: any) => {
   const hasGraphQLResolverDecorator =

@@ -22,7 +22,7 @@ describe('EmailVerificationTokenService', () => {
   let service: EmailVerificationTokenService;
   let appTokenRepository: Repository<AppTokenEntity>;
   let userRepository: Repository<UserEntity>;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -56,7 +56,7 @@ describe('EmailVerificationTokenService', () => {
     userRepository = module.get<Repository<UserEntity>>(
       getRepositoryToken(UserEntity),
     );
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   describe('generateToken', () => {
@@ -65,7 +65,7 @@ describe('EmailVerificationTokenService', () => {
       const email = 'test@example.com';
       const mockExpiresIn = '24h';
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue(mockExpiresIn);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(mockExpiresIn);
       jest
         .spyOn(appTokenRepository, 'create')
         .mockReturnValue({} as AppTokenEntity);

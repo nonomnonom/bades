@@ -5,7 +5,7 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { multiWorkspaceDropdownState } from '@/ui/navigation/navigation-drawer/states/multiWorkspaceDropdownState';
 import { useColorScheme } from '@/ui/theme/hooks/useColorScheme';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconCheck, IconChevronLeft } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 
@@ -28,7 +28,7 @@ export const MultiWorkspaceDropdownThemesComponents = () => {
           />
         }
       >
-        {t`Theme`}
+        {t`Tema`}
       </DropdownMenuHeader>
       <DropdownMenuItemsContainer>
         {colorSchemeList.map((theme) => (
@@ -37,10 +37,10 @@ export const MultiWorkspaceDropdownThemesComponents = () => {
             LeftIcon={theme.icon}
             text={
               theme.id === 'System'
-                ? t`System`
+                ? t`Sistem`
                 : theme.id === 'Dark'
-                  ? t`Dark`
-                  : t`Light`
+                  ? t`Gelap`
+                  : t`Terang`
             }
             onClick={() => setColorScheme(theme.id)}
             RightIcon={theme.id === colorScheme ? IconCheck : undefined}

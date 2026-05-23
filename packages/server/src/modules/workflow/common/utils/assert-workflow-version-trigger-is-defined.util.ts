@@ -1,5 +1,4 @@
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import { type WorkflowVersionWorkspaceEntity } from 'src/modules/workflow/common/standard-objects/workflow-version.workspace-entity';
 import {
   WorkflowTriggerException,

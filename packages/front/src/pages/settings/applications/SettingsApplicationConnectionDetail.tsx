@@ -1,6 +1,6 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
@@ -382,7 +382,8 @@ export const SettingsApplicationConnectionDetail = () => {
               title={t`Putuskan koneksi?`}
               subtitle={
                 <Trans>
-                  Tindakan ini akan memutuskan {connectionLabel} dari aplikasi ini.
+                  Tindakan ini akan memutuskan {connectionLabel} dari aplikasi
+                  ini.
                 </Trans>
               }
               onConfirmClick={handleDelete}
@@ -394,8 +395,8 @@ export const SettingsApplicationConnectionDetail = () => {
               title={t`Ubah visibilitas?`}
               subtitle={
                 <Trans>
-                  Mengubah visibilitas memerlukan sambung ulang koneksi OAuth ini.
-                  Anda akan diarahkan untuk mengotorisasi ulang.
+                  Mengubah visibilitas memerlukan sambung ulang koneksi OAuth
+                  ini. Anda akan diarahkan untuk mengotorisasi ulang.
                 </Trans>
               }
               onConfirmClick={handleChangeVisibility}

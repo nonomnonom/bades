@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import {
   MUTATION_MAX_MERGE_RECORDS,
   QUERY_MAX_RECORDS_FROM_RELATION,

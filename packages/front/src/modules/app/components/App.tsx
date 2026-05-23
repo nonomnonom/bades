@@ -5,8 +5,7 @@ import { AppRootErrorFallback } from '@/error-handler/components/AppRootErrorFal
 import { ExceptionHandlerProvider } from '@/error-handler/components/ExceptionHandlerProvider';
 import { SnackBarComponentInstanceContext } from '@/ui/feedback/snack-bar-manager/contexts/SnackBarComponentInstanceContext';
 import { ClickOutsideListenerContext } from '@/ui/utilities/pointer-event/contexts/ClickOutsideListenerContext';
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { i18n, I18nProvider } from '~/utils/i18n/badesI18n';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { Provider as JotaiProvider } from 'jotai';
 import { HelmetProvider } from 'react-helmet-async';

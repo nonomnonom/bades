@@ -1,5 +1,5 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useState } from 'react';
 
 import { FullScreenContainer } from '@/ui/layout/fullscreen/components/FullScreenContainer';
@@ -168,8 +168,7 @@ export const SettingsEventLogs = () => {
 
     return {
       title: t`Gagal Memuat Log Audit`,
-      message:
-        errorMessage || t`Terjadi kesalahan tak terduga. Coba lagi.`,
+      message: errorMessage || t`Terjadi kesalahan tak terduga. Coba lagi.`,
     };
   };
 

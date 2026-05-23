@@ -30,10 +30,20 @@ export const JENIS_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     icon: 'IconTag',
     description: 'Kategori surat',
     options: [
-      { label: 'Kependudukan', value: 'KEPENDUDUKAN', position: 0, color: 'blue' },
+      {
+        label: 'Kependudukan',
+        value: 'KEPENDUDUKAN',
+        position: 0,
+        color: 'blue',
+      },
       { label: 'Keterangan', value: 'KETERANGAN', position: 1, color: 'green' },
       { label: 'Izin', value: 'IZIN', position: 2, color: 'orange' },
-      { label: 'Pengesahan', value: 'PENGESAHAN', position: 3, color: 'purple' },
+      {
+        label: 'Pengesahan',
+        value: 'PENGESAHAN',
+        position: 3,
+        color: 'purple',
+      },
       { label: 'Lainnya', value: 'LAINNYA', position: 4, color: 'gray' },
     ],
   },

@@ -20,7 +20,7 @@ import { convertPageLayoutToTabLayouts } from '@/page-layout/utils/convertPageLa
 import { isDefaultPageLayoutId } from '@/page-layout/utils/isDefaultPageLayoutId';
 import { transformPageLayout } from '@/page-layout/utils/transformPageLayout';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback, useState } from 'react';
 import { isDefined } from 'shared/utils';
@@ -151,7 +151,7 @@ export const useSaveLayoutCustomization = () => {
 
       if (hasAnyFailure) {
         enqueueErrorSnackBar({
-          message: t`Some layout changes could not be saved`,
+          message: t`Beberapa perubahan tata letak tidak dapat disimpan`,
         });
         return;
       }
@@ -160,7 +160,7 @@ export const useSaveLayoutCustomization = () => {
     } catch (error) {
       logError(error);
       enqueueErrorSnackBar({
-        message: t`Failed to save layout customization`,
+        message: t`Gagal menyimpan penyesuaian tata letak`,
       });
     } finally {
       setIsSaving(false);

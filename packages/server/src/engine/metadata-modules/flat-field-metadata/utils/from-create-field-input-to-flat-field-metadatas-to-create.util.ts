@@ -1,8 +1,5 @@
-import { msg } from '@lingui/core/macro';
-import {
-  FieldMetadataType,
-  type FieldMetadataOptions,
-} from 'shared/types';
+import { msg } from 'src/utils/bades-i18n';
+import { FieldMetadataType, type FieldMetadataOptions } from 'shared/types';
 import {
   assertUnreachable,
   isDefined,

@@ -13,7 +13,7 @@ import { DraggableList } from '@/ui/layout/draggable-list/components/DraggableLi
 import { DropdownMenuHeader } from '@/ui/layout/dropdown/components/DropdownMenuHeader/DropdownMenuHeader';
 import { DropdownMenuHeaderLeftComponent } from '@/ui/layout/dropdown/components/DropdownMenuHeader/internal/DropdownMenuHeaderLeftComponent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { Tag } from 'ui/components';
 import { IconChevronLeft } from 'ui/display';

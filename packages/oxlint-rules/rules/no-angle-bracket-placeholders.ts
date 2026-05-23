@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/no-angle-bracket-placeholders';
+export const RULE_NAME = 'no-angle-bracket-placeholders';
 
 const ALLOWED_TAGS = [
   'img',

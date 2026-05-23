@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconDotsVertical, IconPencil, IconTrash } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -47,13 +47,13 @@ export const NavigationMenuItemFolderNavigationDrawerItemDropdown = ({
               LeftIcon={IconPencil}
               onClick={handleRename}
               accent="default"
-              text={t`Rename`}
+              text={t`Ubah nama`}
             />
             <MenuItem
               LeftIcon={IconTrash}
               onClick={handleDelete}
               accent="danger"
-              text={t`Delete`}
+              text={t`Hapus`}
             />
           </DropdownMenuItemsContainer>
         </DropdownContent>

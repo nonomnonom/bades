@@ -1,6 +1,6 @@
 import { approvedAccessDomainsState } from '@/settings/security/states/ApprovedAccessDomainsState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';

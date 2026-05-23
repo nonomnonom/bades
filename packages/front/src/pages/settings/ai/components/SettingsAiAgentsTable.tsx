@@ -1,5 +1,5 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { useContext, useState } from 'react';
 
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';

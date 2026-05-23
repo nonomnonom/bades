@@ -1,8 +1,4 @@
-import {
-  type Equal,
-  type Expect,
-  type HasAllProperties,
-} from 'shared/testing';
+import { type Equal, type Expect, type HasAllProperties } from 'shared/testing';
 import {
   type FieldMetadataType,
   type FieldNumberVariant,

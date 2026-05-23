@@ -1,9 +1,9 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsCard } from '@/settings/components/SettingsCard';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsLabContent } from '@/settings/lab/components/SettingsLabContent';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconTransform } from 'ui/display';
@@ -29,10 +29,7 @@ export const SettingsUpdates = () => {
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title
-            title={t`Rilis`}
-            description={t`Lihat rilis terbaru kami`}
-          />
+          <H2Title title={t`Rilis`} description={t`Lihat rilis terbaru kami`} />
           <StyledCardLink
             href="https://bades.id/releases"
             target="_blank"

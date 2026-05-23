@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext, useMemo, useState } from 'react';
 import { IconFolder, IconFolderPlus, IconHeartOff } from 'ui/display';
 import { LightIconButton } from 'ui/input';
@@ -145,7 +145,7 @@ export const FavoritesSection = () => {
 
   return (
     <NavigationMenuItemSection
-      title={t`Favorites`}
+      title={t`Favorit`}
       isOpen={isNavigationSectionOpen}
       onToggle={toggleNavigationSection}
       rightIcon={

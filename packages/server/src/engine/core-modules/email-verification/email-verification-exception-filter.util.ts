@@ -1,8 +1,7 @@
 import { Catch, type ExceptionFilter } from '@nestjs/common';
 
 import { assertUnreachable } from 'shared/utils';
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import {
   EmailVerificationException,
   EmailVerificationExceptionCode,

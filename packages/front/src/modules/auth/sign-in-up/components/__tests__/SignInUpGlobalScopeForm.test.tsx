@@ -1,5 +1,4 @@
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { i18n, I18nProvider } from '~/utils/i18n/badesI18n';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider as JotaiProvider } from 'jotai';
 import { SOURCE_LOCALE } from 'shared/translations';
@@ -102,7 +101,7 @@ describe('SignInUpGlobalScopeForm', () => {
       </JotaiProvider>,
     );
 
-    const forgotPasswordLink = screen.getByText('Forgot your password?');
+    const forgotPasswordLink = screen.getByText('Lupa kata sandi?');
 
     expect(forgotPasswordLink).toBeInTheDocument();
     expect(handleResetPasswordMock).toHaveBeenCalledWith('person@example.com');

@@ -188,8 +188,7 @@ const GENERATE_CALENDAR_EVENT_SEEDS = (): CalendarEventDataSeed[] => {
       END_TIME.setMinutes(END_TIME.getMinutes() + TEMPLATE.duration);
     }
 
-    const LOCATION =
-      TEMPLATE.locations[INDEX % TEMPLATE.locations.length];
+    const LOCATION = TEMPLATE.locations[INDEX % TEMPLATE.locations.length];
 
     const IS_CANCELLED = INDEX % 20 === 0;
 

@@ -2,7 +2,7 @@ import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { CREATE_TOP_UP_CREDIT_SESSION } from '@/settings/billing/graphql/mutations/createTopUpCreditSession';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useMutation } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 
 type CreateTopUpCreditSessionData = {

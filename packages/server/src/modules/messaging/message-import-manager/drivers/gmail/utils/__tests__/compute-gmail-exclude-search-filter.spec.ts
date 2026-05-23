@@ -44,7 +44,7 @@ describe('computeGmailExcludeSearchFilter', () => {
         MessageFolderImportPolicy.SELECTED_FOLDERS,
       );
 
-      expect(result).toContain('(label:crm OR label:twenty-visible)');
+      expect(result).toContain('(label:crm OR label:bades-visible)');
       expect(result).toContain('-label:spam');
       expect(result).toContain('-label:trash');
       expect(result).not.toContain('-category:promotions');

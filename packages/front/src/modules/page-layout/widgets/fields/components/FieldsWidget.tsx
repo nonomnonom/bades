@@ -12,7 +12,7 @@ import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingC
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { SidePanelProvider } from '@/ui/layout/side-panel/contexts/SidePanelContext';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,
@@ -115,10 +115,10 @@ export const FieldsWidget = ({ widget }: FieldsWidgetProps) => {
             <AnimatedPlaceholder type="noRecord" />
             <AnimatedPlaceholderEmptyTextContainer>
               <AnimatedPlaceholderEmptyTitle>
-                {t`No fields to display`}
+                {t`Tidak ada kolom untuk ditampilkan`}
               </AnimatedPlaceholderEmptyTitle>
               <AnimatedPlaceholderEmptySubTitle>
-                {t`Configure this widget to display fields`}
+                {t`Konfigurasikan widget ini untuk menampilkan kolom`}
               </AnimatedPlaceholderEmptySubTitle>
             </AnimatedPlaceholderEmptyTextContainer>
           </AnimatedPlaceholderEmptyContainer>
@@ -159,7 +159,7 @@ export const FieldsWidget = ({ widget }: FieldsWidgetProps) => {
 
           {shouldShowHiddenFields && (
             <FieldsWidgetGroupContainer
-              title={t`More (${hiddenFieldsWithOffsetGlobalIndex.length})`}
+              title={t`Lainnya (${hiddenFieldsWithOffsetGlobalIndex.length})`}
               defaultExpanded={false}
             >
               <StyledPropertyBox>

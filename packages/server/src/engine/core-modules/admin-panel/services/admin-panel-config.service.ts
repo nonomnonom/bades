@@ -10,10 +10,10 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class AdminPanelConfigService {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   getConfigVariablesGrouped(): ConfigVariablesDTO {
-    const rawEnvVars = this.twentyConfigService.getAll();
+    const rawEnvVars = this.badesConfigService.getAll();
     const groupedData = new Map<ConfigVariablesGroup, ConfigVariableDTO[]>();
 
     for (const [varName, { value, metadata, source }] of Object.entries(
@@ -67,7 +67,7 @@ export class AdminPanelConfigService {
 
   getConfigVariable(key: string): ConfigVariableDTO {
     const variableWithMetadata =
-      this.twentyConfigService.getVariableWithMetadata(
+      this.badesConfigService.getVariableWithMetadata(
         key as keyof ConfigVariables,
       );
 

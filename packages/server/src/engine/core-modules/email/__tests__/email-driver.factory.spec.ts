@@ -7,7 +7,7 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 describe('EmailDriverFactory', () => {
   let factory: EmailDriverFactory;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let configGroupHashService: ConfigGroupHashService;
 
   const mockBadesConfigService = {
@@ -33,7 +33,7 @@ describe('EmailDriverFactory', () => {
     }).compile();
 
     factory = module.get<EmailDriverFactory>(EmailDriverFactory);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     configGroupHashService = module.get<ConfigGroupHashService>(
       ConfigGroupHashService,
     );
@@ -43,18 +43,16 @@ describe('EmailDriverFactory', () => {
 
   describe('buildConfigKey', () => {
     it('should return "logger" for logger driver', () => {
-      jest
-        .spyOn(twentyConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const result = factory['buildConfigKey']();
 
       expect(result).toBe('logger');
-      expect(twentyConfigService.get).toHaveBeenCalledWith('EMAIL_DRIVER');
+      expect(badesConfigService.get).toHaveBeenCalledWith('EMAIL_DRIVER');
     });
 
     it('should return smtp config key for smtp driver', () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue(EmailDriver.SMTP);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.SMTP);
       jest
         .spyOn(configGroupHashService, 'computeHash')
         .mockReturnValue('smtp-hash-123');
@@ -62,11 +60,11 @@ describe('EmailDriverFactory', () => {
       const result = factory['buildConfigKey']();
 
       expect(result).toBe('smtp|smtp-hash-123');
-      expect(twentyConfigService.get).toHaveBeenCalledWith('EMAIL_DRIVER');
+      expect(badesConfigService.get).toHaveBeenCalledWith('EMAIL_DRIVER');
     });
 
     it('should throw error for unsupported driver', () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('invalid-driver');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-driver');
 
       expect(() => factory['buildConfigKey']()).toThrow(
         'Unsupported email driver: invalid-driver',
@@ -76,9 +74,7 @@ describe('EmailDriverFactory', () => {
 
   describe('createDriver', () => {
     it('should create logger driver', () => {
-      jest
-        .spyOn(twentyConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver = factory['createDriver']();
 
@@ -88,7 +84,7 @@ describe('EmailDriverFactory', () => {
 
     it('should create smtp driver with basic configuration', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'EMAIL_DRIVER':
@@ -116,7 +112,7 @@ describe('EmailDriverFactory', () => {
 
     it('should throw error when smtp host is missing', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'EMAIL_DRIVER':
@@ -136,7 +132,7 @@ describe('EmailDriverFactory', () => {
     });
 
     it('should throw error for invalid driver', () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('invalid-driver');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-driver');
 
       expect(() => factory['createDriver']()).toThrow(
         'Invalid email driver: invalid-driver',
@@ -146,9 +142,7 @@ describe('EmailDriverFactory', () => {
 
   describe('getCurrentDriver', () => {
     it('should return current driver for logger', () => {
-      jest
-        .spyOn(twentyConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver = factory.getCurrentDriver();
 
@@ -157,9 +151,7 @@ describe('EmailDriverFactory', () => {
     });
 
     it('should reuse driver when config key unchanged', () => {
-      jest
-        .spyOn(twentyConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver1 = factory.getCurrentDriver();
       const driver2 = factory.getCurrentDriver();
@@ -169,15 +161,13 @@ describe('EmailDriverFactory', () => {
 
     it('should create new driver when config key changes', () => {
       // First call with logger
-      jest
-        .spyOn(twentyConfigService, 'get')
-        .mockReturnValue(EmailDriver.LOGGER);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(EmailDriver.LOGGER);
 
       const driver1 = factory.getCurrentDriver();
 
       // Second call with smtp
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'EMAIL_DRIVER':
@@ -202,7 +192,7 @@ describe('EmailDriverFactory', () => {
     });
 
     it('should throw error for unsupported email driver', () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('invalid-driver');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-driver');
 
       expect(() => factory.getCurrentDriver()).toThrow(
         'Failed to build config key for EmailDriverFactory. Original error: Unsupported email driver: invalid-driver',
@@ -211,7 +201,7 @@ describe('EmailDriverFactory', () => {
 
     it('should throw error when driver creation fails after valid config', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'EMAIL_DRIVER':

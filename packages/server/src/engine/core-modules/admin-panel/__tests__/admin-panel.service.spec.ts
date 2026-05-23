@@ -289,7 +289,7 @@ describe('AdminPanelVersionService', () => {
     beforeEach(() => {
       mockEnvironmentGet.mockReset();
       mockHttpClientGet.mockReset();
-      versionService['twentyConfigService'].get = mockEnvironmentGet;
+      versionService['badesConfigService'].get = mockEnvironmentGet;
     });
 
     it('should return current and latest version when everything works', async () => {

@@ -20,7 +20,7 @@ import { type AuthProviderEnum } from 'src/engine/core-modules/workspace/types/w
 export class LoginTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async generateLoginToken(
@@ -37,7 +37,7 @@ export class LoginTokenService {
       impersonatorUserWorkspaceId: options?.impersonatorUserWorkspaceId,
     };
 
-    const expiresIn = this.twentyConfigService.get('LOGIN_TOKEN_EXPIRES_IN');
+    const expiresIn = this.badesConfigService.get('LOGIN_TOKEN_EXPIRES_IN');
 
     const expiresAt = addMilliseconds(new Date().getTime(), ms(expiresIn));
 

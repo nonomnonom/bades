@@ -14,7 +14,7 @@ import { BADES_CLI_APPLICATION_REGISTRATION } from 'src/engine/workspace-manager
 @Controller('.well-known')
 export class OAuthDiscoveryController {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly domainServerConfigService: DomainServerConfigService,
     private readonly applicationRegistrationService: ApplicationRegistrationService,
   ) {}
@@ -25,7 +25,7 @@ export class OAuthDiscoveryController {
     const issuer = this.getRequestBaseUrl(request);
     // /authorize is served by the frontend; SERVER_URL (API-only) has no such
     // route, so we route the client to the default frontend base URL in that
-    // case. All other hosts (app.twenty.com, workspace subdomains, custom
+    // case. All other hosts (app.bades.id, workspace subdomains, custom
     // domains) serve both frontend and API.
     const authorizeBase = this.isApiHost(request)
       ? cleanServerUrl(this.domainServerConfigService.getBaseUrl().toString())
@@ -100,7 +100,7 @@ export class OAuthDiscoveryController {
   }
 
   private isApiHost(request: Request): boolean {
-    const serverUrl = this.twentyConfigService.get('SERVER_URL');
+    const serverUrl = this.badesConfigService.get('SERVER_URL');
 
     return request.get('host') === new URL(serverUrl).host;
   }

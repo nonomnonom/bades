@@ -7,7 +7,6 @@ import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/sta
 import { type FilterSettings } from '@/workflow/workflow-steps/filters/types/FilterSettings';
 import { isStepFilterGroupChildAStepFilterGroup } from '@/workflow/workflow-steps/filters/utils/isStepFilterGroupChildAStepFilterGroup';
 import { styled } from '@linaria/react';
-import { i18n, type MessageDescriptor } from '@lingui/core';
 import { type StepFilter, type StepFilterGroup } from 'shared/types';
 import { capitalize, isDefined } from 'shared/utils';
 import { type StepIfElseBranch } from 'shared/workflow';
@@ -31,7 +30,7 @@ type WorkflowIfElseBranchEditorProps = {
   action: WorkflowIfElseAction;
   branch: StepIfElseBranch;
   branchIndex: number;
-  branchLabel: MessageDescriptor;
+  branchLabel: string;
   elseIfIndex?: number;
   branchFilterGroup: StepFilterGroup | undefined;
   readonly: boolean;
@@ -111,9 +110,7 @@ export const WorkflowIfElseBranchEditor = ({
                     stepFilterGroup={branchFilterGroup}
                     stepFilter={stepFilterGroupChild}
                     stepFilterIndex={stepFilterGroupChildIndex}
-                    firstFilterLabel={capitalize(
-                      i18n._(branchLabel).toLowerCase(),
-                    )}
+                    firstFilterLabel={capitalize(branchLabel.toLowerCase())}
                     elseIfIndex={elseIfIndex}
                     preventDeletion={preventDeletion}
                   />

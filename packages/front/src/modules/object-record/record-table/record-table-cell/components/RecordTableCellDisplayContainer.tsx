@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { type Ref } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';

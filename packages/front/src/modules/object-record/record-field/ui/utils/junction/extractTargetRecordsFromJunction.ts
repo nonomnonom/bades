@@ -4,10 +4,7 @@ import { isObjectWithId } from '@/object-record/record-field/ui/utils/junction/i
 import { type ExtractedTargetRecord } from '@/object-record/record-field/ui/utils/junction/types/ExtractedTargetRecord';
 import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { FieldMetadataType } from 'shared/types';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 
 type ExtractTargetRecordsFromJunctionArgs = {
   junctionRecords: ObjectRecord[] | undefined | null;

@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Button, LightButton } from 'ui/input';
 
 type CancelButtonProps = {
@@ -17,7 +17,7 @@ export const CancelButton = ({
   if (inverted) {
     return (
       <Button
-        title={t`Cancel`}
+        title={t`Batal`}
         variant="tertiary"
         accent="default"
         inverted
@@ -30,7 +30,7 @@ export const CancelButton = ({
 
   return (
     <LightButton
-      title={t`Cancel`}
+      title={t`Batal`}
       accent="tertiary"
       onClick={onCancel}
       disabled={disabled}

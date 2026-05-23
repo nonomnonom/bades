@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import {
   FormCallingCodeSelectInput,
   type FormCallingCodeSelectInputUpdatedValue,
@@ -8,7 +9,6 @@ import { FormNumberFieldInput } from '@/object-record/record-field/ui/form-types
 import { type VariablePickerComponent } from '@/object-record/record-field/ui/form-types/types/VariablePickerComponent';
 import { type FieldPhonesValue } from '@/object-record/record-field/ui/types/FieldMetadata';
 import { InputLabel } from '@/ui/input/components/InputLabel';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 
 type FormPhoneFieldInputProps = {

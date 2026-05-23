@@ -1,10 +1,7 @@
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { getObjectPermissionsForObject } from '@/object-metadata/utils/getObjectPermissionsForObject';
 import { isJunctionRelationField } from '@/object-record/record-field/ui/utils/junction/isJunctionRelationField';
-import {
-  CoreObjectNameSingular,
-  type ObjectPermissions,
-} from 'shared/types';
+import { CoreObjectNameSingular, type ObjectPermissions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 type ObjectPermissionsByObjectMetadataId = Record<

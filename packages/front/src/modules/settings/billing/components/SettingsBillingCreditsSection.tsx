@@ -8,20 +8,13 @@ import { useBillingWording } from '@/settings/billing/hooks/useBillingWording';
 import { useCurrentBillingFlags } from '@/settings/billing/hooks/useCurrentBillingFlags';
 import { useCurrentResourceCredit } from '@/settings/billing/hooks/useCurrentResourceCredit';
 import { useGetResourceCreditUsage } from '@/settings/billing/hooks/useGetResourceCreditUsage';
-import { getDocumentationUrl } from '@/support/utils/getDocumentationUrl';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
-import { DOCUMENTATION_PATHS } from 'shared/constants';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
-import {
-  H2Title,
-  HorizontalSeparator,
-  IconChartBar,
-  IconExternalLink,
-} from 'ui/display';
+import { H2Title, HorizontalSeparator, IconChartBar } from 'ui/display';
 import { ProgressBar } from 'ui/feedback';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';
@@ -130,19 +123,6 @@ export const SettingsBillingCreditsSection = ({
               variant="secondary"
             />
           </UndecoratedLink>
-          <Button
-            Icon={IconExternalLink}
-            title={t`Cara kerja kredit`}
-            variant="secondary"
-            onClick={() =>
-              window.open(
-                getDocumentationUrl({
-                  path: DOCUMENTATION_PATHS.USER_GUIDE_BILLING_CAPABILITIES_CREDITS,
-                }),
-                '_blank',
-              )
-            }
-          />
         </StyledCreditUsageFooterActions>
       </Section>
       <Section>

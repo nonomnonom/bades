@@ -1,6 +1,6 @@
 import { getCommandMenuItemLabel } from '@/command-menu-item/utils/getCommandMenuItemLabel';
 import { styled } from '@linaria/react';
-import { type MessageDescriptor } from '@lingui/core';
+import { type MessageDescriptor } from '~/utils/i18n/badesI18n';
 import { type MouseEvent } from 'react';
 import { type Nullable } from 'shared/types';
 import { isDefined } from 'shared/utils';

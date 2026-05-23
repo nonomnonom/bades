@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import { recordStoreFamilyState } from '@/object-record/record-store/states/recordStoreFamilyState';
 import { useRecordTitleCell } from '@/object-record/record-title-cell/hooks/useRecordTitleCell';
@@ -5,7 +6,6 @@ import { type RecordTitleCellContainerType } from '@/object-record/record-title-
 import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFieldInputId';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { OverflowingTextWithTooltip } from 'ui/display';

@@ -16,7 +16,7 @@ import { type CustomException } from 'src/utils/custom-exception';
 @Injectable()
 export class GuardRedirectService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly exceptionHandlerService: ExceptionHandlerService,
     private readonly domainsServerConfigService: DomainServerConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
@@ -62,7 +62,7 @@ export class GuardRedirectService {
           customDomain: subdomainAndDomainFromReferer.domain,
         }
       : {
-          subdomain: this.twentyConfigService.get('DEFAULT_SUBDOMAIN'),
+          subdomain: this.badesConfigService.get('DEFAULT_SUBDOMAIN'),
           customDomain: null,
         };
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tag } from 'ui/components';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { BillingPlanKey } from '~/generated-metadata/graphql';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';

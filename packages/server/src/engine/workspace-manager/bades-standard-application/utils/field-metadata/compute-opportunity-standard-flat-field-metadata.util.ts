@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { i18nLabel } from 'src/engine/workspace-manager/bades-standard-application/utils/i18n-label.util';
 import {
   DateDisplayFormat,
@@ -35,8 +35,8 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'id',
       type: FieldMetadataType.UUID,
-      label: i18nLabel(msg`Id`),
-      description: i18nLabel(msg`Id`),
+      label: i18nLabel(msg`ID`),
+      description: i18nLabel(msg`ID`),
       icon: 'Icon123',
       isSystem: true,
       isNullable: false,
@@ -54,8 +54,8 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'createdAt',
       type: FieldMetadataType.DATE_TIME,
-      label: i18nLabel(msg`Creation date`),
-      description: i18nLabel(msg`Creation date`),
+      label: i18nLabel(msg`Tanggal Dibuat`),
+      description: i18nLabel(msg`Tanggal Dibuat`),
       icon: 'IconCalendar',
       isSystem: true,
       isNullable: false,
@@ -76,8 +76,8 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'updatedAt',
       type: FieldMetadataType.DATE_TIME,
-      label: i18nLabel(msg`Last update`),
-      description: i18nLabel(msg`Last time the record was changed`),
+      label: i18nLabel(msg`Pembaruan Terakhir`),
+      description: i18nLabel(msg`Waktu terakhir data diubah`),
       icon: 'IconCalendarClock',
       isSystem: true,
       isNullable: false,
@@ -98,8 +98,8 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'deletedAt',
       type: FieldMetadataType.DATE_TIME,
-      label: i18nLabel(msg`Deleted at`),
-      description: i18nLabel(msg`Date when the record was deleted`),
+      label: i18nLabel(msg`Dihapus pada`),
+      description: i18nLabel(msg`Tanggal data dihapus`),
       icon: 'IconCalendarMinus',
       isSystem: true,
       isNullable: true,
@@ -121,7 +121,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'name',
       type: FieldMetadataType.TEXT,
-      label: i18nLabel(msg`Name`),
+      label: i18nLabel(msg`Nama`),
       description: i18nLabel(msg`The opportunity name`),
       icon: 'IconTargetArrow',
       isNullable: true,
@@ -223,7 +223,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'position',
       type: FieldMetadataType.POSITION,
-      label: i18nLabel(msg`Position`),
+      label: i18nLabel(msg`Posisi`),
       description: i18nLabel(msg`Opportunity record position`),
       icon: 'IconHierarchy2',
       isSystem: true,
@@ -241,8 +241,8 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'createdBy',
       type: FieldMetadataType.ACTOR,
-      label: i18nLabel(msg`Created by`),
-      description: i18nLabel(msg`The creator of the record`),
+      label: i18nLabel(msg`Dibuat Oleh`),
+      description: i18nLabel(msg`Pembuat data ini`),
       icon: 'IconCreativeCommonsSa',
       isSystem: true,
       isUIReadOnly: true,
@@ -264,9 +264,9 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'updatedBy',
       type: FieldMetadataType.ACTOR,
-      label: i18nLabel(msg`Updated by`),
+      label: i18nLabel(msg`Diperbarui Oleh`),
       description: i18nLabel(
-        msg`The workspace member who last updated the record`,
+        msg`Anggota workspace yang terakhir memperbarui data`,
       ),
       icon: 'IconUserCircle',
       isSystem: true,
@@ -289,8 +289,8 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'searchVector',
       type: FieldMetadataType.TS_VECTOR,
-      label: i18nLabel(msg`Search vector`),
-      description: i18nLabel(msg`Field used for full-text search`),
+      label: i18nLabel(msg`Indeks Pencarian`),
+      description: i18nLabel(msg`Kolom untuk pencarian teks lengkap`),
       icon: 'IconUser',
       isSystem: true,
       isNullable: true,
@@ -363,7 +363,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
       type: FieldMetadataType.RELATION,
       morphId: null,
       fieldName: 'taskTargets',
-      label: i18nLabel(msg`Tasks`),
+      label: i18nLabel(msg`Tugas`),
       description: i18nLabel(msg`Tasks tied to the opportunity`),
       icon: 'IconCheckbox',
       isUIReadOnly: true,
@@ -386,7 +386,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
       type: FieldMetadataType.RELATION,
       morphId: null,
       fieldName: 'noteTargets',
-      label: i18nLabel(msg`Notes`),
+      label: i18nLabel(msg`Catatan`),
       description: i18nLabel(msg`Notes tied to the opportunity`),
       icon: 'IconNotes',
       isUIReadOnly: true,
@@ -409,7 +409,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
       type: FieldMetadataType.RELATION,
       morphId: null,
       fieldName: 'attachments',
-      label: i18nLabel(msg`Attachments`),
+      label: i18nLabel(msg`Lampiran`),
       description: i18nLabel(msg`Attachments linked to the opportunity`),
       icon: 'IconFileImport',
       isNullable: true,
@@ -431,7 +431,7 @@ export const buildOpportunityStandardFlatFieldMetadatas = ({
       type: FieldMetadataType.RELATION,
       morphId: null,
       fieldName: 'timelineActivities',
-      label: i18nLabel(msg`Timeline Activities`),
+      label: i18nLabel(msg`Aktivitas Linimasa`),
       description: i18nLabel(
         msg`Timeline Activities linked to the opportunity.`,
       ),

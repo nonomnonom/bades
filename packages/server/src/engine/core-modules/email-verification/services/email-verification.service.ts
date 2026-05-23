@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { render } from '@react-email/render';
 import { addMilliseconds, differenceInMilliseconds } from 'date-fns';
 import ms from 'ms';
@@ -39,7 +39,7 @@ export class EmailVerificationService {
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly domainsServerConfigService: DomainServerConfigService,
     private readonly emailService: EmailService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly emailVerificationTokenService: EmailVerificationTokenService,
     private readonly i18nService: I18nService,
   ) {}
@@ -59,7 +59,7 @@ export class EmailVerificationService {
     verifyEmailRedirectPath?: string;
     verificationTrigger?: EmailVerificationTrigger;
   }) {
-    if (!this.twentyConfigService.get('IS_EMAIL_VERIFICATION_REQUIRED')) {
+    if (!this.badesConfigService.get('IS_EMAIL_VERIFICATION_REQUIRED')) {
       return { success: false };
     }
 
@@ -107,9 +107,9 @@ export class EmailVerificationService {
     const subject = i18n._(emailVerificationMsg);
 
     await this.emailService.send({
-      from: `${this.twentyConfigService.get(
+      from: `${this.badesConfigService.get(
         'EMAIL_FROM_NAME',
-      )} <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      )} <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       to: email,
       subject,
       text,
@@ -124,7 +124,7 @@ export class EmailVerificationService {
     workspace: WorkspaceDomainConfig | undefined,
     locale: keyof typeof APP_LOCALES,
   ) {
-    if (!this.twentyConfigService.get('IS_EMAIL_VERIFICATION_REQUIRED')) {
+    if (!this.badesConfigService.get('IS_EMAIL_VERIFICATION_REQUIRED')) {
       throw new EmailVerificationException(
         'Email verification token cannot be sent because email verification is not required',
         EmailVerificationExceptionCode.EMAIL_VERIFICATION_NOT_REQUIRED,

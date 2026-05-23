@@ -17,7 +17,7 @@ import { useSidePanelFilteredPickerItems } from '@/side-panel/hooks/useSidePanel
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { type View } from '@/views/types/View';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useIcons } from 'ui/display';
@@ -66,8 +66,8 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
     getSearchableValues: (view) => [view.name],
   });
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : t`No custom views available`;
+    ? t`Tidak ada hasil`
+    : t`Belum ada tampilan kustom`;
 
   const selectedObjectIconColor = isDefined(selectedObjectMetadataItem)
     ? getObjectColorWithFallback(selectedObjectMetadataItem)
@@ -91,7 +91,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a view...`}
+      searchPlaceholder={t`Cari tampilan...`}
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     >
@@ -104,7 +104,7 @@ export const SidePanelNewSidebarItemViewPickerSubView = ({
           >
             {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
             <div ref={innerRef} {...droppableProps}>
-              <SidePanelGroup heading={t`Views`}>
+              <SidePanelGroup heading={t`Tampilan`}>
                 {filteredViews.map((view, index) => (
                   <SelectableListItem
                     key={view.id}

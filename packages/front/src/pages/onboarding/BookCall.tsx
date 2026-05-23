@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import Cal from '@calcom/embed-react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,6 @@ import { calendarBookingPageIdState } from '@/client-config/states/calendarBooki
 import { useSetNextOnboardingStatus } from '@/onboarding/hooks/useSetNextOnboardingStatus';
 import { ModalContent, ModalFooter } from 'ui/layout';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
-import { useLingui } from '@lingui/react/macro';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { AppPath } from 'shared/types';
 import { IconChevronLeft, IconChevronRightPipe } from 'ui/display';

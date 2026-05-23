@@ -1,3 +1,4 @@
+import { t, Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsBillingLabelValueItem } from '@/settings/billing/components/internal/SettingsBillingLabelValueItem';
 import { SubscriptionInfoContainer } from '@/settings/billing/components/SubscriptionInfoContainer';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -8,8 +9,6 @@ import { useUsageAnalyticsData } from '@/settings/usage/hooks/useUsageAnalyticsD
 import { useUsageValueFormatter } from '@/settings/usage/hooks/useUsageValueFormatter';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useContext } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useParams } from 'react-router-dom';
@@ -115,7 +114,10 @@ export const SettingsUsageUserDetail = () => {
   }
 
   return (
-    <SubMenuTopBarContainer title={tLingui`Pemakaian Pengguna`} links={breadcrumbLinks}>
+    <SubMenuTopBarContainer
+      title={tLingui`Pemakaian Pengguna`}
+      links={breadcrumbLinks}
+    >
       <SettingsPageContainer>
         <StyledUserHeader>
           <Avatar

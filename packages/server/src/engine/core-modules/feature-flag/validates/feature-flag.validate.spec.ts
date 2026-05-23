@@ -1,5 +1,4 @@
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import { featureFlagValidator } from 'src/engine/core-modules/feature-flag/validates/feature-flag.validate';
 import { UnknownException } from 'src/utils/custom-exception';
 

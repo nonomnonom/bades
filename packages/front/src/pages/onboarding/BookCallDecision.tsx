@@ -1,9 +1,9 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SubTitle } from '@/auth/components/SubTitle';
 import { Title } from '@/auth/components/Title';
 import { useSetNextOnboardingStatus } from '@/onboarding/hooks/useSetNextOnboardingStatus';
 import { ModalContent } from 'ui/layout';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { Link } from 'react-router-dom';
 import { AppPath } from 'shared/types';
 import { LightButton, MainButton } from 'ui/input';
@@ -59,8 +59,8 @@ export const BookCallDecision = () => {
         </Title>
         <SubTitle>
           <Trans>
-            Tim kami dapat membantu menyiapkan ruang kerja Anda sesuai
-            kebutuhan dan alur kerja administrasi desa.
+            Tim kami dapat membantu menyiapkan ruang kerja Anda sesuai kebutuhan
+            dan alur kerja administrasi desa.
           </Trans>
         </SubTitle>
       </StyledTitleContainer>

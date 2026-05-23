@@ -1,3 +1,4 @@
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsAdminWorkspacesByHealthAccordion } from '@/settings/admin-panel/health-status/components/SettingsAdminWorkspacesByHealthAccordion';
 import { SettingsAdminWorkspacesStatusSummaryCard } from '@/settings/admin-panel/health-status/components/SettingsAdminWorkspacesStatusSummaryCard';
@@ -6,7 +7,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { plural, t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title } from 'ui/display';

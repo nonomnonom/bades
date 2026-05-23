@@ -4,7 +4,7 @@ import { useFileUpload } from '@/file-upload/hooks/useFileUpload';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { type WorkflowAttachment } from 'shared/workflow';
@@ -111,7 +111,7 @@ export const WorkflowSendEmailAttachments = ({
         ) : (
           <StyledUploadAreaLabel>
             <IconUpload size={theme.icon.size.sm} />
-            <span>{t`Upload file`}</span>
+            <span>{t`Unggah berkas`}</span>
           </StyledUploadAreaLabel>
         )}
       </StyledUploadArea>

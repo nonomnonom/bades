@@ -1,5 +1,5 @@
 import { getVisibilityLabel } from '@/side-panel/pages/page-layout/utils/getVisibilityLabel';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 export const useTranslatedVisibilityLabel = (
   expression: string | null | undefined,

@@ -12,7 +12,7 @@ import { rootLevelStepFilterGroupComponentSelector } from '@/workflow/workflow-s
 import { type FilterSettings } from '@/workflow/workflow-steps/filters/types/FilterSettings';
 import { isStepFilterGroupChildAStepFilterGroup } from '@/workflow/workflow-steps/filters/utils/isStepFilterGroupChildAStepFilterGroup';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 

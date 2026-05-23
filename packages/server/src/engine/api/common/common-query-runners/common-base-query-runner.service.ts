@@ -88,7 +88,7 @@ export abstract class CommonBaseQueryRunnerService<
   @Inject()
   protected readonly throttlerService: ThrottlerService;
   @Inject()
-  protected readonly twentyConfigService: BadesConfigService;
+  protected readonly badesConfigService: BadesConfigService;
   @Inject()
   protected readonly metricsService: MetricsService;
   @Inject()
@@ -355,18 +355,16 @@ export abstract class CommonBaseQueryRunnerService<
 
       const shortConfig = {
         key: `api:throttler:${workspaceId}-short-limit`,
-        maxTokens: this.twentyConfigService.get(
-          'API_RATE_LIMITING_SHORT_LIMIT',
-        ),
-        timeWindow: this.twentyConfigService.get(
+        maxTokens: this.badesConfigService.get('API_RATE_LIMITING_SHORT_LIMIT'),
+        timeWindow: this.badesConfigService.get(
           'API_RATE_LIMITING_SHORT_TTL_IN_MS',
         ),
       };
 
       const longConfig = {
         key: `api:throttler:${workspaceId}-long-limit`,
-        maxTokens: this.twentyConfigService.get('API_RATE_LIMITING_LONG_LIMIT'),
-        timeWindow: this.twentyConfigService.get(
+        maxTokens: this.badesConfigService.get('API_RATE_LIMITING_LONG_LIMIT'),
+        timeWindow: this.badesConfigService.get(
           'API_RATE_LIMITING_LONG_TTL_IN_MS',
         ),
       };
@@ -399,7 +397,7 @@ export abstract class CommonBaseQueryRunnerService<
     args: CommonExtendedInput<Args>,
     queryRunnerContext: CommonBaseQueryRunnerContext,
   ) {
-    const maximumComplexity = this.twentyConfigService.get(
+    const maximumComplexity = this.badesConfigService.get(
       'COMMON_QUERY_COMPLEXITY_LIMIT',
     );
 

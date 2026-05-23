@@ -1,8 +1,4 @@
-import {
-  type Equal,
-  type Expect,
-  type HasAllProperties,
-} from 'shared/testing';
+import { type Equal, type Expect, type HasAllProperties } from 'shared/testing';
 
 import { type FlatEntityUpdate } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-update.type';
 

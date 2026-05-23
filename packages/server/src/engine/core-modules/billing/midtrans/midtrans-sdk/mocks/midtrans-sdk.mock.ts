@@ -1,6 +1,9 @@
 /* @license Enterprise */
 
-import type { MidtransTransactionStatus, SnapTransactionResult } from 'midtrans-client';
+import type {
+  MidtransTransactionStatus,
+  SnapTransactionResult,
+} from 'midtrans-client';
 
 /**
  * Mock Snap untuk keperluan unit test — tidak memanggil API Midtrans sungguhan.
@@ -9,7 +12,8 @@ export class MidtransSnapMock {
   createTransaction(_parameter: unknown): Promise<SnapTransactionResult> {
     return Promise.resolve({
       token: 'mock-snap-token',
-      redirect_url: 'https://app.sandbox.midtrans.com/snap/v3/redirection/mock-snap-token',
+      redirect_url:
+        'https://app.sandbox.midtrans.com/snap/v3/redirection/mock-snap-token',
     });
   }
 

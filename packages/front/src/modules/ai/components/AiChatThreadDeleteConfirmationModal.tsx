@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 
 import { type AiChatThreadActionsSurface } from '@/ai/types/AiChatThreadActionsSurface';
 import { useDeleteChatThread } from '@/ai/hooks/useDeleteChatThread';

@@ -4,7 +4,7 @@ import { DateFormat } from '@/localization/constants/DateFormat';
 import { detectDateFormat } from '@/localization/utils/detection/detectDateFormat';
 import { detectTimeZone } from '@/localization/utils/detection/detectTimeZone';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 type DateTimeSettingsDateFormatSelectProps = {
   value: DateFormat;

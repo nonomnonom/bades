@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { type PageLayoutWidgetGridPosition } from 'shared/types';
 
 import { WIDGET_GRID_MAX_COLUMNS } from 'src/engine/metadata-modules/page-layout-widget/constants/widget-grid-max-columns.constant';

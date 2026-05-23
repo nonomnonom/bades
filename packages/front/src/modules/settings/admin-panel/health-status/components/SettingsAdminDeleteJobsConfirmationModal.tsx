@@ -1,5 +1,5 @@
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { plural, t } from '@lingui/core/macro';
+import { plural, t } from '~/utils/i18n/badesI18n';
 
 type SettingsAdminDeleteJobsConfirmationModalProps = {
   modalInstanceId: string;

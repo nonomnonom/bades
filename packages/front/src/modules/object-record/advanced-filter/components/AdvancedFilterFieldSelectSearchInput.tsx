@@ -1,7 +1,7 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { objectFilterDropdownSearchInputComponentState } from '@/object-record/object-filter-dropdown/states/objectFilterDropdownSearchInputComponentState';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { themeCssVariables } from 'ui/theme-constants';
 
 export const StyledInput = styled.input`
@@ -38,7 +38,7 @@ export const AdvancedFilterFieldSelectSearchInput = () => {
     <StyledInput
       value={objectFilterDropdownSearchInput}
       autoFocus
-      placeholder={t`Search fields`}
+      placeholder={t`Cari kolom`}
       onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
         setObjectFilterDropdownSearchInput(event.target.value)
       }

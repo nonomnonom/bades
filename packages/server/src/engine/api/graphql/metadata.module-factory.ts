@@ -21,7 +21,7 @@ import { type DataloaderService } from 'src/engine/dataloaders/dataloader.servic
 import { renderApolloPlayground } from 'src/engine/utils/render-apollo-playground.util';
 
 export const metadataModuleFactory = async (
-  twentyConfigService: BadesConfigService,
+  badesConfigService: BadesConfigService,
   exceptionHandlerService: ExceptionHandlerService,
   dataloaderService: DataloaderService,
   cacheStorageService: CacheStorageService,
@@ -46,7 +46,7 @@ export const metadataModuleFactory = async (
         metricsService: metricsService,
         exceptionHandlerService,
         i18nService,
-        twentyConfigService,
+        badesConfigService,
       }),
       useCachedMetadata({
         cacheGetter: cacheStorageService.get.bind(cacheStorageService),
@@ -54,10 +54,10 @@ export const metadataModuleFactory = async (
         operationsToCache: ['ObjectMetadataItems', 'FindAllViews'],
       }),
       useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(
-        twentyConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
+        badesConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
       ),
       useValidateGraphqlQueryComplexity({
-        maximumAllowedFields: twentyConfigService.get('GRAPHQL_MAX_FIELDS'),
+        maximumAllowedFields: badesConfigService.get('GRAPHQL_MAX_FIELDS'),
         maximumAllowedRootResolvers: 10,
         maximumAllowedNestedFields: 10,
         checkDuplicateRootResolvers: true,
@@ -69,7 +69,7 @@ export const metadataModuleFactory = async (
     }),
   };
 
-  if (twentyConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT) {
+  if (badesConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT) {
     config.renderGraphiQL = () => {
       return renderApolloPlayground({ path: 'metadata' });
     };

@@ -1,6 +1,6 @@
 # Analytics Module
 
-This module provides analytics tracking functionality for the Twenty application.
+This module provides analytics tracking functionality for the Bades application.
 
 ## Usage
 

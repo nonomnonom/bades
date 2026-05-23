@@ -15,33 +15,17 @@ import { type BillingPlanKey } from 'src/engine/core-modules/billing/enums/billi
 import { BillingProductKey } from 'src/engine/core-modules/billing/enums/billing-product-key.enum';
 import { SubscriptionInterval } from 'src/engine/core-modules/billing/enums/billing-subscription-interval.enum';
 import { BillingProductService } from 'src/engine/core-modules/billing/services/billing-product.service';
-import { StripeSubscriptionService } from 'src/engine/core-modules/billing/stripe/services/stripe-subscription.service';
 import { type BillingMeterPrice } from 'src/engine/core-modules/billing/types/billing-meter-price.type';
 
 @Injectable()
 export class BillingPriceService {
   protected readonly logger = new Logger(BillingPriceService.name);
+
   constructor(
-    private readonly stripeSubscriptionService: StripeSubscriptionService,
     @InjectRepository(BillingPriceEntity)
     private readonly billingPriceRepository: Repository<BillingPriceEntity>,
     private readonly billingProductService: BillingProductService,
   ) {}
-
-  async getBillingThresholdsByMeterPriceId(meterPriceId: string) {
-    const price = await this.billingPriceRepository.findOneOrFail({
-      where: {
-        priceId: meterPriceId,
-      },
-      relations: ['billingProduct'],
-    });
-
-    billingValidator.assertIsMeteredPrice(price);
-
-    return this.stripeSubscriptionService.getBillingThresholds(
-      price.tiers[0].flat_amount,
-    );
-  }
 
   async findEquivalentMeteredPrice({
     meteredPrice,
@@ -92,7 +76,7 @@ export class BillingPriceService {
 
     if (!candidates.length) {
       throw new BillingException(
-        'No metered candidates found for mapping',
+        'Tidak ada kandidat harga metered yang ditemukan',
         BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
       );
     }
@@ -131,9 +115,6 @@ export class BillingPriceService {
     ).sort((a, b) => a.tiers[0].up_to - b.tiers[0].up_to);
   }
 
-  // V2 counterpart of findEquivalentMeteredPrice.
-  // Finds a RESOURCE_CREDIT price matching the target interval and plan,
-  // with the largest credit_amount that does not exceed the reference credit_amount.
   async findEquivalentResourceCreditPrice({
     targetInterval,
     targetPlanKey,
@@ -181,7 +162,7 @@ export class BillingPriceService {
 
     if (!resourceCreditCandidates.length) {
       throw new BillingException(
-        'No RESOURCE_CREDIT price candidates found',
+        'Tidak ada kandidat harga RESOURCE_CREDIT yang ditemukan',
         BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
       );
     }

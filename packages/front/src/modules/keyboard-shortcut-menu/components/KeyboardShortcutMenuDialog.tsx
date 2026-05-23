@@ -3,7 +3,7 @@ import {
   StyledDialog,
   StyledHeading,
 } from './KeyboardShortcutMenuStyles';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconButton } from 'ui/input';
 import { IconX } from 'ui/display';
 import { useIsMobile } from 'ui/utilities';
@@ -22,7 +22,7 @@ export const KeyboardMenuDialog = ({
   return (
     <StyledDialog isMobile={isMobile}>
       <StyledHeading>
-        {t`Keyboard shortcuts`}
+        {t`Pintasan keyboard`}
         <IconButton variant="tertiary" Icon={IconX} onClick={onClose} />
       </StyledHeading>
       <StyledContainer>{children}</StyledContainer>

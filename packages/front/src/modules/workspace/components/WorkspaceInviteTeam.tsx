@@ -10,9 +10,7 @@ import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { useCreateWorkspaceInvitation } from '@/workspace-invitation/hooks/useCreateWorkspaceInvitation';
 import { sanitizeEmailList } from '@/workspace/utils/sanitizeEmailList';
-import { i18n } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { i18n, msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   IconLock,
@@ -54,7 +52,7 @@ const StyledRoleContainer = styled.div`
   }
 `;
 
-const emailsEmptyErrorMessage = msg`Emails should not be empty`;
+const emailsEmptyErrorMessage = msg`Email tidak boleh kosong`;
 
 const validationSchema = z.object({
   emails: z.string().superRefine((value, ctx) => {
@@ -81,8 +79,8 @@ const validationSchema = z.object({
         code: 'custom',
         message:
           invalidEmails.length > 1
-            ? `Invalid emails: ${invalidEmailsList}`
-            : `Invalid email: ${invalidEmailsList}`,
+            ? `Email tidak valid: ${invalidEmailsList}`
+            : `Email tidak valid: ${invalidEmailsList}`,
       });
     }
   }),
@@ -118,7 +116,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
     }));
 
   const emptyRoleOption = {
-    label: t`Default role`,
+    label: t`Peran bawaan`,
     value: '',
     Icon: IconLock,
   };
@@ -221,7 +219,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
           Icon={IconSend}
           variant="primary"
           accent="blue"
-          title={t`Invite`}
+          title={t`Undang`}
           type="submit"
           disabled={isEmailsEmpty || !!errors.emails}
         />

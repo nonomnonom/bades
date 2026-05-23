@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
@@ -8,8 +8,8 @@ import { isDefined } from 'shared/utils';
 import { findFlatEntityByUniversalIdentifier } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-universal-identifier.util';
 import { PERMISSION_FLAG_PERMISSION_TYPES } from 'src/engine/metadata-modules/permission-flag/constants/permission-flag-permission-type.constant';
 import { PermissionFlagExceptionCode } from 'src/engine/metadata-modules/permission-flag/permission-flag.exception';
-import { belongsToTwentyStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-twenty-standard-app.util';
-import { isCallerTwentyStandardApp } from 'src/engine/metadata-modules/utils/is-caller-twenty-standard-app.util';
+import { belongsToBadesStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-bades-standard-app.util';
+import { isCallerBadesStandardApp } from 'src/engine/metadata-modules/utils/is-caller-bades-standard-app.util';
 import { type FailedFlatEntityValidation } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/builders/types/failed-flat-entity-validation.type';
 import { getEmptyFlatEntityValidationError } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/builders/utils/get-flat-entity-validation-error.util';
 import { type FlatEntityUpdateValidationArgs } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/types/universal-flat-entity-update-validation-args.type';
@@ -122,8 +122,8 @@ export class FlatPermissionFlagValidatorService {
     }
 
     if (
-      !isCallerTwentyStandardApp(buildOptions) &&
-      belongsToTwentyStandardApp({
+      !isCallerBadesStandardApp(buildOptions) &&
+      belongsToBadesStandardApp({
         universalIdentifier: existing.universalIdentifier,
         applicationUniversalIdentifier: existing.applicationUniversalIdentifier,
       })
@@ -196,8 +196,8 @@ export class FlatPermissionFlagValidatorService {
     }
 
     if (
-      !isCallerTwentyStandardApp(buildOptions) &&
-      belongsToTwentyStandardApp({
+      !isCallerBadesStandardApp(buildOptions) &&
+      belongsToBadesStandardApp({
         universalIdentifier: existing.universalIdentifier,
         applicationUniversalIdentifier: existing.applicationUniversalIdentifier,
       })

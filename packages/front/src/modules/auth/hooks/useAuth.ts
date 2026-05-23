@@ -46,7 +46,7 @@ import { useOrigin } from '@/domain-manager/hooks/useOrigin';
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { useRedirectToWorkspaceDomain } from '@/domain-manager/hooks/useRedirectToWorkspaceDomain';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { SOURCE_LOCALE } from 'shared/translations';
 import { isDefined } from 'shared/utils';

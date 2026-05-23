@@ -15,7 +15,7 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';

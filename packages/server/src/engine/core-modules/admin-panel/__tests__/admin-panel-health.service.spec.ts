@@ -29,7 +29,7 @@ describe('AdminPanelHealthService', () => {
   let connectedAccountHealth: jest.Mocked<ConnectedAccountHealth>;
   let appHealth: jest.Mocked<AppHealthIndicator>;
   let redisClient: jest.Mocked<RedisClientService>;
-  let twentyConfigService: jest.Mocked<BadesConfigService>;
+  let badesConfigService: jest.Mocked<BadesConfigService>;
   let loggerSpy: jest.SpyInstance;
 
   beforeEach(async () => {
@@ -42,7 +42,7 @@ describe('AdminPanelHealthService', () => {
       getClient: jest.fn().mockReturnValue({} as Redis),
       getQueueClient: jest.fn().mockReturnValue({} as Redis),
     } as any;
-    twentyConfigService = { get: jest.fn() } as any;
+    badesConfigService = { get: jest.fn() } as any;
 
     (Queue as unknown as jest.Mock) = jest.fn().mockImplementation(() => ({
       getMetrics: jest.fn(),
@@ -59,7 +59,7 @@ describe('AdminPanelHealthService', () => {
         { provide: ConnectedAccountHealth, useValue: connectedAccountHealth },
         { provide: AppHealthIndicator, useValue: appHealth },
         { provide: RedisClientService, useValue: redisClient },
-        { provide: BadesConfigService, useValue: twentyConfigService },
+        { provide: BadesConfigService, useValue: badesConfigService },
       ],
     }).compile();
 

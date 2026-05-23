@@ -14,7 +14,7 @@ import { JwtTokenTypeEnum } from 'src/engine/core-modules/auth/types/auth-contex
 describe('WorkspaceAgnosticToken', () => {
   let service: WorkspaceAgnosticTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let userRepository: Repository<UserEntity>;
 
   beforeEach(async () => {
@@ -48,7 +48,7 @@ describe('WorkspaceAgnosticToken', () => {
       WorkspaceAgnosticTokenService,
     );
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     userRepository = module.get<Repository<UserEntity>>(
       getRepositoryToken(UserEntity),
     );
@@ -65,7 +65,7 @@ describe('WorkspaceAgnosticToken', () => {
       const mockToken = 'mock-token';
       const mockUser = { id: userId };
 
-      jest.spyOn(twentyConfigService, 'get').mockImplementation((key) => {
+      jest.spyOn(badesConfigService, 'get').mockImplementation((key) => {
         if (key === 'WORKSPACE_AGNOSTIC_TOKEN_EXPIRES_IN') return mockExpiresIn;
 
         return undefined;
@@ -86,7 +86,7 @@ describe('WorkspaceAgnosticToken', () => {
         token: mockToken,
         expiresAt: expect.any(Date),
       });
-      expect(twentyConfigService.get).toHaveBeenCalledWith(
+      expect(badesConfigService.get).toHaveBeenCalledWith(
         'WORKSPACE_AGNOSTIC_TOKEN_EXPIRES_IN',
       );
       expect(userRepository.findOne).toHaveBeenCalledWith({
@@ -107,7 +107,7 @@ describe('WorkspaceAgnosticToken', () => {
       const userId = 'non-existent-user-id';
       const mockExpiresIn = '15m';
 
-      jest.spyOn(twentyConfigService, 'get').mockImplementation((key) => {
+      jest.spyOn(badesConfigService, 'get').mockImplementation((key) => {
         if (key === 'WORKSPACE_AGNOSTIC_TOKEN_EXPIRES_IN') return mockExpiresIn;
 
         return undefined;

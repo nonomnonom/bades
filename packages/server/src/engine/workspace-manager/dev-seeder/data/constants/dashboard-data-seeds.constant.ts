@@ -42,7 +42,7 @@ export const getDashboardDataSeeds = (
     title: 'Layanan Desa',
     pageLayoutId: generateSeedId(
       workspaceId,
-      PAGE_LAYOUT_SEEDS.SALES_DASHBOARD,
+      PAGE_LAYOUT_SEEDS.LAYANAN_DESA_DASHBOARD,
     ),
     createdBySource: 'MANUAL',
     createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
@@ -57,7 +57,7 @@ export const getDashboardDataSeeds = (
     title: 'Data Warga',
     pageLayoutId: generateSeedId(
       workspaceId,
-      PAGE_LAYOUT_SEEDS.CUSTOMER_DASHBOARD,
+      PAGE_LAYOUT_SEEDS.KEPENDUDUKAN_DASHBOARD,
     ),
     createdBySource: 'MANUAL',
     createdByWorkspaceMemberId: WORKSPACE_MEMBER_DATA_SEED_IDS.SEKDES,

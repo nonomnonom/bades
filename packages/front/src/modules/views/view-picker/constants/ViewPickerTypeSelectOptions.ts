@@ -1,5 +1,5 @@
 import { ViewType, viewTypeIconMapping } from '@/views/types/ViewType';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 
 export const VIEW_PICKER_TYPE_SELECT_OPTIONS = [
   {

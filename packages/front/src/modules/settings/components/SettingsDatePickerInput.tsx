@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useRef, useState } from 'react';
 import { Temporal } from 'temporal-polyfill';
 import {
@@ -124,7 +124,7 @@ export const SettingsDatePickerInput = ({
 
   const formatDisplayValue = (date: Date | undefined): string => {
     if (!isDefined(date)) {
-      return placeholder ?? t`Select date & time`;
+      return placeholder ?? t`Pilih tanggal & waktu`;
     }
 
     return date.toLocaleString(undefined, {

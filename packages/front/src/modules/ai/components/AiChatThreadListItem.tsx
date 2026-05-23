@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { Key } from 'ts-key-enum';
 import { IconArchive, IconSparkles } from 'ui/display';

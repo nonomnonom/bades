@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
 import { ensureAbsoluteUrl } from 'shared/utils';
@@ -42,7 +42,7 @@ export const SidePanelEditLinkItemView = ({
   const [urlEditInput, setUrlEditInput] = useState('');
   const [lastAutoSetName, setLastAutoSetName] = useState<string | null>(null);
 
-  const defaultLabel = t`Link label`;
+  const defaultLabel = t`Label tautan`;
   const selectableItemIds =
     getOrganizeActionsSelectableItemIds(showMoveToFolder);
 
@@ -77,7 +77,7 @@ export const SidePanelEditLinkItemView = ({
 
   return (
     <SidePanelList selectableItemIds={selectableItemIds}>
-      <SidePanelGroup heading={t`Customize`}>
+      <SidePanelGroup heading={t`Sesuaikan`}>
         <TextInput
           fullWidth
           placeholder="www.google.com"

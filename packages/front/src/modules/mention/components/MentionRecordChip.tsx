@@ -1,12 +1,7 @@
 import { getLinkToShowPage } from '@/object-metadata/utils/getLinkToShowPage';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
-import {
-  AvatarOrIcon,
-  Chip,
-  ChipVariant,
-  LinkChip,
-} from 'ui/components';
+import { AvatarOrIcon, Chip, ChipVariant, LinkChip } from 'ui/components';
 
 type MentionRecordChipProps = {
   recordId: string;
@@ -26,7 +21,7 @@ export const MentionRecordChip = ({
   if (!isNonEmptyString(objectNameSingular)) {
     return (
       <Chip
-        label={t`Unknown object`}
+        label={t`Objek tidak dikenal`}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -36,7 +31,7 @@ export const MentionRecordChip = ({
   if (!isNonEmptyString(recordId)) {
     return (
       <Chip
-        label={t`Deleted record`}
+        label={t`Data telah dihapus`}
         variant={ChipVariant.Transparent}
         disabled
       />

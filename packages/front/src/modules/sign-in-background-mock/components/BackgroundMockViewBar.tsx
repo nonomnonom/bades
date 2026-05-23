@@ -41,7 +41,7 @@ export const BackgroundMockViewBar = () => {
       leftComponent={
         <StyledViewPicker>
           <TintedIconTile Icon={IconBuildingSkyscraper} color="blue" />
-          <span>All Companies</span>
+          <span>Semua Lembaga</span>
           <StyledViewPickerCount>· 599</StyledViewPickerCount>
           <IconChevronDown
             size={theme.icon.size.sm}
@@ -52,8 +52,8 @@ export const BackgroundMockViewBar = () => {
       rightComponent={
         <>
           <StyledRightAction>Filter</StyledRightAction>
-          <StyledRightAction>Sort</StyledRightAction>
-          <StyledRightAction>Options</StyledRightAction>
+          <StyledRightAction>Urutkan</StyledRightAction>
+          <StyledRightAction>Opsi</StyledRightAction>
         </>
       }
     />

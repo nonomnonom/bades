@@ -5,7 +5,6 @@ This package contains the email templates used by Bades.id.
 ## Features
 
 - Email templates built with [React Email](https://react.email/)
-- Internationalization (i18n) support via [@lingui/react](https://lingui.dev/)
 - Local preview server for testing email templates
 
 ## Getting Started

@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconFolder } from 'ui/display';
 
@@ -39,7 +39,7 @@ export const useAddFolderToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Edit folder`,
+      pageTitle: t`Ubah folder`,
       pageIcon: IconFolder,
       focusTitleInput: true,
     });

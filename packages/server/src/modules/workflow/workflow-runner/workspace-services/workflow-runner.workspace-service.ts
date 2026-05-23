@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { type ActorMetadata } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { StepStatus } from 'shared/workflow';

@@ -1,10 +1,5 @@
 import { type MessageFolder } from '@/accounts/types/MessageFolder';
-import {
-  IconFolder,
-  IconFolderRoot,
-  IconInbox,
-  IconSend,
-} from 'ui/display';
+import { IconFolder, IconFolderRoot, IconInbox, IconSend } from 'ui/display';
 import { useContext } from 'react';
 import { ThemeContext } from 'ui/theme-constants';
 type SettingsAccountsMessageFolderIconProps = {

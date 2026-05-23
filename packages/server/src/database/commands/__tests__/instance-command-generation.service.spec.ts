@@ -2,10 +2,10 @@ import { Test } from '@nestjs/testing';
 import { getDataSourceToken } from '@nestjs/typeorm';
 
 import { InstanceCommandGenerationService } from 'src/database/commands/instance-command-generation.service';
-import { type TwentyAllVersion } from 'src/engine/core-modules/upgrade/constants/twenty-all-versions.constant';
+import { type BadesAllVersion } from 'src/engine/core-modules/upgrade/constants/bades-all-versions.constant';
 
-const VERSION_A = '10.20.0' as TwentyAllVersion;
-const VERSION_B = '30.40.0' as TwentyAllVersion;
+const VERSION_A = '10.20.0' as BadesAllVersion;
+const VERSION_B = '30.40.0' as BadesAllVersion;
 
 const FIXED_TIMESTAMP = 1775000000000;
 

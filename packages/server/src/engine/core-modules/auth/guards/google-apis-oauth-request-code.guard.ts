@@ -18,7 +18,7 @@ import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.ent
 @Injectable()
 export class GoogleAPIsOauthRequestCodeGuard extends AuthGuard('google-apis') {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly transientTokenService: TransientTokenService,
     private readonly guardRedirectService: GuardRedirectService,
     @InjectRepository(WorkspaceEntity)
@@ -58,8 +58,8 @@ export class GoogleAPIsOauthRequestCodeGuard extends AuthGuard('google-apis') {
       });
 
       if (
-        !this.twentyConfigService.get('MESSAGING_PROVIDER_GMAIL_ENABLED') &&
-        !this.twentyConfigService.get('CALENDAR_PROVIDER_GOOGLE_ENABLED')
+        !this.badesConfigService.get('MESSAGING_PROVIDER_GMAIL_ENABLED') &&
+        !this.badesConfigService.get('CALENDAR_PROVIDER_GOOGLE_ENABLED')
       ) {
         throw new AuthException(
           'Google apis auth is not enabled',
@@ -67,7 +67,7 @@ export class GoogleAPIsOauthRequestCodeGuard extends AuthGuard('google-apis') {
         );
       }
 
-      new GoogleAPIsOauthRequestCodeStrategy(this.twentyConfigService);
+      new GoogleAPIsOauthRequestCodeStrategy(this.badesConfigService);
 
       return (await super.canActivate(context)) as boolean;
     } catch (err) {

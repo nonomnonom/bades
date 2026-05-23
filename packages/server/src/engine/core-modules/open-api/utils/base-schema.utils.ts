@@ -124,8 +124,7 @@ curl -H 'Authorization: Bearer <token>' \\
   ${serverUrl}/rest/open-api/${schemaName} > bades-${schemaName}.json
 \`\`\`
 `,
-      termsOfService:
-        'https://bades.id/terms',
+      termsOfService: 'https://bades.id/terms',
       contact: {
         email: 'support@bades.id',
       },

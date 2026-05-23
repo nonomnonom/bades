@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { styled } from '@linaria/react';
 import { useParams } from 'react-router-dom';
@@ -14,15 +15,9 @@ import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBa
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
 import { AppPath, SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
-import {
-  IconList,
-  IconListCheck,
-  IconLock,
-  IconSettings,
-} from 'ui/display';
+import { IconList, IconListCheck, IconLock, IconSettings } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useMutation, useQuery } from '@apollo/client/react';

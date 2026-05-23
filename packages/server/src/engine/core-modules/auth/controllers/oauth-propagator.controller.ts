@@ -26,7 +26,7 @@ import { PublicEndpointGuard } from 'src/engine/guards/public-endpoint.guard';
 export class OAuthPropagatorController {
   constructor(
     private readonly domainServerConfigService: DomainServerConfigService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
   ) {}
 
@@ -71,7 +71,7 @@ export class OAuthPropagatorController {
 
   private async isValidDomain(url: URL): Promise<boolean> {
     if (
-      this.twentyConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT
+      this.badesConfigService.get('NODE_ENV') === NodeEnvironment.DEVELOPMENT
     ) {
       return true;
     }

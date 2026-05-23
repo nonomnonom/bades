@@ -6,7 +6,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { ModalContent } from 'ui/layout';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Loader } from 'ui/feedback';
 
 const StyledHeader = styled.span`

@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormNestedFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormNestedFieldInputContainer';
 import { FormNumberFieldInput } from '@/object-record/record-field/ui/form-types/components/FormNumberFieldInput';
@@ -6,7 +7,6 @@ import { type VariablePickerComponent } from '@/object-record/record-field/ui/fo
 import { type FormFieldCurrencyValue } from '@/object-record/record-field/ui/types/FieldMetadata';
 import { CURRENCIES } from '@/settings/data-model/constants/Currencies';
 import { InputLabel } from '@/ui/input/components/InputLabel';
-import { t } from '@lingui/core/macro';
 import { useMemo } from 'react';
 import { type CurrencyCode } from 'shared/constants';
 import { IconCircleOff } from 'ui/display';

@@ -10,7 +10,7 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { H2Title } from 'ui/display';
@@ -175,9 +175,7 @@ export const ResourceCreditPriceSelector = ({
           <Select
             dropdownId="settings_billing-resource-credit-price"
             options={options}
-            value={
-              selectedPriceId ?? currentResourceCreditPrice?.priceId ?? ''
-            }
+            value={selectedPriceId ?? currentResourceCreditPrice?.priceId ?? ''}
             onChange={handleChange}
             disabled={isUpdating || isTrialing}
             description={

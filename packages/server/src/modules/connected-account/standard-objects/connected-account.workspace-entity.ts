@@ -1,7 +1,4 @@
-import {
-  type ConnectedAccountProvider,
-  FieldMetadataType,
-} from 'shared/types';
+import { type ConnectedAccountProvider, FieldMetadataType } from 'shared/types';
 
 import { type ImapSmtpCaldavParams } from 'src/engine/core-modules/imap-smtp-caldav-connection/types/imap-smtp-caldav-connection.type';
 import { BaseWorkspaceEntity } from 'src/engine/sid-orm/base.workspace-entity';

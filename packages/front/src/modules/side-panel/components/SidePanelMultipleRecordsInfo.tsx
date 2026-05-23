@@ -1,6 +1,6 @@
 import { SidePanelPageInfoLayout } from '@/side-panel/components/SidePanelPageInfoLayout';
 import { useFindManyRecordsSelectedInContextStore } from '@/context-store/hooks/useFindManyRecordsSelectedInContextStore';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconPencil } from 'ui/display';
 import { ThemeContext } from 'ui/theme-constants';
@@ -24,8 +24,8 @@ export const SidePanelMultipleRecordsInfo = ({
         <IconPencil size={theme.icon.size.md} stroke={theme.icon.stroke.sm} />
       }
       iconColor={theme.font.color.tertiary}
-      title={t`Update records`}
-      label={t`${totalCount} selected`}
+      title={t`Ubah data`}
+      label={t`${totalCount} dipilih`}
     />
   );
 };

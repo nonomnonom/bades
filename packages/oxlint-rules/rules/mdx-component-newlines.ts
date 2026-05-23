@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/mdx-component-newlines';
+export const RULE_NAME = 'mdx-component-newlines';
 
 export const rule = defineRule({
   meta: {

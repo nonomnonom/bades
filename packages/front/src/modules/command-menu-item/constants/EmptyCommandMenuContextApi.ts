@@ -1,7 +1,4 @@
-import {
-  ContextStorePageType,
-  type CommandMenuContextApi,
-} from 'shared/types';
+import { ContextStorePageType, type CommandMenuContextApi } from 'shared/types';
 
 export const EMPTY_COMMAND_MENU_CONTEXT_API: CommandMenuContextApi = {
   pageType: ContextStorePageType.Index,

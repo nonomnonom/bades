@@ -1,7 +1,7 @@
 /* @license Enterprise */
 import { Injectable } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import Cloudflare from 'cloudflare';
 import {
   type CustomHostnameCreateParams,
@@ -27,12 +27,12 @@ export class DnsManagerService {
   cloudflareClient?: Cloudflare;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly domainServerConfigService: DomainServerConfigService,
   ) {
-    if (this.twentyConfigService.get('CLOUDFLARE_API_KEY')) {
+    if (this.badesConfigService.get('CLOUDFLARE_API_KEY')) {
       this.cloudflareClient = new Cloudflare({
-        apiToken: this.twentyConfigService.get('CLOUDFLARE_API_KEY'),
+        apiToken: this.badesConfigService.get('CLOUDFLARE_API_KEY'),
       });
     }
   }
@@ -105,7 +105,7 @@ export class DnsManagerService {
           key: dcvRecords?.cname ?? `_acme-challenge.${hostname}`,
           value:
             dcvRecords?.cname_target ??
-            `${hostname}.${this.twentyConfigService.get('CLOUDFLARE_DCV_DELEGATION_ID')}.dcv.cloudflare.com`,
+            `${hostname}.${this.badesConfigService.get('CLOUDFLARE_DCV_DELEGATION_ID')}.dcv.cloudflare.com`,
         },
       ],
     };
@@ -195,8 +195,8 @@ export class DnsManagerService {
 
   private getZoneId(options?: DnsManagerOptions): string {
     return options?.isPublicDomain
-      ? this.twentyConfigService.get('CLOUDFLARE_PUBLIC_DOMAIN_ZONE_ID')
-      : this.twentyConfigService.get('CLOUDFLARE_ZONE_ID');
+      ? this.badesConfigService.get('CLOUDFLARE_PUBLIC_DOMAIN_ZONE_ID')
+      : this.badesConfigService.get('CLOUDFLARE_ZONE_ID');
   }
 
   private async getHostnameDetails(

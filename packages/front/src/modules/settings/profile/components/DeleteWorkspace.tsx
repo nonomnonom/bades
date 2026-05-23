@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 
 import { useAuth } from '@/auth/hooks/useAuth';
 import { currentUserState } from '@/auth/states/currentUserState';
@@ -50,8 +50,8 @@ export const DeleteWorkspace = () => {
         title={t`Hapus Ruang Kerja`}
         subtitle={
           <Trans>
-            Tindakan ini tidak dapat dibatalkan. Seluruh ruang kerja dan
-            datanya akan dihapus secara permanen. <br /> Ketik email Anda untuk
+            Tindakan ini tidak dapat dibatalkan. Seluruh ruang kerja dan datanya
+            akan dihapus secara permanen. <br /> Ketik email Anda untuk
             mengonfirmasi.
           </Trans>
         }

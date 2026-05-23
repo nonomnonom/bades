@@ -1,10 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
-import {
-  ConnectedAccountProvider,
-  FieldActorSource,
-} from 'shared/types';
+import { ConnectedAccountProvider, FieldActorSource } from 'shared/types';
 import { STANDARD_OBJECTS } from 'shared/metadata';
 
 import { ObjectMetadataEntity } from 'src/engine/metadata-modules/object-metadata/object-metadata.entity';

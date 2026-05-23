@@ -1,4 +1,4 @@
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 import { type ALL_METADATA_NAME } from 'shared/metadata';
 import { FieldMetadataType, ViewType } from 'shared/types';
 import { isDefined } from 'shared/utils';

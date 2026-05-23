@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 // @ts-expect-error // Todo: remove usage of react-data-grid

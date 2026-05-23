@@ -8,7 +8,7 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   ColorSample,
   IconCheck,
@@ -18,11 +18,7 @@ import {
   IconX,
 } from 'ui/display';
 import { LightIconButton } from 'ui/input';
-import {
-  type ColorLabels,
-  MenuItem,
-  MenuItemSelectColor,
-} from 'ui/navigation';
+import { type ColorLabels, MenuItem, MenuItemSelectColor } from 'ui/navigation';
 import { computeOptionValueFromLabel } from '~/pages/settings/data-model/utils/computeOptionValueFromLabel';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { MAIN_COLOR_NAMES } from 'ui/theme';

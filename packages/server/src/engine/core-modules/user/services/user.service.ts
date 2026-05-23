@@ -2,7 +2,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import assert from 'assert';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { TypeOrmQueryService } from '@ptc-org/nestjs-query-typeorm';
 import { isNonEmptyString } from '@sniptt/guards';
 import { SOURCE_LOCALE } from 'shared/translations';
@@ -45,7 +45,7 @@ import { buildSystemAuthContext } from 'src/engine/sid-orm/utils/build-system-au
 import { WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
 import { WorkspaceMemberTranspiler } from 'src/engine/core-modules/user/services/workspace-member-transpiler.service';
 
-// oxlint-disable-next-line twenty/inject-workspace-repository
+// oxlint-disable-next-line bades/inject-workspace-repository
 export class UserService extends TypeOrmQueryService<UserEntity> {
   constructor(
     @InjectRepository(UserEntity)

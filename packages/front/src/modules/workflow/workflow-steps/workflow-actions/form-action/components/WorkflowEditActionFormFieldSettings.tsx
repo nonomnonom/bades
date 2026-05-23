@@ -7,7 +7,7 @@ import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow
 import { type WorkflowFormFieldType } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormFieldType';
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconSettingsAutomation, IconX } from 'ui/display';
 import { LightIconButton } from 'ui/input';
 import { themeCssVariables, ThemeContext } from 'ui/theme-constants';

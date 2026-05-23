@@ -1,4 +1,4 @@
-/* oxlint-disable twenty/no-hardcoded-colors */
+/* oxlint-disable bades/no-hardcoded-colors */
 
 const grayScale = {
   gray100: '#000000',

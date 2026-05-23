@@ -40,13 +40,13 @@ export class BillingUsageCapService {
   constructor(
     private readonly clickHouseService: ClickHouseService,
     private readonly resourceCreditService: ResourceCreditService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
   ) {}
 
   isClickHouseEnabled(): boolean {
-    return Boolean(this.twentyConfigService.get('CLICKHOUSE_URL'));
+    return Boolean(this.badesConfigService.get('CLICKHOUSE_URL'));
   }
 
   async getBatchPeriodCreditsUsed(

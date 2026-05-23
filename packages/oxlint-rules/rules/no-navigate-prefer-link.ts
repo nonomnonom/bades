@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/no-navigate-prefer-link';
+export const RULE_NAME = 'no-navigate-prefer-link';
 
 export const rule = defineRule({
   meta: {

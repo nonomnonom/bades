@@ -9,7 +9,7 @@ import {
 } from '@/keyboard-shortcut-menu/hooks/useKeyboardShortcutMenu';
 
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { KeyboardMenuDialog } from './KeyboardShortcutMenuDialog';
 import { KeyboardMenuGroup } from './KeyboardShortcutMenuGroup';
 import { KeyboardMenuItem } from './KeyboardShortcutMenuItem';

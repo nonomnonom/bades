@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { TintedIconTile, useIcons } from 'ui/display';
 
@@ -30,13 +30,11 @@ export const SidePanelEditFolderPickerSubPage = () => {
     ...(filteredFolders.length > 0 ? filteredFolders.map((f) => f.id) : []),
   ];
   const noResultsText =
-    searchValue.trim().length > 0
-      ? t`No results found`
-      : t`No folders available`;
+    searchValue.trim().length > 0 ? t`Tidak ada hasil` : t`Belum ada folder`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a folder...`}
+      searchPlaceholder={t`Cari folder...`}
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     >
@@ -45,14 +43,14 @@ export const SidePanelEditFolderPickerSubPage = () => {
         noResults={isEmpty}
         noResultsText={noResultsText}
       >
-        <SidePanelGroup heading={t`Folders`}>
+        <SidePanelGroup heading={t`Folder`}>
           {includeNoFolderOption && (
             <SelectableListItem
               itemId="no-folder"
               onEnter={() => handleSelectFolder(null)}
             >
               <CommandMenuItem
-                label={t`No folder`}
+                label={t`Tanpa folder`}
                 id="no-folder"
                 onClick={() => handleSelectFolder(null)}
               />

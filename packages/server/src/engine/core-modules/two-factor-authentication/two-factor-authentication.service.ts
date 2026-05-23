@@ -40,7 +40,7 @@ const buildLegacyTotpCbcPurpose = (
 ): string => `${userId}${workspaceId}otp-secret`;
 
 @Injectable()
-// oxlint-disable-next-line twenty/inject-workspace-repository
+// oxlint-disable-next-line bades/inject-workspace-repository
 export class TwoFactorAuthenticationService {
   constructor(
     @InjectRepository(TwoFactorAuthenticationMethodEntity)

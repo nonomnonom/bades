@@ -41,10 +41,10 @@ export class DataSeedWorkspaceCommand extends CommandRunner {
     _passedParams: string[],
     options: DataSeedWorkspaceOptions,
   ): Promise<void> {
-    // --light seeds a single workspace (Apple) for thin dev containers like
-    // twenty-app-dev. The default (no flag) seeds all four workspaces — Apple,
-    // YCombinator and the Empty3/Empty4 fixtures consumed by upgrade-sequence
-    // integration tests.
+    // --light hanya seed satu workspace (Sukamaju) untuk container dev tipis.
+    // Default (tanpa flag) seed semua workspace contoh Sukamaju & Mekarsari
+    // plus fixture Empty3/Empty4 yang dipakai integration test
+    // upgrade-sequence.
     const workspaceIds: SeededWorkspacesIds[] = options.light
       ? [SEED_SUKAMAJU_WORKSPACE_ID]
       : [SEED_SUKAMAJU_WORKSPACE_ID, SEED_MEKARSARI_WORKSPACE_ID];

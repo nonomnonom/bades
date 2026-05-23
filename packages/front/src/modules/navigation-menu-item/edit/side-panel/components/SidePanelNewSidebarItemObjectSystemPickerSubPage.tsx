@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 import { getObjectColorWithFallback } from '@/object-metadata/utils/getObjectColorWithFallback';
 import { useDraftNavigationMenuItems } from '@/navigation-menu-item/edit/hooks/useDraftNavigationMenuItems';
@@ -81,7 +81,7 @@ export const SidePanelNewSidebarItemObjectSystemPickerSubPage = () => {
       isViewItem={false}
       onChangeObject={handleSelectObject}
       objectMenuItemVariant="add"
-      emptyNoResultsText={t`All system objects are already in the sidebar`}
+      emptyNoResultsText={t`Semua objek sistem sudah ada di bilah samping`}
     />
   );
 };

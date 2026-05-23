@@ -20,13 +20,13 @@ export class BillingSubscriptionItemService {
   constructor(
     @InjectRepository(BillingSubscriptionItemEntity)
     private readonly billingSubscriptionItemRepository: Repository<BillingSubscriptionItemEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async getResourceCreditSubscriptionItemDetails(
     subscription: BillingSubscriptionEntity,
   ): Promise<{
-    stripeSubscriptionItemId: string;
+    subscriptionItemId: string;
     productKey: BillingProductKey;
     creditAmount: number;
     freeTrialQuantity: number;
@@ -57,15 +57,15 @@ export class BillingSubscriptionItemService {
         ? differenceInDays(subscription.trialEnd, subscription.trialStart)
         : 0;
 
-    const trialWithCreditCardDuration = this.twentyConfigService.get(
+    const trialWithCreditCardDuration = this.badesConfigService.get(
       'BILLING_FREE_TRIAL_WITH_CREDIT_CARD_DURATION_IN_DAYS',
     );
 
     return {
-      stripeSubscriptionItemId: item.stripeSubscriptionItemId,
+      subscriptionItemId: item.id,
       productKey: BillingProductKey.RESOURCE_CREDIT,
       creditAmount: Number(price.metadata?.credit_amount ?? 0),
-      freeTrialQuantity: this.twentyConfigService.get(
+      freeTrialQuantity: this.badesConfigService.get(
         trialDuration === trialWithCreditCardDuration
           ? 'BILLING_FREE_WORKFLOW_CREDITS_FOR_TRIAL_PERIOD_WITH_CREDIT_CARD'
           : 'BILLING_FREE_WORKFLOW_CREDITS_FOR_TRIAL_PERIOD_WITHOUT_CREDIT_CARD',
@@ -83,7 +83,7 @@ export class BillingSubscriptionItemService {
 
     if (!matchingPrice) {
       throw new BillingException(
-        `Cannot find price for product ${item.stripeProductId}`,
+        `Tidak dapat menemukan harga untuk produk ${item.productCode}`,
         BillingExceptionCode.BILLING_PRICE_NOT_FOUND,
       );
     }

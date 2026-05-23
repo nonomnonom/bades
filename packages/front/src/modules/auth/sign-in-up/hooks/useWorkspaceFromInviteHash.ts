@@ -6,7 +6,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { useQuery } from '@apollo/client/react';

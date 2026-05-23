@@ -5,46 +5,46 @@ describe('getMinutesDescription', () => {
   const options = DEFAULT_CRON_DESCRIPTION_OPTIONS;
 
   it('should handle wildcard', () => {
-    expect(getMinutesDescription('*', options)).toBe('every minute');
+    expect(getMinutesDescription('*', options)).toBe('setiap menit');
   });
 
   it('should handle step values', () => {
-    expect(getMinutesDescription('*/5', options)).toBe('every 5 minutes');
-    expect(getMinutesDescription('*/15', options)).toBe('every 15 minutes');
-    expect(getMinutesDescription('*/1', options)).toBe('every minute');
+    expect(getMinutesDescription('*/5', options)).toBe('setiap 5 menit');
+    expect(getMinutesDescription('*/15', options)).toBe('setiap 15 menit');
+    expect(getMinutesDescription('*/1', options)).toBe('setiap menit');
   });
 
   it('should handle range with step', () => {
     expect(getMinutesDescription('10-30/5', options)).toBe(
-      'every 5 minutes, between minute 10 and 30',
+      'setiap 5 menit, antara menit ke-10 dan 30',
     );
   });
 
   it('should handle ranges', () => {
     expect(getMinutesDescription('10-20', options)).toBe(
-      'between minute 10 and 20',
+      'antara menit ke-10 dan 20',
     );
     expect(getMinutesDescription('0-59', options)).toBe(
-      'between minute 0 and 59',
+      'antara menit ke-0 dan 59',
     );
   });
 
   it('should handle lists', () => {
     expect(getMinutesDescription('10,20', options)).toBe(
-      'at minutes 10 and 20',
+      'pada menit 10 dan 20',
     );
     expect(getMinutesDescription('0,15,30,45', options)).toBe(
-      'at minutes 0, 15, 30 and 45',
+      'pada menit 0, 15, 30 dan 45',
     );
   });
 
   it('should handle single values', () => {
-    expect(getMinutesDescription('0', options)).toBe('at the top of the hour');
+    expect(getMinutesDescription('0', options)).toBe('tepat di awal jam');
     expect(getMinutesDescription('1', options)).toBe(
-      'at 1 minute past the hour',
+      'pada menit ke-1 setiap jam',
     );
     expect(getMinutesDescription('30', options)).toBe(
-      'at 30 minutes past the hour',
+      'pada menit ke-30 setiap jam',
     );
   });
 

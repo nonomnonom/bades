@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
 import { SettingsAccountsVisibilityIcon } from '@/settings/accounts/components/SettingsAccountsVisibilityIcon';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { CalendarChannelVisibility } from '~/generated/graphql';
 import { themeCssVariables } from 'ui/theme-constants';
 

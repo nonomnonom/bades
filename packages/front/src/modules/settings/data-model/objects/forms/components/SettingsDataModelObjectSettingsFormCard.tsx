@@ -7,7 +7,7 @@ import { SettingsDataModelCardTitle } from '@/settings/data-model/components/Set
 import { SettingsDataModelFieldPreviewWidget } from '@/settings/data-model/fields/preview/components/SettingsDataModelFieldPreviewWidget';
 import { SettingsDataModelObjectPreview } from '@/settings/data-model/objects/components/SettingsDataModelObjectSummary';
 import { SettingsDataModelObjectIdentifiersForm } from '@/settings/data-model/objects/forms/components/SettingsDataModelObjectIdentifiersForm';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { Card, CardContent } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 

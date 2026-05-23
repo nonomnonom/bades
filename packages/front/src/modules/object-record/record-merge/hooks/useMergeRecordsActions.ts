@@ -1,5 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
-
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
 import { useMergeManyRecords } from '@/object-record/hooks/useMergeManyRecords';
 import { useMergeRecordsSelectedRecords } from '@/object-record/record-merge/hooks/useMergeRecordsSelectedRecords';
@@ -49,7 +48,7 @@ export const useMergeRecordsActions = ({
       const recordCount = selectedRecords.length;
 
       enqueueSuccessSnackBar({
-        message: t`Successfully merged ${recordCount} records`,
+        message: t`Berhasil menggabungkan ${recordCount} data`,
       });
       closeSidePanelMenu();
 
@@ -62,7 +61,7 @@ export const useMergeRecordsActions = ({
         message:
           error instanceof Error
             ? error.message
-            : t`Failed to merge records. Please try again.`,
+            : t`Gagal menggabungkan data. Silakan coba lagi.`,
       });
     } finally {
       setIsMergeInProgress(false);

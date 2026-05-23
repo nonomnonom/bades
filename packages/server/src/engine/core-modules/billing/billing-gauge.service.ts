@@ -19,7 +19,7 @@ export class BillingGaugeService implements OnModuleInit {
 
   constructor(
     private readonly metricsService: MetricsService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(BillingSubscriptionEntity)
@@ -52,7 +52,7 @@ export class BillingGaugeService implements OnModuleInit {
   }
 
   private async getSubscribedWorkspacesCount(): Promise<number> {
-    const isBillingEnabled = this.twentyConfigService.get('IS_BILLING_ENABLED');
+    const isBillingEnabled = this.badesConfigService.get('IS_BILLING_ENABLED');
 
     if (!isBillingEnabled) {
       return 0;
@@ -70,7 +70,7 @@ export class BillingGaugeService implements OnModuleInit {
   }
 
   private async lastWorkspaceHasSubscription(): Promise<number> {
-    const isBillingEnabled = this.twentyConfigService.get('IS_BILLING_ENABLED');
+    const isBillingEnabled = this.badesConfigService.get('IS_BILLING_ENABLED');
 
     if (!isBillingEnabled) {
       return 1;

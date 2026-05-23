@@ -10,7 +10,7 @@ import { exceedsMaxRecords } from '@/spreadsheet-import/utils/exceedsMaxRecords'
 import { mapWorkbook } from '@/spreadsheet-import/utils/mapWorkbook';
 
 import { ModalContent } from 'ui/layout';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Radio } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 import { type WorkBook } from 'xlsx-ugnis';
@@ -61,7 +61,9 @@ export const SelectSheetStep = ({
         )
       ) {
         const maxRecordsString = maxRecords.toString();
-        onError(t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`);
+        onError(
+          t`Terlalu banyak data. Maksimal ${maxRecordsString} baris diizinkan`,
+        );
         return;
       }
       try {

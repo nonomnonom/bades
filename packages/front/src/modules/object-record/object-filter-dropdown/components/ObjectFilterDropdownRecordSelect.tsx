@@ -21,7 +21,7 @@ import {
   jsonRelationFilterValueSchema,
 } from 'shared/utils';
 import { IconUserCircle } from 'ui/display';
-import { allowRequestsToTwentyIconsState } from '@/client-config/states/allowRequestsToTwentyIcons';
+import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 export const EMPTY_FILTER_VALUE: string = JSON.stringify({
@@ -44,8 +44,8 @@ export const ObjectFilterDropdownRecordSelect = ({
     fieldMetadataItemUsedInDropdownComponentSelector,
   );
 
-  const allowRequestsToTwentyIcons = useAtomStateValue(
-    allowRequestsToTwentyIconsState,
+  const allowRequestsToFaviconService = useAtomStateValue(
+    allowRequestsToFaviconServiceState,
   );
 
   const { objectFilterDropdownFilterValue } =
@@ -127,7 +127,7 @@ export const ObjectFilterDropdownRecordSelect = ({
       selectedIds: selectedRecordIds,
       objectNameSingular,
       limit: 10,
-      allowRequestsToTwentyIcons,
+      allowRequestsToFaviconService,
     });
 
   const currentWorkspaceMemberSelectableItem: SelectableItem = {

@@ -1,11 +1,11 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { useContext, useState } from 'react';
 
 import { useClearField } from '@/object-record/record-field/ui/hooks/useClearField';
 import { RATING_VALUES } from 'shared/constants';
 import { type FieldRatingValue } from 'shared/types';
-import { IconTwentyStarFilled } from 'ui/display';
+import { IconBadesStarFilled } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
 const StyledContainer = styled.div`
@@ -60,7 +60,7 @@ export const RatingInput = ({
   return (
     <StyledContainer
       role="slider"
-      aria-label={t`Rating`}
+      aria-label={t`Penilaian`}
       aria-valuemax={RATING_VALUES.length}
       aria-valuemin={1}
       aria-valuenow={selectedIndex + 1}
@@ -77,7 +77,7 @@ export const RatingInput = ({
             onMouseEnter={readonly ? undefined : () => setHoveredValue(value)}
             onMouseLeave={readonly ? undefined : () => setHoveredValue(null)}
           >
-            <IconTwentyStarFilled size={iconSizeMd} />
+            <IconBadesStarFilled size={iconSizeMd} />
           </StyledRatingIconContainer>
         );
       })}

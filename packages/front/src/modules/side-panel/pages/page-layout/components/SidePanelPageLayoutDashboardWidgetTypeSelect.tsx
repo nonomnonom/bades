@@ -23,7 +23,7 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { CoreObjectNameSingular, SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {
@@ -154,7 +154,10 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         removePageLayoutWidgetAndPreservePosition(pageLayoutEditingWidgetId);
       }
 
-      const newWidget = createPageLayoutIframeWidget(t`iFrame tanpa judul`, null);
+      const newWidget = createPageLayoutIframeWidget(
+        t`iFrame tanpa judul`,
+        null,
+      );
       setPageLayoutEditingWidgetId(newWidget.id);
     }
 

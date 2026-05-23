@@ -1,7 +1,7 @@
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { SidePanelPages } from 'shared/types';
 
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { IconBoxMultiple } from 'ui/display';
 

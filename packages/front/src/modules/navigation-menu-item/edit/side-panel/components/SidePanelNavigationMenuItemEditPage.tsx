@@ -23,7 +23,7 @@ import { SelectableListItem } from '@/ui/layout/selectable-list/components/Selec
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconPlus } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -97,7 +97,7 @@ export const SidePanelNavigationMenuItemEditPage = () => {
     return (
       <StyledSidePanelPageContainer>
         <StyledSidePanelPlaceholder>
-          {t`Select a navigation item to edit`}
+          {t`Pilih item navigasi untuk diubah`}
         </StyledSidePanelPlaceholder>
       </StyledSidePanelPageContainer>
     );
@@ -168,14 +168,14 @@ export const SidePanelNavigationMenuItemEditPage = () => {
           ]}
         >
           {selectedItem && (
-            <SidePanelGroup heading={t`Customize`}>
+            <SidePanelGroup heading={t`Sesuaikan`}>
               <SelectableListItem
                 itemId={ADD_ITEM_TO_FOLDER_ACTION_ID}
                 onEnter={handleAddItemToFolder}
               >
                 <CommandMenuItem
                   Icon={IconPlus}
-                  label={t`Add item to folder`}
+                  label={t`Tambah item ke folder`}
                   id={ADD_ITEM_TO_FOLDER_ACTION_ID}
                   onClick={handleAddItemToFolder}
                   hasSubMenu

@@ -1,6 +1,6 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { type ComponentType, useContext } from 'react';
 import { isDefined } from 'shared/utils';
 

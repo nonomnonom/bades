@@ -1,8 +1,5 @@
 import { Command } from 'nest-commander';
-import {
-  FieldMetadataType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { FieldMetadataType, compositeTypeDefinitions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { ActiveOrSuspendedWorkspaceCommandRunner } from 'src/database/commands/command-runners/active-or-suspended-workspace.command-runner';

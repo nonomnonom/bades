@@ -3,7 +3,7 @@ import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 
 import assert from 'assert';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { TypeOrmQueryService } from '@ptc-org/nestjs-query-typeorm';
 import { PermissionFlagType } from 'shared/constants';
 import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
@@ -44,7 +44,6 @@ import {
   WorkspaceNotFoundDefaultError,
 } from 'src/engine/core-modules/workspace/workspace.exception';
 import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
-import { isModelAllowedByWorkspace } from 'src/engine/metadata-modules/ai/ai-models/utils/is-model-allowed.util';
 import { FieldMetadataEntity } from 'src/engine/metadata-modules/field-metadata/field-metadata.entity';
 import { ALL_METADATA_ENTITY_BY_METADATA_NAME } from 'src/engine/metadata-modules/flat-entity/constant/all-metadata-entity-by-metadata-name.constant';
 import { ALL_METADATA_NAMES_SORTED_ATOMICALLY } from 'src/engine/metadata-modules/flat-entity/constant/all-metadata-names-sorted-atomically.constant';
@@ -72,7 +71,7 @@ import { DEFAULT_FEATURE_FLAGS } from 'src/engine/workspace-manager/workspace-mi
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 @Injectable()
-// oxlint-disable-next-line twenty/inject-workspace-repository
+// oxlint-disable-next-line bades/inject-workspace-repository
 export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
   protected readonly logger = new Logger(WorkspaceService.name);
 
@@ -98,8 +97,6 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     fastModel: PermissionFlagType.WORKSPACE,
     smartModel: PermissionFlagType.WORKSPACE,
     aiAdditionalInstructions: PermissionFlagType.WORKSPACE,
-    enabledAiModelIds: PermissionFlagType.AI_SETTINGS,
-    useRecommendedModels: PermissionFlagType.AI_SETTINGS,
     isInternalMessagesImportEnabled: PermissionFlagType.WORKSPACE,
   };
 
@@ -115,7 +112,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     private readonly billingSubscriptionService: BillingSubscriptionService,
     private readonly billingService: BillingService,
     private readonly userWorkspaceService: UserWorkspaceService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly exceptionHandlerService: ExceptionHandlerService,
     private readonly permissionsService: PermissionsService,
     private readonly dnsManagerService: DnsManagerService,
@@ -195,9 +192,9 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     }
 
     const authProvidersBySystem = {
-      google: this.twentyConfigService.get('AUTH_GOOGLE_ENABLED'),
-      password: this.twentyConfigService.get('AUTH_PASSWORD_ENABLED'),
-      microsoft: this.twentyConfigService.get('AUTH_MICROSOFT_ENABLED'),
+      google: this.badesConfigService.get('AUTH_GOOGLE_ENABLED'),
+      password: this.badesConfigService.get('AUTH_PASSWORD_ENABLED'),
+      microsoft: this.badesConfigService.get('AUTH_MICROSOFT_ENABLED'),
     };
 
     if (payload.isGoogleAuthEnabled && !authProvidersBySystem.google) {
@@ -245,18 +242,8 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
 
     const isChangingModels =
       isDefined(payload.smartModel) || isDefined(payload.fastModel);
-    const isChangingAvailability =
-      payload.useRecommendedModels !== undefined ||
-      payload.enabledAiModelIds !== undefined;
 
-    if (isChangingModels || isChangingAvailability) {
-      const effectiveWorkspace = {
-        useRecommendedModels:
-          payload.useRecommendedModels ?? workspace.useRecommendedModels,
-        enabledAiModelIds:
-          payload.enabledAiModelIds ?? workspace.enabledAiModelIds,
-      };
-
+    if (isChangingModels) {
       const modelsToValidate = [
         payload.smartModel ?? workspace.smartModel,
         payload.fastModel ?? workspace.fastModel,
@@ -266,19 +253,6 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
         if (!this.aiModelRegistryService.isModelAdminAllowed(modelId)) {
           throw new WorkspaceException(
             'Selected model has been disabled by the administrator',
-            WorkspaceExceptionCode.ENVIRONMENT_VAR_NOT_ENABLED,
-          );
-        }
-
-        if (
-          !isModelAllowedByWorkspace(
-            modelId,
-            effectiveWorkspace,
-            this.aiModelRegistryService.getRecommendedModelIds(),
-          )
-        ) {
-          throw new WorkspaceException(
-            'Selected model is not available in this workspace',
             WorkspaceExceptionCode.ENVIRONMENT_VAR_NOT_ENABLED,
           );
         }
@@ -409,7 +383,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
       );
 
     const executedByVersion =
-      this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+      this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
     const queryRunner = this.coreDataSource.createQueryRunner();
 

@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { RecordIndexCommandMenu } from '@/command-menu-item/components/RecordIndexCommandMenu';
 import { SidePanelToggleButton } from '@/side-panel/components/SidePanelToggleButton';
 import { MAIN_CONTEXT_STORE_INSTANCE_ID } from '@/context-store/constants/MainContextStoreInstanceId';
@@ -11,7 +12,6 @@ import { PageHeader } from '@/ui/layout/page/components/PageHeader';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 

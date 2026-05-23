@@ -5,7 +5,7 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { lazy, Suspense, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { isDefined } from 'shared/utils';
@@ -128,13 +128,13 @@ export const GlobalFilePreviewModal = (): JSX.Element | null => {
                 fallback={
                   <StyledLoadingContainer>
                     <StyledLoadingText>
-                      {t`Loading document viewer...`}
+                      {t`Memuat penampil dokumen...`}
                     </StyledLoadingText>
                   </StyledLoadingContainer>
                 }
               >
                 <DocumentViewer
-                  documentName={filePreview.label ?? t`Untitled`}
+                  documentName={filePreview.label ?? t`Tanpa judul`}
                   documentUrl={filePreview.url ?? ''}
                   documentExtension={filePreview.extension ?? ''}
                 />

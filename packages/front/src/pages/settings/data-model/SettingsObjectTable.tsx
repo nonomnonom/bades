@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { useDeleteOneObjectMetadataItem } from '@/object-metadata/hooks/useDeleteOneObjectMetadataItem';
@@ -23,7 +24,6 @@ import { useSortedArray } from '@/ui/layout/table/hooks/useSortedArray';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { type ReactNode, useContext, useMemo, useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

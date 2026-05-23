@@ -2,7 +2,6 @@ import { type ClientConfig } from '@/client-config/types/ClientConfig';
 import { CaptchaDriverType, SupportDriver } from '~/generated-metadata/graphql';
 
 export const mockedClientConfig: ClientConfig = {
-  aiModels: [],
   signInPrefilled: true,
   isMultiWorkspaceEnabled: false,
   isEmailVerificationRequired: false,
@@ -56,7 +55,7 @@ export const mockedClientConfig: ClientConfig = {
   isEmailGroupEnabled: false,
   isTwoFactorAuthenticationEnabled: false,
   isEmailingDomainsEnabled: false,
-  allowRequestsToTwentyIcons: true,
+  allowRequestsToFaviconService: true,
   isCloudflareIntegrationEnabled: false,
   isClickHouseConfigured: false,
   isWorkspaceSchemaDDLLocked: false,

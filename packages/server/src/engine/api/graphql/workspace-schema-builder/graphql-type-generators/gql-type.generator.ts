@@ -1,9 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import {
-  type CompositeType,
-  compositeTypeDefinitions,
-} from 'shared/types';
+import { type CompositeType, compositeTypeDefinitions } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { WorkspaceResolverBuilderService } from 'src/engine/api/graphql/workspace-resolver-builder/workspace-resolver-builder.service';

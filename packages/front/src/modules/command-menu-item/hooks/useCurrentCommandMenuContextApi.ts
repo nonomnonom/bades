@@ -24,10 +24,7 @@ import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/use
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { isNonEmptyArray } from '@sniptt/guards';
 import { useAtomValue, useStore } from 'jotai';
-import {
-  ContextStorePageType,
-  type CommandMenuContextApi,
-} from 'shared/types';
+import { ContextStorePageType, type CommandMenuContextApi } from 'shared/types';
 import { isDefined, resolveObjectMetadataLabel } from 'shared/utils';
 
 export const useCurrentCommandMenuContextApi = (): CommandMenuContextApi => {

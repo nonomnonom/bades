@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { RecordBoardColumnContext } from '@/object-record/record-board/record-board-column/contexts/RecordBoardColumnContext';
 import { useRecordGroupVisibility } from '@/object-record/record-group/hooks/useRecordGroupVisibility';
@@ -13,7 +14,6 @@ import { useAtomComponentFamilySelectorValue } from '@/ui/utilities/state/jotai/
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { type ViewType } from '@/views/types/ViewType';
-import { t } from '@lingui/core/macro';
 import { isUndefined } from '@sniptt/guards';
 import { useCallback, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -101,7 +101,7 @@ export const useRecordGroupActions = ({
   const recordGroupActions: RecordGroupAction[] = [
     {
       id: 'edit',
-      label: t`Edit`,
+      label: t`Ubah`,
       icon: IconSettings,
       position: 0,
       condition: hasAccessToDataModelSettings,
@@ -109,7 +109,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'moveRight',
-      label: t`Move right`,
+      label: t`Geser kanan`,
       icon: IconArrowRight,
       condition:
         !isCurrentRecordGroupNotFound &&
@@ -123,7 +123,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'moveLeft',
-      label: t`Move left`,
+      label: t`Geser kiri`,
       icon: IconArrowLeft,
       condition: !isCurrentRecordGroupNotFound && currentIndex > 0,
       position: 2,
@@ -135,7 +135,7 @@ export const useRecordGroupActions = ({
     },
     {
       id: 'hide',
-      label: t`Hide`,
+      label: t`Sembunyikan`,
       icon: IconEyeOff,
       position: 3,
       callback: () =>

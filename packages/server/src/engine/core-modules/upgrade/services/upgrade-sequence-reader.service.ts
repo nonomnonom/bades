@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS } from 'src/engine/core-modules/upgrade/constants/twenty-cross-upgrade-supported-version.constant';
+import { BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS } from 'src/engine/core-modules/upgrade/constants/bades-cross-upgrade-supported-version.constant';
 import {
   type RegisteredFastInstanceCommand,
   type RegisteredSlowInstanceCommand,
@@ -37,7 +37,7 @@ export class UpgradeSequenceReaderService {
   getUpgradeSequence(): UpgradeStep[] {
     const sequence: UpgradeStep[] = [];
 
-    for (const version of TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS) {
+    for (const version of BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS) {
       const bundle =
         this.upgradeCommandRegistryService.getBundleForVersion(version);
 
@@ -68,12 +68,12 @@ export class UpgradeSequenceReaderService {
 
     if (cursor === -1) {
       const supportedVersions =
-        TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS.join(', ');
+        BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS.join(', ');
 
       throw new Error(
         `Step "${stepName}" not found in upgrade sequence. ` +
           `The sequence only covers versions [${supportedVersions}]. ` +
-          `Please upgrade to ${TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS[0]} first.`,
+          `Please upgrade to ${BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS[0]} first.`,
       );
     }
 

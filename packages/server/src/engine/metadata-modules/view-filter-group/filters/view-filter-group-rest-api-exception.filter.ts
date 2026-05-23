@@ -1,3 +1,4 @@
+import { msg } from 'src/utils/bades-i18n';
 import {
   type ArgumentsHost,
   Catch,
@@ -5,7 +6,6 @@ import {
   Injectable,
 } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
 import { type Response } from 'express';
 import { SOURCE_LOCALE } from 'shared/translations';
 

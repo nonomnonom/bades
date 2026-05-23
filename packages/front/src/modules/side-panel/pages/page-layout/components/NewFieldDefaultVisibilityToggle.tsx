@@ -2,7 +2,7 @@ import { CommandMenuItemToggle } from '@/command-menu/components/CommandMenuItem
 import { useGetNewFieldDefaultVisibility } from '@/page-layout/widgets/fields/hooks/useGetNewFieldDefaultVisibility';
 import { useUpdateNewFieldDefaultVisibility } from '@/page-layout/widgets/fields/hooks/useUpdateNewFieldDefaultVisibility';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconEye } from 'ui/display';
 
 export const NewFieldDefaultVisibilityToggle = ({
@@ -36,7 +36,7 @@ export const NewFieldDefaultVisibilityToggle = ({
     >
       <CommandMenuItemToggle
         LeftIcon={IconEye}
-        text={t`Set fields created in the future as "visible"`}
+        text={t`Jadikan kolom yang dibuat nanti sebagai "terlihat"`}
         id="new-field-default-visibility"
         toggled={newFieldDefaultVisibility}
         onToggleChange={handleToggle}

@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 import { type Response } from 'express';
 
 import { type WorkspaceMigrationBuilderException } from 'src/engine/workspace-manager/workspace-migration/exceptions/workspace-migration-builder-exception';

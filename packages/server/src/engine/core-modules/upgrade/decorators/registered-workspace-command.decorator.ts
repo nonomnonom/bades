@@ -1,15 +1,15 @@
 import 'reflect-metadata';
-import { TwentyAllVersion } from 'src/engine/core-modules/upgrade/constants/twenty-all-versions.constant';
+import { BadesAllVersion } from 'src/engine/core-modules/upgrade/constants/bades-all-versions.constant';
 
 export type RegisteredWorkspaceCommandMetadata = {
-  version: TwentyAllVersion;
+  version: BadesAllVersion;
   timestamp: number;
 };
 
 const REGISTERED_WORKSPACE_COMMAND_KEY = 'REGISTERED_WORKSPACE_COMMAND';
 
 export const RegisteredWorkspaceCommand =
-  (version: TwentyAllVersion, timestamp: number): ClassDecorator =>
+  (version: BadesAllVersion, timestamp: number): ClassDecorator =>
   (target) => {
     Reflect.defineMetadata(
       REGISTERED_WORKSPACE_COMMAND_KEY,

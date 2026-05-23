@@ -1,5 +1,5 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { useContext } from 'react';
 import Skeleton from 'react-loading-skeleton';
 

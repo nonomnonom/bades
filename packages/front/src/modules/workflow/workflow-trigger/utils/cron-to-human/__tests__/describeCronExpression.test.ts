@@ -2,57 +2,57 @@ import { describeCronExpression } from '@/workflow/workflow-trigger/utils/cron-t
 
 describe('describeCronExpression', () => {
   describe('basic expressions', () => {
-    it('should describe every minute', () => {
-      expect(describeCronExpression('* * * * *')).toBe('every minute');
+    it('should describe setiap menit', () => {
+      expect(describeCronExpression('* * * * *')).toBe('setiap menit');
     });
 
-    it('should describe every 5 minutes', () => {
-      expect(describeCronExpression('*/5 * * * *')).toBe('every 5 minutes');
+    it('should describe setiap 5 menit', () => {
+      expect(describeCronExpression('*/5 * * * *')).toBe('setiap 5 menit');
     });
 
-    it('should describe every hour', () => {
-      expect(describeCronExpression('0 * * * *')).toBe('every hour');
+    it('should describe setiap jam', () => {
+      expect(describeCronExpression('0 * * * *')).toBe('setiap jam');
     });
 
-    it('should describe every 2 hours', () => {
-      expect(describeCronExpression('0 */2 * * *')).toBe('every 2 hours');
+    it('should describe setiap 2 jam', () => {
+      expect(describeCronExpression('0 */2 * * *')).toBe('setiap 2 jam');
     });
 
     it('should describe daily at specific time', () => {
-      expect(describeCronExpression('30 14 * * *')).toBe('at 14:30 UTC');
+      expect(describeCronExpression('30 14 * * *')).toBe('pukul 14:30 UTC');
     });
 
     it('should describe daily at midnight', () => {
-      expect(describeCronExpression('0 0 * * *')).toBe('at 00:00 UTC');
+      expect(describeCronExpression('0 0 * * *')).toBe('pukul 00:00 UTC');
     });
   });
 
   describe('day-specific expressions', () => {
     it('should describe every day', () => {
-      expect(describeCronExpression('0 9 * * *')).toBe('at 09:00 UTC');
+      expect(describeCronExpression('0 9 * * *')).toBe('pukul 09:00 UTC');
     });
 
-    it('should describe every 3 days', () => {
+    it('should describe setiap 3 hari', () => {
       expect(describeCronExpression('0 9 */3 * *')).toBe(
-        'at 09:00 UTC every 3 days',
+        'pukul 09:00 UTC setiap 3 hari',
       );
     });
 
     it('should describe weekdays', () => {
       expect(describeCronExpression('0 9 * * 1-5')).toBe(
-        'at 09:00 UTC on weekdays',
+        'pukul 09:00 UTC hanya hari kerja',
       );
     });
 
     it('should describe specific day of month', () => {
       expect(describeCronExpression('0 9 15 * *')).toBe(
-        'at 09:00 UTC on the 15th of the month',
+        'pukul 09:00 UTC pada tanggal 15th bulan ini',
       );
     });
 
     it('should describe last day of month', () => {
       expect(describeCronExpression('0 9 L * *')).toBe(
-        'at 09:00 UTC on the last day of the month',
+        'pukul 09:00 UTC pada hari terakhir bulan ini',
       );
     });
   });
@@ -60,94 +60,94 @@ describe('describeCronExpression', () => {
   describe('month-specific expressions', () => {
     it('should describe specific month', () => {
       expect(describeCronExpression('0 9 1 1 *')).toBe(
-        'at 09:00 UTC on the 1st of the month only in January',
+        'pukul 09:00 UTC pada tanggal 1th bulan ini hanya pada January',
       );
     });
 
     it('should describe multiple months', () => {
       expect(describeCronExpression('0 9 * 1,6,12 *')).toBe(
-        'at 09:00 UTC only in January, June and December',
+        'pukul 09:00 UTC hanya pada January, June dan December',
       );
     });
 
     it('should describe month range', () => {
       expect(describeCronExpression('0 9 * 6-8 *')).toBe(
-        'at 09:00 UTC between June and August',
+        'pukul 09:00 UTC antara June dan August',
       );
     });
 
-    it('should describe every 3 months', () => {
+    it('should describe setiap 3 bulan', () => {
       expect(describeCronExpression('0 9 1 */3 *')).toBe(
-        'at 09:00 UTC on the 1st of the month every 3 months',
+        'pukul 09:00 UTC pada tanggal 1th bulan ini setiap 3 bulan',
       );
     });
   });
 
   describe('complex expressions', () => {
-    it('should describe business hours every 15 minutes on weekdays', () => {
+    it('should describe business hours setiap 15 menit hanya hari kerja', () => {
       expect(describeCronExpression('*/15 9-17 * * 1-5')).toBe(
-        'every 15 minutes between 09:00 UTC and 17:00 UTC on weekdays',
+        'setiap 15 menit antara 09:00 UTC dan 17:00 UTC hanya hari kerja',
       );
     });
 
     it('should describe first Monday of every month', () => {
       expect(describeCronExpression('0 9 * * 1#1')).toBe(
-        'at 09:00 UTC on the first Monday of the month',
+        'pukul 09:00 UTC pada Monday pertama bulan ini',
       );
     });
 
     it('should describe last Friday of every month', () => {
       expect(describeCronExpression('0 17 * * 5L')).toBe(
-        'at 17:00 UTC on the last Friday of the month',
+        'pukul 17:00 UTC pada Friday terakhir bulan ini',
       );
     });
 
     it('should describe multiple specific times', () => {
       expect(describeCronExpression('0 9,12,15 * * *')).toBe(
-        'at 09:00 UTC, 12:00 UTC and 15:00 UTC',
+        'pukul 09:00 UTC, 12:00 UTC dan 15:00 UTC',
       );
     });
 
     it('should describe range of minutes', () => {
       expect(describeCronExpression('15-45 * * * *')).toBe(
-        'between minute 15 and 45',
+        'antara menit ke-15 dan 45',
       );
     });
 
     it('should describe specific minutes on specific hours', () => {
       expect(describeCronExpression('30 9,14 * * *')).toBe(
-        'at 09:30 UTC and 14:30 UTC',
+        'pukul 09:30 UTC dan 14:30 UTC',
       );
     });
   });
 
   describe('real-world complex expressions', () => {
-    it('should describe business hours every 15 minutes on weekdays', () => {
+    it('should describe business hours setiap 15 menit hanya hari kerja', () => {
       expect(describeCronExpression('*/15 9-17 * * 1-5')).toBe(
-        'every 15 minutes between 09:00 UTC and 17:00 UTC on weekdays',
+        'setiap 15 menit antara 09:00 UTC dan 17:00 UTC hanya hari kerja',
       );
     });
 
     it('should describe quarterly reports', () => {
       expect(describeCronExpression('0 9 1 1,4,7,10 *')).toBe(
-        'at 09:00 UTC on the 1st of the month only in January, April, July and October',
+        'pukul 09:00 UTC pada tanggal 1th bulan ini hanya pada January, April, July dan October',
       );
     });
 
     it('should describe range of minutes', () => {
       expect(describeCronExpression('15-45 * * * *')).toBe(
-        'between minute 15 and 45',
+        'antara menit ke-15 dan 45',
       );
     });
 
     it('should describe 4-field format expressions', () => {
-      expect(describeCronExpression('9 * * *')).toBe('at 09:00 UTC');
-      expect(describeCronExpression('*/2 * * *')).toBe('every 2 hours');
+      expect(describeCronExpression('9 * * *')).toBe('pukul 09:00 UTC');
+      expect(describeCronExpression('*/2 * * *')).toBe('setiap 2 jam');
       expect(describeCronExpression('9 15 * *')).toBe(
-        'at 09:00 UTC on the 15th of the month',
+        'pukul 09:00 UTC pada tanggal 15th bulan ini',
       );
       expect(describeCronExpression('9 * * 1')).toBe(
-        'at 09:00 UTC only on Monday',
+        'pukul 09:00 UTC hanya pada Monday',
       );
     });
   });
@@ -176,7 +176,7 @@ describe('describeCronExpression', () => {
     it('should use 12-hour format when specified', () => {
       expect(
         describeCronExpression('0 14 * * *', { use24HourTimeFormat: false }),
-      ).toBe('at 2:00 PM UTC');
+      ).toBe('pukul 2:00 PM UTC');
     });
 
     it('should use 12-hour format for multiple times', () => {
@@ -184,7 +184,7 @@ describe('describeCronExpression', () => {
         describeCronExpression('0 9,14,18 * * *', {
           use24HourTimeFormat: false,
         }),
-      ).toBe('at 9:00 AM UTC, 2:00 PM UTC and 6:00 PM UTC');
+      ).toBe('pukul 9:00 AM UTC, 2:00 PM UTC dan 6:00 PM UTC');
     });
   });
 });

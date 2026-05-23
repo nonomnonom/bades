@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto from 'crypto';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { GraphQLJSONObject } from 'graphql-type-json';
 import { PermissionFlagType } from 'shared/constants';
 import { isDefined } from 'shared/utils';
@@ -86,7 +86,7 @@ export class UserResolver {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     private readonly userService: UserService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly onboardingService: OnboardingService,
     private readonly userVarService: UserVarsService,
     @InjectRepository(UserWorkspaceEntity)
@@ -352,12 +352,10 @@ export class UserResolver {
     nullable: true,
   })
   supportUserHash(@Parent() parent: UserEntity): string | null {
-    if (
-      this.twentyConfigService.get('SUPPORT_DRIVER') !== SupportDriver.FRONT
-    ) {
+    if (this.badesConfigService.get('SUPPORT_DRIVER') !== SupportDriver.FRONT) {
       return null;
     }
-    const key = this.twentyConfigService.get('SUPPORT_FRONT_HMAC_KEY');
+    const key = this.badesConfigService.get('SUPPORT_FRONT_HMAC_KEY');
 
     return getHMACKey(parent.email, key);
   }

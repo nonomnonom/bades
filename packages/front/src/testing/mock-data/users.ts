@@ -92,8 +92,6 @@ export const mockCurrentWorkspace = {
   fastModel: AUTO_SELECT_FAST_MODEL_ID,
   smartModel: AUTO_SELECT_SMART_MODEL_ID,
   routerModel: 'auto',
-  enabledAiModelIds: [],
-  useRecommendedModels: true,
   isInternalMessagesImportEnabled: false,
   currentBillingSubscription: {
     __typename: 'BillingSubscription',
@@ -101,9 +99,7 @@ export const mockCurrentWorkspace = {
     interval: SubscriptionInterval.Month,
     status: SubscriptionStatus.Active,
     currentPeriodEnd: new Date().toString(),
-    metadata: {
-      plan: PRO_PLAN.planKey,
-    },
+    planKey: PRO_PLAN.planKey,
     phases: [],
     billingSubscriptionItems: [
       {
@@ -140,7 +136,7 @@ export const mockCurrentWorkspace = {
       __typename: 'BillingSubscription',
       id: '7efbc3f7-6e5e-4128-957e-8d86808cdf6a',
       status: SubscriptionStatus.Active,
-      metadata: {},
+      planKey: PRO_PLAN.planKey,
       phases: [],
       billingSubscriptionItems: [
         {
@@ -171,26 +167,26 @@ export const mockedWorkspaceMemberData: WorkspaceMember = {
   id: '7dfbc3f7-6e5e-4128-957e-8d86808cdf6b',
   colorScheme: 'Light',
   avatarUrl,
-  locale: 'en',
+  locale: 'id-ID',
   name: {
-    firstName: 'Charles',
-    lastName: 'Test',
+    firstName: 'Budi',
+    lastName: 'Santoso',
   },
   createdAt: '2023-04-26T10:23:42.33625+00:00',
   updatedAt: '2023-04-26T10:23:42.33625+00:00',
   userId: '2603c1f9-0172-4ea6-986c-eeaccdf7f4cf',
-  userEmail: 'charles@test.com',
+  userEmail: 'budi@sukamaju.desa.id',
   dateFormat: WorkspaceMemberDateFormatEnum.DAY_FIRST,
   timeFormat: WorkspaceMemberTimeFormatEnum.HOUR_24,
-  timeZone: 'America/New_York',
+  timeZone: 'Asia/Jakarta',
 };
 
 export const mockedUserData: MockedUser = {
   id: '7dfbc3f7-6e5e-4128-957e-8d86808cdf6d',
   __typename: 'User',
-  email: 'charles@test.com',
-  firstName: 'Charles',
-  lastName: 'Test',
+  email: 'budi@sukamaju.desa.id',
+  firstName: 'Budi',
+  lastName: 'Santoso',
   canAccessFullAdminPanel: false,
   canImpersonate: false,
   hasPassword: true,
@@ -217,7 +213,7 @@ export const mockedUserData: MockedUser = {
       }),
     ),
   },
-  locale: 'en',
+  locale: 'id-ID',
   workspaces: [{ workspace: mockCurrentWorkspace }],
   workspaceMembers: [mockedWorkspaceMemberData],
   onboardingStatus: OnboardingStatus.COMPLETED,
@@ -283,7 +279,7 @@ export const mockedOnboardingUserData = (
         }),
       ),
     },
-    locale: 'en',
+    locale: 'id-ID',
     workspaces: [{ workspace: mockCurrentWorkspace }],
     onboardingStatus: onboardingStatus || null,
     userVars: {},

@@ -73,8 +73,6 @@ describe('useColumnDefinitionsFromObjectMetadata', () => {
       eventLogRetentionDays: 365 * 3,
       fastModel: AUTO_SELECT_FAST_MODEL_ID,
       smartModel: AUTO_SELECT_SMART_MODEL_ID,
-      enabledAiModelIds: [],
-      useRecommendedModels: true,
       isInternalMessagesImportEnabled: false,
     });
 

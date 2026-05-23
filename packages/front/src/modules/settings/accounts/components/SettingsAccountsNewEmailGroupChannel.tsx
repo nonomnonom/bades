@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useState } from 'react';
 import { z } from 'zod';
 
@@ -72,12 +72,12 @@ export const SettingsAccountsNewEmailGroupChannel = () => {
         <Section>
           <H2Title
             title={t`Alamat Email`}
-            description={t`Masukkan alamat email yang ingin Anda teruskan emailnya (mis. support@mycompany.com).`}
+            description={t`Masukkan alamat email yang ingin Anda teruskan emailnya (mis. pelayanan@sukamaju.desa.id).`}
           />
           <SettingsTextInput
             instanceId="email-group-handle"
             label={t`Alamat Email Sumber`}
-            placeholder="support@mycompany.com"
+            placeholder="pelayanan@sukamaju.desa.id"
             value={handle}
             onChange={setHandle}
             disabled={loading}

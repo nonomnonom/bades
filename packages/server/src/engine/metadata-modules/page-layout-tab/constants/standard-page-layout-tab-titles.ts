@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 
 // This file exists solely for Lingui string extraction.
 // The strings defined here correspond to standard page layout tab titles

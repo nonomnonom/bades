@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 import { FileIcon } from '@/file/components/FileIcon';
 import { type FieldFilesValue } from '@/object-record/record-field/ui/types/FieldMetadata';
@@ -56,7 +56,7 @@ export const FileChip = ({
           label={file.label}
           alwaysShowTooltip={isDeleted}
           tooltipLabel={
-            isDeleted ? t`File no longer exists - ${file.label}` : undefined
+            isDeleted ? t`File tidak lagi tersedia - ${file.label}` : undefined
           }
           disabled={isDeleted}
           maxWidth={MAX_WIDTH}

@@ -2,20 +2,17 @@ import { SettingsPath } from 'shared/types';
 
 import { useAuth } from '@/auth/hooks/useAuth';
 import { currentUserState } from '@/auth/states/currentUserState';
-import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { billingState } from '@/client-config/states/billingState';
 import { supportChatState } from '@/client-config/states/supportChatState';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { getDocumentationUrl } from '@/support/utils/getDocumentationUrl';
 import {
   type NavigationDrawerItemIndentationLevel,
   type NavigationDrawerItemModifier,
 } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerItem';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import {
-  IconApi,
   // IconApps, // TODO: Re-enable when integrations page is ready
   IconAt,
   IconCalendarEvent,
@@ -23,7 +20,6 @@ import {
   type IconComponent,
   IconCurrencyDollar,
   IconDoorEnter,
-  IconHelpCircle,
   IconHierarchy2,
   IconKey,
   IconMail,
@@ -61,7 +57,6 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
   const billing = useAtomStateValue(billingState);
   const { signOut } = useAuth();
   const supportChat = useAtomStateValue(supportChatState);
-  const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
   const isBillingEnabled = billing?.isBillingEnabled ?? false;
   const currentUser = useAtomStateValue(currentUserState);
@@ -121,10 +116,14 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
+          // Model Data adalah fitur lanjutan untuk pengaturan struktur data.
+          // Ditempatkan di pengaturan lanjutan agar tidak membingungkan
+          // pengguna non-teknis yang tugas utamanya adalah administrasi harian.
           label: t`Model Data`,
           path: SettingsPath.Objects,
           Icon: IconHierarchy2,
           isHidden: !permissionMap[PermissionFlagType.DATA_MODEL],
+          isAdvanced: true,
         },
         {
           label: t`Anggota`,
@@ -138,16 +137,6 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           Icon: IconCurrencyDollar,
           isHidden:
             !isBillingEnabled || !permissionMap[PermissionFlagType.WORKSPACE],
-        },
-        {
-          // API key, webhook, dan playground adalah surface developer teknis.
-          // Disembunyikan dari navigasi pengguna utama sesuai arah produk Bades
-          // (kapabilitas internal tim, bukan fitur perangkat desa).
-          // Route tetap aktif untuk akses tim internal yang memiliki izin.
-          label: t`API & Webhook`,
-          path: SettingsPath.ApiWebhooks,
-          Icon: IconApi,
-          isHidden: true,
         },
         // TODO: Re-enable when integrations page is ready
         // {
@@ -167,18 +156,21 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           modifier: 'new',
         },
         {
+          // Konfigurasi AI (agent, skill, tool, prompt, MCP) adalah
+          // kapabilitas operasional tim Bades, bukan fitur perangkat desa.
+          // Disembunyikan dari navigasi pengguna utama, hanya tampil untuk
+          // admin yang memiliki akses panel penuh.
           label: t`AI`,
           path: SettingsPath.AI,
           Icon: IconSparkles,
-          isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
-          modifier: 'new',
+          isHidden: !isAdminEnabled,
         },
         {
           label: t`Keamanan`,
           path: SettingsPath.Security,
           Icon: IconKey,
           isAdvanced: true,
-          isHidden: !permissionMap[PermissionFlagType.SECURITY],
+          isHidden: !isAdminEnabled,
         },
       ],
     },
@@ -204,15 +196,6 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           onClick: () => window.FrontChat?.('show'),
           Icon: IconMessage,
           isHidden: !isSupportChatConfigured,
-        },
-        {
-          label: t`Dokumentasi`,
-          onClick: () =>
-            window.open(
-              getDocumentationUrl({ locale: currentWorkspaceMember?.locale }),
-              '_blank',
-            ),
-          Icon: IconHelpCircle,
         },
         {
           label: t`Keluar`,

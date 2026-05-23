@@ -59,7 +59,7 @@ export const CURRENCY_CODE_LABELS: Record<CurrencyCode, { label: string }> = {
   HNL: { label: 'Honduran lempira' },
   HTG: { label: 'Haitian gourde' },
   HUF: { label: 'Hungarian forint' },
-  IDR: { label: 'Indonesian rupiah' },
+  IDR: { label: 'Rupiah Indonesia' },
   ILS: { label: 'Israeli shekel' },
   INR: { label: 'Indian rupee' },
   IQD: { label: 'Iraqi dinar' },

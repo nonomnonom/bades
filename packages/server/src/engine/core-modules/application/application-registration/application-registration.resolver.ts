@@ -67,7 +67,7 @@ export class ApplicationRegistrationResolver {
     private readonly applicationRegistrationVariableService: ApplicationRegistrationVariableService,
     private readonly applicationTarballService: ApplicationTarballService,
     private readonly fileUrlService: FileUrlService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @UseGuards(PublicEndpointGuard, NoPermissionGuard)
@@ -254,7 +254,7 @@ export class ApplicationRegistrationResolver {
     universalIdentifier: string | undefined,
     @AuthWorkspace() { id: workspaceId }: WorkspaceEntity,
   ): Promise<ApplicationRegistrationEntity> {
-    const maxSize = this.twentyConfigService.get(
+    const maxSize = this.badesConfigService.get(
       'MAX_TARBALL_UPLOAD_SIZE_BYTES',
     );
 

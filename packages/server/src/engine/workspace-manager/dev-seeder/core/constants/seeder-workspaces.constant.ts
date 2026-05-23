@@ -18,7 +18,8 @@ export type CreateWorkspaceInput = Pick<
   (typeof WORKSPACE_FIELDS_TO_SEED)[number]
 >;
 
-export const SEED_SUKAMAJU_WORKSPACE_ID = '20202020-1c25-4d02-bf25-6aeccf7ea419';
+export const SEED_SUKAMAJU_WORKSPACE_ID =
+  '20202020-1c25-4d02-bf25-6aeccf7ea419';
 export const SEED_MEKARSARI_WORKSPACE_ID =
   '3b8e6458-5fc1-4e63-8563-008ccddaa6db';
 export const SEED_EMPTY_WORKSPACE_3_ID = '506915ec-21ca-431b-a04a-257eb216865e';

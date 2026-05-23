@@ -1,7 +1,7 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type NonReadableViewFieldInfo } from '@/object-record/record-index/hooks/useHasCurrentViewNonReadableFields';
 import { getNonReadableViewFieldSubTitle } from '@/object-record/record-index/utils/getNonReadableViewFieldSubTitle';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import {
   AnimatedPlaceholder,
@@ -30,13 +30,13 @@ export const RecordIndexEmptyStateNotShared = ({
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
             {isDefined(nonReadableViewFieldInfo)
-              ? t`View not shared`
-              : t`Object not shared`}
+              ? t`Tampilan tidak dibagikan`
+              : t`Objek tidak dibagikan`}
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
             {isDefined(nonReadableViewFieldInfo)
               ? getNonReadableViewFieldSubTitle(nonReadableViewFieldInfo)
-              : t`You don't have access to this object.`}
+              : t`Anda tidak memiliki akses ke objek ini.`}
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

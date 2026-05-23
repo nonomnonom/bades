@@ -18,7 +18,7 @@ import { themeCssVariables } from 'ui/theme-constants';
 import { dateLocaleState } from '~/localization/states/dateLocaleState';
 import { beautifyPastDateRelativeToNow } from '~/utils/date-utils';
 import { isUndefinedOrNull } from '~/utils/isUndefinedOrNull';
-import { allowRequestsToTwentyIconsState } from '@/client-config/states/allowRequestsToTwentyIcons';
+import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 
 const StyledTimelineItemContainer = styled.div`
   color: ${themeCssVariables.font.color.primary};
@@ -91,8 +91,8 @@ export const EventRow = ({
 }: EventRowProps) => {
   const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
-  const allowRequestsToTwentyIcons = useAtomStateValue(
-    allowRequestsToTwentyIconsState,
+  const allowRequestsToFaviconService = useAtomStateValue(
+    allowRequestsToFaviconServiceState,
   );
 
   const { localeCatalog } = useAtomStateValue(dateLocaleState);
@@ -123,7 +123,7 @@ export const EventRow = ({
   const labelIdentifier = getObjectRecordIdentifier({
     objectMetadataItem: mainObjectMetadataItem,
     record: recordStore,
-    allowRequestsToTwentyIcons,
+    allowRequestsToFaviconService,
   });
 
   const authorFullName = getTimelineActivityAuthorFullName(

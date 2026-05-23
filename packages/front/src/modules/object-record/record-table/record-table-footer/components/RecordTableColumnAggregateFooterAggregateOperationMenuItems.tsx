@@ -1,9 +1,9 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { getAggregateOperationLabel } from '@/object-record/record-board/record-board-column/utils/getAggregateOperationLabel';
 import { RecordTableColumnAggregateFooterDropdownContext } from '@/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterDropdownContext';
 import { useViewFieldAggregateOperation } from '@/object-record/record-table/record-table-footer/hooks/useViewFieldAggregateOperation';
 import { type ExtendedAggregateOperations } from '@/object-record/record-table/types/ExtendedAggregateOperations';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { useLingui } from '@lingui/react/macro';
 import { type ReactNode, useContext } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconCheck } from 'ui/display';

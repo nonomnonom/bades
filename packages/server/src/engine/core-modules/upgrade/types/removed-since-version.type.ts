@@ -1,14 +1,14 @@
 import {
-  TWENTY_ALL_VERSIONS,
-  TwentyAllVersion,
-} from 'src/engine/core-modules/upgrade/constants/twenty-all-versions.constant';
-import { TWENTY_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/twenty-current-version.constant';
+  BADES_ALL_VERSIONS,
+  BadesAllVersion,
+} from 'src/engine/core-modules/upgrade/constants/bades-all-versions.constant';
+import { BADES_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/bades-current-version.constant';
 import { IndexOf, IsGreaterOrEqual } from 'shared/types';
 
-export type RemovedSinceVersion<RemoveAtVersion extends TwentyAllVersion, T> =
+export type RemovedSinceVersion<RemoveAtVersion extends BadesAllVersion, T> =
   IsGreaterOrEqual<
-    IndexOf<typeof TWENTY_CURRENT_VERSION, typeof TWENTY_ALL_VERSIONS>,
-    IndexOf<RemoveAtVersion, typeof TWENTY_ALL_VERSIONS>
+    IndexOf<typeof BADES_CURRENT_VERSION, typeof BADES_ALL_VERSIONS>,
+    IndexOf<RemoveAtVersion, typeof BADES_ALL_VERSIONS>
   > extends true
     ? never
     : T;

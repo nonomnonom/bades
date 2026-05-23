@@ -6,7 +6,7 @@ import { RootStackingContextZIndices } from '@/ui/layout/constants/RootStackingC
 import { PAGE_HEADER_SIDE_PANEL_BUTTON_CLICK_OUTSIDE_ID } from '@/ui/layout/page-header/constants/PageHeaderSidePanelButtonClickOutsideId';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { AppTooltip, TooltipDelay, TooltipPosition } from 'ui/display';
@@ -133,8 +133,8 @@ export const SidePanelToggleButton = () => {
     isMobile && isLayoutCustomizationModeEnabled && isSidePanelOpened;
 
   const ariaLabel = isSidePanelOpened
-    ? t`Close side panel`
-    : t`Open side panel`;
+    ? t`Tutup panel samping`
+    : t`Buka panel samping`;
 
   const { theme } = useContext(ThemeContext);
   return (

@@ -14,14 +14,14 @@ const sessionStorageLogger = new Logger('SessionStorage');
 const REDIS_PING_INTERVAL_MS = 60_000;
 
 export const getSessionStorageOptions = (
-  twentyConfigService: BadesConfigService,
+  badesConfigService: BadesConfigService,
 ): session.SessionOptions => {
   const cacheStorageType = CacheStorageType.Redis;
 
-  const SERVER_URL = twentyConfigService.get('SERVER_URL');
+  const SERVER_URL = badesConfigService.get('SERVER_URL');
 
   const sessionSecrets = resolveSessionCookieSecretsOrThrow({
-    twentyConfigService,
+    badesConfigService,
   });
 
   const sessionStorage: session.SessionOptions = {
@@ -46,7 +46,7 @@ export const getSessionStorageOptions = (
       return sessionStorage;
     }*/
     case CacheStorageType.Redis: {
-      const connectionString = twentyConfigService.get('REDIS_URL');
+      const connectionString = badesConfigService.get('REDIS_URL');
 
       if (!connectionString) {
         throw new Error(

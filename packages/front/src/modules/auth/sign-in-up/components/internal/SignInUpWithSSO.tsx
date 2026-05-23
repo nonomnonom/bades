@@ -10,7 +10,7 @@ import { workspaceAuthProvidersState } from '@/workspace/states/workspaceAuthPro
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { HorizontalSeparator, IconLock } from 'ui/display';
 import { MainButton } from 'ui/input';

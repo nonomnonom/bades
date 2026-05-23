@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { Suspense, lazy } from 'react';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

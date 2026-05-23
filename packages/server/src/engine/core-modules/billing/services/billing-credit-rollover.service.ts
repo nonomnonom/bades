@@ -18,12 +18,10 @@ export class BillingCreditRolloverService {
 
   async processRolloverOnPeriodTransition({
     workspaceId,
-    stripeCustomerId,
     tierQuantity,
     previousPeriodStart,
   }: {
     workspaceId: string;
-    stripeCustomerId: string;
     tierQuantity: number;
     previousPeriodStart: Date;
   }): Promise<void> {
@@ -37,7 +35,7 @@ export class BillingCreditRolloverService {
     const rolloverAmount = Math.min(unusedCredits, tierQuantity);
 
     await this.billingCustomerRepository.update(
-      { stripeCustomerId },
+      { workspaceId },
       { creditBalanceMicro: rolloverAmount },
     );
   }

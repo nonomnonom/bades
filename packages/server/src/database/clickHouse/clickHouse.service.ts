@@ -20,10 +20,10 @@ export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
   private isClientInitializing: Map<string, boolean> = new Map();
   private readonly logger = new Logger(ClickHouseService.name);
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {
-    if (this.twentyConfigService.get('CLICKHOUSE_URL')) {
+  constructor(private readonly badesConfigService: BadesConfigService) {
+    if (this.badesConfigService.get('CLICKHOUSE_URL')) {
       this.mainClient = createClient({
-        url: this.twentyConfigService.get('CLICKHOUSE_URL'),
+        url: this.badesConfigService.get('CLICKHOUSE_URL'),
         compression: {
           response: true,
           request: true,
@@ -46,7 +46,7 @@ export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
     clientId: string,
     url?: string,
   ): Promise<ClickHouseClient | undefined> {
-    if (!this.twentyConfigService.get('CLICKHOUSE_URL')) {
+    if (!this.badesConfigService.get('CLICKHOUSE_URL')) {
       return undefined;
     }
 
@@ -83,7 +83,7 @@ export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
     url?: string,
   ): Promise<ClickHouseClient> {
     const client = createClient({
-      url: url ?? this.twentyConfigService.get('CLICKHOUSE_URL'),
+      url: url ?? this.badesConfigService.get('CLICKHOUSE_URL'),
       compression: {
         response: true,
         request: true,
@@ -92,7 +92,7 @@ export class ClickHouseService implements OnModuleInit, OnModuleDestroy {
         async_insert: 1,
         wait_for_async_insert: 1,
       },
-      application: 'twenty',
+      application: 'bades',
       log: { level: ClickHouseLogLevel.OFF },
     });
 

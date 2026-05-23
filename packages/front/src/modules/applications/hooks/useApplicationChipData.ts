@@ -6,7 +6,7 @@ import { isBadesStandardApplication } from '@/applications/utils/isBadesStandard
 import { isWorkspaceCustomApplication } from '@/applications/utils/isWorkspaceCustomApplication';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { buildApplicationLogoUrl } from '@/applications/utils/buildApplicationLogoUrl';
 import CustomLogo from '~/pages/settings/applications/assets/custom-illustrations/custom-logo.webp';

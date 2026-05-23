@@ -1,6 +1,6 @@
 /* @license Enterprise */
 
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { getFilterTypeFromFieldType } from 'shared/utils';
 
 import { CoreObjectNameSingular, FieldMetadataType } from 'shared/types';
@@ -131,7 +131,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionFieldSelectF
           selectableItemIdArray={selectableItemIdArray}
           selectableListInstanceId={advancedFilterFieldSelectDropdownId}
         >
-          <DropdownMenuSectionLabel label={t`Fields`} />
+          <DropdownMenuSectionLabel label={t`Kolom`} />
           <DropdownMenuItemsContainer>
             {filteredFieldMetadataItems.map((fieldMetadataItem) => (
               <SelectableListItem

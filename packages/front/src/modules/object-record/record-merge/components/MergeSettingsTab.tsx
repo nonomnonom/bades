@@ -1,10 +1,10 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useMergeRecordsSelectedRecords } from '@/object-record/record-merge/hooks/useMergeRecordsSelectedRecords';
 import { useMergeRecordsSettings } from '@/object-record/record-merge/hooks/useMergeRecordsSettings';
 import { getPositionNumberIcon } from '@/object-record/record-merge/utils/getPositionNumberIcon';
 import { getPositionWordLabel } from '@/object-record/record-merge/utils/getPositionWordLabel';
 import { Select } from '@/ui/input/components/Select';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 

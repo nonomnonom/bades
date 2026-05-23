@@ -1,7 +1,7 @@
 import { isDefined } from 'shared/utils';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { SettingsDnsRecordsTable } from '@/settings/components/SettingsDnsRecordsTable';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { type ThemeColor } from 'ui/theme';

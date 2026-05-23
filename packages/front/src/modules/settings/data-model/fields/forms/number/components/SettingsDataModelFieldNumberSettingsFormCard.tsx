@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Separator } from '@/settings/components/Separator';
 import { SettingsDataModelPreviewFormCard } from '@/settings/data-model/components/SettingsDataModelPreviewFormCard';
 import { SettingsDataModelFieldIsUniqueForm } from '@/settings/data-model/fields/forms/components/SettingsDataModelFieldIsUniqueForm';
@@ -26,7 +26,7 @@ export const SettingsDataModelFieldNumberSettingsFormCard = ({
         <SettingsDataModelFieldPreviewWidget
           fieldMetadataItem={{
             icon: watch('icon'),
-            label: watch('label') || t`New Field`,
+            label: watch('label') || t`Kolom Baru`,
             settings: watch('settings') || null,
             type: FieldMetadataType.NUMBER,
           }}

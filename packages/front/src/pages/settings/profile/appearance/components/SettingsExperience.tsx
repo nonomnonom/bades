@@ -1,8 +1,8 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { FormatPreferencesSettings } from '@/settings/experience/components/FormatPreferencesSettings';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useColorScheme } from '@/ui/theme/hooks/useColorScheme';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title } from 'ui/display';

@@ -1,5 +1,5 @@
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useMutation } from '@apollo/client/react';
@@ -23,7 +23,7 @@ export const useUpgradeApplication = () => {
 
       if (isDefined(result.data)) {
         enqueueSuccessSnackBar({
-          message: t`Application upgraded successfully.`,
+          message: t`Aplikasi berhasil diperbarui.`,
         });
 
         return true;
@@ -34,7 +34,7 @@ export const useUpgradeApplication = () => {
       const graphqlMessage = error instanceof Error ? error.message : undefined;
 
       enqueueErrorSnackBar({
-        message: graphqlMessage ?? t`Failed to upgrade the application.`,
+        message: graphqlMessage ?? t`Gagal memperbarui aplikasi.`,
       });
 
       return false;

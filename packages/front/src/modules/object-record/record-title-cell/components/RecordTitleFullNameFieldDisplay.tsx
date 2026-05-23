@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import { useFullNameFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useFullNameFieldDisplay';
 import { useRecordTitleCell } from '@/object-record/record-title-cell/hooks/useRecordTitleCell';
@@ -5,7 +6,6 @@ import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFi
 import { usePushFocusItemToFocusStack } from '@/ui/utilities/focus/hooks/usePushFocusItemToFocusStack';
 import { FocusComponentType } from '@/ui/utilities/focus/types/FocusComponentType';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useContext } from 'react';
 import { OverflowingTextWithTooltip } from 'ui/display';

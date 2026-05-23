@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 import { isConfigVariablesInDbEnabledState } from '@/client-config/states/isConfigVariablesInDbEnabledState';
 import { TextInput } from '@/ui/input/components/TextInput';
@@ -34,7 +34,7 @@ export const ConfigVariableValueInput = ({
     <StyledValueContainer>
       {isConfigVariablesInDbEnabled && !variable.isEnvOnly ? (
         <ConfigVariableDatabaseInput
-          label={t`Value`}
+          label={t`Nilai`}
           value={value}
           onChange={onChange}
           type={variable.type}

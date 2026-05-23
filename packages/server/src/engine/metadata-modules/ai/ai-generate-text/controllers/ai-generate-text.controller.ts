@@ -54,10 +54,7 @@ export class AiGenerateTextController {
 
     const resolvedModelId = body.modelId ?? workspace.fastModel;
 
-    this.aiModelRegistryService.validateModelAvailability(
-      resolvedModelId,
-      workspace,
-    );
+    this.aiModelRegistryService.validateModelAvailability(resolvedModelId);
 
     const registeredModel =
       await this.aiModelRegistryService.resolveModelForAgent({

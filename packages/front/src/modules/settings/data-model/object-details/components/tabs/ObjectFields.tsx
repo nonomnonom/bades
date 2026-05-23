@@ -5,7 +5,7 @@ import { isObjectMetadataReadOnly } from '@/object-record/read-only/utils/isObje
 import { SettingsObjectRelationsTable } from '@/settings/data-model/object-details/components/SettingsObjectRelationsTable';
 import { styled } from '@linaria/react';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { FieldMetadataType, SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconPlus } from 'ui/display';

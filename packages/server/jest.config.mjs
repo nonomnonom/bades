@@ -33,16 +33,6 @@ const jestConfig = {
           transform: {
             decoratorMetadata: true,
           },
-          experimental: {
-            plugins: [
-              [
-                '@lingui/swc-plugin',
-                {
-                  stripNonEssentialFields: false,
-                },
-              ],
-            ],
-          },
         },
       },
     ],

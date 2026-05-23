@@ -12,9 +12,9 @@ export const useCurrentBillingFlags = () => {
   assertIsDefinedOrThrow(currentWorkspace);
 
   const interval = currentWorkspace.currentBillingSubscription?.interval;
-  const planKey = currentWorkspace.currentBillingSubscription?.metadata?.[
-    'plan'
-  ] as BillingPlanKey | undefined;
+  const planKey = currentWorkspace.currentBillingSubscription?.planKey as
+    | BillingPlanKey
+    | undefined;
 
   const isMonthlyPlan = interval === SubscriptionInterval.Month;
   const isYearlyPlan = interval === SubscriptionInterval.Year;

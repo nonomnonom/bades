@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconLink, IconWorld } from 'ui/display';
 
 import { LinkIconWithLinkOverlay } from '@/navigation-menu-item/display/link/components/LinkIconWithLinkOverlay';
@@ -27,8 +27,8 @@ export const SidePanelLinkInfo = () => {
   const items = useNavigationMenuItemSectionItems();
   const { updateLinkInDraft } = useUpdateLinkInDraft();
 
-  const defaultLabel = t`Link label`;
-  const placeholder = t`Link label`;
+  const defaultLabel = t`Label tautan`;
+  const placeholder = t`Label tautan`;
 
   const selectedItem = selectedNavigationMenuItemIdInEditMode
     ? items.find(
@@ -82,7 +82,7 @@ export const SidePanelLinkInfo = () => {
           onFocus={() => setSidePanelShouldFocusTitleInput(false)}
         />
       }
-      label={t`Link`}
+      label={t`Tautan`}
     />
   );
 };

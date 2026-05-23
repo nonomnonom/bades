@@ -12,10 +12,7 @@ import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldCont
 import { assertFieldMetadata } from '@/object-record/record-field/ui/types/guards/assertFieldMetadata';
 import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { useRecordFieldValue } from '@/object-record/record-store/hooks/useRecordFieldValue';
-import {
-  computeRelationGqlFieldJoinColumnName,
-  isDefined,
-} from 'shared/utils';
+import { computeRelationGqlFieldJoinColumnName, isDefined } from 'shared/utils';
 
 export const useRelationToOneFieldDisplay = () => {
   const { recordId, fieldDefinition, maxWidth } = useContext(FieldContext);

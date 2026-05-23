@@ -61,7 +61,7 @@ export class ConnectionProviderOAuthFlowService {
     private readonly oauthProviderService: ConnectionProviderService,
     private readonly jwtWrapperService: JwtWrapperService,
     private readonly secureHttpClientService: SecureHttpClientService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly connectedAccountTokenEncryptionService: ConnectedAccountTokenEncryptionService,
     @InjectRepository(ConnectedAccountEntity)
     private readonly connectedAccountRepository: Repository<ConnectedAccountEntity>,
@@ -226,7 +226,7 @@ export class ConnectionProviderOAuthFlowService {
   }
 
   private getServerUrl(): string {
-    return this.twentyConfigService.get('SERVER_URL');
+    return this.badesConfigService.get('SERVER_URL');
   }
 
   private async persistConnectedAccount({

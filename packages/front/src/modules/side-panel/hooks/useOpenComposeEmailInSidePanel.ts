@@ -2,11 +2,7 @@ import { useCallback } from 'react';
 
 import { useStore } from 'jotai';
 import { SidePanelPages } from 'shared/types';
-import {
-  type IconComponent,
-  IconArrowBackUp,
-  IconMail,
-} from 'ui/display';
+import { type IconComponent, IconArrowBackUp, IconMail } from 'ui/display';
 import { v4 } from 'uuid';
 
 import { useSidePanelMenu } from '@/side-panel/hooks/useSidePanelMenu';
@@ -14,7 +10,7 @@ import { composeEmailConnectedAccountIdComponentState } from '@/side-panel/pages
 import { composeEmailDefaultInReplyToComponentState } from '@/side-panel/pages/compose-email/states/composeEmailDefaultInReplyToComponentState';
 import { composeEmailDefaultSubjectComponentState } from '@/side-panel/pages/compose-email/states/composeEmailDefaultSubjectComponentState';
 import { composeEmailDefaultToComponentState } from '@/side-panel/pages/compose-email/states/composeEmailDefaultToComponentState';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 type OpenComposeEmailParams = {
   threadId?: string;

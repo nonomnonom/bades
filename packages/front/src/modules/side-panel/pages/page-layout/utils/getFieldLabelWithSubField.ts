@@ -5,7 +5,7 @@ import { getCompositeSubFieldLabel } from '@/object-record/object-filter-dropdow
 import { isCompositeFieldType } from '@/object-record/object-filter-dropdown/utils/isCompositeFieldType';
 import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { type CompositeFieldType } from '@/settings/data-model/types/CompositeFieldType';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type CompositeFieldSubFieldName } from 'shared/types';
 import { isDefined } from 'shared/utils';
 

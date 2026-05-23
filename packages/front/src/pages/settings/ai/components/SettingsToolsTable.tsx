@@ -1,7 +1,7 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
 import { type ReactNode, useContext, useMemo, useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 

@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 
 export const TEXT_DATA_MODEL_SELECT_OPTIONS = [
   {

@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconLink } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -43,9 +43,9 @@ export const WorkspaceInviteLink = ({
         Icon={IconLink}
         variant="primary"
         accent="blue"
-        title={t`Copy link`}
+        title={t`Salin tautan`}
         onClick={() => {
-          copyToClipboard(inviteLink, t`Link copied to clipboard`);
+          copyToClipboard(inviteLink, t`Tautan berhasil disalin`);
         }}
       />
     </StyledContainer>

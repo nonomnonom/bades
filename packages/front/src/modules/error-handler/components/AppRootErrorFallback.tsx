@@ -1,6 +1,6 @@
 import { type AppErrorDisplayProps } from '@/error-handler/types/AppErrorDisplayProps';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconReload } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';

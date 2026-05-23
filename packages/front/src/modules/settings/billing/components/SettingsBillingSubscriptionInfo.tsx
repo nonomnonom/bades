@@ -30,7 +30,7 @@ import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomStat
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import {

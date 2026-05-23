@@ -8,7 +8,7 @@ import { themeCssVariables } from 'ui/theme-constants';
 import { type AttachmentFileCategory } from '@/activities/files/types/AttachmentFileCategory';
 import { getFileType } from '@/activities/files/utils/getFileType';
 import { FileIcon } from '@/file/components/FileIcon';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { getSafeUrl, isDefined } from 'shared/utils';
 import { Button } from 'ui/input';
 
@@ -114,7 +114,7 @@ export const FileBlock = createReactBlockSpec(
           />
           <Button
             onClick={handleUploadFileClick}
-            title={t`Upload File`}
+            title={t`Unggah Berkas`}
           ></Button>
         </StyledUploadFileContainer>
       );

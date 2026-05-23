@@ -1,7 +1,6 @@
 /* @license Enterprise */
 
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { assertUnreachable } from 'shared/utils';
 
 import { CustomException } from 'src/utils/custom-exception';
@@ -21,7 +20,6 @@ export enum BillingExceptionCode {
   BILLING_METER_EVENT_FAILED = 'BILLING_METER_EVENT_FAILED',
   BILLING_MISSING_REQUEST_BODY = 'BILLING_MISSING_REQUEST_BODY',
   BILLING_UNHANDLED_ERROR = 'BILLING_UNHANDLED_ERROR',
-  BILLING_STRIPE_ERROR = 'BILLING_STRIPE_ERROR',
   BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD = 'BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD',
   BILLING_SUBSCRIPTION_INTERVAL_NOT_SWITCHABLE = 'BILLING_SUBSCRIPTION_INTERVAL_NOT_SWITCHABLE',
   BILLING_SUBSCRIPTION_INTERVAL_INVALID = 'BILLING_SUBSCRIPTION_INTERVAL_INVALID',
@@ -40,55 +38,53 @@ export enum BillingExceptionCode {
 const getBillingExceptionUserFriendlyMessage = (code: BillingExceptionCode) => {
   switch (code) {
     case BillingExceptionCode.BILLING_CUSTOMER_NOT_FOUND:
-      return msg`Billing customer not found.`;
+      return msg`Data pelanggan tidak ditemukan.`;
     case BillingExceptionCode.BILLING_PLAN_NOT_FOUND:
-      return msg`Billing plan not found.`;
+      return msg`Paket langganan tidak ditemukan.`;
     case BillingExceptionCode.BILLING_PRODUCT_NOT_FOUND:
-      return msg`Billing product not found.`;
+      return msg`Produk tidak ditemukan.`;
     case BillingExceptionCode.BILLING_PRICE_NOT_FOUND:
-      return msg`Billing price not found.`;
+      return msg`Harga tidak ditemukan.`;
     case BillingExceptionCode.BILLING_METER_NOT_FOUND:
-      return msg`Billing meter not found.`;
+      return msg`Meter tagihan tidak ditemukan.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_NOT_FOUND:
-      return msg`Subscription not found.`;
+      return msg`Langganan tidak ditemukan.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_ITEM_NOT_FOUND:
-      return msg`Subscription item not found.`;
+      return msg`Item langganan tidak ditemukan.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID:
-      return msg`Invalid subscription.`;
+      return msg`Langganan tidak valid.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_EVENT_WORKSPACE_NOT_FOUND:
-      return msg`Workspace not found for subscription event.`;
+      return msg`Workspace tidak ditemukan untuk event langganan.`;
     case BillingExceptionCode.BILLING_CUSTOMER_EVENT_WORKSPACE_NOT_FOUND:
-      return msg`Workspace not found for customer event.`;
+      return msg`Workspace tidak ditemukan untuk event pelanggan.`;
     case BillingExceptionCode.BILLING_ACTIVE_SUBSCRIPTION_NOT_FOUND:
-      return msg`No active subscription found.`;
+      return msg`Tidak ada langganan aktif.`;
     case BillingExceptionCode.BILLING_METER_EVENT_FAILED:
-      return msg`Failed to record billing event.`;
+      return msg`Gagal mencatat event tagihan.`;
     case BillingExceptionCode.BILLING_MISSING_REQUEST_BODY:
-      return msg`Missing request body.`;
+      return msg`Isi permintaan tidak lengkap.`;
     case BillingExceptionCode.BILLING_UNHANDLED_ERROR:
-      return msg`An unexpected billing error occurred.`;
-    case BillingExceptionCode.BILLING_STRIPE_ERROR:
-      return msg`A payment processing error occurred.`;
+      return msg`Terjadi kesalahan tak terduga pada sistem tagihan.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_NOT_IN_TRIAL_PERIOD:
-      return msg`Subscription is not in trial period.`;
+      return msg`Langganan tidak sedang dalam masa percobaan.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INTERVAL_NOT_SWITCHABLE:
-      return msg`Cannot switch subscription interval.`;
+      return msg`Interval langganan tidak dapat diubah saat ini.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INTERVAL_INVALID:
-      return msg`Invalid subscription interval.`;
+      return msg`Interval langganan tidak valid.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_PLAN_NOT_SWITCHABLE:
-      return msg`Cannot switch subscription plan.`;
+      return msg`Paket langganan tidak dapat diganti saat ini.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_ITEM_INVALID:
-      return msg`Invalid subscription item.`;
+      return msg`Item langganan tidak valid.`;
     case BillingExceptionCode.BILLING_PRICE_INVALID_TIERS:
-      return msg`Invalid pricing tiers.`;
+      return msg`Tingkatan harga tidak valid.`;
     case BillingExceptionCode.BILLING_PRICE_INVALID:
-      return msg`Invalid price.`;
+      return msg`Harga tidak valid.`;
     case BillingExceptionCode.BILLING_SUBSCRIPTION_PHASE_NOT_FOUND:
-      return msg`Subscription phase not found.`;
+      return msg`Fase langganan tidak ditemukan.`;
     case BillingExceptionCode.BILLING_TOO_MUCH_SUBSCRIPTIONS_FOUND:
-      return msg`Multiple subscriptions found where one was expected.`;
+      return msg`Ditemukan lebih dari satu langganan, padahal seharusnya hanya satu.`;
     case BillingExceptionCode.BILLING_CREDITS_EXHAUSTED:
-      return msg`You have exhausted your credits. Please upgrade your plan to continue.`;
+      return msg`Kredit Anda telah habis. Tingkatkan paket untuk melanjutkan.`;
     case BillingExceptionCode.BILLING_PAYMENT_REQUIRED:
       return msg`Pembayaran diperlukan. Silakan lakukan pembayaran terlebih dahulu.`;
     case BillingExceptionCode.BILLING_MIDTRANS_SIGNATURE_INVALID:

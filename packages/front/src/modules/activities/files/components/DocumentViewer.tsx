@@ -8,7 +8,7 @@ import { getFileType } from '@/activities/files/utils/getFileType';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
 import '@cyntler/react-doc-viewer/dist/index.css';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconDownload } from 'ui/display';

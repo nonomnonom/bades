@@ -22,7 +22,7 @@ jest.mock('@clickhouse/client', () => ({
 
 describe('ClickHouseService', () => {
   let service: ClickHouseService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let mockClickHouseClient: jest.Mocked<ClickHouseClient>;
   let loggerErrorSpy: jest.SpyInstance;
 
@@ -56,7 +56,7 @@ describe('ClickHouseService', () => {
     }).compile();
 
     service = module.get<ClickHouseService>(ClickHouseService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
 
     // Mock logger error method to avoid polluting test output
     loggerErrorSpy = jest
@@ -73,7 +73,7 @@ describe('ClickHouseService', () => {
 
   describe('constructor', () => {
     it('should not initialize clickhouse client when clickhouse is disabled', async () => {
-      jest.spyOn(twentyConfigService, 'get').mockImplementation((key) => {
+      jest.spyOn(badesConfigService, 'get').mockImplementation((key) => {
         if (key === 'CLICKHOUSE_URL') return '';
 
         return undefined;
@@ -84,7 +84,7 @@ describe('ClickHouseService', () => {
           ClickHouseService,
           {
             provide: BadesConfigService,
-            useValue: twentyConfigService,
+            useValue: badesConfigService,
           },
         ],
       }).compile();

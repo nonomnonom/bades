@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useOpenEmailInAppOrFallback } from '@/activities/emails/hooks/useOpenEmailInAppOrFallback';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import {
@@ -9,7 +10,6 @@ import { isFieldEmails } from '@/object-record/record-field/ui/types/guards/isFi
 import { isFieldLinks } from '@/object-record/record-field/ui/types/guards/isFieldLinks';
 import { isFieldPhones } from '@/object-record/record-field/ui/types/guards/isFieldPhones';
 import { useRecordFieldValue } from '@/object-record/record-store/hooks/useRecordFieldValue';
-import { t } from '@lingui/core/macro';
 import { useContext } from 'react';
 import { FieldMetadataSettingsOnClickAction } from 'shared/types';
 import { ensureAbsoluteUrl, isDefined } from 'shared/utils';

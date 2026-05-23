@@ -1,4 +1,4 @@
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 import { Editor } from '@tiptap/core';
 import { Document } from '@tiptap/extension-document';
 import { Heading } from '@tiptap/extension-heading';

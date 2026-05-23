@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type EmailAttachment } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
@@ -30,7 +30,7 @@ export const useUploadEmailAttachment = () => {
         const maxUploadSize = formatFileSize(MAX_ATTACHMENT_SIZE);
 
         enqueueErrorSnackBar({
-          message: t`File "${fileName}" exceeds ${maxUploadSize}`,
+          message: t`Berkas "${fileName}" melebihi ${maxUploadSize}`,
         });
 
         return null;
@@ -54,7 +54,7 @@ export const useUploadEmailAttachment = () => {
       const fileName = file.name;
 
       enqueueSuccessSnackBar({
-        message: t`File "${fileName}" uploaded successfully`,
+        message: t`Berkas "${fileName}" berhasil diunggah`,
       });
 
       return attachment;
@@ -64,7 +64,7 @@ export const useUploadEmailAttachment = () => {
       const fileNameForError = file.name;
 
       enqueueErrorSnackBar({
-        message: t`Failed to upload "${fileNameForError}"`,
+        message: t`Gagal mengunggah "${fileNameForError}"`,
       });
 
       return null;

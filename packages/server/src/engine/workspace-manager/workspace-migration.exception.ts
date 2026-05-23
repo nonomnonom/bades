@@ -1,5 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { type WorkspaceMigrationV2ExceptionCode } from 'shared/metadata';
 
 import { CustomException } from 'src/utils/custom-exception';

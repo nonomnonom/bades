@@ -1,5 +1,4 @@
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import { STANDARD_OBJECTS } from 'shared/metadata';
 
 import { UserInputError } from 'src/engine/core-modules/graphql/utils/graphql-errors.util';

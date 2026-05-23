@@ -94,7 +94,7 @@ describe('getTriggerDefaultLabel', () => {
 
       const result = getTriggerDefaultLabel(trigger);
 
-      expect(result).toBe('Launch manually');
+      expect(result).toBe('Jalankan manual');
     });
   });
 
@@ -116,7 +116,7 @@ describe('getTriggerDefaultLabel', () => {
 
       const result = getTriggerDefaultLabel(trigger);
 
-      expect(result).toBe('On a schedule');
+      expect(result).toBe('Terjadwal');
     });
   });
 
@@ -134,7 +134,7 @@ describe('getTriggerDefaultLabel', () => {
 
       const result = getTriggerDefaultLabel(trigger);
 
-      expect(result).toBe('Webhook');
+      expect(result).toBe('Webhook (Integrasi)');
     });
 
     it('returns "Webhook" for webhook trigger with POST method', () => {
@@ -161,7 +161,7 @@ describe('getTriggerDefaultLabel', () => {
 
       const result = getTriggerDefaultLabel(trigger);
 
-      expect(result).toBe('Webhook');
+      expect(result).toBe('Webhook (Integrasi)');
     });
   });
 

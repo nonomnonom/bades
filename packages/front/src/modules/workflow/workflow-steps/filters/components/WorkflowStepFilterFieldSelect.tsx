@@ -10,7 +10,7 @@ import { useAvailableVariablesInWorkflowStep } from '@/workflow/workflow-variabl
 import { useSearchVariable } from '@/workflow/workflow-variables/hooks/useSearchVariable';
 import { type StepOutputSchemaV2 } from '@/workflow/workflow-variables/types/StepOutputSchemaV2';
 
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useState } from 'react';
 import { type StepFilter } from 'shared/types';
 import { isDefined } from 'shared/utils';

@@ -316,16 +316,6 @@ const testCases: {
   { loc: AppPath.SettingsCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.BOOK_ONBOARDING, res: AppPath.BookCallDecision },
   { loc: AppPath.SettingsCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.COMPLETED, res: undefined },
 
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.PLAN_REQUIRED, res: AppPath.PlanRequired },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: true, onboardingStatus: OnboardingStatus.COMPLETED, res: getSettingsPath(SettingsPath.Billing) },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: false, isWorkspaceSuspended: false, onboardingStatus: undefined, res: AppPath.SignInUp },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.WORKSPACE_ACTIVATION, res: AppPath.CreateWorkspace },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.PROFILE_CREATION, res: AppPath.CreateProfile },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.SYNC_EMAIL, res: AppPath.SyncEmails },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.INVITE_TEAM, res: AppPath.InviteTeam },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.BOOK_ONBOARDING, res: AppPath.BookCallDecision },
-  { loc: AppPath.DevelopersCatchAll, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.COMPLETED, res: undefined },
-
   { loc: AppPath.Authorize, hasAccessTokenPair: true, isWorkspaceSuspended: false, onboardingStatus: OnboardingStatus.PLAN_REQUIRED, res: AppPath.PlanRequired },
   { loc: AppPath.Authorize, hasAccessTokenPair: true, isWorkspaceSuspended: true, onboardingStatus: OnboardingStatus.COMPLETED, res: getSettingsPath(SettingsPath.Billing) },
   { loc: AppPath.Authorize, hasAccessTokenPair: false, isWorkspaceSuspended: false, onboardingStatus: undefined, res: AppPath.SignInUp },

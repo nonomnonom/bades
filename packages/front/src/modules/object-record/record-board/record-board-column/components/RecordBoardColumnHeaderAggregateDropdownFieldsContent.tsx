@@ -12,12 +12,7 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useUpdateViewAggregate } from '@/views/hooks/useUpdateViewAggregate';
 import { isDefined } from 'shared/utils';
-import {
-  Icon123,
-  IconCheck,
-  IconChevronLeft,
-  useIcons,
-} from 'ui/display';
+import { Icon123, IconCheck, IconChevronLeft, useIcons } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
 
 export const RecordBoardColumnHeaderAggregateDropdownFieldsContent = () => {

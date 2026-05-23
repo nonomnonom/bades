@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { availableFieldMetadataItemsForSortFamilySelector } from '@/object-metadata/states/availableFieldMetadataItemsForSortFamilySelector';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { OBJECT_SORT_DROPDOWN_ID } from '@/object-record/object-sort-dropdown/constants/ObjectSortDropdownId';
@@ -30,7 +31,6 @@ import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomC
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { findByProperty } from 'shared/utils';
 import { IconX, useIcons } from 'ui/display';
 import { MenuItem } from 'ui/navigation';
@@ -172,7 +172,7 @@ export const ObjectSortDropdownButton = () => {
       onOpen={handleDropdownOpen}
       clickableComponent={
         <StyledHeaderDropdownButton isUnfolded={isDropdownOpen}>
-          <Trans>Sort</Trans>
+          <Trans>Urutkan</Trans>
         </StyledHeaderDropdownButton>
       }
       dropdownComponents={
@@ -214,7 +214,7 @@ export const ObjectSortDropdownButton = () => {
           <DropdownMenuSearchInput
             autoFocus
             value={objectSortDropdownSearchInput}
-            placeholder={t`Search fields`}
+            placeholder={t`Cari kolom`}
             onChange={(event) =>
               setObjectSortDropdownSearchInput(event.target.value)
             }
@@ -226,7 +226,7 @@ export const ObjectSortDropdownButton = () => {
           >
             {shouldShowVisibleFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Visible fields`} />
+                <DropdownMenuSectionLabel label={t`Kolom tampil`} />
                 <DropdownMenuItemsContainer>
                   {visibleFieldMetadataItems.map(
                     (visibleFieldMetadataItem, index) => (
@@ -255,7 +255,7 @@ export const ObjectSortDropdownButton = () => {
             {shouldShowSeparator && <DropdownMenuSeparator />}
             {shouldShowHiddenFields && (
               <>
-                <DropdownMenuSectionLabel label={t`Hidden fields`} />
+                <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
                 <DropdownMenuItemsContainer>
                   {hiddenFieldMetadataItemsSorted.map(
                     (hiddenFieldMetadataItem, index) => (

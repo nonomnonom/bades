@@ -5,8 +5,7 @@ import { PIE_CHART_SETTINGS } from '@/side-panel/pages/page-layout/constants/Pie
 import { type ChartSettingsGroup } from '@/side-panel/pages/page-layout/types/ChartSettingsGroup';
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
 import { getBarChartSettings } from '@/side-panel/pages/page-layout/utils/getBarChartSettings';
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import {
   IconChartBar,
   IconChartBarHorizontal,
@@ -21,7 +20,7 @@ import { BarChartLayout } from '~/generated-metadata/graphql';
 export const GRAPH_TYPE_INFORMATION: Record<
   GraphType,
   {
-    label: MessageDescriptor;
+    label: string;
     icon: IconComponent;
     settings: ChartSettingsGroup[];
   }

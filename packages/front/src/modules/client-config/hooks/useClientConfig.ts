@@ -1,4 +1,3 @@
-import { aiModelsState } from '@/client-config/states/aiModelsState';
 import { apiConfigState } from '@/client-config/states/apiConfigState';
 import { appVersionState } from '@/client-config/states/appVersionState';
 import { authProvidersState } from '@/client-config/states/authProvidersState';
@@ -31,7 +30,7 @@ import { domainConfigurationState } from '@/domain-manager/states/domainConfigur
 import { useCallback } from 'react';
 import { clientConfigApiStatusState } from '@/client-config/states/clientConfigApiStatusState';
 import { getClientConfig } from '@/client-config/utils/getClientConfig';
-import { allowRequestsToTwentyIconsState } from '@/client-config/states/allowRequestsToTwentyIcons';
+import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 
@@ -47,7 +46,6 @@ export const useClientConfig = (): UseClientConfigResult => {
   const setIsAnalyticsEnabled = useSetAtomState(isAnalyticsEnabledState);
   const setDomainConfiguration = useSetAtomState(domainConfigurationState);
   const setAuthProviders = useSetAtomState(authProvidersState);
-  const setAiModels = useSetAtomState(aiModelsState);
 
   const setIsDeveloperDefaultSignInPrefilled = useSetAtomState(
     isDeveloperDefaultSignInPrefilledState,
@@ -111,8 +109,8 @@ export const useClientConfig = (): UseClientConfigResult => {
     isImapSmtpCaldavEnabledState,
   );
 
-  const setAllowRequestsToTwentyIcons = useSetAtomState(
-    allowRequestsToTwentyIconsState,
+  const setAllowRequestsToFaviconService = useSetAtomState(
+    allowRequestsToFaviconServiceState,
   );
 
   const setIsCloudflareIntegrationEnabled = useSetAtomState(
@@ -158,7 +156,6 @@ export const useClientConfig = (): UseClientConfigResult => {
         magicLink: false,
         sso: clientConfig.authProviders.sso,
       });
-      setAiModels(clientConfig.aiModels ?? []);
       setIsAnalyticsEnabled(clientConfig.analyticsEnabled);
       setIsDeveloperDefaultSignInPrefilled(clientConfig.signInPrefilled);
       setIsMultiWorkspaceEnabled(clientConfig.isMultiWorkspaceEnabled);
@@ -201,7 +198,9 @@ export const useClientConfig = (): UseClientConfigResult => {
       setIsImapSmtpCaldavEnabled(clientConfig?.isImapSmtpCaldavEnabled);
       setIsEmailGroupEnabled(clientConfig?.isEmailGroupEnabled ?? false);
       setIsEmailingDomainsEnabled(clientConfig?.isEmailingDomainsEnabled);
-      setAllowRequestsToTwentyIcons(clientConfig?.allowRequestsToTwentyIcons);
+      setAllowRequestsToFaviconService(
+        clientConfig?.allowRequestsToFaviconService,
+      );
       setIsCloudflareIntegrationEnabled(
         clientConfig?.isCloudflareIntegrationEnabled,
       );
@@ -220,7 +219,6 @@ export const useClientConfig = (): UseClientConfigResult => {
       }));
     }
   }, [
-    setAiModels,
     setApiConfig,
     setAppVersion,
     setAuthProviders,
@@ -250,7 +248,7 @@ export const useClientConfig = (): UseClientConfigResult => {
     setIsMicrosoftMessagingEnabled,
     setSentryConfig,
     setSupportChat,
-    setAllowRequestsToTwentyIcons,
+    setAllowRequestsToFaviconService,
   ]);
 
   return {

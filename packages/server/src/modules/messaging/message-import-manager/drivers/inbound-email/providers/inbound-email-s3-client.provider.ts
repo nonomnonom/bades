@@ -10,17 +10,17 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 export class InboundEmailS3ClientProvider {
   private s3Client: S3Client | null = null;
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   isConfigured(): boolean {
-    const storageType = this.twentyConfigService.get('STORAGE_TYPE');
-    const domain = this.twentyConfigService.get('INBOUND_EMAIL_DOMAIN');
+    const storageType = this.badesConfigService.get('STORAGE_TYPE');
+    const domain = this.badesConfigService.get('INBOUND_EMAIL_DOMAIN');
 
     return storageType === StorageDriverType.S_3 && isNonEmptyString(domain);
   }
 
   getBucket(): string {
-    const bucket = this.twentyConfigService.get('STORAGE_S3_NAME');
+    const bucket = this.badesConfigService.get('STORAGE_S3_NAME');
 
     if (!isNonEmptyString(bucket)) {
       throw new Error(
@@ -32,7 +32,7 @@ export class InboundEmailS3ClientProvider {
   }
 
   getDomain(): string {
-    const domain = this.twentyConfigService.get('INBOUND_EMAIL_DOMAIN');
+    const domain = this.badesConfigService.get('INBOUND_EMAIL_DOMAIN');
 
     if (!isNonEmptyString(domain)) {
       throw new Error(
@@ -48,7 +48,7 @@ export class InboundEmailS3ClientProvider {
       return this.s3Client;
     }
 
-    const region = this.twentyConfigService.get('STORAGE_S3_REGION');
+    const region = this.badesConfigService.get('STORAGE_S3_REGION');
 
     if (!isNonEmptyString(region)) {
       throw new Error('STORAGE_S3_REGION must be set to use email group.');
@@ -56,16 +56,14 @@ export class InboundEmailS3ClientProvider {
 
     const config: S3ClientConfig = { region };
 
-    const endpoint = this.twentyConfigService.get('STORAGE_S3_ENDPOINT');
+    const endpoint = this.badesConfigService.get('STORAGE_S3_ENDPOINT');
 
     if (isNonEmptyString(endpoint)) {
       config.endpoint = endpoint;
     }
 
-    const accessKeyId = this.twentyConfigService.get(
-      'STORAGE_S3_ACCESS_KEY_ID',
-    );
-    const secretAccessKey = this.twentyConfigService.get(
+    const accessKeyId = this.badesConfigService.get('STORAGE_S3_ACCESS_KEY_ID');
+    const secretAccessKey = this.badesConfigService.get(
       'STORAGE_S3_SECRET_ACCESS_KEY',
     );
 

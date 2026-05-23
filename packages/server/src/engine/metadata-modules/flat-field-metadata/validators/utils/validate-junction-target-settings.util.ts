@@ -1,5 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { type MessageDescriptor, msg } from 'src/utils/bades-i18n';
 import { FieldMetadataType, RelationType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 

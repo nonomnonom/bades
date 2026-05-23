@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useEffect } from 'react';
 
 import { useObjectNamePluralFromSingular } from '@/object-metadata/hooks/useObjectNamePluralFromSingular';
@@ -19,16 +20,11 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { ViewType } from '@/views/types/ViewType';
-import { useLingui } from '@lingui/react/macro';
 import { useLocation } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { IconChevronLeft, IconSettings, useIcons } from 'ui/display';
-import {
-  MenuItem,
-  MenuItemSelect,
-  UndecoratedLink,
-} from 'ui/navigation';
+import { MenuItem, MenuItemSelect, UndecoratedLink } from 'ui/navigation';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
 export const ObjectOptionsDropdownRecordGroupFieldsContent = () => {

@@ -1,4 +1,4 @@
-import { selectOrdinal } from '@lingui/core/macro';
+import { selectOrdinal } from '~/utils/i18n/badesI18n';
 
 export const getOrdinalNumber = (num: number): string => {
   try {

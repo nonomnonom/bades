@@ -12,7 +12,7 @@ import { useComputeColumnSuggestionsAndAutoMatch } from '@/spreadsheet-import/ho
 import { useSpreadsheetImportInternal } from '@/spreadsheet-import/hooks/useSpreadsheetImportInternal';
 import { type SpreadsheetImportStep } from '@/spreadsheet-import/steps/types/SpreadsheetImportStep';
 import { SpreadsheetImportStepType } from '@/spreadsheet-import/steps/types/SpreadsheetImportStepType';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SelectHeaderTable } from './components/SelectHeaderTable';
 
 const StyledHeadingContainer = styled.div`

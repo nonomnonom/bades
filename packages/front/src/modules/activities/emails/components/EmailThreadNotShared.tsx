@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { AppTooltip, IconLock, TooltipDelay } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';

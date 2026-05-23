@@ -1,9 +1,6 @@
 import { type Temporal } from 'temporal-polyfill';
 import { ObjectRecordGroupByDateGranularity } from 'shared/types';
-import {
-  assertUnreachable,
-  isPlainDateBeforeOrEqual,
-} from 'shared/utils';
+import { assertUnreachable, isPlainDateBeforeOrEqual } from 'shared/utils';
 
 import { BAR_CHART_MAXIMUM_NUMBER_OF_BARS } from 'src/modules/dashboard/chart-data/constants/bar-chart-maximum-number-of-bars.constant';
 import { type SupportedDateGranularityForGapFilling } from 'src/modules/dashboard/chart-data/constants/supported-date-granularity-for-gap-filling.type';

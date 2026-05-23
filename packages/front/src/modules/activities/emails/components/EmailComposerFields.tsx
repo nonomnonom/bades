@@ -8,7 +8,7 @@ import { FormMultiTextFieldInput } from '@/object-record/record-field/ui/form-ty
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
 import { GET_MY_CONNECTED_ACCOUNTS } from '@/settings/accounts/graphql/queries/getMyConnectedAccounts';
 import { Select } from '@/ui/input/components/Select';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type SelectOption } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 

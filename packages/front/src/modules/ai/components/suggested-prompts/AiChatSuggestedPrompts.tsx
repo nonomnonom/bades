@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { t, useLingui } from '~/utils/i18n/badesI18n';
 import { type Editor } from '@tiptap/react';
 import { LightButton } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';

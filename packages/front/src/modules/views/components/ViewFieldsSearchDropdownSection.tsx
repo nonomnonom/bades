@@ -7,7 +7,7 @@ import { visibleRecordFieldsComponentSelector } from '@/object-record/record-fie
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { ViewType } from '@/views/types/ViewType';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { IconEye, IconEyeOff, useIcons } from 'ui/display';
 import { MenuItem } from 'ui/navigation';

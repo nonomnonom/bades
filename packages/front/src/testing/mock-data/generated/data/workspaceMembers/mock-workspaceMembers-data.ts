@@ -18976,12 +18976,12 @@ export const mockedWorkspaceMemberRecords: ObjectRecord[] =
             "__typename": "Company",
             "domainName": {
               "__typename": "Links",
-              "primaryLinkUrl": "stripe.com",
+              "primaryLinkUrl": "bumdes-tirtasari.id",
               "primaryLinkLabel": "",
               "secondaryLinks": []
             },
             "id": "20202020-a6f9-42e4-9891-3dbd8bd35079",
-            "name": "Stripe"
+            "name": "BUMDes Tirta Sari"
           }
         },
         {

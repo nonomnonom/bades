@@ -6,7 +6,7 @@ import { AnimatedExpandableContainer } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
 import { ShimmeringText } from '@/ai/components/ShimmeringText';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 const StyledContainer = styled.div`
   display: flex;

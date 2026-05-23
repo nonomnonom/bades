@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 
 import { objectFilterDropdownSearchInputComponentState } from '@/object-record/object-filter-dropdown/states/objectFilterDropdownSearchInputComponentState';
@@ -28,7 +29,6 @@ import { usePushFocusForLeafFieldValuePicker } from '@/object-record/advanced-fi
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { useLingui } from '@lingui/react/macro';
 import { useContext } from 'react';
 import { getFilterTypeFromFieldType } from 'shared/utils';
 
@@ -188,7 +188,7 @@ export const AdvancedFilterFieldSelectMenu = ({
       >
         {shouldShowVisibleFields && (
           <>
-            <DropdownMenuSectionLabel label={t`Visible fields`} />
+            <DropdownMenuSectionLabel label={t`Kolom terlihat`} />
             <DropdownMenuItemsContainer>
               {visibleFieldMetadataItems.map(
                 (visibleFieldMetadataItem, index) => (
@@ -213,7 +213,7 @@ export const AdvancedFilterFieldSelectMenu = ({
         {shouldShowHiddenFields && (
           <>
             {visibleFieldMetadataItems.length > 0 && (
-              <DropdownMenuSectionLabel label={t`Hidden fields`} />
+              <DropdownMenuSectionLabel label={t`Kolom tersembunyi`} />
             )}
             <DropdownMenuItemsContainer>
               {hiddenColumnsFieldMetadataItems.map(

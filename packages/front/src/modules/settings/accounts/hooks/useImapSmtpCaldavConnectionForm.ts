@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 
 import { useMutation } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import {
   type ConnectionParametersInput,

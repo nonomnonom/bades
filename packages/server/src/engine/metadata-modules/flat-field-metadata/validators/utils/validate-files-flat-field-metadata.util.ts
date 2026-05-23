@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { FILES_FIELD_MAX_NUMBER_OF_VALUES } from 'shared/constants';
 import { type FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';

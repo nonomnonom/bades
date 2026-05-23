@@ -69,7 +69,7 @@ describe('generateCsv', () => {
     ];
     const csv = generateCsv({ columns, rows });
     expect(csv)
-      .toEqual(`\uFEFFId,Foo,Empty,Nested link field / Link URL,Nested link field / Secondary Links,Relation
+      .toEqual(`\uFEFFId,Foo,Empty,Nested link field / URL Tautan,Nested link field / Tautan Sekunder,Relation
 1,some field,,https://www.test.com,"[{""label"":""secondary link 1"",""url"":""https://www.test.com""},{""label"":""secondary link 2"",""url"":""https://www.test.com""}]",a relation`);
   });
 

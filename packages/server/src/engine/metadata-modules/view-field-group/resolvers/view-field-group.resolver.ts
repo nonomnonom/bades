@@ -61,7 +61,7 @@ export class ViewFieldGroupResolver {
     return resolveViewFieldGroupName({
       name: viewFieldGroup.name,
       applicationId: viewFieldGroup.applicationId,
-      twentyStandardApplicationId: badesStandardFlatApplication.id,
+      badesStandardApplicationId: badesStandardFlatApplication.id,
       overrides: viewFieldGroup.overrides,
       i18nInstance: i18n,
     });

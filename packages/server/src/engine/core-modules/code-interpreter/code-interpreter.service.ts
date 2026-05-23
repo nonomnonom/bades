@@ -15,12 +15,12 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 export class CodeInterpreterService implements CodeInterpreterDriver {
   constructor(
     private readonly codeInterpreterDriverFactory: CodeInterpreterDriverFactory,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   isEnabled(): boolean {
     return (
-      this.twentyConfigService.get('CODE_INTERPRETER_TYPE') !==
+      this.badesConfigService.get('CODE_INTERPRETER_TYPE') !==
       CodeInterpreterDriverType.DISABLED
     );
   }

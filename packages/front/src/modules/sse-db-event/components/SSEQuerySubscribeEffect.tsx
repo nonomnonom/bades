@@ -12,10 +12,7 @@ import { useMutation } from '@apollo/client/react';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useStore } from 'jotai';
 import { useCallback, useEffect } from 'react';
-import {
-  compareArraysOfObjectsByProperty,
-  isDefined,
-} from 'shared/utils';
+import { compareArraysOfObjectsByProperty, isDefined } from 'shared/utils';
 import { useDebouncedCallback } from 'use-debounce';
 import {
   type AddQuerySubscriptionInput,

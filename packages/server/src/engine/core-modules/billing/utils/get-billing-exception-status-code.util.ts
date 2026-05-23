@@ -37,7 +37,6 @@ export const getBillingExceptionStatusCode = (
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID:
     case BillingExceptionCode.BILLING_SUBSCRIPTION_EVENT_WORKSPACE_NOT_FOUND:
     case BillingExceptionCode.BILLING_UNHANDLED_ERROR:
-    case BillingExceptionCode.BILLING_STRIPE_ERROR:
     case BillingExceptionCode.BILLING_SUBSCRIPTION_INTERVAL_INVALID:
     case BillingExceptionCode.BILLING_SUBSCRIPTION_ITEM_INVALID:
     case BillingExceptionCode.BILLING_PRICE_INVALID_TIERS:

@@ -30,22 +30,52 @@ describe('midtrans-signature.util', () => {
     });
 
     it('menghasilkan signature yang sama untuk input yang sama', () => {
-      const sig1 = computeMidtransSignature(orderId, statusCode, grossAmount, serverKey);
-      const sig2 = computeMidtransSignature(orderId, statusCode, grossAmount, serverKey);
+      const sig1 = computeMidtransSignature(
+        orderId,
+        statusCode,
+        grossAmount,
+        serverKey,
+      );
+      const sig2 = computeMidtransSignature(
+        orderId,
+        statusCode,
+        grossAmount,
+        serverKey,
+      );
 
       expect(sig1).toBe(sig2);
     });
 
     it('menghasilkan signature berbeda jika input berbeda', () => {
-      const sig1 = computeMidtransSignature(orderId, statusCode, grossAmount, serverKey);
-      const sig2 = computeMidtransSignature(orderId, '201', grossAmount, serverKey);
+      const sig1 = computeMidtransSignature(
+        orderId,
+        statusCode,
+        grossAmount,
+        serverKey,
+      );
+      const sig2 = computeMidtransSignature(
+        orderId,
+        '201',
+        grossAmount,
+        serverKey,
+      );
 
       expect(sig1).not.toBe(sig2);
     });
 
     it('menghasilkan signature berbeda jika server key berbeda', () => {
-      const sig1 = computeMidtransSignature(orderId, statusCode, grossAmount, serverKey);
-      const sig2 = computeMidtransSignature(orderId, statusCode, grossAmount, 'kunci-lain');
+      const sig1 = computeMidtransSignature(
+        orderId,
+        statusCode,
+        grossAmount,
+        serverKey,
+      );
+      const sig2 = computeMidtransSignature(
+        orderId,
+        statusCode,
+        grossAmount,
+        'kunci-lain',
+      );
 
       expect(sig1).not.toBe(sig2);
     });

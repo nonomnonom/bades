@@ -4,7 +4,7 @@ import { getWorkspacesUpgradeHealthText } from '@/settings/admin-panel/utils/get
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { UserContext } from '@/users/contexts/UserContext';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import {
   IconAlertTriangle,

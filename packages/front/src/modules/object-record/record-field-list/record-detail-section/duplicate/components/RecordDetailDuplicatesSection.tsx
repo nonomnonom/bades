@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useOpenMergeRecordsPageInSidePanel } from '@/side-panel/hooks/useOpenMergeRecordsPageInSidePanel';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { RecordChip } from '@/object-record/components/RecordChip';
@@ -6,7 +7,6 @@ import { RecordDetailRecordsListContainer } from '@/object-record/record-field-l
 import { RecordDetailRecordsListItemContainer } from '@/object-record/record-field-list/record-detail-section/components/RecordDetailRecordsListItemContainer';
 import { RecordDetailSectionContainer } from '@/object-record/record-field-list/record-detail-section/components/RecordDetailSectionContainer';
 
-import { t } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { IconArrowMerge } from 'ui/display';
 import { LightIconButton } from 'ui/input';

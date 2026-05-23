@@ -15,12 +15,12 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class EmailingDomainDriverFactory extends DriverFactoryBase<EmailingDomainDriverInterface> {
   constructor(
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
     configGroupHashService: ConfigGroupHashService,
     private readonly awsSesClientProvider: AwsSesClientProvider,
     private readonly awsSesHandleErrorService: AwsSesHandleErrorService,
   ) {
-    super(twentyConfigService, configGroupHashService);
+    super(badesConfigService, configGroupHashService);
   }
 
   protected buildConfigKey(): string {
@@ -42,15 +42,15 @@ export class EmailingDomainDriverFactory extends DriverFactoryBase<EmailingDomai
 
     switch (driver) {
       case EmailingDomainDriver.AWS_SES: {
-        const region = this.twentyConfigService.get('AWS_SES_REGION');
-        const accountId = this.twentyConfigService.get('AWS_SES_ACCOUNT_ID');
-        const accessKeyId = this.twentyConfigService.get(
+        const region = this.badesConfigService.get('AWS_SES_REGION');
+        const accountId = this.badesConfigService.get('AWS_SES_ACCOUNT_ID');
+        const accessKeyId = this.badesConfigService.get(
           'AWS_SES_ACCESS_KEY_ID',
         );
-        const secretAccessKey = this.twentyConfigService.get(
+        const secretAccessKey = this.badesConfigService.get(
           'AWS_SES_SECRET_ACCESS_KEY',
         );
-        const sessionToken = this.twentyConfigService.get(
+        const sessionToken = this.badesConfigService.get(
           'AWS_SES_SESSION_TOKEN',
         );
 

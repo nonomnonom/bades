@@ -1,10 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  FieldMetadataType,
-  ObjectRecord,
-  RelationType,
-} from 'shared/types';
+import { FieldMetadataType, ObjectRecord, RelationType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { type QueryResultFieldValue } from 'src/engine/api/graphql/workspace-query-runner/factories/query-result-getters/interfaces/query-result-field-value';

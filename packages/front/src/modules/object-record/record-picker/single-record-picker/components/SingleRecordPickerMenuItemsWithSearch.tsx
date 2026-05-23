@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
 import { SingleRecordPickerLoadingEffect } from '@/object-record/record-picker/single-record-picker/components/SingleRecordPickerLoadingEffect';
@@ -17,7 +18,6 @@ import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownM
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { isDefined } from 'shared/utils';
-import { t } from '@lingui/core/macro';
 import { IconPlus } from 'ui/display';
 
 export type SingleRecordPickerMenuItemsWithSearchProps = {
@@ -89,7 +89,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
                 <CreateNewButton
                   onClick={handleCreateNew}
                   LeftIcon={IconPlus}
-                  text={t`Add New`}
+                  text={t`Tambah Baru`}
                 />
               </DropdownMenuItemsContainer>
               <DropdownMenuSeparator />
@@ -138,7 +138,7 @@ export const SingleRecordPickerMenuItemsWithSearch = ({
                 <CreateNewButton
                   onClick={handleCreateNew}
                   LeftIcon={IconPlus}
-                  text={t`Add New`}
+                  text={t`Tambah Baru`}
                 />
               </DropdownMenuItemsContainer>
             </>

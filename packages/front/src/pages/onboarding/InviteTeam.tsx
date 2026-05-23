@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SubTitle } from '@/auth/components/SubTitle';
 import { Title } from '@/auth/components/Title';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
@@ -10,7 +11,6 @@ import { ModalContent } from 'ui/layout';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useCallback } from 'react';
 import {
   Controller,
@@ -170,7 +170,9 @@ export const InviteTeam = () => {
         <Trans>Undang tim Anda</Trans>
       </Title>
       <SubTitle>
-        <Trans>Undang rekan kerja Anda untuk mulai berkolaborasi bersama.</Trans>
+        <Trans>
+          Undang rekan kerja Anda untuk mulai berkolaborasi bersama.
+        </Trans>
       </SubTitle>
       <StyledAnimatedContainer>
         {fields.map((field, index) => (

@@ -1,5 +1,4 @@
 import { type ApplicationVariableEntity } from 'src/engine/core-modules/application/application-variable/application-variable.entity';
-import { type BillingMeterEntity } from 'src/engine/core-modules/billing/entities/billing-meter.entity';
 import { type BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
 import { type BillingProductEntity } from 'src/engine/core-modules/billing/entities/billing-product.entity';
 import { type BillingSubscriptionItemEntity } from 'src/engine/core-modules/billing/entities/billing-subscription-item.entity';
@@ -32,7 +31,6 @@ export type AllNonWorkspaceRelatedEntity =
   | AgentTurnEvaluationEntity
   | IndexFieldMetadataEntity
   | ApplicationVariableEntity
-  | BillingMeterEntity
   | BillingPriceEntity
   | BillingProductEntity
   | BillingSubscriptionItemEntity

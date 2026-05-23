@@ -6,7 +6,7 @@ import { JsonTree } from 'ui/json-visualizer';
 import { AnimatedExpandableContainer } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type DataMessagePart } from 'shared/ai';
 import { type JsonValue } from 'type-fest';
 import { useUsageValueFormatter } from '@/settings/usage/hooks/useUsageValueFormatter';

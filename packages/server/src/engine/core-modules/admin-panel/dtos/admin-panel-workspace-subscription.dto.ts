@@ -7,7 +7,7 @@ import { SubscriptionStatus } from 'src/engine/core-modules/billing/enums/billin
 @ObjectType('AdminPanelWorkspaceSubscription')
 export class AdminPanelWorkspaceSubscriptionDTO {
   @Field(() => String)
-  stripeSubscriptionId: string;
+  subscriptionId: string;
 
   @Field(() => SubscriptionStatus)
   status: SubscriptionStatus;

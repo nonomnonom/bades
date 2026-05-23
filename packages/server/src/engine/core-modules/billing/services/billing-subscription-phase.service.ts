@@ -3,21 +3,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import {
-  assertIsDefinedOrThrow,
-  findOrThrow,
-  isDefined,
-} from 'shared/utils';
+import { findOrThrow, isDefined } from 'shared/utils';
 import { type Repository } from 'typeorm';
-
-import type Stripe from 'stripe';
 
 import { type BillingSubscriptionSchedulePhaseDTO } from 'src/engine/core-modules/billing/dtos/billing-subscription-schedule-phase.dto';
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
 import { BillingPlanService } from 'src/engine/core-modules/billing/services/billing-plan.service';
 import { BillingPriceService } from 'src/engine/core-modules/billing/services/billing-price.service';
-import { SubscriptionStripePrices } from 'src/engine/core-modules/billing/services/billing-subscription-update.service';
-import { normalizePriceRef } from 'src/engine/core-modules/billing/utils/normalize-price-ref.utils';
+import { type SubscriptionPrices } from 'src/engine/core-modules/billing/services/billing-subscription-update.service';
 
 @Injectable()
 export class BillingSubscriptionPhaseService {
@@ -54,7 +47,7 @@ export class BillingSubscriptionPhaseService {
     );
 
     if (!isDefined(quantity)) {
-      throw new Error('Quantity is not defined');
+      throw new Error('Quantity tidak terdefinisi dalam phase');
     }
 
     return {
@@ -66,21 +59,21 @@ export class BillingSubscriptionPhaseService {
     };
   }
 
-  toPhaseUpdateParams(
-    phase: Stripe.SubscriptionSchedule.Phase,
-  ): Stripe.SubscriptionScheduleUpdateParams.Phase {
+  toPhaseUpdateParams(phase: BillingSubscriptionSchedulePhaseDTO): {
+    start_date: number;
+    end_date?: number;
+    proration_behavior: string;
+    items: Array<{ price: string; quantity?: number }>;
+  } {
     return {
       start_date: phase.start_date,
       end_date: phase.end_date ?? undefined,
       items: (phase.items || []).map((it) => ({
-        price: normalizePriceRef(it.price) as string,
+        price: it.price,
         quantity: it.quantity ?? undefined,
       })),
-      ...(phase.billing_thresholds
-        ? { billing_thresholds: phase.billing_thresholds }
-        : {}),
       proration_behavior: 'none',
-    } as Stripe.SubscriptionScheduleUpdateParams.Phase;
+    };
   }
 
   buildPhaseUpdateParams({
@@ -88,14 +81,13 @@ export class BillingSubscriptionPhaseService {
     startDate,
     endDate,
   }: {
-    toUpdatePrices: SubscriptionStripePrices;
-    startDate: Stripe.SubscriptionScheduleUpdateParams.Phase['start_date'];
+    toUpdatePrices: SubscriptionPrices;
+    startDate: number;
     endDate: number | undefined;
-  }): Stripe.SubscriptionScheduleUpdateParams.Phase {
+  }): BillingSubscriptionSchedulePhaseDTO {
     return {
       start_date: startDate,
-      ...(endDate ? { end_date: endDate } : {}),
-      proration_behavior: 'none',
+      end_date: endDate ?? 0,
       items: [
         {
           price: toUpdatePrices.licensedPriceId,
@@ -106,102 +98,30 @@ export class BillingSubscriptionPhaseService {
     };
   }
 
-  getLicensedPriceIdAndQuantityFromPhaseUpdateParams(
-    phase: Stripe.SubscriptionScheduleUpdateParams.Phase,
-  ): { price: string; quantity: number } {
-    const licensedItem = findOrThrow(phase.items!, (i) => i.quantity != null);
+  getLicensedPriceIdAndQuantityFromPhase(
+    phase: BillingSubscriptionSchedulePhaseDTO,
+  ): {
+    price: string;
+    quantity: number;
+  } {
+    const licensedItem = findOrThrow(phase.items, (i) => i.quantity != null);
 
-    assertIsDefinedOrThrow(licensedItem.price);
-    assertIsDefinedOrThrow(licensedItem.quantity);
+    if (!licensedItem.price || !isDefined(licensedItem.quantity)) {
+      throw new Error('Item produk berlisensi tidak lengkap dalam phase');
+    }
 
     return {
       price: licensedItem.price,
-      quantity: licensedItem.quantity,
+      quantity: licensedItem.quantity!,
     };
   }
 
-  async isSamePhaseSignature(
-    a: Stripe.SubscriptionScheduleUpdateParams.Phase,
-    b: Stripe.SubscriptionScheduleUpdateParams.Phase,
-  ): Promise<boolean> {
-    try {
-      const phaseALicensedPriceIdAndQuantity =
-        this.getLicensedPriceIdAndQuantityFromPhaseUpdateParams(a);
-      const phaseBLicensedPriceIdAndQuantity =
-        this.getLicensedPriceIdAndQuantityFromPhaseUpdateParams(b);
-      const phaseAResourceCreditPriceId =
-        this.getResourceCreditPriceIdFromPhaseUpdateParams(a);
-      const phaseBResourceCreditPriceId =
-        this.getResourceCreditPriceIdFromPhaseUpdateParams(b);
-
-      return (
-        phaseALicensedPriceIdAndQuantity.price ===
-          phaseBLicensedPriceIdAndQuantity.price &&
-        phaseALicensedPriceIdAndQuantity.quantity ===
-          phaseBLicensedPriceIdAndQuantity.quantity &&
-        phaseAResourceCreditPriceId === phaseBResourceCreditPriceId
-      );
-    } catch {
-      return false;
-    }
-  }
-  async buildResourceCreditPhaseUpdateParams({
-    basePlanStripePriceId,
-    seats,
-    resourceCreditStripePriceId,
-    startDate,
-    endDate,
-  }: {
-    basePlanStripePriceId: string;
-    seats: number;
-    resourceCreditStripePriceId: string;
-    startDate: Stripe.SubscriptionScheduleUpdateParams.Phase['start_date'];
-    endDate: number | undefined;
-  }): Promise<Stripe.SubscriptionScheduleUpdateParams.Phase> {
-    return {
-      start_date: startDate,
-      ...(endDate ? { end_date: endDate } : {}),
-      proration_behavior: 'none',
-      items: [
-        { price: basePlanStripePriceId, quantity: seats },
-        { price: resourceCreditStripePriceId, quantity: 1 },
-      ],
-    };
-  }
-
-  // Billing V2: compares resource credit Stripe price id between phases
-  async isSameResourceCreditPhaseSignature(
-    a: Stripe.SubscriptionScheduleUpdateParams.Phase,
-    b: Stripe.SubscriptionScheduleUpdateParams.Phase,
-  ): Promise<boolean> {
-    try {
-      const phaseALicensedPriceIdAndQuantity =
-        this.getLicensedPriceIdAndQuantityFromPhaseUpdateParams(a);
-      const phaseBLicensedPriceIdAndQuantity =
-        this.getLicensedPriceIdAndQuantityFromPhaseUpdateParams(b);
-      const phaseAResourceCreditPriceId =
-        this.getResourceCreditPriceIdFromPhaseUpdateParams(a);
-      const phaseBResourceCreditPriceId =
-        this.getResourceCreditPriceIdFromPhaseUpdateParams(b);
-
-      return (
-        phaseALicensedPriceIdAndQuantity.price ===
-          phaseBLicensedPriceIdAndQuantity.price &&
-        phaseALicensedPriceIdAndQuantity.quantity ===
-          phaseBLicensedPriceIdAndQuantity.quantity &&
-        phaseAResourceCreditPriceId === phaseBResourceCreditPriceId
-      );
-    } catch {
-      return false;
-    }
-  }
-
-  getResourceCreditPriceIdFromPhaseUpdateParams(
-    phase: Stripe.SubscriptionScheduleUpdateParams.Phase,
+  getResourceCreditPriceIdFromPhase(
+    phase: BillingSubscriptionSchedulePhaseDTO,
   ): string {
     const items = phase.items ?? [];
     const licensedPriceIdAndQuantity =
-      this.getLicensedPriceIdAndQuantityFromPhaseUpdateParams(phase);
+      this.getLicensedPriceIdAndQuantityFromPhase(phase);
 
     const resourceCreditItem = items.find(
       (item) =>
@@ -209,9 +129,29 @@ export class BillingSubscriptionPhaseService {
     );
 
     if (!resourceCreditItem?.price) {
-      throw new Error('Resource credit item not found in V2 phase params');
+      throw new Error('Resource credit item tidak ditemukan dalam phase');
     }
 
     return resourceCreditItem.price;
+  }
+
+  async isSamePhaseSignature(
+    a: BillingSubscriptionSchedulePhaseDTO,
+    b: BillingSubscriptionSchedulePhaseDTO,
+  ): Promise<boolean> {
+    try {
+      const phaseALicensed = this.getLicensedPriceIdAndQuantityFromPhase(a);
+      const phaseBLicensed = this.getLicensedPriceIdAndQuantityFromPhase(b);
+      const phaseAResourceCredit = this.getResourceCreditPriceIdFromPhase(a);
+      const phaseBResourceCredit = this.getResourceCreditPriceIdFromPhase(b);
+
+      return (
+        phaseALicensed.price === phaseBLicensed.price &&
+        phaseALicensed.quantity === phaseBLicensed.quantity &&
+        phaseAResourceCredit === phaseBResourceCredit
+      );
+    } catch {
+      return false;
+    }
   }
 }

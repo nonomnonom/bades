@@ -32,7 +32,7 @@ export class OnboardingService {
   constructor(
     private readonly billingService: BillingService,
     private readonly userVarsService: UserVarsService<OnboardingKeyValueTypeMap>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
   ) {}
@@ -107,7 +107,7 @@ export class OnboardingService {
     }
 
     if (isBookOnboardingPending) {
-      const calendarBookingPageId = this.twentyConfigService.get(
+      const calendarBookingPageId = this.badesConfigService.get(
         'CALENDAR_BOOKING_PAGE_ID',
       );
       const isBookingConfigured =
@@ -269,7 +269,7 @@ export class OnboardingService {
     workspaceId: string;
     value: boolean;
   }) {
-    const calendarBookingPageId = this.twentyConfigService.get(
+    const calendarBookingPageId = this.badesConfigService.get(
       'CALENDAR_BOOKING_PAGE_ID',
     );
 

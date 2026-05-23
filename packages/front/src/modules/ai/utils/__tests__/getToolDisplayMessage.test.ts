@@ -1,4 +1,4 @@
-import { i18n } from '@lingui/core';
+import { i18n } from '~/utils/i18n/badesI18n';
 
 import {
   getToolDisplayMessage,
@@ -54,7 +54,7 @@ describe('getToolDisplayMessage', () => {
         true,
       );
 
-      expect(message).toContain('Searched');
+      expect(message).toContain('Mencari');
       expect(message).toContain('CRM tools');
     });
 
@@ -65,7 +65,7 @@ describe('getToolDisplayMessage', () => {
         false,
       );
 
-      expect(message).toContain('Searching');
+      expect(message).toContain('Sedang mencari');
       expect(message).toContain('CRM tools');
     });
 
@@ -82,7 +82,7 @@ describe('getToolDisplayMessage', () => {
     it('should handle missing query', () => {
       const message = getToolDisplayMessage({}, 'web_search', true);
 
-      expect(message).toContain('Searched the web');
+      expect(message).toContain('Mencari web');
     });
   });
 
@@ -94,14 +94,14 @@ describe('getToolDisplayMessage', () => {
         false,
       );
 
-      expect(message).toContain('Searching');
+      expect(message).toContain('Sedang mencari');
       expect(message).toContain('CRM tools');
     });
 
     it('should handle missing query', () => {
       const message = getToolDisplayMessage({}, 'app_exa_web_search', true);
 
-      expect(message).toContain('Searched the web');
+      expect(message).toContain('Mencari web');
     });
   });
 
@@ -113,14 +113,14 @@ describe('getToolDisplayMessage', () => {
         true,
       );
 
-      expect(message).toContain('Learned');
+      expect(message).toContain('Mempelajari');
       expect(message).toContain('find_companies, create_task');
     });
 
     it('should show generic message without tool names', () => {
       const message = getToolDisplayMessage({}, 'learn_tools', true);
 
-      expect(message).toContain('Learned tools');
+      expect(message).toContain('Mempelajari alat');
     });
   });
 
@@ -132,14 +132,14 @@ describe('getToolDisplayMessage', () => {
         false,
       );
 
-      expect(message).toContain('Loading');
+      expect(message).toContain('Sedang memuat');
       expect(message).toContain('data-manipulation');
     });
 
     it('should show generic message without skill names', () => {
       const message = getToolDisplayMessage({}, 'load_skills', true);
 
-      expect(message).toContain('Loaded skills');
+      expect(message).toContain('Memuat keahlian');
     });
   });
 
@@ -163,7 +163,7 @@ describe('getToolDisplayMessage', () => {
         true,
       );
 
-      expect(message).toContain('Ran');
+      expect(message).toContain('Menjalankan');
       expect(message).toContain('create complete dashboard');
     });
 
@@ -174,7 +174,7 @@ describe('getToolDisplayMessage', () => {
         false,
       );
 
-      expect(message).toContain('Running');
+      expect(message).toContain('Sedang menjalankan');
       expect(message).toContain('create complete dashboard');
     });
   });
@@ -187,7 +187,7 @@ describe('getToolDisplayMessage', () => {
         true,
       );
 
-      expect(message).toContain('Ran');
+      expect(message).toContain('Menjalankan');
       expect(message).toContain('find companies');
     });
   });

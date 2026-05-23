@@ -74,7 +74,7 @@ export class BillingResolver {
     private readonly permissionsService: PermissionsService,
     private readonly midtransSnapService: MidtransSnapService,
     private readonly midtransTransactionService: MidtransTransactionService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @Query(() => BillingSessionDTO)
@@ -88,15 +88,6 @@ export class BillingResolver {
   ) {
     // Midtrans tidak menyediakan portal pelanggan seperti Stripe.
     // Kembalikan URL halaman billing internal Bades sebagai pengganti.
-    if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
-      const frontendUrl = this.twentyConfigService.get('FRONTEND_URL') ?? '';
-      const portalUrl = returnUrlPath
-        ? `${frontendUrl}${returnUrlPath}`
-        : `${frontendUrl}/settings/billing`;
-
-      return { url: portalUrl };
-    }
-
     return {
       url: await this.billingPortalWorkspaceService.computeBillingPortalSessionURLOrThrow(
         workspace,
@@ -117,9 +108,9 @@ export class BillingResolver {
       callbackFinishUrl,
     }: BillingTopUpCreditSessionInput,
   ) {
-    if (!this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       throw new BillingException(
-        'Top up kredit hanya tersedia saat IS_BILLING_MIDTRANS_ENABLED aktif.',
+        'Top up kredit hanya tersedia saat billing aktif.',
         BillingExceptionCode.BILLING_PAYMENT_REQUIRED,
       );
     }
@@ -146,8 +137,7 @@ export class BillingResolver {
     {
       recurringInterval,
       successUrlPath,
-      plan,
-      requirePaymentMethod,
+      plan: planArg,
     }: BillingCheckoutSessionInput,
     @AuthApiKey() apiKey?: ApiKeyEntity,
   ) {
@@ -158,64 +148,25 @@ export class BillingResolver {
       workspaceActivationStatus: workspace.activationStatus,
     });
 
-    const checkoutSessionParams = {
-      user,
-      workspace,
-      successUrlPath,
-      plan: plan ?? BillingPlanKey.PRO,
-      requirePaymentMethod,
-    };
+    const plan = planArg ?? BillingPlanKey.PRO;
 
-    // Jika Midtrans aktif, gunakan Snap untuk checkout langganan
-    if (this.twentyConfigService.get('IS_BILLING_MIDTRANS_ENABLED')) {
-      const grossAmount = await this.computeMidtransSubscriptionAmount(
-        checkoutSessionParams.plan,
-        recurringInterval,
-      );
+    const grossAmount = await this.computeMidtransSubscriptionAmount(
+      plan,
+      recurringInterval,
+    );
 
-      const snapResult = await this.midtransSnapService.createSnapTransaction({
-        workspaceId: workspace.id,
-        grossAmount,
-        transactionType: 'MONTHLY_BILLING',
-        customerEmail: user.email,
-        itemName: `Langganan Bades - Paket ${checkoutSessionParams.plan}`,
-        callbackFinishUrl: successUrlPath
-          ? `${this.twentyConfigService.get('FRONTEND_URL')}${successUrlPath}`
-          : undefined,
-      });
+    const snapResult = await this.midtransSnapService.createSnapTransaction({
+      workspaceId: workspace.id,
+      grossAmount,
+      transactionType: 'MONTHLY_BILLING',
+      customerEmail: user.email,
+      itemName: `Langganan Bades - Paket ${plan}`,
+      callbackFinishUrl: successUrlPath
+        ? `${this.badesConfigService.get('FRONTEND_URL')}${successUrlPath}`
+        : undefined,
+    });
 
-      return { url: snapResult.snapRedirectUrl, orderId: snapResult.orderId };
-    }
-
-    const billingPricesPerPlan =
-      await this.billingPlanService.getPricesPerPlanByInterval({
-        planKey: checkoutSessionParams.plan,
-        interval: recurringInterval,
-      });
-
-    // Untuk trial 7 hari (tanpa metode pembayaran): buat subscription langsung
-    // Untuk trial 30 hari (dengan metode pembayaran): gunakan checkout session
-    if (!requirePaymentMethod) {
-      const successUrl =
-        await this.billingPortalWorkspaceService.createDirectSubscription({
-          ...checkoutSessionParams,
-          billingPricesPerPlan,
-        });
-
-      return {
-        url: successUrl,
-      };
-    } else {
-      const checkoutSessionURL =
-        await this.billingPortalWorkspaceService.computeCheckoutSessionURL({
-          ...checkoutSessionParams,
-          billingPricesPerPlan,
-        });
-
-      return {
-        url: checkoutSessionURL,
-      };
-    }
+    return { url: snapResult.snapRedirectUrl, orderId: snapResult.orderId };
   }
 
   @Mutation(() => BillingUpdateDTO)
@@ -341,32 +292,21 @@ export class BillingResolver {
   @Mutation(() => BillingEndTrialPeriodDTO)
   @UseGuards(
     WorkspaceAuthGuard,
+    UserAuthGuard,
     SettingsPermissionGuard(PermissionFlagType.BILLING),
   )
   async endSubscriptionTrialPeriod(
     @AuthWorkspace() workspace: WorkspaceEntity,
+    @AuthUser() user: AuthContextUser,
   ): Promise<BillingEndTrialPeriodDTO> {
-    const result =
-      await this.billingSubscriptionService.endTrialPeriod(workspace);
-
-    if (!result.hasPaymentMethod && result.stripeCustomerId) {
-      const billingPortalUrl =
-        await this.billingPortalWorkspaceService.computeBillingPortalSessionURLForPaymentMethodUpdate(
-          workspace,
-          result.stripeCustomerId,
-          '/settings/billing',
-        );
-
-      return {
-        hasPaymentMethod: false,
-        status: undefined,
-        billingPortalUrl,
-      };
-    }
+    const result = await this.billingSubscriptionService.endTrialPeriod(
+      workspace,
+      user.email,
+    );
 
     return {
-      hasPaymentMethod: result.hasPaymentMethod,
-      status: result.status,
+      checkoutUrl: result.checkoutUrl,
+      orderId: result.orderId,
     };
   }
 

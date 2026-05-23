@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 
 import { generateMessageId } from 'src/engine/core-modules/i18n/utils/generateMessageId';
 import { resolvePageLayoutTabTitle } from 'src/engine/metadata-modules/page-layout-tab/utils/resolve-page-layout-tab-title.util';
@@ -28,7 +28,7 @@ describe('resolvePageLayoutTabTitle', () => {
     const result = resolvePageLayoutTabTitle({
       title: 'Home',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -44,7 +44,7 @@ describe('resolvePageLayoutTabTitle', () => {
     const result = resolvePageLayoutTabTitle({
       title: 'My Custom Tab',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -60,7 +60,7 @@ describe('resolvePageLayoutTabTitle', () => {
     const result = resolvePageLayoutTabTitle({
       title: '',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -88,7 +88,7 @@ describe('resolvePageLayoutTabTitle', () => {
       const result = resolvePageLayoutTabTitle({
         title: source,
         applicationId: STANDARD_APPLICATION_ID,
-        twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+        badesStandardApplicationId: STANDARD_APPLICATION_ID,
         i18nInstance: mockI18n,
       });
 
@@ -105,7 +105,7 @@ describe('resolvePageLayoutTabTitle', () => {
     const result = resolvePageLayoutTabTitle({
       title: 'Home',
       applicationId: customAppId,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -121,7 +121,7 @@ describe('resolvePageLayoutTabTitle', () => {
     const result = resolvePageLayoutTabTitle({
       title: 'Home',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       overrides: { title: 'Home' },
       i18nInstance: mockI18n,
     });
@@ -138,7 +138,7 @@ describe('resolvePageLayoutTabTitle', () => {
     const result = resolvePageLayoutTabTitle({
       title: 'Home',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       overrides: { icon: 'IconCustom' },
       i18nInstance: mockI18n,
     });

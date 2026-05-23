@@ -10,10 +10,7 @@ import { EnterprisePlanService } from 'src/engine/core-modules/enterprise/servic
 import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-config.module';
 
 @Module({
-  imports: [
-    BadesConfigModule,
-    TypeOrmModule.forFeature([AppTokenEntity]),
-  ],
+  imports: [BadesConfigModule, TypeOrmModule.forFeature([AppTokenEntity])],
   providers: [
     EnterprisePlanService,
     EnterpriseKeyValidationCronJob,

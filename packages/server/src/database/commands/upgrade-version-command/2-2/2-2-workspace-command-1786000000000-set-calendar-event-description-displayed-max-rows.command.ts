@@ -1,9 +1,6 @@
 import { Command } from 'nest-commander';
 import { STANDARD_OBJECTS } from 'shared/metadata';
-import {
-  FieldMetadataType,
-  type FieldMetadataSettings,
-} from 'shared/types';
+import { FieldMetadataType, type FieldMetadataSettings } from 'shared/types';
 
 import { ActiveOrSuspendedWorkspaceCommandRunner } from 'src/database/commands/command-runners/active-or-suspended-workspace.command-runner';
 import { WorkspaceIteratorService } from 'src/database/commands/command-runners/workspace-iterator.service';

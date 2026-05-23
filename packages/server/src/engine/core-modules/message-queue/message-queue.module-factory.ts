@@ -10,12 +10,12 @@ import { type BadesConfigService } from 'src/engine/core-modules/bades-config/ba
 /**
  * MessageQueue Module factory
  * @returns MessageQueueModuleOptions
- * @param twentyConfigService
+ * @param badesConfigService
  * @param redisClientService
  * @param metricsService
  */
 export const messageQueueModuleFactory = async (
-  _twentyConfigService: BadesConfigService,
+  _badesConfigService: BadesConfigService,
   redisClientService: RedisClientService,
   metricsService: MetricsService,
 ): Promise<MessageQueueModuleOptions> => {

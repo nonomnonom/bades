@@ -26,7 +26,7 @@ import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 export class RefreshTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(AppTokenEntity)
     private readonly appTokenRepository: Repository<AppTokenEntity>,
     @InjectRepository(UserEntity)
@@ -34,7 +34,7 @@ export class RefreshTokenService {
   ) {}
 
   async verifyRefreshToken(refreshToken: string) {
-    const reuseGracePeriod = this.twentyConfigService.get(
+    const reuseGracePeriod = this.badesConfigService.get(
       'REFRESH_TOKEN_REUSE_GRACE_PERIOD',
     );
 
@@ -114,7 +114,7 @@ export class RefreshTokenService {
   ): Promise<AuthToken> {
     const expiresIn = isImpersonationToken
       ? '1d'
-      : this.twentyConfigService.get('REFRESH_TOKEN_EXPIRES_IN');
+      : this.badesConfigService.get('REFRESH_TOKEN_EXPIRES_IN');
 
     if (!expiresIn) {
       throw new AuthException(

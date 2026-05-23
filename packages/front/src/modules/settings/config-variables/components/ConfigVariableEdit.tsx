@@ -3,13 +3,12 @@ import { H3Title, IconCheck, IconPencil, IconX } from 'ui/display';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Section } from 'ui/layout';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { type Dispatch, type SetStateAction, useState } from 'react';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
-import { SettingsSkeletonLoader } from '@/settings/components/SettingsSkeletonLoader';
 
 const RESET_VARIABLE_MODAL_ID =
   'reset-application-registration-config-variable-modal';
@@ -71,11 +70,11 @@ export const ConfigVariableEdit = ({
       setIsSubmitting(true);
       await onSave?.();
       enqueueSuccessSnackBar({
-        message: t`Variable ${title} updated`,
+        message: t`Variabel ${title} diperbarui`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error updating variable`,
+        message: t`Gagal memperbarui variabel`,
       });
     } finally {
       setIsSubmitting(false);
@@ -88,11 +87,11 @@ export const ConfigVariableEdit = ({
       setIsSubmitting(true);
       await onConfirmReset?.();
       enqueueSuccessSnackBar({
-        message: t`Variable ${title} reset`,
+        message: t`Variabel ${title} direset`,
       });
     } catch {
       enqueueErrorSnackBar({
-        message: t`Error resetting variable`,
+        message: t`Gagal mereset variabel`,
       });
     } finally {
       setIsSubmitting(false);
@@ -155,8 +154,8 @@ export const ConfigVariableEdit = ({
           )}
           <ConfirmationModal
             modalInstanceId={RESET_VARIABLE_MODAL_ID}
-            title={t`Reset variable`}
-            subtitle={t`Are you sure you want to reset this variable?`}
+            title={t`Reset variabel`}
+            subtitle={t`Apakah Anda yakin ingin mereset variabel ini?`}
             onConfirmClick={handleConfirmReset}
             confirmButtonText={t`Reset`}
             confirmButtonAccent="danger"

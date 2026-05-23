@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useDeleteOneRecord A. Starting from empty cache 1. Should successfully delete record and update record cache entry 1`] = `
 {
@@ -23,7 +23,7 @@ exports[`useDeleteOneRecord B. Starting from filled cache 1. Should handle succe
   "createdBy": {
     "__typename": "Actor",
     "context": null,
-    "name": "Jony Ive",
+    "name": "Ahmad Hidayat",
     "source": "WEBHOOK",
     "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
   },
@@ -76,7 +76,7 @@ exports[`useDeleteOneRecord B. Starting from filled cache 1. Should handle succe
   "updatedBy": {
     "__typename": "Actor",
     "context": null,
-    "name": "Jony Ive",
+    "name": "Ahmad Hidayat",
     "source": "WEBHOOK",
     "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
   },
@@ -206,7 +206,7 @@ exports[`useDeleteOneRecord B. Starting from filled cache 2. Should handle optim
   "createdBy": {
     "__typename": "Actor",
     "context": null,
-    "name": "Jony Ive",
+    "name": "Ahmad Hidayat",
     "source": "WEBHOOK",
     "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
   },
@@ -259,7 +259,7 @@ exports[`useDeleteOneRecord B. Starting from filled cache 2. Should handle optim
   "updatedBy": {
     "__typename": "Actor",
     "context": null,
-    "name": "Jony Ive",
+    "name": "Ahmad Hidayat",
     "source": "WEBHOOK",
     "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
   },
@@ -389,7 +389,7 @@ exports[`useDeleteOneRecord B. Starting from filled cache 3. Should handle optim
   "createdBy": {
     "__typename": "Actor",
     "context": null,
-    "name": "Jony Ive",
+    "name": "Ahmad Hidayat",
     "source": "WEBHOOK",
     "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
   },
@@ -442,7 +442,7 @@ exports[`useDeleteOneRecord B. Starting from filled cache 3. Should handle optim
   "updatedBy": {
     "__typename": "Actor",
     "context": null,
-    "name": "Jony Ive",
+    "name": "Ahmad Hidayat",
     "source": "WEBHOOK",
     "workspaceMemberId": "20202020-77d5-4cb6-b60a-f4a835a85d61",
   },

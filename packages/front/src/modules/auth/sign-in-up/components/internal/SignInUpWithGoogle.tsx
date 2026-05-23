@@ -7,7 +7,7 @@ import {
 } from '@/auth/states/signInUpStepState';
 import { AuthenticatedMethod } from '@/auth/types/AuthenticatedMethod.enum';
 import { type SocialSSOSignInUpActionType } from '@/auth/types/socialSSOSignInUp.type';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { memo, useContext } from 'react';
 import { HorizontalSeparator, IconGoogle } from 'ui/display';
 import { MainButton } from 'ui/input';

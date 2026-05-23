@@ -27,8 +27,6 @@ export enum AppPath {
 
   Settings = `settings`,
   SettingsCatchAll = `/${Settings}/*`,
-  Developers = `developers`,
-  DevelopersCatchAll = `/${Developers}/*`,
 
   Authorize = '/authorize',
 

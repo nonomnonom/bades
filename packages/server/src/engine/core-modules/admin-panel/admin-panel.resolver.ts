@@ -107,7 +107,7 @@ export class AdminPanelResolver {
     private readonly applicationRegistrationService: ApplicationRegistrationService,
     private adminPanelQueueService: AdminPanelQueueService,
     private featureFlagService: FeatureFlagService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly aiModelRegistryService: AiModelRegistryService,
     private readonly aiModelPreferencesService: AiModelPreferencesService,
     private readonly defaultAiCatalogService: DefaultAiCatalogService,
@@ -337,7 +337,7 @@ export class AdminPanelResolver {
   async getDatabaseConfigVariable(
     @Args('key', { type: () => String }) key: keyof ConfigVariables,
   ): Promise<ConfigVariableDTO> {
-    this.twentyConfigService.validateConfigVariableExists(key as string);
+    this.badesConfigService.validateConfigVariableExists(key as string);
 
     return this.adminConfigService.getConfigVariable(key);
   }
@@ -349,7 +349,7 @@ export class AdminPanelResolver {
     @Args('value', { type: () => GraphQLJSON })
     value: ConfigVariables[keyof ConfigVariables],
   ): Promise<boolean> {
-    await this.twentyConfigService.set(key, value);
+    await this.badesConfigService.set(key, value);
 
     return true;
   }
@@ -361,7 +361,7 @@ export class AdminPanelResolver {
     @Args('value', { type: () => GraphQLJSON })
     value: ConfigVariables[keyof ConfigVariables],
   ): Promise<boolean> {
-    await this.twentyConfigService.update(key, value);
+    await this.badesConfigService.update(key, value);
 
     return true;
   }
@@ -371,7 +371,7 @@ export class AdminPanelResolver {
   async deleteDatabaseConfigVariable(
     @Args('key', { type: () => String }) key: keyof ConfigVariables,
   ): Promise<boolean> {
-    await this.twentyConfigService.delete(key);
+    await this.badesConfigService.delete(key);
 
     return true;
   }
@@ -480,11 +480,11 @@ export class AdminPanelResolver {
     }
 
     const customProviders = {
-      ...this.twentyConfigService.get('AI_PROVIDERS'),
+      ...this.badesConfigService.get('AI_PROVIDERS'),
     };
 
     customProviders[providerName] = providerConfig;
-    await this.twentyConfigService.set('AI_PROVIDERS', customProviders);
+    await this.badesConfigService.set('AI_PROVIDERS', customProviders);
 
     return true;
   }
@@ -496,11 +496,11 @@ export class AdminPanelResolver {
     providerName: string,
   ): Promise<boolean> {
     const customProviders = {
-      ...this.twentyConfigService.get('AI_PROVIDERS'),
+      ...this.badesConfigService.get('AI_PROVIDERS'),
     };
 
     delete customProviders[providerName];
-    await this.twentyConfigService.set('AI_PROVIDERS', customProviders);
+    await this.badesConfigService.set('AI_PROVIDERS', customProviders);
 
     return true;
   }
@@ -527,7 +527,7 @@ export class AdminPanelResolver {
     modelConfig: AiProviderModelConfig,
   ): Promise<boolean> {
     const customProviders = {
-      ...this.twentyConfigService.get('AI_PROVIDERS'),
+      ...this.badesConfigService.get('AI_PROVIDERS'),
     };
 
     const existing = customProviders[providerName];
@@ -554,7 +554,7 @@ export class AdminPanelResolver {
       models: [...existingModels, { ...modelConfig, source: 'manual' }],
     };
 
-    await this.twentyConfigService.set('AI_PROVIDERS', customProviders);
+    await this.badesConfigService.set('AI_PROVIDERS', customProviders);
 
     return true;
   }
@@ -566,7 +566,7 @@ export class AdminPanelResolver {
     @Args('modelName', { type: () => String }) modelName: string,
   ): Promise<boolean> {
     const customProviders = {
-      ...this.twentyConfigService.get('AI_PROVIDERS'),
+      ...this.badesConfigService.get('AI_PROVIDERS'),
     };
 
     const existing = customProviders[providerName];
@@ -586,7 +586,7 @@ export class AdminPanelResolver {
       ),
     };
 
-    await this.twentyConfigService.set('AI_PROVIDERS', customProviders);
+    await this.badesConfigService.set('AI_PROVIDERS', customProviders);
 
     return true;
   }
@@ -604,7 +604,7 @@ export class AdminPanelResolver {
 
     defaultStart.setDate(defaultStart.getDate() - 30);
 
-    const useDollarMode = !this.twentyConfigService.get('IS_BILLING_ENABLED');
+    const useDollarMode = !this.badesConfigService.get('IS_BILLING_ENABLED');
 
     const items = await this.usageAnalyticsService.getAdminAiUsageByWorkspace({
       periodStart: periodStart ?? defaultStart,

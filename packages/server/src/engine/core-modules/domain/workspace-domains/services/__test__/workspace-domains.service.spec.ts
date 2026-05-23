@@ -11,7 +11,7 @@ import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.ent
 
 describe('WorkspaceDomainsService', () => {
   let workspaceDomainsService: WorkspaceDomainsService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let workspaceRepository: Repository<WorkspaceEntity>;
   let publicDomainRepository: Repository<PublicDomainEntity>;
 
@@ -52,13 +52,13 @@ describe('WorkspaceDomainsService', () => {
       WorkspaceDomainsService,
     );
 
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   describe('getWorkspaceUrls', () => {
     it('should return a URL containing the correct customDomain if customDomain is provided', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -82,7 +82,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should return a URL containing the correct subdomain if customDomain is not provided but subdomain is', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -109,7 +109,7 @@ describe('WorkspaceDomainsService', () => {
   describe('buildWorkspaceURL', () => {
     it('should build workspace URL with given subdomain', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -134,7 +134,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should set the pathname if provided', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -158,7 +158,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should set the search parameters if provided', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -188,7 +188,7 @@ describe('WorkspaceDomainsService', () => {
   describe('getWorkspaceByOriginOrDefaultWorkspace', () => {
     it('should return default workspace if IS_MULTIWORKSPACE_ENABLED=false', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -215,7 +215,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should return 1st workspace if multiple workspaces when IS_MULTIWORKSPACE_ENABLED=false', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -245,7 +245,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should return workspace by subdomain', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -271,7 +271,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should return workspace by customDomain', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -297,7 +297,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should return workspace by publicDomain', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',
@@ -327,7 +327,7 @@ describe('WorkspaceDomainsService', () => {
 
     it('should return undefined if nothing found', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const env = {
             FRONTEND_URL: 'https://example.com',

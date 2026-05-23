@@ -1,9 +1,8 @@
+import { t, Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 
 import { styled } from '@linaria/react';
 import { useMutation, useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';

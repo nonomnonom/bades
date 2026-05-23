@@ -15,14 +15,14 @@ export const useCurrentPlan = () => {
     listPlans(),
     (plan) =>
       plan.planKey ===
-      (currentWorkspace.currentBillingSubscription?.metadata?.['plan'] as
+      (currentWorkspace.currentBillingSubscription?.planKey as
         | BillingPlanKey
         | undefined),
     new Error('Current plan not found'),
   );
 
   const oppositPlan =
-    currentWorkspace?.currentBillingSubscription?.metadata?.['plan'] ===
+    currentWorkspace?.currentBillingSubscription?.planKey ===
     BillingPlanKey.ENTERPRISE
       ? BillingPlanKey.PRO
       : BillingPlanKey.ENTERPRISE;

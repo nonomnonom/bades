@@ -15,7 +15,6 @@ import { CaptchaDriverType } from 'src/engine/core-modules/captcha/interfaces';
 import { AuthProvidersDTO } from 'src/engine/core-modules/workspace/dtos/public-workspace-data.dto';
 import { AiModelRole } from 'src/engine/metadata-modules/ai/ai-models/types/ai-model-role.enum';
 import { ModelFamily } from 'src/engine/metadata-modules/ai/ai-models/types/model-family.enum';
-import { type ModelId } from 'src/engine/metadata-modules/ai/ai-models/types/model-id.type';
 
 registerEnumType(FeatureFlagKey, {
   name: 'FeatureFlagKey',
@@ -29,63 +28,10 @@ registerEnumType(AiModelRole, {
   name: 'AiModelRole',
 });
 
-@ObjectType()
-export class NativeModelCapabilities {
-  @Field(() => Boolean, { nullable: true })
-  webSearch?: boolean;
-
-  @Field(() => Boolean, { nullable: true })
-  twitterSearch?: boolean;
-}
-
-@ObjectType()
-export class ClientAiModelConfig {
-  @Field(() => String)
-  // Composite model id (`provider/modelName`) for this workspace; matches registry and admin APIs.
-  modelId: ModelId;
-
-  @Field(() => String)
-  label: string;
-
-  @Field(() => ModelFamily, { nullable: true })
-  modelFamily?: ModelFamily;
-
-  @Field({ nullable: true })
-  modelFamilyLabel?: string;
-
-  @Field(() => String, { nullable: true })
-  sdkPackage: AiSdkPackage | null;
-
-  @Field(() => Number, { nullable: true })
-  inputCostPerMillionTokens?: number;
-
-  @Field(() => Number, { nullable: true })
-  outputCostPerMillionTokens?: number;
-
-  @Field(() => NativeModelCapabilities, { nullable: true })
-  nativeCapabilities?: NativeModelCapabilities;
-
-  @Field(() => Boolean, { nullable: true })
-  isDeprecated?: boolean;
-
-  @Field(() => Boolean, { nullable: true })
-  isRecommended?: boolean;
-
-  @Field(() => String, { nullable: true })
-  providerName?: string;
-
-  @Field(() => String, { nullable: true })
-  providerLabel?: string;
-
-  @Field(() => Number, { nullable: true })
-  contextWindowTokens?: number;
-
-  @Field(() => Number, { nullable: true })
-  maxOutputTokens?: number;
-
-  @Field(() => String, { nullable: true })
-  dataResidency?: string;
-}
+// Bades single-model: surface daftar model AI tidak diekspos ke user akhir.
+// Tipe `ClientAiModelConfig`/`NativeModelCapabilities` dihapus dari payload
+// `/client-config`; routing tetap dikunci ke satu model operasional via
+// preferences internal (lihat `load-default-model-preferences.util.ts`).
 
 @ObjectType()
 export class AdminAiModelConfig {
@@ -249,9 +195,6 @@ export class ClientConfig {
   @Field(() => Billing, { nullable: false })
   billing: Billing;
 
-  @Field(() => [ClientAiModelConfig])
-  aiModels: ClientAiModelConfig[];
-
   @Field(() => Boolean)
   signInPrefilled: boolean;
 
@@ -313,7 +256,7 @@ export class ClientConfig {
   isEmailGroupEnabled: boolean;
 
   @Field(() => Boolean)
-  allowRequestsToTwentyIcons: boolean;
+  allowRequestsToFaviconService: boolean;
 
   @Field(() => String, { nullable: true })
   calendarBookingPageId?: string;

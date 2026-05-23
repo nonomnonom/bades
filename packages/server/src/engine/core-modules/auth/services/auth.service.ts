@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto, { randomUUID } from 'node:crypto';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { render } from '@react-email/render';
 import { addMilliseconds } from 'date-fns';
 import ms from 'ms';
@@ -75,7 +75,7 @@ import { PermissionsService } from 'src/engine/metadata-modules/permissions/perm
 // import { DEFAULT_FEATURE_FLAGS } from 'src/engine/workspace-manager/workspace-migration/constant/default-feature-flags';
 
 @Injectable()
-// oxlint-disable-next-line twenty/inject-workspace-repository
+// oxlint-disable-next-line bades/inject-workspace-repository
 export class AuthService {
   constructor(
     private readonly accessTokenService: AccessTokenService,
@@ -95,7 +95,7 @@ export class AuthService {
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly emailService: EmailService,
     @InjectRepository(AppTokenEntity)
     private readonly appTokenRepository: Repository<AppTokenEntity>,
@@ -213,7 +213,7 @@ export class AuthService {
   }
 
   async checkIsEmailVerified(isEmailVerified: boolean) {
-    const isEmailVerificationRequired = this.twentyConfigService.get(
+    const isEmailVerificationRequired = this.badesConfigService.get(
       'IS_EMAIL_VERIFICATION_REQUIRED',
     );
 
@@ -726,9 +726,9 @@ export class AuthService {
     const subject = i18n._(passwordChangedMsg);
 
     await this.emailService.send({
-      from: `${this.twentyConfigService.get(
+      from: `${this.badesConfigService.get(
         'EMAIL_FROM_NAME',
-      )} <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      )} <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       to: user.email,
       subject,
       text,

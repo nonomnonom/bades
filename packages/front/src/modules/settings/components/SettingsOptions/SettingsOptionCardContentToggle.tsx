@@ -8,10 +8,7 @@ import {
 import { SettingsOptionIconCustomizer } from '@/settings/components/SettingsOptions/SettingsOptionIconCustomizer';
 import { styled } from '@linaria/react';
 import { useContext, useId } from 'react';
-import {
-  type IconComponent,
-  OverflowingTextWithTooltip,
-} from 'ui/display';
+import { type IconComponent, OverflowingTextWithTooltip } from 'ui/display';
 import { Toggle } from 'ui/input';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 

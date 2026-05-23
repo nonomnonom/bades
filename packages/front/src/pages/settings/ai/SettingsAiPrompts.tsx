@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
@@ -6,7 +7,6 @@ import { SettingsPageContainer } from '@/settings/components/SettingsPageContain
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { H2Title, H3Title } from 'ui/display';

@@ -10,7 +10,7 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   AppTooltip,
@@ -83,7 +83,7 @@ export const CanvasTabSettingsContent = ({
   return (
     <>
       <SidePanelList selectableItemIds={selectableItemIds}>
-        <SidePanelGroup heading={t`Placement`}>
+        <SidePanelGroup heading={t`Tata letak`}>
           {canSetAsPinned && (
             <SelectableListItem
               itemId={TAB_SETTINGS_SELECTABLE_ITEM_IDS.SET_AS_PINNED}
@@ -92,7 +92,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.SET_AS_PINNED}
                 Icon={IconPinned}
-                label={t`Pin tab`}
+                label={t`Sematkan tab`}
                 onClick={onSetAsPinned}
               />
             </SelectableListItem>
@@ -105,7 +105,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_LEFT}
                 Icon={IconChevronLeft}
-                label={t`Move left`}
+                label={t`Geser ke kiri`}
                 onClick={onMoveLeft}
               />
             </SelectableListItem>
@@ -118,20 +118,20 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.MOVE_RIGHT}
                 Icon={IconChevronRight}
-                label={t`Move right`}
+                label={t`Geser ke kanan`}
                 onClick={onMoveRight}
               />
             </SelectableListItem>
           )}
         </SidePanelGroup>
-        <SidePanelGroup heading={t`Manage`}>
+        <SidePanelGroup heading={t`Kelola`}>
           {isDefined(canvasWidget) && (
             <SelectableListItem
               itemId={TAB_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
             >
               <CommandMenuItemDropdown
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION}
-                label={t`Visibility restriction`}
+                label={t`Pembatasan visibilitas`}
                 Icon={IconEyeX}
                 dropdownId={
                   TAB_SETTINGS_SELECTABLE_ITEM_IDS.VISIBILITY_RESTRICTION
@@ -161,7 +161,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.RESET_TO_DEFAULT}
                 Icon={IconRefreshDot}
-                label={t`Reset to default`}
+                label={t`Kembalikan ke default`}
                 onClick={handleResetToDefault}
                 disabled={isResetToDefaultDisabled}
               />
@@ -170,7 +170,7 @@ export const CanvasTabSettingsContent = ({
           {isResetToDefaultDisabled && (
             <AppTooltip
               anchorSelect={`#${RESET_TAB_TO_DEFAULT_MENU_ITEM_ID}`}
-              content={t`No default configuration available for this tab`}
+              content={t`Tidak ada konfigurasi default untuk tab ini`}
               noArrow
               place="bottom"
             />
@@ -183,7 +183,7 @@ export const CanvasTabSettingsContent = ({
               <CommandMenuItem
                 id={TAB_SETTINGS_SELECTABLE_ITEM_IDS.DELETE}
                 Icon={IconTrash}
-                label={t`Delete`}
+                label={t`Hapus`}
                 onClick={onDelete}
               />
             </SelectableListItem>
@@ -192,10 +192,10 @@ export const CanvasTabSettingsContent = ({
       </SidePanelList>
       <ConfirmationModal
         modalInstanceId={RESET_TAB_TO_DEFAULT_MODAL_ID}
-        title={t`Reset to default`}
-        subtitle={t`This will cancel all modifications done on the tab and its widgets. Edit mode will be canceled and the page will refresh. This action cannot be undone.`}
+        title={t`Kembalikan ke default`}
+        subtitle={t`Semua perubahan pada tab dan widget-nya akan dibatalkan. Mode edit akan ditutup dan halaman akan dimuat ulang. Tindakan ini tidak dapat diurungkan.`}
         onConfirmClick={onResetToDefault}
-        confirmButtonText={t`Reset`}
+        confirmButtonText={t`Kembalikan`}
         confirmButtonAccent="danger"
       />
     </>

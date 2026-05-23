@@ -1,5 +1,5 @@
+import { msg } from '~/utils/i18n/badesI18n';
 import { type TableMetadata } from '@/ui/layout/table/types/TableMetadata';
-import { msg } from '@lingui/core/macro';
 import { type SettingsObjectTableItem } from '~/pages/settings/data-model/types/SettingsObjectTableItem';
 
 export const GET_SETTINGS_OBJECT_TABLE_METADATA: TableMetadata<SettingsObjectTableItem> =
@@ -7,25 +7,25 @@ export const GET_SETTINGS_OBJECT_TABLE_METADATA: TableMetadata<SettingsObjectTab
     tableId: 'settingsObject',
     fields: [
       {
-        fieldLabel: msg`Name`,
+        fieldLabel: msg`Nama`,
         fieldName: 'labelPlural',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`App`,
+        fieldLabel: msg`Aplikasi`,
         fieldName: 'objectTypeLabel',
         fieldType: 'string',
         align: 'left',
       },
       {
-        fieldLabel: msg`Fields`,
+        fieldLabel: msg`Kolom`,
         fieldName: 'fieldsCount',
         fieldType: 'number',
         align: 'right',
       },
       {
-        fieldLabel: msg`Instances`,
+        fieldLabel: msg`Instansi`,
         fieldName: 'totalObjectCount',
         fieldType: 'number',
         align: 'right',

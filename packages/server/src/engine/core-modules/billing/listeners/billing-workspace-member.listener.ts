@@ -22,7 +22,7 @@ export class BillingWorkspaceMemberListener {
   constructor(
     @InjectMessageQueue(MessageQueue.billingQueue)
     private readonly messageQueueService: MessageQueueService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @OnDatabaseBatchEvent('workspaceMember', DatabaseEventAction.CREATED)
@@ -33,7 +33,7 @@ export class BillingWorkspaceMemberListener {
       ObjectRecordCreateEvent<WorkspaceMemberWorkspaceEntity>
     >,
   ) {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return;
     }
 

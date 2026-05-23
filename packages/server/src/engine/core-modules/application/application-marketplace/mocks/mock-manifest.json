@@ -28,7 +28,7 @@
   "publicAssets": [],
   "sources": {},
   "packageJson": {
-    "name": "@twenty-apps/data-enrichment",
+    "name": "@bades-apps/data-enrichment",
     "version": "1.0.0"
   },
   "yarnLock": ""

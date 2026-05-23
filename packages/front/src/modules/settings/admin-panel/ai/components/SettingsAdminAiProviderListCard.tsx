@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { IconPlug, Status } from 'ui/display';

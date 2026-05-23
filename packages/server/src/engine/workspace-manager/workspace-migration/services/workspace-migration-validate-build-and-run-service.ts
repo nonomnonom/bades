@@ -63,9 +63,9 @@ export class WorkspaceMigrationValidateBuildAndRunService {
     private readonly workspaceMigrationBuildOrchestratorService: WorkspaceMigrationBuildOrchestratorService,
     private readonly workspaceCacheService: WorkspaceCacheService,
     private readonly metadataEventEmitter: MetadataEventEmitter,
-    twentyConfigService: BadesConfigService,
+    badesConfigService: BadesConfigService,
   ) {
-    const logLevels = twentyConfigService.get('LOG_LEVELS');
+    const logLevels = badesConfigService.get('LOG_LEVELS');
 
     this.isDebugEnabled = logLevels.includes('debug');
   }

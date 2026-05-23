@@ -1,10 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
-import {
-  type RatioAggregateConfig,
-  SerializedRelation,
-} from 'shared/types';
+import { type RatioAggregateConfig, SerializedRelation } from 'shared/types';
 
 import { UUIDScalarType } from 'src/engine/api/graphql/workspace-schema-builder/graphql-types/scalars';
 

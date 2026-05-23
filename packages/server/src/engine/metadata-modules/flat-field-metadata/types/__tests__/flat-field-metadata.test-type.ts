@@ -1,8 +1,5 @@
 import { type Expect, type HasAllProperties } from 'shared/testing';
-import {
-  type FieldMetadataType,
-  type NullablePartial,
-} from 'shared/types';
+import { type FieldMetadataType, type NullablePartial } from 'shared/types';
 
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 

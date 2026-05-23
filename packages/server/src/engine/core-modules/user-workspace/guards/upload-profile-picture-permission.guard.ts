@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'class-validator';
 import { PermissionFlagType } from 'shared/constants';
 import { WorkspaceActivationStatus } from 'shared/workspace';

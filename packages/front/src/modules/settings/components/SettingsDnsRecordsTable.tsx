@@ -3,7 +3,7 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { capitalize, isDefined } from 'shared/utils';
 import { OverflowingTextWithTooltip, Status } from 'ui/display';
 import { type ThemeColor } from 'ui/theme';
@@ -72,11 +72,11 @@ export const SettingsDnsRecordsTable = ({
     <Table>
       <StyledTableRowContainer>
         <TableRow gridAutoColumns={gridAutoColumns}>
-          <TableHeader align="center">{t`Type`}</TableHeader>
-          <TableHeader align="center">{t`Key`}</TableHeader>
-          <TableHeader align="center">{t`Value`}</TableHeader>
+          <TableHeader align="center">{t`Tipe`}</TableHeader>
+          <TableHeader align="center">{t`Kunci`}</TableHeader>
+          <TableHeader align="center">{t`Nilai`}</TableHeader>
           {hasPriorityRecords && (
-            <TableHeader align="center">{t`Priority`}</TableHeader>
+            <TableHeader align="center">{t`Prioritas`}</TableHeader>
           )}
           {hasTtlRecords && <TableHeader align="center">{t`TTL`}</TableHeader>}
           {hasStatusRecords && (

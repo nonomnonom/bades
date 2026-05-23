@@ -14,12 +14,12 @@ export class AiModelPreferencesService implements OnModuleInit {
   private filePreferences: AiModelPreferences | null = null;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly fileStorageDriverFactory: FileStorageDriverFactory,
   ) {}
 
   async onModuleInit(): Promise<void> {
-    const storagePath = this.twentyConfigService.get(
+    const storagePath = this.badesConfigService.get(
       'AI_MODEL_PREFERENCES_STORAGE_PATH',
     );
 
@@ -42,17 +42,16 @@ export class AiModelPreferencesService implements OnModuleInit {
 
   getPreferences(): AiModelPreferences {
     const { source } =
-      this.twentyConfigService.getVariableWithMetadata(
-        'AI_MODEL_PREFERENCES',
-      ) ?? {};
+      this.badesConfigService.getVariableWithMetadata('AI_MODEL_PREFERENCES') ??
+      {};
 
     if (source !== ConfigSource.DEFAULT) {
-      return this.twentyConfigService.get('AI_MODEL_PREFERENCES');
+      return this.badesConfigService.get('AI_MODEL_PREFERENCES');
     }
 
     return (
       this.filePreferences ??
-      this.twentyConfigService.get('AI_MODEL_PREFERENCES')
+      this.badesConfigService.get('AI_MODEL_PREFERENCES')
     );
   }
 
@@ -130,7 +129,7 @@ export class AiModelPreferencesService implements OnModuleInit {
   }
 
   private async persistPreferences(prefs: AiModelPreferences): Promise<void> {
-    await this.twentyConfigService.set('AI_MODEL_PREFERENCES', prefs);
+    await this.badesConfigService.set('AI_MODEL_PREFERENCES', prefs);
   }
 
   private async fetchPreferences(

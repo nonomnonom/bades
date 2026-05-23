@@ -1,6 +1,6 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useContext, useMemo, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useDebounce } from 'use-debounce';
@@ -14,11 +14,7 @@ import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { Table } from '@/ui/layout/table/components/Table';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
-import {
-  AppPath,
-  CoreObjectNameSingular,
-  SettingsPath,
-} from 'shared/types';
+import { AppPath, CoreObjectNameSingular, SettingsPath } from 'shared/types';
 import { generateILikeFiltersForCompositeFields } from 'shared/utils';
 import {
   AppTooltip,

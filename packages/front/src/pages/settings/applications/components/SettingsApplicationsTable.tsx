@@ -1,9 +1,9 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { H2Title, IconChevronRight } from 'ui/display';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { SettingsPath } from 'shared/types';
-import { useLingui } from '@lingui/react/macro';
 import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
 import {

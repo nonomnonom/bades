@@ -4,8 +4,7 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import { AuthenticationError } from 'src/engine/core-modules/graphql/utils/graphql-errors.util';
 
 @Catch(ForbiddenException)

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 import { ActivityTargetsInlineCell } from '@/activities/inline-cell/components/ActivityTargetsInlineCell';
 import { getActivitySummary } from '@/activities/utils/getActivitySummary';
@@ -119,7 +119,9 @@ export const TaskRow = ({ task }: { task: Task }) => {
           />
         </StyledCheckboxContainer>
         <StyledTaskTitle completed={task.status === 'DONE'}>
-          {task.title || <StyledPlaceholder>{t`Judul tugas`}</StyledPlaceholder>}
+          {task.title || (
+            <StyledPlaceholder>{t`Judul tugas`}</StyledPlaceholder>
+          )}
         </StyledTaskTitle>
         <StyledTaskBody>
           <OverflowingTextWithTooltip text={body} />

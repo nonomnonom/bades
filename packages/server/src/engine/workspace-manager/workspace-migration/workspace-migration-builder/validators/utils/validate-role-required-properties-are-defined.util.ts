@@ -1,4 +1,4 @@
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { FLAT_ROLE_REQUIRED_PROPERTIES } from 'src/engine/metadata-modules/flat-role/constants/flat-role-required-properties.constants';

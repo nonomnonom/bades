@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useChildRecordFiltersAndRecordFilterGroups } from '@/object-record/advanced-filter/hooks/useChildRecordFiltersAndRecordFilterGroups';
 import { useRemoveRecordFilterGroup } from '@/object-record/record-filter-group/hooks/useRemoveRecordFilterGroup';
 import { useRemoveRootRecordFilterGroupIfEmpty } from '@/object-record/record-filter-group/hooks/useRemoveRootRecordFilterGroupIfEmpty';
@@ -7,7 +8,6 @@ import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { t } from '@lingui/core/macro';
 import { IconDotsVertical, IconTrash } from 'ui/display';
 import { IconButton } from 'ui/input';
 import { MenuItem } from 'ui/navigation';
@@ -49,7 +49,7 @@ export const AdvancedFilterRecordFilterGroupOptionsDropdown = ({
       dropdownId={dropdownId}
       clickableComponent={
         <IconButton
-          aria-label={t`Filter group rule options`}
+          aria-label={t`Opsi grup aturan filter`}
           variant="tertiary"
           Icon={IconDotsVertical}
         />
@@ -58,7 +58,7 @@ export const AdvancedFilterRecordFilterGroupOptionsDropdown = ({
         <DropdownContent>
           <DropdownMenuItemsContainer>
             <MenuItem
-              text={t`Remove rule group`}
+              text={t`Hapus grup aturan`}
               onClick={handleRemove}
               LeftIcon={IconTrash}
               accent="danger"

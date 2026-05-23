@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/sort-css-properties-alphabetically';
+export const RULE_NAME = 'sort-css-properties-alphabetically';
 
 interface Loc {
   start: {

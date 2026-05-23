@@ -83,7 +83,7 @@ export const Default: Story = {
       {/* oxlint-disable-next-line react/jsx-props-no-spreading */}
       <Banner {...args}>
         <StyledBannerContent>
-          Sync lost with mailbox hello@twenty.com. Please reconnect for updates:
+          Sinkronisasi terputus dengan mailbox halo@bades.id. Silakan hubungkan ulang:
           <Button
             variant="secondary"
             accent={getButtonAccent(args.color)}

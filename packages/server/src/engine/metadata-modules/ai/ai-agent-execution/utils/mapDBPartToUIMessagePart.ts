@@ -1,13 +1,10 @@
-import {
-  type ExtendedFileUIPart,
-  type ExtendedUIMessagePart,
-} from 'shared/ai';
+import { type ExtendedFileUIPart, type ExtendedUIMessagePart } from 'shared/ai';
 
 import { type AgentMessagePartEntity } from 'src/engine/metadata-modules/ai/ai-agent-execution/entities/agent-message-part.entity';
 
 // Maps TypeORM entity fields to UI message parts.
 // A parallel mapping for GraphQL DTOs exists in the frontend at:
-// packages/twenty-front/src/modules/ai/utils/mapDBPartToUIMessagePart.ts
+// packages/front/src/modules/ai/utils/mapDBPartToUIMessagePart.ts
 
 export const mapDBPartToUIMessagePart = (
   part: AgentMessagePartEntity,

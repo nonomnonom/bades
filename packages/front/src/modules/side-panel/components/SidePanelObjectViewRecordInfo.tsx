@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { OverflowingTextWithTooltip } from 'ui/display';
 
 import { SidePanelPageInfoLayout } from '@/side-panel/components/SidePanelPageInfoLayout';
@@ -38,8 +38,8 @@ export const SidePanelObjectViewRecordInfo = () => {
     navItem.type === NavigationMenuItemType.RECORD
       ? selectedItemObjectMetadata?.labelSingular
       : navItem.type === NavigationMenuItemType.OBJECT
-        ? t`Object`
-        : t`View`;
+        ? t`Objek`
+        : t`Tampilan`;
 
   return (
     <SidePanelPageInfoLayout

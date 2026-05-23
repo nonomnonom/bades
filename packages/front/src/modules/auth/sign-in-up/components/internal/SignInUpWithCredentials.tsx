@@ -17,7 +17,7 @@ import { isRequestingCaptchaTokenState } from '@/captcha/states/isRequestingCapt
 import { captchaState } from '@/client-config/states/captchaState';
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { isDefined } from 'shared/utils';

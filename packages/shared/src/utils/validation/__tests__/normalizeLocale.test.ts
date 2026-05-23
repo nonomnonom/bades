@@ -7,34 +7,26 @@ describe('normalizeLocale', () => {
   });
 
   it('should return the locale when there is a direct match in APP_LOCALES', () => {
-    // Test valid locales
-    expect(normalizeLocale('en')).toBe('en');
     expect(normalizeLocale('id-ID')).toBe('id-ID');
   });
 
   it('should handle case-insensitive matches', () => {
-    // Test with lowercase variants of the locales
-    expect(normalizeLocale('en')).toBe('en');
     expect(normalizeLocale('id-id')).toBe('id-ID');
   });
 
   it('should match just the language part if full locale not found', () => {
-    // Test with just the language code
     expect(normalizeLocale('id')).toBe('id-ID');
   });
 
   it('should return SOURCE_LOCALE for unsupported or invalid locales', () => {
+    // Bades single-language: locale lain (termasuk 'en') jatuh ke SOURCE_LOCALE
+    expect(normalizeLocale('en')).toBe(SOURCE_LOCALE);
     expect(normalizeLocale('invalid-locale')).toBe(SOURCE_LOCALE);
     expect(normalizeLocale('xx-XX')).toBe(SOURCE_LOCALE);
     expect(normalizeLocale('')).toBe(SOURCE_LOCALE);
   });
 
-  it('should handle SOURCE_LOCALE and its variants correctly', () => {
+  it('should handle SOURCE_LOCALE correctly', () => {
     expect(normalizeLocale(SOURCE_LOCALE)).toBe(SOURCE_LOCALE);
-    // If SOURCE_LOCALE is 'en', test 'en-US', 'en-GB', etc.
-    if (SOURCE_LOCALE === 'en') {
-      expect(normalizeLocale('en-US')).toBe(SOURCE_LOCALE);
-      expect(normalizeLocale('en-GB')).toBe(SOURCE_LOCALE);
-    }
   });
 });

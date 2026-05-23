@@ -29,10 +29,6 @@
       "path": "../packages/utils"
     },
     {
-      "name": "packages/zapier",
-      "path": "../packages/zapier"
-    },
-    {
       "name": "packages/oxlint-rules",
       "path": "../packages/oxlint-rules"
     },
@@ -41,32 +37,12 @@
       "path": "../packages/e2e-testing"
     },
     {
-      "name": "packages/docs",
-      "path": "../packages/docs"
-    },
-    {
-      "name": "packages/create-bades-app",
-      "path": "../packages/create-bades-app"
-    },
-    {
-      "name": "packages/apps",
-      "path": "../packages/apps"
-    },
-    {
       "name": "packages/claude-skills",
       "path": "../packages/claude-skills"
     },
     {
-      "name": "packages/cli",
-      "path": "../packages/cli"
-    },
-    {
       "name": "packages/client-sdk",
       "path": "../packages/client-sdk"
-    },
-    {
-      "name": "packages/companion",
-      "path": "../packages/companion"
     },
     {
       "name": "packages/front-component-renderer",
@@ -75,10 +51,6 @@
     {
       "name": "packages/sdk",
       "path": "../packages/sdk"
-    },
-    {
-      "name": "packages/website",
-      "path": "../packages/website"
     }
   ],
   "settings": {
@@ -141,7 +113,6 @@
     "jest.runMode": "on-demand",
     "jest.disabledWorkspaceFolders": [
       "ROOT",
-      "packages/zapier",
       "packages/utils",
       "packages/postgres"
     ]

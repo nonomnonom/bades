@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { SettingsCard } from '@/settings/components/SettingsCard';
@@ -7,7 +8,6 @@ import { SettingsEmailingDomainRowDropdownMenu } from '@/settings/emailing-domai
 
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { IconMail, Status } from 'ui/display';
@@ -43,7 +43,10 @@ export const SettingsEmailingDomains = () => {
   return isLoading || !emailingDomains.length ? (
     <StyledLinkContainer>
       <Link to={getSettingsPath(SettingsPath.NewEmailingDomain)}>
-        <SettingsCard title={t`Tambah Domain Pengiriman Surel`} Icon={<IconMail />} />
+        <SettingsCard
+          title={t`Tambah Domain Pengiriman Surel`}
+          Icon={<IconMail />}
+        />
       </Link>
     </StyledLinkContainer>
   ) : (

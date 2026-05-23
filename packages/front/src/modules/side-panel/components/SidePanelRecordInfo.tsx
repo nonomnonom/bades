@@ -1,4 +1,4 @@
-import { allowRequestsToTwentyIconsState } from '@/client-config/states/allowRequestsToTwentyIcons';
+import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 import { viewableRecordIdComponentState } from '@/side-panel/pages/record-page/states/viewableRecordIdComponentState';
 import { viewableRecordNameSingularComponentState } from '@/side-panel/pages/record-page/states/viewableRecordNameSingularComponentState';
 import { useLabelIdentifierFieldMetadataItem } from '@/object-metadata/hooks/useLabelIdentifierFieldMetadataItem';
@@ -12,7 +12,7 @@ import { recordStoreIdentifierFamilySelector } from '@/object-record/record-stor
 import { RecordTitleCell } from '@/object-record/record-title-cell/components/RecordTitleCell';
 import { RecordTitleCellContainerType } from '@/object-record/record-title-cell/types/RecordTitleCellContainerType';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { styled } from '@linaria/react';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
@@ -45,8 +45,8 @@ export const SidePanelRecordInfo = ({
     viewableRecordNameSingularComponentState,
     sidePanelPageInstanceId,
   );
-  const allowRequestsToTwentyIcons = useAtomStateValue(
-    allowRequestsToTwentyIconsState,
+  const allowRequestsToFaviconService = useAtomStateValue(
+    allowRequestsToFaviconServiceState,
   );
 
   const viewableRecordId = useAtomComponentStateValue(
@@ -71,7 +71,7 @@ export const SidePanelRecordInfo = ({
     recordStoreIdentifierFamilySelector,
     {
       recordId: objectRecordId,
-      allowRequestsToTwentyIcons,
+      allowRequestsToFaviconService,
     },
   );
 

@@ -16,7 +16,7 @@ import { WorkflowStepFilterValueCompositeInput } from '@/workflow/workflow-steps
 import { useUpsertStepFilterSettings } from '@/workflow/workflow-steps/filters/hooks/useUpsertStepFilterSettings';
 import { WorkflowStepFilterContext } from '@/workflow/workflow-steps/filters/states/context/WorkflowStepFilterContext';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isObject, isString } from '@sniptt/guards';
 import { useContext } from 'react';
 import {

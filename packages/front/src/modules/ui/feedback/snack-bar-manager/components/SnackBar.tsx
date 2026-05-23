@@ -1,7 +1,6 @@
 import { sanitizeMessageToRenderInSnackbar } from '@/ui/feedback/snack-bar-manager/utils/sanitizeMessageToRenderInSnackbar';
 import { styled } from '@linaria/react';
-import { msg } from '@lingui/core/macro';
-import { useLingui } from '@lingui/react/macro';
+import { msg, useLingui } from '~/utils/i18n/badesI18n';
 import { isUndefined } from '@sniptt/guards';
 import {
   type ComponentPropsWithoutRef,
@@ -131,11 +130,11 @@ const defaultAriaLabelByVariant: Record<
   SnackBarVariant,
   ReturnType<typeof msg>
 > = {
-  [SnackBarVariant.Default]: msg`Alert`,
-  [SnackBarVariant.Error]: msg`Error`,
+  [SnackBarVariant.Default]: msg`Peringatan`,
+  [SnackBarVariant.Error]: msg`Kesalahan`,
   [SnackBarVariant.Info]: msg`Info`,
-  [SnackBarVariant.Success]: msg`Success`,
-  [SnackBarVariant.Warning]: msg`Warning`,
+  [SnackBarVariant.Success]: msg`Berhasil`,
+  [SnackBarVariant.Warning]: msg`Perhatian`,
 };
 
 export const SnackBar = ({
@@ -232,10 +231,10 @@ export const SnackBar = ({
         <StyledIcon>{icon}</StyledIcon>
         <StyledMessage>{sanitizedMessage ?? ''}</StyledMessage>
         <StyledActions>
-          {!!onCancel && <LightButton title={t`Cancel`} onClick={onCancel} />}
+          {!!onCancel && <LightButton title={t`Batal`} onClick={onCancel} />}
 
           {!!onClose && (
-            <LightIconButton title={t`Close`} Icon={IconX} onClick={onClose} />
+            <LightIconButton title={t`Tutup`} Icon={IconX} onClick={onClose} />
           )}
         </StyledActions>
       </StyledHeader>

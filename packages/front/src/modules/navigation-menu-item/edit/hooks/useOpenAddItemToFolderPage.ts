@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import { IconColumnInsertRight } from 'ui/display';
 
@@ -32,7 +32,7 @@ export const useOpenAddItemToFolderPage = () => {
     setSelectedNavigationMenuItemIdInEditMode(null);
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`New menu item`,
+      pageTitle: t`Item menu baru`,
       pageIcon: IconColumnInsertRight,
       resetNavigationStack,
     });

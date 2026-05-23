@@ -1,10 +1,10 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useSortedArray } from '@/ui/layout/table/hooks/useSortedArray';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { useContext, useMemo, useState } from 'react';
 import { H2Title, IconArchive } from 'ui/display';
 import { SearchInput } from 'ui/input';

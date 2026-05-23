@@ -1,5 +1,5 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { Link } from 'react-router-dom';
 import { useDebouncedCallback } from 'use-debounce';
 

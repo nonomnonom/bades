@@ -47,7 +47,7 @@ import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspa
 export class DevSeederService {
   constructor(
     private readonly workspaceCacheStorageService: WorkspaceCacheStorageService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceDataSourceService: WorkspaceDataSourceService,
     private readonly badesStandardApplicationService: BadesStandardApplicationService,
     private readonly devSeederMetadataService: DevSeederMetadataService,
@@ -73,8 +73,8 @@ export class DevSeederService {
     options?: { light?: boolean },
   ): Promise<void> {
     const light = options?.light ?? false;
-    const isBillingEnabled = this.twentyConfigService.get('IS_BILLING_ENABLED');
-    const appVersion = this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+    const isBillingEnabled = this.badesConfigService.get('IS_BILLING_ENABLED');
+    const appVersion = this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
     const lastAttemptedInstanceCommand =
       await this.upgradeMigrationService.getLastAttemptedInstanceCommandOrThrow();
@@ -191,7 +191,7 @@ export class DevSeederService {
   public async seedEmptyWorkspace(
     workspaceId: SeededEmptyWorkspacesIds,
   ): Promise<void> {
-    const appVersion = this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+    const appVersion = this.badesConfigService.get('APP_VERSION') ?? 'unknown';
     const lastAttemptedInstanceCommand =
       await this.upgradeMigrationService.getLastAttemptedInstanceCommandOrThrow();
     const initialCursor =
@@ -322,11 +322,17 @@ export class DevSeederService {
       await seedFeatureFlags({ queryRunner, schemaName, workspaceId });
 
       if (seedBilling) {
-        await seedBillingCustomers({ queryRunner, schemaName, workspaceId });
+        const billingCustomerId = await seedBillingCustomers({
+          queryRunner,
+          schemaName,
+          workspaceId,
+        });
+
         await seedBillingSubscriptions({
           queryRunner,
           schemaName,
           workspaceId,
+          billingCustomerId,
         });
       }
 

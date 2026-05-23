@@ -3,7 +3,7 @@ import { filterSortableFieldMetadataItems } from '@/object-metadata/utils/filter
 import { type RecordSort } from '@/object-record/record-sort/types/RecordSort';
 import { Select } from '@/ui/input/components/Select';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconArrowsSort, IconTrash, useIcons } from 'ui/display';
 import { Button, type SelectOption } from 'ui/input';
 import { v4 as uuidv4 } from 'uuid';

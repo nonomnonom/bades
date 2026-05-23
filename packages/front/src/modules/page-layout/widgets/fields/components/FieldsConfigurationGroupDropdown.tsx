@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   IconDotsVertical,
   IconNewSection,
@@ -63,19 +63,19 @@ export const FieldsConfigurationGroupDropdown = ({
               LeftIcon={IconPencil}
               onClick={handleRename}
               accent="default"
-              text={t`Rename`}
+              text={t`Ganti nama`}
             />
             <MenuItem
               LeftIcon={IconTrash}
               onClick={handleDelete}
               accent="danger"
-              text={t`Delete`}
+              text={t`Hapus`}
             />
             <MenuItem
               LeftIcon={IconNewSection}
               onClick={handleAddGroup}
               accent="default"
-              text={t`Add a Group`}
+              text={t`Tambah grup`}
             />
           </DropdownMenuItemsContainer>
         </DropdownContent>

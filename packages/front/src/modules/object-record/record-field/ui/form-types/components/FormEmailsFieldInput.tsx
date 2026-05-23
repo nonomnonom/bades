@@ -1,10 +1,10 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormFieldInputContainer';
 import { FormNestedFieldInputContainer } from '@/object-record/record-field/ui/form-types/components/FormNestedFieldInputContainer';
 import { FormTextFieldInput } from '@/object-record/record-field/ui/form-types/components/FormTextFieldInput';
 import { type VariablePickerComponent } from '@/object-record/record-field/ui/form-types/types/VariablePickerComponent';
 import { type FieldEmailsValue } from '@/object-record/record-field/ui/types/FieldMetadata';
 import { InputLabel } from '@/ui/input/components/InputLabel';
-import { useLingui } from '@lingui/react/macro';
 
 type FormEmailsFieldInputProps = {
   label?: string;

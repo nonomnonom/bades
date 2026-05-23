@@ -30,7 +30,7 @@ import { type SpreadsheetColumns } from '@/spreadsheet-import/types/SpreadsheetC
 import { type SpreadsheetImportField } from '@/spreadsheet-import/types/SpreadsheetImportField';
 import { useAtomFamilySelectorState } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorState';
 import { ScrollWrapper } from '@/ui/utilities/scroll/components/ScrollWrapper';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledColumnsContainer = styled.div`

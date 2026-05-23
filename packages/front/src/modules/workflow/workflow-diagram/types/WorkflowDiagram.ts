@@ -4,7 +4,6 @@ import {
   type WorkflowTriggerType,
 } from '@/workflow/types/Workflow';
 import { type WorkflowStepConnectionOptions } from '@/workflow/workflow-diagram/workflow-iterator/types/WorkflowStepConnectionOptions';
-import { type MessageDescriptor } from '@lingui/core';
 import {
   type Connection,
   type Edge,
@@ -42,7 +41,7 @@ export type WorkflowDiagramNodeRightHandleOptions = {
 };
 
 export type WorkflowDiagramNodeDefaultHandleOptions = {
-  label?: MessageDescriptor;
+  label?: string;
 };
 
 export type WorkflowDiagramStepNodeData =
@@ -102,7 +101,7 @@ export type WorkflowRunDiagramNodeData = Exclude<
 
 export type WorkflowDiagramEdgeLabelOptions = {
   position: Position;
-  label: MessageDescriptor;
+  label: string;
   elseIfIndex?: number;
 };
 

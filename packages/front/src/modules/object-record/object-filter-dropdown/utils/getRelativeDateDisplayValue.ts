@@ -1,11 +1,7 @@
 import { getRelativeDateFilterTimeZoneAbbreviation } from '@/object-record/object-filter-dropdown/utils/getRelativeDateFilterTimeZoneAbbreviation';
 import { plural } from 'pluralize';
 
-import {
-  capitalize,
-  isDefined,
-  type RelativeDateFilter,
-} from 'shared/utils';
+import { capitalize, isDefined, type RelativeDateFilter } from 'shared/utils';
 
 export const getRelativeDateDisplayValue = (
   relativeDate: RelativeDateFilter,

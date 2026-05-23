@@ -1,5 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { assertUnreachable, CustomError } from 'shared/utils';
 
 export const WorkspaceDataSourceExceptionCode = {

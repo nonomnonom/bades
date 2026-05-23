@@ -1,6 +1,6 @@
 import { useCurrentWidget } from '@/page-layout/widgets/hooks/useCurrentWidget';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { AppTooltip, Status } from 'ui/display';
 import { WidgetType } from '~/generated-metadata/graphql';
 
@@ -13,11 +13,12 @@ export const PageLayoutWidgetNoDataDisplay = () => {
   const widget = useCurrentWidget();
   const tooltipId = `widget-incomplete-tooltip-${widget.id}`;
 
-  const text = widget.type === WidgetType.IFRAME ? t`Invalid URL` : t`No Data`;
+  const text =
+    widget.type === WidgetType.IFRAME ? t`URL tidak valid` : t`Tidak ada data`;
   const tooltipContent =
     widget.type === WidgetType.IFRAME
-      ? t`Invalid URL. Click edit to configure this widget.`
-      : t`No data available. Click edit to configure this widget.`;
+      ? t`URL tidak valid. Klik ubah untuk mengonfigurasi widget ini.`
+      : t`Tidak ada data tersedia. Klik ubah untuk mengonfigurasi widget ini.`;
 
   return (
     <StyledNoDataContainer>

@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
@@ -5,7 +6,6 @@ import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '@lingui/react/macro';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 

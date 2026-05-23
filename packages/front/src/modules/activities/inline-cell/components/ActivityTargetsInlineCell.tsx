@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext, useState } from 'react';
 
 import { ActivityTargetChips } from '@/activities/components/ActivityTargetChips';

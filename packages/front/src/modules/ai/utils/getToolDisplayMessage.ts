@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 import { isNonEmptyString } from '@sniptt/guards';
 import { z } from 'zod';
@@ -130,5 +130,8 @@ export const getToolDisplayMessage = (
 
   const formattedName = formatToolName(resolvedToolName);
 
-  return byStatus(t`Menjalankan ${formattedName}`, t`Sedang menjalankan ${formattedName}`);
+  return byStatus(
+    t`Menjalankan ${formattedName}`,
+    t`Sedang menjalankan ${formattedName}`,
+  );
 };

@@ -10,7 +10,7 @@ import { WorkflowOutputSchemaBuilder } from '@/workflow/workflow-steps/workflow-
 import { workflowAiAgentActionAgentState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentActionAgentState';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { useMutation } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { type AgentResponseSchema } from 'shared/ai';
 import { useDebouncedCallback } from 'use-debounce';

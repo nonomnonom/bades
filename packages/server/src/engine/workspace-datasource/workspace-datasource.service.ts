@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { type DataSource, type EntityManager, Repository } from 'typeorm';
 
@@ -24,11 +24,11 @@ export class WorkspaceDataSourceService {
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   private assertDDLNotLocked(): void {
-    if (this.twentyConfigService.get('WORKSPACE_SCHEMA_DDL_LOCKED')) {
+    if (this.badesConfigService.get('WORKSPACE_SCHEMA_DDL_LOCKED')) {
       throw new WorkspaceDataSourceException({
         message:
           'Workspace schema DDL changes are locked. This is typically set during hot upgrades.',

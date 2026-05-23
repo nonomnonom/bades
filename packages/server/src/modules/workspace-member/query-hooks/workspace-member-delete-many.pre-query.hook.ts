@@ -1,5 +1,4 @@
-import { msg } from '@lingui/core/macro';
-
+import { msg } from 'src/utils/bades-i18n';
 import { type WorkspacePreQueryHookInstance } from 'src/engine/api/graphql/workspace-query-runner/workspace-query-hook/interfaces/workspace-query-hook.interface';
 import { type DeleteManyResolverArgs } from 'src/engine/api/graphql/workspace-resolver-builder/interfaces/workspace-resolvers-builder.interface';
 
@@ -23,7 +22,7 @@ export class WorkspaceMemberDeleteManyPreQueryHook
       'Please use /deleteUserFromWorkspace to remove a workspace member.',
       CommonQueryRunnerExceptionCode.BAD_REQUEST,
       {
-        userFriendlyMessage: msg`Please use Settings to remove a workspace member.`,
+        userFriendlyMessage: msg`Gunakan menu Pengaturan untuk menghapus anggota workspace.`,
       },
     );
   }

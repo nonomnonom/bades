@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { Strategy, type SecretOrKeyProvider } from 'passport-jwt';
 import { PermissionFlagType } from 'shared/constants';
 import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';

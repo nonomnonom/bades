@@ -3,7 +3,7 @@ import { SettingsAccountsRowDropdownMenu } from '@/settings/accounts/components/
 import { SyncStatus } from '@/settings/accounts/constants/SyncStatus';
 import { computeSyncStatus } from '@/settings/accounts/utils/computeSyncStatus';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Status } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 
@@ -43,7 +43,11 @@ export const SettingsAccountsConnectedAccountsRowRightContainer = ({
         />
       )}
       {status === SyncStatus.PENDING_CONFIGURATION && (
-        <Status color="orange" text={t`Pengaturan belum selesai`} weight="medium" />
+        <Status
+          color="orange"
+          text={t`Pengaturan belum selesai`}
+          weight="medium"
+        />
       )}
       <SettingsAccountsRowDropdownMenu account={account} />
     </StyledRowRightContainer>

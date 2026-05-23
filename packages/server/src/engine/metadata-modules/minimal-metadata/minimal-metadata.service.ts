@@ -1,9 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  ALL_METADATA_NAME,
-  type AllMetadataName,
-} from 'shared/metadata';
+import { ALL_METADATA_NAME, type AllMetadataName } from 'shared/metadata';
 import { type APP_LOCALES, SOURCE_LOCALE } from 'shared/translations';
 import { ViewVisibility } from 'shared/types';
 import { isDefined, uncapitalize } from 'shared/utils';

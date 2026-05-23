@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { CommandMenuButton } from '@/command-menu/components/CommandMenuButton';
 import { useChildRecordFiltersAndRecordFilterGroups } from '@/object-record/advanced-filter/hooks/useChildRecordFiltersAndRecordFilterGroups';
 import { useGetDefaultFieldMetadataItemForFilter } from '@/object-record/advanced-filter/hooks/useGetDefaultFieldMetadataItemForFilter';
@@ -15,7 +16,6 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { useGetCurrentViewOnly } from '@/views/hooks/useGetCurrentViewOnly';
-import { t } from '@lingui/core/macro';
 import { useContext } from 'react';
 import { RecordFilterGroupLogicalOperator } from 'shared/types';
 import { getFilterTypeFromFieldType, isDefined } from 'shared/utils';
@@ -150,8 +150,8 @@ export const AdvancedFilterAddFilterRuleSelect = ({
       <CommandMenuButton
         command={{
           Icon: IconPlus,
-          label: t`Add rule`,
-          shortLabel: t`Add rule`,
+          label: t`Tambah aturan`,
+          shortLabel: t`Tambah aturan`,
           key: 'add-rule',
         }}
         onClick={handleAddFilter}
@@ -166,8 +166,8 @@ export const AdvancedFilterAddFilterRuleSelect = ({
         <CommandMenuButton
           command={{
             Icon: IconPlus,
-            label: t`Add filter rule`,
-            shortLabel: t`Add filter rule`,
+            label: t`Tambah aturan filter`,
+            shortLabel: t`Tambah aturan filter`,
             key: 'add-filter-rule',
           }}
         />
@@ -177,13 +177,13 @@ export const AdvancedFilterAddFilterRuleSelect = ({
           <DropdownMenuItemsContainer>
             <MenuItem
               LeftIcon={IconPlus}
-              text={t`Add rule`}
+              text={t`Tambah aturan`}
               onClick={handleAddFilter}
             />
             {isFilterRuleGroupOptionVisible && (
               <MenuItem
                 LeftIcon={IconLibraryPlus}
-                text={t`Add rule group`}
+                text={t`Tambah grup aturan`}
                 onClick={handleAddFilterGroup}
               />
             )}

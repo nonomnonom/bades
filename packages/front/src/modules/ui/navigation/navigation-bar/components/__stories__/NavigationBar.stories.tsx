@@ -1,11 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import {
-  IconCheckbox,
-  IconList,
-  IconSearch,
-  IconSettings,
-} from 'ui/display';
+import { IconCheckbox, IconList, IconSearch, IconSettings } from 'ui/display';
 import { NavigationBar } from 'ui/navigation';
 import { ComponentDecorator } from 'ui/testing';
 import { ComponentWithRouterDecorator } from '~/testing/decorators/ComponentWithRouterDecorator';

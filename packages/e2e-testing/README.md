@@ -1,48 +1,50 @@
-# Twenty end-to-end (E2E) Testing
+# Bades End-to-End (E2E) Testing
 
-## Prerequisite
+## Prasyarat
 
-Installing the browsers:
-
-```
-npx nx setup twenty-e2e-testing
-```
-
-### Run end-to-end tests
+Install browser Playwright:
 
 ```
-npx nx test twenty-e2e-testing
+npx nx setup e2e-testing
 ```
 
-### Start the interactive UI mode
+### Jalankan semua test
 
 ```
-npx nx test:ui twenty-e2e-testing
+npx nx test e2e-testing
 ```
 
-### Run test in specific file
+### Mode UI interaktif
+
 ```
-npx nx test twenty-e2e-testing <filename>
+npx nx test:ui e2e-testing
 ```
 
-Example (location of the test must be specified from the root of `twenty-e2e-testing` package):
+### Jalankan file test tertentu
+
 ```
-npx nx test twenty-e2e-testing tests/login.spec.ts
+npx nx test e2e-testing <filename>
 ```
 
-### Runs the tests in debug mode.
+Contoh (path test relatif terhadap root package `e2e-testing`):
+
 ```
-npx nx test:debug twenty-e2e-testing
+npx nx test e2e-testing tests/login.spec.ts
 ```
 
-### Show report after tests
+### Mode debug
+
 ```
-npx nx test:report twenty-e2e-testing
+npx nx test:debug e2e-testing
 ```
 
-## Q&A
+### Tampilkan report
 
-#### Why there's `path.resolve()` everywhere?
-That's thanks to differences in root directory when running tests using commands and using IDE. When running tests with commands, 
-the root directory is `twenty/packages/twenty-e2e-testing`, for IDE it depends on how someone sets the configuration. This way, it
-ensures that no matter which IDE or OS Shell is used, the result will be the same.
+```
+npx nx test:report e2e-testing
+```
+
+## Catatan
+
+`path.resolve()` dipakai di banyak tempat agar root directory test konsisten
+saat dijalankan lewat CLI maupun dari IDE.

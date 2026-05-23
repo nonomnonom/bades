@@ -11,7 +11,7 @@ import { workflowAiAgentPermissionsIsAddingPermissionState } from '@/workflow/wo
 import { workflowAiAgentPermissionsSelectedObjectIdState } from '@/workflow/workflow-steps/workflow-actions/ai-agent-action/states/workflowAiAgentPermissionsSelectedObjectIdState';
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { type Agent, GetRolesDocument } from '~/generated-metadata/graphql';

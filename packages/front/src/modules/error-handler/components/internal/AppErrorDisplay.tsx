@@ -1,5 +1,5 @@
 import { type AppErrorDisplayProps } from '@/error-handler/types/AppErrorDisplayProps';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconRefresh } from 'ui/display';
 import { Button } from 'ui/input';
 import {

@@ -21,7 +21,7 @@ export class GlobalWorkspaceDataSourceService
     null;
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceEventEmitter: WorkspaceEventEmitter,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
@@ -30,24 +30,24 @@ export class GlobalWorkspaceDataSourceService
   async onModuleInit(): Promise<void> {
     this.globalWorkspaceDataSource = new GlobalWorkspaceDataSource(
       {
-        url: this.twentyConfigService.get('PG_DATABASE_URL'),
+        url: this.badesConfigService.get('PG_DATABASE_URL'),
         type: 'postgres',
-        logging: this.twentyConfigService.getLoggingConfig(),
+        logging: this.badesConfigService.getLoggingConfig(),
         entities: [],
-        ssl: this.twentyConfigService.get('PG_SSL_ALLOW_SELF_SIGNED')
+        ssl: this.badesConfigService.get('PG_SSL_ALLOW_SELF_SIGNED')
           ? {
               rejectUnauthorized: false,
             }
           : undefined,
-        poolSize: this.twentyConfigService.get('PG_POOL_MAX_CONNECTIONS'),
+        poolSize: this.badesConfigService.get('PG_POOL_MAX_CONNECTIONS'),
         extra: {
-          query_timeout: this.twentyConfigService.get(
+          query_timeout: this.badesConfigService.get(
             'PG_DATABASE_PRIMARY_TIMEOUT_MS',
           ),
-          idleTimeoutMillis: this.twentyConfigService.get(
+          idleTimeoutMillis: this.badesConfigService.get(
             'PG_POOL_IDLE_TIMEOUT_MS',
           ),
-          allowExitOnIdle: this.twentyConfigService.get(
+          allowExitOnIdle: this.badesConfigService.get(
             'PG_POOL_ALLOW_EXIT_ON_IDLE',
           ),
         },
@@ -59,30 +59,30 @@ export class GlobalWorkspaceDataSourceService
     await this.globalWorkspaceDataSource.initialize();
 
     const shouldInitializeReplicaDataSource = isDefined(
-      this.twentyConfigService.get('PG_DATABASE_REPLICA_URL'),
+      this.badesConfigService.get('PG_DATABASE_REPLICA_URL'),
     );
 
     if (shouldInitializeReplicaDataSource) {
       this.globalWorkspaceDataSourceReplica = new GlobalWorkspaceDataSource(
         {
-          url: this.twentyConfigService.get('PG_DATABASE_REPLICA_URL'),
+          url: this.badesConfigService.get('PG_DATABASE_REPLICA_URL'),
           type: 'postgres',
-          logging: this.twentyConfigService.getLoggingConfig(),
+          logging: this.badesConfigService.getLoggingConfig(),
           entities: [],
-          ssl: this.twentyConfigService.get('PG_SSL_ALLOW_SELF_SIGNED')
+          ssl: this.badesConfigService.get('PG_SSL_ALLOW_SELF_SIGNED')
             ? {
                 rejectUnauthorized: false,
               }
             : undefined,
-          poolSize: this.twentyConfigService.get('PG_POOL_MAX_CONNECTIONS'),
+          poolSize: this.badesConfigService.get('PG_POOL_MAX_CONNECTIONS'),
           extra: {
-            query_timeout: this.twentyConfigService.get(
+            query_timeout: this.badesConfigService.get(
               'PG_DATABASE_REPLICA_TIMEOUT_MS',
             ),
-            idleTimeoutMillis: this.twentyConfigService.get(
+            idleTimeoutMillis: this.badesConfigService.get(
               'PG_POOL_IDLE_TIMEOUT_MS',
             ),
-            allowExitOnIdle: this.twentyConfigService.get(
+            allowExitOnIdle: this.badesConfigService.get(
               'PG_POOL_ALLOW_EXIT_ON_IDLE',
             ),
           },

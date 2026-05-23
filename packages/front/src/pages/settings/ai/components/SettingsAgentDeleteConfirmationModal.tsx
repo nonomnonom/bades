@@ -1,5 +1,5 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { Trans, useLingui } from '@lingui/react/macro';
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
@@ -51,7 +51,8 @@ export const SettingsAgentDeleteConfirmationModal = ({
       title={t`Hapus Agen`}
       subtitle={
         <Trans>
-          Tindakan ini tidak dapat dibatalkan. Agen Anda akan dihapus secara permanen.
+          Tindakan ini tidak dapat dibatalkan. Agen Anda akan dihapus secara
+          permanen.
           <br />
           Ketik nama agen untuk mengkonfirmasi.
         </Trans>

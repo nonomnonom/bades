@@ -1,3 +1,4 @@
+import { t, Trans } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { motion } from 'framer-motion';
 import { useCallback, useContext } from 'react';
@@ -29,13 +30,8 @@ import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModa
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { createPortal } from 'react-dom';
-import {
-  computeMorphRelationGqlFieldName,
-  CustomError,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, CustomError } from 'shared/utils';
 import {
   IconChevronDown,
   IconDotsVertical,
@@ -279,17 +275,17 @@ export const RecordDetailRelationRecordsListItem = ({
       {createPortal(
         <ConfirmationModal
           modalInstanceId={getDeleteRelationModalId(relationRecord.id)}
-          title={t`Delete Related ${relationObjectTypeName}`}
+          title={t`Hapus Data Terkait ${relationObjectTypeName}`}
           subtitle={
             <Trans>
-              Are you sure you want to delete this related{' '}
-              {relationObjectMetadataNameSingular}?
+              Apakah Anda yakin ingin menghapus{' '}
+              {relationObjectMetadataNameSingular} terkait ini?
               <br />
-              This action will break all its relationships with other objects.
+              Tindakan ini akan memutus semua hubungannya dengan objek lain.
             </Trans>
           }
           onConfirmClick={handleConfirmDelete}
-          confirmButtonText={t`Delete ${relationObjectTypeName}`}
+          confirmButtonText={t`Hapus ${relationObjectTypeName}`}
         />,
         document.body,
       )}

@@ -11,7 +11,7 @@ import { extractConfigVariableName } from 'src/engine/metadata-modules/ai/ai-mod
 @Injectable()
 export class ProviderConfigService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly defaultAiCatalogService: DefaultAiCatalogService,
   ) {}
 
@@ -26,7 +26,7 @@ export class ProviderConfigService {
     // Only resolve {{VAR}} templates in the committed catalog — never in
     // user-supplied custom providers, to prevent config variable exfiltration.
     const catalog = this.resolveTemplates(rawCatalog);
-    const custom = this.twentyConfigService.get('AI_PROVIDERS');
+    const custom = this.badesConfigService.get('AI_PROVIDERS');
 
     return { ...catalog, ...custom };
   }
@@ -66,7 +66,7 @@ export class ProviderConfigService {
     // then fall back to process.env for vars not in ConfigVariables
     // (e.g. when CI replaces the catalog with custom provider entries).
     try {
-      const resolved = this.twentyConfigService.get(
+      const resolved = this.badesConfigService.get(
         varName as keyof ConfigVariables,
       ) as string | undefined;
 

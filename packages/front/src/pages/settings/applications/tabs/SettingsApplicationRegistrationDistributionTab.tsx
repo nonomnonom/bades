@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { CommandBlock, H2Title, IconCopy } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';

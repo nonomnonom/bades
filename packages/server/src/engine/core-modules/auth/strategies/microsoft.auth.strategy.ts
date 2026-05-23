@@ -36,11 +36,11 @@ export type MicrosoftRequest = Omit<
 
 @Injectable()
 export class MicrosoftStrategy extends PassportStrategy(Strategy, 'microsoft') {
-  constructor(twentyConfigService: BadesConfigService) {
+  constructor(badesConfigService: BadesConfigService) {
     super({
-      clientID: twentyConfigService.get('AUTH_MICROSOFT_CLIENT_ID'),
-      clientSecret: twentyConfigService.get('AUTH_MICROSOFT_CLIENT_SECRET'),
-      callbackURL: twentyConfigService.get('AUTH_MICROSOFT_CALLBACK_URL'),
+      clientID: badesConfigService.get('AUTH_MICROSOFT_CLIENT_ID'),
+      clientSecret: badesConfigService.get('AUTH_MICROSOFT_CLIENT_SECRET'),
+      callbackURL: badesConfigService.get('AUTH_MICROSOFT_CALLBACK_URL'),
       tenant: 'common',
       scope: ['user.read'],
       passReqToCallback: true,

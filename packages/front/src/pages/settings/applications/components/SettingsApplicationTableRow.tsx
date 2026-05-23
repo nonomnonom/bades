@@ -1,10 +1,10 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { type ReactNode } from 'react';
 
 import { ApplicationDisplay } from '@/applications/components/ApplicationDisplay';
 import { useResolvedApplicationDescription } from '@/applications/hooks/useResolvedApplicationDescription';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { t } from '@lingui/core/macro';
 import { Tag } from 'ui/components';
 import { OverflowingTextWithTooltip } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';

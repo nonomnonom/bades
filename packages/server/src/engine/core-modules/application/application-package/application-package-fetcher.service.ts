@@ -34,7 +34,7 @@ import { streamToBuffer } from 'src/utils/stream-to-buffer';
 
 const execFilePromise = promisify(execFile);
 
-const APP_FETCHER_TMPDIR = join(tmpdir(), 'twenty-app-fetcher');
+const APP_FETCHER_TMPDIR = join(tmpdir(), 'bades-app-fetcher');
 const RESOLUTION_TIMEOUT_MS = 30_000;
 
 export type ResolvedPackage = {
@@ -49,7 +49,7 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
   private readonly logger = new Logger(ApplicationPackageFetcherService.name);
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly fileStorageService: FileStorageService,
     @InjectRepository(FileEntity)
     private readonly fileRepository: Repository<FileEntity>,
@@ -114,9 +114,9 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
     await fs.mkdir(workDir, { recursive: true });
 
     try {
-      const registryUrl = this.twentyConfigService.get('APP_REGISTRY_URL');
+      const registryUrl = this.badesConfigService.get('APP_REGISTRY_URL');
 
-      const authToken = this.twentyConfigService.get('APP_REGISTRY_TOKEN');
+      const authToken = this.badesConfigService.get('APP_REGISTRY_TOKEN');
 
       assertValidNpmPackageName(packageName);
 
@@ -266,7 +266,7 @@ export class ApplicationPackageFetcherService implements OnModuleInit {
     versionSpec: string,
   ): Promise<void> {
     const packageJson = {
-      name: 'twenty-app-resolver-workspace',
+      name: 'bades-app-resolver-workspace',
       private: true,
       dependencies: {
         [packageName]: versionSpec,

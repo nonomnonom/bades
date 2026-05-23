@@ -6,7 +6,7 @@ import { getFileCategoryFromExtension } from '@/object-record/record-field/ui/ut
 import { filePreviewState } from '@/ui/field/display/states/filePreviewState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext } from 'react';
 import { type ExtendedFileUIPart } from 'shared/ai';
 import { isDefined } from 'shared/utils';
@@ -37,7 +37,9 @@ export const AgentChatFilePreview = ({
   const setFilePreview = useSetAtomState(filePreviewState);
 
   const fileName =
-    file instanceof File ? file.name : (file.filename ?? t`File tidak diketahui`);
+    file instanceof File
+      ? file.name
+      : (file.filename ?? t`File tidak diketahui`);
 
   const fileUrl = file instanceof File ? undefined : file.url;
   const fileId = file instanceof File ? undefined : file.fileId;

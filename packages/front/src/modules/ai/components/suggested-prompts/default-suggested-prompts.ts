@@ -1,5 +1,4 @@
-import type { MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import {
   type IconComponent,
   IconLayoutDashboard,
@@ -9,9 +8,9 @@ import {
 
 export type SuggestedPrompt = {
   id: string;
-  label: MessageDescriptor;
+  label: string;
   Icon: IconComponent;
-  prefillPrompts: MessageDescriptor[];
+  prefillPrompts: string[];
 };
 
 export const DEFAULT_SUGGESTED_PROMPTS: SuggestedPrompt[] = [

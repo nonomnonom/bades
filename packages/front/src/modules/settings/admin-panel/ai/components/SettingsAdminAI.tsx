@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { Tag } from 'ui/components';

@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 import { type APP_LOCALES } from 'shared/translations';
 
 import { type ObjectStandardOverridesDTO } from 'src/engine/metadata-modules/object-metadata/dtos/object-standard-overrides.dto';

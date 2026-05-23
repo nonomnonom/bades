@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 
 import { generateMessageId } from 'src/engine/core-modules/i18n/utils/generateMessageId';
 import { resolveViewFieldGroupName } from 'src/engine/metadata-modules/view-field-group/utils/resolve-view-field-group-name.util';
@@ -28,7 +28,7 @@ describe('resolveViewFieldGroupName', () => {
     const result = resolveViewFieldGroupName({
       name: 'General',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -44,7 +44,7 @@ describe('resolveViewFieldGroupName', () => {
     const result = resolveViewFieldGroupName({
       name: 'My Custom Group',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -60,7 +60,7 @@ describe('resolveViewFieldGroupName', () => {
     const result = resolveViewFieldGroupName({
       name: '',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -87,7 +87,7 @@ describe('resolveViewFieldGroupName', () => {
       const result = resolveViewFieldGroupName({
         name: source,
         applicationId: STANDARD_APPLICATION_ID,
-        twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+        badesStandardApplicationId: STANDARD_APPLICATION_ID,
         i18nInstance: mockI18n,
       });
 
@@ -104,7 +104,7 @@ describe('resolveViewFieldGroupName', () => {
     const result = resolveViewFieldGroupName({
       name: 'General',
       applicationId: customAppId,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       i18nInstance: mockI18n,
     });
 
@@ -120,7 +120,7 @@ describe('resolveViewFieldGroupName', () => {
     const result = resolveViewFieldGroupName({
       name: 'General',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       overrides: { name: 'General' },
       i18nInstance: mockI18n,
     });
@@ -137,7 +137,7 @@ describe('resolveViewFieldGroupName', () => {
     const result = resolveViewFieldGroupName({
       name: 'General',
       applicationId: STANDARD_APPLICATION_ID,
-      twentyStandardApplicationId: STANDARD_APPLICATION_ID,
+      badesStandardApplicationId: STANDARD_APPLICATION_ID,
       overrides: { position: 3 },
       i18nInstance: mockI18n,
     });

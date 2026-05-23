@@ -1,5 +1,5 @@
 import { AiChatBanner } from '@/ai/components/AiChatBanner';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 export const AiChatApiKeyNotConfiguredMessage = () => {
   return (

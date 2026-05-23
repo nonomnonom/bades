@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import type { I18n } from 'src/utils/bades-i18n';
 import { SOURCE_LOCALE } from 'shared/translations';
 
 import { EngineComponentKey } from 'src/engine/metadata-modules/command-menu-item/enums/engine-component-key.enum';

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { plural } from '@lingui/core/macro';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useMemo, useRef, useState, type MouseEvent } from 'react';
 
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';

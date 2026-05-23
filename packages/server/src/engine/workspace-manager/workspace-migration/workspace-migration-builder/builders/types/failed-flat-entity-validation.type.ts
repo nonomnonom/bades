@@ -1,4 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
+import { type MessageDescriptor } from 'src/utils/bades-i18n';
 import { type AllMetadataName } from 'shared/metadata';
 
 import { type MetadataFlatEntity } from 'src/engine/metadata-modules/flat-entity/types/metadata-flat-entity.type';

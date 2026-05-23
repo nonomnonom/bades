@@ -49,12 +49,11 @@ describe('BillingCreditRolloverService', () => {
   describe('processRolloverOnPeriodTransition', () => {
     const baseParams = {
       workspaceId: 'ws_123',
-      stripeCustomerId: 'cus_123',
       tierQuantity: 1000,
       previousPeriodStart: new Date('2024-01-01'),
     };
 
-    it('writes rollover amount to creditBalanceMicro when credits unused', async () => {
+    it('menulis rollover ke creditBalanceMicro saat ada kredit tersisa', async () => {
       (
         billingUsageService.getCurrentPeriodCreditsUsed as jest.Mock
       ).mockResolvedValue(300);
@@ -62,12 +61,12 @@ describe('BillingCreditRolloverService', () => {
       await service.processRolloverOnPeriodTransition(baseParams);
 
       expect(billingCustomerRepository.update).toHaveBeenCalledWith(
-        { stripeCustomerId: 'cus_123' },
+        { workspaceId: 'ws_123' },
         { creditBalanceMicro: 700 },
       );
     });
 
-    it('sets creditBalanceMicro to tierQuantity when no credits used', async () => {
+    it('mengisi creditBalanceMicro penuh saat tidak ada kredit terpakai', async () => {
       (
         billingUsageService.getCurrentPeriodCreditsUsed as jest.Mock
       ).mockResolvedValue(0);
@@ -75,12 +74,12 @@ describe('BillingCreditRolloverService', () => {
       await service.processRolloverOnPeriodTransition(baseParams);
 
       expect(billingCustomerRepository.update).toHaveBeenCalledWith(
-        { stripeCustomerId: 'cus_123' },
+        { workspaceId: 'ws_123' },
         { creditBalanceMicro: 1000 },
       );
     });
 
-    it('sets creditBalanceMicro to 0 when all credits used', async () => {
+    it('mengatur creditBalanceMicro ke 0 saat semua kredit terpakai', async () => {
       (
         billingUsageService.getCurrentPeriodCreditsUsed as jest.Mock
       ).mockResolvedValue(1000);
@@ -88,12 +87,12 @@ describe('BillingCreditRolloverService', () => {
       await service.processRolloverOnPeriodTransition(baseParams);
 
       expect(billingCustomerRepository.update).toHaveBeenCalledWith(
-        { stripeCustomerId: 'cus_123' },
+        { workspaceId: 'ws_123' },
         { creditBalanceMicro: 0 },
       );
     });
 
-    it('sets creditBalanceMicro to 0 when usage exceeds tier', async () => {
+    it('mengatur creditBalanceMicro ke 0 saat pemakaian melebihi tier', async () => {
       (
         billingUsageService.getCurrentPeriodCreditsUsed as jest.Mock
       ).mockResolvedValue(1500);
@@ -101,12 +100,12 @@ describe('BillingCreditRolloverService', () => {
       await service.processRolloverOnPeriodTransition(baseParams);
 
       expect(billingCustomerRepository.update).toHaveBeenCalledWith(
-        { stripeCustomerId: 'cus_123' },
+        { workspaceId: 'ws_123' },
         { creditBalanceMicro: 0 },
       );
     });
 
-    it('caps rollover at tierQuantity', async () => {
+    it('membatasi rollover sebesar tierQuantity', async () => {
       (
         billingUsageService.getCurrentPeriodCreditsUsed as jest.Mock
       ).mockResolvedValue(0);
@@ -115,7 +114,7 @@ describe('BillingCreditRolloverService', () => {
       await service.processRolloverOnPeriodTransition(params);
 
       expect(billingCustomerRepository.update).toHaveBeenCalledWith(
-        { stripeCustomerId: 'cus_123' },
+        { workspaceId: 'ws_123' },
         { creditBalanceMicro: 500 },
       );
     });

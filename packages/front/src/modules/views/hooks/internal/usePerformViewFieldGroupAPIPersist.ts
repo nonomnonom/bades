@@ -8,7 +8,7 @@ import { DELETE_VIEW_FIELD_GROUP } from '@/views/graphql/mutations/deleteViewFie
 import { UPDATE_VIEW_FIELD_GROUP } from '@/views/graphql/mutations/updateViewFieldGroup';
 import { useMutation } from '@apollo/client/react';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { CrudOperationType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {

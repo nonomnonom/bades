@@ -11,7 +11,7 @@ import { EmailThreadComposer } from '@/page-layout/widgets/email-thread/componen
 import { EmailThreadIntermediaryMessages } from '@/page-layout/widgets/email-thread/components/EmailThreadIntermediaryMessages';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 
 const StyledWrapper = styled.div`
@@ -62,7 +62,7 @@ export const EmailThreadWidget = ({
     return (
       <StyledWrapper>
         <StyledContainer>
-          <EmailLoader loadingText={t`Loading thread`} />
+          <EmailLoader loadingText={t`Memuat percakapan`} />
         </StyledContainer>
       </StyledWrapper>
     );

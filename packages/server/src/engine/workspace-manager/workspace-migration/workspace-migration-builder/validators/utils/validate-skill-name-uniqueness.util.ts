@@ -1,4 +1,4 @@
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 
 import { SkillExceptionCode } from 'src/engine/metadata-modules/skill/skill.exception';
 import { type UniversalFlatSkill } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-skill.type';

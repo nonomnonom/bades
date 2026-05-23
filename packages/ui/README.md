@@ -1,15 +1,23 @@
-# Twenty UI
+# Bades UI
 
-This library was generated with [Nx](https://nx.dev).
+Library komponen UI internal Bades (Nx workspace).
 
-## Building
+## Build
 
-Run `npx nx build twenty-ui` to build the library.
+```
+npx nx build ui
+```
 
-## Storybook Server
+## Storybook
 
-Run `npx nx start twenty-ui` to start the storybook development server on `localhost:6006`.
+```
+npx nx start ui
+```
 
-## Running unit tests
+Buka `localhost:6006` setelah server jalan.
 
-Run `npx nx test twenty-ui` to execute the unit tests via [Jest](https://jestjs.io).
+## Unit test
+
+```
+npx nx test ui
+```

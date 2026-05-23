@@ -1,10 +1,10 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   H2Title,
   IconBrandDocker,
   IconChartBar,
   IconStatusChange,
 } from 'ui/display';
-import { useLingui } from '@lingui/react/macro';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import {
   type ApplicationRegistration,

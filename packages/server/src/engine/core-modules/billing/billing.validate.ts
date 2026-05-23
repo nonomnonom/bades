@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { isDefined } from 'shared/utils';
 
 import { isNumber } from 'class-validator';
@@ -139,10 +139,10 @@ const assertIsSubscription = (
 
   if (subscription.billingSubscriptionItems.length !== 2) {
     throw new BillingException(
-      'Subscription must have exactly two subscription items. Check that stripe and database are in sync',
+      'Langganan harus memiliki tepat dua item. Pastikan data subscription konsisten di database.',
       BillingExceptionCode.BILLING_SUBSCRIPTION_INVALID,
       {
-        userFriendlyMessage: msg`Your billing subscription is corrupted. Please contact support.`,
+        userFriendlyMessage: msg`Langganan tagihan Anda bermasalah. Silakan hubungi dukungan.`,
       },
     );
   }

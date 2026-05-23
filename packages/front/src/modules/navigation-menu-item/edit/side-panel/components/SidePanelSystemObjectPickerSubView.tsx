@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { SidePanelAddToNavigationDroppable } from '@/side-panel/components/SidePanelAddToNavigationDroppable';
@@ -42,13 +42,13 @@ export const SidePanelSystemObjectPickerSubView = ({
     });
 
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : (emptyNoResultsText ?? t`No system objects available`);
+    ? t`Tidak ada hasil`
+    : (emptyNoResultsText ?? t`Belum ada objek sistem tersedia`);
 
   const isAddVariant = objectMenuItemVariant === 'add';
 
   const listContent = (
-    <SidePanelGroup heading={t`System objects`}>
+    <SidePanelGroup heading={t`Objek sistem`}>
       {filteredItems.map((objectMetadataItem, index) => (
         <SidePanelObjectPickerItem
           key={objectMetadataItem.id}
@@ -66,7 +66,7 @@ export const SidePanelSystemObjectPickerSubView = ({
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a system object...`}
+      searchPlaceholder={t`Cari objek sistem...`}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >

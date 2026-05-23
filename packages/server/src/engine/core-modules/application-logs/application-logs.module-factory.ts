@@ -4,9 +4,9 @@ import { type OPTIONS_TYPE } from 'src/engine/core-modules/application-logs/appl
 import { ApplicationLogDriver } from 'src/engine/core-modules/application-logs/interfaces/application-log-driver.enum';
 
 export const applicationLogsModuleFactory = async (
-  twentyConfigService: BadesConfigService,
+  badesConfigService: BadesConfigService,
 ): Promise<typeof OPTIONS_TYPE> => {
-  const driverType = twentyConfigService.get('APPLICATION_LOG_DRIVER');
+  const driverType = badesConfigService.get('APPLICATION_LOG_DRIVER');
 
   return {
     type: driverType as ApplicationLogDriver,

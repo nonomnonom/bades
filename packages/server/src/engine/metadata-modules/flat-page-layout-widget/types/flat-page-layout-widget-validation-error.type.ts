@@ -1,4 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
+import { type MessageDescriptor } from 'src/utils/bades-i18n';
 
 import { type PageLayoutWidgetExceptionCode } from 'src/engine/metadata-modules/page-layout-widget/exceptions/page-layout-widget.exception';
 

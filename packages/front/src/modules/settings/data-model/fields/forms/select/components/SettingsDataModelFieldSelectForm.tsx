@@ -29,7 +29,7 @@ import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/Gene
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { isAdvancedModeEnabledState } from '@/ui/navigation/navigation-drawer/states/isAdvancedModeEnabledState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
@@ -370,7 +370,9 @@ export const SettingsDataModelFieldSelectForm = ({
                           <DropdownMenuItemsContainer>
                             <MenuItem
                               text={
-                                isBulkInputMode ? t`Edit satu per satu` : t`Edit sekaligus`
+                                isBulkInputMode
+                                  ? t`Ubah satu per satu`
+                                  : t`Ubah sekaligus`
                               }
                               LeftIcon={IconPencil}
                               onClick={() => {

@@ -4,13 +4,13 @@ import { DiscoveryService } from '@nestjs/core';
 import { type ActiveOrSuspendedWorkspaceCommandRunner } from 'src/database/commands/command-runners/active-or-suspended-workspace.command-runner';
 import { type WorkspaceCommandRunner } from 'src/database/commands/command-runners/workspace.command-runner';
 import {
-  TWENTY_ALL_VERSIONS,
-  type TwentyAllVersion,
-} from 'src/engine/core-modules/upgrade/constants/twenty-all-versions.constant';
-import { TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS } from 'src/engine/core-modules/upgrade/constants/twenty-cross-upgrade-supported-version.constant';
-import { TWENTY_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/twenty-current-version.constant';
-import { TWENTY_NEXT_VERSIONS } from 'src/engine/core-modules/upgrade/constants/twenty-next-versions.constant';
-import { TWENTY_PREVIOUS_VERSIONS } from 'src/engine/core-modules/upgrade/constants/twenty-previous-versions.constant';
+  BADES_ALL_VERSIONS,
+  type BadesAllVersion,
+} from 'src/engine/core-modules/upgrade/constants/bades-all-versions.constant';
+import { BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS } from 'src/engine/core-modules/upgrade/constants/bades-cross-upgrade-supported-version.constant';
+import { BADES_CURRENT_VERSION } from 'src/engine/core-modules/upgrade/constants/bades-current-version.constant';
+import { BADES_NEXT_VERSIONS } from 'src/engine/core-modules/upgrade/constants/bades-next-versions.constant';
+import { BADES_PREVIOUS_VERSIONS } from 'src/engine/core-modules/upgrade/constants/bades-previous-versions.constant';
 import { getRegisteredInstanceCommandMetadata } from 'src/engine/core-modules/upgrade/decorators/registered-instance-command.decorator';
 import { getRegisteredWorkspaceCommandMetadata } from 'src/engine/core-modules/upgrade/decorators/registered-workspace-command.decorator';
 import { type FastInstanceCommand } from 'src/engine/core-modules/upgrade/interfaces/fast-instance-command.interface';
@@ -24,21 +24,21 @@ type WorkspaceCommand =
 export type RegisteredFastInstanceCommand = {
   name: string;
   command: FastInstanceCommand;
-  version: TwentyAllVersion;
+  version: BadesAllVersion;
   timestamp: number;
 };
 
 export type RegisteredSlowInstanceCommand = {
   name: string;
   command: SlowInstanceCommand;
-  version: TwentyAllVersion;
+  version: BadesAllVersion;
   timestamp: number;
 };
 
 export type RegisteredWorkspaceCommand = {
   name: string;
   command: WorkspaceCommand;
-  version: TwentyAllVersion;
+  version: BadesAllVersion;
   timestamp: number;
 };
 
@@ -58,15 +58,12 @@ const buildEmptyVersionBundle = (): VersionBundle => ({
 export class UpgradeCommandRegistryService implements OnModuleInit {
   private readonly logger = new Logger(UpgradeCommandRegistryService.name);
 
-  private readonly bundlesByVersion = new Map<
-    TwentyAllVersion,
-    VersionBundle
-  >();
+  private readonly bundlesByVersion = new Map<BadesAllVersion, VersionBundle>();
 
   constructor(private readonly discoveryService: DiscoveryService) {}
 
   onModuleInit(): void {
-    for (const version of TWENTY_ALL_VERSIONS) {
+    for (const version of BADES_ALL_VERSIONS) {
       this.bundlesByVersion.set(version, {
         fastInstanceCommands: [],
         slowInstanceCommands: [],
@@ -170,7 +167,7 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
 
       if (totalCount > 0) {
         const crossUpgradeLabel = (
-          TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS as readonly string[]
+          BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS as readonly string[]
         ).includes(version)
           ? 'cross-upgrade supported'
           : 'pre-release';
@@ -182,12 +179,12 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
     }
   }
 
-  getBundleForVersion(version: TwentyAllVersion): VersionBundle {
+  getBundleForVersion(version: BadesAllVersion): VersionBundle {
     return this.bundlesByVersion.get(version) ?? buildEmptyVersionBundle();
   }
 
   getLastWorkspaceCommandForVersion(
-    version: TwentyAllVersion,
+    version: BadesAllVersion,
   ): RegisteredWorkspaceCommand | undefined {
     const bundle = this.getBundleForVersion(version);
 
@@ -195,19 +192,19 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
   }
 
   getCrossUpgradeSupportedFastInstanceCommands(): RegisteredFastInstanceCommand[] {
-    return TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS.flatMap(
+    return BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS.flatMap(
       (version) => this.getBundleForVersion(version).fastInstanceCommands,
     );
   }
 
   getCrossUpgradeSupportedSlowInstanceCommands(): RegisteredSlowInstanceCommand[] {
-    return TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS.flatMap(
+    return BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS.flatMap(
       (version) => this.getBundleForVersion(version).slowInstanceCommands,
     );
   }
 
   private computeCommandName(
-    version: TwentyAllVersion,
+    version: BadesAllVersion,
     className: string,
     timestamp: number,
   ): string {
@@ -255,7 +252,7 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
   private validateAtLeastOneVersionBundleHasWorkspaceCommands(): void {
     let hasWorkspaceCommands = false;
 
-    for (const version of TWENTY_CROSS_UPGRADE_SUPPORTED_VERSIONS) {
+    for (const version of BADES_CROSS_UPGRADE_SUPPORTED_VERSIONS) {
       const bundle = this.getBundleForVersion(version);
 
       if (bundle.workspaceCommands.length > 0) {
@@ -271,7 +268,7 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
   }
 
   private validateNoTimestampDuplicatesWithinKind(
-    version: TwentyAllVersion,
+    version: BadesAllVersion,
     kind: 'fast-instance' | 'slow-instance' | 'workspace',
     entries:
       | RegisteredFastInstanceCommand[]
@@ -293,9 +290,9 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
 
   private validateNoVersionDuplicatesAcrossConstants(): void {
     const allVersions = [
-      ...TWENTY_PREVIOUS_VERSIONS,
-      TWENTY_CURRENT_VERSION,
-      ...TWENTY_NEXT_VERSIONS,
+      ...BADES_PREVIOUS_VERSIONS,
+      BADES_CURRENT_VERSION,
+      ...BADES_NEXT_VERSIONS,
     ];
 
     const uniqueVersions = new Set(allVersions);
@@ -306,15 +303,15 @@ export class UpgradeCommandRegistryService implements OnModuleInit {
       );
 
       throw new Error(
-        `Duplicate version(s) across TWENTY_PREVIOUS_VERSIONS, TWENTY_CURRENT_VERSION, and TWENTY_NEXT_VERSIONS: ${duplicates.join(', ')}`,
+        `Duplicate version(s) across BADES_PREVIOUS_VERSIONS, BADES_CURRENT_VERSION, and BADES_NEXT_VERSIONS: ${duplicates.join(', ')}`,
       );
     }
   }
 
   private validatePreviousVersionsNotEmpty(): void {
-    if ((TWENTY_PREVIOUS_VERSIONS as readonly string[]).length === 0) {
+    if ((BADES_PREVIOUS_VERSIONS as readonly string[]).length === 0) {
       throw new Error(
-        'TWENTY_PREVIOUS_VERSIONS must contain at least one version before TWENTY_CURRENT_VERSION',
+        'BADES_PREVIOUS_VERSIONS must contain at least one version before BADES_CURRENT_VERSION',
       );
     }
   }

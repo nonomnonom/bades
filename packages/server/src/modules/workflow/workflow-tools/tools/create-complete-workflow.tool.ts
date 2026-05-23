@@ -1,7 +1,4 @@
-import {
-  workflowActionSchema,
-  workflowTriggerSchema,
-} from 'shared/workflow';
+import { workflowActionSchema, workflowTriggerSchema } from 'shared/workflow';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 

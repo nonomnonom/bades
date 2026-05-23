@@ -1,7 +1,7 @@
+import { Trans } from '~/utils/i18n/badesI18n';
 import { RECORD_TABLE_ROW_HEIGHT } from '@/object-record/record-table/constants/RecordTableRowHeight';
 import { useAggregateRecordsForRecordTableColumnFooter } from '@/object-record/record-table/record-table-footer/hooks/useAggregateRecordsForRecordTableColumnFooter';
 import { styled } from '@linaria/react';
-import { Trans } from '@lingui/react/macro';
 import { themeCssVariables } from 'ui/theme-constants';
 import { isDefined } from 'shared/utils';
 import { OverflowingTextWithTooltip } from 'ui/display';
@@ -70,7 +70,7 @@ export const RecordTableColumnAggregateFooterValue = ({
         </StyledValueContainer>
       ) : (
         <StyledText id={sanitizedId}>
-          <Trans>Calculate</Trans>
+          <Trans>Hitung</Trans>
         </StyledText>
       )}
     </>

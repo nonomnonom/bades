@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { ObjectRecordGroupByDateGranularity } from 'shared/types';
 
 export const getDateGranularityLabel = (
@@ -6,23 +6,23 @@ export const getDateGranularityLabel = (
 ): string => {
   switch (granularity) {
     case ObjectRecordGroupByDateGranularity.DAY:
-      return t`Day`;
+      return t`Hari`;
     case ObjectRecordGroupByDateGranularity.WEEK:
-      return t`Week`;
+      return t`Minggu`;
     case ObjectRecordGroupByDateGranularity.MONTH:
-      return t`Month`;
+      return t`Bulan`;
     case ObjectRecordGroupByDateGranularity.QUARTER:
-      return t`Quarter`;
+      return t`Kuartal`;
     case ObjectRecordGroupByDateGranularity.YEAR:
-      return t`Year`;
+      return t`Tahun`;
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
-      return t`Day of the week`;
+      return t`Hari dalam seminggu`;
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
-      return t`Month of the year`;
+      return t`Bulan dalam setahun`;
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
-      return t`Quarter of the year`;
+      return t`Kuartal dalam setahun`;
     case ObjectRecordGroupByDateGranularity.NONE:
-      return t`None`;
+      return t`Tidak ada`;
     default:
       return granularity;
   }

@@ -4,7 +4,7 @@ import { RecordChip } from '@/object-record/components/RecordChip';
 import { useFindOneRecord } from '@/object-record/hooks/useFindOneRecord';
 import { createReactInlineContentSpec } from '@blocknote/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isDefined } from 'shared/utils';
 import { Chip, ChipVariant } from 'ui/components';
@@ -53,7 +53,7 @@ const LegacyMentionRenderer = ({
   if (!isDefined(objectMetadataItem)) {
     return (
       <Chip
-        label={t`Unknown object`}
+        label={t`Objek tidak dikenal`}
         variant={ChipVariant.Transparent}
         disabled
       />
@@ -63,7 +63,7 @@ const LegacyMentionRenderer = ({
   if (!isDefined(record)) {
     return (
       <Chip
-        label={t`Deleted record`}
+        label={t`Data telah dihapus`}
         variant={ChipVariant.Transparent}
         disabled
       />

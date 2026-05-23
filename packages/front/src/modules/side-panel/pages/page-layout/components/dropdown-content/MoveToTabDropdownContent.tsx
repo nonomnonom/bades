@@ -5,7 +5,7 @@ import { usePageLayoutIdFromContextStore } from '@/side-panel/pages/page-layout/
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { MenuItem } from 'ui/navigation';
 import { PageLayoutTabLayoutMode } from '~/generated-metadata/graphql';

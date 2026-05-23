@@ -15,20 +15,20 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class GoogleProviderEnabledGuard implements CanActivate {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly guardRedirectService: GuardRedirectService,
   ) {}
 
   canActivate(context: ExecutionContext): boolean {
     try {
-      if (!this.twentyConfigService.get('AUTH_GOOGLE_ENABLED')) {
+      if (!this.badesConfigService.get('AUTH_GOOGLE_ENABLED')) {
         throw new AuthException(
           'Google auth is not enabled',
           AuthExceptionCode.GOOGLE_API_AUTH_DISABLED,
         );
       }
 
-      new GoogleStrategy(this.twentyConfigService);
+      new GoogleStrategy(this.badesConfigService);
 
       return true;
     } catch (err) {

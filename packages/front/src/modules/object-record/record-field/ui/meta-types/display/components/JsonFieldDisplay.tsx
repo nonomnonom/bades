@@ -1,7 +1,7 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useJsonFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useJsonFieldDisplay';
 import { JsonDisplay } from '@/ui/field/display/components/JsonDisplay';
 import { ExpandedFieldDisplay } from '@/ui/layout/expandable-list/components/ExpandedFieldDisplay';
-import { t } from '@lingui/core/macro';
 import { useRef, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { isTwoFirstDepths, JsonTree } from 'ui/json-visualizer';

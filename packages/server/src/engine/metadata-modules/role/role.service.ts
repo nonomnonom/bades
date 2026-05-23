@@ -1,7 +1,7 @@
+import { msg } from 'src/utils/bades-i18n';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
 import { isDefined } from 'shared/utils';
 import { Repository } from 'typeorm';
 

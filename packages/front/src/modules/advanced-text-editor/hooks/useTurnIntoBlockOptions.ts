@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type Editor, useEditorState } from '@tiptap/react';
 import {
   type IconComponent,
@@ -25,7 +25,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
     selector: ({ editor }): TurnIntoBlockOptions[] => [
       {
         id: 'paragraph',
-        title: t`Paragraph`,
+        title: t`Paragraf`,
         icon: IconPilcrow,
         onClick: () => {
           return editor.chain().focus().setParagraph().run();
@@ -39,7 +39,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading1',
-        title: t`Heading 1`,
+        title: t`Judul 1`,
         icon: IconH1,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 1 }).run();
@@ -53,7 +53,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading2',
-        title: t`Heading 2`,
+        title: t`Judul 2`,
         icon: IconH2,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 2 }).run();
@@ -67,7 +67,7 @@ export const useTurnIntoBlockOptions = (editor: Editor) => {
       },
       {
         id: 'heading3',
-        title: t`Heading 3`,
+        title: t`Judul 3`,
         icon: IconH3,
         onClick: () => {
           return editor.chain().focus().setHeading({ level: 3 }).run();

@@ -8,9 +8,9 @@ export type BackgroundMockColumn = {
 
 export const BACKGROUND_MOCK_COLUMNS = [
   {
-    label: 'Name',
-    iconName: 'IconBuildingSkyscraper',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Name,
+    label: 'Nama',
+    iconName: 'IconBuilding',
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Nama,
   },
   {
     label: 'Domain',
@@ -18,28 +18,28 @@ export const BACKGROUND_MOCK_COLUMNS = [
     width: BACKGROUND_MOCK_COLUMN_WIDTHS.Domain,
   },
   {
-    label: 'Created by',
+    label: 'Dibuat oleh',
     iconName: 'IconUserCircle',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Created by'],
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Dibuat oleh'],
   },
   {
-    label: 'Account Owner',
+    label: 'Penanggung jawab',
     iconName: 'IconUserCircle',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Account Owner'],
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Penanggung jawab'],
   },
   {
-    label: 'Creation date',
+    label: 'Tanggal dibuat',
     iconName: 'IconCalendar',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Creation date'],
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Tanggal dibuat'],
   },
   {
-    label: 'Employees',
+    label: 'Anggota',
     iconName: 'IconUsers',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Employees,
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Anggota,
   },
   {
-    label: 'Address',
+    label: 'Alamat',
     iconName: 'IconMap',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Address,
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Alamat,
   },
 ] satisfies BackgroundMockColumn[];

@@ -13,7 +13,7 @@ import { getTimelineThreadsFromPersonId } from '@/activities/emails/graphql/quer
 import { useCustomResolver } from '@/activities/hooks/useCustomResolver';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { H1Title, H1TitleFontColor } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -102,7 +102,7 @@ export const EmailsCard = () => {
           <StyledH1Title
             title={
               <>
-                <Trans>Inbox</Trans>{' '}
+                <Trans>Kotak Masuk</Trans>{' '}
                 <StyledEmailCount>{totalNumberOfThreads}</StyledEmailCount>
               </>
             }

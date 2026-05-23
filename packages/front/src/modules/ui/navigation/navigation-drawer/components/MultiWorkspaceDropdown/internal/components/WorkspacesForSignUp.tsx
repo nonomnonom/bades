@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { StyledDropdownMenuSubheader } from '@/ui/layout/dropdown/components/StyledDropdownMenuSubheader';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useFilteredAvailableWorkspaces } from '@/ui/navigation/navigation-drawer/hooks/useFilteredAvailableWorkspaces';
@@ -21,7 +21,7 @@ export const WorkspacesForSignUp = ({
 
   return (
     <>
-      <StyledDropdownMenuSubheader>{t`Invitations`}</StyledDropdownMenuSubheader>
+      <StyledDropdownMenuSubheader>{t`Undangan`}</StyledDropdownMenuSubheader>
       <DropdownMenuItemsContainer scrollable={false}>
         {searchAvailableWorkspaces(
           searchValue,

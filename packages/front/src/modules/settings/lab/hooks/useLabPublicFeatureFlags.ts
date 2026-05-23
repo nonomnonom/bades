@@ -1,7 +1,7 @@
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { labPublicFeatureFlagsState } from '@/client-config/states/labPublicFeatureFlagsState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { isDefined } from 'shared/utils';
@@ -49,7 +49,7 @@ export const useLabPublicFeatureFlags = () => {
     value: boolean,
   ) => {
     if (!isDefined(currentWorkspace)) {
-      setError(t`No workspace selected`);
+      setError(t`Ruang kerja belum dipilih`);
       return false;
     }
 

@@ -1,8 +1,8 @@
-import { WebhookEntitySelect } from '@/settings/developers/components/WebhookEntitySelect';
+import { WebhookEntitySelect } from '@/settings/logic-functions/components/WebhookEntitySelect';
 import { Select } from '@/ui/input/components/Select';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconBox, IconNorthStar, IconPlus, IconTrash } from 'ui/display';
 import { IconButton, type SelectOption } from 'ui/input';
@@ -53,14 +53,16 @@ export const SettingsDatabaseEventsForm = ({
       isDefined(updatedFields) && updatedFields.length > 0;
 
     return [
-      { label: t`All`, value: '*', Icon: IconNorthStar },
-      { label: t`Created`, value: 'created', Icon: IconPlus },
+      { label: t`Semua`, value: '*', Icon: IconNorthStar },
+      { label: t`Dibuat`, value: 'created', Icon: IconPlus },
       {
-        label: hasSpecificFields ? t`Updated (on specific fields)` : t`Updated`,
+        label: hasSpecificFields
+          ? t`Diperbarui (pada kolom tertentu)`
+          : t`Diperbarui`,
         value: 'updated',
         Icon: IconBox,
       },
-      { label: t`Deleted`, value: 'deleted', Icon: IconTrash },
+      { label: t`Dihapus`, value: 'deleted', Icon: IconTrash },
     ];
   };
 

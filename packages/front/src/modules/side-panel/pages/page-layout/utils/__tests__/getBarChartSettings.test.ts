@@ -27,7 +27,7 @@ describe('getBarChartSettings', () => {
       const result = getBarChartSettings(BarChartLayout.VERTICAL);
 
       const xAxisGroup = result.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.X_AXIS.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.X_AXIS,
       );
 
       expect(xAxisGroup).toBeDefined();
@@ -44,7 +44,7 @@ describe('getBarChartSettings', () => {
       const result = getBarChartSettings(BarChartLayout.VERTICAL);
 
       const yAxisGroup = result.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.Y_AXIS.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.Y_AXIS,
       );
 
       expect(yAxisGroup).toBeDefined();
@@ -76,7 +76,7 @@ describe('getBarChartSettings', () => {
       const result = getBarChartSettings(BarChartLayout.HORIZONTAL);
 
       const xAxisGroup = result.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.X_AXIS.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.X_AXIS,
       );
 
       expect(xAxisGroup).toBeDefined();
@@ -96,7 +96,7 @@ describe('getBarChartSettings', () => {
       const result = getBarChartSettings(BarChartLayout.HORIZONTAL);
 
       const yAxisGroup = result.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.Y_AXIS.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.Y_AXIS,
       );
 
       expect(yAxisGroup).toBeDefined();
@@ -126,10 +126,10 @@ describe('getBarChartSettings', () => {
       const horizontalResult = getBarChartSettings(BarChartLayout.HORIZONTAL);
 
       const verticalDataGroup = verticalResult.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.DATA.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.DATA,
       );
       const horizontalDataGroup = horizontalResult.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.DATA.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.DATA,
       );
 
       expect(verticalDataGroup?.items).toEqual(horizontalDataGroup?.items);
@@ -144,10 +144,10 @@ describe('getBarChartSettings', () => {
       const horizontalResult = getBarChartSettings(BarChartLayout.HORIZONTAL);
 
       const verticalStyleGroup = verticalResult.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.STYLE.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.STYLE,
       );
       const horizontalStyleGroup = horizontalResult.find(
-        (group) => group.heading.id === CHART_SETTINGS_HEADINGS.STYLE.id,
+        (group) => group.heading === CHART_SETTINGS_HEADINGS.STYLE,
       );
 
       expect(verticalStyleGroup?.items).toEqual(horizontalStyleGroup?.items);

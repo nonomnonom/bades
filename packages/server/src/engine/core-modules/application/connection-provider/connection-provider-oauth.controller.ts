@@ -34,7 +34,7 @@ export class ConnectionProviderOAuthController {
     private readonly transientTokenService: TransientTokenService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     private readonly guardRedirectService: GuardRedirectService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     @InjectRepository(UserWorkspaceEntity)
@@ -235,7 +235,7 @@ export class ConnectionProviderOAuthController {
           id: workspace?.id,
           subdomain:
             workspace?.subdomain ??
-            this.twentyConfigService.get('DEFAULT_SUBDOMAIN'),
+            this.badesConfigService.get('DEFAULT_SUBDOMAIN'),
           customDomain: workspace?.customDomain ?? null,
         },
         pathname: getSettingsPath(SettingsPath.Accounts),

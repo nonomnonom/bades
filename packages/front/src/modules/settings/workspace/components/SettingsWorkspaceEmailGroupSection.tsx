@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 
 import { useMyMessageChannels } from '@/settings/accounts/hooks/useMyMessageChannels';
 import { Table } from '@/ui/layout/table/components/Table';
@@ -72,8 +72,8 @@ export const SettingsWorkspaceEmailGroupSection = () => {
   return (
     <Section>
       <H2Title
-        title={t`Email Groups`}
-        description={t`Workspace-level shared addresses that receive forwarded mail.`}
+        title={t`Grup Email`}
+        description={t`Alamat email bersama tingkat ruang kerja yang menerima pesan yang diteruskan.`}
       />
       {emailGroupChannels.length > 0 && (
         <Table>
@@ -81,12 +81,12 @@ export const SettingsWorkspaceEmailGroupSection = () => {
             <TableHeader
               padding={`0 ${themeCssVariables.spacing[2]} 0 ${themeCssVariables.spacing[2]}`}
             >
-              <Trans>Source</Trans>
+              <Trans>Sumber</Trans>
             </TableHeader>
             <TableHeader
               padding={`0 ${themeCssVariables.spacing[2]} 0 ${themeCssVariables.spacing[2]}`}
             >
-              <Trans>Forwarding address</Trans>
+              <Trans>Alamat penerusan</Trans>
             </TableHeader>
           </TableRow>
           <StyledTableRows>
@@ -125,7 +125,7 @@ export const SettingsWorkspaceEmailGroupSection = () => {
       <StyledFooter>
         <Button
           Icon={IconPlus}
-          title={t`Add email group`}
+          title={t`Tambah grup email`}
           variant="secondary"
           size="small"
           onClick={() => navigateSettings(SettingsPath.NewEmailGroupChannel)}

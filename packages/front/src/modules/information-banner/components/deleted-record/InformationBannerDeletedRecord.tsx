@@ -1,7 +1,7 @@
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { useRestoreManyRecords } from '@/object-record/hooks/useRestoreManyRecords';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconRefresh } from 'ui/display';
 
 const StyledInformationBannerDeletedRecord = styled.div`

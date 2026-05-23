@@ -1,10 +1,7 @@
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 
 import { getOrderByFieldForObjectMetadataItem } from '@/object-metadata/utils/getObjectOrderByField';
-import {
-  type OrderBy,
-  type RecordGqlOperationOrderBy,
-} from 'shared/types';
+import { type OrderBy, type RecordGqlOperationOrderBy } from 'shared/types';
 
 export const useGetObjectOrderByField = ({
   objectNameSingular,

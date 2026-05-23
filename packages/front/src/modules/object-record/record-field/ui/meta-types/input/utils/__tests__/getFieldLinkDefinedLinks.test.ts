@@ -73,12 +73,12 @@ describe('getFieldLinkDefinedLinks', () => {
           primaryLinkLabel: '',
           secondaryLinks: [
             {
-            url: null,
-            label: 'Bades',
+              url: null,
+              label: 'Bades',
             },
             {
-            url: 'https://docs.bades.id',
-            label: 'Dokumentasi',
+              url: 'https://docs.bades.id',
+              label: 'Dokumentasi',
             },
           ],
         }),
@@ -97,12 +97,12 @@ describe('getFieldLinkDefinedLinks', () => {
           primaryLinkLabel: '',
           secondaryLinks: [
             {
-            url: '',
-            label: 'Bades',
+              url: '',
+              label: 'Bades',
             },
             {
-            url: 'https://docs.bades.id',
-            label: 'Dokumentasi',
+              url: 'https://docs.bades.id',
+              label: 'Dokumentasi',
             },
           ],
         }),
@@ -145,8 +145,8 @@ describe('getFieldLinkDefinedLinks', () => {
               label: 'Invalid Link',
             },
             {
-            url: 'https://docs.bades.id',
-            label: null,
+              url: 'https://docs.bades.id',
+              label: null,
             },
             {
               url: null,
@@ -191,8 +191,8 @@ describe('getFieldLinkDefinedLinks', () => {
               label: 'Missing Protocol',
             },
             {
-            url: 'https://bades.id',
-            label: 'URL Valid',
+              url: 'https://bades.id',
+              label: 'URL Valid',
             },
           ],
         }),

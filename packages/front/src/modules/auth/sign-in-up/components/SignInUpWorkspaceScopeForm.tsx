@@ -10,7 +10,7 @@ import { SignInUpStep } from '@/auth/states/signInUpStepState';
 import { workspaceAuthBypassProvidersState } from '@/workspace/states/workspaceAuthBypassProvidersState';
 import { workspaceAuthProvidersState } from '@/workspace/states/workspaceAuthProvidersState';
 import { styled } from '@linaria/react';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { FormProvider } from 'react-hook-form';
 import { HorizontalSeparator } from 'ui/display';
 import { ClickToActionLink } from 'ui/navigation';

@@ -11,7 +11,7 @@ import { getDisplayFormatLabel } from '@/settings/data-model/fields/forms/date/u
 import { Select } from '@/ui/input/components/Select';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconSlash } from 'ui/display';
 import { AnimatedExpandableContainer } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

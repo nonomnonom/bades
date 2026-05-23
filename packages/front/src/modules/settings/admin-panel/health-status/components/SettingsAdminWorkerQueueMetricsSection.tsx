@@ -2,7 +2,7 @@ import { WidgetSkeletonLoader } from '@/page-layout/widgets/components/WidgetSke
 import { WORKER_QUEUE_METRICS_SELECT_OPTIONS } from '@/settings/admin-panel/health-status/constants/WorkerQueueMetricsSelectOptions';
 import { Select } from '@/ui/input/components/Select';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { lazy, Suspense, useState } from 'react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

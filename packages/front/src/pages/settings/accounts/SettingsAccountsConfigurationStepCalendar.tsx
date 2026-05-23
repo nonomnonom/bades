@@ -1,5 +1,4 @@
-import { Trans, useLingui } from '@lingui/react/macro';
-
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { type CalendarChannel } from '@/accounts/types/CalendarChannel';
 import { type MessageChannel } from '@/accounts/types/MessageChannel';
 import { SettingsAccountsCalendarChannelDetails } from '@/settings/accounts/components/SettingsAccountsCalendarChannelDetails';

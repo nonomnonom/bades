@@ -11,15 +11,15 @@ const buildLegacySessionSecret = (appSecret: string) =>
   createHash('sha256').update(`${appSecret}SESSION_STORE_SECRET`).digest('hex');
 
 export const resolveSessionCookieSecretsOrThrow = ({
-  twentyConfigService,
+  badesConfigService,
 }: {
-  twentyConfigService: Pick<BadesConfigService, 'get'>;
+  badesConfigService: Pick<BadesConfigService, 'get'>;
 }): string[] => {
-  const encryptionKey = twentyConfigService.get('ENCRYPTION_KEY');
-  const fallbackEncryptionKey = twentyConfigService.get(
+  const encryptionKey = badesConfigService.get('ENCRYPTION_KEY');
+  const fallbackEncryptionKey = badesConfigService.get(
     'FALLBACK_ENCRYPTION_KEY',
   );
-  const appSecret = twentyConfigService.get('APP_SECRET');
+  const appSecret = badesConfigService.get('APP_SECRET');
 
   const rawPrimary = isNonEmptyString(encryptionKey)
     ? encryptionKey

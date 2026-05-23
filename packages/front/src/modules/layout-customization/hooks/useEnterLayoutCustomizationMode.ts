@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
@@ -46,7 +46,7 @@ export const useEnterLayoutCustomizationMode = () => {
 
       if (isDashboardInEditMode) {
         enqueueWarningSnackBar({
-          message: t`Save or cancel dashboard changes before editing the layout.`,
+          message: t`Simpan atau batalkan perubahan dasbor sebelum mengubah tata letak.`,
         });
 
         return;
@@ -77,7 +77,7 @@ export const useEnterLayoutCustomizationMode = () => {
     ) {
       navigateSidePanel({
         page: SidePanelPages.CommandMenuEdit,
-        pageTitle: t`Edit actions`,
+        pageTitle: t`Ubah aksi`,
         pageIcon: IconPencil,
         resetNavigationStack: true,
       });

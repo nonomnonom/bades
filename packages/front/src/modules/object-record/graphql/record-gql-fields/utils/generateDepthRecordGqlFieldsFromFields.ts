@@ -11,10 +11,7 @@ import { buildIdentifierGqlFields } from '@/object-record/graphql/record-gql-fie
 import { generateActivityTargetGqlFields } from '@/object-record/graphql/record-gql-fields/utils/generateActivityTargetGqlFields';
 import { generateJunctionRelationGqlFields } from '@/object-record/graphql/record-gql-fields/utils/generateJunctionRelationGqlFields';
 import { isJunctionRelationField } from '@/object-record/record-field/ui/utils/junction/isJunctionRelationField';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 
 export type GenerateDepthRecordGqlFieldsFromFields = {
   objectMetadataItems: Pick<

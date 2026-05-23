@@ -30,14 +30,14 @@ export const NavigationEngineCommand = () => {
         objectNamePlural: objectMetadataItem.namePlural,
       });
 
-      // eslint-disable-next-line twenty/no-navigate-prefer-link
+      // eslint-disable-next-line bades/no-navigate-prefer-link
       navigate(path);
 
       return;
     }
 
     if (isPathCommandMenuItemPayload(payload)) {
-      // eslint-disable-next-line twenty/no-navigate-prefer-link
+      // eslint-disable-next-line bades/no-navigate-prefer-link
       navigate(payload.path);
     }
   };

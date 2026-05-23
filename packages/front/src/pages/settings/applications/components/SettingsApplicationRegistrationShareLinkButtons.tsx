@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Button } from 'ui/input';
 import {
   IconArrowUpRight,
@@ -8,7 +9,6 @@ import {
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useCopyToClipboard } from '~/hooks/useCopyToClipboard';
-import { useLingui } from '@lingui/react/macro';
 import { useInstallMarketplaceApp } from '@/marketplace/hooks/useInstallMarketplaceApp';
 import { isDefined } from 'shared/utils';
 

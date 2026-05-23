@@ -56,7 +56,7 @@ export class GoogleAPIsService {
     private readonly messageQueueService: MessageQueueService,
     @InjectMessageQueue(MessageQueue.calendarQueue)
     private readonly calendarQueueService: MessageQueueService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly accountsToReconnectService: AccountsToReconnectService,
     private readonly createMessageChannelService: CreateMessageChannelService,
     private readonly messagingChannelSyncStatusService: MessageChannelSyncStatusService,
@@ -99,11 +99,11 @@ export class GoogleAPIsService {
       skipMessageChannelConfiguration,
     } = input;
 
-    const isCalendarEnabled = this.twentyConfigService.get(
+    const isCalendarEnabled = this.badesConfigService.get(
       'CALENDAR_PROVIDER_GOOGLE_ENABLED',
     );
 
-    const isMessagingEnabled = this.twentyConfigService.get(
+    const isMessagingEnabled = this.badesConfigService.get(
       'MESSAGING_PROVIDER_GMAIL_ENABLED',
     );
 

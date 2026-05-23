@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconChevronDown } from 'ui/display';
 import { TabButton } from 'ui/input';
 
@@ -24,7 +24,7 @@ export const TabMoreButton = ({
       <TabButton
         id="tab-more-button"
         active={active}
-        title={`+${hiddenTabsCount} ${t`More`}`}
+        title={`+${hiddenTabsCount} ${t`Lainnya`}`}
         RightIcon={IconChevronDown}
         className={className}
       />

@@ -1,5 +1,5 @@
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 type SettingsAdminRevokeSigningKeyConfirmationModalProps = {
   modalInstanceId: string;

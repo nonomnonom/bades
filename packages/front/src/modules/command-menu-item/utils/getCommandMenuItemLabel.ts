@@ -1,4 +1,4 @@
-import { i18n, type MessageDescriptor } from '@lingui/core';
+import { i18n, type MessageDescriptor } from '~/utils/i18n/badesI18n';
 import { isString } from '@sniptt/guards';
 import { type Nullable } from 'shared/types';
 import { isDefined } from 'shared/utils';

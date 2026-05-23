@@ -1,7 +1,7 @@
 import { type ChartConfiguration } from '@/side-panel/pages/page-layout/types/ChartConfiguration';
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
 import { isWidgetConfigurationOfType } from '@/side-panel/pages/page-layout/utils/isWidgetConfigurationOfType';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { BarChartLayout } from '~/generated-metadata/graphql';
 
 export const getCurrentGraphTypeFromConfig = (

@@ -2,7 +2,7 @@ import { type Form } from '@/auth/sign-in-up/hooks/useSignInUpForm';
 import { SignInUpMode } from '@/auth/types/signInUpMode';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';

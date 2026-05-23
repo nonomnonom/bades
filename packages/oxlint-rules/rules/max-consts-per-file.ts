@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/max-consts-per-file';
+export const RULE_NAME = 'max-consts-per-file';
 
 export const rule = defineRule({
   meta: {

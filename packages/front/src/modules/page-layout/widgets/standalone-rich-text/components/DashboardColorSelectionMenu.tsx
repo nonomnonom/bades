@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconCheck } from 'ui/display';
 
 import { DashboardColorIcon } from '@/page-layout/widgets/standalone-rich-text/components/DashboardColorIcon';
@@ -60,7 +60,7 @@ export const DashboardColorSelectionMenu = ({
   return (
     <DropdownContent>
       <DropdownMenuItemsContainer hasMaxHeight>
-        <DropdownMenuSectionLabel label={t`Text Colors`} />
+        <DropdownMenuSectionLabel label={t`Warna Teks`} />
 
         {BLOCKNOTE_COLORS.map((colorName) => (
           <StyledColorMenuItem
@@ -81,7 +81,7 @@ export const DashboardColorSelectionMenu = ({
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuSectionLabel label={t`Background Colors`} />
+        <DropdownMenuSectionLabel label={t`Warna Latar`} />
         {BLOCKNOTE_COLORS.map((colorName) => (
           <StyledColorMenuItem
             key={`bg-${colorName}`}

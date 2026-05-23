@@ -14,7 +14,7 @@ import { DATABASE_TRIGGER_TYPES } from '@/workflow/workflow-trigger/constants/Da
 import { OTHER_TRIGGER_TYPES } from '@/workflow/workflow-trigger/constants/OtherTriggerTypes';
 import { useUpdateWorkflowVersionTrigger } from '@/workflow/workflow-trigger/hooks/useUpdateWorkflowVersionTrigger';
 import { getTriggerDefaultDefinition } from '@/workflow/workflow-trigger/utils/getTriggerDefaultDefinition';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
 import { useIcons } from 'ui/display';

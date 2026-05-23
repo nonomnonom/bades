@@ -97,7 +97,7 @@ jobs:
           steps.changed-files.outputs.any_changed == 'true' &&
           !contains(github.event.pull_request.labels.*.name, 'ci:allow-previous-version-upgrade-mutation')
         run: |
-          VERSION_CONSTANT_FILE="packages/server/src/engine/core-modules/upgrade/constants/twenty-current-version.constant.ts"
+          VERSION_CONSTANT_FILE="packages/server/src/engine/core-modules/upgrade/constants/bades-current-version.constant.ts"
 
           CURRENT_VERSION=$(sed -n "s/.*CURRENT_VERSION = '\([0-9.]*\)'.*/\1/p" "$VERSION_CONSTANT_FILE")
 

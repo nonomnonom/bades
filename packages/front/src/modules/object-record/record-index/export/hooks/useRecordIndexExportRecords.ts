@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { json2csv } from 'json-2-csv';
 import { useMemo } from 'react';
 
@@ -14,7 +15,6 @@ import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { COMPOSITE_FIELD_SUB_FIELD_LABELS } from '@/settings/data-model/constants/CompositeFieldSubFieldLabel';
 import { formatValueForCSV } from '@/spreadsheet-import/utils/formatValueForCSV';
 import { sanitizeValueForCSVExport } from '@/spreadsheet-import/utils/sanitizeValueForCSVExport';
-import { t } from '@lingui/core/macro';
 import { saveAs } from 'file-saver';
 import { isDefined } from 'shared/utils';
 import { FieldMetadataType, RelationType } from '~/generated-metadata/graphql';

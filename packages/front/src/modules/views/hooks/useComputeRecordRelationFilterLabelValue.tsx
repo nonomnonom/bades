@@ -6,13 +6,13 @@ import { type RecordFilter } from '@/object-record/record-filter/types/RecordFil
 import { useRecordsForSelect } from '@/object-record/select/hooks/useRecordsForSelect';
 import { useGetRecordFilterChipLabelValue } from '@/views/hooks/useGetRecordFilterChipLabelValue';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import {
   arrayOfUuidOrVariableSchema,
   isDefined,
   jsonRelationFilterValueSchema,
 } from 'shared/utils';
-import { allowRequestsToTwentyIconsState } from '@/client-config/states/allowRequestsToTwentyIcons';
+import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 type ObjectFilterDropdownRecordSelectProps = {
@@ -23,8 +23,8 @@ type ObjectFilterDropdownRecordSelectProps = {
 export const useComputeRecordRelationFilterLabelValue = ({
   recordFilter,
 }: ObjectFilterDropdownRecordSelectProps) => {
-  const allowRequestsToTwentyIcons = useAtomStateValue(
-    allowRequestsToTwentyIconsState,
+  const allowRequestsToFaviconService = useAtomStateValue(
+    allowRequestsToFaviconServiceState,
   );
 
   const { objectMetadataItems } = useObjectMetadataItems();
@@ -75,15 +75,15 @@ export const useComputeRecordRelationFilterLabelValue = ({
     selectedIds: selectedRecordIds,
     objectNameSingular: relationObjectMetadataNameSingular,
     limit: 10,
-    allowRequestsToTwentyIcons,
+    allowRequestsToFaviconService,
   });
 
   if (loading) {
-    return { labelValue: t`: Loading...` };
+    return { labelValue: t`: Memuat...` };
   }
 
   const labelValueItems = [
-    ...(isCurrentWorkspaceMemberSelected ? [t`Me`] : []),
+    ...(isCurrentWorkspaceMemberSelected ? [t`Saya`] : []),
     ...selectedRecords.map((record) => record.name),
   ];
 

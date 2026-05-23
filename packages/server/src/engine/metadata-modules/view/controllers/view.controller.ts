@@ -11,7 +11,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { type APP_LOCALES } from 'shared/translations';
+import { type APP_LOCALES, SOURCE_LOCALE } from 'shared/translations';
 import { isDefined } from 'shared/utils';
 
 import { I18nService } from 'src/engine/core-modules/i18n/i18n.service';
@@ -209,7 +209,9 @@ export class ViewController {
         });
 
         if (objectMetadata) {
-          const i18n = this.i18nService.getI18nInstance(locale ?? 'en');
+          const i18n = this.i18nService.getI18nInstance(
+            locale ?? SOURCE_LOCALE,
+          );
           const translatedObjectLabel = resolveObjectMetadataStandardOverride(
             {
               labelPlural: objectMetadata.labelPlural,

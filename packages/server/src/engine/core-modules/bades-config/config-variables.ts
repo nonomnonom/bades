@@ -35,7 +35,7 @@ import { IsAWSRegion } from 'src/engine/core-modules/bades-config/decorators/is-
 import { IsDuration } from 'src/engine/core-modules/bades-config/decorators/is-duration.decorator';
 import { IsOptionalOrEmptyString } from 'src/engine/core-modules/bades-config/decorators/is-optional-or-empty-string.decorator';
 import { IsStrictlyLowerThan } from 'src/engine/core-modules/bades-config/decorators/is-strictly-lower-than.decorator';
-import { IsTwentySemVer } from 'src/engine/core-modules/bades-config/decorators/is-twenty-semver.decorator';
+import { IsBadesSemVer } from 'src/engine/core-modules/bades-config/decorators/is-bades-semver.decorator';
 import { ConfigVariableType } from 'src/engine/core-modules/bades-config/enums/config-variable-type.enum';
 import { ConfigVariablesGroup } from 'src/engine/core-modules/bades-config/enums/config-variables-group.enum';
 import {
@@ -187,7 +187,7 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
     description:
-      "Enable or disable requests to icon services to get company icons",
+      'Enable or disable requests to icon services to get company icons',
     type: ConfigVariableType.BOOLEAN,
   })
   ALLOW_REQUESTS_TO_FAVICON_SERVICE = true;
@@ -721,7 +721,7 @@ export class ConfigVariables {
     type: ConfigVariableType.BOOLEAN,
   })
   @IsOptional()
-  TELEMETRY_ENABLED = true;
+  TELEMETRY_ENABLED = false;
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.LOGGING,
@@ -795,50 +795,11 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.BILLING_CONFIG,
     isSensitive: true,
-    description: 'Stripe API key for billing',
-    type: ConfigVariableType.STRING,
-  })
-  @ValidateIf(
-    (env) =>
-      env.IS_BILLING_ENABLED === true &&
-      env.IS_BILLING_MIDTRANS_ENABLED !== true,
-  )
-  BILLING_STRIPE_API_KEY: string;
-
-  @ConfigVariablesMetadata({
-    group: ConfigVariablesGroup.BILLING_CONFIG,
-    isSensitive: true,
-    description: 'Stripe webhook secret for billing',
-    type: ConfigVariableType.STRING,
-  })
-  @ValidateIf(
-    (env) =>
-      env.IS_BILLING_ENABLED === true &&
-      env.IS_BILLING_MIDTRANS_ENABLED !== true,
-  )
-  BILLING_STRIPE_WEBHOOK_SECRET: string;
-
-  @ConfigVariablesMetadata({
-    group: ConfigVariablesGroup.BILLING_CONFIG,
     description:
-      'Aktifkan integrasi pembayaran Midtrans sebagai gateway utama Bades. ' +
-      'Saat aktif, env Stripe tidak diwajibkan.',
-    type: ConfigVariableType.BOOLEAN,
-  })
-  @IsOptional()
-  IS_BILLING_MIDTRANS_ENABLED = false;
-
-  @ConfigVariablesMetadata({
-    group: ConfigVariablesGroup.BILLING_CONFIG,
-    isSensitive: true,
-    description: 'Server Key Midtrans dari MAP (Midtrans Administration Portal)',
+      'Server Key Midtrans dari MAP (Midtrans Administration Portal)',
     type: ConfigVariableType.STRING,
   })
-  @ValidateIf(
-    (env) =>
-      env.IS_BILLING_ENABLED === true &&
-      env.IS_BILLING_MIDTRANS_ENABLED === true,
-  )
+  @ValidateIf((env) => env.IS_BILLING_ENABLED === true)
   MIDTRANS_SERVER_KEY: string;
 
   @ConfigVariablesMetadata({
@@ -847,11 +808,7 @@ export class ConfigVariables {
       'Client Key Midtrans dari MAP — digunakan untuk inisialisasi Snap di sisi client',
     type: ConfigVariableType.STRING,
   })
-  @ValidateIf(
-    (env) =>
-      env.IS_BILLING_ENABLED === true &&
-      env.IS_BILLING_MIDTRANS_ENABLED === true,
-  )
+  @ValidateIf((env) => env.IS_BILLING_ENABLED === true)
   MIDTRANS_CLIENT_KEY: string;
 
   @ConfigVariablesMetadata({
@@ -866,7 +823,7 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.BILLING_CONFIG,
     description:
-      'Use the ClickHouse-backed poller (instead of Stripe billing alerts) as the source of truth for metered-credit cap enforcement',
+      'Use the ClickHouse-backed poller as the source of truth for metered-credit cap enforcement (alih-alih agregasi webhook Midtrans).',
     type: ConfigVariableType.BOOLEAN,
   })
   @IsOptional()
@@ -1673,7 +1630,7 @@ export class ConfigVariables {
     isHiddenInAdminPanel: true,
   })
   @IsOptionalOrEmptyString()
-  @IsTwentySemVer()
+  @IsBadesSemVer()
   APP_VERSION?: string;
 
   @ConfigVariablesMetadata({

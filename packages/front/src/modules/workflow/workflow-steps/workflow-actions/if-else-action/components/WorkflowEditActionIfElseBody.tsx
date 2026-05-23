@@ -23,7 +23,7 @@ import { getBranchLabel } from '@/workflow/workflow-steps/workflow-actions/if-el
 import { useStepsOutputSchema } from '@/workflow/workflow-variables/hooks/useStepsOutputSchema';
 import { useTidyUpWorkflowVersion } from '@/workflow/workflow-version/hooks/useTidyUpWorkflowVersion';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Fragment } from 'react';
 import { isDefined } from 'shared/utils';
 import { type StepIfElseBranch } from 'shared/workflow';

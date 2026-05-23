@@ -6,15 +6,10 @@ import { In, type Repository } from 'typeorm';
 import { AdminPanelWorkspaceBillingDTO } from 'src/engine/core-modules/admin-panel/dtos/admin-panel-workspace-billing.dto';
 import { BillingCustomerEntity } from 'src/engine/core-modules/billing/entities/billing-customer.entity';
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';
-import { BillingPlanKey } from 'src/engine/core-modules/billing/enums/billing-plan-key.enum';
 import { BillingSubscriptionService } from 'src/engine/core-modules/billing/services/billing-subscription.service';
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const CREDIT_BALANCE_MICRO_UNIT = 1_000_000;
-
-const KNOWN_PLAN_KEYS: ReadonlySet<string> = new Set(
-  Object.values(BillingPlanKey),
-);
 
 @Injectable()
 export class AdminPanelBillingService {
@@ -24,13 +19,13 @@ export class AdminPanelBillingService {
     @InjectRepository(BillingPriceEntity)
     private readonly billingPriceRepository: Repository<BillingPriceEntity>,
     private readonly billingSubscriptionService: BillingSubscriptionService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async getWorkspaceBilling(
     workspaceId: string,
   ): Promise<AdminPanelWorkspaceBillingDTO | null> {
-    if (!this.twentyConfigService.get('IS_BILLING_ENABLED')) {
+    if (!this.badesConfigService.get('IS_BILLING_ENABLED')) {
       return null;
     }
 
@@ -45,15 +40,15 @@ export class AdminPanelBillingService {
       return null;
     }
 
-    const stripeCustomerId =
-      customer?.stripeCustomerId ?? subscription?.stripeCustomerId ?? null;
+    const billingCustomerId =
+      customer?.id ?? subscription?.billingCustomerId ?? null;
     const creditBalance = customer
       ? customer.creditBalanceMicro / CREDIT_BALANCE_MICRO_UNIT
       : null;
 
     if (!subscription) {
       return {
-        stripeCustomerId,
+        billingCustomerId,
         creditBalance,
         subscription: null,
       };
@@ -66,21 +61,17 @@ export class AdminPanelBillingService {
           where: { priceId: In(priceIds) },
         })
       : [];
-    const priceByStripeId = new Map(
+    const priceByPriceId = new Map(
       prices.map((price) => [price.priceId, price]),
     );
 
-    const planValue = subscription.metadata?.plan;
-    const planKey =
-      typeof planValue === 'string' && KNOWN_PLAN_KEYS.has(planValue)
-        ? planValue
-        : null;
+    const planKey = subscription.planKey ?? null;
 
     return {
-      stripeCustomerId,
+      billingCustomerId,
       creditBalance,
       subscription: {
-        stripeSubscriptionId: subscription.stripeSubscriptionId,
+        subscriptionId: subscription.id,
         status: subscription.status,
         interval: subscription.interval ?? null,
         currency: subscription.currency,
@@ -93,7 +84,7 @@ export class AdminPanelBillingService {
         canceledAt: subscription.canceledAt,
         cancelAtPeriodEnd: subscription.cancelAtPeriodEnd,
         items: items.map((item) => {
-          const price = priceByStripeId.get(item.priceId);
+          const price = priceByPriceId.get(item.priceId);
           const firstTier = price?.tiers?.[0];
           const productKey = item.billingProduct?.metadata?.productKey;
 

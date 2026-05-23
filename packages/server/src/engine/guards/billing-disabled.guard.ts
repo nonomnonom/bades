@@ -8,9 +8,9 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 @Injectable()
 export class BillingDisabledGuard implements CanActivate {
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   canActivate(_context: ExecutionContext): boolean {
-    return !this.twentyConfigService.isBillingEnabled();
+    return !this.badesConfigService.isBillingEnabled();
   }
 }

@@ -5,7 +5,7 @@ import { SettingsOptionCardContentSelect } from '@/settings/components/SettingsO
 import { BOOLEAN_DATA_MODEL_SELECT_OPTIONS } from '@/settings/data-model/fields/forms/boolean/constants/BooleanDataModelSelectOptions';
 import { useBooleanSettingsFormInitialValues } from '@/settings/data-model/fields/forms/boolean/hooks/useBooleanSettingsFormInitialValues';
 import { Select } from '@/ui/input/components/Select';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { IconCheck } from 'ui/display';
 
 export const settingsDataModelFieldBooleanFormSchema = z.object({

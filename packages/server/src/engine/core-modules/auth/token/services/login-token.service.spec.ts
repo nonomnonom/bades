@@ -10,7 +10,7 @@ import { LoginTokenService } from './login-token.service';
 describe('LoginTokenService', () => {
   let service: LoginTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -35,7 +35,7 @@ describe('LoginTokenService', () => {
 
     service = module.get<LoginTokenService>(LoginTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   it('should be defined', () => {
@@ -49,7 +49,7 @@ describe('LoginTokenService', () => {
       const mockToken = 'mock-token';
       const workspaceId = 'workspace-id';
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue(mockExpiresIn);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue(mockExpiresIn);
       jest
         .spyOn(jwtWrapperService, 'signAsyncOrThrow')
         .mockResolvedValue(mockToken);
@@ -64,7 +64,7 @@ describe('LoginTokenService', () => {
         token: mockToken,
         expiresAt: expect.any(Date),
       });
-      expect(twentyConfigService.get).toHaveBeenCalledWith(
+      expect(badesConfigService.get).toHaveBeenCalledWith(
         'LOGIN_TOKEN_EXPIRES_IN',
       );
       expect(jwtWrapperService.signAsyncOrThrow).toHaveBeenCalledWith(
@@ -87,7 +87,7 @@ describe('LoginTokenService', () => {
       const workspaceId = 'workspace-id';
       const impersonatorUserWorkspaceId = 'impersonator-id';
 
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('1h');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1h');
       jest
         .spyOn(jwtWrapperService, 'signAsyncOrThrow')
         .mockResolvedValue(mockToken);

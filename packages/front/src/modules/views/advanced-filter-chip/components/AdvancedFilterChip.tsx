@@ -14,7 +14,7 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { SortOrFilterChip } from '@/views/components/SortOrFilterChip';
 import { ViewBarFilterDropdownIds } from '@/views/constants/ViewBarFilterDropdownIds';
-import { plural } from '@lingui/core/macro';
+import { plural } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconFilter } from 'ui/display';

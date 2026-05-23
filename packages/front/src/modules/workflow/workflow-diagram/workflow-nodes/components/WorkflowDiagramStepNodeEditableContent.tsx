@@ -20,7 +20,6 @@ import { useConnectionState } from '@/workflow/workflow-diagram/workflow-nodes/h
 import { isNodeTitleHighlighted } from '@/workflow/workflow-diagram/workflow-nodes/utils/isNodeTitleHighlighted';
 import { workflowInsertStepIdsComponentState } from '@/workflow/workflow-steps/states/workflowInsertStepIdsComponentState';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
 import { Position } from '@xyflow/react';
 import { useState } from 'react';
 import { capitalize, isDefined } from 'shared/utils';
@@ -50,8 +49,6 @@ export const WorkflowDiagramStepNodeEditableContent = ({
   selected: boolean;
   onClick?: () => void;
 }) => {
-  const { i18n } = useLingui();
-
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -142,7 +139,7 @@ export const WorkflowDiagramStepNodeEditableContent = ({
               Label={
                 isDefined(data.defaultHandleOptions?.label) ? (
                   <WorkflowDiagramEdgeLabel
-                    label={i18n._(data.defaultHandleOptions.label)}
+                    label={data.defaultHandleOptions.label}
                   />
                 ) : undefined
               }

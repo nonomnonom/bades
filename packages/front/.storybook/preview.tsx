@@ -1,8 +1,7 @@
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
 import { type Preview } from '@storybook/react-vite';
 import { initialize, mswLoader } from 'msw-storybook-addon';
-import { SOURCE_LOCALE } from 'shared/translations';
+// oxlint-disable-next-line no-restricted-imports
+import { I18nProvider } from '../src/utils/i18n/badesI18n';
 
 // oxlint-disable-next-line no-restricted-imports
 import { FileUploadProvider } from '../src/modules/file-upload/components/FileUploadProvider';
@@ -16,12 +15,6 @@ import 'ui/style.css';
 import 'ui/theme-light.css';
 import 'ui/theme-dark.css';
 import { ThemeProvider } from 'ui/theme-constants';
-// oxlint-disable-next-line no-restricted-imports
-import { messages as idMessages } from '../src/locales/generated/id-ID';
-
-// Inisialisasi i18n dengan locale SOURCE_LOCALE (id-ID) untuk semua stories
-i18n.load({ [SOURCE_LOCALE]: idMessages });
-i18n.activate(SOURCE_LOCALE);
 import { mockedUserJWT } from '~/testing/mock-data/jwt';
 // oxlint-disable-next-line no-restricted-imports
 import { ClickOutsideListenerContext } from '../src/modules/ui/utilities/pointer-event/contexts/ClickOutsideListenerContext';
@@ -63,7 +56,7 @@ const preview: Preview = {
   decorators: [
     (Story) => {
       return (
-        <I18nProvider i18n={i18n}>
+        <I18nProvider>
           <ThemeProvider colorScheme="light">
             <FileUploadProvider>
               <ClickOutsideListenerContext.Provider

@@ -1,28 +1,18 @@
 import { BaseEmail } from 'src/components/BaseEmail';
 import { Title } from 'src/components/Title';
-import { createI18nInstance } from 'src/utils/i18n.utils';
-import { type APP_LOCALES } from 'shared/translations';
 
-type TestEmailProps = {
-  locale: keyof typeof APP_LOCALES;
-};
-
-// This is a test email which isn't used in production
-// It's useful to do tests and play in a local environment
-export const TestEmail = ({ locale }: TestEmailProps) => {
-  const i18n = createI18nInstance(locale);
-
+// Email uji yang tidak digunakan di produksi.
+// Berguna untuk pengujian dan eksplorasi di lingkungan lokal.
+export const TestEmail = () => {
   return (
-    <BaseEmail locale={locale}>
-      <Title value={i18n._('Email uji coba')} />
+    <BaseEmail>
+      <Title value="Email uji coba" />
       <br />
       <br />
     </BaseEmail>
   );
 };
 
-TestEmail.PreviewProps = {
-  locale: 'id-ID',
-};
+TestEmail.PreviewProps = {};
 
 export default TestEmail;

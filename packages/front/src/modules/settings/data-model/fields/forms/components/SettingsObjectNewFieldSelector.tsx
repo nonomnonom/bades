@@ -1,6 +1,7 @@
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { SettingsCard } from '@/settings/components/SettingsCard';
-import { SETTINGS_FIELD_TYPE_CATEGORIES, SETTINGS_FIELD_TYPE_CATEGORY_LABELS } from '@/settings/data-model/constants/SettingsFieldTypeCategories';
+import { SETTINGS_FIELD_TYPE_CATEGORIES } from '@/settings/data-model/constants/SettingsFieldTypeCategories';
+import { SETTINGS_FIELD_TYPE_CATEGORY_LABELS } from '@/settings/data-model/constants/SettingsFieldTypeCategoryLabels';
 import { SETTINGS_FIELD_TYPE_CATEGORY_DESCRIPTIONS } from '@/settings/data-model/constants/SettingsFieldTypeCategoryDescriptions';
 import { SETTINGS_FIELD_TYPE_CONFIGS } from '@/settings/data-model/constants/SettingsFieldTypeConfigs';
 import { type SettingsFieldTypeConfig } from '@/settings/data-model/constants/SettingsNonCompositeFieldTypeConfigs';
@@ -11,7 +12,7 @@ import { type FieldType } from '@/settings/data-model/types/FieldType';
 import { type SettingsFieldType } from '@/settings/data-model/types/SettingsFieldType';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { Section } from '@react-email/components';
 import { useContext, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';

@@ -61,7 +61,7 @@ export class MicrosoftAPIsService {
     private readonly createCalendarChannelService: CreateCalendarChannelService,
     private readonly createConnectedAccountService: CreateConnectedAccountService,
     private readonly updateConnectedAccountOnReconnectService: UpdateConnectedAccountOnReconnectService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly syncMessageFoldersService: SyncMessageFoldersService,
     private readonly emailAliasManagerService: EmailAliasManagerService,
     @InjectRepository(ConnectedAccountEntity)
@@ -185,7 +185,7 @@ export class MicrosoftAPIsService {
             }
 
             if (
-              this.twentyConfigService.get(
+              this.badesConfigService.get(
                 'MESSAGING_PROVIDER_MICROSOFT_ENABLED',
               ) &&
               existingMessageChannels.length === 0
@@ -201,7 +201,7 @@ export class MicrosoftAPIsService {
             }
 
             if (
-              this.twentyConfigService.get(
+              this.badesConfigService.get(
                 'CALENDAR_PROVIDER_MICROSOFT_ENABLED',
               ) &&
               existingCalendarChannels.length === 0
@@ -219,7 +219,7 @@ export class MicrosoftAPIsService {
         );
 
         if (
-          this.twentyConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED')
+          this.badesConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED')
         ) {
           const connectedAccountForAliases =
             await this.connectedAccountRepository.findOne({
@@ -235,9 +235,7 @@ export class MicrosoftAPIsService {
         }
 
         if (
-          this.twentyConfigService.get(
-            'MESSAGING_PROVIDER_MICROSOFT_ENABLED',
-          ) &&
+          this.badesConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED') &&
           existingMessageChannels.length === 0
         ) {
           const newMessageChannel = await this.messageChannelRepository.findOne(
@@ -259,7 +257,7 @@ export class MicrosoftAPIsService {
         }
 
         if (
-          this.twentyConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED')
+          this.badesConfigService.get('MESSAGING_PROVIDER_MICROSOFT_ENABLED')
         ) {
           const messageChannels = await this.messageChannelRepository.find({
             where: {
@@ -285,7 +283,7 @@ export class MicrosoftAPIsService {
         }
 
         if (
-          this.twentyConfigService.get('CALENDAR_PROVIDER_MICROSOFT_ENABLED')
+          this.badesConfigService.get('CALENDAR_PROVIDER_MICROSOFT_ENABLED')
         ) {
           const calendarChannels = await this.calendarChannelRepository.find({
             where: {

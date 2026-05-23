@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback, useState } from 'react';
@@ -16,7 +17,6 @@ import { TextInput } from '@/ui/input/components/TextInput';
 import { ModalContent } from 'ui/layout';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -118,7 +118,7 @@ export const CreateWorkspace = () => {
         });
 
         if (isDefined(result.error)) {
-          throw result.error ?? new Error(t`Unknown error`);
+          throw result.error ?? new Error(t`Terjadi kesalahan tidak diketahui`);
         }
 
         await loadCurrentUser();

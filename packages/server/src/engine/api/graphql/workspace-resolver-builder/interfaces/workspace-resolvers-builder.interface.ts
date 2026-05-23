@@ -1,8 +1,5 @@
 import { type GraphQLFieldResolver } from 'graphql';
-import {
-  type ObjectRecord,
-  type OrderByWithGroupBy,
-} from 'shared/types';
+import { type ObjectRecord, type OrderByWithGroupBy } from 'shared/types';
 
 import {
   type ObjectRecordFilter,

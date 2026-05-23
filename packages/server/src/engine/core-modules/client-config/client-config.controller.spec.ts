@@ -3,8 +3,6 @@ import { Test, type TestingModule } from '@nestjs/testing';
 import { SupportDriver } from 'src/engine/core-modules/bades-config/interfaces/support.interface';
 
 import { ClientConfigService } from 'src/engine/core-modules/client-config/services/client-config.service';
-import { ModelFamily } from 'src/engine/metadata-modules/ai/ai-models/types/model-family.enum';
-import { type ModelId } from 'src/engine/metadata-modules/ai/ai-models/types/model-id.type';
 
 import { ClientConfigController } from './client-config.controller';
 
@@ -46,16 +44,6 @@ describe('ClientConfigController', () => {
             },
           ],
         },
-        aiModels: [
-          {
-            modelId: 'openai/gpt-4o' as ModelId,
-            label: 'GPT-4o',
-            modelFamily: ModelFamily.GPT,
-            sdkPackage: '@ai-sdk/openai' as const,
-            inputCostPerMillionTokensInCredits: 2500000,
-            outputCostPerMillionTokensInCredits: 10000000,
-          },
-        ],
         authProviders: {
           google: true,
           magicLink: false,
@@ -97,7 +85,7 @@ describe('ClientConfigController', () => {
         isEmailGroupEnabled: false,
         calendarBookingPageId: undefined,
         isTwoFactorAuthenticationEnabled: false,
-        allowRequestsToTwentyIcons: true,
+        allowRequestsToFaviconService: true,
         isCloudflareIntegrationEnabled: false,
         isClickHouseConfigured: false,
         isWorkspaceSchemaDDLLocked: false,

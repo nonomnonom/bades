@@ -24,7 +24,7 @@ export class WorkspaceCommandRunnerService {
   private readonly logger = new Logger(WorkspaceCommandRunnerService.name);
 
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly upgradeMigrationService: UpgradeMigrationService,
     private readonly upgradeStatusService: UpgradeStatusService,
   ) {}
@@ -52,7 +52,7 @@ export class WorkspaceCommandRunnerService {
     );
 
     const executedByVersion =
-      this.twentyConfigService.get('APP_VERSION') ?? 'unknown';
+      this.badesConfigService.get('APP_VERSION') ?? 'unknown';
 
     try {
       for (const workspaceCommandEntry of workspaceCommands) {

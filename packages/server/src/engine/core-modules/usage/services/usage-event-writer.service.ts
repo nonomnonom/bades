@@ -13,11 +13,11 @@ export class UsageEventWriterService {
 
   constructor(
     private readonly clickHouseService: ClickHouseService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   writeToClickHouse(workspaceId: string, usageEvents: UsageEvent[]): void {
-    if (!this.twentyConfigService.get('CLICKHOUSE_URL')) {
+    if (!this.badesConfigService.get('CLICKHOUSE_URL')) {
       return;
     }
 

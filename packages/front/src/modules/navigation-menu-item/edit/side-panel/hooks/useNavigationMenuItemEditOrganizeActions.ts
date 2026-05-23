@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useNavigate } from 'react-router-dom';
 import { SidePanelPages } from 'shared/types';
@@ -152,7 +152,9 @@ export const useNavigationMenuItemEditOrganizeActions =
       if (!insertion) return;
 
       const title =
-        offset === 0 ? t`Add menu item before` : t`Add menu item after`;
+        offset === 0
+          ? t`Tambah item menu sebelum`
+          : t`Tambah item menu sesudah`;
 
       setPendingInsertionNavigationMenuItem(insertion);
       navigateToSidePanelSubPage(

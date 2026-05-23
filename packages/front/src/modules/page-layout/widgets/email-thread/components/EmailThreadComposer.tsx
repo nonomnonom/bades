@@ -9,7 +9,7 @@ import { sidePanelWidgetFooterCommandMenuItemsState } from '@/ui/layout/side-pan
 import { type SidePanelFooterCommandMenuItem } from '@/ui/layout/side-panel/types/SidePanelFooterCommandMenuItem';
 import { useHotkeysOnFocusedElement } from '@/ui/utilities/hotkey/hooks/useHotkeysOnFocusedElement';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { IconArrowBackUp, IconSend, IconX } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 import { getOsControlSymbol } from 'ui/utilities';
@@ -64,7 +64,7 @@ export const EmailThreadComposer = ({
       return [
         {
           id: 'reply',
-          label: t`Reply`,
+          label: t`Balas`,
           Icon: IconArrowBackUp,
           isPrimaryCTA: true,
           onClick: () => setIsComposerOpen(true),
@@ -75,14 +75,14 @@ export const EmailThreadComposer = ({
     return [
       {
         id: 'cancel-reply',
-        label: t`Cancel reply`,
+        label: t`Batal balas`,
         Icon: IconX,
         isPinned: false,
         onClick: () => setIsComposerOpen(false),
       },
       {
         id: 'send',
-        label: t`Send`,
+        label: t`Kirim`,
         Icon: IconSend,
         isPrimaryCTA: true,
         hotkeys: [getOsControlSymbol(), '⏎'],
@@ -123,7 +123,7 @@ export const EmailThreadComposer = ({
     return (
       <StyledReplyBar onClick={() => setIsComposerOpen(true)}>
         <IconArrowBackUp size={16} />
-        {t`Reply...`}
+        {t`Balas...`}
       </StyledReplyBar>
     );
   }

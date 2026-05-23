@@ -1,6 +1,6 @@
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

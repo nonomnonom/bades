@@ -68,7 +68,7 @@ export class ApplicationDevelopmentResolver {
     private readonly applicationRegistrationVariableService: ApplicationRegistrationVariableService,
     private readonly fileStorageService: FileStorageService,
     private readonly sdkClientGenerationService: SdkClientGenerationService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly throttlerService: ThrottlerService,
   ) {}
 
@@ -268,7 +268,7 @@ export class ApplicationDevelopmentResolver {
     workspaceId: string,
     applicationId: string,
   ): Promise<void> {
-    const serverUrl = this.twentyConfigService.get('SERVER_URL');
+    const serverUrl = this.badesConfigService.get('SERVER_URL');
 
     const manifestWithResolvedUrls = resolveManifestAssetUrls(
       manifest,

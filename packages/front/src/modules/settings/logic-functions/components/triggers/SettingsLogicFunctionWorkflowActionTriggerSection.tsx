@@ -1,5 +1,5 @@
 import { SettingsLogicFunctionTriggerSection } from '@/settings/logic-functions/components/triggers/SettingsLogicFunctionTriggerSection';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type WorkflowActionTriggerSettings } from 'shared/application';
 import { isDefined } from 'shared/utils';
 

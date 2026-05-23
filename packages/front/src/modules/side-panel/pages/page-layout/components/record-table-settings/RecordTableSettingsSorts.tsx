@@ -8,7 +8,7 @@ import { RecordTableSettingsSortsContent } from '@/side-panel/pages/page-layout/
 import { RecordTableSettingsSortsInitializeStateEffect } from '@/side-panel/pages/page-layout/components/record-table-settings/RecordTableSettingsSortsInitializeStateEffect';
 import { InputLabel } from '@/ui/input/components/InputLabel';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { useIcons } from 'ui/display';
 import { type SelectOption } from 'ui/input';

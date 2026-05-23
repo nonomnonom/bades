@@ -19,7 +19,7 @@ import {
 export class TransientTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async generateTransientToken({
@@ -35,7 +35,7 @@ export class TransientTokenService {
       type: JwtTokenTypeEnum.LOGIN,
     };
 
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'SHORT_TERM_TOKEN_EXPIRES_IN',
     );
 

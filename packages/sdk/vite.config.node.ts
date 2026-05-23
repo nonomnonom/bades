@@ -8,7 +8,7 @@ import packageJson from './package.json';
 export default defineConfig(() => {
   return {
     root: __dirname,
-    cacheDir: '../../node_modules/.vite/packages/twenty-sdk-node',
+    cacheDir: '../../node_modules/.vite/packages/bades-sdk-node',
     resolve: {
       alias: {
         '@/': path.resolve(__dirname, 'src') + '/',
@@ -24,8 +24,6 @@ export default defineConfig(() => {
       outDir: 'dist',
       lib: {
         entry: {
-          cli: 'src/cli/cli.ts',
-          operations: 'src/cli/operations/index.ts',
           'front-component-renderer/build':
             'src/front-component-renderer/build/index.ts',
         },

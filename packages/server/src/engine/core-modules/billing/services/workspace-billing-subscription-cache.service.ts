@@ -27,8 +27,8 @@ export class WorkspaceBillingSubscriptionCacheService extends WorkspaceCacheProv
     return {
       id: subscription.id,
       workspaceId: subscription.workspaceId,
-      stripeCustomerId: subscription.stripeCustomerId,
-      stripeSubscriptionId: subscription.stripeSubscriptionId,
+      billingCustomerId: subscription.billingCustomerId,
+      planKey: subscription.planKey,
       status: subscription.status,
       interval: subscription.interval,
       currency: subscription.currency,

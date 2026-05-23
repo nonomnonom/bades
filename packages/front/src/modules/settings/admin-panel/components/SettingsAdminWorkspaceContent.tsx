@@ -6,7 +6,7 @@ import { DEFAULT_WORKSPACE_LOGO } from '@/ui/navigation/navigation-drawer/consta
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { UserContext } from '@/users/contexts/UserContext';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useContext } from 'react';
 import { SettingsPath } from 'shared/types';
@@ -173,7 +173,8 @@ export const SettingsAdminWorkspaceContent = ({
               {
                 Icon: IconId,
                 label: t`Versi terdeteksi`,
-                value: workspaceUpgradeStatus.inferredVersion ?? t`Tidak diketahui`,
+                value:
+                  workspaceUpgradeStatus.inferredVersion ?? t`Tidak diketahui`,
               },
               {
                 Icon: IconCalendar,

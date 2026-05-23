@@ -59,7 +59,7 @@ export class ApplicationTarballService {
     universalIdentifier?: string;
     ownerWorkspaceId: string;
   }): Promise<ApplicationRegistrationEntity> {
-    const tempDir = join(tmpdir(), 'twenty-tarball-upload', v4());
+    const tempDir = join(tmpdir(), 'bades-tarball-upload', v4());
 
     await fs.mkdir(tempDir, { recursive: true });
 
@@ -81,7 +81,7 @@ export class ApplicationTarballService {
 
       const packageJson = await readJsonFile<{
         version: string;
-        engines?: { twenty?: string };
+        engines?: { bades?: string };
       }>(contentDir, 'package.json');
 
       if (manifest === null) {
@@ -91,7 +91,7 @@ export class ApplicationTarballService {
         );
       }
 
-      const requiredServerVersion = packageJson?.engines?.twenty;
+      const requiredServerVersion = packageJson?.engines?.bades;
 
       const versionValidation =
         await this.applicationVersionValidationService.validateServerCompatibility(

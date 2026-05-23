@@ -5,7 +5,7 @@ import { MemberEmailField } from '@/settings/members/components/MemberEmailField
 import { MemberNameFields } from '@/settings/members/components/MemberNameFields';
 import { WorkspaceMemberPictureUploader } from '@/settings/workspace-member/components/WorkspaceMemberPictureUploader';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';

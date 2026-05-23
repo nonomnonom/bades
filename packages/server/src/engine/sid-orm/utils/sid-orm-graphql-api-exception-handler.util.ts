@@ -11,9 +11,7 @@ interface DuplicateKeyErrorWithMetadata extends SidOrmException {
   conflictingObjectNameSingular?: string;
 }
 
-export const sidOrmGraphqlApiExceptionHandler = (
-  error: SidOrmException,
-) => {
+export const sidOrmGraphqlApiExceptionHandler = (error: SidOrmException) => {
   switch (error.code) {
     case SidOrmExceptionCode.DUPLICATE_ENTRY_DETECTED: {
       const duplicateKeyError: DuplicateKeyErrorWithMetadata = error;

@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/react';
 import { Img } from '@react-email/components';
 import { emailTheme } from 'src/common-style';
 
@@ -11,8 +10,6 @@ import { MainText } from 'src/components/MainText';
 import { Title } from 'src/components/Title';
 import { DEFAULT_WORKSPACE_LOGO } from 'src/constants/DefaultWorkspaceLogo';
 import { capitalize } from 'src/utils/capitalize';
-import { createI18nInstance } from 'src/utils/i18n.utils';
-import { type APP_LOCALES } from 'shared/translations';
 import { getImageAbsoluteURI } from 'shared/utils';
 
 type SendApprovedAccessDomainValidationProps = {
@@ -25,7 +22,7 @@ type SendApprovedAccessDomainValidationProps = {
     lastName: string;
   };
   serverUrl: string;
-  locale: keyof typeof APP_LOCALES;
+  locale?: string;
 };
 
 export const SendApprovedAccessDomainValidation = ({
@@ -34,9 +31,7 @@ export const SendApprovedAccessDomainValidation = ({
   workspace,
   sender,
   serverUrl,
-  locale,
 }: SendApprovedAccessDomainValidationProps) => {
-  const i18n = createI18nInstance(locale);
   const workspaceLogo = workspace.logo
     ? getImageAbsoluteURI({ imageUrl: workspace.logo, baseUrl: serverUrl })
     : null;
@@ -45,23 +40,21 @@ export const SendApprovedAccessDomainValidation = ({
   const senderEmail = sender.email;
 
   return (
-    <BaseEmail width={333} locale={locale}>
-      <Title value={i18n._('Validasi domain')} />
+    <BaseEmail width={333}>
+      <Title value="Validasi domain" />
       <MainText>
-        <Trans
-          id="{senderName} (<0>{senderEmail}</0>): Silakan validasi domain ini agar pengguna dengan alamat email <1>@{domain}</1> dapat bergabung ke ruang kerja Anda tanpa perlu undangan."
-          values={{ senderName, senderEmail, domain }}
-          components={{
-            0: (
-              <Link
-                href={`mailto:${senderEmail}`}
-                value={senderEmail}
-                color={emailTheme.font.colors.blue}
-              />
-            ),
-            1: <b />,
-          }}
+        Halo,
+        <br />
+        <br />
+        {senderName} (
+        <Link
+          href={`mailto:${senderEmail}`}
+          value={senderEmail}
+          color={emailTheme.font.colors.blue}
         />
+        ) meminta validasi domain ini. Setelah divalidasi, pengguna dengan
+        alamat email <b>@{domain}</b> dapat bergabung ke ruang kerja Anda
+        tanpa perlu undangan terpisah.
         <br />
       </MainText>
       <HighlightedContainer>
@@ -72,7 +65,7 @@ export const SendApprovedAccessDomainValidation = ({
           alt={workspace.name ?? 'Logo ruang kerja'}
         />
         {workspace.name ? <HighlightedText value={workspace.name} /> : <></>}
-        <CallToAction href={link} value={i18n._('Validasi domain')} />
+        <CallToAction href={link} value="Validasi domain" />
       </HighlightedContainer>
       <br />
     </BaseEmail>
@@ -92,7 +85,6 @@ SendApprovedAccessDomainValidation.PreviewProps = {
     lastName: 'Santoso',
   },
   serverUrl: 'https://app.bades.id',
-  locale: 'id-ID',
 };
 
 export default SendApprovedAccessDomainValidation;

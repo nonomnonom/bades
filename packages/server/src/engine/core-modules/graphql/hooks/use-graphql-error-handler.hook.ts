@@ -4,7 +4,7 @@ import {
   type OnExecuteDoneHookResultOnNextHook,
   type Plugin,
 } from '@envelop/core';
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import {
   GraphQLError,
   Kind,
@@ -51,7 +51,7 @@ type GraphQLErrorHandlerHookOptions = {
 
   i18nService: I18nService;
 
-  twentyConfigService: BadesConfigService;
+  badesConfigService: BadesConfigService;
   /**
    * The key of the event id in the error's extension. `null` to disable.
    * @default exceptionEventId
@@ -269,8 +269,7 @@ export const useGraphQLErrorHandlerHook = <
         const headers = context.req.headers;
         const currentMetadataVersion = context.req.workspaceMetadataVersion;
         const requestMetadataVersion = headers[SCHEMA_VERSION_HEADER];
-        const backendAppVersion =
-          options.twentyConfigService.get('APP_VERSION');
+        const backendAppVersion = options.badesConfigService.get('APP_VERSION');
         const appVersionHeaderValue = headers[APP_VERSION_HEADER];
         const frontEndAppVersion =
           appVersionHeaderValue && Array.isArray(appVersionHeaderValue)

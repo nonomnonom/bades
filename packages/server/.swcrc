@@ -7,14 +7,7 @@
       "decorators": true,
       "dynamicImport": true
     },
-    "baseUrl": "./../../",
-    "experimental": {
-      "plugins": [
-        ["@lingui/swc-plugin", {
-          "stripNonEssentialFields": false
-        }]
-      ]
-    }
+    "baseUrl": "./../../"
   },
   "minify": false
 }

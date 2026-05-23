@@ -3,7 +3,7 @@ import { agentChatUploadedFilesState } from '@/ai/states/agentChatUploadedFilesS
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useApolloClient, useMutation } from '@apollo/client/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 
 import { type AgentChatFileUIPart } from '@/ai/types/agent-chat-file-ui-part.type';

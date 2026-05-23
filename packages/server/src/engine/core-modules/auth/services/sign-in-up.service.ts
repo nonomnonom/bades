@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { FAVICON_SERVICE_BASE_URL } from 'shared/constants';
 import { isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
@@ -48,9 +48,10 @@ import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/works
 import { WorkspaceEventEmitter } from 'src/engine/workspace-event-emitter/workspace-event-emitter';
 import { getDomainNameByEmail } from 'src/utils/get-domain-name-by-email';
 import { isWorkEmail } from 'src/utils/is-work-email';
+import { SOURCE_LOCALE } from 'shared/translations';
 
 @Injectable()
-// oxlint-disable-next-line twenty/inject-workspace-repository
+// oxlint-disable-next-line bades/inject-workspace-repository
 export class SignInUpService {
   constructor(
     @InjectRepository(UserEntity)
@@ -61,7 +62,7 @@ export class SignInUpService {
     private readonly userWorkspaceService: UserWorkspaceService,
     private readonly onboardingService: OnboardingService,
     private readonly workspaceEventEmitter: WorkspaceEventEmitter,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly subdomainManagerService: SubdomainManagerService,
     private readonly userService: UserService,
     private readonly metricsService: MetricsService,
@@ -93,7 +94,7 @@ export class SignInUpService {
       firstName: newUserPayload.firstName ?? '',
       lastName: newUserPayload.lastName ?? '',
       picture: newUserPayload.picture ?? '',
-      locale: newUserPayload.locale ?? 'en',
+      locale: newUserPayload.locale ?? SOURCE_LOCALE,
       isEmailVerified: newUserPayload.isEmailAlreadyVerified,
     };
 
@@ -377,8 +378,8 @@ export class SignInUpService {
           userFirstName: newUserWithPicture.firstName,
           userLastName: newUserWithPicture.lastName,
           locale: newUserWithPicture.locale,
-          serverUrl: this.twentyConfigService.get('SERVER_URL'),
-          serverId: this.twentyConfigService.get('SERVER_ID'),
+          serverUrl: this.badesConfigService.get('SERVER_URL'),
+          serverId: this.badesConfigService.get('SERVER_ID'),
         },
       ],
       undefined,
@@ -396,7 +397,7 @@ export class SignInUpService {
     const workspaceCount = await this.workspaceRepository.count();
 
     return (
-      this.twentyConfigService.get('IS_MULTIWORKSPACE_ENABLED') ||
+      this.badesConfigService.get('IS_MULTIWORKSPACE_ENABLED') ||
       workspaceCount === 0
     );
   }
@@ -432,7 +433,7 @@ export class SignInUpService {
     await this.assertWorkspaceCountWithinLimit(workspaceCount);
 
     if (
-      !this.twentyConfigService.get(
+      !this.badesConfigService.get(
         'IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS',
       )
     ) {

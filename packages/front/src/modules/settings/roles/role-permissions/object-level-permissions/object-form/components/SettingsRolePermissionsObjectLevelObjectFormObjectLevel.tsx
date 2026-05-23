@@ -5,7 +5,7 @@ import { type SettingsRolePermissionsObjectLevelPermission } from '@/settings/ro
 import { settingsDraftRoleFamilyState } from '@/settings/roles/states/settingsDraftRoleFamilyState';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';

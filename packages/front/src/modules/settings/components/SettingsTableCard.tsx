@@ -3,10 +3,7 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { useContext } from 'react';
 import { isDefined } from 'shared/utils';
-import {
-  OverflowingTextWithTooltip,
-  type IconComponent,
-} from 'ui/display';
+import { OverflowingTextWithTooltip, type IconComponent } from 'ui/display';
 import { Card } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 

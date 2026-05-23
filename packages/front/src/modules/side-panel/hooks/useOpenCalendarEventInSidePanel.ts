@@ -1,6 +1,6 @@
 import { useNavigateSidePanel } from '@/side-panel/hooks/useNavigateSidePanel';
 import { viewableRecordIdComponentState } from '@/side-panel/pages/record-page/states/viewableRecordIdComponentState';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { SidePanelPages } from 'shared/types';
 import { IconCalendarEvent } from 'ui/display';

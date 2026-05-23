@@ -7,7 +7,7 @@ import { normalizeCronExpression } from '@/workflow/workflow-trigger/utils/cron-
 import { getTriggerScheduleDescription } from '@/workflow/workflow-trigger/utils/getTriggerScheduleDescription';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { CronExpressionParser } from 'cron-parser';
 import { dateLocaleState } from '~/localization/states/dateLocaleState';
 import { formatDateTimeString } from '~/utils/string/formatDateTimeString';
@@ -118,7 +118,8 @@ export const CronExpressionHelper = ({
     CronExpressionParser.parse(normalized);
   } catch (error) {
     isValid = false;
-    errorMessage = error instanceof Error ? error.message : t`Kesalahan tidak diketahui`;
+    errorMessage =
+      error instanceof Error ? error.message : t`Kesalahan tidak diketahui`;
   }
 
   if (!isValid) {

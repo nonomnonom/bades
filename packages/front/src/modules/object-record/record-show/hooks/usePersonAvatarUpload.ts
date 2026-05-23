@@ -1,8 +1,8 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { useApolloClient, useMutation } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
 import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 import {
   FieldMetadataType,
@@ -28,7 +28,7 @@ export const usePersonAvatarUpload = (personRecordId: string) => {
   const onUploadPicture = async (file: File) => {
     assertIsDefinedOrThrow(
       avatarFileFieldMetadataId,
-      new Error(t`Avatar file field not found for person object`),
+      new Error(t`Kolom berkas avatar tidak ditemukan untuk objek orang`),
     );
 
     const result = await uploadFilesFieldFile({

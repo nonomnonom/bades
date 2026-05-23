@@ -71,6 +71,50 @@ import {
   UMKM_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/umkm-data-seeds.constant';
 import {
+  WILAYAH_DATA_SEED_COLUMNS,
+  WILAYAH_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/wilayah-data-seeds.constant';
+import {
+  RUMAH_TANGGA_DATA_SEED_COLUMNS,
+  RUMAH_TANGGA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/rumah-tangga-data-seeds.constant';
+import {
+  PERIODE_JABATAN_DATA_SEED_COLUMNS,
+  PERIODE_JABATAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/periode-jabatan-data-seeds.constant';
+import {
+  POSYANDU_DATA_SEED_COLUMNS,
+  POSYANDU_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/posyandu-data-seeds.constant';
+import {
+  BIDANG_TANAH_DATA_SEED_COLUMNS,
+  BIDANG_TANAH_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/bidang-tanah-data-seeds.constant';
+import {
+  KEGIATAN_DESA_DATA_SEED_COLUMNS,
+  KEGIATAN_DESA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/kegiatan-desa-data-seeds.constant';
+import {
+  SURAT_KELUAR_DATA_SEED_COLUMNS,
+  SURAT_KELUAR_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-keluar-data-seeds.constant';
+import {
+  SURAT_MASUK_DATA_SEED_COLUMNS,
+  SURAT_MASUK_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-masuk-data-seeds.constant';
+import {
+  BIDANG_ANGGARAN_DATA_SEED_COLUMNS,
+  BIDANG_ANGGARAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/bidang-anggaran-data-seeds.constant';
+import {
+  SUMBER_DANA_DATA_SEED_COLUMNS,
+  SUMBER_DANA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/sumber-dana-data-seeds.constant';
+import {
+  KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS,
+  KEGIATAN_ANGGARAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/kegiatan-anggaran-data-seeds.constant';
+import {
   getWorkspaceMemberDataSeeds,
   WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
@@ -118,6 +162,11 @@ const getRecordSeedsBatches = (
   // Batch 3: SID entities - depends on workspaceMember
   const batch3: RecordSeedConfig[] = [
     {
+      tableName: '_wilayah',
+      pgColumns: WILAYAH_DATA_SEED_COLUMNS,
+      recordSeeds: WILAYAH_DATA_SEEDS,
+    },
+    {
       tableName: '_penduduk',
       pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
       recordSeeds: PENDUDUK_DATA_SEEDS,
@@ -132,6 +181,21 @@ const getRecordSeedsBatches = (
       pgColumns: JENIS_SURAT_DATA_SEED_COLUMNS,
       recordSeeds: JENIS_SURAT_DATA_SEEDS,
     },
+    {
+      tableName: '_jabatan',
+      pgColumns: JABATAN_DATA_SEED_COLUMNS,
+      recordSeeds: JABATAN_DATA_SEEDS,
+    },
+    {
+      tableName: '_bidangAnggaran',
+      pgColumns: BIDANG_ANGGARAN_DATA_SEED_COLUMNS,
+      recordSeeds: BIDANG_ANGGARAN_DATA_SEEDS,
+    },
+    {
+      tableName: '_sumberDana',
+      pgColumns: SUMBER_DANA_DATA_SEED_COLUMNS,
+      recordSeeds: SUMBER_DANA_DATA_SEEDS,
+    },
   ];
 
   // Batch 4: SID entities - depends on batch 3 or independent
@@ -142,9 +206,14 @@ const getRecordSeedsBatches = (
       recordSeeds: PERMOHONAN_SURAT_DATA_SEEDS,
     },
     {
-      tableName: '_jabatan',
-      pgColumns: JABATAN_DATA_SEED_COLUMNS,
-      recordSeeds: JABATAN_DATA_SEEDS,
+      tableName: '_rumahTangga',
+      pgColumns: RUMAH_TANGGA_DATA_SEED_COLUMNS,
+      recordSeeds: RUMAH_TANGGA_DATA_SEEDS,
+    },
+    {
+      tableName: '_periodeJabatan',
+      pgColumns: PERIODE_JABATAN_DATA_SEED_COLUMNS,
+      recordSeeds: PERIODE_JABATAN_DATA_SEEDS,
     },
     {
       tableName: '_lembagaDesa',
@@ -180,6 +249,36 @@ const getRecordSeedsBatches = (
       tableName: '_umkm',
       pgColumns: UMKM_DATA_SEED_COLUMNS,
       recordSeeds: UMKM_DATA_SEEDS,
+    },
+    {
+      tableName: '_posyandu',
+      pgColumns: POSYANDU_DATA_SEED_COLUMNS,
+      recordSeeds: POSYANDU_DATA_SEEDS,
+    },
+    {
+      tableName: '_bidangTanah',
+      pgColumns: BIDANG_TANAH_DATA_SEED_COLUMNS,
+      recordSeeds: BIDANG_TANAH_DATA_SEEDS,
+    },
+    {
+      tableName: '_kegiatanDesa',
+      pgColumns: KEGIATAN_DESA_DATA_SEED_COLUMNS,
+      recordSeeds: KEGIATAN_DESA_DATA_SEEDS,
+    },
+    {
+      tableName: '_suratKeluar',
+      pgColumns: SURAT_KELUAR_DATA_SEED_COLUMNS,
+      recordSeeds: SURAT_KELUAR_DATA_SEEDS,
+    },
+    {
+      tableName: '_suratMasuk',
+      pgColumns: SURAT_MASUK_DATA_SEED_COLUMNS,
+      recordSeeds: SURAT_MASUK_DATA_SEEDS,
+    },
+    {
+      tableName: '_kegiatanAnggaran',
+      pgColumns: KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS,
+      recordSeeds: KEGIATAN_ANGGARAN_DATA_SEEDS,
     },
   ];
 
@@ -291,10 +390,7 @@ export class DevSeederDataService {
     objectMetadataItems: FlatObjectMetadata[];
     light?: boolean;
   }) {
-    const batches = getRecordSeedsBatches(
-      workspaceId,
-      featureFlags,
-    );
+    const batches = getRecordSeedsBatches(workspaceId, featureFlags);
 
     // Process batches sequentially (respecting dependencies)
     // but entities within each batch in parallel

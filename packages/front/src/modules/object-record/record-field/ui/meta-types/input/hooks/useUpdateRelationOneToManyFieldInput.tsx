@@ -7,10 +7,7 @@ import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldCont
 import { assertFieldMetadata } from '@/object-record/record-field/ui/types/guards/assertFieldMetadata';
 import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { type RecordPickerPickableMorphItem } from '@/object-record/record-picker/types/RecordPickerPickableMorphItem';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
 export const useUpdateRelationOneToManyFieldInput = () => {

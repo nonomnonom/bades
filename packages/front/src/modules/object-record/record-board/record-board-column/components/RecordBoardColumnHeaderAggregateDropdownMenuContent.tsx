@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useDropdownContextStateManagement } from '@/dropdown-context-state-management/hooks/useDropdownContextStateManagement';
 import {
   RecordBoardColumnHeaderAggregateDropdownContext,
@@ -6,7 +7,6 @@ import {
 
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
-import { useLingui } from '@lingui/react/macro';
 import { MenuItem } from 'ui/navigation';
 
 export const RecordBoardColumnHeaderAggregateDropdownMenuContent = () => {

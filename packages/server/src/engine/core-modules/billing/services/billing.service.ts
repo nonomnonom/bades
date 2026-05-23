@@ -16,7 +16,7 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 export class BillingService {
   protected readonly logger = new Logger(BillingService.name);
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly billingSubscriptionService: BillingSubscriptionService,
     private readonly billingProductService: BillingProductService,
     @InjectRepository(BillingSubscriptionEntity)
@@ -24,7 +24,7 @@ export class BillingService {
   ) {}
 
   isBillingEnabled() {
-    return this.twentyConfigService.get('IS_BILLING_ENABLED');
+    return this.badesConfigService.get('IS_BILLING_ENABLED');
   }
 
   async hasWorkspaceAnySubscription(workspaceId: string) {

@@ -21,7 +21,6 @@ import { type ToolProviderContext } from 'src/engine/core-modules/tool-provider/
 import { NativeToolBinderService } from 'src/engine/core-modules/tool-provider/native/native-tool-binder.service';
 import { ToolRegistryService } from 'src/engine/core-modules/tool-provider/services/tool-registry.service';
 import { UsageOperationType } from 'src/engine/core-modules/usage/enums/usage-operation-type.enum';
-import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { WORKFLOW_AGENT_REGISTRY_TOOL_CATEGORIES } from 'src/engine/metadata-modules/ai/ai-agent-execution/constants/workflow-agent-registry-tool-categories.const';
 import { type AgentExecutionResult } from 'src/engine/metadata-modules/ai/ai-agent-execution/types/agent-execution-result.type';
 import { AGENT_CONFIG } from 'src/engine/metadata-modules/ai/ai-agent/constants/agent-config.const';
@@ -77,8 +76,6 @@ export class AgentAsyncExecutorService {
     private readonly billingUsageService: BillingUsageService,
     @InjectRepository(RoleTargetEntity)
     private readonly roleTargetRepository: Repository<RoleTargetEntity>,
-    @InjectRepository(WorkspaceEntity)
-    private readonly workspaceRepository: Repository<WorkspaceEntity>,
   ) {}
 
   private extractRoleIds(
@@ -153,16 +150,7 @@ export class AgentAsyncExecutorService {
 
     try {
       if (agent) {
-        const workspace = await this.workspaceRepository.findOneBy({
-          id: agent.workspaceId,
-        });
-
-        if (workspace) {
-          this.aiModelRegistryService.validateModelAvailability(
-            agent.modelId,
-            workspace,
-          );
-        }
+        this.aiModelRegistryService.validateModelAvailability(agent.modelId);
       }
 
       const registeredModel =

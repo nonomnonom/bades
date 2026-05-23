@@ -1,5 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { useContext } from 'react';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
@@ -47,7 +47,7 @@ export const ObjectFilterDropdownBooleanSelect = () => {
   const handleOptionSelect = (newValue: boolean) => {
     applyObjectFilterDropdownFilterValue(
       newValue.toString(),
-      newValue ? t`True` : t`False`,
+      newValue ? t`Ya` : t`Tidak`,
     );
 
     closeDropdown();

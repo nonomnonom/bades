@@ -1,8 +1,8 @@
+import { msg } from 'src/utils/bades-i18n';
 import { Logger, UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
 import { PermissionFlagType } from 'shared/constants';
 import { Repository } from 'typeorm';
 

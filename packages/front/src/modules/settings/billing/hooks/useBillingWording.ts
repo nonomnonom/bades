@@ -7,7 +7,7 @@ import {
 import { assertIsDefinedOrThrow, capitalize } from 'shared/utils';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { beautifyExactDate } from '~/utils/date-utils';
 import { useCurrentPlan } from '@/settings/billing/hooks/useCurrentPlan';
 import { useCurrentBillingFlags } from '@/settings/billing/hooks/useCurrentBillingFlags';
@@ -61,14 +61,14 @@ export const useBillingWording = () => {
   };
 
   const yearlyPrice =
-    formatPrices[
-      currentBillingSubscription.metadata['plan'] as BillingPlanKey
-    ]?.[SubscriptionInterval.Year];
+    formatPrices[currentBillingSubscription.planKey as BillingPlanKey]?.[
+      SubscriptionInterval.Year
+    ];
 
   const monthlyPrice =
-    formatPrices[
-      currentBillingSubscription.metadata['plan'] as BillingPlanKey
-    ]?.[SubscriptionInterval.Month];
+    formatPrices[currentBillingSubscription.planKey as BillingPlanKey]?.[
+      SubscriptionInterval.Month
+    ];
 
   const getCurrentIntervalLabel = () =>
     getIntervalLabelAsAdjectiveCapitalize(

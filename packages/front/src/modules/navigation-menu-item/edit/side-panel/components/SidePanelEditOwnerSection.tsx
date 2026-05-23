@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconApps } from 'ui/display';
 
@@ -41,7 +41,7 @@ export const SidePanelEditOwnerSection = ({
   }
 
   return (
-    <SidePanelGroup heading={t`Owner`}>
+    <SidePanelGroup heading={t`Pemilik`}>
       <SelectableListItem itemId="owner-app" onEnter={() => {}}>
         <CommandMenuItem
           Icon={IconApps}

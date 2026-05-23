@@ -4,7 +4,7 @@ import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ReactElement } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconRefresh, IconTag } from 'ui/display';
@@ -66,7 +66,7 @@ export const CommandMenuItemOptionsDropdown = ({
           <DropdownMenuItemsContainer>
             <MenuItemToggle
               LeftIcon={IconTag}
-              text={t`Hide label`}
+              text={t`Sembunyikan label`}
               toggled={isLabelHidden || hasNoShortLabel}
               onToggleChange={handleToggleHideLabel}
               toggleSize="small"
@@ -76,7 +76,7 @@ export const CommandMenuItemOptionsDropdown = ({
               LeftIcon={IconRefresh}
               onClick={handleResetLabelToDefault}
               accent="default"
-              text={t`Reset label to default`}
+              text={t`Kembalikan label ke default`}
               disabled={!hasShortLabelOverride}
             />
           </DropdownMenuItemsContainer>

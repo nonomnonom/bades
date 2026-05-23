@@ -59,8 +59,18 @@ export const PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'status',
     description: 'Status program',
     options: [
-      { label: 'Perencanaan', value: 'PERENCANAAN', position: 0, color: 'gray' },
-      { label: 'Pelaksanaan', value: 'PELAKSANAAN', position: 1, color: 'blue' },
+      {
+        label: 'Perencanaan',
+        value: 'PERENCANAAN',
+        position: 0,
+        color: 'gray',
+      },
+      {
+        label: 'Pelaksanaan',
+        value: 'PELAKSANAAN',
+        position: 1,
+        color: 'blue',
+      },
       { label: 'Selesai', value: 'SELESAI', position: 2, color: 'green' },
       { label: 'Dibatalkan', value: 'DIBATALKAN', position: 3, color: 'red' },
     ],

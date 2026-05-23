@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { type ReactNode, useContext } from 'react';
 
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto from 'crypto';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { render } from '@react-email/render';
 import { addMilliseconds } from 'date-fns';
 import ms from 'ms';
@@ -47,7 +47,7 @@ export class WorkspaceInvitationService {
     @InjectRepository(UserWorkspaceEntity)
     private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
     private readonly roleValidationService: RoleValidationService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly emailService: EmailService,
     private readonly onboardingService: OnboardingService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
@@ -333,7 +333,7 @@ export class WorkspaceInvitationService {
             firstName: sender.name.firstName,
             lastName: sender.name.lastName,
           },
-          serverUrl: this.twentyConfigService.get('SERVER_URL'),
+          serverUrl: this.badesConfigService.get('SERVER_URL'),
           locale: sender.locale,
         };
 
@@ -348,7 +348,7 @@ export class WorkspaceInvitationService {
         const subject = i18n._(joinTeamMsg);
 
         await this.emailService.send({
-          from: `${sender.name.firstName} ${sender.name.lastName} (via Bades) <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+          from: `${sender.name.firstName} ${sender.name.lastName} (via Bades) <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
           to: invitation.value.email,
           subject,
           text,
@@ -404,7 +404,7 @@ export class WorkspaceInvitationService {
     email: string,
     roleId?: string,
   ) {
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'INVITATION_TOKEN_EXPIRES_IN',
     );
 
@@ -442,10 +442,10 @@ export class WorkspaceInvitationService {
           await this.throttlerService.tokenBucketThrottleOrThrow(
             `invitation-resending-workspace:throttler:${email}`,
             1,
-            this.twentyConfigService.get(
+            this.badesConfigService.get(
               'INVITATION_SENDING_BY_EMAIL_THROTTLE_LIMIT',
             ),
-            this.twentyConfigService.get(
+            this.badesConfigService.get(
               'INVITATION_SENDING_BY_EMAIL_THROTTLE_TTL_IN_MS',
             ),
           );
@@ -456,10 +456,10 @@ export class WorkspaceInvitationService {
       await this.throttlerService.tokenBucketThrottleOrThrow(
         `invitation-resending-workspace:throttler:${workspaceId}`,
         emails.length,
-        this.twentyConfigService.get(
+        this.badesConfigService.get(
           'INVITATION_SENDING_BY_WORKSPACE_THROTTLE_LIMIT',
         ),
-        this.twentyConfigService.get(
+        this.badesConfigService.get(
           'INVITATION_SENDING_BY_WORKSPACE_THROTTLE_TTL_IN_MS',
         ),
       );

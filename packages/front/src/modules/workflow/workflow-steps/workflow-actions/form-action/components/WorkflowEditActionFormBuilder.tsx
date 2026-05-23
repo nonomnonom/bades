@@ -16,7 +16,7 @@ import { type WorkflowFormActionField } from '@/workflow/workflow-steps/workflow
 import { getDefaultFormFieldSettings } from '@/workflow/workflow-steps/workflow-actions/form-action/utils/getDefaultFormFieldSettings';
 import { type OnDragEndResponder } from '@hello-pangea/dnd';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useContext, useEffect, useState } from 'react';
 import { FieldMetadataType } from 'shared/types';

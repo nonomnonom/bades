@@ -1,10 +1,7 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { type APP_LOCALES } from 'shared/translations';
-import {
-  interpolateCommandMenuItemTemplate,
-  isDefined,
-} from 'shared/utils';
+import { interpolateCommandMenuItemTemplate, isDefined } from 'shared/utils';
 
 import { type CommandMenuItemDTO } from 'src/engine/metadata-modules/command-menu-item/dtos/command-menu-item.dto';
 import { EngineComponentKey } from 'src/engine/metadata-modules/command-menu-item/enums/engine-component-key.enum';

@@ -9,7 +9,7 @@ import { TransientTokenService } from './transient-token.service';
 describe('TransientTokenService', () => {
   let service: TransientTokenService;
   let jwtWrapperService: JwtWrapperService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -34,7 +34,7 @@ describe('TransientTokenService', () => {
 
     service = module.get<TransientTokenService>(TransientTokenService);
     jwtWrapperService = module.get<JwtWrapperService>(JwtWrapperService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
   });
 
   it('should be defined', () => {
@@ -49,7 +49,7 @@ describe('TransientTokenService', () => {
       const mockExpiresIn = '15m';
       const mockToken = 'mock-token';
 
-      jest.spyOn(twentyConfigService, 'get').mockImplementation((key) => {
+      jest.spyOn(badesConfigService, 'get').mockImplementation((key) => {
         if (key === 'SHORT_TERM_TOKEN_EXPIRES_IN') return mockExpiresIn;
 
         return undefined;
@@ -68,7 +68,7 @@ describe('TransientTokenService', () => {
         token: mockToken,
         expiresAt: expect.any(Date),
       });
-      expect(twentyConfigService.get).toHaveBeenCalledWith(
+      expect(badesConfigService.get).toHaveBeenCalledWith(
         'SHORT_TERM_TOKEN_EXPIRES_IN',
       );
       expect(jwtWrapperService.signAsyncOrThrow).toHaveBeenCalledWith(

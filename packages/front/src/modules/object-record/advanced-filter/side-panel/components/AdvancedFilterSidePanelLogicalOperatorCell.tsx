@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { AdvancedFilterLogicalOperatorDropdown } from '@/object-record/advanced-filter/components/AdvancedFilterLogicalOperatorDropdown';
 import { ADVANCED_FILTER_LOGICAL_OPERATOR_OPTIONS } from '@/object-record/advanced-filter/constants/AdvancedFilterLogicalOperatorOptions';
 import { DEFAULT_ADVANCED_FILTER_DROPDOWN_OFFSET } from '@/object-record/advanced-filter/constants/DefaultAdvancedFilterDropdownOffset';
@@ -7,7 +8,6 @@ import { Select } from '@/ui/input/components/Select';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
 
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { useContext } from 'react';
 import { capitalize } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -40,7 +40,7 @@ export const AdvancedFilterSidePanelLogicalOperatorCell = ({
   return (
     <StyledContainer>
       {index === 0 ? (
-        <StyledText>{t`Where`}</StyledText>
+        <StyledText>{t`Dimana`}</StyledText>
       ) : index === 1 ? (
         readonly ? (
           <Select

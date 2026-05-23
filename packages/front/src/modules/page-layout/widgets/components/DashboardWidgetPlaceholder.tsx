@@ -7,8 +7,7 @@ import { WidgetCardHeader } from '@/page-layout/widgets/widget-card/components/W
 import { useNavigatePageLayoutSidePanel } from '@/side-panel/pages/page-layout/hooks/useNavigatePageLayoutSidePanel';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { t, Trans } from '~/utils/i18n/badesI18n';
 import { SidePanelPages } from 'shared/types';
 import {
   AnimatedPlaceholder,
@@ -63,7 +62,7 @@ export const DashboardWidgetPlaceholder = () => {
         widgetId="widget-placeholder"
         isInEditMode={isPageLayoutInEditMode}
         isResizing={false}
-        title={t`Add Widget`}
+        title={t`Tambah Widget`}
         isEmpty
       />
       <AnimatedPlaceholderEmptyContainer
@@ -73,10 +72,10 @@ export const DashboardWidgetPlaceholder = () => {
         <AnimatedPlaceholder type="noWidgets" />
         <AnimatedPlaceholderEmptyTextContainer>
           <AnimatedPlaceholderEmptyTitle>
-            <Trans>Add widget</Trans>
+            <Trans>Tambah widget</Trans>
           </AnimatedPlaceholderEmptyTitle>
           <AnimatedPlaceholderEmptySubTitle>
-            <Trans>Click to add your first widget</Trans>
+            <Trans>Klik untuk menambah widget pertama Anda</Trans>
           </AnimatedPlaceholderEmptySubTitle>
         </AnimatedPlaceholderEmptyTextContainer>
       </AnimatedPlaceholderEmptyContainer>

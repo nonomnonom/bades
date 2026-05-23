@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useSignInUp } from '@/auth/sign-in-up/hooks/useSignInUp';
 import { useSignInUpForm } from '@/auth/sign-in-up/hooks/useSignInUpForm';
 import {
@@ -30,7 +31,6 @@ import { SignInUpTOTPVerification } from '@/auth/sign-in-up/components/internal/
 import { useWorkspaceFromInviteHash } from '@/auth/sign-in-up/hooks/useWorkspaceFromInviteHash';
 import { clientConfigApiStatusState } from '@/client-config/states/clientConfigApiStatusState';
 import { ModalContent } from 'ui/layout';
-import { useLingui } from '@lingui/react/macro';
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
 import { Loader } from 'ui/feedback';
@@ -126,7 +126,7 @@ export const SignInUp = () => {
     }
 
     if (isGlobalScope) {
-      return t`Welcome to Bades.id`;
+      return t`Selamat datang di Bades.id`;
     }
 
     const workspaceName = workspacePublicData?.displayName;

@@ -1,4 +1,3 @@
-import { type I18n } from '@lingui/core';
 import { Column, Container, Row } from '@react-email/components';
 import { Link } from 'src/components/Link';
 import { ShadowText } from 'src/components/ShadowText';
@@ -7,11 +6,7 @@ const footerContainerStyle = {
   marginTop: '12px',
 };
 
-type FooterProps = {
-  i18n: I18n;
-};
-
-export const Footer = ({ i18n }: FooterProps) => {
+export const Footer = () => {
   return (
     <Container style={footerContainerStyle}>
       <Row>
@@ -19,8 +14,8 @@ export const Footer = ({ i18n }: FooterProps) => {
           <ShadowText>
             <Link
               href="https://bades.id/"
-              value={i18n._('Situs web')}
-              aria-label={i18n._('Kunjungi situs web Bades')}
+              value="Situs web"
+              aria-label="Kunjungi situs web Bades"
             />
           </ShadowText>
         </Column>
@@ -28,17 +23,17 @@ export const Footer = ({ i18n }: FooterProps) => {
           <ShadowText>
             <Link
               href="https://docs.bades.id/getting-started/introduction"
-              value={i18n._('Panduan pengguna')}
-              aria-label={i18n._('Baca panduan pengguna Bades')}
+              value="Panduan pengguna"
+              aria-label="Baca panduan pengguna Bades"
             />
           </ShadowText>
         </Column>
       </Row>
       <ShadowText>
         <>
-          {i18n._('Bades.id, Sistem Informasi Desa')}
+          Bades.id, Sistem Informasi Desa
           <br />
-          {i18n._('Indonesia')}
+          Indonesia
         </>
       </ShadowText>
     </Container>

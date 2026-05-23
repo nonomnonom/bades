@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 import { SOURCE_LOCALE } from 'shared/translations';
 
 import { generateMessageId } from 'src/engine/core-modules/i18n/utils/generateMessageId';
@@ -137,33 +137,9 @@ describe('resolveFieldMetadataStandardOverride', () => {
       ).toBe('Description traduite');
     });
 
-    it('should fallback when translation override is not available for the locale', () => {
-      const fieldMetadata = {
-        label: 'Standard Label',
-        description: 'Standard Description',
-        icon: 'default-icon',
-        isCustom: false,
-        standardOverrides: {
-          translations: {
-            'id-ID': {
-              label: 'Etiqueta en español',
-            },
-          },
-        },
-      };
-
-      mockGenerateMessageId.mockReturnValue('generated-message-id');
-      mockI18n._.mockReturnValue('generated-message-id');
-
-      const result = resolveFieldMetadataStandardOverride(
-        fieldMetadata,
-        'label',
-        'id-ID',
-        mockI18n,
-      );
-
-      expect(result).toBe('Standard Label');
-    });
+    // Catatan Bades: test "fallback bila locale tidak tersedia" dihapus karena
+    // Bades single-language (id-ID == SOURCE_LOCALE), sehingga jalur fallback
+    // antar-locale tidak lagi punya behavior yang berbeda.
 
     it('should fallback when translation override is not available for the labelKey', () => {
       const fieldMetadata = {
@@ -193,33 +169,9 @@ describe('resolveFieldMetadataStandardOverride', () => {
       expect(result).toBe('Standard Description');
     });
 
-    it('should not use translation overrides when locale is undefined', () => {
-      const fieldMetadata = {
-        label: 'Standard Label',
-        description: 'Standard Description',
-        icon: 'default-icon',
-        isCustom: false,
-        standardOverrides: {
-          translations: {
-            'id-ID': {
-              label: 'Libellé traduit',
-            },
-          },
-        },
-      };
-
-      mockGenerateMessageId.mockReturnValue('generated-message-id');
-      mockI18n._.mockReturnValue('generated-message-id');
-
-      const result = resolveFieldMetadataStandardOverride(
-        fieldMetadata,
-        'label',
-        undefined,
-        mockI18n,
-      );
-
-      expect(result).toBe('Standard Label');
-    });
+    // Catatan Bades: test "locale undefined" dihapus karena pada single-language
+    // locale undefined akan jatuh ke SOURCE_LOCALE (id-ID) dan menggunakan
+    // translation override, sesuai perilaku baru.
   });
 
   describe('Standard fields - SOURCE_LOCALE overrides', () => {

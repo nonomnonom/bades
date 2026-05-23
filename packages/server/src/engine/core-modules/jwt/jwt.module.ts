@@ -20,12 +20,12 @@ import { BadesConfigModule } from 'src/engine/core-modules/bades-config/bades-co
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
 const InternalJwtModule = NestJwtModule.registerAsync({
-  useFactory: async (twentyConfigService: BadesConfigService) => {
+  useFactory: async (badesConfigService: BadesConfigService) => {
     return {
-      secret: twentyConfigService.get('APP_SECRET'),
+      secret: badesConfigService.get('APP_SECRET'),
       signOptions: {
         algorithm: JWT_LEGACY_ALGORITHM,
-        expiresIn: twentyConfigService.get('ACCESS_TOKEN_EXPIRES_IN'),
+        expiresIn: badesConfigService.get('ACCESS_TOKEN_EXPIRES_IN'),
       },
       verifyOptions: {
         algorithms: [...JWT_SUPPORTED_VERIFY_ALGORITHMS],

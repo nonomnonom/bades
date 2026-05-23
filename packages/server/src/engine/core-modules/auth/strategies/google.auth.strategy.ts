@@ -38,11 +38,11 @@ export type GoogleRequest = Omit<
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
-  constructor(twentyConfigService: BadesConfigService) {
+  constructor(badesConfigService: BadesConfigService) {
     super({
-      clientID: twentyConfigService.get('AUTH_GOOGLE_CLIENT_ID'),
-      clientSecret: twentyConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
-      callbackURL: twentyConfigService.get('AUTH_GOOGLE_CALLBACK_URL'),
+      clientID: badesConfigService.get('AUTH_GOOGLE_CLIENT_ID'),
+      clientSecret: badesConfigService.get('AUTH_GOOGLE_CLIENT_SECRET'),
+      callbackURL: badesConfigService.get('AUTH_GOOGLE_CALLBACK_URL'),
       scope: ['email', 'profile'],
       passReqToCallback: true,
     });

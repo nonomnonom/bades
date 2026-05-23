@@ -2,11 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { type Request } from 'express';
 import { type OpenAPIV3_1 } from 'openapi-types';
-import {
-  assertIsDefinedOrThrow,
-  capitalize,
-  isDefined,
-} from 'shared/utils';
+import { assertIsDefinedOrThrow, capitalize, isDefined } from 'shared/utils';
 
 import { DatabaseEventAction } from 'src/engine/api/graphql/graphql-query-runner/enums/database-event-action';
 import { AccessTokenService } from 'src/engine/core-modules/auth/token/services/access-token.service';
@@ -53,7 +49,7 @@ import { getServerUrl } from 'src/utils/get-server-url';
 export class OpenApiService {
   constructor(
     private readonly accessTokenService: AccessTokenService,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly flatEntityMapsCacheService: WorkspaceManyOrAllFlatEntityMapsCacheService,
   ) {}
 
@@ -96,7 +92,7 @@ export class OpenApiService {
 
   async generateCoreSchema(request: Request): Promise<OpenAPIV3_1.Document> {
     const baseUrl = getServerUrl({
-      serverUrlEnv: this.twentyConfigService.get('SERVER_URL'),
+      serverUrlEnv: this.badesConfigService.get('SERVER_URL'),
       serverUrlFallback: `${request.protocol}://${request.get('host')}`,
     });
 
@@ -254,7 +250,7 @@ export class OpenApiService {
     request: Request,
   ): Promise<OpenAPIV3_1.Document> {
     const baseUrl = getServerUrl({
-      serverUrlEnv: this.twentyConfigService.get('SERVER_URL'),
+      serverUrlEnv: this.badesConfigService.get('SERVER_URL'),
       serverUrlFallback: `${request.protocol}://${request.get('host')}`,
     });
 

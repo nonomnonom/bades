@@ -2,7 +2,7 @@ import { GRAPH_TYPE_INFORMATION } from '@/side-panel/pages/page-layout/constants
 import { styled } from '@linaria/react';
 
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { MenuPicker } from 'ui/navigation';
 import { themeCssVariables } from 'ui/theme-constants';
 

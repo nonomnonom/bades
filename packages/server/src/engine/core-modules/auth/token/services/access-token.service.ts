@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { addMilliseconds } from 'date-fns';
 import { type Request } from 'express';
 import ms from 'ms';
@@ -37,7 +37,7 @@ export class AccessTokenService {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
     private readonly jwtStrategy: JwtAuthStrategy,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     @InjectRepository(WorkspaceEntity)
@@ -58,7 +58,7 @@ export class AccessTokenService {
     AccessTokenJwtPayload,
     'type' | 'workspaceMemberId' | 'userWorkspaceId' | 'sub'
   >): Promise<AuthToken> {
-    const expiresIn = this.twentyConfigService.get('ACCESS_TOKEN_EXPIRES_IN');
+    const expiresIn = this.badesConfigService.get('ACCESS_TOKEN_EXPIRES_IN');
 
     const expiresAt = addMilliseconds(new Date().getTime(), ms(expiresIn));
 

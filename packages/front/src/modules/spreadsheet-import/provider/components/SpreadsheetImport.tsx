@@ -8,7 +8,7 @@ import { SpreadsheetImportStepperContainer } from '@/spreadsheet-import/steps/co
 import { type SpreadsheetImportDialogOptions as SpreadsheetImportProps } from '@/spreadsheet-import/types';
 import { useDialogManager } from '@/ui/feedback/dialog-manager/hooks/useDialogManager';
 import { useStepBar } from '@/ui/navigation/step-bar/hooks/useStepBar';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 export const defaultSpreadsheetImportProps: Partial<SpreadsheetImportProps> = {
   autoMapHeaders: true,

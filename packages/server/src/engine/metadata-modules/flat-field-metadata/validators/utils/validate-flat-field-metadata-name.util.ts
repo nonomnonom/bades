@@ -1,4 +1,4 @@
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 import {
   IDENTIFIER_MAX_CHAR_LENGTH,
   RESERVED_METADATA_NAME_KEYWORDS,
@@ -7,7 +7,7 @@ import {
 import { FieldMetadataExceptionCode } from 'src/engine/metadata-modules/field-metadata/field-metadata.exception';
 import { type FlatFieldMetadataValidationError } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata-validation-error.type';
 import { IDENTIFIER_MIN_CHAR_LENGTH } from 'src/engine/metadata-modules/utils/constants/identifier-min-char-length.constants';
-import { isCallerTwentyStandardApp } from 'src/engine/metadata-modules/utils/is-caller-twenty-standard-app.util';
+import { isCallerBadesStandardApp } from 'src/engine/metadata-modules/utils/is-caller-bades-standard-app.util';
 import { type WorkspaceMigrationBuilderOptions } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/types/workspace-migration-builder-options.type';
 
 const STARTS_WITH_LOWER_CASE_AND_CONTAINS_ONLY_CAPS_AND_LOWER_LETTERS_AND_NUMBER_STRING_REGEX =
@@ -54,7 +54,7 @@ export const validateFlatFieldMetadataName = ({
   }
 
   if (
-    !isCallerTwentyStandardApp(buildOptions) &&
+    !isCallerBadesStandardApp(buildOptions) &&
     RESERVED_METADATA_NAME_KEYWORDS.includes(name)
   ) {
     errors.push({

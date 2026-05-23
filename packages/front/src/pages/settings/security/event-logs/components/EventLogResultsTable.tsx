@@ -1,6 +1,6 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -216,7 +216,7 @@ export const EventLogResultsTable = ({
   if (!loading && records.length === 0) {
     return (
       <SettingsEmptyPlaceholder>
-        <Trans>No event logs found</Trans>
+        <Trans>Tidak ada log peristiwa</Trans>
       </SettingsEmptyPlaceholder>
     );
   }
@@ -328,7 +328,7 @@ export const EventLogResultsTable = ({
         <StyledIntersectionObserver ref={fetchMoreRef} />
         {loading && records.length > 0 && (
           <StyledLoadingMore>
-            <Trans>Loading more...</Trans>
+            <Trans>Memuat lainnya...</Trans>
           </StyledLoadingMore>
         )}
       </ScrollWrapper>

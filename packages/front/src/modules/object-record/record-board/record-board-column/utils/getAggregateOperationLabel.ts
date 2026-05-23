@@ -1,7 +1,7 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { AggregateOperations } from '@/object-record/record-table/constants/AggregateOperations';
 import { DateAggregateOperations } from '@/object-record/record-table/constants/DateAggregateOperations';
 import { type ExtendedAggregateOperations } from '@/object-record/record-table/types/ExtendedAggregateOperations';
-import { t } from '@lingui/core/macro';
 import { CustomError } from 'shared/utils';
 
 export const getAggregateOperationLabel = (

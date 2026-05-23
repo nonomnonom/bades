@@ -10,12 +10,12 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 @Injectable()
 export class AdminPanelVersionService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {}
 
   async getVersionInfo(): Promise<VersionInfoDTO> {
-    const currentVersion = this.twentyConfigService.get('APP_VERSION');
+    const currentVersion = this.badesConfigService.get('APP_VERSION');
 
     try {
       const httpClient = this.secureHttpClientService.getHttpClient();

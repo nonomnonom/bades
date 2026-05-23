@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { FormProvider } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 

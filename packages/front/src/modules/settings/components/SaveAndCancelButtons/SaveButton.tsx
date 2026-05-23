@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type IconComponent, IconDeviceFloppy } from 'ui/display';
 import { Button } from 'ui/input';
 
@@ -19,7 +19,7 @@ export const SaveButton = ({
 }: SaveButtonProps) => {
   return (
     <Button
-      title={t`Save`}
+      title={t`Simpan`}
       variant={inverted ? 'secondary' : 'primary'}
       size="small"
       accent={inverted ? 'default' : 'blue'}

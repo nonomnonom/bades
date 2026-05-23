@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { plural, t } from '@lingui/core/macro';
+import { plural, t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { type ToolUIPart } from 'ai';
 import { isDefined } from 'shared/utils';
@@ -397,7 +397,9 @@ const ThinkingStepRow = ({
         )}
       </StyledIconContainer>
       <StyledRowLabelContainer>
-        <StyledRowLabel>{isActive ? t`Sedang berpikir` : t`Telah berpikir`}</StyledRowLabel>
+        <StyledRowLabel>
+          {isActive ? t`Sedang berpikir` : t`Telah berpikir`}
+        </StyledRowLabel>
       </StyledRowLabelContainer>
     </StyledRow>
   );

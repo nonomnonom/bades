@@ -2,7 +2,7 @@ import { HeadlessEngineCommandWrapperEffect } from '@/command-menu-item/engine-c
 import { useHeadlessCommandContextApi } from '@/command-menu-item/engine-command/hooks/useHeadlessCommandContextApi';
 import { useDuplicateDashboard } from '@/dashboards/hooks/useDuplicateDashboard';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { AppPath, CoreObjectNameSingular } from 'shared/types';
 import { isDefined } from 'shared/utils';
@@ -26,7 +26,7 @@ export const DuplicateDashboardSingleRecordCommand = () => {
 
     if (isDefined(result) && isNonEmptyString(result.id)) {
       enqueueSuccessSnackBar({
-        message: t`Dashboard duplicated successfully`,
+        message: t`Dasbor berhasil diduplikasi`,
       });
 
       navigate(AppPath.RecordShowPage, {
@@ -35,7 +35,7 @@ export const DuplicateDashboardSingleRecordCommand = () => {
       });
     } else {
       enqueueErrorSnackBar({
-        message: t`Failed to duplicate dashboard`,
+        message: t`Gagal menduplikasi dasbor`,
       });
     }
   };

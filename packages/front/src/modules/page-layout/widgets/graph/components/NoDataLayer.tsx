@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { ThemeContext } from 'ui/theme-constants';
 
@@ -29,7 +29,7 @@ export const NoDataLayer = ({
       fill={theme.font.color.tertiary}
       fontSize={theme.font.size.md}
     >
-      {t`No data`}
+      {t`Tidak ada data`}
     </text>
   );
 };

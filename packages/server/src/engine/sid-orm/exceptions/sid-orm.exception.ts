@@ -1,5 +1,4 @@
-import { type MessageDescriptor } from '@lingui/core';
-import { msg } from '@lingui/core/macro';
+import { msg, type MessageDescriptor } from 'src/utils/bades-i18n';
 import { assertUnreachable } from 'shared/utils';
 
 import { STANDARD_ERROR_MESSAGE } from 'src/engine/api/common/common-query-runners/errors/standard-error-message.constant';
@@ -29,9 +28,7 @@ export enum SidOrmExceptionCode {
   NO_ROLE_FOUND_FOR_USER_WORKSPACE = 'NO_ROLE_FOUND_FOR_USER_WORKSPACE',
 }
 
-const getSidOrmExceptionUserFriendlyMessage = (
-  code: SidOrmExceptionCode,
-) => {
+const getSidOrmExceptionUserFriendlyMessage = (code: SidOrmExceptionCode) => {
   switch (code) {
     case SidOrmExceptionCode.METADATA_VERSION_MISMATCH:
       return msg`Data version mismatch. Please refresh and try again.`;

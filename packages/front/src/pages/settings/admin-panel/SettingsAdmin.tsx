@@ -1,7 +1,7 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsAdminContent } from '@/settings/admin-panel/components/SettingsAdminContent';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
-import { useLingui } from '@lingui/react/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 

@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import {
   H2Title,
   IconBox,
@@ -6,7 +7,6 @@ import {
   IconTag,
   IconWorld,
 } from 'ui/display';
-import { Trans, useLingui } from '@lingui/react/macro';
 import {
   SettingsTableCard,
   type TableItem,
@@ -22,13 +22,7 @@ import { isNonEmptyString } from '@sniptt/guards';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useQuery } from '@apollo/client/react';
-import {
-  AvatarOrIcon,
-  Chip,
-  ChipSize,
-  ChipVariant,
-  Tag,
-} from 'ui/components';
+import { AvatarOrIcon, Chip, ChipSize, ChipVariant, Tag } from 'ui/components';
 import { getSettingsPath, isDefined } from 'shared/utils';
 import { Section } from 'ui/layout';
 import { SettingsPath } from 'shared/types';

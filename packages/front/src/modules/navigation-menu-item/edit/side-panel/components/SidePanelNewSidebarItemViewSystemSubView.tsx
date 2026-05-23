@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 import { CommandMenuItem } from '@/command-menu/components/CommandMenuItem';
 import { ObjectMetadataIcon } from '@/object-metadata/components/ObjectMetadataIcon';
@@ -34,12 +34,12 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
     getSearchableValues: (item) => [item.labelPlural],
   });
   const noResultsText = hasSearchQuery
-    ? t`No results found`
-    : t`No system objects with views found`;
+    ? t`Tidak ada hasil`
+    : t`Belum ada objek sistem dengan tampilan`;
 
   return (
     <SidePanelSubViewWithSearch
-      searchPlaceholder={t`Search a system object...`}
+      searchPlaceholder={t`Cari objek sistem...`}
       searchValue={searchValue}
       onSearchChange={onSearchChange}
     >
@@ -48,7 +48,7 @@ export const SidePanelNewSidebarItemViewSystemSubView = ({
         noResults={isEmpty}
         noResultsText={noResultsText}
       >
-        <SidePanelGroup heading={t`System objects`}>
+        <SidePanelGroup heading={t`Objek sistem`}>
           {filteredSystemObjectMetadataItems.map((objectMetadataItem) => (
             <SelectableListItem
               key={objectMetadataItem.id}

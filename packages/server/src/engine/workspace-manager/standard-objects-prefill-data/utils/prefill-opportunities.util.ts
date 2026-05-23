@@ -15,18 +15,13 @@ import {
   KADER_POSYANDU_ID,
 } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-people.util';
 
-export const PROGRAM_JALAN_DESA_ID =
-  '822639e5-9bf7-40f1-8882-a11140362339';
+export const PROGRAM_JALAN_DESA_ID = '822639e5-9bf7-40f1-8882-a11140362339';
 export const PROGRAM_BANTUAN_SEMBAKO_ID =
   'fc747edc-cb00-4078-8d6b-1fab2611dae4';
-export const PROGRAM_TERNAK_KAMBING_ID =
-  '75de302f-1044-4957-8da4-1f67ebefd52b';
-export const PROGRAM_PELATIHAN_UMKM_ID =
-  '2beb07b0-340c-41d7-be33-5aa91757f329';
-export const PROGRAM_MCK_UMUM_ID =
-  '9543adcf-ec03-44e2-9233-3c2d3ebae98a';
-export const PROGRAM_POSYANDU_ID =
-  '9457f8e9-16ae-43b9-92ee-cbd21f3dded5';
+export const PROGRAM_TERNAK_KAMBING_ID = '75de302f-1044-4957-8da4-1f67ebefd52b';
+export const PROGRAM_PELATIHAN_UMKM_ID = '2beb07b0-340c-41d7-be33-5aa91757f329';
+export const PROGRAM_MCK_UMUM_ID = '9543adcf-ec03-44e2-9233-3c2d3ebae98a';
+export const PROGRAM_POSYANDU_ID = '9457f8e9-16ae-43b9-92ee-cbd21f3dded5';
 
 export const prefillOpportunities = async (
   entityManager: EntityManager,

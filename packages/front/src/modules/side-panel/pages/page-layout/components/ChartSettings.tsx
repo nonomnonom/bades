@@ -16,7 +16,6 @@ import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadat
 import { hasWidgetTooManyGroupsComponentState } from '@/page-layout/widgets/graph/states/hasWidgetTooManyGroupsComponentState';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { isFieldMetadataDateKind } from 'shared/utils';
 
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
@@ -156,10 +155,10 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
               ),
           );
 
-          const shouldShowBanner = group.heading.id === bannerTargetHeading.id;
+          const shouldShowBanner = group.heading === bannerTargetHeading;
 
           return (
-            <SidePanelGroup key={group.heading.id} heading={t(group.heading)}>
+            <SidePanelGroup key={group.heading} heading={group.heading}>
               {shouldShowBanner && hasWidgetTooManyGroups && (
                 <ChartLimitInfoBanner
                   widgetConfigurationType={configuration.configurationType}

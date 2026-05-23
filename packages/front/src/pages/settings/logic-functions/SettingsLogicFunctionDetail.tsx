@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useLogicFunctionForm } from '@/logic-functions/hooks/useLogicFunctionForm';
@@ -10,15 +11,9 @@ import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBa
 import { TabList } from '@/ui/layout/tab-list/components/TabList';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath, isDefined } from 'shared/utils';
-import {
-  IconBolt,
-  IconCode,
-  IconPlayerPlay,
-  IconSettings,
-} from 'ui/display';
+import { IconBolt, IconCode, IconPlayerPlay, IconSettings } from 'ui/display';
 import { useQuery } from '@apollo/client/react';
 import { FindOneApplicationDocument } from '~/generated-metadata/graphql';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';

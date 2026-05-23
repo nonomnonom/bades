@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { v4 } from 'uuid';
 
@@ -7,7 +8,6 @@ import { useUpsertRecordFilter } from '@/object-record/record-filter/hooks/useUp
 import { type RecordFilter } from '@/object-record/record-filter/types/RecordFilter';
 import { isSoftDeleteFilterActiveComponentState } from '@/object-record/record-table/states/isSoftDeleteFilterActiveComponentState';
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
-import { t } from '@lingui/core/macro';
 import { getFilterTypeFromFieldType, isDefined } from 'shared/utils';
 
 import { useStore } from 'jotai';

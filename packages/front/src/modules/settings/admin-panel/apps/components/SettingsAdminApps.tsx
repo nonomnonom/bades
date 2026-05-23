@@ -10,7 +10,7 @@ import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type ReactNode, useContext, useState } from 'react';
 import { assertUnreachable, getSettingsPath } from 'shared/utils';
 import { SettingsPath } from 'shared/types';

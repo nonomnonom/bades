@@ -1,6 +1,6 @@
 import { SidePanelGroup } from '@/side-panel/components/SidePanelGroup';
 import { type SettingsRoleObjectPermissionKey } from '@/settings/roles/role-permissions/objects-permissions/constants/SettingsRoleObjectPermissionIconConfig';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type ObjectPermission } from '~/generated-metadata/graphql';
 import { WorkflowAiAgentPermissionsPermissionRow } from './WorkflowAiAgentPermissionsPermissionRow';
 

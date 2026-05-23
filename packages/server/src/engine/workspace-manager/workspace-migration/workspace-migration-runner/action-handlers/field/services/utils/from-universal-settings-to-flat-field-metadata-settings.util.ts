@@ -1,7 +1,4 @@
-import {
-  type FieldMetadataSettings,
-  FieldMetadataType,
-} from 'shared/types';
+import { type FieldMetadataSettings, FieldMetadataType } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
 import { isUniversalFieldMetadataSettingsOftype } from 'src/engine/metadata-modules/field-metadata/utils/is-field-metadata-settings-of-type.util';

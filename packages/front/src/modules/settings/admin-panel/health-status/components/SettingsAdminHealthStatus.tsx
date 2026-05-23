@@ -6,7 +6,7 @@ import { SettingsAdminMaintenanceModeFetchEffect } from '@/settings/admin-panel/
 import { SettingsAdminSigningKeysTable } from '@/settings/admin-panel/signing-keys/components/SettingsAdminSigningKeysTable';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { H2Title } from 'ui/display';
 import { Section } from 'ui/layout';
 import {

@@ -1,4 +1,4 @@
-import { msg } from '@lingui/core/macro';
+import { msg } from '~/utils/i18n/badesI18n';
 import { IconCheck, IconX } from 'ui/display';
 
 export const BOOLEAN_DATA_MODEL_SELECT_OPTIONS = [

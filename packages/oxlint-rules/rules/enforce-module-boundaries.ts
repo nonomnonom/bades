@@ -1,6 +1,6 @@
 import { defineRule } from '@oxlint/plugins';
 
-export const RULE_NAME = 'bades/enforce-module-boundaries';
+export const RULE_NAME = 'enforce-module-boundaries';
 
 const PACKAGE_TAG_MAP: Record<string, string[]> = {
   'front': ['scope:frontend'],

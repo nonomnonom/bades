@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
@@ -5,7 +6,6 @@ import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { H2Title, IconId } from 'ui/display';

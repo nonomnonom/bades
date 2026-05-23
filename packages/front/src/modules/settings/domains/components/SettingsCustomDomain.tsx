@@ -9,7 +9,7 @@ import { customDomainRecordsState } from '@/settings/domains/states/customDomain
 import { TextInput } from '@/ui/input/components/TextInput';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { styled } from '@linaria/react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

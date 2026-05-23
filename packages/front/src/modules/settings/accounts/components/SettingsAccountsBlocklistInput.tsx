@@ -6,7 +6,7 @@ import { Key } from 'ts-key-enum';
 import { z } from 'zod';
 
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isValidHostname } from 'shared/utils';
 import { Button } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';

@@ -17,17 +17,13 @@ import { setNestedValue } from '@/workflow/workflow-steps/workflow-actions/code-
 import { WORKFLOW_LOGIC_FUNCTION_ACTION_TAB_LIST_COMPONENT_ID } from '@/workflow/workflow-steps/workflow-actions/logic-function-action/constants/WorkflowLogicFunctionActionTabListComponentId';
 import { WorkflowVariablePicker } from '@/workflow/workflow-variables/components/WorkflowVariablePicker';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isObject } from '@sniptt/guards';
 import { useMemo } from 'react';
 import { getOutputSchemaFromValue } from 'shared/logic-function';
 import { isDefined } from 'shared/utils';
 import { getFunctionInputFromInputSchema } from 'shared/workflow';
-import {
-  Callout,
-  IconPlayerPlay,
-  IconSettingsAutomation,
-} from 'ui/display';
+import { Callout, IconPlayerPlay, IconSettingsAutomation } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 import { useDebouncedCallback } from 'use-debounce';
 

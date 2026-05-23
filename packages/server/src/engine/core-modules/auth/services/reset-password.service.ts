@@ -3,18 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto from 'crypto';
 
-import { msg } from '@lingui/core/macro';
+import { msg } from 'src/utils/bades-i18n';
 import { render } from '@react-email/render';
 import { addMilliseconds, differenceInMilliseconds } from 'date-fns';
 import ms from 'ms';
 import { PasswordResetLinkEmail } from 'emails';
 import { type APP_LOCALES } from 'shared/translations';
 import { AppPath } from 'shared/types';
-import {
-  assertIsDefinedOrThrow,
-  getAppPath,
-  isDefined,
-} from 'shared/utils';
+import { assertIsDefinedOrThrow, getAppPath, isDefined } from 'shared/utils';
 import { IsNull, MoreThan, Repository } from 'typeorm';
 
 import {
@@ -40,7 +36,7 @@ import { WorkspaceNotFoundDefaultError } from 'src/engine/core-modules/workspace
 @Injectable()
 export class ResetPasswordService {
   constructor(
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
     private readonly workspaceDomainsService: WorkspaceDomainsService,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
@@ -66,7 +62,7 @@ export class ResetPasswordService {
       workspaceId ??
       (await this.findFirstPasswordAuthEnabledWorkspaceIdOrThrow(user.id));
 
-    const expiresIn = this.twentyConfigService.get(
+    const expiresIn = this.badesConfigService.get(
       'PASSWORD_RESET_TOKEN_EXPIRES_IN',
     );
 
@@ -181,9 +177,9 @@ export class ResetPasswordService {
     const subject = i18n._(subjectTemplate);
 
     await this.emailService.send({
-      from: `${this.twentyConfigService.get(
+      from: `${this.badesConfigService.get(
         'EMAIL_FROM_NAME',
-      )} <${this.twentyConfigService.get('EMAIL_FROM_ADDRESS')}>`,
+      )} <${this.badesConfigService.get('EMAIL_FROM_ADDRESS')}>`,
       to: user.email,
       subject,
       text,

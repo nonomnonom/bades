@@ -1,5 +1,4 @@
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { i18n, I18nProvider } from '~/utils/i18n/badesI18n';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -102,10 +101,10 @@ describe('SettingsApplicationConnectionsSection', () => {
       'href',
       '/settings/applications/app-1/connections/account-1',
     );
-    expect(screen.getByText('Reconnect needed')).toBeVisible();
-    expect(screen.getByText('Workspace shared')).toBeVisible();
+    expect(screen.getByText('Perlu sambung ulang')).toBeVisible();
+    expect(screen.getByText('Dibagikan ke ruang kerja')).toBeVisible();
     expect(
-      screen.queryByRole('button', { name: 'Reconnect' }),
+      screen.queryByRole('button', { name: 'Sambung ulang' }),
     ).not.toBeInTheDocument();
     expect(
       screen.queryByRole('button', { name: 'Delete' }),

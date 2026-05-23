@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import { Command, CommandRunner, Option } from 'nest-commander';
 import { DataSource } from 'typeorm';
 
-import { TWENTY_PREVIOUS_VERSIONS } from 'src/engine/core-modules/upgrade/constants/twenty-previous-versions.constant';
+import { BADES_PREVIOUS_VERSIONS } from 'src/engine/core-modules/upgrade/constants/bades-previous-versions.constant';
 import { InstanceCommandRunnerService } from 'src/engine/core-modules/upgrade/services/instance-command-runner.service';
 import { UpgradeCommandRegistryService } from 'src/engine/core-modules/upgrade/services/upgrade-command-registry.service';
 import { UpgradeMigrationService } from 'src/engine/core-modules/upgrade/services/upgrade-migration.service';
@@ -124,7 +124,7 @@ export class RunInstanceCommandsCommand extends CommandRunner {
     }
 
     const previousVersion =
-      TWENTY_PREVIOUS_VERSIONS[TWENTY_PREVIOUS_VERSIONS.length - 1];
+      BADES_PREVIOUS_VERSIONS[BADES_PREVIOUS_VERSIONS.length - 1];
 
     const lastWorkspaceCommand =
       this.upgradeCommandRegistryService.getLastWorkspaceCommandForVersion(

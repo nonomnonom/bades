@@ -5,7 +5,7 @@ import { InformationBanner } from '@/information-banner/components/InformationBa
 import { useMaintenanceModeBannerDismissal } from '@/information-banner/hooks/useMaintenanceModeBannerDismissal';
 import { useDateTimeFormat } from '@/localization/hooks/useDateTimeFormat';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { getSafeUrl, isDefined } from 'shared/utils';
 import { IconExternalLink } from 'ui/display';
 
@@ -55,7 +55,9 @@ export const InformationBannerMaintenance = () => {
       componentInstanceId="information-banner-maintenance"
       variant="secondary"
       message={message}
-      buttonTitle={isDefined(maintenanceLink) ? t`Pelajari lebih lanjut` : undefined}
+      buttonTitle={
+        isDefined(maintenanceLink) ? t`Pelajari lebih lanjut` : undefined
+      }
       buttonIcon={isDefined(maintenanceLink) ? IconExternalLink : undefined}
       buttonOnClick={
         isDefined(maintenanceLink)

@@ -3,7 +3,7 @@ import { SettingsListCard } from '@/settings/components/SettingsListCard';
 import { SettingPublicDomainRowDropdownMenu } from '@/settings/domains/components/SettingPublicDomainRowDropdownMenu';
 import { selectedPublicDomainState } from '@/settings/domains/states/selectedPublicDomainState';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { IconAt, IconMailCog, Status } from 'ui/display';
 import { useQuery } from '@apollo/client/react';

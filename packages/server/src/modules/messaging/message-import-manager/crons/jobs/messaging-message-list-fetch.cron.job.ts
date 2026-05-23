@@ -4,10 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 import { In, Not, Repository } from 'typeorm';
 
-import {
-  MessageChannelSyncStage,
-  MessageChannelType,
-} from 'shared/types';
+import { MessageChannelSyncStage, MessageChannelType } from 'shared/types';
 import { SentryCronMonitor } from 'src/engine/core-modules/cron/sentry-cron-monitor.decorator';
 import { ExceptionHandlerService } from 'src/engine/core-modules/exception-handler/exception-handler.service';
 import { InjectMessageQueue } from 'src/engine/core-modules/message-queue/decorators/message-queue.decorator';

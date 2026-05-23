@@ -1,4 +1,4 @@
-import { type I18n } from '@lingui/core';
+import { type I18n } from 'src/utils/bades-i18n';
 
 import { isDefined } from 'shared/utils';
 
@@ -8,17 +8,17 @@ import { type PageLayoutWidgetOverrides } from 'src/engine/metadata-modules/page
 export const resolvePageLayoutWidgetTitle = ({
   title,
   applicationId,
-  twentyStandardApplicationId,
+  badesStandardApplicationId,
   overrides,
   i18nInstance,
 }: {
   title: string;
   applicationId: string;
-  twentyStandardApplicationId: string;
+  badesStandardApplicationId: string;
   overrides?: PageLayoutWidgetOverrides | null;
   i18nInstance: I18n;
 }): string => {
-  if (applicationId !== twentyStandardApplicationId) {
+  if (applicationId !== badesStandardApplicationId) {
     return title;
   }
 

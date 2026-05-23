@@ -3,7 +3,7 @@ import { widgetCardHoveredComponentFamilyState } from '@/page-layout/widgets/sta
 import { type WidgetAction } from '@/page-layout/widgets/types/WidgetAction';
 import { useAtomComponentFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilyStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { type ReactNode, useContext } from 'react';
 import { IconTrash, OverflowingTextWithTooltip } from 'ui/display';
 import { IconButton } from 'ui/input';
@@ -97,7 +97,7 @@ export const WidgetCardHeader = ({
         )}
       </AnimatePresence>
       <StyledTitleContainer variant={variant}>
-        <OverflowingTextWithTooltip text={isEmpty ? t`Add Widget` : title} />
+        <OverflowingTextWithTooltip text={isEmpty ? t`Tambah Widget` : title} />
       </StyledTitleContainer>
       <StyledRightContainer>
         {isNonEmptyArray(actions) && (

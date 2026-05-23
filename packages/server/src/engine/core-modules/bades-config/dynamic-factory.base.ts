@@ -6,7 +6,7 @@ export abstract class DriverFactoryBase<TDriver> {
   private currentConfigKey: string | null = null;
 
   constructor(
-    protected readonly twentyConfigService: BadesConfigService,
+    protected readonly badesConfigService: BadesConfigService,
     protected readonly configGroupHashService: ConfigGroupHashService,
   ) {}
 

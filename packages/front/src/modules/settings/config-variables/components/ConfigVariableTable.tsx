@@ -4,12 +4,9 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
-import {
-  IconChevronRight,
-  OverflowingTextWithTooltip,
-} from 'ui/display';
+import { IconChevronRight, OverflowingTextWithTooltip } from 'ui/display';
 import { useContext } from 'react';
 
 const StyledTableBodyContainer = styled.div`
@@ -35,9 +32,9 @@ export const ConfigVariableTable = ({
   return (
     <Table>
       <TableRow gridAutoColumns={GRID_AUTO_COLUMNS}>
-        <TableHeader>{t`Name`}</TableHeader>
-        <TableHeader align="right">{t`Description`}</TableHeader>
-        <TableHeader align="right">{t`Value`}</TableHeader>
+        <TableHeader>{t`Nama`}</TableHeader>
+        <TableHeader align="right">{t`Deskripsi`}</TableHeader>
+        <TableHeader align="right">{t`Nilai`}</TableHeader>
         <TableHeader align="right"></TableHeader>
       </TableRow>
       <StyledTableBodyContainer>

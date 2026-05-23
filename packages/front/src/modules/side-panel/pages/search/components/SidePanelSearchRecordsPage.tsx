@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { CoreObjectNameSingular, AppPath } from 'shared/types';
 import { getAppPath } from 'shared/utils';
 import { Avatar } from 'ui/display';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 
 export const SidePanelSearchRecordsPage = () => {
   const { t } = useLingui();

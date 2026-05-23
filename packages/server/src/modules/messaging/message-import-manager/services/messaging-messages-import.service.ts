@@ -58,7 +58,7 @@ export class MessagingMessagesImportService {
     private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
     @InjectRepository(WorkspaceEntity)
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
-    private readonly twentyConfigService: BadesConfigService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   async processMessageBatchImport(
@@ -68,7 +68,7 @@ export class MessagingMessagesImportService {
   ) {
     let messageIdsToFetch: string[] = [];
 
-    const messagesGetBatchSize = this.twentyConfigService.get(
+    const messagesGetBatchSize = this.badesConfigService.get(
       'MESSAGING_MESSAGES_GET_BATCH_SIZE',
     );
 

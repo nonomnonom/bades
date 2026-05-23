@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useCallback } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconFolder, IconLink, useIcons } from 'ui/display';
@@ -108,7 +108,7 @@ export const useHandleAddToNavigationDrop = () => {
             index,
           );
           openEditForNewNavItem(newFolderId, {
-            pageTitle: t`Edit folder`,
+            pageTitle: t`Ubah folder`,
             pageIcon: IconFolder,
             focusTitleInput: true,
           });
@@ -116,14 +116,14 @@ export const useHandleAddToNavigationDrop = () => {
         }
         case NavigationMenuItemType.LINK: {
           const newLinkId = addLinkToDraft(
-            payload.name || t`Link label`,
+            payload.name || t`Label tautan`,
             payload.link,
             currentDraft,
             folderId,
             index,
           );
           openEditForNewNavItem(newLinkId, {
-            pageTitle: t`Edit link`,
+            pageTitle: t`Ubah tautan`,
             pageIcon: IconLink,
             focusTitleInput: true,
           });

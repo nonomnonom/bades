@@ -1,4 +1,4 @@
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import { IconLink } from 'ui/display';
 
@@ -40,7 +40,7 @@ export const useAddLinkToNavigationMenu = () => {
     setPendingInsertionNavigationMenuItem(null);
     openNavigationMenuItemInSidePanel({
       itemId,
-      pageTitle: t`Edit link`,
+      pageTitle: t`Ubah tautan`,
       pageIcon: IconLink,
       focusTitleInput: true,
     });

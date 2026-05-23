@@ -195,8 +195,7 @@ export class DevSeederPermissionsService {
       workspaceId,
       input: {
         label: 'Dibatasi-Objek',
-        description:
-          'Semua izin kecuali baca Keluarga dan ubah Penduduk',
+        description: 'Semua izin kecuali baca Keluarga dan ubah Penduduk',
         icon: 'custom',
         canUpdateAllSettings: true,
         canAccessAllTools: true,

@@ -9,7 +9,7 @@ import { SidePanelList } from '@/side-panel/components/SidePanelList';
 import { useFilterCommandMenuItemsWithSidePanelSearch } from '@/side-panel/pages/root/hooks/useFilterCommandMenuItemsWithSidePanelSearch';
 import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNumber } from '@sniptt/guards';
 import { useContext, useMemo } from 'react';
 import { CommandMenuItemAvailabilityType } from '~/generated-metadata/graphql';
@@ -101,21 +101,21 @@ export const SidePanelCommandMenuItemDisplayPage = () => {
   return (
     <SidePanelList selectableItemIds={selectableItemIds} noResults={noResults}>
       {matchingPinnedItems.length > 0 && (
-        <SidePanelGroup heading={t`Pinned`}>
+        <SidePanelGroup heading={t`Disematkan`}>
           {matchingPinnedItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}
         </SidePanelGroup>
       )}
       {matchingOtherItems.length > 0 && (
-        <SidePanelGroup heading={t`Other`}>
+        <SidePanelGroup heading={t`Lainnya`}>
           {matchingOtherItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}
         </SidePanelGroup>
       )}
       {noResults && fallbackCommandMenuItems.length > 0 && (
-        <SidePanelGroup heading={t`Fallback`}>
+        <SidePanelGroup heading={t`Cadangan`}>
           {fallbackCommandMenuItems.map((item) => (
             <CommandMenuItemRenderer item={item} key={item.id} />
           ))}

@@ -1,3 +1,4 @@
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -14,17 +15,12 @@ import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useIsFeatureEnabled } from '@/workspace/hooks/useIsFeatureEnabled';
 import { styled } from '@linaria/react';
-import {
-  AppPath,
-  CoreObjectNameSingular,
-  SettingsPath,
-} from 'shared/types';
+import { AppPath, CoreObjectNameSingular, SettingsPath } from 'shared/types';
 
 import { isDDLLockedState } from '@/client-config/states/isDDLLockedState';
 import { isObjectMetadataReadOnly } from '@/object-record/read-only/utils/isObjectMetadataReadOnly';
 import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
-import { useLingui } from '@lingui/react/macro';
 import { getAppPath, getSettingsPath, isDefined } from 'shared/utils';
 import {
   IconArrowUpRight,

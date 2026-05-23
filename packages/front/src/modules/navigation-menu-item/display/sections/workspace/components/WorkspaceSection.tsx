@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -79,7 +79,7 @@ export const WorkspaceSection = () => {
       current.includes(folderId) ? current : [...current, folderId],
     );
     openNavigationMenuItemInSidePanel({
-      pageTitle: t`Edit folder`,
+      pageTitle: t`Ubah folder`,
       pageIcon: getIcon(item.icon ?? FOLDER_ICON_DEFAULT),
     });
     const firstChild = workspaceNavigationMenuItemsSorted.find((navItem) => {
@@ -141,7 +141,7 @@ export const WorkspaceSection = () => {
         break;
       case NavigationMenuItemType.LINK:
         openNavigationMenuItemInSidePanel({
-          pageTitle: t`Edit link`,
+          pageTitle: t`Ubah tautan`,
           pageIcon: IconLink,
         });
         break;
@@ -166,7 +166,7 @@ export const WorkspaceSection = () => {
     event?.stopPropagation();
     navigateSidePanel({
       page: SidePanelPages.NavigationMenuAddItem,
-      pageTitle: t`New menu item`,
+      pageTitle: t`Item menu baru`,
       pageIcon: IconColumnInsertRight,
       resetNavigationStack: true,
     });
@@ -174,7 +174,7 @@ export const WorkspaceSection = () => {
 
   return (
     <WorkspaceSectionContainer
-      sectionTitle={t`Workspace`}
+      sectionTitle={t`Ruang kerja`}
       items={items}
       rightIcon={
         <StyledRightIconsContainer>

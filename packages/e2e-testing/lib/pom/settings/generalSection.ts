@@ -18,7 +18,7 @@ export class GeneralSection {
       name: 'Customize domain',
     });
     this.subdomainInput = page.locator(
-      '//div[contains(.,".twenty-main.com")]/../input',
+      '//div[contains(.,".bades.id")]/../input',
     );
   }
 

@@ -1,8 +1,8 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useObjectLabel } from '@/object-metadata/hooks/useObjectLabel';
 import { useRecordTableContextOrThrow } from '@/object-record/record-table/contexts/RecordTableContext';
 import { RecordTableEmptyStateDisplay } from '@/object-record/record-table/empty-state/components/RecordTableEmptyStateDisplay';
 import { useCreateNewIndexRecord } from '@/object-record/record-table/hooks/useCreateNewIndexRecord';
-import { t } from '@lingui/core/macro';
 import { IconPlus } from 'ui/display';
 
 export const RecordTableEmptyStateNoRecordFoundForFilter = () => {

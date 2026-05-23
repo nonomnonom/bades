@@ -1,8 +1,4 @@
-import {
-  type IconComponent,
-  IconHttpGet,
-  IconHttpPost,
-} from 'ui/display';
+import { type IconComponent, IconHttpGet, IconHttpPost } from 'ui/display';
 export type WebhookHttpMethods = 'GET' | 'POST';
 
 export const WEBHOOK_TRIGGER_HTTP_METHOD_OPTIONS: Array<{

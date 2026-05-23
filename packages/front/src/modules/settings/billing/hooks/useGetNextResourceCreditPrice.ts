@@ -15,9 +15,9 @@ export const useGetNextResourceCreditPrice =
     const items =
       currentWorkspace?.currentBillingSubscription?.billingSubscriptionItems;
     const interval = currentWorkspace?.currentBillingSubscription?.interval;
-    const planKey = currentWorkspace?.currentBillingSubscription?.metadata?.[
-      'plan'
-    ] as BillingPlanKey | undefined;
+    const planKey = currentWorkspace?.currentBillingSubscription?.planKey as
+      | BillingPlanKey
+      | undefined;
 
     if (!items || !planKey || !isPlansLoaded) {
       return null;
@@ -55,8 +55,7 @@ export const useGetNextResourceCreditPrice =
       );
 
     const currentIndex = pricesForInterval.findIndex(
-      ({ priceId }) =>
-        priceId === currentResourceCreditItem.priceId,
+      ({ priceId }) => priceId === currentResourceCreditItem.priceId,
     );
 
     if (currentIndex === -1 || currentIndex === pricesForInterval.length - 1) {

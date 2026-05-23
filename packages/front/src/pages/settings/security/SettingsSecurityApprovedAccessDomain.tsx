@@ -1,3 +1,4 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SaveAndCancelButtons } from '@/settings/components/SaveAndCancelButtons/SaveAndCancelButtons';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -5,7 +6,6 @@ import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { Controller, useForm } from 'react-hook-form';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -105,10 +105,7 @@ export const SettingsSecurityApprovedAccessDomain = () => {
       >
         <SettingsPageContainer>
           <Section>
-            <H2Title
-              title={t`Domain`}
-              description={t`Nama domain Anda`}
-            />
+            <H2Title title={t`Domain`} description={t`Nama domain Anda`} />
             <Controller
               name="domain"
               control={form.control}

@@ -1,3 +1,4 @@
+import { t, Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsBillingLabelValueItem } from '@/settings/billing/components/internal/SettingsBillingLabelValueItem';
 import { SubscriptionInfoContainer } from '@/settings/billing/components/SubscriptionInfoContainer';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
@@ -7,8 +8,6 @@ import { UsageSectionSkeleton } from '@/settings/usage/components/UsageSectionSk
 import { AI_OPERATION_TYPES } from '@/settings/usage/constants/AiOperationTypes';
 import { useUsageAnalyticsData } from '@/settings/usage/hooks/useUsageAnalyticsData';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBarContainer';
-import { t } from '@lingui/core/macro';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { useParams } from 'react-router-dom';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

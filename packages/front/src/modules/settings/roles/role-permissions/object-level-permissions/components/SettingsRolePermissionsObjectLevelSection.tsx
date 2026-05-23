@@ -8,7 +8,7 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useMemo } from 'react';
 import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';

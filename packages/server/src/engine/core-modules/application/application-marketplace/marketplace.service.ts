@@ -39,13 +39,13 @@ const registrySearchResultSchema = z.object({
 export class MarketplaceService {
   private readonly logger = new Logger(MarketplaceService.name);
 
-  constructor(private readonly twentyConfigService: BadesConfigService) {}
+  constructor(private readonly badesConfigService: BadesConfigService) {}
 
   async fetchManifestFromRegistryCdn(
     packageName: string,
     version: string,
   ): Promise<Manifest | null> {
-    const cdnBaseUrl = this.twentyConfigService.get('APP_REGISTRY_CDN_URL');
+    const cdnBaseUrl = this.badesConfigService.get('APP_REGISTRY_CDN_URL');
     const url = buildRegistryCdnUrl({
       cdnBaseUrl,
       packageName,
@@ -77,7 +77,7 @@ export class MarketplaceService {
     packageName: string,
     version: string,
   ): Promise<string | null> {
-    const cdnBaseUrl = this.twentyConfigService.get('APP_REGISTRY_CDN_URL');
+    const cdnBaseUrl = this.badesConfigService.get('APP_REGISTRY_CDN_URL');
     const url = buildRegistryCdnUrl({
       cdnBaseUrl,
       packageName,
@@ -107,11 +107,11 @@ export class MarketplaceService {
   }
 
   async fetchAppsFromRegistry(): Promise<RegistryPackageInfo[]> {
-    const registryUrl = this.twentyConfigService.get('APP_REGISTRY_URL');
+    const registryUrl = this.badesConfigService.get('APP_REGISTRY_URL');
 
     try {
       const { data } = await axios.get(
-        `${registryUrl}/-/v1/search?text=keywords:twenty-app&size=250`,
+        `${registryUrl}/-/v1/search?text=keywords:bades-app&size=250`,
         {
           headers: { 'User-Agent': 'Bades-Marketplace' },
           timeout: 10_000,

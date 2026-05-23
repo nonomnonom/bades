@@ -8,12 +8,11 @@ import { ClientConfigService } from 'src/engine/core-modules/client-config/servi
 import { DomainServerConfigService } from 'src/engine/core-modules/domain/domain-server-config/services/domain-server-config.service';
 import { PUBLIC_FEATURE_FLAGS } from 'src/engine/core-modules/feature-flag/constants/public-feature-flag.const';
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
-import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
 import { MaintenanceModeService } from 'src/engine/core-modules/admin-panel/maintenance-mode.service';
 
 describe('ClientConfigService', () => {
   let service: ClientConfigService;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let domainServerConfigService: DomainServerConfigService;
 
   beforeEach(async () => {
@@ -33,17 +32,6 @@ describe('ClientConfigService', () => {
           },
         },
         {
-          provide: AiModelRegistryService,
-          useValue: {
-            getAdminFilteredModels: jest.fn().mockReturnValue([]),
-            getRecommendedModelIds: jest.fn().mockReturnValue(new Set()),
-            getModelConfig: jest.fn().mockReturnValue(undefined),
-            getResolvedProvidersForAdmin: jest.fn().mockReturnValue({}),
-            getDefaultSpeedModel: jest.fn().mockReturnValue(undefined),
-            getDefaultPerformanceModel: jest.fn().mockReturnValue(undefined),
-          },
-        },
-        {
           provide: MaintenanceModeService,
           useValue: {
             getMaintenanceMode: jest.fn().mockResolvedValue(null),
@@ -53,7 +41,7 @@ describe('ClientConfigService', () => {
     }).compile();
 
     service = module.get<ClientConfigService>(ClientConfigService);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     domainServerConfigService = module.get<DomainServerConfigService>(
       DomainServerConfigService,
     );
@@ -67,7 +55,7 @@ describe('ClientConfigService', () => {
     beforeEach(() => {
       // Setup default mock values
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           const mockValues: Record<string, any> = {
             IS_BILLING_ENABLED: true,
@@ -109,7 +97,7 @@ describe('ClientConfigService', () => {
         });
 
       jest.spyOn(domainServerConfigService, 'getFrontUrl').mockReturnValue({
-        hostname: 'app.twenty.com',
+        hostname: 'app.bades.id',
       } as URL);
     });
 
@@ -132,7 +120,6 @@ describe('ClientConfigService', () => {
             },
           ],
         },
-        aiModels: [],
         authProviders: {
           google: true,
           magicLink: false,
@@ -176,12 +163,13 @@ describe('ClientConfigService', () => {
         calendarBookingPageId: 'team/twenty/talk-to-us',
         isCloudflareIntegrationEnabled: false,
         isClickHouseConfigured: false,
+        isWorkspaceSchemaDDLLocked: undefined,
       });
     });
 
     it('should handle production environment correctly', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'NODE_ENV') return NodeEnvironment.PRODUCTION;
           if (key === 'IS_BILLING_ENABLED') return false;
@@ -192,12 +180,11 @@ describe('ClientConfigService', () => {
       const result = await service.getClientConfig();
 
       expect(result.canManageFeatureFlags).toBe(false);
-      expect(result.aiModels).toEqual([]);
     });
 
     it('should handle missing captcha driver', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'CAPTCHA_DRIVER') return undefined;
           if (key === 'CAPTCHA_SITE_KEY') return 'site-key';
@@ -209,12 +196,11 @@ describe('ClientConfigService', () => {
 
       expect(result.captcha.provider).toBeUndefined();
       expect(result.captcha.siteKey).toBe('site-key');
-      expect(result.aiModels).toEqual([]);
     });
 
     it('should handle missing support driver', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'SUPPORT_DRIVER') return undefined;
 
@@ -224,12 +210,11 @@ describe('ClientConfigService', () => {
       const result = await service.getClientConfig();
 
       expect(result.support.supportDriver).toBe(SupportDriver.NONE);
-      expect(result.aiModels).toEqual([]);
     });
 
     it('should handle billing enabled with feature flags', async () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'NODE_ENV') return NodeEnvironment.PRODUCTION;
           if (key === 'IS_BILLING_ENABLED') return true;

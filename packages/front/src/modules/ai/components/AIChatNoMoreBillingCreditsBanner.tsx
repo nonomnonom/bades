@@ -10,7 +10,7 @@ import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useSubscriptionStatus } from '@/workspace/hooks/useSubscriptionStatus';
 import { useMutation } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { isDefined } from 'shared/utils';
 import {
   PermissionFlagType,
@@ -106,7 +106,9 @@ export const AIChatNoMoreBillingCreditsBanner = () => {
             data.setResourceCreditSubscriptionPrice.billingSubscriptions,
         });
       }
-      enqueueSuccessSnackBar({ message: t`Paket kredit berhasil ditingkatkan.` });
+      enqueueSuccessSnackBar({
+        message: t`Paket kredit berhasil ditingkatkan.`,
+      });
     } catch {
       enqueueErrorSnackBar({ message: t`Gagal meningkatkan paket kredit.` });
     }

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { Key } from 'ts-key-enum';
 
 import { TextInput } from '@/ui/input/components/TextInput';
@@ -62,13 +62,13 @@ export const FieldsConfigurationGroupRenameInput = ({
         autoFocus
         fullWidth
         sizeVariant="sm"
-        placeholder={t`Group name`}
+        placeholder={t`Nama grup`}
       />
       <Button
         variant="primary"
         accent="blue"
         size="small"
-        title="Done"
+        title="Selesai"
         onClick={handleSave}
       />
     </StyledContainer>

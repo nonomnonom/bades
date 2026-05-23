@@ -1,12 +1,12 @@
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { SettingsTableCard } from '@/settings/components/SettingsTableCard';
-import { ApiKeyInput } from '@/settings/developers/components/ApiKeyInput';
+import { ApiKeyInput } from '@/settings/applications/components/ApiKeyInput';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilyStateValue';
 import { useMutation } from '@apollo/client/react';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
 import { H2Title, IconKey, IconRefresh, IconShield } from 'ui/display';
@@ -177,8 +177,8 @@ export const SettingsApplicationRegistrationOAuthTab = ({
         subtitle={
           <Trans>
             Jika Anda merotasi secret ini, semua integrasi yang menggunakan
-            secret saat ini akan berhenti bekerja. Ketik {`"${confirmationValue}"`} untuk
-            mengonfirmasi.
+            secret saat ini akan berhenti bekerja. Ketik{' '}
+            {`"${confirmationValue}"`} untuk mengonfirmasi.
           </Trans>
         }
         onConfirmClick={handleRotateSecret}

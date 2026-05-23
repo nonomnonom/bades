@@ -5,7 +5,7 @@ import { useWorkflowDiagramScreenToFlowPosition } from '@/workflow/workflow-diag
 import { workflowDiagramRightClickMenuPositionState } from '@/workflow/workflow-diagram/states/workflowDiagramRightClickMenuPositionState';
 import { useTidyUp } from '@/workflow/workflow-version/hooks/useTidyUp';
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { useRef } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconPlus, IconReorder } from 'ui/display';
@@ -71,7 +71,11 @@ export const WorkflowDiagramRightClickCommandMenu = () => {
         x={workflowDiagramRightClickMenuPosition.x}
         y={workflowDiagramRightClickMenuPosition.y}
       >
-        <MenuItem text={t`Tambah langkah`} LeftIcon={IconPlus} onClick={addNode} />
+        <MenuItem
+          text={t`Tambah langkah`}
+          LeftIcon={IconPlus}
+          onClick={addNode}
+        />
         <MenuItem
           text={t`Rapikan alur kerja`}
           LeftIcon={IconReorder}

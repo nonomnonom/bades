@@ -7,7 +7,7 @@ import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/Drop
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
 import { GenericDropdownContentWidth } from '@/ui/layout/dropdown/constants/GenericDropdownContentWidth';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import { useState } from 'react';
 import { IconChevronLeft, IconSettings } from 'ui/display';
@@ -107,7 +107,7 @@ export const WorkflowObjectDropdownContent = ({
             />
           }
         >
-          <Trans>Advanced</Trans>
+          <Trans>Lanjutan</Trans>
         </DropdownMenuHeader>
       )}
       <DropdownMenuSearchInput
@@ -129,7 +129,7 @@ export const WorkflowObjectDropdownContent = ({
         ))}
         {shouldShowAdvanced && (
           <MenuItem
-            text={<Trans>Advanced</Trans>}
+            text={<Trans>Lanjutan</Trans>}
             LeftIcon={IconSettings}
             onClick={handleAdvancedClick}
             hasSubMenu

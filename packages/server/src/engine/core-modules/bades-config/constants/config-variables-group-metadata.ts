@@ -67,7 +67,7 @@ export const CONFIG_VARIABLES_GROUP_METADATA: Record<
   [ConfigVariablesGroup.BILLING_CONFIG]: {
     position: 1100,
     description:
-      'We use Stripe in our Cloud app to charge customers. Not relevant to Self-hosters.',
+      'Konfigurasi billing Bades. Bades memakai Midtrans sebagai payment rail untuk top-up kredit dan langganan bulanan.',
     isHiddenOnLoad: true,
     isHiddenInAdminPanel: true,
   },

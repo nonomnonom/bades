@@ -1,7 +1,7 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client/react';
-import { t } from '@lingui/core/macro';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 

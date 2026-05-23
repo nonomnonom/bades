@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { useLingui } from '@lingui/react/macro';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAtomValue } from 'jotai';
 import { useContext } from 'react';
@@ -93,8 +93,8 @@ const LayoutCustomizationBarContent = () => {
       : undefined;
 
   const title = isDefined(recordPageLayoutObject)
-    ? t`${recordPageLayoutObject.labelPlural} layout edition`
-    : t`Layout customization`;
+    ? t`Ubah tata letak ${recordPageLayoutObject.labelPlural}`
+    : t`Sesuaikan tata letak`;
 
   return (
     <motion.div

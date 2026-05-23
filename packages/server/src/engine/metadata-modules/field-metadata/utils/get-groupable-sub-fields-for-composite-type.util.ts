@@ -1,7 +1,4 @@
-import {
-  compositeTypeDefinitions,
-  FieldMetadataType,
-} from 'shared/types';
+import { compositeTypeDefinitions, FieldMetadataType } from 'shared/types';
 
 import { isCompositePropertySupportedInGroupBy } from 'src/engine/metadata-modules/field-metadata/utils/is-composite-property-supported-in-group-by.util';
 

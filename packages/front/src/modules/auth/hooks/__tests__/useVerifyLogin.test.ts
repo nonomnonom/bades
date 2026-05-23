@@ -1,5 +1,4 @@
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { i18n, I18nProvider } from '~/utils/i18n/badesI18n';
 import { renderHook } from '@testing-library/react';
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
@@ -68,7 +67,7 @@ describe('useVerifyLogin', () => {
     await result.current.verifyLoginToken('test-token');
 
     expect(mockEnqueueErrorSnackBar).toHaveBeenCalledWith({
-      message: 'Authentication failed',
+      message: 'Autentikasi gagal',
     });
     expect(mockNavigate).toHaveBeenCalledWith(AppPath.SignInUp);
   });

@@ -1,16 +1,10 @@
+import { t, Trans } from '~/utils/i18n/badesI18n';
 import { LazyMarkdownRenderer } from '@/ai/components/LazyMarkdownRenderer';
 import { ConfirmationModal } from '@/ui/layout/modal/components/ConfirmationModal';
 import { useModal } from '@/ui/layout/modal/hooks/useModal';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { isDefined } from 'shared/utils';
-import {
-  IconCheck,
-  IconDownload,
-  IconTrash,
-  IconUpload,
-} from 'ui/display';
+import { IconCheck, IconDownload, IconTrash, IconUpload } from 'ui/display';
 import { Button } from 'ui/input';
 import { Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -228,8 +222,8 @@ export const SettingsApplicationDetailAboutTab = ({
           title={t`Hapus Aplikasi?`}
           subtitle={
             <Trans>
-              Ketik {`"${confirmationValue}"`} untuk mengonfirmasi bahwa Anda ingin
-              menghapus aplikasi ini.
+              Ketik {`"${confirmationValue}"`} untuk mengonfirmasi bahwa Anda
+              ingin menghapus aplikasi ini.
             </Trans>
           }
           onConfirmClick={onUninstall}

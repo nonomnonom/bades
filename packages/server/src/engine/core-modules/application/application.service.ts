@@ -320,7 +320,7 @@ export class ApplicationService {
   ) {
     const defaultPackageFields = await getDefaultApplicationPackageFields();
 
-    const twentyStandardApplication = await this.create(
+    const badesStandardApplication = await this.create(
       {
         ...BADES_STANDARD_APPLICATION,
         logicFunctionLayerId: null,
@@ -336,7 +336,7 @@ export class ApplicationService {
     );
 
     await this.uploadDefaultPackageFilesAndSetFileIds(
-      twentyStandardApplication,
+      badesStandardApplication,
       queryRunner,
     );
 
@@ -346,7 +346,7 @@ export class ApplicationService {
       ]);
     }
 
-    return twentyStandardApplication;
+    return badesStandardApplication;
   }
 
   async createWorkspaceCustomApplication(

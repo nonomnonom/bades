@@ -23,8 +23,7 @@ import { type ApolloManager } from '@/apollo/types/apolloManager.interface';
 import { getTokenPair } from '@/apollo/utils/getTokenPair';
 import { loggerLink } from '@/apollo/utils/loggerLink';
 import { StreamingRestLink } from '@/apollo/utils/streamingRestLink';
-import { i18n } from '@lingui/core';
-import { t } from '@lingui/core/macro';
+import { i18n, t } from '~/utils/i18n/badesI18n';
 import {
   type DefinitionNode,
   type DirectiveNode,
@@ -281,7 +280,7 @@ export class ApolloFactory implements ApolloManager {
               case 'APP_VERSION_MISMATCH': {
                 onAppVersionMismatch?.(
                   (graphQLError.extensions?.userFriendlyMessage as string) ||
-                    t`Your app version is out of date. Please refresh the page.`,
+                    t`Versi aplikasi Anda sudah usang. Silakan muat ulang halaman.`,
                 );
                 return;
               }

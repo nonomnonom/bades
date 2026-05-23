@@ -1,5 +1,5 @@
 import { SidePanelSubPages } from '@/side-panel/types/SidePanelSubPages';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { assertUnreachable } from 'shared/utils';
 
 export const getSidePanelSubPageTitle = (

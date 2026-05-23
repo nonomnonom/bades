@@ -1,6 +1,6 @@
 import { CombinedGraphQLErrors } from '@apollo/client/errors';
 
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 
 import { currentUserState } from '@/auth/states/currentUserState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';

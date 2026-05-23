@@ -1,12 +1,6 @@
 /* @license Enterprise */
 
-import { msg } from '@lingui/core/macro';
-import Stripe from 'stripe';
-
-import {
-  BillingException,
-  BillingExceptionCode,
-} from 'src/engine/core-modules/billing/billing.exception';
+import { BillingException } from 'src/engine/core-modules/billing/billing.exception';
 import {
   ForbiddenError,
   InternalServerError,
@@ -16,13 +10,6 @@ import {
 import { getBillingExceptionStatusCode } from 'src/engine/core-modules/billing/utils/get-billing-exception-status-code.util';
 
 export const billingGraphqlApiExceptionHandler = (error: Error) => {
-  if (error instanceof Stripe.errors.StripeError) {
-    throw new InternalServerError(error.message, {
-      subCode: BillingExceptionCode.BILLING_STRIPE_ERROR,
-      userFriendlyMessage: msg`A payment processing error occurred.`,
-    });
-  }
-
   if (error instanceof BillingException) {
     switch (getBillingExceptionStatusCode(error)) {
       case 404:

@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 
-import { msg, t } from '@lingui/core/macro';
+import { msg, t } from 'src/utils/bades-i18n';
 import { ALL_METADATA_NAME } from 'shared/metadata';
 import { isDefined } from 'shared/utils';
 
 import { findFlatEntityByUniversalIdentifier } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-universal-identifier.util';
 import { SkillExceptionCode } from 'src/engine/metadata-modules/skill/skill.exception';
 import { type UniversalFlatSkill } from 'src/engine/workspace-manager/workspace-migration/universal-flat-entity/types/universal-flat-skill.type';
-import { belongsToTwentyStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-twenty-standard-app.util';
-import { isCallerTwentyStandardApp } from 'src/engine/metadata-modules/utils/is-caller-twenty-standard-app.util';
+import { belongsToBadesStandardApp } from 'src/engine/metadata-modules/utils/belongs-to-bades-standard-app.util';
+import { isCallerBadesStandardApp } from 'src/engine/metadata-modules/utils/is-caller-bades-standard-app.util';
 import { type FailedFlatEntityValidation } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/builders/types/failed-flat-entity-validation.type';
 import { getEmptyFlatEntityValidationError } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/builders/utils/get-flat-entity-validation-error.util';
 import { type FlatEntityUpdateValidationArgs } from 'src/engine/workspace-manager/workspace-migration/workspace-migration-builder/types/universal-flat-entity-update-validation-args.type';
@@ -91,8 +91,8 @@ export class FlatSkillValidatorService {
     }
 
     if (
-      !isCallerTwentyStandardApp(buildOptions) &&
-      belongsToTwentyStandardApp({
+      !isCallerBadesStandardApp(buildOptions) &&
+      belongsToBadesStandardApp({
         universalIdentifier: existingSkill.universalIdentifier,
         applicationUniversalIdentifier:
           existingSkill.applicationUniversalIdentifier,
@@ -147,15 +147,15 @@ export class FlatSkillValidatorService {
       (key) => key !== 'isActive',
     );
 
-    const isTwentyStandardSkill = belongsToTwentyStandardApp({
+    const isBadesStandardSkill = belongsToBadesStandardApp({
       universalIdentifier: fromFlatSkill.universalIdentifier,
       applicationUniversalIdentifier:
         fromFlatSkill.applicationUniversalIdentifier,
     });
 
     if (
-      !isCallerTwentyStandardApp(buildOptions) &&
-      isTwentyStandardSkill &&
+      !isCallerBadesStandardApp(buildOptions) &&
+      isBadesStandardSkill &&
       hasNonIsActiveUpdates
     ) {
       validationResult.errors.push({
@@ -167,7 +167,7 @@ export class FlatSkillValidatorService {
 
     // If only isActive is being updated on a standard skill, allow it
     if (
-      isTwentyStandardSkill &&
+      isBadesStandardSkill &&
       isDefined(isActiveUpdate) &&
       !hasNonIsActiveUpdates
     ) {

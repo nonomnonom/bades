@@ -6,10 +6,7 @@ import {
   type JunctionObjectMetadataItem,
 } from '@/object-record/record-field/ui/utils/junction/getJunctionConfig';
 import { FieldMetadataType } from 'shared/types';
-import {
-  computeMorphRelationGqlFieldName,
-  isDefined,
-} from 'shared/utils';
+import { computeMorphRelationGqlFieldName, isDefined } from 'shared/utils';
 
 type JunctionFieldMetadataItem = Pick<
   FieldMetadataItem,

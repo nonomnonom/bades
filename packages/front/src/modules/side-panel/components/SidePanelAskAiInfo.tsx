@@ -3,7 +3,7 @@ import { currentAiChatThreadTitleComponentFamilyState } from '@/ai/states/curren
 import { useAtomComponentFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilyStateValue';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { OverflowingTextWithTooltip } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
 

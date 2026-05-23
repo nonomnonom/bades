@@ -19,7 +19,7 @@ import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownM
 import { DropdownComponentInstanceContext } from '@/ui/layout/dropdown/contexts/DropdownComponentInstanceContext';
 import { SelectableList } from '@/ui/layout/selectable-list/components/SelectableList';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { IconChevronLeft } from 'ui/display';
@@ -133,7 +133,7 @@ export const ChartAggregateOperationSelectionDropdownContent = ({
       <DropdownMenuSearchInput
         autoFocus
         type="text"
-        placeholder={t`Search operations`}
+        placeholder={t`Cari operasi`}
         onChange={(event) => setSearchQuery(event.target.value)}
         value={searchQuery}
       />

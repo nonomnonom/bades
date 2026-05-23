@@ -18,16 +18,8 @@ import {
   jotaiStore,
   resetJotaiStore,
 } from '@/ui/utilities/state/jotai/jotaiStore';
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
+import { I18nProvider } from '~/utils/i18n/badesI18n';
 import { Provider as JotaiProvider } from 'jotai';
-import { SOURCE_LOCALE } from 'shared/translations';
-import { messages } from '~/locales/generated/id-ID';
-
-i18n.load({
-  [SOURCE_LOCALE]: messages,
-});
-i18n.activate(SOURCE_LOCALE);
 
 const mockCurrentUser = {
   id: 'fake-user-id',
@@ -53,7 +45,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => (
   <MockedProvider>
     <JotaiProvider store={jotaiStore}>
       <MemoryRouter>
-        <I18nProvider i18n={i18n}>
+        <I18nProvider>
           <SnackBarComponentInstanceContext.Provider
             value={{ instanceId: 'test-scope-id' }}
           >

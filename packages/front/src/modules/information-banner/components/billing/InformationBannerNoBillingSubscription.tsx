@@ -2,7 +2,7 @@ import { BILLING_CHECKOUT_SESSION_DEFAULT_VALUE } from '@/settings/billing/const
 import { useHandleCheckoutSession } from '@/settings/billing/hooks/useHandleCheckoutSession';
 import { InformationBanner } from '@/information-banner/components/InformationBanner';
 import { usePermissionFlagMap } from '@/settings/roles/hooks/usePermissionFlagMap';
-import { t } from '@lingui/core/macro';
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { PermissionFlagType } from '~/generated-metadata/graphql';

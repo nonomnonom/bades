@@ -8,7 +8,7 @@ import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-c
 
 describe('FileStorageDriverFactory', () => {
   let factory: FileStorageDriverFactory;
-  let twentyConfigService: BadesConfigService;
+  let badesConfigService: BadesConfigService;
   let configGroupHashService: ConfigGroupHashService;
 
   const mockBadesConfigService = {
@@ -34,7 +34,7 @@ describe('FileStorageDriverFactory', () => {
     }).compile();
 
     factory = module.get<FileStorageDriverFactory>(FileStorageDriverFactory);
-    twentyConfigService = module.get<BadesConfigService>(BadesConfigService);
+    badesConfigService = module.get<BadesConfigService>(BadesConfigService);
     configGroupHashService = module.get<ConfigGroupHashService>(
       ConfigGroupHashService,
     );
@@ -47,7 +47,7 @@ describe('FileStorageDriverFactory', () => {
       const storagePath = '/tmp/storage';
 
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return storagePath;
@@ -58,15 +58,13 @@ describe('FileStorageDriverFactory', () => {
       const result = factory['buildConfigKey']();
 
       expect(result).toBe(`local|${storagePath}`);
-      expect(twentyConfigService.get).toHaveBeenCalledWith('STORAGE_TYPE');
-      expect(twentyConfigService.get).toHaveBeenCalledWith(
-        'STORAGE_LOCAL_PATH',
-      );
+      expect(badesConfigService.get).toHaveBeenCalledWith('STORAGE_TYPE');
+      expect(badesConfigService.get).toHaveBeenCalledWith('STORAGE_LOCAL_PATH');
     });
 
     it('should build config key for S3 storage', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockReturnValue(StorageDriverType.S_3);
       jest
         .spyOn(configGroupHashService, 'computeHash')
@@ -75,13 +73,11 @@ describe('FileStorageDriverFactory', () => {
       const result = factory['buildConfigKey']();
 
       expect(result).toBe('s3|s3-hash-123');
-      expect(twentyConfigService.get).toHaveBeenCalledWith('STORAGE_TYPE');
+      expect(badesConfigService.get).toHaveBeenCalledWith('STORAGE_TYPE');
     });
 
     it('should throw error for unsupported storage type', () => {
-      jest
-        .spyOn(twentyConfigService, 'get')
-        .mockReturnValue('unsupported-type');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('unsupported-type');
 
       expect(() => factory['buildConfigKey']()).toThrow(
         'Unsupported storage type: unsupported-type',
@@ -94,7 +90,7 @@ describe('FileStorageDriverFactory', () => {
       const storagePath = '/tmp/storage';
 
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return storagePath;
@@ -110,7 +106,7 @@ describe('FileStorageDriverFactory', () => {
 
     it('should create ValidatedStorageDriver wrapping S3Driver for S3 storage with access keys', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'STORAGE_TYPE':
@@ -138,7 +134,7 @@ describe('FileStorageDriverFactory', () => {
 
     it('should create ValidatedStorageDriver wrapping S3Driver for S3 storage without access keys (using provider chain)', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'STORAGE_TYPE':
@@ -165,7 +161,7 @@ describe('FileStorageDriverFactory', () => {
     });
 
     it('should throw error for invalid storage driver type', () => {
-      jest.spyOn(twentyConfigService, 'get').mockReturnValue('invalid-type');
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-type');
 
       expect(() => factory['createDriver']()).toThrow(
         'Invalid storage driver type: invalid-type',
@@ -178,7 +174,7 @@ describe('FileStorageDriverFactory', () => {
       const storagePath = '/tmp/storage';
 
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return storagePath;
@@ -196,7 +192,7 @@ describe('FileStorageDriverFactory', () => {
       const storagePath = '/tmp/storage';
 
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return storagePath;
@@ -213,7 +209,7 @@ describe('FileStorageDriverFactory', () => {
     it('should create new driver when config key changes', () => {
       // First call with local storage
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return '/tmp/storage1';
@@ -225,7 +221,7 @@ describe('FileStorageDriverFactory', () => {
 
       // Second call with different local path
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return '/tmp/storage2';
@@ -243,7 +239,7 @@ describe('FileStorageDriverFactory', () => {
     it('should create new driver when switching from local to S3', () => {
       // First call with local storage
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return '/tmp/storage';
@@ -255,7 +251,7 @@ describe('FileStorageDriverFactory', () => {
 
       // Second call with S3 storage
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           switch (key) {
             case 'STORAGE_TYPE':
@@ -283,7 +279,7 @@ describe('FileStorageDriverFactory', () => {
 
     it('should throw error for unsupported storage type', () => {
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockReturnValue('invalid-storage-type');
 
       expect(() => factory.getCurrentDriver()).toThrow(
@@ -295,7 +291,7 @@ describe('FileStorageDriverFactory', () => {
       const storagePath = '/tmp/storage';
 
       jest
-        .spyOn(twentyConfigService, 'get')
+        .spyOn(badesConfigService, 'get')
         .mockImplementation((key: string) => {
           if (key === 'STORAGE_TYPE') return StorageDriverType.LOCAL;
           if (key === 'STORAGE_LOCAL_PATH') return storagePath;

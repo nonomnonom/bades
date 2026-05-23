@@ -17,7 +17,7 @@ import { splitWorkflowTriggerEventName } from '@/workflow/utils/splitWorkflowTri
 import { WorkflowStepBody } from '@/workflow/workflow-steps/components/WorkflowStepBody';
 import { WorkflowStepFooter } from '@/workflow/workflow-steps/components/WorkflowStepFooter';
 import { styled } from '@linaria/react';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '~/utils/i18n/badesI18n';
 import { useCallback, useMemo, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { TRIGGER_STEP_ID } from 'shared/workflow';
