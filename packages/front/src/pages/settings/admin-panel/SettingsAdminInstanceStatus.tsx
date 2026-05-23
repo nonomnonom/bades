@@ -153,7 +153,7 @@ export const SettingsAdminInstanceStatus = () => {
                 label: t`Terakhir diperbarui`,
                 value: isNonEmptyString(formattedInstanceLastUpdated)
                   ? formattedInstanceLastUpdated
-                  : "N/A",
+                  : 'N/A',
               },
               ...(instanceLatestCommand?.errorMessage
                 ? [

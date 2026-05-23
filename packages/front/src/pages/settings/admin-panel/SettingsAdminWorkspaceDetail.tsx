@@ -150,7 +150,7 @@ export const SettingsAdminWorkspaceDetail = () => {
   const tabs = [
     {
       id: WORKSPACE_DETAIL_TAB_IDS.INFO,
-      title: "Info",
+      title: 'Info',
       Icon: IconSettings2,
     },
     ...(isBillingEnabled

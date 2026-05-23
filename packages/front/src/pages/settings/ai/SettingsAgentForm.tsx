@@ -414,7 +414,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
             children: t`Ruang Kerja`,
             href: getSettingsPath(SettingsPath.Workspace),
           },
-          { children: "AI", href: getSettingsPath(SettingsPath.AI) },
+          { children: 'AI', href: getSettingsPath(SettingsPath.AI) },
           { children: breadcrumbText },
         ]}
       >

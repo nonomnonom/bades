@@ -74,7 +74,7 @@ export const useFieldsWidgetGroupsForDisplay = ({
       return [
         {
           id: `${widgetId}-ungrouped-display`,
-          name: "Umum",
+          name: 'Umum',
           position: 0,
           isVisible: true,
           fields: visibleFields,

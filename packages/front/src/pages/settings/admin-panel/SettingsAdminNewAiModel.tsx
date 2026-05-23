@@ -34,8 +34,8 @@ const StyledComboInputContainer = styled.div`
 const MODALITY_OPTIONS = [
   { value: 'image', label: t`Gambar` },
   { value: 'pdf', label: t`PDF` },
-  { value: 'audio', label: "Audio" },
-  { value: 'video', label: "Video" },
+  { value: 'audio', label: 'Audio' },
+  { value: 'video', label: 'Video' },
 ];
 
 const StyledCheckboxRow = styled.div`
@@ -339,7 +339,7 @@ export const SettingsAdminNewAiModel = () => {
                   <TextInput
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. gpt-4o"}
+                    placeholder={'e.g. gpt-4o'}
                     fullWidth
                     error={error?.message}
                   />
@@ -363,7 +363,7 @@ export const SettingsAdminNewAiModel = () => {
                 <TextInput
                   value={value}
                   onChange={onChange}
-                  placeholder={"e.g. GPT-4o"}
+                  placeholder={'e.g. GPT-4o'}
                   fullWidth
                   error={error?.message}
                 />
@@ -385,7 +385,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Masukan`}
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. 2.50"}
+                    placeholder={'e.g. 2.50'}
                     fullWidth
                   />
                 )}
@@ -398,7 +398,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Keluaran`}
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. 10.00"}
+                    placeholder={'e.g. 10.00'}
                     fullWidth
                   />
                 )}
@@ -420,7 +420,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Baca cache`}
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. 1.25"}
+                    placeholder={'e.g. 1.25'}
                     fullWidth
                   />
                 )}
@@ -433,7 +433,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Tulis cache`}
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. 3.75"}
+                    placeholder={'e.g. 3.75'}
                     fullWidth
                   />
                 )}
@@ -455,7 +455,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Jendela konteks`}
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. 128000"}
+                    placeholder={'e.g. 128000'}
                     fullWidth
                   />
                 )}
@@ -468,7 +468,7 @@ export const SettingsAdminNewAiModel = () => {
                     label={t`Maks. keluaran`}
                     value={value}
                     onChange={onChange}
-                    placeholder={"e.g. 16384"}
+                    placeholder={'e.g. 16384'}
                     fullWidth
                   />
                 )}

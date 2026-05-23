@@ -21,9 +21,9 @@ export const formatDateISOStringToRelativeDate = ({
   const now = new Date();
   const targetDate = new Date(isoDate);
 
-  if (isDayMaximumPrecision && isToday(targetDate)) return "Hari ini";
-  if (isDayMaximumPrecision && isYesterday(targetDate)) return "Kemarin";
-  if (isDayMaximumPrecision && isTomorrow(targetDate)) return "Besok";
+  if (isDayMaximumPrecision && isToday(targetDate)) return 'Hari ini';
+  if (isDayMaximumPrecision && isYesterday(targetDate)) return 'Kemarin';
+  if (isDayMaximumPrecision && isTomorrow(targetDate)) return 'Besok';
 
   const isWithin24h = Math.abs(differenceInDays(targetDate, now)) < 1;
 

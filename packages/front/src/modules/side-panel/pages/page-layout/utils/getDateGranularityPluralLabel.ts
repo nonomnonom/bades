@@ -1,4 +1,3 @@
-import { t } from '~/utils/i18n/badesI18n';
 import { ObjectRecordGroupByDateGranularity } from 'shared/types';
 import { assertUnreachable } from 'shared/utils';
 
@@ -7,23 +6,23 @@ export const getDateGranularityPluralLabel = (
 ): string => {
   switch (granularity) {
     case ObjectRecordGroupByDateGranularity.DAY:
-      return "hari";
+      return 'hari';
     case ObjectRecordGroupByDateGranularity.WEEK:
-      return "weeks";
+      return 'minggu';
     case ObjectRecordGroupByDateGranularity.MONTH:
-      return "months";
+      return 'bulan';
     case ObjectRecordGroupByDateGranularity.QUARTER:
-      return "quarters";
+      return 'kuartal';
     case ObjectRecordGroupByDateGranularity.YEAR:
-      return "years";
+      return 'tahun';
     case ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK:
-      return "hari";
+      return 'hari';
     case ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR:
-      return "months";
+      return 'bulan';
     case ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR:
-      return "quarters";
+      return 'kuartal';
     case ObjectRecordGroupByDateGranularity.NONE:
-      return "items";
+      return 'item';
     default:
       assertUnreachable(granularity);
   }

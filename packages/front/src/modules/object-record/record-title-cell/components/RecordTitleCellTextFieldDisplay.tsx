@@ -62,7 +62,7 @@ export const RecordTitleCellSingleTextDisplayMode = ({
       }}
     >
       {isEmpty ? (
-        <StyledEmptyText>{"Untitled"}</StyledEmptyText>
+        <StyledEmptyText>{'Untitled'}</StyledEmptyText>
       ) : (
         <OverflowingTextWithTooltip
           text={

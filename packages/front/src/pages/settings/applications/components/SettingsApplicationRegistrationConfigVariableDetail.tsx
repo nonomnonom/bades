@@ -144,7 +144,7 @@ export const SettingsApplicationRegistrationConfigVariableDetail = () => {
           <TextInput
             value={value}
             placeholder={
-              !isEditing ? (variable.value ?? "set-config-value") : ''
+              !isEditing ? (variable.value ?? 'set-config-value') : ''
             }
             onChange={setValue}
             disabled={!isEditing}

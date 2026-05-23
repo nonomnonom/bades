@@ -137,8 +137,8 @@ export const SettingsAiMCP = () => {
                 value={authMethod}
                 onChange={(value) => setAuthMethod(value as McpAuthMethod)}
                 options={[
-                  { label: "OAuth", value: 'oauth' },
-                  { label: "Kunci API", value: 'api-key' },
+                  { label: 'OAuth', value: 'oauth' },
+                  { label: 'Kunci API', value: 'api-key' },
                 ]}
                 selectSizeVariant="small"
                 dropdownWidth={GenericDropdownContentWidth.Medium}

@@ -6,14 +6,14 @@ import { isDefined } from 'shared/utils';
 
 export const getErrorMessageFromApolloError = (error: ErrorLike): string => {
   if (!CombinedGraphQLErrors.is(error)) {
-    return error.message ?? "An error occurred.";
+    return error.message ?? 'An error occurred.';
   }
 
   const userFriendlyMessage = error.errors?.[0]?.extensions
     ?.userFriendlyMessage as Nullable<MessageDescriptor | string>;
 
   if (!isDefined(userFriendlyMessage)) {
-    return "An error occurred.";
+    return 'An error occurred.';
   }
 
   return t(userFriendlyMessage);

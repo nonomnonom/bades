@@ -10,5 +10,5 @@ export const PREFIX_SETTING: ChartSettingsItem = {
   label: CHART_CONFIGURATION_SETTING_LABELS.PREFIX,
   id: CHART_CONFIGURATION_SETTING_IDS.PREFIX,
   isTextInput: true,
-  inputPlaceholder: "unit",
+  inputPlaceholder: 'unit',
 };

@@ -209,7 +209,7 @@ export const SettingsApplicationConnectionDetail = () => {
       },
       {
         key: 'handle',
-        label: "Handle",
+        label: 'Handle',
         value: <StyledMonoText>{connection.handle}</StyledMonoText>,
       },
       {

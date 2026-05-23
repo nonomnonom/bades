@@ -217,7 +217,7 @@ export const SettingsSecurity = () => {
                 description={t`Konfigurasi koneksi SSO`}
                 adornment={
                   <Tag
-                    text={"Enterprise"}
+                    text={'Enterprise'}
                     color="transparent"
                     Icon={IconLock}
                     variant="border"
@@ -273,7 +273,7 @@ export const SettingsSecurity = () => {
               description={t`Lihat log aktivitas ruang kerja`}
               adornment={
                 <Tag
-                  text={"Enterprise"}
+                  text={'Enterprise'}
                   color="transparent"
                   Icon={IconLock}
                   variant="border"
@@ -324,8 +324,8 @@ export const SettingsSecurity = () => {
               </Card>
             ) : (
               <SettingsEnterpriseFeatureGateCard
-                title={t`Fitur enterprise`}
-                description={t`Tingkatkan ke Enterprise untuk mengakses log audit.`}
+                title={t`Kapabilitas internal Bades`}
+                description={t`Log audit memerlukan aktivasi oleh tim Bades. Hubungi tim Bades untuk mengaktifkannya pada ruang kerja ini.`}
                 buttonTitle={t`Aktifkan`}
               />
             )}

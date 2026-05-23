@@ -70,7 +70,7 @@ describe('generateCsv', () => {
     const csv = generateCsv({ columns, rows });
     expect(csv)
       .toEqual(`\uFEFFId,Foo,Empty,Nested link field / URL Tautan,Nested link field / Tautan Sekunder,Relation
-1,some field,,https://www.test.com,"[{"label"":"secondary link 1"","url"":"https://www.test.com""},{"label"":"secondary link 2"","url"":"https://www.test.com""}]",a relation`);
+1,some field,,https://www.test.com,"[{""label"":""secondary link 1"",""url"":""https://www.test.com""},{""label"":""secondary link 2"",""url"":""https://www.test.com""}]",a relation`);
   });
 
   it('generates csv with multi-select and array fields as JSON arrays', () => {
@@ -115,10 +115,10 @@ describe('generateCsv', () => {
 
     const csv = generateCsv({ columns, rows });
 
-    expect(csv).toContain('["DISTRIBUTOR"","IMPLEMENTATION""]');
-    expect(csv).toContain('["JavaScript"","TypeScript"","React""]');
-    expect(csv).toContain('["PARTNER""]');
-    expect(csv).toContain('["Python"","Django""]');
+    expect(csv).toContain('[""DISTRIBUTOR"",""IMPLEMENTATION""]');
+    expect(csv).toContain('[""JavaScript"",""TypeScript"",""React""]');
+    expect(csv).toContain('[""PARTNER""]');
+    expect(csv).toContain('[""Python"",""Django""]');
 
     expect(csv).not.toContain('{"0":"DISTRIBUTOR","1":"IMPLEMENTATION"}');
     expect(csv).not.toContain(
@@ -203,13 +203,13 @@ describe('generateCsv', () => {
       const csv = generateCsv({ columns, rows });
 
       expect(csv).toContain(
-        `${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE("http://attacker.com"")`,
+        `${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE(""http://attacker.com"")`,
       );
       expect(csv).not.toContain(
         '1,Test User,=WEBSERVICE("http://attacker.com")',
       );
       expect(csv).toContain(
-        `1,Test User,"${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE("http://attacker.com"")"`,
+        `1,Test User,"${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE(""http://attacker.com"")"`,
       );
     });
 
@@ -314,7 +314,7 @@ describe('generateCsv', () => {
       const csv = generateCsv({ columns, rows });
 
       expect(csv).toContain(
-        `${CSV_INJECTION_PREVENTION_ZWJ}\t=WEBSERVICE("http://attacker.com"")`,
+        `${CSV_INJECTION_PREVENTION_ZWJ}\t=WEBSERVICE(""http://attacker.com"")`,
       );
       expect(csv).not.toContain('1,\t=WEBSERVICE("http://attacker.com")');
     });
@@ -342,7 +342,7 @@ describe('generateCsv', () => {
       const csv = generateCsv({ columns, rows });
 
       expect(csv).toContain(
-        `${CSV_INJECTION_PREVENTION_ZWJ}\r=WEBSERVICE("http://attacker.com"")`,
+        `${CSV_INJECTION_PREVENTION_ZWJ}\r=WEBSERVICE(""http://attacker.com"")`,
       );
       expect(csv).not.toContain('1,\r=WEBSERVICE("http://attacker.com")');
     });
@@ -384,11 +384,11 @@ describe('generateCsv', () => {
       const csv = generateCsv({ columns, rows });
 
       expect(csv).toContain(
-        `${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE("http://evil.com"")`,
+        `${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE(""http://evil.com"")`,
       );
       expect(csv).toContain(`${CSV_INJECTION_PREVENTION_ZWJ}+SUM(A1:A10)`);
       expect(csv).toContain(
-        `${CSV_INJECTION_PREVENTION_ZWJ}-HYPERLINK("http://malicious.com"")`,
+        `${CSV_INJECTION_PREVENTION_ZWJ}-HYPERLINK(""http://malicious.com"")`,
       );
 
       expect(csv).not.toContain('1,=WEBSERVICE("http://evil.com")');
@@ -500,12 +500,12 @@ describe('csvDownloader', () => {
 
 describe('displayedExportProgress', () => {
   it.each([
-    [undefined, undefined, 'percentage', 'Export'],
-    [20, 50, 'percentage', 'Export (40%)'],
-    [0, 100, 'number', 'Export (0)'],
-    [10, 10, 'percentage', 'Export (100%)'],
-    [10, 10, 'number', 'Export (10)'],
-    [7, 9, 'percentage', 'Export (78%)'],
+    [undefined, undefined, 'percentage', 'Ekspor'],
+    [20, 50, 'percentage', 'Ekspor (40%)'],
+    [0, 100, 'number', 'Ekspor (0)'],
+    [10, 10, 'percentage', 'Ekspor (100%)'],
+    [10, 10, 'number', 'Ekspor (10)'],
+    [7, 9, 'percentage', 'Ekspor (78%)'],
   ])(
     'displays the export progress',
     (exportedRecordCount, totalRecordCount, displayType, expected) => {

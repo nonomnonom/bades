@@ -59,13 +59,13 @@ export const UpdateMultipleRecordsFooter = ({
     <StyledFooterContainer>
       <StyledFooterActions>
         <Button
-          title={"Batalkan"}
+          title={'Batalkan'}
           variant="secondary"
           size="small"
           onClick={onCancel}
         />
         <Button
-          title={isUpdating ? t`Apply${progressText}` : "Terapkan"}
+          title={isUpdating ? t`Apply${progressText}` : 'Terapkan'}
           variant="primary"
           accent="blue"
           size="small"

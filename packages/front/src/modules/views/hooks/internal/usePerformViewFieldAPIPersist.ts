@@ -63,7 +63,7 @@ export const usePerformViewFieldAPIPersist = () => {
             operationType: CrudOperationType.CREATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: "An error occurred." });
+          enqueueErrorSnackBar({ message: 'An error occurred.' });
         }
 
         return {
@@ -110,7 +110,7 @@ export const usePerformViewFieldAPIPersist = () => {
             operationType: CrudOperationType.UPDATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: "An error occurred." });
+          enqueueErrorSnackBar({ message: 'An error occurred.' });
         }
 
         return {
@@ -157,7 +157,7 @@ export const usePerformViewFieldAPIPersist = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: "An error occurred." });
+          enqueueErrorSnackBar({ message: 'An error occurred.' });
         }
 
         return {
@@ -204,7 +204,7 @@ export const usePerformViewFieldAPIPersist = () => {
             operationType: CrudOperationType.DESTROY,
           });
         } else {
-          enqueueErrorSnackBar({ message: "An error occurred." });
+          enqueueErrorSnackBar({ message: 'An error occurred.' });
         }
 
         return {

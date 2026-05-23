@@ -2,63 +2,63 @@ import { getDateGranularityPluralLabel } from '@/side-panel/pages/page-layout/ut
 import { ObjectRecordGroupByDateGranularity } from 'shared/types';
 
 describe('getDateGranularityPluralLabel', () => {
-  it('returns "days" for DAY granularity', () => {
+  it('returns "hari" for DAY granularity', () => {
     expect(
       getDateGranularityPluralLabel(ObjectRecordGroupByDateGranularity.DAY),
-    ).toBe('days');
+    ).toBe('hari');
   });
 
-  it('returns "weeks" for WEEK granularity', () => {
+  it('returns "minggu" for WEEK granularity', () => {
     expect(
       getDateGranularityPluralLabel(ObjectRecordGroupByDateGranularity.WEEK),
-    ).toBe('weeks');
+    ).toBe('minggu');
   });
 
-  it('returns "months" for MONTH granularity', () => {
+  it('returns "bulan" for MONTH granularity', () => {
     expect(
       getDateGranularityPluralLabel(ObjectRecordGroupByDateGranularity.MONTH),
-    ).toBe('months');
+    ).toBe('bulan');
   });
 
-  it('returns "quarters" for QUARTER granularity', () => {
+  it('returns "kuartal" for QUARTER granularity', () => {
     expect(
       getDateGranularityPluralLabel(ObjectRecordGroupByDateGranularity.QUARTER),
-    ).toBe('quarters');
+    ).toBe('kuartal');
   });
 
-  it('returns "years" for YEAR granularity', () => {
+  it('returns "tahun" for YEAR granularity', () => {
     expect(
       getDateGranularityPluralLabel(ObjectRecordGroupByDateGranularity.YEAR),
-    ).toBe('years');
+    ).toBe('tahun');
   });
 
-  it('returns "days" for DAY_OF_THE_WEEK granularity', () => {
+  it('returns "hari" for DAY_OF_THE_WEEK granularity', () => {
     expect(
       getDateGranularityPluralLabel(
         ObjectRecordGroupByDateGranularity.DAY_OF_THE_WEEK,
       ),
-    ).toBe('days');
+    ).toBe('hari');
   });
 
-  it('returns "months" for MONTH_OF_THE_YEAR granularity', () => {
+  it('returns "bulan" for MONTH_OF_THE_YEAR granularity', () => {
     expect(
       getDateGranularityPluralLabel(
         ObjectRecordGroupByDateGranularity.MONTH_OF_THE_YEAR,
       ),
-    ).toBe('months');
+    ).toBe('bulan');
   });
 
-  it('returns "quarters" for QUARTER_OF_THE_YEAR granularity', () => {
+  it('returns "kuartal" for QUARTER_OF_THE_YEAR granularity', () => {
     expect(
       getDateGranularityPluralLabel(
         ObjectRecordGroupByDateGranularity.QUARTER_OF_THE_YEAR,
       ),
-    ).toBe('quarters');
+    ).toBe('kuartal');
   });
 
-  it('returns "items" for NONE granularity', () => {
+  it('returns "item" for NONE granularity', () => {
     expect(
       getDateGranularityPluralLabel(ObjectRecordGroupByDateGranularity.NONE),
-    ).toBe('items');
+    ).toBe('item');
   });
 });

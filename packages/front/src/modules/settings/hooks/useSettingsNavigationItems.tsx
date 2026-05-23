@@ -13,7 +13,6 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { t } from '~/utils/i18n/badesI18n';
 import { isNonEmptyString } from '@sniptt/guards';
 import {
-  // IconApps, // TODO: Re-enable when integrations page is ready
   IconAt,
   IconCalendarEvent,
   IconColorSwatch,
@@ -138,18 +137,13 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           isHidden:
             !isBillingEnabled || !permissionMap[PermissionFlagType.WORKSPACE],
         },
-        // TODO: Re-enable when integrations page is ready
-        // {
-        //   label: t`Integrations`,
-        //   path: SettingsPath.Integrations,
-        //   Icon: IconApps,
-        //   isHidden: !permissionMap[PermissionFlagType.API_KEYS_AND_WEBHOOKS],
-        // },
         {
-          // Sistem aplikasi diposisikan sebagai kapabilitas internal tim Bades,
-          // bukan workflow self-service untuk perangkat desa. Disembunyikan dari
-          // navigasi pengguna utama; route tetap ada untuk tim internal.
-          label: t`Apps`,
+          // Integrasi API/webhook bukan workflow administrasi desa, melainkan
+          // kapabilitas internal tim Bades. Tetap disembunyikan dari navigasi
+          // pengguna utama sampai arah integrasi desa-spesifik disiapkan.
+          // Sistem aplikasi (Apps) juga diposisikan sebagai kapabilitas internal
+          // tim Bades, bukan self-service untuk perangkat desa.
+          label: t`Aplikasi`,
           path: SettingsPath.Applications,
           Icon: IconPlug,
           isHidden: true,

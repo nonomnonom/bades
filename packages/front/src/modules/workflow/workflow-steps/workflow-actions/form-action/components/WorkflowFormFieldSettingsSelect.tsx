@@ -102,7 +102,7 @@ export const WorkflowFormFieldSettingsSelect = ({
         </FormFieldInputContainer>
       </StyledRowContainer>
       <FormFieldInputContainer>
-        <InputLabel>{"Bidang"}</InputLabel>
+        <InputLabel>{'Bidang'}</InputLabel>
         <FormSelectFieldInput
           onChange={(newSelectFieldId: string | null) => {
             if (newSelectFieldId === null) {

@@ -210,14 +210,14 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionValueInput =
         <>
           <StyledContainer>
             <StyledReadOnlyInput id={tooltipId}>
-              <StyledMeText>{"Saya"}</StyledMeText>
+              <StyledMeText>{'Saya'}</StyledMeText>
               {isDefined(workspaceMemberFieldLabel) && (
                 <StyledFieldLabel>{` / ${workspaceMemberFieldLabel}`}</StyledFieldLabel>
               )}
             </StyledReadOnlyInput>
             <StyledIconContainer
               onClick={handleResetToStaticValue}
-              aria-label={"Reset to static value"}
+              aria-label={'Reset to static value'}
             >
               <IconEraser size={theme.icon.size.sm} />
             </StyledIconContainer>

@@ -126,7 +126,7 @@ const percentage = (part: number, whole: number): number => {
 
 export const displayedExportProgress = (progress?: ExportProgress): string => {
   if (isUndefinedOrNull(progress?.exportedRecordCount)) {
-    return "Ekspor";
+    return 'Ekspor';
   }
 
   if (
@@ -137,11 +137,11 @@ export const displayedExportProgress = (progress?: ExportProgress): string => {
       progress.exportedRecordCount,
       progress.totalRecordCount,
     );
-    return t`Export (${percentageValue}%)`;
+    return t`Ekspor (${percentageValue}%)`;
   }
 
   const exportedCount = progress.exportedRecordCount;
-  return t`Export (${exportedCount})`;
+  return t`Ekspor (${exportedCount})`;
 };
 
 const downloader = (mimeType: string, generator: GenerateExport) => {

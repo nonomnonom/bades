@@ -11,7 +11,7 @@ describe('getChartLimitMessage', () => {
     });
 
     expect(result).toContain('Data tidak ditampilkan');
-    expect(result).toContain('days');
+    expect(result).toContain('hari');
     expect(result).toContain('per grafik');
   });
 
@@ -52,7 +52,7 @@ describe('getChartLimitMessage', () => {
       primaryAxisDateGranularity: ObjectRecordGroupByDateGranularity.WEEK,
     });
 
-    expect(result).toContain('weeks');
+    expect(result).toContain('minggu');
   });
 
   it('returns slices message when isPrimaryAxisDate is true but granularity is null', () => {

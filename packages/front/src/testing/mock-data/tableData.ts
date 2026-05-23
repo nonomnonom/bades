@@ -13,13 +13,13 @@ export const mockedTableMetadata: TableMetadata<MockedTableType> = {
       fieldName: 'labelPlural',
       fieldType: 'string',
       align: 'left',
-      fieldLabel: "Nama",
+      fieldLabel: 'Nama',
     },
     {
       fieldName: 'fieldsCount',
       fieldType: 'number',
       align: 'right',
-      fieldLabel: "Fields Count",
+      fieldLabel: 'Fields Count',
     },
   ],
 };

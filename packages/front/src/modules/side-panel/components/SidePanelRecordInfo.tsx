@@ -159,11 +159,7 @@ export const SidePanelRecordInfo = ({
           titleContent
         )
       }
-      label={
-        beautifiedCreatedAt ? (
-          `Created ${beautifiedCreatedAt}`
-        ) : undefined
-      }
+      label={beautifiedCreatedAt ? `Created ${beautifiedCreatedAt}` : undefined}
     />
   );
 };

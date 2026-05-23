@@ -64,7 +64,7 @@ export const SettingsAdminQueueDetail = () => {
           href: getSettingsPath(SettingsPath.AdminPanelHealthStatus),
         },
         {
-          children: "Worker",
+          children: 'Worker',
           href: getSettingsPath(SettingsPath.AdminPanelIndicatorHealthStatus, {
             indicatorId: 'worker',
           }),
