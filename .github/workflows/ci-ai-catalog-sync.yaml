@@ -58,10 +58,3 @@ jobs:
           base: main
           labels: ai, automated
           delete-branch: true
-
-      - name: Trigger automerge
-        if: steps.changes.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.BADES_INFRA_TOKEN }}
-        run: |
-          gh api repos/badesid/bades-infra/dispatches -f event_type=automated-pr-ready

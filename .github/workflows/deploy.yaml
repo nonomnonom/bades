@@ -3,11 +3,18 @@ name: Deploy to AWS App Runner
 # ─────────────────────────────────────────────────────────────────────────────
 # STAGING  — push ke branch `staging` atau merge ke `main` (selalu latest)
 # ─────────────────────────────────────────────────────────────────────────────
+#─────────────────────────────────────────────────────────────────────────────
+# - push ke `staging` / `main`  → staging deploy
+# - push tag `v*.*.*`           → production deploy
+# - workflow_dispatch manual    → pilih environment
+# ─────────────────────────────────────────────────────────────────────────────
 on:
   push:
     branches:
       - staging
       - main
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
     inputs:
       environment:
@@ -17,14 +24,6 @@ on:
         options:
           - staging
           - production
-
-#─────────────────────────────────────────────────────────────────────────────
-# production deploy juga bisa dipicu dari release tag (v*.*.*)
-# ─────────────────────────────────────────────────────────────────────────────
-on:
-  push:
-    tags:
-      - 'v*.*.*'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
