@@ -68,3 +68,28 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 - NestJS, BullMQ, PostgreSQL, Redis
 - React, Jotai, Linaria
 
+## Deploy ke AWS App Runner
+
+Panduan lengkap ada di [`.github/DEPLOY.md`](./.github/DEPLOY.md).
+Ringkas, hanya 3 langkah untuk first deploy:
+
+1. **Setup AWS** — jalankan sekali dari mesin operator yang sudah
+   `aws configure`:
+   ```bash
+   AWS_REGION=ap-southeast-1 bash scripts/setup-aws-bades.sh
+   ```
+   Script ini membuat ECR repo `bades-staging` + `bades`, IAM policy
+   `BadesDeployPolicy`, IAM user `bades-ci`, dan mencetak access key.
+2. **Isi GitHub Secrets** — di Settings → Environments (`staging` dan
+   `production`), isi 7 secret: `AWS_ACCESS_KEY_ID`,
+   `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`,
+   `AWS_ECR_STAGING_REPOSITORY_URI`,
+   `AWS_ECR_PRODUCTION_REPOSITORY_URI`,
+   `AWS_APPRUNNER_STAGING_SERVICE_ARN`,
+   `AWS_APPRUNNER_PRODUCTION_SERVICE_ARN`. Untuk env var App Runner,
+   pakai [`packages/server/.env.staging.example`](./packages/server/.env.staging.example)
+   dan [`packages/server/.env.production.example`](./packages/server/.env.production.example)
+   sebagai checklist.
+3. **Push** — `git push origin staging` untuk deploy staging,
+   `git tag v1.0.0 && git push origin v1.0.0` untuk produksi.
+
