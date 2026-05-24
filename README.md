@@ -68,34 +68,40 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 - NestJS, BullMQ, PostgreSQL, Redis
 - React, Jotai, Linaria
 
-## Deploy ke AWS ECS Fargate (Jakarta)
+## Deploy via Docker
 
-Bades dideploy ke **AWS ECS Fargate region `ap-southeast-3` (Jakarta)**
-di belakang Application Load Balancer dengan host-based routing
-(`staging.bades.id` dan `app.bades.id`). Panduan lengkap di
-[`.github/DEPLOY.md`](./.github/DEPLOY.md). Ringkas, 3 langkah untuk first
-deploy:
+Stack runtime Bades: `packages/docker/`. Berisi `docker-compose.yml`
+(server + worker + Postgres + Redis), `docker-compose.dev.yml` (Postgres
++ Redis only untuk dev lokal), `Makefile`, dan `bades/Dockerfile`.
 
-1. **Setup AWS** — jalankan sekali dari mesin operator yang sudah
-   `aws configure`:
-   ```bash
-   AWS_REGION=ap-southeast-3 bash scripts/setup-aws-bades.sh
-   ```
-   Script idempotent ini membuat VPC + subnets + security groups, ECR
-   repo `bades`, ALB + 2 target group + listener, IAM roles
-   (`ecsTaskExecutionRole`, `ecsTaskRole`), IAM user `bades-ci`, ECS
-   cluster `bades-cluster`, 2 ECS service (`bades-staging-service`
-   desired=1, `bades-production-service` desired=2), template task
-   definition di `scripts/aws/`, lalu mencetak access key.
-2. **Isi GitHub Secrets + AWS Secrets Manager** — di Settings →
-   Environments (`staging` dan `production`), isi 9+ secret
-   (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`,
-   `AWS_ECR_REPOSITORY_URI`, `AWS_ECS_*`, `AWS_ALB_DNS`). Untuk env var
-   sensitif (DB URL, APP_SECRET, Midtrans, OpenRouter), buat entry di
-   AWS Secrets Manager prefix `bades/<env>/<KEY>`. Pakai
-   [`packages/server/.env.staging.example`](./packages/server/.env.staging.example)
-   dan [`packages/server/.env.production.example`](./packages/server/.env.production.example)
-   sebagai checklist.
-3. **Push** — `git push origin staging` untuk deploy staging,
-   `git tag v1.0.0 && git push origin v1.0.0` untuk produksi.
+### Lokal — build & run image produksi
+
+```bash
+# Bangun image
+make -C packages/docker prod-build
+
+# Run stack lengkap (server + worker + db + redis)
+cd packages/docker
+cp .env.example .env  # isi APP_SECRET, ENCRYPTION_KEY, dll
+docker compose up -d
+
+# Cek health
+curl http://localhost:3000/healthz
+```
+
+### Lokal — hanya Postgres + Redis (development against source)
+
+```bash
+docker compose -f packages/docker/docker-compose.dev.yml up -d
+# lalu jalankan server + front dari source seperti biasa:
+yarn start
+```
+
+### Production deploy
+
+Pakai image yang sama (build dari Dockerfile target `bades`) ke host
+Docker apapun. Setup untuk single-server production akan ditambahkan
+saat infrastruktur final dipilih.
+
+Panduan operasional internal: [`.github/DEPLOY.md`](./.github/DEPLOY.md).
 
