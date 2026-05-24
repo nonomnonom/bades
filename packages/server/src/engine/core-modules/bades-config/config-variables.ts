@@ -1062,6 +1062,16 @@ export class ConfigVariables {
   IS_CONFIG_VARIABLES_IN_DB_ENABLED = true;
 
   @ConfigVariablesMetadata({
+    group: ConfigVariablesGroup.SERVER_CONFIG,
+    description:
+      'Bades managed-hosting mode. Saat true: nonaktifkan auto-grant server admin ke user signup pertama (pattern Twenty self-hosted), sembunyikan surface admin/billing/dev dari workspace user, dan asumsikan tim Bades adalah operator infrastruktur tunggal. Server admin disetel manual via DB seed oleh tim Bades.',
+    isEnvOnly: true,
+    type: ConfigVariableType.BOOLEAN,
+  })
+  @IsOptional()
+  IS_MANAGED_HOSTING = false;
+
+  @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.TOKENS_DURATION,
     description: 'Time-to-live for cache storage in seconds',
     type: ConfigVariableType.NUMBER,

@@ -497,7 +497,16 @@ export class SignInUpService {
 
     await this.assertWorkspaceCreationAllowed(userData);
 
-    const shouldGrantServerAdmin = !(await this.hasServerAdmin());
+    // Bades managed hosting: jangan auto-grant server admin ke user signup
+    // publik. Server admin (tim Bades internal) di-seed terpisah via DB.
+    // Pattern Twenty self-hosted (first user = admin) tidak cocok untuk
+    // multi-tenant managed SaaS.
+    const isManagedHosting = this.badesConfigService.get(
+      'IS_MANAGED_HOSTING',
+    ) as boolean;
+    const shouldGrantServerAdmin = isManagedHosting
+      ? false
+      : !(await this.hasServerAdmin());
 
     const isWorkEmailFound = isWorkEmail(email);
 
@@ -631,7 +640,16 @@ export class SignInUpService {
 
     await this.assertSignUpEnabled();
 
-    const shouldGrantServerAdmin = !(await this.hasServerAdmin());
+    // Bades managed hosting: jangan auto-grant server admin ke user signup
+    // publik. Server admin (tim Bades internal) di-seed terpisah via DB.
+    // Pattern Twenty self-hosted (first user = admin) tidak cocok untuk
+    // multi-tenant managed SaaS.
+    const isManagedHosting = this.badesConfigService.get(
+      'IS_MANAGED_HOSTING',
+    ) as boolean;
+    const shouldGrantServerAdmin = isManagedHosting
+      ? false
+      : !(await this.hasServerAdmin());
 
     return this.saveNewUser(
       await this.computePartialUserFromUserPayload(newUserParams, authParams),
