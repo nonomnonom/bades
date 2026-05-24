@@ -18,7 +18,7 @@ export const DuplicateDashboardSingleRecordCommand = () => {
   const { t } = useLingui();
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to duplicate dashboard');
+    throw new Error('ID Rekaman diperlukan untuk menggandakan dasbor');
   }
 
   const handleExecute = async () => {

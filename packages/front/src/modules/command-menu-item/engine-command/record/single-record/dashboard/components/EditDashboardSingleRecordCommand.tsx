@@ -9,7 +9,7 @@ export const EditDashboardSingleRecordCommand = () => {
   const selectedRecord = selectedRecords[0];
 
   if (!isDefined(selectedRecord)) {
-    throw new Error('Selected record is required to edit dashboard');
+    throw new Error('Rekaman terpilih diperlukan untuk mengedit dasbor');
   }
 
   const pageLayoutId = selectedRecord.pageLayoutId;

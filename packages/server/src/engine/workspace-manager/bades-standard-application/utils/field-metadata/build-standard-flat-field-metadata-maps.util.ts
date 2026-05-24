@@ -11,7 +11,6 @@ import { buildCalendarChannelEventAssociationStandardFlatFieldMetadatas } from '
 import { buildCalendarChannelStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-calendar-channel-standard-flat-field-metadata.util';
 import { buildCalendarEventParticipantStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-calendar-event-participant-standard-flat-field-metadata.util';
 import { buildCalendarEventStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-calendar-event-standard-flat-field-metadata.util';
-import { buildCompanyStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-company-standard-flat-field-metadata.util';
 import { buildConnectedAccountStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-connected-account-standard-flat-field-metadata.util';
 import { buildDashboardStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-dashboard-standard-flat-field-metadata.util';
 import { buildMessageChannelMessageAssociationMessageFolderStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-message-channel-message-association-message-folder-standard-flat-field-metadata.util';
@@ -23,8 +22,6 @@ import { buildMessageStandardFlatFieldMetadatas } from 'src/engine/workspace-man
 import { buildMessageThreadStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-message-thread-standard-flat-field-metadata.util';
 import { buildNoteStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-note-standard-flat-field-metadata.util';
 import { buildNoteTargetStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-note-target-standard-flat-field-metadata.util';
-import { buildOpportunityStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-opportunity-standard-flat-field-metadata.util';
-import { buildPersonStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-person-standard-flat-field-metadata.util';
 import { buildTaskStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-task-standard-flat-field-metadata.util';
 import { buildTaskTargetStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-task-target-standard-flat-field-metadata.util';
 import { buildTimelineActivityStandardFlatFieldMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/field-metadata/compute-timeline-activity-standard-flat-field-metadata.util';
@@ -48,7 +45,6 @@ const STANDARD_FLAT_FIELD_METADATA_BUILDERS_BY_OBJECT_NAME = {
   calendarEventParticipant:
     buildCalendarEventParticipantStandardFlatFieldMetadatas,
   calendarEvent: buildCalendarEventStandardFlatFieldMetadatas,
-  company: buildCompanyStandardFlatFieldMetadatas,
   connectedAccount: buildConnectedAccountStandardFlatFieldMetadatas,
   dashboard: buildDashboardStandardFlatFieldMetadatas,
   message: buildMessageStandardFlatFieldMetadatas,
@@ -62,8 +58,6 @@ const STANDARD_FLAT_FIELD_METADATA_BUILDERS_BY_OBJECT_NAME = {
   messageThread: buildMessageThreadStandardFlatFieldMetadatas,
   note: buildNoteStandardFlatFieldMetadatas,
   noteTarget: buildNoteTargetStandardFlatFieldMetadatas,
-  opportunity: buildOpportunityStandardFlatFieldMetadatas,
-  person: buildPersonStandardFlatFieldMetadatas,
   task: buildTaskStandardFlatFieldMetadatas,
   taskTarget: buildTaskTargetStandardFlatFieldMetadatas,
   timelineActivity: buildTimelineActivityStandardFlatFieldMetadatas,

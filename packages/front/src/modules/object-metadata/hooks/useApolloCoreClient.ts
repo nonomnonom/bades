@@ -11,7 +11,7 @@ export const useApolloCoreClient = () => {
   }
 
   if (!apolloCoreClient) {
-    throw new Error('ApolloCoreClient not found');
+    throw new Error('ApolloCoreClient tidak ditemukan');
   }
 
   return apolloCoreClient;

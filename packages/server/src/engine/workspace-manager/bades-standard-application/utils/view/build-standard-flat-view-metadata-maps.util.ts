@@ -9,7 +9,6 @@ import { computeStandardCalendarChannelViews } from 'src/engine/workspace-manage
 import { computeStandardCalendarChannelEventAssociationViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-calendar-channel-event-association-views.util';
 import { computeStandardCalendarEventParticipantViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-calendar-event-participant-views.util';
 import { computeStandardCalendarEventViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-calendar-event-views.util';
-import { computeStandardCompanyViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-company-views.util';
 import { computeStandardConnectedAccountViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-connected-account-views.util';
 import { computeStandardDashboardViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-dashboard-views.util';
 import { computeStandardMessageChannelMessageAssociationMessageFolderViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-message-channel-message-association-message-folder-views.util';
@@ -21,8 +20,6 @@ import { computeStandardMessageThreadViews } from 'src/engine/workspace-manager/
 import { computeStandardMessageViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-message-views.util';
 import { computeStandardNoteTargetViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-note-target-views.util';
 import { computeStandardNoteViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-note-views.util';
-import { computeStandardOpportunityViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-opportunity-views.util';
-import { computeStandardPersonViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-person-views.util';
 import { computeStandardTaskTargetViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-task-target-views.util';
 import { computeStandardTaskViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-task-views.util';
 import { computeStandardTimelineActivityViews } from 'src/engine/workspace-manager/bades-standard-application/utils/view/compute-standard-timeline-activity-views.util';
@@ -45,7 +42,6 @@ const STANDARD_FLAT_VIEW_METADATA_BUILDERS_BY_OBJECT_NAME = {
     computeStandardCalendarChannelEventAssociationViews,
   calendarEvent: computeStandardCalendarEventViews,
   calendarEventParticipant: computeStandardCalendarEventParticipantViews,
-  company: computeStandardCompanyViews,
   connectedAccount: computeStandardConnectedAccountViews,
   dashboard: computeStandardDashboardViews,
   message: computeStandardMessageViews,
@@ -59,8 +55,6 @@ const STANDARD_FLAT_VIEW_METADATA_BUILDERS_BY_OBJECT_NAME = {
   messageThread: computeStandardMessageThreadViews,
   note: computeStandardNoteViews,
   noteTarget: computeStandardNoteTargetViews,
-  opportunity: computeStandardOpportunityViews,
-  person: computeStandardPersonViews,
   task: computeStandardTaskViews,
   taskTarget: computeStandardTaskTargetViews,
   timelineActivity: computeStandardTimelineActivityViews,

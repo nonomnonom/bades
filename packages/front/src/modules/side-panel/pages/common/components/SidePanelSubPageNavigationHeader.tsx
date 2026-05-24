@@ -34,7 +34,7 @@ export const SidePanelSubPageNavigationHeader = ({
         Icon={IconChevronLeft}
         variant="tertiary"
         size="small"
-        ariaLabel={t`Kembali`}
+        ariaLabel={'Kembali'}
       />
       <StyledText>{title}</StyledText>
     </StyledContainer>

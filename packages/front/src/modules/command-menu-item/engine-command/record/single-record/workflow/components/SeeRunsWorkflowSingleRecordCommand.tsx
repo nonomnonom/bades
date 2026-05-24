@@ -14,7 +14,7 @@ export const SeeRunsWorkflowSingleRecordCommand = () => {
   );
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to see runs workflow');
+    throw new Error('ID Rekaman diperlukan untuk melihat jalankan alur kerja');
   }
 
   return (

@@ -72,12 +72,9 @@ export const CalendarEventParticipantsResponseStatusField = ({
     No: <IconX stroke={theme.icon.stroke.sm} />,
   }[responseStatus];
 
-  // We want to display external participants first
+  // Tampilkan participant non-workspaceMember (eksternal) lebih dulu.
   const orderedParticipants = [
-    ...participants.filter((participant) => participant.person),
-    ...participants.filter(
-      (participant) => !participant.person && !participant.workspaceMember,
-    ),
+    ...participants.filter((participant) => !participant.workspaceMember),
     ...participants.filter((participant) => participant.workspaceMember),
   ];
 

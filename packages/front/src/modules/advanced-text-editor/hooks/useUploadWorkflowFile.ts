@@ -33,7 +33,7 @@ export const useUploadWorkflowFile = () => {
       });
       const uploadedFile = result?.data?.uploadWorkflowFile;
       if (!isDefined(uploadedFile)) {
-        throw new Error('File upload failed');
+        throw new Error('Unggah berkas gagal');
       }
       const workflowFile: WorkflowAttachment = {
         id: uploadedFile.id,

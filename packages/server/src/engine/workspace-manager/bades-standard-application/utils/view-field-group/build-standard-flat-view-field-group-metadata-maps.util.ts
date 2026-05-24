@@ -7,7 +7,6 @@ import { computeStandardBlocklistViewFieldGroups } from 'src/engine/workspace-ma
 import { computeStandardCalendarChannelViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-calendar-channel-view-field-groups.util';
 import { computeStandardCalendarChannelEventAssociationViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-calendar-channel-event-association-view-field-groups.util';
 import { computeStandardCalendarEventParticipantViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-calendar-event-participant-view-field-groups.util';
-import { computeStandardCompanyViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-company-view-field-groups.util';
 import { computeStandardConnectedAccountViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-connected-account-view-field-groups.util';
 import { computeStandardMessageChannelViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-message-channel-view-field-groups.util';
 import { computeStandardMessageChannelMessageAssociationViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-message-channel-message-association-view-field-groups.util';
@@ -15,8 +14,6 @@ import { computeStandardMessageChannelMessageAssociationMessageFolderViewFieldGr
 import { computeStandardMessageFolderViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-message-folder-view-field-groups.util';
 import { computeStandardMessageParticipantViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-message-participant-view-field-groups.util';
 import { computeStandardNoteViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-note-view-field-groups.util';
-import { computeStandardOpportunityViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-opportunity-view-field-groups.util';
-import { computeStandardPersonViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-person-view-field-groups.util';
 import { computeStandardTaskViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-task-view-field-groups.util';
 import { computeStandardWorkflowAutomatedTriggerViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-workflow-automated-trigger-view-field-groups.util';
 import { computeStandardWorkflowRunViewFieldGroups } from 'src/engine/workspace-manager/bades-standard-application/utils/view-field-group/compute-standard-workflow-run-view-field-groups.util';
@@ -34,7 +31,6 @@ const STANDARD_FLAT_VIEW_FIELD_GROUP_METADATA_BUILDERS_BY_OBJECT_NAME = {
     computeStandardCalendarChannelEventAssociationViewFieldGroups,
   calendarEventParticipant:
     computeStandardCalendarEventParticipantViewFieldGroups,
-  company: computeStandardCompanyViewFieldGroups,
   connectedAccount: computeStandardConnectedAccountViewFieldGroups,
   messageChannel: computeStandardMessageChannelViewFieldGroups,
   messageChannelMessageAssociation:
@@ -44,8 +40,6 @@ const STANDARD_FLAT_VIEW_FIELD_GROUP_METADATA_BUILDERS_BY_OBJECT_NAME = {
   messageFolder: computeStandardMessageFolderViewFieldGroups,
   messageParticipant: computeStandardMessageParticipantViewFieldGroups,
   note: computeStandardNoteViewFieldGroups,
-  opportunity: computeStandardOpportunityViewFieldGroups,
-  person: computeStandardPersonViewFieldGroups,
   task: computeStandardTaskViewFieldGroups,
   workflowAutomatedTrigger:
     computeStandardWorkflowAutomatedTriggerViewFieldGroups,

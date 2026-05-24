@@ -31,12 +31,10 @@ import { MessagingRelaunchFailedMessageChannelsCronJob } from 'src/modules/messa
 import { MessagingGmailDriverModule } from 'src/modules/messaging/message-import-manager/drivers/gmail/messaging-gmail-driver.module';
 import { MessagingIMAPDriverModule } from 'src/modules/messaging/message-import-manager/drivers/imap/messaging-imap-driver.module';
 import { MessagingInboundEmailDriverModule } from 'src/modules/messaging/message-import-manager/drivers/inbound-email/messaging-inbound-email-driver.module';
-import { InboundEmailImportService } from 'src/modules/messaging/message-import-manager/drivers/inbound-email/services/inbound-email-import.service';
 import { MessagingMicrosoftDriverModule } from 'src/modules/messaging/message-import-manager/drivers/microsoft/messaging-microsoft-driver.module';
 import { MessagingSmtpDriverModule } from 'src/modules/messaging/message-import-manager/drivers/smtp/messaging-smtp-driver.module';
 import { MessagingAddSingleMessageToCacheForImportJob } from 'src/modules/messaging/message-import-manager/jobs/messaging-add-single-message-to-cache-for-import.job';
 import { MessagingCleanCacheJob } from 'src/modules/messaging/message-import-manager/jobs/messaging-clean-cache';
-import { MessagingInboundEmailImportJob } from 'src/modules/messaging/message-import-manager/jobs/messaging-inbound-email-import.job';
 import { MessagingMessageListFetchJob } from 'src/modules/messaging/message-import-manager/jobs/messaging-message-list-fetch.job';
 import { MessagingMessagesImportJob } from 'src/modules/messaging/message-import-manager/jobs/messaging-messages-import.job';
 import { MessagingOngoingStaleJob } from 'src/modules/messaging/message-import-manager/jobs/messaging-ongoing-stale.job';
@@ -54,7 +52,6 @@ import { MessagingMessageService } from 'src/modules/messaging/message-import-ma
 import { MessagingMessagesImportService } from 'src/modules/messaging/message-import-manager/services/messaging-messages-import.service';
 import { MessagingProcessFolderActionsService } from 'src/modules/messaging/message-import-manager/services/messaging-process-folder-actions.service';
 import { MessagingProcessGroupEmailActionsService } from 'src/modules/messaging/message-import-manager/services/messaging-process-group-email-actions.service';
-import { MessagingSaveMessagesAndEnqueueContactCreationService } from 'src/modules/messaging/message-import-manager/services/messaging-save-messages-and-enqueue-contact-creation.service';
 import { MessagingWebhooksModule } from 'src/engine/core-modules/messaging-webhooks/messaging-webhooks.module';
 import { MessageParticipantManagerModule } from 'src/modules/messaging/message-participant-manager/message-participant-manager.module';
 import { MessagingMonitoringModule } from 'src/modules/messaging/monitoring/messaging-monitoring.module';
@@ -105,12 +102,10 @@ import { MessagingMonitoringModule } from 'src/modules/messaging/monitoring/mess
     MessagingRelaunchFailedMessageChannelsCronJob,
     MessagingAddSingleMessageToCacheForImportJob,
     MessagingCleanCacheJob,
-    MessagingInboundEmailImportJob,
     MessagingMessageService,
     MessagingMessageFolderAssociationService,
     MessagingMessageListFetchService,
     MessagingMessagesImportService,
-    MessagingSaveMessagesAndEnqueueContactCreationService,
     MessagingGetMessageListService,
     MessagingGetMessagesService,
     MessageImportExceptionHandlerService,
@@ -120,7 +115,6 @@ import { MessagingMonitoringModule } from 'src/modules/messaging/monitoring/mess
     MessagingProcessGroupEmailActionsService,
     MessagingDeleteFolderMessagesService,
     MessagingDeleteGroupEmailMessagesService,
-    InboundEmailImportService,
   ],
   exports: [
     MessagingAccountAuthenticationService,
@@ -129,8 +123,6 @@ import { MessagingMonitoringModule } from 'src/modules/messaging/monitoring/mess
     MessagingOngoingStaleCronCommand,
     MessagingRelaunchFailedMessageChannelsCronCommand,
     MessagingProcessGroupEmailActionsService,
-    InboundEmailImportService,
-    MessagingSaveMessagesAndEnqueueContactCreationService,
   ],
 })
 export class MessagingImportManagerModule {}

@@ -5,7 +5,7 @@ export const useFileUpload = () => {
   const context = useContext(FileUploadContext);
 
   if (!context) {
-    throw new Error('useFileUpload must be used within a FileUploadProvider');
+    throw new Error('useFileUpload harus digunakan dalam FileUploadProvider');
   }
 
   return context;

@@ -20,7 +20,7 @@ export const DuplicateWorkflowSingleRecordCommand = () => {
   const { t } = useLingui();
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to duplicate workflow');
+    throw new Error('ID Rekaman diperlukan untuk menggandakan alur kerja');
   }
 
   const handleExecute = async () => {

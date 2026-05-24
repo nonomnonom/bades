@@ -27,7 +27,7 @@ export const useRecordCalendarMonthDaysRange = (
   const dateLocale = useAtomStateValue(dateLocaleState);
 
   if (!currentWorkspaceMember) {
-    throw new Error('Current workspace member not found');
+    throw new Error('Anggota ruang kerja saat ini tidak ditemukan');
   }
 
   const weekStartsOnDayIndex = (

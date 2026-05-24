@@ -14,7 +14,7 @@ export const DeactivateWorkflowSingleRecordCommand = () => {
   );
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to deactivate workflow');
+    throw new Error('ID Rekaman diperlukan untuk menonaktifkan alur kerja');
   }
 
   const handleExecute = () => {

@@ -33,44 +33,6 @@ export const computeStandardTimelineActivityViewFields = (
       },
     }),
     // All morph targets are included so the surviving field after dedup always has a viewField
-    allTimelineActivitiesTargetPerson: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'timelineActivity',
-      context: {
-        viewName: 'allTimelineActivities',
-        viewFieldName: 'targetPerson',
-        fieldName: 'targetPerson',
-        position: 2,
-        isVisible: true,
-        size: 150,
-      },
-    }),
-    allTimelineActivitiesTargetCompany: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'timelineActivity',
-      context: {
-        viewName: 'allTimelineActivities',
-        viewFieldName: 'targetCompany',
-        fieldName: 'targetCompany',
-        position: 3,
-        isVisible: true,
-        size: 150,
-      },
-    }),
-    allTimelineActivitiesTargetOpportunity: createStandardViewFieldFlatMetadata(
-      {
-        ...args,
-        objectName: 'timelineActivity',
-        context: {
-          viewName: 'allTimelineActivities',
-          viewFieldName: 'targetOpportunity',
-          fieldName: 'targetOpportunity',
-          position: 4,
-          isVisible: true,
-          size: 150,
-        },
-      },
-    ),
     allTimelineActivitiesTargetTask: createStandardViewFieldFlatMetadata({
       ...args,
       objectName: 'timelineActivity',

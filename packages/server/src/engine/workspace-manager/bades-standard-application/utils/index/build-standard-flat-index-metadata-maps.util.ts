@@ -8,7 +8,6 @@ import { buildBlocklistStandardFlatIndexMetadatas } from 'src/engine/workspace-m
 import { buildCalendarChannelEventAssociationStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-calendar-channel-event-association-standard-flat-index-metadata.util';
 import { buildCalendarChannelStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-calendar-channel-standard-flat-index-metadata.util';
 import { buildCalendarEventParticipantStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-calendar-event-participant-standard-flat-index-metadata.util';
-import { buildCompanyStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-company-standard-flat-index-metadata.util';
 import { buildConnectedAccountStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-connected-account-standard-flat-index-metadata.util';
 import { buildDashboardStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-dashboard-standard-flat-index-metadata.util';
 import { buildMessageChannelMessageAssociationMessageFolderStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-message-channel-message-association-message-folder-standard-flat-index-metadata.util';
@@ -19,8 +18,6 @@ import { buildMessageParticipantStandardFlatIndexMetadatas } from 'src/engine/wo
 import { buildMessageStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-message-standard-flat-index-metadata.util';
 import { buildNoteStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-note-standard-flat-index-metadata.util';
 import { buildNoteTargetStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-note-target-standard-flat-index-metadata.util';
-import { buildOpportunityStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-opportunity-standard-flat-index-metadata.util';
-import { buildPersonStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-person-standard-flat-index-metadata.util';
 import { buildTaskStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-task-standard-flat-index-metadata.util';
 import { buildTaskTargetStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-task-target-standard-flat-index-metadata.util';
 import { buildTimelineActivityStandardFlatIndexMetadatas } from 'src/engine/workspace-manager/bades-standard-application/utils/index/compute-timeline-activity-standard-flat-index-metadata.util';
@@ -43,7 +40,6 @@ const STANDARD_FLAT_INDEX_METADATA_BUILDERS_BY_OBJECT_NAME = {
   calendarChannel: buildCalendarChannelStandardFlatIndexMetadatas,
   calendarEventParticipant:
     buildCalendarEventParticipantStandardFlatIndexMetadatas,
-  company: buildCompanyStandardFlatIndexMetadatas,
   connectedAccount: buildConnectedAccountStandardFlatIndexMetadatas,
   dashboard: buildDashboardStandardFlatIndexMetadatas,
   message: buildMessageStandardFlatIndexMetadatas,
@@ -56,8 +52,6 @@ const STANDARD_FLAT_INDEX_METADATA_BUILDERS_BY_OBJECT_NAME = {
   messageParticipant: buildMessageParticipantStandardFlatIndexMetadatas,
   note: buildNoteStandardFlatIndexMetadatas,
   noteTarget: buildNoteTargetStandardFlatIndexMetadatas,
-  opportunity: buildOpportunityStandardFlatIndexMetadatas,
-  person: buildPersonStandardFlatIndexMetadatas,
   task: buildTaskStandardFlatIndexMetadatas,
   taskTarget: buildTaskTargetStandardFlatIndexMetadatas,
   timelineActivity: buildTimelineActivityStandardFlatIndexMetadatas,

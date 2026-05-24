@@ -78,7 +78,7 @@ export const SettingsAdminWorkspaceContent = ({
       value: activeWorkspace?.id ? (
         <LinkChip
           label={activeWorkspace?.name ?? ''}
-          emptyLabel=t`Tanpa judul`
+          emptyLabel="Tanpa judul"
           to={getSettingsPath(SettingsPath.AdminPanelWorkspaceDetail, {
             workspaceId: activeWorkspace.id,
           })}

@@ -15,7 +15,7 @@ export const TestWorkflowSingleRecordCommand = () => {
   );
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to test workflow');
+    throw new Error('ID Rekaman diperlukan untuk menguji alur kerja');
   }
 
   const handleExecute = () => {

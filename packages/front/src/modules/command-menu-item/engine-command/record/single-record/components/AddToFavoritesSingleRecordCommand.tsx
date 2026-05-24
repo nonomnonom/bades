@@ -14,7 +14,7 @@ export const AddToFavoritesSingleRecordCommand = () => {
   const selectedRecord = selectedRecords[0];
 
   if (!isDefined(objectMetadataItem)) {
-    throw new Error('Object metadata item is required to add to favorites');
+    throw new Error('Item metadata objek diperlukan untuk menambahkan ke favorit');
   }
 
   const { createManyNavigationMenuItems } = useCreateManyNavigationMenuItems();

@@ -12,7 +12,7 @@ export const CancelDashboardSingleRecordCommand = () => {
   const selectedRecord = selectedRecords[0];
 
   if (!isDefined(selectedRecord)) {
-    throw new Error('Selected record is required to cancel dashboard');
+    throw new Error('Rekaman terpilih diperlukan untuk membatalkan dasbor');
   }
 
   const pageLayoutId = selectedRecord.pageLayoutId;

@@ -14,7 +14,7 @@ export const SeeVersionsWorkflowSingleRecordCommand = () => {
   );
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to see versions workflow');
+    throw new Error('ID Rekaman diperlukan untuk melihat versi alur kerja');
   }
 
   return (

@@ -56,18 +56,6 @@ export const computeStandardMessageParticipantViewFields = (
         size: 150,
       },
     }),
-    allMessageParticipantsPerson: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'messageParticipant',
-      context: {
-        viewName: 'allMessageParticipants',
-        viewFieldName: 'person',
-        fieldName: 'person',
-        position: 4,
-        isVisible: true,
-        size: 150,
-      },
-    }),
     allMessageParticipantsWorkspaceMember: createStandardViewFieldFlatMetadata({
       ...args,
       objectName: 'messageParticipant',
@@ -131,20 +119,6 @@ export const computeStandardMessageParticipantViewFields = (
           viewFieldName: 'displayName',
           fieldName: 'displayName',
           position: 3,
-          isVisible: true,
-          size: 150,
-          viewFieldGroupName: 'general',
-        },
-      }),
-    messageParticipantRecordPageFieldsPerson:
-      createStandardViewFieldFlatMetadata({
-        ...args,
-        objectName: 'messageParticipant',
-        context: {
-          viewName: 'messageParticipantRecordPageFields',
-          viewFieldName: 'person',
-          fieldName: 'person',
-          position: 4,
           isVisible: true,
           size: 150,
           viewFieldGroupName: 'general',

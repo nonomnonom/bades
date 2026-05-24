@@ -14,7 +14,7 @@ export const ActivateWorkflowSingleRecordCommand = () => {
   );
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to activate workflow');
+    throw new Error('ID Rekaman diperlukan untuk mengaktifkan alur kerja');
   }
 
   const handleExecute = () => {

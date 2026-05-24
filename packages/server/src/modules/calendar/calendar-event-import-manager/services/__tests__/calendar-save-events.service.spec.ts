@@ -87,7 +87,6 @@ describe('CalendarSaveEventsService', () => {
 
     service = new CalendarSaveEventsService(
       mockGlobalWorkspaceOrmManager as any,
-      mockCalendarEventParticipantService as any,
     );
   });
 

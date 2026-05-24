@@ -15,7 +15,7 @@ export const AddNodeWorkflowSingleRecordCommand = () => {
     useSidePanelWorkflowNavigation();
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to add node workflow');
+    throw new Error('ID Rekaman diperlukan untuk menambahkan node alur kerja');
   }
 
   const handleExecute = () => {

@@ -43,7 +43,7 @@ export const useUploadEmailAttachment = () => {
       const uploadedFile = result?.data?.uploadEmailAttachmentFile;
 
       if (!isDefined(uploadedFile)) {
-        throw new Error('File upload failed');
+        throw new Error('Unggah berkas gagal');
       }
 
       const attachment: EmailAttachment = {

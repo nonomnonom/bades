@@ -1,6 +1,4 @@
 import { type Task } from '@/activities/types/Task';
-import { type Company } from '@/companies/types/Company';
-import { type Person } from '@/people/types/Person';
 import { type WorkspaceMember } from '~/generated-metadata/graphql';
 
 export type TaskTarget = {
@@ -8,16 +6,8 @@ export type TaskTarget = {
   createdAt: string;
   updatedAt: string;
   deletedAt?: string | null;
-  companyId?: string | null;
-  personId?: string | null;
-  opportunityId?: string | null;
-  targetCompanyId?: string | null;
-  targetPersonId?: string | null;
-  targetOpportunityId?: string | null;
   taskId: string | null;
   task: Pick<Task, 'id' | 'createdAt' | 'updatedAt' | '__typename'>;
-  person?: Pick<Person, 'id' | 'name' | 'avatarUrl' | '__typename'> | null;
-  company?: Pick<Company, 'id' | 'name' | 'domainName' | '__typename'> | null;
   assignee?: Partial<WorkspaceMember>;
   [key: string]: any;
   __typename: 'TaskTarget';

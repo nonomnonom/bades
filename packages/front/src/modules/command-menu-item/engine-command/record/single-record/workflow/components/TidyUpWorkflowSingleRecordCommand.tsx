@@ -20,7 +20,7 @@ export const TidyUpWorkflowSingleRecordCommand = () => {
     useGetUpdatableWorkflowVersionOrThrow(instanceId);
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to tidy up workflow');
+    throw new Error('ID Rekaman diperlukan untuk merapikan alur kerja');
   }
 
   const handleExecute = async () => {

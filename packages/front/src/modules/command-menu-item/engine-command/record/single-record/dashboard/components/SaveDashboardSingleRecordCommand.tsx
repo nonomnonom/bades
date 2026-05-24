@@ -11,7 +11,7 @@ export const SaveDashboardSingleRecordCommand = () => {
   const selectedRecord = selectedRecords[0];
 
   if (!isDefined(selectedRecord)) {
-    throw new Error('Selected record is required to save dashboard');
+    throw new Error('Rekaman terpilih diperlukan untuk menyimpan dasbor');
   }
 
   const pageLayoutId = selectedRecord.pageLayoutId;

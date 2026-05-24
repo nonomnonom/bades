@@ -18,7 +18,7 @@ export const filterOutInvalidTimelineActivities = (
   );
 
   if (!mainObjectMetadataItem || !noteObjectMetadataItem) {
-    throw new Error('Object metadata items not found');
+    throw new Error('Item metadata objek tidak ditemukan');
   }
 
   const fieldMetadataItemMap = new Map(

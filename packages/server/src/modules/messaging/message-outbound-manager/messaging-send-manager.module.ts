@@ -12,7 +12,6 @@ import { ImapSmtpMessageOutboundService } from 'src/modules/messaging/message-ou
 import { MicrosoftMessageOutboundService } from 'src/modules/messaging/message-outbound-manager/drivers/microsoft/services/microsoft-message-outbound.service';
 import { MessagingMessageOutboundService } from 'src/modules/messaging/message-outbound-manager/services/messaging-message-outbound.service';
 import { SendEmailService } from 'src/modules/messaging/message-outbound-manager/services/send-email.service';
-import { SentMessagePersistenceService } from 'src/modules/messaging/message-outbound-manager/services/sent-message-persistence.service';
 
 @Module({
   imports: [
@@ -28,12 +27,10 @@ import { SentMessagePersistenceService } from 'src/modules/messaging/message-out
     ImapSmtpMessageOutboundService,
     MessagingMessageOutboundService,
     SendEmailService,
-    SentMessagePersistenceService,
   ],
   exports: [
     MessagingMessageOutboundService,
     SendEmailService,
-    SentMessagePersistenceService,
   ],
 })
 export class MessagingSendManagerModule {}

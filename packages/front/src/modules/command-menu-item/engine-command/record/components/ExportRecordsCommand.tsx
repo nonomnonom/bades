@@ -74,7 +74,7 @@ export const ExportRecordsCommand = () => {
   );
 
   if (!isDefined(objectMetadataItem)) {
-    throw new Error('Object metadata item is required to export records');
+    throw new Error('Item metadata objek diperlukan untuk mengekspor rekaman');
   }
 
   const recordId = selectedRecords[0]?.id;

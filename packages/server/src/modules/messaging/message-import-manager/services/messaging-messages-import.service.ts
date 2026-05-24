@@ -29,7 +29,6 @@ import {
   MessageImportExceptionHandlerService,
   MessageImportSyncStep,
 } from 'src/modules/messaging/message-import-manager/services/messaging-import-exception-handler.service';
-import { MessagingSaveMessagesAndEnqueueContactCreationService } from 'src/modules/messaging/message-import-manager/services/messaging-save-messages-and-enqueue-contact-creation.service';
 import { filterEmails } from 'src/modules/messaging/message-import-manager/utils/filter-emails.util';
 import { MessagingMonitoringService } from 'src/modules/messaging/monitoring/services/messaging-monitoring.service';
 import { type WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
@@ -43,7 +42,6 @@ export class MessagingMessagesImportService {
     @InjectCacheStorage(CacheStorageNamespace.ModuleMessaging)
     private readonly cacheStorage: CacheStorageService,
     private readonly messageChannelSyncStatusService: MessageChannelSyncStatusService,
-    private readonly saveMessagesAndEnqueueContactCreationService: MessagingSaveMessagesAndEnqueueContactCreationService,
     private readonly messagingMonitoringService: MessagingMonitoringService,
     @InjectObjectMetadataRepository(BlocklistWorkspaceEntity)
     private readonly blocklistRepository: BlocklistRepository,
@@ -221,14 +219,11 @@ export class MessagingMessagesImportService {
             workspace?.isInternalMessagesImportEnabled ?? false,
           );
 
-          if (messagesToSave.length > 0) {
-            await this.saveMessagesAndEnqueueContactCreationService.saveMessagesAndEnqueueContactCreation(
-              messagesToSave,
-              messageChannel,
-              connectedAccountWithFreshTokens,
-              workspaceId,
-            );
-          }
+          // Bades: simpan pesan + enqueue contact creation dihapus karena
+          // tidak ada person/company. Pesan tetap di-fetch dan di-process,
+          // tapi tidak dipersist ke record orang.
+          void messagesToSave;
+          void connectedAccountWithFreshTokens;
 
           if (messageIdsToFetch.length < messagesGetBatchSize) {
             await this.messageChannelSyncStatusService.markAsCompletedAndMarkAsMessagesListFetchPending(

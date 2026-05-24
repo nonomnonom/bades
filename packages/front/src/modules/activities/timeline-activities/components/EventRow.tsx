@@ -132,7 +132,7 @@ export const EventRow = ({
   );
 
   if (isUndefinedOrNull(mainObjectMetadataItem)) {
-    throw new Error('mainObjectMetadataItem is required');
+    throw new Error('mainObjectMetadataItem diperlukan');
   }
 
   return (
