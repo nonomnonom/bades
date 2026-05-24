@@ -18,10 +18,12 @@
 
 # Build output
 **/dist
-**/build
 **/.next
 **/.nx/cache
 **/.nx/workspace-data
+# Top-level build dirs (output) tapi NOT match folder bernama 'build'
+# yang berisi source code (mis. packages/sdk/src/front-component-renderer/build/)
+packages/*/build
 
 # Coverage / test
 **/coverage
