@@ -8,6 +8,11 @@ export const computeStandardOpportunityViewGroups = (
   args: Omit<CreateStandardViewGroupArgs<'opportunity'>, 'context'>,
 ): Record<string, FlatViewGroup> => {
   return {
+    // Bades: fieldValue harus cocok dengan enum stage Bades
+    // (BARU, DIPERIKSA, SIDAK, DITANDATANGANI, SELESAI) di
+    // compute-opportunity-standard-flat-field-metadata.util.ts. Key viewGroup
+    // tetap mempertahankan nama legacy supaya universalIdentifier di
+    // STANDARD_OBJECTS tidak berubah dan tidak memicu migrasi metadata.
     byStageNew: createStandardViewGroupFlatMetadata({
       ...args,
       objectName: 'opportunity',
@@ -15,7 +20,7 @@ export const computeStandardOpportunityViewGroups = (
         viewName: 'byStage',
         viewGroupName: 'new',
         isVisible: true,
-        fieldValue: 'NEW',
+        fieldValue: 'BARU',
         position: 0,
       },
     }),
@@ -26,7 +31,7 @@ export const computeStandardOpportunityViewGroups = (
         viewName: 'byStage',
         viewGroupName: 'screening',
         isVisible: true,
-        fieldValue: 'SCREENING',
+        fieldValue: 'DIPERIKSA',
         position: 1,
       },
     }),
@@ -37,7 +42,7 @@ export const computeStandardOpportunityViewGroups = (
         viewName: 'byStage',
         viewGroupName: 'meeting',
         isVisible: true,
-        fieldValue: 'MEETING',
+        fieldValue: 'SIDAK',
         position: 2,
       },
     }),
@@ -48,7 +53,7 @@ export const computeStandardOpportunityViewGroups = (
         viewName: 'byStage',
         viewGroupName: 'proposal',
         isVisible: true,
-        fieldValue: 'PROPOSAL',
+        fieldValue: 'DITANDATANGANI',
         position: 3,
       },
     }),
@@ -59,7 +64,7 @@ export const computeStandardOpportunityViewGroups = (
         viewName: 'byStage',
         viewGroupName: 'customer',
         isVisible: true,
-        fieldValue: 'CUSTOMER',
+        fieldValue: 'SELESAI',
         position: 4,
       },
     }),
