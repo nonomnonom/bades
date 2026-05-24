@@ -1,11 +1,30 @@
 {
   "short_name": "Bades",
   "name": "Bades.id - Sistem Informasi Desa",
+  "description": "Sistem Informasi Desa untuk pemerintahan balai desa di Indonesia",
+  "lang": "id-ID",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#1AA370",
   "background_color": "#ffffff",
   "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
     {
       "src": "images/icons/windows11/SmallTile.scale-100.png",
       "sizes": "71x71"
