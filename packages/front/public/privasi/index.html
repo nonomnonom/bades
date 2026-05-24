@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kebijakan Privasi — Bades.id</title>
+  <meta name="description" content="Kebijakan Privasi Bades.id — penanganan data pribadi warga sesuai UU PDP." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Roboto,sans-serif;line-height:1.6;color:#1F1F1F;background:#FAFAFA}
+    .wrap{max-width:780px;margin:0 auto;padding:48px 24px 96px}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #E5E5E5}
+    header img{width:32px;height:32px}
+    header strong{font-size:18px;font-weight:600}
+    h1{font-size:28px;font-weight:700;margin-bottom:8px}
+    .meta{color:#6B7280;font-size:14px;margin-bottom:32px}
+    h2{font-size:20px;font-weight:600;margin:32px 0 12px}
+    p{margin-bottom:12px}
+    ul{padding-left:24px;margin-bottom:12px}
+    li{margin-bottom:6px}
+    a{color:#1AA370;text-decoration:none}
+    a:hover{text-decoration:underline}
+    footer{margin-top:48px;padding-top:24px;border-top:1px solid #E5E5E5;color:#6B7280;font-size:14px}
+    .badge{display:inline-block;background:#1AA370;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;margin-bottom:24px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="/favicon.svg" alt="Bades logo" />
+      <strong>Bades.id</strong>
+    </header>
+
+    <h1>Kebijakan Privasi</h1>
+    <p class="meta">Berlaku sejak: 24 Mei 2026</p>
+    <span class="badge">Patuh UU PDP 27/2022</span>
+
+    <p>Bades.id berkomitmen melindungi data pribadi warga desa yang Anda kelola lewat layanan kami. Kebijakan ini menjelaskan data apa yang kami simpan, bagaimana kami pakai, dan hak Anda.</p>
+
+    <h2>1. Data yang dikumpulkan</h2>
+    <p>Kami mengelola dua jenis data:</p>
+    <ul>
+      <li><strong>Data akun operator</strong>: nama, email, sandi (hash), waktu login.</li>
+      <li><strong>Data warga & administrasi desa</strong> (dimiliki desa Anda): NIK, KK, alamat, tanggal lahir, jenis kelamin, foto, dokumen surat, data keuangan desa, program bantuan, dan informasi terkait yang Anda input ke ruang kerja.</li>
+    </ul>
+
+    <h2>2. Tujuan pemakaian</h2>
+    <ul>
+      <li>Menjalankan layanan administrasi desa sesuai instruksi Anda.</li>
+      <li>Menjaga keamanan akun dan mencegah penyalahgunaan.</li>
+      <li>Pemeliharaan teknis dan pemulihan layanan.</li>
+    </ul>
+    <p>Kami <strong>tidak</strong> menjual atau membagi data warga ke pihak ketiga untuk tujuan komersial.</p>
+
+    <h2>3. Lokasi penyimpanan</h2>
+    <p>Sesuai UU PDP, semua data warga disimpan di server di <strong>wilayah Indonesia</strong> (AWS Jakarta region). Backup harian otomatis di-encrypt di server yang sama.</p>
+
+    <h2>4. Pemrosesan & akses</h2>
+    <ul>
+      <li>Hanya operator yang Anda undang yang dapat mengakses data ruang kerja desa Anda.</li>
+      <li>Tim Bades dapat mengakses data hanya untuk dukungan teknis atas izin tertulis Anda, atau saat diharuskan hukum.</li>
+      <li>NIK dan dokumen identitas sensitif di-masking untuk role non-administratif.</li>
+    </ul>
+
+    <h2>5. Keamanan</h2>
+    <ul>
+      <li>Sandi disimpan dalam bentuk hash bcrypt, tidak pernah plaintext.</li>
+      <li>Koneksi pengguna dengan server melalui HTTPS (TLS 1.2+).</li>
+      <li>Database terisolasi di subnet privat, tidak terpapar internet.</li>
+      <li>Audit log aktivitas mengakses data sensitif.</li>
+    </ul>
+
+    <h2>6. Retensi data</h2>
+    <p>Data warga dipertahankan selama ruang kerja desa aktif. Setelah desa menutup ruang kerja, data dihapus permanen dalam 30 hari, kecuali Anda meminta ekspor terlebih dahulu.</p>
+
+    <h2>7. Hak subjek data</h2>
+    <p>Sesuai UU PDP, subjek data (warga) berhak:</p>
+    <ul>
+      <li>Mengetahui data pribadinya yang disimpan.</li>
+      <li>Meminta pembetulan data yang salah.</li>
+      <li>Meminta penghapusan data (kecuali wajib disimpan oleh peraturan).</li>
+      <li>Mengajukan keberatan atas pemrosesan.</li>
+    </ul>
+    <p>Permintaan ini diajukan ke desa pengelola ruang kerja, atau ke tim Bades melalui <a href="mailto:privasi@bades.id">privasi@bades.id</a>.</p>
+
+    <h2>8. Pelanggaran data</h2>
+    <p>Kami akan memberitahu pengguna terdampak dan otoritas terkait dalam <strong>72 jam</strong> setelah pelanggaran data terdeteksi, sesuai amanat UU PDP.</p>
+
+    <h2>9. Perubahan kebijakan</h2>
+    <p>Versi terbaru kebijakan ini akan diumumkan via email dan diposting di halaman ini.</p>
+
+    <h2>10. Kontak</h2>
+    <p>Pertanyaan terkait privasi: <a href="mailto:privasi@bades.id">privasi@bades.id</a></p>
+    <p>Petugas Pelindungan Data (DPO): akan ditunjuk sebelum layanan publik luas.</p>
+
+    <footer>
+      <a href="/welcome">← Kembali ke Bades.id</a> · <a href="/kebijakan">Ketentuan Layanan</a>
+    </footer>
+  </div>
+</body>
+</html>

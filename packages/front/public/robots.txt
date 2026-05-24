@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /welcome
+Allow: /verify
+Allow: /create
+Disallow: /api/
+Disallow: /metadata/
+Disallow: /graphql/
+Disallow: /admin-panel/
+Disallow: /settings/
+Disallow: /objects/
+Disallow: /object-record/
+Disallow: /workspace-invite/
+
+Sitemap: https://bades.id/sitemap.xml

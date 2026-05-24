@@ -233,7 +233,7 @@ export const SettingPublicDomain = () => {
               error={newPublicDomainError}
               type="text"
               disabled={isDefined(selectedPublicDomain)}
-              placeholder="crm.yourPublicDomain.com"
+              placeholder="desa-anda.id"
               fullWidth
             />
             {isDefined(selectedPublicDomain) && (
