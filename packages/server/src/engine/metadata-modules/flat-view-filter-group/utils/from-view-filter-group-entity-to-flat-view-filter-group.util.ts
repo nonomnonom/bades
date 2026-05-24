@@ -31,7 +31,7 @@ export const fromViewFilterGroupEntityToFlatViewFilterGroup = ({
 
   if (!isDefined(applicationUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Application with id ${viewFilterGroupEntity.applicationId} not found for viewFilterGroup ${viewFilterGroupEntity.id}`,
+      `Aplikasi dengan id ${viewFilterGroupEntity.applicationId} tidak ditemukan untuk viewFilterGroup ${viewFilterGroupEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -46,7 +46,7 @@ export const fromViewFilterGroupEntityToFlatViewFilterGroup = ({
 
     if (!isDefined(parentViewFilterGroupUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `ViewFilterGroup with id ${viewFilterGroupEntity.parentViewFilterGroupId} not found for viewFilterGroup ${viewFilterGroupEntity.id}`,
+        `ViewFilterGroup dengan id ${viewFilterGroupEntity.parentViewFilterGroupId} tidak ditemukan untuk viewFilterGroup ${viewFilterGroupEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }
@@ -58,7 +58,7 @@ export const fromViewFilterGroupEntityToFlatViewFilterGroup = ({
 
   if (!isDefined(viewUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `View with id ${viewFilterGroupEntity.viewId} not found for viewFilterGroup ${viewFilterGroupEntity.id}`,
+      `Tampilan dengan id ${viewFilterGroupEntity.viewId} tidak ditemukan untuk viewFilterGroup ${viewFilterGroupEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }

@@ -181,7 +181,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelec
     if (isDefined(idField) && isRelationToWorkspaceMember) {
       menuItems.push({
         id: 'me-id',
-        label: 'Me (User ID)',
+        label: t`Saya (ID Pengguna)`,
         icon: null,
         fieldMetadataId: idField.id,
         subFieldName: null,

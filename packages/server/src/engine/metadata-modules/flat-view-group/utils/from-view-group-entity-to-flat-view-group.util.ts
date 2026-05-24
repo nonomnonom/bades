@@ -23,7 +23,7 @@ export const fromViewGroupEntityToFlatViewGroup = ({
 
   if (!isDefined(applicationUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Application with id ${viewGroupEntity.applicationId} not found for viewGroup ${viewGroupEntity.id}`,
+      `Aplikasi dengan id ${viewGroupEntity.applicationId} tidak ditemukan untuk viewGroup ${viewGroupEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -34,7 +34,7 @@ export const fromViewGroupEntityToFlatViewGroup = ({
 
   if (!isDefined(viewUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `View with id ${viewGroupEntity.viewId} not found for viewGroup ${viewGroupEntity.id}`,
+      `Tampilan dengan id ${viewGroupEntity.viewId} tidak ditemukan untuk viewGroup ${viewGroupEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }

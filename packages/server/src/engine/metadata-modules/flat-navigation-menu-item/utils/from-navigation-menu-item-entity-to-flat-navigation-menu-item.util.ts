@@ -22,7 +22,7 @@ export const fromNavigationMenuItemEntityToFlatNavigationMenuItem = ({
 
   if (!isDefined(applicationUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Application with id ${navigationMenuItemEntity.applicationId} not found for navigationMenuItem ${navigationMenuItemEntity.id}`,
+      `Aplikasi dengan id ${navigationMenuItemEntity.applicationId} tidak ditemukan untuk navigationMenuItem ${navigationMenuItemEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -37,7 +37,7 @@ export const fromNavigationMenuItemEntityToFlatNavigationMenuItem = ({
 
     if (!isDefined(targetObjectMetadataUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `ObjectMetadata with id ${navigationMenuItemEntity.targetObjectMetadataId} not found for navigationMenuItem ${navigationMenuItemEntity.id}`,
+        `ObjectMetadata dengan id ${navigationMenuItemEntity.targetObjectMetadataId} tidak ditemukan untuk navigationMenuItem ${navigationMenuItemEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }
@@ -53,7 +53,7 @@ export const fromNavigationMenuItemEntityToFlatNavigationMenuItem = ({
 
     if (!isDefined(folderUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `NavigationMenuItem (folder) with id ${navigationMenuItemEntity.folderId} not found for navigationMenuItem ${navigationMenuItemEntity.id}`,
+        `NavigationMenuItem (folder) dengan id ${navigationMenuItemEntity.folderId} tidak ditemukan untuk navigationMenuItem ${navigationMenuItemEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }
@@ -68,7 +68,7 @@ export const fromNavigationMenuItemEntityToFlatNavigationMenuItem = ({
 
     if (!isDefined(viewUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `View with id ${navigationMenuItemEntity.viewId} not found for navigationMenuItem ${navigationMenuItemEntity.id}`,
+        `Tampilan dengan id ${navigationMenuItemEntity.viewId} tidak ditemukan untuk navigationMenuItem ${navigationMenuItemEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }
@@ -84,7 +84,7 @@ export const fromNavigationMenuItemEntityToFlatNavigationMenuItem = ({
 
     if (!isDefined(pageLayoutUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `PageLayout with id ${navigationMenuItemEntity.pageLayoutId} not found for navigationMenuItem ${navigationMenuItemEntity.id}`,
+        `PageLayout dengan id ${navigationMenuItemEntity.pageLayoutId} tidak ditemukan untuk navigationMenuItem ${navigationMenuItemEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }

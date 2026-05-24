@@ -80,7 +80,7 @@ export const EventRowMainObjectUpdated = ({
       <StyledRowContainer>
         <StyledRow>
           <EventRowItem>{authorFullName}</EventRowItem>
-          {'updated'}
+          {t`memperbarui`}
           {diffEntries.length === 1 && (
             <EventFieldDiffContainer
               mainObjectMetadataItem={mainObjectMetadataItem}
@@ -92,7 +92,7 @@ export const EventRowMainObjectUpdated = ({
           )}
           {diffEntries.length > 1 && (
             <>
-              <span>{t`${fieldCount} fields on ${recordLabel}`}</span>
+              <span>{t`${fieldCount} kolom pada ${recordLabel}`}</span>
               <EventCardToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
             </>
           )}

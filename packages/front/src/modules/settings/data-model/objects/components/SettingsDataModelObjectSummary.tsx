@@ -125,7 +125,7 @@ const SettingsDataModelObjectPreviewOtherObjects = ({
             />
           </StyledIconContainer>
           <StyledOverflowingTextWithTooltip>
-            <OverflowingTextWithTooltip text={'Other objects'} />
+            <OverflowingTextWithTooltip text={t`Objek lain`} />
           </StyledOverflowingTextWithTooltip>
         </StyledObjectName>
         <StyledNumber>

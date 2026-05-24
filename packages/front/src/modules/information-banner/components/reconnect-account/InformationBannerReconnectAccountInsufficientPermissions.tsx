@@ -34,7 +34,7 @@ export const InformationBannerReconnectAccountInsufficientPermissions = () => {
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
       message={t`Sinkronisasi terputus dengan kotak surat ${mailboxHandle}. Sambungkan ulang untuk pembaruan:`}
-      buttonTitle={t`Reconnect`}
+      buttonTitle={t`Sambungkan Ulang`}
       buttonIcon={IconRefresh}
       buttonOnClick={() =>
         triggerProviderReconnect(

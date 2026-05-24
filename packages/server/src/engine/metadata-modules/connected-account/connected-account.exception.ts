@@ -14,11 +14,11 @@ const getConnectedAccountExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case ConnectedAccountExceptionCode.CONNECTED_ACCOUNT_NOT_FOUND:
-      return msg`Connected account not found.`;
+      return msg`Akun terhubung tidak ditemukan.`;
     case ConnectedAccountExceptionCode.INVALID_CONNECTED_ACCOUNT_INPUT:
-      return msg`Invalid connected account input.`;
+      return msg`Input akun terhubung tidak valid.`;
     case ConnectedAccountExceptionCode.CONNECTED_ACCOUNT_OWNERSHIP_VIOLATION:
-      return msg`You do not have access to this connected account.`;
+      return msg`Anda tidak memiliki akses ke akun terhubung ini.`;
     default:
       assertUnreachable(code);
   }

@@ -46,7 +46,7 @@ export const validateRelationCreationPayloadOrThrow = async (
       : error.message;
 
     throw new FieldMetadataException(
-      `Relation creation payload is invalid: ${errorMessages}`,
+      `Payload pembuatan relasi tidak valid: ${errorMessages}`,
       FieldMetadataExceptionCode.INVALID_FIELD_INPUT,
     );
   }

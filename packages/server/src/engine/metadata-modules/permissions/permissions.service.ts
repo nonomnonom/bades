@@ -284,7 +284,7 @@ export class PermissionsService {
     }
 
     if (roleIds.length === 0) {
-      throw new Error('No role IDs provided');
+      throw new Error('Tidak ada ID peran yang diberikan');
     }
 
     const roles = await this.roleRepository.find({
@@ -293,7 +293,7 @@ export class PermissionsService {
     });
 
     if (roles.length !== roleIds.length) {
-      throw new Error('Some roles not found');
+      throw new Error('Beberapa peran tidak ditemukan');
     }
 
     return { roles, useIntersection };

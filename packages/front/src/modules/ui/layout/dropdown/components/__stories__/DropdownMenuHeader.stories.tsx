@@ -65,7 +65,7 @@ export const ContextDropdownAndAvatar: Story = {
         dropdownComponents={
           <DropdownContent>
             <DropdownMenuItemsContainer>
-              <MenuItem LeftIcon={IconPlus} text="Create Workspace" />
+              <MenuItem LeftIcon={IconPlus} text="Buat Ruang Kerja" />
             </DropdownMenuItemsContainer>
           </DropdownContent>
         }

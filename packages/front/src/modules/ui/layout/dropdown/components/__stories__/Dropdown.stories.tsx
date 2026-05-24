@@ -37,7 +37,7 @@ const meta: Meta<typeof Dropdown> = {
   component: Dropdown,
   decorators: [ComponentDecorator, (Story) => <Story />],
   args: {
-    clickableComponent: <Button title="Open Dropdown" />,
+    clickableComponent: <Button title="Buka Menu" />,
     dropdownOffset: { x: 0, y: 8 },
     dropdownId: 'test-dropdown-id',
   },

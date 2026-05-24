@@ -37,9 +37,9 @@ export const ObjectOptionsDropdownDefaultView = () => {
   const visibleFieldsCount = visibleRecordFields.length;
 
   const selectableItemIdArray = [
-    'Fields',
-    'Copy link to view',
-    'Create custom view',
+    'Kolom',
+    'Salin tautan tampilan',
+    'Buat tampilan kustom',
   ];
 
   const selectedItemId = useAtomComponentStateValue(
@@ -79,11 +79,11 @@ export const ObjectOptionsDropdownDefaultView = () => {
       >
         <DropdownMenuItemsContainer scrollable={false}>
           <SelectableListItem
-            itemId="Fields"
+            itemId="Kolom"
             onEnter={() => onContentChange('fields')}
           >
             <MenuItem
-              focused={selectedItemId === 'Fields'}
+              focused={selectedItemId === 'Kolom'}
               onClick={() => onContentChange('fields')}
               LeftIcon={IconListDetails}
               text={t`Kolom`}
@@ -96,14 +96,14 @@ export const ObjectOptionsDropdownDefaultView = () => {
         <DropdownMenuSeparator />
         <DropdownMenuItemsContainer scrollable={false}>
           <SelectableListItem
-            itemId="Copy link to view"
+            itemId="Salin tautan tampilan"
             onEnter={() => {
               const currentUrl = window.location.href;
               copyToClipboard(currentUrl, t`Tautan disalin`);
             }}
           >
             <MenuItem
-              focused={selectedItemId === 'Copy link to view'}
+              focused={selectedItemId === 'Salin tautan tampilan'}
               onClick={() => {
                 const currentUrl = window.location.href;
                 copyToClipboard(currentUrl, t`Tautan disalin`);
@@ -113,11 +113,11 @@ export const ObjectOptionsDropdownDefaultView = () => {
             />
           </SelectableListItem>
           <SelectableListItem
-            itemId="Create custom view"
+            itemId="Buat tampilan kustom"
             onEnter={handleCreateCustomView}
           >
             <MenuItem
-              focused={selectedItemId === 'Create custom view'}
+              focused={selectedItemId === 'Buat tampilan kustom'}
               onClick={handleCreateCustomView}
               LeftIcon={IconLayout}
               text={t`Buat tampilan kustom`}

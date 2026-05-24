@@ -28,7 +28,7 @@ const meta: Meta<typeof TaskList> = {
     SidePanelDecorator,
   ],
   args: {
-    title: 'Tasks',
+    title: 'Tugas',
     tasks: mockedTasks,
   },
   parameters: {
@@ -44,7 +44,7 @@ type Story = StoryObj<typeof TaskList>;
 
 export const Default: Story = {
   args: {
-    title: 'Tasks',
+    title: 'Tugas',
     tasks: mockedTasks,
   },
 };

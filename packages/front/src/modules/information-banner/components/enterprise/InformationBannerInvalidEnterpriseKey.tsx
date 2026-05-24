@@ -35,7 +35,7 @@ export const InformationBannerInvalidEnterpriseKey = () => {
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
       message={t`Kunci lisensi lanjutan Anda tidak lagi valid. Aktifkan kunci baru untuk melanjutkan.`}
-      buttonTitle={t`Activate`}
+      buttonTitle={t`Aktifkan`}
       buttonIcon={IconKey}
       buttonOnClick={() =>
         navigate(getSettingsPath(SettingsPath.AdminPanelEnterprise))

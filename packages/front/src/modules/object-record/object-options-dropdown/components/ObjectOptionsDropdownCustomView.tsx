@@ -103,14 +103,14 @@ export const ObjectOptionsDropdownCustomView = ({
   };
 
   const selectableItemIdArray = [
-    'Layout',
-    'Visibility',
-    'Fields',
+    'Tata letak',
+    'Visibilitas',
+    'Kolom',
     ...(customViewData?.type === ViewType.CALENDAR
       ? ['CalendarDateField', 'CalendarView']
       : []),
-    ...(customViewData?.type !== ViewType.CALENDAR ? ['Group'] : []),
-    'Delete view',
+    ...(customViewData?.type !== ViewType.CALENDAR ? ['Kelompok'] : []),
+    'Hapus tampilan',
   ];
 
   const selectedItemId = useAtomComponentStateValue(
@@ -133,11 +133,11 @@ export const ObjectOptionsDropdownCustomView = ({
       >
         <DropdownMenuItemsContainer scrollable={false}>
           <SelectableListItem
-            itemId="Layout"
+            itemId="Tata letak"
             onEnter={() => onContentChange('layout')}
           >
             <MenuItem
-              focused={selectedItemId === 'Layout'}
+              focused={selectedItemId === 'Tata letak'}
               onClick={() => onContentChange('layout')}
               LeftIcon={viewTypeIconMapping(
                 customViewData?.type ?? ViewType.TABLE,
@@ -149,11 +149,11 @@ export const ObjectOptionsDropdownCustomView = ({
             />
           </SelectableListItem>
           <SelectableListItem
-            itemId="Visibility"
+            itemId="Visibilitas"
             onEnter={() => onContentChange('visibility')}
           >
             <MenuItem
-              focused={selectedItemId === 'Visibility'}
+              focused={selectedItemId === 'Visibilitas'}
               onClick={() => onContentChange('visibility')}
               LeftIcon={IconShare}
               text={t`Visibilitas`}
@@ -214,11 +214,11 @@ export const ObjectOptionsDropdownCustomView = ({
             </>
           )}
           <SelectableListItem
-            itemId="Fields"
+            itemId="Kolom"
             onEnter={() => onContentChange('fields')}
           >
             <MenuItem
-              focused={selectedItemId === 'Fields'}
+              focused={selectedItemId === 'Kolom'}
               onClick={() => onContentChange('fields')}
               LeftIcon={IconListDetails}
               text={t`Kolom`}
@@ -230,7 +230,7 @@ export const ObjectOptionsDropdownCustomView = ({
           {customViewData?.type !== ViewType.CALENDAR && (
             <div id="group-by-menu-item">
               <SelectableListItem
-                itemId="Group"
+                itemId="Kelompok"
                 onEnter={() =>
                   isDefined(recordIndexGroupFieldMetadataItem)
                     ? onContentChange('recordGroups')
@@ -238,7 +238,7 @@ export const ObjectOptionsDropdownCustomView = ({
                 }
               >
                 <MenuItem
-                  focused={selectedItemId === 'Group'}
+                  focused={selectedItemId === 'Kelompok'}
                   onClick={() =>
                     isDefined(recordIndexGroupFieldMetadataItem)
                       ? onContentChange('recordGroups')
@@ -272,11 +272,11 @@ export const ObjectOptionsDropdownCustomView = ({
         <DropdownMenuItemsContainer scrollable={false}>
           <div id="delete-view-menu-item">
             <SelectableListItem
-              itemId="Delete view"
+              itemId="Hapus tampilan"
               onEnter={() => handleDelete()}
             >
               <MenuItem
-                focused={selectedItemId === 'Delete view'}
+                focused={selectedItemId === 'Hapus tampilan'}
                 onClick={() => handleDelete()}
                 LeftIcon={IconTrash}
                 text={t`Hapus tampilan`}

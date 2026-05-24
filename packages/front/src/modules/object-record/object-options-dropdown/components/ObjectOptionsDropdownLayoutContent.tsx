@@ -121,11 +121,11 @@ export const ObjectOptionsDropdownLayoutContent = () => {
     ...(isDefaultView ? [] : [ViewType.KANBAN]),
     ...(!isDefaultView ? [ViewType.CALENDAR] : []),
     ViewOpenRecordIn.SIDE_PANEL,
-    ...(currentView?.type === ViewType.KANBAN ? ['Group'] : []),
+    ...(currentView?.type === ViewType.KANBAN ? ['Kelompok'] : []),
     ...(currentView?.type === ViewType.CALENDAR
       ? ['CalendarView', 'CalendarDateField']
       : []),
-    ...(currentView?.type !== ViewType.TABLE ? ['Compact view'] : []),
+    ...(currentView?.type !== ViewType.TABLE ? ['Tampilan ringkas'] : []),
   ];
 
   const selectedItemId = useAtomComponentStateValue(
@@ -282,7 +282,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             </SelectableListItem>
             {currentView?.type === ViewType.KANBAN && (
               <SelectableListItem
-                itemId="Group"
+                itemId="Kelompok"
                 onEnter={() => {
                   isDefined(recordIndexGroupFieldMetadataItem)
                     ? onContentChange('recordGroups')
@@ -290,7 +290,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                 }}
               >
                 <MenuItem
-                  focused={selectedItemId === 'Group'}
+                  focused={selectedItemId === 'Kelompok'}
                   onClick={() =>
                     isDefined(recordIndexGroupFieldMetadataItem)
                       ? onContentChange('recordGroups')
@@ -306,7 +306,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             )}
             {currentView?.type !== ViewType.TABLE && (
               <SelectableListItem
-                itemId="Compact view"
+                itemId="Tampilan ringkas"
                 onEnter={() => {
                   setAndPersistIsCompactModeActive(
                     !isCompactModeActive,
@@ -315,7 +315,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                 }}
               >
                 <MenuItemToggle
-                  focused={selectedItemId === 'Compact view'}
+                  focused={selectedItemId === 'Tampilan ringkas'}
                   LeftIcon={IconBaselineDensitySmall}
                   onToggleChange={() =>
                     setAndPersistIsCompactModeActive(

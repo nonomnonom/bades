@@ -174,7 +174,7 @@ export const SidePanelTopBar = () => {
               data-testid={SIDE_PANEL_FOCUS_ID}
               ref={inputRef}
               value={sidePanelSearch}
-              placeholder={'Type anything...'}
+              placeholder={t`Ketik apa saja...`}
               onChange={handleSearchChange}
               onFocus={handleInputFocus}
               onBlur={handleInputBlur}

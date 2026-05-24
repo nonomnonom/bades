@@ -57,8 +57,8 @@ export const ConfigVariableDatabaseInput = ({
       : [];
 
   const booleanOptions = [
-    { value: 'true', label: 'true' },
-    { value: 'false', label: 'false' },
+    { value: 'true', label: t`Benar` },
+    { value: 'false', label: t`Salah` },
   ];
 
   const isValueSelected = (optionValue: string) => {

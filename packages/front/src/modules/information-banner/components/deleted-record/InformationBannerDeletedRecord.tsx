@@ -30,7 +30,7 @@ export const InformationBannerDeletedRecord = ({
         componentInstanceId="information-banner-deleted-record"
         color="danger"
         message={t`Data ini telah dihapus`}
-        buttonTitle={t`Restore`}
+        buttonTitle={t`Pulihkan`}
         buttonIcon={IconRefresh}
         buttonOnClick={() => restoreManyRecords({ idsToRestore: [recordId] })}
       />

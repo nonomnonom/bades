@@ -26,7 +26,7 @@ export const fromViewFieldEntityToFlatViewField = ({
 
   if (!isDefined(applicationUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Application with id ${viewFieldEntity.applicationId} not found for viewField ${viewFieldEntity.id}`,
+      `Aplikasi dengan id ${viewFieldEntity.applicationId} tidak ditemukan untuk viewField ${viewFieldEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -38,7 +38,7 @@ export const fromViewFieldEntityToFlatViewField = ({
 
   if (!isDefined(fieldMetadataUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `FieldMetadata with id ${viewFieldEntity.fieldMetadataId} not found for viewField ${viewFieldEntity.id}`,
+      `FieldMetadata dengan id ${viewFieldEntity.fieldMetadataId} tidak ditemukan untuk viewField ${viewFieldEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -49,7 +49,7 @@ export const fromViewFieldEntityToFlatViewField = ({
 
   if (!isDefined(viewUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `View with id ${viewFieldEntity.viewId} not found for viewField ${viewFieldEntity.id}`,
+      `Tampilan dengan id ${viewFieldEntity.viewId} tidak ditemukan untuk viewField ${viewFieldEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -64,7 +64,7 @@ export const fromViewFieldEntityToFlatViewField = ({
 
     if (!isDefined(viewFieldGroupUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `ViewFieldGroup with id ${viewFieldEntity.viewFieldGroupId} not found for viewField ${viewFieldEntity.id}`,
+        `ViewFieldGroup dengan id ${viewFieldEntity.viewFieldGroupId} tidak ditemukan untuk viewField ${viewFieldEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }

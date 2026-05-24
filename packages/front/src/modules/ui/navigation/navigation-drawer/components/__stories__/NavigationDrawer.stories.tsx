@@ -81,35 +81,35 @@ export const Default: Story = {
     children: (
       <>
         <NavigationDrawerSection>
-          <NavigationDrawerItem label="Search" Icon={IconSearch} active />
+          <NavigationDrawerItem label="Cari" Icon={IconSearch} active />
           <NavigationDrawerItem
-            label="Notifications"
+            label="Notifikasi"
             to="/inbox"
             Icon={IconBell}
             modifier="soon"
           />
           <NavigationDrawerItem
-            label="Search"
+            label="Cari"
             Icon={IconSearch}
             modifier={{ keyboard: [`${getOsControlSymbol()}`, 'K'] }}
           />
           <NavigationDrawerItem
-            label="Settings"
+            label="Pengaturan"
             to="/settings/profile"
             Icon={IconSettings}
           />
-          <NavigationDrawerItem label="Tasks" to="/tasks" Icon={IconCheckbox} />
+          <NavigationDrawerItem label="Tugas" to="/tasks" Icon={IconCheckbox} />
         </NavigationDrawerSection>
 
         <NavigationDrawerSection>
-          <NavigationDrawerSectionTitle label="Workspace" />
+          <NavigationDrawerSectionTitle label="Ruang Kerja" />
           <NavigationDrawerItem
-            label="Companies"
+            label="Perusahaan"
             to="/companies"
             Icon={IconBuildingSkyscraper}
           />
-          <NavigationDrawerItem label="People" to="/people" Icon={IconUser} />
-          <NavigationDrawerItem label="Opportunities" Icon={IconTargetArrow} />
+          <NavigationDrawerItem label="Warga" to="/people" Icon={IconUser} />
+          <NavigationDrawerItem label="Peluang" Icon={IconTargetArrow} />
         </NavigationDrawerSection>
       </>
     ),
@@ -117,7 +117,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Workspace')).toBeInTheDocument();
+    expect(await canvas.findByText('Ruang Kerja')).toBeInTheDocument();
   },
 };
 
@@ -127,32 +127,32 @@ export const Settings: Story = {
     children: (
       <>
         <NavigationDrawerSection>
-          <NavigationDrawerSectionTitle label="User" />
+          <NavigationDrawerSectionTitle label="Pengguna" />
           <NavigationDrawerItem
-            label="Profile"
+            label="Profil"
             to={getSettingsPath(SettingsPath.ProfilePage)}
             Icon={IconUserCircle}
             active
           />
           <NavigationDrawerItem
-            label="Appearance"
+            label="Tampilan"
             to={getSettingsPath(SettingsPath.Experience)}
             Icon={IconColorSwatch}
           />
           <NavigationDrawerItemGroup>
             <NavigationDrawerItem
-              label="Accounts"
+              label="Akun"
               to={getSettingsPath(SettingsPath.Accounts)}
               Icon={IconAt}
             />
             <NavigationDrawerSubItem
-              label="Emails"
+              label="Email"
               to={getSettingsPath(SettingsPath.AccountsEmails)}
               Icon={IconMail}
               subItemState="intermediate-before-selected"
             />
             <NavigationDrawerSubItem
-              label="Calendar"
+              label="Kalender"
               to={getSettingsPath(SettingsPath.AccountsCalendars)}
               Icon={IconCalendarEvent}
               subItemState="last-selected"
@@ -161,23 +161,23 @@ export const Settings: Story = {
         </NavigationDrawerSection>
 
         <NavigationDrawerSection>
-          <NavigationDrawerSectionTitle label="Workspace" />
+          <NavigationDrawerSectionTitle label="Ruang Kerja" />
           <NavigationDrawerItem
-            label="General"
+            label="Umum"
             to={getSettingsPath(SettingsPath.Workspace)}
             Icon={IconSettings}
           />
           <NavigationDrawerItem
-            label="Members"
+            label="Anggota"
             to={getSettingsPath(SettingsPath.WorkspaceMembersPage)}
             Icon={IconUsers}
           />
         </NavigationDrawerSection>
 
         <NavigationDrawerSection>
-          <NavigationDrawerSectionTitle label="Other" />
+          <NavigationDrawerSectionTitle label="Lainnya" />
           <NavigationDrawerItem
-            label="Admin Panel"
+            label="Panel Admin"
             to={getSettingsPath(SettingsPath.AdminPanel)}
             Icon={IconServer}
           />
@@ -187,7 +187,7 @@ export const Settings: Story = {
           <AdvancedSettingsToggle
             isAdvancedModeEnabled={false}
             setIsAdvancedModeEnabled={() => {}}
-            label="Advanced:"
+            label="Tingkat Lanjut:"
           />
         </NavigationDrawerFixedContent>
       </>
@@ -196,6 +196,6 @@ export const Settings: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('User')).toBeInTheDocument();
+    expect(await canvas.findByText('Pengguna')).toBeInTheDocument();
   },
 };

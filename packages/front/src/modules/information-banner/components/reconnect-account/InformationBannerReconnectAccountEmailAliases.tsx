@@ -34,7 +34,7 @@ export const InformationBannerReconnectAccountEmailAliases = () => {
       componentInstanceId={COMPONENT_INSTANCE_ID}
       variant="secondary"
       message={t`Sambungkan ulang kotak surat ${mailboxHandle} untuk memperbarui alias email Anda:`}
-      buttonTitle={t`Reconnect`}
+      buttonTitle={t`Sambungkan Ulang`}
       buttonIcon={IconRefresh}
       buttonOnClick={() =>
         triggerProviderReconnect(

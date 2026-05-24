@@ -24,7 +24,7 @@ export const fromViewSortEntityToFlatViewSort = ({
 
   if (!isDefined(applicationUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Application with id ${viewSortEntity.applicationId} not found for viewSort ${viewSortEntity.id}`,
+      `Aplikasi dengan id ${viewSortEntity.applicationId} tidak ditemukan untuk viewSort ${viewSortEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -35,7 +35,7 @@ export const fromViewSortEntityToFlatViewSort = ({
 
   if (!isDefined(viewUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `View with id ${viewSortEntity.viewId} not found for viewSort ${viewSortEntity.id}`,
+      `Tampilan dengan id ${viewSortEntity.viewId} tidak ditemukan untuk viewSort ${viewSortEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -45,7 +45,7 @@ export const fromViewSortEntityToFlatViewSort = ({
 
   if (!isDefined(fieldMetadataUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Field metadata with id ${viewSortEntity.fieldMetadataId} not found for viewSort ${viewSortEntity.id}`,
+      `Field metadata dengan id ${viewSortEntity.fieldMetadataId} tidak ditemukan untuk viewSort ${viewSortEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }

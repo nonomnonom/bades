@@ -225,7 +225,7 @@ export const EmptyOptions: Story = {
       expect(canvas.getByRole('textbox')).toBeVisible();
     });
 
-    expect(canvas.getByText('No option found')).toBeVisible();
+    expect(canvas.getByText('Tidak ada pilihan')).toBeVisible();
   },
 };
 
@@ -303,7 +303,7 @@ export const NoResultsFound: Story = {
     await userEvent.type(searchInput, 'xyz123');
 
     await waitFor(() => {
-      expect(canvas.getByText('No option found')).toBeVisible();
+      expect(canvas.getByText('Tidak ada pilihan')).toBeVisible();
     });
   },
 };

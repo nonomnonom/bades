@@ -25,7 +25,7 @@ export const fromViewFilterEntityToFlatViewFilter = ({
 
   if (!isDefined(applicationUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `Application with id ${viewFilterEntity.applicationId} not found for viewFilter ${viewFilterEntity.id}`,
+      `Aplikasi dengan id ${viewFilterEntity.applicationId} tidak ditemukan untuk viewFilter ${viewFilterEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -37,7 +37,7 @@ export const fromViewFilterEntityToFlatViewFilter = ({
 
   if (!isDefined(fieldMetadataUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `FieldMetadata with id ${viewFilterEntity.fieldMetadataId} not found for viewFilter ${viewFilterEntity.id}`,
+      `FieldMetadata dengan id ${viewFilterEntity.fieldMetadataId} tidak ditemukan untuk viewFilter ${viewFilterEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -52,7 +52,7 @@ export const fromViewFilterEntityToFlatViewFilter = ({
 
     if (!isDefined(viewFilterGroupUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `ViewFilterGroup with id ${viewFilterEntity.viewFilterGroupId} not found for viewFilter ${viewFilterEntity.id}`,
+        `ViewFilterGroup dengan id ${viewFilterEntity.viewFilterGroupId} tidak ditemukan untuk viewFilter ${viewFilterEntity.id}`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }
@@ -64,7 +64,7 @@ export const fromViewFilterEntityToFlatViewFilter = ({
 
   if (!isDefined(viewUniversalIdentifier)) {
     throw new FlatEntityMapsException(
-      `View with id ${viewFilterEntity.viewId} not found for viewFilter ${viewFilterEntity.id}`,
+      `Tampilan dengan id ${viewFilterEntity.viewId} tidak ditemukan untuk viewFilter ${viewFilterEntity.id}`,
       FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
     );
   }
@@ -79,7 +79,7 @@ export const fromViewFilterEntityToFlatViewFilter = ({
 
     if (!isDefined(relationTargetFieldMetadataUniversalIdentifier)) {
       throw new FlatEntityMapsException(
-        `FieldMetadata with id ${viewFilterEntity.relationTargetFieldMetadataId} not found for viewFilter ${viewFilterEntity.id} (relation target)`,
+        `FieldMetadata dengan id ${viewFilterEntity.relationTargetFieldMetadataId} tidak ditemukan untuk viewFilter ${viewFilterEntity.id} (target relasi)`,
         FlatEntityMapsExceptionCode.ENTITY_NOT_FOUND,
       );
     }

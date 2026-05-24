@@ -48,7 +48,7 @@ export const RecordDetailDuplicatesSection = ({
 
   return (
     <RecordDetailSectionContainer
-      title={'Duplicates'}
+      title={t`Duplikat`}
       rightAdornment={
         <LightIconButton
           className="displayOnHover"

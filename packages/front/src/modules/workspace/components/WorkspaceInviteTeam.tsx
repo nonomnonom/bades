@@ -146,7 +146,7 @@ export const WorkspaceInviteTeam = ({ roles }: WorkspaceInviteTeamProps) => {
     if (data.sendInvitations.result.length > 0) {
       const invitationCount = data.sendInvitations.result.length;
       enqueueSuccessSnackBar({
-        message: t`${invitationCount} invitations sent`,
+        message: t`${invitationCount} undangan terkirim`,
         options: {
           duration: 2000,
         },

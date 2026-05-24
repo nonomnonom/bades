@@ -95,8 +95,8 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
   );
 
   const selectableItemIdArray = [
-    ...(currentView?.key !== 'INDEX' ? ['GroupBy', 'Sort'] : []),
-    'HideEmptyGroups',
+    ...(currentView?.key !== 'INDEX' ? ['Kelompokkan berdasarkan', 'Urutkan'] : []),
+    'Sembunyikan kelompok kosong',
   ];
 
   const hiddenGroupsSelectableListId = `${OBJECT_OPTIONS_DROPDOWN_ID}-hidden-groups`;
@@ -122,14 +122,14 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
           {currentView?.key !== 'INDEX' && (
             <>
               <SelectableListItem
-                itemId="GroupBy"
+                itemId="Kelompokkan berdasarkan"
                 onEnter={() =>
                   !hasOnlyOneGroupByOption &&
                   onContentChange('recordGroupFields')
                 }
               >
                 <MenuItem
-                  focused={selectedItemId === 'GroupBy'}
+                  focused={selectedItemId === 'Kelompokkan berdasarkan'}
                   disabled={hasOnlyOneGroupByOption}
                   onClick={() => onContentChange('recordGroupFields')}
                   LeftIcon={IconLayoutList}
@@ -140,11 +140,11 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
                 />
               </SelectableListItem>
               <SelectableListItem
-                itemId="Sort"
+                itemId="Urutkan"
                 onEnter={() => onContentChange('recordGroupSort')}
               >
                 <MenuItem
-                  focused={selectedItemId === 'Sort'}
+                  focused={selectedItemId === 'Urutkan'}
                   onClick={() => onContentChange('recordGroupSort')}
                   LeftIcon={IconSortDescending}
                   text={t`Urutkan`}
@@ -156,11 +156,11 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
             </>
           )}
           <SelectableListItem
-            itemId="HideEmptyGroups"
+            itemId="Sembunyikan kelompok kosong"
             onEnter={() => handleHideEmptyRecordGroupChange()}
           >
             <MenuItemToggle
-              focused={selectedItemId === 'HideEmptyGroups'}
+              focused={selectedItemId === 'Sembunyikan kelompok kosong'}
               LeftIcon={IconCircleOff}
               onToggleChange={handleHideEmptyRecordGroupChange}
               toggled={shouldHideEmptyGroups}
@@ -190,10 +190,10 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
             <SelectableList
               selectableListInstanceId={hiddenGroupsSelectableListId}
               focusId={hiddenGroupsSelectableListId}
-              selectableItemIdArray={['HiddenGroups']}
+              selectableItemIdArray={['Kelompok tersembunyi']}
             >
               <SelectableListItem
-                itemId="HiddenGroups"
+                itemId="Kelompok tersembunyi"
                 onEnter={() => onContentChange('hiddenRecordGroups')}
               >
                 <MenuItemNavigate

@@ -16,15 +16,15 @@ const getConnectedAccountRefreshAccessTokenExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case ConnectedAccountRefreshAccessTokenExceptionCode.REFRESH_TOKEN_NOT_FOUND:
-      return msg`Refresh token not found.`;
+      return msg`Token refresh tidak ditemukan.`;
     case ConnectedAccountRefreshAccessTokenExceptionCode.INVALID_REFRESH_TOKEN:
-      return msg`Invalid refresh token.`;
+      return msg`Token refresh tidak valid.`;
     case ConnectedAccountRefreshAccessTokenExceptionCode.PROVIDER_NOT_SUPPORTED:
-      return msg`This provider is not supported.`;
+      return msg`Provider ini tidak didukung.`;
     case ConnectedAccountRefreshAccessTokenExceptionCode.TEMPORARY_NETWORK_ERROR:
-      return msg`A temporary network error occurred.`;
+      return msg`Terjadi kesalahan jaringan sementara.`;
     case ConnectedAccountRefreshAccessTokenExceptionCode.ACCESS_TOKEN_NOT_FOUND:
-      return msg`Access token not found.`;
+      return msg`Access token tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

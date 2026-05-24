@@ -52,7 +52,7 @@ export class ViewQueryParamsService {
     );
 
     if (!view) {
-      throw new Error(`View with id ${viewId} not found`);
+      throw new Error(`Tampilan dengan id ${viewId} tidak ditemukan`);
     }
 
     const { flatObjectMetadataMaps, flatFieldMetadataMaps } =

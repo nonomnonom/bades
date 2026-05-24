@@ -116,7 +116,7 @@ export const EventCardMessage = ({
   }
 
   if (loading || !isDefined(message)) {
-    return <div>"Loading...</div>;
+    return <div>Memuat...</div>;
   }
 
   const messageParticipantHandles = message.messageParticipants

@@ -34,31 +34,31 @@ const getFieldMetadataExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case FieldMetadataExceptionCode.FIELD_METADATA_NOT_FOUND:
-      return msg`Field not found.`;
+      return msg`Kolom tidak ditemukan.`;
     case FieldMetadataExceptionCode.INVALID_FIELD_INPUT:
-      return msg`Invalid field input.`;
+      return msg`Input kolom tidak valid.`;
     case FieldMetadataExceptionCode.FIELD_MUTATION_NOT_ALLOWED:
-      return msg`This field cannot be modified.`;
+      return msg`Kolom ini tidak dapat diubah.`;
     case FieldMetadataExceptionCode.FIELD_ALREADY_EXISTS:
-      return msg`A field with this name already exists.`;
+      return msg`Kolom dengan nama ini sudah ada.`;
     case FieldMetadataExceptionCode.OBJECT_METADATA_NOT_FOUND:
-      return msg`Object not found.`;
+      return msg`Objek tidak ditemukan.`;
     case FieldMetadataExceptionCode.APPLICATION_NOT_FOUND:
-      return msg`Application not found.`;
+      return msg`Aplikasi tidak ditemukan.`;
     case FieldMetadataExceptionCode.FIELD_METADATA_RELATION_NOT_ENABLED:
-      return msg`Relation is not enabled for this field.`;
+      return msg`Relasi tidak diaktifkan untuk kolom ini.`;
     case FieldMetadataExceptionCode.FIELD_METADATA_RELATION_MALFORMED:
-      return msg`Relation configuration is invalid.`;
+      return msg`Konfigurasi relasi tidak valid.`;
     case FieldMetadataExceptionCode.LABEL_IDENTIFIER_FIELD_METADATA_ID_NOT_FOUND:
-      return msg`Label identifier field not found.`;
+      return msg`Kolom label identifier tidak ditemukan.`;
     case FieldMetadataExceptionCode.UNCOVERED_FIELD_METADATA_TYPE_VALIDATION:
-      return msg`Field type validation error.`;
+      return msg`Validasi tipe kolom bermasalah.`;
     case FieldMetadataExceptionCode.RESERVED_KEYWORD:
-      return msg`This name is a reserved keyword.`;
+      return msg`Nama ini adalah kata kunci yang dilindungi.`;
     case FieldMetadataExceptionCode.NOT_AVAILABLE:
-      return msg`This field name is not available.`;
+      return msg`Nama kolom ini tidak tersedia.`;
     case FieldMetadataExceptionCode.NAME_NOT_SYNCED_WITH_LABEL:
-      return msg`Field name is not synced with label.`;
+      return msg`Nama kolom tidak sinkron dengan label.`;
     case FieldMetadataExceptionCode.INTERNAL_SERVER_ERROR:
       return STANDARD_ERROR_MESSAGE;
     default:

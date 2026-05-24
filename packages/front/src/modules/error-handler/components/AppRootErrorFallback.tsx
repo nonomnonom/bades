@@ -129,7 +129,7 @@ export const AppRootErrorFallback = ({
             <StyledIconContainer>
               <IconReload size={theme.icon.size.md} />
             </StyledIconContainer>
-            {'Reload'}
+            {t`Muat Ulang`}
           </StyledButton>
         </StyledEmptyContainer>
       </StyledPanel>

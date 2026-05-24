@@ -136,11 +136,11 @@ export const ObjectOptionsDropdownVisibilityContent = () => {
             <>
               <DropdownMenuSeparator />
               <SelectableListItem
-                itemId="Copy view link"
+                itemId="Salin tautan tampilan"
                 onEnter={handleCopyLink}
               >
                 <MenuItem
-                  focused={selectedItemId === 'Copy view link'}
+                  focused={selectedItemId === 'Salin tautan tampilan'}
                   onClick={handleCopyLink}
                   LeftIcon={IconCopy}
                   text={t`Salin tautan tampilan`}

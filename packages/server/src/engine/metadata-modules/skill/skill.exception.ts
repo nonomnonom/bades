@@ -13,13 +13,13 @@ export enum SkillExceptionCode {
 const getSkillExceptionUserFriendlyMessage = (code: SkillExceptionCode) => {
   switch (code) {
     case SkillExceptionCode.SKILL_NOT_FOUND:
-      return msg`Skill not found.`;
+      return msg`Skill tidak ditemukan.`;
     case SkillExceptionCode.SKILL_ALREADY_EXISTS:
-      return msg`A skill with this name already exists.`;
+      return msg`Skill dengan nama ini sudah ada.`;
     case SkillExceptionCode.SKILL_IS_STANDARD:
-      return msg`Standard skills cannot be modified.`;
+      return msg`Skill standar tidak dapat diubah.`;
     case SkillExceptionCode.INVALID_SKILL_INPUT:
-      return msg`Invalid skill input.`;
+      return msg`Input skill tidak valid.`;
     default:
       assertUnreachable(code);
   }

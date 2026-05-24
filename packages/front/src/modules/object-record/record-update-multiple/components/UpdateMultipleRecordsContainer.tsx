@@ -121,8 +121,8 @@ export const UpdateMultipleRecordsContainer = ({
       </ShowPageContainer>
       <ConfirmationModal
         modalInstanceId={UPDATE_MULTIPLE_RECORDS_CONFIRMATION_MODAL_ID}
-        title={t`Update ${contextStoreNumberOfSelectedRecords} records`}
-        subtitle={t`This will modify ${contextStoreNumberOfSelectedRecords} records. This action cannot be undone.`}
+        title={t`Perbarui ${contextStoreNumberOfSelectedRecords} data`}
+        subtitle={t`${contextStoreNumberOfSelectedRecords} data akan diubah. Tindakan ini tidak dapat dibatalkan.`}
         onConfirmClick={handleConfirmedUpdate}
         confirmButtonText={t`Perbarui data`}
         confirmButtonAccent="blue"

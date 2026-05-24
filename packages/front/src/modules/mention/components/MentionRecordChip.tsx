@@ -45,7 +45,7 @@ export const MentionRecordChip = ({
   return (
     <LinkChip
       label={label}
-      emptyLabel={'Untitled'}
+      emptyLabel={t`Tanpa judul`}
       to={linkToShowPage}
       variant={ChipVariant.Highlighted}
       className={className}
