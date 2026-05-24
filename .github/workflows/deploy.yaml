@@ -76,7 +76,21 @@ jobs:
     timeout-minutes: 15
     if: github.event_name != 'pull_request'
     steps:
-      - name: SSH ke EC2 → pull + restart
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Sync docker-compose.yml ke EC2
+        uses: appleboy/scp-action@917f8b81dfc1ccd331fef9e2d61bdc6c8be94634 # v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          source: "packages/docker/docker-compose.yml,packages/docker/setup-zero-downtime.sh"
+          target: "/tmp/bades-deploy"
+          strip_components: 2
+
+      - name: SSH ke EC2 → pull + rollout
         uses: appleboy/ssh-action@7eaf76671a0d7eec5d98ee897acda4f968735a17 # v1.2.0
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -86,23 +100,42 @@ jobs:
           script: |
             set -e
             cd /home/ubuntu
+
+            echo "==> Sync compose + setup script dari /tmp/bades-deploy"
+            sudo cp /tmp/bades-deploy/docker-compose.yml ./docker-compose.yml.new
+            sudo cp /tmp/bades-deploy/setup-zero-downtime.sh ./setup-zero-downtime.sh
+            sudo chmod +x ./setup-zero-downtime.sh
+            if ! diff -q ./docker-compose.yml ./docker-compose.yml.new >/dev/null 2>&1; then
+              echo "    compose berubah, replace"
+              sudo mv ./docker-compose.yml.new ./docker-compose.yml
+            else
+              sudo rm ./docker-compose.yml.new
+            fi
+
             echo "==> Pull image"
             sudo docker compose --env-file .env pull server worker
-            echo "==> Restart server + worker"
-            sudo docker compose --env-file .env up -d --force-recreate --no-deps server worker
-            echo "==> Wait healthy"
-            for i in 1 2 3 4 5 6 7 8 9 10; do
-              STATUS=$(sudo docker compose --env-file .env ps server --format '{{.Status}}')
-              echo "Attempt $i: $STATUS"
-              if echo "$STATUS" | grep -q "(healthy)"; then
-                echo "Server healthy"
-                exit 0
-              fi
-              sleep 15
-            done
-            echo "Server tidak healthy dalam 150 detik"
-            sudo docker compose --env-file .env logs server --tail 50
-            exit 1
+
+            if sudo docker rollout --help >/dev/null 2>&1; then
+              echo "==> Zero-downtime rollout server (docker-rollout)"
+              # Scale up container baru, tunggu healthcheck (interval 5s x 20 retry = 100s),
+              # baru stop container lama. Selama swap, Caddy retry upstream (lb_try_duration).
+              sudo docker rollout --env-file .env -f docker-compose.yml --wait-after-healthy 5 server
+
+              echo "==> Restart worker (no zero-downtime needed)"
+              sudo docker compose --env-file .env up -d --force-recreate --no-deps worker
+            else
+              echo "!! docker-rollout belum terinstall — fallback ke restart biasa (akan ada downtime)"
+              echo "!! Jalankan SEKALI: bash packages/docker/setup-zero-downtime.sh"
+              sudo docker compose --env-file .env up -d --force-recreate --no-deps server worker
+              for i in 1 2 3 4 5 6 7 8 9 10; do
+                STATUS=$(sudo docker compose --env-file .env ps server --format '{{.Status}}')
+                echo "Attempt $i: $STATUS"
+                echo "$STATUS" | grep -q "(healthy)" && exit 0
+                sleep 15
+              done
+              sudo docker compose --env-file .env logs server --tail 50
+              exit 1
+            fi
 
       - name: Healthcheck public
         run: |
