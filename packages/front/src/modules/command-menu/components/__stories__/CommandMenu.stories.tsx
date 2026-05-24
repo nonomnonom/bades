@@ -159,24 +159,24 @@ export const DefaultWithoutSearch: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Go to People')).toBeVisible();
-    expect(await canvas.findByText('Go to Opportunities')).toBeVisible();
-    expect(await canvas.findByText('Go to Settings')).toBeVisible();
-    expect(await canvas.findByText('Go to Tasks')).toBeVisible();
-    expect(await canvas.findByText('Go to Notes')).toBeVisible();
+    expect(await canvas.findByText('Ke Penduduk')).toBeVisible();
+    expect(await canvas.findByText('Ke Permohonan')).toBeVisible();
+    expect(await canvas.findByText('Ke Pengaturan')).toBeVisible();
+    expect(await canvas.findByText('Ke Tugas')).toBeVisible();
+    expect(await canvas.findByText('Ke Catatan')).toBeVisible();
   },
 };
 
 export const LimitedPermissions: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(await canvas.findByText('Go to People')).toBeVisible();
+    expect(await canvas.findByText('Ke Penduduk')).toBeVisible();
     await waitFor(() => {
-      expect(canvas.queryByText('Go to Opportunities')).not.toBeInTheDocument();
-      expect(canvas.queryByText('Go to Tasks')).not.toBeInTheDocument();
+      expect(canvas.queryByText('Ke Permohonan')).not.toBeInTheDocument();
+      expect(canvas.queryByText('Ke Tugas')).not.toBeInTheDocument();
     });
-    expect(await canvas.findByText('Go to Settings')).toBeVisible();
-    expect(await canvas.findByText('Go to Notes')).toBeVisible();
+    expect(await canvas.findByText('Ke Pengaturan')).toBeVisible();
+    expect(await canvas.findByText('Ke Catatan')).toBeVisible();
   },
   decorators: [
     (Story) => {
@@ -196,7 +196,7 @@ export const MatchingNavigate: Story = {
     const searchInput = await canvas.findByTestId(SIDE_PANEL_FOCUS_ID);
     await sleep(openTimeout);
     await userEvent.type(searchInput, 'ta');
-    expect(await canvas.findByText('Go to Tasks')).toBeVisible();
+    expect(await canvas.findByText('Ke Tugas')).toBeVisible();
   },
 };
 
@@ -206,7 +206,7 @@ export const MatchingNavigateShortcuts: Story = {
     const searchInput = await canvas.findByTestId(SIDE_PANEL_FOCUS_ID);
     await sleep(openTimeout);
     await userEvent.type(searchInput, 'gp');
-    expect(await canvas.findByText('Go to People')).toBeVisible();
+    expect(await canvas.findByText('Ke Penduduk')).toBeVisible();
   },
 };
 
@@ -281,7 +281,7 @@ export const SubPageNavigation: Story = {
 
     expect(await canvas.findByText('Pick an object')).toBeVisible();
 
-    const backButton = await canvas.findByRole('button', { name: 'Go back' });
+    const backButton = await canvas.findByRole('button', { name: 'Kembali' });
     await userEvent.click(backButton);
 
     await waitFor(() => {

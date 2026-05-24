@@ -47,7 +47,7 @@ const EditorWrapper = ({
   });
 
   if (!editor) {
-    return <div>Loading editor...</div>;
+    return <div>Memuat editor...</div>;
   }
 
   return (

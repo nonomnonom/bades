@@ -82,22 +82,22 @@ export const WithButtonClicks: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
 
-    let actionButton = await canvas.findByText('Options');
+    let actionButton = await canvas.findByText('Opsi');
     await userEvent.click(actionButton);
 
-    const deleteButton = await canvas.findByText('Delete');
+    const deleteButton = await canvas.findByText('Hapus');
     await userEvent.click(deleteButton);
 
-    actionButton = await canvas.findByText('Options');
+    actionButton = await canvas.findByText('Opsi');
     await userEvent.click(actionButton);
 
-    const addToFavoritesButton = await canvas.findByText('Add to favorites');
+    const addToFavoritesButton = await canvas.findByText('Tambah ke favorit');
     await userEvent.click(addToFavoritesButton);
 
-    actionButton = await canvas.findByText('Options');
+    actionButton = await canvas.findByText('Opsi');
     await userEvent.click(actionButton);
 
-    const exportButton = await canvas.findByText('Export');
+    const exportButton = await canvas.findByText('Ekspor');
     await userEvent.click(exportButton);
   },
 };

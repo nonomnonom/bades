@@ -78,10 +78,10 @@ export const WithInteractions: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
 
-    const deleteButton = await canvas.findByText('Delete');
-    const addToFavoritesButton = await canvas.findByText('Add to favorites');
-    const exportButton = await canvas.findByText('Export');
-    const moreActionsButton = await canvas.findByText('More actions');
+    const deleteButton = await canvas.findByText('Hapus');
+    const addToFavoritesButton = await canvas.findByText('Tambah ke favorit');
+    const exportButton = await canvas.findByText('Ekspor');
+    const moreActionsButton = await canvas.findByText('Opsi');
 
     expect(deleteButton).toBeInTheDocument();
     expect(addToFavoritesButton).toBeInTheDocument();
