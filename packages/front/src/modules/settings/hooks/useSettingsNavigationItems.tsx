@@ -115,14 +115,14 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
         },
         {
-          // Model Data adalah fitur lanjutan untuk pengaturan struktur data.
-          // Ditempatkan di pengaturan lanjutan agar tidak membingungkan
-          // pengguna non-teknis yang tugas utamanya adalah administrasi harian.
+          // Model Data adalah fungsi inti Bades: setiap desa perlu
+          // menyesuaikan struktur data warganya (tambah field penduduk,
+          // jenis surat, kategori bantuan, dll). Bukan fitur lanjutan,
+          // tampilkan di nav utama.
           label: t`Model Data`,
           path: SettingsPath.Objects,
           Icon: IconHierarchy2,
           isHidden: !permissionMap[PermissionFlagType.DATA_MODEL],
-          isAdvanced: true,
         },
         {
           label: t`Anggota`,
