@@ -67,7 +67,7 @@ export function determineSchemaRelationDetails(
     fieldMetadataMaps.byId[fieldMetadata.relationTargetFieldMetadataId];
 
   if (!targetFieldMetadata) {
-    throw new Error('Target field metadata not found');
+    throw new Error('Metadata kolom target tidak ditemukan');
   }
 
   const isManyToOne =

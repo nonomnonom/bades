@@ -138,7 +138,7 @@ export const RecordShowSidePanelOpenRecordButton = ({
 
   return (
     <Button
-      title={'Buka'}
+      title={t`Buka`}
       variant="primary"
       accent="blue"
       size="small"

@@ -800,7 +800,7 @@ describe('UserWorkspaceService', () => {
 
       await expect(
         service.getUserWorkspaceForUserOrThrow({ userId, workspaceId }),
-      ).rejects.toThrow('User workspace not found');
+      ).rejects.toThrow('Ruang kerja pengguna tidak ditemukan');
     });
   });
 
@@ -852,7 +852,7 @@ describe('UserWorkspaceService', () => {
 
       await expect(
         service.getWorkspaceMemberOrThrow({ workspaceMemberId, workspaceId }),
-      ).rejects.toThrow('Workspace member not found');
+      ).rejects.toThrow('Anggota ruang kerja tidak ditemukan');
     });
   });
 });

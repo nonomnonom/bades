@@ -49,11 +49,11 @@ export class CompositeFieldMetadataOrderByGqlInputTypeGenerator {
       // Relation fields are not supported in composite types
       if (isMorphOrRelationFieldMetadataType(property.type)) {
         this.logger.error(
-          'Relation fields are not supported in composite types',
+          'Kolom relasi tidak didukung dalam tipe komposit',
           { compositeType, property },
         );
 
-        throw new Error('Relation fields are not supported in composite types');
+        throw new Error('Kolom relasi tidak didukung dalam tipe komposit');
       }
 
       // Skip hidden fields

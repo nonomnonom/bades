@@ -432,7 +432,7 @@ export class LocalDriver implements LogicFunctionDriver {
           const builtUrl = pathToFileURL(${JSON.stringify(builtFileAbsPath)});
           const mod = await import(builtUrl.href);
           if (typeof mod.${handlerName} !== 'function') {
-            throw new Error('Export "${handlerName}" not found in function bundle');
+            throw new Error('Export "${handlerName}" tidak ditemukan dalam bundle fungsi');
           }
 
           let payload = undefined;

@@ -19,11 +19,11 @@ export class EvaluateAgentTurnJob {
   @Process(EvaluateAgentTurnJob.name)
   async handle(data: EvaluateAgentTurnJobData): Promise<void> {
     if (!data.turnId) {
-      throw new Error('Turn ID is required');
+      throw new Error('ID giliran diperlukan');
     }
 
     if (!data.workspaceId) {
-      throw new Error('Workspace ID is required');
+      throw new Error('ID ruang kerja diperlukan');
     }
 
     const evaluation = await this.graderService.evaluateTurn(data.turnId);

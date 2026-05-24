@@ -292,7 +292,7 @@ export class ToolExecutorService {
 
     if (!isDefined(workspaceMemberId) || !isDefined(workspaceMember)) {
       throw new AuthException(
-        'Workspace member not found',
+        'Anggota ruang kerja tidak ditemukan',
         AuthExceptionCode.UNAUTHENTICATED,
       );
     }

@@ -62,7 +62,7 @@ export class EmailingDomainService {
     });
 
     if (!emailingDomain) {
-      throw new Error('Emailing domain not found');
+      throw new Error('Domain email tidak ditemukan');
     }
 
     await this.emailingDomainRepository.delete({
@@ -103,7 +103,7 @@ export class EmailingDomainService {
     );
 
     if (!emailingDomain) {
-      throw new Error('Emailing domain not found');
+      throw new Error('Domain email tidak ditemukan');
     }
 
     if (emailingDomain.status === EmailingDomainStatus.VERIFIED) {
@@ -134,7 +134,7 @@ export class EmailingDomainService {
     );
 
     if (!emailingDomain) {
-      throw new Error('Emailing domain not found');
+      throw new Error('Domain email tidak ditemukan');
     }
 
     await this.emailingDomainRepository.update(

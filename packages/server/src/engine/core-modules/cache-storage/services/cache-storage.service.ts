@@ -183,7 +183,7 @@ export class CacheStorageService {
 
   async flushByPattern(scanPattern: string): Promise<void> {
     if (!this.isRedisCache()) {
-      throw new Error('flushByPattern is only supported with Redis cache');
+      throw new Error('flushByPattern hanya didukung dengan Redis cache');
     }
 
     const redisClient = (this.cache as RedisCache).store.client;
@@ -249,7 +249,7 @@ export class CacheStorageService {
 
   async acquireLock(key: string, ttl = 1000): Promise<boolean> {
     if (!this.isRedisCache()) {
-      throw new Error('acquireLock is only supported with Redis cache');
+      throw new Error('acquireLock hanya didukung dengan Redis cache');
     }
 
     const redisClient = (this.cache as RedisCache).store.client;
@@ -264,7 +264,7 @@ export class CacheStorageService {
 
   async releaseLock(key: string): Promise<void> {
     if (!this.isRedisCache()) {
-      throw new Error('releaseLock is only supported with Redis cache');
+      throw new Error('releaseLock hanya didukung dengan Redis cache');
     }
 
     await this.del(key);
@@ -288,7 +288,7 @@ export class CacheStorageService {
 
   async hashGetValues(key: string): Promise<string[]> {
     if (!this.isRedisCache()) {
-      throw new Error('hashGetValues is only supported with Redis cache');
+      throw new Error('hashGetValues hanya didukung dengan Redis cache');
     }
 
     const redisClient = (this.cache as RedisCache).store.client;
@@ -306,7 +306,7 @@ export class CacheStorageService {
     value: string;
   }): Promise<number> {
     if (!this.isRedisCache()) {
-      throw new Error('hashSet is only supported with Redis cache');
+      throw new Error('hashSet hanya didukung dengan Redis cache');
     }
 
     const redisClient = (this.cache as RedisCache).store.client;

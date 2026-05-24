@@ -405,7 +405,7 @@ export class UserWorkspaceService extends TypeOrmQueryService<UserWorkspaceEntit
     });
 
     if (!isDefined(userWorkspace)) {
-      throw new Error('User workspace not found');
+      throw new Error('Ruang kerja pengguna tidak ditemukan');
     }
 
     return userWorkspace;
@@ -436,7 +436,7 @@ export class UserWorkspaceService extends TypeOrmQueryService<UserWorkspaceEntit
         });
 
         if (!isDefined(workspaceMember)) {
-          throw new Error('Workspace member not found');
+          throw new Error('Anggota ruang kerja tidak ditemukan');
         }
 
         return workspaceMember;

@@ -42,7 +42,7 @@ export const SettingsSubdomain = () => {
   return (
     <>
       <SubMenuTopBarContainer
-        title={'Subdomain'}
+        title={t`Subdomain`}
         links={[
           {
             children: <Trans>Ruang Kerja</Trans>,

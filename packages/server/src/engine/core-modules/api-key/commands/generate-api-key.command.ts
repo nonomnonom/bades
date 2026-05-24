@@ -68,7 +68,7 @@ export class GenerateApiKeyCommand extends CommandRunner {
     const days = parseInt(value, 10);
 
     if (isNaN(days) || days <= 0) {
-      throw new Error('--expires-in must be a positive number of days');
+      throw new Error('--expires-in harus berupa jumlah hari positif');
     }
 
     return days;

@@ -165,7 +165,7 @@ export class PermissionsException extends CustomException<PermissionsExceptionCo
 
 export enum PermissionsExceptionMessage {
   PERMISSION_DENIED = 'Entity performing the request does not have permission',
-  USER_WORKSPACE_NOT_FOUND = 'User workspace not found',
+  USER_WORKSPACE_NOT_FOUND = 'Ruang kerja pengguna tidak ditemukan',
   ROLE_NOT_FOUND = 'Role not found',
   CANNOT_UNASSIGN_LAST_ADMIN = 'Cannot unassign admin role from last admin of the workspace',
   CANNOT_DELETE_LAST_ADMIN_USER = 'Cannot delete account: user is the unique admin of a workspace',

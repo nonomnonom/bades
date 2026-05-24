@@ -100,7 +100,7 @@ export class ImapSmtpMessageOutboundService implements MessageOutboundDriver {
     this.assertHandleIsDefined(handle);
 
     if (!isDefined(connectionParameters?.IMAP)) {
-      throw new Error('IMAP connection is required to create drafts');
+      throw new Error('Koneksi IMAP diperlukan untuk membuat draf');
     }
 
     const messageBuffer = await this.compileRawMessage(
@@ -143,7 +143,7 @@ export class ImapSmtpMessageOutboundService implements MessageOutboundDriver {
     handle: string | null,
   ): asserts handle is string {
     if (!isDefined(handle)) {
-      throw new Error('Handle is required');
+      throw new Error('Handle diperlukan');
     }
   }
 }

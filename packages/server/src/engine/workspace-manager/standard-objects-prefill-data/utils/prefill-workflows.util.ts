@@ -46,7 +46,7 @@ export const prefillWorkflows = async (
     !isDefined(companyObjectMetadataId) ||
     !isDefined(personObjectMetadataId)
   ) {
-    throw new Error('Company or person object metadata not found');
+    throw new Error('Metadata objek perusahaan atau شخص tidak ditemukan');
   }
 
   const companyObjectMetadata = findFlatEntityByIdInFlatEntityMaps({
@@ -60,7 +60,7 @@ export const prefillWorkflows = async (
   });
 
   if (!isDefined(companyObjectMetadata) || !isDefined(personObjectMetadata)) {
-    throw new Error('Company or person object metadata not found');
+    throw new Error('Metadata objek perusahaan atau شخص tidak ditemukan');
   }
 
   const companyDomainNameFieldMetadata = Object.values(
@@ -72,7 +72,7 @@ export const prefillWorkflows = async (
   );
 
   if (!isDefined(companyDomainNameFieldMetadata)) {
-    throw new Error('Company domainName field metadata not found');
+    throw new Error('Metadata kolom domainName perusahaan tidak ditemukan');
   }
 
   await entityManager

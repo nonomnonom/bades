@@ -250,7 +250,7 @@ export const RecordDetailRelationRecordsListItem = ({
                     relationObjectPermissions.canSoftDeleteObjectRecords && (
                       <MenuItem
                         LeftIcon={IconTrash}
-                        text={'Hapus'}
+                        text=t`Hapus`
                         accent="danger"
                         onClick={handleDelete}
                       />

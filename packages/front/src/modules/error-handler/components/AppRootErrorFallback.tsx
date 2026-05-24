@@ -112,7 +112,7 @@ export const AppRootErrorFallback = ({
           <StyledImageContainer>
             <StyledBackgroundImage
               src="/images/placeholders/background/error_index_bg.png"
-              alt={'Background'}
+              alt={t`Latar Belakang`}
             />
             <StyledInnerImage
               src="/images/placeholders/moving-image/error_index.png"

@@ -27,7 +27,7 @@ export class QueryTypeGenerator {
     const queryType = this.gqlTypesStorage.getGqlTypeByKey(GqlOperation.Query);
 
     if (!queryType || !isObjectType(queryType)) {
-      throw new Error('Query type not found');
+      throw new Error('Tipe kueri tidak ditemukan');
     }
 
     return queryType;

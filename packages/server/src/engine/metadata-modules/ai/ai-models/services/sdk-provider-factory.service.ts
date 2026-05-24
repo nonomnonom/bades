@@ -163,7 +163,7 @@ export class SdkProviderFactoryService {
     config: AiProviderConfig,
   ): AiSdkProviderInstance {
     if (!config.baseUrl) {
-      throw new Error('baseUrl is required for openai-compatible providers');
+      throw new Error('baseUrl diperlukan untuk provider openai-compatible');
     }
 
     const provider = createOpenAICompatible({
@@ -181,7 +181,7 @@ export class SdkProviderFactoryService {
 
   private buildAzureProvider(config: AiProviderConfig): AiSdkProviderInstance {
     if (!config.baseUrl) {
-      throw new Error('baseUrl is required for Azure OpenAI providers');
+      throw new Error('baseUrl diperlukan untuk provider Azure OpenAI');
     }
 
     const provider = createAzure({

@@ -272,7 +272,7 @@ export class DevSeederPermissionsService {
     );
 
     if (!personCityFieldMetadata) {
-      throw new Error('Person city field metadata not found');
+      throw new Error('Metadata kolom kota شخص tidak ditemukan');
     }
 
     const companyLinkedinLinkFieldMetadata = companyObjectMetadata.fields.find(
@@ -280,7 +280,7 @@ export class DevSeederPermissionsService {
     );
 
     if (!companyLinkedinLinkFieldMetadata) {
-      throw new Error('Company linkedin link field metadata not found');
+      throw new Error('Metadata kolom link linkedin perusahaan tidak ditemukan');
     }
 
     const readOnlyOnPersonCityFieldPermission = {

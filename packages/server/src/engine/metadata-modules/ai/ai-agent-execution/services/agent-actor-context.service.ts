@@ -47,7 +47,7 @@ export class AgentActorContextService {
 
     if (!userWorkspace) {
       throw new AiException(
-        'User workspace not found',
+        'Ruang kerja pengguna tidak ditemukan',
         AiExceptionCode.AGENT_EXECUTION_FAILED,
       );
     }

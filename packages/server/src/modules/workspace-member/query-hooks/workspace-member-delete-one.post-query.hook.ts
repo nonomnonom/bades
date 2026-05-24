@@ -70,7 +70,7 @@ export class WorkspaceMemberDeleteOnePostQueryHook
 
     if (!isDefined(workspaceMember)) {
       throw new PermissionsException(
-        'Workspace member not found',
+        'Anggota ruang kerja tidak ditemukan',
         PermissionsExceptionCode.WORKSPACE_MEMBER_NOT_FOUND,
       );
     }
@@ -84,7 +84,7 @@ export class WorkspaceMemberDeleteOnePostQueryHook
 
     if (!isDefined(userWorkspace)) {
       throw new PermissionsException(
-        'User workspace not found',
+        'Ruang kerja pengguna tidak ditemukan',
         PermissionsExceptionCode.USER_WORKSPACE_NOT_FOUND,
       );
     }

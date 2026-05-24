@@ -57,7 +57,7 @@ export const SidePanelWorkflowSelectAction = ({
       />
 
       <SidePanelWorkflowSelectStepTitle>
-        {'AI'}
+        t`AI`
       </SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={AI_ACTIONS}

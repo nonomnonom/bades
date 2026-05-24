@@ -21,7 +21,7 @@ export const WithLock = (
       const self = this as { cacheLockService: CacheLockService };
 
       if (!self.cacheLockService) {
-        throw new Error('cacheLockService not available on instance');
+        throw new Error('cacheLockService tidak tersedia pada instance');
       }
 
       if (typeof args[0] !== 'object') {

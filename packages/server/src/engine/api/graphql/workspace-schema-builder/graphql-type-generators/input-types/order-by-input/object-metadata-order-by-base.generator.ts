@@ -135,7 +135,7 @@ export class ObjectMetadataOrderByBaseGenerator {
         );
 
       if (!isDefined(orderByDateGranularityInputType)) {
-        throw new Error('OrderByDateGranularityInputType not found');
+        throw new Error('OrderByDateGranularityInputType tidak ditemukan');
       }
 
       return {

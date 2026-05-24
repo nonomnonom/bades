@@ -29,7 +29,7 @@ export class MutationTypeGenerator {
     );
 
     if (!mutationType || !isObjectType(mutationType)) {
-      throw new Error('Mutation type not found');
+      throw new Error('Tipe mutasi tidak ditemukan');
     }
 
     return mutationType;

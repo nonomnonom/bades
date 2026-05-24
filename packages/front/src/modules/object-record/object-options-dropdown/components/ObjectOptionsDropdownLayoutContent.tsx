@@ -193,7 +193,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             >
               <MenuItemSelect
                 LeftIcon={viewTypeIconMapping(ViewType.KANBAN)}
-                text={'Kanban'}
+                text=t`Kanban`
                 disabled={isDefaultView}
                 focused={selectedItemId === ViewType.KANBAN}
                 contextualText={

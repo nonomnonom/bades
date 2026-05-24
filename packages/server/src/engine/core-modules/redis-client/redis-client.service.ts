@@ -21,7 +21,7 @@ export class RedisClientService implements OnModuleDestroy {
         this.badesConfigService.get('REDIS_URL');
 
       if (!redisQueueUrl) {
-        throw new Error('REDIS_QUEUE_URL or REDIS_URL must be defined');
+        throw new Error('REDIS_QUEUE_URL atau REDIS_URL harus ditentukan');
       }
 
       this.redisQueueClient = new IORedis(redisQueueUrl, {
@@ -37,7 +37,7 @@ export class RedisClientService implements OnModuleDestroy {
       const redisUrl = this.badesConfigService.get('REDIS_URL');
 
       if (!redisUrl) {
-        throw new Error('REDIS_URL must be defined');
+        throw new Error('REDIS_URL harus ditentukan');
       }
 
       this.redisClient = new IORedis(redisUrl, {

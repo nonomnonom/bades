@@ -82,7 +82,7 @@ export const RecordTitleFullNameFieldDisplay = ({
       }}
     >
       {!content ? (
-        <StyledEmptyText>{'Untitled'}</StyledEmptyText>
+        <StyledEmptyText>t`Tanpa judul`</StyledEmptyText>
       ) : (
         <OverflowingTextWithTooltip
           text={isNonEmptyString(content) ? content : fieldDefinition.label}

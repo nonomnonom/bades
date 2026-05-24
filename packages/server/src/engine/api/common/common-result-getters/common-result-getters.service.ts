@@ -139,7 +139,7 @@ export class CommonResultGettersService {
 
     for (const relationField of relationFields) {
       if (!isDefined(relationField.relationTargetObjectMetadataId)) {
-        throw new Error('Relation target object metadata id is not defined');
+        throw new Error('ID metadata objek target relasi tidak ditentukan');
       }
 
       const recordFieldValue = record[relationField.name];

@@ -76,11 +76,11 @@ export abstract class WorkspaceCommandRunner<
     const limit = parseInt(val);
 
     if (isNaN(limit)) {
-      throw new Error('Workspace count limit must be a number');
+      throw new Error('Batas jumlah ruang kerja harus berupa angka');
     }
 
     if (limit <= 0) {
-      throw new Error('Workspace count limit must be greater than 0');
+      throw new Error('Batas jumlah ruang kerja harus lebih dari 0');
     }
 
     return limit;

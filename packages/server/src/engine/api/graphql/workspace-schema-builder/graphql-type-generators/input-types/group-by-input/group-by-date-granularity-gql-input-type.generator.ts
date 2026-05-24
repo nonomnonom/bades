@@ -46,7 +46,7 @@ export class GroupByDateGranularityInputTypeGenerator {
     ) as GraphQLEnumType;
 
     if (!isDefined(dateGranularityEnum)) {
-      throw new Error('DateGranularityEnum not found');
+      throw new Error('DateGranularityEnum tidak ditemukan');
     }
 
     const firstDayOfWeekEnum = new GraphQLEnumType({

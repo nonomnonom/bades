@@ -41,7 +41,7 @@ export const formatResultWithGroupByDimensionValues = async ({
       !isDefined(flatObjectMetadataMaps) ||
       !isDefined(flatFieldMetadataMaps)
     ) {
-      throw new Error('Metadata are required to format result');
+      throw new Error('Metadata diperlukan untuk memformat hasil');
     }
 
     if (!isDefined(processRecord)) {

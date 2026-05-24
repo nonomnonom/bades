@@ -283,7 +283,7 @@ export class UserService extends TypeOrmQueryService<UserEntity> {
     );
 
     if (!isDefined(userWorkspace)) {
-      throw new Error('User workspace not found.');
+      throw new Error('Ruang kerja pengguna tidak ditemukan.');
     }
 
     await this.removeUserFromWorkspaceAndPotentiallyDeleteWorkspace(

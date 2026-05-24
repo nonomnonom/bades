@@ -47,7 +47,7 @@ export class BillingSubscriptionPhaseService {
     );
 
     if (!isDefined(quantity)) {
-      throw new Error('Quantity tidak terdefinisi dalam phase');
+      throw new Error('Kuantitas tidak terdefinisi dalam phase');
     }
 
     return {
@@ -129,7 +129,7 @@ export class BillingSubscriptionPhaseService {
     );
 
     if (!resourceCreditItem?.price) {
-      throw new Error('Resource credit item tidak ditemukan dalam phase');
+      throw new Error('Item kredit sumber daya tidak ditemukan dalam phase');
     }
 
     return resourceCreditItem.price;

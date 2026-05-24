@@ -121,7 +121,7 @@ export const isPrivateIp = (addr: string): boolean => {
   const ipl = normalizeToLong(addr);
 
   if (ipl < 0) {
-    throw new Error('invalid ipv4 address');
+    throw new Error('alamat ipv4 tidak valid');
   }
 
   return PRIVATE_RANGES.check(fromLong(ipl));

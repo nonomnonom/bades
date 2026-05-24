@@ -27,7 +27,7 @@ export const getImageBufferFromUrl = async (
   axiosInstance: AxiosInstance,
 ): Promise<Buffer> => {
   if (!url || typeof url !== 'string' || url.trim().length === 0) {
-    throw new Error('Invalid URL provided: URL must be a non-empty string');
+    throw new Error('URL tidak valid: URL harus berupa string non-kosong');
   }
 
   try {

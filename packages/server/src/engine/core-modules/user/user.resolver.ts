@@ -154,7 +154,7 @@ export class UserResolver {
     );
 
     if (!isDefined(currentUserWorkspace)) {
-      throw new Error('Current user workspace not found');
+      throw new Error('Ruang kerja pengguna saat ini tidak ditemukan');
     }
 
     const userWorkspacePermissions =
@@ -243,7 +243,7 @@ export class UserResolver {
     const userWorkspaceRoles = roleOfUserWorkspace.get(userWorkspace.id);
 
     if (!isDefined(userWorkspaceRoles)) {
-      throw new Error('UserEntity workspace roles not found');
+      throw new Error('Peran ruang kerja UserEntity tidak ditemukan');
     }
 
     return this.workspaceMemberTranspiler.toWorkspaceMemberDto({
@@ -298,7 +298,7 @@ export class UserResolver {
           );
 
           if (!isDefined(userWorkspace)) {
-            throw new Error('UserEntity workspace not found');
+            throw new Error('Ruang kerja UserEntity tidak ditemukan');
           }
 
           const userWorkspaceRoles = rolesByUserWorkspacesMap.get(
@@ -306,7 +306,7 @@ export class UserResolver {
           );
 
           if (!isDefined(userWorkspaceRoles)) {
-            throw new Error('UserEntity workspace roles not found');
+            throw new Error('Peran ruang kerja UserEntity tidak ditemukan');
           }
 
           return {
@@ -507,7 +507,7 @@ export class UserResolver {
       );
 
     if (!isDefined(workspaceMember)) {
-      throw new BadRequestException('Workspace member not found');
+      throw new BadRequestException('Anggota ruang kerja tidak ditemukan');
     }
 
     const workspaceMemberUpdatePayload: Partial<WorkspaceMemberWorkspaceEntity> =

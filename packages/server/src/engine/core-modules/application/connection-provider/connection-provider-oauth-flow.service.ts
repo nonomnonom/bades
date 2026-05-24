@@ -209,7 +209,7 @@ export class ConnectionProviderOAuthFlowService {
       )) as AppOAuthStateJwtPayload;
 
       if (verified.type !== JwtTokenTypeEnum.APP_OAUTH_STATE) {
-        throw new Error('Wrong JWT type for OAuth state');
+        throw new Error('Jenis JWT salah untuk status OAuth');
       }
 
       return verified;
