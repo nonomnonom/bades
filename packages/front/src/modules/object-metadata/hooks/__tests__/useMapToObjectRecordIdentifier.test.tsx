@@ -18,7 +18,7 @@ describe('useMapToObjectRecordIdentifier', () => {
 
         return mapToObjectRecordIdentifier({
           id: 'id',
-          name: { firstName: 'Sheldon', lastName: 'Cooper' },
+          name: { firstName: 'Subagja', lastName: 'Cahyani' },
           __typename: 'Penduduk',
         });
       },

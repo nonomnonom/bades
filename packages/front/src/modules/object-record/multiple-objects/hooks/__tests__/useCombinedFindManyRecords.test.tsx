@@ -388,7 +388,7 @@ describe('useCombinedFindManyRecords', () => {
               id: '3',
               name: {
                 firstName: 'Aisyah',
-                lastName: 'Johnson',
+                lastName: 'Jaya',
               },
             },
             cursor: 'cursor3',
@@ -431,7 +431,7 @@ describe('useCombinedFindManyRecords', () => {
             id: '3',
             name: {
               firstName: 'Aisyah',
-              lastName: 'Johnson',
+              lastName: 'Jaya',
             },
           },
         ],

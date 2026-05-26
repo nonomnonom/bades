@@ -165,7 +165,7 @@ const mockWorkspaceMemberRecord: ObjectRecord = {
   name: {
     __typename: 'FullName',
     firstName: 'Sari',
-    lastName: 'Johnson',
+    lastName: 'Jaya',
   },
   avatarUrl: '',
   userEmail: 'sarah.johnson@acme.com',
@@ -186,7 +186,7 @@ const mockTimelineActivityRecord: ObjectRecord = {
     name: {
       __typename: 'FullName',
       firstName: 'Sari',
-      lastName: 'Johnson',
+      lastName: 'Jaya',
     },
     avatarUrl: '',
     userEmail: 'sarah.johnson@acme.com',
@@ -1919,7 +1919,7 @@ const generateMockPendudukRecords = (count: number) => {
     { firstName: 'Gita', lastName: 'Permata' },
     { firstName: 'Hadi', lastName: 'Tanudjaja' },
     { firstName: 'Ivy', lastName: 'Jayadi' },
-    { firstName: 'Jack', lastName: 'White' },
+    { firstName: 'Joko', lastName: 'Wibowo' },
   ];
 
   return Array.from({ length: count }, (_, index) => {

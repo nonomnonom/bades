@@ -111,7 +111,7 @@ describe('isFieldValueEmpty', () => {
     expect(
       isFieldValueEmpty({
         fieldDefinition: fullNameFieldDefinition,
-        fieldValue: { firstName: 'Sheldon', lastName: '' },
+        fieldValue: { firstName: 'Subagja', lastName: '' },
       }),
     ).toBe(false);
   });
