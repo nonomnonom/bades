@@ -119,7 +119,12 @@ jobs:
               echo "==> Zero-downtime rollout server (docker-rollout)"
               # Scale up container baru, tunggu healthcheck (interval 5s x 20 retry = 100s),
               # baru stop container lama. Selama swap, Caddy retry upstream (lb_try_duration).
-              sudo docker rollout --env-file .env -f docker-compose.yml --wait-after-healthy 5 server
+              # docker-rollout tidak punya --env-file flag, jadi env di-load
+              # manual ke shell environment sebelum panggil rollout.
+              set -a
+              source .env
+              set +a
+              sudo -E docker rollout -f docker-compose.yml --wait-after-healthy 5 server
 
               echo "==> Restart worker (no zero-downtime needed)"
               sudo docker compose --env-file .env up -d --force-recreate --no-deps worker
