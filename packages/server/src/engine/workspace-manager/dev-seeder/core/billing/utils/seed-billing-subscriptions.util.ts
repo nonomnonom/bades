@@ -11,8 +11,8 @@ type SeedBillingSubscriptionsArgs = {
 
 /**
  * Membuat data awal subscription billing untuk workspace dev.
- * Menggunakan billingCustomerId (FK ke billingCustomer.id) dan planKey
- * sebagai pengganti identifikasi berbasis Stripe.
+ * Identifikasi langganan via billingCustomerId (FK ke billingCustomer.id)
+ * dan planKey internal Bades.
  */
 export const seedBillingSubscriptions = async ({
   queryRunner,

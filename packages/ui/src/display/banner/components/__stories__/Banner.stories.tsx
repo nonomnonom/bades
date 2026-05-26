@@ -109,7 +109,7 @@ export const Catalog: CatalogStory<Story, typeof Banner> = {
     // oxlint-disable-next-line react/jsx-props-no-spreading
     <Banner {...args}>
       <StyledBannerContent>
-        Sync lost with mailbox hello@twenty.com. Please reconnect for updates:
+        Sinkronisasi terputus dengan kotak surat halo@bades.id. Hubungkan ulang untuk pembaruan:
         <Button
           variant="secondary"
           accent={getButtonAccent(args.color)}

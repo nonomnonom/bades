@@ -16,7 +16,7 @@ describe('filterEmails', () => {
   });
 
   it('Should not filter out if at least one email is from a different domain', () => {
-    const primaryHandle = 'guillim@acme.com';
+    const primaryHandle = 'guillim@desa.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-external',
     );
@@ -27,7 +27,7 @@ describe('filterEmails', () => {
   });
 
   it('Should filter out same domain emails', () => {
-    const primaryHandle = 'guillim@acme.com';
+    const primaryHandle = 'guillim@desa.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-internal',
     );
@@ -41,7 +41,7 @@ describe('filterEmails', () => {
     // Workspace opted into syncing internal emails (e.g. university or
     // shared-domain institution). Same-domain participants must not be
     // dropped — the toggle bypasses filterOutInternals.
-    const primaryHandle = 'guillim@acme.com';
+    const primaryHandle = 'guillim@desa.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-internal',
     );
@@ -59,11 +59,11 @@ describe('filterEmails', () => {
   });
 
   it('Should filter messages with participant from the blocklist', () => {
-    const primaryHandle = 'guillim@acme.com';
+    const primaryHandle = 'guillim@desa.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-internal',
     );
-    const blocklist = ['to@acme.com'];
+    const blocklist = ['to@desa.id'];
     const filteredMessages = filterEmails(
       primaryHandle,
       [],

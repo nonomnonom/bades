@@ -237,7 +237,7 @@ export const TrimInput: Story = {
     const canvas = within(canvasElement);
 
     const input = await canvas.findByPlaceholderText('URL');
-    await userEvent.type(input, '  https://www.twenty.com  {enter}');
+    await userEvent.type(input, '  https://www.bades.id  {enter}');
 
     const linkDisplay = await canvas.findByText('bades.id');
     expect(linkDisplay).toBeVisible();
