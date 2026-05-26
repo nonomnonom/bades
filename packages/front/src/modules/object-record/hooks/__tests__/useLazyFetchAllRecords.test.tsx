@@ -1,4 +1,4 @@
-import { PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 import { useLazyFetchAllRecords } from '@/object-record/hooks/useLazyFetchAllRecords';
 import { type MockedResponse } from '@apollo/client/testing';
 import { act, renderHook, waitFor } from '@testing-library/react';
@@ -84,7 +84,7 @@ const mock: MockedResponse = {
               ) {
                   edges {
                       node {
-                          ${PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
+                          ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
                       }
                       cursor
                   }

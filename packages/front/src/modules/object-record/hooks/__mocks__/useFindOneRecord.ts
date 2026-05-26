@@ -1,12 +1,12 @@
 import { gql } from '@apollo/client';
 
-import { PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 import { responseData as person } from './useUpdateOneRecord';
 
 export const query = gql`
   query FindOnePerson($objectRecordId: UUID!) {
     person(filter: { id: { eq: $objectRecordId } }) {
-      ${PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS}
+      ${PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS}
     }
   }
 `;

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
-import { PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 import { useFindManyRecordsQuery } from '@/object-record/hooks/useFindManyRecordsQuery';
 import { print } from 'graphql';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
@@ -16,7 +16,7 @@ const expectedQueryTemplate = `
     ) {
       edges {
         node {
-      ${PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
+      ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
         }
         cursor
       }

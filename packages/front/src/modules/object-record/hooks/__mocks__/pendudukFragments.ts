@@ -1,4 +1,4 @@
-export const PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS = `
+export const PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS = `
       __typename
       avatarFile {
         fileId
@@ -62,7 +62,7 @@ export const PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS = `
       }
 `;
 
-export const PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS = `
+export const PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS = `
       __typename
       attachments {
         edges {

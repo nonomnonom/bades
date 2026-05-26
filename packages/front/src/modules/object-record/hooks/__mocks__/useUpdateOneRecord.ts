@@ -1,10 +1,10 @@
-import { PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 import { gql } from '@apollo/client';
 
 export const query = gql`
   mutation UpdateOnePerson($idToUpdate: UUID!, $input: PersonUpdateInput!) {
     updatePenduduk(id: $idToUpdate, data: $input) {
-      ${PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS}
+      ${PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS}
     }
   }
 `;

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { print } from 'graphql';
 
-import { PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 import { useFindDuplicateRecordsQuery } from '@/object-record/hooks/useFindDuplicatesRecordsQuery';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
@@ -10,7 +10,7 @@ const expectedQueryTemplate = `
     personDuplicates(ids: $ids) {
       edges {
         node {
-      ${PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
+      ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
         }
        cursor
       }

@@ -1,14 +1,14 @@
 import { renderHook } from '@testing-library/react';
 import { print } from 'graphql';
 
-import { PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 import { useCreateOneRecordMutation } from '@/object-record/hooks/useCreateOneRecordMutation';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
   mutation CreateOnePerson($input: PersonCreateInput!) {
     createPenduduk(data: $input) {
-      ${PERSON_FRAGMENT_WITH_DEPTH_ONE_RELATIONS}
+      ${PENDUDUK_FRAGMENT_WITH_DEPTH_ONE_RELATIONS}
     }
   }
 `.replace(/\s/g, '');
