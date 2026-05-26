@@ -7,7 +7,7 @@ export const ImportRecordsNoSelectionRecordCommand = () => {
   const { objectMetadataItem } = useHeadlessCommandContextApi();
 
   if (!isDefined(objectMetadataItem)) {
-    throw new Error('Object metadata item is required to import records');
+    throw new Error('Item metadata objek diperlukan untuk mengimpor rekaman');
   }
 
   const { openObjectRecordsSpreadsheetImportDialog } =

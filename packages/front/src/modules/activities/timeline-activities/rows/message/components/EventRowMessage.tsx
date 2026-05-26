@@ -39,7 +39,7 @@ export const EventRowMessage = ({
     <StyledEventRowMessageContainer>
       <StyledRowContainer>
         <EventRowItem>{authorFullName}</EventRowItem>
-        <EventRowItem variant="action">{t`menghubungkan surel dengan`}</EventRowItem>
+        <EventRowItem variant="action">{'menghubungkan surel dengan'}</EventRowItem>
         <EventRowItem>{labelIdentifierValue}</EventRowItem>
         <EventCardToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
       </StyledRowContainer>

@@ -51,7 +51,7 @@ export const EventRowMainObject = ({
           <StyledRowContainer>
             <StyledRow>
               <EventRowItem>{labelIdentifierValue}</EventRowItem>
-              <EventRowItem variant="action">{t`dibuat oleh`}</EventRowItem>
+              <EventRowItem variant="action">{'dibuat oleh'}</EventRowItem>
               <EventRowItem>{authorFullName}</EventRowItem>
             </StyledRow>
             <StyledItemTitleDate>{createdAt}</StyledItemTitleDate>
@@ -76,7 +76,7 @@ export const EventRowMainObject = ({
           <StyledRowContainer>
             <StyledRow>
               <EventRowItem>{labelIdentifierValue}</EventRowItem>
-              <EventRowItem variant="action">{t`dihapus oleh`}</EventRowItem>
+              <EventRowItem variant="action">{'dihapus oleh'}</EventRowItem>
               <EventRowItem>{authorFullName}</EventRowItem>
             </StyledRow>
             <StyledItemTitleDate>{createdAt}</StyledItemTitleDate>
@@ -90,7 +90,7 @@ export const EventRowMainObject = ({
           <StyledRowContainer>
             <StyledRow>
               <EventRowItem>{labelIdentifierValue}</EventRowItem>
-              <EventRowItem variant="action">{t`dipulihkan oleh`}</EventRowItem>
+              <EventRowItem variant="action">{'dipulihkan oleh'}</EventRowItem>
               <EventRowItem>{authorFullName}</EventRowItem>
             </StyledRow>
             <StyledItemTitleDate>{createdAt}</StyledItemTitleDate>

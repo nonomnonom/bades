@@ -1,4 +1,3 @@
-import { type Person } from '@/people/types/Person';
 import { type WorkspaceMember } from '@/workspace-member/types/WorkspaceMember';
 import { type MessageParticipantRole } from 'shared/types';
 
@@ -8,7 +7,6 @@ export type EmailThreadMessageParticipant = {
   handle: string;
   role: MessageParticipantRole;
   messageId: string;
-  person: Person;
   workspaceMember: WorkspaceMember;
   __typename: 'EmailThreadMessageParticipant';
 };

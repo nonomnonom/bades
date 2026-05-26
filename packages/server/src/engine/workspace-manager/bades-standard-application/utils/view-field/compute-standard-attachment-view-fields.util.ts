@@ -33,42 +33,6 @@ export const computeStandardAttachmentViewFields = (
       },
     }),
     // All morph targets are included so the surviving field after dedup always has a viewField
-    allAttachmentsTargetPerson: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'attachment',
-      context: {
-        viewName: 'allAttachments',
-        viewFieldName: 'targetPerson',
-        fieldName: 'targetPerson',
-        position: 2,
-        isVisible: true,
-        size: 150,
-      },
-    }),
-    allAttachmentsTargetCompany: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'attachment',
-      context: {
-        viewName: 'allAttachments',
-        viewFieldName: 'targetCompany',
-        fieldName: 'targetCompany',
-        position: 3,
-        isVisible: true,
-        size: 150,
-      },
-    }),
-    allAttachmentsTargetOpportunity: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'attachment',
-      context: {
-        viewName: 'allAttachments',
-        viewFieldName: 'targetOpportunity',
-        fieldName: 'targetOpportunity',
-        position: 4,
-        isVisible: true,
-        size: 150,
-      },
-    }),
     allAttachmentsTargetTask: createStandardViewFieldFlatMetadata({
       ...args,
       objectName: 'attachment',

@@ -10,13 +10,6 @@ export const getDisplayNameFromParticipant = ({
   participant: EmailThreadMessageParticipant;
   shouldUseFullName?: boolean;
 }) => {
-  if (isDefined(participant.person)) {
-    return (
-      `${participant.person?.name?.firstName}` +
-      (shouldUseFullName ? ` ${participant.person?.name?.lastName}` : '')
-    );
-  }
-
   if (isDefined(participant.workspaceMember)) {
     return (
       participant.workspaceMember?.name?.firstName +
@@ -34,5 +27,5 @@ export const getDisplayNameFromParticipant = ({
     return participant.handle;
   }
 
-  return 'Unknown';
+  return 'Tidak diketahui';
 };

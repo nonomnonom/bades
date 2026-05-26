@@ -38,15 +38,6 @@ export const STANDARD_OBJECTS = {
       targetNote: {
         universalIdentifier: '20202020-4f4b-4503-a6fc-6b982f3dffb5',
       },
-      targetPerson: {
-        universalIdentifier: '20202020-0158-4aa2-965c-5cdafe21ffa2',
-      },
-      targetCompany: {
-        universalIdentifier: '20202020-ceab-4a28-b546-73b06b4c08d5',
-      },
-      targetOpportunity: {
-        universalIdentifier: '20202020-7374-499d-bea3-9354890755b5',
-      },
       targetDashboard: {
         universalIdentifier: '20202020-5324-43f3-9dbf-1a33e7de0ce6',
       },
@@ -70,15 +61,6 @@ export const STANDARD_OBJECTS = {
       noteIdIndex: {
         universalIdentifier: '9d31ea73-13b6-4e06-84ee-c66c72bf7787',
       },
-      personIdIndex: {
-        universalIdentifier: '55637a5a-1edc-4351-8d76-d40020bf8944',
-      },
-      companyIdIndex: {
-        universalIdentifier: '4137ba06-184d-438f-b484-080f02a97659',
-      },
-      opportunityIdIndex: {
-        universalIdentifier: '8cc162d1-c127-4981-878d-f78622f8f12d',
-      },
       dashboardIdIndex: {
         universalIdentifier: 'c10eba2d-ff1a-4eab-9285-50481c12a003',
       },
@@ -101,15 +83,6 @@ export const STANDARD_OBJECTS = {
           },
           createdAt: {
             universalIdentifier: '6c092c26-b1cb-488f-ae2e-5af4bec1162b',
-          },
-          targetPerson: {
-            universalIdentifier: '73a4c3a7-c7f9-4ed6-a2b6-117d7efad0f3',
-          },
-          targetCompany: {
-            universalIdentifier: 'b335ad04-059e-4c36-8666-f40431849044',
-          },
-          targetOpportunity: {
-            universalIdentifier: '15f2d457-dc09-4c52-bf2a-47083d6bf017',
           },
           targetTask: {
             universalIdentifier: 'c2913c5e-6cc6-438d-9c2f-3212a9b2a82b',
@@ -451,9 +424,6 @@ export const STANDARD_OBJECTS = {
       responseStatus: {
         universalIdentifier: '20202020-cec0-4be8-8fba-c366abc23147',
       },
-      person: {
-        universalIdentifier: '20202020-5761-4842-8186-e1898ef93966',
-      },
       workspaceMember: {
         universalIdentifier: '20202020-20e4-4591-93ed-aeb17a4dcbd2',
       },
@@ -473,9 +443,6 @@ export const STANDARD_OBJECTS = {
     indexes: {
       calendarEventIdIndex: {
         universalIdentifier: 'c458ad97-8b95-43de-9003-88eb68576049',
-      },
-      personIdIndex: {
-        universalIdentifier: '30e9b75a-881f-4a85-aaf1-f2d2464be1cf',
       },
       workspaceMemberIdIndex: {
         universalIdentifier: '898aa202-428f-4a7a-a3b3-8f0a17a6658e',
@@ -499,9 +466,6 @@ export const STANDARD_OBJECTS = {
           },
           responseStatus: {
             universalIdentifier: 'dd0ab0bd-7f33-48fa-9461-fb5d085a2f9f',
-          },
-          person: {
-            universalIdentifier: '86546244-9e3d-40e4-87cd-cbc82a353d2e',
           },
           workspaceMember: {
             universalIdentifier: '542141b0-ac85-4c43-867b-8d7f559b07ae',
@@ -536,9 +500,6 @@ export const STANDARD_OBJECTS = {
           },
           responseStatus: {
             universalIdentifier: 'cd02fc91-8fa4-4fa3-b0e3-1a1fc891e6ee',
-          },
-          person: {
-            universalIdentifier: '46be729d-091c-4012-aeca-16a743008513',
           },
           workspaceMember: {
             universalIdentifier: 'c38c1111-f6e0-4698-9b36-db59f8d97de3',
@@ -645,183 +606,6 @@ export const STANDARD_OBJECTS = {
           },
           createdAt: {
             universalIdentifier: '20202020-cf01-4c01-8c01-ca1ebe0caf08',
-          },
-        },
-      },
-    },
-  },
-  company: {
-    universalIdentifier: '20202020-b374-4779-a561-80086cb2e17f',
-    fields: {
-      id: { universalIdentifier: '20202020-c05a-4061-8a61-1e2f3a4b5c6d' },
-      createdAt: {
-        universalIdentifier: '20202020-c05b-4062-9b62-2f3a4b5c6d7e',
-      },
-      updatedAt: {
-        universalIdentifier: '20202020-c05c-4063-8c63-3a4b5c6d7e8f',
-      },
-      deletedAt: {
-        universalIdentifier: '20202020-c05d-4064-9d64-4b5c6d7e8f9a',
-      },
-      name: { universalIdentifier: '20202020-4d99-4e2e-a84c-4a27837b1ece' },
-      domainName: {
-        universalIdentifier: '20202020-0c28-43d8-8ba5-3659924d3489',
-      },
-      address: { universalIdentifier: '20202020-c5ce-4adc-b7b6-9c0979fc55e7' },
-      employees: {
-        universalIdentifier: '20202020-8965-464a-8a75-74bafc152a0b',
-      },
-      linkedinLink: {
-        universalIdentifier: '20202020-ebeb-4beb-b9ad-6848036fb451',
-      },
-      xLink: { universalIdentifier: '20202020-6f64-4fd9-9580-9c1991c7d8c3' },
-      annualRecurringRevenue: {
-        universalIdentifier: '20202020-602a-495c-9776-f5d5b11d227b',
-      },
-      idealCustomerProfile: {
-        universalIdentifier: '20202020-ba6b-438a-8213-2c5ba28d76a2',
-      },
-      position: { universalIdentifier: '20202020-9b4e-462b-991d-a0ee33326454' },
-      createdBy: {
-        universalIdentifier: '20202020-fabc-451d-ab7d-412170916baa',
-      },
-      updatedBy: {
-        universalIdentifier: '7444022e-b38f-4d4f-801b-cd664abc4834',
-      },
-      people: { universalIdentifier: '20202020-3213-4ddf-9494-6422bcff8d7c' },
-      accountOwner: {
-        universalIdentifier: '20202020-95b8-4e10-9881-edb5d4765f9d',
-      },
-      taskTargets: {
-        universalIdentifier: '20202020-cb17-4a61-8f8f-3be6730480de',
-      },
-      noteTargets: {
-        universalIdentifier: '20202020-bae0-4556-a74a-a9c686f77a88',
-      },
-      opportunities: {
-        universalIdentifier: '20202020-add3-4658-8e23-d70dccb6d0ec',
-      },
-      attachments: {
-        universalIdentifier: '20202020-c1b5-4120-b0f0-987ca401ed53',
-      },
-      timelineActivities: {
-        universalIdentifier: '20202020-0414-4daf-9c0d-64fe7b27f89f',
-      },
-      searchVector: {
-        universalIdentifier: '85c71601-72f9-4b7b-b343-d46100b2c74d',
-      },
-    },
-    indexes: {
-      accountOwnerIdIndex: {
-        universalIdentifier: 'ec2ebfc9-0c9b-4597-a87d-aa295e2d8bfe',
-      },
-      domainNameUniqueIndex: {
-        universalIdentifier: 'dd300c61-f422-467a-91f4-de4f83c4175b',
-      },
-      searchVectorGinIndex: {
-        universalIdentifier: 'c3eb62df-2cc1-4cc3-b7aa-e96a4d65c633',
-      },
-    },
-    views: {
-      allCompanies: {
-        universalIdentifier: '20202020-a001-4a01-8a01-c0aba11c0001',
-        viewFields: {
-          name: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf001',
-          },
-          domainName: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf002',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf003',
-          },
-          accountOwner: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf004',
-          },
-          createdAt: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf005',
-          },
-          employees: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf006',
-          },
-          linkedinLink: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf007',
-          },
-          address: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11cf008',
-          },
-        },
-      },
-      companyRecordPageFields: {
-        universalIdentifier: '20202020-a001-4a01-8a01-c0aba11c1001',
-        viewFieldGroups: {
-          general: {
-            universalIdentifier: '20202020-a001-4a01-8a01-c0aba11c1101',
-          },
-          business: {
-            universalIdentifier: '20202020-a001-4a01-8a01-c0aba11c1102',
-          },
-          contact: {
-            universalIdentifier: '20202020-a001-4a01-8a01-c0aba11c1103',
-          },
-          system: {
-            universalIdentifier: '20202020-a001-4a01-8a01-c0aba11c1104',
-          },
-        },
-        viewFields: {
-          domainName: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1201',
-          },
-          accountOwner: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1202',
-          },
-          annualRecurringRevenue: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1203',
-          },
-          idealCustomerProfile: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1204',
-          },
-          employees: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1205',
-          },
-          linkedinLink: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1206',
-          },
-          xLink: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1207',
-          },
-          address: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1208',
-          },
-          createdAt: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1209',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1210',
-          },
-          updatedAt: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1212',
-          },
-          updatedBy: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1213',
-          },
-          people: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1214',
-          },
-          taskTargets: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1215',
-          },
-          noteTargets: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1216',
-          },
-          opportunities: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1217',
-          },
-          attachments: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c1219',
-          },
-          timelineActivities: {
-            universalIdentifier: '20202020-af01-4a01-8a01-c0aba11c121a',
           },
         },
       },
@@ -1483,9 +1267,6 @@ export const STANDARD_OBJECTS = {
       displayName: {
         universalIdentifier: '20202020-36dd-4a4f-ac02-228425be9fac',
       },
-      person: {
-        universalIdentifier: '20202020-249d-4e0f-82cd-1b9df5cd3da2',
-      },
       workspaceMember: {
         universalIdentifier: '20202020-77a7-4845-99ed-1bcbb478be6f',
       },
@@ -1506,9 +1287,6 @@ export const STANDARD_OBJECTS = {
       messageIdIndex: {
         universalIdentifier: 'ab0863ba-f95e-493c-b86c-56e1bc7e5bc2',
       },
-      personIdIndex: {
-        universalIdentifier: 'df805c2e-3bfe-4d51-8309-75e5eb4052fe',
-      },
       workspaceMemberIdIndex: {
         universalIdentifier: 'ce1e3a9e-afe9-439d-abb7-6cc98a6fa405',
       },
@@ -1528,9 +1306,6 @@ export const STANDARD_OBJECTS = {
           },
           displayName: {
             universalIdentifier: '8d0c8202-b57f-4450-a090-a7eb26aa2299',
-          },
-          person: {
-            universalIdentifier: '26d0f3f1-43d3-425c-930c-81147451d0f8',
           },
           workspaceMember: {
             universalIdentifier: 'df62dcbc-c22d-4d34-9fa5-6f70bae02161',
@@ -1559,9 +1334,6 @@ export const STANDARD_OBJECTS = {
           },
           displayName: {
             universalIdentifier: 'c50748fe-9f54-4e09-b572-111f076ec7db',
-          },
-          person: {
-            universalIdentifier: 'bf2e30dd-df03-4fb2-820a-166a93a2ce2c',
           },
           workspaceMember: {
             universalIdentifier: '00336686-0d63-43e2-b247-599f1227bd85',
@@ -1823,15 +1595,6 @@ export const STANDARD_OBJECTS = {
         universalIdentifier: '20202020-c02d-4124-9d24-ef123456789b',
       },
       note: { universalIdentifier: '20202020-57f3-4f50-9599-fc0f671df003' },
-      targetPerson: {
-        universalIdentifier: '20202020-38ca-4aab-92f5-8a605ca2e4c5',
-      },
-      targetCompany: {
-        universalIdentifier: 'c500fbc0-d6f2-4982-a959-5a755431696c',
-      },
-      targetOpportunity: {
-        universalIdentifier: '20202020-4e42-417a-a705-76581c9ade79',
-      },
       createdBy: {
         universalIdentifier: '820a3163-bb7d-41bc-93d9-81a464559c48',
       },
@@ -1852,15 +1615,6 @@ export const STANDARD_OBJECTS = {
       noteIdIndex: {
         universalIdentifier: '9294d9e3-0225-4c7f-9d6e-23b4c25b6b24',
       },
-      personIdIndex: {
-        universalIdentifier: '7c069dc0-e83b-4cd5-aaa2-cac7f3e00d80',
-      },
-      companyIdIndex: {
-        universalIdentifier: '2d83909a-a383-4e82-b00a-8b7739f3f906',
-      },
-      opportunityIdIndex: {
-        universalIdentifier: '0d1a59b4-cc87-4b7d-804a-656e8504f371',
-      },
     },
     views: {
       allNoteTargets: {
@@ -1871,391 +1625,6 @@ export const STANDARD_OBJECTS = {
           },
           note: {
             universalIdentifier: '9d4ac173-d32b-4a44-9dbd-8a47ab844f98',
-          },
-          targetPerson: {
-            universalIdentifier: 'b6f67de5-c5cf-4235-b740-a6a007c8eae3',
-          },
-          targetCompany: {
-            universalIdentifier: 'a9c7f370-4b22-4f29-8e3f-678e91a59576',
-          },
-          targetOpportunity: {
-            universalIdentifier: '3efeb162-cd03-458b-9c7b-47032d045204',
-          },
-        },
-      },
-    },
-  },
-  opportunity: {
-    universalIdentifier: '20202020-9549-49dd-b2b2-883999db8938',
-    fields: {
-      id: { universalIdentifier: '20202020-d01a-4131-8a31-f123456789ab' },
-      createdAt: {
-        universalIdentifier: '20202020-d01b-4132-9b32-123456789abc',
-      },
-      updatedAt: {
-        universalIdentifier: '20202020-d01c-4133-8c33-23456789abcd',
-      },
-      deletedAt: {
-        universalIdentifier: '20202020-d01d-4134-9d34-3456789abcde',
-      },
-      name: { universalIdentifier: '20202020-8609-4f65-a2d9-44009eb422b5' },
-      amount: { universalIdentifier: '20202020-583e-4642-8533-db761d5fa82f' },
-      closeDate: {
-        universalIdentifier: '20202020-527e-44d6-b1ac-c4158d307b97',
-      },
-      stage: { universalIdentifier: '20202020-6f76-477d-8551-28cd65b2b4b9' },
-      position: {
-        universalIdentifier: '20202020-806d-493a-bbc6-6313e62958e2',
-      },
-      createdBy: {
-        universalIdentifier: '20202020-a63e-4a62-8e63-42a51828f831',
-      },
-      updatedBy: {
-        universalIdentifier: '3c8a6095-3f64-4e81-a59e-66c2bd181e11',
-      },
-      pointOfContact: {
-        universalIdentifier: '20202020-8dfb-42fc-92b6-01afb759ed16',
-      },
-      company: { universalIdentifier: '20202020-cbac-457e-b565-adece5fc815f' },
-      owner: { universalIdentifier: '20202020-be7e-4d1e-8e19-3d5c7c4b9f2a' },
-      taskTargets: {
-        universalIdentifier: '20202020-59c0-4179-a208-4a255f04a5be',
-      },
-      noteTargets: {
-        universalIdentifier: '20202020-dd3f-42d5-a382-db58aabf43d3',
-      },
-      attachments: {
-        universalIdentifier: '20202020-87c7-4118-83d6-2f4031005209',
-      },
-      timelineActivities: {
-        universalIdentifier: '20202020-30e2-421f-96c7-19c69d1cf631',
-      },
-      searchVector: {
-        universalIdentifier: '428a0da5-4b2e-4ce3-b695-89a8b384e6e3',
-      },
-    },
-    indexes: {
-      pointOfContactIdIndex: {
-        universalIdentifier: 'b8c2a673-a981-4357-a43d-313a358e4daa',
-      },
-      companyIdIndex: {
-        universalIdentifier: 'e161072d-37b1-477a-b944-ef0d65289574',
-      },
-      stageIndex: {
-        universalIdentifier: 'ae60d580-b562-44f2-a24d-7b8040063f83',
-      },
-      searchVectorGinIndex: {
-        universalIdentifier: 'f53fdd28-a26b-47ba-81b5-6813ad622720',
-      },
-    },
-    views: {
-      allOpportunities: {
-        universalIdentifier: '20202020-a003-4a03-8a03-0aa0b1ca1ba0',
-        viewFields: {
-          name: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca1baf',
-          },
-          amount: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca1bb0',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca1bb1',
-          },
-          closeDate: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca1bb2',
-          },
-          company: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca1bb3',
-          },
-          pointOfContact: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca1bb4',
-          },
-        },
-      },
-      byStage: {
-        universalIdentifier: '20202020-a004-4a04-8a04-0aa0b1ca1ba0',
-        viewFields: {
-          name: {
-            universalIdentifier: '20202020-af04-4a04-8a04-0aa0b2ca2baf',
-          },
-          amount: {
-            universalIdentifier: '20202020-af04-4a04-8a04-0aa0b2ca2bb0',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af04-4a04-8a04-0aa0b2ca2bb1',
-          },
-          closeDate: {
-            universalIdentifier: '20202020-af04-4a04-8a04-0aa0b2ca2bb2',
-          },
-          company: {
-            universalIdentifier: '20202020-af04-4a04-8a04-0aa0b2ca2bb3',
-          },
-          pointOfContact: {
-            universalIdentifier: '20202020-af04-4a04-8a04-0aa0b2ca2bb4',
-          },
-        },
-        viewGroups: {
-          new: {
-            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf1',
-          },
-          screening: {
-            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf2',
-          },
-          meeting: {
-            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf3',
-          },
-          proposal: {
-            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf4',
-          },
-          customer: {
-            universalIdentifier: '20202020-af14-4a04-8a04-0aa0b2ca2bf5',
-          },
-        },
-      },
-      opportunityRecordPageFields: {
-        universalIdentifier: '20202020-a003-4a03-8a03-0aa0b1ca3001',
-        viewFieldGroups: {
-          deal: {
-            universalIdentifier: '20202020-a003-4a03-8a03-0aa0b1ca3101',
-          },
-          relations: {
-            universalIdentifier: '20202020-a003-4a03-8a03-0aa0b1ca3102',
-          },
-          system: {
-            universalIdentifier: '20202020-a003-4a03-8a03-0aa0b1ca3103',
-          },
-        },
-        viewFields: {
-          amount: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3201',
-          },
-          closeDate: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3202',
-          },
-          stage: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3203',
-          },
-          company: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3204',
-          },
-          pointOfContact: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3205',
-          },
-          owner: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3206',
-          },
-          createdAt: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3207',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3208',
-          },
-          updatedAt: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca320a',
-          },
-          updatedBy: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca320b',
-          },
-          taskTargets: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca320d',
-          },
-          noteTargets: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca320e',
-          },
-          attachments: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca320f',
-          },
-          timelineActivities: {
-            universalIdentifier: '20202020-af03-4a03-8a03-0aa0b1ca3210',
-          },
-        },
-      },
-    },
-  },
-  person: {
-    universalIdentifier: '20202020-e674-48e5-a542-72570eee7213',
-    fields: {
-      id: { universalIdentifier: '20202020-e01a-4141-8a41-456789abcdef' },
-      createdAt: {
-        universalIdentifier: '20202020-e01b-4142-9b42-56789abcdefa',
-      },
-      updatedAt: {
-        universalIdentifier: '20202020-e01c-4143-8c43-6789abcdefab',
-      },
-      deletedAt: {
-        universalIdentifier: '20202020-e01d-4144-9d44-789abcdefabc',
-      },
-      name: { universalIdentifier: '20202020-3875-44d5-8c33-a6239011cab8' },
-      emails: { universalIdentifier: '20202020-3c51-43fa-8b6e-af39e29368ab' },
-      linkedinLink: {
-        universalIdentifier: '20202020-f1af-48f7-893b-2007a73dd508',
-      },
-      xLink: { universalIdentifier: '20202020-8fc2-487c-b84a-55a99b145cfd' },
-      jobTitle: { universalIdentifier: '20202020-b0d0-415a-bef9-640a26dacd9b' },
-      phones: { universalIdentifier: '20202020-0638-448e-8825-439134618022' },
-      city: { universalIdentifier: '20202020-5243-4ffb-afc5-2c675da41346' },
-      avatarUrl: {
-        universalIdentifier: '20202020-b8a6-40df-961c-373dc5d2ec21',
-      },
-      avatarFile: {
-        universalIdentifier: '20202020-a7c9-4e3d-8f1b-2d5a6b7c8e9f',
-      },
-      position: { universalIdentifier: '20202020-fcd5-4231-aff5-fff583eaa0b1' },
-      createdBy: {
-        universalIdentifier: '20202020-f6ab-4d98-af24-a3d5b664148a',
-      },
-      updatedBy: {
-        universalIdentifier: 'e9e0dd35-184c-4742-84da-afadf45ce59a',
-      },
-      company: { universalIdentifier: '20202020-e2f3-448e-b34c-2d625f0025fd' },
-      pointOfContactForOpportunities: {
-        universalIdentifier: '20202020-911b-4a7d-b67b-918aa9a5b33a',
-      },
-      taskTargets: {
-        universalIdentifier: '20202020-584b-4d3e-88b6-53ab1fa03c3a',
-      },
-      noteTargets: {
-        universalIdentifier: '20202020-c8fc-4258-8250-15905d3fcfec',
-      },
-      attachments: {
-        universalIdentifier: '20202020-cd97-451f-87fa-bcb789bdbf3a',
-      },
-      messageParticipants: {
-        universalIdentifier: '20202020-498e-4c61-8158-fa04f0638334',
-      },
-      calendarEventParticipants: {
-        universalIdentifier: '20202020-52ee-45e9-a702-b64b3753e3a9',
-      },
-      timelineActivities: {
-        universalIdentifier: '20202020-a43e-4873-9c23-e522de906ce5',
-      },
-      searchVector: {
-        universalIdentifier: '57d1d7ad-fa10-44fc-82f3-ad0959ec2534',
-      },
-    },
-    indexes: {
-      companyIdIndex: {
-        universalIdentifier: '8a265a5c-d3ae-47dc-bdf9-b42cfa2ba639',
-      },
-      emailsUniqueIndex: {
-        universalIdentifier: '8183a8b2-9114-4f6c-8a5b-12e3f14e5e13',
-      },
-      searchVectorGinIndex: {
-        universalIdentifier: '9294b9c3-0225-4a7d-9b6c-23f4a25f6f24',
-      },
-    },
-    views: {
-      allPeople: {
-        universalIdentifier: '20202020-a002-4a02-8a02-ae0a1ea11a00',
-        viewFields: {
-          name: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af0',
-          },
-          emails: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af1',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af2',
-          },
-          company: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af3',
-          },
-          phones: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af4',
-          },
-          createdAt: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af5',
-          },
-          city: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af6',
-          },
-          jobTitle: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af7',
-          },
-          linkedinLink: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af8',
-          },
-          xLink: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea11af9',
-          },
-        },
-      },
-      personRecordPageFields: {
-        universalIdentifier: '20202020-a002-4a02-8a02-ae0a1ea12001',
-        viewFieldGroups: {
-          general: {
-            universalIdentifier: '20202020-a002-4a02-8a02-ae0a1ea12101',
-          },
-          work: {
-            universalIdentifier: '20202020-a002-4a02-8a02-ae0a1ea12102',
-          },
-          social: {
-            universalIdentifier: '20202020-a002-4a02-8a02-ae0a1ea12103',
-          },
-          system: {
-            universalIdentifier: '20202020-a002-4a02-8a02-ae0a1ea12104',
-          },
-        },
-        viewFields: {
-          emails: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12201',
-          },
-          phones: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12202',
-          },
-          company: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12203',
-          },
-          jobTitle: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12204',
-          },
-          linkedinLink: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12205',
-          },
-          xLink: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12206',
-          },
-          city: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12207',
-          },
-          avatarUrl: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12208',
-          },
-          createdAt: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12209',
-          },
-          createdBy: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12210',
-          },
-          updatedAt: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12212',
-          },
-          updatedBy: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12213',
-          },
-          avatarFile: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12214',
-          },
-          pointOfContactForOpportunities: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12215',
-          },
-          taskTargets: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12216',
-          },
-          noteTargets: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12217',
-          },
-          attachments: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea12219',
-          },
-          messageParticipants: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea1221a',
-          },
-          calendarEventParticipants: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea1221b',
-          },
-          timelineActivities: {
-            universalIdentifier: '20202020-af02-4a02-8a02-ae0a1ea1221c',
           },
         },
       },
@@ -2475,15 +1844,6 @@ export const STANDARD_OBJECTS = {
         universalIdentifier: '20202020-a03d-4164-9d64-fabcdefabcde',
       },
       task: { universalIdentifier: '20202020-e881-457a-8758-74aaef4ae78a' },
-      targetPerson: {
-        universalIdentifier: '20202020-c8a0-4e85-a016-87e2349cfbec',
-      },
-      targetCompany: {
-        universalIdentifier: '20202020-4703-4a4e-948c-487b0c60a92c',
-      },
-      targetOpportunity: {
-        universalIdentifier: '20202020-6cb2-4c01-a9a5-aca3dbc11d41',
-      },
       createdBy: {
         universalIdentifier: '65fe2a53-45e4-4225-9711-b827f55e51cc',
       },
@@ -2504,15 +1864,6 @@ export const STANDARD_OBJECTS = {
       taskIdIndex: {
         universalIdentifier: 'c882f7a4-b025-4d32-aa26-5ef2595bdbf9',
       },
-      personIdIndex: {
-        universalIdentifier: 'b7d305d1-6fae-4ed6-9bdc-354fe9032c0e',
-      },
-      companyIdIndex: {
-        universalIdentifier: 'c0af54c7-751b-4bb2-b102-677cc4e47402',
-      },
-      opportunityIdIndex: {
-        universalIdentifier: '6942e0ba-90f6-4c33-bf40-7f00b1ec35ab',
-      },
     },
     views: {
       allTaskTargets: {
@@ -2523,15 +1874,6 @@ export const STANDARD_OBJECTS = {
           },
           task: {
             universalIdentifier: '1f79839e-42f6-4a69-839a-369e21a7497d',
-          },
-          targetPerson: {
-            universalIdentifier: 'cadc7a33-1527-4ef8-ac00-7ed0b54d1bae',
-          },
-          targetCompany: {
-            universalIdentifier: 'e9fa1305-4ba2-41c5-9198-fdc622b69f90',
-          },
-          targetOpportunity: {
-            universalIdentifier: '526f3354-34d6-4e7e-a870-5f99c28353c2',
           },
         },
       },
@@ -2559,15 +1901,6 @@ export const STANDARD_OBJECTS = {
       },
       workspaceMember: {
         universalIdentifier: '20202020-af23-4479-9a30-868edc474b36',
-      },
-      targetPerson: {
-        universalIdentifier: '20202020-c414-45b9-a60a-ac27aa96229f',
-      },
-      targetCompany: {
-        universalIdentifier: '20202020-04ad-4221-a744-7a8278a5ce21',
-      },
-      targetOpportunity: {
-        universalIdentifier: '20202020-7664-4a35-a3df-580d389fd527',
       },
       targetTask: {
         universalIdentifier: '20202020-b2f5-415c-9135-a31dfe49501b',
@@ -2616,15 +1949,6 @@ export const STANDARD_OBJECTS = {
       workspaceMemberIdIndex: {
         universalIdentifier: '5e0b2391-85ca-4a66-aef4-52d74245bec2',
       },
-      personIdIndex: {
-        universalIdentifier: '3e89a914-7bec-47bd-9cf9-743c6b83d001',
-      },
-      companyIdIndex: {
-        universalIdentifier: '8183e8f2-9114-4d6a-8e5f-12c3d14c5c13',
-      },
-      opportunityIdIndex: {
-        universalIdentifier: '9294f9a3-0225-4e7b-9f6a-23d4e25d6d24',
-      },
       noteIdIndex: {
         universalIdentifier: '995db1d8-0d3e-40f7-b0eb-5e6897bc9966',
       },
@@ -2662,15 +1986,6 @@ export const STANDARD_OBJECTS = {
           },
           linkedRecordCachedName: {
             universalIdentifier: '20202020-bf01-4b01-8b01-ba5cc01aa017',
-          },
-          targetPerson: {
-            universalIdentifier: '37b38a8b-abd7-4f72-92d2-ad82bbef0296',
-          },
-          targetCompany: {
-            universalIdentifier: '2015825f-0786-4b0d-88a7-dfce1b4b1c1a',
-          },
-          targetOpportunity: {
-            universalIdentifier: 'f7b5ced9-eba6-4454-8849-7a92d27c11ca',
           },
           targetTask: {
             universalIdentifier: '3899138d-e6fa-414c-9432-214c9b797ebb',
@@ -3130,12 +2445,6 @@ export const STANDARD_OBJECTS = {
       assignedTasks: {
         universalIdentifier: '20202020-61dc-4a1c-99e8-38ebf8d2bbeb',
       },
-      ownedOpportunities: {
-        universalIdentifier: '20202020-9e4d-4b3a-8c1f-6d7e8f9a0b1c',
-      },
-      accountOwnerForCompanies: {
-        universalIdentifier: '20202020-dc29-4bd4-a3c1-29eafa324bee',
-      },
       connectedAccounts: {
         universalIdentifier: '20202020-e322-4bde-a525-727079b4a100',
       },
@@ -3214,9 +2523,6 @@ export const STANDARD_OBJECTS = {
           },
           createdAt: {
             universalIdentifier: '20202020-ef01-4e01-8e01-a0bcaeabe1f8',
-          },
-          ownedOpportunities: {
-            universalIdentifier: '8a0503f3-ba61-453e-86dc-6c79f7bc235b',
           },
           assignedTasks: {
             universalIdentifier: 'af16226e-6375-4676-8bd9-9d1a57076fc4',

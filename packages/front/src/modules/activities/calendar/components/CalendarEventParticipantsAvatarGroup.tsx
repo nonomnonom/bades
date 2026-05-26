@@ -17,28 +17,17 @@ export const CalendarEventParticipantsAvatarGroup = ({
         return participant;
       } else {
         return {
-          personId: participant.person?.id ?? null,
+          personId: null,
           workspaceMemberId: participant.workspaceMember?.id ?? null,
-          firstName:
-            participant.person?.name?.firstName ||
-            participant.workspaceMember?.name.firstName ||
-            '',
-          lastName:
-            participant.person?.name?.lastName ||
-            participant.workspaceMember?.name.lastName ||
-            '',
+          firstName: participant.workspaceMember?.name.firstName || '',
+          lastName: participant.workspaceMember?.name.lastName || '',
           displayName:
-            participant.person?.name?.firstName ||
-            participant.person?.name?.lastName ||
             participant.workspaceMember?.name.firstName ||
             participant.workspaceMember?.name.lastName ||
             participant.displayName ||
             participant.handle ||
             '',
-          avatarUrl:
-            participant.person?.avatarUrl ||
-            participant.workspaceMember?.avatarUrl ||
-            '',
+          avatarUrl: participant.workspaceMember?.avatarUrl || '',
           handle: participant.handle,
         };
       }
@@ -57,9 +46,7 @@ export const CalendarEventParticipantsAvatarGroup = ({
               ? `${participant.firstName} ${participant.lastName}`
               : participant.displayName
           }
-          placeholderColorSeed={
-            participant.workspaceMemberId || participant.personId || ''
-          }
+          placeholderColorSeed={participant.workspaceMemberId || ''}
           type="rounded"
         />
       ))}

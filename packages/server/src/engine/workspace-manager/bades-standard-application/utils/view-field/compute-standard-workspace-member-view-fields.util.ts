@@ -32,18 +32,6 @@ export const computeStandardWorkspaceMemberViewFields = (
         size: 150,
       },
     }),
-    allWorkspaceMembersOwnedOpportunities: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'workspaceMember',
-      context: {
-        viewName: 'allWorkspaceMembers',
-        viewFieldName: 'ownedOpportunities',
-        fieldName: 'ownedOpportunities',
-        position: 2,
-        isVisible: true,
-        size: 150,
-      },
-    }),
     allWorkspaceMembersAssignedTasks: createStandardViewFieldFlatMetadata({
       ...args,
       objectName: 'workspaceMember',

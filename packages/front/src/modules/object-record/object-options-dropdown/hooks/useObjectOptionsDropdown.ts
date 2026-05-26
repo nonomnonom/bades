@@ -7,7 +7,7 @@ export const useObjectOptionsDropdown = () => {
   const context = useContext(ObjectOptionsDropdownContext);
 
   if (!isDefined(context)) {
-    throw new Error('useObjectOptionsDropdown must be used within a context');
+    throw new Error('useObjectOptionsDropdown harus digunakan dalam konteks');
   }
 
   const { closeDropdown } = useDropdownContextStateManagement({

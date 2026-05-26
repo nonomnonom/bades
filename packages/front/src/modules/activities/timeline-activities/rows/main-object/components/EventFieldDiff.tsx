@@ -37,7 +37,7 @@ export const EventFieldDiff = ({
   diffArtificialRecordStoreId,
 }: EventFieldDiffProps) => {
   if (!fieldMetadataItem) {
-    throw new Error('fieldMetadataItem is required');
+    throw new Error('fieldMetadataItem diperlukan');
   }
 
   const isValueEmpty = (value: unknown): boolean =>

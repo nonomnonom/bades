@@ -40,42 +40,6 @@ export const buildAttachmentStandardFlatIndexMetadatas = ({
     badesStandardApplicationId,
     now,
   }),
-  personIdIndex: createStandardIndexFlatMetadata({
-    objectName,
-    workspaceId,
-    context: {
-      indexName: 'personIdIndex',
-      relatedFieldNames: ['targetPerson'],
-    },
-    standardObjectMetadataRelatedEntityIds,
-    dependencyFlatEntityMaps,
-    badesStandardApplicationId,
-    now,
-  }),
-  companyIdIndex: createStandardIndexFlatMetadata({
-    objectName,
-    workspaceId,
-    context: {
-      indexName: 'companyIdIndex',
-      relatedFieldNames: ['targetCompany'],
-    },
-    standardObjectMetadataRelatedEntityIds,
-    dependencyFlatEntityMaps,
-    badesStandardApplicationId,
-    now,
-  }),
-  opportunityIdIndex: createStandardIndexFlatMetadata({
-    objectName,
-    workspaceId,
-    context: {
-      indexName: 'opportunityIdIndex',
-      relatedFieldNames: ['targetOpportunity'],
-    },
-    standardObjectMetadataRelatedEntityIds,
-    dependencyFlatEntityMaps,
-    badesStandardApplicationId,
-    now,
-  }),
   dashboardIdIndex: createStandardIndexFlatMetadata({
     objectName,
     workspaceId,

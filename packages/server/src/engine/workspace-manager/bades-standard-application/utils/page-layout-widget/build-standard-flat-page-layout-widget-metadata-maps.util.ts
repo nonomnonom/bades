@@ -70,7 +70,6 @@ const RECORD_PAGE_FIELDS_VIEW_NAME_BY_OBJECT: Partial<
   calendarChannelEventAssociation:
     'calendarChannelEventAssociationRecordPageFields',
   calendarEventParticipant: 'calendarEventParticipantRecordPageFields',
-  company: 'companyRecordPageFields',
   connectedAccount: 'connectedAccountRecordPageFields',
   messageChannel: 'messageChannelRecordPageFields',
   messageChannelMessageAssociation:
@@ -80,8 +79,6 @@ const RECORD_PAGE_FIELDS_VIEW_NAME_BY_OBJECT: Partial<
   messageFolder: 'messageFolderRecordPageFields',
   messageParticipant: 'messageParticipantRecordPageFields',
   note: 'noteRecordPageFields',
-  opportunity: 'opportunityRecordPageFields',
-  person: 'personRecordPageFields',
   task: 'taskRecordPageFields',
   workflowAutomatedTrigger: 'workflowAutomatedTriggerRecordPageFields',
   workflowRun: 'workflowRunRecordPageFields',

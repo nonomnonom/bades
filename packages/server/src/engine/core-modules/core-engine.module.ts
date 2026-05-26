@@ -24,7 +24,6 @@ import { AppBillingModule } from 'src/engine/core-modules/billing/app-billing/ap
 import { BillingModule } from 'src/engine/core-modules/billing/billing.module';
 import { BillingGraphqlApiExceptionFilter } from 'src/engine/core-modules/billing/filters/billing-graphql-api-exception.filter';
 import { CacheStorageModule } from 'src/engine/core-modules/cache-storage/cache-storage.module';
-import { TimelineCalendarEventModule } from 'src/engine/core-modules/calendar/timeline-calendar-event.module';
 import { CaptchaModule } from 'src/engine/core-modules/captcha/captcha.module';
 import { CloudflareModule } from 'src/engine/core-modules/cloudflare/cloudflare.module';
 import { CodeInterpreterModule } from 'src/engine/core-modules/code-interpreter/code-interpreter.module';
@@ -46,7 +45,6 @@ import { loggerModuleFactory } from 'src/engine/core-modules/logger/logger.modul
 import { LogicFunctionModule } from 'src/engine/core-modules/logic-function/logic-function.module';
 import { MessageQueueModule } from 'src/engine/core-modules/message-queue/message-queue.module';
 import { messageQueueModuleFactory } from 'src/engine/core-modules/message-queue/message-queue.module-factory';
-import { TimelineMessagingModule } from 'src/engine/core-modules/messaging/timeline-messaging.module';
 import { MessagingWebhooksModule } from 'src/engine/core-modules/messaging-webhooks/messaging-webhooks.module';
 import { MetricsModule } from 'src/engine/core-modules/metrics/metrics.module';
 import { MetricsService } from 'src/engine/core-modules/metrics/metrics.service';
@@ -104,8 +102,6 @@ import { FileModule } from './file/file.module';
     ApplicationDevelopmentModule,
     MarketplaceModule,
     AppTokenModule,
-    TimelineMessagingModule,
-    TimelineCalendarEventModule,
     UserModule,
     WorkspaceModule,
     WorkspaceInvitationModule,
@@ -177,8 +173,6 @@ import { FileModule } from './file/file.module';
     AuditModule,
     AuthModule,
     FeatureFlagModule,
-    TimelineMessagingModule,
-    TimelineCalendarEventModule,
     UserModule,
     WorkspaceModule,
     WorkspaceInvitationModule,

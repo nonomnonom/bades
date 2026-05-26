@@ -123,7 +123,6 @@ import {
   type AttachmentFileSeedMetadata,
   generateAttachmentSeedsForWorkspace,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/attachment-data-seeds.constant';
-import { TimelineActivitySeederService } from 'src/engine/workspace-manager/dev-seeder/data/services/timeline-activity-seeder.service';
 import { prefillFrontComponentCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-command-menu-items.util';
 import { prefillWorkflowCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-command-menu-items.util';
 import { prefillWorkflows } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
@@ -291,7 +290,6 @@ export class DevSeederDataService {
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
     private readonly objectMetadataService: ObjectMetadataService,
-    private readonly timelineActivitySeederService: TimelineActivitySeederService,
     private readonly fileStorageService: FileStorageService,
     private readonly flatEntityMapsCacheService: WorkspaceManyOrAllFlatEntityMapsCacheService,
     private readonly applicationService: ApplicationService,
@@ -335,12 +333,8 @@ export class DevSeederDataService {
         });
 
         if (!light) {
-          await this.timelineActivitySeederService.seedTimelineActivities({
-            entityManager,
-            schemaName,
-            workspaceId,
-          });
-
+          // Bades: timeline-activity seeder dihapus bersama person/company
+          // sehingga seed tidak menulis aktivitas demo CRM lagi.
           await this.seedAttachmentFiles(
             workspaceId,
             entityManager,

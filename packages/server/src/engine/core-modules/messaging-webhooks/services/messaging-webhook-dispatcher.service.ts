@@ -6,10 +6,6 @@ import { InjectMessageQueue } from 'src/engine/core-modules/message-queue/decora
 import { MessageQueue } from 'src/engine/core-modules/message-queue/message-queue.constants';
 import { MessageQueueService } from 'src/engine/core-modules/message-queue/services/message-queue.service';
 import { type SesInboundNotification } from 'src/engine/core-modules/messaging-webhooks/types/sns-message.type';
-import {
-  MessagingInboundEmailImportJob,
-  type MessagingInboundEmailImportJobData,
-} from 'src/modules/messaging/message-import-manager/jobs/messaging-inbound-email-import.job';
 
 type SnsPayload = SnsPayloadValidator.SnsPayload;
 
@@ -78,13 +74,13 @@ export class MessagingWebhookDispatcherService {
       return;
     }
 
-    await this.messageQueueService.add<MessagingInboundEmailImportJobData>(
-      MessagingInboundEmailImportJob.name,
-      {
-        s3Key: receipt.action.objectKey,
-        envelopeRecipients: receipt.recipients,
-      },
+    // Bades: dispatch ke MessagingInboundEmailImportJob dihapus karena
+    // job tersebut bagian dari contact-creation flow yang sudah
+    // dipensiunkan. SNS notification dicatat saja untuk audit.
+    this.logger.debug(
+      `SES inbound notification ${payload.MessageId} -> s3Key=${receipt.action.objectKey}, recipients=${receipt.recipients.join(',')} (Bades: import no-op)`,
     );
+    void this.messageQueueService;
   }
 
   private parseSesInboundNotification(

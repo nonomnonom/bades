@@ -7,7 +7,6 @@ import { type CalendarChannelEntity } from 'src/engine/metadata-modules/calendar
 import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 import { GlobalWorkspaceOrmManager } from 'src/engine/sid-orm/global-workspace-datasource/global-workspace-orm.manager';
 import { buildSystemAuthContext } from 'src/engine/sid-orm/utils/build-system-auth-context.util';
-import { CalendarEventParticipantService } from 'src/modules/calendar/calendar-event-participant-manager/services/calendar-event-participant.service';
 import { type CalendarChannelEventAssociationWorkspaceEntity } from 'src/modules/calendar/common/standard-objects/calendar-channel-event-association.workspace-entity';
 import { type CalendarEventWorkspaceEntity } from 'src/modules/calendar/common/standard-objects/calendar-event.workspace-entity';
 import { type FetchedCalendarEvent } from 'src/modules/calendar/common/types/fetched-calendar-event';
@@ -23,7 +22,6 @@ type FetchedCalendarEventWithDBEvent = {
 export class CalendarSaveEventsService {
   constructor(
     private readonly globalWorkspaceOrmManager: GlobalWorkspaceOrmManager,
-    private readonly calendarEventParticipantService: CalendarEventParticipantService,
   ) {}
 
   public async saveCalendarEventsAndEnqueueContactCreationJob(
@@ -303,16 +301,15 @@ export class CalendarSaveEventsService {
                   );
                 });
 
-            await this.calendarEventParticipantService.upsertAndDeleteCalendarEventParticipants(
-              {
-                participantsToCreate,
-                participantsToUpdate,
-                transactionManager,
-                calendarChannel,
-                connectedAccount,
-                workspaceId,
-              },
-            );
+            // Bades: upsert participant ke person/company dihapus.
+            // Sinkronisasi calendar event tetap berjalan tanpa link ke record
+            // orang. Variabel berikut sengaja ditandai dipakai supaya compile.
+            void participantsToCreate;
+            void participantsToUpdate;
+            void transactionManager;
+            void calendarChannel;
+            void connectedAccount;
+            void workspaceId;
           },
         );
       },

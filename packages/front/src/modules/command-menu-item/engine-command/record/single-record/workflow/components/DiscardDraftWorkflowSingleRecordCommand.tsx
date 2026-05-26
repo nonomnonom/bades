@@ -14,7 +14,7 @@ export const DiscardDraftWorkflowSingleRecordCommand = () => {
   );
 
   if (!isDefined(recordId)) {
-    throw new Error('Record ID is required to discard draft workflow');
+    throw new Error('ID Rekaman diperlukan untuk membuang draf alur kerja');
   }
 
   const handleExecute = () => {

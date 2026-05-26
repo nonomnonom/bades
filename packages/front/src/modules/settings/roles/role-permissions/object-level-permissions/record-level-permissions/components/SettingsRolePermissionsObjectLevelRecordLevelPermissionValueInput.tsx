@@ -216,7 +216,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionValueInput =
             </StyledReadOnlyInput>
             <StyledIconContainer
               onClick={handleResetToStaticValue}
-              aria-label={t`Atur ulang ke nilai statis`}
+              aria-label={'Atur ulang ke nilai statis'}
             >
               <IconEraser size={theme.icon.size.sm} />
             </StyledIconContainer>

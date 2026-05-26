@@ -75,18 +75,6 @@ export const computeStandardCalendarEventParticipantViewFields = (
           size: 150,
         },
       }),
-    allCalendarEventParticipantsPerson: createStandardViewFieldFlatMetadata({
-      ...args,
-      objectName: 'calendarEventParticipant',
-      context: {
-        viewName: 'allCalendarEventParticipants',
-        viewFieldName: 'person',
-        fieldName: 'person',
-        position: 5,
-        isVisible: true,
-        size: 150,
-      },
-    }),
     allCalendarEventParticipantsWorkspaceMember:
       createStandardViewFieldFlatMetadata({
         ...args,
@@ -178,20 +166,6 @@ export const computeStandardCalendarEventParticipantViewFields = (
           viewFieldName: 'responseStatus',
           fieldName: 'responseStatus',
           position: 4,
-          isVisible: true,
-          size: 150,
-          viewFieldGroupName: 'general',
-        },
-      }),
-    calendarEventParticipantRecordPageFieldsPerson:
-      createStandardViewFieldFlatMetadata({
-        ...args,
-        objectName: 'calendarEventParticipant',
-        context: {
-          viewName: 'calendarEventParticipantRecordPageFields',
-          viewFieldName: 'person',
-          fieldName: 'person',
-          position: 5,
           isVisible: true,
           size: 150,
           viewFieldGroupName: 'general',

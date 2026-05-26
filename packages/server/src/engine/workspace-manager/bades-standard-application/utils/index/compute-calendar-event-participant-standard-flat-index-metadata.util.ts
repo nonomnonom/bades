@@ -31,18 +31,6 @@ export const buildCalendarEventParticipantStandardFlatIndexMetadatas = ({
     badesStandardApplicationId,
     now,
   }),
-  personIdIndex: createStandardIndexFlatMetadata({
-    objectName,
-    workspaceId,
-    context: {
-      indexName: 'personIdIndex',
-      relatedFieldNames: ['person'],
-    },
-    standardObjectMetadataRelatedEntityIds,
-    dependencyFlatEntityMaps,
-    badesStandardApplicationId,
-    now,
-  }),
   workspaceMemberIdIndex: createStandardIndexFlatMetadata({
     objectName,
     workspaceId,
