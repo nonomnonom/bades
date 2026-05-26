@@ -6,13 +6,14 @@ import {
   type StandardPageLayoutTabConfig,
 } from 'src/engine/workspace-manager/bades-standard-application/utils/page-layout-config/standard-page-layout-config.type';
 
-// Bades: dashboard default warisan Twenty (8 widget CRM — dealsByCompany,
-// pipelineValueByStage, revenueTimeline, opportunitiesByOwner,
-// stockMarketIframe yang menampilkan iframe star-history, dst) sudah
-// dihapus dari `compute-my-first-dashboard-widgets.util.ts`. Tab di
-// sini sengaja kosong — widget desa (Penduduk per Wilayah, Realisasi
-// APBDes, dll) akan disuntik dari layer SID standard seed pada inisiatif
-// berikut.
+// Bades: 8 widget CRM warisan Twenty (dealsByCompany, pipelineValueByStage,
+// revenueTimeline, opportunitiesByOwner, stockMarketIframe dengan iframe
+// star-history, dst) sudah dihapus. Tab default sekarang menampilkan
+// satu widget sambutan ber-bahasa Indonesia agar dashboard tidak terlihat
+// kosong saat workspace baru pertama dibuka. Widget statistik SID
+// (jumlah Penduduk, Layanan per status, Aset per kondisi, dll) akan
+// disuntik di iterasi berikutnya setelah resolver objectMetadataId untuk
+// SID custom object siap.
 const DASHBOARD_PAGE_TABS = {
   tab1: {
     universalIdentifier: '20202020-d011-4d11-8d11-da5ab0a01001',
@@ -20,7 +21,11 @@ const DASHBOARD_PAGE_TABS = {
     position: 0,
     icon: null,
     layoutMode: PageLayoutTabLayoutMode.GRID,
-    widgets: {},
+    widgets: {
+      welcomeRichText: {
+        universalIdentifier: '20202020-d111-4d11-8d11-da5ab0a11001',
+      },
+    },
   },
 } as const satisfies Record<string, StandardPageLayoutTabConfig>;
 
