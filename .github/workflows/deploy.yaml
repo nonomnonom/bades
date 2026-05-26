@@ -8,9 +8,12 @@ name: Deploy Bades
 #   4. Healthcheck https://bades.id/healthz
 
 on:
-  # Auto deploy ke main dimatikan sementara — sedang manual deploy dulu
-  # via local docker build + ssh ke EC2 sampai workflow-nya stabil lagi.
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
 
 concurrency:
   group: ${{ github.workflow }}
@@ -112,35 +115,34 @@ jobs:
             echo "==> Pull image"
             sudo docker compose --env-file .env pull server worker
 
-            if sudo docker rollout --help >/dev/null 2>&1; then
-              echo "==> Zero-downtime rollout server (docker-rollout)"
-              # Scale up container baru, tunggu healthcheck (interval 5s x 20 retry = 100s),
-              # baru stop container lama. Selama swap, Caddy retry upstream (lb_try_duration).
-              # docker-rollout tidak punya --env-file flag, jadi env di-load
-              # manual ke shell environment sebelum panggil rollout.
-              set -a
-              source .env
-              set +a
-              # Plugin docker-rollout di EC2 versi lama. Pakai args minimal —
-              # plugin akan tunggu container baru sehat default 60s baru
-              # stop yang lama. Caddy retry sudah handle 30s gap.
-              sudo -E docker rollout server
+            # Bades: zero-downtime via docker-rollout dimatikan sementara
+            # karena plugin EC2 saat ini bermasalah pada flag (--env-file,
+            # -f, --wait-after-healthy) dan sub-command resolution. Pakai
+            # compose up biasa — downtime singkat ditutupi Caddy retry
+            # (lb_try_duration 30s di Caddyfile). Setelah workflow stabil,
+            # restore rollout flow di iterasi berikutnya.
+            echo "==> Restart server + worker (downtime ~30s, Caddy retry handle)"
+            sudo docker compose --env-file .env up -d --force-recreate --no-deps server worker
 
-              echo "==> Restart worker (no zero-downtime needed)"
-              sudo docker compose --env-file .env up -d --force-recreate --no-deps worker
-            else
-              echo "!! docker-rollout belum terinstall — fallback ke restart biasa (akan ada downtime)"
-              echo "!! Jalankan SEKALI: bash packages/docker/setup-zero-downtime.sh"
-              sudo docker compose --env-file .env up -d --force-recreate --no-deps server worker
-              for i in 1 2 3 4 5 6 7 8 9 10; do
-                STATUS=$(sudo docker compose --env-file .env ps server --format '{{.Status}}')
-                echo "Attempt $i: $STATUS"
-                echo "$STATUS" | grep -q "(healthy)" && exit 0
-                sleep 15
-              done
-              sudo docker compose --env-file .env logs server --tail 50
+            echo "==> Tunggu server healthy"
+            HEALTHY=0
+            for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
+              STATUS=$(sudo docker compose --env-file .env ps server --format '{{.Status}}')
+              echo "Attempt $i: $STATUS"
+              if echo "$STATUS" | grep -q "(healthy)"; then
+                HEALTHY=1
+                break
+              fi
+              sleep 10
+            done
+
+            if [ "$HEALTHY" -ne 1 ]; then
+              echo "!! Server tidak menjadi healthy dalam 120s"
+              sudo docker compose --env-file .env logs server --tail 80
               exit 1
             fi
+
+            echo "==> Server healthy"
 
       - name: Healthcheck public
         run: |
