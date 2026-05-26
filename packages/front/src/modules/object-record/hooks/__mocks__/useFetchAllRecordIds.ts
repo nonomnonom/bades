@@ -38,16 +38,16 @@ export const query = gql`
 
 export const mockPageSize = 2;
 
-const flatPersonRecords = mockedPendudukRecords.map((record) =>
+const flatPendudukRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
 const baseConnection = generateMockRecordConnection({
   objectNameSingular: 'penduduk',
-  records: flatPersonRecords,
+  records: flatPendudukRecords,
 });
 
-export const peopleMockWithIdsOnly: RecordGqlConnectionEdgesRequired = {
+export const pendudukMockWithIdsOnly: RecordGqlConnectionEdgesRequired = {
   ...baseConnection,
   edges: baseConnection.edges.map((edge, index) => ({
     ...edge,
@@ -56,11 +56,11 @@ export const peopleMockWithIdsOnly: RecordGqlConnectionEdgesRequired = {
 };
 
 export const firstRequestLastCursor =
-  peopleMockWithIdsOnly.edges[mockPageSize].cursor;
+  pendudukMockWithIdsOnly.edges[mockPageSize].cursor;
 export const secondRequestLastCursor =
-  peopleMockWithIdsOnly.edges[mockPageSize * 2].cursor;
+  pendudukMockWithIdsOnly.edges[mockPageSize * 2].cursor;
 export const thirdRequestLastCursor =
-  peopleMockWithIdsOnly.edges[mockPageSize * 3].cursor;
+  pendudukMockWithIdsOnly.edges[mockPageSize * 3].cursor;
 
 export const variablesFirstRequest = {
   filter: undefined,
@@ -104,7 +104,7 @@ const paginateRequestResponse = (
 
 export const responseFirstRequest = {
   penduduks: paginateRequestResponse(
-    peopleMockWithIdsOnly,
+    pendudukMockWithIdsOnly,
     0,
     mockPageSize,
     true,
@@ -114,7 +114,7 @@ export const responseFirstRequest = {
 
 export const responseSecondRequest = {
   penduduks: paginateRequestResponse(
-    peopleMockWithIdsOnly,
+    pendudukMockWithIdsOnly,
     mockPageSize,
     mockPageSize * 2,
     true,
@@ -124,7 +124,7 @@ export const responseSecondRequest = {
 
 export const responseThirdRequest = {
   penduduks: paginateRequestResponse(
-    peopleMockWithIdsOnly,
+    pendudukMockWithIdsOnly,
     mockPageSize * 2,
     mockPageSize * 3,
     false,

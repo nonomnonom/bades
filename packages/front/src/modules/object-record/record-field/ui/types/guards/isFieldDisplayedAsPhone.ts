@@ -7,11 +7,9 @@ import {
   type FieldTextMetadata,
 } from '@/object-record/record-field/ui/types/FieldMetadata';
 
-// TODO: temporary - remove when 'Phone' field in 'Person' object
-// is migrated to use FieldMetadataType.Phone as type.
+// TODO: temporary - remove when phone field handling is migrated to Bades SID
+// SID schema tidak memiliki field telepon dalam format khusus;
+// logika lama hanya berlaku untuk objek Person CRM warisan.
 export const isFieldDisplayedAsPhone = (
   field: Pick<FieldDefinition<FieldMetadata>, 'type' | 'metadata'>,
-): field is FieldDefinition<FieldTextMetadata> =>
-  field.metadata.objectMetadataNameSingular === 'person' &&
-  field.type === FieldMetadataType.TEXT &&
-  field.metadata.fieldName === 'phone';
+): field is FieldDefinition<FieldTextMetadata> => false;

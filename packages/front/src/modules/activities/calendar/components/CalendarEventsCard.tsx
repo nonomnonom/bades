@@ -52,12 +52,12 @@ export const CalendarEventsCard = () => {
   const { localeCatalog } = useAtomStateValue(dateLocaleState);
 
   const [query, queryName] =
-    targetRecord.targetObjectNameSingular === 'person'
+    targetRecord.targetObjectNameSingular === 'penduduk'
       ? [
           getTimelineCalendarEventsFromPendudukId,
           'getTimelineCalendarEventsFromPendudukId',
         ]
-      : targetRecord.targetObjectNameSingular === 'company'
+      : targetRecord.targetObjectNameSingular === 'keluarga'
         ? [
             getTimelineCalendarEventsFromKeluargaId,
             'getTimelineCalendarEventsFromKeluargaId',

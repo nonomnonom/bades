@@ -45,9 +45,9 @@ import {
 } from '~/testing/mock-data/workflow';
 import { oneSucceededWorkflowRunQueryResult } from '~/testing/mock-data/workflow-run';
 
-const peopleMock = [...mockedPendudukRecords];
-const companiesMock = [...mockedKeluargaRecords];
-const duplicateCompanyMock = {
+const pendudukMock = [...mockedPendudukRecords];
+const keluargaMock = [...mockedKeluargaRecords];
+const keluargaDuplicateMock = {
   ...mockedKeluargaRecords[0],
   id: '8b40856a-2ec9-4c03-8bc0-c032c89e1824',
 };
@@ -224,12 +224,12 @@ export const graphqlMocks = {
         data: { commandMenuItems: mockedBackendCommandMenuItems },
       });
     }),
-    graphql.query('SearchPeople', () => {
+    graphql.query('SearchPenduduks', () => {
       return HttpResponse.json({
         data: {
-          searchPeople: {
-            edges: peopleMock.slice(0, 3).map((person) => ({
-              node: person,
+          searchPenduduks: {
+            edges: pendudukMock.slice(0, 3).map((penduduk) => ({
+              node: penduduk,
               cursor: null,
             })),
             pageInfo: {
@@ -242,29 +242,14 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('SearchCompanies', () => {
+    graphql.query('SearchKeluargas', () => {
       return HttpResponse.json({
         data: {
-          searchCompanies: {
-            edges: companiesMock.slice(0, 3).map((company) => ({
-              node: company,
+          searchKeluargas: {
+            edges: keluargaMock.slice(0, 3).map((keluarga) => ({
+              node: keluarga,
               cursor: null,
             })),
-            pageInfo: {
-              hasNextPage: false,
-              hasPreviousPage: false,
-              startCursor: null,
-              endCursor: null,
-            },
-          },
-        },
-      });
-    }),
-    graphql.query('SearchOpportunities', () => {
-      return HttpResponse.json({
-        data: {
-          searchOpportunities: {
-            edges: [],
             pageInfo: {
               hasNextPage: false,
               hasPreviousPage: false,
@@ -276,16 +261,16 @@ export const graphqlMocks = {
       });
     }),
     graphql.query('Search', () => {
-      const personSearchEdges = peopleMock
+      const pendudukSearchEdges = pendudukMock
         .slice(0, 2)
-        .map((person: Record<string, unknown>, index: number) => ({
+        .map((penduduk: Record<string, unknown>, index: number) => ({
           node: {
             __typename: 'SearchRecordDTO',
-            recordId: person.id,
+            recordId: penduduk.id,
             objectNameSingular: 'penduduk',
             objectLabelSingular: 'Penduduk',
             label:
-              `${((person.namaLengkap ?? person.name) as Record<string, string>)?.firstName ?? ''} ${((person.namaLengkap ?? person.name) as Record<string, string>)?.lastName ?? ''}`.trim(),
+              `${((penduduk.namaLengkap ?? penduduk.name) as Record<string, string>)?.firstName ?? ''} ${((penduduk.namaLengkap ?? penduduk.name) as Record<string, string>)?.lastName ?? ''}`.trim(),
             imageUrl: '',
             tsRankCD: 0.2,
             tsRank: 0.12158542,
@@ -293,23 +278,23 @@ export const graphqlMocks = {
           cursor: `cursor-${index + 1}`,
         }));
 
-      const companySearchEdges = companiesMock
+      const keluargaSearchEdges = keluargaMock
         .slice(0, 2)
-        .map((company: Record<string, unknown>, index: number) => ({
+        .map((keluarga: Record<string, unknown>, index: number) => ({
           node: {
             __typename: 'SearchRecordDTO',
-            recordId: company.id,
+            recordId: keluarga.id,
             objectNameSingular: 'keluarga',
             objectLabelSingular: 'Keluarga',
-            label: (company.nomorKk ?? company.name) as string,
+            label: (keluarga.nomorKk ?? keluarga.name) as string,
             imageUrl: '',
             tsRankCD: 0.2,
             tsRank: 0.12158542,
           },
-          cursor: `cursor-${personSearchEdges.length + index + 1}`,
+          cursor: `cursor-${pendudukSearchEdges.length + index + 1}`,
         }));
 
-      const allEdges = [...personSearchEdges, ...companySearchEdges];
+      const allEdges = [...pendudukSearchEdges, ...keluargaSearchEdges];
 
       return HttpResponse.json({
         data: {
@@ -406,8 +391,8 @@ export const graphqlMocks = {
     }),
     graphql.query('FindManyKeluargas', ({ variables }) => {
       const mockedData = variables.limit
-        ? companiesMock.slice(0, variables.limit)
-        : companiesMock;
+        ? keluargaMock.slice(0, variables.limit)
+        : keluargaMock;
 
       return HttpResponse.json({
         data: {
@@ -415,11 +400,11 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('FindDuplicateCompany', () => {
+    graphql.query('FindDuplicateKeluarga', () => {
       return HttpResponse.json({
         data: {
-          companyDuplicates: [
-            wrapRecordsAsConnection('keluarga', [duplicateCompanyMock]),
+          keluargaDuplicates: [
+            wrapRecordsAsConnection('keluarga', [keluargaDuplicateMock]),
           ],
         },
       });
@@ -427,7 +412,7 @@ export const graphqlMocks = {
     graphql.query('FindManyPenduduks', () => {
       return HttpResponse.json({
         data: {
-          penduduks: wrapRecordsAsConnection('penduduk', peopleMock),
+          penduduks: wrapRecordsAsConnection('penduduk', pendudukMock),
         },
       });
     }),
@@ -485,11 +470,13 @@ export const graphqlMocks = {
       });
     }),
     graphql.query<GraphQLQuery, { objectRecordId: string }>(
-      'FindOnePerson',
+      'FindOnePenduduk',
       ({ variables: { objectRecordId } }) => {
         return HttpResponse.json({
           data: {
-            person: peopleMock.find((person) => person.id === objectRecordId),
+            penduduk: pendudukMock.find(
+              (penduduk) => penduduk.id === objectRecordId,
+            ),
           },
         });
       },

@@ -48,18 +48,18 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
       objectNameSingular: 'programBantuan',
     });
 
-    expect(result.current.linkToShowPage).toBe('/object/opportunity/recordId');
+    expect(result.current.linkToShowPage).toBe('/object/programBantuan/recordId');
 
     rerender({
       record: {
         id: 'recordId',
-        name: { firstName: 'Budi', lastName: 'Connor' },
+        name: { firstName: 'Budi', lastName: 'Santoso' },
       },
       objectNameSingular: 'penduduk',
     });
 
-    expect(result.current.linkToShowPage).toBe('/object/person/recordId');
-    expect(result.current.name).toBe('John Connor');
+    expect(result.current.linkToShowPage).toBe('/object/penduduk/recordId');
+    expect(result.current.name).toBe('Budi Santoso');
     expect(result.current.avatarType).toBe('rounded');
 
     rerender({
@@ -70,7 +70,7 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
       objectNameSingular: 'keluarga',
     });
 
-    expect(result.current.linkToShowPage).toBe('/object/company/recordId');
+    expect(result.current.linkToShowPage).toBe('/object/keluarga/recordId');
     expect(result.current.avatarUrl).toBe(
       'https://icons.bades.id/cool-company.com',
     );

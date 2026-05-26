@@ -6,7 +6,7 @@ import { HeadlessEngineCommandWrapperEffect } from '@/command-menu-item/engine-c
 import { useHeadlessCommandContextApi } from '@/command-menu-item/engine-command/hooks/useHeadlessCommandContextApi';
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
 import { useOpenComposeEmailInSidePanel } from '@/side-panel/hooks/useOpenComposeEmailInSidePanel';
-import { CoreObjectNameSingular, SettingsPath } from 'shared/types';
+import { SettingsPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { useNavigateSettings } from '~/hooks/useNavigateSettings';
 
@@ -24,22 +24,22 @@ export const ComposeEmailCommand = () => {
   } = useHeadlessCommandContextApi();
 
   const objectNameSingular = objectMetadataItem?.nameSingular ?? null;
-  const isPerson = objectNameSingular === 'person';
+  const isPenduduk = objectNameSingular === 'penduduk';
 
-  const isBulkPerson =
-    isPerson &&
+  const isBulkPenduduk =
+    isPenduduk &&
     (selectedRecords.length > 1 || targetedRecordsRule.mode === 'exclusion');
 
-  const { records: bulkPersonRecords, loading: bulkLoading } =
+  const { records: bulkPendudukRecords, loading: bulkLoading } =
     useFindManyRecords({
-      objectNameSingular: 'person',
+      objectNameSingular: 'penduduk',
       filter: graphqlFilter ?? undefined,
       recordGqlFields: { id: true, emails: { primaryEmail: true } },
       limit: MAX_EMAIL_RECIPIENTS,
-      skip: !isBulkPerson,
+      skip: !isBulkPenduduk,
     });
 
-  const singleSelectedRecordId = !isBulkPerson
+  const singleSelectedRecordId = !isBulkPenduduk
     ? (selectedRecords[0]?.id ?? null)
     : null;
 
@@ -49,8 +49,8 @@ export const ComposeEmailCommand = () => {
       recordId: singleSelectedRecordId,
     });
 
-  const defaultTo = isBulkPerson
-    ? bulkPersonRecords
+  const defaultTo = isBulkPenduduk
+    ? bulkPendudukRecords
         .map(getPrimaryEmailFromRecord)
         .filter(isDefined)
         .join(', ')
@@ -70,7 +70,7 @@ export const ComposeEmailCommand = () => {
   };
 
   const ready =
-    !accountLoading && (isBulkPerson ? !bulkLoading : !recipientLoading);
+    !accountLoading && (isBulkPenduduk ? !bulkLoading : !recipientLoading);
 
   return (
     <HeadlessEngineCommandWrapperEffect execute={handleExecute} ready={ready} />

@@ -22,7 +22,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       };
       const record: ObjectRecord = {
         id: '',
-        people: {
+        penduduks: {
           edges: [{ node: firstRelationRecord }, { node: { id: '2' } }],
         },
         __typename: 'ProgramBantuan',
@@ -50,7 +50,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       const relationRecord = { id: '1', name: 'Bades' };
       const record = {
         id: '',
-        company: relationRecord,
+        keluarga: relationRecord,
         __typename: 'ProgramBantuan',
       };
       const fieldMetadataItem = mockedPersonObjectMetadataItem?.fields.find(

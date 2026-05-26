@@ -29,8 +29,7 @@ export const TriggerWorkflowVersionEngineCommand = () => {
 
   const { fetchAllRecords } = useLazyFetchAllRecords({
     objectNameSingular:
-      mountedCommandState.objectMetadataItem?.nameSingular ??
-      'person',
+      mountedCommandState.objectMetadataItem?.nameSingular ?? 'penduduk',
     filter: mountedCommandState.graphqlFilter ?? noMatchFilter,
     limit: DEFAULT_QUERY_PAGE_SIZE,
   });

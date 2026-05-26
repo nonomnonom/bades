@@ -143,11 +143,7 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
   const Icon = isRecord
     ? () => (
         <Avatar
-          type={
-            objectMetadataItem.nameSingular === 'company'
-              ? 'squared'
-              : 'rounded'
-          }
+          type="rounded"
           avatarUrl={recordIdentifier?.avatarUrl}
           placeholderColorSeed={navigationMenuItem!.targetRecordId ?? undefined}
           placeholder={itemLabel}

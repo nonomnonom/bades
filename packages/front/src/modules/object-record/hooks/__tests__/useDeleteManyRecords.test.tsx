@@ -4,8 +4,8 @@ import { getRecordFromCache } from '@/object-record/cache/utils/getRecordFromCac
 import { updateRecordFromCache } from '@/object-record/cache/utils/updateRecordFromCache';
 import { generateDepthRecordGqlFieldsFromRecord } from '@/object-record/graphql/record-gql-fields/utils/generateDepthRecordGqlFieldsFromRecord';
 import {
-  personIds,
-  personRecords,
+  pendudukIds,
+  pendudukRecords,
   query,
   responseData,
   variables,
@@ -30,7 +30,7 @@ const getDefaultMocks = (
     },
     result: jest.fn(() => ({
       data: {
-        deletePeople: responseData,
+        deletePenduduks: responseData,
       },
     })),
     ...overrides,
@@ -44,9 +44,9 @@ const mockRefetchAggregateQueries = jest.fn();
 });
 const objectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 const objectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
-const expectedCachedRecordsWithDeletedAt = personRecords.map(
-  (personRecord) => ({
-    ...personRecord,
+const expectedCachedRecordsWithDeletedAt = pendudukRecords.map(
+  (pendudukRecord) => ({
+    ...pendudukRecord,
     deletedAt: expect.any(String),
   }),
 );
@@ -100,10 +100,10 @@ describe('useDeleteManyRecords', () => {
 
       await act(async () => {
         const res = await result.current.deleteManyRecords({
-          recordIdsToDelete: personIds,
+          recordIdsToDelete: pendudukIds,
         });
         expect(res).toEqual(responseData);
-        assertCachedRecordsIsNull(personIds);
+        assertCachedRecordsIsNull(pendudukIds);
       });
 
       expect(apolloMocks[0].result).toHaveBeenCalled();
@@ -113,7 +113,7 @@ describe('useDeleteManyRecords', () => {
 
   describe('B. Starting from filled cache', () => {
     beforeEach(() => {
-      personRecords.forEach((record) =>
+      pendudukRecords.forEach((record) =>
         updateRecordFromCache({
           cache,
           objectMetadataItem,
@@ -143,7 +143,7 @@ describe('useDeleteManyRecords', () => {
 
       await act(async () => {
         const res = await result.current.deleteManyRecords({
-          recordIdsToDelete: personIds,
+          recordIdsToDelete: pendudukIds,
         });
         expect(res).toEqual(responseData);
         assertCachedRecordsMatch(expectedCachedRecordsWithDeletedAt);
@@ -169,7 +169,7 @@ describe('useDeleteManyRecords', () => {
 
       await act(async () => {
         result.current.deleteManyRecords({
-          recordIdsToDelete: personIds,
+          recordIdsToDelete: pendudukIds,
         });
         await waitFor(() =>
           assertCachedRecordsMatch(expectedCachedRecordsWithDeletedAt),
@@ -197,12 +197,12 @@ describe('useDeleteManyRecords', () => {
       await act(async () => {
         try {
           await result.current.deleteManyRecords({
-            recordIdsToDelete: personIds,
+            recordIdsToDelete: pendudukIds,
           });
           fail('Should have thrown an error');
         } catch (e) {
           expect(e).toMatchInlineSnapshot(`[Error: Internal server error]`);
-          assertCachedRecordsMatch(personRecords);
+          assertCachedRecordsMatch(pendudukRecords);
         }
       });
 

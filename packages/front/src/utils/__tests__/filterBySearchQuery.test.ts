@@ -58,7 +58,7 @@ describe('filterBySearchQuery', () => {
   it('should handle partial matches', () => {
     const result = filterBySearchQuery({
       items: users,
-      searchQuery: 'jan',
+      searchQuery: 'sit',
       getSearchableValues: (user) => [user.firstName],
     });
 
@@ -118,7 +118,7 @@ describe('filterBySearchQuery', () => {
   it('should be case-insensitive for both query and values', () => {
     const result = filterBySearchQuery({
       items: users,
-      searchQuery: 'JOHN',
+      searchQuery: 'BUDI',
       getSearchableValues: (user) => [user.firstName.toUpperCase()],
     });
 

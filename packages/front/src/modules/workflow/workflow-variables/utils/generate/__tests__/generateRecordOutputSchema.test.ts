@@ -20,7 +20,7 @@ describe('generateRecordOutputSchema', () => {
   it('should generate schema with correct object metadata', () => {
     const objectMetadataItem = createMockObjectMetadataItem({
       id: 'company-id',
-      labelSingular: 'Company',
+      labelSingular: 'Keluarga',
       icon: 'IconBuilding',
     });
 
@@ -192,11 +192,11 @@ describe('generateRecordOutputSchema', () => {
     const result = generateRecordOutputSchema(objectMetadataItem);
 
     expect(result.fields).not.toHaveProperty('keluarga');
-    expect(result.fields).toHaveProperty('companyId');
-    expect(result.fields.companyId).toMatchObject({
+    expect(result.fields).toHaveProperty('keluargaId');
+    expect(result.fields.keluargaId).toMatchObject({
       isLeaf: true,
       type: FieldMetadataType.UUID,
-      label: 'Company Id',
+      label: 'Keluarga Id',
     });
   });
 

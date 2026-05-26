@@ -29,10 +29,10 @@ describe('useMapToObjectRecordIdentifier', () => {
 
     expect(result.current).toEqual({
       id: 'id',
-      name: 'Sheldon Cooper',
+      name: 'Subagja Cahyani',
       avatarUrl: '',
       avatarType: 'rounded',
-      linkToShowPage: '/object/person/id',
+      linkToShowPage: '/object/penduduk/id',
     });
   });
 });

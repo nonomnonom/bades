@@ -6,8 +6,8 @@ import { useFindDuplicateRecordsQuery } from '@/object-record/hooks/useFindDupli
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
-  query FindDuplicatePerson($ids: [UUID!]!) {
-    personDuplicates(ids: $ids) {
+  query FindDuplicatePenduduk($ids: [UUID!]!) {
+    pendudukDuplicates(ids: $ids) {
       edges {
         node {
       ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}

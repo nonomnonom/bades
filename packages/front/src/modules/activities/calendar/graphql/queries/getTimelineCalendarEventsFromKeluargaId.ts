@@ -2,13 +2,13 @@ import { timelineCalendarEventWithTotalFragment } from '@/activities/calendar/gr
 import { gql } from '@apollo/client';
 
 export const getTimelineCalendarEventsFromKeluargaId = gql`
-  query GetTimelineCalendarEventsFromCompanyId(
-    $companyId: UUID!
+  query GetTimelineCalendarEventsFromKeluargaId(
+    $keluargaId: UUID!
     $page: Int!
     $pageSize: Int!
   ) {
     getTimelineCalendarEventsFromKeluargaId(
-      companyId: $companyId
+      keluargaId: $keluargaId
       page: $page
       pageSize: $pageSize
     ) {

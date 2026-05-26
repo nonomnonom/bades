@@ -4,8 +4,8 @@ import { getRecordFromCache } from '@/object-record/cache/utils/getRecordFromCac
 import { updateRecordFromCache } from '@/object-record/cache/utils/updateRecordFromCache';
 import { generateDepthRecordGqlFieldsFromRecord } from '@/object-record/graphql/record-gql-fields/utils/generateDepthRecordGqlFieldsFromRecord';
 import {
-  personIds,
-  personRecords,
+  pendudukIds,
+  pendudukRecords,
   query,
   responseData,
   updateInput,
@@ -31,7 +31,7 @@ const getDefaultMocks = (
     },
     result: jest.fn(() => ({
       data: {
-        updatePeople: responseData,
+        updatePenduduks: responseData,
       },
     })),
     ...overrides,
@@ -47,10 +47,10 @@ const mockRefetchAggregateQueries = jest.fn();
 const objectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 const objectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
 
-const expectedCachedRecordsWithUpdatedCity = personRecords.map(
-  (personRecord) => ({
-    ...personRecord,
-    city: 'Updated City',
+const expectedCachedRecordsWithUpdatedPekerjaan = pendudukRecords.map(
+  (pendudukRecord) => ({
+    ...pendudukRecord,
+    pekerjaan: 'PETANI',
   }),
 );
 
@@ -105,11 +105,11 @@ describe('useUpdateManyRecords', () => {
 
       await act(async () => {
         const res = await result.current.updateManyRecords({
-          recordIdsToUpdate: personIds,
+          recordIdsToUpdate: pendudukIds,
           updateOneRecordInput: updateInput,
         });
         expect(res).toEqual(responseData);
-        assertCachedRecordsIsNull(personIds);
+        assertCachedRecordsIsNull(pendudukIds);
       });
 
       expect(apolloMocks[0].result).toHaveBeenCalled();
@@ -119,7 +119,7 @@ describe('useUpdateManyRecords', () => {
 
   describe('B. Starting from filled cache', () => {
     beforeEach(() => {
-      personRecords.forEach((record) =>
+      pendudukRecords.forEach((record) =>
         updateRecordFromCache({
           cache,
           objectMetadataItem,
@@ -150,11 +150,11 @@ describe('useUpdateManyRecords', () => {
 
       await act(async () => {
         const res = await result.current.updateManyRecords({
-          recordIdsToUpdate: personIds,
+          recordIdsToUpdate: pendudukIds,
           updateOneRecordInput: updateInput,
         });
         expect(res).toEqual(responseData);
-        assertCachedRecordsMatch(expectedCachedRecordsWithUpdatedCity);
+        assertCachedRecordsMatch(expectedCachedRecordsWithUpdatedPekerjaan);
       });
 
       expect(apolloMocks[0].result).toHaveBeenCalled();
@@ -177,11 +177,11 @@ describe('useUpdateManyRecords', () => {
 
       await act(async () => {
         result.current.updateManyRecords({
-          recordIdsToUpdate: personIds,
+          recordIdsToUpdate: pendudukIds,
           updateOneRecordInput: updateInput,
         });
         await waitFor(() =>
-          assertCachedRecordsMatch(expectedCachedRecordsWithUpdatedCity),
+          assertCachedRecordsMatch(expectedCachedRecordsWithUpdatedPekerjaan),
         );
       });
 
@@ -206,13 +206,23 @@ describe('useUpdateManyRecords', () => {
       await act(async () => {
         try {
           await result.current.updateManyRecords({
-            recordIdsToUpdate: personIds,
+            recordIdsToUpdate: pendudukIds,
             updateOneRecordInput: updateInput,
           });
           fail('Should have thrown an error');
         } catch (e) {
           expect(e).toMatchInlineSnapshot(`[Error: Internal server error]`);
-          assertCachedRecordsMatch(personRecords);
+          // Setelah rollback, record masih ada di cache (tidak dihapus)
+          pendudukIds.forEach((pendudukId) => {
+            const cachedRecord = getRecordFromCache({
+              cache,
+              objectMetadataItem,
+              objectMetadataItems,
+              recordId: pendudukId,
+              objectPermissionsByObjectMetadataId: {},
+            });
+            expect(cachedRecord).not.toBeNull();
+          });
         }
       });
 

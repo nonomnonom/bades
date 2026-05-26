@@ -35,14 +35,14 @@ const mocks: MockedResponse[] = [
   {
     request: {
       query: gql`
-        query FindManyPenduduks(
+        query FindManyPeople(
           $filter: PendudukFilterInput
           $orderBy: [PendudukOrderByInput]
           $lastCursor: String
           $limit: Int
           $offset: Int
         ) {
-          penduduks(
+          people(
             filter: $filter
             orderBy: $orderBy
             first: $limit
@@ -52,12 +52,6 @@ const mocks: MockedResponse[] = [
             edges {
               node {
                 __typename
-                avatarFile {
-                  fileId
-                  label
-                  extension
-                  url
-                }
                 createdAt
                 deletedAt
                 id
@@ -114,7 +108,7 @@ const mocks: MockedResponse[] = [
     },
     result: jest.fn(() => ({
       data: {
-        penduduks: generateMockRecordConnection({
+        people: generateMockRecordConnection({
           objectNameSingular: 'penduduk',
           records: flatPersonRecords,
         }),

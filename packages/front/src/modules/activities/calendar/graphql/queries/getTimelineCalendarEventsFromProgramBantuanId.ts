@@ -3,13 +3,13 @@ import { gql } from '@apollo/client';
 import { timelineCalendarEventWithTotalFragment } from '@/activities/calendar/graphql/queries/fragments/timelineCalendarEventWithTotalFragment';
 
 export const getTimelineCalendarEventsFromProgramBantuanId = gql`
-  query GetTimelineCalendarEventsFromOpportunityId(
-    $opportunityId: UUID!
+  query GetTimelineCalendarEventsFromProgramBantuanId(
+    $programBantuanId: UUID!
     $page: Int!
     $pageSize: Int!
   ) {
     getTimelineCalendarEventsFromProgramBantuanId(
-      opportunityId: $opportunityId
+      programBantuanId: $programBantuanId
       page: $page
       pageSize: $pageSize
     ) {

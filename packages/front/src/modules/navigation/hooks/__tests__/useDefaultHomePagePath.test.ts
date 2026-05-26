@@ -125,7 +125,7 @@ describe('useDefaultHomePagePath', () => {
     });
 
     await waitFor(() => {
-      expect(result.current.defaultHomePagePath).toEqual('/objects/companies');
+      expect(result.current.defaultHomePagePath).toEqual('/objects/dashboards');
     });
   });
   it('should return proper path when currentUser is defined and view exists', async () => {
@@ -136,7 +136,7 @@ describe('useDefaultHomePagePath', () => {
 
     await waitFor(() => {
       expect(result.current.defaultHomePagePath).toEqual(
-        '/objects/companies?viewId=viewId',
+        '/objects/dashboards',
       );
     });
   });

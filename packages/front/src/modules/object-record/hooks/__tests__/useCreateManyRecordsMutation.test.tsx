@@ -6,7 +6,7 @@ import { useCreateManyRecordsMutation } from '@/object-record/hooks/useCreateMan
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
-  mutation CreatePeople($data: [PersonCreateInput!]!, $upsert: Boolean) {
+  mutation CreatePeople($data: [PendudukCreateInput!]!, $upsert: Boolean) {
     createPeople(data: $data, upsert: $upsert) {
       ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
     }

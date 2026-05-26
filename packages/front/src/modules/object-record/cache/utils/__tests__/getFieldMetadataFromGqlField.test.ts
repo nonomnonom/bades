@@ -9,7 +9,7 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
     namePlural: 'programBantuans',
     fields: [
       {
-        name: 'owner',
+        name: 'pemilik',
         type: FieldMetadataType.MORPH_RELATION,
         morphRelations: [
           {
@@ -19,11 +19,11 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
               namePlural: 'keluargas',
             },
             targetFieldMetadata: {
-              name: 'ownedBy',
+              name: 'dimilikiOleh',
               type: FieldMetadataType.RELATION,
             },
             sourceFieldMetadata: {
-              name: 'owner',
+              name: 'pemilik',
               type: FieldMetadataType.MORPH_RELATION,
             },
             sourceObjectMetadata: {
@@ -38,11 +38,11 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
               namePlural: 'penduduks',
             },
             targetFieldMetadata: {
-              name: 'ownedBy',
+              name: 'dimilikiOleh',
               type: FieldMetadataType.RELATION,
             },
             sourceFieldMetadata: {
-              name: 'owner',
+              name: 'pemilik',
               type: FieldMetadataType.MORPH_RELATION,
             },
             sourceObjectMetadata: {
@@ -77,14 +77,14 @@ describe('getFieldMetadataFromGqlField', () => {
     expect(result?.type).toBe(FieldMetadataType.FULL_NAME);
   });
 
-  it('should find company by join column name of a relation field', () => {
+  it('should find keluarga by join column name of a relation field', () => {
     const objectMetadataItem = {
       fields: [
         {
           name: 'keluarga',
           type: FieldMetadataType.RELATION,
           settings: {
-            joinColumnName: 'companyId',
+            joinColumnName: 'keluargaId',
           },
         } as FieldMetadataItem,
       ],
@@ -92,13 +92,13 @@ describe('getFieldMetadataFromGqlField', () => {
 
     const result = getFieldMetadataFromGqlField({
       objectMetadataItem,
-      gqlField: 'companyId',
+      gqlField: 'keluargaId',
     });
 
     expect(result).toBeDefined();
     expect(result?.name).toBe('keluarga');
     expect(result?.type).toBe(FieldMetadataType.RELATION);
-    expect(result?.settings?.joinColumnName).toBe('companyId');
+    expect(result?.settings?.joinColumnName).toBe('keluargaId');
   });
 
   it('should return undefined for non-existent field', () => {
@@ -119,59 +119,59 @@ describe('getFieldMetadataFromGqlField', () => {
     expect(result).toBeUndefined();
   });
 
-  it('should find owner by direct morph relation ONE_TO_MANY field name', () => {
+  it('should find pemilik by direct morph relation ONE_TO_MANY field name', () => {
     const objectMetadataItem = objectMetadataItemGenerator(
       RelationType.ONE_TO_MANY,
     );
     const result = getFieldMetadataFromGqlField({
       objectMetadataItem,
-      gqlField: 'owner',
+      gqlField: 'pemilik',
     });
 
     expect(result).toBeDefined();
-    expect(result?.name).toBe('owner');
+    expect(result?.name).toBe('pemilik');
     expect(result?.type).toBe(FieldMetadataType.MORPH_RELATION);
   });
 
-  it('should find ownerCompanies by computed morph relation ONE_TO_MANY field name', () => {
+  it('should find pemilikKeluargas by computed morph relation ONE_TO_MANY field name', () => {
     const objectMetadataItem = objectMetadataItemGenerator(
       RelationType.ONE_TO_MANY,
     );
     const result = getFieldMetadataFromGqlField({
       objectMetadataItem,
-      gqlField: 'ownerCompanies',
+      gqlField: 'pemilikKeluargas',
     });
 
     expect(result).toBeDefined();
-    expect(result?.name).toBe('owner');
+    expect(result?.name).toBe('pemilik');
     expect(result?.type).toBe(FieldMetadataType.MORPH_RELATION);
   });
 
-  it('should find ownerPerson by computed morph relation MANY_TO_ONE field name', () => {
+  it('should find pemilikPenduduk by computed morph relation MANY_TO_ONE field name', () => {
     const objectMetadataItem = objectMetadataItemGenerator(
       RelationType.MANY_TO_ONE,
     );
     const result = getFieldMetadataFromGqlField({
       objectMetadataItem,
-      gqlField: 'ownerPerson',
+      gqlField: 'pemilikPenduduk',
     });
 
     expect(result).toBeDefined();
-    expect(result?.name).toBe('owner');
+    expect(result?.name).toBe('pemilik');
     expect(result?.type).toBe(FieldMetadataType.MORPH_RELATION);
   });
 
-  it('should find ownerPersonId by computed morph relation join column name MANY_TO_ONE field name', () => {
+  it('should find pemilikPendudukId by computed morph relation join column name MANY_TO_ONE field name', () => {
     const objectMetadataItem = objectMetadataItemGenerator(
       RelationType.MANY_TO_ONE,
     );
     const result = getFieldMetadataFromGqlField({
       objectMetadataItem,
-      gqlField: 'ownerPersonId',
+      gqlField: 'pemilikPendudukId',
     });
 
     expect(result).toBeDefined();
-    expect(result?.name).toBe('owner');
+    expect(result?.name).toBe('pemilik');
     expect(result?.type).toBe(FieldMetadataType.MORPH_RELATION);
   });
 });

@@ -9,7 +9,6 @@ import { useState } from 'react';
 import { type ActivityTargetableObject } from '@/activities/types/ActivityTargetableEntity';
 import { useSnackBarOnQueryError } from '@/apollo/hooks/useSnackBarOnQueryError';
 import { useApolloCoreClient } from '@/object-metadata/hooks/useApolloCoreClient';
-import { CoreObjectNameSingular } from 'shared/types';
 
 type CustomResolverQueryResult<
   T extends {
@@ -47,13 +46,11 @@ export const useCustomResolver = <
   const [isFetchingMore, setIsFetchingMore] = useState(false);
 
   const queryVariables = {
-    ...(activityTargetableObject.targetObjectNameSingular ===
-    'person'
-      ? { personId: activityTargetableObject.id }
-      : activityTargetableObject.targetObjectNameSingular ===
-          'opportunity'
-        ? { opportunityId: activityTargetableObject.id }
-        : { companyId: activityTargetableObject.id }),
+    ...(activityTargetableObject.targetObjectNameSingular === 'penduduk'
+      ? { pendudukId: activityTargetableObject.id }
+      : activityTargetableObject.targetObjectNameSingular === 'programBantuan'
+        ? { programBantuanId: activityTargetableObject.id }
+        : { keluargaId: activityTargetableObject.id }),
     page: 1,
     pageSize,
   };

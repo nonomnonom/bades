@@ -59,7 +59,7 @@ const mockPerson = {
   },
   id: '123',
   city: 'city',
-  companyId: '1',
+  keluargaId: '1',
   intro: 'intro',
   deletedAt: null,
   workPreference: 'workPreference',
@@ -68,7 +68,7 @@ const mockPerson = {
 const mock: MockedResponse = {
   request: {
     query: gql`
-          query FindManyPenduduks(
+          query FindManyPeople(
               $filter: PendudukFilterInput
               $orderBy: [PendudukOrderByInput]
               $lastCursor: String

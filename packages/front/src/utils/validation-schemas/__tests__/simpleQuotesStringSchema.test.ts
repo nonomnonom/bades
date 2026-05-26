@@ -30,7 +30,7 @@ describe('simpleQuotesStringSchema', () => {
     expect((result as ZodSafeParseError<string>).error.issues).toEqual([
       {
         code: 'custom',
-        message: 'String should be wrapped in simple quotes',
+        message: 'String harus dibungkus dengan tanda kutip tunggal',
         path: [],
       },
     ]);

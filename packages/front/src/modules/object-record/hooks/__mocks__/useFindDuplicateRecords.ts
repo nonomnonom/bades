@@ -2,11 +2,11 @@ import { PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hoo
 import { gql } from '@apollo/client';
 import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 
-const peopleMock = [...mockedPendudukRecords];
+const pendudukMock = [...mockedPendudukRecords];
 
 export const query = gql`
-  query FindDuplicatePerson($ids: [UUID!]!) {
-    personDuplicates(ids: $ids) {
+  query FindDuplicatePenduduk($ids: [UUID!]!) {
+    pendudukDuplicates(ids: $ids) {
       edges {
         node {
           ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
@@ -27,15 +27,15 @@ export const variables = {
 };
 
 export const responseData = {
-  personDuplicates: [
+  pendudukDuplicates: [
     {
       edges: [
         {
-          node: { ...peopleMock[0], updatedAt: '' },
+          node: { ...pendudukMock[0], updatedAt: '' },
           cursor: 'cursor1',
         },
         {
-          node: { ...peopleMock[1], updatedAt: '' },
+          node: { ...pendudukMock[1], updatedAt: '' },
           cursor: 'cursor2',
         },
       ],

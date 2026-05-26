@@ -31,6 +31,6 @@ describe('getCaptchaUrlByProvider', () => {
   it('handles unknown provider', async () => {
     expect(() =>
       getCaptchaUrlByProvider('Unknown' as CaptchaDriverType, ''),
-    ).toThrow('Unknown captcha provider');
+    ).toThrow('Penyedia captcha tidak dikenal');
   });
 });

@@ -122,14 +122,14 @@ describe('computeOptimisticRecordFromInput', () => {
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       objectMetadataItem: personObjectMetadataItem,
       recordInput: {
-        companyId: '123',
+        keluargaId: '123',
       },
       cache,
       objectPermissionsByObjectMetadataId: {},
     });
 
     expect(result).toEqual({
-      companyId: '123',
+      keluargaId: '123',
     });
   });
 
@@ -171,7 +171,7 @@ describe('computeOptimisticRecordFromInput', () => {
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       objectMetadataItem: personObjectMetadataItem,
       recordInput: {
-        companyId: '123',
+        keluargaId: '123',
         __typename: 'test',
       },
       cache,
@@ -179,8 +179,8 @@ describe('computeOptimisticRecordFromInput', () => {
     });
 
     expect(result).toStrictEqual({
-      companyId: '123',
-      company: companyRecord,
+      keluargaId: '123',
+      keluarga: companyRecord,
     });
   });
 
@@ -225,15 +225,15 @@ describe('computeOptimisticRecordFromInput', () => {
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       objectMetadataItem: personObjectMetadataItem,
       recordInput: {
-        companyId: '123',
+        keluargaId: '123',
       },
       cache,
       objectPermissionsByObjectMetadataId: {},
     });
 
     expect(result).toEqual({
-      companyId: '123',
-      company: companyRecord,
+      keluargaId: '123',
+      keluarga: companyRecord,
     });
   });
 
@@ -247,15 +247,15 @@ describe('computeOptimisticRecordFromInput', () => {
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       objectMetadataItem: personObjectMetadataItem,
       recordInput: {
-        companyId: null,
+        keluargaId: null,
       },
       cache,
       objectPermissionsByObjectMetadataId: {},
     });
 
     expect(result).toEqual({
-      companyId: null,
-      company: null,
+      keluargaId: null,
+      keluarga: null,
     });
   });
 
@@ -279,7 +279,7 @@ describe('computeOptimisticRecordFromInput', () => {
         objectPermissionsByObjectMetadataId: {},
       }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Should never occur, encountered unknown fields unknwon, foo, bar in objectMetadataItem person"`,
+      `"Should never occur, encountered unknown fields unknwon, foo, bar in objectMetadataItem penduduk"`,
     );
   });
 });

@@ -4,7 +4,7 @@ import { sidePanelSearchObjectFilterState } from '@/side-panel/states/sidePanelS
 import { sidePanelSearchState } from '@/side-panel/states/sidePanelSearchState';
 import { sidePanelShowHiddenObjectsState } from '@/side-panel/states/sidePanelShowHiddenObjectsState';
 import { useApolloCoreClient } from '@/object-metadata/hooks/useApolloCoreClient';
-import { CoreObjectNameSingular } from 'shared/types';
+import { getAvatarType } from '@/object-metadata/utils/getAvatarType';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
@@ -75,10 +75,9 @@ export const useSidePanelSearchRecords = () => {
           readableObjectMetadataItems.find(
             (item) => item.nameSingular === searchRecord.objectNameSingular,
           )?.labelSingular ?? searchRecord.objectNameSingular,
-        avatarType:
-          searchRecord.objectNameSingular === 'company'
-            ? ('squared' as const)
-            : ('rounded' as const),
+        avatarType: getAvatarType(searchRecord.objectNameSingular) as
+          | 'squared'
+          | 'rounded',
       }),
     );
   }, [searchData, readableObjectMetadataItems]);

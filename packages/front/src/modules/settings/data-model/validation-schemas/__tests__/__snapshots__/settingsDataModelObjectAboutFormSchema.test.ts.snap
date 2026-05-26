@@ -84,14 +84,14 @@ exports[`settingsDataModelObjectAboutFormSchema fails when names are not in came
     "path": [
       "namePlural"
     ],
-    "message": "String should be camel case"
+    "message": "String harus menggunakan camel case"
   },
   {
     "code": "custom",
     "path": [
       "nameSingular"
     ],
-    "message": "String should be camel case"
+    "message": "String harus menggunakan camel case"
   }
 ]]
 `;

@@ -3,8 +3,7 @@ import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/Enriche
 import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { getRecordNodeFromRecord } from '@/object-record/cache/utils/getRecordNodeFromRecord';
-
-const peopleMock = [...mockedPendudukRecords];
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 
 describe('getRecordNodeFromRecord', () => {
   it('computes relation records cache references by default', () => {
@@ -24,11 +23,18 @@ describe('getRecordNodeFromRecord', () => {
       throw new Error('Object metadata item not found');
     }
 
-    const recordGqlFields = {
-      namaLengkap: true,
-      kartuKeluarga: true,
+    const keluarga = mockedKeluargaRecords[0];
+    const record = {
+      ...mockedPendudukRecords[0],
+      name: { firstName: 'Budi', lastName: 'Kusuma' },
+      keluarga,
+      keluargaId: keluarga.id,
     };
-    const record = peopleMock[0];
+
+    const recordGqlFields = {
+      name: true,
+      keluarga: true,
+    };
 
     // When
     const result = getRecordNodeFromRecord({
@@ -41,13 +47,13 @@ describe('getRecordNodeFromRecord', () => {
     // Then
     expect(result).toEqual({
       __typename: 'Penduduk',
-      kartuKeluarga: {
-        __ref: `Keluarga:${record.kartuKeluarga.id}`,
+      keluarga: {
+        __ref: `Keluarga:${keluarga.id}`,
       },
-      namaLengkap: {
+      name: {
         __typename: 'FullName',
-        firstName: record.namaLengkap.firstName,
-        lastName: record.namaLengkap.lastName,
+        firstName: record.name.firstName,
+        lastName: record.name.lastName,
       },
     });
   });
@@ -69,11 +75,18 @@ describe('getRecordNodeFromRecord', () => {
       throw new Error('Object metadata item not found');
     }
 
-    const recordGqlFields = {
-      namaLengkap: true,
-      kartuKeluarga: true,
+    const keluarga = mockedKeluargaRecords[0];
+    const record = {
+      ...mockedPendudukRecords[0],
+      name: { firstName: 'Budi', lastName: 'Kusuma' },
+      keluarga,
+      keluargaId: keluarga.id,
     };
-    const record = peopleMock[0];
+
+    const recordGqlFields = {
+      name: true,
+      keluarga: true,
+    };
     const computeReferences = false;
 
     // When
@@ -88,11 +101,11 @@ describe('getRecordNodeFromRecord', () => {
     // Then
     expect(result).toEqual({
       __typename: 'Penduduk',
-      kartuKeluarga: record.kartuKeluarga,
-      namaLengkap: {
+      keluarga: record.keluarga,
+      name: {
         __typename: 'FullName',
-        firstName: record.namaLengkap.firstName,
-        lastName: record.namaLengkap.lastName,
+        firstName: record.name.firstName,
+        lastName: record.name.lastName,
       },
     });
   });

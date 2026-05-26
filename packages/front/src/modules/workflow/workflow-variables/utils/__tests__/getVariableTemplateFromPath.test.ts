@@ -16,6 +16,6 @@ describe('getVariableTemplateFromPath', () => {
       path: ['keluarga', 'name'],
     });
 
-    expect(result).toBe('{{step-2.company.name}}');
+    expect(result).toBe('{{step-2.keluarga.name}}');
   });
 });

@@ -129,8 +129,8 @@ describe('searchVariableThroughRecordOutputSchema', () => {
       });
 
       expect(result).toEqual({
-        variableLabel: 'Company',
-        variablePathLabel: 'Create Company > Company',
+        variableLabel: 'Keluarga',
+        variablePathLabel: 'Create Company > Keluarga',
         variableType: undefined,
         fieldMetadataId: undefined,
         compositeFieldSubFieldName: undefined,

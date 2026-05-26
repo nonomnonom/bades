@@ -53,9 +53,9 @@ export const EmailsCard = () => {
   const targetRecord = useTargetRecord();
 
   const [query, queryName] =
-    targetRecord.targetObjectNameSingular === 'person'
+    targetRecord.targetObjectNameSingular === 'penduduk'
       ? [getTimelineThreadsFromPendudukId, 'getTimelineThreadsFromPendudukId']
-      : targetRecord.targetObjectNameSingular === 'company'
+      : targetRecord.targetObjectNameSingular === 'keluarga'
         ? [getTimelineThreadsFromKeluargaId, 'getTimelineThreadsFromKeluargaId']
         : [
             getTimelineThreadsFromProgramBantuanId,

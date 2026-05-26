@@ -30,7 +30,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
   it('should fetch and mutate records in batches', async () => {
     mockFindManyRecordsLazy.mockResolvedValue({
       data: {
-        companies: {
+        keluargas: {
           totalCount: 3,
           edges: [{ node: { id: '1' } }, { node: { id: '2' } }],
           pageInfo: {
@@ -85,7 +85,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
   it('should update progress during processing', async () => {
     mockFindManyRecordsLazy.mockResolvedValue({
       data: {
-        companies: {
+        keluargas: {
           totalCount: 1,
           edges: [{ node: { id: '1' } }],
           pageInfo: { hasNextPage: false },

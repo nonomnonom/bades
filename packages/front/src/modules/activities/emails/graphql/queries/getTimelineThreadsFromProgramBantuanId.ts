@@ -3,13 +3,13 @@ import { gql } from '@apollo/client';
 import { timelineThreadWithTotalFragment } from '@/activities/emails/graphql/queries/fragments/timelineThreadWithTotalFragment';
 
 export const getTimelineThreadsFromProgramBantuanId = gql`
-  query GetTimelineThreadsFromOpportunityId(
-    $opportunityId: UUID!
+  query GetTimelineThreadsFromProgramBantuanId(
+    $programBantuanId: UUID!
     $page: Int!
     $pageSize: Int!
   ) {
     getTimelineThreadsFromProgramBantuanId(
-      opportunityId: $opportunityId
+      programBantuanId: $programBantuanId
       page: $page
       pageSize: $pageSize
     ) {

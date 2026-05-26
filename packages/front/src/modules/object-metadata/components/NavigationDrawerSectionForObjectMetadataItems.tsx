@@ -1,5 +1,4 @@
 import { NavigationDrawerItemForObjectMetadataItem } from '@/navigation-menu-item/display/object/components/NavigationDrawerItemForObjectMetadataItem';
-import { CoreObjectNameSingular } from 'shared/types';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { getObjectPermissionsForObject } from '@/object-metadata/utils/getObjectPermissionsForObject';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
@@ -12,16 +11,21 @@ import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAto
 import { isDefined } from 'shared/utils';
 
 const ORDERED_FIRST_STANDARD_OBJECTS: string[] = [
-  'person',
-  'company',
-  'opportunity',
-  CoreObjectNameSingular.Task,
-  CoreObjectNameSingular.Note,
+  'penduduk',
+  'keluarga',
+  'wilayah',
+  'layanan',
+  'surat',
+  'programBantuan',
+  'penerimaBantuan',
+  'perangkatDesa',
+  'asetDesa',
+  'jabatan',
+  'catatan',
+  'tugas',
 ];
 
-const ORDERED_LAST_STANDARD_OBJECTS: string[] = [
-  CoreObjectNameSingular.Dashboard,
-];
+const ORDERED_LAST_STANDARD_OBJECTS: string[] = ['dashboard'];
 
 type NavigationDrawerSectionForObjectMetadataItemsProps = {
   sectionTitle: string;

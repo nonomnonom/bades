@@ -51,6 +51,9 @@ const mockTargetField: FieldMetadataItem = {
 } as FieldMetadataItem;
 
 // Mock morph field with morphRelations (how real data looks)
+// computeMorphRelationGqlFieldName: MANY_TO_ONE → fieldName + capitalize(nameSingular)
+// So 'caretaker' + 'Keluarga' = 'caretakerKeluarga'
+// And 'caretaker' + 'Penduduk' = 'caretakerPenduduk'
 const mockMorphFieldWithRelations: FieldMetadataItem = {
   id: 'morph-field-id',
   name: 'caretaker',
@@ -111,7 +114,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should return empty array for empty targetFields', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -128,10 +131,10 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should extract target records from junction records', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
         createMockJunctionRecord('junction-2', {
-          kartuKeluarga: { id: 'keluarga-2', name: 'Keluarga Wijaya' },
+          keluarga: { id: 'keluarga-2', name: 'Keluarga Wijaya' },
         }),
       ];
 
@@ -142,15 +145,15 @@ describe('extractTargetRecordsFromJunction', () => {
       });
 
       expect(result).toEqual([
-        { recordId: 'company-1', objectMetadataId: 'company-metadata-id' },
-        { recordId: 'company-2', objectMetadataId: 'company-metadata-id' },
+        { recordId: 'keluarga-1', objectMetadataId: 'company-metadata-id' },
+        { recordId: 'keluarga-2', objectMetadataId: 'company-metadata-id' },
       ]);
     });
 
     it('should include record when includeRecord is true', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -163,7 +166,7 @@ describe('extractTargetRecordsFromJunction', () => {
 
       expect(result).toEqual([
         {
-          recordId: 'company-1',
+          recordId: 'keluarga-1',
           objectMetadataId: 'company-metadata-id',
           record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         },
@@ -172,9 +175,9 @@ describe('extractTargetRecordsFromJunction', () => {
 
     it('should skip junction records with null target', () => {
       const junctionRecords = [
-        createMockJunctionRecord('junction-1', { kartuKeluarga: null }),
+        createMockJunctionRecord('junction-1', { keluarga: null }),
         createMockJunctionRecord('junction-2', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -185,7 +188,7 @@ describe('extractTargetRecordsFromJunction', () => {
       });
 
       expect(result).toHaveLength(1);
-      expect(result[0].recordId).toBe('company-1');
+      expect(result[0].recordId).toBe('keluarga-1');
     });
   });
 
@@ -193,10 +196,10 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should extract target records from different target fields', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
         createMockJunctionRecord('junction-2', {
-          person: { id: 'penduduk-1', name: 'John Doe' },
+          penduduk: { id: 'penduduk-1', name: 'Budi Santoso' },
         }),
       ];
 
@@ -208,11 +211,11 @@ describe('extractTargetRecordsFromJunction', () => {
 
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
-        recordId: 'company-1',
+        recordId: 'keluarga-1',
         objectMetadataId: 'company-metadata-id',
       });
       expect(result[1]).toEqual({
-        recordId: 'person-1',
+        recordId: 'penduduk-1',
         objectMetadataId: 'person-metadata-id',
       });
     });
@@ -220,7 +223,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should return correct object metadata for each target field', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          person: { id: 'penduduk-1', name: 'Jane Doe' },
+          penduduk: { id: 'penduduk-1', name: 'Siti Rahayu' },
         }),
       ];
 
@@ -236,7 +239,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should include record when includeRecord is true', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -248,7 +251,7 @@ describe('extractTargetRecordsFromJunction', () => {
       });
 
       expect(result[0]).toEqual({
-        recordId: 'company-1',
+        recordId: 'keluarga-1',
         objectMetadataId: 'company-metadata-id',
         record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       });
@@ -256,14 +259,15 @@ describe('extractTargetRecordsFromJunction', () => {
   });
 
   describe('with morph relation field', () => {
-    // MORPH_RELATION fields use computed field names like "caretakerCompany", "caretakerPerson"
+    // MORPH_RELATION fields use computed field names via computeMorphRelationGqlFieldName
+    // MANY_TO_ONE: fieldName + capitalize(nameSingular) → 'caretakerKeluarga', 'caretakerPenduduk'
     it('should extract target records from morph relation computed field names', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluargaPengasuh: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          caretakerKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
         createMockJunctionRecord('junction-2', {
-          caretakerPerson: { id: 'penduduk-1', name: 'John Doe' },
+          caretakerPenduduk: { id: 'penduduk-1', name: 'Budi Santoso' },
         }),
       ];
 
@@ -275,11 +279,11 @@ describe('extractTargetRecordsFromJunction', () => {
 
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
-        recordId: 'company-1',
+        recordId: 'keluarga-1',
         objectMetadataId: 'company-metadata-id',
       });
       expect(result[1]).toEqual({
-        recordId: 'person-1',
+        recordId: 'penduduk-1',
         objectMetadataId: 'person-metadata-id',
       });
     });
@@ -287,7 +291,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should include record when includeRecord is true for morph relations', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          kartuKeluargaPengasuh: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          caretakerKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -299,7 +303,7 @@ describe('extractTargetRecordsFromJunction', () => {
       });
 
       expect(result[0]).toEqual({
-        recordId: 'company-1',
+        recordId: 'keluarga-1',
         objectMetadataId: 'company-metadata-id',
         record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       });
@@ -311,7 +315,7 @@ describe('extractTargetRecordsFromJunction', () => {
       const junctionRecords = [
         undefined as unknown as ObjectRecord,
         createMockJunctionRecord('junction-1', {
-          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+          keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 

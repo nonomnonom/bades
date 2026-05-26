@@ -3,18 +3,18 @@ import { isObjectRecordConnectionWithRefs } from '@/object-record/cache/utils/is
 describe('isObjectRecordConnectionWithRefs', () => {
   it('should return true for valid connection with edges', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
-            __ref: 'Person:123',
+            __ref: 'Penduduk:123',
           },
         },
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
-            __ref: 'Person:456',
+            __ref: 'Penduduk:456',
           },
         },
       ],
@@ -27,7 +27,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
 
   it('should return true for valid connection with empty edges array', () => {
     const storeValue = {
-      __typename: 'CompanyConnection',
+      __typename: 'KeluargaConnection',
       edges: [],
     };
 
@@ -38,7 +38,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
 
   it('should return false for connection without edges (required)', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
     };
 
     const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
@@ -59,12 +59,12 @@ describe('isObjectRecordConnectionWithRefs', () => {
 
   it('should return false for incorrect edge __typename', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
           __typename: 'WrongEdge',
           node: {
-            __ref: 'Person:123',
+            __ref: 'Penduduk:123',
           },
         },
       ],
@@ -77,12 +77,12 @@ describe('isObjectRecordConnectionWithRefs', () => {
 
   it('should return false for incorrect __ref prefix', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
-            __ref: 'Company:123',
+            __ref: 'Keluarga:123',
           },
         },
       ],
@@ -137,10 +137,10 @@ describe('isObjectRecordConnectionWithRefs', () => {
 
   it('should return false when node is missing __ref', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
             id: '123',
           },

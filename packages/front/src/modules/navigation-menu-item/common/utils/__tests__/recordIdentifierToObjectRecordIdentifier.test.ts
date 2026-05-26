@@ -39,7 +39,7 @@ describe('recordIdentifierToObjectRecordIdentifier', () => {
       name: 'John Doe',
       avatarUrl: 'https://example.com/avatar.jpg',
       avatarType: 'rounded',
-      linkToShowPage: '/object/person/record-123',
+      linkToShowPage: '/object/penduduk/record-123',
     });
   });
 

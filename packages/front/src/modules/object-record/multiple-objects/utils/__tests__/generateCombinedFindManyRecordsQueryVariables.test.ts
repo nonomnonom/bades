@@ -31,10 +31,10 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
     });
 
     expect(result).toEqual({
-      filterPerson: { id: { eq: '123' } },
-      orderByPerson: [{ createdAt: 'AscNullsLast' }],
-      afterPerson: 'cursor123',
-      firstPerson: 10,
+      filterPenduduk: { id: { eq: '123' } },
+      orderByPenduduk: [{ createdAt: 'AscNullsLast' }],
+      afterPenduduk: 'cursor123',
+      firstPenduduk: 10,
     });
   });
 
@@ -63,10 +63,10 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
     });
 
     expect(result).toEqual({
-      filterPerson: { id: { eq: '123' } },
-      orderByPerson: [{ createdAt: 'AscNullsLast' }],
-      beforePerson: 'cursor123',
-      lastPerson: 10,
+      filterPenduduk: { id: { eq: '123' } },
+      orderByPenduduk: [{ createdAt: 'AscNullsLast' }],
+      beforePenduduk: 'cursor123',
+      lastPenduduk: 10,
     });
   });
 
@@ -91,9 +91,9 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
     });
 
     expect(result).toEqual({
-      filterPerson: { id: { eq: '123' } },
-      orderByPerson: [{ createdAt: 'AscNullsLast' }],
-      limitPerson: 10,
+      filterPenduduk: { id: { eq: '123' } },
+      orderByPenduduk: [{ createdAt: 'AscNullsLast' }],
+      limitPenduduk: 10,
     });
   });
 
@@ -130,11 +130,11 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
     });
 
     expect(result).toEqual({
-      filterPerson: { id: { eq: '123' } },
-      afterPerson: 'cursor123',
-      firstPerson: 10,
-      filterCompany: { name: { eq: 'Bades' } },
-      limitCompany: 20,
+      filterPenduduk: { id: { eq: '123' } },
+      afterPenduduk: 'cursor123',
+      firstPenduduk: 10,
+      filterKeluarga: { name: { eq: 'Bades' } },
+      limitKeluarga: 20,
     });
   });
 
@@ -185,7 +185,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
     });
 
     expect(result).toEqual({
-      afterPerson: 'cursor123',
+      afterPenduduk: 'cursor123',
     });
   });
 });

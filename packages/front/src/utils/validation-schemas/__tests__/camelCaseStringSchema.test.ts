@@ -14,7 +14,7 @@ describe('camelCaseStringSchema', () => {
     expect((result as ZodSafeParseError<string>).error.issues).toEqual([
       {
         code: 'custom',
-        message: 'String should be camel case',
+        message: 'String harus menggunakan camel case',
         path: [],
       },
     ]);

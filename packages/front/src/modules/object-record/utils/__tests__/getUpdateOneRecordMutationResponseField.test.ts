@@ -14,7 +14,7 @@ describe('getUpdateOneRecordMutationResponseField', () => {
   });
 
   it('should handle already capitalized names', () => {
-    expect(getUpdateOneRecordMutationResponseField('Person')).toBe(
+    expect(getUpdateOneRecordMutationResponseField('Penduduk')).toBe(
       'updatePenduduk',
     );
   });

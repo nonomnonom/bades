@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+import { PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
+
 export const query = gql`
   query FindManyPenduduks(
     $filter: PendudukFilterInput
@@ -7,7 +9,7 @@ export const query = gql`
     $lastCursor: String
     $limit: Int
   ) {
-    people(
+    penduduks(
       filter: $filter
       orderBy: $orderBy
       first: $limit
@@ -15,118 +17,7 @@ export const query = gql`
     ) {
       edges {
         node {
-          __typename
-          id
-          opportunities {
-            edges {
-              node {
-                __typename
-                id
-                personId
-                pointOfContactId
-                updatedAt
-                companyId
-                stage
-                closeDate
-                amount {
-                  amountMicros
-                  currencyCode
-                }
-                id
-                createdAt
-              }
-            }
-          }
-          xLink {
-            primaryLinkLabel
-            primaryLinkUrl
-          }
-          id
-          pointOfContactForOpportunities {
-            edges {
-              node {
-                __typename
-                id
-                personId
-                pointOfContactId
-                updatedAt
-                companyId
-                stage
-                closeDate
-                amount {
-                  amountMicros
-                  currencyCode
-                }
-                id
-                createdAt
-              }
-            }
-          }
-          createdAt
-          company {
-            __typename
-            id
-            xLink {
-              primaryLinkLabel
-              primaryLinkUrl
-            }
-            linkedinLink {
-              primaryLinkLabel
-              primaryLinkUrl
-            }
-            domainName
-            annualRecurringRevenue {
-              amountMicros
-              currencyCode
-            }
-            createdAt
-            address {
-              addressStreet1
-              addressStreet2
-              addressCity
-              addressState
-              addressCountry
-              addressPostcode
-              addressLat
-              addressLng
-            }
-            updatedAt
-            name
-            accountOwnerId
-            employees
-            id
-            idealCustomerProfile
-          }
-          city
-          email
-          jobTitle
-          attachments {
-            edges {
-              node {
-                __typename
-                id
-                updatedAt
-                createdAt
-                name
-                personId
-                companyId
-                id
-                fullPath
-              }
-            }
-          }
-          name {
-            firstName
-            lastName
-          }
-          phone
-          linkedinLink {
-            primaryLinkLabel
-            primaryLinkUrl
-          }
-          updatedAt
-          avatarUrl
-          companyId
+          ${PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS}
         }
         cursor
       }

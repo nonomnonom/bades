@@ -75,7 +75,7 @@ describe('getTriggerDefaultLabel', () => {
       };
 
       expect(() => getTriggerDefaultLabel(trigger)).toThrow(
-        'Unknown trigger event',
+        'Peristiwa pemicu tidak dikenal',
       );
     });
   });
@@ -176,7 +176,7 @@ describe('getTriggerDefaultLabel', () => {
       } as unknown as WorkflowTrigger;
 
       expect(() => getTriggerDefaultLabel(trigger)).toThrow(
-        'Unknown trigger type',
+        'Tipe pemicu tidak dikenal',
       );
     });
   });

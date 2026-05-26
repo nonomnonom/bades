@@ -16,7 +16,7 @@ const mocks = [
     },
     result: jest.fn(() => ({
       data: {
-        person: responseData,
+        penduduk: responseData,
       },
     })),
   },

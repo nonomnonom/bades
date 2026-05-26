@@ -21,27 +21,27 @@ const mockQuery = gql`
   query CombinedFindManyRecords(
     $filterPenduduk: PendudukFilterInput
     $filterKeluarga: KeluargaFilterInput
-    $orderByPerson: [PendudukOrderByInput]
-    $orderByCompany: [KeluargaOrderByInput]
-    $firstPerson: Int
-    $lastPerson: Int
-    $afterPerson: String
-    $beforePerson: String
-    $firstCompany: Int
-    $lastCompany: Int
-    $afterCompany: String
-    $beforeCompany: String
-    $limitPerson: Int
-    $limitCompany: Int
+    $orderByPenduduk: [PendudukOrderByInput]
+    $orderByKeluarga: [KeluargaOrderByInput]
+    $firstPenduduk: Int
+    $lastPenduduk: Int
+    $afterPenduduk: String
+    $beforePenduduk: String
+    $firstKeluarga: Int
+    $lastKeluarga: Int
+    $afterKeluarga: String
+    $beforeKeluarga: String
+    $limitPenduduk: Int
+    $limitKeluarga: Int
   ) {
     penduduks(
       filter: $filterPenduduk
-      orderBy: $orderByPerson
-      first: $firstPerson
-      after: $afterPerson
-      last: $lastPerson
-      before: $beforePerson
-      limit: $limitPerson
+      orderBy: $orderByPenduduk
+      first: $firstPenduduk
+      after: $afterPenduduk
+      last: $lastPenduduk
+      before: $beforePenduduk
+      limit: $limitPenduduk
     ) {
       edges {
         node {
@@ -64,12 +64,12 @@ const mockQuery = gql`
     }
     keluargas(
       filter: $filterKeluarga
-      orderBy: $orderByCompany
-      first: $firstCompany
-      after: $afterCompany
-      last: $lastCompany
-      before: $beforeCompany
-      limit: $limitCompany
+      orderBy: $orderByKeluarga
+      first: $firstKeluarga
+      after: $afterKeluarga
+      last: $lastKeluarga
+      before: $beforeKeluarga
+      limit: $limitKeluarga
     ) {
       edges {
         node {
@@ -293,8 +293,8 @@ describe('useCombinedFindManyRecords', () => {
         },
       ],
       mockVariables: {
-        firstPerson: 1,
-        afterPerson: 'previousCursor',
+        firstPenduduk: 1,
+        afterPenduduk: 'previousCursor',
       },
       mockResponseData,
       expectedResult: {
@@ -359,8 +359,8 @@ describe('useCombinedFindManyRecords', () => {
         },
       ],
       mockVariables: {
-        lastPerson: 1,
-        beforePerson: 'nextCursor',
+        lastPenduduk: 1,
+        beforePenduduk: 'nextCursor',
       },
       mockResponseData,
       expectedResult: {
@@ -421,7 +421,7 @@ describe('useCombinedFindManyRecords', () => {
         },
       ],
       mockVariables: {
-        limitPerson: 1,
+        limitPenduduk: 1,
       },
       mockResponseData,
       expectedResult: {
@@ -515,9 +515,9 @@ describe('useCombinedFindManyRecords', () => {
         },
       ],
       mockVariables: {
-        firstPerson: 1,
-        afterPerson: 'previousCursor',
-        limitCompany: 1,
+        firstPenduduk: 1,
+        afterPenduduk: 'previousCursor',
+        limitKeluarga: 1,
       },
       mockResponseData,
       expectedResult: {

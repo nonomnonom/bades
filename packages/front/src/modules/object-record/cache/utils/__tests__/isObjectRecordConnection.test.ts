@@ -3,16 +3,16 @@ import { isObjectRecordConnection } from '@/object-record/cache/utils/isObjectRe
 describe('isObjectRecordConnection', () => {
   it('should return true for valid connection with edges', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
             id: '123',
           },
         },
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
             id: '456',
           },
@@ -27,7 +27,7 @@ describe('isObjectRecordConnection', () => {
 
   it('should return true for valid connection with empty edges array', () => {
     const storeValue = {
-      __typename: 'CompanyConnection',
+      __typename: 'KeluargaConnection',
       edges: [],
     };
 
@@ -38,7 +38,7 @@ describe('isObjectRecordConnection', () => {
 
   it('should return true for valid connection without edges (optional)', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
     };
 
     const result = isObjectRecordConnection('penduduk', storeValue);
@@ -59,7 +59,7 @@ describe('isObjectRecordConnection', () => {
 
   it('should return false for incorrect edge __typename', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
           __typename: 'WrongEdge',
@@ -77,13 +77,13 @@ describe('isObjectRecordConnection', () => {
 
   it('should return true regardless of node content', () => {
     const storeValue = {
-      __typename: 'PersonConnection',
+      __typename: 'PendudukConnection',
       edges: [
         {
-          __typename: 'PersonEdge',
+          __typename: 'PendudukEdge',
           node: {
             id: '123',
-            name: 'John Doe',
+            name: 'Budi Saputra',
           },
         },
       ],

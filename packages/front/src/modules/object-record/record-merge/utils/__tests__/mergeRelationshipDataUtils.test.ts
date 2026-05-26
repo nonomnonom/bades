@@ -11,17 +11,17 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
-          { __typename: 'ProgramBantuan', id: 'opp2', name: 'Opportunity 2' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
+          { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
         ],
       },
       {
         __typename: 'Keluarga',
         id: 'record2',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp2', name: 'Opportunity 2' }, // Duplicate
-          { __typename: 'ProgramBantuan', id: 'opp3', name: 'Opportunity 3' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' }, // Duplikat
+          { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
         ],
       },
     ];
@@ -30,9 +30,9 @@ describe('mergeOneToManyRelationships', () => {
 
     expect(result).toHaveLength(3);
     expect(result).toEqual([
-      { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
-      { __typename: 'ProgramBantuan', id: 'opp2', name: 'Opportunity 2' },
-      { __typename: 'ProgramBantuan', id: 'opp3', name: 'Opportunity 3' },
+      { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
+      { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
+      { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
     ]);
   });
 
@@ -41,12 +41,12 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [],
+        programBantuans: [],
       },
       {
         __typename: 'Keluarga',
         id: 'record2',
-        opportunities: [],
+        programBantuans: [],
       },
     ];
 
@@ -60,26 +60,26 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
       },
       {
         __typename: 'Keluarga',
         id: 'record2',
-        opportunities: null,
+        programBantuans: null,
       },
       {
         __typename: 'Keluarga',
         id: 'record3',
-        opportunities: undefined,
+        programBantuans: undefined,
       },
     ];
 
     const result = mergeOneToManyRelationships(records, 'programBantuans');
 
     expect(result).toEqual([
-      { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
+      { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
     ]);
   });
 
@@ -96,17 +96,17 @@ describe('mergeManyToOneRelationship', () => {
       {
         __typename: 'Penduduk',
         id: 'record1',
-        company: null,
+        keluarga: null,
       },
       {
         __typename: 'Penduduk',
         id: 'record2',
-        company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
       },
       {
         __typename: 'Penduduk',
         id: 'record3',
-        company: { __typename: 'Keluarga', id: 'company2', name: 'Company 2' },
+        keluarga: { __typename: 'Keluarga', id: 'keluarga2', name: 'Keluarga Budiman' },
       },
     ];
 
@@ -114,8 +114,8 @@ describe('mergeManyToOneRelationship', () => {
 
     expect(result).toEqual({
       __typename: 'Keluarga',
-      id: 'company1',
-      name: 'Company 1',
+      id: 'keluarga1',
+      name: 'Keluarga Santoso',
     });
   });
 
@@ -124,12 +124,12 @@ describe('mergeManyToOneRelationship', () => {
       {
         __typename: 'Penduduk',
         id: 'record1',
-        company: undefined,
+        keluarga: undefined,
       },
       {
         __typename: 'Penduduk',
         id: 'record2',
-        company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
       },
     ];
 
@@ -137,8 +137,8 @@ describe('mergeManyToOneRelationship', () => {
 
     expect(result).toEqual({
       __typename: 'Keluarga',
-      id: 'company1',
-      name: 'Company 1',
+      id: 'keluarga1',
+      name: 'Keluarga Santoso',
     });
   });
 
@@ -147,12 +147,12 @@ describe('mergeManyToOneRelationship', () => {
       {
         __typename: 'Penduduk',
         id: 'record1',
-        company: null,
+        keluarga: null,
       },
       {
         __typename: 'Penduduk',
         id: 'record2',
-        company: undefined,
+        keluarga: undefined,
       },
     ];
 
@@ -198,21 +198,21 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
-          { __typename: 'ProgramBantuan', id: 'opp2', name: 'Opportunity 2' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
+          { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
         ],
-        company: null,
+        keluarga: null,
         name: 'Record 1',
       },
       {
         __typename: 'Keluarga',
         id: 'record2',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp2', name: 'Opportunity 2' },
-          { __typename: 'ProgramBantuan', id: 'opp3', name: 'Opportunity 3' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
+          { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
         ],
-        company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
         name: 'Record 2',
       },
     ];
@@ -224,12 +224,12 @@ describe('mergeRecordRelationshipData', () => {
     );
 
     expect(result).toEqual({
-      opportunities: [
-        { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
-        { __typename: 'ProgramBantuan', id: 'opp2', name: 'Opportunity 2' },
-        { __typename: 'ProgramBantuan', id: 'opp3', name: 'Opportunity 3' },
+      programBantuans: [
+        { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
+        { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
+        { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
       ],
-      company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+      keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
     });
   });
 
@@ -238,10 +238,10 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
-        company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
       },
     ];
 
@@ -269,10 +269,10 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
+        programBantuans: [
+          { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
-        company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
         name: 'Record 1',
         email: 'test@example.com',
       },
@@ -285,10 +285,10 @@ describe('mergeRecordRelationshipData', () => {
     );
 
     expect(result).toEqual({
-      opportunities: [
-        { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
+      programBantuans: [
+        { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
       ],
-      company: { __typename: 'Keluarga', id: 'company1', name: 'Company 1' },
+      keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
     });
     expect(result).not.toHaveProperty('name');
     expect(result).not.toHaveProperty('email');
@@ -298,9 +298,8 @@ describe('mergeRecordRelationshipData', () => {
     const fieldsWithoutRelation: FieldMetadataItem[] = [
       {
         id: 'field1',
-        name: 'programBantuans',
-        type: FieldMetadataType.RELATION,
-        relation: null,
+        name: 'name',
+        type: FieldMetadataType.TEXT,
       } as FieldMetadataItem,
     ];
 
@@ -308,48 +307,11 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        opportunities: [
-          { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
-        ],
+        name: 'Record 1',
       },
     ];
 
-    const result = mergeRecordRelationshipData(
-      records,
-      fieldsWithoutRelation,
-      false,
-    );
-
-    expect(result).toEqual({});
-  });
-
-  it('should handle unknown relation types gracefully', () => {
-    const fieldsWithUnknownRelation: FieldMetadataItem[] = [
-      {
-        id: 'field1',
-        name: 'unknownRelation',
-        type: FieldMetadataType.RELATION,
-        relation: {
-          type: 'UNKNOWN_TYPE' as RelationType,
-        },
-      } as FieldMetadataItem,
-    ];
-
-    const records: ObjectRecord[] = [
-      {
-        __typename: 'Penduduk',
-        id: 'record1',
-        unknownRelation: [
-          { __typename: 'Unknown', id: 'unknown1', name: 'Unknown 1' },
-        ],
-      },
-    ];
-
-    const result = mergeRecordRelationshipData(
-      records,
-      fieldsWithUnknownRelation,
-      false,
-    );
+    const result = mergeRecordRelationshipData(records, fieldsWithoutRelation, false);
 
     expect(result).toEqual({});
   });

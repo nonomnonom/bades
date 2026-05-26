@@ -9,8 +9,8 @@ const mockCompanyObjectMetadataItem: EnrichedObjectMetadataItem = {
   id: 'company-metadata-id',
   nameSingular: 'keluarga',
   namePlural: 'keluargas',
-  labelSingular: 'Company',
-  labelPlural: 'Companies',
+  labelSingular: 'Keluarga',
+  labelPlural: 'Keluargas',
   icon: 'IconBuildingSkyscraper',
   fields: [
     {
@@ -110,7 +110,7 @@ describe('computeStepOutputSchema', () => {
       const result = computeStepOutputSchema({
         step: {
           type: 'DATABASE_EVENT',
-          settings: { eventName: 'company.created' },
+          settings: { eventName: 'keluarga.created' },
         } as any,
         objectMetadataItems: [mockCompanyObjectMetadataItem],
       });
@@ -124,7 +124,7 @@ describe('computeStepOutputSchema', () => {
       const result = computeStepOutputSchema({
         step: {
           type: 'DATABASE_EVENT',
-          settings: { eventName: 'company.invalidAction' },
+          settings: { eventName: 'keluarga.invalidAction' },
         } as any,
         objectMetadataItems: [mockCompanyObjectMetadataItem],
       });
@@ -138,7 +138,7 @@ describe('computeStepOutputSchema', () => {
         const result = computeStepOutputSchema({
           step: {
             type: 'DATABASE_EVENT',
-            settings: { eventName: `company.${action}` },
+            settings: { eventName: `keluarga.${action}` },
           } as any,
           objectMetadataItems: [mockCompanyObjectMetadataItem],
         });
@@ -204,9 +204,9 @@ describe('computeStepOutputSchema', () => {
       });
 
       expect(result).toHaveProperty('keluargas');
-      expect((result as any).companies).toMatchObject({
+      expect((result as any).keluargas).toMatchObject({
         isLeaf: true,
-        label: 'Companies',
+        label: 'Keluargas',
         type: 'array',
       });
     });

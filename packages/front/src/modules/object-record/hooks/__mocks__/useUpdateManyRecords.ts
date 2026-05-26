@@ -15,39 +15,39 @@ export const query = gql`
   }
 `;
 
-export const personIds = [
+export const pendudukIds = [
   'a7286b9a-c039-4a89-9567-2dfa7953cda9',
   '37faabcd-cb39-4a0a-8618-7e3fda9afca0',
 ];
 
-const flatPersonRecords = mockedPendudukRecords.map((record) =>
+const flatPendudukRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
-export const personRecords = personIds.map<ObjectRecord>((personId, index) => ({
-  ...flatPersonRecords[index],
-  id: personId,
+export const pendudukRecords = pendudukIds.map<ObjectRecord>((pendudukId, index) => ({
+  ...flatPendudukRecords[index],
+  id: pendudukId,
 }));
 
 export const updateInput = {
-  tempatLahir: 'Kota Baru',
+  pekerjaan: 'PETANI',
 };
 
 export const variables = {
   filter: {
     id: {
-      in: personIds,
+      in: pendudukIds,
     },
   },
   data: updateInput,
 };
 
-export const updatedPersonRecords = personIds.map<ObjectRecord>(
-  (personId, index) => ({
-    ...flatPersonRecords[index],
-    id: personId,
-    tempatLahir: 'Kota Baru',
+export const updatedPendudukRecords = pendudukIds.map<ObjectRecord>(
+  (pendudukId, index) => ({
+    ...flatPendudukRecords[index],
+    id: pendudukId,
+    pekerjaan: 'PETANI',
   }),
 );
 
-export const responseData = personIds.map((personId) => ({ id: personId }));
+export const responseData = pendudukIds.map((id) => ({ id }));

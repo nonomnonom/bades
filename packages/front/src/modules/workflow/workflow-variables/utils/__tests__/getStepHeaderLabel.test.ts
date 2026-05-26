@@ -7,7 +7,7 @@ const mockStep = {
   name: 'Step 1',
   type: 'CREATE_RECORD',
   outputSchema: {
-    company: {
+    keluarga: {
       isLeaf: false,
       label: 'Keluarga',
       value: {
@@ -80,7 +80,7 @@ describe('getStepHeaderLabel', () => {
 
   it('should return the field label when the path is not empty', () => {
     const currentPath: string[] = ['keluarga'];
-    expect(getStepHeaderLabel(mockStep, currentPath)).toBe('Company');
+    expect(getStepHeaderLabel(mockStep, currentPath)).toBe('Keluarga');
   });
 
   it('should return the nested field label when the path is not empty', () => {

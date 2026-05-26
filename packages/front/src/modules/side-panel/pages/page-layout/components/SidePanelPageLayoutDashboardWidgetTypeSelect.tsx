@@ -90,8 +90,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
 
   const firstAvailableObjectMetadataItem =
     readableObjectMetadataItems.find(
-      (objectMetadataItem) =>
-        objectMetadataItem.nameSingular === 'company',
+      (objectMetadataItem) => objectMetadataItem.nameSingular === 'penduduk',
     ) ||
     [...readableObjectMetadataItems].sort((first, second) =>
       first.labelPlural.localeCompare(second.labelPlural),

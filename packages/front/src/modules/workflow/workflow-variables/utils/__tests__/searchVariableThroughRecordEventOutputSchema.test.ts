@@ -314,8 +314,8 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       });
 
       expect(result).toEqual({
-        variableLabel: 'Company',
-        variablePathLabel: 'Record Created > Company',
+        variableLabel: 'Keluarga',
+        variablePathLabel: 'Record Created > Keluarga',
         variableType: undefined,
         fieldMetadataId: undefined,
         compositeFieldSubFieldName: undefined,

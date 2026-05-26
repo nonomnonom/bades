@@ -1,7 +1,6 @@
 import { allowRequestsToFaviconServiceState } from '@/client-config/states/allowRequestsToFaviconService';
 import { useLabelIdentifierFieldMetadataItem } from '@/object-metadata/hooks/useLabelIdentifierFieldMetadataItem';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
-import { CoreObjectNameSingular } from 'shared/types';
 import { useIsRecordFieldReadOnly } from '@/object-record/read-only/hooks/useIsRecordFieldReadOnly';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import { usePendudukAvatarUpload } from '@/object-record/record-show/hooks/usePendudukAvatarUpload';
@@ -116,9 +115,7 @@ export const SummaryCard = ({
       }
       avatarType={recordIdentifier?.avatarType ?? 'rounded'}
       onUploadPicture={
-        objectNameSingular === 'person'
-          ? onUploadPicture
-          : undefined
+        objectNameSingular === 'penduduk' ? onUploadPicture : undefined
       }
     />
   );

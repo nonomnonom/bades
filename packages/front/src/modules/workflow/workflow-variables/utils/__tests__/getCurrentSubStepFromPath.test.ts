@@ -7,7 +7,7 @@ const mockStep = {
   name: 'Step 1',
   type: 'CREATE_RECORD',
   outputSchema: {
-    company: {
+    keluarga: {
       isLeaf: false,
       label: 'Keluarga',
       value: {

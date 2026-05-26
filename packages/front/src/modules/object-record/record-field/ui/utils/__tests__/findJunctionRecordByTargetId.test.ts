@@ -24,16 +24,16 @@ describe('findJunctionRecordByTargetId', () => {
   it('should find junction record by target field name', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+        keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
       createMockJunctionRecord('junction-2', {
-        kartuKeluarga: { id: 'keluarga-2', name: 'Keluarga Wijaya' },
+        keluarga: { id: 'keluarga-2', name: 'Keluarga Wijaya' },
       }),
     ];
 
     const result = findJunctionRecordByTargetId({
       junctionRecords,
-      targetRecordId: 'company-2',
+      targetRecordId: 'keluarga-2',
       targetFieldName: 'keluarga',
     });
 
@@ -43,7 +43,7 @@ describe('findJunctionRecordByTargetId', () => {
   it('should return undefined when target record is not found', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+        keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
@@ -60,13 +60,13 @@ describe('findJunctionRecordByTargetId', () => {
     const junctionRecords = [
       undefined as unknown as ObjectRecord,
       createMockJunctionRecord('junction-1', {
-        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+        keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
     const result = findJunctionRecordByTargetId({
       junctionRecords,
-      targetRecordId: 'company-1',
+      targetRecordId: 'keluarga-1',
       targetFieldName: 'keluarga',
     });
 
@@ -75,15 +75,15 @@ describe('findJunctionRecordByTargetId', () => {
 
   it('should handle null target objects', () => {
     const junctionRecords = [
-      createMockJunctionRecord('junction-1', { kartuKeluarga: null }),
+      createMockJunctionRecord('junction-1', { keluarga: null }),
       createMockJunctionRecord('junction-2', {
-        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+        keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
     const result = findJunctionRecordByTargetId({
       junctionRecords,
-      targetRecordId: 'company-1',
+      targetRecordId: 'keluarga-1',
       targetFieldName: 'keluarga',
     });
 
@@ -93,16 +93,16 @@ describe('findJunctionRecordByTargetId', () => {
   it('should handle target objects without id property', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        kartuKeluarga: { name: 'No ID Company' },
+        keluarga: { name: 'Tanpa ID' },
       }),
       createMockJunctionRecord('junction-2', {
-        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+        keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
     const result = findJunctionRecordByTargetId({
       junctionRecords,
-      targetRecordId: 'company-1',
+      targetRecordId: 'keluarga-1',
       targetFieldName: 'keluarga',
     });
 
@@ -112,21 +112,21 @@ describe('findJunctionRecordByTargetId', () => {
   it('should work with different target field names', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        person: { id: 'penduduk-1', name: 'John Doe' },
-        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
+        penduduk: { id: 'penduduk-1', name: 'Budi Santoso' },
+        keluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
     const personResult = findJunctionRecordByTargetId({
       junctionRecords,
-      targetRecordId: 'person-1',
+      targetRecordId: 'penduduk-1',
       targetFieldName: 'penduduk',
     });
     expect(personResult?.id).toBe('junction-1');
 
     const companyResult = findJunctionRecordByTargetId({
       junctionRecords,
-      targetRecordId: 'company-1',
+      targetRecordId: 'keluarga-1',
       targetFieldName: 'keluarga',
     });
     expect(companyResult?.id).toBe('junction-1');

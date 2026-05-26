@@ -47,7 +47,7 @@ describe('getDefaultFormFieldSettings', () => {
       id: 'test-uuid-123',
       name: 'record',
       label: 'Record',
-      placeholder: 'Select a Company',
+      placeholder: 'Pilih Keluarga',
       settings: {
         objectName: 'keluarga',
       },

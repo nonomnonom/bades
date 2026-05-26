@@ -5,7 +5,7 @@ import { useDeleteOneRecordMutation } from '@/object-record/hooks/useDeleteOneRe
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
-  mutation DeleteOnePerson($idToDelete: UUID!) {
+  mutation DeleteOnePenduduk($idToDelete: UUID!) {
     deletePenduduk(id: $idToDelete) {
       __typename
       deletedAt

@@ -40,7 +40,7 @@ const mocks: MockedResponse[] = [
       data: {
         updateKeluarga: {
           ...generateMockRecordNode({
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             input: { id: recordId },
             withDepthOneRelation: true,
           }),
@@ -56,7 +56,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
 
     const updateEntity = ({ variables }: RecordUpdateHookParams) => {
       updateOneRecord({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         idToUpdate: variables.where.id as string,
         updateOneRecordInput: variables.updateOneRecordInput,
       });

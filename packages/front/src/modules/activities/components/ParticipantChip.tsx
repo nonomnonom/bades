@@ -2,7 +2,6 @@ import { styled } from '@linaria/react';
 import React from 'react';
 
 import { getDisplayNameFromParticipant } from '@/activities/emails/utils/getDisplayNameFromParticipant';
-import { CoreObjectNameSingular } from 'shared/types';
 import { RecordChip } from '@/object-record/components/RecordChip';
 import { Avatar } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -61,7 +60,7 @@ export const ParticipantChip = ({
     <StyledContainer className={className}>
       {person ? (
         <RecordChip
-          objectNameSingular={'person'}
+          objectNameSingular={'penduduk'}
           record={person}
           isBold={variant === 'bold'}
         />

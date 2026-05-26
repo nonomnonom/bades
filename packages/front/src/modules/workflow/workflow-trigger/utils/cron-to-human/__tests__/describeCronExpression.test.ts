@@ -155,19 +155,19 @@ describe('describeCronExpression', () => {
   describe('edge cases', () => {
     it('should handle empty expression', () => {
       expect(() => describeCronExpression('')).toThrow(
-        'Cron expression is required',
+        'Ekspresi cron wajib diisi',
       );
     });
 
     it('should handle invalid expression', () => {
       expect(() => describeCronExpression('invalid')).toThrow(
-        'Failed to describe cron expression',
+        'Gagal mendeskripsikan ekspresi cron',
       );
     });
 
     it('should handle expression with too many fields', () => {
       expect(() => describeCronExpression('0 0 0 0 0 0 0 0')).toThrow(
-        'Failed to describe cron expression',
+        'Gagal mendeskripsikan ekspresi cron',
       );
     });
   });

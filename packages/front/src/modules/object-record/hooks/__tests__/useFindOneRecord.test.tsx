@@ -16,7 +16,7 @@ const mocks = [
     },
     result: jest.fn(() => ({
       data: {
-        person: generateMockRecordNode({
+        penduduk: generateMockRecordNode({
           objectNameSingular: 'penduduk',
           input: { id: '6205681e-7c11-40b4-9e32-f523dbe54590' },
           withDepthOneRelation: true,

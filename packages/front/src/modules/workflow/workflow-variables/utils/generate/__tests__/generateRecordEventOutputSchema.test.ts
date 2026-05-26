@@ -22,7 +22,7 @@ describe('generateRecordEventOutputSchema', () => {
     it('should generate schema with properties.after prefix', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
         id: 'company-id',
-        labelSingular: 'Company',
+        labelSingular: 'Keluarga',
         icon: 'IconBuilding',
       });
 
@@ -224,9 +224,9 @@ describe('generateRecordEventOutputSchema', () => {
       );
 
       expect(Object.keys(result.fields)).toContain(
-        'properties.after.companyId',
+        'properties.after.keluargaId',
       );
-      expect(result.fields['properties.after.companyId']).toMatchObject({
+      expect(result.fields['properties.after.keluargaId']).toMatchObject({
         isLeaf: true,
         type: FieldMetadataType.UUID,
       });

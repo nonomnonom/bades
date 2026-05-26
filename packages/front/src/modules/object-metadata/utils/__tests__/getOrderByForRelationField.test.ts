@@ -29,8 +29,8 @@ describe('getOrderByForRelationField', () => {
       orderByDirection: 'AscNullsLast',
     });
 
-    // Should produce nested structure: { company: { name: 'AscNullsLast' } }
-    expect(result).toEqual([{ company: { name: 'AscNullsLast' } }]);
+    // Should produce nested structure: { keluarga: { name: 'AscNullsLast' } }
+    expect(result).toEqual([{ keluarga: { name: 'AscNullsLast' } }]);
   });
 
   it('should generate nested orderBy for relation with FULL_NAME label identifier', () => {
@@ -59,8 +59,8 @@ describe('getOrderByForRelationField', () => {
     });
 
     expect(result).toEqual([
-      { person: { name: { firstName: 'DescNullsLast' } } },
-      { person: { name: { lastName: 'DescNullsLast' } } },
+      { penduduk: { name: { firstName: 'DescNullsLast' } } },
+      { penduduk: { name: { lastName: 'DescNullsLast' } } },
     ]);
   });
 
@@ -83,7 +83,7 @@ describe('getOrderByForRelationField', () => {
       orderByDirection: 'AscNullsLast',
     });
 
-    expect(result).toEqual([{ companyId: 'AscNullsLast' }]);
+    expect(result).toEqual([{ keluargaId: 'AscNullsLast' }]);
   });
 
   it('should use default "name" field when labelIdentifierFieldMetadataId is not set', () => {
@@ -113,7 +113,7 @@ describe('getOrderByForRelationField', () => {
 
     // When labelIdentifierFieldMetadataId is not set, isLabelIdentifierField
     // falls back to checking for a field named 'name'
-    expect(result).toEqual([{ company: { name: 'AscNullsLast' } }]);
+    expect(result).toEqual([{ keluarga: { name: 'AscNullsLast' } }]);
   });
 
   it('should handle descending direction', () => {
@@ -141,6 +141,6 @@ describe('getOrderByForRelationField', () => {
       orderByDirection: 'DescNullsLast',
     });
 
-    expect(result).toEqual([{ company: { name: 'DescNullsLast' } }]);
+    expect(result).toEqual([{ keluarga: { name: 'DescNullsLast' } }]);
   });
 });

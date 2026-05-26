@@ -31,9 +31,9 @@ export const getDefaultFormFieldSettings = (type: WorkflowFormFieldType) => {
         id: v4(),
         name: 'record',
         label: 'Record',
-        placeholder: `Select a Company`,
+        placeholder: `Pilih Keluarga`,
         settings: {
-          objectName: 'company',
+          objectName: 'keluarga',
         },
       };
     case FieldMetadataType.SELECT:

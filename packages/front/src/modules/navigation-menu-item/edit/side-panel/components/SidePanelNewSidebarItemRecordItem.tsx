@@ -76,11 +76,7 @@ export const SidePanelNewSidebarItemRecordItem = ({
       <SidePanelItemWithAddToNavigationDrag
         customIconContent={
           <Avatar
-            type={
-              record.objectNameSingular === 'company'
-                ? 'squared'
-                : 'rounded'
-            }
+            type="rounded"
             avatarUrl={record.imageUrl}
             placeholderColorSeed={record.recordId}
             placeholder={record.label}

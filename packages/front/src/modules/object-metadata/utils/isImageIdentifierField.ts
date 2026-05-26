@@ -12,17 +12,7 @@ export const isImageIdentifierField = ({
     'imageIdentifierFieldMetadataId' | 'nameSingular'
   >;
 }) => {
-  if (
-    objectMetadataItem.nameSingular === 'company' &&
-    fieldMetadataItem.name === 'domainName'
-  ) {
-    return true;
-  }
-
-  if (objectMetadataItem.nameSingular === 'person') {
-    return fieldMetadataItem.name === 'avatarFile';
-  }
-
+  // Bades: cek imageIdentifierFieldMetadataId standar
   return (
     fieldMetadataItem.id === objectMetadataItem.imageIdentifierFieldMetadataId
   );
