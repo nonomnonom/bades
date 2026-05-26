@@ -4,12 +4,12 @@ export const DATA_RESIDENCY_CONFIG: Record<
   DataResidency,
   { label: string; flag: string }
 > = {
-  us: { label: 'United States', flag: '🇺🇸' },
-  eu: { label: 'European Union', flag: '🇪🇺' },
+  us: { label: 'Amerika Serikat', flag: '🇺🇸' },
+  eu: { label: 'Uni Eropa', flag: '🇪🇺' },
   global: { label: 'Global', flag: '🌐' },
-  uk: { label: 'United Kingdom', flag: '🇬🇧' },
-  ap: { label: 'Asia Pacific', flag: '🌏' },
-  jp: { label: 'Japan', flag: '🇯🇵' },
+  uk: { label: 'Britania Raya', flag: '🇬🇧' },
+  ap: { label: 'Asia Pasifik', flag: '🌏' },
+  jp: { label: 'Jepang', flag: '🇯🇵' },
   au: { label: 'Australia', flag: '🇦🇺' },
   ca: { label: 'Canada', flag: '🇨🇦' },
   de: { label: 'Germany', flag: '🇩🇪' },

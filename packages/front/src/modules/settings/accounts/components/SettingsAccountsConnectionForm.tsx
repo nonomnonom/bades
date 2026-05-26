@@ -196,7 +196,7 @@ export const SettingsAccountsConnectionForm = ({
                     label={t`Enkripsi IMAP`}
                     options={[
                       { label: 'SSL/TLS', value: true },
-                      { label: 'None', value: false },
+                      { label: 'Tidak Ada', value: false },
                     ]}
                     value={field.value}
                     onChange={field.onChange}

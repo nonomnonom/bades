@@ -95,7 +95,7 @@ export const useRecordCalendarQueryDateRangeFilter = (
     value: `${nextDayAfterLastDayOfLastWeekISOString}`,
     operand: RecordFilterOperand.IS_BEFORE,
     type: 'DATE_TIME',
-    label: 'Before',
+    label: 'Sebelum',
     displayValue: `${lastDayOfLastWeek.toString()}`,
   };
 
