@@ -27,7 +27,7 @@ export const Default: Story = {
     Icon: { control: false },
   },
   args: {
-    title: 'Button',
+    title: 'Tombol',
     size: 'small',
     variant: 'primary',
     inverted: false,
@@ -45,7 +45,7 @@ export const Default: Story = {
 };
 
 export const Catalog: CatalogStory<Story, typeof Button> = {
-  args: { title: 'Filter', Icon: IconSearch, hotkeys: ['⌘', 'O'] },
+  args: { title: 'Saring', Icon: IconSearch, hotkeys: ['⌘', 'O'] },
   argTypes: {
     size: { control: false },
     variant: { control: false },
@@ -268,7 +268,7 @@ export const PositionCatalog: CatalogStory<Story, typeof Button> = {
 };
 
 export const ShortcutCatalog: CatalogStory<Story, typeof Button> = {
-  args: { title: 'Actions', hotkeys: ['⌘', 'O'] },
+  args: { title: 'Aksi', hotkeys: ['⌘', 'O'] },
   argTypes: {
     size: { control: false },
     variant: { control: false },

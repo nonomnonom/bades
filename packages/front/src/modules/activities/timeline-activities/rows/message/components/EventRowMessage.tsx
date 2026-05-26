@@ -32,7 +32,7 @@ export const EventRowMessage = ({
   const [isOpen, setIsOpen] = useState(false);
 
   if (['linked'].includes(eventAction) === false) {
-    throw new Error('Invalid event action for message event type.');
+    throw new Error('Tindakan peristiwa tidak valid untuk tipe peristiwa pesan.');
   }
 
   return (

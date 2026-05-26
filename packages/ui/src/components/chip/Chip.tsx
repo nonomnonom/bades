@@ -188,7 +188,7 @@ export const Chip = ({
   className,
   maxWidth,
   forceEmptyText = false,
-  emptyLabel = 'Untitled',
+  emptyLabel = 'Tanpa judul',
 }: ChipProps) => {
   return (
     <StyledContainer

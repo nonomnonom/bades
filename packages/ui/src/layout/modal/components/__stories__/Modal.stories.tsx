@@ -54,19 +54,19 @@ export const Default: Story = {
     <Modal isOpen={isOpen} size={size} padding={padding} overlay={overlay}>
       <ModalHeader>
         <H2Title
-          title="Edit workspace"
-          description="Update your workspace settings"
+          title="Edit ruang kerja"
+          description="Perbarui pengaturan ruang kerja Anda"
         />
       </ModalHeader>
       <ModalContent>
         <Section>
-          Workspace name and subdomain can be changed from the settings panel.
-          These changes will be reflected across all members.
+          Nama dan subdomain ruang kerja dapat diubah dari panel pengaturan.
+          Perubahan akan berlaku untuk semua anggota.
         </Section>
       </ModalContent>
       <ModalFooter>
-        <Button title="Cancel" variant="secondary" />
-        <Button title="Save" variant="primary" accent="blue" />
+        <Button title="Batal" variant="secondary" />
+        <Button title="Simpan" variant="primary" accent="blue" />
       </ModalFooter>
     </Modal>
   ),
@@ -101,20 +101,20 @@ export const Confirmation: Story = {
       gap={gap}
     >
       <StyledCenteredTitle>
-        <H1Title title="Delete record?" fontColor={H1TitleFontColor.Primary} />
+        <H1Title title="Hapus rekam?" fontColor={H1TitleFontColor.Primary} />
       </StyledCenteredTitle>
       <StyledSectionContainer>
         <Section
           alignment={SectionAlignment.Center}
           fontColor={SectionFontColor.Primary}
         >
-          This action cannot be undone. The record and all of its data will be
-          permanently removed.
+          Tindakan ini tidak dapat dibatalkan. Rekaman dan semua datanya akan
+          dihapus secara permanen.
         </Section>
       </StyledSectionContainer>
-      <Button title="Cancel" variant="secondary" fullWidth justify="center" />
+      <Button title="Batal" variant="secondary" fullWidth justify="center" />
       <Button
-        title="Delete"
+        title="Hapus"
         variant="secondary"
         accent="danger"
         fullWidth
@@ -134,14 +134,14 @@ export const Small: Story = {
   render: ({ isOpen, size, padding, overlay }) => (
     <Modal isOpen={isOpen} size={size} padding={padding} overlay={overlay}>
       <ModalHeader>
-        <H2Title title="Archive item" />
+        <H2Title title="Arsipkan item" />
       </ModalHeader>
       <ModalContent>
-        <Section>Are you sure you want to archive this item?</Section>
+        <Section>Apakah Anda yakin ingin mengarsipkan item ini?</Section>
       </ModalContent>
       <ModalFooter>
-        <Button title="No" variant="secondary" />
-        <Button title="Yes, archive" variant="primary" accent="blue" />
+        <Button title="Tidak" variant="secondary" />
+        <Button title="Ya, arsipkan" variant="primary" accent="blue" />
       </ModalFooter>
     </Modal>
   ),
@@ -158,19 +158,19 @@ export const ExtraLarge: Story = {
     <Modal isOpen={isOpen} size={size} padding={padding} overlay={overlay}>
       <ModalHeader>
         <H2Title
-          title="Import contacts"
-          description="Upload a CSV file to import your contacts"
+          title="Impor kontak"
+          description="Unggah file CSV untuk mengimpor kontak Anda"
         />
       </ModalHeader>
       <ModalContent>
         <Section>
-          The file should include columns for name, email, phone, and company.
-          Drag and drop your CSV file here, or click to browse.
+          File harus memiliki kolom untuk nama, email, telepon, dan perusahaan.
+          Seret dan letakkan file CSV di sini, atau klik untuk memilih.
         </Section>
       </ModalContent>
       <ModalFooter>
-        <Button title="Cancel" variant="secondary" />
-        <Button title="Upload & import" variant="primary" accent="blue" />
+        <Button title="Batal" variant="secondary" />
+        <Button title="Unggah & impor" variant="primary" accent="blue" />
       </ModalFooter>
     </Modal>
   ),
@@ -185,7 +185,7 @@ export const Closed: Story = {
   },
   render: ({ isOpen, size, padding, overlay }) => (
     <Modal isOpen={isOpen} size={size} padding={padding} overlay={overlay}>
-      <ModalContent>This should not be visible.</ModalContent>
+      <ModalContent>Ini tidak akan terlihat.</ModalContent>
     </Modal>
   ),
 };
@@ -196,7 +196,7 @@ const InteractiveModal = () => {
   return (
     <>
       <Button
-        title="Open Modal"
+        title="Buka Modal"
         variant="primary"
         accent="blue"
         onClick={() => setIsOpen(true)}
@@ -209,7 +209,7 @@ const InteractiveModal = () => {
         onBackdropMouseDown={() => setIsOpen(false)}
       >
         <ModalHeader>
-          <H2Title title="Create record" />
+          <H2Title title="Buat rekam" />
           <IconButton
             Icon={IconX}
             variant="tertiary"
@@ -219,18 +219,17 @@ const InteractiveModal = () => {
         </ModalHeader>
         <ModalContent>
           <Section>
-            Fill in the details below to create a new record. All fields are
-            optional.
+            Isi detail di bawah untuk membuat rekam baru. Semua kolom opsional.
           </Section>
         </ModalContent>
         <ModalFooter>
           <Button
-            title="Cancel"
+            title="Batal"
             variant="secondary"
             onClick={() => setIsOpen(false)}
           />
           <Button
-            title="Create"
+            title="Buat"
             variant="primary"
             accent="blue"
             onClick={() => setIsOpen(false)}

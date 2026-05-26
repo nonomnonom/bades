@@ -56,95 +56,95 @@ const getPermissionsExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case PermissionsExceptionCode.PERMISSION_DENIED:
-      return msg`You do not have permission to perform this action.`;
+      return msg`Anda tidak memiliki izin untuk melakukan tindakan ini.`;
     case PermissionsExceptionCode.ADMIN_ROLE_NOT_FOUND:
-      return msg`Admin role not found.`;
+      return msg`Role admin tidak ditemukan.`;
     case PermissionsExceptionCode.USER_WORKSPACE_NOT_FOUND:
-      return msg`User workspace not found.`;
+      return msg`Ruang kerja pengguna tidak ditemukan.`;
     case PermissionsExceptionCode.WORKSPACE_ID_ROLE_USER_WORKSPACE_MISMATCH:
-      return msg`Workspace ID and role mismatch.`;
+      return msg`ID ruang kerja dan role tidak cocok.`;
     case PermissionsExceptionCode.TOO_MANY_ADMIN_CANDIDATES:
-      return msg`Too many admin candidates found.`;
+      return msg`Terlalu banyak kandidat admin ditemukan.`;
     case PermissionsExceptionCode.USER_WORKSPACE_ALREADY_HAS_ROLE:
-      return msg`User already has a role assigned.`;
+      return msg`Pengguna sudah memiliki role yang ditetapkan.`;
     case PermissionsExceptionCode.WORKSPACE_MEMBER_NOT_FOUND:
-      return msg`Workspace member not found.`;
+      return msg`Anggota ruang kerja tidak ditemukan.`;
     case PermissionsExceptionCode.ROLE_NOT_FOUND:
-      return msg`Role not found.`;
+      return msg`Role tidak ditemukan.`;
     case PermissionsExceptionCode.CANNOT_UNASSIGN_LAST_ADMIN:
-      return msg`Cannot remove the last admin from the workspace.`;
+      return msg`Tidak dapat menghapus admin terakhir dari ruang kerja.`;
     case PermissionsExceptionCode.CANNOT_DELETE_LAST_ADMIN_USER:
-      return msg`Cannot delete the last admin user.`;
+      return msg`Tidak dapat menghapus pengguna admin terakhir.`;
     case PermissionsExceptionCode.UNKNOWN_OPERATION_NAME:
-      return msg`Unknown operation.`;
+      return msg`Operasi tidak dikenal.`;
     case PermissionsExceptionCode.UNKNOWN_REQUIRED_PERMISSION:
-      return msg`Unknown permission required.`;
+      return msg`Izin yang diperlukan tidak dikenal.`;
     case PermissionsExceptionCode.CANNOT_UPDATE_SELF_ROLE:
-      return msg`You cannot update your own role.`;
+      return msg`Anda tidak dapat memperbarui role Anda sendiri.`;
     case PermissionsExceptionCode.NO_ROLE_FOUND_FOR_USER_WORKSPACE:
-      return msg`No role found for this user in the workspace.`;
+      return msg`Tidak ada role untuk pengguna ini di ruang kerja.`;
     case PermissionsExceptionCode.API_KEY_ROLE_NOT_FOUND:
-      return msg`API key role not found.`;
+      return msg`Role kunci API tidak ditemukan.`;
     case PermissionsExceptionCode.NO_AUTHENTICATION_CONTEXT:
-      return msg`Authentication is required.`;
+      return msg`Autentikasi diperlukan.`;
     case PermissionsExceptionCode.INVALID_ARG:
-      return msg`Invalid argument provided.`;
+      return msg`Argumen tidak valid.`;
     case PermissionsExceptionCode.ROLE_LABEL_ALREADY_EXISTS:
-      return msg`A role with this label already exists.`;
+      return msg`Role dengan label ini sudah ada.`;
     case PermissionsExceptionCode.DEFAULT_ROLE_NOT_FOUND:
-      return msg`Default role not found.`;
+      return msg`Role default tidak ditemukan.`;
     case PermissionsExceptionCode.OBJECT_METADATA_NOT_FOUND:
-      return msg`Object metadata not found.`;
+      return msg`Metadata objek tidak ditemukan.`;
     case PermissionsExceptionCode.INVALID_SETTING:
-      return msg`Invalid permission setting.`;
+      return msg`Pengaturan izin tidak valid.`;
     case PermissionsExceptionCode.ROLE_NOT_EDITABLE:
-      return msg`This role cannot be edited.`;
+      return msg`Role ini tidak dapat diedit.`;
     case PermissionsExceptionCode.DEFAULT_ROLE_CANNOT_BE_DELETED:
-      return msg`The default role cannot be deleted.`;
+      return msg`Role default tidak dapat dihapus.`;
     case PermissionsExceptionCode.NO_PERMISSIONS_FOUND_IN_DATASOURCE:
-      return msg`No permissions found in datasource.`;
+      return msg`Tidak ada izin ditemukan di sumber data.`;
     case PermissionsExceptionCode.CANNOT_ADD_OBJECT_PERMISSION_ON_SYSTEM_OBJECT:
-      return msg`Cannot add permissions on system objects.`;
+      return msg`Tidak dapat menambahkan izin pada objek sistem.`;
     case PermissionsExceptionCode.CANNOT_ADD_FIELD_PERMISSION_ON_SYSTEM_OBJECT:
-      return msg`Cannot add field permissions on system objects.`;
+      return msg`Tidak dapat menambahkan izin kolom pada objek sistem.`;
     case PermissionsExceptionCode.METHOD_NOT_ALLOWED:
-      return msg`This method is not allowed.`;
+      return msg`Metode ini tidak diizinkan.`;
     case PermissionsExceptionCode.RAW_SQL_NOT_ALLOWED:
-      return msg`Raw SQL queries are not allowed.`;
+      return msg`Kueri SQL langsung tidak diizinkan.`;
     case PermissionsExceptionCode.CANNOT_GIVE_WRITING_PERMISSION_ON_NON_READABLE_OBJECT:
-      return msg`Cannot give write permission on non-readable objects.`;
+      return msg`Tidak dapat memberikan izin tulis pada objek yang tidak dapat dibaca.`;
     case PermissionsExceptionCode.CANNOT_GIVE_WRITING_PERMISSION_WITHOUT_READING_PERMISSION:
-      return msg`Cannot give write permission without read permission.`;
+      return msg`Tidak dapat memberikan izin tulis tanpa izin baca.`;
     case PermissionsExceptionCode.FIELD_METADATA_NOT_FOUND:
-      return msg`Field metadata not found.`;
+      return msg`Metadata kolom tidak ditemukan.`;
     case PermissionsExceptionCode.ONLY_FIELD_RESTRICTION_ALLOWED:
-      return msg`Only field restrictions are allowed.`;
+      return msg`Hanya pembatasan kolom yang diizinkan.`;
     case PermissionsExceptionCode.FIELD_RESTRICTION_ONLY_ALLOWED_ON_READABLE_OBJECT:
-      return msg`Field restrictions only apply to readable objects.`;
+      return msg`Pembatasan kolom hanya berlaku pada objek yang dapat dibaca.`;
     case PermissionsExceptionCode.FIELD_RESTRICTION_ON_UPDATE_ONLY_ALLOWED_ON_UPDATABLE_OBJECT:
-      return msg`Update field restrictions only apply to updatable objects.`;
+      return msg`Pembatasan kolom pada pembaruan hanya berlaku pada objek yang dapat diperbarui.`;
     case PermissionsExceptionCode.UPSERT_FIELD_PERMISSION_FAILED:
-      return msg`Failed to update field permission.`;
+      return msg`Gagal memperbarui izin kolom.`;
     case PermissionsExceptionCode.PERMISSION_NOT_FOUND:
-      return msg`Permission not found.`;
+      return msg`Izin tidak ditemukan.`;
     case PermissionsExceptionCode.OBJECT_PERMISSION_NOT_FOUND:
-      return msg`Object permission not found.`;
+      return msg`Izin objek tidak ditemukan.`;
     case PermissionsExceptionCode.FIELD_PERMISSION_NOT_FOUND:
-      return msg`Field permission not found.`;
+      return msg`Izin kolom tidak ditemukan.`;
     case PermissionsExceptionCode.EMPTY_FIELD_PERMISSION_NOT_ALLOWED:
-      return msg`Empty field permissions are not allowed.`;
+      return msg`Izin kolom kosong tidak diizinkan.`;
     case PermissionsExceptionCode.JOIN_COLUMN_NAME_REQUIRED:
-      return msg`Join column name is required.`;
+      return msg`Nama kolom gabung diperlukan.`;
     case PermissionsExceptionCode.COMPOSITE_TYPE_NOT_FOUND:
-      return msg`Composite type not found.`;
+      return msg`Tipe komposit tidak ditemukan.`;
     case PermissionsExceptionCode.ROLE_MUST_HAVE_AT_LEAST_ONE_TARGET:
-      return msg`Role must have at least one target.`;
+      return msg`Role harus memiliki setidaknya satu target.`;
     case PermissionsExceptionCode.ROLE_CANNOT_BE_ASSIGNED_TO_USERS:
-      return msg`This role cannot be assigned to users.`;
+      return msg`Role ini tidak dapat ditetapkan ke pengguna.`;
     case PermissionsExceptionCode.APPLICATION_ROLE_NOT_FOUND:
-      return msg`No role assigned to the application.`;
+      return msg`Tidak ada role yang ditetapkan ke aplikasi.`;
     case PermissionsExceptionCode.ROLE_BELONGS_TO_ANOTHER_APPLICATION:
-      return msg`Cannot target a role owned by another application.`;
+      return msg`Tidak dapat menargetkan role yang dimiliki aplikasi lain.`;
     default:
       assertUnreachable(code);
   }

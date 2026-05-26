@@ -17,17 +17,17 @@ const getWorkflowRunExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowRunExceptionCode.WORKFLOW_RUN_NOT_FOUND:
-      return msg`Workflow run not found.`;
+      return msg`Proses alur kerja tidak ditemukan.`;
     case WorkflowRunExceptionCode.WORKFLOW_ROOT_STEP_NOT_FOUND:
-      return msg`Workflow root step not found.`;
+      return msg`Langkah root alur kerja tidak ditemukan.`;
     case WorkflowRunExceptionCode.INVALID_OPERATION:
-      return msg`Invalid workflow operation.`;
+      return msg`Operasi alur kerja tidak valid.`;
     case WorkflowRunExceptionCode.INVALID_INPUT:
-      return msg`Invalid workflow input.`;
+      return msg`Input alur kerja tidak valid.`;
     case WorkflowRunExceptionCode.WORKFLOW_RUN_LIMIT_REACHED:
-      return msg`Workflow run limit reached.`;
+      return msg`Batas proses alur kerja tercapai.`;
     case WorkflowRunExceptionCode.WORKFLOW_RUN_INVALID:
-      return msg`Invalid workflow run.`;
+      return msg`Proses alur kerja tidak valid.`;
     default:
       assertUnreachable(code);
   }

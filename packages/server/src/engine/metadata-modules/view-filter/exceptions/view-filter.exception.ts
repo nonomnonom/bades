@@ -11,7 +11,7 @@ export class ViewFilterException extends CustomException<ViewFilterExceptionCode
   ) {
     super(message, code, {
       userFriendlyMessage:
-        userFriendlyMessage ?? msg`A view filter error occurred.`,
+        userFriendlyMessage ?? msg`Terjadi kesalahan penyaringan tampilan.`,
     });
   }
 }
@@ -37,17 +37,17 @@ export const generateViewFilterExceptionMessage = (
 ) => {
   switch (key) {
     case ViewFilterExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return 'WorkspaceId is required';
+      return 'WorkspaceId diperlukan';
     case ViewFilterExceptionMessageKey.VIEW_ID_REQUIRED:
-      return 'ViewId is required';
+      return 'ViewId diperlukan';
     case ViewFilterExceptionMessageKey.VIEW_FILTER_NOT_FOUND:
-      return `View filter${id ? ` (id: ${id})` : ''} not found`;
+      return `Penyaringan tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     case ViewFilterExceptionMessageKey.INVALID_VIEW_FILTER_DATA:
-      return `Invalid view filter data${id ? ` for view filter id: ${id}` : ''}`;
+      return `Data penyaringan tampilan tidak valid${id ? ` untuk id penyaringan tampilan: ${id}` : ''}`;
     case ViewFilterExceptionMessageKey.FIELD_METADATA_ID_REQUIRED:
-      return 'FieldMetadataId is required';
+      return 'FieldMetadataId diperlukan';
     case ViewFilterExceptionMessageKey.VIEW_NOT_FOUND:
-      return `View${id ? ` (id: ${id})` : ''} not found`;
+      return `Tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     default:
       assertUnreachable(key);
   }
@@ -58,10 +58,10 @@ export const generateViewFilterUserFriendlyExceptionMessage = (
 ): MessageDescriptor | undefined => {
   switch (key) {
     case ViewFilterExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return msg`WorkspaceId is required to create a view filter.`;
+      return msg`WorkspaceId diperlukan untuk membuat penyaringan tampilan.`;
     case ViewFilterExceptionMessageKey.VIEW_ID_REQUIRED:
-      return msg`ViewId is required to create a view filter.`;
+      return msg`ViewId diperlukan untuk membuat penyaringan tampilan.`;
     case ViewFilterExceptionMessageKey.FIELD_METADATA_ID_REQUIRED:
-      return msg`FieldMetadataId is required to create a view filter.`;
+      return msg`FieldMetadataId diperlukan untuk membuat penyaringan tampilan.`;
   }
 };

@@ -95,8 +95,8 @@ export const RecordDetailRelationRecordsListItem = ({
 
   if (!objectMetadataItem) {
     throw new CustomError(
-      'Object metadata item not found',
-      'OBJECT_METADATA_ITEM_NOT_FOUND',
+      'Item metadata objek tidak ditemukan',
+      'ITEM_METADATA_OBJEK_TIDAK_DITEMUKAN',
     );
   }
 

@@ -11,7 +11,7 @@ export class ViewGroupException extends CustomException<ViewGroupExceptionCode> 
   ) {
     super(message, code, {
       userFriendlyMessage:
-        userFriendlyMessage ?? msg`A view group error occurred.`,
+        userFriendlyMessage ?? msg`Terjadi kesalahan pengelompokan tampilan.`,
     });
   }
 }
@@ -38,17 +38,17 @@ export const generateViewGroupExceptionMessage = (
 ) => {
   switch (key) {
     case ViewGroupExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return 'WorkspaceId is required';
+      return 'WorkspaceId diperlukan';
     case ViewGroupExceptionMessageKey.VIEW_ID_REQUIRED:
-      return 'ViewId is required';
+      return 'ViewId diperlukan';
     case ViewGroupExceptionMessageKey.VIEW_GROUP_NOT_FOUND:
-      return `View group${id ? ` (id: ${id})` : ''} not found`;
+      return `Pengelompokan tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     case ViewGroupExceptionMessageKey.INVALID_VIEW_GROUP_DATA:
-      return `Invalid view group data${id ? ` for view group id: ${id}` : ''}`;
+      return `Data pengelompokan tampilan tidak valid${id ? ` untuk id pengelompokan tampilan: ${id}` : ''}`;
     case ViewGroupExceptionMessageKey.FIELD_METADATA_ID_REQUIRED:
-      return 'FieldMetadataId is required';
+      return 'FieldMetadataId diperlukan';
     case ViewGroupExceptionMessageKey.VIEW_NOT_FOUND:
-      return `View${id ? ` (id: ${id})` : ''} not found`;
+      return `Tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     default:
       assertUnreachable(key);
   }
@@ -59,10 +59,10 @@ export const generateViewGroupUserFriendlyExceptionMessage = (
 ): MessageDescriptor | undefined => {
   switch (key) {
     case ViewGroupExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return msg`WorkspaceId is required to create a view group.`;
+      return msg`WorkspaceId diperlukan untuk membuat pengelompokan tampilan.`;
     case ViewGroupExceptionMessageKey.VIEW_ID_REQUIRED:
-      return msg`ViewId is required to create a view group.`;
+      return msg`ViewId diperlukan untuk membuat pengelompokan tampilan.`;
     case ViewGroupExceptionMessageKey.FIELD_METADATA_ID_REQUIRED:
-      return msg`FieldMetadataId is required to create a view group.`;
+      return msg`FieldMetadataId diperlukan untuk membuat pengelompokan tampilan.`;
   }
 };

@@ -32,7 +32,7 @@ export const ApiKeyInput = ({ apiKey }: ApiKeyInputProps) => {
         Icon={IconCopy}
         title={'Salin'}
         onClick={() => {
-          copyToClipboard(apiKey, 'API Key copied to clipboard');
+          copyToClipboard(apiKey, 'Kunci API berhasil disalin');
         }}
       />
     </StyledContainer>

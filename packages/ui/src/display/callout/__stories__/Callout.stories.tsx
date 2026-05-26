@@ -19,11 +19,11 @@ type Story = StoryObj<typeof Callout>;
 export const Default: Story = {
   args: {
     variant: 'neutral',
-    title: 'This form will appear in workflow runs.',
+    title: 'Formulir ini akan muncul di proses alur kerja.',
     description:
-      'Because this workflow is not using a manual trigger, the form will not open on top of the interface. To fill it, open the corresponding workflow run and complete the form there.',
+      'Karena alur kerja ini tidak menggunakan pemicu manual, formulir tidak akan muncul di atas antarmuka. Untuk mengisinya, buka proses alur kerja yang sesuai dan lengkapi formulir di sana.',
     action: {
-      label: 'Learn more',
+      label: 'Pelajari lebih lanjut',
       onClick: () => {},
     },
   },
@@ -32,11 +32,11 @@ export const Default: Story = {
 
 export const Catalog: CatalogStory<Story, typeof Callout> = {
   args: {
-    title: 'This form will appear in workflow runs.',
+    title: 'Formulir ini akan muncul di proses alur kerja.',
     description:
-      'Because this workflow is not using a manual trigger, the form will not open on top of the interface. To fill it, open the corresponding workflow run and complete the form there.',
+      'Karena alur kerja ini tidak menggunakan pemicu manual, formulir tidak akan muncul di atas antarmuka. Untuk mengisinya, buka proses alur kerja yang sesuai dan lengkapi formulir di sana.',
     action: {
-      label: 'Learn more',
+      label: 'Pelajari lebih lanjut',
       onClick: () => {},
     },
   },

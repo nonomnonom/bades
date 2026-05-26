@@ -11,7 +11,7 @@ export class ViewSortException extends CustomException<ViewSortExceptionCode> {
   ) {
     super(message, code, {
       userFriendlyMessage:
-        userFriendlyMessage ?? msg`A view sort error occurred.`,
+        userFriendlyMessage ?? msg`Terjadi kesalahan pengurutan tampilan.`,
     });
   }
 }
@@ -37,17 +37,17 @@ export const generateViewSortExceptionMessage = (
 ) => {
   switch (key) {
     case ViewSortExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return 'WorkspaceId is required';
+      return 'WorkspaceId diperlukan';
     case ViewSortExceptionMessageKey.VIEW_ID_REQUIRED:
-      return 'ViewId is required';
+      return 'ViewId diperlukan';
     case ViewSortExceptionMessageKey.VIEW_SORT_NOT_FOUND:
-      return `View sort${id ? ` (id: ${id})` : ''} not found`;
+      return `Pengurutan tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     case ViewSortExceptionMessageKey.INVALID_VIEW_SORT_DATA:
-      return `Invalid view sort data${id ? ` for view sort id: ${id}` : ''}`;
+      return `Data pengurutan tampilan tidak valid${id ? ` untuk id pengurutan tampilan: ${id}` : ''}`;
     case ViewSortExceptionMessageKey.FIELD_METADATA_ID_REQUIRED:
-      return 'FieldMetadataId is required';
+      return 'FieldMetadataId diperlukan';
     case ViewSortExceptionMessageKey.VIEW_NOT_FOUND:
-      return `View${id ? ` (id: ${id})` : ''} not found`;
+      return `Tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     default:
       assertUnreachable(key);
   }
@@ -58,10 +58,10 @@ export const generateViewSortUserFriendlyExceptionMessage = (
 ): MessageDescriptor | undefined => {
   switch (key) {
     case ViewSortExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return msg`WorkspaceId is required to create a view sort.`;
+      return msg`WorkspaceId diperlukan untuk membuat pengurutan tampilan.`;
     case ViewSortExceptionMessageKey.VIEW_ID_REQUIRED:
-      return msg`ViewId is required to create a view sort.`;
+      return msg`ViewId diperlukan untuk membuat pengurutan tampilan.`;
     case ViewSortExceptionMessageKey.FIELD_METADATA_ID_REQUIRED:
-      return msg`FieldMetadataId is required to create a view sort.`;
+      return msg`FieldMetadataId diperlukan untuk membuat pengurutan tampilan.`;
   }
 };

@@ -20,11 +20,11 @@ const getDashboardExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case DashboardExceptionCode.DASHBOARD_NOT_FOUND:
-      return msg`Dashboard not found.`;
+      return msg`Dashboard tidak ditemukan.`;
     case DashboardExceptionCode.DASHBOARD_DUPLICATION_FAILED:
-      return msg`Failed to duplicate dashboard.`;
+      return msg`Gagal menggandakan dashboard.`;
     case DashboardExceptionCode.PAGE_LAYOUT_NOT_FOUND:
-      return msg`Page layout not found.`;
+      return msg`Tata letak halaman tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }
@@ -49,11 +49,11 @@ export const generateDashboardExceptionMessage = (
 ): string => {
   switch (key) {
     case DashboardExceptionMessageKey.DASHBOARD_NOT_FOUND:
-      return `Dashboard with ID "${value}" not found`;
+      return `Dashboard dengan ID "${value}" tidak ditemukan`;
     case DashboardExceptionMessageKey.DASHBOARD_DUPLICATION_FAILED:
-      return `Failed to duplicate dashboard: ${value}`;
+      return `Gagal menggandakan dashboard: ${value}`;
     case DashboardExceptionMessageKey.PAGE_LAYOUT_NOT_FOUND:
-      return `Page layout for dashboard "${value}" not found`;
+      return `Tata letak halaman untuk dashboard "${value}" tidak ditemukan`;
     default:
       assertUnreachable(key);
   }

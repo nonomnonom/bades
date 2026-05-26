@@ -24,31 +24,31 @@ const getLogicFunctionExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_NOT_FOUND:
-      return msg`Function not found.`;
+      return msg`Fungsi tidak ditemukan.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_ALREADY_EXIST:
-      return msg`A function with this name already exists.`;
+      return msg`Fungsi dengan nama ini sudah ada.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_NOT_READY:
-      return msg`Function is not ready.`;
+      return msg`Fungsi belum siap.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_BUILDING:
-      return msg`Function is currently building.`;
+      return msg`Fungsi sedang dibangun.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_CODE_UNCHANGED:
-      return msg`Function code is unchanged.`;
+      return msg`Kode fungsi tidak berubah.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_EXECUTION_LIMIT_REACHED:
-      return msg`Function execution limit reached.`;
+      return msg`Batas eksekusi fungsi tercapai.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_CREATE_FAILED:
-      return msg`Failed to create function.`;
+      return msg`Gagal membuat fungsi.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_COMPILATION_FAILED:
-      return msg`Function code failed to compile.`;
+      return msg`Kode fungsi gagal dikompilasi.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_EXECUTION_TIMEOUT:
-      return msg`Function execution timed out.`;
+      return msg`Eksekusi fungsi melebihi waktu.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_EXECUTION_FAILED:
-      return msg`Function execution failed.`;
+      return msg`Eksekusi fungsi gagal.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_LAYER_BUILD_FAILED:
-      return msg`Failed to build function dependencies.`;
+      return msg`Gagal membangun dependensi fungsi.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_DISABLED:
-      return msg`Logic function execution is disabled.`;
+      return msg`Eksekusi fungsi logika dinonaktifkan.`;
     case LogicFunctionExceptionCode.LOGIC_FUNCTION_INVALID_SEED_PROJECT:
-      return msg`Invalid seed project configuration.`;
+      return msg`Konfigurasi proyek seed tidak valid.`;
     default:
       assertUnreachable(code);
   }

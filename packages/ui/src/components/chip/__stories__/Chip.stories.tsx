@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Chip>;
 
 export const Default: Story = {
   args: {
-    label: 'Chip test',
+    label: 'Uji chip',
     size: ChipSize.Small,
     variant: ChipVariant.Highlighted,
     accent: ChipAccent.TextPrimary,
@@ -33,13 +33,13 @@ export const Default: Story = {
 
 export const WithLeftAvatar: Story = {
   args: {
-    label: 'John Doe',
+    label: 'Budi Santoso',
     clickable: true,
     variant: ChipVariant.Regular,
     leftComponent: (
       <Avatar
-        placeholder="JD"
-        placeholderColorSeed="John Doe"
+        placeholder="BS"
+        placeholderColorSeed="Budi Santoso"
         size="sm"
         type="rounded"
       />
@@ -50,7 +50,7 @@ export const WithLeftAvatar: Story = {
 
 export const WithLeftIcon: Story = {
   args: {
-    label: 'Company',
+    label: 'Instansi',
     clickable: true,
     variant: ChipVariant.Regular,
     leftComponent: <IconUser size={14} />,
@@ -71,7 +71,7 @@ export const EmptyLabel: Story = {
 };
 
 export const Catalog: CatalogStory<Story, typeof Chip> = {
-  args: { clickable: true, label: 'Hello' },
+  args: { clickable: true, label: 'Halo' },
   argTypes: {
     size: { control: false },
     variant: { control: false },
@@ -124,11 +124,11 @@ export const Catalog: CatalogStory<Story, typeof Chip> = {
 export const WithAvatarCatalog: CatalogStory<Story, typeof Chip> = {
   args: {
     clickable: true,
-    label: 'John Doe',
+    label: 'Budi Santoso',
     leftComponent: (
       <Avatar
-        placeholder="JD"
-        placeholderColorSeed="John Doe"
+        placeholder="BS"
+        placeholderColorSeed="Budi Santoso"
         size="sm"
         type="rounded"
       />

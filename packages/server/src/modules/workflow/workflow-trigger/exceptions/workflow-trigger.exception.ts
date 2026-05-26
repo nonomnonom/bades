@@ -20,19 +20,19 @@ const getWorkflowTriggerExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowTriggerExceptionCode.INVALID_INPUT:
-      return msg`Invalid workflow trigger input.`;
+      return msg`Input pemicu alur kerja tidak valid.`;
     case WorkflowTriggerExceptionCode.INVALID_WORKFLOW_TRIGGER:
-      return msg`Invalid workflow trigger configuration.`;
+      return msg`Konfigurasi pemicu alur kerja tidak valid.`;
     case WorkflowTriggerExceptionCode.INVALID_WORKFLOW_VERSION:
-      return msg`Invalid workflow version.`;
+      return msg`Versi alur kerja tidak valid.`;
     case WorkflowTriggerExceptionCode.INVALID_WORKFLOW_STATUS:
-      return msg`Invalid workflow status.`;
+      return msg`Status alur kerja tidak valid.`;
     case WorkflowTriggerExceptionCode.INVALID_ACTION_TYPE:
-      return msg`Invalid action type.`;
+      return msg`Tipe aksi tidak valid.`;
     case WorkflowTriggerExceptionCode.NOT_FOUND:
-      return msg`Workflow not found.`;
+      return msg`Alur kerja tidak ditemukan.`;
     case WorkflowTriggerExceptionCode.FORBIDDEN:
-      return msg`You do not have permission to access this workflow.`;
+      return msg`Anda tidak memiliki izin untuk mengakses alur kerja ini.`;
     case WorkflowTriggerExceptionCode.INTERNAL_ERROR:
       return STANDARD_ERROR_MESSAGE;
     default:

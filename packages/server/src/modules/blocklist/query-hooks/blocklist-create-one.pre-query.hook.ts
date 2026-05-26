@@ -29,10 +29,10 @@ export class BlocklistCreateOnePreQueryHook
   ): Promise<CreateOneResolverArgs<BlocklistItem>> {
     if (!isUserAuthContext(authContext)) {
       throw new CommonQueryRunnerException(
-        'User id is required',
+        'ID pengguna diperlukan',
         CommonQueryRunnerExceptionCode.INVALID_AUTH_CONTEXT,
         {
-          userFriendlyMessage: msg`You must be authenticated to manage blocklist.`,
+          userFriendlyMessage: msg`Anda harus terautentikasi untuk mengelola blocklist.`,
         },
       );
     }

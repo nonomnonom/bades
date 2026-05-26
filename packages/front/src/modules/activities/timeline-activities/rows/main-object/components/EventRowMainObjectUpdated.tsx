@@ -69,7 +69,7 @@ export const EventRowMainObjectUpdated = ({
 
   const diffEntries = Object.entries(diff);
   if (diffEntries.length === 0) {
-    throw new Error('Cannot render update description without changes');
+    throw new Error('Tidak dapat merender deskripsi pembaruan tanpa perubahan');
   }
 
   const fieldCount = diffEntries.length;

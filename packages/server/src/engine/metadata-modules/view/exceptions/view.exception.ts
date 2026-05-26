@@ -10,7 +10,7 @@ export class ViewException extends CustomException<ViewExceptionCode> {
     { userFriendlyMessage }: { userFriendlyMessage?: MessageDescriptor } = {},
   ) {
     super(message, code, {
-      userFriendlyMessage: userFriendlyMessage ?? msg`A view error occurred.`,
+      userFriendlyMessage: userFriendlyMessage ?? msg`Terjadi kesalahan tampilan.`,
     });
   }
 }
@@ -38,17 +38,17 @@ export const generateViewExceptionMessage = (
 ) => {
   switch (key) {
     case ViewExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return 'WorkspaceId is required';
+      return 'WorkspaceId diperlukan';
     case ViewExceptionMessageKey.OBJECT_METADATA_ID_REQUIRED:
-      return 'ObjectMetadataId is required';
+      return 'ObjectMetadataId diperlukan';
     case ViewExceptionMessageKey.VIEW_NOT_FOUND:
-      return `View${id ? ` (id: ${id})` : ''} not found`;
+      return `Tampilan${id ? ` (id: ${id})` : ''} tidak ditemukan`;
     case ViewExceptionMessageKey.INVALID_VIEW_DATA:
-      return `Invalid view data${id ? ` for view id: ${id}` : ''}`;
+      return `Data tampilan tidak valid${id ? ` untuk id tampilan: ${id}` : ''}`;
     case ViewExceptionMessageKey.VIEW_CREATE_PERMISSION_DENIED:
-      return 'You do not have permission to create workspace-level views';
+      return 'Anda tidak memiliki izin untuk membuat tampilan level ruang kerja';
     case ViewExceptionMessageKey.VIEW_MODIFY_PERMISSION_DENIED:
-      return 'You do not have permission to modify this view';
+      return 'Anda tidak memiliki izin untuk mengubah tampilan ini';
     default:
       assertUnreachable(key);
   }
@@ -59,12 +59,12 @@ export const generateViewUserFriendlyExceptionMessage = (
 ): MessageDescriptor | undefined => {
   switch (key) {
     case ViewExceptionMessageKey.WORKSPACE_ID_REQUIRED:
-      return msg`WorkspaceId is required to create a view.`;
+      return msg`WorkspaceId diperlukan untuk membuat tampilan.`;
     case ViewExceptionMessageKey.OBJECT_METADATA_ID_REQUIRED:
-      return msg`ObjectMetadataId is required to create a view.`;
+      return msg`ObjectMetadataId diperlukan untuk membuat tampilan.`;
     case ViewExceptionMessageKey.VIEW_CREATE_PERMISSION_DENIED:
-      return msg`You don't have permission to create workspace-level views.`;
+      return msg`Anda tidak memiliki izin untuk membuat tampilan level ruang kerja.`;
     case ViewExceptionMessageKey.VIEW_MODIFY_PERMISSION_DENIED:
-      return msg`You don't have permission to modify this view.`;
+      return msg`Anda tidak memiliki izin untuk mengubah tampilan ini.`;
   }
 };

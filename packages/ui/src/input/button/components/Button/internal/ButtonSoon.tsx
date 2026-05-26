@@ -10,7 +10,7 @@ type ButtonSoonProps = {
   label?: string;
 };
 
-export const ButtonSoon = ({ label = 'Soon' }: ButtonSoonProps) => (
+export const ButtonSoon = ({ label = 'Segera' }: ButtonSoonProps) => (
   <StyledSoonPillContainer>
     <Pill label={label} />
   </StyledSoonPillContainer>
