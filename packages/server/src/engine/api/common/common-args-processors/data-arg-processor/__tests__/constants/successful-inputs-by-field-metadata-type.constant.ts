@@ -357,9 +357,9 @@ export const successfulInputsByFieldMetadataType: {
   ],
   [FieldMetadataType.FULL_NAME]: [
     {
-      input: { fullNameField: { firstName: 'John', lastName: 'Doe' } },
+      input: { fullNameField: { firstName: 'Budi', lastName: 'Saputra' } },
       expectedOutput: {
-        fullNameField: { firstName: 'John', lastName: 'Doe' },
+        fullNameField: { firstName: 'Budi', lastName: 'Saputra' },
       },
     },
     { input: { fullNameField: null }, expectedOutput: { fullNameField: null } },

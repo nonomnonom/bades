@@ -12,8 +12,8 @@ import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMeta
 const person = { id: '36abbb63-34ed-4a16-89f5-f549ac55d0f9' };
 const updateInput = {
   name: {
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: 'Budi',
+    lastName: 'Saputra',
   },
 };
 const updatePenduduk = {

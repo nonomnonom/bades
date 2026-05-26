@@ -4,8 +4,8 @@ import { mergeWorkspaceMemberSettingsIntoCurrent } from '@/settings/profile/util
 const createBaseWorkspaceMember = (): CurrentWorkspaceMember => ({
   id: 'workspace-member-id',
   name: {
-    firstName: 'Jane',
-    lastName: 'Doe',
+    firstName: 'Siti',
+    lastName: 'Saputra',
   },
   locale: 'en',
   colorScheme: 'System',
@@ -53,18 +53,18 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
     } as Record<string, unknown>);
 
     expect(result.name.firstName).toBe('Janet');
-    expect(result.name.lastName).toBe('Doe');
+    expect(result.name.lastName).toBe('Saputra');
   });
 
   it('should merge name when payload only includes lastName key', () => {
     const previous = createBaseWorkspaceMember();
 
     const result = mergeWorkspaceMemberSettingsIntoCurrent(previous, {
-      name: { lastName: 'Smith' },
+      name: { lastName: 'Santoso' },
     } as Record<string, unknown>);
 
-    expect(result.name.firstName).toBe('Jane');
-    expect(result.name.lastName).toBe('Smith');
+    expect(result.name.firstName).toBe('Siti');
+    expect(result.name.lastName).toBe('Santoso');
   });
 
   it('should merge both name fields when both are non-empty strings', () => {

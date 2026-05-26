@@ -246,8 +246,8 @@ describe('UserWorkspaceService', () => {
       const user = {
         id: 'user-id',
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
         locale: 'en',
         isEmailVerified: false,
         disabled: false,
@@ -263,8 +263,8 @@ describe('UserWorkspaceService', () => {
       const workspaceMember = [
         {
           id: 'workspace-member-id',
-          nameFirstName: 'John',
-          nameLastName: 'Doe',
+          nameFirstName: 'Budi',
+          nameLastName: 'Saputra',
           userId: 'user-id',
           userEmail: 'test@example.com',
         },

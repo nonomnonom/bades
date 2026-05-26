@@ -121,7 +121,7 @@ describe('computeCursorArgFilter', () => {
     });
 
     it('should compute forward pagination filter for single field', () => {
-      const cursor = { name: 'John' };
+      const cursor = { name: 'Budi' };
       const orderBy = [{ name: OrderByDirection.AscNullsLast }];
 
       const result = computeCursorArgFilter(
@@ -132,11 +132,11 @@ describe('computeCursorArgFilter', () => {
         true,
       );
 
-      expect(result).toEqual([{ name: { gt: 'John' } }]);
+      expect(result).toEqual([{ name: { gt: 'Budi' } }]);
     });
 
     it('should compute backward pagination filter for single field', () => {
-      const cursor = { name: 'John' };
+      const cursor = { name: 'Budi' };
       const orderBy = [{ name: OrderByDirection.AscNullsLast }];
 
       const result = computeCursorArgFilter(
@@ -147,13 +147,13 @@ describe('computeCursorArgFilter', () => {
         false,
       );
 
-      expect(result).toEqual([{ name: { lt: 'John' } }]);
+      expect(result).toEqual([{ name: { lt: 'Budi' } }]);
     });
   });
 
   describe('multiple fields cursor filtering', () => {
     it('should handle multiple cursor fields with forward pagination', () => {
-      const cursor = { name: 'John', age: 30 };
+      const cursor = { name: 'Budi', age: 30 };
       const orderBy = [
         { name: OrderByDirection.AscNullsLast },
         { age: OrderByDirection.DescNullsLast },
@@ -168,8 +168,8 @@ describe('computeCursorArgFilter', () => {
       );
 
       expect(result).toEqual([
-        { name: { gt: 'John' } },
-        { and: [{ name: { eq: 'John' } }, { age: { lt: 30 } }] },
+        { name: { gt: 'Budi' } },
+        { and: [{ name: { eq: 'Budi' } }, { age: { lt: 30 } }] },
       ]);
     });
   });
@@ -177,7 +177,7 @@ describe('computeCursorArgFilter', () => {
   describe('composite field handling', () => {
     it('should handle fullName composite field with proper ordering', () => {
       const cursor = {
-        fullName: { firstName: 'John', lastName: 'Doe' },
+        fullName: { firstName: 'Budi', lastName: 'Saputra' },
       };
       const orderBy = [
         {
@@ -201,19 +201,19 @@ describe('computeCursorArgFilter', () => {
           or: [
             {
               fullName: {
-                firstName: { gt: 'John' },
+                firstName: { gt: 'Budi' },
               },
             },
             {
               and: [
                 {
                   fullName: {
-                    firstName: { eq: 'John' },
+                    firstName: { eq: 'Budi' },
                   },
                 },
                 {
                   fullName: {
-                    lastName: { gt: 'Doe' },
+                    lastName: { gt: 'Saputra' },
                   },
                 },
               ],
@@ -225,7 +225,7 @@ describe('computeCursorArgFilter', () => {
 
     it('should handle single property composite field', () => {
       const cursor = {
-        fullName: { firstName: 'John' },
+        fullName: { firstName: 'Budi' },
       };
       const orderBy = [
         {
@@ -246,7 +246,7 @@ describe('computeCursorArgFilter', () => {
       expect(result).toEqual([
         {
           fullName: {
-            firstName: { gt: 'John' },
+            firstName: { gt: 'Budi' },
           },
         },
       ]);
@@ -254,7 +254,7 @@ describe('computeCursorArgFilter', () => {
 
     it('should handle composite field with backward pagination', () => {
       const cursor = {
-        fullName: { firstName: 'John', lastName: 'Doe' },
+        fullName: { firstName: 'Budi', lastName: 'Saputra' },
       };
       const orderBy = [
         {
@@ -278,19 +278,19 @@ describe('computeCursorArgFilter', () => {
           or: [
             {
               fullName: {
-                firstName: { lt: 'John' },
+                firstName: { lt: 'Budi' },
               },
             },
             {
               and: [
                 {
                   fullName: {
-                    firstName: { eq: 'John' },
+                    firstName: { eq: 'Budi' },
                   },
                 },
                 {
                   fullName: {
-                    lastName: { lt: 'Doe' },
+                    lastName: { lt: 'Saputra' },
                   },
                 },
               ],
@@ -318,7 +318,7 @@ describe('computeCursorArgFilter', () => {
     });
 
     it('should throw error for missing orderBy entry', () => {
-      const cursor = { name: 'John' };
+      const cursor = { name: 'Budi' };
       const orderBy = [{ age: OrderByDirection.AscNullsLast }];
 
       expect(() =>

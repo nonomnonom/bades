@@ -11,8 +11,8 @@ describe('validateFullNameFieldOrThrow', () => {
 
     it('should return valid full name object with both fields', () => {
       const value = {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       };
       const result = validateFullNameFieldOrThrow(value, 'testField');
 
@@ -21,7 +21,7 @@ describe('validateFullNameFieldOrThrow', () => {
 
     it('should return valid full name object with only firstName', () => {
       const value = {
-        firstName: 'John',
+        firstName: 'Budi',
       };
       const result = validateFullNameFieldOrThrow(value, 'testField');
 
@@ -30,7 +30,7 @@ describe('validateFullNameFieldOrThrow', () => {
 
     it('should return valid full name object with only lastName', () => {
       const value = {
-        lastName: 'Doe',
+        lastName: 'Saputra',
       };
       const result = validateFullNameFieldOrThrow(value, 'testField');
 
@@ -57,8 +57,8 @@ describe('validateFullNameFieldOrThrow', () => {
 
     it('should throw when an invalid subfield is provided', () => {
       const value = {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
         invalidSubField: 'invalid',
       };
 

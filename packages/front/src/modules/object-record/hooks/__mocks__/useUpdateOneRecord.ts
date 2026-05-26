@@ -54,7 +54,7 @@ const connectedObjects = {
 export const variables = {
   idToUpdate: '36abbb63-34ed-4a16-89f5-f549ac55d0f9',
   input: {
-    name: { firstName: 'John', lastName: 'Doe' },
+    name: { firstName: 'Budi', lastName: 'Saputra' },
   },
 };
 

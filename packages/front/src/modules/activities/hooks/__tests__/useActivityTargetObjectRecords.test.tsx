@@ -32,8 +32,8 @@ const taskTarget = {
     updatedAt: '2023-04-26T10:23:42.33625+00:00',
     city: 'City',
     name: {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     },
     __typename: 'Penduduk',
   },

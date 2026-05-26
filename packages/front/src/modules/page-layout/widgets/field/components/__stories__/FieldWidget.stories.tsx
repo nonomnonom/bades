@@ -129,8 +129,8 @@ const mockPersonRecord: ObjectRecord = {
   id: TEST_PERSON_RECORD_ID,
   name: {
     __typename: 'FullName',
-    firstName: 'Jane',
-    lastName: 'Smith',
+    firstName: 'Siti',
+    lastName: 'Santoso',
   },
   emails: {
     __typename: 'Emails',
@@ -164,7 +164,7 @@ const mockWorkspaceMemberRecord: ObjectRecord = {
   id: 'test-workspace-member-xyz',
   name: {
     __typename: 'FullName',
-    firstName: 'Sarah',
+    firstName: 'Sari',
     lastName: 'Johnson',
   },
   avatarUrl: '',
@@ -185,7 +185,7 @@ const mockTimelineActivityRecord: ObjectRecord = {
     id: 'test-workspace-member-xyz',
     name: {
       __typename: 'FullName',
-      firstName: 'Sarah',
+      firstName: 'Sari',
       lastName: 'Johnson',
     },
     avatarUrl: '',
@@ -232,8 +232,8 @@ const mockCompanyRecord: ObjectRecord = {
       id: TEST_PERSON_RECORD_ID,
       name: {
         __typename: 'FullName',
-        firstName: 'Jane',
-        lastName: 'Smith',
+        firstName: 'Siti',
+        lastName: 'Santoso',
       },
     },
   ],
@@ -242,8 +242,8 @@ const mockCompanyRecord: ObjectRecord = {
     id: '20202020-0687-4c41-b707-ed1bfca972a7',
     name: {
       __typename: 'FullName',
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     },
     avatarUrl: '',
     userEmail: 'john.doe@acme.com',
@@ -1917,8 +1917,8 @@ const generateMockPendudukRecords = (count: number) => {
     { firstName: 'Eka', lastName: 'Saputra' },
     { firstName: 'Fitri', lastName: 'Anggraini' },
     { firstName: 'Gita', lastName: 'Permata' },
-    { firstName: 'Henry', lastName: 'Thomas' },
-    { firstName: 'Ivy', lastName: 'Jackson' },
+    { firstName: 'Hadi', lastName: 'Tanudjaja' },
+    { firstName: 'Ivy', lastName: 'Jayadi' },
     { firstName: 'Jack', lastName: 'White' },
   ];
 

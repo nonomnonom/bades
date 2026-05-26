@@ -286,7 +286,7 @@ describe('ApprovedAccessDomainService', () => {
     it('should send a validation email if all conditions are met', async () => {
       const sender = {
         userEmail: 'sender@example.com',
-        name: { firstName: 'John', lastName: 'Doe' },
+        name: { firstName: 'Budi', lastName: 'Saputra' },
         locale: 'id-ID',
       } as WorkspaceMemberWorkspaceEntity;
       const workspace = {

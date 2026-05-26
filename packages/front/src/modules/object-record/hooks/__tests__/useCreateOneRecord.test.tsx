@@ -15,7 +15,7 @@ jest.mock('uuid', () => ({
   v4: jest.fn(() => 'a7286b9a-c039-4a89-9567-2dfa7953cda9'),
 }));
 
-const input = { name: { firstName: 'John', lastName: 'Doe' } };
+const input = { name: { firstName: 'Budi', lastName: 'Saputra' } };
 
 jest.mock('@/object-record/hooks/useRefetchAggregateQueries');
 const mockRefetchAggregateQueries = jest.fn();

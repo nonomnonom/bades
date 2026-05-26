@@ -43,8 +43,8 @@ const mockWorkspaceMember = {
   id: 'workspace-member-id',
   locale: 'en',
   name: {
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: 'Budi',
+    lastName: 'Saputra',
   },
   colorScheme: 'Light' as const,
   userEmail: 'userEmail',
@@ -233,8 +233,8 @@ describe('ApolloFactory', () => {
       id: 'new-workspace-member-id',
       locale: 'fr',
       name: {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
       colorScheme: 'Light' as const,
       userEmail: 'userEmail',

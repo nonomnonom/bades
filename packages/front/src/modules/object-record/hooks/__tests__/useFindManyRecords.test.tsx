@@ -20,7 +20,7 @@ describe('useFindManyRecords', () => {
   it('should work as expected', async () => {
     jotaiStore.set(currentWorkspaceMemberState.atom, {
       id: '32219445-f587-4c40-b2b1-6d3205ed96da',
-      name: { firstName: 'John', lastName: 'Connor' },
+      name: { firstName: 'Budi', lastName: 'Connor' },
       locale: 'en',
       colorScheme: 'Light',
       userEmail: 'userEmail',

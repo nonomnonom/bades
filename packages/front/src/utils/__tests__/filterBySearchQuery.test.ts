@@ -11,14 +11,14 @@ describe('filterBySearchQuery', () => {
   const users: TestUser[] = [
     {
       id: '1',
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
       email: 'john@example.com',
     },
     {
       id: '2',
-      firstName: 'Jane',
-      lastName: 'Smith',
+      firstName: 'Siti',
+      lastName: 'Santoso',
       email: 'jane@example.com',
     },
     {

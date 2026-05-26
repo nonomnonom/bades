@@ -337,8 +337,8 @@ describe('buildRecordFromImportedStructuredRow', () => {
       ratingField: '4',
       'BlockNote (richTextField)': 'Rich content in blocknote format',
       'Markdown (richTextField)': 'Content in markdown format',
-      'Nama Depan (fullNameField)': 'John',
-      'Nama Belakang (fullNameField)': 'Doe',
+      'Nama Depan (fullNameField)': 'Budi',
+      'Nama Belakang (fullNameField)': 'Saputra',
       'Nominal (currencyField)': '75',
       'Mata Uang (currencyField)': 'USD',
       'Alamat 1 (addressField)': '123 Main St',
@@ -401,8 +401,8 @@ describe('buildRecordFromImportedStructuredRow', () => {
       arrayField: ['item1', 'item2', 'item3'],
       jsonField: { key: 'value', nested: { prop: 'data' } },
       fullNameField: {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
       currencyField: {
         amountMicros: 75000000,

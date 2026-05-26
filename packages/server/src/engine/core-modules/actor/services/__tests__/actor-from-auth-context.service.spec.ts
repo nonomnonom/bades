@@ -83,8 +83,8 @@ describe('ActorFromAuthContextService', () => {
   describe('injectCreatedBy', () => {
     it('should build metadata from workspaceMember when user auth context', async () => {
       const workspaceMemberName = {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       };
 
       const authContext = {

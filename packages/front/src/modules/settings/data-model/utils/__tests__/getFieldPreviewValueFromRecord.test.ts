@@ -18,7 +18,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       // Given
       const firstRelationRecord = {
         id: '1',
-        name: { firstName: 'Jane', lastName: 'Doe' },
+        name: { firstName: 'Siti', lastName: 'Saputra' },
       };
       const record: ObjectRecord = {
         id: '',

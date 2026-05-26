@@ -300,9 +300,9 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
       },
     ],
     exampleValues: [
-      { firstName: 'John', lastName: 'Doe' },
-      { firstName: 'Jane', lastName: 'Doe' },
-      { firstName: 'John', lastName: 'Smith' },
+      { firstName: 'Budi', lastName: 'Saputra' },
+      { firstName: 'Siti', lastName: 'Saputra' },
+      { firstName: 'Budi', lastName: 'Santoso' },
     ],
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldFullNameValue>,

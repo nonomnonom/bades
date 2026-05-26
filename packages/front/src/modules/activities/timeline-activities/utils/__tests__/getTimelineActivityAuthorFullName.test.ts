@@ -8,8 +8,8 @@ describe('getTimelineActivityAuthorFullName', () => {
       workspaceMember: {
         id: '123',
         name: {
-          firstName: 'John',
-          lastName: 'Doe',
+          firstName: 'Budi',
+          lastName: 'Saputra',
         },
       },
     };
@@ -30,8 +30,8 @@ describe('getTimelineActivityAuthorFullName', () => {
       workspaceMember: {
         id: '456',
         name: {
-          firstName: 'Jane',
-          lastName: 'Smith',
+          firstName: 'Siti',
+          lastName: 'Santoso',
         },
       },
     };

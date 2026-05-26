@@ -40,8 +40,8 @@ describe('useUserTimezone', () => {
     jotaiStore.set(currentWorkspaceMemberState.atom, {
       id: 'workspace-member-id',
       name: {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
       colorScheme: 'Light',
       locale: 'en-US',
@@ -73,8 +73,8 @@ describe('useUserTimezone', () => {
     jotaiStore.set(currentWorkspaceMemberState.atom, {
       id: 'workspace-member-id',
       name: {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
       colorScheme: 'Light',
       locale: 'en-US',

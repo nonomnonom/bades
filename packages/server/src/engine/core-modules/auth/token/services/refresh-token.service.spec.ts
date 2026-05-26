@@ -82,8 +82,8 @@ describe('RefreshTokenService', () => {
       } as AppTokenEntity;
       const mockUser = {
         id: 'some-id',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
         email: 'john.doe@example.com',
       } as UserEntity;
 

@@ -9,14 +9,14 @@ describe('transformFullNameField', () => {
 
   it('should return full name object with both fields', () => {
     const value = {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     };
     const result = transformFullNameField(value);
 
     expect(result).toEqual({
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     });
   });
 

@@ -20,8 +20,8 @@ export const Default: Story = {
   args: {
     label: 'Name',
     defaultValue: {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     },
   },
   play: async ({ canvasElement }) => {
@@ -59,8 +59,8 @@ export const Disabled: Story = {
     label: 'Name',
     readonly: true,
     defaultValue: {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     },
     VariablePicker: () => <div>VariablePicker</div>,
     onChange: fn(),
@@ -68,11 +68,11 @@ export const Disabled: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const firstNameVariable = await canvas.findByText('John');
-    const lastNameVariable = await canvas.findByText('Doe');
+    const firstNameVariable = await canvas.findByText('Budi');
+    const lastNameVariable = await canvas.findByText('Saputra');
 
-    await userEvent.type(firstNameVariable, 'Jane');
-    await userEvent.type(lastNameVariable, 'Smith');
+    await userEvent.type(firstNameVariable, 'Siti');
+    await userEvent.type(lastNameVariable, 'Santoso');
 
     expect(args.onChange).not.toHaveBeenCalled();
 

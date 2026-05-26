@@ -9,7 +9,7 @@ describe('nullifyEmptyFullNameDefaultValue', () => {
 
   it('returns normalized object when lastName has a value', () => {
     expect(
-      nullifyEmptyFullNameDefaultValue({ firstName: "''", lastName: 'Doe' }),
-    ).toEqual({ firstName: null, lastName: 'Doe' });
+      nullifyEmptyFullNameDefaultValue({ firstName: "''", lastName: 'Saputra' }),
+    ).toEqual({ firstName: null, lastName: 'Saputra' });
   });
 });

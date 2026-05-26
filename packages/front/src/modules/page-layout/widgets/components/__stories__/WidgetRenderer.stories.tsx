@@ -93,8 +93,8 @@ const mockPersonRecord: ObjectRecord = {
   id: TEST_PERSON_RECORD_ID,
   name: {
     __typename: 'FullName',
-    firstName: 'Jane',
-    lastName: 'Smith',
+    firstName: 'Siti',
+    lastName: 'Santoso',
   },
 };
 
@@ -108,8 +108,8 @@ const mockCompanyRecord: ObjectRecord = {
       id: TEST_PERSON_RECORD_ID,
       name: {
         __typename: 'FullName',
-        firstName: 'Jane',
-        lastName: 'Smith',
+        firstName: 'Siti',
+        lastName: 'Santoso',
       },
     },
   ],
@@ -118,8 +118,8 @@ const mockCompanyRecord: ObjectRecord = {
     id: '20202020-0687-4c41-b707-ed1bfca972a7',
     name: {
       __typename: 'FullName',
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Budi',
+      lastName: 'Saputra',
     },
     avatarUrl: '',
     userEmail: 'john.doe@acme.com',

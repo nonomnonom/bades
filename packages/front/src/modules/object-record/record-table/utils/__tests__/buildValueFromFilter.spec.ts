@@ -231,7 +231,7 @@ describe('buildValueFromFilter', () => {
   describe('RELATION field type', () => {
     const mockCurrentWorkspaceMember = {
       id: 'current-workspace-member-id',
-      name: { firstName: 'John', lastName: 'Doe' },
+      name: { firstName: 'Budi', lastName: 'Saputra' },
       locale: 'en',
       colorScheme: 'Light' as ColorScheme,
       avatarUrl: '',

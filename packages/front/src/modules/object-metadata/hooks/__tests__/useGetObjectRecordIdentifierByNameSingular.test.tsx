@@ -53,7 +53,7 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
     rerender({
       record: {
         id: 'recordId',
-        name: { firstName: 'John', lastName: 'Connor' },
+        name: { firstName: 'Budi', lastName: 'Connor' },
       },
       objectNameSingular: 'penduduk',
     });

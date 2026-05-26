@@ -359,11 +359,11 @@ describe('computeRelationConnectQueryConfigs', () => {
     const peopleEntityInputs = [
       {
         id: '1',
-        name: { lastName: 'Doe', firstName: 'John' },
+        name: { lastName: 'Saputra', firstName: 'Budi' },
       },
       {
         id: '2',
-        name: { lastName: 'Doe', firstName: 'Jane' },
+        name: { lastName: 'Saputra', firstName: 'Siti' },
       },
     ];
 
@@ -383,7 +383,7 @@ describe('computeRelationConnectQueryConfigs', () => {
     const peopleEntityInputs = [
       {
         id: '1',
-        name: { connect: { where: { name: { lastName: 'Doe' } } } },
+        name: { connect: { where: { name: { lastName: 'Saputra' } } } },
       },
       {
         id: '2',
@@ -392,7 +392,7 @@ describe('computeRelationConnectQueryConfigs', () => {
 
     const relationConnectQueryFieldsByEntityIndex = {
       '0': {
-        name: { connect: { where: { name: { lastName: 'Doe' } } } },
+        name: { connect: { where: { name: { lastName: 'Saputra' } } } },
       },
     };
 

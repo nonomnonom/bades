@@ -20,8 +20,8 @@ describe('getRecordFromRecordNode', () => {
       __typename: 'Penduduk',
       name: {
         __typename: 'FullName',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
     };
 
@@ -124,8 +124,8 @@ describe('getRecordFromRecordNode', () => {
               __typename: 'Penduduk',
               name: {
                 __typename: 'FullName',
-                firstName: 'John',
-                lastName: 'Doe',
+                firstName: 'Budi',
+                lastName: 'Saputra',
               },
             },
           },

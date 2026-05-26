@@ -99,8 +99,8 @@ describe('useFieldPreviewValue', () => {
         __typename: 'Penduduk',
         id: '',
         name: {
-          firstName: 'John',
-          lastName: 'Doe',
+          firstName: 'Budi',
+          lastName: 'Saputra',
         },
       },
     ]);

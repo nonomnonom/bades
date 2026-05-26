@@ -5,7 +5,7 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      name: 'John',
+      name: 'Budi',
       email: 'john@example.com',
       phone: '123-456-7890',
     };
@@ -19,7 +19,7 @@ describe('filterRecordOnGqlFields', () => {
 
     expect(result).toEqual({
       id: '1',
-      name: 'John',
+      name: 'Budi',
     });
   });
 
@@ -27,7 +27,7 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      name: 'John',
+      name: 'Budi',
       email: 'john@example.com',
     };
 
@@ -49,7 +49,7 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      name: 'John',
+      name: 'Budi',
       email: 'john@example.com',
     };
 
@@ -72,8 +72,8 @@ describe('filterRecordOnGqlFields', () => {
       id: '1',
       __typename: 'Penduduk',
       fullName: {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
       email: 'john@example.com',
     };
@@ -91,8 +91,8 @@ describe('filterRecordOnGqlFields', () => {
     expect(result).toEqual({
       id: '1',
       fullName: {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Budi',
+        lastName: 'Saputra',
       },
     });
   });
@@ -103,8 +103,8 @@ describe('filterRecordOnGqlFields', () => {
       __typename: 'Keluarga',
       name: 'Acme Inc',
       employees: [
-        { id: '2', __typename: 'Penduduk', name: 'John', email: 'john@test.com' },
-        { id: '3', __typename: 'Penduduk', name: 'Jane', email: 'jane@test.com' },
+        { id: '2', __typename: 'Penduduk', name: 'Budi', email: 'john@test.com' },
+        { id: '3', __typename: 'Penduduk', name: 'Siti', email: 'jane@test.com' },
       ],
     };
 
@@ -123,8 +123,8 @@ describe('filterRecordOnGqlFields', () => {
       id: '1',
       name: 'Acme Inc',
       employees: [
-        { id: '2', name: 'John' },
-        { id: '3', name: 'Jane' },
+        { id: '2', name: 'Budi' },
+        { id: '3', name: 'Siti' },
       ],
     });
   });
@@ -267,9 +267,9 @@ describe('filterRecordOnGqlFields', () => {
       id: '1',
       __typename: 'Keluarga',
       employees: [
-        { id: '2', __typename: 'Penduduk', name: 'John' },
+        { id: '2', __typename: 'Penduduk', name: 'Budi' },
         null,
-        { id: '3', __typename: 'Penduduk', name: 'Jane' },
+        { id: '3', __typename: 'Penduduk', name: 'Siti' },
       ],
     };
 
@@ -285,7 +285,7 @@ describe('filterRecordOnGqlFields', () => {
 
     expect(result).toEqual({
       id: '1',
-      employees: [{ id: '2', name: 'John' }, null, { id: '3', name: 'Jane' }],
+      employees: [{ id: '2', name: 'Budi' }, null, { id: '3', name: 'Siti' }],
     });
   });
 
@@ -293,7 +293,7 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      name: 'John',
+      name: 'Budi',
     };
 
     const recordGqlFields = {
@@ -310,7 +310,7 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      name: 'John',
+      name: 'Budi',
       email: 'john@example.com',
       phone: '123-456-7890',
       address: 'NYC',

@@ -129,8 +129,8 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
   const baseRecord: ObjectRecord = {
     jobTitle: 'Engineer',
     name: {
-      firstName: 'Jane',
-      lastName: 'Doe',
+      firstName: 'Siti',
+      lastName: 'Saputra',
     },
     address: {
       addressStreet1: 'Main Street',
@@ -178,7 +178,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
         },
         name: {
           firstName: {
-            eq: 'Jane',
+            eq: 'Siti',
           },
         },
       },
@@ -199,7 +199,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
           },
           name: {
             lastName: {
-              eq: 'Doe',
+              eq: 'Saputra',
             },
           },
         },
@@ -213,7 +213,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
         ...baseRecord,
         name: {
           ...baseRecord.name,
-          lastName: 'Smith',
+          lastName: 'Santoso',
         },
       },
       filter: {
@@ -223,7 +223,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
           },
           name: {
             lastName: {
-              eq: 'Doe',
+              eq: 'Saputra',
             },
           },
         },

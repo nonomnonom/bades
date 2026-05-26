@@ -1086,7 +1086,7 @@ describe('ObjectRecordEventPublisher', () => {
         const customWorkspaceMember = {
           id: workspaceMemberId,
           userId: 'test-user-id',
-          name: { firstName: 'John', lastName: 'Doe' },
+          name: { firstName: 'Budi', lastName: 'Saputra' },
           locale: 'en',
           colorScheme: 'light',
         };
