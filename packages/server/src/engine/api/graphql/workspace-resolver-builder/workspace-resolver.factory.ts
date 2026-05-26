@@ -99,7 +99,7 @@ export class WorkspaceResolverFactory {
             resolverName,
           });
 
-          throw new Error(`Unknown query resolver type: ${methodName}`);
+          throw new Error(`Tipe resolver query tidak dikenal: ${methodName}`);
         }
 
         if (
@@ -130,7 +130,7 @@ export class WorkspaceResolverFactory {
             resolverName,
           });
 
-          throw new Error(`Unknown mutation resolver type: ${methodName}`);
+          throw new Error(`Tipe resolver mutation tidak dikenal: ${methodName}`);
         }
 
         if (

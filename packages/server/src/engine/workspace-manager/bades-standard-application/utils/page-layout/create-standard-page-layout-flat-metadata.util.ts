@@ -47,7 +47,7 @@ const findTabKeyByUniversalIdentifier = (
     STANDARD_PAGE_LAYOUTS[layoutName as keyof typeof STANDARD_PAGE_LAYOUTS];
 
   if (!isDefined(layout)) {
-    throw new Error(`Layout with name ${layoutName} not found`);
+    throw new Error(`Layout dengan nama ${layoutName} tidak ditemukan`);
   }
 
   for (const [tabKey, tab] of Object.entries(layout.tabs)) {

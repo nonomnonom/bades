@@ -9,7 +9,7 @@ export const parseCronExpression = (
   expression: string,
 ): CronExpressionParts => {
   if (!isDefined(expression) || expression.trim() === '') {
-    throw new Error('Cron expression is required');
+    throw new Error('Ekspresi cron wajib diisi');
   }
 
   let normalized = normalizeWhitespace(expression);
@@ -64,6 +64,6 @@ export const parseCronExpression = (
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : 'Unknown error';
-    throw new Error(`Invalid cron expression: ${errorMessage}`);
+    throw new Error(`Ekspresi cron tidak valid: ${errorMessage}`);
   }
 };

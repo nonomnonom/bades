@@ -34,7 +34,7 @@ export class WorkspaceSchemaIndexManagerService {
 
     if (index.type && index.type !== 'BTREE') {
       if (!ALLOWED_INDEX_TYPES.has(index.type)) {
-        throw new Error(`Unsupported index type: ${index.type}`);
+        throw new Error(`Tipe index tidak didukung: ${index.type}`);
       }
       indexType = `USING ${index.type}`;
     }

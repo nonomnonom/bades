@@ -103,14 +103,14 @@ export const useVariableDropdown = ({
       linkOutputSchema: LinkOutputSchema,
     ) => {
       if (!isDefined(workflowVisualizerWorkflowId)) {
-        throw new Error('Workflow ID must be configured');
+        throw new Error('Workflow ID wajib dikonfigurasi');
       }
 
       setWorkflowSelectedNode(step.id);
 
       setWorkflowDiagram((diagram) => {
         if (!isDefined(diagram)) {
-          throw new Error('Workflow diagram must be defined');
+          throw new Error('Diagram workflow wajib terdefinisi');
         }
 
         return {

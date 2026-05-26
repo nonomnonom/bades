@@ -4,6 +4,6 @@ export const getAbsoluteUrlOrThrow = (url: string): string => {
   try {
     return absoluteUrlSchema.parse(url);
   } catch {
-    throw new Error('Invalid URL');
+    throw new Error('URL tidak valid');
   }
 };

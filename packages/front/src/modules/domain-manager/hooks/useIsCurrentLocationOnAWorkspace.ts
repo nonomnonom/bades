@@ -17,7 +17,7 @@ export const useIsCurrentLocationOnAWorkspace = () => {
     (!isDefined(domainConfiguration.frontDomain) ||
       !isDefined(domainConfiguration.defaultSubdomain))
   ) {
-    throw new Error('frontDomain and defaultSubdomain are required');
+    throw new Error('frontDomain dan defaultSubdomain wajib diisi');
   }
 
   const isOnAWorkspace = !isMultiWorkspaceEnabled

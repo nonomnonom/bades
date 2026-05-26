@@ -25,7 +25,7 @@ export const extractRawVariableNamePart = ({
         : null;
 
   if (!isDefined(extractedPart)) {
-    throw new Error('Expected to find at least one splitted chunk.');
+    throw new Error('Bagian yang diharapkan tidak ditemukan.');
   }
 
   return extractedPart;

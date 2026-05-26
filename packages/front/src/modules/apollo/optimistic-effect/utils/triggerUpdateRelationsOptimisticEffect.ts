@@ -413,7 +413,7 @@ const extractTargetRecordsFromRelation = (
     return [];
   }
   if (!isDefined(relation)) {
-    throw new Error('Relation found is undefined');
+    throw new Error('Relasi yang ditemukan adalah undefined');
   }
   if (relation.type === RelationType.ONE_TO_MANY) {
     return value.edges.map(({ node }: { node: RecordGqlNode }) => node);

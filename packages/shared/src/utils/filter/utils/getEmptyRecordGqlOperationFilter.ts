@@ -125,7 +125,7 @@ export const getEmptyRecordGqlOperationFilter = ({
           }
           default: {
             throw new Error(
-              `Unsupported composite field name ${compositeFieldName} for filter type ${filterType}`,
+              `Nama field gabungan tidak didukung ${compositeFieldName} untuk tipe filter ${filterType}`,
             );
           }
         }
@@ -373,7 +373,7 @@ export const getEmptyRecordGqlOperationFilter = ({
       break;
     default:
       throw new CustomError(
-        `Unsupported empty filter type ${filterType}`,
+        `Tipe filter kosong tidak didukung ${filterType}`,
         'UNSUPPORTED_EMPTY_FILTER_TYPE',
       );
   }
@@ -387,7 +387,7 @@ export const getEmptyRecordGqlOperationFilter = ({
       };
     default:
       throw new CustomError(
-        `Unknown operand ${operand} for ${filterType} filter`,
+        `Operand tidak dikenal ${operand} untuk filter ${filterType}`,
         'UNKNOWN_OPERAND_FOR_FILTER',
       );
   }

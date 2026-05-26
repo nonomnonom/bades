@@ -43,7 +43,7 @@ export const castAsPositiveIntegerOrNull = (
   if (
     canBeCastAsPositiveIntegerOrNull(probablePositiveNumberOrNull) === false
   ) {
-    throw new Error('Cannot cast to positive number or null');
+    throw new Error('Tidak dapat mengonversi ke angka positif atau null');
   }
 
   if (probablePositiveNumberOrNull === null) {

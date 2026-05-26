@@ -5,7 +5,7 @@ import { isDefined } from 'shared/utils';
 
 export const encodeCursor = (record: ObjectRecord) => {
   if (!('id' in record) || !isDefined(record.id)) {
-    throw new Error('Record does not have an id');
+    throw new Error('Record tidak memiliki id');
   }
 
   const payload: {

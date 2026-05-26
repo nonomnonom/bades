@@ -16,7 +16,7 @@ export const useContextStoreObjectMetadataItemOrThrow = (
   });
 
   if (!isDefined(objectMetadataItem)) {
-    throw new Error('Object metadata item is not set in context store');
+    throw new Error('Object metadata item tidak diatur di context store');
   }
 
   return { objectMetadataItem };

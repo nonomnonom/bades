@@ -99,7 +99,7 @@ export class InMemoryTestingCacheInstance {
     expect(cachedRecord).not.toBeNull();
 
     if (cachedRecord === null) {
-      throw new Error('Should never occurs, cachedRecord is null');
+      throw new Error('Tidak boleh terjadi, cachedRecord null');
     }
 
     if (isDefined(matchObject)) {

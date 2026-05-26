@@ -8,7 +8,7 @@ export const extractFolderPathFilenameAndTypeOrThrow = (
   type: string;
 } => {
   if (!isNonEmptyString(fullPath)) {
-    throw new Error('Invalid fullPath provided');
+    throw new Error('fullPath yang diberikan tidak valid');
   }
   const parts = fullPath.split('/');
   const filename = parts.pop() || '';

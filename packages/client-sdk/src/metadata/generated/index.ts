@@ -351,7 +351,7 @@ export class MetadataApiClient {
     if (!this.fetchImplementation) {
       throw new Error(
         'Global `fetch` function is not available, ' +
-          'pass a fetch implementation to the Twenty client',
+          'pass a fetch implementation to the Bades client',
       );
     }
 
@@ -460,7 +460,7 @@ export class MetadataApiClient {
           return refreshedAccessToken;
         })
         .catch((refreshError: unknown) => {
-          console.error('Twenty client: token refresh failed', refreshError);
+          console.error('Bades client: refresh token gagal', refreshError);
 
           return null;
         })

@@ -35,7 +35,7 @@ export const validateRelationSubfield = ({
   }
 
   if (isDefined(nestedSubFieldName) && nestedSubFieldName.includes('.')) {
-    throw new Error(`Relation subfield "${subFieldName}" is invalid.`);
+    throw new Error(`Subfield relasi "${subFieldName}" tidak valid.`);
   }
 
   let targetObjectId = field.relationTargetObjectMetadataId ?? null;
@@ -74,7 +74,7 @@ export const validateRelationSubfield = ({
   }
 
   if (!isCompositeFieldMetadataType(nestedField.type)) {
-    throw new Error(`Field "${nestedFieldName}" is not composite.`);
+    throw new Error(`Field "${nestedFieldName}" bukan tipe komposit.`);
   }
 
   validateCompositeSubfield({

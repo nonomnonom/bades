@@ -70,10 +70,10 @@ export class WorkspaceManagerService {
       },
     );
 
-    // Bades SID standard seed: 23 objek desa (Penduduk, Keluarga, Wilayah,
-    // Lembaga Desa, Surat, Anggaran, Bantuan, Aset, dll) di-tanam ke setiap
-    // workspace baru menggantikan defaults CRM. Idempotent — aman kalau
-    // dipanggil ulang lewat upgrade command.
+    // Bades SID standard seed: 9 objek desa (Penduduk, Keluarga, Wilayah,
+    // Layanan, Surat, Perangkat Desa, Program Bantuan, Penerima Bantuan,
+    // Aset Desa) di-tanam ke setiap workspace baru menggantikan defaults
+    // CRM. Idempotent — aman kalau dipanggil ulang lewat upgrade command.
     const sidSeedResult =
       await this.sidStandardSeedService.seedSidStandardObjects({
         workspaceId,
@@ -81,6 +81,19 @@ export class WorkspaceManagerService {
 
     this.logger.log(
       `Seed SID standard untuk workspace ${workspaceId}: ${sidSeedResult.createdObjects} objek, ${sidSeedResult.createdFields} field`,
+    );
+
+    // Setelah metadata + table fisik dibuat oleh workspace migration runner
+    // (terpicu di dalam createManyFields), tanam sample record contoh agar
+    // operator desa tidak melihat tabel kosong saat pertama kali login.
+    const sidDataResult =
+      await this.sidStandardSeedService.seedSidStandardData({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `Seed data contoh SID untuk workspace ${workspaceId}: ${sidDataResult.insertedRecords} record`,
     );
 
     const dataSourceMetadataCreationEnd = performance.now();

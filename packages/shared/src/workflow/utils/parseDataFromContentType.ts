@@ -22,7 +22,7 @@ const parseFormData = (data: InputData): FormData => {
         form.append(key, String(val)),
       );
     } catch {
-      throw new Error('String data for FormData must be valid JSON');
+      throw new Error('Data string untuk FormData harus JSON yang valid');
     }
   } else {
     Object.entries(data).forEach(([key, val]) => form.append(key, val));

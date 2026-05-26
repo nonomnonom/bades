@@ -41,7 +41,7 @@ const renewTokenMutation = async (
   });
 
   if (isUndefinedOrNull(result.data)) {
-    throw new Error('Token renewal returned empty data');
+    throw new Error('Perpanjangan token mengembalikan data kosong');
   }
 
   return result.data;
@@ -52,7 +52,7 @@ export const renewToken = async (
   tokenPair: AuthTokenPair | undefined | null,
 ) => {
   if (!tokenPair) {
-    throw new Error('Refresh token is not defined');
+    throw new Error('Refresh token tidak terdefinisi');
   }
 
   const data = await renewTokenMutation(uri, tokenPair.refreshToken.token);

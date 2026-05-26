@@ -13,7 +13,7 @@ export const fromArrayToUniqueKeyRecord = <T extends object>({
 
     if (isDefined(acc[currentUniqueKey])) {
       throw new Error(
-        `Should never occur, flat array contains twice the same unique key ${occurrence[uniqueKey]}`,
+        `Tidak seharusnya terjadi, array datar mengandung kunci unik yang sama dua kali: ${occurrence[uniqueKey]}`,
       );
     }
 

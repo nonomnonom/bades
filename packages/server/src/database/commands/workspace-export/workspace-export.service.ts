@@ -68,7 +68,7 @@ export class WorkspaceExportService {
       .findOne({ where: { id: workspaceId } });
 
     if (!workspace) {
-      throw new Error(`Workspace ${workspaceId} not found`);
+      throw new Error(`Workspace ${workspaceId} tidak ditemukan`);
     }
 
     const schemaName = getWorkspaceSchemaName(workspaceId);

@@ -32,14 +32,14 @@ export class WorkspaceSchemaForeignKeyManagerService {
 
     if (foreignKey.onDelete) {
       if (!ALLOWED_FK_ACTIONS.has(foreignKey.onDelete)) {
-        throw new Error(`Unsupported ON DELETE action: ${foreignKey.onDelete}`);
+        throw new Error(`Aksi ON DELETE tidak didukung: ${foreignKey.onDelete}`);
       }
       sql += ` ON DELETE ${foreignKey.onDelete}`;
     }
 
     if (foreignKey.onUpdate) {
       if (!ALLOWED_FK_ACTIONS.has(foreignKey.onUpdate)) {
-        throw new Error(`Unsupported ON UPDATE action: ${foreignKey.onUpdate}`);
+        throw new Error(`Aksi ON UPDATE tidak didukung: ${foreignKey.onUpdate}`);
       }
       sql += ` ON UPDATE ${foreignKey.onUpdate}`;
     }

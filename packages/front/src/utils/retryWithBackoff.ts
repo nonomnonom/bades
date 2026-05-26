@@ -28,5 +28,5 @@ export const retryWithBackoff = async <T>(
     }
   }
 
-  throw new Error('Unreachable');
+  throw new Error('Tidak tercapai');
 };

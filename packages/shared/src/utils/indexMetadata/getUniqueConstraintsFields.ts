@@ -31,7 +31,7 @@ export const getUniqueConstraintsFields = <
 
   if (!isDefined(primaryKeyConstraintField)) {
     throw new Error(
-      `Primary key constraint field not found for object metadata ${objectMetadata.id}`,
+      `Bidang constraint primary key tidak ditemukan untuk objek metadata ${objectMetadata.id}`,
     );
   }
 
@@ -41,7 +41,7 @@ export const getUniqueConstraintsFields = <
 
       if (!isDefined(indexField)) {
         throw new Error(
-          `Index field not found for field id ${field.fieldMetadataId} in index metadata ${index.id}`,
+          `Bidang index tidak ditemukan untuk id bidang ${field.fieldMetadataId} pada metadata index ${index.id}`,
         );
       }
 

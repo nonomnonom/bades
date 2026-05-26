@@ -260,7 +260,7 @@ export class RelationFieldMetadataGqlInputTypeGenerator {
     const type = this.gqlTypesStorage.getGqlTypeByKey(key);
 
     if (!isDefined(type) || isObjectType(type)) {
-      throw new Error(`Input type ${key} not found`);
+      throw new Error(`Tipe input ${key} tidak ditemukan`);
     }
 
     return {

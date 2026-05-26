@@ -17,7 +17,7 @@ export const buildSignedPath = ({
 
   if (!isNonEmptyString(filename)) {
     throw new Error(
-      `Filename empty: cannot build signed path from folderPath '${path}'`,
+      `Nama berkas kosong: tidak dapat membuat jalur tertandatangani dari '${path}'`,
     );
   }
 

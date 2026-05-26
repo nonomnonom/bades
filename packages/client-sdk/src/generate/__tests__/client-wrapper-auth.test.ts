@@ -411,7 +411,7 @@ describe('Generated client wrapper auth behavior', () => {
     expect(requestAccessTokenRefresh).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(consoleErrorSpy).toHaveBeenCalledWith(
-      'Twenty client: token refresh failed',
+      'Bades client: refresh token gagal',
       expect.any(Error),
     );
 

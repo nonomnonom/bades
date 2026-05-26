@@ -436,10 +436,10 @@ export class DevSeederMetadataService {
     const targetObjectId = flatMaps.objectIdByName[field.targetObjectName];
 
     if (!isDefined(sourceObjectId)) {
-      throw new Error(`Source object not found: ${field.sourceObjectName}`);
+      throw new Error(`Objek sumber tidak ditemukan: ${field.sourceObjectName}`);
     }
     if (!isDefined(targetObjectId)) {
-      throw new Error(`Target object not found: ${field.targetObjectName}`);
+      throw new Error(`Objek target tidak ditemukan: ${field.targetObjectName}`);
     }
 
     await this.fieldMetadataService.createManyFields({
@@ -470,7 +470,7 @@ export class DevSeederMetadataService {
     const objectId = flatMaps.objectIdByName[objectName];
 
     if (!isDefined(objectId)) {
-      throw new Error(`Object not found: ${objectName}`);
+      throw new Error(`Objek tidak ditemukan: ${objectName}`);
     }
 
     const objectMetadata = findFlatEntityByIdInFlatEntityMaps({
@@ -479,7 +479,7 @@ export class DevSeederMetadataService {
     });
 
     if (!isDefined(objectMetadata)) {
-      throw new Error(`Object metadata not found: ${objectName}`);
+      throw new Error(`Metadata objek tidak ditemukan: ${objectName}`);
     }
 
     for (const fieldId of objectMetadata.fieldIds) {
@@ -493,6 +493,6 @@ export class DevSeederMetadataService {
       }
     }
 
-    throw new Error(`Field not found: ${objectName}.${fieldName}`);
+    throw new Error(`Field tidak ditemukan: ${objectName}.${fieldName}`);
   }
 }

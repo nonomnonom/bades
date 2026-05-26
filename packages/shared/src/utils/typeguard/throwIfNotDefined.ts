@@ -4,7 +4,7 @@ export const throwIfNotDefined = <T>(
 ): asserts value is NonNullable<T> => {
   if (value === null || value === undefined) {
     throw new Error(
-      `Value must be defined for variable ${variableName}, this should not happen`,
+      `Nilai harus terdefinisi untuk variabel ${variableName}, ini tidak boleh terjadi`,
     );
   }
 };

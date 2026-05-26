@@ -69,7 +69,7 @@ export class StreamingRestLink extends ApolloLink {
           }
 
           if (!response.body) {
-            throw new Error('Response body is null');
+            throw new Error('Body respons null');
           }
 
           const reader = response.body.getReader();
@@ -184,7 +184,7 @@ export class StreamingRestLink extends ApolloLink {
       return `${this.baseUri}${path}`;
     }
 
-    throw new Error('No valid URL found');
+    throw new Error('Tidak ada URL valid ditemukan');
   }
 
   private buildRequestConfig({

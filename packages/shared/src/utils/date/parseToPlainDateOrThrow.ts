@@ -19,5 +19,5 @@ export const parseToPlainDateOrThrow = (stringDate: string) => {
     //
   }
 
-  throw new Error(`Cannot parse date string as PlainDate : "${stringDate}"`);
+  throw new Error(`Tidak dapat mengurai string tanggal sebagai PlainDate: "${stringDate}"`);
 };

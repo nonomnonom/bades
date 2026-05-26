@@ -21,7 +21,7 @@ export const validateCompositeSubfield = ({
   }
 
   if (subFieldName.includes('.')) {
-    throw new Error(`Composite subfield "${subFieldName}" is invalid.`);
+    throw new Error(`Subfield komposit "${subFieldName}" tidak valid.`);
   }
 
   if (!allowedSubFields.includes(subFieldName)) {

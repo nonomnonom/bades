@@ -53,7 +53,7 @@ export const castAsNumberOrNull = (
   probableNumberOrNull: string | undefined | number | null,
 ): number | null => {
   if (canBeCastAsNumberOrNull(probableNumberOrNull) === false) {
-    throw new Error('Cannot cast to number or null');
+    throw new Error('Tidak dapat mengonversi ke angka atau null');
   }
 
   if (isNull(probableNumberOrNull)) {

@@ -74,6 +74,6 @@ export const mapDBPartToUIMessagePart = (
           } as ToolUIPart;
         }
       }
-      throw new Error(`Unsupported part type: ${part.type}`);
+      throw new Error(`Tipe bagian tidak didukung: ${part.type}`);
   }
 };

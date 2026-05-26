@@ -104,7 +104,7 @@ export const turnRecordFilterGroupsIntoGqlOperationFilter = ({
     };
   } else {
     throw new Error(
-      `Unknown logical operator ${currentRecordFilterGroup.logicalOperator}`,
+      `Operator logika tidak dikenal ${currentRecordFilterGroup.logicalOperator}`,
     );
   }
 };

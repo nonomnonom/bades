@@ -48,7 +48,7 @@ export const computeGqlOperationFilterForEmails = ({
             };
           default:
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${correspondingFieldMetadataItem.type} filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${correspondingFieldMetadataItem.type}`,
             );
         }
       }

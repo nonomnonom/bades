@@ -59,7 +59,7 @@ export const useRequestApplicationTokenRefresh = ({
       const newTokenPair = result.data?.frontComponent?.applicationTokenPair;
 
       if (!isDefined(newTokenPair)) {
-        throw new Error('Failed to refetch application token pair');
+        throw new Error('Gagal mengambil ulang token aplikasi');
       }
 
       store.set(applicationTokenPairAtom, newTokenPair);
@@ -95,7 +95,7 @@ export const useRequestApplicationTokenRefresh = ({
       const renewedTokenPair = renewResult.data?.renewApplicationToken;
 
       if (!isDefined(renewedTokenPair)) {
-        throw new Error('Failed to renew application token');
+        throw new Error('Gagal memperbarui token aplikasi');
       }
 
       store.set(applicationTokenPairAtom, renewedTokenPair);

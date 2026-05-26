@@ -85,13 +85,13 @@ export const computeGqlOperationFilterForLinks = ({
             };
           default:
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${correspondingFieldMetadataItem.type} filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${correspondingFieldMetadataItem.type}`,
             );
         }
       }
       default: {
         throw new Error( // TODO
-          `Unknown subfield name ${subFieldName}`,
+          `Nama subfield tidak dikenal ${subFieldName}`,
           // 'UNKNOWN_SUBFIELD_NAME',
         );
       }

@@ -75,7 +75,7 @@ export class GraphqlQueryFilterFieldParser {
     });
 
     if (!isDefined(fieldMetadata)) {
-      throw new Error(`Field metadata not found for field: ${key}`);
+      throw new Error(`Metadata field tidak ditemukan untuk field: ${key}`);
     }
 
     if (

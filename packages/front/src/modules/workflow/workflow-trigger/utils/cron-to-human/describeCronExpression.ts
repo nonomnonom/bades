@@ -19,7 +19,7 @@ export const describeCronExpression = (
   localeCatalog?: Locale,
 ): string => {
   if (!isDefined(expression) || expression.trim() === '') {
-    throw new Error('Cron expression is required');
+    throw new Error('Ekspresi cron wajib diisi');
   }
 
   try {
@@ -111,6 +111,6 @@ export const describeCronExpression = (
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : 'Unknown error';
-    throw new Error(`Failed to describe cron expression: ${errorMessage}`);
+    throw new Error(`Gagal mendeskripsikan ekspresi cron: ${errorMessage}`);
   }
 };

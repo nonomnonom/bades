@@ -22,7 +22,7 @@ export const computeMetadataNameFromLabel = ({
   });
 
   if (formattedString === '') {
-    throw new Error(`Invalid label: "${label}"`);
+    throw new Error(`Label tidak valid: "${label}"`);
   }
 
   const computedName = camelCase(formattedString);

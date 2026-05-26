@@ -50,7 +50,7 @@ export const parseSAMLMetadataFromXMLFile = (
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
     if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
-      throw new Error('Error parsing XML');
+      throw new Error('Error saat memproses XML');
     }
 
     const entityDescriptor = getByPrefixAndKey(xmlDoc, 'EntityDescriptor');

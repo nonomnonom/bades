@@ -75,7 +75,7 @@ export const getActivityTargetObjectRecords = ({
   const activityTargetObjectRecords = targets
     .map<ActivityTargetWithTargetRecord | undefined>((activityTarget) => {
       if (!isDefined(activityTarget)) {
-        throw new Error('Cannot find activity target');
+        throw new Error('Tidak dapat menemukan target aktivitas');
       }
 
       if (isDefined(activityTarget.deletedAt)) {

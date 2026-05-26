@@ -137,7 +137,7 @@ export const useAuth = () => {
         }
 
         if (!getLoginTokenResult.data?.getLoginTokenFromCredentials) {
-          throw new Error('No login token');
+          throw new Error('Token login tidak ada');
         }
 
         return getLoginTokenResult.data.getLoginTokenFromCredentials;
@@ -173,7 +173,7 @@ export const useAuth = () => {
       }
 
       if (!loginTokenResult.data?.verifyEmailAndGetLoginToken) {
-        throw new Error('No login token');
+        throw new Error('Token login tidak ada');
       }
 
       return loginTokenResult.data.verifyEmailAndGetLoginToken;
@@ -200,7 +200,7 @@ export const useAuth = () => {
       }
 
       if (!data?.verifyEmailAndGetWorkspaceAgnosticToken) {
-        throw new Error('No workspace agnostic token in result');
+        throw new Error('Token workspace-agnostic tidak ada di hasil');
       }
 
       handleSetAuthTokens(data.verifyEmailAndGetWorkspaceAgnosticToken.tokens);
@@ -256,7 +256,7 @@ export const useAuth = () => {
         }
 
         if (!getAuthTokensResult.data?.getAuthTokensFromLoginToken) {
-          throw new Error('No getAuthTokensFromLoginToken result');
+          throw new Error('Tidak ada hasil getAuthTokensFromLoginToken');
         }
 
         await handleLoadWorkspaceAfterAuthentication(
@@ -373,7 +373,7 @@ export const useAuth = () => {
       }
 
       if (!signUpResult.data?.signUp) {
-        throw new Error('No signUp result');
+        throw new Error('Tidak ada hasil signUp');
       }
 
       handleSetAuthTokens(signUpResult.data.signUp.tokens);
@@ -450,7 +450,7 @@ export const useAuth = () => {
       }
 
       if (!signUpInWorkspaceResult.data?.signUpInWorkspace) {
-        throw new Error('No login token');
+        throw new Error('Token login tidak ada');
       }
 
       if (isEmailVerificationRequired) {
