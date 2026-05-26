@@ -10,7 +10,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 describe('computeContextStoreFilters', () => {
   const personObjectMetadataItem =
     getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'person',
+      (item) => item.nameSingular === 'penduduk',
     )!;
 
   const mockFilterValueDependencies: RecordFilterValueDependencies = {

@@ -4,8 +4,8 @@ export const mockPerformance = {
   objectMetadataItem: {
     __typename: 'object',
     id: '4916628e-8570-4242-8970-f58c509e5a93',
-    nameSingular: 'person',
-    namePlural: 'people',
+    nameSingular: 'penduduk',
+    namePlural: 'penduduks',
     primaryLinkLabelSingular: 'Person',
     primaryLinkLabelPlural: 'People',
     description: 'A person',
@@ -42,8 +42,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',
@@ -53,8 +53,8 @@ export const mockPerformance = {
           targetObjectMetadata: {
             __typename: 'object',
             id: '79c2d29c-76f6-432f-91c9-df1259b73d95',
-            nameSingular: 'company',
-            namePlural: 'companies',
+            nameSingular: 'keluarga',
+            namePlural: 'keluargas',
           },
           targetFieldMetadata: {
             __typename: 'field',
@@ -122,8 +122,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',
@@ -166,8 +166,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',
@@ -177,8 +177,8 @@ export const mockPerformance = {
           targetObjectMetadata: {
             __typename: 'object',
             id: '494b9b7c-a44e-4d52-b274-cdfb0e322165',
-            nameSingular: 'opportunity',
-            namePlural: 'opportunities',
+            nameSingular: 'programBantuan',
+            namePlural: 'programBantuans',
           },
           targetFieldMetadata: {
             __typename: 'field',
@@ -210,8 +210,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',
@@ -293,8 +293,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',
@@ -445,8 +445,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',
@@ -531,8 +531,8 @@ export const mockPerformance = {
           sourceObjectMetadata: {
             __typename: 'object',
             id: '4916628e-8570-4242-8970-f58c509e5a93',
-            nameSingular: 'person',
-            namePlural: 'people',
+            nameSingular: 'penduduk',
+            namePlural: 'penduduks',
           },
           sourceFieldMetadata: {
             __typename: 'field',

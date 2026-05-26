@@ -20,10 +20,10 @@ import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 
 const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
   id: 'obj-1',
-  nameSingular: 'company',
-  namePlural: 'companies',
-  labelSingular: 'Company',
-  labelPlural: 'Companies',
+  nameSingular: 'keluarga',
+  namePlural: 'keluargas',
+  labelSingular: 'Keluarga',
+  labelPlural: 'Keluarga',
   fields: [
     {
       id: 'field-company-name',

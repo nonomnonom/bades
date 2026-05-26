@@ -73,7 +73,7 @@ describe('buildDatabaseEventPayload', () => {
       buildDatabaseEventPayload({ eventName: 'person.created' }),
     ).toMatchObject({
       name: 'person.created',
-      objectMetadata: { nameSingular: 'person' },
+      objectMetadata: { nameSingular: 'penduduk' },
       properties: { after: {}, before: null, updatedFields: [] },
     });
   });

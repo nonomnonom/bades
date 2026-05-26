@@ -10,8 +10,8 @@ import {
 describe('buildSortsFromChartConfig', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
     id: 'obj-1',
-    nameSingular: 'opportunity',
-    namePlural: 'opportunities',
+    nameSingular: 'programBantuan',
+    namePlural: 'programBantuans',
     fields: [
       {
         id: 'field-status',

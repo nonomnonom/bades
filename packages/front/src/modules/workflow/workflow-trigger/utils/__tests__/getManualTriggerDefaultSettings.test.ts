@@ -5,10 +5,10 @@ import { getManualTriggerDefaultSettings } from '@/workflow/workflow-trigger/uti
 const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
   {
     id: 'company-id',
-    nameSingular: 'company',
-    namePlural: 'companies',
-    labelSingular: 'Company',
-    labelPlural: 'Companies',
+    nameSingular: 'keluarga',
+    namePlural: 'keluargas',
+    labelSingular: 'Keluarga',
+    labelPlural: 'Keluarga',
     icon: 'IconBuilding',
     fields: [],
     createdAt: new Date(),
@@ -67,7 +67,7 @@ describe('getManualTriggerDefaultSettings', () => {
         objectType: 'company',
         availability: {
           type: 'SINGLE_RECORD',
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
         },
         outputSchema: {},
         icon: COMMAND_MENU_DEFAULT_ICON,
@@ -80,10 +80,10 @@ describe('getManualTriggerDefaultSettings', () => {
         ...mockObjectMetadataItems,
         {
           id: 'person-id',
-          nameSingular: 'person',
-          namePlural: 'people',
-          labelSingular: 'Person',
-          labelPlural: 'People',
+          nameSingular: 'penduduk',
+          namePlural: 'penduduks',
+          labelSingular: 'Penduduk',
+          labelPlural: 'Penduduk',
           icon: 'IconUser',
           fields: [],
         } as unknown as EnrichedObjectMetadataItem,
@@ -113,7 +113,7 @@ describe('getManualTriggerDefaultSettings', () => {
         objectType: 'company',
         availability: {
           type: 'BULK_RECORDS',
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
         },
         outputSchema: {},
         icon: COMMAND_MENU_DEFAULT_ICON,

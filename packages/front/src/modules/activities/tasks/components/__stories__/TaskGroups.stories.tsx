@@ -10,7 +10,7 @@ import { SidePanelDecorator } from '~/testing/decorators/SidePanelDecorator';
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
 import { graphqlMocks } from '~/testing/graphqlMocks';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 
 const meta: Meta<typeof TaskGroups> = {
   title: 'Modules/Activity/TaskGroups',
@@ -39,7 +39,7 @@ type Story = StoryObj<typeof TaskGroups>;
 
 export const Empty: Story = {};
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 

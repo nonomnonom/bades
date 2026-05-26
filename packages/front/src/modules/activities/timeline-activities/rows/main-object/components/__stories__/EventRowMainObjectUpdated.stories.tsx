@@ -36,7 +36,7 @@ const meta: Meta<typeof EventRowMainObjectUpdated> = {
       },
     } as TimelineActivity,
     mainObjectMetadataItem: getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'person',
+      (item) => item.nameSingular === 'penduduk',
     ),
   },
   decorators: [

@@ -54,8 +54,8 @@ describe('MentionTag', () => {
                 type: 'mentionTag',
                 attrs: {
                   recordId: 'abc-123',
-                  objectNameSingular: 'company',
-                  label: 'Acme Corp',
+                  objectNameSingular: 'keluarga',
+                  label: 'Keluarga Santoso',
                   imageUrl: 'https://example.com/logo.png',
                 },
               },
@@ -67,7 +67,7 @@ describe('MentionTag', () => {
 
       const text = editor.getText();
 
-      expect(text).toBe('Hello [[record:company:abc-123:Acme Corp]] world');
+      expect(text).toBe('Hello [[record:keluarga:abc-123:Keluarga Santoso]] world');
     });
 
     it('should handle mentions with empty label', () => {
@@ -81,7 +81,7 @@ describe('MentionTag', () => {
                 type: 'mentionTag',
                 attrs: {
                   recordId: 'id-456',
-                  objectNameSingular: 'person',
+                  objectNameSingular: 'penduduk',
                   label: '',
                   imageUrl: '',
                 },
@@ -93,7 +93,7 @@ describe('MentionTag', () => {
 
       const text = editor.getText();
 
-      expect(text).toBe('[[record:person:id-456:]]');
+      expect(text).toBe('[[record:penduduk:id-456:]]');
     });
 
     it('should serialize multiple mentions in the same paragraph', () => {
@@ -107,8 +107,8 @@ describe('MentionTag', () => {
                 type: 'mentionTag',
                 attrs: {
                   recordId: 'r1',
-                  objectNameSingular: 'person',
-                  label: 'Alice',
+                  objectNameSingular: 'penduduk',
+                  label: 'Aisyah',
                   imageUrl: '',
                 },
               },
@@ -117,8 +117,8 @@ describe('MentionTag', () => {
                 type: 'mentionTag',
                 attrs: {
                   recordId: 'r2',
-                  objectNameSingular: 'company',
-                  label: 'Beta Inc',
+                  objectNameSingular: 'keluarga',
+                  label: 'Keluarga Wijaya',
                   imageUrl: '',
                 },
               },
@@ -130,7 +130,7 @@ describe('MentionTag', () => {
       const text = editor.getText();
 
       expect(text).toBe(
-        '[[record:person:r1:Alice]] and [[record:company:r2:Beta Inc]]',
+        '[[record:penduduk:r1:Aisyah]] and [[record:keluarga:r2:Keluarga Wijaya]]',
       );
     });
   });
@@ -147,8 +147,8 @@ describe('MentionTag', () => {
           type: 'mentionTag',
           attrs: {
             recordId: 'test-id',
-            objectNameSingular: 'opportunity',
-            label: 'Big Deal',
+            objectNameSingular: 'programBantuan',
+            label: 'Sukamaju',
             imageUrl: 'https://example.com/img.png',
           },
         })
@@ -156,7 +156,7 @@ describe('MentionTag', () => {
 
       const text = editor.getText();
 
-      expect(text).toContain('[[record:opportunity:test-id:Big Deal]]');
+      expect(text).toContain('[[record:programBantuan:test-id:Sukamaju]]');
     });
   });
 

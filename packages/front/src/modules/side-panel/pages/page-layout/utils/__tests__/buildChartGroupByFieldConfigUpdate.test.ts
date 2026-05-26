@@ -16,10 +16,10 @@ import {
 describe('buildChartGroupByFieldConfigUpdate', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
     id: 'object-id',
-    nameSingular: 'opportunity',
-    namePlural: 'opportunities',
-    labelSingular: 'Opportunity',
-    labelPlural: 'Opportunities',
+    nameSingular: 'programBantuan',
+    namePlural: 'programBantuans',
+    labelSingular: 'Program Bantuan',
+    labelPlural: 'Program Bantuan',
     description: 'An opportunity',
     icon: 'IconTargetArrow',
     isActive: true,

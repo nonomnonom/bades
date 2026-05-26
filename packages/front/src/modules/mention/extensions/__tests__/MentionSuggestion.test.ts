@@ -72,8 +72,8 @@ describe('MentionSuggestion', () => {
         type: 'mentionTag',
         attrs: {
           recordId: 'test-id',
-          objectNameSingular: 'company',
-          label: 'Acme',
+          objectNameSingular: 'keluarga',
+          label: 'Mekar Sari',
           imageUrl: '',
         },
       })
@@ -82,7 +82,7 @@ describe('MentionSuggestion', () => {
 
     const text = editor.getText();
 
-    expect(text).toContain('[[record:company:test-id:Acme]]');
+    expect(text).toContain('[[record:keluarga:test-id:Mekar Sari]]');
   });
 
   it('should accept @ character in editor content', () => {

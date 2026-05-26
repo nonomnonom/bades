@@ -9,8 +9,8 @@ import { type MockedResponse } from '@apollo/client/testing';
 import { InMemoryTestingCacheInstance } from '~/testing/cache/inMemoryTestingCacheInstance';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
@@ -20,11 +20,11 @@ const mockRefetchAggregateQueries = jest.fn();
   refetchAggregateQueries: mockRefetchAggregateQueries,
 });
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
-const flatCompanyRecords = mockedCompanyRecords.map((record) =>
+const flatCompanyRecords = mockedKeluargaRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -33,8 +33,8 @@ describe('useDeleteOneRecord', () => {
   const personRecord = {
     ...flatPersonRecords[0],
     deletedAt: null,
-    companyId: matchingCompanyId,
-    company: { ...flatCompanyRecords[0] },
+    kartuKeluargaId: matchingCompanyId,
+    kartuKeluarga: { ...flatCompanyRecords[0] },
   };
   const relatedCompanyRecord = flatCompanyRecords[0];
   const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
@@ -114,7 +114,7 @@ describe('useDeleteOneRecord', () => {
         });
         assertCachedRecordIsNull({
           objectMetadataItem: companyObjectMetadataItem,
-          recordId: personRecord.company.id,
+          recordId: personRecord.kartuKeluarga.id,
         });
       });
 
@@ -126,7 +126,7 @@ describe('useDeleteOneRecord', () => {
       const apolloMocks: MockedResponse[] = getDefaultMocks({
         delay: Number.POSITIVE_INFINITY,
       });
-      expect(personRecord).toHaveProperty('company');
+      expect(personRecord).toHaveProperty('kartuKeluarga');
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
@@ -148,7 +148,7 @@ describe('useDeleteOneRecord', () => {
             objectMetadataItem: personObjectMetadataItem,
           });
           assertCachedRecordIsNull({
-            recordId: personRecord.company.id,
+            recordId: personRecord.kartuKeluarga.id,
             objectMetadataItem: companyObjectMetadataItem,
           });
         });
@@ -247,7 +247,7 @@ describe('useDeleteOneRecord', () => {
         });
         assertCachedRecordMatchSnapshot({
           objectMetadataItem: companyObjectMetadataItem,
-          recordId: personRecord.company.id,
+          recordId: personRecord.kartuKeluarga.id,
         });
       });
 
@@ -289,7 +289,7 @@ describe('useDeleteOneRecord', () => {
           });
           assertCachedRecordMatchSnapshot({
             objectMetadataItem: companyObjectMetadataItem,
-            recordId: personRecord.company.id,
+            recordId: personRecord.kartuKeluarga.id,
           });
         });
       });
@@ -329,7 +329,7 @@ describe('useDeleteOneRecord', () => {
           });
           assertCachedRecordMatchSnapshot({
             objectMetadataItem: companyObjectMetadataItem,
-            recordId: personRecord.company.id,
+            recordId: personRecord.kartuKeluarga.id,
           });
         }
       });

@@ -103,7 +103,7 @@ describe('getJunctionConfig', () => {
       });
       const companyObject = createMockObjectMetadata({
         id: 'company-metadata-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
       });
 
       const result = getJunctionConfig({

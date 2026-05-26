@@ -1,14 +1,14 @@
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
 import { ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { gql } from '@apollo/client';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 
 export const query = gql`
-  mutation UpdateManyPeople(
-    $filter: PersonFilterInput!
-    $data: PersonUpdateInput!
+  mutation UpdateManyPenduduks(
+    $filter: PendudukFilterInput!
+    $data: PendudukUpdateInput!
   ) {
-    updatePeople(filter: $filter, data: $data) {
+    updatePenduduks(filter: $filter, data: $data) {
       id
       __typename
     }
@@ -20,7 +20,7 @@ export const personIds = [
   '37faabcd-cb39-4a0a-8618-7e3fda9afca0',
 ];
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -30,7 +30,7 @@ export const personRecords = personIds.map<ObjectRecord>((personId, index) => ({
 }));
 
 export const updateInput = {
-  city: 'Updated City',
+  tempatLahir: 'Kota Baru',
 };
 
 export const variables = {
@@ -46,7 +46,7 @@ export const updatedPersonRecords = personIds.map<ObjectRecord>(
   (personId, index) => ({
     ...flatPersonRecords[index],
     id: personId,
-    city: 'Updated City',
+    tempatLahir: 'Kota Baru',
   }),
 );
 

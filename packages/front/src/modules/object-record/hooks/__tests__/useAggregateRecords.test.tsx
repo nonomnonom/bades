@@ -19,8 +19,8 @@ jest.mock('@/object-metadata/hooks/useObjectMetadataItem');
 jest.mock('@/object-record/hooks/useAggregateRecordsQuery');
 
 const mockObjectMetadataItem = {
-  nameSingular: 'opportunity',
-  namePlural: 'opportunities',
+  nameSingular: 'programBantuan',
+  namePlural: 'programBantuans',
 };
 
 const mockGqlFieldToFieldMap = {
@@ -55,7 +55,7 @@ describe('useAggregateRecords', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecords({
-          objectNameSingular: 'opportunity',
+          objectNameSingular: 'programBantuan',
           recordGqlFieldsAggregate: {
             amount: [AggregateOperations.SUM, AggregateOperations.AVG],
             name: [AggregateOperations.COUNT],
@@ -89,7 +89,7 @@ describe('useAggregateRecords', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecords({
-          objectNameSingular: 'opportunity',
+          objectNameSingular: 'programBantuan',
           recordGqlFieldsAggregate: {
             amount: [AggregateOperations.SUM],
           },
@@ -114,7 +114,7 @@ describe('useAggregateRecords', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecords({
-          objectNameSingular: 'opportunity',
+          objectNameSingular: 'programBantuan',
           recordGqlFieldsAggregate: {
             amount: [AggregateOperations.SUM],
           },
@@ -132,7 +132,7 @@ describe('useAggregateRecords', () => {
     renderHook(
       () =>
         useAggregateRecords({
-          objectNameSingular: 'opportunity',
+          objectNameSingular: 'programBantuan',
           recordGqlFieldsAggregate: {
             amount: [AggregateOperations.SUM],
           },

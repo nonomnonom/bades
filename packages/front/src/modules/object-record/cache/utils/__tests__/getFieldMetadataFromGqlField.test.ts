@@ -5,8 +5,8 @@ import { getFieldMetadataFromGqlField } from '@/object-record/cache/utils/getFie
 
 const objectMetadataItemGenerator = (relationType: RelationType) => {
   return {
-    nameSingular: 'opportunity',
-    namePlural: 'opportunities',
+    nameSingular: 'programBantuan',
+    namePlural: 'programBantuans',
     fields: [
       {
         name: 'owner',
@@ -15,8 +15,8 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
           {
             type: relationType,
             targetObjectMetadata: {
-              nameSingular: 'company',
-              namePlural: 'companies',
+              nameSingular: 'keluarga',
+              namePlural: 'keluargas',
             },
             targetFieldMetadata: {
               name: 'ownedBy',
@@ -27,15 +27,15 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
               type: FieldMetadataType.MORPH_RELATION,
             },
             sourceObjectMetadata: {
-              nameSingular: 'opportunity',
-              namePlural: 'opportunities',
+              nameSingular: 'programBantuan',
+              namePlural: 'programBantuans',
             },
           },
           {
             type: relationType,
             targetObjectMetadata: {
-              nameSingular: 'person',
-              namePlural: 'people',
+              nameSingular: 'penduduk',
+              namePlural: 'penduduks',
             },
             targetFieldMetadata: {
               name: 'ownedBy',
@@ -46,8 +46,8 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
               type: FieldMetadataType.MORPH_RELATION,
             },
             sourceObjectMetadata: {
-              nameSingular: 'opportunity',
-              namePlural: 'opportunities',
+              nameSingular: 'programBantuan',
+              namePlural: 'programBantuans',
             },
           },
         ],

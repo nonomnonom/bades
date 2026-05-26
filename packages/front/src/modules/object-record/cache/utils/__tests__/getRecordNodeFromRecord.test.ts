@@ -1,10 +1,10 @@
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { getRecordNodeFromRecord } from '@/object-record/cache/utils/getRecordNodeFromRecord';
 
-const peopleMock = [...mockedPersonRecords];
+const peopleMock = [...mockedPendudukRecords];
 
 describe('getRecordNodeFromRecord', () => {
   it('computes relation records cache references by default', () => {
@@ -25,8 +25,8 @@ describe('getRecordNodeFromRecord', () => {
     }
 
     const recordGqlFields = {
-      name: true,
-      company: true,
+      namaLengkap: true,
+      kartuKeluarga: true,
     };
     const record = peopleMock[0];
 
@@ -41,13 +41,13 @@ describe('getRecordNodeFromRecord', () => {
     // Then
     expect(result).toEqual({
       __typename: 'Person',
-      company: {
-        __ref: `Company:${record.company.id}`,
+      kartuKeluarga: {
+        __ref: `Keluarga:${record.kartuKeluarga.id}`,
       },
-      name: {
+      namaLengkap: {
         __typename: 'FullName',
-        firstName: record.name.firstName,
-        lastName: record.name.lastName,
+        firstName: record.namaLengkap.firstName,
+        lastName: record.namaLengkap.lastName,
       },
     });
   });
@@ -70,8 +70,8 @@ describe('getRecordNodeFromRecord', () => {
     }
 
     const recordGqlFields = {
-      name: true,
-      company: true,
+      namaLengkap: true,
+      kartuKeluarga: true,
     };
     const record = peopleMock[0];
     const computeReferences = false;
@@ -88,11 +88,11 @@ describe('getRecordNodeFromRecord', () => {
     // Then
     expect(result).toEqual({
       __typename: 'Person',
-      company: record.company,
-      name: {
+      kartuKeluarga: record.kartuKeluarga,
+      namaLengkap: {
         __typename: 'FullName',
-        firstName: record.name.firstName,
-        lastName: record.name.lastName,
+        firstName: record.namaLengkap.firstName,
+        lastName: record.namaLengkap.lastName,
       },
     });
   });

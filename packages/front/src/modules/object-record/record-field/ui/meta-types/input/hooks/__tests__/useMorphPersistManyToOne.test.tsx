@@ -18,13 +18,13 @@ jest.mock('@/object-metadata/hooks/useObjectMetadataItems', () => ({
     objectMetadataItems: [
       {
         id: 'company-metadata-id',
-        nameSingular: 'company',
-        namePlural: 'companies',
+        nameSingular: 'keluarga',
+        namePlural: 'keluargas',
       },
       {
         id: 'person-metadata-id',
-        nameSingular: 'person',
-        namePlural: 'people',
+        nameSingular: 'penduduk',
+        namePlural: 'penduduks',
       },
     ],
   }),
@@ -58,8 +58,8 @@ const mockMorphFieldDefinition = {
         },
         targetObjectMetadata: {
           id: 'company-metadata-id',
-          nameSingular: 'company',
-          namePlural: 'companies',
+          nameSingular: 'keluarga',
+          namePlural: 'keluargas',
         },
       },
       {
@@ -80,8 +80,8 @@ const mockMorphFieldDefinition = {
         },
         targetObjectMetadata: {
           id: 'person-metadata-id',
-          nameSingular: 'person',
-          namePlural: 'people',
+          nameSingular: 'penduduk',
+          namePlural: 'penduduks',
         },
       },
     ],

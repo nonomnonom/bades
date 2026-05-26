@@ -64,7 +64,7 @@ const meta: Meta<PageDecoratorArgs> = {
   args: {
     routePath: '/objects/:objectNamePlural',
     routeParams: {
-      ':objectNamePlural': 'companies',
+      ':objectNamePlural': 'keluargas',
     },
   },
   parameters: {
@@ -88,8 +88,8 @@ export const Default: Story = {
     expect(canvas.queryByText('Search')).toBeNull();
     expect(canvas.queryByText('Settings')).toBeNull();
     expect(canvas.queryByText('Tasks')).toBeNull();
-    expect(canvas.queryByText('People')).toBeNull();
-    expect(canvas.queryByText('Opportunities')).toBeNull();
+    expect(canvas.queryByText('Penduduk')).toBeNull();
+    expect(canvas.queryByText('Program Bantuan')).toBeNull();
     expect(canvas.queryByText('Listings')).toBeNull();
     expect(canvas.queryByText('My Customs')).toBeNull();
   },

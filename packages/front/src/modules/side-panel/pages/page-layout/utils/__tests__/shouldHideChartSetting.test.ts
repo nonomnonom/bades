@@ -207,10 +207,10 @@ describe('shouldHideChartSetting', () => {
 
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
       id: 'object-id',
-      nameSingular: 'opportunity',
-      namePlural: 'opportunities',
-      labelSingular: 'Opportunity',
-      labelPlural: 'Opportunities',
+      nameSingular: 'programBantuan',
+      namePlural: 'programBantuans',
+      labelSingular: 'Program Bantuan',
+      labelPlural: 'Program Bantuan',
       description: 'An opportunity',
       icon: 'IconTargetArrow',
       isActive: true,
@@ -391,14 +391,14 @@ describe('shouldHideChartSetting', () => {
         label: 'Company',
         type: FieldMetadataType.RELATION,
         relation: {
-          targetObjectMetadata: { id: 'company-id', nameSingular: 'company' },
+          targetObjectMetadata: { id: 'company-id', nameSingular: 'keluarga' },
         },
       };
 
       const targetObjectMetadata: any = {
         id: 'company-id',
-        nameSingular: 'company',
-        namePlural: 'companies',
+        nameSingular: 'keluarga',
+        namePlural: 'keluargas',
         fields: [
           {
             id: 'company-created-at',
@@ -505,10 +505,10 @@ describe('shouldHideChartSetting', () => {
 
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
       id: 'object-id',
-      nameSingular: 'opportunity',
-      namePlural: 'opportunities',
-      labelSingular: 'Opportunity',
-      labelPlural: 'Opportunities',
+      nameSingular: 'programBantuan',
+      namePlural: 'programBantuans',
+      labelSingular: 'Program Bantuan',
+      labelPlural: 'Program Bantuan',
       description: 'An opportunity',
       icon: 'IconTargetArrow',
       isActive: true,

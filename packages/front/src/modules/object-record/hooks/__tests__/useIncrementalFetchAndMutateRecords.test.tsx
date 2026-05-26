@@ -17,8 +17,8 @@ describe('useIncrementalFetchAndMutateRecords', () => {
     jest.clearAllMocks();
     mockUseObjectMetadataItem.mockReturnValue({
       objectMetadataItem: {
-        nameSingular: 'company',
-        namePlural: 'companies',
+        nameSingular: 'keluarga',
+        namePlural: 'keluargas',
       } as any,
     });
     mockUseLazyFindManyRecords.mockReturnValue({
@@ -53,7 +53,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalFetchAndMutateRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         limit: 2,
       } as any),
     );
@@ -95,7 +95,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalFetchAndMutateRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 
@@ -114,7 +114,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalFetchAndMutateRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 
@@ -135,7 +135,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalFetchAndMutateRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 
@@ -170,7 +170,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalFetchAndMutateRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 
@@ -184,7 +184,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalFetchAndMutateRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 

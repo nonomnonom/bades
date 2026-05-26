@@ -6,13 +6,13 @@ import { type View } from '@/views/types/View';
 const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
   {
     id: 'metadata-1',
-    nameSingular: 'person',
-    namePlural: 'people',
+    nameSingular: 'penduduk',
+    namePlural: 'penduduks',
   } as EnrichedObjectMetadataItem,
   {
     id: 'metadata-2',
-    nameSingular: 'company',
-    namePlural: 'companies',
+    nameSingular: 'keluarga',
+    namePlural: 'keluargas',
   } as EnrichedObjectMetadataItem,
 ];
 

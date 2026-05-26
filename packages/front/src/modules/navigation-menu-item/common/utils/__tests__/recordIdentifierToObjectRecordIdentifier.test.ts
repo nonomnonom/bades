@@ -21,7 +21,7 @@ describe('recordIdentifierToObjectRecordIdentifier', () => {
   };
 
   const baseObjectMetadataItem: EnrichedObjectMetadataItem = {
-    nameSingular: 'person',
+    nameSingular: 'penduduk',
   } as EnrichedObjectMetadataItem;
 
   beforeEach(() => {

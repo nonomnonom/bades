@@ -7,8 +7,8 @@ import { triggerUpdateGroupByQueriesOptimisticEffect } from '@/apollo/optimistic
 
 describe('triggerUpdateGroupByQueriesOptimisticEffect', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
-    nameSingular: 'person',
-    namePlural: 'people',
+    nameSingular: 'penduduk',
+    namePlural: 'penduduks',
   } as EnrichedObjectMetadataItem;
 
   const mockRecord: RecordGqlNode = {

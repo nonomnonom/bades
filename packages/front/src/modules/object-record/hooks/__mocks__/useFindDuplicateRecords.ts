@@ -1,8 +1,8 @@
 import { PERSON_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/personFragments';
 import { gql } from '@apollo/client';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 
-const peopleMock = [...mockedPersonRecords];
+const peopleMock = [...mockedPendudukRecords];
 
 export const query = gql`
   query FindDuplicatePerson($ids: [UUID!]!) {

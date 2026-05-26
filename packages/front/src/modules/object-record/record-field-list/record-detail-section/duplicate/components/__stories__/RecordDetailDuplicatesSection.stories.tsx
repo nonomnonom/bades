@@ -9,7 +9,7 @@ import { graphqlMocks } from '~/testing/graphqlMocks';
 import { RecordDetailDuplicatesSection } from '@/object-record/record-field-list/record-detail-section/duplicate/components/RecordDetailDuplicatesSection';
 import { ComponentDecorator } from 'ui/testing';
 import { PageLayoutType } from '~/generated-metadata/graphql';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 
 const meta: Meta<typeof RecordDetailDuplicatesSection> = {
   title:
@@ -20,7 +20,7 @@ const meta: Meta<typeof RecordDetailDuplicatesSection> = {
       <LayoutRenderingProvider
         value={{
           targetRecordIdentifier: {
-            id: mockedCompanyRecords[0].id,
+            id: mockedKeluargaRecords[0].id,
             targetObjectNameSingular: 'company',
           },
           layoutType: PageLayoutType.RECORD_PAGE,
@@ -36,7 +36,7 @@ const meta: Meta<typeof RecordDetailDuplicatesSection> = {
     MemoryRouterDecorator,
   ],
   args: {
-    objectRecordId: mockedCompanyRecords[0].id,
+    objectRecordId: mockedKeluargaRecords[0].id,
     objectNameSingular: CoreObjectNameSingular.Company,
   },
   parameters: {

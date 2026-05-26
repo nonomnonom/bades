@@ -193,8 +193,8 @@ describe('turnSortsIntoOrderBy', () => {
       indexMetadatas: [],
       createdAt: '2021-01-01',
       updatedAt: '2021-01-01',
-      nameSingular: 'company',
-      namePlural: 'companies',
+      nameSingular: 'keluarga',
+      namePlural: 'keluargas',
       labelIdentifierFieldMetadataId: 'company-name-field-id',
       icon: 'IconBuildingSkyscraper',
       isActive: true,
@@ -203,8 +203,8 @@ describe('turnSortsIntoOrderBy', () => {
       isCustom: false,
       isRemote: false,
       isSearchable: false,
-      labelPlural: 'Companies',
-      labelSingular: 'Company',
+      labelPlural: 'Keluarga',
+      labelSingular: 'Keluarga',
       isLabelSyncedWithName: true,
     };
 
@@ -224,7 +224,7 @@ describe('turnSortsIntoOrderBy', () => {
           relation: {
             type: RelationType.MANY_TO_ONE,
             targetObjectMetadata: {
-              nameSingular: 'company',
+              nameSingular: 'keluarga',
             },
           },
         } as unknown as FieldMetadataItem,
@@ -243,8 +243,8 @@ describe('turnSortsIntoOrderBy', () => {
       indexMetadatas: [],
       createdAt: '2021-01-01',
       updatedAt: '2021-01-01',
-      nameSingular: 'person',
-      namePlural: 'people',
+      nameSingular: 'penduduk',
+      namePlural: 'penduduks',
       labelIdentifierFieldMetadataId: 'person-name-field-id',
       icon: 'IconUser',
       isActive: true,
@@ -253,8 +253,8 @@ describe('turnSortsIntoOrderBy', () => {
       isCustom: false,
       isRemote: false,
       isSearchable: false,
-      labelPlural: 'People',
-      labelSingular: 'Person',
+      labelPlural: 'Penduduk',
+      labelSingular: 'Penduduk',
       isLabelSyncedWithName: true,
     };
 

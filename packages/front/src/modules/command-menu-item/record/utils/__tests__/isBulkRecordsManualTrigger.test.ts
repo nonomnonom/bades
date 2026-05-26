@@ -9,7 +9,7 @@ describe('isBulkRecordsManualTrigger', () => {
         outputSchema: {},
         availability: {
           type: 'BULK_RECORDS',
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
         },
       },
     };
@@ -24,7 +24,7 @@ describe('isBulkRecordsManualTrigger', () => {
         outputSchema: {},
         availability: {
           type: 'SINGLE_RECORD',
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
         },
       },
     };
@@ -61,7 +61,7 @@ describe('isBulkRecordsManualTrigger', () => {
     const trigger: WorkflowTrigger = {
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
     };

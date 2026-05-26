@@ -302,10 +302,10 @@ describe('useBuildSpreadSheetImportFields', () => {
   it('should build importFields for relation field type', () => {
     const targetObjectMetadata = createMockObjectMetadataItem({
       id: 'target-object-id',
-      nameSingular: 'company',
-      namePlural: 'companies',
-      labelSingular: 'Company',
-      labelPlural: 'Companies',
+      nameSingular: 'keluarga',
+      namePlural: 'keluargas',
+      labelSingular: 'Keluarga',
+      labelPlural: 'Keluarga',
       fields: [
         createMockFieldMetadataItem({
           id: 'company-id-field',
@@ -401,8 +401,8 @@ describe('useBuildSpreadSheetImportFields', () => {
           type: RelationType.MANY_TO_ONE,
           targetObjectMetadata: {
             id: 'target-object-id',
-            nameSingular: 'company',
-            namePlural: 'companies',
+            nameSingular: 'keluarga',
+            namePlural: 'keluargas',
           },
         } as any,
       }),

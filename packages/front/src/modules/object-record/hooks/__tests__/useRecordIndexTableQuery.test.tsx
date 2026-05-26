@@ -14,7 +14,7 @@ import { QUERY_DEFAULT_LIMIT_RECORDS } from 'shared/constants';
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 import { JestRecordIndexContextProviderWrapper } from '~/testing/jest/JestRecordIndexContextProviderWrapper';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { generateMockRecordConnection } from '~/testing/utils/generateMockRecordConnection';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
@@ -22,7 +22,7 @@ const recordTableId = 'people';
 const objectNameSingular = 'person';
 const mockPersonObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -34,14 +34,14 @@ const mocks: MockedResponse[] = [
   {
     request: {
       query: gql`
-        query FindManyPeople(
-          $filter: PersonFilterInput
-          $orderBy: [PersonOrderByInput]
+        query FindManyPenduduks(
+          $filter: PendudukFilterInput
+          $orderBy: [PendudukOrderByInput]
           $lastCursor: String
           $limit: Int
           $offset: Int
         ) {
-          people(
+          penduduks(
             filter: $filter
             orderBy: $orderBy
             first: $limit
@@ -113,8 +113,8 @@ const mocks: MockedResponse[] = [
     },
     result: jest.fn(() => ({
       data: {
-        people: generateMockRecordConnection({
-          objectNameSingular: 'person',
+        penduduks: generateMockRecordConnection({
+          objectNameSingular: 'penduduk',
           records: flatPersonRecords,
         }),
       },

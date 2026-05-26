@@ -7,7 +7,7 @@ import {
 } from 'shared/types';
 import { computeRecordGqlOperationFilter, isDefined } from 'shared/utils';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';

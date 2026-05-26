@@ -37,12 +37,12 @@ describe('useNavigateSettings', () => {
     });
 
     result.current(SettingsPath.ObjectFieldEdit, {
-      objectNamePlural: 'companies',
+      objectNamePlural: 'keluargas',
       fieldName: 'name',
     });
 
     expect(mockNavigate).toHaveBeenCalledWith(
-      '/settings/objects/companies/name',
+      '/settings/objects/keluargas/name',
       undefined,
     );
   });

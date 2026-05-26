@@ -16,7 +16,7 @@ type ViewMetadata = Pick<View, 'id' | 'name' | 'objectMetadataId' | 'key'>;
 
 const objectMetadataItems: ObjectMetadata[] = [
   { id: 'obj-1', labelPlural: 'Notes', nameSingular: 'note' },
-  { id: 'obj-2', labelPlural: 'Companies', nameSingular: 'company' },
+  { id: 'obj-2', labelPlural: 'Keluarga', nameSingular: 'keluarga' },
 ];
 
 const views: ViewMetadata[] = [
@@ -155,12 +155,12 @@ describe('getNavigationMenuItemLabel', () => {
         type: NavigationMenuItemType.RECORD,
         targetRecordIdentifier: {
           id: 'rec-1',
-          labelIdentifier: 'Acme Corp',
+          labelIdentifier: 'Keluarga Santoso',
         },
       };
 
       expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
-        'Acme Corp',
+        'Keluarga Santoso',
       );
     });
 

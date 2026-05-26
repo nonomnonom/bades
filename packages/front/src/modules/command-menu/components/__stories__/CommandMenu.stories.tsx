@@ -64,7 +64,7 @@ const ContextStoreDecorator: Decorator = (Story) => {
             value={{ instanceId: SIDE_PANEL_COMPONENT_INSTANCE_ID }}
           >
             <JestContextStoreSetter
-              contextStoreCurrentObjectMetadataNameSingular="company"
+              contextStoreCurrentObjectMetadataNameSingular="keluarga"
               contextStoreCurrentViewId="1"
               contextStoreCurrentViewType={ContextStoreViewType.Table}
             >
@@ -113,11 +113,11 @@ const meta: Meta<typeof SidePanelCommandMenuItemDisplayPage> = {
       const objectMetadataItems = jotaiStore.get(
         objectMetadataItemsSelector.atom,
       );
-      const companyMetadataItem = objectMetadataItems.find(
-        (item) => item.nameSingular === 'company',
+      const keluargaMetadataItem = objectMetadataItems.find(
+        (item) => item.nameSingular === 'keluarga',
       );
 
-      if (companyMetadataItem === undefined) {
+      if (keluargaMetadataItem === undefined) {
         return <Story />;
       }
 
@@ -125,7 +125,7 @@ const meta: Meta<typeof SidePanelCommandMenuItemDisplayPage> = {
         contextStoreCurrentObjectMetadataItemIdComponentState.atomFamily({
           instanceId: MAIN_CONTEXT_STORE_INSTANCE_ID,
         }),
-        companyMetadataItem.id,
+        keluargaMetadataItem.id,
       );
       jotaiStore.set(
         contextStoreCurrentViewTypeComponentState.atomFamily({

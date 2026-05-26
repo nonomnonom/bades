@@ -9,9 +9,9 @@ import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 describe('filterAndSortNavigationMenuItems', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
     id: 'metadata-id',
-    nameSingular: 'person',
-    namePlural: 'people',
-    labelPlural: 'People',
+    nameSingular: 'penduduk',
+    namePlural: 'penduduks',
+    labelPlural: 'Penduduk',
     icon: 'IconUser',
     isActive: true,
   } as EnrichedObjectMetadataItem;

@@ -15,7 +15,7 @@ const meta: Meta<PageDecoratorArgs> = {
   args: {
     routePath: '/objects/:objectNamePlural',
     routeParams: {
-      ':objectNamePlural': 'companies',
+      ':objectNamePlural': 'keluargas',
     },
   },
   parameters: {
@@ -39,6 +39,6 @@ export const Default: Story = {
     await canvas.findByText('Search');
     await canvas.findByText('Settings');
     await canvas.findByText('Opened');
-    await canvas.findByText('Companies');
+    await canvas.findByText('Keluarga');
   },
 };

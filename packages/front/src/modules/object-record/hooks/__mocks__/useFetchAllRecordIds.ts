@@ -2,17 +2,17 @@ import { type RecordGqlConnectionEdgesRequired } from '@/object-record/graphql/t
 import { gql } from '@apollo/client';
 
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { generateMockRecordConnection } from '~/testing/utils/generateMockRecordConnection';
 
 export const query = gql`
-  query FindManyPeople(
-    $filter: PersonFilterInput
-    $orderBy: [PersonOrderByInput]
+  query FindManyPenduduks(
+    $filter: PendudukFilterInput
+    $orderBy: [PendudukOrderByInput]
     $lastCursor: String
     $limit: Int
   ) {
-    people(
+    penduduks(
       filter: $filter
       orderBy: $orderBy
       first: $limit
@@ -38,12 +38,12 @@ export const query = gql`
 
 export const mockPageSize = 2;
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
 const baseConnection = generateMockRecordConnection({
-  objectNameSingular: 'person',
+  objectNameSingular: 'penduduk',
   records: flatPersonRecords,
 });
 
@@ -103,7 +103,7 @@ const paginateRequestResponse = (
 };
 
 export const responseFirstRequest = {
-  people: paginateRequestResponse(
+  penduduks: paginateRequestResponse(
     peopleMockWithIdsOnly,
     0,
     mockPageSize,
@@ -113,7 +113,7 @@ export const responseFirstRequest = {
 };
 
 export const responseSecondRequest = {
-  people: paginateRequestResponse(
+  penduduks: paginateRequestResponse(
     peopleMockWithIdsOnly,
     mockPageSize,
     mockPageSize * 2,
@@ -123,7 +123,7 @@ export const responseSecondRequest = {
 };
 
 export const responseThirdRequest = {
-  people: paginateRequestResponse(
+  penduduks: paginateRequestResponse(
     peopleMockWithIdsOnly,
     mockPageSize * 2,
     mockPageSize * 3,

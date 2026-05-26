@@ -1,11 +1,11 @@
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
 import { ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { gql } from '@apollo/client';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 
 export const query = gql`
-  mutation DeleteManyPeople($filter: PersonFilterInput!) {
-    deletePeople(filter: $filter) {
+  mutation DeleteManyPenduduks($filter: PendudukFilterInput!) {
+    deletePenduduks(filter: $filter) {
       id
       __typename
     }
@@ -17,7 +17,7 @@ export const personIds = [
   '37faabcd-cb39-4a0a-8618-7e3fda9afca0',
 ];
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 

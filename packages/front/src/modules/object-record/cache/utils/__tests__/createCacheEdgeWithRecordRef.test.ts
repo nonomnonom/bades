@@ -18,7 +18,7 @@ describe('createCacheEdgeWithRecordRef', () => {
     };
 
     const objectMetadataItem = {
-      nameSingular: 'person',
+      nameSingular: 'penduduk',
     } as EnrichedObjectMetadataItem;
 
     const mockReference: Reference = {
@@ -52,7 +52,7 @@ describe('createCacheEdgeWithRecordRef', () => {
     };
 
     const objectMetadataItem = {
-      nameSingular: 'person',
+      nameSingular: 'penduduk',
     } as EnrichedObjectMetadataItem;
 
     const toReference: ToReferenceFunction = jest.fn(() => undefined);

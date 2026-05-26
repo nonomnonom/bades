@@ -37,12 +37,12 @@ const fields = [
 ];
 
 const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
-  nameSingular: 'company',
-  namePlural: 'companies',
+  nameSingular: 'keluarga',
+  namePlural: 'keluargas',
   id: 'test-id',
   universalIdentifier: 'test-id',
-  labelSingular: 'Company',
-  labelPlural: 'Companies',
+  labelSingular: 'Keluarga',
+  labelPlural: 'Keluarga',
   isCustom: false,
   isSearchable: false,
   labelIdentifierFieldMetadataId: '20202020-dd4a-4ea4-bb7b-1c7300491b65',
@@ -83,7 +83,7 @@ describe('useAggregateRecordsQuery', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecordsQuery({
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           recordGqlFieldsAggregate: {
             name: [AggregateOperations.COUNT],
           },
@@ -106,7 +106,7 @@ describe('useAggregateRecordsQuery', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecordsQuery({
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           recordGqlFieldsAggregate: {
             amount: [AggregateOperations.SUM],
           },
@@ -130,7 +130,7 @@ describe('useAggregateRecordsQuery', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecordsQuery({
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           recordGqlFieldsAggregate: {
             name: [AggregateOperations.SUM],
           },
@@ -145,7 +145,7 @@ describe('useAggregateRecordsQuery', () => {
     const { result } = renderHook(
       () =>
         useAggregateRecordsQuery({
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           recordGqlFieldsAggregate: {
             amount: [AggregateOperations.SUM],
             name: [AggregateOperations.COUNT],

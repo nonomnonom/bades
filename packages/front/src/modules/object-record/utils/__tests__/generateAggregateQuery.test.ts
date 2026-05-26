@@ -4,12 +4,12 @@ import { generateAggregateQuery } from '@/object-record/utils/generateAggregateQ
 describe('generateAggregateQuery', () => {
   it('should generate correct aggregate query', () => {
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
-      nameSingular: 'company',
-      namePlural: 'companies',
+      nameSingular: 'keluarga',
+      namePlural: 'keluargas',
       id: 'test-id',
       universalIdentifier: 'test-id',
-      labelSingular: 'Company',
-      labelPlural: 'Companies',
+      labelSingular: 'Keluarga',
+      labelPlural: 'Keluarga',
       labelIdentifierFieldMetadataId: '20202020-72ba-4e11-a36d-e17b544541e1',
       isCustom: false,
       isActive: true,
@@ -47,12 +47,12 @@ describe('generateAggregateQuery', () => {
 
   it('should handle empty record fields', () => {
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
-      nameSingular: 'person',
-      namePlural: 'people',
+      nameSingular: 'penduduk',
+      namePlural: 'penduduks',
       id: 'test-id',
       universalIdentifier: 'test-id',
-      labelSingular: 'Person',
-      labelPlural: 'People',
+      labelSingular: 'Penduduk',
+      labelPlural: 'Penduduk',
       labelIdentifierFieldMetadataId: '20202020-72ba-4e11-a36d-e17b544541e1',
       isCustom: false,
       isActive: true,

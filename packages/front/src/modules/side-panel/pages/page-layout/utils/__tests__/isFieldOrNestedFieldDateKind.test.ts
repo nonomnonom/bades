@@ -54,7 +54,7 @@ describe('isFieldOrNestedFieldDateKind', () => {
 
     const companyObjectMetadataItem = {
       id: 'company-id',
-      nameSingular: 'company',
+      nameSingular: 'keluarga',
       fields: [
         {
           name: 'createdAt',

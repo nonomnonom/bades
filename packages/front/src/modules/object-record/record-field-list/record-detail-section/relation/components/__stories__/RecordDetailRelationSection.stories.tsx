@@ -14,9 +14,9 @@ import { LayoutRenderingProvider } from '@/ui/layout/contexts/LayoutRenderingCon
 import { ComponentDecorator } from 'ui/testing';
 import { PageLayoutType } from '~/generated-metadata/graphql';
 import { SidePanelDecorator } from '~/testing/decorators/SidePanelDecorator';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 
 const mockedCompanyObjectMetadataItem =
@@ -37,7 +37,7 @@ const meta: Meta<typeof RecordDetailRelationSection> = {
       <LayoutRenderingProvider
         value={{
           targetRecordIdentifier: {
-            id: mockedCompanyRecords[0].id,
+            id: mockedKeluargaRecords[0].id,
             targetObjectNameSingular: 'company',
           },
           layoutType: PageLayoutType.RECORD_PAGE,
@@ -49,7 +49,7 @@ const meta: Meta<typeof RecordDetailRelationSection> = {
         >
           <FieldContext.Provider
             value={{
-              recordId: mockedCompanyRecords[0].id,
+              recordId: mockedKeluargaRecords[0].id,
               isLabelIdentifier: false,
               fieldDefinition: formatFieldMetadataItemAsFieldDefinition({
                 field: mockedCompanyObjectMetadataItem.fields.find(
@@ -77,7 +77,7 @@ const meta: Meta<typeof RecordDetailRelationSection> = {
   ],
   parameters: {
     msw: graphqlMocks,
-    records: mockedCompanyRecords,
+    records: mockedKeluargaRecords,
   },
 };
 
@@ -86,7 +86,7 @@ type Story = StoryObj<typeof RecordDetailRelationSection>;
 
 export const EmptyState: Story = {};
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -95,7 +95,7 @@ export const WithRecords: Story = {
   parameters: {
     records: [
       {
-        ...mockedCompanyRecords[0],
+        ...mockedKeluargaRecords[0],
         people: flatPersonRecords,
       },
       ...flatPersonRecords,

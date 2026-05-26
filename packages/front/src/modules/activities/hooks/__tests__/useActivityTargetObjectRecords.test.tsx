@@ -178,6 +178,6 @@ describe('useActivityTargetObjectRecords', () => {
     );
     expect(
       activityTargetObjectRecords[0].targetObjectMetadataItem.nameSingular,
-    ).toEqual('person');
+    ).toEqual('penduduk');
   });
 });

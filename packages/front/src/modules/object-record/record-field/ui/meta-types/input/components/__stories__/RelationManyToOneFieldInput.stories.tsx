@@ -26,7 +26,7 @@ import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
 
 import { RelationManyToOneFieldInput } from '@/object-record/record-field/ui/meta-types/input/components/RelationManyToOneFieldInput';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 import { getFieldInputEventContextProviderWithJestMocks } from './utils/getFieldInputEventContextProviderWithJestMocks';
@@ -168,7 +168,7 @@ export const Submit: Story = {
     expect(handleSubmitMocked).toHaveBeenCalledTimes(0);
 
     const item = await canvas.findByText(
-      mockedCompanyRecords[0].name,
+      mockedKeluargaRecords[0].nomorKk,
       undefined,
       {
         timeout: 3000,
@@ -188,7 +188,7 @@ export const Cancel: Story = {
     const canvas = within(canvasElement);
 
     expect(handleCancelMocked).toHaveBeenCalledTimes(0);
-    await canvas.findByText(mockedCompanyRecords[0].name, undefined, {
+    await canvas.findByText(mockedKeluargaRecords[0].nomorKk, undefined, {
       timeout: 3000,
     });
 

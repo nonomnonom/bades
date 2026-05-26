@@ -12,8 +12,8 @@ import { processGroupByConnectionWithRecords } from '@/apollo/optimistic-effect/
 
 describe('processGroupByConnectionWithRecords', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
-    nameSingular: 'person',
-    namePlural: 'people',
+    nameSingular: 'penduduk',
+    namePlural: 'penduduks',
   } as EnrichedObjectMetadataItem;
 
   const mockRecord: RecordGqlNode = {
