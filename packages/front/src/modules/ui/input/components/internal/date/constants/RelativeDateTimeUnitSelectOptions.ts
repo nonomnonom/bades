@@ -9,7 +9,7 @@ type RelativeDateUnitOption = {
 export const RELATIVE_DATETIME_UNITS_SELECT_OPTIONS: RelativeDateUnitOption[] =
   [
     ...RELATIVE_DATE_UNITS_SELECT_OPTIONS,
-    { value: 'HOUR', label: 'Hour' },
-    { value: 'MINUTE', label: 'Minute' },
-    { value: 'SECOND', label: 'Second' },
+    { value: 'HOUR', label: 'Jam' },
+    { value: 'MINUTE', label: 'Menit' },
+    { value: 'SECOND', label: 'Detik' },
   ];

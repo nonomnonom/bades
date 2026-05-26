@@ -267,34 +267,34 @@ export class DevSeederPermissionsService {
       },
     });
 
-    const personCityFieldMetadata = personObjectMetadata.fields.find(
-      (field) => field.name === 'city',
+    const personNikFieldMetadata = personObjectMetadata.fields.find(
+      (field) => field.name === 'nik',
     );
 
-    if (!personCityFieldMetadata) {
-      throw new Error('Metadata kolom kota tidak ditemukan');
+    if (!personNikFieldMetadata) {
+      throw new Error('Metadata kolom NIK tidak ditemukan');
     }
 
-    const companyLinkedinLinkFieldMetadata = companyObjectMetadata.fields.find(
-      (field) => field.name === 'linkedinLink',
+    const companyAlamatFieldMetadata = companyObjectMetadata.fields.find(
+      (field) => field.name === 'alamat',
     );
 
-    if (!companyLinkedinLinkFieldMetadata) {
+    if (!companyAlamatFieldMetadata) {
       throw new Error(
-        'Metadata kolom link linkedin perusahaan tidak ditemukan',
+        'Metadata kolom alamat keluarga tidak ditemukan',
       );
     }
 
-    const readOnlyOnPersonCityFieldPermission = {
+    const readOnlyOnPersonNikFieldPermission = {
       objectMetadataId: personObjectMetadata.id,
-      fieldMetadataId: personCityFieldMetadata.id,
+      fieldMetadataId: personNikFieldMetadata.id,
       canReadFieldValue: null,
       canUpdateFieldValue: false,
     };
 
-    const noReadOnCompanyLinkedinLinkFieldPermission = {
+    const noReadOnCompanyAlimatFieldPermission = {
       objectMetadataId: companyObjectMetadata.id,
-      fieldMetadataId: companyLinkedinLinkFieldMetadata.id,
+      fieldMetadataId: companyAlamatFieldMetadata.id,
       canReadFieldValue: false,
       canUpdateFieldValue: false,
     };
@@ -304,8 +304,8 @@ export class DevSeederPermissionsService {
       input: {
         roleId: customRole.id,
         fieldPermissions: [
-          readOnlyOnPersonCityFieldPermission,
-          noReadOnCompanyLinkedinLinkFieldPermission,
+          readOnlyOnPersonNikFieldPermission,
+          noReadOnCompanyAlimatFieldPermission,
         ],
       },
     });
