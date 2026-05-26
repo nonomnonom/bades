@@ -1,55 +1,53 @@
-import { TEST_COMPANY_1_ID } from 'test/integration/constants/test-company-ids.constants';
+import { TEST_KELUARGA_1_ID } from 'test/integration/constants/test-keluarga-ids.constants';
 import {
-  TEST_PERSON_1_ID,
-  TEST_PERSON_2_ID,
-  TEST_PERSON_3_ID,
-} from 'test/integration/constants/test-person-ids.constants';
-import { TEST_PRIMARY_LINK_URL } from 'test/integration/constants/test-primary-link-url.constant';
+  TEST_PENDUDUK_1_ID,
+  TEST_PENDUDUK_2_ID,
+  TEST_PENDUDUK_3_ID,
+} from 'test/integration/constants/test-penduduk-ids.constants';
 import { makeRestAPIRequest } from 'test/integration/rest/utils/make-rest-api-request.util';
 import { deleteAllRecords } from 'test/integration/utils/delete-all-records';
 
 describe('Core REST API Find Duplicates endpoint', () => {
   beforeAll(async () => {
-    await deleteAllRecords('person');
-    await deleteAllRecords('company');
+    await deleteAllRecords('penduduk');
+    await deleteAllRecords('keluarga');
 
     await makeRestAPIRequest({
       method: 'post',
-      path: '/companies',
+      path: '/keluargas',
       body: {
-        id: TEST_COMPANY_1_ID,
-        domainName: {
-          primaryLinkUrl: TEST_PRIMARY_LINK_URL,
-        },
+        id: TEST_KELUARGA_1_ID,
+        nomorKk: '3201010101000001',
       },
     }).expect(201);
 
+    // Dua penduduk dengan NIK berbeda tapi namaLengkap sama → dianggap duplikat
     await makeRestAPIRequest({
       method: 'post',
-      path: '/batch/people',
+      path: '/batch/penduduks',
       body: [
         {
-          id: TEST_PERSON_1_ID,
-          companyId: TEST_COMPANY_1_ID,
-          name: {
-            firstName: 'John',
-            lastName: 'Doe',
+          id: TEST_PENDUDUK_1_ID,
+          kartuKeluargaId: TEST_KELUARGA_1_ID,
+          namaLengkap: {
+            firstName: 'Budi',
+            lastName: 'Santoso',
           },
         },
         {
-          id: TEST_PERSON_2_ID,
-          companyId: TEST_COMPANY_1_ID,
-          name: {
-            firstName: 'John',
-            lastName: 'Doe',
+          id: TEST_PENDUDUK_2_ID,
+          kartuKeluargaId: TEST_KELUARGA_1_ID,
+          namaLengkap: {
+            firstName: 'Budi',
+            lastName: 'Santoso',
           },
         },
         {
-          id: TEST_PERSON_3_ID,
-          companyId: TEST_COMPANY_1_ID,
-          name: {
-            firstName: 'Phil',
-            lastName: 'Collins',
+          id: TEST_PENDUDUK_3_ID,
+          kartuKeluargaId: TEST_KELUARGA_1_ID,
+          namaLengkap: {
+            firstName: 'Siti',
+            lastName: 'Rahayu',
           },
         },
       ],
@@ -59,13 +57,13 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should retrieve duplicates by object data', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates`,
+      path: `/penduduks/duplicates`,
       body: {
         data: [
           {
-            name: {
-              firstName: 'John',
-              lastName: 'Doe',
+            namaLengkap: {
+              firstName: 'Budi',
+              lastName: 'Santoso',
             },
           },
         ],
@@ -78,21 +76,21 @@ describe('Core REST API Find Duplicates endpoint', () => {
     const duplicatesInfo = data[0];
 
     expect(duplicatesInfo.totalCount).toBe(2);
-    expect(duplicatesInfo.personDuplicates.length).toBe(2);
+    expect(duplicatesInfo.pendudukDuplicates.length).toBe(2);
 
-    const [personDuplicated1, personDuplicated2] =
-      duplicatesInfo.personDuplicates;
+    const [pendudukDuplicated1, pendudukDuplicated2] =
+      duplicatesInfo.pendudukDuplicates;
 
-    expect(personDuplicated1.id).toBe(TEST_PERSON_1_ID);
-    expect(personDuplicated2.id).toBe(TEST_PERSON_2_ID);
+    expect(pendudukDuplicated1.id).toBe(TEST_PENDUDUK_1_ID);
+    expect(pendudukDuplicated2.id).toBe(TEST_PENDUDUK_2_ID);
   });
 
   it('should retrieve duplicates by ids', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates`,
+      path: `/penduduks/duplicates`,
       body: {
-        ids: [TEST_PERSON_1_ID],
+        ids: [TEST_PENDUDUK_1_ID],
       },
     }).expect(200);
 
@@ -102,23 +100,23 @@ describe('Core REST API Find Duplicates endpoint', () => {
     const duplicatesInfo = data[0];
 
     expect(duplicatesInfo.totalCount).toBe(1);
-    expect(duplicatesInfo.personDuplicates.length).toBe(1);
+    expect(duplicatesInfo.pendudukDuplicates.length).toBe(1);
 
-    const [personDuplicated] = duplicatesInfo.personDuplicates;
+    const [pendudukDuplicated] = duplicatesInfo.pendudukDuplicates;
 
-    expect(personDuplicated.id).toBe(TEST_PERSON_2_ID);
+    expect(pendudukDuplicated.id).toBe(TEST_PENDUDUK_2_ID);
   });
 
   it('should not provide wrong duplicates', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates`,
+      path: `/penduduks/duplicates`,
       body: {
         data: [
           {
-            name: {
-              firstName: 'Not',
-              lastName: 'Existing',
+            namaLengkap: {
+              firstName: 'Tidak',
+              lastName: 'Ada',
             },
           },
         ],
@@ -131,13 +129,13 @@ describe('Core REST API Find Duplicates endpoint', () => {
     const duplicatesInfo = data[0];
 
     expect(duplicatesInfo.totalCount).toBe(0);
-    expect(duplicatesInfo.personDuplicates.length).toBe(0);
+    expect(duplicatesInfo.pendudukDuplicates.length).toBe(0);
   });
 
   it('should return 400 error when empty object data provided', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates`,
+      path: `/penduduks/duplicates`,
       body: {
         data: [],
       },
@@ -152,7 +150,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should return empty result when empty ids provided', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates`,
+      path: `/penduduks/duplicates`,
       body: {
         ids: [],
       },
@@ -164,7 +162,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should return 400 error when ids and data are provided', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates`,
+      path: `/penduduks/duplicates`,
       body: {
         data: [],
         ids: [],
@@ -180,13 +178,13 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should support depth 0 parameter', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates?depth=0`,
+      path: `/penduduks/duplicates?depth=0`,
       body: {
         data: [
           {
-            name: {
-              firstName: 'John',
-              lastName: 'Doe',
+            namaLengkap: {
+              firstName: 'Budi',
+              lastName: 'Santoso',
             },
           },
         ],
@@ -198,25 +196,25 @@ describe('Core REST API Find Duplicates endpoint', () => {
     expect(data.length).toBe(1);
     const duplicatesInfo = data[0];
 
-    const [personDuplicated1, personDuplicated2] =
-      duplicatesInfo.personDuplicates;
+    const [pendudukDuplicated1, pendudukDuplicated2] =
+      duplicatesInfo.pendudukDuplicates;
 
-    expect(personDuplicated1.companyId).toBe(TEST_COMPANY_1_ID);
-    expect(personDuplicated1.company).not.toBeDefined();
-    expect(personDuplicated2.companyId).toBe(TEST_COMPANY_1_ID);
-    expect(personDuplicated2.company).not.toBeDefined();
+    expect(pendudukDuplicated1.kartuKeluargaId).toBe(TEST_KELUARGA_1_ID);
+    expect(pendudukDuplicated1.kartuKeluarga).not.toBeDefined();
+    expect(pendudukDuplicated2.kartuKeluargaId).toBe(TEST_KELUARGA_1_ID);
+    expect(pendudukDuplicated2.kartuKeluarga).not.toBeDefined();
   });
 
   it('should support depth 1 parameter', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates?depth=1`,
+      path: `/penduduks/duplicates?depth=1`,
       body: {
         data: [
           {
-            name: {
-              firstName: 'John',
-              lastName: 'Doe',
+            namaLengkap: {
+              firstName: 'Budi',
+              lastName: 'Santoso',
             },
           },
         ],
@@ -228,28 +226,28 @@ describe('Core REST API Find Duplicates endpoint', () => {
     expect(data.length).toBe(1);
     const duplicatesInfo = data[0];
 
-    const [personDuplicated1, personDuplicated2] =
-      duplicatesInfo.personDuplicates;
+    const [pendudukDuplicated1, pendudukDuplicated2] =
+      duplicatesInfo.pendudukDuplicates;
 
-    expect(personDuplicated1.company).toBeDefined();
-    expect(personDuplicated1.company.id).toBe(TEST_COMPANY_1_ID);
-    expect(personDuplicated1.company.people).not.toBeDefined();
+    expect(pendudukDuplicated1.kartuKeluarga).toBeDefined();
+    expect(pendudukDuplicated1.kartuKeluarga.id).toBe(TEST_KELUARGA_1_ID);
+    expect(pendudukDuplicated1.kartuKeluarga.penduduks).not.toBeDefined();
 
-    expect(personDuplicated2.company).toBeDefined();
-    expect(personDuplicated2.company.id).toBe(TEST_COMPANY_1_ID);
-    expect(personDuplicated2.company.people).not.toBeDefined();
+    expect(pendudukDuplicated2.kartuKeluarga).toBeDefined();
+    expect(pendudukDuplicated2.kartuKeluarga.id).toBe(TEST_KELUARGA_1_ID);
+    expect(pendudukDuplicated2.kartuKeluarga.penduduks).not.toBeDefined();
   });
 
   it('should not support depth 2 parameter', async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people/duplicates?depth=2`,
+      path: `/penduduks/duplicates?depth=2`,
       body: {
         data: [
           {
-            name: {
-              firstName: 'John',
-              lastName: 'Doe',
+            namaLengkap: {
+              firstName: 'Budi',
+              lastName: 'Santoso',
             },
           },
         ],
