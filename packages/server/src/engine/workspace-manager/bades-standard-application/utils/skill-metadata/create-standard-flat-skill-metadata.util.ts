@@ -151,7 +151,7 @@ Prioritize data integrity and provide clear feedback on operations performed.`,
         content: `# Workspace Demo Seeding Skill
 You will transform the existing standard workspace into a fully custom demo tailored to the user's business type.
 
-The goal is to tell a coherent and realistic story with the data: custom fields added to standard objects, new custom objects for domain-specific entities, rich relations, seeded and updated records, views, and enrichment data (emails, calendar events, tasks, notes, files) that make the workspace feel like a real company in operation.
+The goal is to tell a coherent and realistic story with the data: custom fields added to standard objects, new custom objects for domain-specific entities, rich relations, seeded and updated records, views, and enrichment data (emails, calendar events, tasks, notes, files) that make the workspace feel like a real village administration system in operation.
 
 ## Object strategy
 
@@ -219,7 +219,7 @@ STEP 7: Rename and enrich the first N records of People, Companies, and Opportun
   - Ordering by position ascending gives the earliest-inserted records, which are contiguous in the table — this keeps the demo data tightly grouped and makes the workspace feel coherent
 - For each standard object, call update_people / update_companies / update_opportunities **individually per record** (one call per record) to set domain-relevant names and field values:
   - **People**: replace nameFirstName + nameLastName with realistic names that fit the domain role (e.g. for a law firm: "Sophie Martin", "James O'Brien"; for a clinic: "Dr. Clara Reyes", "Marco Bianchi"). Also set jobTitle to a domain-appropriate title.
-  - **Companies**: replace name with realistic company names that fit the domain (e.g. for a law firm: "Ashford & Partners", "Nexus Legal Group"; for a clinic: "Meridian Health Clinic", "CarePoint Medical").
+  - **Keluarga**: replace name with realistic household identifiers that fit the domain (e.g. nomor KK 16-digit like "3509012501800001", kepala keluarga like "Budi Santoso", alamat desa like "Jl. Mawar No. 12 RT 002/RW 003 Desa Sumberejo").
   - **Opportunities**: replace name with a domain-relevant deal name (e.g. "Q2 retainer — Ashford & Partners", "New patient intake — Meridian Health").
   - Also set the new custom fields on each record: spread realistic values across SELECT fields, set plausible CURRENCY/NUMERIC amounts, set DATE_TIME fields around TODAY.
 - Do this one record at a time — the API does not support bulk individual updates with different values per record
@@ -354,9 +354,9 @@ You help users create and manage dashboards with widgets.
 ## Subfield Syntax
 
 - Composite: \`address\` + \`addressCity\` → subFieldName "addressCity"
-- Relation to scalar field: \`company.name\` → subFieldName "name" (only when target "name" is a simple TEXT/NUMBER field)
+- Relation to scalar field: \`keluarga.nomorKk\` → subFieldName "nomorKk" (only when target "nomorKk" is a simple TEXT/NUMBER field)
 - Relation to composite field: \`owner.name\` where "name" is FULL_NAME → subFieldName must be "name.firstName" or "name.lastName" (NOT just "name")
-- Relation + composite: \`company.address.addressCity\` → subFieldName "address.addressCity"
+- Relation + composite: \`penduduk.alamat.addressCity\` → subFieldName "alamat.addressCity"
 - **Never omit subFieldName for relation fields** — grouping by ID is almost never useful
 - **IMPORTANT**: Check the target field's type from list_object_metadata_items. If it is composite (FULL_NAME, ADDRESS, CURRENCY, EMAILS, PHONES, LINKS), you MUST drill into a specific subfield using dot notation (e.g. "name.firstName", "address.addressCity", "emails.primaryEmail").
 
@@ -1146,9 +1146,9 @@ You help users create and configure views to organize how they see their records
 ## Workflow
 
 1. **Identify the target object**: If the user didn't specify which object, ask them. Present available objects and explain what each holds:
-   - **Company**: Business accounts (name, domain, employees, revenue, address)
-   - **Person**: Contacts (name, email, phone, job title, company)
-   - **Opportunity**: Pipeline deals (name, stage, amount, close date, company, contact)
+   - **Keluarga**: Kartu Keluarga (nomor KK, alamat, kepala keluarga)
+   - **Penduduk**: Warga sesuai KTP-el (nama, NIK, tanggal lahir, jenis kelamin, agama, alamat, keluarga)
+   - **Program Bantuan**: PKH/BLT-DD/BPNT/dst (nama, jenis bantuan, periode, anggaran)
    - **Task**: Action items (title, status, due date, assignee)
    - **Note**: Free-form notes (title, body)
    - Plus any custom objects in the workspace
@@ -1253,7 +1253,7 @@ Filters can be grouped with logical operators:
    - "Show only high-value opportunities (amount > $50K)"
    - "Show companies in a specific city or industry"
    - "Show tasks due this week, sorted by priority"
-   - "Show people from a specific company"
+   - "Tampilkan penduduk dari keluarga tertentu"
    - "Show recent records created in the last 30 days"
 
 3. **Inspect the view**: Use get_view_query_parameters to see existing filters/sorts and list_object_metadata_items to discover available fields.
@@ -1284,7 +1284,7 @@ Filters can be grouped with logical operators:
 - Active tasks: status IS_NOT "DONE"
 
 ### By Relationship
-- Records linked to a company: company relation IS [specific company]
+- Records linked to a keluarga: keluarga relation IS [specific keluarga]
 - Unassigned tasks: assignee IS_EMPTY
 - Orphaned records: relation field IS_EMPTY
 
@@ -1508,7 +1508,7 @@ python /home/user/scripts/pptx/rearrange.py input.pptx '[3, 1, 2]' output.pptx
 
 ### Find and Replace Text
 \`\`\`bash
-python /home/user/scripts/pptx/replace.py input.pptx '{"{{company}}": "Keluarga Santoso", "{{date}}": "2024"}' output.pptx
+python /home/user/scripts/pptx/replace.py input.pptx '{"{{keluarga}}": "Keluarga Santoso", "{{date}}": "2024"}' output.pptx
 \`\`\`
 
 ## Template Processing Workflow
