@@ -476,7 +476,7 @@ export class AdminPanelResolver {
     providerConfig: AiProviderConfig,
   ): Promise<boolean> {
     if (!/^[a-zA-Z0-9_-]+$/.test(providerName)) {
-      throw new UserInputError('Invalid provider name');
+      throw new UserInputError('Nama provider tidak valid');
     }
 
     const customProviders = {

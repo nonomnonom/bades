@@ -30,11 +30,11 @@ export class AdminPanelChatService {
     });
 
     if (!workspace) {
-      throw new UserInputError('Workspace not found');
+      throw new UserInputError('Workspace tidak ditemukan');
     }
 
     if (!workspace.allowImpersonation) {
-      throw new UserInputError('This workspace has not enabled support access');
+      throw new UserInputError('Workspace ini belum mengaktifkan akses dukungan');
     }
   }
 
@@ -69,7 +69,7 @@ export class AdminPanelChatService {
     });
 
     if (!thread) {
-      throw new UserInputError('Thread not found');
+      throw new UserInputError('Utas tidak ditemukan');
     }
 
     await this.assertWorkspaceAllowsImpersonation(thread.workspaceId);

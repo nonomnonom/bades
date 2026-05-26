@@ -25,7 +25,7 @@ export function useCachedMetadata(config: CacheMetadataPluginConfig): Plugin {
     const workspace = request.workspace;
 
     if (!isDefined(workspace)) {
-      throw new InternalServerError('Workspace is not defined');
+      throw new InternalServerError('Workspace tidak terdefinisi');
     }
 
     const workspaceMetadataVersion = workspace.metadataVersion ?? '0';

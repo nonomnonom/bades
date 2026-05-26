@@ -505,7 +505,7 @@ export class UserService extends TypeOrmQueryService<UserEntity> {
     });
 
     if (existingUser && existingUser.id !== user.id) {
-      throw new UserInputError('Email already in use', {
+      throw new UserInputError('Email sudah digunakan', {
         subCode: UserExceptionCode.EMAIL_ALREADY_IN_USE,
         userFriendlyMessage: msg`Email already in use`,
       });

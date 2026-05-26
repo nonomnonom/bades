@@ -1097,7 +1097,7 @@ export class ConfigVariables {
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
     isSensitive: true,
     description:
-      'Optional separate Redis connection for queues with a different eviction policy (advanced production use case, most self-hosters do not need this)',
+      'Koneksi Redis terpisah opsional untuk queue dengan kebijakan eviction berbeda (use case produksi lanjutan untuk tim Bades).',
     isEnvOnly: true,
     type: ConfigVariableType.STRING,
   })
@@ -1142,14 +1142,14 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.SERVER_CONFIG,
     description:
-      'Express "trust proxy" setting. Controls whether X-Forwarded-* ' +
-      'headers are honored — required for request.protocol to return ' +
-      '"https" when TLS is terminated upstream (reverse proxy, ingress, ' +
-      'Cloudflare, etc.). Default trusts loopback + RFC1918/ULA peers, ' +
-      'which is correct when NestJS runs behind a reverse proxy (our ' +
-      'recommended self-host setup). Set to "false" when NestJS is ' +
-      'exposed directly to the internet. Accepts any value Express ' +
-      'supports — see https://expressjs.com/en/guide/behind-proxies.html.',
+      'Setting "trust proxy" Express. Mengontrol apakah header ' +
+      'X-Forwarded-* dihormati — wajib agar request.protocol mengembalikan ' +
+      '"https" saat TLS di-terminate upstream (reverse proxy, ingress, ' +
+      'Cloudflare, dst). Default mempercayai loopback + RFC1918/ULA peers, ' +
+      'tepat saat NestJS berjalan di belakang reverse proxy (setup ' +
+      'infrastruktur tim Bades). Set "false" saat NestJS terekspos langsung ' +
+      'ke internet. Menerima value apa pun yang didukung Express — lihat ' +
+      'https://expressjs.com/en/guide/behind-proxies.html.',
     type: ConfigVariableType.STRING,
     isEnvOnly: true,
   })
