@@ -382,7 +382,7 @@ describe('FilterArgProcessorService', () => {
         sourceObjectMetadata,
       } = createRelationFixture();
 
-      const filter = { target: { name: { eq: 'Airbnb' } } };
+      const filter = { target: { name: { eq: 'Sukamaju' } } };
 
       const result = filterArgProcessorService.process({
         filter,
@@ -391,7 +391,7 @@ describe('FilterArgProcessorService', () => {
         flatFieldMetadataMaps,
       });
 
-      expect(result).toEqual({ target: { name: { eq: 'Airbnb' } } });
+      expect(result).toEqual({ target: { name: { eq: 'Sukamaju' } } });
     });
 
     it('should accept a relation traversal onto a composite sub-field without tripping the depth cap', () => {

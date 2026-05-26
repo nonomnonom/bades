@@ -111,7 +111,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should return empty array for empty targetFields', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -128,10 +128,10 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should extract target records from junction records', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
         createMockJunctionRecord('junction-2', {
-          company: { id: 'company-2', name: 'Beta Inc' },
+          kartuKeluarga: { id: 'keluarga-2', name: 'Keluarga Wijaya' },
         }),
       ];
 
@@ -150,7 +150,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should include record when includeRecord is true', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -165,16 +165,16 @@ describe('extractTargetRecordsFromJunction', () => {
         {
           recordId: 'company-1',
           objectMetadataId: 'company-metadata-id',
-          record: { id: 'company-1', name: 'Acme Corp' },
+          record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         },
       ]);
     });
 
     it('should skip junction records with null target', () => {
       const junctionRecords = [
-        createMockJunctionRecord('junction-1', { company: null }),
+        createMockJunctionRecord('junction-1', { kartuKeluarga: null }),
         createMockJunctionRecord('junction-2', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -193,10 +193,10 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should extract target records from different target fields', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
         createMockJunctionRecord('junction-2', {
-          person: { id: 'person-1', name: 'John Doe' },
+          person: { id: 'penduduk-1', name: 'John Doe' },
         }),
       ];
 
@@ -220,7 +220,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should return correct object metadata for each target field', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          person: { id: 'person-1', name: 'Jane Doe' },
+          person: { id: 'penduduk-1', name: 'Jane Doe' },
         }),
       ];
 
@@ -236,7 +236,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should include record when includeRecord is true', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -250,7 +250,7 @@ describe('extractTargetRecordsFromJunction', () => {
       expect(result[0]).toEqual({
         recordId: 'company-1',
         objectMetadataId: 'company-metadata-id',
-        record: { id: 'company-1', name: 'Acme Corp' },
+        record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       });
     });
   });
@@ -260,10 +260,10 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should extract target records from morph relation computed field names', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          caretakerCompany: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluargaPengasuh: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
         createMockJunctionRecord('junction-2', {
-          caretakerPerson: { id: 'person-1', name: 'John Doe' },
+          caretakerPerson: { id: 'penduduk-1', name: 'John Doe' },
         }),
       ];
 
@@ -287,7 +287,7 @@ describe('extractTargetRecordsFromJunction', () => {
     it('should include record when includeRecord is true for morph relations', () => {
       const junctionRecords = [
         createMockJunctionRecord('junction-1', {
-          caretakerCompany: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluargaPengasuh: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 
@@ -301,7 +301,7 @@ describe('extractTargetRecordsFromJunction', () => {
       expect(result[0]).toEqual({
         recordId: 'company-1',
         objectMetadataId: 'company-metadata-id',
-        record: { id: 'company-1', name: 'Acme Corp' },
+        record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       });
     });
   });
@@ -311,7 +311,7 @@ describe('extractTargetRecordsFromJunction', () => {
       const junctionRecords = [
         undefined as unknown as ObjectRecord,
         createMockJunctionRecord('junction-1', {
-          company: { id: 'company-1', name: 'Acme Corp' },
+          kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         }),
       ];
 

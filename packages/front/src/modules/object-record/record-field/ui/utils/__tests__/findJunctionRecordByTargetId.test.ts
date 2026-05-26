@@ -24,10 +24,10 @@ describe('findJunctionRecordByTargetId', () => {
   it('should find junction record by target field name', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        company: { id: 'company-1', name: 'Acme Corp' },
+        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
       createMockJunctionRecord('junction-2', {
-        company: { id: 'company-2', name: 'Beta Inc' },
+        kartuKeluarga: { id: 'keluarga-2', name: 'Keluarga Wijaya' },
       }),
     ];
 
@@ -43,7 +43,7 @@ describe('findJunctionRecordByTargetId', () => {
   it('should return undefined when target record is not found', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        company: { id: 'company-1', name: 'Acme Corp' },
+        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
@@ -60,7 +60,7 @@ describe('findJunctionRecordByTargetId', () => {
     const junctionRecords = [
       undefined as unknown as ObjectRecord,
       createMockJunctionRecord('junction-1', {
-        company: { id: 'company-1', name: 'Acme Corp' },
+        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
@@ -75,9 +75,9 @@ describe('findJunctionRecordByTargetId', () => {
 
   it('should handle null target objects', () => {
     const junctionRecords = [
-      createMockJunctionRecord('junction-1', { company: null }),
+      createMockJunctionRecord('junction-1', { kartuKeluarga: null }),
       createMockJunctionRecord('junction-2', {
-        company: { id: 'company-1', name: 'Acme Corp' },
+        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
@@ -93,10 +93,10 @@ describe('findJunctionRecordByTargetId', () => {
   it('should handle target objects without id property', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        company: { name: 'No ID Company' },
+        kartuKeluarga: { name: 'No ID Company' },
       }),
       createMockJunctionRecord('junction-2', {
-        company: { id: 'company-1', name: 'Acme Corp' },
+        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
@@ -112,8 +112,8 @@ describe('findJunctionRecordByTargetId', () => {
   it('should work with different target field names', () => {
     const junctionRecords = [
       createMockJunctionRecord('junction-1', {
-        person: { id: 'person-1', name: 'John Doe' },
-        company: { id: 'company-1', name: 'Acme Corp' },
+        person: { id: 'penduduk-1', name: 'John Doe' },
+        kartuKeluarga: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       }),
     ];
 
