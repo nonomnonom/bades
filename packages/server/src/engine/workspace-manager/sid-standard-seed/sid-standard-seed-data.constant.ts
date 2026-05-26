@@ -195,6 +195,8 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     tableName: '_suratKeluar',
     columns: [
       'id',
+      'arahSurat',
+      'asalSurat',
       'nomorSurat',
       'tanggalSurat',
       'perihal',
@@ -206,6 +208,8 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: [
       {
         id: '30303030-0005-4000-8000-000000000001',
+        arahSurat: 'KELUAR',
+        asalSurat: null,
         nomorSurat: '470/001/DS/2025',
         tanggalSurat: '2025-01-15',
         perihal: 'Pengantar SKCK',
@@ -216,6 +220,8 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0005-4000-8000-000000000002',
+        arahSurat: 'KELUAR',
+        asalSurat: null,
         nomorSurat: '470/002/DS/2025',
         tanggalSurat: '2025-02-01',
         perihal: 'Undangan Musyawarah Desa',
@@ -223,6 +229,18 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         klasifikasi: 'SEGERA',
         penandatangan: 'Sekretaris Desa',
         position: 1,
+      },
+      {
+        id: '30303030-0005-4000-8000-000000000003',
+        arahSurat: 'MASUK',
+        asalSurat: 'Kecamatan Sukamaju',
+        nomorSurat: '001/KEC/2025',
+        tanggalSurat: '2025-03-05',
+        perihal: 'Edaran Kecamatan tentang Musrenbangdes',
+        tujuan: 'Kepala Desa',
+        klasifikasi: 'BIASA',
+        penandatangan: 'Camat',
+        position: 2,
       },
     ],
   },

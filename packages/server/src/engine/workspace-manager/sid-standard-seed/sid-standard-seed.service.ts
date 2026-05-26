@@ -8,6 +8,7 @@ import { isDefined } from 'shared/utils';
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { SID_STANDARD_DATA_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
+import { SID_STANDARD_VIEW_CONFIGS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-view.constant';
 import { SID_STANDARD_OBJECT_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.config';
 
 // Seed 9 objek SID standar Bades (Penduduk, Keluarga, Wilayah, Layanan,
@@ -162,5 +163,68 @@ export class SidStandardSeedService {
     }
 
     return { insertedRecords };
+  }
+
+  // Sembunyikan field non-curated dari view default tiap object SID via raw
+  // UPDATE ke `core.viewField`. Engine sudah auto-create default view dengan
+  // SEMUA field visible saat object dibuat; tujuan method ini hanya
+  // memendekkan daftar kolom awal supaya operator desa tidak kewalahan.
+  //
+  // Workspace baru = belum ada user yang melihat view, jadi raw UPDATE aman
+  // tanpa invalidate cache. Operator bisa menampilkan kembali field yang
+  // disembunyikan lewat menu kolom di UI.
+  async seedSidStandardViewFields({
+    workspaceId,
+  }: {
+    workspaceId: string;
+  }): Promise<{ hiddenFields: number }> {
+    let hiddenFields = 0;
+
+    for (const { objectNameSingular, visibleFieldNames } of SID_STANDARD_VIEW_CONFIGS) {
+      try {
+        const sql = `
+          UPDATE core."viewField"
+          SET "isVisible" = false
+          WHERE "workspaceId" = $1
+            AND "viewId" IN (
+              SELECT v.id
+              FROM core."view" v
+              JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
+              WHERE om."workspaceId" = $1
+                AND om."nameSingular" = $2
+            )
+            AND "fieldMetadataId" NOT IN (
+              SELECT fm.id
+              FROM core."fieldMetadata" fm
+              JOIN core."objectMetadata" om ON om.id = fm."objectMetadataId"
+              WHERE om."workspaceId" = $1
+                AND om."nameSingular" = $2
+                AND fm.name = ANY($3::text[])
+            )
+        `;
+        const result = await this.coreDataSource.query(sql, [
+          workspaceId,
+          objectNameSingular,
+          visibleFieldNames,
+        ]);
+        // result[1] = jumlah row terpengaruh (TypeORM raw result format).
+        const affected = Array.isArray(result) && result[1] ? result[1] : 0;
+
+        hiddenFields += affected;
+        if (affected > 0) {
+          this.logger.log(
+            `View bawaan '${objectNameSingular}': sembunyikan ${affected} field non-curated (workspace ${workspaceId})`,
+          );
+        }
+      } catch (error) {
+        this.logger.warn(
+          `Gagal sembunyikan field view bawaan '${objectNameSingular}' (workspace ${workspaceId}): ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+        );
+      }
+    }
+
+    return { hiddenFields };
   }
 }

@@ -96,6 +96,17 @@ export class WorkspaceManagerService {
       `Seed data contoh SID untuk workspace ${workspaceId}: ${sidDataResult.insertedRecords} record`,
     );
 
+    // Tampilan default tiap object SID dirapikan: field non-curated
+    // disembunyikan agar tabel awal tidak overwhelming bagi operator desa.
+    const sidViewResult =
+      await this.sidStandardSeedService.seedSidStandardViewFields({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.hiddenFields} field disembunyikan`,
+    );
+
     const dataSourceMetadataCreationEnd = performance.now();
 
     this.logger.log(

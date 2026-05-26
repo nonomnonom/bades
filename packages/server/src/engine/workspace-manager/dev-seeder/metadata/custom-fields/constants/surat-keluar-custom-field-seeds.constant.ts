@@ -3,6 +3,26 @@ import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/
 
 export const SURAT_KELUAR_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
   {
+    type: FieldMetadataType.SELECT,
+    label: 'Arah Surat',
+    name: 'arahSurat',
+    icon: 'IconArrowsExchange',
+    description:
+      'Apakah surat ini masuk dari instansi luar atau dikeluarkan oleh desa',
+    options: [
+      { label: 'Surat Keluar', value: 'KELUAR', position: 0, color: 'blue' },
+      { label: 'Surat Masuk', value: 'MASUK', position: 1, color: 'green' },
+    ],
+  },
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'Asal Surat',
+    name: 'asalSurat',
+    icon: 'IconBuilding',
+    description:
+      'Instansi atau orang yang mengirim surat (untuk surat masuk)',
+  },
+  {
     type: FieldMetadataType.TEXT,
     label: 'Nomor Surat',
     name: 'nomorSurat',
