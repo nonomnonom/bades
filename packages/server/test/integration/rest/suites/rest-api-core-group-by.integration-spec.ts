@@ -1,48 +1,44 @@
 import { randomUUID } from 'crypto';
 
-import { COMPANY_GQL_FIELDS } from 'test/integration/constants/company-gql-fields.constants';
+import { KELUARGA_GQL_FIELDS } from 'test/integration/constants/keluarga-gql-fields.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { destroyOneOperationFactory } from 'test/integration/graphql/utils/destroy-one-operation-factory.util';
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 import { makeRestAPIRequest } from 'test/integration/rest/utils/make-rest-api-request.util';
 
-const OPPORTUNITY_GQL_FIELDS = `
+const PROGRAM_BANTUAN_GQL_FIELDS = `
   id
-  stage
-  amount {
-    amountMicros
-  }
-  companyId
+  status
+  totalAnggaran
   createdAt
-  closeDate
 `;
 
-// used not to mix records with the seeded ones
+// digunakan agar tidak tercampur dengan record seed
 const FILTER_2020 =
   "createdAt[gte]:'2020-01-01T00:00:00.000Z',createdAt[lte]:'2020-03-03T23:59:59.999Z'";
 
-const AGGREGATE_FIELDS = '["maxAmountAmountMicros"]';
+const AGGREGATE_FIELDS = '["maxTotalAnggaran"]';
 
 describe('REST API Core Group By endpoint', () => {
-  const testOpportunityId1 = randomUUID();
-  const testOpportunityId2 = randomUUID();
-  const testOpportunityId3 = randomUUID();
-  const testOpportunityId4 = randomUUID();
-  const testCompanyId1 = randomUUID();
-  const testCompanyId2 = randomUUID();
-  const COMPANY_1_EMPLOYEES = 10;
-  const COMPANY_2_EMPLOYEES = 20;
+  const testProgramBantuanId1 = randomUUID();
+  const testProgramBantuanId2 = randomUUID();
+  const testProgramBantuanId3 = randomUUID();
+  const testProgramBantuanId4 = randomUUID();
+  const testKeluargaId1 = randomUUID();
+  const testKeluargaId2 = randomUUID();
+  const KELUARGA_1_JUMLAH_ANGGOTA = 10;
+  const KELUARGA_2_JUMLAH_ANGGOTA = 20;
 
   beforeAll(async () => {
-    //   Create test companies
+    // Buat data keluarga untuk referensi
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS,
         data: {
-          id: testCompanyId1,
-          name: 'Company 1',
-          employees: COMPANY_1_EMPLOYEES,
+          id: testKeluargaId1,
+          nomorKk: '3201000000000001',
+          jumlahAnggota: KELUARGA_1_JUMLAH_ANGGOTA,
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -50,45 +46,27 @@ describe('REST API Core Group By endpoint', () => {
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS,
         data: {
-          id: testCompanyId2,
-          name: 'Company 2',
-          employees: COMPANY_2_EMPLOYEES,
+          id: testKeluargaId2,
+          nomorKk: '3201000000000002',
+          jumlahAnggota: KELUARGA_2_JUMLAH_ANGGOTA,
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
     );
 
-    // Create test opportunities with different stages and dates
+    // Buat data program bantuan dengan status dan tanggal berbeda
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
         data: {
-          id: testOpportunityId1,
-          stage: 'NEW',
-          name: 'Opportunity 1',
-          amount: { amountMicros: 1000000000000 }, // 1000
-          companyId: testCompanyId1,
-          closeDate: '2025-02-05T08:00:00.000Z', // Wednesday
-          createdAt: '2020-02-05T08:00:00.000Z',
-        },
-      }),
-    );
-
-    await makeGraphqlAPIRequest(
-      createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
-        data: {
-          id: testOpportunityId2,
-          stage: 'NEW',
-          name: 'Opportunity 2',
-          amount: { amountMicros: 2000000000000 }, // 2000
-          companyId: testCompanyId1,
-          closeDate: '2025-02-06T08:00:00.000Z', // Thursday
+          id: testProgramBantuanId1,
+          status: 'AKTIF',
+          namaProgram: 'Program Bantuan 1',
+          totalAnggaran: 1000,
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -96,59 +74,69 @@ describe('REST API Core Group By endpoint', () => {
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
         data: {
-          id: testOpportunityId3,
-          stage: 'NEW',
-          name: 'Opportunity 3',
-          amount: { amountMicros: 3000000000000 }, // 3000
-          companyId: testCompanyId2,
-          closeDate: '2025-02-06T08:00:00.000Z', // Thursday
-          createdAt: '2020-02-05T08:00:00.000Z',
+          id: testProgramBantuanId2,
+          status: 'AKTIF',
+          namaProgram: 'Program Bantuan 2',
+          totalAnggaran: 2000,
+          createdAt: '2020-02-06T08:00:00.000Z',
         },
       }),
     );
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
         data: {
-          id: testOpportunityId4,
-          stage: 'SCREENING',
-          name: 'Opportunity 4',
-          amount: { amountMicros: 4000000000000 }, // 4000
-          companyId: testCompanyId2,
-          closeDate: '2025-02-06T08:00:00.000Z', // Thursday
-          createdAt: '2020-02-05T08:00:00.000Z',
+          id: testProgramBantuanId3,
+          status: 'AKTIF',
+          namaProgram: 'Program Bantuan 3',
+          totalAnggaran: 3000,
+          createdAt: '2020-02-06T08:00:00.000Z',
+        },
+      }),
+    );
+
+    await makeGraphqlAPIRequest(
+      createOneOperationFactory({
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
+        data: {
+          id: testProgramBantuanId4,
+          status: 'SELESAI',
+          namaProgram: 'Program Bantuan 4',
+          totalAnggaran: 4000,
+          createdAt: '2020-02-06T08:00:00.000Z',
         },
       }),
     );
   });
 
   afterAll(async () => {
-    // Cleanup created opportunities
+    // Bersihkan data program bantuan
     for (const id of [
-      testOpportunityId1,
-      testOpportunityId2,
-      testOpportunityId3,
-      testOpportunityId4,
+      testProgramBantuanId1,
+      testProgramBantuanId2,
+      testProgramBantuanId3,
+      testProgramBantuanId4,
     ]) {
       await makeGraphqlAPIRequest(
         destroyOneOperationFactory({
-          objectMetadataSingularName: 'opportunity',
+          objectMetadataSingularName: 'programBantuan',
           gqlFields: 'id',
           recordId: id,
         }),
       );
     }
 
-    // Cleanup created companies
-    for (const id of [testCompanyId1, testCompanyId2]) {
+    // Bersihkan data keluarga
+    for (const id of [testKeluargaId1, testKeluargaId2]) {
       await makeGraphqlAPIRequest(
         destroyOneOperationFactory({
-          objectMetadataSingularName: 'company',
+          objectMetadataSingularName: 'keluarga',
           gqlFields: 'id',
           recordId: id,
         }),
@@ -156,22 +144,21 @@ describe('REST API Core Group By endpoint', () => {
     }
   });
 
-  it('groups by stage and closeDate with records', async () => {
-    // Add query parameters for group by
+  it('groups by status and createdAt with records', async () => {
     const groupByQuery = JSON.stringify([
       {
-        closeDate: {
+        createdAt: {
           granularity: 'DAY_OF_THE_WEEK',
         },
       },
       {
-        stage: true,
+        status: true,
       },
     ]);
 
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/opportunities/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(FILTER_2020)}&include_records_sample=true&limit=3`,
+      path: `/programBantuans/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(FILTER_2020)}&include_records_sample=true&limit=3`,
       body: {},
     });
 
@@ -190,75 +177,71 @@ describe('REST API Core Group By endpoint', () => {
       expect(Array.isArray(group.records)).toBe(true);
     });
 
-    const wednesdayNewGroup = groups.find(
+    const wednesdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Wednesday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(wednesdayNewGroup).toBeDefined();
-    expect(wednesdayNewGroup.maxAmountAmountMicros).toBe('1000000000000');
-    expect(wednesdayNewGroup.records).toHaveLength(1);
-    expect(wednesdayNewGroup.records[0].name).toBe('Opportunity 1');
-    expect(wednesdayNewGroup.records[0].stage).toBe('NEW');
+    expect(wednesdayAktifGroup).toBeDefined();
+    expect(wednesdayAktifGroup.maxTotalAnggaran).toBe('1000');
+    expect(wednesdayAktifGroup.records).toHaveLength(1);
+    expect(wednesdayAktifGroup.records[0].namaProgram).toBe('Program Bantuan 1');
+    expect(wednesdayAktifGroup.records[0].status).toBe('AKTIF');
 
-    const thursdayNewGroup = groups.find(
+    const thursdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(thursdayNewGroup).toBeDefined();
-    expect(thursdayNewGroup.records).toHaveLength(2);
-    expect(thursdayNewGroup.maxAmountAmountMicros).toBe('3000000000000');
-    const opportunity2Record = thursdayNewGroup.records.find(
-      (record: any) => record.name === 'Opportunity 2',
+    expect(thursdayAktifGroup).toBeDefined();
+    expect(thursdayAktifGroup.records).toHaveLength(2);
+    expect(thursdayAktifGroup.maxTotalAnggaran).toBe('3000');
+    const program2Record = thursdayAktifGroup.records.find(
+      (record: any) => record.namaProgram === 'Program Bantuan 2',
     );
-    const opportunity3Record = thursdayNewGroup.records.find(
-      (record: any) => record.name === 'Opportunity 3',
+    const program3Record = thursdayAktifGroup.records.find(
+      (record: any) => record.namaProgram === 'Program Bantuan 3',
     );
 
-    expect(opportunity2Record.stage).toBe('NEW');
-    expect(opportunity2Record.name).toBe('Opportunity 2');
-    expect(opportunity2Record.companyId).toBe(testCompanyId1);
-    expect(opportunity3Record.stage).toBe('NEW');
-    expect(opportunity3Record.name).toBe('Opportunity 3');
-    expect(opportunity3Record.companyId).toBe(testCompanyId2);
+    expect(program2Record.status).toBe('AKTIF');
+    expect(program2Record.namaProgram).toBe('Program Bantuan 2');
+    expect(program3Record.status).toBe('AKTIF');
+    expect(program3Record.namaProgram).toBe('Program Bantuan 3');
 
-    const thursdayScreeningGroup = groups.find(
+    const thursdaySelesaiGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('SCREENING'),
+        group.groupByDimensionValues.includes('SELESAI'),
     );
 
-    expect(thursdayScreeningGroup).toBeDefined();
-    expect(thursdayScreeningGroup.records).toHaveLength(1);
-    const opportunity4Record = thursdayScreeningGroup.records[0];
+    expect(thursdaySelesaiGroup).toBeDefined();
+    expect(thursdaySelesaiGroup.records).toHaveLength(1);
+    const program4Record = thursdaySelesaiGroup.records[0];
 
-    expect(opportunity4Record.stage).toBe('SCREENING');
-    expect(opportunity4Record.name).toBe('Opportunity 4');
-    expect(opportunity4Record.companyId).toBe(testCompanyId2);
-    expect(thursdayScreeningGroup.maxAmountAmountMicros).toBe('4000000000000');
+    expect(program4Record.status).toBe('SELESAI');
+    expect(program4Record.namaProgram).toBe('Program Bantuan 4');
+    expect(thursdaySelesaiGroup.maxTotalAnggaran).toBe('4000');
   });
 
-  it('groups by stage and closeDate with records and filters', async () => {
-    // Test with filter to only include NEW stage opportunities
+  it('groups by status and createdAt with records and filters', async () => {
     const groupByQuery = JSON.stringify([
       {
-        closeDate: {
+        createdAt: {
           granularity: 'DAY_OF_THE_WEEK',
         },
       },
       {
-        stage: true,
+        status: true,
       },
     ]);
 
-    const filterQuery = `${FILTER_2020},stage[eq]:'NEW'`;
+    const filterQuery = `${FILTER_2020},status[eq]:'AKTIF'`;
 
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/opportunities/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(filterQuery)}&include_records_sample=true&limit=2`,
+      path: `/programBantuans/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(filterQuery)}&include_records_sample=true&limit=2`,
       body: {},
     });
 
@@ -268,28 +251,28 @@ describe('REST API Core Group By endpoint', () => {
     const groups = response.body;
 
     expect(groups).toHaveLength(2);
-    const wednesdayNewGroup = groups.find(
+    const wednesdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Wednesday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(wednesdayNewGroup.groupByDimensionValues).toHaveLength(2);
-    expect(wednesdayNewGroup.groupByDimensionValues).toContain('NEW');
-    expect(wednesdayNewGroup.groupByDimensionValues).toContain('Wednesday');
-    expect(wednesdayNewGroup.records).toHaveLength(1);
-    expect(wednesdayNewGroup.records[0].stage).toBe('NEW');
+    expect(wednesdayAktifGroup.groupByDimensionValues).toHaveLength(2);
+    expect(wednesdayAktifGroup.groupByDimensionValues).toContain('AKTIF');
+    expect(wednesdayAktifGroup.groupByDimensionValues).toContain('Wednesday');
+    expect(wednesdayAktifGroup.records).toHaveLength(1);
+    expect(wednesdayAktifGroup.records[0].status).toBe('AKTIF');
 
-    const thursdayNewGroup = groups.find(
+    const thursdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(thursdayNewGroup.groupByDimensionValues).toHaveLength(2);
-    expect(thursdayNewGroup.groupByDimensionValues).toContain('NEW');
-    expect(thursdayNewGroup.groupByDimensionValues).toContain('Thursday');
-    expect(thursdayNewGroup.records).toHaveLength(2);
+    expect(thursdayAktifGroup.groupByDimensionValues).toHaveLength(2);
+    expect(thursdayAktifGroup.groupByDimensionValues).toContain('AKTIF');
+    expect(thursdayAktifGroup.groupByDimensionValues).toContain('Thursday');
+    expect(thursdayAktifGroup.records).toHaveLength(2);
   });
 
   describe('order by for records', () => {
@@ -298,23 +281,23 @@ describe('REST API Core Group By endpoint', () => {
     ) => {
       const groupByQuery = JSON.stringify([
         {
-          closeDate: {
+          createdAt: {
             granularity: 'DAY_OF_THE_WEEK',
           },
         },
         {
-          stage: true,
+          status: true,
         },
       ]);
 
       return {
         method: 'get' as const,
-        path: `/opportunities/groupBy?group_by=${encodeURIComponent(groupByQuery)}&filter=${encodeURIComponent(FILTER_2020)}&order_by_for_records=${encodeURIComponent(`name[${orderByForRecords}]`)}&include_records_sample=true&limit=5`,
+        path: `/programBantuans/groupBy?group_by=${encodeURIComponent(groupByQuery)}&filter=${encodeURIComponent(FILTER_2020)}&order_by_for_records=${encodeURIComponent(`namaProgram[${orderByForRecords}]`)}&include_records_sample=true&limit=5`,
         body: {},
       };
     };
 
-    it('sorts by name in ascending order', async () => {
+    it('sorts by namaProgram in ascending order', async () => {
       const response = await makeRestAPIRequest(
         getGroupByRequestWithOrderByForRecords('AscNullsFirst'),
       );
@@ -324,19 +307,19 @@ describe('REST API Core Group By endpoint', () => {
 
       const groups = response.body;
 
-      const thursdayNewGroup = groups.find(
+      const thursdayAktifGroup = groups.find(
         (group: any) =>
           group.groupByDimensionValues.includes('Thursday') &&
-          group.groupByDimensionValues.includes('NEW'),
+          group.groupByDimensionValues.includes('AKTIF'),
       );
 
-      expect(thursdayNewGroup).toBeDefined();
-      expect(thursdayNewGroup.records).toHaveLength(2);
-      expect(thursdayNewGroup.records[0].name).toBe('Opportunity 2');
-      expect(thursdayNewGroup.records[1].name).toBe('Opportunity 3');
+      expect(thursdayAktifGroup).toBeDefined();
+      expect(thursdayAktifGroup.records).toHaveLength(2);
+      expect(thursdayAktifGroup.records[0].namaProgram).toBe('Program Bantuan 2');
+      expect(thursdayAktifGroup.records[1].namaProgram).toBe('Program Bantuan 3');
     });
 
-    it('sorts by name in descending order', async () => {
+    it('sorts by namaProgram in descending order', async () => {
       const response = await makeRestAPIRequest(
         getGroupByRequestWithOrderByForRecords('DescNullsFirst'),
       );
@@ -346,16 +329,16 @@ describe('REST API Core Group By endpoint', () => {
 
       const groups = response.body;
 
-      const thursdayNewGroup = groups.find(
+      const thursdayAktifGroup = groups.find(
         (group: any) =>
           group.groupByDimensionValues.includes('Thursday') &&
-          group.groupByDimensionValues.includes('NEW'),
+          group.groupByDimensionValues.includes('AKTIF'),
       );
 
-      expect(thursdayNewGroup).toBeDefined();
-      expect(thursdayNewGroup.records).toHaveLength(2);
-      expect(thursdayNewGroup.records[0].name).toBe('Opportunity 3');
-      expect(thursdayNewGroup.records[1].name).toBe('Opportunity 2');
+      expect(thursdayAktifGroup).toBeDefined();
+      expect(thursdayAktifGroup.records).toHaveLength(2);
+      expect(thursdayAktifGroup.records[0].namaProgram).toBe('Program Bantuan 3');
+      expect(thursdayAktifGroup.records[1].namaProgram).toBe('Program Bantuan 2');
     });
   });
 });

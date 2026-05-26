@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { destroyOneOperationFactory } from 'test/integration/graphql/utils/destroy-one-operation-factory.util';
 import { makeGraphqlAPIRequestWithGuestRole } from 'test/integration/graphql/utils/make-graphql-api-request-with-guest-role.util';
@@ -10,14 +10,14 @@ import { ErrorCode } from 'src/engine/core-modules/graphql/utils/graphql-errors.
 import { PermissionsExceptionMessage } from 'src/engine/metadata-modules/permissions/permissions.exception';
 
 describe('destroyOneObjectRecordsPermissions', () => {
-  const personId = randomUUID();
+  const pendudukId = randomUUID();
 
   beforeAll(async () => {
     const createGraphqlOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: {
-        id: personId,
+        id: pendudukId,
       },
     });
 
@@ -25,16 +25,16 @@ describe('destroyOneObjectRecordsPermissions', () => {
   });
 
   it('should throw a permission error when user does not have permission (guest role)', async () => {
-    const personId = randomUUID();
+    const pendudukId = randomUUID();
     const graphqlOperation = destroyOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
-      recordId: personId,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
+      recordId: pendudukId,
     });
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ destroyPerson: null });
+    expect(response.body.data).toStrictEqual({ destroyPenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -44,15 +44,15 @@ describe('destroyOneObjectRecordsPermissions', () => {
 
   it('should destroy an object record when user has permission (admin role)', async () => {
     const graphqlOperation = destroyOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
-      recordId: personId,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
+      recordId: pendudukId,
     });
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.destroyPerson).toBeDefined();
-    expect(response.body.data.destroyPerson.id).toBe(personId);
+    expect(response.body.data.destroyPenduduk).toBeDefined();
+    expect(response.body.data.destroyPenduduk.id).toBe(pendudukId);
   });
 });

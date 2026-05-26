@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import { createManyOperationFactory } from 'test/integration/graphql/utils/create-many-operation-factory.util';
 import { deleteManyOperationFactory } from 'test/integration/graphql/utils/delete-many-operation-factory.util';
 import { makeGraphqlAPIRequestWithApiKey } from 'test/integration/graphql/utils/make-graphql-api-request-with-api-key.util';
@@ -12,20 +12,20 @@ import { ErrorCode } from 'src/engine/core-modules/graphql/utils/graphql-errors.
 import { PermissionsExceptionMessage } from 'src/engine/metadata-modules/permissions/permissions.exception';
 
 describe('deleteManyObjectRecordsPermissions', () => {
-  let createdPersonIds: string[] = [];
+  let createdPendudukIds: string[] = [];
 
   afterEach(async () => {
-    if (createdPersonIds.length > 0) {
-      await deleteRecordsByIds('person', createdPersonIds);
-      createdPersonIds = [];
+    if (createdPendudukIds.length > 0) {
+      await deleteRecordsByIds('penduduk', createdPendudukIds);
+      createdPendudukIds = [];
     }
   });
 
   it('should throw a permission error when user does not have permission (guest role)', async () => {
     const graphqlOperation = deleteManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
           in: [randomUUID(), randomUUID()],
@@ -35,7 +35,7 @@ describe('deleteManyObjectRecordsPermissions', () => {
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ deletePeople: null });
+    expect(response.body.data).toStrictEqual({ deletePenduduks: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -44,33 +44,33 @@ describe('deleteManyObjectRecordsPermissions', () => {
   });
 
   it('should delete multiple object records when user has permission (admin role)', async () => {
-    const personId1 = randomUUID();
-    const personId2 = randomUUID();
+    const pendudukId1 = randomUUID();
+    const pendudukId2 = randomUUID();
 
     const createGraphqlOperation = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
-          id: personId1,
+          id: pendudukId1,
         },
         {
-          id: personId2,
+          id: pendudukId2,
         },
       ],
     });
 
     await makeGraphqlAPIRequest(createGraphqlOperation);
-    createdPersonIds.push(personId1, personId2);
+    createdPendudukIds.push(pendudukId1, pendudukId2);
 
     const deleteGraphqlOperation = deleteManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
-          in: [personId1, personId2],
+          in: [pendudukId1, pendudukId2],
         },
       },
     });
@@ -78,44 +78,44 @@ describe('deleteManyObjectRecordsPermissions', () => {
     const response = await makeGraphqlAPIRequest(deleteGraphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.deletePeople).toBeDefined();
-    expect(response.body.data.deletePeople).toHaveLength(2);
-    expect(response.body.data.deletePeople).toEqual(
+    expect(response.body.data.deletePenduduks).toBeDefined();
+    expect(response.body.data.deletePenduduks).toHaveLength(2);
+    expect(response.body.data.deletePenduduks).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ id: personId1 }),
-        expect.objectContaining({ id: personId2 }),
+        expect.objectContaining({ id: pendudukId1 }),
+        expect.objectContaining({ id: pendudukId2 }),
       ]),
     );
   });
 
   it('should delete multiple object records when executed by api key', async () => {
-    const personId1 = randomUUID();
-    const personId2 = randomUUID();
+    const pendudukId1 = randomUUID();
+    const pendudukId2 = randomUUID();
 
     const createGraphqlOperation = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
-          id: personId1,
+          id: pendudukId1,
         },
         {
-          id: personId2,
+          id: pendudukId2,
         },
       ],
     });
 
     await makeGraphqlAPIRequest(createGraphqlOperation);
-    createdPersonIds.push(personId1, personId2);
+    createdPendudukIds.push(pendudukId1, pendudukId2);
 
     const deleteGraphqlOperation = deleteManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
-          in: [personId1, personId2],
+          in: [pendudukId1, pendudukId2],
         },
       },
     });
@@ -125,12 +125,12 @@ describe('deleteManyObjectRecordsPermissions', () => {
     );
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.deletePeople).toBeDefined();
-    expect(response.body.data.deletePeople).toHaveLength(2);
-    expect(response.body.data.deletePeople).toEqual(
+    expect(response.body.data.deletePenduduks).toBeDefined();
+    expect(response.body.data.deletePenduduks).toHaveLength(2);
+    expect(response.body.data.deletePenduduks).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ id: personId1 }),
-        expect.objectContaining({ id: personId2 }),
+        expect.objectContaining({ id: pendudukId1 }),
+        expect.objectContaining({ id: pendudukId2 }),
       ]),
     );
   });

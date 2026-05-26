@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { deleteOneOperationFactory } from 'test/integration/graphql/utils/delete-one-operation-factory.util';
 import { makeGraphqlAPIRequestWithGuestRole } from 'test/integration/graphql/utils/make-graphql-api-request-with-guest-role.util';
@@ -11,25 +11,25 @@ import { ErrorCode } from 'src/engine/core-modules/graphql/utils/graphql-errors.
 import { PermissionsExceptionMessage } from 'src/engine/metadata-modules/permissions/permissions.exception';
 
 describe('restoreOneObjectRecordsPermissions', () => {
-  const personId = randomUUID();
+  const pendudukId = randomUUID();
 
   beforeAll(async () => {
-    // Create a person
+    // Buat record penduduk
     const createGraphqlOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: {
-        id: personId,
+        id: pendudukId,
       },
     });
 
     await makeGraphqlAPIRequest(createGraphqlOperation);
 
-    // Delete the person
+    // Hapus (soft-delete) record penduduk
     const deleteGraphqlOperation = deleteOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
-      recordId: personId,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
+      recordId: pendudukId,
     });
 
     await makeGraphqlAPIRequest(deleteGraphqlOperation);
@@ -37,14 +37,14 @@ describe('restoreOneObjectRecordsPermissions', () => {
 
   it('should throw a permission error when user does not have permission (guest role)', async () => {
     const graphqlOperation = restoreOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
-      recordId: personId,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
+      recordId: pendudukId,
     });
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ restorePerson: null });
+    expect(response.body.data).toStrictEqual({ restorePenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -54,15 +54,15 @@ describe('restoreOneObjectRecordsPermissions', () => {
 
   it('should restore an object record when user has permission (admin role)', async () => {
     const graphqlOperation = restoreOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
-      recordId: personId,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
+      recordId: pendudukId,
     });
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.restorePerson).toBeDefined();
-    expect(response.body.data.restorePerson.id).toBe(personId);
+    expect(response.body.data.restorePenduduk).toBeDefined();
+    expect(response.body.data.restorePenduduk.id).toBe(pendudukId);
   });
 });

@@ -7,129 +7,129 @@ import { findOneOperationFactory } from 'test/integration/graphql/utils/find-one
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 import { restoreOneOperationFactory } from 'test/integration/graphql/utils/restore-one-operation-factory.util';
 
-const PERSON_WITH_COMPANY_GQL_FIELDS = `
+const PENDUDUK_DENGAN_KELUARGA_GQL_FIELDS = `
   id
-  companyId
-  company {
+  kartuKeluargaId
+  kartuKeluarga {
     id
-    name
+    nomorKk
   }
 `;
 
 describe('soft-deleted relation', () => {
-  const companyId = randomUUID();
-  const personId = randomUUID();
+  const keluargaId = randomUUID();
+  const pendudukId = randomUUID();
 
   beforeAll(async () => {
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: 'id name',
-        data: { id: companyId, name: 'SoftDeleteTestCompany' },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: 'id nomorKk',
+        data: { id: keluargaId, nomorKk: '3201234567890001' },
       }),
     );
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'person',
-        gqlFields: PERSON_WITH_COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'penduduk',
+        gqlFields: PENDUDUK_DENGAN_KELUARGA_GQL_FIELDS,
         data: {
-          id: personId,
-          companyId,
-          name: { firstName: 'SoftDeleteTest' },
+          id: pendudukId,
+          kartuKeluargaId: keluargaId,
+          namaLengkap: { firstName: 'Budi' },
         },
       }),
     );
   });
 
   afterAll(async () => {
-    // Ensure records are not soft-deleted before destroying
+    // Pastikan record tidak dalam kondisi soft-deleted sebelum destroy
     await makeGraphqlAPIRequest(
       restoreOneOperationFactory({
-        objectMetadataSingularName: 'company',
+        objectMetadataSingularName: 'keluarga',
         gqlFields: 'id',
-        recordId: companyId,
+        recordId: keluargaId,
       }),
     );
 
     await makeGraphqlAPIRequest(
       destroyOneOperationFactory({
-        objectMetadataSingularName: 'person',
+        objectMetadataSingularName: 'penduduk',
         gqlFields: 'id',
-        recordId: personId,
+        recordId: pendudukId,
       }),
     );
 
     await makeGraphqlAPIRequest(
       destroyOneOperationFactory({
-        objectMetadataSingularName: 'company',
+        objectMetadataSingularName: 'keluarga',
         gqlFields: 'id',
-        recordId: companyId,
+        recordId: keluargaId,
       }),
     );
   });
 
-  it('should return company relation when company is live', async () => {
+  it('should return relasi keluarga ketika keluarga masih aktif', async () => {
     const response = await makeGraphqlAPIRequest(
       findOneOperationFactory({
-        objectMetadataSingularName: 'person',
-        gqlFields: PERSON_WITH_COMPANY_GQL_FIELDS,
-        filter: { id: { eq: personId } },
+        objectMetadataSingularName: 'penduduk',
+        gqlFields: PENDUDUK_DENGAN_KELUARGA_GQL_FIELDS,
+        filter: { id: { eq: pendudukId } },
       }),
     );
 
-    const person = response.body.data.person;
+    const penduduk = response.body.data.penduduk;
 
-    expect(person.companyId).toBe(companyId);
-    expect(person.company).toBeDefined();
-    expect(person.company.id).toBe(companyId);
-    expect(person.company.name).toBe('SoftDeleteTestCompany');
+    expect(penduduk.kartuKeluargaId).toBe(keluargaId);
+    expect(penduduk.kartuKeluarga).toBeDefined();
+    expect(penduduk.kartuKeluarga.id).toBe(keluargaId);
+    expect(penduduk.kartuKeluarga.nomorKk).toBe('3201234567890001');
   });
 
-  it('should nullify companyId when company is soft-deleted', async () => {
+  it('should nullify kartuKeluargaId ketika keluarga di-soft-delete', async () => {
     await makeGraphqlAPIRequest(
       deleteOneOperationFactory({
-        objectMetadataSingularName: 'company',
+        objectMetadataSingularName: 'keluarga',
         gqlFields: 'id deletedAt',
-        recordId: companyId,
+        recordId: keluargaId,
       }),
     );
 
     const response = await makeGraphqlAPIRequest(
       findOneOperationFactory({
-        objectMetadataSingularName: 'person',
-        gqlFields: PERSON_WITH_COMPANY_GQL_FIELDS,
-        filter: { id: { eq: personId } },
+        objectMetadataSingularName: 'penduduk',
+        gqlFields: PENDUDUK_DENGAN_KELUARGA_GQL_FIELDS,
+        filter: { id: { eq: pendudukId } },
       }),
     );
 
-    const person = response.body.data.person;
+    const penduduk = response.body.data.penduduk;
 
-    expect(person.companyId).toBeNull();
-    expect(person.company).toBeNull();
+    expect(penduduk.kartuKeluargaId).toBeNull();
+    expect(penduduk.kartuKeluarga).toBeNull();
   });
 
-  it('should restore company relation when company is restored', async () => {
+  it('should restore relasi keluarga ketika keluarga di-restore', async () => {
     await makeGraphqlAPIRequest(
       restoreOneOperationFactory({
-        objectMetadataSingularName: 'company',
+        objectMetadataSingularName: 'keluarga',
         gqlFields: 'id deletedAt',
-        recordId: companyId,
+        recordId: keluargaId,
       }),
     );
 
     const response = await makeGraphqlAPIRequest(
       findOneOperationFactory({
-        objectMetadataSingularName: 'person',
-        gqlFields: PERSON_WITH_COMPANY_GQL_FIELDS,
-        filter: { id: { eq: personId } },
+        objectMetadataSingularName: 'penduduk',
+        gqlFields: PENDUDUK_DENGAN_KELUARGA_GQL_FIELDS,
+        filter: { id: { eq: pendudukId } },
       }),
     );
 
-    const person = response.body.data.person;
+    const penduduk = response.body.data.penduduk;
 
-    expect(person.companyId).toBe(companyId);
-    expect(person.company).toBeDefined();
-    expect(person.company.id).toBe(companyId);
+    expect(penduduk.kartuKeluargaId).toBe(keluargaId);
+    expect(penduduk.kartuKeluarga).toBeDefined();
+    expect(penduduk.kartuKeluarga.id).toBe(keluargaId);
   });
 });

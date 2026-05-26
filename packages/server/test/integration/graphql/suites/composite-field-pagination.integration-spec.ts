@@ -1,57 +1,64 @@
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+// Pengujian pagination pada composite field FULL_NAME (`namaLengkap`) di objek `penduduk`.
+//
+// Scenario EMAILS (person.emails) dan LINKS (company.domainName) dihapus karena
+// tidak ada padanan composite field di skema SID Bades.
+// Composite FULL_NAME (`namaLengkap`) tetap diuji karena masih relevan dan identik
+// secara struktur dengan FULL_NAME CRM sebelumnya.
+
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import {
-  TEST_PERSON_1_ID,
-  TEST_PERSON_2_ID,
-  TEST_PERSON_3_ID,
-  TEST_PERSON_4_ID,
-  TEST_PERSON_5_ID,
-} from 'test/integration/constants/test-person-ids.constants';
+  TEST_PENDUDUK_1_ID,
+  TEST_PENDUDUK_2_ID,
+  TEST_PENDUDUK_3_ID,
+  TEST_PENDUDUK_4_ID,
+  TEST_PENDUDUK_5_ID,
+} from 'test/integration/constants/test-penduduk-ids.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { findManyOperationFactory } from 'test/integration/graphql/utils/find-many-operation-factory.util';
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 import { deleteAllRecords } from 'test/integration/utils/delete-all-records';
 
-describe('GraphQL People Pagination with Composite Field Sorting', () => {
+describe('GraphQL Penduduks Pagination with Composite Field Sorting', () => {
   beforeAll(async () => {
-    await deleteAllRecords('person');
+    await deleteAllRecords('penduduk');
 
-    const testPeople = [
+    const testPenduduks = [
       {
-        id: TEST_PERSON_1_ID,
-        firstName: 'Alice',
-        lastName: 'Brown',
+        id: TEST_PENDUDUK_1_ID,
+        firstName: 'Aisyah',
+        lastName: 'Budiman',
       },
       {
-        id: TEST_PERSON_2_ID,
-        firstName: 'Alice',
-        lastName: 'Smith',
+        id: TEST_PENDUDUK_2_ID,
+        firstName: 'Aisyah',
+        lastName: 'Santoso',
       },
       {
-        id: TEST_PERSON_3_ID,
-        firstName: 'Bob',
-        lastName: 'Johnson',
+        id: TEST_PENDUDUK_3_ID,
+        firstName: 'Budi',
+        lastName: 'Hartono',
       },
       {
-        id: TEST_PERSON_4_ID,
-        firstName: 'Bob',
-        lastName: 'Williams',
+        id: TEST_PENDUDUK_4_ID,
+        firstName: 'Budi',
+        lastName: 'Wibowo',
       },
       {
-        id: TEST_PERSON_5_ID,
-        firstName: 'Charlie',
-        lastName: 'Davis',
+        id: TEST_PENDUDUK_5_ID,
+        firstName: 'Cahyo',
+        lastName: 'Darmawan',
       },
     ];
 
-    for (const person of testPeople) {
+    for (const penduduk of testPenduduks) {
       const graphqlOperation = createOneOperationFactory({
-        objectMetadataSingularName: 'person',
-        gqlFields: PERSON_GQL_FIELDS,
+        objectMetadataSingularName: 'penduduk',
+        gqlFields: PENDUDUK_GQL_FIELDS,
         data: {
-          id: person.id,
-          name: {
-            firstName: person.firstName,
-            lastName: person.lastName,
+          id: penduduk.id,
+          namaLengkap: {
+            firstName: penduduk.firstName,
+            lastName: penduduk.lastName,
           },
         },
       });
@@ -60,13 +67,13 @@ describe('GraphQL People Pagination with Composite Field Sorting', () => {
     }
   });
 
-  it('should support pagination with fullName composite field in ascending order', async () => {
+  it('should support pagination with namaLengkap composite field in ascending order', async () => {
     const firstPageOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'AscNullsLast',
           lastName: 'AscNullsLast',
         },
@@ -77,26 +84,28 @@ describe('GraphQL People Pagination with Composite Field Sorting', () => {
     const firstPageResponse =
       await makeGraphqlAPIRequest(firstPageOperation).expect(200);
 
-    const firstPagePeople = firstPageResponse.body.data.people.edges.map(
+    const firstPagePenduduks = firstPageResponse.body.data.penduduks.edges.map(
       (edge: any) => edge.node,
     );
     const firstPageCursor =
-      firstPageResponse.body.data.people.pageInfo.endCursor;
+      firstPageResponse.body.data.penduduks.pageInfo.endCursor;
 
-    expect(firstPagePeople).toHaveLength(2);
-    expect(firstPageResponse.body.data.people.pageInfo.hasNextPage).toBe(true);
+    expect(firstPagePenduduks).toHaveLength(2);
+    expect(
+      firstPageResponse.body.data.penduduks.pageInfo.hasNextPage,
+    ).toBe(true);
 
-    expect(firstPagePeople[0].name.firstName).toBe('Alice');
-    expect(firstPagePeople[0].name.lastName).toBe('Brown');
-    expect(firstPagePeople[1].name.firstName).toBe('Alice');
-    expect(firstPagePeople[1].name.lastName).toBe('Smith');
+    expect(firstPagePenduduks[0].namaLengkap.firstName).toBe('Aisyah');
+    expect(firstPagePenduduks[0].namaLengkap.lastName).toBe('Budiman');
+    expect(firstPagePenduduks[1].namaLengkap.firstName).toBe('Aisyah');
+    expect(firstPagePenduduks[1].namaLengkap.lastName).toBe('Santoso');
 
     const secondPageOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'AscNullsLast',
           lastName: 'AscNullsLast',
         },
@@ -108,19 +117,20 @@ describe('GraphQL People Pagination with Composite Field Sorting', () => {
     const secondPageResponse =
       await makeGraphqlAPIRequest(secondPageOperation).expect(200);
 
-    const secondPagePeople = secondPageResponse.body.data.people.edges.map(
-      (edge: any) => edge.node,
-    );
+    const secondPagePenduduks =
+      secondPageResponse.body.data.penduduks.edges.map(
+        (edge: any) => edge.node,
+      );
 
-    expect(secondPagePeople).toHaveLength(2);
+    expect(secondPagePenduduks).toHaveLength(2);
 
-    expect(secondPagePeople[0].name.firstName).toBe('Bob');
-    expect(secondPagePeople[0].name.lastName).toBe('Johnson');
-    expect(secondPagePeople[1].name.firstName).toBe('Bob');
-    expect(secondPagePeople[1].name.lastName).toBe('Williams');
+    expect(secondPagePenduduks[0].namaLengkap.firstName).toBe('Budi');
+    expect(secondPagePenduduks[0].namaLengkap.lastName).toBe('Hartono');
+    expect(secondPagePenduduks[1].namaLengkap.firstName).toBe('Budi');
+    expect(secondPagePenduduks[1].namaLengkap.lastName).toBe('Wibowo');
 
-    const firstPageIds = firstPagePeople.map((p: { id: string }) => p.id);
-    const secondPageIds = secondPagePeople.map((p: { id: string }) => p.id);
+    const firstPageIds = firstPagePenduduks.map((p: { id: string }) => p.id);
+    const secondPageIds = secondPagePenduduks.map((p: { id: string }) => p.id);
     const intersection = firstPageIds.filter((id: string) =>
       secondPageIds.includes(id),
     );
@@ -128,39 +138,41 @@ describe('GraphQL People Pagination with Composite Field Sorting', () => {
     expect(intersection).toHaveLength(0);
 
     const thirdPageOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'AscNullsLast',
           lastName: 'AscNullsLast',
         },
       },
       first: 2,
-      after: secondPageResponse.body.data.people.pageInfo.endCursor,
+      after: secondPageResponse.body.data.penduduks.pageInfo.endCursor,
     });
 
     const thirdPageResponse =
       await makeGraphqlAPIRequest(thirdPageOperation).expect(200);
 
-    const thirdPagePeople = thirdPageResponse.body.data.people.edges.map(
+    const thirdPagePenduduks = thirdPageResponse.body.data.penduduks.edges.map(
       (edge: any) => edge.node,
     );
 
-    expect(thirdPagePeople).toHaveLength(1);
-    expect(thirdPagePeople[0].name.firstName).toBe('Charlie');
-    expect(thirdPagePeople[0].name.lastName).toBe('Davis');
-    expect(thirdPageResponse.body.data.people.pageInfo.hasNextPage).toBe(false);
+    expect(thirdPagePenduduks).toHaveLength(1);
+    expect(thirdPagePenduduks[0].namaLengkap.firstName).toBe('Cahyo');
+    expect(thirdPagePenduduks[0].namaLengkap.lastName).toBe('Darmawan');
+    expect(
+      thirdPageResponse.body.data.penduduks.pageInfo.hasNextPage,
+    ).toBe(false);
   });
 
-  it('should support cursor-based pagination with fullName in descending order', async () => {
+  it('should support cursor-based pagination with namaLengkap in descending order', async () => {
     const firstPageOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'DescNullsLast',
           lastName: 'DescNullsLast',
         },
@@ -171,93 +183,95 @@ describe('GraphQL People Pagination with Composite Field Sorting', () => {
     const firstPageResponse =
       await makeGraphqlAPIRequest(firstPageOperation).expect(200);
 
-    const firstPagePeople = firstPageResponse.body.data.people.edges.map(
+    const firstPagePenduduks = firstPageResponse.body.data.penduduks.edges.map(
       (edge: any) => edge.node,
     );
 
-    expect(firstPagePeople).toHaveLength(2);
+    expect(firstPagePenduduks).toHaveLength(2);
 
-    expect(firstPagePeople[0].name.firstName).toBe('Charlie');
-    expect(firstPagePeople[0].name.lastName).toBe('Davis');
-    expect(firstPagePeople[1].name.firstName).toBe('Bob');
-    expect(firstPagePeople[1].name.lastName).toBe('Williams');
+    expect(firstPagePenduduks[0].namaLengkap.firstName).toBe('Cahyo');
+    expect(firstPagePenduduks[0].namaLengkap.lastName).toBe('Darmawan');
+    expect(firstPagePenduduks[1].namaLengkap.firstName).toBe('Budi');
+    expect(firstPagePenduduks[1].namaLengkap.lastName).toBe('Wibowo');
 
     const secondPageOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'DescNullsLast',
           lastName: 'DescNullsLast',
         },
       },
       first: 2,
-      after: firstPageResponse.body.data.people.pageInfo.endCursor,
+      after: firstPageResponse.body.data.penduduks.pageInfo.endCursor,
     });
 
     const secondPageResponse =
       await makeGraphqlAPIRequest(secondPageOperation).expect(200);
 
-    const secondPagePeople = secondPageResponse.body.data.people.edges.map(
-      (edge: any) => edge.node,
-    );
+    const secondPagePenduduks =
+      secondPageResponse.body.data.penduduks.edges.map(
+        (edge: any) => edge.node,
+      );
 
-    expect(secondPagePeople).toHaveLength(2);
+    expect(secondPagePenduduks).toHaveLength(2);
 
-    expect(secondPagePeople[0].name.firstName).toBe('Bob');
-    expect(secondPagePeople[0].name.lastName).toBe('Johnson');
-    expect(secondPagePeople[1].name.firstName).toBe('Alice');
-    expect(secondPagePeople[1].name.lastName).toBe('Smith');
+    expect(secondPagePenduduks[0].namaLengkap.firstName).toBe('Budi');
+    expect(secondPagePenduduks[0].namaLengkap.lastName).toBe('Hartono');
+    expect(secondPagePenduduks[1].namaLengkap.firstName).toBe('Aisyah');
+    expect(secondPagePenduduks[1].namaLengkap.lastName).toBe('Santoso');
   });
 
-  it('should support backward pagination with fullName composite field in ascending order', async () => {
-    const allPeopleOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+  it('should support backward pagination with namaLengkap composite field in ascending order', async () => {
+    const allPenduduksOperation = findManyOperationFactory({
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'AscNullsLast',
           lastName: 'AscNullsLast',
         },
       },
     });
 
-    const allPeopleResponse =
-      await makeGraphqlAPIRequest(allPeopleOperation).expect(200);
+    const allPenduduksResponse =
+      await makeGraphqlAPIRequest(allPenduduksOperation).expect(200);
 
-    const allPeople = allPeopleResponse.body.data.people.edges.map(
+    const allPenduduks = allPenduduksResponse.body.data.penduduks.edges.map(
       (edge: any) => edge.node,
     );
-    const lastPersonCursor =
-      allPeopleResponse.body.data.people.pageInfo.endCursor;
+    const lastPendudukCursor =
+      allPenduduksResponse.body.data.penduduks.pageInfo.endCursor;
 
     const backwardPageOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       orderBy: {
-        name: {
+        namaLengkap: {
           firstName: 'AscNullsLast',
           lastName: 'AscNullsLast',
         },
       },
       last: 2,
-      before: lastPersonCursor,
+      before: lastPendudukCursor,
     });
 
     const backwardPageResponse = await makeGraphqlAPIRequest(
       backwardPageOperation,
     ).expect(200);
 
-    const backwardPagePeople = backwardPageResponse.body.data.people.edges.map(
-      (edge: any) => edge.node,
-    );
+    const backwardPagePenduduks =
+      backwardPageResponse.body.data.penduduks.edges.map(
+        (edge: any) => edge.node,
+      );
 
-    expect(backwardPagePeople).toHaveLength(2);
+    expect(backwardPagePenduduks).toHaveLength(2);
 
-    expect(backwardPagePeople[0].id).toBe(allPeople.at(-3)?.id);
-    expect(backwardPagePeople[1].id).toBe(allPeople.at(-2)?.id);
+    expect(backwardPagePenduduks[0].id).toBe(allPenduduks.at(-3)?.id);
+    expect(backwardPagePenduduks[1].id).toBe(allPenduduks.at(-2)?.id);
   });
 });

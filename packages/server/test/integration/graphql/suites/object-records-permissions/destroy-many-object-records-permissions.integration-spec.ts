@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import { createManyOperationFactory } from 'test/integration/graphql/utils/create-many-operation-factory.util';
 import { destroyManyOperationFactory } from 'test/integration/graphql/utils/destroy-many-operation-factory.util';
 import { makeGraphqlAPIRequestWithGuestRole } from 'test/integration/graphql/utils/make-graphql-api-request-with-guest-role.util';
@@ -12,9 +12,9 @@ import { PermissionsExceptionMessage } from 'src/engine/metadata-modules/permiss
 describe('destroyManyObjectRecordsPermissions', () => {
   it('should throw a permission error when user does not have permission (guest role)', async () => {
     const graphqlOperation = destroyManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
           in: [randomUUID(), randomUUID()],
@@ -24,7 +24,7 @@ describe('destroyManyObjectRecordsPermissions', () => {
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ destroyPeople: null });
+    expect(response.body.data).toStrictEqual({ destroyPenduduks: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -33,19 +33,19 @@ describe('destroyManyObjectRecordsPermissions', () => {
   });
 
   it('should destroy multiple object records when user has permission (admin role)', async () => {
-    const personId1 = randomUUID();
-    const personId2 = randomUUID();
+    const pendudukId1 = randomUUID();
+    const pendudukId2 = randomUUID();
 
     const createGraphqlOperation = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
-          id: personId1,
+          id: pendudukId1,
         },
         {
-          id: personId2,
+          id: pendudukId2,
         },
       ],
     });
@@ -53,12 +53,12 @@ describe('destroyManyObjectRecordsPermissions', () => {
     await makeGraphqlAPIRequest(createGraphqlOperation);
 
     const graphqlOperation = destroyManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
-          in: [personId1, personId2],
+          in: [pendudukId1, pendudukId2],
         },
       },
     });
@@ -66,12 +66,12 @@ describe('destroyManyObjectRecordsPermissions', () => {
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.destroyPeople).toBeDefined();
-    expect(response.body.data.destroyPeople).toHaveLength(2);
-    expect(response.body.data.destroyPeople).toEqual(
+    expect(response.body.data.destroyPenduduks).toBeDefined();
+    expect(response.body.data.destroyPenduduks).toHaveLength(2);
+    expect(response.body.data.destroyPenduduks).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ id: personId1 }),
-        expect.objectContaining({ id: personId2 }),
+        expect.objectContaining({ id: pendudukId1 }),
+        expect.objectContaining({ id: pendudukId2 }),
       ]),
     );
   });

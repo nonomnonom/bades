@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import { createManyOperationFactory } from 'test/integration/graphql/utils/create-many-operation-factory.util';
 import { makeGraphqlAPIRequestWithApiKey } from 'test/integration/graphql/utils/make-graphql-api-request-with-api-key.util';
 import { makeGraphqlAPIRequestWithGuestRole } from 'test/integration/graphql/utils/make-graphql-api-request-with-guest-role.util';
@@ -12,46 +12,46 @@ import { ErrorCode } from 'src/engine/core-modules/graphql/utils/graphql-errors.
 import { PermissionsExceptionMessage } from 'src/engine/metadata-modules/permissions/permissions.exception';
 
 describe('updateManyObjectRecordsPermissions', () => {
-  let createdPersonIds: string[] = [];
+  let createdPendudukIds: string[] = [];
 
   afterEach(async () => {
-    if (createdPersonIds.length > 0) {
-      await deleteRecordsByIds('person', createdPersonIds);
-      createdPersonIds = [];
+    if (createdPendudukIds.length > 0) {
+      await deleteRecordsByIds('penduduk', createdPendudukIds);
+      createdPendudukIds = [];
     }
   });
 
   it('should throw a permission error when user does not have permission (guest role)', async () => {
-    const personId1 = randomUUID();
-    const personId2 = randomUUID();
+    const pendudukId1 = randomUUID();
+    const pendudukId2 = randomUUID();
     const createGraphqlOperation = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
-          id: personId1,
+          id: pendudukId1,
         },
         {
-          id: personId2,
+          id: pendudukId2,
         },
       ],
     });
 
     await makeGraphqlAPIRequest(createGraphqlOperation);
-    createdPersonIds.push(personId1, personId2);
+    createdPendudukIds.push(pendudukId1, pendudukId2);
 
     const updateGraphqlOperation = updateManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
-          in: [personId1, personId2],
+          in: [pendudukId1, pendudukId2],
         },
       },
       data: {
-        jobTitle: 'Senior Developer',
+        tempatLahir: 'Bandung',
       },
     });
 
@@ -59,7 +59,7 @@ describe('updateManyObjectRecordsPermissions', () => {
       updateGraphqlOperation,
     );
 
-    expect(response.body.data).toStrictEqual({ updatePeople: null });
+    expect(response.body.data).toStrictEqual({ updatePenduduks: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -68,81 +68,81 @@ describe('updateManyObjectRecordsPermissions', () => {
   });
 
   it('should update multiple object records when user has permission (admin role)', async () => {
-    const personId1 = randomUUID();
-    const personId2 = randomUUID();
+    const pendudukId1 = randomUUID();
+    const pendudukId2 = randomUUID();
     const createGraphqlOperation = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
-          id: personId1,
+          id: pendudukId1,
         },
         {
-          id: personId2,
+          id: pendudukId2,
         },
       ],
     });
 
     await makeGraphqlAPIRequest(createGraphqlOperation);
-    createdPersonIds.push(personId1, personId2);
+    createdPendudukIds.push(pendudukId1, pendudukId2);
 
     const updateGraphqlOperation = updateManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
-          in: [personId1, personId2],
+          in: [pendudukId1, pendudukId2],
         },
       },
       data: {
-        jobTitle: 'Tech Lead',
+        tempatLahir: 'Surabaya',
       },
     });
 
     const response = await makeGraphqlAPIRequest(updateGraphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.updatePeople).toBeDefined();
-    expect(response.body.data.updatePeople).toHaveLength(2);
-    expect(response.body.data.updatePeople[0].id).toBe(personId1);
-    expect(response.body.data.updatePeople[1].id).toBe(personId2);
-    expect(response.body.data.updatePeople[0].jobTitle).toBe('Tech Lead');
-    expect(response.body.data.updatePeople[1].jobTitle).toBe('Tech Lead');
+    expect(response.body.data.updatePenduduks).toBeDefined();
+    expect(response.body.data.updatePenduduks).toHaveLength(2);
+    expect(response.body.data.updatePenduduks[0].id).toBe(pendudukId1);
+    expect(response.body.data.updatePenduduks[1].id).toBe(pendudukId2);
+    expect(response.body.data.updatePenduduks[0].tempatLahir).toBe('Surabaya');
+    expect(response.body.data.updatePenduduks[1].tempatLahir).toBe('Surabaya');
   });
 
   it('should update multiple object records when executed by api key', async () => {
-    const personId1 = randomUUID();
-    const personId2 = randomUUID();
+    const pendudukId1 = randomUUID();
+    const pendudukId2 = randomUUID();
     const createGraphqlOperation = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
-          id: personId1,
+          id: pendudukId1,
         },
         {
-          id: personId2,
+          id: pendudukId2,
         },
       ],
     });
 
     await makeGraphqlAPIRequest(createGraphqlOperation);
-    createdPersonIds.push(personId1, personId2);
+    createdPendudukIds.push(pendudukId1, pendudukId2);
 
     const updateGraphqlOperation = updateManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
-          in: [personId1, personId2],
+          in: [pendudukId1, pendudukId2],
         },
       },
       data: {
-        jobTitle: 'Product Manager',
+        tempatLahir: 'Yogyakarta',
       },
     });
 
@@ -151,11 +151,15 @@ describe('updateManyObjectRecordsPermissions', () => {
     );
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.updatePeople).toBeDefined();
-    expect(response.body.data.updatePeople).toHaveLength(2);
-    expect(response.body.data.updatePeople[0].id).toBe(personId1);
-    expect(response.body.data.updatePeople[1].id).toBe(personId2);
-    expect(response.body.data.updatePeople[0].jobTitle).toBe('Product Manager');
-    expect(response.body.data.updatePeople[1].jobTitle).toBe('Product Manager');
+    expect(response.body.data.updatePenduduks).toBeDefined();
+    expect(response.body.data.updatePenduduks).toHaveLength(2);
+    expect(response.body.data.updatePenduduks[0].id).toBe(pendudukId1);
+    expect(response.body.data.updatePenduduks[1].id).toBe(pendudukId2);
+    expect(response.body.data.updatePenduduks[0].tempatLahir).toBe(
+      'Yogyakarta',
+    );
+    expect(response.body.data.updatePenduduks[1].tempatLahir).toBe(
+      'Yogyakarta',
+    );
   });
 });
