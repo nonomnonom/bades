@@ -124,9 +124,10 @@ jobs:
               set -a
               source .env
               set +a
-              # Plugin docker-rollout di EC2 versi lama tidak punya -f flag.
-              # Plugin auto-pakai docker-compose.yml di cwd /home/ubuntu.
-              sudo -E docker rollout --wait-after-healthy 5 server
+              # Plugin docker-rollout di EC2 versi lama. Pakai args minimal —
+              # plugin akan tunggu container baru sehat default 60s baru
+              # stop yang lama. Caddy retry sudah handle 30s gap.
+              sudo -E docker rollout server
 
               echo "==> Restart worker (no zero-downtime needed)"
               sudo docker compose --env-file .env up -d --force-recreate --no-deps worker
