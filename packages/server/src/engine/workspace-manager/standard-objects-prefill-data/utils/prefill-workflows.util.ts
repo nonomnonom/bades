@@ -63,18 +63,6 @@ export const prefillWorkflows = async (
     throw new Error('Metadata objek perusahaan atau orang tidak ditemukan');
   }
 
-  const companyDomainNameFieldMetadata = Object.values(
-    flatFieldMetadataMaps.byUniversalIdentifier,
-  ).find(
-    (fieldMetadata) =>
-      fieldMetadata?.objectMetadataId === companyObjectMetadataId &&
-      fieldMetadata?.name === 'domainName',
-  );
-
-  if (!isDefined(companyDomainNameFieldMetadata)) {
-    throw new Error('Metadata kolom domainName perusahaan tidak ditemukan');
-  }
-
   await entityManager
     .createQueryBuilder()
     .insert()
@@ -100,21 +88,6 @@ export const prefillWorkflows = async (
         lastPublishedVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
         statuses: ['ACTIVE'],
         position: 1,
-        createdBySource: FieldActorSource.SYSTEM,
-        createdByWorkspaceMemberId: null,
-        createdByName: 'System',
-        createdByContext: {},
-        updatedBySource: FieldActorSource.SYSTEM,
-        updatedByWorkspaceMemberId: null,
-        updatedByName: 'System',
-      },
-      {
-        id: CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_ID,
-        name: 'Buat lembaga saat menambah penduduk baru',
-        lastPublishedVersionId:
-          CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_VERSION_ID,
-        statuses: ['ACTIVE'],
-        position: 2,
         createdBySource: FieldActorSource.SYSTEM,
         createdByWorkspaceMemberId: null,
         createdByName: 'System',

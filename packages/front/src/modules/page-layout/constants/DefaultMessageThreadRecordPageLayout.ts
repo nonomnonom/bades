@@ -23,7 +23,7 @@ export const DEFAULT_MESSAGE_THREAD_RECORD_PAGE_LAYOUT: PageLayout = {
       applicationId: '',
       id: 'message-thread-tab-home',
       isActive: true,
-      title: 'Home',
+      title: 'Beranda',
       icon: 'IconHome',
       position: 100,
       layoutMode: PageLayoutTabLayoutMode.VERTICAL_LIST,
@@ -38,7 +38,7 @@ export const DEFAULT_MESSAGE_THREAD_RECORD_PAGE_LAYOUT: PageLayout = {
           id: 'message-thread-widget-email-thread',
           isActive: true,
           pageLayoutTabId: 'message-thread-tab-home',
-          title: 'Thread',
+          title: 'Utas',
           type: WidgetType.EMAIL_THREAD,
           objectMetadataId: null,
           gridPosition: {

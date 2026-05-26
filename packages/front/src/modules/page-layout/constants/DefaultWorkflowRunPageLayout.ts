@@ -29,7 +29,7 @@ export const DEFAULT_WORKFLOW_RUN_PAGE_LAYOUT: PageLayout = {
       applicationId: '',
       id: 'workflow-run-tab-fields',
       isActive: true,
-      title: 'Home',
+      title: 'Beranda',
       position: 100,
       layoutMode: PageLayoutTabLayoutMode.VERTICAL_LIST,
       icon: 'IconHome',
@@ -44,7 +44,7 @@ export const DEFAULT_WORKFLOW_RUN_PAGE_LAYOUT: PageLayout = {
           id: 'workflow-run-widget-fields',
           isActive: true,
           pageLayoutTabId: 'workflow-run-tab-fields',
-          title: 'Fields',
+          title: 'Field',
           type: WidgetType.FIELDS,
           objectMetadataId: null,
           gridPosition: {
