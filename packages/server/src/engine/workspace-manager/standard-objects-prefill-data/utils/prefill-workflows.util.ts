@@ -2,25 +2,17 @@ import { FieldActorSource } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { type EntityManager } from 'typeorm';
 
-import { DatabaseEventAction } from 'src/engine/api/graphql/graphql-query-runner/enums/database-event-action';
 import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { findFlatEntityByIdInFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-id-in-flat-entity-maps.util';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
 import { buildObjectIdByNameMaps } from 'src/engine/metadata-modules/flat-object-metadata/utils/build-object-id-by-name-maps.util';
-import { generateFakeObjectRecordEvent } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-fake-object-record-event';
 import { generateObjectRecordFields } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-object-record-fields';
-import { getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionIds } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-code-step-logic-functions.util';
 
-export const QUICK_LEAD_WORKFLOW_ID = '8b213cac-a68b-4ffe-817a-3ec994e9932d';
-export const QUICK_LEAD_WORKFLOW_VERSION_ID =
+export const PENDAFTARAN_WARGA_WORKFLOW_ID =
+  '8b213cac-a68b-4ffe-817a-3ec994e9932d';
+export const PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID =
   'ac67974f-c524-4288-9d88-af8515400b68';
-export const CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_ID =
-  '887c6c06-fbc5-4b45-8d6b-f7b6b0f40b12';
-export const CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_VERSION_ID =
-  '0f276d7e-a950-41ab-ad98-35e80753dc58';
-export const CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_AUTOMATED_TRIGGER_ID =
-  'c54f5990-13a3-4c3b-b75d-df09e7843036';
 
 export const prefillWorkflows = async (
   entityManager: EntityManager,
@@ -29,38 +21,35 @@ export const prefillWorkflows = async (
   flatObjectMetadataMaps: FlatEntityMaps<FlatObjectMetadata>,
   flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata>,
 ) => {
-  const {
-    extractDomainLogicFunctionId,
-    findMatchingCompanyByDomainLogicFunctionId,
-    isPersonalEmailLogicFunctionId,
-  } = getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionIds(workspaceId);
-
   const { idByNameSingular: objectIdByNameSingular } = buildObjectIdByNameMaps(
     flatObjectMetadataMaps,
   );
 
-  const companyObjectMetadataId = objectIdByNameSingular['keluarga'];
-  const personObjectMetadataId = objectIdByNameSingular['penduduk'];
+  const keluargaObjectMetadataId = objectIdByNameSingular['keluarga'];
+  const pendudukObjectMetadataId = objectIdByNameSingular['penduduk'];
 
   if (
-    !isDefined(companyObjectMetadataId) ||
-    !isDefined(personObjectMetadataId)
+    !isDefined(keluargaObjectMetadataId) ||
+    !isDefined(pendudukObjectMetadataId)
   ) {
-    throw new Error('Metadata objek perusahaan atau orang tidak ditemukan');
+    throw new Error('Metadata objek keluarga atau penduduk tidak ditemukan');
   }
 
-  const companyObjectMetadata = findFlatEntityByIdInFlatEntityMaps({
-    flatEntityId: companyObjectMetadataId,
+  const keluargaObjectMetadata = findFlatEntityByIdInFlatEntityMaps({
+    flatEntityId: keluargaObjectMetadataId,
     flatEntityMaps: flatObjectMetadataMaps,
   });
 
-  const personObjectMetadata = findFlatEntityByIdInFlatEntityMaps({
-    flatEntityId: personObjectMetadataId,
+  const pendudukObjectMetadata = findFlatEntityByIdInFlatEntityMaps({
+    flatEntityId: pendudukObjectMetadataId,
     flatEntityMaps: flatObjectMetadataMaps,
   });
 
-  if (!isDefined(companyObjectMetadata) || !isDefined(personObjectMetadata)) {
-    throw new Error('Metadata objek perusahaan atau orang tidak ditemukan');
+  if (
+    !isDefined(keluargaObjectMetadata) ||
+    !isDefined(pendudukObjectMetadata)
+  ) {
+    throw new Error('Metadata objek keluarga atau penduduk tidak ditemukan');
   }
 
   await entityManager
@@ -83,9 +72,9 @@ export const prefillWorkflows = async (
     .orIgnore()
     .values([
       {
-        id: QUICK_LEAD_WORKFLOW_ID,
+        id: PENDAFTARAN_WARGA_WORKFLOW_ID,
         name: 'Pendaftaran Warga Baru',
-        lastPublishedVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
+        lastPublishedVersionId: PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
         statuses: ['ACTIVE'],
         position: 1,
         createdBySource: FieldActorSource.SYSTEM,
@@ -115,7 +104,7 @@ export const prefillWorkflows = async (
     .orIgnore()
     .values([
       {
-        id: QUICK_LEAD_WORKFLOW_VERSION_ID,
+        id: PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
         name: 'v1',
         trigger: JSON.stringify({
           name: 'Jalankan manual',
@@ -137,127 +126,84 @@ export const prefillWorkflows = async (
               input: [
                 {
                   id: '14d669f0-5249-4fa4-b0bb-f8bd408328d5',
-                  name: 'firstName',
+                  name: 'nik',
                   type: 'TEXT',
-                  label: 'Nama depan',
-                  placeholder: 'Wayan',
+                  label: 'NIK',
+                  placeholder: '3234567890123456',
                 },
                 {
                   id: '4eb6ce85-d231-4aef-9837-744490c026d0',
-                  name: 'lastName',
+                  name: 'namaLengkap',
                   type: 'TEXT',
-                  label: 'Nama belakang',
-                  placeholder: 'Putra',
+                  label: 'Nama Lengkap',
+                  placeholder: 'Made Sutrisna',
                 },
                 {
                   id: 'adbf0e9f-1427-49be-b4fb-092b34d97350',
-                  name: 'email',
+                  name: 'tempatLahir',
                   type: 'TEXT',
-                  label: 'Email',
-                  placeholder: 'wayan@bades.id',
+                  label: 'Tempat Lahir',
+                  placeholder: 'Denpasar',
                 },
                 {
                   id: '4ffc7992-9e65-4a4d-9baf-b52e62f2c273',
-                  name: 'jobTitle',
-                  type: 'TEXT',
-                  label: 'Pekerjaan',
-                  placeholder: 'Petani',
+                  name: 'tanggalLahir',
+                  type: 'TEXT_DATE',
+                  label: 'Tanggal Lahir',
+                  placeholder: '01/01/1990',
                 },
                 {
                   id: '42f11926-04ea-4924-94a4-2293cc748362',
-                  name: 'companyName',
+                  name: 'jenisKelamin',
                   type: 'TEXT',
-                  label: 'Nama lembaga/instansi',
-                  placeholder: 'Badan Pusat Statistik',
+                  label: 'Jenis Kelamin',
+                  placeholder: 'Laki-laki',
                 },
                 {
                   id: 'd6ca80ee-26cd-466d-91bf-984d7205451c',
-                  name: 'companyDomain',
+                  name: 'alamat',
                   type: 'TEXT',
-                  label: 'Domain lembaga',
-                  placeholder: 'https://www.bps.go.id',
+                  label: 'Alamat',
+                  placeholder: 'Jl. Desa No. 1',
                 },
               ],
               outputSchema: {
-                email: {
+                nik: {
                   type: 'TEXT',
-                  label: 'Email',
+                  label: 'NIK',
                   value: 'My text',
                   isLeaf: true,
                 },
-                jobTitle: {
+                namaLengkap: {
                   type: 'TEXT',
-                  label: 'Pekerjaan',
+                  label: 'Nama Lengkap',
                   value: 'My text',
                   isLeaf: true,
                 },
-                lastName: {
+                tempatLahir: {
                   type: 'TEXT',
-                  label: 'Nama belakang',
+                  label: 'Tempat Lahir',
                   value: 'My text',
                   isLeaf: true,
                 },
-                firstName: {
-                  type: 'TEXT',
-                  label: 'Nama depan',
+                tanggalLahir: {
+                  type: 'TEXT_DATE',
+                  label: 'Tanggal Lahir',
                   value: 'My text',
                   isLeaf: true,
                 },
-                companyName: {
+                jenisKelamin: {
                   type: 'TEXT',
-                  label: 'Nama lembaga/instansi',
+                  label: 'Jenis Kelamin',
                   value: 'My text',
                   isLeaf: true,
                 },
-                companyDomain: {
+                alamat: {
                   type: 'TEXT',
-                  label: 'Domain lembaga',
+                  label: 'Alamat',
                   value: 'My text',
                   isLeaf: true,
                 },
-              },
-              errorHandlingOptions: {
-                retryOnFailure: { value: false },
-                continueOnFailure: { value: false },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['0715b6cd-7cc1-4b98-971b-00f54dfe643b'],
-          },
-          {
-            id: '0715b6cd-7cc1-4b98-971b-00f54dfe643b',
-            name: 'Buat Lembaga/Instansi',
-            type: 'CREATE_RECORD',
-            valid: false,
-            settings: {
-              input: {
-                objectName: 'keluarga',
-                objectRecord: {
-                  name: '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.companyName}}',
-                  domainName: {
-                    primaryLinkUrl:
-                      '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.companyDomain}}',
-                    primaryLinkLabel: '',
-                  },
-                },
-              },
-              outputSchema: {
-                object: {
-                  icon: 'IconBuildingSkyscraper',
-                  label: 'Lembaga/Instansi',
-                  value: 'Sebuah lembaga',
-                  isLeaf: true,
-                  fieldIdName: 'id',
-                  nameSingular: 'keluarga',
-                },
-                _outputSchemaType: 'RECORD',
-                fields: generateObjectRecordFields({
-                  objectMetadataInfo: {
-                    flatObjectMetadata: companyObjectMetadata,
-                    flatObjectMetadataMaps,
-                    flatFieldMetadataMaps,
-                  },
-                }),
               },
               errorHandlingOptions: {
                 retryOnFailure: { value: false },
@@ -276,24 +222,26 @@ export const prefillWorkflows = async (
               input: {
                 objectName: 'penduduk',
                 objectRecord: {
-                  name: {
-                    lastName:
-                      '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.lastName}}',
-                    firstName:
-                      '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.firstName}}',
-                  },
-                  emails: {
-                    primaryEmail:
-                      '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.email}}',
-                    additionalEmails: [],
-                  },
-                  companyId: '{{0715b6cd-7cc1-4b98-971b-00f54dfe643b.id}}',
+                  nik: '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.nik}}',
+                  namaLengkap:
+                    '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.namaLengkap}}',
+                  tempatLahir:
+                    '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.tempatLahir}}',
                 },
               },
               outputSchema: {
+                object: {
+                  icon: 'IconUser',
+                  label: 'Penduduk',
+                  value: 'Seorang penduduk',
+                  isLeaf: true,
+                  fieldIdName: 'id',
+                  nameSingular: 'penduduk',
+                },
+                _outputSchemaType: 'RECORD',
                 fields: generateObjectRecordFields({
                   objectMetadataInfo: {
-                    flatObjectMetadata: personObjectMetadata,
+                    flatObjectMetadata: pendudukObjectMetadata,
                     flatObjectMetadataMaps,
                     flatFieldMetadataMaps,
                   },
@@ -310,426 +258,9 @@ export const prefillWorkflows = async (
         ]),
         status: 'ACTIVE',
         position: 1,
-        workflowId: QUICK_LEAD_WORKFLOW_ID,
-      },
-      {
-        id: CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_VERSION_ID,
-        name: 'v1',
-        trigger: JSON.stringify({
-          name: 'Record is created or updated',
-          type: 'DATABASE_EVENT',
-          settings: {
-            eventName: 'person.upserted',
-            fields: ['emails'],
-            outputSchema: generateFakeObjectRecordEvent(
-              {
-                flatObjectMetadata: personObjectMetadata,
-                flatObjectMetadataMaps,
-                flatFieldMetadataMaps,
-              },
-              DatabaseEventAction.UPSERTED,
-            ),
-          },
-          nextStepIds: ['c30d7cbe-00e0-4966-bc1a-99b0a11a2cca'],
-        }),
-        steps: JSON.stringify([
-          {
-            id: 'c30d7cbe-00e0-4966-bc1a-99b0a11a2cca',
-            name: 'Cek apakah email pribadi?',
-            type: 'CODE',
-            valid: false,
-            position: {
-              x: 227.25,
-              y: 130,
-            },
-            settings: {
-              input: {
-                logicFunctionId: isPersonalEmailLogicFunctionId,
-                logicFunctionInput: {
-                  primaryEmail:
-                    '{{trigger.properties.after.emails.primaryEmail}}',
-                },
-              },
-              outputSchema: {
-                isPersonal: {
-                  type: 'boolean',
-                  label: 'isPersonal',
-                  value: true,
-                  isLeaf: true,
-                },
-              },
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['01f3db05-aae5-4e4b-b361-96684f09c704'],
-          },
-          {
-            id: '01f3db05-aae5-4e4b-b361-96684f09c704',
-            name: 'Jika email instansi',
-            type: 'FILTER',
-            valid: false,
-            position: {
-              x: 249.25,
-              y: 260,
-            },
-            settings: {
-              input: {
-                stepFilters: [
-                  {
-                    id: '0e595385-9e18-4869-abfd-cf72952b124c',
-                    type: 'boolean',
-                    value: 'false',
-                    operand: 'IS',
-                    isFullRecord: false,
-                    stepOutputKey:
-                      '{{c30d7cbe-00e0-4966-bc1a-99b0a11a2cca.isPersonal}}',
-                    stepFilterGroupId: '5204d5f5-7b23-428c-9f84-c37971d497d3',
-                    positionInStepFilterGroup: 0,
-                  },
-                ],
-                stepFilterGroups: [
-                  {
-                    id: '5204d5f5-7b23-428c-9f84-c37971d497d3',
-                    logicalOperator: 'AND',
-                  },
-                ],
-              },
-              outputSchema: {},
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['1b01193b-8300-4d79-940b-44464bf45505'],
-          },
-          {
-            id: '1b01193b-8300-4d79-940b-44464bf45505',
-            name: 'Ekstrak domain dari email',
-            type: 'CODE',
-            valid: false,
-            position: {
-              x: 219.75,
-              y: 390,
-            },
-            settings: {
-              input: {
-                logicFunctionId: extractDomainLogicFunctionId,
-                logicFunctionInput: {
-                  email: '{{trigger.properties.after.emails.primaryEmail}}',
-                },
-              },
-              outputSchema: {
-                url: {
-                  icon: 'IconVariable',
-                  type: 'string',
-                  label: 'url',
-                  value: 'https://bades.id',
-                  isLeaf: true,
-                },
-                domain: {
-                  icon: 'IconVariable',
-                  type: 'string',
-                  label: 'domain',
-                  value: 'bades.id',
-                  isLeaf: true,
-                },
-              },
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['becb3acf-79bb-4672-8a42-3696e94957b5'],
-          },
-          {
-            id: 'becb3acf-79bb-4672-8a42-3696e94957b5',
-            name: 'Cari Lembaga/Instansi',
-            type: 'FIND_RECORDS',
-            valid: false,
-            position: {
-              x: 247.75,
-              y: 520,
-            },
-            settings: {
-              input: {
-                limit: 25,
-                filter: {
-                  recordFilters: [
-                    {
-                      id: 'a9b917a0-5c4c-4e8f-bf91-160d0b888693',
-                      type: 'LINKS',
-                      label: 'Domain Name',
-                      value: '{{1b01193b-8300-4d79-940b-44464bf45505.domain}}',
-                      operand: 'CONTAINS',
-                      displayValue:
-                        '{{1b01193b-8300-4d79-940b-44464bf45505.domain}}',
-                      subFieldName: 'primaryLinkUrl',
-                      fieldMetadataId: companyDomainNameFieldMetadata.id,
-                      recordFilterGroupId:
-                        '194e151c-cf46-4e8f-a48b-649c36082dfa',
-                    },
-                  ],
-                  recordFilterGroups: [
-                    {
-                      id: '194e151c-cf46-4e8f-a48b-649c36082dfa',
-                      logicalOperator: 'AND',
-                    },
-                  ],
-                },
-                objectName: 'keluarga',
-              },
-              outputSchema: {},
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['9d0b6ef2-aad2-4853-92e1-95f2abf10d5b'],
-          },
-          {
-            id: '9d0b6ef2-aad2-4853-92e1-95f2abf10d5b',
-            name: 'Cocokkan lembaga',
-            type: 'CODE',
-            valid: false,
-            position: {
-              x: 247.75,
-              y: 650,
-            },
-            settings: {
-              input: {
-                logicFunctionId: findMatchingCompanyByDomainLogicFunctionId,
-                logicFunctionInput: {
-                  companies: '{{becb3acf-79bb-4672-8a42-3696e94957b5.all}}',
-                  domain: '{{1b01193b-8300-4d79-940b-44464bf45505.domain}}',
-                },
-              },
-              outputSchema: {
-                companyId: {
-                  type: 'string',
-                  label: 'companyId',
-                  value: '00000000-0000-0000-0000-000000000000',
-                  isLeaf: true,
-                },
-                hasMatch: {
-                  type: 'boolean',
-                  label: 'hasMatch',
-                  value: true,
-                  isLeaf: true,
-                },
-              },
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['0c99a900-656a-40e8-977e-5a7357be33b9'],
-          },
-          {
-            id: '0c99a900-656a-40e8-977e-5a7357be33b9',
-            name: 'Jika lembaga sudah ada',
-            type: 'IF_ELSE',
-            valid: false,
-            position: {
-              x: 216.25,
-              y: 780,
-            },
-            settings: {
-              input: {
-                branches: [
-                  {
-                    id: '1344c151-15ff-40e2-a1a3-925fabaf5b1c',
-                    nextStepIds: ['ffdd4271-75d4-4805-b1f8-2167a113c3b2'],
-                    filterGroupId: 'f5c41047-2a6e-49fb-968a-fa7789a90ee5',
-                  },
-                  {
-                    id: 'fe6dd152-1103-4324-af51-3ff994d1f8a7',
-                    nextStepIds: ['ddafb9db-a94f-40b9-a5c9-becce857edf7'],
-                  },
-                ],
-                stepFilters: [
-                  {
-                    id: '290cc6a3-08fd-4be5-b42e-966d0bb90ff7',
-                    type: 'boolean',
-                    value: 'true',
-                    operand: 'IS',
-                    isFullRecord: false,
-                    stepOutputKey:
-                      '{{9d0b6ef2-aad2-4853-92e1-95f2abf10d5b.hasMatch}}',
-                    stepFilterGroupId: 'f5c41047-2a6e-49fb-968a-fa7789a90ee5',
-                    positionInStepFilterGroup: 0,
-                  },
-                ],
-                stepFilterGroups: [
-                  {
-                    id: 'f5c41047-2a6e-49fb-968a-fa7789a90ee5',
-                    logicalOperator: 'AND',
-                  },
-                ],
-              },
-              outputSchema: {},
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-          },
-          {
-            id: 'ffdd4271-75d4-4805-b1f8-2167a113c3b2',
-            name: 'Hubungkan penduduk ke lembaga',
-            type: 'UPDATE_RECORD',
-            valid: false,
-            position: {
-              x: 0,
-              y: 910,
-            },
-            settings: {
-              input: {
-                objectName: 'penduduk',
-                objectRecord: {
-                  companyId:
-                    '{{9d0b6ef2-aad2-4853-92e1-95f2abf10d5b.companyId}}',
-                },
-                fieldsToUpdate: ['companyId'],
-                objectRecordId: '{{trigger.properties.after.id}}',
-              },
-              outputSchema: {},
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-          },
-          {
-            id: 'ddafb9db-a94f-40b9-a5c9-becce857edf7',
-            name: 'Buat lembaga baru',
-            type: 'CREATE_RECORD',
-            valid: false,
-            position: {
-              x: 440,
-              y: 910,
-            },
-            settings: {
-              input: {
-                objectName: 'keluarga',
-                objectRecord: {
-                  name: '{{1b01193b-8300-4d79-940b-44464bf45505.domain}}',
-                  domainName: {
-                    primaryLinkUrl:
-                      '{{1b01193b-8300-4d79-940b-44464bf45505.url}}',
-                    primaryLinkLabel:
-                      '{{1b01193b-8300-4d79-940b-44464bf45505.domain}}',
-                  },
-                },
-              },
-              outputSchema: {},
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-            nextStepIds: ['d5d5d6e1-391f-4142-83c1-670f7087f079'],
-          },
-          {
-            id: 'd5d5d6e1-391f-4142-83c1-670f7087f079',
-            name: 'Hubungkan penduduk ke lembaga ini',
-            type: 'UPDATE_RECORD',
-            valid: false,
-            position: {
-              x: 420.5,
-              y: 1040,
-            },
-            settings: {
-              input: {
-                objectName: 'penduduk',
-                objectRecord: {
-                  companyId: '{{ddafb9db-a94f-40b9-a5c9-becce857edf7.id}}',
-                },
-                fieldsToUpdate: ['companyId'],
-                objectRecordId: '{{trigger.properties.after.id}}',
-              },
-              outputSchema: {},
-              errorHandlingOptions: {
-                retryOnFailure: {
-                  value: false,
-                },
-                continueOnFailure: {
-                  value: false,
-                },
-              },
-            },
-            __typename: 'WorkflowAction',
-          },
-        ]),
-        status: 'ACTIVE',
-        position: 2,
-        workflowId: CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_ID,
+        workflowId: PENDAFTARAN_WARGA_WORKFLOW_ID,
       },
     ])
     .returning('*')
-    .execute();
-
-  await entityManager
-    .createQueryBuilder()
-    .insert()
-    .into(`${schemaName}.workflowAutomatedTrigger`, [
-      'id',
-      'workflowId',
-      'type',
-      'settings',
-    ])
-    .orIgnore()
-    .values([
-      {
-        id: CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_AUTOMATED_TRIGGER_ID,
-        workflowId: CREATE_COMPANY_WHEN_ADDING_NEW_PERSON_WORKFLOW_ID,
-        type: 'DATABASE_EVENT',
-        settings: {
-          eventName: 'person.upserted',
-          fields: ['emails'],
-        },
-      },
-    ])
     .execute();
 };

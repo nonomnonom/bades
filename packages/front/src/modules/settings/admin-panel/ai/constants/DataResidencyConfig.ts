@@ -11,7 +11,7 @@ export const DATA_RESIDENCY_CONFIG: Record<
   ap: { label: 'Asia Pasifik', flag: '🌏' },
   jp: { label: 'Jepang', flag: '🇯🇵' },
   au: { label: 'Australia', flag: '🇦🇺' },
-  ca: { label: 'Canada', flag: '🇨🇦' },
-  de: { label: 'Germany', flag: '🇩🇪' },
-  fr: { label: 'France', flag: '🇫🇷' },
+  ca: { label: 'Kanada', flag: '🇨🇦' },
+  de: { label: 'Jerman', flag: '🇩🇪' },
+  fr: { label: 'Prancis', flag: '🇫🇷' },
 };

@@ -6,10 +6,12 @@ import { CommandMenuItemAvailabilityType } from 'src/engine/metadata-modules/com
 import { EngineComponentKey } from 'src/engine/metadata-modules/command-menu-item/enums/engine-component-key.enum';
 import { type FlatCommandMenuItem } from 'src/engine/metadata-modules/flat-command-menu-item/types/flat-command-menu-item.type';
 import { type WorkspaceManyOrAllFlatEntityMapsCacheService } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.service';
-import { QUICK_LEAD_WORKFLOW_VERSION_ID } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
+import {
+  PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
+} from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
 import { type WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
-const QUICK_LEAD_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER =
+const PENDAFTARAN_WARGA_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER =
   '5b389a80-345f-42b5-83fa-2e6b6ad95f01';
 
 export const prefillWorkflowCommandMenuItems = async ({
@@ -36,7 +38,7 @@ export const prefillWorkflowCommandMenuItems = async ({
 
   const alreadyExists = isDefined(
     flatCommandMenuItemMaps.byUniversalIdentifier[
-      QUICK_LEAD_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER
+      PENDAFTARAN_WARGA_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER
     ],
   );
 
@@ -46,20 +48,20 @@ export const prefillWorkflowCommandMenuItems = async ({
 
   const now = new Date().toISOString();
 
-  const quickLeadFlatCommandMenuItem: FlatCommandMenuItem = {
+  const pendaftaranWargaFlatCommandMenuItem: FlatCommandMenuItem = {
     id: v4(),
-    universalIdentifier: QUICK_LEAD_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER,
+    universalIdentifier: PENDAFTARAN_WARGA_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER,
     applicationId: workspaceCustomFlatApplication.id,
     applicationUniversalIdentifier:
       workspaceCustomFlatApplication.universalIdentifier,
     workspaceId,
-    workflowVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
+    workflowVersionId: PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
     frontComponentId: null,
     frontComponentUniversalIdentifier: null,
     engineComponentKey: EngineComponentKey.TRIGGER_WORKFLOW_VERSION,
-    label: 'Quick Lead',
+    label: 'Pendaftaran Warga Baru',
     icon: 'IconUserPlus',
-    shortLabel: 'Quick Lead',
+    shortLabel: 'Pendaftaran',
     position: 100,
     isPinned: false,
     availabilityType: CommandMenuItemAvailabilityType.GLOBAL,
@@ -79,7 +81,7 @@ export const prefillWorkflowCommandMenuItems = async ({
       {
         allFlatEntityOperationByMetadataName: {
           commandMenuItem: {
-            flatEntityToCreate: [quickLeadFlatCommandMenuItem],
+            flatEntityToCreate: [pendaftaranWargaFlatCommandMenuItem],
             flatEntityToDelete: [],
             flatEntityToUpdate: [],
           },
@@ -92,7 +94,7 @@ export const prefillWorkflowCommandMenuItems = async ({
 
   if (result.status === 'fail') {
     throw new Error(
-      `Failed to create Quick Lead command menu item for workspace ${workspaceId}: ${JSON.stringify(result, null, 2)}`,
+      `Failed to create command menu item Pendaftaran Warga Baru for workspace ${workspaceId}: ${JSON.stringify(result, null, 2)}`,
     );
   }
 };

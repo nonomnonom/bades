@@ -117,7 +117,7 @@ export const useComputeApplicationContentForLayoutAndLogic = ({
           };
         }
         case 'RECORD':
-          return { label: 'Record', displayName: 'Record' };
+          return { label: 'Data', displayName: 'Data' };
         default:
           return { label: undefined, displayName: undefined };
       }
