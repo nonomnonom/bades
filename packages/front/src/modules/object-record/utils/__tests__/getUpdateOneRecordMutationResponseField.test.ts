@@ -3,19 +3,19 @@ import { getUpdateOneRecordMutationResponseField } from '@/object-record/utils/g
 describe('getUpdateOneRecordMutationResponseField', () => {
   it('should capitalize and prefix with "update"', () => {
     expect(getUpdateOneRecordMutationResponseField('person')).toBe(
-      'updatePerson',
+      'updatePenduduk',
     );
   });
 
   it('should handle multi-word object names', () => {
     expect(getUpdateOneRecordMutationResponseField('company')).toBe(
-      'updateCompany',
+      'updateKeluarga',
     );
   });
 
   it('should handle already capitalized names', () => {
     expect(getUpdateOneRecordMutationResponseField('Person')).toBe(
-      'updatePerson',
+      'updatePenduduk',
     );
   });
 });

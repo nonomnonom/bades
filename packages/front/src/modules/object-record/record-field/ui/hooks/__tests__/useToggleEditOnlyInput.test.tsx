@@ -38,7 +38,7 @@ const mocks: MockedResponse[] = [
     },
     result: jest.fn(() => ({
       data: {
-        updateCompany: {
+        updateKeluarga: {
           ...generateMockRecordNode({
             objectNameSingular: CoreObjectNameSingular.Company,
             input: { id: recordId },

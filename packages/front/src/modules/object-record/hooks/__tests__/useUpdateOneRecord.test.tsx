@@ -16,7 +16,7 @@ const updateInput = {
     lastName: 'Doe',
   },
 };
-const updatePerson = {
+const updatePenduduk = {
   ...person,
   ...responseData,
   ...updateInput,
@@ -30,7 +30,7 @@ const mocks = [
     },
     result: jest.fn(() => ({
       data: {
-        updatePerson,
+        updatePenduduk,
       },
     })),
   },

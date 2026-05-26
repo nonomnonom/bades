@@ -54,7 +54,7 @@ describe('useDeleteOneRecord', () => {
       },
       result: jest.fn((variables) => ({
         data: {
-          deletePerson: {
+          deletePenduduk: {
             __typename: 'Person',
             deletedAt: '2024-02-14T09:45:00Z',
             id: variables.idToDelete,

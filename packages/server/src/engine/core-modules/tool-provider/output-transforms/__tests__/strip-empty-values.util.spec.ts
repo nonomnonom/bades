@@ -27,7 +27,7 @@ describe('stripEmptyValues', () => {
 
   it('should recursively strip nested objects', () => {
     const input = {
-      name: 'Acme',
+      name: 'Sukamaju',
       address: {
         city: null,
         street: null,
@@ -42,7 +42,7 @@ describe('stripEmptyValues', () => {
     };
 
     expect(stripEmptyValues(input)).toEqual({
-      name: 'Acme',
+      name: 'Sukamaju',
       address: { country: 'US' },
     });
   });
@@ -64,14 +64,14 @@ describe('stripEmptyValues', () => {
   it('should strip empty values from arrays of objects', () => {
     const input = {
       records: [
-        { id: '1', name: 'Acme', website: null, industry: '' },
+        { id: '1', name: 'Sukamaju', website: null, industry: '' },
         { id: '2', name: 'Beta', website: 'beta.com', industry: null },
       ],
     };
 
     expect(stripEmptyValues(input)).toEqual({
       records: [
-        { id: '1', name: 'Acme' },
+        { id: '1', name: 'Sukamaju' },
         { id: '2', name: 'Beta', website: 'beta.com' },
       ],
     });
@@ -89,7 +89,7 @@ describe('stripEmptyValues', () => {
         records: [
           {
             id: 'abc-123',
-            name: 'Acme Corp',
+            name: 'Keluarga Santoso',
             employees: 500,
             industry: 'Technology',
             website: null,
@@ -110,7 +110,7 @@ describe('stripEmptyValues', () => {
         {
           objectNameSingular: 'company',
           recordId: 'abc-123',
-          displayName: 'Acme Corp',
+          displayName: 'Keluarga Santoso',
         },
       ],
     };
@@ -122,7 +122,7 @@ describe('stripEmptyValues', () => {
         records: [
           {
             id: 'abc-123',
-            name: 'Acme Corp',
+            name: 'Keluarga Santoso',
             employees: 500,
             industry: 'Technology',
             createdAt: '2024-01-01',
@@ -135,7 +135,7 @@ describe('stripEmptyValues', () => {
         {
           objectNameSingular: 'company',
           recordId: 'abc-123',
-          displayName: 'Acme Corp',
+          displayName: 'Keluarga Santoso',
         },
       ],
     });

@@ -659,7 +659,7 @@ for c in companies['records']:
 # no nested 'data' wrapper. Use twenty.call_tool('learn_tools', ...) to
 # inspect a schema if unsure.
 result = twenty.call_tool('create_company', {
-    'name': 'Acme Corp',
+    'name': 'Keluarga Santoso',
     'domainName': {'primaryLinkUrl': 'https://acme.com'},
     'position': 'first',
 })
@@ -1508,7 +1508,7 @@ python /home/user/scripts/pptx/rearrange.py input.pptx '[3, 1, 2]' output.pptx
 
 ### Find and Replace Text
 \`\`\`bash
-python /home/user/scripts/pptx/replace.py input.pptx '{"{{company}}": "Acme Corp", "{{date}}": "2024"}' output.pptx
+python /home/user/scripts/pptx/replace.py input.pptx '{"{{company}}": "Keluarga Santoso", "{{date}}": "2024"}' output.pptx
 \`\`\`
 
 ## Template Processing Workflow
