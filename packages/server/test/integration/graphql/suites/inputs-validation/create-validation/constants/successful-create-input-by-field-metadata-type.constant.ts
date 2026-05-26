@@ -337,7 +337,7 @@ export const successfulCreateInputByFieldMetadataType: {
     {
       input: {
         fullNameField: {
-          firstName: 'John',
+          firstName: 'Budi',
           lastName: 'Doe',
         },
       },

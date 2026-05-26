@@ -188,7 +188,7 @@ export const setupTestObjectsWithAllFieldTypes = async (
             currencyCode: 'USD',
           },
           fullNameField: {
-            firstName: 'John',
+            firstName: 'Budi',
             lastName: 'Doe',
           },
           ratingField: 'RATING_5',

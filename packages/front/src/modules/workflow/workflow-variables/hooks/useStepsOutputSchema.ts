@@ -55,7 +55,7 @@ export const useStepsOutputSchema = () => {
                 response: {
                   isLeaf: true,
                   type: 'string',
-                  label: 'Response',
+                  label: 'Respons',
                   value: null,
                 },
               }

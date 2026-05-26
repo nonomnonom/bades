@@ -28,7 +28,7 @@ describe('trim-and-remove-duplicated-whitespaces-from-object-string-properties',
         },
         keys: ['firstName', 'lastName', 'email'],
         expected: {
-          firstName: 'John',
+          firstName: 'Budi',
           lastName: 'Doe',
           email: 'john.doe@example.com',
         },
