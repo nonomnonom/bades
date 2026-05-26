@@ -6,11 +6,11 @@ export const parseEventNameOrThrow = (eventName: string) => {
   const [objectSingularName, action] = eventName.split('.');
 
   if (!checkStringIsDatabaseEventAction(action)) {
-    throw new Error('Invalid event name');
+    throw new Error('Nama peristiwa tidak valid');
   }
 
   if (!isDefined(objectSingularName)) {
-    throw new Error('Invalid event name');
+    throw new Error('Nama peristiwa tidak valid');
   }
 
   return {

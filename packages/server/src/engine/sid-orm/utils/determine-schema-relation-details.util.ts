@@ -32,7 +32,7 @@ export function determineSchemaRelationDetails(
   fieldMetadataMaps: EntitySchemaFieldMetadataMaps,
 ): RelationDetails {
   if (!fieldMetadata.settings) {
-    throw new Error('Field metadata settings are missing');
+    throw new Error('Pengaturan metadata kolom tidak ditemukan');
   }
 
   const relationType = converRelationTypeToTypeORMRelationType(

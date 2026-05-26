@@ -15,105 +15,52 @@ import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-meta
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 import { computeTableName } from 'src/engine/utils/compute-table-name.util';
-// Seed SID-native saja. CRM seeds dihapus karena tidak relevan untuk konteks
-// administrasi desa Indonesia. Seed warga, keluarga, surat, bantuan, anggaran,
-// dan aset desa tetap berjalan normal.
+// Seed SID-native: hanya 9 object inti sesuai GOAL.md (Penduduk, Keluarga,
+// Wilayah, Layanan/Permohonan Surat, Surat, Perangkat Desa/Jabatan, Program
+// Bantuan, Penerima Bantuan, Aset Desa). Data seed warisan untuk Rumah
+// Tangga, Periode Jabatan, Lembaga Desa, Jenis Surat, Surat Masuk, seluruh
+// domain Keuangan APBDes, Posyandu, Bidang Tanah, UMKM, dan Kegiatan Desa
+// sengaja dilepas dari dev seed agar workspace contoh tetap ringan.
 import {
   DASHBOARD_DATA_SEED_COLUMNS,
   getDashboardDataSeeds,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/dashboard-data-seeds.constant';
 import {
-  PENDUDUK_DATA_SEED_COLUMNS,
-  PENDUDUK_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
-import {
-  KELUARGA_DATA_SEED_COLUMNS,
-  KELUARGA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/keluarga-data-seeds.constant';
-import {
-  JENIS_SURAT_DATA_SEED_COLUMNS,
-  JENIS_SURAT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/jenis-surat-data-seeds.constant';
-import {
-  PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
-  PERMOHONAN_SURAT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/permohonan-surat-data-seeds.constant';
+  ASET_DESA_DATA_SEED_COLUMNS,
+  ASET_DESA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/aset-desa-data-seeds.constant';
 import {
   JABATAN_DATA_SEED_COLUMNS,
   JABATAN_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/jabatan-data-seeds.constant';
 import {
-  LEMBAGA_DESA_DATA_SEED_COLUMNS,
-  LEMBAGA_DESA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/lembaga-desa-data-seeds.constant';
+  KELUARGA_DATA_SEED_COLUMNS,
+  KELUARGA_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/keluarga-data-seeds.constant';
 import {
-  ANGGARAN_DATA_SEED_COLUMNS,
-  ANGGARAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/anggaran-data-seeds.constant';
-import {
-  REALISASI_ANGGARAN_DATA_SEED_COLUMNS,
-  REALISASI_ANGGARAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/realisasi-anggaran-data-seeds.constant';
-import {
-  PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
-  PROGRAM_BANTUAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/program-bantuan-data-seeds.constant';
+  PENDUDUK_DATA_SEED_COLUMNS,
+  PENDUDUK_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 import {
   PENERIMA_BANTUAN_DATA_SEED_COLUMNS,
   PENERIMA_BANTUAN_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/penerima-bantuan-data-seeds.constant';
 import {
-  ASET_DESA_DATA_SEED_COLUMNS,
-  ASET_DESA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/aset-desa-data-seeds.constant';
+  PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
+  PERMOHONAN_SURAT_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/permohonan-surat-data-seeds.constant';
 import {
-  UMKM_DATA_SEED_COLUMNS,
-  UMKM_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/umkm-data-seeds.constant';
-import {
-  WILAYAH_DATA_SEED_COLUMNS,
-  WILAYAH_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/wilayah-data-seeds.constant';
-import {
-  RUMAH_TANGGA_DATA_SEED_COLUMNS,
-  RUMAH_TANGGA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/rumah-tangga-data-seeds.constant';
-import {
-  PERIODE_JABATAN_DATA_SEED_COLUMNS,
-  PERIODE_JABATAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/periode-jabatan-data-seeds.constant';
-import {
-  POSYANDU_DATA_SEED_COLUMNS,
-  POSYANDU_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/posyandu-data-seeds.constant';
-import {
-  BIDANG_TANAH_DATA_SEED_COLUMNS,
-  BIDANG_TANAH_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/bidang-tanah-data-seeds.constant';
-import {
-  KEGIATAN_DESA_DATA_SEED_COLUMNS,
-  KEGIATAN_DESA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/kegiatan-desa-data-seeds.constant';
+  PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
+  PROGRAM_BANTUAN_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/program-bantuan-data-seeds.constant';
 import {
   SURAT_KELUAR_DATA_SEED_COLUMNS,
   SURAT_KELUAR_DATA_SEEDS,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-keluar-data-seeds.constant';
 import {
-  SURAT_MASUK_DATA_SEED_COLUMNS,
-  SURAT_MASUK_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-masuk-data-seeds.constant';
-import {
-  BIDANG_ANGGARAN_DATA_SEED_COLUMNS,
-  BIDANG_ANGGARAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/bidang-anggaran-data-seeds.constant';
-import {
-  SUMBER_DANA_DATA_SEED_COLUMNS,
-  SUMBER_DANA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/sumber-dana-data-seeds.constant';
-import {
-  KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS,
-  KEGIATAN_ANGGARAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/kegiatan-anggaran-data-seeds.constant';
+  WILAYAH_DATA_SEED_COLUMNS,
+  WILAYAH_DATA_SEEDS,
+} from 'src/engine/workspace-manager/dev-seeder/data/constants/wilayah-data-seeds.constant';
 import {
   getWorkspaceMemberDataSeeds,
   WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
@@ -158,7 +105,7 @@ const getRecordSeedsBatches = (
     },
   ];
 
-  // Batch 3: SID entities - depends on workspaceMember
+  // Batch 3: SID anchor entities (Wilayah, Penduduk, Keluarga, Jabatan)
   const batch3: RecordSeedConfig[] = [
     {
       tableName: '_wilayah',
@@ -176,28 +123,13 @@ const getRecordSeedsBatches = (
       recordSeeds: KELUARGA_DATA_SEEDS,
     },
     {
-      tableName: '_jenisSurat',
-      pgColumns: JENIS_SURAT_DATA_SEED_COLUMNS,
-      recordSeeds: JENIS_SURAT_DATA_SEEDS,
-    },
-    {
       tableName: '_jabatan',
       pgColumns: JABATAN_DATA_SEED_COLUMNS,
       recordSeeds: JABATAN_DATA_SEEDS,
     },
-    {
-      tableName: '_bidangAnggaran',
-      pgColumns: BIDANG_ANGGARAN_DATA_SEED_COLUMNS,
-      recordSeeds: BIDANG_ANGGARAN_DATA_SEEDS,
-    },
-    {
-      tableName: '_sumberDana',
-      pgColumns: SUMBER_DANA_DATA_SEED_COLUMNS,
-      recordSeeds: SUMBER_DANA_DATA_SEEDS,
-    },
   ];
 
-  // Batch 4: SID entities - depends on batch 3 or independent
+  // Batch 4: SID dependents (Layanan, Surat, Program Bantuan + penerima, Aset)
   const batch4: RecordSeedConfig[] = [
     {
       tableName: '_permohonanSurat',
@@ -205,29 +137,9 @@ const getRecordSeedsBatches = (
       recordSeeds: PERMOHONAN_SURAT_DATA_SEEDS,
     },
     {
-      tableName: '_rumahTangga',
-      pgColumns: RUMAH_TANGGA_DATA_SEED_COLUMNS,
-      recordSeeds: RUMAH_TANGGA_DATA_SEEDS,
-    },
-    {
-      tableName: '_periodeJabatan',
-      pgColumns: PERIODE_JABATAN_DATA_SEED_COLUMNS,
-      recordSeeds: PERIODE_JABATAN_DATA_SEEDS,
-    },
-    {
-      tableName: '_lembagaDesa',
-      pgColumns: LEMBAGA_DESA_DATA_SEED_COLUMNS,
-      recordSeeds: LEMBAGA_DESA_DATA_SEEDS,
-    },
-    {
-      tableName: '_anggaran',
-      pgColumns: ANGGARAN_DATA_SEED_COLUMNS,
-      recordSeeds: ANGGARAN_DATA_SEEDS,
-    },
-    {
-      tableName: '_realisasiAnggaran',
-      pgColumns: REALISASI_ANGGARAN_DATA_SEED_COLUMNS,
-      recordSeeds: REALISASI_ANGGARAN_DATA_SEEDS,
+      tableName: '_suratKeluar',
+      pgColumns: SURAT_KELUAR_DATA_SEED_COLUMNS,
+      recordSeeds: SURAT_KELUAR_DATA_SEEDS,
     },
     {
       tableName: '_programBantuan',
@@ -243,41 +155,6 @@ const getRecordSeedsBatches = (
       tableName: '_asetDesa',
       pgColumns: ASET_DESA_DATA_SEED_COLUMNS,
       recordSeeds: ASET_DESA_DATA_SEEDS,
-    },
-    {
-      tableName: '_umkm',
-      pgColumns: UMKM_DATA_SEED_COLUMNS,
-      recordSeeds: UMKM_DATA_SEEDS,
-    },
-    {
-      tableName: '_posyandu',
-      pgColumns: POSYANDU_DATA_SEED_COLUMNS,
-      recordSeeds: POSYANDU_DATA_SEEDS,
-    },
-    {
-      tableName: '_bidangTanah',
-      pgColumns: BIDANG_TANAH_DATA_SEED_COLUMNS,
-      recordSeeds: BIDANG_TANAH_DATA_SEEDS,
-    },
-    {
-      tableName: '_kegiatanDesa',
-      pgColumns: KEGIATAN_DESA_DATA_SEED_COLUMNS,
-      recordSeeds: KEGIATAN_DESA_DATA_SEEDS,
-    },
-    {
-      tableName: '_suratKeluar',
-      pgColumns: SURAT_KELUAR_DATA_SEED_COLUMNS,
-      recordSeeds: SURAT_KELUAR_DATA_SEEDS,
-    },
-    {
-      tableName: '_suratMasuk',
-      pgColumns: SURAT_MASUK_DATA_SEED_COLUMNS,
-      recordSeeds: SURAT_MASUK_DATA_SEEDS,
-    },
-    {
-      tableName: '_kegiatanAnggaran',
-      pgColumns: KEGIATAN_ANGGARAN_DATA_SEED_COLUMNS,
-      recordSeeds: KEGIATAN_ANGGARAN_DATA_SEEDS,
     },
   ];
 

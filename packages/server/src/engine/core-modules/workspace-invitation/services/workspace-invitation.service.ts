@@ -73,15 +73,15 @@ export class WorkspaceInvitationService {
       });
 
       if (!appToken) {
-        throw new Error('Invalid invitation token');
+        throw new Error('Token undangan tidak valid');
       }
 
       if (!appToken.context?.email || appToken.context?.email !== email) {
-        throw new Error('Email does not match the invitation');
+        throw new Error('Email tidak cocok dengan undangan');
       }
 
       if (new Date(appToken.expiresAt) < new Date()) {
-        throw new Error('Invitation expired');
+        throw new Error('Undangan sudah kadaluarsa');
       }
 
       return { isValid: true, workspace: appToken.workspace };
@@ -132,7 +132,7 @@ export class WorkspaceInvitationService {
 
     if (!appToken) {
       throw new WorkspaceInvitationException(
-        'Invalid invitation token',
+        'Token undangan tidak valid',
         WorkspaceInvitationExceptionCode.INVALID_INVITATION,
       );
     }

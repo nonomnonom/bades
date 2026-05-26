@@ -263,7 +263,7 @@ export class LocalDriver implements StorageDriver {
     to: { folderPath: string; filename?: string };
   }): Promise<void> {
     if (!params.from.filename && params.to.filename) {
-      throw new Error('Cannot copy folder to file');
+      throw new Error('Tidak dapat menyalin folder ke file');
     }
 
     const fromPath = path.resolve(

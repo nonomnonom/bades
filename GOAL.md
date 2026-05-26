@@ -163,14 +163,63 @@ terkait administrasi warga.
 
 ## Bades SID Standard Seed
 
-Seed bawaan dibagi ke 6 domain:
+Seed bawaan disederhanakan menjadi **9 object SID inti** ditambah dua object
+generik bawaan (`Catatan`, `Tugas`). Prinsipnya: tetap mengacu pada format
+dokumen resmi (KTP-el, KK, Permendagri 47/2016, Permendagri 1/2016) sehingga
+struktur data tetap kompatibel jika nanti perlu sinkron ke Dukcapil atau export
+ke Prodeskel, tetapi jumlah object dijaga minimal agar operator desa tidak
+kewalahan.
 
-1. **Demografi & Wilayah**: Penduduk, Keluarga/KK, Rumah Tangga, Wilayah.
-2. **Pemerintahan Desa**: Jabatan, Periode Jabatan, Lembaga Desa.
-3. **Pelayanan Surat**: Jenis Surat, Permohonan Layanan, Surat Keluar, Surat Masuk.
-4. **Keuangan Desa**: APBDes, Bidang Anggaran, Kegiatan, Realisasi, Sumber Dana.
-5. **Program Sosial & Bantuan**: Program Bantuan, Penerima Bantuan, Posyandu.
-6. **Aset & Ekonomi**: Aset Desa, Bidang Tanah, UMKM, Kegiatan Desa.
+Object SID inti:
+
+1. **Penduduk** — fondasi data warga (NIK, nama lengkap, tempat/tanggal lahir,
+   jenis kelamin, agama, status perkawinan, pekerjaan, pendidikan,
+   kewarganegaraan, SHDK, relasi keluarga, NIK ayah/ibu, alamat, no HP, email,
+   disabilitas, status penduduk, foto). Sesuai Permendagri 109/2019.
+2. **Keluarga (KK)** — no KK, kepala keluarga, alamat, wilayah, kelas sosial,
+   status bangunan/lahan, sumber air, listrik, sanitasi, bahan bakar memasak.
+   Sesuai Permendagri 12/2007 + indikator BPS Pendataan Keluarga.
+3. **Wilayah** — Dusun / RW / RT hierarkis dengan parent, kode internal,
+   kepala, agregat KK/penduduk, luas, koordinat (GeoJSON).
+4. **Layanan** — permohonan surat/layanan oleh warga: nomor permohonan,
+   tanggal, pemohon, jenis layanan (enum Domisili/SKTM/Pengantar Nikah/SKCK/
+   Kelahiran/Kematian/Pindah/Datang/Usaha/Ahli Waris/Pengaduan/Lainnya),
+   keperluan, status pipeline (Diajukan → Verifikasi → Diproses →
+   Ditandatangani → Selesai/Ditolak), petugas, lampiran. Mengacu modul layanan
+   surat OpenSID.
+5. **Surat** — arsip surat masuk dan keluar dalam satu object dengan field
+   `arah_surat` (Masuk / Keluar). Nomor surat, jenis surat (enum), tanggal
+   terbit, pemohon, perihal, keperluan, penandatangan, asal/tujuan, file PDF,
+   status (Draft/Tercetak/Terkirim/Diarsipkan). Sesuai Permendagri 47/2016
+   tentang Buku Agenda Surat.
+6. **Perangkat Desa** — penduduk yang sedang/pernah menjabat: relasi ke
+   Penduduk, jabatan (enum Kepala Desa/Sekretaris/Kaur/Kasi/Kepala Dusun/
+   Staf/BPD), NIPD, nomor SK, tanggal SK, tanggal mulai/akhir jabatan, status
+   aktif, wilayah (khusus Kadus). Sesuai UU 6/2014 + Permendagri 67/2017.
+7. **Program Bantuan** — PKH / BLT-DD / BPNT / RTLH / PIP / KIS / dll. Sumber
+   dana, tahun anggaran, periode, jenis bantuan, sasaran (individu/keluarga),
+   total anggaran, nominal per penerima, kuota, kriteria, PIC, status.
+8. **Penerima Bantuan** — junction antara Program Bantuan dengan Penduduk atau
+   Keluarga. Tanggal terima, jumlah diterima, status validasi, bukti terima.
+9. **Aset Desa** — kode aset, nama, jenis (Tanah/Bangunan/Kendaraan/Peralatan/
+   Inventaris/Lainnya), kategori, lokasi, wilayah, tahun perolehan, asal
+   perolehan, nilai perolehan, nilai buku, kondisi, bukti kepemilikan,
+   penanggung jawab, foto. Sesuai Permendagri 1/2016 tentang Pengelolaan Aset
+   Desa.
+
+Object generik bawaan yang dipertahankan dari engine (tidak perlu seed baru):
+
+- **Catatan** (`note`) — bisa di-attach ke object manapun via relasi polymorphic
+  yang sudah disediakan engine.
+- **Tugas** (`task`) — penugasan internal antar perangkat desa, dengan field
+  status, prioritas, tenggat, dan relasi polymorphic ke object lain.
+
+Object di luar 9 + 2 ini (mis. Rumah Tangga, Periode Jabatan, Lembaga Desa,
+Jenis Surat, APBDes/Bidang/Kegiatan/Realisasi Anggaran, Sumber Dana, Posyandu,
+Bidang Tanah, UMKM, Kegiatan Desa) **bukan** bagian dari seed standar. Jika
+suatu desa membutuhkannya, itu menjadi object custom yang ditambahkan tim
+internal atau implementasi klien — bukan beban default yang dipikul semua
+workspace baru.
 
 ## Data Priorities
 

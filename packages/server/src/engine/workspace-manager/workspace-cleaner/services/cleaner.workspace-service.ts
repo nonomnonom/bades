@@ -130,7 +130,7 @@ export class CleanerWorkspaceService {
     const subject = i18n._(workspaceDeletionMsg);
 
     if (!isDefined(workspaceMember.userEmail)) {
-      throw new Error('Workspace member email is missing');
+      throw new Error('Email anggota workspace tidak ditemukan');
     }
 
     await this.emailService.send({
@@ -208,7 +208,7 @@ export class CleanerWorkspaceService {
     const text = await render(emailTemplate, { plainText: true });
 
     if (!isDefined(workspaceMember.userEmail)) {
-      throw new Error('Workspace member email is missing');
+      throw new Error('Email anggota workspace tidak ditemukan');
     }
 
     await this.emailService.send({

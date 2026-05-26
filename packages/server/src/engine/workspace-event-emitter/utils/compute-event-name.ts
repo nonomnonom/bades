@@ -2,7 +2,7 @@ import { checkStringIsDatabaseEventAction } from 'src/engine/api/graphql/graphql
 
 export const computeEventName = (objectName: string, action: string) => {
   if (!checkStringIsDatabaseEventAction(action)) {
-    throw new Error('Invalid action');
+    throw new Error('Aksi tidak valid');
   }
 
   return `${objectName}.${action}`;

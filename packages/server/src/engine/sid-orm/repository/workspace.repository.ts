@@ -74,7 +74,7 @@ export class WorkspaceRepository<
     ) as unknown as WorkspaceSelectQueryBuilder<U>;
 
     if (!this.objectRecordsPermissions) {
-      throw new Error('Object records permissions are required');
+      throw new Error('Izin rekaman objek diperlukan');
     }
 
     return new WorkspaceSelectQueryBuilder(

@@ -301,7 +301,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     if (
       workspace.activationStatus === WorkspaceActivationStatus.ONGOING_CREATION
     ) {
-      throw new Error('Workspace is already being created');
+      throw new Error('Workspace sedang dibuat');
     }
 
     if (

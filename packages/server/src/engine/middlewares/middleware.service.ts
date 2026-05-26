@@ -106,11 +106,11 @@ export class MiddlewareService {
       : undefined;
 
     if (!data.workspace) {
-      throw new Error('No data sources found');
+      throw new Error('Tidak ada sumber data ditemukan');
     }
 
     if (!isNonEmptyString(data.workspace.databaseSchema)) {
-      throw new Error('No data sources found');
+      throw new Error('Tidak ada sumber data ditemukan');
     }
 
     bindDataToRequestObject(data, request, metadataVersion);

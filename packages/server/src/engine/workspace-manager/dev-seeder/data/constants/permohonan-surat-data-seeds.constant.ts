@@ -1,6 +1,5 @@
-import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
-import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
-import { JENIS_SURAT_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/jenis-surat-data-seeds.constant';
+// Petugas/pemohon di-link via relasi terpisah, jadi seed sederhana ini tidak
+// perlu referensi ke seed workspace member.
 
 type PermohonanSuratDataSeed = {
   id: string;
@@ -31,8 +30,6 @@ export const PERMOHONAN_SURAT_DATA_SEED_IDS = {
   PMHONAN_2: '20202020-b002-4b3d-a89c-7f6c30df998a',
   PMHONAN_3: '20202020-b003-422c-8fcf-5b7496f94975',
 };
-
-const KADES_USER_ID = WORKSPACE_MEMBER_DATA_SEED_IDS.KADES;
 
 export const PERMOHONAN_SURAT_DATA_SEEDS: PermohonanSuratDataSeed[] = [
   {

@@ -30,7 +30,7 @@ export class EmailingDomainService {
     });
 
     if (existingDomain) {
-      throw new Error('Emailing domain already exists for this workspace');
+      throw new Error('Domain email sudah ada untuk workspace ini');
     }
 
     const driverInstance = this.emailingDomainDriverFactory.getCurrentDriver();
@@ -107,7 +107,7 @@ export class EmailingDomainService {
     }
 
     if (emailingDomain.status === EmailingDomainStatus.VERIFIED) {
-      throw new Error('Emailing domain is already verified');
+      throw new Error('Domain email sudah terverifikasi');
     }
 
     const driver = this.emailingDomainDriverFactory.getCurrentDriver();

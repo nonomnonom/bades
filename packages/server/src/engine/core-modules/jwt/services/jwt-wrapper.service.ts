@@ -187,7 +187,7 @@ export class JwtWrapperService {
     const appSecret = this.badesConfigService.get('APP_SECRET');
 
     if (!appSecret) {
-      throw new Error('APP_SECRET is not set');
+      throw new Error('APP_SECRET tidak diatur');
     }
 
     return createHash('sha256')

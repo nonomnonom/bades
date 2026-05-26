@@ -94,7 +94,7 @@ function evaluateFilterGroup(
   const group = filterGroups.find((g) => g.id === groupId);
 
   if (!group) {
-    throw new Error(`Filter group with id ${groupId} not found`);
+    throw new Error(`Grup filter dengan id ${groupId} tidak ditemukan`);
   }
 
   const childGroups = filterGroups
@@ -126,7 +126,7 @@ function evaluateFilterGroup(
       return allResults.some((result) => result);
 
     default:
-      throw new Error(`Unknown logical operator: ${group.logicalOperator}`);
+      throw new Error(`Operator logika tidak dikenal: ${group.logicalOperator}`);
   }
 }
 
@@ -189,7 +189,7 @@ function evaluateTextAndArrayFilter(
 
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for this filter type`,
+        `Operand ${filter.operand} tidak didukung untuk tipe filter ini`,
       );
   }
 }
@@ -207,7 +207,7 @@ function evaluateBooleanFilter(filter: ResolvedFilter): boolean {
       );
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for boolean filter`,
+        `Operand ${filter.operand} tidak didukung untuk filter boolean`,
       );
   }
 }
@@ -257,7 +257,7 @@ function evaluateDateFilter(filter: ResolvedFilter): boolean {
 
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for date filter`,
+        `Operand ${filter.operand} tidak didukung untuk filter tanggal`,
       );
   }
 }
@@ -270,7 +270,7 @@ function evaluateUuidFilter(filter: ResolvedFilter): boolean {
       return filter.leftOperand !== filter.rightOperand;
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for uuid filter`,
+        `Operand ${filter.operand} tidak didukung untuk filter uuid`,
       );
   }
 }
@@ -298,7 +298,7 @@ function evaluateRelationFilter(filter: ResolvedFilter): boolean {
       return isNonEmptyString(leftValue);
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for relation filter`,
+        `Operand ${filter.operand} tidak didukung untuk filter relasi`,
       );
   }
 }
@@ -349,7 +349,7 @@ function evaluateNumberFilter(filter: ResolvedFilter): boolean {
 
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for number filter`,
+        `Operand ${filter.operand} tidak didukung untuk filter angka`,
       );
   }
 }
@@ -377,7 +377,7 @@ function evaluateDefaultFilter(filter: ResolvedFilter): boolean {
       return Number(leftValue) <= Number(rightValue);
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for ${filter.type} filter type`,
+        `Operand ${filter.operand} tidak didukung untuk tipe filter ${filter.type}`,
       );
   }
 }
@@ -395,7 +395,7 @@ function evaluateSelectFilter(filter: ResolvedFilter): boolean {
       return isNotEmptyTextOrArray(filter.leftOperand);
     default:
       throw new Error(
-        `Operand ${filter.operand} not supported for select filter`,
+        `Operand ${filter.operand} tidak didukung untuk filter select`,
       );
   }
 }
@@ -431,7 +431,7 @@ export function evaluateFilterConditions({
     for (const filter of filters) {
       if (!groupIds.has(filter.stepFilterGroupId)) {
         throw new Error(
-          `Filter group with id ${filter.stepFilterGroupId} not found`,
+          `Grup filter dengan id ${filter.stepFilterGroupId} tidak ditemukan`,
         );
       }
     }

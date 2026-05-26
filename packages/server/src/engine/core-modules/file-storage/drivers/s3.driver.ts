@@ -81,7 +81,7 @@ export class S3Driver implements StorageDriver {
       const file = await this.s3Client.send(command);
 
       if (!file || !file.Body || !(file.Body instanceof Readable)) {
-        throw new Error('Unable to get file stream');
+        throw new Error('Tidak dapat mendapatkan alur file');
       }
 
       return Readable.from(file.Body);
@@ -270,7 +270,7 @@ export class S3Driver implements StorageDriver {
     to: { folderPath: string; filename?: string };
   }): Promise<void> {
     if (!params.from.filename && params.to.filename) {
-      throw new Error('Cannot copy folder to file');
+      throw new Error('Tidak dapat menyalin folder ke file');
     }
 
     const fromKey = `${params.from.folderPath}/${params.from.filename || ''}`;

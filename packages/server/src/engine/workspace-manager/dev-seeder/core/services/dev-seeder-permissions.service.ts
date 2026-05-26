@@ -272,7 +272,7 @@ export class DevSeederPermissionsService {
     );
 
     if (!personCityFieldMetadata) {
-      throw new Error('Metadata kolom kota شخص tidak ditemukan');
+      throw new Error('Metadata kolom kota tidak ditemukan');
     }
 
     const companyLinkedinLinkFieldMetadata = companyObjectMetadata.fields.find(

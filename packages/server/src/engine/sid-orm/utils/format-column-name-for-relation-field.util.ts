@@ -6,7 +6,7 @@ export const formatColumnNameForRelationField = (
   fieldMetadataSettings: FieldMetadataSettingsMapping['RELATION'],
 ): string => {
   if (fieldMetadataSettings.relationType === RelationType.ONE_TO_MANY) {
-    throw new Error('No column exists for one to many relation fields');
+    throw new Error('Tidak ada kolom untuk relasi satu ke banyak');
   }
 
   if (fieldMetadataSettings.relationType === RelationType.MANY_TO_ONE) {
