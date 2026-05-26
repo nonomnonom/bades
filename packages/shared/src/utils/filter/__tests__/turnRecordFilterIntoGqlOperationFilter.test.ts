@@ -45,7 +45,7 @@ const fields = [
   },
   {
     id: 'f-relation',
-    name: 'company',
+    name: 'keluarga',
     type: FieldMetadataType.RELATION,
     label: 'Company',
   },

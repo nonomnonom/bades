@@ -5,7 +5,7 @@ import {
 
 describe('computeRelationGqlFieldJoinColumnName', () => {
   it('should append `Id` to a simple field name', () => {
-    expect(computeRelationGqlFieldJoinColumnName({ name: 'company' })).toBe(
+    expect(computeRelationGqlFieldJoinColumnName({ name: 'keluarga' })).toBe(
       'companyId',
     );
   });
@@ -35,8 +35,8 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
       computeMorphRelationGqlFieldJoinColumnName({
         fieldName: 'target',
         relationType: 'MANY_TO_ONE' as any,
-        targetObjectMetadataNameSingular: 'opportunity',
-        targetObjectMetadataNamePlural: 'opportunities',
+        targetObjectMetadataNameSingular: 'programBantuan',
+        targetObjectMetadataNamePlural: 'programBantuans',
       }),
     ).toBe('targetOpportunityId');
   });
@@ -46,8 +46,8 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
       computeMorphRelationGqlFieldJoinColumnName({
         fieldName: 'caretaker',
         relationType: 'ONE_TO_MANY' as any,
-        targetObjectMetadataNameSingular: 'person',
-        targetObjectMetadataNamePlural: 'people',
+        targetObjectMetadataNameSingular: 'penduduk',
+        targetObjectMetadataNamePlural: 'penduduks',
       }),
     ).toBe('caretakerPeopleId');
   });
@@ -57,8 +57,8 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
       computeMorphRelationGqlFieldJoinColumnName({
         fieldName: 'parent',
         relationType: 'ONE_TO_MANY' as any,
-        targetObjectMetadataNameSingular: 'company',
-        targetObjectMetadataNamePlural: 'companies',
+        targetObjectMetadataNameSingular: 'keluarga',
+        targetObjectMetadataNamePlural: 'keluargas',
       }),
     ).toBe('parentCompaniesId');
   });
@@ -68,8 +68,8 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
       computeMorphRelationGqlFieldJoinColumnName({
         fieldName: 'target',
         relationType: 'INVALID' as any,
-        targetObjectMetadataNameSingular: 'opportunity',
-        targetObjectMetadataNamePlural: 'opportunities',
+        targetObjectMetadataNameSingular: 'programBantuan',
+        targetObjectMetadataNamePlural: 'programBantuans',
       }),
     ).toThrow();
   });

@@ -10,8 +10,8 @@ import { graphqlRequest, writeGeneratedFile } from './utils.js';
 const RECORDS_LIMIT = 10;
 
 const OBJECTS_TO_GENERATE = [
-  'company',
-  'person',
+  'keluarga',
+  'penduduk',
   'task',
   'note',
   'timelineActivity',

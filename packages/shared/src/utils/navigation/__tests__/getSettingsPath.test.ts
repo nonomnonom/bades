@@ -11,13 +11,13 @@ describe('getSettingsPath', () => {
   it('should generate path with params using react-router generatePath', () => {
     expect(
       getSettingsPath(SettingsPath.ObjectDetail, {
-        objectNamePlural: 'companies',
+        objectNamePlural: 'keluargas',
       }),
     ).toBe('/settings/objects/companies');
 
     expect(
       getSettingsPath(SettingsPath.ObjectFieldEdit, {
-        objectNamePlural: 'companies',
+        objectNamePlural: 'keluargas',
         fieldName: 'name',
       }),
     ).toBe('/settings/objects/companies/name');
@@ -87,7 +87,7 @@ describe('getSettingsPath', () => {
     expect(
       getSettingsPath(
         SettingsPath.ObjectDetail,
-        { objectNamePlural: 'companies' },
+        { objectNamePlural: 'keluargas' },
         { tab: 'fields', edit: 'true' },
         'advanced',
       ),

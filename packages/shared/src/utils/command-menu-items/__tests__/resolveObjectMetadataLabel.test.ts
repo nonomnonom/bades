@@ -2,8 +2,8 @@ import { resolveObjectMetadataLabel } from '../resolveObjectMetadataLabel';
 
 describe('resolveObjectMetadataLabel', () => {
   const objectMetadataItem = {
-    labelSingular: 'person',
-    labelPlural: 'people',
+    labelSingular: 'penduduk',
+    labelPlural: 'penduduks',
   };
 
   it('should return labelSingular when numberOfSelectedRecords is 1', () => {
@@ -12,7 +12,7 @@ describe('resolveObjectMetadataLabel', () => {
         objectMetadataItem,
         numberOfSelectedRecords: 1,
       }),
-    ).toBe('person');
+    ).toBe('penduduk');
   });
 
   it('should return labelPlural when numberOfSelectedRecords is 0', () => {
@@ -21,7 +21,7 @@ describe('resolveObjectMetadataLabel', () => {
         objectMetadataItem,
         numberOfSelectedRecords: 0,
       }),
-    ).toBe('people');
+    ).toBe('penduduks');
   });
 
   it('should return labelPlural when numberOfSelectedRecords is greater than 1', () => {
@@ -30,6 +30,6 @@ describe('resolveObjectMetadataLabel', () => {
         objectMetadataItem,
         numberOfSelectedRecords: 5,
       }),
-    ).toBe('people');
+    ).toBe('penduduks');
   });
 });

@@ -37,7 +37,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
     it('should interpolate correctly when called multiple times in sequence', () => {
       const context = buildContext({
         numberOfSelectedRecords: 2,
-        objectMetadataItem: { labelPlural: 'people' },
+        objectMetadataItem: { labelPlural: 'penduduks' },
       });
 
       expect(
@@ -104,7 +104,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should interpolate objectMetadataItem.labelSingular', () => {
       const context = buildContext({
-        objectMetadataItem: { labelSingular: 'person' },
+        objectMetadataItem: { labelSingular: 'penduduk' },
       });
 
       expect(
@@ -117,7 +117,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should interpolate objectMetadataItem.labelPlural', () => {
       const context = buildContext({
-        objectMetadataItem: { labelPlural: 'companies' },
+        objectMetadataItem: { labelPlural: 'keluargas' },
       });
 
       expect(
@@ -133,7 +133,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
     it('should interpolate multiple variables in one label', () => {
       const context = buildContext({
         numberOfSelectedRecords: 3,
-        objectMetadataItem: { labelPlural: 'people' },
+        objectMetadataItem: { labelPlural: 'penduduks' },
       });
 
       expect(
@@ -150,7 +150,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
     it('should resolve deeply nested properties', () => {
       const context = buildContext({
         objectMetadataItem: {
-          labelSingular: 'opportunity',
+          labelSingular: 'programBantuan',
           nameSingular: 'programBantuan',
         },
       });
@@ -250,7 +250,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
   describe('capitalize transform', () => {
     it('should capitalize the first character of a resolved value', () => {
       const context = buildContext({
-        objectMetadataItem: { labelSingular: 'person' },
+        objectMetadataItem: { labelSingular: 'penduduk' },
       });
 
       expect(
@@ -345,7 +345,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
   describe('objectMetadataLabel interpolation', () => {
     it('should resolve singular label with capitalize transform', () => {
       const context = buildContext({
-        objectMetadataLabel: 'person',
+        objectMetadataLabel: 'penduduk',
       });
 
       expect(
@@ -358,7 +358,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should resolve plural label with capitalize transform', () => {
       const context = buildContext({
-        objectMetadataLabel: 'companies',
+        objectMetadataLabel: 'keluargas',
       });
 
       expect(
@@ -371,7 +371,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should resolve objectMetadataLabel without transform', () => {
       const context = buildContext({
-        objectMetadataLabel: 'people',
+        objectMetadataLabel: 'penduduks',
       });
 
       expect(

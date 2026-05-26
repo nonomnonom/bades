@@ -11,7 +11,7 @@ export const checkIfFieldIsImageIdentifier = (
   },
 ): boolean => {
   if (
-    objectMetadataItem.nameSingular === 'company' &&
+    objectMetadataItem.nameSingular === 'keluarga' &&
     fieldMetadataItem.name === 'domainName'
   ) {
     return true;

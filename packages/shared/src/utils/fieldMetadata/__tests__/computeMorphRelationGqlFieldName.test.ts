@@ -5,8 +5,8 @@ describe('computeMorphRelationGqlFieldName', () => {
     const result = computeMorphRelationGqlFieldName({
       fieldName: 'assigned',
       relationType: 'MANY_TO_ONE' as any,
-      targetObjectMetadataNameSingular: 'person',
-      targetObjectMetadataNamePlural: 'people',
+      targetObjectMetadataNameSingular: 'penduduk',
+      targetObjectMetadataNamePlural: 'penduduks',
     });
 
     expect(result).toBe('assignedPerson');
@@ -16,8 +16,8 @@ describe('computeMorphRelationGqlFieldName', () => {
     const result = computeMorphRelationGqlFieldName({
       fieldName: 'assigned',
       relationType: 'ONE_TO_MANY' as any,
-      targetObjectMetadataNameSingular: 'person',
-      targetObjectMetadataNamePlural: 'people',
+      targetObjectMetadataNameSingular: 'penduduk',
+      targetObjectMetadataNamePlural: 'penduduks',
     });
 
     expect(result).toBe('assignedPeople');
@@ -28,8 +28,8 @@ describe('computeMorphRelationGqlFieldName', () => {
       computeMorphRelationGqlFieldName({
         fieldName: 'assigned',
         relationType: 'INVALID' as any,
-        targetObjectMetadataNameSingular: 'person',
-        targetObjectMetadataNamePlural: 'people',
+        targetObjectMetadataNameSingular: 'penduduk',
+        targetObjectMetadataNamePlural: 'penduduks',
       }),
     ).toThrow();
   });

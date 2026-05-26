@@ -11,13 +11,13 @@ describe('getAppPath', () => {
   it('should generate path with params using react-router generatePath', () => {
     expect(
       getAppPath(AppPath.RecordIndexPage, {
-        objectNamePlural: 'companies',
+        objectNamePlural: 'keluargas',
       }),
     ).toBe('/objects/companies');
 
     expect(
       getAppPath(AppPath.RecordShowPage, {
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         objectRecordId: '123',
       }),
     ).toBe('/object/company/123');
@@ -48,7 +48,7 @@ describe('getAppPath', () => {
     expect(
       getAppPath(
         AppPath.RecordIndexPage,
-        { objectNamePlural: 'companies' },
+        { objectNamePlural: 'keluargas' },
         { filter: 'active', view: 'table' },
       ),
     ).toBe('/objects/companies?filter=active&view=table');
@@ -56,7 +56,7 @@ describe('getAppPath', () => {
     expect(
       getAppPath(
         AppPath.RecordShowPage,
-        { objectNameSingular: 'company', objectRecordId: '123' },
+        { objectNameSingular: 'keluarga', objectRecordId: '123' },
         { tab: 'details' },
       ),
     ).toBe('/object/company/123?tab=details');
