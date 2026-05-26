@@ -57,7 +57,7 @@ export class RestApiDeleteOneHandler extends RestApiBaseHandler {
     const { id } = parseCorePath(request);
 
     if (!isDefined(id)) {
-      throw new BadRequestException('Record ID not found');
+      throw new BadRequestException('ID data tidak ditemukan');
     }
 
     return {

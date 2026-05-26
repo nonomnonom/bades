@@ -38,11 +38,11 @@ export class OAuthPropagatorController {
     @Res() res: Response,
   ) {
     if (!isDefined(state)) {
-      throw new BadRequestException('Missing state parameter');
+      throw new BadRequestException('Parameter state tidak ada');
     }
 
     if (!isDefined(code)) {
-      throw new BadRequestException('Missing code parameter');
+      throw new BadRequestException('Parameter code tidak ada');
     }
 
     const decodedRedirectUri = decodeURIComponent(state);
@@ -52,7 +52,7 @@ export class OAuthPropagatorController {
     try {
       redirectUrl = new URL(decodedRedirectUri);
     } catch {
-      throw new BadRequestException('Invalid redirect URI in state');
+      throw new BadRequestException('Redirect URI di state tidak valid');
     }
 
     const isValidDomain = await this.isValidDomain(redirectUrl);

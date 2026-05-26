@@ -31,7 +31,7 @@ export const commonQueryRunnerToRestApiExceptionHandler = (
     case CommonQueryRunnerExceptionCode.INVALID_TIMEZONE:
       throw new BadRequestException(error.message);
     case CommonQueryRunnerExceptionCode.RECORD_NOT_FOUND:
-      throw new NotFoundException('Record not found');
+      throw new NotFoundException('Data tidak ditemukan');
     case CommonQueryRunnerExceptionCode.INVALID_AUTH_CONTEXT:
       throw new UnauthorizedException(error.message);
     case CommonQueryRunnerExceptionCode.MISSING_SYSTEM_FIELD:

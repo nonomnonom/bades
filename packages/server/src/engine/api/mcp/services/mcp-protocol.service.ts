@@ -122,7 +122,7 @@ export class McpProtocolService {
     });
 
     if (!roleId) {
-      throw new HttpException('Role ID missing', HttpStatus.FORBIDDEN);
+      throw new HttpException('ID peran tidak ada', HttpStatus.FORBIDDEN);
     }
 
     return roleId;
@@ -296,7 +296,7 @@ export class McpProtocolService {
         error: {
           code: JSON_RPC_ERROR_CODE.INTERNAL_ERROR,
           message:
-            error instanceof Error ? error.message : 'Internal server error',
+            error instanceof Error ? error.message : 'Kesalahan server internal',
         },
       });
     }

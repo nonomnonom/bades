@@ -378,7 +378,7 @@ export class UserResolver {
   ) {
     if (!workspace) {
       throw new AuthException(
-        'Workspace not found',
+        'Workspace tidak ditemukan',
         AuthExceptionCode.WORKSPACE_NOT_FOUND,
       );
     }
