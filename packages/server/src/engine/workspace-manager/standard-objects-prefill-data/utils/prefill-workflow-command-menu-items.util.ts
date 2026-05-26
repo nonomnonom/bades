@@ -6,9 +6,7 @@ import { CommandMenuItemAvailabilityType } from 'src/engine/metadata-modules/com
 import { EngineComponentKey } from 'src/engine/metadata-modules/command-menu-item/enums/engine-component-key.enum';
 import { type FlatCommandMenuItem } from 'src/engine/metadata-modules/flat-command-menu-item/types/flat-command-menu-item.type';
 import { type WorkspaceManyOrAllFlatEntityMapsCacheService } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.service';
-import {
-  PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
-} from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
+import { PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
 import { type WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 const PENDAFTARAN_WARGA_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER =
@@ -50,7 +48,8 @@ export const prefillWorkflowCommandMenuItems = async ({
 
   const pendaftaranWargaFlatCommandMenuItem: FlatCommandMenuItem = {
     id: v4(),
-    universalIdentifier: PENDAFTARAN_WARGA_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER,
+    universalIdentifier:
+      PENDAFTARAN_WARGA_COMMAND_MENU_ITEM_UNIVERSAL_IDENTIFIER,
     applicationId: workspaceCustomFlatApplication.id,
     applicationUniversalIdentifier:
       workspaceCustomFlatApplication.universalIdentifier,

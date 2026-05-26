@@ -17,7 +17,8 @@ const companyMockObjectMetadataItem =
 
 const petMockObjectMetadataItem = getMockObjectMetadataItemOrThrow('pet');
 
-const personMockObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
+const personMockObjectMetadataItem =
+  getMockObjectMetadataItemOrThrow('penduduk');
 
 const companyFields = companyMockObjectMetadataItem.fields;
 

@@ -115,9 +115,13 @@ export const fromUpdateAgentInputToFlatAgentToUpdate = ({
   });
 
   if (!isDefined(existingFlatAgent)) {
-    throw new AiException('Agent tidak ditemukan', AiExceptionCode.AGENT_NOT_FOUND, {
-      userFriendlyMessage: msg`The agent you are looking for could not be found. It may have been deleted or you may not have access to it.`,
-    });
+    throw new AiException(
+      'Agent tidak ditemukan',
+      AiExceptionCode.AGENT_NOT_FOUND,
+      {
+        userFriendlyMessage: msg`The agent you are looking for could not be found. It may have been deleted or you may not have access to it.`,
+      },
+    );
   }
 
   const updatedEditableAgentProperties = extractAndSanitizeObjectStringFields(

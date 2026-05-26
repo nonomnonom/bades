@@ -50,7 +50,9 @@ export const DestroyRecordsCommand = () => {
     resetTableRowSelection();
 
     if (!isDefined(graphqlFilter)) {
-      throw new Error('Tidak dapat menghancurkan rekaman tanpa filter yang valid');
+      throw new Error(
+        'Tidak dapat menghancurkan rekaman tanpa filter yang valid',
+      );
     }
 
     await incrementalDestroyManyRecords();

@@ -67,7 +67,9 @@ describe('MentionTag', () => {
 
       const text = editor.getText();
 
-      expect(text).toBe('Hello [[record:keluarga:abc-123:Keluarga Santoso]] world');
+      expect(text).toBe(
+        'Hello [[record:keluarga:abc-123:Keluarga Santoso]] world',
+      );
     });
 
     it('should handle mentions with empty label', () => {

@@ -61,7 +61,9 @@ export class DatabaseConfigDriver
     value: ConfigVariables[T],
   ): Promise<void> {
     if (isEnvOnlyConfigVar(key)) {
-      throw new Error(`Tidak dapat menetapkan variabel environment-only: ${key as string}`);
+      throw new Error(
+        `Tidak dapat menetapkan variabel environment-only: ${key as string}`,
+      );
     }
 
     await this.configStorage.set(key, value);

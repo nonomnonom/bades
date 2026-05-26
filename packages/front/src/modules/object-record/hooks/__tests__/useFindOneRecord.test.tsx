@@ -35,7 +35,8 @@ const objectRecordId = '6205681e-7c11-40b4-9e32-f523dbe54590';
 describe('useFindOneRecord', () => {
   it('should skip fetch if currentWorkspace is undefined', async () => {
     const { result } = renderHook(
-      () => useFindOneRecord({ objectNameSingular: 'penduduk', objectRecordId }),
+      () =>
+        useFindOneRecord({ objectNameSingular: 'penduduk', objectRecordId }),
       {
         wrapper: Wrapper,
       },

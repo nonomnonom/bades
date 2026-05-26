@@ -106,7 +106,10 @@ describe('isObjectRecordConnectionWithRefs', () => {
   });
 
   it('should return false for primitive value', () => {
-    const result = isObjectRecordConnectionWithRefs('penduduk', 'not an object');
+    const result = isObjectRecordConnectionWithRefs(
+      'penduduk',
+      'not an object',
+    );
 
     expect(result).toBe(false);
   });

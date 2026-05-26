@@ -53,7 +53,9 @@ export class UserVarsService<
     }
 
     if (userVarUserLevel.length > 1) {
-      throw new Error(`Beberapa nilai ditemukan untuk kunci ${key} di level pengguna`);
+      throw new Error(
+        `Beberapa nilai ditemukan untuk kunci ${key} di level pengguna`,
+      );
     }
 
     // oxlint-disable-next-line @typescripttypescript/no-explicit-any

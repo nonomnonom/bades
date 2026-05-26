@@ -296,7 +296,9 @@ export class McpProtocolService {
         error: {
           code: JSON_RPC_ERROR_CODE.INTERNAL_ERROR,
           message:
-            error instanceof Error ? error.message : 'Kesalahan server internal',
+            error instanceof Error
+              ? error.message
+              : 'Kesalahan server internal',
         },
       });
     }

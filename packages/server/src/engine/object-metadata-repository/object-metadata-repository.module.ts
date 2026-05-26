@@ -24,7 +24,9 @@ export class ObjectMetadataRepositoryModule {
       const repositoryClass = metadataToRepositoryMapping[objectMetadata.name];
 
       if (!repositoryClass) {
-        throw new Error(`Repository tidak ditemukan untuk ${objectMetadata.name}`);
+        throw new Error(
+          `Repository tidak ditemukan untuk ${objectMetadata.name}`,
+        );
       }
 
       return {

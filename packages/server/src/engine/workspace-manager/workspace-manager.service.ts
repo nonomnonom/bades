@@ -86,11 +86,12 @@ export class WorkspaceManagerService {
     // Setelah metadata + table fisik dibuat oleh workspace migration runner
     // (terpicu di dalam createManyFields), tanam sample record contoh agar
     // operator desa tidak melihat tabel kosong saat pertama kali login.
-    const sidDataResult =
-      await this.sidStandardSeedService.seedSidStandardData({
+    const sidDataResult = await this.sidStandardSeedService.seedSidStandardData(
+      {
         workspaceId,
         schemaName,
-      });
+      },
+    );
 
     this.logger.log(
       `Seed data contoh SID untuk workspace ${workspaceId}: ${sidDataResult.insertedRecords} record`,

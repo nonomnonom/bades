@@ -16,7 +16,9 @@ export const getMockFieldMetadataItemOrThrow = ({
   );
 
   if (!isDefined(fieldMetadataItem)) {
-    throw new Error(`Field metadata item dengan nama ${fieldName} tidak ditemukan`);
+    throw new Error(
+      `Field metadata item dengan nama ${fieldName} tidak ditemukan`,
+    );
   }
 
   return fieldMetadataItem;

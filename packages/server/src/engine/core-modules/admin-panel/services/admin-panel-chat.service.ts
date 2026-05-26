@@ -34,7 +34,9 @@ export class AdminPanelChatService {
     }
 
     if (!workspace.allowImpersonation) {
-      throw new UserInputError('Workspace ini belum mengaktifkan akses dukungan');
+      throw new UserInputError(
+        'Workspace ini belum mengaktifkan akses dukungan',
+      );
     }
   }
 

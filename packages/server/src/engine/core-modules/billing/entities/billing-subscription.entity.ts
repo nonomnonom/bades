@@ -51,8 +51,9 @@ export class BillingSubscriptionEntity extends WorkspaceRelatedEntity {
   updatedAt: Date;
 
   /**
-   * FK ke billingCustomer.id — pengganti join via stripeCustomerId.
-   * Nullable untuk kompatibilitas mundur dengan baris lama yang belum dimigrasi.
+   * FK ke billingCustomer.id — relasi utama subscription ↔ customer.
+   * Nullable untuk kompatibilitas mundur dengan baris lama yang belum
+   * dimigrasi ke struktur Midtrans-first.
    */
   @Column({ nullable: true, type: 'uuid' })
   billingCustomerId: string | null;

@@ -506,7 +506,9 @@ export class WorkspaceCacheService implements OnModuleInit {
     const provider = this.workspaceCacheProviders.get(keyName);
 
     if (!isDefined(provider)) {
-      throw new Error(`Provider cache dengan nama kunci "${keyName}" tidak ditemukan`);
+      throw new Error(
+        `Provider cache dengan nama kunci "${keyName}" tidak ditemukan`,
+      );
     }
 
     return provider;

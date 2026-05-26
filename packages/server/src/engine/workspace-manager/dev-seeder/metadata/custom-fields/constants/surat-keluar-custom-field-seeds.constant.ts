@@ -19,8 +19,7 @@ export const SURAT_KELUAR_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Asal Surat',
     name: 'asalSurat',
     icon: 'IconBuilding',
-    description:
-      'Instansi atau orang yang mengirim surat (untuk surat masuk)',
+    description: 'Instansi atau orang yang mengirim surat (untuk surat masuk)',
   },
   {
     type: FieldMetadataType.TEXT,

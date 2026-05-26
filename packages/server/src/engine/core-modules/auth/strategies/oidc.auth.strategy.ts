@@ -79,7 +79,10 @@ export class OIDCAuthStrategy extends PassportStrategy(
         workspaceInviteHash: state.workspaceInviteHash,
       };
     } catch {
-      throw new AuthException('State tidak valid', AuthExceptionCode.INVALID_INPUT);
+      throw new AuthException(
+        'State tidak valid',
+        AuthExceptionCode.INVALID_INPUT,
+      );
     }
   }
 

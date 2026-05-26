@@ -103,8 +103,18 @@ describe('filterRecordOnGqlFields', () => {
       __typename: 'Keluarga',
       name: 'Acme Inc',
       employees: [
-        { id: '2', __typename: 'Penduduk', name: 'Budi', email: 'john@test.com' },
-        { id: '3', __typename: 'Penduduk', name: 'Siti', email: 'jane@test.com' },
+        {
+          id: '2',
+          __typename: 'Penduduk',
+          name: 'Budi',
+          email: 'john@test.com',
+        },
+        {
+          id: '3',
+          __typename: 'Penduduk',
+          name: 'Siti',
+          email: 'jane@test.com',
+        },
       ],
     };
 

@@ -26,7 +26,8 @@ import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMeta
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const mockPendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
+const mockPendudukObjectMetadataItem =
+  getMockObjectMetadataItemOrThrow('penduduk');
 const mockDashboardObjectMetadataItem =
   getMockObjectMetadataItemOrThrow('dashboard');
 

@@ -46,7 +46,9 @@ const buildDateGroupByObject = ({
 
   if (shouldHaveTimeZone) {
     if (!isDefined(timeZone)) {
-      throw new Error(`Pengelompokan berdasarkan tanggal harus memiliki zona waktu.`);
+      throw new Error(
+        `Pengelompokan berdasarkan tanggal harus memiliki zona waktu.`,
+      );
     }
     result.timeZone = timeZone;
   }

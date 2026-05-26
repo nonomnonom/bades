@@ -10,7 +10,9 @@ type SeedBillingCustomersArgs = {
 
 /**
  * Membuat data awal pelanggan billing untuk workspace dev.
- * Midtrans-only: tidak menggunakan stripeCustomerId.
+ * Bades Midtrans-first: kolom legacy `legacyPaymentCustomerId` di-leave
+ * NULL untuk pelanggan baru; `midtransCustomerRef` akan diisi saat
+ * checkout pertama via Snap.
  */
 export const seedBillingCustomers = async ({
   queryRunner,

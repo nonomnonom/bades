@@ -17,12 +17,13 @@ import { WorkspaceRelatedEntity } from 'src/engine/workspace-manager/types/works
 export type MidtransTransactionType = 'TOP_UP_CREDIT' | 'MONTHLY_BILLING';
 
 /**
- * Entitas pencatatan transaksi Midtrans.
+ * Entitas pencatatan transaksi Midtrans — payment rail tunggal Bades.
  * Setiap baris mewakili satu sesi pembayaran (Snap) atau tagihan bulanan
  * yang diproses melalui Midtrans.
  *
- * Kolom `stripeCustomerId` di BillingCustomerEntity tetap ada untuk
- * kompatibilitas pelanggan Stripe lama; entitas ini hanya untuk Midtrans.
+ * `BillingCustomerEntity` punya kolom `legacyPaymentCustomerId` (kolom DB
+ * historis `stripeCustomerId`) sebagai compat layer untuk pelanggan lama
+ * yang belum di-backfill ke `midtransCustomerRef`.
  */
 @Entity({ name: 'billingMidtransTransaction', schema: 'core' })
 @Index('IDX_BILLING_MIDTRANS_ORDER_ID_UNIQUE', ['orderId'], { unique: true })

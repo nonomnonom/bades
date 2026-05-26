@@ -280,9 +280,7 @@ export class DevSeederPermissionsService {
     );
 
     if (!companyAlamatFieldMetadata) {
-      throw new Error(
-        'Metadata kolom alamat keluarga tidak ditemukan',
-      );
+      throw new Error('Metadata kolom alamat keluarga tidak ditemukan');
     }
 
     const readOnlyOnPersonNikFieldPermission = {

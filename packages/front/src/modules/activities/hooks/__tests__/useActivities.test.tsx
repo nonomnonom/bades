@@ -56,7 +56,9 @@ describe('useActivities', () => {
     const { result } = renderHook(() => {
       const activities = useActivities({
         objectNameSingular: CoreObjectNameSingular.Task,
-        targetableObjects: [{ targetObjectNameSingular: 'keluarga', id: '123' }],
+        targetableObjects: [
+          { targetObjectNameSingular: 'keluarga', id: '123' },
+        ],
         skip: false,
         limit: 10,
         activityTargetsOrderByVariables: [{}],

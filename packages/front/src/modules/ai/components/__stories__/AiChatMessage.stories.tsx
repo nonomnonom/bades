@@ -198,13 +198,13 @@ const mockThinkingStepsStreaming: ExtendedUIMessage = {
     {
       type: 'tool-web_search',
       toolCallId: 'tool-web-search-streaming',
-      input: { query: 'top leads status' },
+      input: { query: 'status layanan desa' },
       output: { result: { ok: true } },
       state: 'output-available',
     },
     {
       type: 'reasoning',
-      text: 'I need to evaluate the latest lead activity and pipeline stage changes before I can answer accurately.',
+      text: 'Saya perlu mengecek aktivitas penduduk terbaru dan perubahan status layanan sebelum bisa menjawab dengan tepat.',
       state: 'streaming',
     },
   ],
@@ -220,18 +220,18 @@ const mockThinkingStepsDone: ExtendedUIMessage = {
     {
       type: 'tool-web_search',
       toolCallId: 'tool-web-search-done',
-      input: { query: 'top leads status' },
+      input: { query: 'status layanan desa' },
       output: { result: { ok: true } },
       state: 'output-available',
     },
     {
       type: 'reasoning',
-      text: 'I filtered the most engaged leads and checked the latest interactions to determine which opportunities are moving forward.',
+      text: 'Saya menyaring penduduk yang paling aktif berinteraksi dan mengecek perubahan terbaru untuk menentukan layanan mana yang sedang diproses.',
       state: 'done',
     },
     {
       type: 'text',
-      text: 'You currently have 5 top leads in active stages. Two are in proposal review and three are in scheduled demo follow-up.',
+      text: 'Saat ini terdapat 5 permohonan layanan yang sedang aktif. Dua masih dalam tahap verifikasi dan tiga sedang menunggu tanda tangan.',
     },
   ],
   metadata: {

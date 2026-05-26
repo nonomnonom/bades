@@ -130,7 +130,9 @@ export class WorkspaceResolverFactory {
             resolverName,
           });
 
-          throw new Error(`Tipe resolver mutation tidak dikenal: ${methodName}`);
+          throw new Error(
+            `Tipe resolver mutation tidak dikenal: ${methodName}`,
+          );
         }
 
         if (

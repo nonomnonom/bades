@@ -180,7 +180,10 @@ export class SidStandardSeedService {
   }): Promise<{ hiddenFields: number }> {
     let hiddenFields = 0;
 
-    for (const { objectNameSingular, visibleFieldNames } of SID_STANDARD_VIEW_CONFIGS) {
+    for (const {
+      objectNameSingular,
+      visibleFieldNames,
+    } of SID_STANDARD_VIEW_CONFIGS) {
       try {
         const sql = `
           UPDATE core."viewField"

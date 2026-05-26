@@ -631,44 +631,44 @@ print('Analysis complete!')
 
 ## Calling Bades Tools from Python (MCP Bridge)
 
-**A \`twenty\` variable is already bound in your code's scope.** Do NOT write
-\`import twenty\` — there is no Python package by that name. The helper is an
+**A \`bades\` variable is already bound in your code's scope.** Do NOT write
+\`import bades\` — there is no Python package by that name. The helper is an
 instance of a class that has been pre-instantiated for you; just call methods
 on it directly.
 
 Real catalog tools follow the pattern \`find_<object>\` / \`find_one_<object>\` /
 \`create_<object>\` / \`update_<object>\` / \`delete_<object>\` /
-\`group_by_<object>\` — e.g. \`find_companies\`, \`find_people\`, \`create_person\`.
-Call \`twenty.list_tools()\` to discover exact names. Catalog tools are routed
-through \`execute_tool\` automatically, and the helper raises an Exception on
-server-side failures with the error message.
+\`group_by_<object>\` — e.g. \`find_penduduks\`, \`find_keluargas\`,
+\`create_penduduk\`. Call \`bades.list_tools()\` to discover exact names.
+Catalog tools are routed through \`execute_tool\` automatically, and the
+helper raises an Exception on server-side failures with the error message.
 
 \`\`\`python
 # List catalog tools (flat list, not grouped)
-tools = twenty.list_tools()
+tools = bades.list_tools()
 print(f"{len(tools)} catalog tools available")
 for tool in tools[:5]:
     print(f"- {tool['name']}")
 
 # Find records — returns { 'records': [...], 'count': '5' }
-companies = twenty.call_tool('find_companies', {'limit': 5, 'offset': 0})
-for c in companies['records']:
-    print(c['name'], c.get('employees'))
+penduduks = bades.call_tool('find_penduduks', {'limit': 5, 'offset': 0})
+for p in penduduks['records']:
+    print(p['namaLengkap'], p.get('nik'))
 
 # Create a record — arguments match the tool's inputSchema directly,
-# no nested 'data' wrapper. Use twenty.call_tool('learn_tools', ...) to
+# no nested 'data' wrapper. Use bades.call_tool('learn_tools', ...) to
 # inspect a schema if unsure.
-result = twenty.call_tool('create_company', {
-    'name': 'Keluarga Santoso',
-    'domainName': {'primaryLinkUrl': 'https://acme.com'},
+result = bades.call_tool('create_keluarga', {
+    'nomorKk': '3201010000000001',
+    'alamat': 'Jl. Mawar No. 12, RT 01 / RW 01, Dusun Krajan',
     'position': 'first',
 })
-print(f"Created company id={result['id']}")
+print(f"Created keluarga id={result['id']}")
 
 # Update a record
-twenty.call_tool('update_person', {
-    'id': 'person-uuid-here',
-    'jobTitle': 'CEO',
+bades.call_tool('update_penduduk', {
+    'id': 'penduduk-uuid-here',
+    'pekerjaan': 'PETANI',
 })
 \`\`\`
 

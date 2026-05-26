@@ -10,7 +10,8 @@ export class ViewException extends CustomException<ViewExceptionCode> {
     { userFriendlyMessage }: { userFriendlyMessage?: MessageDescriptor } = {},
   ) {
     super(message, code, {
-      userFriendlyMessage: userFriendlyMessage ?? msg`Terjadi kesalahan tampilan.`,
+      userFriendlyMessage:
+        userFriendlyMessage ?? msg`Terjadi kesalahan tampilan.`,
     });
   }
 }

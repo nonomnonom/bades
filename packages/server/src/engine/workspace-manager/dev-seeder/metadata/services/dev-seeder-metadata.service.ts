@@ -436,10 +436,14 @@ export class DevSeederMetadataService {
     const targetObjectId = flatMaps.objectIdByName[field.targetObjectName];
 
     if (!isDefined(sourceObjectId)) {
-      throw new Error(`Objek sumber tidak ditemukan: ${field.sourceObjectName}`);
+      throw new Error(
+        `Objek sumber tidak ditemukan: ${field.sourceObjectName}`,
+      );
     }
     if (!isDefined(targetObjectId)) {
-      throw new Error(`Objek target tidak ditemukan: ${field.targetObjectName}`);
+      throw new Error(
+        `Objek target tidak ditemukan: ${field.targetObjectName}`,
+      );
     }
 
     await this.fieldMetadataService.createManyFields({

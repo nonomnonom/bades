@@ -38,7 +38,8 @@ describe('useDeleteOneRecord', () => {
   };
   const relatedCompanyRecord = flatCompanyRecords[0];
   const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
-  const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
+  const companyObjectMetadataItem =
+    getMockObjectMetadataItemOrThrow('keluarga');
   const objectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
 
   const getDefaultMocks = (

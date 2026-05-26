@@ -33,7 +33,9 @@ export const findActivityTargetsOperationSignatureFactory: RecordGqlOperationSig
     !isDefined(targetObjectMetadataItem) ||
     !isDefined(activityObjectMetadataItem)
   ) {
-    throw new Error(`Tidak dapat menemukan target atau targetable object metadata item`);
+    throw new Error(
+      `Tidak dapat menemukan target atau targetable object metadata item`,
+    );
   }
 
   const activityFieldKeys = generateDepthRecordGqlFieldsFromObject({

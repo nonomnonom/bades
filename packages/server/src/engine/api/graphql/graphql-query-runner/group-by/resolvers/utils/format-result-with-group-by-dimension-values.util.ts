@@ -45,7 +45,9 @@ export const formatResultWithGroupByDimensionValues = async ({
     }
 
     if (!isDefined(processRecord)) {
-      throw new Error('Record proses diperlukan untuk format hasil yang mencakup record');
+      throw new Error(
+        'Record proses diperlukan untuk format hasil yang mencakup record',
+      );
     }
 
     for (const entry of recordsResult) {

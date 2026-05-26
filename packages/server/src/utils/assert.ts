@@ -27,5 +27,5 @@ export const assertNotNull = <T>(item: T): item is NonNullable<T> =>
   item !== null && item !== undefined;
 
 export const assertNever = (_value: never, message?: string): never => {
-  throw new Error(message ?? "Tidak seharusnya sampai di sini.");
+  throw new Error(message ?? 'Tidak seharusnya sampai di sini.');
 };

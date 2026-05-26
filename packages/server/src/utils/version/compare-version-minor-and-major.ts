@@ -13,7 +13,9 @@ export function compareVersionMajorAndMinor(
   );
 
   if (version1 === null || version2 === null) {
-    throw new Error(`Menerima versi tidak valid: ${rawVersion1} ${rawVersion2}`);
+    throw new Error(
+      `Menerima versi tidak valid: ${rawVersion1} ${rawVersion2}`,
+    );
   }
 
   const v1WithoutPatch = `${version1.major}.${version1.minor}.0`;

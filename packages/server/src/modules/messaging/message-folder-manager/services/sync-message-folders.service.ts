@@ -105,9 +105,7 @@ export class SyncMessageFoldersService {
           messageChannel,
         );
       default:
-        throw new Error(
-          `Provider ${connectedAccount.provider} tidak didukung`,
-        );
+        throw new Error(`Provider ${connectedAccount.provider} tidak didukung`);
     }
   }
 

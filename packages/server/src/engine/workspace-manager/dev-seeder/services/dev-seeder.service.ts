@@ -37,9 +37,7 @@ import { createWorkspace } from 'src/engine/workspace-manager/dev-seeder/core/ut
 import { DevSeederDataService } from 'src/engine/workspace-manager/dev-seeder/data/services/dev-seeder-data.service';
 import { DevSeederMetadataService } from 'src/engine/workspace-manager/dev-seeder/metadata/services/dev-seeder-metadata.service';
 import { PrefillFrontComponentService } from 'src/engine/workspace-manager/standard-objects-prefill-data/services/prefill-front-component.service';
-import { PrefillLogicFunctionService } from 'src/engine/workspace-manager/standard-objects-prefill-data/services/prefill-logic-function.service';
 import { getSeedFrontComponentDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-definitions.util';
-import { getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-code-step-logic-functions.util';
 import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
@@ -61,7 +59,6 @@ export class DevSeederService {
     private readonly upgradeSequenceReaderService: UpgradeSequenceReaderService,
     private readonly workspaceMigrationValidateBuildAndRunService: WorkspaceMigrationValidateBuildAndRunService,
     private readonly prefillFrontComponentService: PrefillFrontComponentService,
-    private readonly prefillLogicFunctionService: PrefillLogicFunctionService,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
     @InjectRepository(WorkspaceEntity)
@@ -155,14 +152,6 @@ export class DevSeederService {
     const objectMetadataItems = await objectMetadataRepository.find({
       where: { workspaceId },
       relations: { fields: true },
-    });
-
-    await this.prefillLogicFunctionService.ensureSeeded({
-      workspaceId,
-      definitions:
-        getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions(
-          workspaceId,
-        ),
     });
 
     await this.prefillFrontComponentService.ensureSeeded({

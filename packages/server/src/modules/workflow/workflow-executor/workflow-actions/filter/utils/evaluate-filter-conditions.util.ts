@@ -126,7 +126,9 @@ function evaluateFilterGroup(
       return allResults.some((result) => result);
 
     default:
-      throw new Error(`Operator logika tidak dikenal: ${group.logicalOperator}`);
+      throw new Error(
+        `Operator logika tidak dikenal: ${group.logicalOperator}`,
+      );
   }
 }
 

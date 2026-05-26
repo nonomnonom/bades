@@ -67,7 +67,7 @@ export const generateRandomFieldValue = ({
     case FieldMetadataType.CURRENCY: {
       return {
         amountMicros: `${faker.number.int({ min: 100, max: 1_000 }) * 1_000_000}`,
-        currencyCode: 'EUR',
+        currencyCode: 'IDR',
       };
     }
 

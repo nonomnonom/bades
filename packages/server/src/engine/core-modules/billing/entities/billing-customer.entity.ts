@@ -39,16 +39,29 @@ export class BillingCustomerEntity extends WorkspaceRelatedEntity {
   updatedAt: Date;
 
   /**
-   * ID pelanggan Stripe (tetap ada untuk kompatibilitas pelanggan lama).
-   * Nullable karena pelanggan Midtrans-only tidak memiliki stripeCustomerId.
-   * unique + nullable valid di Postgres (NULL tidak dianggap duplikat).
+   * @deprecated Identifier warisan dari gateway pembayaran sebelumnya
+   * (tidak lagi dipakai aktif di Bades). Bades sepenuhnya memakai Midtrans
+   * sebagai payment rail tunggal — lihat `midtransCustomerRef` di bawah.
+   *
+   * Kolom DB-nya tetap dipertahankan dengan nama historis lewat
+   * `@Column({ name: 'stripeCustomerId' })` agar workspace lama tidak
+   * mengalami migrasi data yang berisiko. Property TypeScript di-rename
+   * menjadi `legacyPaymentCustomerId` agar code Bades-first tidak
+   * mereferensikan brand legacy.
+   *
+   * Nullable + unique valid di Postgres (NULL tidak dianggap duplikat).
    */
-  @Column({ nullable: true, unique: true, type: 'varchar' })
-  stripeCustomerId: string | null;
+  @Column({
+    name: 'stripeCustomerId',
+    nullable: true,
+    unique: true,
+    type: 'varchar',
+  })
+  legacyPaymentCustomerId: string | null;
 
   /**
-   * Referensi pelanggan di sisi Midtrans (opsional).
-   * Diisi saat workspace menggunakan Midtrans sebagai gateway utama.
+   * Referensi pelanggan di sisi Midtrans — sumber utama identifier
+   * pembayaran untuk semua workspace Bades.
    */
   @Column({ nullable: true, type: 'varchar' })
   midtransCustomerRef: string | null;

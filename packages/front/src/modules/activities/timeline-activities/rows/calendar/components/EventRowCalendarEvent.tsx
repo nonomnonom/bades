@@ -34,7 +34,9 @@ export const EventRowCalendarEvent = ({
   const [isOpen, setIsOpen] = useState(false);
 
   if (['linked'].includes(eventAction) === false) {
-    throw new Error(t`Tindakan peristiwa tidak valid untuk tipe peristiwa kalender.`);
+    throw new Error(
+      t`Tindakan peristiwa tidak valid untuk tipe peristiwa kalender.`,
+    );
   }
 
   return (
