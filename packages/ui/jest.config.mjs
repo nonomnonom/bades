@@ -10,7 +10,7 @@ const tsConfigPath = resolve(__dirname, './tsconfig.json');
 const tsConfig = JSON.parse(readFileSync(tsConfigPath, 'utf8'));
 
 const jestConfig = {
-  displayName: 'twenty-ui',
+  displayName: 'bades-ui',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['./setupTests.ts'],
   testEnvironment: 'jsdom',

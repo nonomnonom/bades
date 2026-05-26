@@ -12,7 +12,7 @@ const jestConfig = {
   ...(isCI && { reporters: ['./jest-failures-only-reporter.js'] }),
   errorOnDeprecated: true,
   clearMocks: true,
-  displayName: 'twenty-server',
+  displayName: 'bades-server',
   rootDir: './',
   testEnvironment: 'node',
   setupFilesAfterEnv: ['./setupTests.ts'],
