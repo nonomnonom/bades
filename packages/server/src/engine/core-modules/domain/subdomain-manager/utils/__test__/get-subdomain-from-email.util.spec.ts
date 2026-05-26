@@ -18,8 +18,8 @@ describe('getSubdomainFromEmail', () => {
   });
 
   it('should return the domain name if email is valid and a work email', () => {
-    const result = getSubdomainFromEmail('test@twenty.com');
+    const result = getSubdomainFromEmail('test@bades.id');
 
-    expect(result).toBe('twenty');
+    expect(result).toBe('bades');
   });
 });

@@ -209,7 +209,7 @@ describe('isSubdomainValid', () => {
         'demo',
         'api',
         't',
-        'keluargas',
+        'daftarKeluarga',
         'telemetry',
         'logs',
         'metrics',

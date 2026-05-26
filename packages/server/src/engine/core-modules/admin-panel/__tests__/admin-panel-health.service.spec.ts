@@ -359,7 +359,7 @@ describe('AdminPanelHealthService', () => {
       await expect(
         // @ts-expect-error Testing invalid input
         service.getIndicatorHealthStatus('invalid'),
-      ).rejects.toThrow('Health indicator not found: invalid');
+      ).rejects.toThrow('Indikator kesehatan tidak ditemukan: invalid');
     });
   });
 

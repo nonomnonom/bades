@@ -69,7 +69,7 @@ const allTestsUseCases: EachTestingContext<{
       nameSingular: 'personForRenameSecond3',
       namePlural: 'peopleForRenameSecond3',
       labelSingular: 'person For Rename Second3',
-      labelPlural: 'people For Rename Second3',
+      labelPlural: 'daftarPenduduk For Rename Second3',
       isLabelSyncedWithName: true,
       newJoinColumnName: 'ownerPersonForRenameSecond3Id',
       relationType: RelationType.MANY_TO_ONE,

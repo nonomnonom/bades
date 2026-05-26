@@ -10,15 +10,15 @@ describe('Query Complexity', () => {
 
     const findManyPeopleOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'people',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: gqlFields,
     });
 
     const response = await makeGraphqlAPIRequest(findManyPeopleOperation);
 
     expect(response.body.errors).toBeUndefined();
-    expect(response.body.data.people).toBeDefined();
-    expect(response.body.data.people.edges).toBeDefined();
+    expect(response.body.data.daftarPenduduk).toBeDefined();
+    expect(response.body.data.daftarPenduduk.edges).toBeDefined();
   });
 
   it('should fail to execute a query with too many fields', async () => {
@@ -26,7 +26,7 @@ describe('Query Complexity', () => {
 
     const findManyPeopleOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'people',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: gqlFields,
     });
 
@@ -49,14 +49,14 @@ describe('Query Complexity', () => {
     const response = await makeGraphqlAPIRequest({
       query: gql`
         query {
-          people {
+          daftarPenduduk {
             edges {
               node {
                 id
               }
             }
           }
-          people {
+          daftarPenduduk {
             edges {
               node {
                 id

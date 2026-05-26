@@ -8,7 +8,7 @@ describe('camelToSnakeCase', () => {
   });
 
   it('should convert single-word camelCase', () => {
-    expect(camelToSnakeCase('penduduks')).toBe('penduduks');
+    expect(camelToSnakeCase('daftarPenduduk')).toBe('daftarPenduduk');
   });
 
   it('should handle two-word camelCase', () => {

@@ -2,14 +2,14 @@ import gql from 'graphql-tag';
 
 export const TOO_MANY_ROOT_RESOLVERS_QUERY_GQL_FIELDS = gql`
   query {
-    people {
+    daftarPenduduk {
       edges {
         node {
           id
         }
       }
     }
-    companies {
+    daftarKeluarga {
       edges {
         node {
           id

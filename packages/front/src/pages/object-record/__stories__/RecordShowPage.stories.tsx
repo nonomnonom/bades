@@ -28,10 +28,10 @@ const meta: Meta<PageDecoratorArgs> = {
   parameters: {
     msw: {
       handlers: [
-        graphql.query('FindManyPenduduks', () => {
+        graphql.query('FindManyDaftarPenduduk', () => {
           return HttpResponse.json({
             data: {
-              penduduks: generateMockRecordConnection({
+              daftarPenduduk: generateMockRecordConnection({
                 objectNameSingular: 'penduduk',
                 records: flatPersonRecords,
               }),

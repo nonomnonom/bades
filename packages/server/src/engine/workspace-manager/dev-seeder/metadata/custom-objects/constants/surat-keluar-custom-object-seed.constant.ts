@@ -7,7 +7,7 @@ export const SURAT_KELUAR_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   // table/relasi.
   labelPlural: 'Surat',
   labelSingular: 'Surat',
-  namePlural: 'suratKeluars',
+  namePlural: 'daftarSuratKeluar',
   nameSingular: 'suratKeluar',
   icon: 'IconMail',
   description: 'Arsip surat masuk dan keluar desa',

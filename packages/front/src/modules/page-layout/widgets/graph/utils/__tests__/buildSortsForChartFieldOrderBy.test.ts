@@ -8,7 +8,7 @@ describe('buildSortsForChartFieldOrderBy', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
     id: 'obj-1',
     nameSingular: 'programBantuan',
-    namePlural: 'programBantuans',
+    namePlural: 'daftarProgramBantuan',
     fields: [
       {
         id: 'field-status',

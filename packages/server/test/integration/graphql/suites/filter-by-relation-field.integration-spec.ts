@@ -37,9 +37,9 @@ describe('Filter by relation field (e2e)', () => {
     // Buat data keluarga terlebih dahulu. nomorKk = 16-digit numerik
     // (format KTP-el Permendagri 109/2019), alamat = TEXT bebas yang
     // dipakai filter natural-language.
-    const createKeluargas = createManyOperationFactory({
+    const createDaftarKeluarga = createManyOperationFactory({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields: 'id nomorKk alamat',
       data: [
         {
@@ -64,12 +64,12 @@ describe('Filter by relation field (e2e)', () => {
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createKeluargas);
+    await makeGraphqlAPIRequest(createDaftarKeluarga);
 
     // Buat data penduduk dengan relasi ke keluarga
-    const createPenduduks = createManyOperationFactory({
+    const createDaftarPenduduk = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       data: [
         {
@@ -101,7 +101,7 @@ describe('Filter by relation field (e2e)', () => {
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createPenduduks);
+    await makeGraphqlAPIRequest(createDaftarPenduduk);
 
     const createRockets = createManyOperationFactory({
       objectMetadataSingularName: 'rocket',
@@ -141,8 +141,8 @@ describe('Filter by relation field (e2e)', () => {
   it('harus memfilter penduduk berdasarkan alamat keluarga (exact match)', async () => {
     const queryData = {
       query: gql`
-        query Penduduks($filter: PendudukFilterInput) {
-          penduduks(filter: $filter, first: 10) {
+        query DaftarPenduduk($filter: PendudukFilterInput) {
+          daftarPenduduk(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -166,7 +166,7 @@ describe('Filter by relation field (e2e)', () => {
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const ids = response.body.data.penduduks.edges.map(
+    const ids = response.body.data.daftarPenduduk.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
@@ -181,8 +181,8 @@ describe('Filter by relation field (e2e)', () => {
   it('harus memfilter penduduk berdasarkan alamat keluarga dengan operator like', async () => {
     const queryData = {
       query: gql`
-        query Penduduks($filter: PendudukFilterInput) {
-          penduduks(filter: $filter, first: 10) {
+        query DaftarPenduduk($filter: PendudukFilterInput) {
+          daftarPenduduk(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -205,7 +205,7 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.penduduks.edges.map(
+    const ids = response.body.data.daftarPenduduk.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
@@ -220,8 +220,8 @@ describe('Filter by relation field (e2e)', () => {
   it('harus menggabungkan filter relasi dengan filter scalar pada object root', async () => {
     const queryData = {
       query: gql`
-        query Penduduks($filter: PendudukFilterInput) {
-          penduduks(filter: $filter, first: 10) {
+        query DaftarPenduduk($filter: PendudukFilterInput) {
+          daftarPenduduk(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -245,7 +245,7 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.penduduks.edges.map(
+    const ids = response.body.data.daftarPenduduk.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
@@ -255,11 +255,11 @@ describe('Filter by relation field (e2e)', () => {
   it('harus menggabungkan filter relasi dengan order-by pada relasi yang sama (dedup join)', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $filter: PendudukFilterInput
           $orderBy: [PendudukOrderByInput]
         ) {
-          penduduks(filter: $filter, orderBy: $orderBy, first: 10) {
+          daftarPenduduk(filter: $filter, orderBy: $orderBy, first: 10) {
             edges {
               node {
                 id
@@ -286,7 +286,7 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const alamats = response.body.data.penduduks.edges.map(
+    const alamats = response.body.data.daftarPenduduk.edges.map(
       (edge: { node: { kartuKeluarga: { alamat: string } | null } }) =>
         edge.node.kartuKeluarga?.alamat ?? null,
     );
@@ -303,8 +303,8 @@ describe('Filter by relation field (e2e)', () => {
   it('harus memfilter pada sub-field numerik object relasi tanpa melebihi batas kedalaman', async () => {
     const queryData = {
       query: gql`
-        query Penduduks($filter: PendudukFilterInput) {
-          penduduks(filter: $filter, first: 10) {
+        query DaftarPenduduk($filter: PendudukFilterInput) {
+          daftarPenduduk(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -331,7 +331,7 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.penduduks.edges.map(
+    const ids = response.body.data.daftarPenduduk.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
@@ -347,8 +347,8 @@ describe('Filter by relation field (e2e)', () => {
   it('harus menolak filter relasi yang bersarang lebih dari satu hop', async () => {
     const queryData = {
       query: gql`
-        query Penduduks($filter: PendudukFilterInput) {
-          penduduks(filter: $filter, first: 10) {
+        query DaftarPenduduk($filter: PendudukFilterInput) {
+          daftarPenduduk(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -384,7 +384,7 @@ describe('Filter by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: 'id',
         data: [
           { id: liveId, kartuKeluargaId: TEST_KELUARGA_IDS.SUKAMAJU },
@@ -397,7 +397,7 @@ describe('Filter by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: 'id',
         filter: { id: { in: [softDeletedId] } },
       }),
@@ -405,8 +405,8 @@ describe('Filter by relation field (e2e)', () => {
 
     const queryData = {
       query: gql`
-        query Penduduks($filter: PendudukFilterInput) {
-          penduduks(filter: $filter, first: 10) {
+        query DaftarPenduduk($filter: PendudukFilterInput) {
+          daftarPenduduk(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -429,7 +429,7 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.penduduks.edges.map(
+    const ids = response.body.data.daftarPenduduk.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 

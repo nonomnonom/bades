@@ -61,7 +61,7 @@ describe('formatTwentyOrmEventToDatabaseBatchEvent', () => {
     id: objectMetadataId,
     workspaceId,
     nameSingular: 'penduduk',
-    namePlural: 'penduduks',
+    namePlural: 'daftarPenduduk',
     labelSingular: 'Penduduk',
     labelPlural: 'Penduduk',
     isCustom: false,

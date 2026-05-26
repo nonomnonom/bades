@@ -56,19 +56,19 @@ describe('computeSchemaComponents', () => {
     };
 
     expect(
-      computeSchemaComponents(
-        [flatObjectMetadata],
-        flatObjectMetadataMaps,
-        flatFieldMetadataMaps,
-      ),
-    ).toMatchInlineSnapshot(`
+  computeSchemaComponents(
+    [flatObjectMetadata],
+    flatObjectMetadataMaps,
+    flatFieldMetadataMaps
+  )
+).toMatchInlineSnapshot(`
 {
   "ObjectName": {
     "description": "Object description",
     "example": {
       "fieldCurrency": {
         "amountMicros": "284000000",
-        "currencyCode": "EUR",
+        "currencyCode": "IDR",
       },
       "fieldEmails": {
         "additionalEmails": null,
@@ -583,7 +583,7 @@ describe('computeSchemaComponents', () => {
     "example": {
       "fieldCurrency": {
         "amountMicros": "253000000",
-        "currencyCode": "EUR",
+        "currencyCode": "IDR",
       },
       "fieldEmails": {
         "additionalEmails": null,

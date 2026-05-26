@@ -30,7 +30,7 @@ const getDefaultMocks = (
     },
     result: jest.fn(() => ({
       data: {
-        deletePenduduks: responseData,
+        deleteDaftarPenduduk: responseData,
       },
     })),
     ...overrides,

@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
 
-import { type BackgroundMockKeluarga } from '@/sign-in-background-mock/constants/BackgroundMockKeluargas';
+import { type BackgroundMockKeluarga } from '@/sign-in-background-mock/constants/BackgroundMockDaftarKeluarga';
 import { BACKGROUND_MOCK_COLUMN_WIDTHS } from '@/sign-in-background-mock/constants/BackgroundMockColumnWidths';
 import { BACKGROUND_MOCK_TABLE_DIMENSIONS } from '@/sign-in-background-mock/constants/BackgroundMockTableDimensions';
 import { Avatar, IconBuildingSkyscraper } from 'ui/display';

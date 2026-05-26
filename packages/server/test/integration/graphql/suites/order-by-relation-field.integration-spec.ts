@@ -42,9 +42,9 @@ describe('Order by relation field (e2e)', () => {
   beforeAll(async () => {
     // Setiap keluarga punya nomorKk 16-digit unik (sesuai format KTP-el) +
     // alamat sebagai field TEXT yang akan dipakai uji sort.
-    const createKeluargas = createManyOperationFactory({
+    const createDaftarKeluarga = createManyOperationFactory({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields: 'id nomorKk alamat',
       data: [
         {
@@ -82,12 +82,12 @@ describe('Order by relation field (e2e)', () => {
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createKeluargas);
+    await makeGraphqlAPIRequest(createDaftarKeluarga);
 
     // Buat test penduduk dengan relasi kartuKeluarga dan beberapa tanpa relasi (untuk uji null)
-    const createPenduduks = createManyOperationFactory({
+    const createDaftarPenduduk = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       data: [
         // Penduduk dengan kartuKeluarga (untuk uji pengurutan)
@@ -125,17 +125,17 @@ describe('Order by relation field (e2e)', () => {
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createPenduduks);
+    await makeGraphqlAPIRequest(createDaftarPenduduk);
   });
 
-  it('should sort penduduks by kartuKeluarga alamat ascending', async () => {
+  it('should sort daftarPenduduk by kartuKeluarga alamat ascending', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 10) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -162,7 +162,7 @@ describe('Order by relation field (e2e)', () => {
     expect(response.body.data).toBeDefined();
     expect(response.body.errors).toBeUndefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
 
     expect(Array.isArray(edges)).toBe(true);
     expect(edges.length).toBeGreaterThan(0);
@@ -180,14 +180,14 @@ describe('Order by relation field (e2e)', () => {
     expect(alamatList).toEqual(sortedAlamatList);
   });
 
-  it('should sort penduduks by kartuKeluarga alamat descending', async () => {
+  it('should sort daftarPenduduk by kartuKeluarga alamat descending', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 10) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -214,7 +214,7 @@ describe('Order by relation field (e2e)', () => {
     expect(response.body.data).toBeDefined();
     expect(response.body.errors).toBeUndefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
 
     expect(Array.isArray(edges)).toBe(true);
     expect(edges.length).toBeGreaterThan(0);
@@ -235,11 +235,11 @@ describe('Order by relation field (e2e)', () => {
   it('should handle null relations with NULLS LAST', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 50) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 50) {
             edges {
               node {
                 id
@@ -266,7 +266,7 @@ describe('Order by relation field (e2e)', () => {
     expect(response.body.data).toBeDefined();
     expect(response.body.errors).toBeUndefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
 
     expect(Array.isArray(edges)).toBe(true);
     expect(edges.length).toBeGreaterThan(0);
@@ -290,12 +290,12 @@ describe('Order by relation field (e2e)', () => {
     // Request pertama untuk mendapatkan data awal
     const firstQueryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
           $limit: Int
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: $limit) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: $limit) {
             edges {
               node {
                 id
@@ -320,8 +320,8 @@ describe('Order by relation field (e2e)', () => {
     expect(firstResponse.body.data).toBeDefined();
     expect(firstResponse.body.errors).toBeUndefined();
 
-    const firstPageEdges = firstResponse.body.data.penduduks.edges;
-    const totalCount = firstResponse.body.data.penduduks.totalCount;
+    const firstPageEdges = firstResponse.body.data.daftarPenduduk.edges;
+    const totalCount = firstResponse.body.data.daftarPenduduk.totalCount;
 
     expect(Array.isArray(firstPageEdges)).toBe(true);
     expect(firstPageEdges.length).toBeGreaterThan(0);
@@ -330,13 +330,13 @@ describe('Order by relation field (e2e)', () => {
     // Request kedua menggunakan offset (sesuai perilaku frontend)
     const secondQueryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
           $limit: Int
           $offset: Int
         ) {
-          penduduks(
+          daftarPenduduk(
             orderBy: $orderBy
             filter: $filter
             first: $limit
@@ -366,7 +366,7 @@ describe('Order by relation field (e2e)', () => {
     expect(secondResponse.body.data).toBeDefined();
     expect(secondResponse.body.errors).toBeUndefined();
 
-    const secondPageEdges = secondResponse.body.data.penduduks.edges;
+    const secondPageEdges = secondResponse.body.data.daftarPenduduk.edges;
 
     expect(Array.isArray(secondPageEdges)).toBe(true);
 
@@ -388,11 +388,11 @@ describe('Order by relation field (e2e)', () => {
     // Ambil cursor terlebih dahulu dengan memuat record
     const firstQueryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 3) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 3) {
             edges {
               node {
                 id
@@ -417,7 +417,7 @@ describe('Order by relation field (e2e)', () => {
     expect(firstResponse.body.data).toBeDefined();
     expect(firstResponse.body.errors).toBeUndefined();
 
-    const pageInfo = firstResponse.body.data.penduduks.pageInfo;
+    const pageInfo = firstResponse.body.data.daftarPenduduk.pageInfo;
 
     // Pastikan data cukup untuk uji pagination
     expect(pageInfo.hasNextPage).toBe(true);
@@ -426,12 +426,12 @@ describe('Order by relation field (e2e)', () => {
     // Coba gunakan cursor dengan relation orderBy — harus gagal dengan pesan jelas
     const secondQueryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
           $after: String
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 3, after: $after) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 3, after: $after) {
             edges {
               node {
                 id
@@ -459,11 +459,11 @@ describe('Order by relation field (e2e)', () => {
   it('should allow sorting by relation FK (backward compatibility)', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 10) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -484,7 +484,7 @@ describe('Order by relation field (e2e)', () => {
     expect(response.body.data).toBeDefined();
     expect(response.body.errors).toBeUndefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
 
     expect(Array.isArray(edges)).toBe(true);
     expect(edges.length).toBeGreaterThan(0);
@@ -493,11 +493,11 @@ describe('Order by relation field (e2e)', () => {
   it('should sort case-insensitively (jl. dahlia dan JL. DAHLIA harus berdampingan sebelum Jl. Zamrud)', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 10) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -520,7 +520,7 @@ describe('Order by relation field (e2e)', () => {
     expect(response.body.data).toBeDefined();
     expect(response.body.errors).toBeUndefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
     const alamatList = edges.map(
       (edge: { node: { kartuKeluarga?: { alamat: string } } }) =>
         edge.node.kartuKeluarga?.alamat,
@@ -546,11 +546,11 @@ describe('Order by relation field (e2e)', () => {
   it('should sort case-insensitively in descending order', async () => {
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: 10) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -573,7 +573,7 @@ describe('Order by relation field (e2e)', () => {
     expect(response.body.data).toBeDefined();
     expect(response.body.errors).toBeUndefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
     const alamatList = edges.map(
       (edge: { node: { kartuKeluarga?: { alamat: string } } }) =>
         edge.node.kartuKeluarga?.alamat,
@@ -602,12 +602,12 @@ describe('Order by relation field (e2e)', () => {
     // Bug termanifestasi sebagai: "column distinctAlias.penduduk_position does not exist"
     const queryData = {
       query: gql`
-        query Penduduks(
+        query DaftarPenduduk(
           $orderBy: [PendudukOrderByInput]
           $filter: PendudukFilterInput
           $limit: Int
         ) {
-          penduduks(orderBy: $orderBy, filter: $filter, first: $limit) {
+          daftarPenduduk(orderBy: $orderBy, filter: $filter, first: $limit) {
             edges {
               node {
                 id
@@ -641,9 +641,9 @@ describe('Order by relation field (e2e)', () => {
     // Harus berhasil tanpa error "column distinctAlias.penduduk_position does not exist"
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.penduduks).toBeDefined();
+    expect(response.body.data.daftarPenduduk).toBeDefined();
 
-    const edges = response.body.data.penduduks.edges;
+    const edges = response.body.data.daftarPenduduk.edges;
 
     expect(Array.isArray(edges)).toBe(true);
 

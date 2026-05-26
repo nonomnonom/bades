@@ -651,8 +651,8 @@ for tool in tools[:5]:
     print(f"- {tool['name']}")
 
 # Find records — returns { 'records': [...], 'count': '5' }
-penduduks = bades.call_tool('find_penduduks', {'limit': 5, 'offset': 0})
-for p in penduduks['records']:
+daftarPenduduk = bades.call_tool('find_penduduks', {'limit': 5, 'offset': 0})
+for p in daftarPenduduk['records']:
     print(p['namaLengkap'], p.get('nik'))
 
 # Create a record — arguments match the tool's inputSchema directly,

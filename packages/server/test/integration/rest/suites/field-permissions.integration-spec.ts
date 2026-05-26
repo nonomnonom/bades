@@ -25,7 +25,7 @@ describe('Restricted fields', () => {
     // Buat keluarga sebagai parent record penduduk
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3578012345678901',
@@ -36,7 +36,7 @@ describe('Restricted fields', () => {
     // Buat penduduk dengan field yang akan diuji pembatasannya
     await makeRestAPIRequest({
       method: 'post',
-      path: '/penduduks',
+      path: '/daftarPenduduk',
       body: {
         id: TEST_PENDUDUK_1_ID,
         tempatLahir: pendudukTempatLahir,
@@ -141,7 +141,7 @@ describe('Restricted fields', () => {
   it('should hide fields when user has restricted read permissions - findOne', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
       bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
     })
       .expect(200)
@@ -172,7 +172,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'patch',
-        path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+        path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
           namaLengkap: {
@@ -206,7 +206,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'patch',
-        path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+        path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
           nik: '3578019999999999',
@@ -236,7 +236,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'patch',
-        path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+        path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
           tempatLahir: 'Malang',
@@ -267,7 +267,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/penduduks`,
+        path: `/daftarPenduduk`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
           nik: '3578010000000001',
@@ -310,7 +310,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/penduduks`,
+        path: `/daftarPenduduk`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
           nik: '3578010000000002',
@@ -355,7 +355,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/penduduks`,
+        path: `/daftarPenduduk`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
           tempatLahir: 'Depok',
@@ -388,7 +388,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/batch/penduduks`,
+        path: `/batch/daftarPenduduk`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: [
           {
@@ -433,7 +433,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/batch/penduduks`,
+        path: `/batch/daftarPenduduk`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: [
           {
@@ -443,10 +443,10 @@ describe('Restricted fields', () => {
       })
         .expect(201)
         .expect((res) => {
-          const createdPenduduks = res.body.data.createPenduduks;
+          const createdDaftarPenduduk = res.body.data.createDaftarPenduduk;
 
-          expect(createdPenduduks).toHaveLength(1);
-          expect(createdPenduduks[0].nik).toBe('3578010000000011');
+          expect(createdDaftarPenduduk).toHaveLength(1);
+          expect(createdDaftarPenduduk[0].nik).toBe('3578010000000011');
         });
 
       await upsertRowLevelPermissionPredicates({
@@ -480,7 +480,7 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/batch/penduduks`,
+        path: `/batch/daftarPenduduk`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: [
           {
@@ -493,12 +493,12 @@ describe('Restricted fields', () => {
       })
         .expect(201)
         .expect((res) => {
-          const createdPenduduks = res.body.data.createPenduduks;
+          const createdDaftarPenduduk = res.body.data.createDaftarPenduduk;
 
-          expect(createdPenduduks).toHaveLength(2);
+          expect(createdDaftarPenduduk).toHaveLength(2);
           // tempatLahir dibatasi read — harus disembunyikan dari respons
-          expect(createdPenduduks[0].tempatLahir).toBeUndefined();
-          expect(createdPenduduks[1].tempatLahir).toBeUndefined();
+          expect(createdDaftarPenduduk[0].tempatLahir).toBeUndefined();
+          expect(createdDaftarPenduduk[1].tempatLahir).toBeUndefined();
         });
     });
   });

@@ -174,7 +174,7 @@ describe('group-by with records respects row-level permission predicates', () =>
     const response = await makeGraphqlAPIRequest(
       {
         query: gql`
-          query KeluargasGroupBy(
+          query DaftarKeluargaGroupBy(
             $groupBy: [KeluargaGroupByInput!]!
             $filter: KeluargaFilterInput
             $limit: Int

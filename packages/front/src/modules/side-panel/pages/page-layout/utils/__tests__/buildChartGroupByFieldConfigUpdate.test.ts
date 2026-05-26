@@ -17,7 +17,7 @@ describe('buildChartGroupByFieldConfigUpdate', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
     id: 'object-id',
     nameSingular: 'programBantuan',
-    namePlural: 'programBantuans',
+    namePlural: 'daftarProgramBantuan',
     labelSingular: 'Program Bantuan',
     labelPlural: 'Program Bantuan',
     description: 'An opportunity',

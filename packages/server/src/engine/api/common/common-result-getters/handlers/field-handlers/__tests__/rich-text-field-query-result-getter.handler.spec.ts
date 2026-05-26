@@ -26,7 +26,7 @@ describe('RichTextFieldQueryResultGetterHandler', () => {
   let handler: RichTextFieldQueryResultGetterHandler;
 
   beforeEach(() => {
-    process.env.SERVER_URL = 'https://my-domain.twenty.com';
+    process.env.SERVER_URL = 'https://my-domain.bades.id';
     handler = new RichTextFieldQueryResultGetterHandler(mockFileUrlService);
   });
 

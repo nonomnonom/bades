@@ -67,7 +67,7 @@ const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
   id: '1',
   universalIdentifier: '1',
   nameSingular: 'keluarga',
-  namePlural: 'keluargas',
+  namePlural: 'daftarKeluarga',
   labelSingular: 'Keluarga',
   labelPlural: 'Keluarga',
   description: 'A company',

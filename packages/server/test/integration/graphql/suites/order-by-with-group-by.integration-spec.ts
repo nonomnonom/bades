@@ -120,7 +120,7 @@ describe('group-by resolvers - order by', () => {
   });
 
   afterAll(async () => {
-    // cleanup created keluargas
+    // cleanup created daftarKeluarga
     for (const id of [
       testKeluargaId1,
       testKeluargaId2,
@@ -158,7 +158,7 @@ describe('group-by resolvers - order by', () => {
   const groupByKecamatanCreatedAtDanKlasifikasi = (orderBy: object[]) => {
     return groupByOperationFactory({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       groupBy: [
         { kecamatan: true },
         { createdAt: { granularity: 'DAY_OF_THE_WEEK' } },
@@ -495,7 +495,7 @@ describe('group-by resolvers - order by', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'keluarga',
-          objectMetadataPluralName: 'keluargas',
+          objectMetadataPluralName: 'daftarKeluarga',
           groupBy: [{ createdAt: { granularity: 'DAY_OF_THE_WEEK' } }],
           orderBy: [
             {
@@ -527,7 +527,7 @@ describe('group-by resolvers - order by', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'keluarga',
-          objectMetadataPluralName: 'keluargas',
+          objectMetadataPluralName: 'daftarKeluarga',
           groupBy: [{ createdAt: { granularity: 'DAY_OF_THE_WEEK' } }],
           orderBy: [
             {
@@ -559,7 +559,7 @@ describe('group-by resolvers - order by', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'keluarga',
-          objectMetadataPluralName: 'keluargas',
+          objectMetadataPluralName: 'daftarKeluarga',
           groupBy: [{ createdAt: { granularity: 'MONTH_OF_THE_YEAR' } }],
           orderBy: [
             {
@@ -591,7 +591,7 @@ describe('group-by resolvers - order by', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'keluarga',
-          objectMetadataPluralName: 'keluargas',
+          objectMetadataPluralName: 'daftarKeluarga',
           groupBy: [{ createdAt: { granularity: 'MONTH_OF_THE_YEAR' } }],
           orderBy: [
             {

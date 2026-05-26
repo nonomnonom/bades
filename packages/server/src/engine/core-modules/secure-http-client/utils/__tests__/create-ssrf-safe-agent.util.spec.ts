@@ -56,7 +56,7 @@ describe('createSsrfSafeAgent', () => {
 
       expect(() => {
         agent.createConnection({ host: '127.0.0.1' } as any, jest.fn() as any);
-      }).toThrow('Request to internal IP address 127.0.0.1 is not allowed.');
+      }).toThrow('Request ke alamat IP internal 127.0.0.1 tidak diizinkan.');
     });
 
     it('should throw for private IP 10.0.0.1', () => {
@@ -64,7 +64,7 @@ describe('createSsrfSafeAgent', () => {
 
       expect(() => {
         agent.createConnection({ host: '10.0.0.1' } as any, jest.fn() as any);
-      }).toThrow('Request to internal IP address 10.0.0.1 is not allowed.');
+      }).toThrow('Request ke alamat IP internal 10.0.0.1 tidak diizinkan.');
     });
 
     it('should throw for private IP 192.168.1.1', () => {
@@ -75,7 +75,7 @@ describe('createSsrfSafeAgent', () => {
           { host: '192.168.1.1' } as any,
           jest.fn() as any,
         );
-      }).toThrow('Request to internal IP address 192.168.1.1 is not allowed.');
+      }).toThrow('Request ke alamat IP internal 192.168.1.1 tidak diizinkan.');
     });
 
     it('should throw for private IP 172.16.0.1', () => {
@@ -83,7 +83,7 @@ describe('createSsrfSafeAgent', () => {
 
       expect(() => {
         agent.createConnection({ host: '172.16.0.1' } as any, jest.fn() as any);
-      }).toThrow('Request to internal IP address 172.16.0.1 is not allowed.');
+      }).toThrow('Request ke alamat IP internal 172.16.0.1 tidak diizinkan.');
     });
 
     it('should throw for link-local IP 169.254.169.254', () => {
@@ -95,7 +95,7 @@ describe('createSsrfSafeAgent', () => {
           jest.fn() as any,
         );
       }).toThrow(
-        'Request to internal IP address 169.254.169.254 is not allowed.',
+        'Request ke alamat IP internal 169.254.169.254 tidak diizinkan.',
       );
     });
 
@@ -221,7 +221,7 @@ describe('createSsrfSafeAgent', () => {
 
       expect(() => {
         agent.createConnection({ host: '127.0.0.1' } as any, jest.fn() as any);
-      }).toThrow('Request to internal IP address 127.0.0.1 is not allowed.');
+      }).toThrow('Request ke alamat IP internal 127.0.0.1 tidak diizinkan.');
     });
 
     it('should validate DNS lookups for HTTPS connections', () => {
@@ -245,7 +245,7 @@ describe('createSsrfSafeAgent', () => {
 
       expect(() => {
         agent.createConnection({ host: '::1' } as any, jest.fn() as any);
-      }).toThrow('Request to internal IP address ::1 is not allowed.');
+      }).toThrow('Request ke alamat IP internal ::1 tidak diizinkan.');
     });
 
     it('should destroy socket when DNS resolves to IPv6 private address', () => {

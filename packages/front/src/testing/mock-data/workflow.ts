@@ -1054,7 +1054,7 @@ export const workflowQueryResult = {
                                 {
                                   id: 'af45f003-5432-45bd-86cf-2aebf3a0489c',
                                   icon: 'IconUsers',
-                                  name: 'penduduks',
+                                  name: 'daftarPenduduk',
                                   type: 'RELATION',
                                   label: 'People',
                                   options: null,
@@ -1191,7 +1191,7 @@ export const workflowQueryResult = {
                                 {
                                   id: '9af1d970-34a0-482d-bb35-394911bfad6f',
                                   icon: 'IconTargetArrow',
-                                  name: 'programBantuans',
+                                  name: 'daftarProgramBantuan',
                                   type: 'RELATION',
                                   label: 'Opportunities',
                                   options: null,
@@ -1463,7 +1463,7 @@ export const workflowQueryResult = {
                               isLeaf: true,
                             },
                             namePlural: {
-                              value: 'keluargas',
+                              value: 'daftarKeluarga',
                               isLeaf: true,
                             },
                             standardId: {

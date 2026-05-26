@@ -37,12 +37,12 @@ describe('useNavigateSettings', () => {
     });
 
     result.current(SettingsPath.ObjectFieldEdit, {
-      objectNamePlural: 'keluargas',
+      objectNamePlural: 'daftarKeluarga',
       fieldName: 'name',
     });
 
     expect(mockNavigate).toHaveBeenCalledWith(
-      '/settings/objects/keluargas/name',
+      '/settings/objects/daftarKeluarga/name',
       undefined,
     );
   });

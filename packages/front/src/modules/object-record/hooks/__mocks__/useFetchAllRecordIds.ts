@@ -6,13 +6,13 @@ import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/pendud
 import { generateMockRecordConnection } from '~/testing/utils/generateMockRecordConnection';
 
 export const query = gql`
-  query FindManyPenduduks(
+  query FindManyDaftarPenduduk(
     $filter: PendudukFilterInput
     $orderBy: [PendudukOrderByInput]
     $lastCursor: String
     $limit: Int
   ) {
-    penduduks(
+    daftarPenduduk(
       filter: $filter
       orderBy: $orderBy
       first: $limit
@@ -103,7 +103,7 @@ const paginateRequestResponse = (
 };
 
 export const responseFirstRequest = {
-  penduduks: paginateRequestResponse(
+  daftarPenduduk: paginateRequestResponse(
     pendudukMockWithIdsOnly,
     0,
     mockPageSize,
@@ -113,7 +113,7 @@ export const responseFirstRequest = {
 };
 
 export const responseSecondRequest = {
-  penduduks: paginateRequestResponse(
+  daftarPenduduk: paginateRequestResponse(
     pendudukMockWithIdsOnly,
     mockPageSize,
     mockPageSize * 2,
@@ -123,7 +123,7 @@ export const responseSecondRequest = {
 };
 
 export const responseThirdRequest = {
-  penduduks: paginateRequestResponse(
+  daftarPenduduk: paginateRequestResponse(
     pendudukMockWithIdsOnly,
     mockPageSize * 2,
     mockPageSize * 3,

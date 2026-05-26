@@ -2,11 +2,11 @@ import { getAggregateQueryName } from '@/object-record/utils/getAggregateQueryNa
 
 describe('getAggregateQueryName', () => {
   it('should return the correct aggregate query name for a valid plural name', () => {
-    expect(getAggregateQueryName('programBantuans')).toBe(
-      'AggregateProgramBantuans',
+    expect(getAggregateQueryName('daftarProgramBantuan')).toBe(
+      'AggregateDaftarProgramBantuan',
     );
-    expect(getAggregateQueryName('keluargas')).toBe('AggregateKeluargas');
-    expect(getAggregateQueryName('penduduks')).toBe('AggregatePenduduks');
+    expect(getAggregateQueryName('daftarKeluarga')).toBe('AggregateDaftarKeluarga');
+    expect(getAggregateQueryName('daftarPenduduk')).toBe('AggregateDaftarPenduduk');
   });
 
   it('should throw an error when input is undefined', () => {

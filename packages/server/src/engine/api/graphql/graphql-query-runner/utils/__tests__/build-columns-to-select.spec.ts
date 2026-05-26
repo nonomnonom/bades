@@ -81,7 +81,7 @@ describe('buildColumnsToSelect', () => {
       id: personObjectId,
       standardId: '20202020-e674-48e5-a542-72570eee7213',
       nameSingular: 'penduduk',
-      namePlural: 'penduduks',
+      namePlural: 'daftarPenduduk',
       labelSingular: 'Penduduk',
       labelPlural: 'Penduduk',
       description: 'A person',
@@ -161,7 +161,7 @@ describe('buildColumnsToSelect', () => {
   const companyObjectMetadata: FlatObjectMetadata = {
     id: companyObjectId,
     nameSingular: 'keluarga',
-    namePlural: 'keluargas',
+    namePlural: 'daftarKeluarga',
     fieldIds: [],
     indexMetadataIds: [],
     viewIds: [],

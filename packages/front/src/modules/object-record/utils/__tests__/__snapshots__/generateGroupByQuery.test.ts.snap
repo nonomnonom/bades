@@ -2,7 +2,7 @@
 
 exports[`generateGroupByQuery should generate valid GraphQL query for empty aggregate operations 1`] = `
 "
-    query PenduduksGroupByAggregates(
+    query DaftarPendudukGroupByAggregates(
       $groupBy: [PendudukGroupByInput!]!
       $filter: PendudukFilterInput
       $orderBy: [PendudukOrderByWithGroupByInput!]
@@ -24,7 +24,7 @@ exports[`generateGroupByQuery should generate valid GraphQL query for empty aggr
 
 exports[`generateGroupByQuery should generate valid GraphQL query for multiple aggregate operations 1`] = `
 "
-    query ProgramBantuansGroupByAggregates(
+    query DaftarProgramBantuanGroupByAggregates(
       $groupBy: [ProgramBantuanGroupByInput!]!
       $filter: ProgramBantuanFilterInput
       $orderBy: [ProgramBantuanOrderByWithGroupByInput!]
@@ -49,7 +49,7 @@ exports[`generateGroupByQuery should generate valid GraphQL query for multiple a
 
 exports[`generateGroupByQuery should generate valid GraphQL query for single aggregate operation 1`] = `
 "
-    query ProgramBantuansGroupByAggregates(
+    query DaftarProgramBantuanGroupByAggregates(
       $groupBy: [ProgramBantuanGroupByInput!]!
       $filter: ProgramBantuanFilterInput
       $orderBy: [ProgramBantuanOrderByWithGroupByInput!]

@@ -41,7 +41,7 @@ describe('useIncrementalUpdateManyRecords', () => {
 
     mockUseObjectMetadataItem.mockReturnValue({
       objectMetadataItem: {
-        namePlural: 'companies',
+        namePlural: 'daftarKeluarga',
       } as any,
     });
 

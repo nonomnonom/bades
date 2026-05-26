@@ -20,7 +20,7 @@ const customObjectImageFieldId = 'imageIdentifierFieldMetadataId';
 const personFlatObject = getFlatObjectMetadataMock({
   id: '20202020-8dec-43d5-b2ff-6eef05095bec',
   nameSingular: 'penduduk',
-  namePlural: 'penduduks',
+  namePlural: 'daftarPenduduk',
   labelSingular: 'Penduduk',
   labelPlural: 'Penduduk',
   description: 'A person',
@@ -44,7 +44,7 @@ const personFlatObject = getFlatObjectMetadataMock({
 const companyFlatObject = getFlatObjectMetadataMock({
   id: '20202020-c03c-45d6-a4b0-04afe1357c5c',
   nameSingular: 'keluarga',
-  namePlural: 'keluargas',
+  namePlural: 'daftarKeluarga',
   labelSingular: 'Keluarga',
   labelPlural: 'Keluarga',
   description: 'A company',

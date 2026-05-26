@@ -205,7 +205,7 @@ describe('generateRecordOutputSchema', () => {
       fields: [
         {
           id: 'people-relation-id',
-          name: 'penduduks',
+          name: 'daftarPenduduk',
           label: 'People',
           type: FieldMetadataType.RELATION,
           isActive: true,
@@ -219,7 +219,7 @@ describe('generateRecordOutputSchema', () => {
 
     const result = generateRecordOutputSchema(objectMetadataItem);
 
-    expect(result.fields).not.toHaveProperty('penduduks');
+    expect(result.fields).not.toHaveProperty('daftarPenduduk');
     expect(result.fields).not.toHaveProperty('peopleId');
   });
 

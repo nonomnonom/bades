@@ -106,7 +106,7 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
             objectPermissionsByObjectMetadataId: {},
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
-            objectNamePlural: CoreObjectNamePlural.Company,
+            objectNamePlural: CoreObjectNamePlural.Keluarga,
             objectNameSingular: 'company',
             objectMetadataItem: companyObjectMetadataItem,
             recordIndexId: instanceId,

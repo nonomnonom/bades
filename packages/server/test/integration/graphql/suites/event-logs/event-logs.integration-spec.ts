@@ -42,7 +42,7 @@ describe('Event Logs (integration)', () => {
     const pageviewRecords = Array.from({ length: 25 }, (_, i) => ({
       workspaceId: testWorkspaceId,
       userId: testUserWorkspaceId,
-      name: i % 2 === 0 ? 'settings/profile' : 'objects/companies',
+      name: i % 2 === 0 ? 'settings/profile' : 'objects/daftarKeluarga',
       timestamp: new Date(now.getTime() - i * 60000)
         .toISOString()
         .replace('T', ' ')

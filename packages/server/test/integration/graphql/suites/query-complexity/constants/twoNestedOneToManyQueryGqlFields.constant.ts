@@ -4,7 +4,7 @@ export const TWO_NESTED_ONE_TO_MANY_QUERY_GQL_FIELDS = `
     edges {
       node {
         company {
-            people {
+            daftarPenduduk {
             edges {
                 node {
                 id

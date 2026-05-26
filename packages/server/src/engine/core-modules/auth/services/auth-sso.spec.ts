@@ -118,7 +118,7 @@ describe('AuthSsoService', () => {
           authProvider: 'invalid-provider' as any,
           email: 'test@example.com',
         }),
-      ).rejects.toThrow('invalid-provider is not a valid auth provider.');
+      ).rejects.toThrow('invalid-provider bukan provider auth yang valid.');
     });
   });
 });

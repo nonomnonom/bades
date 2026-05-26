@@ -11,7 +11,7 @@ describe('buildOrderByColumnExpression', () => {
     it('should return unquoted alias.column format', () => {
       const result = buildOrderByColumnExpression('keluarga', 'name');
 
-      expect(result).toBe('company.name');
+      expect(result).toBe('keluarga.name');
     });
 
     it('should work with different prefixes', () => {
@@ -23,7 +23,7 @@ describe('buildOrderByColumnExpression', () => {
     it('should handle composite column names (e.g., nameFirstName)', () => {
       const result = buildOrderByColumnExpression('penduduk', 'nameFirstName');
 
-      expect(result).toBe('person.nameFirstName');
+      expect(result).toBe('penduduk.nameFirstName');
     });
   });
 });

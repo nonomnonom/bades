@@ -18,7 +18,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
     mockUseObjectMetadataItem.mockReturnValue({
       objectMetadataItem: {
         nameSingular: 'keluarga',
-        namePlural: 'keluargas',
+        namePlural: 'daftarKeluarga',
       } as any,
     });
     mockUseLazyFindManyRecords.mockReturnValue({
@@ -30,7 +30,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
   it('should fetch and mutate records in batches', async () => {
     mockFindManyRecordsLazy.mockResolvedValue({
       data: {
-        keluargas: {
+        daftarKeluarga: {
           totalCount: 3,
           edges: [{ node: { id: '1' } }, { node: { id: '2' } }],
           pageInfo: {
@@ -85,7 +85,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
   it('should update progress during processing', async () => {
     mockFindManyRecordsLazy.mockResolvedValue({
       data: {
-        keluargas: {
+        daftarKeluarga: {
           totalCount: 1,
           edges: [{ node: { id: '1' } }],
           pageInfo: { hasNextPage: false },

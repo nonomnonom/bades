@@ -29,7 +29,7 @@ describe('ViewQueryParamsService', () => {
       'object-universal-id': {
         id: mockObjectMetadataId,
         nameSingular: 'keluarga',
-        namePlural: 'keluargas',
+        namePlural: 'daftarKeluarga',
         labelSingular: 'Keluarga',
         labelPlural: 'Keluarga',
         universalIdentifier: 'object-universal-id',

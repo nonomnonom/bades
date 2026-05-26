@@ -50,7 +50,7 @@ const expectAlamatIsAccessible = ({
   expectedAlamat,
 }: {
   response: any;
-  operationName: 'createKeluargas' | 'createKeluarga';
+  operationName: 'createDaftarKeluarga' | 'createKeluarga';
   expectedAlamat: string;
 }) => {
   expect(response.body.errors).toBeUndefined();
@@ -252,7 +252,7 @@ describe('Field update permissions restrictions', () => {
   //   it('1. updateMany with restricted field', async () => {
   //     const graphqlOperation = updateManyOperationFactory({
   //       objectMetadataSingularName: 'keluarga',
-  //       objectMetadataPluralName: 'keluargas',
+  //       objectMetadataPluralName: 'daftarKeluarga',
   //       gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
   //       data: { alamat: 'Jl. Baru No. 99' },
   //     });
@@ -290,7 +290,7 @@ describe('Field update permissions restrictions', () => {
   //   it('1. updateMany with non-restricted field', async () => {
   //     const graphqlOperation = updateManyOperationFactory({
   //       objectMetadataSingularName: 'keluarga',
-  //       objectMetadataPluralName: 'keluargas',
+  //       objectMetadataPluralName: 'daftarKeluarga',
   //       gqlFields: KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT,
   //       data: { nomorKk: '3578019999999999' },
   //     });
@@ -300,7 +300,7 @@ describe('Field update permissions restrictions', () => {
 
   //     expect(response.body.errors).toBeUndefined();
   //     expect(response.body.data).toBeDefined();
-  //     expect(response.body.data.updateKeluargas[0].nomorKk).toBe('3578019999999999');
+  //     expect(response.body.data.updateDaftarKeluarga[0].nomorKk).toBe('3578019999999999');
   //   });
 
   //   it('2. updateOne with non-restricted field', async () => {
@@ -357,7 +357,7 @@ describe('Field update permissions restrictions', () => {
     it('1. createMany with restricted field in RLS predicate', async () => {
       const graphqlOperation = createManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         data: [
           {
@@ -378,7 +378,7 @@ describe('Field update permissions restrictions', () => {
 
       expectAlamatIsAccessible({
         response,
-        operationName: 'createKeluargas',
+        operationName: 'createDaftarKeluarga',
         expectedAlamat: 'Jl. Ahmad Yani No. 3, Malang',
       });
     });
@@ -417,7 +417,7 @@ describe('Field update permissions restrictions', () => {
     it('1. updateMany requesting restricted field in response', async () => {
       const graphqlOperation = updateManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         data: { nomorKk: '3578019876543211' },
         filter: { id: { eq: testKeluargaId } },
@@ -456,7 +456,7 @@ describe('Field update permissions restrictions', () => {
     it('1. updateMany not requesting restricted field in response', async () => {
       const graphqlOperation = updateManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT,
         data: { nomorKk: '3578019876500001' },
         filter: { id: { eq: testKeluargaId } },
@@ -467,7 +467,7 @@ describe('Field update permissions restrictions', () => {
 
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data).toBeDefined();
-      expect(response.body.data.updateKeluargas[0].nomorKk).toBe(
+      expect(response.body.data.updateDaftarKeluarga[0].nomorKk).toBe(
         '3578019876500001',
       );
     });

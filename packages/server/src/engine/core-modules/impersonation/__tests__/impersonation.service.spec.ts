@@ -65,7 +65,7 @@ describe('ImpersonationService', () => {
           useValue: {
             getWorkspaceUrls: jest.fn().mockReturnValue({
               customUrl: undefined,
-              subdomainUrl: 'https://twenty.twenty.com',
+              subdomainUrl: 'https://twenty.bades.id',
             }),
           },
         },
@@ -183,7 +183,7 @@ describe('ImpersonationService', () => {
         id: 'workspace-id',
         workspaceUrls: {
           customUrl: undefined,
-          subdomainUrl: 'https://twenty.twenty.com',
+          subdomainUrl: 'https://twenty.bades.id',
         },
       },
       loginToken: {
@@ -239,7 +239,7 @@ describe('ImpersonationService', () => {
         id: 'workspace-id',
         workspaceUrls: {
           customUrl: undefined,
-          subdomainUrl: 'https://twenty.twenty.com',
+          subdomainUrl: 'https://twenty.bades.id',
         },
       },
       loginToken: {
@@ -538,7 +538,7 @@ describe('ImpersonationService', () => {
           id: 'workspace-id',
           workspaceUrls: {
             customUrl: undefined,
-            subdomainUrl: 'https://twenty.twenty.com',
+            subdomainUrl: 'https://twenty.bades.id',
           },
         },
         loginToken: {
@@ -607,7 +607,7 @@ describe('ImpersonationService', () => {
           id: 'target-workspace-id',
           workspaceUrls: {
             customUrl: undefined,
-            subdomainUrl: 'https://twenty.twenty.com',
+            subdomainUrl: 'https://twenty.bades.id',
           },
         },
         loginToken: {
@@ -772,7 +772,7 @@ describe('ImpersonationService', () => {
           id: 'target-workspace-id',
           workspaceUrls: {
             customUrl: undefined,
-            subdomainUrl: 'https://twenty.twenty.com',
+            subdomainUrl: 'https://twenty.bades.id',
           },
         },
         loginToken: {

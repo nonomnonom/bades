@@ -29,9 +29,9 @@ const ALL_TEST_PENDUDUK_IDS = Object.values(TEST_PENDUDUK_IDS);
 // melalui penulisan ulang `id IN (subquery)`.
 describe('Mutate by relation field (e2e)', () => {
   const resetFixtures = async () => {
-    const createKeluargas = createManyOperationFactory({
+    const createDaftarKeluarga = createManyOperationFactory({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields: 'id nomorKk',
       data: [
         { id: TEST_KELUARGA_IDS.KK_SANTOSO, nomorKk: '3201030000000001', alamat: 'KK Santoso Mutate' },
@@ -41,11 +41,11 @@ describe('Mutate by relation field (e2e)', () => {
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createKeluargas);
+    await makeGraphqlAPIRequest(createDaftarKeluarga);
 
-    const createPenduduks = createManyOperationFactory({
+    const createDaftarPenduduk = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       data: [
         {
@@ -77,7 +77,7 @@ describe('Mutate by relation field (e2e)', () => {
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createPenduduks);
+    await makeGraphqlAPIRequest(createDaftarPenduduk);
   };
 
   beforeEach(async () => {
@@ -85,7 +85,7 @@ describe('Mutate by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: 'id',
         filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
       }),
@@ -94,7 +94,7 @@ describe('Mutate by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: 'id',
         filter: { id: { in: Object.values(TEST_KELUARGA_IDS) } },
       }),
@@ -106,7 +106,7 @@ describe('Mutate by relation field (e2e)', () => {
   it('should updateMany via a relation traversal filter', async () => {
     const updateOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id tempatLahir',
       data: { tempatLahir: 'Kota Diperbarui' },
       filter: {
@@ -121,11 +121,11 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(updateResponse.body.errors).toBeUndefined();
 
-    const updatedPenduduks = updateResponse.body.data.updatePenduduks;
+    const updatedDaftarPenduduk = updateResponse.body.data.updateDaftarPenduduk;
 
-    expect(updatedPenduduks).toHaveLength(2);
+    expect(updatedDaftarPenduduk).toHaveLength(2);
     expect(
-      updatedPenduduks
+      updatedDaftarPenduduk
         .map((penduduk: { id: string }) => penduduk.id)
         .sort(),
     ).toEqual(
@@ -137,7 +137,7 @@ describe('Mutate by relation field (e2e)', () => {
 
     const findOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id tempatLahir',
       filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
     });
@@ -145,7 +145,7 @@ describe('Mutate by relation field (e2e)', () => {
     const findResponse = await makeGraphqlAPIRequest(findOperation);
 
     const tempatLahirByPendudukId = Object.fromEntries(
-      findResponse.body.data.penduduks.edges.map(
+      findResponse.body.data.daftarPenduduk.edges.map(
         (edge: { node: { id: string; tempatLahir: string } }) => [
           edge.node.id,
           edge.node.tempatLahir,
@@ -176,7 +176,7 @@ describe('Mutate by relation field (e2e)', () => {
   it('should deleteMany via a relation traversal filter (soft-delete)', async () => {
     const deleteOperation = deleteManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id deletedAt',
       filter: {
         and: [
@@ -190,23 +190,23 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(deleteResponse.body.errors).toBeUndefined();
 
-    const deletedPenduduks = deleteResponse.body.data.deletePenduduks;
+    const deletedDaftarPenduduk = deleteResponse.body.data.deleteDaftarPenduduk;
 
-    expect(deletedPenduduks).toHaveLength(1);
-    expect(deletedPenduduks[0].id).toEqual(
+    expect(deletedDaftarPenduduk).toHaveLength(1);
+    expect(deletedDaftarPenduduk[0].id).toEqual(
       TEST_PENDUDUK_IDS.KK_RAHMAN_ANGGOTA_1,
     );
-    expect(deletedPenduduks[0].deletedAt).toBeTruthy();
+    expect(deletedDaftarPenduduk[0].deletedAt).toBeTruthy();
 
     const findOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
     });
 
     const findResponse = await makeGraphqlAPIRequest(findOperation);
-    const remainingIds = findResponse.body.data.penduduks.edges.map(
+    const remainingIds = findResponse.body.data.daftarPenduduk.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
@@ -225,7 +225,7 @@ describe('Mutate by relation field (e2e)', () => {
     // yang menguji jalur traversal.
     const deleteOperation = deleteManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       filter: {
         id: {
@@ -242,7 +242,7 @@ describe('Mutate by relation field (e2e)', () => {
 
     const restoreOperation = restoreManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id deletedAt',
       filter: {
         and: [
@@ -256,18 +256,18 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(restoreResponse.body.errors).toBeUndefined();
 
-    const restoredPenduduks = restoreResponse.body.data.restorePenduduks;
+    const restoredDaftarPenduduk = restoreResponse.body.data.restoreDaftarPenduduk;
 
-    expect(restoredPenduduks).toHaveLength(2);
+    expect(restoredDaftarPenduduk).toHaveLength(2);
     expect(
-      restoredPenduduks.map((penduduk: { id: string }) => penduduk.id).sort(),
+      restoredDaftarPenduduk.map((penduduk: { id: string }) => penduduk.id).sort(),
     ).toEqual(
       [
         TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1,
         TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2,
       ].sort(),
     );
-    restoredPenduduks.forEach((penduduk: { deletedAt: string | null }) => {
+    restoredDaftarPenduduk.forEach((penduduk: { deletedAt: string | null }) => {
       expect(penduduk.deletedAt).toBeNull();
     });
 
@@ -275,20 +275,20 @@ describe('Mutate by relation field (e2e)', () => {
     // — harus tetap terhapus.
     const findWijaya = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       filter: { id: { in: [TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1] } },
     });
 
     const findWijayaResponse = await makeGraphqlAPIRequest(findWijaya);
 
-    expect(findWijayaResponse.body.data.penduduks.edges).toEqual([]);
+    expect(findWijayaResponse.body.data.daftarPenduduk.edges).toEqual([]);
   });
 
   it('should destroyMany via a relation traversal filter (hard-delete)', async () => {
     const destroyOperation = destroyManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       filter: {
         and: [
@@ -302,10 +302,10 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(destroyResponse.body.errors).toBeUndefined();
 
-    const destroyedPenduduks = destroyResponse.body.data.destroyPenduduks;
+    const destroyedDaftarPenduduk = destroyResponse.body.data.destroyDaftarPenduduk;
 
-    expect(destroyedPenduduks).toHaveLength(1);
-    expect(destroyedPenduduks[0].id).toEqual(
+    expect(destroyedDaftarPenduduk).toHaveLength(1);
+    expect(destroyedDaftarPenduduk[0].id).toEqual(
       TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1,
     );
 
@@ -313,7 +313,7 @@ describe('Mutate by relation field (e2e)', () => {
     // dengan filter deletedAt.
     const findOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id',
       filter: {
         id: { in: [TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1] },
@@ -323,7 +323,7 @@ describe('Mutate by relation field (e2e)', () => {
 
     const findResponse = await makeGraphqlAPIRequest(findOperation);
 
-    expect(findResponse.body.data.penduduks.edges).toEqual([]);
+    expect(findResponse.body.data.daftarPenduduk.edges).toEqual([]);
   });
 
   it('should keep scalar-only mutations working unchanged', async () => {
@@ -331,7 +331,7 @@ describe('Mutate by relation field (e2e)', () => {
     // filter skalar terus menghasilkan WHERE langsung tanpa pembungkus IN-subquery.
     const updateOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: 'id tempatLahir',
       data: { tempatLahir: 'Kota Diperbarui Skalar' },
       filter: { id: { eq: TEST_PENDUDUK_IDS.TANPA_KK } },
@@ -340,8 +340,8 @@ describe('Mutate by relation field (e2e)', () => {
     const updateResponse = await makeGraphqlAPIRequest(updateOperation);
 
     expect(updateResponse.body.errors).toBeUndefined();
-    expect(updateResponse.body.data.updatePenduduks).toHaveLength(1);
-    expect(updateResponse.body.data.updatePenduduks[0].tempatLahir).toEqual(
+    expect(updateResponse.body.data.updateDaftarPenduduk).toHaveLength(1);
+    expect(updateResponse.body.data.updateDaftarPenduduk[0].tempatLahir).toEqual(
       'Kota Diperbarui Skalar',
     );
   });

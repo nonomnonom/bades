@@ -26,7 +26,7 @@ describe('updateManyObjectRecordsPermissions', () => {
     const pendudukId2 = randomUUID();
     const createGraphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -43,7 +43,7 @@ describe('updateManyObjectRecordsPermissions', () => {
 
     const updateGraphqlOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -59,7 +59,7 @@ describe('updateManyObjectRecordsPermissions', () => {
       updateGraphqlOperation,
     );
 
-    expect(response.body.data).toStrictEqual({ updatePenduduks: null });
+    expect(response.body.data).toStrictEqual({ updateDaftarPenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -72,7 +72,7 @@ describe('updateManyObjectRecordsPermissions', () => {
     const pendudukId2 = randomUUID();
     const createGraphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -89,7 +89,7 @@ describe('updateManyObjectRecordsPermissions', () => {
 
     const updateGraphqlOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -104,12 +104,12 @@ describe('updateManyObjectRecordsPermissions', () => {
     const response = await makeGraphqlAPIRequest(updateGraphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.updatePenduduks).toBeDefined();
-    expect(response.body.data.updatePenduduks).toHaveLength(2);
-    expect(response.body.data.updatePenduduks[0].id).toBe(pendudukId1);
-    expect(response.body.data.updatePenduduks[1].id).toBe(pendudukId2);
-    expect(response.body.data.updatePenduduks[0].tempatLahir).toBe('Surabaya');
-    expect(response.body.data.updatePenduduks[1].tempatLahir).toBe('Surabaya');
+    expect(response.body.data.updateDaftarPenduduk).toBeDefined();
+    expect(response.body.data.updateDaftarPenduduk).toHaveLength(2);
+    expect(response.body.data.updateDaftarPenduduk[0].id).toBe(pendudukId1);
+    expect(response.body.data.updateDaftarPenduduk[1].id).toBe(pendudukId2);
+    expect(response.body.data.updateDaftarPenduduk[0].tempatLahir).toBe('Surabaya');
+    expect(response.body.data.updateDaftarPenduduk[1].tempatLahir).toBe('Surabaya');
   });
 
   it('should update multiple object records when executed by api key', async () => {
@@ -117,7 +117,7 @@ describe('updateManyObjectRecordsPermissions', () => {
     const pendudukId2 = randomUUID();
     const createGraphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -134,7 +134,7 @@ describe('updateManyObjectRecordsPermissions', () => {
 
     const updateGraphqlOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -151,14 +151,14 @@ describe('updateManyObjectRecordsPermissions', () => {
     );
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.updatePenduduks).toBeDefined();
-    expect(response.body.data.updatePenduduks).toHaveLength(2);
-    expect(response.body.data.updatePenduduks[0].id).toBe(pendudukId1);
-    expect(response.body.data.updatePenduduks[1].id).toBe(pendudukId2);
-    expect(response.body.data.updatePenduduks[0].tempatLahir).toBe(
+    expect(response.body.data.updateDaftarPenduduk).toBeDefined();
+    expect(response.body.data.updateDaftarPenduduk).toHaveLength(2);
+    expect(response.body.data.updateDaftarPenduduk[0].id).toBe(pendudukId1);
+    expect(response.body.data.updateDaftarPenduduk[1].id).toBe(pendudukId2);
+    expect(response.body.data.updateDaftarPenduduk[0].tempatLahir).toBe(
       'Yogyakarta',
     );
-    expect(response.body.data.updatePenduduks[1].tempatLahir).toBe(
+    expect(response.body.data.updateDaftarPenduduk[1].tempatLahir).toBe(
       'Yogyakarta',
     );
   });

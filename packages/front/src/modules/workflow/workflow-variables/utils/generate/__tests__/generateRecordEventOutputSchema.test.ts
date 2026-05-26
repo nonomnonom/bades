@@ -326,7 +326,7 @@ describe('generateRecordEventOutputSchema', () => {
         fields: [
           {
             id: 'people-relation-id',
-            name: 'penduduks',
+            name: 'daftarPenduduk',
             label: 'People',
             type: FieldMetadataType.RELATION,
             isActive: true,

@@ -41,12 +41,12 @@ describe('McpAuthGuard', () => {
     jwtAuthGuard.canActivate.mockResolvedValue(false);
 
     await expect(
-      guard.canActivate(buildContext('acme.twenty.com')),
+      guard.canActivate(buildContext('acme.bades.id')),
     ).rejects.toThrow(UnauthorizedException);
 
     expect(mockSetHeader).toHaveBeenCalledWith(
       'WWW-Authenticate',
-      'Bearer resource_metadata="https://acme.twenty.com/.well-known/oauth-protected-resource/mcp", scope="api profile"',
+      'Bearer resource_metadata="https://acme.bades.id/.well-known/oauth-protected-resource/mcp", scope="api profile"',
     );
   });
 });

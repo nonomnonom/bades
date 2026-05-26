@@ -101,7 +101,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
             objectPermissionsByObjectMetadataId: {},
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
-            objectNamePlural: CoreObjectNamePlural.Company,
+            objectNamePlural: CoreObjectNamePlural.Keluarga,
             objectNameSingular: 'company',
             objectMetadataItem: companyObjectMetadataItem,
             recordIndexId: instanceId,

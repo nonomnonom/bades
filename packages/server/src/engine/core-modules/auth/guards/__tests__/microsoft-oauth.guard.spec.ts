@@ -58,7 +58,7 @@ describe('MicrosoftOAuthGuard', () => {
 
       expect(redirectUrl).toContain('oauthRetryCount=1');
       expect(redirectUrl).toContain('workspaceId=ws-123');
-      expect(redirectUrl).toContain('locale=en');
+      expect(redirectUrl).toContain('locale=id');
     });
 
     it('should not redirect when retry count is exhausted', () => {

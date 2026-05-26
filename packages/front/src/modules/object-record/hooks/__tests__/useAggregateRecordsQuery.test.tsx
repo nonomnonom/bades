@@ -38,7 +38,7 @@ const fields = [
 
 const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
   nameSingular: 'keluarga',
-  namePlural: 'keluargas',
+  namePlural: 'daftarKeluarga',
   id: 'test-id',
   universalIdentifier: 'test-id',
   labelSingular: 'Keluarga',
@@ -73,7 +73,7 @@ describe('useAggregateRecordsQuery', () => {
     (generateAggregateQuery as jest.Mock).mockReturnValue({
       loc: {
         source: {
-          body: 'query AggregateKeluargas($filter: KeluargaFilterInput) { keluargas(filter: $filter) { totalCount } }',
+          body: 'query AggregateDaftarKeluarga($filter: KeluargaFilterInput) { daftarKeluarga(filter: $filter) { totalCount } }',
         },
       },
     });

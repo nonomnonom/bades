@@ -33,7 +33,7 @@ describe('buildRecordGqlFieldsAggregateForView', () => {
     id: '123',
     universalIdentifier: '123',
     nameSingular: 'programBantuan',
-    namePlural: 'programBantuans',
+    namePlural: 'daftarProgramBantuan',
     labelSingular: 'Program Bantuan',
     labelPlural: 'Program Bantuan',
     isCustom: false,

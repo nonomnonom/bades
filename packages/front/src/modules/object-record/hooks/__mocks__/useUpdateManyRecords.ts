@@ -4,11 +4,11 @@ import { gql } from '@apollo/client';
 import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 
 export const query = gql`
-  mutation UpdateManyPenduduks(
+  mutation UpdateManyDaftarPenduduk(
     $filter: PendudukFilterInput!
     $data: PendudukUpdateInput!
   ) {
-    updatePenduduks(filter: $filter, data: $data) {
+    updateDaftarPenduduk(filter: $filter, data: $data) {
       id
       __typename
     }

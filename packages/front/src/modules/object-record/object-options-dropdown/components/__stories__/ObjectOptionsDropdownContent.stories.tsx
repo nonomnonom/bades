@@ -93,7 +93,7 @@ const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
             objectPermissionsByObjectMetadataId: {},
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
-            objectNamePlural: 'keluargas',
+            objectNamePlural: 'daftarKeluarga',
             objectNameSingular: 'keluarga',
             objectMetadataItem: companyObjectMetadataItem,
             recordIndexId: instanceId,

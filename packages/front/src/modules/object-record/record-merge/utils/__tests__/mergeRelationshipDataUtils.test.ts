@@ -11,7 +11,7 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
           { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
         ],
@@ -19,14 +19,14 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record2',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' }, // Duplikat
           { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
         ],
       },
     ];
 
-    const result = mergeOneToManyRelationships(records, 'programBantuans');
+    const result = mergeOneToManyRelationships(records, 'daftarProgramBantuan');
 
     expect(result).toHaveLength(3);
     expect(result).toEqual([
@@ -41,16 +41,16 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        programBantuans: [],
+        daftarProgramBantuan: [],
       },
       {
         __typename: 'Keluarga',
         id: 'record2',
-        programBantuans: [],
+        daftarProgramBantuan: [],
       },
     ];
 
-    const result = mergeOneToManyRelationships(records, 'programBantuans');
+    const result = mergeOneToManyRelationships(records, 'daftarProgramBantuan');
 
     expect(result).toEqual([]);
   });
@@ -60,23 +60,23 @@ describe('mergeOneToManyRelationships', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
       },
       {
         __typename: 'Keluarga',
         id: 'record2',
-        programBantuans: null,
+        daftarProgramBantuan: null,
       },
       {
         __typename: 'Keluarga',
         id: 'record3',
-        programBantuans: undefined,
+        daftarProgramBantuan: undefined,
       },
     ];
 
-    const result = mergeOneToManyRelationships(records, 'programBantuans');
+    const result = mergeOneToManyRelationships(records, 'daftarProgramBantuan');
 
     expect(result).toEqual([
       { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
@@ -84,7 +84,7 @@ describe('mergeOneToManyRelationships', () => {
   });
 
   it('should handle empty records array', () => {
-    const result = mergeOneToManyRelationships([], 'programBantuans');
+    const result = mergeOneToManyRelationships([], 'daftarProgramBantuan');
 
     expect(result).toEqual([]);
   });
@@ -172,7 +172,7 @@ describe('mergeRecordRelationshipData', () => {
   const mockFieldMetadataItems: FieldMetadataItem[] = [
     {
       id: 'field1',
-      name: 'programBantuans',
+      name: 'daftarProgramBantuan',
       type: FieldMetadataType.RELATION,
       relation: {
         type: RelationType.ONE_TO_MANY,
@@ -198,7 +198,7 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
           { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
         ],
@@ -208,7 +208,7 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record2',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
           { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
         ],
@@ -224,7 +224,7 @@ describe('mergeRecordRelationshipData', () => {
     );
 
     expect(result).toEqual({
-      programBantuans: [
+      daftarProgramBantuan: [
         { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
         { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
@@ -238,7 +238,7 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
         keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
@@ -269,7 +269,7 @@ describe('mergeRecordRelationshipData', () => {
       {
         __typename: 'Keluarga',
         id: 'record1',
-        programBantuans: [
+        daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
         keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
@@ -285,7 +285,7 @@ describe('mergeRecordRelationshipData', () => {
     );
 
     expect(result).toEqual({
-      programBantuans: [
+      daftarProgramBantuan: [
         { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
       ],
       keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },

@@ -368,14 +368,14 @@ export const successfulInputsByFieldMetadataType: {
     {
       input: {
         linksField: {
-          primaryLinkUrl: 'https://twenty.com',
+          primaryLinkUrl: 'https://bades.id',
           primaryLinkLabel: 'Bades',
           secondaryLinks: [{ url: 'bades.id', label: 'Bades' }],
         },
       },
       expectedOutput: {
         linksField: {
-          primaryLinkUrl: 'https://twenty.com',
+          primaryLinkUrl: 'https://bades.id',
           primaryLinkLabel: 'Bades',
           secondaryLinks: '[{"url":"bades.id","label":"Bades"}]',
         },

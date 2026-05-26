@@ -3,11 +3,11 @@ import request from 'supertest';
 const client = request(`http://localhost:${APP_PORT}`);
 
 describe('peopleResolver (e2e)', () => {
-  it('should find many people', () => {
+  it('should find many daftarPenduduk', () => {
     const queryData = {
       query: `
-        query people {
-          people {
+        query daftarPenduduk {
+          daftarPenduduk {
             edges {
               node {
                 jobTitle
@@ -46,7 +46,7 @@ describe('peopleResolver (e2e)', () => {
         expect(res.body.errors).toBeUndefined();
       })
       .expect((res) => {
-        const data = res.body.data.people;
+        const data = res.body.data.daftarPenduduk;
 
         expect(data).toBeDefined();
         expect(Array.isArray(data.edges)).toBe(true);
@@ -54,22 +54,22 @@ describe('peopleResolver (e2e)', () => {
         const edges = data.edges;
 
         if (edges.length > 0) {
-          const people = edges[0].node;
+          const daftarPenduduk = edges[0].node;
 
-          expect(people).toHaveProperty('jobTitle');
-          expect(people).toHaveProperty('city');
-          expect(people).toHaveProperty('avatarUrl');
-          expect(people).toHaveProperty('avatarFile');
-          expect(people).toHaveProperty('position');
-          expect(people).toHaveProperty('searchVector');
-          expect(people).toHaveProperty('id');
-          expect(people).toHaveProperty('createdAt');
-          expect(people).toHaveProperty('updatedAt');
-          expect(people).toHaveProperty('deletedAt');
-          expect(people).toHaveProperty('companyId');
-          expect(people).toHaveProperty('intro');
-          expect(people).toHaveProperty('workPreference');
-          expect(people).toHaveProperty('performanceRating');
+          expect(daftarPenduduk).toHaveProperty('jobTitle');
+          expect(daftarPenduduk).toHaveProperty('city');
+          expect(daftarPenduduk).toHaveProperty('avatarUrl');
+          expect(daftarPenduduk).toHaveProperty('avatarFile');
+          expect(daftarPenduduk).toHaveProperty('position');
+          expect(daftarPenduduk).toHaveProperty('searchVector');
+          expect(daftarPenduduk).toHaveProperty('id');
+          expect(daftarPenduduk).toHaveProperty('createdAt');
+          expect(daftarPenduduk).toHaveProperty('updatedAt');
+          expect(daftarPenduduk).toHaveProperty('deletedAt');
+          expect(daftarPenduduk).toHaveProperty('companyId');
+          expect(daftarPenduduk).toHaveProperty('intro');
+          expect(daftarPenduduk).toHaveProperty('workPreference');
+          expect(daftarPenduduk).toHaveProperty('performanceRating');
         }
       });
   });

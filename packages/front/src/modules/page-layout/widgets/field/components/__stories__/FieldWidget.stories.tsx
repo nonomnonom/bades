@@ -111,7 +111,7 @@ const companyWorkPolicyField = getMockFieldMetadataItemOrThrow({
 
 const companyPeopleField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,
-  fieldName: 'penduduks',
+  fieldName: 'daftarPenduduk',
 });
 
 const timelineActivityWorkspaceMemberField = getMockFieldMetadataItemOrThrow({
@@ -1951,10 +1951,10 @@ const generateMockPendudukRecords = (count: number) => {
 
 export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
   render: () => {
-    const mockPenduduks = generateMockPendudukRecords(12);
+    const mockDaftarPenduduk = generateMockPendudukRecords(12);
     const companyWithManyPeople = {
       ...mockCompanyRecord,
-      people: mockPenduduks.map(({ id, __typename, name }) => ({
+      people: mockDaftarPenduduk.map(({ id, __typename, name }) => ({
         __typename,
         id,
         name,
@@ -2011,7 +2011,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
     );
     setRecordInStores(TEST_RECORD_ID, companyWithManyPeople);
     // Set tiap record penduduk di store
-    mockPenduduks.forEach((person) => {
+    mockDaftarPenduduk.forEach((person) => {
       setRecordInStores(person.id, person);
     });
 

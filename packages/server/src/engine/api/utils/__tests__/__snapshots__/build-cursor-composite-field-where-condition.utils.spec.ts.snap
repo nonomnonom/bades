@@ -180,7 +180,7 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
     {
       "name": {
         "firstName": {
-          "lt": "John",
+          "lt": "Budi",
         },
       },
     },
@@ -189,14 +189,14 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
         {
           "name": {
             "firstName": {
-              "eq": "John",
+              "eq": "Budi",
             },
           },
         },
         {
           "name": {
             "lastName": {
-              "lt": "Doe",
+              "lt": "Saputra",
             },
           },
         },
@@ -212,7 +212,7 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
     {
       "name": {
         "firstName": {
-          "gt": "John",
+          "gt": "Budi",
         },
       },
     },
@@ -221,14 +221,14 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
         {
           "name": {
             "firstName": {
-              "eq": "John",
+              "eq": "Budi",
             },
           },
         },
         {
           "name": {
             "lastName": {
-              "gt": "Doe",
+              "gt": "Saputra",
             },
           },
         },
@@ -244,7 +244,7 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
     {
       "name": {
         "firstName": {
-          "lt": "John",
+          "lt": "Budi",
         },
       },
     },
@@ -253,14 +253,14 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
         {
           "name": {
             "firstName": {
-              "eq": "John",
+              "eq": "Budi",
             },
           },
         },
         {
           "name": {
             "lastName": {
-              "lt": "Doe",
+              "lt": "Saputra",
             },
           },
         },
@@ -276,7 +276,7 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
     {
       "name": {
         "firstName": {
-          "gt": "John",
+          "gt": "Budi",
         },
       },
     },
@@ -285,59 +285,19 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
         {
           "name": {
             "firstName": {
-              "eq": "John",
+              "eq": "Budi",
             },
           },
         },
         {
           "name": {
             "lastName": {
-              "lt": "Doe",
+              "lt": "Saputra",
             },
           },
         },
       ],
     },
   ],
-}
-`;
-
-exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for ascending order with backward pagination: single property - ascending order with backward pagination 1`] = `
-{
-  "person": {
-    "firstName": {
-      "lt": "John",
-    },
-  },
-}
-`;
-
-exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for ascending order with forward pagination: single property - ascending order with forward pagination 1`] = `
-{
-  "person": {
-    "firstName": {
-      "gt": "John",
-    },
-  },
-}
-`;
-
-exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for descending order with backward pagination: single property - descending order with backward pagination 1`] = `
-{
-  "person": {
-    "firstName": {
-      "gt": "John",
-    },
-  },
-}
-`;
-
-exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for descending order with forward pagination: single property - descending order with forward pagination 1`] = `
-{
-  "person": {
-    "firstName": {
-      "lt": "John",
-    },
-  },
 }
 `;

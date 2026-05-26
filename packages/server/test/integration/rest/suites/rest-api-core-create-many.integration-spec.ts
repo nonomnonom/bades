@@ -14,7 +14,7 @@ describe('Core REST API Create Many endpoint', () => {
     await deleteAllRecords('penduduk');
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3201010101000001',
@@ -34,21 +34,21 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks`,
+      path: `/batch/daftarPenduduk`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
-        const createdPenduduks = res.body.data.createPenduduks;
+        const createdDaftarPenduduk = res.body.data.createDaftarPenduduk;
 
-        expect(createdPenduduks.length).toBe(2);
-        expect(createdPenduduks[0].id).toBe(TEST_PENDUDUK_1_ID);
-        expect(createdPenduduks[0].createdBy.source).toBe(FieldActorSource.API);
-        expect(createdPenduduks[0].createdBy.workspaceMemberId).toBe(null);
+        expect(createdDaftarPenduduk.length).toBe(2);
+        expect(createdDaftarPenduduk[0].id).toBe(TEST_PENDUDUK_1_ID);
+        expect(createdDaftarPenduduk[0].createdBy.source).toBe(FieldActorSource.API);
+        expect(createdDaftarPenduduk[0].createdBy.workspaceMemberId).toBe(null);
 
-        expect(createdPenduduks[1].id).toBe(TEST_PENDUDUK_2_ID);
-        expect(createdPenduduks[1].createdBy.source).toBe(FieldActorSource.API);
-        expect(createdPenduduks[1].createdBy.workspaceMemberId).toBe(null);
+        expect(createdDaftarPenduduk[1].id).toBe(TEST_PENDUDUK_2_ID);
+        expect(createdDaftarPenduduk[1].createdBy.source).toBe(FieldActorSource.API);
+        expect(createdDaftarPenduduk[1].createdBy.workspaceMemberId).toBe(null);
       });
   });
 
@@ -70,18 +70,18 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks`,
+      path: `/batch/daftarPenduduk`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
-        const createdPenduduks = res.body.data.createPenduduks;
+        const createdDaftarPenduduk = res.body.data.createDaftarPenduduk;
 
-        expect(createdPenduduks[0].createdBy.source).toBe(FieldActorSource.EMAIL);
-        expect(createdPenduduks[0].createdBy.workspaceMemberId).toBe(null);
+        expect(createdDaftarPenduduk[0].createdBy.source).toBe(FieldActorSource.EMAIL);
+        expect(createdDaftarPenduduk[0].createdBy.workspaceMemberId).toBe(null);
 
-        expect(createdPenduduks[1].createdBy.source).toBe(FieldActorSource.MANUAL);
-        expect(createdPenduduks[1].createdBy.workspaceMemberId).toBe(null);
+        expect(createdDaftarPenduduk[1].createdBy.source).toBe(FieldActorSource.MANUAL);
+        expect(createdDaftarPenduduk[1].createdBy.workspaceMemberId).toBe(null);
       });
   });
 
@@ -97,23 +97,23 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks`,
+      path: `/batch/daftarPenduduk`,
       body: requestBody,
       bearer: APPLE_JANE_ADMIN_ACCESS_TOKEN,
     })
       .expect(201)
       .expect((res) => {
-        const createdPenduduks = res.body.data.createPenduduks;
+        const createdDaftarPenduduk = res.body.data.createDaftarPenduduk;
 
-        expect(createdPenduduks.length).toBe(2);
+        expect(createdDaftarPenduduk.length).toBe(2);
 
-        expect(createdPenduduks[0].createdBy.source).toBe(FieldActorSource.MANUAL);
-        expect(createdPenduduks[0].createdBy.workspaceMemberId).toBe(
+        expect(createdDaftarPenduduk[0].createdBy.source).toBe(FieldActorSource.MANUAL);
+        expect(createdDaftarPenduduk[0].createdBy.workspaceMemberId).toBe(
           WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
         );
 
-        expect(createdPenduduks[1].createdBy.source).toBe(FieldActorSource.MANUAL);
-        expect(createdPenduduks[1].createdBy.workspaceMemberId).toBe(
+        expect(createdDaftarPenduduk[1].createdBy.source).toBe(FieldActorSource.MANUAL);
+        expect(createdDaftarPenduduk[1].createdBy.workspaceMemberId).toBe(
           WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
         );
       });
@@ -133,13 +133,13 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks?depth=0`,
+      path: `/batch/daftarPenduduk?depth=0`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
         const [createdPenduduk1, createdPenduduk2] =
-          res.body.data.createPenduduks;
+          res.body.data.createDaftarPenduduk;
 
         expect(createdPenduduk1.kartuKeluargaId).toBeDefined();
         expect(createdPenduduk1.kartuKeluarga).not.toBeDefined();
@@ -162,18 +162,18 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks?depth=1`,
+      path: `/batch/daftarPenduduk?depth=1`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
         const [createdPenduduk1, createdPenduduk2] =
-          res.body.data.createPenduduks;
+          res.body.data.createDaftarPenduduk;
 
         expect(createdPenduduk1.kartuKeluarga).toBeDefined();
-        expect(createdPenduduk1.kartuKeluarga.penduduks).not.toBeDefined();
+        expect(createdPenduduk1.kartuKeluarga.daftarPenduduk).not.toBeDefined();
         expect(createdPenduduk2.kartuKeluarga).toBeDefined();
-        expect(createdPenduduk2.kartuKeluarga.penduduks).not.toBeDefined();
+        expect(createdPenduduk2.kartuKeluarga.daftarPenduduk).not.toBeDefined();
       });
   });
 
@@ -191,7 +191,7 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks?depth=2`,
+      path: `/batch/daftarPenduduk?depth=2`,
       body: requestBody,
     }).expect(400);
   });
@@ -208,13 +208,13 @@ describe('Core REST API Create Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks`,
+      path: `/batch/daftarPenduduk`,
       body: requestBody,
     });
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/batch/penduduks`,
+      path: `/batch/daftarPenduduk`,
       body: requestBody,
     })
       .expect(400)

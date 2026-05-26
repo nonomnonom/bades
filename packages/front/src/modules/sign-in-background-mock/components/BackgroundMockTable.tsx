@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { BackgroundMockTableRow } from '@/sign-in-background-mock/components/BackgroundMockTableRow';
 import { BACKGROUND_MOCK_COLUMNS } from '@/sign-in-background-mock/constants/BackgroundMockColumns';
-import { BACKGROUND_MOCK_KELUARGAS } from '@/sign-in-background-mock/constants/BackgroundMockKeluargas';
+import { BACKGROUND_MOCK_KELUARGAS } from '@/sign-in-background-mock/constants/BackgroundMockDaftarKeluarga';
 import { BACKGROUND_MOCK_TABLE_DIMENSIONS } from '@/sign-in-background-mock/constants/BackgroundMockTableDimensions';
 import {
   IconChevronDown,

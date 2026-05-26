@@ -405,7 +405,7 @@ describe('computeRelationConnectQueryConfigs', () => {
         flatIndexMaps,
         relationConnectQueryFieldsByEntityIndex,
       );
-    }).toThrow('Connect is not allowed for name on person');
+    }).toThrow('Connect is not allowed for name on penduduk');
   });
 
   it('should throw an error if connect field has not any unique constraint fully populated', () => {

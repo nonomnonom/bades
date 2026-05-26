@@ -495,7 +495,7 @@ describe('getAllSelectableFields', () => {
       });
       const peopleRelationField = createMockField({
         id: 'field-2',
-        name: 'penduduks',
+        name: 'daftarPenduduk',
         type: FieldMetadataType.RELATION,
         settings: {
           relationType: RelationType.ONE_TO_MANY,

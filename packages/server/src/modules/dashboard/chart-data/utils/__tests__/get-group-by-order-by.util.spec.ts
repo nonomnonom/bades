@@ -101,7 +101,7 @@ describe('getGroupByOrderBy', () => {
           aggregateFieldMetadata,
         }),
       ).toThrow(
-        'Aggregate operation or field metadata not found (field: status)',
+        'Operasi agregasi atau metadata kolom tidak ditemukan (field: status)',
       );
     });
 
@@ -113,7 +113,7 @@ describe('getGroupByOrderBy', () => {
           aggregateOperation: AggregateOperations.SUM,
         }),
       ).toThrow(
-        'Aggregate operation or field metadata not found (field: status)',
+        'Operasi agregasi atau metadata kolom tidak ditemukan (field: status)',
       );
     });
   });

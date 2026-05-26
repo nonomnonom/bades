@@ -13,7 +13,7 @@ describe('destroyManyObjectRecordsPermissions', () => {
   it('should throw a permission error when user does not have permission (guest role)', async () => {
     const graphqlOperation = destroyManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -24,7 +24,7 @@ describe('destroyManyObjectRecordsPermissions', () => {
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ destroyPenduduks: null });
+    expect(response.body.data).toStrictEqual({ destroyDaftarPenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -38,7 +38,7 @@ describe('destroyManyObjectRecordsPermissions', () => {
 
     const createGraphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -54,7 +54,7 @@ describe('destroyManyObjectRecordsPermissions', () => {
 
     const graphqlOperation = destroyManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -66,9 +66,9 @@ describe('destroyManyObjectRecordsPermissions', () => {
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.destroyPenduduks).toBeDefined();
-    expect(response.body.data.destroyPenduduks).toHaveLength(2);
-    expect(response.body.data.destroyPenduduks).toEqual(
+    expect(response.body.data.destroyDaftarPenduduk).toBeDefined();
+    expect(response.body.data.destroyDaftarPenduduk).toHaveLength(2);
+    expect(response.body.data.destroyDaftarPenduduk).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ id: pendudukId1 }),
         expect.objectContaining({ id: pendudukId2 }),

@@ -23,7 +23,7 @@ describe('Core REST API Find Many endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3201010101000001',
@@ -39,7 +39,7 @@ describe('Core REST API Find Many endpoint', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: '/penduduks',
+        path: '/daftarPenduduk',
         body: {
           id: pendudukId,
           tempatLahir: tempatLahir,
@@ -52,26 +52,26 @@ describe('Core REST API Find Many endpoint', () => {
     }
   });
 
-  it('should retrieve all penduduks with pagination metadata', async () => {
+  it('should retrieve all daftarPenduduk with pagination metadata', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks',
+      path: '/daftarPenduduk',
     });
 
     expect(response.status).toBe(200);
 
-    const penduduks = response.body.data.penduduks;
+    const daftarPenduduk = response.body.data.daftarPenduduk;
     const pageInfo = response.body.pageInfo;
     const totalCount = response.body.totalCount;
 
-    expect(penduduks).not.toBeNull();
-    expect(Array.isArray(penduduks)).toBe(true);
-    expect(penduduks.length).toBeGreaterThanOrEqual(testPendudukIds.length);
+    expect(daftarPenduduk).not.toBeNull();
+    expect(Array.isArray(daftarPenduduk)).toBe(true);
+    expect(daftarPenduduk.length).toBeGreaterThanOrEqual(testPendudukIds.length);
 
     // Periksa bahwa penduduk uji disertakan dalam hasil
     for (const pendudukId of testPendudukIds) {
       // @ts-expect-error legacy noImplicitAny
-      const penduduk = penduduks.find((p) => p.id === pendudukId);
+      const penduduk = daftarPenduduk.find((p) => p.id === pendudukId);
 
       expect(penduduk).toBeDefined();
       expect(penduduk.tempatLahir).toBe(testPendudukTempatLahirs[pendudukId]);
@@ -90,14 +90,14 @@ describe('Core REST API Find Many endpoint', () => {
     const limit = testPendudukIds.length - 1;
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks?limit=${limit}`,
+      path: `/daftarPenduduk?limit=${limit}`,
     }).expect(200);
 
-    const penduduks = response.body.data.penduduks;
+    const daftarPenduduk = response.body.data.daftarPenduduk;
 
-    expect(penduduks).not.toBeNull();
-    expect(Array.isArray(penduduks)).toBe(true);
-    expect(penduduks.length).toEqual(limit);
+    expect(daftarPenduduk).not.toBeNull();
+    expect(Array.isArray(daftarPenduduk)).toBe(true);
+    expect(daftarPenduduk.length).toEqual(limit);
     expect(response.body.totalCount).toEqual(testPendudukIds.length);
     expect(response.body.pageInfo.hasNextPage).toBe(true);
   });
@@ -105,14 +105,14 @@ describe('Core REST API Find Many endpoint', () => {
   it('should return filtered totalCount', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks?filter=position[lte]:1`,
+      path: `/daftarPenduduk?filter=position[lte]:1`,
     }).expect(200);
 
-    const penduduks = response.body.data.penduduks;
+    const daftarPenduduk = response.body.data.daftarPenduduk;
 
-    expect(penduduks).not.toBeNull();
-    expect(Array.isArray(penduduks)).toBe(true);
-    expect(penduduks.length).toEqual(2);
+    expect(daftarPenduduk).not.toBeNull();
+    expect(Array.isArray(daftarPenduduk)).toBe(true);
+    expect(daftarPenduduk.length).toEqual(2);
     expect(response.body.totalCount).toEqual(2);
     expect(response.body.pageInfo.hasNextPage).toBe(false);
   });
@@ -120,96 +120,96 @@ describe('Core REST API Find Many endpoint', () => {
   it('should filter results based on filter parameters', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?filter=position[lt]:2',
+      path: '/daftarPenduduk?filter=position[lt]:2',
     }).expect(200);
 
-    const filteredPenduduks = response.body.data.penduduks;
+    const filteredDaftarPenduduk = response.body.data.daftarPenduduk;
 
-    expect(filteredPenduduks).toBeDefined();
-    expect(Array.isArray(filteredPenduduks)).toBe(true);
-    expect(filteredPenduduks.length).toBe(2);
+    expect(filteredDaftarPenduduk).toBeDefined();
+    expect(Array.isArray(filteredDaftarPenduduk)).toBe(true);
+    expect(filteredDaftarPenduduk.length).toBe(2);
   });
 
   it('should support cursor-based pagination with starting_after', async () => {
     const initialResponse = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?limit=2',
+      path: '/daftarPenduduk?limit=2',
     }).expect(200);
 
-    const penduduks = initialResponse.body.data.penduduks;
+    const daftarPenduduk = initialResponse.body.data.daftarPenduduk;
     const startCursor = initialResponse.body.pageInfo.startCursor;
 
-    expect(penduduks).toBeDefined();
-    expect(penduduks.length).toBe(2);
+    expect(daftarPenduduk).toBeDefined();
+    expect(daftarPenduduk.length).toBe(2);
     expect(startCursor).toBeDefined();
 
     const nextPageResponse = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks?starting_after=${startCursor}&limit=1`,
+      path: `/daftarPenduduk?starting_after=${startCursor}&limit=1`,
     }).expect(200);
 
-    const nextPagePenduduks = nextPageResponse.body.data.penduduks;
+    const nextPageDaftarPenduduk = nextPageResponse.body.data.daftarPenduduk;
 
-    expect(nextPagePenduduks).toBeDefined();
-    expect(nextPagePenduduks.length).toBe(1);
-    expect(nextPagePenduduks[0].id).toBe(penduduks[1].id);
+    expect(nextPageDaftarPenduduk).toBeDefined();
+    expect(nextPageDaftarPenduduk.length).toBe(1);
+    expect(nextPageDaftarPenduduk[0].id).toBe(daftarPenduduk[1].id);
   });
 
   it('should support cursor-based pagination with ending_before', async () => {
     const initialResponse = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?limit=4',
+      path: '/daftarPenduduk?limit=4',
     }).expect(200);
 
-    const penduduks = initialResponse.body.data.penduduks;
+    const daftarPenduduk = initialResponse.body.data.daftarPenduduk;
     const endCursor = initialResponse.body.pageInfo.endCursor;
 
-    expect(penduduks).toBeDefined();
-    expect(penduduks.length).toBe(4);
+    expect(daftarPenduduk).toBeDefined();
+    expect(daftarPenduduk.length).toBe(4);
     expect(endCursor).toBeDefined();
 
     const nextPageResponse = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks?ending_before=${endCursor}&limit=2`,
+      path: `/daftarPenduduk?ending_before=${endCursor}&limit=2`,
     }).expect(200);
 
-    const nextPagePenduduks = nextPageResponse.body.data.penduduks;
+    const nextPageDaftarPenduduk = nextPageResponse.body.data.daftarPenduduk;
 
-    expect(nextPagePenduduks).toBeDefined();
-    expect(nextPagePenduduks.length).toBe(2);
-    expect(nextPagePenduduks[0].id).toBe(penduduks[1].id);
-    expect(nextPagePenduduks[1].id).toBe(penduduks[2].id);
+    expect(nextPageDaftarPenduduk).toBeDefined();
+    expect(nextPageDaftarPenduduk.length).toBe(2);
+    expect(nextPageDaftarPenduduk[0].id).toBe(daftarPenduduk[1].id);
+    expect(nextPageDaftarPenduduk[1].id).toBe(daftarPenduduk[2].id);
   });
 
   it('should support ordering Asc of results', async () => {
     const ascResponse = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?order_by=position[AscNullsLast]',
+      path: '/daftarPenduduk?order_by=position[AscNullsLast]',
     }).expect(200);
 
-    const ascPenduduks = ascResponse.body.data.penduduks;
+    const ascDaftarPenduduk = ascResponse.body.data.daftarPenduduk;
 
-    expect(ascPenduduks).toEqual(
-      [...ascPenduduks].sort((a, b) => a.position - b.position),
+    expect(ascDaftarPenduduk).toEqual(
+      [...ascDaftarPenduduk].sort((a, b) => a.position - b.position),
     );
   });
 
   it('should support filtering on a relation field id', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks?filter=kartuKeluargaId[in]:["${TEST_KELUARGA_1_ID}"]`,
+      path: `/daftarPenduduk?filter=kartuKeluargaId[in]:["${TEST_KELUARGA_1_ID}"]`,
     }).expect(200);
 
-    const filteredPenduduks = response.body.data.penduduks;
+    const filteredDaftarPenduduk = response.body.data.daftarPenduduk;
 
-    expect(filteredPenduduks.length).toBeGreaterThan(0);
+    expect(filteredDaftarPenduduk.length).toBeGreaterThan(0);
   });
 
   // TODO: Refacto-common - Uncomment setelah https://github.com/twentyhq/core-team-issues/issues/1627 selesai
   //   it('should fail to filter on a relation field name', async () => {
   //     const response = await makeRestAPIRequest({
   //       method: 'get',
-  //       path: `/penduduks?filter=kartuKeluarga[in]:["${TEST_KELUARGA_1_ID}"]`,
+  //       path: `/daftarPenduduk?filter=kartuKeluarga[in]:["${TEST_KELUARGA_1_ID}"]`,
   //     });
   //     expect(response.body).toMatchInlineSnapshot(`
   // {
@@ -225,37 +225,37 @@ describe('Core REST API Find Many endpoint', () => {
   it('should support ordering Desc of results', async () => {
     const descResponse = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?order_by=position[DescNullsLast]',
+      path: '/daftarPenduduk?order_by=position[DescNullsLast]',
     }).expect(200);
 
-    const descPenduduks = descResponse.body.data.penduduks;
+    const descDaftarPenduduk = descResponse.body.data.daftarPenduduk;
 
-    expect(descPenduduks).toEqual(
-      [...descPenduduks].sort((a, b) => -(a.position - b.position)),
+    expect(descDaftarPenduduk).toEqual(
+      [...descDaftarPenduduk].sort((a, b) => -(a.position - b.position)),
     );
   });
 
   it('should support pagination with ordering', async () => {
     const descResponse = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?order_by=position[DescNullsLast]&limit=2',
+      path: '/daftarPenduduk?order_by=position[DescNullsLast]&limit=2',
     }).expect(200);
 
-    const descPenduduks = descResponse.body.data.penduduks;
+    const descDaftarPenduduk = descResponse.body.data.daftarPenduduk;
     const endingBefore = descResponse.body.pageInfo.endCursor;
-    const lastPosition = descPenduduks[descPenduduks.length - 1].position;
+    const lastPosition = descDaftarPenduduk[descDaftarPenduduk.length - 1].position;
 
     expect(descResponse.body.pageInfo.hasNextPage).toBe(true);
-    expect(descPenduduks.length).toEqual(2);
+    expect(descDaftarPenduduk.length).toEqual(2);
     expect(lastPosition).toEqual(2);
 
     const descResponseWithPaginationResponse = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks?order_by=position[DescNullsLast]&limit=2&starting_after=${endingBefore}`,
+      path: `/daftarPenduduk?order_by=position[DescNullsLast]&limit=2&starting_after=${endingBefore}`,
     }).expect(200);
 
     const descResponseWithPagination =
-      descResponseWithPaginationResponse.body.data.penduduks;
+      descResponseWithPaginationResponse.body.data.daftarPenduduk;
 
     expect(descResponseWithPagination.length).toEqual(2);
     expect(descResponseWithPagination[0].position).toEqual(lastPosition - 1);
@@ -264,7 +264,7 @@ describe('Core REST API Find Many endpoint', () => {
   it('should handle invalid cursor gracefully', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?starting_after=invalid-cursor',
+      path: '/daftarPenduduk?starting_after=invalid-cursor',
     });
 
     expect(response.body.error).toBe('BadRequestException');
@@ -274,19 +274,19 @@ describe('Core REST API Find Many endpoint', () => {
   it('should combine filtering, ordering, and pagination', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?filter=position[gt]:0&order_by=tempatLahir[AscNullsFirst]&limit=2',
+      path: '/daftarPenduduk?filter=position[gt]:0&order_by=tempatLahir[AscNullsFirst]&limit=2',
     }).expect(200);
 
-    const penduduks = response.body.data.penduduks;
+    const daftarPenduduk = response.body.data.daftarPenduduk;
 
     const pageInfo = response.body.pageInfo;
 
-    expect(penduduks).toBeDefined();
-    expect(penduduks.length).toBeLessThanOrEqual(2);
+    expect(daftarPenduduk).toBeDefined();
+    expect(daftarPenduduk.length).toBeLessThanOrEqual(2);
     expect(pageInfo).toBeDefined();
 
-    expect(penduduks).toEqual(
-      [...penduduks].sort((a, b) => a.tempatLahir - b.tempatLahir),
+    expect(daftarPenduduk).toEqual(
+      [...daftarPenduduk].sort((a, b) => a.tempatLahir - b.tempatLahir),
     );
   });
 
@@ -294,21 +294,21 @@ describe('Core REST API Find Many endpoint', () => {
     // Bades: namaLengkap adalah field FULL_NAME (composite) — order_by tidak didukung
     await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?order_by=namaLengkap[AscNullsLast]',
+      path: '/daftarPenduduk?order_by=namaLengkap[AscNullsLast]',
     }).expect(400);
   });
 
   it('should support depth 0 parameter', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?depth=0',
+      path: '/daftarPenduduk?depth=0',
     }).expect(200);
 
-    const penduduks = response.body.data.penduduks;
+    const daftarPenduduk = response.body.data.daftarPenduduk;
 
-    expect(penduduks).toBeDefined();
+    expect(daftarPenduduk).toBeDefined();
 
-    const penduduk = penduduks[0];
+    const penduduk = daftarPenduduk[0];
 
     expect(penduduk).toBeDefined();
     expect(penduduk.kartuKeluargaId).toBeDefined();
@@ -318,24 +318,24 @@ describe('Core REST API Find Many endpoint', () => {
   it('should support depth 1 parameter', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?depth=1',
+      path: '/daftarPenduduk?depth=1',
     }).expect(200);
 
-    const penduduks = response.body.data.penduduks;
+    const daftarPenduduk = response.body.data.daftarPenduduk;
 
-    const penduduk = penduduks[0];
+    const penduduk = daftarPenduduk[0];
 
     expect(penduduk.kartuKeluarga).toBeDefined();
     // Bades: composite domainName/linkedinLink tidak ada di objek keluarga SID
     expect(penduduk.kartuKeluarga.nomorKk).toBeDefined();
 
-    expect(penduduk.kartuKeluarga.penduduks).not.toBeDefined();
+    expect(penduduk.kartuKeluarga.daftarPenduduk).not.toBeDefined();
   });
 
   it('should not support depth 2 parameter', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: '/penduduks?depth=2',
+      path: '/daftarPenduduk?depth=2',
     }).expect(400);
   });
 });

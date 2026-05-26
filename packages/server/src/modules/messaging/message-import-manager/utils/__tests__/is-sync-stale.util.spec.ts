@@ -41,6 +41,6 @@ describe('isSyncStale', () => {
 
     expect(() => {
       isSyncStale(syncStageStartedAt);
-    }).toThrow('Invalid date format');
+    }).toThrow('Format tanggal tidak valid');
   });
 });

@@ -34,7 +34,7 @@ const mockQuery = gql`
     $limitPenduduk: Int
     $limitKeluarga: Int
   ) {
-    penduduks(
+    daftarPenduduk(
       filter: $filterPenduduk
       orderBy: $orderByPenduduk
       first: $firstPenduduk
@@ -62,7 +62,7 @@ const mockQuery = gql`
       }
       totalCount
     }
-    keluargas(
+    daftarKeluarga(
       filter: $filterKeluarga
       orderBy: $orderByKeluarga
       first: $firstKeluarga
@@ -158,7 +158,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should return records for multiple objects', async () => {
     const mockResponseData = {
-      penduduks: {
+      daftarPenduduk: {
         edges: [
           {
             node: {
@@ -180,7 +180,7 @@ describe('useCombinedFindManyRecords', () => {
         },
         totalCount: 1,
       },
-      keluargas: {
+      daftarKeluarga: {
         edges: [
           {
             node: {
@@ -225,7 +225,7 @@ describe('useCombinedFindManyRecords', () => {
       ],
       mockResponseData,
       expectedResult: {
-        penduduks: [
+        daftarPenduduk: [
           {
             __typename: 'Penduduk',
             id: '1',
@@ -235,7 +235,7 @@ describe('useCombinedFindManyRecords', () => {
             },
           },
         ],
-        keluargas: [
+        daftarKeluarga: [
           {
             __typename: 'Keluarga',
             id: '1',
@@ -248,7 +248,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle forward pagination with after cursor and first limit', async () => {
     const mockResponseData = {
-      penduduks: {
+      daftarPenduduk: {
         edges: [
           {
             node: {
@@ -298,7 +298,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        penduduks: [
+        daftarPenduduk: [
           {
             __typename: 'Penduduk',
             id: '1',
@@ -314,7 +314,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle backward pagination with before cursor and last limit', async () => {
     const mockResponseData = {
-      penduduks: {
+      daftarPenduduk: {
         edges: [
           {
             node: {
@@ -364,7 +364,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        penduduks: [
+        daftarPenduduk: [
           {
             __typename: 'Penduduk',
             id: '2',
@@ -380,7 +380,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle limit-based pagination without cursor', async () => {
     const mockResponseData = {
-      penduduks: {
+      daftarPenduduk: {
         edges: [
           {
             node: {
@@ -425,7 +425,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        penduduks: [
+        daftarPenduduk: [
           {
             __typename: 'Penduduk',
             id: '3',
@@ -441,7 +441,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle multiple objects with different pagination strategies', async () => {
     const mockResponseData = {
-      penduduks: {
+      daftarPenduduk: {
         edges: [
           {
             node: {
@@ -463,7 +463,7 @@ describe('useCombinedFindManyRecords', () => {
         },
         totalCount: 10,
       },
-      keluargas: {
+      daftarKeluarga: {
         edges: [
           {
             node: {
@@ -521,7 +521,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        penduduks: [
+        daftarPenduduk: [
           {
             __typename: 'Penduduk',
             id: '1',
@@ -531,7 +531,7 @@ describe('useCombinedFindManyRecords', () => {
             },
           },
         ],
-        keluargas: [
+        daftarKeluarga: [
           {
             __typename: 'Keluarga',
             id: '1',

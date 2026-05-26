@@ -19,7 +19,7 @@ describe('parseCompositeFieldForOrder', () => {
       );
 
       expect(result).toEqual({
-        'person.nameFirstName': {
+        'penduduk.nameFirstName': {
           order: 'ASC',
           nulls: 'NULLS FIRST',
           useLower: true,
@@ -138,7 +138,7 @@ describe('parseCompositeFieldForOrder', () => {
       );
 
       expect(result).toEqual({
-        'person.nameFirstName': {
+        'penduduk.nameFirstName': {
           order: 'DESC',
           nulls: 'NULLS FIRST',
           useLower: true,
@@ -162,7 +162,7 @@ describe('parseCompositeFieldForOrder', () => {
           'penduduk',
           true,
         ),
-      ).toThrow('Sub field metadata not found');
+      ).toThrow('Metadata sub field tidak ditemukan');
     });
 
     it('should throw error for invalid order direction', () => {
@@ -178,7 +178,7 @@ describe('parseCompositeFieldForOrder', () => {
           'penduduk',
           true,
         ),
-      ).toThrow('Sub field order by value must be of type OrderByDirection');
+      ).toThrow('Nilai order by sub field harus berupa OrderByDirection');
     });
   });
 });

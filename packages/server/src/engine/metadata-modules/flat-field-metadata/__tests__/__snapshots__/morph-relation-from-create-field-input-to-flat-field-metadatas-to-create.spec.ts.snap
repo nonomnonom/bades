@@ -200,7 +200,7 @@ exports[`fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test su
         "label": "newFieldLabel",
         "mainGroupByFieldMetadataViewUniversalIdentifiers": [],
         "morphId": Any<String>,
-        "name": "newFieldCompanies",
+        "name": "newFieldDaftarKeluarga",
         "objectMetadataUniversalIdentifier": Any<String>,
         "options": null,
         "relationTargetFieldMetadataUniversalIdentifier": Any<String>,
@@ -283,7 +283,7 @@ exports[`fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test su
         "indexWhereClause": null,
         "isCustom": true,
         "isUnique": false,
-        "name": "IDX_cb15d901e889e25d0a9acecb595",
+        "name": "IDX_f2d716d4ae72d1cfdbd8a3d8427",
         "objectMetadataUniversalIdentifier": Any<String>,
         "universalFlatIndexFieldMetadatas": [
           {

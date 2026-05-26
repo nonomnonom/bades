@@ -778,7 +778,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                       {
                         id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                         icon: 'IconUsers',
-                        name: 'penduduks',
+                        name: 'daftarPenduduk',
                         type: 'RELATION',
                         label: 'People',
                         options: null,
@@ -905,7 +905,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                       {
                         id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                         icon: 'IconTargetArrow',
-                        name: 'programBantuans',
+                        name: 'daftarProgramBantuan',
                         type: 'RELATION',
                         label: 'Opportunities',
                         options: null,
@@ -1169,7 +1169,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                   },
                   namePlural: {
                     label: ' Name Plural',
-                    value: 'keluargas',
+                    value: 'daftarKeluarga',
                     isLeaf: true,
                   },
                   standardId: {
@@ -1932,7 +1932,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 {
                   id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                   icon: 'IconUsers',
-                  name: 'penduduks',
+                  name: 'daftarPenduduk',
                   type: 'RELATION',
                   label: 'People',
                   options: null,
@@ -2112,7 +2112,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 {
                   id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                   icon: 'IconTargetArrow',
-                  name: 'programBantuans',
+                  name: 'daftarProgramBantuan',
                   type: 'RELATION',
                   label: 'Opportunities',
                   options: null,
@@ -2627,7 +2627,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 '11a04849-150b-4af0-9332-b4a9ba693b17': {
                   id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                   icon: 'IconUsers',
-                  name: 'penduduks',
+                  name: 'daftarPenduduk',
                   type: 'RELATION',
                   label: 'People',
                   options: null,
@@ -2991,7 +2991,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 '7524cc63-2522-4c70-8b12-21fe2fe8de26': {
                   id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                   icon: 'IconTargetArrow',
-                  name: 'programBantuans',
+                  name: 'daftarProgramBantuan',
                   type: 'RELATION',
                   label: 'Opportunities',
                   options: null,
@@ -3403,7 +3403,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                   relationTargetObjectMetadataId: null,
                 },
               },
-              namePlural: 'keluargas',
+              namePlural: 'daftarKeluarga',
               standardId: '20202020-b374-4779-a561-80086cb2e17f',
               description: 'A company',
               labelPlural: 'Companies',
@@ -3494,7 +3494,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 people: {
                   id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                   icon: 'IconUsers',
-                  name: 'penduduks',
+                  name: 'daftarPenduduk',
                   type: 'RELATION',
                   label: 'People',
                   options: null,
@@ -4115,7 +4115,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 opportunities: {
                   id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                   icon: 'IconTargetArrow',
-                  name: 'programBantuans',
+                  name: 'daftarProgramBantuan',
                   type: 'RELATION',
                   label: 'Opportunities',
                   options: null,
@@ -5230,7 +5230,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                     {
                       id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                       icon: 'IconUsers',
-                      name: 'penduduks',
+                      name: 'daftarPenduduk',
                       type: 'RELATION',
                       label: 'People',
                       options: null,
@@ -5352,7 +5352,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                     {
                       id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                       icon: 'IconTargetArrow',
-                      name: 'programBantuans',
+                      name: 'daftarProgramBantuan',
                       type: 'RELATION',
                       label: 'Opportunities',
                       options: null,
@@ -5607,7 +5607,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 },
                 namePlural: {
                   label: ' Name Plural',
-                  value: 'keluargas',
+                  value: 'daftarKeluarga',
                   isLeaf: true,
                 },
                 standardId: {

@@ -73,10 +73,8 @@ export const PageChangeEffect = () => {
 
   const { initializeQueryParamState } = useInitializeQueryParamState();
 
-  //TODO: refactor useResetTableRowSelection hook to not throw when the argument `recordTableId` is an empty string
-  // - replace CoreObjectNamePlural.Person
   const objectNamePlural =
-    useParams().objectNamePlural ?? CoreObjectNamePlural.Person;
+    useParams().objectNamePlural ?? CoreObjectNamePlural.Penduduk;
 
   const contextStoreCurrentViewId = useAtomComponentStateValue(
     contextStoreCurrentViewIdComponentState,

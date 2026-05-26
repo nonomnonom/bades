@@ -173,7 +173,7 @@ describe('DataArgProcessorService', () => {
         'target-company-universal-id': {
           id: 'target-company-object-id',
           nameSingular: 'keluarga',
-          namePlural: 'keluargas',
+          namePlural: 'daftarKeluarga',
           isCustom: false,
           fieldIds: ['emails-id', 'domainName-id'],
           universalIdentifier: 'target-company-universal-id',

@@ -18,7 +18,7 @@ describe('Core REST API Find One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3201010101000001',
@@ -27,7 +27,7 @@ describe('Core REST API Find One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: '/penduduks',
+      path: '/daftarPenduduk',
       body: {
         id: TEST_PENDUDUK_1_ID,
         tempatLahir: pendudukTempatLahir,
@@ -39,7 +39,7 @@ describe('Core REST API Find One endpoint', () => {
   it('should retrieve a penduduk by ID', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
     })
       .expect(200)
       .expect((res) => {
@@ -54,7 +54,7 @@ describe('Core REST API Find One endpoint', () => {
   it('should return 404 error when trying to retrieve a non-existing penduduk', async () => {
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/${NOT_EXISTING_TEST_PENDUDUK_ID}`,
+      path: `/daftarPenduduk/${NOT_EXISTING_TEST_PENDUDUK_ID}`,
     });
 
     expect(response.status).toBe(404);
@@ -65,7 +65,7 @@ describe('Core REST API Find One endpoint', () => {
   it('should return 400 error when trying to retrieve with malformed uuid', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/malformed-uuid`,
+      path: `/daftarPenduduk/malformed-uuid`,
     })
       .expect(400)
       .expect((res) => {
@@ -79,7 +79,7 @@ describe('Core REST API Find One endpoint', () => {
   it('should support depth 0 parameter', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}?depth=0`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}?depth=0`,
     })
       .expect(200)
       .expect((res) => {
@@ -94,7 +94,7 @@ describe('Core REST API Find One endpoint', () => {
   it('should support depth 1 parameter', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}?depth=1`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}?depth=1`,
     })
       .expect(200)
       .expect((res) => {
@@ -103,14 +103,14 @@ describe('Core REST API Find One endpoint', () => {
         expect(penduduk.kartuKeluarga).toBeDefined();
         // Bades: composite domainName/linkedinLink tidak ada di objek keluarga SID
         expect(penduduk.kartuKeluarga.nomorKk).toBeDefined();
-        expect(penduduk.kartuKeluarga.penduduks).not.toBeDefined();
+        expect(penduduk.kartuKeluarga.daftarPenduduk).not.toBeDefined();
       });
   });
 
   it('should not support depth 2 parameter', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}?depth=2`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}?depth=2`,
     }).expect(400);
   });
 });

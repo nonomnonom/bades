@@ -2,13 +2,12 @@ import { renderHook } from '@testing-library/react';
 import { act } from 'react';
 import gql from 'graphql-tag';
 
-import { CoreObjectNameSingular } from 'shared/types';
 import { spreadsheetImportDialogState } from '@/spreadsheet-import/states/spreadsheetImportDialogState';
 import { useOpenObjectRecordsSpreadsheetImportDialog } from '@/object-record/spreadsheet-import/hooks/useOpenObjectRecordsSpreadsheetImportDialog';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
-const COMPANY_ID = 'cb2e9f4b-20c3-4759-9315-4ffeecfaf71a';
+const KELUARGA_ID = 'cb2e9f4b-20c3-4759-9315-4ffeecfaf71a';
 
 jest.mock('uuid', () => ({
   v4: jest.fn(() => 'cb2e9f4b-20c3-4759-9315-4ffeecfaf71a'),
@@ -24,31 +23,27 @@ jest.mock('@/object-record/hooks/useBatchCreateManyRecords', () => ({
 
 const mockResult = jest.fn(() => ({
   data: {
-    createCompanies: [
+    createDaftarKeluarga: [
       {
-        id: COMPANY_ID,
-        name: 'Example Company',
-        employees: 0,
-        idealCustomerProfile: true,
+        id: KELUARGA_ID,
+        name: 'Keluarga Contoh',
         __typename: 'Keluarga',
       },
     ],
   },
 }));
 
-const companyMocks = [
+const keluargaMocks = [
   {
     request: {
       query: gql`
-        mutation CreateCompanies(
-          $data: [CompanyCreateInput!]!
+        mutation CreateDaftarKeluarga(
+          $data: [KeluargaCreateInput!]!
           $upsert: Boolean
         ) {
-          createCompanies(data: $data, upsert: $upsert) {
+          createDaftarKeluarga(data: $data, upsert: $upsert) {
             id
             name
-            employees
-            idealCustomerProfile
             __typename
           }
         }
@@ -60,13 +55,13 @@ const companyMocks = [
 ];
 
 const fakeCsv = () => {
-  const csvContent = 'name\nExample Company';
+  const csvContent = 'name\nKeluarga Contoh';
   const blob = new Blob([csvContent], { type: 'text/csv' });
   return new File([blob], 'fakeData.csv', { type: 'text/csv' });
 };
 
 const Wrapper = getJestMetadataAndApolloMocksWrapper({
-  apolloMocks: companyMocks,
+  apolloMocks: keluargaMocks,
 });
 
 describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
@@ -79,7 +74,7 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
       () => {
         const { openObjectRecordsSpreadsheetImportDialog } =
           useOpenObjectRecordsSpreadsheetImportDialog(
-            'company',
+            'keluarga',
           );
         return {
           openObjectRecordsSpreadsheetImportDialog,
@@ -115,7 +110,7 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
       () => {
         const { openObjectRecordsSpreadsheetImportDialog } =
           useOpenObjectRecordsSpreadsheetImportDialog(
-            'company',
+            'keluarga',
           );
         return {
           openObjectRecordsSpreadsheetImportDialog,
@@ -135,20 +130,16 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
     const submitData = {
       validStructuredRows: [
         {
-          id: COMPANY_ID,
-          name: 'Example Company',
-          idealCustomerProfile: true,
-          employees: '0',
+          id: KELUARGA_ID,
+          name: 'Keluarga Contoh',
         },
       ],
       invalidStructuredRows: [],
       allStructuredRows: [
         {
-          id: COMPANY_ID,
-          name: 'Example Company',
+          id: KELUARGA_ID,
+          name: 'Keluarga Contoh',
           __index: 'cbc3985f-dde9-46d1-bae2-c124141700ac',
-          idealCustomerProfile: true,
-          employees: '0',
         },
       ],
     };
@@ -166,8 +157,6 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
     expect(callArgs.recordsToCreate).toHaveLength(1);
 
     const recordToCreate = callArgs.recordsToCreate[0];
-    expect(recordToCreate).toHaveProperty('name', 'Example Company');
-    expect(recordToCreate).toHaveProperty('idealCustomerProfile', true);
-    expect(recordToCreate).toHaveProperty('employees', 0);
+    expect(recordToCreate).toHaveProperty('name', 'Keluarga Contoh');
   });
 });

@@ -30,7 +30,7 @@ describe('buildGroupByFieldObject', () => {
 
       const result = buildGroupByFieldObject({ fieldMetadata });
 
-      expect(result).toEqual({ companyId: true });
+      expect(result).toEqual({ keluargaId: true });
     });
 
     it('should return nested object for relation field with subFieldName', () => {
@@ -45,7 +45,7 @@ describe('buildGroupByFieldObject', () => {
         subFieldName: 'name',
       });
 
-      expect(result).toEqual({ company: { name: true } });
+      expect(result).toEqual({ keluarga: { name: true } });
     });
 
     it('should return deeply nested object for relation with composite subfield', () => {
@@ -61,7 +61,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(result).toEqual({
-        company: { address: { addressCity: true } },
+        keluarga: { address: { addressCity: true } },
       });
     });
 
@@ -81,7 +81,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             granularity: ObjectRecordGroupByDateGranularity.MONTH,
             timeZone: 'Europe/Paris',
@@ -104,7 +104,7 @@ describe('buildGroupByFieldObject', () => {
           dateGranularity: ObjectRecordGroupByDateGranularity.DAY,
           isNestedDateField: true,
         }),
-      ).toThrow('Date group by should have a time zone.');
+      ).toThrow('Pengelompokan berdasarkan tanggal harus memiliki zona waktu.');
     });
 
     it('should include weekStartDay for nested date field with WEEK granularity and MONDAY', () => {
@@ -124,7 +124,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             granularity: ObjectRecordGroupByDateGranularity.WEEK,
             weekStartDay: 'MONDAY',
@@ -151,7 +151,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             granularity: ObjectRecordGroupByDateGranularity.WEEK,
             weekStartDay: 'SUNDAY',
@@ -178,7 +178,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             granularity: ObjectRecordGroupByDateGranularity.WEEK,
             timeZone: userTimezone,
@@ -204,7 +204,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             granularity: ObjectRecordGroupByDateGranularity.MONTH,
             timeZone: userTimezone,
@@ -240,7 +240,7 @@ describe('buildGroupByFieldObject', () => {
       });
 
       expect(() => buildGroupByFieldObject({ fieldMetadata })).toThrow(
-        'Composite field name requires a subfield to be specified',
+        'Field komposit name memerlukan subfield yang ditentukan',
       );
     });
 
@@ -333,7 +333,7 @@ describe('buildGroupByFieldObject', () => {
           fieldMetadata,
           dateGranularity: ObjectRecordGroupByDateGranularity.DAY,
         }),
-      ).toThrow('Date group by should have a time zone.');
+      ).toThrow('Pengelompokan berdasarkan tanggal harus memiliki zona waktu.');
     });
 
     it('should include weekStartDay for WEEK granularity with MONDAY', () => {

@@ -67,7 +67,7 @@ describe('EmailDriverFactory', () => {
       jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-driver');
 
       expect(() => factory['buildConfigKey']()).toThrow(
-        'Unsupported email driver: invalid-driver',
+        'Driver email tidak didukung: invalid-driver',
       );
     });
   });
@@ -127,7 +127,7 @@ describe('EmailDriverFactory', () => {
         });
 
       expect(() => factory['createDriver']()).toThrow(
-        'SMTP driver requires host and port to be defined',
+        'Driver SMTP memerlukan host dan port terdefinisi',
       );
     });
 
@@ -135,7 +135,7 @@ describe('EmailDriverFactory', () => {
       jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-driver');
 
       expect(() => factory['createDriver']()).toThrow(
-        'Invalid email driver: invalid-driver',
+        'Driver email tidak valid: invalid-driver',
       );
     });
   });
@@ -195,7 +195,7 @@ describe('EmailDriverFactory', () => {
       jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-driver');
 
       expect(() => factory.getCurrentDriver()).toThrow(
-        'Failed to build config key for EmailDriverFactory. Original error: Unsupported email driver: invalid-driver',
+        'Failed to build config key for EmailDriverFactory. Original error: Driver email tidak didukung: invalid-driver',
       );
     });
 

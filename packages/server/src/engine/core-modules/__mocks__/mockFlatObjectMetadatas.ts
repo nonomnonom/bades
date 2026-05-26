@@ -18,7 +18,7 @@ export const mockFlatObjectMetadatas: FlatObjectMetadata[] = [
   getFlatObjectMetadataMock({
     id: '20202020-8dec-43d5-b2ff-6eef05095bec',
     nameSingular: 'penduduk',
-    namePlural: 'penduduks',
+    namePlural: 'daftarPenduduk',
     labelSingular: 'Penduduk',
     labelPlural: 'Penduduk',
     description: 'A person',
@@ -35,7 +35,7 @@ export const mockFlatObjectMetadatas: FlatObjectMetadata[] = [
   getFlatObjectMetadataMock({
     id: '20202020-c03c-45d6-a4b0-04afe1357c5c',
     nameSingular: 'keluarga',
-    namePlural: 'keluargas',
+    namePlural: 'daftarKeluarga',
     labelSingular: 'Keluarga',
     labelPlural: 'Keluarga',
     description: 'A company',

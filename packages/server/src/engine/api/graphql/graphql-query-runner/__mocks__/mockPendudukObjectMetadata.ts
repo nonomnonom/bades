@@ -137,7 +137,7 @@ export const mockPersonFlatObjectMetadata = (
   icon: 'Icon123',
   color: null,
   nameSingular: 'penduduk',
-  namePlural: 'penduduks',
+  namePlural: 'daftarPenduduk',
   labelSingular: 'Penduduk',
   labelPlural: 'Penduduk',
   targetTableName: 'penduduk',

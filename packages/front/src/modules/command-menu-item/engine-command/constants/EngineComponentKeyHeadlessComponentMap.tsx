@@ -129,27 +129,19 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
   [EngineComponentKey.GO_TO_PEOPLE]: (
     <HeadlessNavigateEngineCommand
       to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Person }}
+      params={{ objectNamePlural: CoreObjectNamePlural.Penduduk }}
     />
   ),
   [EngineComponentKey.GO_TO_COMPANIES]: (
     <HeadlessNavigateEngineCommand
       to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Company }}
+      params={{ objectNamePlural: CoreObjectNamePlural.Keluarga }}
     />
   ),
   [EngineComponentKey.GO_TO_DASHBOARDS]: (
     <HeadlessNavigateEngineCommand
       to={AppPath.RecordIndexPage}
       params={{ objectNamePlural: CoreObjectNamePlural.Dashboard }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_OPPORTUNITIES]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{
-        objectNamePlural: CoreObjectNamePlural.Opportunity,
-      }}
     />
   ),
   [EngineComponentKey.GO_TO_SETTINGS]: (

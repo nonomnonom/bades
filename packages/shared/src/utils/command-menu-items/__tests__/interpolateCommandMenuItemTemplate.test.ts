@@ -37,7 +37,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
     it('should interpolate correctly when called multiple times in sequence', () => {
       const context = buildContext({
         numberOfSelectedRecords: 2,
-        objectMetadataItem: { labelPlural: 'penduduks' },
+        objectMetadataItem: { labelPlural: 'daftarPenduduk' },
       });
 
       expect(
@@ -117,7 +117,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should interpolate objectMetadataItem.labelPlural', () => {
       const context = buildContext({
-        objectMetadataItem: { labelPlural: 'keluargas' },
+        objectMetadataItem: { labelPlural: 'daftarKeluarga' },
       });
 
       expect(
@@ -133,7 +133,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
     it('should interpolate multiple variables in one label', () => {
       const context = buildContext({
         numberOfSelectedRecords: 3,
-        objectMetadataItem: { labelPlural: 'penduduks' },
+        objectMetadataItem: { labelPlural: 'daftarPenduduk' },
       });
 
       expect(
@@ -358,7 +358,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should resolve plural label with capitalize transform', () => {
       const context = buildContext({
-        objectMetadataLabel: 'keluargas',
+        objectMetadataLabel: 'daftarKeluarga',
       });
 
       expect(
@@ -371,7 +371,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should resolve objectMetadataLabel without transform', () => {
       const context = buildContext({
-        objectMetadataLabel: 'penduduks',
+        objectMetadataLabel: 'daftarPenduduk',
       });
 
       expect(

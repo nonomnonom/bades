@@ -4,7 +4,7 @@ import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graph
 import { mergeManyOperationFactory } from 'test/integration/graphql/utils/merge-many-operation-factory.util';
 import { deleteRecordsByIds } from 'test/integration/utils/delete-records-by-ids';
 
-describe('keluargas merge resolvers (integration)', () => {
+describe('daftarKeluarga merge resolvers (integration)', () => {
   let createdKeluargaIds: string[] = [];
 
   afterEach(async () => {
@@ -16,9 +16,9 @@ describe('keluargas merge resolvers (integration)', () => {
 
   describe('merging keluarga records', () => {
     it('should merge two keluarga records and retain priority nomorKk', async () => {
-      const createKeluargasOperation = createManyOperationFactory({
+      const createDaftarKeluargaOperation = createManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS,
         data: [
           {
@@ -33,18 +33,18 @@ describe('keluargas merge resolvers (integration)', () => {
       });
 
       const createResponse = await makeGraphqlAPIRequest(
-        createKeluargasOperation,
+        createDaftarKeluargaOperation,
       );
 
-      expect(createResponse.body.data.createKeluargas).toHaveLength(2);
+      expect(createResponse.body.data.createDaftarKeluarga).toHaveLength(2);
 
-      const keluarga1Id = createResponse.body.data.createKeluargas[0].id;
-      const keluarga2Id = createResponse.body.data.createKeluargas[1].id;
+      const keluarga1Id = createResponse.body.data.createDaftarKeluarga[0].id;
+      const keluarga2Id = createResponse.body.data.createDaftarKeluarga[1].id;
 
       createdKeluargaIds.push(keluarga1Id, keluarga2Id);
 
       const mergeOperation = mergeManyOperationFactory({
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS,
         ids: [keluarga1Id, keluarga2Id],
         conflictPriorityIndex: 0,
@@ -54,7 +54,7 @@ describe('keluargas merge resolvers (integration)', () => {
 
       expect(mergeResponse.body.errors).toBeUndefined();
 
-      const mergedKeluarga = mergeResponse.body.data.mergeKeluargas;
+      const mergedKeluarga = mergeResponse.body.data.mergeDaftarKeluarga;
 
       // priorityIndex 0 → keluarga pertama menang
       expect(mergedKeluarga.nomorKk).toBe('3201234567890001');
@@ -62,9 +62,9 @@ describe('keluargas merge resolvers (integration)', () => {
     });
 
     it('should merge with second priority taking precedence', async () => {
-      const createKeluargasOperation = createManyOperationFactory({
+      const createDaftarKeluargaOperation = createManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS,
         data: [
           {
@@ -79,16 +79,16 @@ describe('keluargas merge resolvers (integration)', () => {
       });
 
       const createResponse = await makeGraphqlAPIRequest(
-        createKeluargasOperation,
+        createDaftarKeluargaOperation,
       );
 
-      const keluarga1Id = createResponse.body.data.createKeluargas[0].id;
-      const keluarga2Id = createResponse.body.data.createKeluargas[1].id;
+      const keluarga1Id = createResponse.body.data.createDaftarKeluarga[0].id;
+      const keluarga2Id = createResponse.body.data.createDaftarKeluarga[1].id;
 
       createdKeluargaIds.push(keluarga1Id, keluarga2Id);
 
       const mergeOperation = mergeManyOperationFactory({
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS,
         ids: [keluarga1Id, keluarga2Id],
         conflictPriorityIndex: 1,
@@ -98,7 +98,7 @@ describe('keluargas merge resolvers (integration)', () => {
 
       expect(mergeResponse.body.errors).toBeUndefined();
 
-      const mergedKeluarga = mergeResponse.body.data.mergeKeluargas;
+      const mergedKeluarga = mergeResponse.body.data.mergeDaftarKeluarga;
 
       // priorityIndex 1 → keluarga kedua menang
       expect(mergedKeluarga.nomorKk).toBe('3201234567890004');
@@ -106,9 +106,9 @@ describe('keluargas merge resolvers (integration)', () => {
     });
 
     it('should merge three keluarga records with first priority', async () => {
-      const createKeluargasOperation = createManyOperationFactory({
+      const createDaftarKeluargaOperation = createManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS,
         data: [
           {
@@ -127,19 +127,19 @@ describe('keluargas merge resolvers (integration)', () => {
       });
 
       const createResponse = await makeGraphqlAPIRequest(
-        createKeluargasOperation,
+        createDaftarKeluargaOperation,
       );
 
-      expect(createResponse.body.data.createKeluargas).toHaveLength(3);
+      expect(createResponse.body.data.createDaftarKeluarga).toHaveLength(3);
 
-      const keluarga1Id = createResponse.body.data.createKeluargas[0].id;
-      const keluarga2Id = createResponse.body.data.createKeluargas[1].id;
-      const keluarga3Id = createResponse.body.data.createKeluargas[2].id;
+      const keluarga1Id = createResponse.body.data.createDaftarKeluarga[0].id;
+      const keluarga2Id = createResponse.body.data.createDaftarKeluarga[1].id;
+      const keluarga3Id = createResponse.body.data.createDaftarKeluarga[2].id;
 
       createdKeluargaIds.push(keluarga1Id, keluarga2Id, keluarga3Id);
 
       const mergeOperation = mergeManyOperationFactory({
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS,
         ids: [keluarga1Id, keluarga2Id, keluarga3Id],
         conflictPriorityIndex: 0,
@@ -149,7 +149,7 @@ describe('keluargas merge resolvers (integration)', () => {
 
       expect(mergeResponse.body.errors).toBeUndefined();
 
-      const mergedKeluarga = mergeResponse.body.data.mergeKeluargas;
+      const mergedKeluarga = mergeResponse.body.data.mergeDaftarKeluarga;
 
       expect(mergedKeluarga.id).toBeDefined();
       expect(mergedKeluarga.nomorKk).toBe('3201234567890005');

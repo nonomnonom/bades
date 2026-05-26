@@ -224,10 +224,10 @@ export const graphqlMocks = {
         data: { commandMenuItems: mockedBackendCommandMenuItems },
       });
     }),
-    graphql.query('SearchPenduduks', () => {
+    graphql.query('SearchDaftarPenduduk', () => {
       return HttpResponse.json({
         data: {
-          searchPenduduks: {
+          searchDaftarPenduduk: {
             edges: pendudukMock.slice(0, 3).map((penduduk) => ({
               node: penduduk,
               cursor: null,
@@ -242,10 +242,10 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('SearchKeluargas', () => {
+    graphql.query('SearchDaftarKeluarga', () => {
       return HttpResponse.json({
         data: {
-          searchKeluargas: {
+          searchDaftarKeluarga: {
             edges: keluargaMock.slice(0, 3).map((keluarga) => ({
               node: keluarga,
               cursor: null,
@@ -389,14 +389,14 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('FindManyKeluargas', ({ variables }) => {
+    graphql.query('FindManyDaftarKeluarga', ({ variables }) => {
       const mockedData = variables.limit
         ? keluargaMock.slice(0, variables.limit)
         : keluargaMock;
 
       return HttpResponse.json({
         data: {
-          keluargas: wrapRecordsAsConnection('keluarga', mockedData),
+          daftarKeluarga: wrapRecordsAsConnection('keluarga', mockedData),
         },
       });
     }),
@@ -409,10 +409,10 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('FindManyPenduduks', () => {
+    graphql.query('FindManyDaftarPenduduk', () => {
       return HttpResponse.json({
         data: {
-          penduduks: wrapRecordsAsConnection('penduduk', pendudukMock),
+          daftarPenduduk: wrapRecordsAsConnection('penduduk', pendudukMock),
         },
       });
     }),

@@ -50,23 +50,23 @@ describe('OAuthDiscoveryController', () => {
   // origin itself and the /mcp variant maps to <origin>/mcp.
   describe('getProtectedResourceMetadata', () => {
     it('root form returns the origin as the resource', () => {
-      const request = buildMockRequest('workspace.twenty.com');
+      const request = buildMockRequest('workspace.bades.id');
 
       expect(
         controller.getProtectedResourceMetadataRoot(request),
       ).toMatchObject({
-        resource: 'https://workspace.twenty.com',
-        authorization_servers: ['https://workspace.twenty.com'],
+        resource: 'https://workspace.bades.id',
+        authorization_servers: ['https://workspace.bades.id'],
       });
     });
 
     it('path-aware /mcp form returns origin/mcp as the resource', () => {
-      const request = buildMockRequest('workspace.twenty.com');
+      const request = buildMockRequest('workspace.bades.id');
 
       expect(controller.getProtectedResourceMetadataMcp(request)).toMatchObject(
         {
-          resource: 'https://workspace.twenty.com/mcp',
-          authorization_servers: ['https://workspace.twenty.com'],
+          resource: 'https://workspace.bades.id/mcp',
+          authorization_servers: ['https://workspace.bades.id'],
         },
       );
     });

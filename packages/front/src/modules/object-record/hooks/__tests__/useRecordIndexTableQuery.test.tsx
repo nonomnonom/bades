@@ -18,7 +18,7 @@ import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/pendud
 import { generateMockRecordConnection } from '~/testing/utils/generateMockRecordConnection';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const recordTableId = 'penduduks';
+const recordTableId = 'daftarPenduduk';
 const objectNameSingular = 'penduduk';
 const mockPendudukObjectMetadataItem =
   getMockObjectMetadataItemOrThrow('penduduk');
@@ -35,14 +35,14 @@ const mocks: MockedResponse[] = [
   {
     request: {
       query: gql`
-        query FindManyPeople(
+        query FindManyDaftarPenduduk(
           $filter: PendudukFilterInput
           $orderBy: [PendudukOrderByInput]
           $lastCursor: String
           $limit: Int
           $offset: Int
         ) {
-          people(
+          daftarPenduduk(
             filter: $filter
             orderBy: $orderBy
             first: $limit
@@ -108,7 +108,7 @@ const mocks: MockedResponse[] = [
     },
     result: jest.fn(() => ({
       data: {
-        people: generateMockRecordConnection({
+        daftarPenduduk: generateMockRecordConnection({
           objectNameSingular: 'penduduk',
           records: flatPersonRecords,
         }),

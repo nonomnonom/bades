@@ -8,9 +8,9 @@ import { FieldMetadataType } from 'shared/types';
 const mockCompanyObjectMetadataItem: EnrichedObjectMetadataItem = {
   id: 'company-metadata-id',
   nameSingular: 'keluarga',
-  namePlural: 'keluargas',
+  namePlural: 'daftarKeluarga',
   labelSingular: 'Keluarga',
-  labelPlural: 'Keluargas',
+  labelPlural: 'DaftarKeluarga',
   icon: 'IconBuildingSkyscraper',
   fields: [
     {
@@ -203,10 +203,10 @@ describe('computeStepOutputSchema', () => {
         objectMetadataItems: [mockCompanyObjectMetadataItem],
       });
 
-      expect(result).toHaveProperty('keluargas');
-      expect((result as any).keluargas).toMatchObject({
+      expect(result).toHaveProperty('daftarKeluarga');
+      expect((result as any).daftarKeluarga).toMatchObject({
         isLeaf: true,
-        label: 'Keluargas',
+        label: 'DaftarKeluarga',
         type: 'array',
       });
     });

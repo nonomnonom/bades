@@ -3,7 +3,7 @@ import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder
 export const KELUARGA_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Kartu Keluarga',
   labelSingular: 'Kartu Keluarga',
-  namePlural: 'keluargas',
+  namePlural: 'daftarKeluarga',
   nameSingular: 'keluarga',
   icon: 'IconHome',
 };

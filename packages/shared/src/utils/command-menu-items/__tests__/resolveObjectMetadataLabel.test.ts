@@ -3,7 +3,7 @@ import { resolveObjectMetadataLabel } from '../resolveObjectMetadataLabel';
 describe('resolveObjectMetadataLabel', () => {
   const objectMetadataItem = {
     labelSingular: 'penduduk',
-    labelPlural: 'penduduks',
+    labelPlural: 'daftarPenduduk',
   };
 
   it('should return labelSingular when numberOfSelectedRecords is 1', () => {
@@ -21,7 +21,7 @@ describe('resolveObjectMetadataLabel', () => {
         objectMetadataItem,
         numberOfSelectedRecords: 0,
       }),
-    ).toBe('penduduks');
+    ).toBe('daftarPenduduk');
   });
 
   it('should return labelPlural when numberOfSelectedRecords is greater than 1', () => {
@@ -30,6 +30,6 @@ describe('resolveObjectMetadataLabel', () => {
         objectMetadataItem,
         numberOfSelectedRecords: 5,
       }),
-    ).toBe('penduduks');
+    ).toBe('daftarPenduduk');
   });
 });

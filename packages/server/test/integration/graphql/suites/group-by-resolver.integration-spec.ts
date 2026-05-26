@@ -40,8 +40,8 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 
 // Bades: group-by resolver integration test menggunakan objek SID.
 // Mapping CRM → SID:
-//   person/people    → penduduk/penduduks
-//   company/companies → keluarga/keluargas
+//   person/daftarPenduduk    → penduduk/daftarPenduduk
+//   company/daftarKeluarga → keluarga/daftarKeluarga
 //   city (TEXT)      → tempatLahir (TEXT)
 //   companyId        → kartuKeluargaId
 //   peopleGroupBy    → penduduksGroupBy
@@ -56,7 +56,7 @@ describe('group-by resolver (integration)', () => {
     const testPenduduk3Id = randomUUID();
 
     afterEach(async () => {
-      // cleanup created penduduks
+      // cleanup created daftarPenduduk
       await makeGraphqlAPIRequest(
         destroyOneOperationFactory({
           objectMetadataSingularName: 'penduduk',
@@ -109,7 +109,7 @@ describe('group-by resolver (integration)', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'penduduk',
-          objectMetadataPluralName: 'penduduks',
+          objectMetadataPluralName: 'daftarPenduduk',
           groupBy: [{ tempatLahir: true }],
           orderBy: [{ tempatLahir: OrderByDirection.AscNullsFirst }], // needed for tempatLahir groups to be in 300 first groups
           limit: 300,
@@ -179,7 +179,7 @@ describe('group-by resolver (integration)', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'penduduk',
-          objectMetadataPluralName: 'penduduks',
+          objectMetadataPluralName: 'daftarPenduduk',
           groupBy: [{ tempatLahir: true }],
           limit: 2,
         }),
@@ -227,7 +227,7 @@ describe('group-by resolver (integration)', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'penduduk',
-          objectMetadataPluralName: 'penduduks',
+          objectMetadataPluralName: 'daftarPenduduk',
           groupBy: [{ tempatLahir: true }],
           orderBy: [{ tempatLahir: OrderByDirection.AscNullsFirst }], // needed for tempatLahir groups to be in 300 first groups
           gqlFields: 'minCreatedAt',
@@ -306,7 +306,7 @@ describe('group-by resolver (integration)', () => {
     });
 
     afterAll(async () => {
-      // cleanup created penduduks
+      // cleanup created daftarPenduduk
       for (const id of [testPendudukId, testPenduduk2Id, testPenduduk3Id]) {
         await makeGraphqlAPIRequest(
           destroyOneOperationFactory({
@@ -337,7 +337,7 @@ describe('group-by resolver (integration)', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'penduduk',
-          objectMetadataPluralName: 'penduduks',
+          objectMetadataPluralName: 'daftarPenduduk',
           groupBy: [
             { createdAt: { granularity: 'MONTH', timeZone: 'Europe/Paris' } },
           ],
@@ -418,7 +418,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               { createdAt: { granularity: 'WEEK', timeZone: 'Europe/Paris' } },
             ],
@@ -498,7 +498,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               {
                 createdAt: {
@@ -588,7 +588,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               {
                 createdAt: {
@@ -716,7 +716,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [{ createdAt: { granularity: 'DAY_OF_THE_WEEK' } }],
             // adding a filter for test not to fail when we are in january again
             filter: filter2024And2025,
@@ -751,7 +751,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [{ createdAt: { granularity: 'MONTH_OF_THE_YEAR' } }],
             filter: filter2024And2025,
           }),
@@ -785,7 +785,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [{ createdAt: { granularity: 'QUARTER_OF_THE_YEAR' } }],
             filter: filter2024And2025,
           }),
@@ -846,7 +846,7 @@ describe('group-by resolver (integration)', () => {
     });
 
     afterEach(async () => {
-      // cleanup created penduduks
+      // cleanup created daftarPenduduk
       for (const id of [testPendudukId, testPenduduk2Id, testPenduduk3Id]) {
         await makeGraphqlAPIRequest(
           destroyOneOperationFactory({
@@ -932,7 +932,7 @@ describe('group-by resolver (integration)', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'penduduk',
-          objectMetadataPluralName: 'penduduks',
+          objectMetadataPluralName: 'daftarPenduduk',
           groupBy: [{ tempatLahir: true }],
           viewId,
         }),
@@ -1000,7 +1000,7 @@ describe('group-by resolver (integration)', () => {
       const response = await makeGraphqlAPIRequest(
         groupByOperationFactory({
           objectMetadataSingularName: 'penduduk',
-          objectMetadataPluralName: 'penduduks',
+          objectMetadataPluralName: 'daftarPenduduk',
           groupBy: [{ tempatLahir: true }],
           viewId,
           orderBy: [{ tempatLahir: OrderByDirection.AscNullsFirst }], // needed for tempatLahir groups to be in 300 first groups
@@ -1119,7 +1119,7 @@ describe('group-by resolver (integration)', () => {
       });
 
       afterAll(async () => {
-        // Cleanup penduduks
+        // Cleanup daftarPenduduk
         for (const id of [testPendudukId, testPenduduk2Id, testPenduduk3Id]) {
           await makeGraphqlAPIRequest(
             destroyOneOperationFactory({
@@ -1130,7 +1130,7 @@ describe('group-by resolver (integration)', () => {
           );
         }
 
-        // Cleanup keluargas
+        // Cleanup daftarKeluarga
         for (const id of [testKeluargaId, testKeluarga2Id]) {
           await makeGraphqlAPIRequest(
             destroyOneOperationFactory({
@@ -1146,7 +1146,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               {
                 keluarga: {
@@ -1183,7 +1183,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               {
                 keluarga: {
@@ -1217,7 +1217,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               {
                 keluarga: {
@@ -1336,7 +1336,7 @@ describe('group-by resolver (integration)', () => {
 
         penduduklistingRelationFieldId = penduduklistingRelation.id;
 
-        // Buat keluargas
+        // Buat daftarKeluarga
         await makeGraphqlAPIRequest(
           createOneOperationFactory({
             objectMetadataSingularName: 'keluarga',
@@ -1382,7 +1382,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        // Buat penduduks terhubung ke keluargas dan listings
+        // Buat daftarPenduduk terhubung ke daftarKeluarga dan listings
         await makeGraphqlAPIRequest(
           createOneOperationFactory({
             objectMetadataSingularName: 'penduduk',
@@ -1424,7 +1424,7 @@ describe('group-by resolver (integration)', () => {
       });
 
       afterAll(async () => {
-        // Cleanup penduduks
+        // Cleanup daftarPenduduk
         for (const id of [testPendudukId, testPenduduk2Id, testPenduduk3Id]) {
           await makeGraphqlAPIRequest(
             destroyOneOperationFactory({
@@ -1446,7 +1446,7 @@ describe('group-by resolver (integration)', () => {
           );
         }
 
-        // Cleanup keluargas
+        // Cleanup daftarKeluarga
         for (const id of [testKeluargaId, testKeluarga2Id]) {
           await makeGraphqlAPIRequest(
             destroyOneOperationFactory({
@@ -1498,7 +1498,7 @@ describe('group-by resolver (integration)', () => {
         const response = await makeGraphqlAPIRequest(
           groupByOperationFactory({
             objectMetadataSingularName: 'penduduk',
-            objectMetadataPluralName: 'penduduks',
+            objectMetadataPluralName: 'daftarPenduduk',
             groupBy: [
               {
                 keluarga: {

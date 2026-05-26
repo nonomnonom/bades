@@ -13,7 +13,7 @@ describe('Core REST API Create One endpoint', () => {
     await deleteAllRecords('keluarga');
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3201234567890000',
@@ -40,7 +40,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: requestBody,
     })
       .expect(201)
@@ -67,7 +67,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: requestBody,
     })
       .expect(201)
@@ -89,7 +89,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: requestBody,
       bearer: APPLE_JANE_ADMIN_ACCESS_TOKEN,
     })
@@ -114,7 +114,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks?depth=0`,
+      path: `/daftarPenduduk?depth=0`,
       body: requestBody,
     })
       .expect(201)
@@ -136,7 +136,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks?depth=1`,
+      path: `/daftarPenduduk?depth=1`,
       body: requestBody,
     })
       .expect(201)
@@ -159,7 +159,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks?depth=2`,
+      path: `/daftarPenduduk?depth=2`,
       body: requestBody,
     }).expect(400);
   });
@@ -173,13 +173,13 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: requestBody,
     });
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: requestBody,
     })
       .expect(400)
@@ -198,7 +198,7 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/programBantuans`,
+      path: `/daftarProgramBantuan`,
       body: requestBody,
     })
       .expect(400)

@@ -85,7 +85,7 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: 'id',
         data: [
           {
@@ -106,7 +106,7 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: 'id',
         data: [
           {
@@ -317,7 +317,7 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: 'id',
         filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
       }),
@@ -325,7 +325,7 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: 'id',
         filter: { id: { in: ALL_TEST_KELUARGA_IDS } },
       }),

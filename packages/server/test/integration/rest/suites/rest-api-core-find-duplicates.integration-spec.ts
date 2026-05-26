@@ -14,7 +14,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3201010101000001',
@@ -24,7 +24,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
     // Dua penduduk dengan NIK berbeda tapi namaLengkap sama → dianggap duplikat
     await makeRestAPIRequest({
       method: 'post',
-      path: '/batch/penduduks',
+      path: '/batch/daftarPenduduk',
       body: [
         {
           id: TEST_PENDUDUK_1_ID,
@@ -57,7 +57,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should retrieve duplicates by object data', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates`,
+      path: `/daftarPenduduk/duplicates`,
       body: {
         data: [
           {
@@ -88,7 +88,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should retrieve duplicates by ids', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates`,
+      path: `/daftarPenduduk/duplicates`,
       body: {
         ids: [TEST_PENDUDUK_1_ID],
       },
@@ -110,7 +110,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should not provide wrong duplicates', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates`,
+      path: `/daftarPenduduk/duplicates`,
       body: {
         data: [
           {
@@ -135,7 +135,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should return 400 error when empty object data provided', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates`,
+      path: `/daftarPenduduk/duplicates`,
       body: {
         data: [],
       },
@@ -150,7 +150,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should return empty result when empty ids provided', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates`,
+      path: `/daftarPenduduk/duplicates`,
       body: {
         ids: [],
       },
@@ -162,7 +162,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should return 400 error when ids and data are provided', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates`,
+      path: `/daftarPenduduk/duplicates`,
       body: {
         data: [],
         ids: [],
@@ -178,7 +178,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should support depth 0 parameter', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates?depth=0`,
+      path: `/daftarPenduduk/duplicates?depth=0`,
       body: {
         data: [
           {
@@ -208,7 +208,7 @@ describe('Core REST API Find Duplicates endpoint', () => {
   it('should support depth 1 parameter', async () => {
     const response = await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates?depth=1`,
+      path: `/daftarPenduduk/duplicates?depth=1`,
       body: {
         data: [
           {
@@ -231,17 +231,17 @@ describe('Core REST API Find Duplicates endpoint', () => {
 
     expect(pendudukDuplicated1.kartuKeluarga).toBeDefined();
     expect(pendudukDuplicated1.kartuKeluarga.id).toBe(TEST_KELUARGA_1_ID);
-    expect(pendudukDuplicated1.kartuKeluarga.penduduks).not.toBeDefined();
+    expect(pendudukDuplicated1.kartuKeluarga.daftarPenduduk).not.toBeDefined();
 
     expect(pendudukDuplicated2.kartuKeluarga).toBeDefined();
     expect(pendudukDuplicated2.kartuKeluarga.id).toBe(TEST_KELUARGA_1_ID);
-    expect(pendudukDuplicated2.kartuKeluarga.penduduks).not.toBeDefined();
+    expect(pendudukDuplicated2.kartuKeluarga.daftarPenduduk).not.toBeDefined();
   });
 
   it('should not support depth 2 parameter', async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks/duplicates?depth=2`,
+      path: `/daftarPenduduk/duplicates?depth=2`,
       body: {
         data: [
           {

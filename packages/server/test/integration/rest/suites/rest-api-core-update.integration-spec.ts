@@ -20,7 +20,7 @@ describe('Core REST API Update One endpoint', () => {
     await deleteAllRecords('penduduk');
     await makeRestAPIRequest({
       method: 'post',
-      path: '/keluargas',
+      path: '/daftarKeluarga',
       body: {
         id: TEST_KELUARGA_1_ID,
         nomorKk: '3201234567890000',
@@ -28,7 +28,7 @@ describe('Core REST API Update One endpoint', () => {
     });
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: {
         id: TEST_PENDUDUK_1_ID,
         kartuKeluargaId: TEST_KELUARGA_1_ID,
@@ -39,7 +39,7 @@ describe('Core REST API Update One endpoint', () => {
   it('should update an existing penduduk (namaLengkap and tempatLahir)', async () => {
     const response = await makeRestAPIRequest({
       method: 'patch',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
       body: updatedData,
     });
 
@@ -61,7 +61,7 @@ describe('Core REST API Update One endpoint', () => {
   it('should support depth 0 parameter', async () => {
     await makeRestAPIRequest({
       method: 'patch',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}?depth=0`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}?depth=0`,
       body: updatedData,
     })
       .expect(200)
@@ -76,7 +76,7 @@ describe('Core REST API Update One endpoint', () => {
   it('should support depth 1 parameter', async () => {
     await makeRestAPIRequest({
       method: 'patch',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}?depth=1`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}?depth=1`,
       body: updatedData,
     })
       .expect(200)
@@ -91,7 +91,7 @@ describe('Core REST API Update One endpoint', () => {
   it('should support depth 2 parameter', async () => {
     await makeRestAPIRequest({
       method: 'patch',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}?depth=2`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}?depth=2`,
       body: updatedData,
     }).expect(400);
   });
@@ -99,7 +99,7 @@ describe('Core REST API Update One endpoint', () => {
   it('should return a EntityNotFoundError when trying to update a non-existing penduduk', async () => {
     const response = await makeRestAPIRequest({
       method: 'patch',
-      path: `/penduduks/${NOT_EXISTING_TEST_PENDUDUK_ID}`,
+      path: `/daftarPenduduk/${NOT_EXISTING_TEST_PENDUDUK_ID}`,
     });
 
     expect(response.status).toBe(404);

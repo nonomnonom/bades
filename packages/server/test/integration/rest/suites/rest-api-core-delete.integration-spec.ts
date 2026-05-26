@@ -13,7 +13,7 @@ describe('Core REST API Delete One endpoint', () => {
   beforeEach(async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/penduduks`,
+      path: `/daftarPenduduk`,
       body: {
         id: TEST_PENDUDUK_1_ID,
       },
@@ -23,7 +23,7 @@ describe('Core REST API Delete One endpoint', () => {
   it('should delete one penduduk', async () => {
     await makeRestAPIRequest({
       method: 'delete',
-      path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
+      path: `/daftarPenduduk/${TEST_PENDUDUK_1_ID}`,
     })
       .expect(200)
       .expect((res) =>
@@ -34,7 +34,7 @@ describe('Core REST API Delete One endpoint', () => {
   it('should return a EntityNotFoundError when trying to delete a non-existing penduduk', async () => {
     const response = await makeRestAPIRequest({
       method: 'delete',
-      path: `/penduduks/${NOT_EXISTING_TEST_PENDUDUK_ID}`,
+      path: `/daftarPenduduk/${NOT_EXISTING_TEST_PENDUDUK_ID}`,
     });
 
     expect(response.status).toBe(404);
@@ -51,7 +51,7 @@ describe('Core REST API Delete Many endpoint', () => {
   it('should require filters for bulk delete operations', async () => {
     const response = await makeRestAPIRequest({
       method: 'delete',
-      path: `/penduduks?soft_delete=true`,
+      path: `/daftarPenduduk?soft_delete=true`,
     });
 
     expect(response.status).toBe(400);
@@ -70,7 +70,7 @@ describe('Core REST API Destroy Many endpoint', () => {
   it('should require filters for bulk destroy operations', async () => {
     const response = await makeRestAPIRequest({
       method: 'delete',
-      path: `/penduduks?soft_delete=false`,
+      path: `/daftarPenduduk?soft_delete=false`,
     });
 
     expect(response.status).toBe(400);

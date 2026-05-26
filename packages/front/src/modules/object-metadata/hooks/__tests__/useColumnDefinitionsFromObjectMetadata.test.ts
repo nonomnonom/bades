@@ -49,7 +49,7 @@ describe('useColumnDefinitionsFromObjectMetadata', () => {
       isPasswordAuthBypassEnabled: false,
       customDomain: 'my-custom-domain.com',
       workspaceUrls: {
-        subdomainUrl: 'https://twenty.twenty.com',
+        subdomainUrl: 'https://twenty.bades.id',
         customUrl: 'https://my-custom-domain.com',
       },
       currentBillingSubscription: {

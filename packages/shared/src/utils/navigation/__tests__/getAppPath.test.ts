@@ -11,7 +11,7 @@ describe('getAppPath', () => {
   it('should generate path with params using react-router generatePath', () => {
     expect(
       getAppPath(AppPath.RecordIndexPage, {
-        objectNamePlural: 'keluargas',
+        objectNamePlural: 'daftarKeluarga',
       }),
     ).toBe('/objects/companies');
 
@@ -48,7 +48,7 @@ describe('getAppPath', () => {
     expect(
       getAppPath(
         AppPath.RecordIndexPage,
-        { objectNamePlural: 'keluargas' },
+        { objectNamePlural: 'daftarKeluarga' },
         { filter: 'active', view: 'table' },
       ),
     ).toBe('/objects/companies?filter=active&view=table');

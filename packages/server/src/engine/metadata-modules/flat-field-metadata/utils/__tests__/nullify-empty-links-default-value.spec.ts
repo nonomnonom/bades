@@ -15,12 +15,12 @@ describe('nullifyEmptyLinksDefaultValue', () => {
     expect(
       nullifyEmptyLinksDefaultValue({
         primaryLinkLabel: "''",
-        primaryLinkUrl: 'https://twenty.com',
+        primaryLinkUrl: 'https://bades.id',
         secondaryLinks: null,
       }),
     ).toEqual({
       primaryLinkLabel: null,
-      primaryLinkUrl: 'https://twenty.com',
+      primaryLinkUrl: 'https://bades.id',
       secondaryLinks: null,
     });
   });

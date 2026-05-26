@@ -6,7 +6,7 @@ import { getFieldMetadataFromGqlField } from '@/object-record/cache/utils/getFie
 const objectMetadataItemGenerator = (relationType: RelationType) => {
   return {
     nameSingular: 'programBantuan',
-    namePlural: 'programBantuans',
+    namePlural: 'daftarProgramBantuan',
     fields: [
       {
         name: 'pemilik',
@@ -16,7 +16,7 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
             type: relationType,
             targetObjectMetadata: {
               nameSingular: 'keluarga',
-              namePlural: 'keluargas',
+              namePlural: 'daftarKeluarga',
             },
             targetFieldMetadata: {
               name: 'dimilikiOleh',
@@ -28,14 +28,14 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
             },
             sourceObjectMetadata: {
               nameSingular: 'programBantuan',
-              namePlural: 'programBantuans',
+              namePlural: 'daftarProgramBantuan',
             },
           },
           {
             type: relationType,
             targetObjectMetadata: {
               nameSingular: 'penduduk',
-              namePlural: 'penduduks',
+              namePlural: 'daftarPenduduk',
             },
             targetFieldMetadata: {
               name: 'dimilikiOleh',
@@ -47,7 +47,7 @@ const objectMetadataItemGenerator = (relationType: RelationType) => {
             },
             sourceObjectMetadata: {
               nameSingular: 'programBantuan',
-              namePlural: 'programBantuans',
+              namePlural: 'daftarProgramBantuan',
             },
           },
         ],
@@ -133,13 +133,13 @@ describe('getFieldMetadataFromGqlField', () => {
     expect(result?.type).toBe(FieldMetadataType.MORPH_RELATION);
   });
 
-  it('should find pemilikKeluargas by computed morph relation ONE_TO_MANY field name', () => {
+  it('should find pemilikDaftarKeluarga by computed morph relation ONE_TO_MANY field name', () => {
     const objectMetadataItem = objectMetadataItemGenerator(
       RelationType.ONE_TO_MANY,
     );
     const result = getFieldMetadataFromGqlField({
       objectMetadataItem,
-      gqlField: 'pemilikKeluargas',
+      gqlField: 'pemilikDaftarKeluarga',
     });
 
     expect(result).toBeDefined();

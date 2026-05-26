@@ -77,7 +77,7 @@ export const SettingsDataModelRelationFieldPreview = ({
   const isRelation = fieldMetadataItem.type === FieldMetadataType.RELATION;
   const metadata = {
     fieldName,
-    objectMetadataNameSingular: 'company',
+    objectMetadataNameSingular: 'penduduk',
     relationObjectMetadataNameSingular: relationTargetObjectNameSingular,
     options: [],
     settings: fieldMetadataItem.settings,

@@ -82,7 +82,7 @@ describe('getUniqueConstraintsFields', () => {
     id: 'object-id-1',
     workspaceId: 'workspace-id-1',
     nameSingular: 'penduduk',
-    namePlural: 'penduduks',
+    namePlural: 'daftarPenduduk',
     labelSingular: 'Penduduk',
     labelPlural: 'Penduduk',
     description: 'A person object',

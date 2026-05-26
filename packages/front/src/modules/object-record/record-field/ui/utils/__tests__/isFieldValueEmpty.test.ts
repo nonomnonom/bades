@@ -209,7 +209,7 @@ describe('isFieldValueEmpty', () => {
           primaryLinkLabel: null,
           secondaryLinks: [
             { url: 'wikipedia', label: 'Invalid URL' },
-            { url: 'https://docs.twenty.com', label: 'Documentation' },
+            { url: 'https://docs.bades.id', label: 'Documentation' },
           ],
         },
       }),

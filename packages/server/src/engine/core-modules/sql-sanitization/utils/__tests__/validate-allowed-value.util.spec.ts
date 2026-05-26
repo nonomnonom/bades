@@ -14,7 +14,7 @@ describe('validateAllowedValue', () => {
 
   it('should reject disallowed values', () => {
     expect(() => validateAllowedValue('mango', allowedFruits, 'fruit')).toThrow(
-      'Invalid fruit: mango',
+      'fruit tidak valid: mango',
     );
   });
 

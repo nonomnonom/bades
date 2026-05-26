@@ -14,7 +14,7 @@ import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graph
 //                                        pakai createdAt untuk granularitas waktu.
 //   opportunity.companyId (RELATION)  → programBantuan tidak punya relasi ke
 //                                        keluarga secara langsung; test relasi
-//                                        menggunakan keluarga→penduduks (ONE-TO-MANY).
+//                                        menggunakan keluarga→daftarPenduduk (ONE-TO-MANY).
 const PROGRAM_BANTUAN_GQL_FIELDS = `
   id
   status
@@ -164,7 +164,7 @@ describe('basic group-by with records', () => {
   it('groups by status and createdAt with records', async () => {
     const response = await makeGraphqlAPIRequest({
       query: gql`
-        query ProgramBantuansGroupBy(
+        query DaftarProgramBantuanGroupBy(
           $groupBy: [ProgramBantuanGroupByInput!]!
           $filter: ProgramBantuanFilterInput
           $limit: Int
@@ -279,7 +279,7 @@ describe('basic group-by with records', () => {
     // Test dengan filter hanya AKTIF
     const response = await makeGraphqlAPIRequest({
       query: gql`
-        query ProgramBantuansGroupBy(
+        query DaftarProgramBantuanGroupBy(
           $groupBy: [ProgramBantuanGroupByInput!]!
           $filter: ProgramBantuanFilterInput
           $limit: Int
@@ -360,10 +360,10 @@ describe('basic group-by with records', () => {
     expect(thursdayAktifGroup.edges).toHaveLength(2);
   });
 
-  it('groups keluargas by createdAt with records', async () => {
+  it('groups daftarKeluarga by createdAt with records', async () => {
     const response = await makeGraphqlAPIRequest({
       query: gql`
-        query KeluargasGroupBy(
+        query DaftarKeluargaGroupBy(
           $groupBy: [KeluargaGroupByInput!]!
           $filter: KeluargaFilterInput
           $limit: Int
@@ -421,7 +421,7 @@ describe('basic group-by with records', () => {
     const getQueryWithOrderByForRecords = (orderByForRecords: string) => {
       return {
         query: gql`
-          query ProgramBantuansGroupBy(
+          query DaftarProgramBantuanGroupBy(
             $groupBy: [ProgramBantuanGroupByInput!]!
             $filter: ProgramBantuanFilterInput
             $orderByForRecords: [ProgramBantuanOrderByInput!]

@@ -24,11 +24,11 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 
 const client = request(`http://localhost:${APP_PORT}`);
 
-// GQL fields keluarga dengan relasi penduduks dan tempatLahir (setara company+people.city)
+// GQL fields keluarga dengan relasi daftarPenduduk dan tempatLahir (setara company+daftarPenduduk.city)
 const KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR = `
       id
       nomorKk
-      penduduks {
+      daftarPenduduk {
         edges {
           node {
             id
@@ -47,7 +47,7 @@ const KELUARGA_GQL_FIELDS_WITH_ALAMAT = `
       id
       nomorKk
       alamat
-      penduduks {
+      daftarPenduduk {
         edges {
           node {
             id
@@ -64,7 +64,7 @@ const KELUARGA_GQL_FIELDS_WITH_ALAMAT = `
 const KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT_AND_WITHOUT_PENDUDUK_TEMPAT_LAHIR = `
       id
       nomorKk
-      penduduks {
+      daftarPenduduk {
         edges {
           node {
             id
@@ -77,11 +77,11 @@ const KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT_AND_WITHOUT_PENDUDUK_TEMPAT_LAHIR = `
       }
 `;
 
-// GQL fields aggregate keluarga atas tempatLahir di relasi penduduks
+// GQL fields aggregate keluarga atas tempatLahir di relasi daftarPenduduk
 const KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR_AGGREGATE = `
       id
       nomorKk
-      penduduks {
+      daftarPenduduk {
         percentageEmptyTempatLahir
       }
 `;
@@ -307,7 +307,7 @@ describe('Field permissions restrictions', () => {
     it('1. findMany', async () => {
       const graphqlOperation = findManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
       });
       const response =
@@ -315,7 +315,7 @@ describe('Field permissions restrictions', () => {
 
       expectNoGraphQLErrors(response);
       expect(
-        response.body.data.keluargas.edges[0].node.alamat,
+        response.body.data.daftarKeluarga.edges[0].node.alamat,
       ).toBeDefined();
     });
 
@@ -335,7 +335,7 @@ describe('Field permissions restrictions', () => {
     it('3. updateMany', async () => {
       const graphqlOperation = updateManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         filter: { id: { eq: testKeluargaId } },
         data: { nomorKk: '3578012345678902' },
@@ -364,7 +364,7 @@ describe('Field permissions restrictions', () => {
     it('5. createMany', async () => {
       const graphqlOperation = createManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         data: [
           {
@@ -406,7 +406,7 @@ describe('Field permissions restrictions', () => {
     it('6. deleteMany', async () => {
       const graphqlOperation = deleteManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         filter: { id: { eq: testKeluargaId } },
       });
@@ -439,7 +439,7 @@ describe('Field permissions restrictions', () => {
     );
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields: KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR,
     });
     const response =
@@ -447,7 +447,7 @@ describe('Field permissions restrictions', () => {
 
     expectNoGraphQLErrors(response);
     expect(
-      response.body.data.keluargas.edges[0].node.penduduks.edges[0].node
+      response.body.data.daftarKeluarga.edges[0].node.daftarPenduduk.edges[0].node
         .tempatLahir,
     ).toBeDefined();
   });
@@ -467,7 +467,7 @@ describe('Field permissions restrictions', () => {
     // Query TIDAK meminta field yang dibatasi
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields:
         KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT_AND_WITHOUT_PENDUDUK_TEMPAT_LAHIR,
     });
@@ -476,7 +476,7 @@ describe('Field permissions restrictions', () => {
 
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.keluargas.edges[0].node.id).toBeDefined();
+    expect(response.body.data.daftarKeluarga.edges[0].node.id).toBeDefined();
   });
 
   describe('Aggregate operations', () => {
@@ -490,8 +490,8 @@ describe('Field permissions restrictions', () => {
       // Query meminta aggregate dari field yang dibatasi
       const graphqlOperation = {
         query: gql`
-          query Keluargas {
-            keluargas {
+          query DaftarKeluarga {
+            daftarKeluarga {
               countEmptyAlamat
             }
           }
@@ -501,7 +501,7 @@ describe('Field permissions restrictions', () => {
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
       expectNoGraphQLErrors(response);
-      expect(response.body.data.keluargas.countEmptyAlamat).toBeDefined();
+      expect(response.body.data.daftarKeluarga.countEmptyAlamat).toBeDefined();
     });
 
     it('2. should allow aggregate over a restricted field on a related object', async () => {
@@ -514,7 +514,7 @@ describe('Field permissions restrictions', () => {
       // Query meminta aggregate dari field terbatas pada object relasi
       const graphqlOperation = findManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR_AGGREGATE,
       });
       const response =
@@ -522,7 +522,7 @@ describe('Field permissions restrictions', () => {
 
       expectNoGraphQLErrors(response);
       expect(
-        response.body.data.keluargas.edges[0].node.penduduks
+        response.body.data.daftarKeluarga.edges[0].node.daftarPenduduk
           .percentageEmptyTempatLahir,
       ).toBeDefined();
     });

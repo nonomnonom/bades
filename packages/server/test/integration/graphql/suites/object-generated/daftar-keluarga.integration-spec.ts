@@ -3,11 +3,11 @@ import request from 'supertest';
 const client = request(`http://localhost:${APP_PORT}`);
 
 describe('companiesResolver (e2e)', () => {
-  it('should find many companies', () => {
+  it('should find many daftarKeluarga', () => {
     const queryData = {
       query: `
-        query companies {
-          companies {
+        query daftarKeluarga {
+          daftarKeluarga {
             edges {
               node {
                 name
@@ -40,7 +40,7 @@ describe('companiesResolver (e2e)', () => {
         expect(res.body.errors).toBeUndefined();
       })
       .expect((res) => {
-        const data = res.body.data.companies;
+        const data = res.body.data.daftarKeluarga;
 
         expect(data).toBeDefined();
         expect(Array.isArray(data.edges)).toBe(true);
@@ -48,21 +48,21 @@ describe('companiesResolver (e2e)', () => {
         const edges = data.edges;
 
         if (edges.length > 0) {
-          const companies = edges[0].node;
+          const daftarKeluarga = edges[0].node;
 
-          expect(companies).toHaveProperty('name');
-          expect(companies).toHaveProperty('employees');
-          expect(companies).toHaveProperty('idealCustomerProfile');
-          expect(companies).toHaveProperty('position');
-          expect(companies).toHaveProperty('searchVector');
-          expect(companies).toHaveProperty('id');
-          expect(companies).toHaveProperty('createdAt');
-          expect(companies).toHaveProperty('updatedAt');
-          expect(companies).toHaveProperty('deletedAt');
-          expect(companies).toHaveProperty('accountOwnerId');
-          expect(companies).toHaveProperty('tagline');
-          expect(companies).toHaveProperty('workPolicy');
-          expect(companies).toHaveProperty('visaSponsorship');
+          expect(daftarKeluarga).toHaveProperty('name');
+          expect(daftarKeluarga).toHaveProperty('employees');
+          expect(daftarKeluarga).toHaveProperty('idealCustomerProfile');
+          expect(daftarKeluarga).toHaveProperty('position');
+          expect(daftarKeluarga).toHaveProperty('searchVector');
+          expect(daftarKeluarga).toHaveProperty('id');
+          expect(daftarKeluarga).toHaveProperty('createdAt');
+          expect(daftarKeluarga).toHaveProperty('updatedAt');
+          expect(daftarKeluarga).toHaveProperty('deletedAt');
+          expect(daftarKeluarga).toHaveProperty('accountOwnerId');
+          expect(daftarKeluarga).toHaveProperty('tagline');
+          expect(daftarKeluarga).toHaveProperty('workPolicy');
+          expect(daftarKeluarga).toHaveProperty('visaSponsorship');
         }
       });
   });

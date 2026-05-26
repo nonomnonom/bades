@@ -1,4 +1,3 @@
-import { CoreObjectNameSingular } from 'shared/types';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { useRelationFieldPreviewValue } from '@/settings/data-model/fields/preview/hooks/useRelationFieldPreviewValue';
 import { getAddressFieldPreviewValue } from '@/settings/data-model/fields/preview/utils/getAddressFieldPreviewValue';
@@ -25,8 +24,7 @@ export const useFieldPreviewValue = ({
   skip,
 }: UseFieldPreviewParams) => {
   const relationFieldPreviewValue = useRelationFieldPreviewValue({
-    relationObjectNameSingular:
-      relationObjectNameSingular ?? 'penduduk',
+    relationObjectNameSingular: relationObjectNameSingular ?? 'penduduk',
     skip:
       skip ||
       (fieldMetadataItem.type !== FieldMetadataType.RELATION &&

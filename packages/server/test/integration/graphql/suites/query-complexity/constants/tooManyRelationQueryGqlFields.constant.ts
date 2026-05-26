@@ -64,7 +64,7 @@ export const TOO_MANY_RELATION_QUERY_GQL_FIELDS = `
     }
     company {
       id
-      people {
+      daftarPenduduk {
         edges {
           node {
             id

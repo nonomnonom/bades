@@ -23,7 +23,7 @@ describe('createManyObjectRecordsPermissions', () => {
   it('should throw a permission error when user does not have permission (guest role)', async () => {
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -37,7 +37,7 @@ describe('createManyObjectRecordsPermissions', () => {
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ createPenduduks: null });
+    expect(response.body.data).toStrictEqual({ createDaftarPenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -51,7 +51,7 @@ describe('createManyObjectRecordsPermissions', () => {
 
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -68,15 +68,15 @@ describe('createManyObjectRecordsPermissions', () => {
     createdPendudukIds.push(pendudukId1, pendudukId2);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.createPenduduks).toBeDefined();
-    expect(response.body.data.createPenduduks).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk).toBeDefined();
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
     expect([
-      response.body.data.createPenduduks[0].id,
-      response.body.data.createPenduduks[1].id,
+      response.body.data.createDaftarPenduduk[0].id,
+      response.body.data.createDaftarPenduduk[1].id,
     ]).toContain(pendudukId1);
     expect([
-      response.body.data.createPenduduks[0].id,
-      response.body.data.createPenduduks[1].id,
+      response.body.data.createDaftarPenduduk[0].id,
+      response.body.data.createDaftarPenduduk[1].id,
     ]).toContain(pendudukId2);
   });
 
@@ -86,7 +86,7 @@ describe('createManyObjectRecordsPermissions', () => {
 
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -103,9 +103,9 @@ describe('createManyObjectRecordsPermissions', () => {
     createdPendudukIds.push(pendudukId1, pendudukId2);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.createPenduduks).toBeDefined();
-    expect(response.body.data.createPenduduks).toHaveLength(2);
-    expect(response.body.data.createPenduduks[0].id).toBe(pendudukId1);
-    expect(response.body.data.createPenduduks[1].id).toBe(pendudukId2);
+    expect(response.body.data.createDaftarPenduduk).toBeDefined();
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk[0].id).toBe(pendudukId1);
+    expect(response.body.data.createDaftarPenduduk[1].id).toBe(pendudukId2);
   });
 });

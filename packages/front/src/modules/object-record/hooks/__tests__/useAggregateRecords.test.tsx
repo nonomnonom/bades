@@ -20,7 +20,7 @@ jest.mock('@/object-record/hooks/useAggregateRecordsQuery');
 
 const mockObjectMetadataItem = {
   nameSingular: 'programBantuan',
-  namePlural: 'programBantuans',
+  namePlural: 'daftarProgramBantuan',
 };
 
 const mockGqlFieldToFieldMap = {

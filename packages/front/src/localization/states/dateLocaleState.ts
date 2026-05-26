@@ -1,5 +1,5 @@
 import { type Locale } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { id as idLocale } from 'date-fns/locale';
 import { type APP_LOCALES } from 'shared/translations';
 
 import { createAtomState } from '@/ui/utilities/state/jotai/utils/createAtomState';
@@ -12,7 +12,7 @@ type DateLocaleState = {
 export const dateLocaleState = createAtomState<DateLocaleState>({
   key: 'dateLocaleState',
   defaultValue: {
-    locale: undefined,
-    localeCatalog: enUS,
+    locale: 'id-ID',
+    localeCatalog: idLocale,
   },
 });

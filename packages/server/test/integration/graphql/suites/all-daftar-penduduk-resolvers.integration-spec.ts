@@ -18,7 +18,7 @@ import { updateOneOperationFactory } from 'test/integration/graphql/utils/update
 import { deleteAllRecords } from 'test/integration/utils/delete-all-records';
 import { generateRecordName } from 'test/integration/utils/generate-record-name';
 
-describe('penduduks resolvers (integration)', () => {
+describe('daftarPenduduk resolvers (integration)', () => {
   beforeAll(async () => {
     await deleteAllRecords('penduduk');
   });
@@ -28,7 +28,7 @@ describe('penduduks resolvers (integration)', () => {
     const tempatLahir2 = generateRecordName(TEST_PENDUDUK_2_ID);
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -44,10 +44,10 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.createPenduduks).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
 
     // @ts-expect-error legacy noImplicitAny
-    response.body.data.createPenduduks.forEach((penduduk) => {
+    response.body.data.createDaftarPenduduk.forEach((penduduk) => {
       expect(penduduk).toHaveProperty('tempatLahir');
       expect([tempatLahir1, tempatLahir2]).toContain(penduduk.tempatLahir);
 
@@ -104,13 +104,13 @@ describe('penduduks resolvers (integration)', () => {
   it('2. harus menemukan banyak penduduk', async () => {
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
     });
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    const data = response.body.data.penduduks;
+    const data = response.body.data.daftarPenduduk;
 
     expect(data).toBeDefined();
     expect(Array.isArray(data.edges)).toBe(true);
@@ -161,7 +161,7 @@ describe('penduduks resolvers (integration)', () => {
   it('3. harus memperbarui banyak penduduk', async () => {
     const graphqlOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: {
         tempatLahir: 'Bandung',
@@ -175,12 +175,12 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    const updatedPenduduks = response.body.data.updatePenduduks;
+    const updatedDaftarPenduduk = response.body.data.updateDaftarPenduduk;
 
-    expect(updatedPenduduks).toHaveLength(2);
+    expect(updatedDaftarPenduduk).toHaveLength(2);
 
     // @ts-expect-error legacy noImplicitAny
-    updatedPenduduks.forEach((penduduk) => {
+    updatedDaftarPenduduk.forEach((penduduk) => {
       expect(penduduk.tempatLahir).toEqual('Bandung');
     });
   });
@@ -205,7 +205,7 @@ describe('penduduks resolvers (integration)', () => {
   it('4. harus menemukan banyak penduduk dengan tempatLahir yang sudah diperbarui', async () => {
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         tempatLahir: {
@@ -216,7 +216,7 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.penduduks.edges).toHaveLength(2);
+    expect(response.body.data.daftarPenduduk.edges).toHaveLength(2);
   });
 
   it('4b. harus menemukan satu penduduk dengan tempatLahir yang sudah diperbarui', async () => {
@@ -238,7 +238,7 @@ describe('penduduks resolvers (integration)', () => {
   it('5. harus menghapus (soft-delete) banyak penduduk', async () => {
     const graphqlOperation = deleteManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -249,12 +249,12 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    const deletePenduduks = response.body.data.deletePenduduks;
+    const deleteDaftarPenduduk = response.body.data.deleteDaftarPenduduk;
 
-    expect(deletePenduduks).toHaveLength(2);
+    expect(deleteDaftarPenduduk).toHaveLength(2);
 
     // @ts-expect-error legacy noImplicitAny
-    deletePenduduks.forEach((penduduk) => {
+    deleteDaftarPenduduk.forEach((penduduk) => {
       expect(penduduk.deletedAt).toBeTruthy();
     });
   });
@@ -274,7 +274,7 @@ describe('penduduks resolvers (integration)', () => {
   it('6. harus tidak menemukan banyak penduduk yang sudah dihapus', async () => {
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -283,9 +283,9 @@ describe('penduduks resolvers (integration)', () => {
       },
     });
 
-    const findPenduduksResponse = await makeGraphqlAPIRequest(graphqlOperation);
+    const findDaftarPendudukResponse = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(findPenduduksResponse.body.data.penduduks.edges).toHaveLength(0);
+    expect(findDaftarPendudukResponse.body.data.daftarPenduduk.edges).toHaveLength(0);
   });
 
   it('6b. harus tidak menemukan satu penduduk yang sudah dihapus', async () => {
@@ -307,7 +307,7 @@ describe('penduduks resolvers (integration)', () => {
   it('7. harus menemukan banyak penduduk yang dihapus dengan filter deletedAt', async () => {
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -323,7 +323,7 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.penduduks.edges).toHaveLength(2);
+    expect(response.body.data.daftarPenduduk.edges).toHaveLength(2);
   });
 
   it('7b. harus menemukan satu penduduk yang dihapus dengan filter deletedAt', async () => {
@@ -350,7 +350,7 @@ describe('penduduks resolvers (integration)', () => {
   it('8. harus menghapus permanen banyak penduduk', async () => {
     const graphqlOperation = destroyManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -361,7 +361,7 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.destroyPenduduks).toHaveLength(2);
+    expect(response.body.data.destroyDaftarPenduduk).toHaveLength(2);
   });
 
   it('8b. harus menghapus permanen satu penduduk', async () => {
@@ -371,16 +371,16 @@ describe('penduduks resolvers (integration)', () => {
       recordId: TEST_PENDUDUK_3_ID,
     });
 
-    const destroyPenduduksResponse =
+    const destroyDaftarPendudukResponse =
       await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(destroyPenduduksResponse.body.data.destroyPenduduk).toBeTruthy();
+    expect(destroyDaftarPendudukResponse.body.data.destroyPenduduk).toBeTruthy();
   });
 
   it('9. harus tidak menemukan banyak penduduk setelah dihapus permanen', async () => {
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -396,7 +396,7 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.penduduks.edges).toHaveLength(0);
+    expect(response.body.data.daftarPenduduk.edges).toHaveLength(0);
   });
 
   it('9b. harus tidak menemukan satu penduduk setelah dihapus permanen', async () => {

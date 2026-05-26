@@ -43,8 +43,8 @@ describe('objectRecordCounts', () => {
 
     const objectNames = counts.map((entry) => entry.objectNamePlural);
 
-    expect(objectNames).toContain('people');
-    expect(objectNames).toContain('companies');
+    expect(objectNames).toContain('daftarPenduduk');
+    expect(objectNames).toContain('daftarKeluarga');
     expect(objectNames).toContain('opportunities');
   });
 

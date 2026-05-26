@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const AGGREGATE_QUERY = gql`
-  query AggregateProgramBantuans($filter: ProgramBantuanFilterInput) {
-    programBantuans(filter: $filter) {
+  query AggregateDaftarProgramBantuan($filter: ProgramBantuanFilterInput) {
+    daftarProgramBantuan(filter: $filter) {
       totalCount
       sumAmount
       avgAmount
@@ -11,7 +11,7 @@ export const AGGREGATE_QUERY = gql`
 `;
 
 export const mockResponse = {
-  programBantuans: {
+  daftarProgramBantuan: {
     totalCount: 42,
     sumAmount: 1000000,
     avgAmount: 23800,

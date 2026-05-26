@@ -80,7 +80,7 @@ describe('FileStorageDriverFactory', () => {
       jest.spyOn(badesConfigService, 'get').mockReturnValue('unsupported-type');
 
       expect(() => factory['buildConfigKey']()).toThrow(
-        'Unsupported storage type: unsupported-type',
+        'Tipe storage tidak didukung: unsupported-type',
       );
     });
   });
@@ -164,7 +164,7 @@ describe('FileStorageDriverFactory', () => {
       jest.spyOn(badesConfigService, 'get').mockReturnValue('invalid-type');
 
       expect(() => factory['createDriver']()).toThrow(
-        'Invalid storage driver type: invalid-type',
+        'Tipe driver storage tidak valid: invalid-type',
       );
     });
   });
@@ -283,7 +283,7 @@ describe('FileStorageDriverFactory', () => {
         .mockReturnValue('invalid-storage-type');
 
       expect(() => factory.getCurrentDriver()).toThrow(
-        'Failed to build config key for FileStorageDriverFactory. Original error: Unsupported storage type: invalid-storage-type',
+        'Failed to build config key for FileStorageDriverFactory. Original error: Tipe storage tidak didukung: invalid-storage-type',
       );
     });
 

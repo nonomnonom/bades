@@ -69,7 +69,7 @@ describe('configVariableMaskSensitiveData', () => {
           { variableName: 'TEST_URL' },
         ),
       ).toThrow(
-        'Invalid URL format for TEST_URL in HIDE_PASSWORD masking strategy',
+        'Format URL tidak valid untuk TEST_URL dalam strategi masking HIDE_PASSWORD',
       );
     });
   });

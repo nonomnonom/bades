@@ -7,7 +7,7 @@ describe('generateGroupByQuery', () => {
       description: 'single aggregate operation',
       objectMetadataItem: {
         nameSingular: 'programBantuan',
-        namePlural: 'programBantuans',
+        namePlural: 'daftarProgramBantuan',
       },
       aggregateOperations: ['sumAmountAmountMicros'],
     },
@@ -15,7 +15,7 @@ describe('generateGroupByQuery', () => {
       description: 'multiple aggregate operations',
       objectMetadataItem: {
         nameSingular: 'programBantuan',
-        namePlural: 'programBantuans',
+        namePlural: 'daftarProgramBantuan',
       },
       aggregateOperations: [
         'totalCount',
@@ -27,7 +27,7 @@ describe('generateGroupByQuery', () => {
       description: 'empty aggregate operations',
       objectMetadataItem: {
         nameSingular: 'penduduk',
-        namePlural: 'penduduks',
+        namePlural: 'daftarPenduduk',
       },
       aggregateOperations: [],
     },

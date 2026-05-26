@@ -3,7 +3,7 @@ import { getFlatObjectMetadataMock } from 'src/engine/metadata-modules/flat-obje
 export const PENDUDUK_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
   id: '843e0b67-9619-4628-91c4-2fa62256a611',
   nameSingular: 'penduduk',
-  namePlural: 'penduduks',
+  namePlural: 'daftarPenduduk',
   labelSingular: 'Penduduk',
   labelPlural: 'Penduduk',
   description: 'Warga desa',

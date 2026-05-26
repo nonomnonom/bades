@@ -74,7 +74,7 @@ describe('getFieldOrderBy', () => {
           OrderByDirection.AscNullsLast,
         ),
       ).toThrow(
-        'Group by subFieldName is required for composite fields (field: name)',
+        'groupBySubFieldName diperlukan untuk field komposit (field: name)',
       );
     });
   });

@@ -119,7 +119,7 @@ describe('permissionsOnRelations', () => {
     // Query yang menyertakan relasi keluarga
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: `
           id
           tempatLahir
@@ -159,7 +159,7 @@ describe('permissionsOnRelations', () => {
     // Query yang menyertakan relasi keluarga
     const graphqlOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: `
           id
           tempatLahir
@@ -175,8 +175,8 @@ describe('permissionsOnRelations', () => {
 
     // Query harus berhasil
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.penduduks).toBeDefined();
-    const penduduk = response.body.data.penduduks.edges[0].node;
+    expect(response.body.data.daftarPenduduk).toBeDefined();
+    const penduduk = response.body.data.daftarPenduduk.edges[0].node;
 
     expect(penduduk.kartuKeluarga).toBeDefined();
     expect(response.body.error).toBeUndefined();
@@ -210,7 +210,7 @@ describe('permissionsOnRelations', () => {
           kartuKeluarga {
             id
             nomorKk
-            programBantuans {
+            daftarProgramBantuan {
               edges {
                 node {
                   namaProgram

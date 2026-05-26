@@ -10,7 +10,7 @@ describe('filterAndSortNavigationMenuItems', () => {
   const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
     id: 'metadata-id',
     nameSingular: 'penduduk',
-    namePlural: 'penduduks',
+    namePlural: 'daftarPenduduk',
     labelPlural: 'Penduduk',
     icon: 'IconUser',
     isActive: true,

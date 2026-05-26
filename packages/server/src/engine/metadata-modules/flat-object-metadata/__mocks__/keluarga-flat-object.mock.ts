@@ -3,7 +3,7 @@ import { getFlatObjectMetadataMock } from 'src/engine/metadata-modules/flat-obje
 export const KELUARGA_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
   id: '7f5c2c7a-bb23-46fb-b59d-9b7a52a8d1cc',
   nameSingular: 'keluarga',
-  namePlural: 'keluargas',
+  namePlural: 'daftarKeluarga',
   labelSingular: 'Keluarga',
   labelPlural: 'Keluarga',
   description: 'Kartu Keluarga',

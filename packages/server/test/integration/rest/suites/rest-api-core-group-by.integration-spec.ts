@@ -158,7 +158,7 @@ describe('REST API Core Group By endpoint', () => {
 
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/programBantuans/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(FILTER_2020)}&include_records_sample=true&limit=3`,
+      path: `/daftarProgramBantuan/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(FILTER_2020)}&include_records_sample=true&limit=3`,
       body: {},
     });
 
@@ -241,7 +241,7 @@ describe('REST API Core Group By endpoint', () => {
 
     const response = await makeRestAPIRequest({
       method: 'get',
-      path: `/programBantuans/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(filterQuery)}&include_records_sample=true&limit=2`,
+      path: `/daftarProgramBantuan/groupBy?group_by=${encodeURIComponent(groupByQuery)}&aggregate=${encodeURIComponent(AGGREGATE_FIELDS)}&filter=${encodeURIComponent(filterQuery)}&include_records_sample=true&limit=2`,
       body: {},
     });
 
@@ -292,7 +292,7 @@ describe('REST API Core Group By endpoint', () => {
 
       return {
         method: 'get' as const,
-        path: `/programBantuans/groupBy?group_by=${encodeURIComponent(groupByQuery)}&filter=${encodeURIComponent(FILTER_2020)}&order_by_for_records=${encodeURIComponent(`namaProgram[${orderByForRecords}]`)}&include_records_sample=true&limit=5`,
+        path: `/daftarProgramBantuan/groupBy?group_by=${encodeURIComponent(groupByQuery)}&filter=${encodeURIComponent(FILTER_2020)}&order_by_for_records=${encodeURIComponent(`namaProgram[${orderByForRecords}]`)}&include_records_sample=true&limit=5`,
         body: {},
       };
     };

@@ -31,7 +31,7 @@ describe('isActivityTargetField', () => {
       isActivityTargetField('keluarga', 'person'),
     ).toBe(false);
     expect(
-      isActivityTargetField('penduduks', 'company'),
+      isActivityTargetField('daftarPenduduk', 'company'),
     ).toBe(false);
   });
 });

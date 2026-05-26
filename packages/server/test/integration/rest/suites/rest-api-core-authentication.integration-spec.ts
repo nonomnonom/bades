@@ -4,7 +4,7 @@ describe('Core REST API Authentication', () => {
   it('should return an UnauthorizedException when no token is provided', async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/daftarPenduduk`,
       bearer: '',
     })
       .expect(403)
@@ -17,7 +17,7 @@ describe('Core REST API Authentication', () => {
   it('should return an Unauthenticated when an invalid token is provided', async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/daftarPenduduk`,
       bearer: INVALID_ACCESS_TOKEN,
     })
       .expect(401)
@@ -30,7 +30,7 @@ describe('Core REST API Authentication', () => {
   it('should return an Unauthenticated when no token is provided', async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/daftarPenduduk`,
       bearer: 'invalid-token',
     })
       .expect(401)
@@ -43,7 +43,7 @@ describe('Core REST API Authentication', () => {
   it('should return an Unauthenticated when an expired token is provided', async () => {
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/daftarPenduduk`,
       bearer: EXPIRED_ACCESS_TOKEN,
     })
       .expect(401)

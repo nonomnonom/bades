@@ -203,7 +203,7 @@ describe('evaluateFilterConditions', () => {
         );
 
         expect(() => evaluateFilterConditions({ filters: [filter] })).toThrow(
-          'Operand CONTAINS not supported for relation filter',
+          'Operand CONTAINS tidak didukung untuk filter relasi',
         );
       });
     });
@@ -307,7 +307,7 @@ describe('evaluateFilterConditions', () => {
         );
 
         expect(() => evaluateFilterConditions({ filters: [filter] })).toThrow(
-          'Operand CONTAINS not supported for uuid filter',
+          'Operand CONTAINS tidak didukung untuk filter uuid',
         );
       });
     });
@@ -1619,7 +1619,7 @@ describe('evaluateFilterConditions', () => {
 
         expect(() =>
           evaluateFilterConditions({ filterGroups, filters }),
-        ).toThrow('Filter group with id nonexistent not found');
+        ).toThrow('Grup filter dengan id nonexistent tidak ditemukan');
       });
     });
   });

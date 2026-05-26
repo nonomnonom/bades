@@ -6,7 +6,7 @@ export const JABATAN_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   // pada workspace existing.
   labelPlural: 'Perangkat Desa',
   labelSingular: 'Perangkat Desa',
-  namePlural: 'jabatans',
+  namePlural: 'daftarJabatan',
   nameSingular: 'jabatan',
   icon: 'IconIdBadge',
   description: 'Perangkat desa yang sedang atau pernah menjabat',

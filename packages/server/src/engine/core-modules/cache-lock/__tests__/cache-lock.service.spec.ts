@@ -67,7 +67,7 @@ describe('CacheLockService', () => {
 
     await expect(
       service.withLock(fn, 'key', { ms, maxRetries }),
-    ).rejects.toThrow('Failed to acquire lock for key: key');
+    ).rejects.toThrow('Gagal mendapatkan kunci untuk: key');
 
     expect(cacheStorageService.acquireLock).toHaveBeenCalledTimes(maxRetries);
     expect(fn).not.toHaveBeenCalled();

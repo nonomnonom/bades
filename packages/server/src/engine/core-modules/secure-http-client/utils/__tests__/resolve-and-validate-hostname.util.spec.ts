@@ -33,7 +33,7 @@ describe('resolveAndValidateHostname', () => {
     await expect(
       resolveAndValidateHostname('evil.example.com', mockDnsLookup),
     ).rejects.toThrow(
-      'Connection to internal IP address 10.0.0.1 is not allowed.',
+      'Koneksi ke alamat IP internal 10.0.0.1 tidak diizinkan.',
     );
   });
 

@@ -208,7 +208,7 @@ describe('shouldHideChartSetting', () => {
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
       id: 'object-id',
       nameSingular: 'programBantuan',
-      namePlural: 'programBantuans',
+      namePlural: 'daftarProgramBantuan',
       labelSingular: 'Program Bantuan',
       labelPlural: 'Program Bantuan',
       description: 'An opportunity',
@@ -398,7 +398,7 @@ describe('shouldHideChartSetting', () => {
       const targetObjectMetadata: any = {
         id: 'company-id',
         nameSingular: 'keluarga',
-        namePlural: 'keluargas',
+        namePlural: 'daftarKeluarga',
         fields: [
           {
             id: 'company-created-at',
@@ -506,7 +506,7 @@ describe('shouldHideChartSetting', () => {
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
       id: 'object-id',
       nameSingular: 'programBantuan',
-      namePlural: 'programBantuans',
+      namePlural: 'daftarProgramBantuan',
       labelSingular: 'Program Bantuan',
       labelPlural: 'Program Bantuan',
       description: 'An opportunity',

@@ -6,7 +6,7 @@ export const PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   // ada di workspace existing tidak ikut migrasi.
   labelPlural: 'Layanan',
   labelSingular: 'Layanan',
-  namePlural: 'permohonanSurats',
+  namePlural: 'daftarPermohonanSurat',
   nameSingular: 'permohonanSurat',
   icon: 'IconClipboardList',
   description: 'Permohonan surat dan layanan administratif dari warga desa',

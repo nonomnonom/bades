@@ -3,11 +3,11 @@ import request from 'supertest';
 const client = request(`http://localhost:${APP_PORT}`);
 
 describe('peopleResolver (e2e)', () => {
-  it('should find many people', () => {
+  it('should find many daftarPenduduk', () => {
     const queryData = {
       query: `
-        query people {
-          people {
+        query daftarPenduduk {
+          daftarPenduduk {
             edges {
               node {
                 jobTitle

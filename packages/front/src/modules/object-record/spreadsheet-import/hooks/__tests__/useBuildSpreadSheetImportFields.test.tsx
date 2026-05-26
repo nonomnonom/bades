@@ -303,7 +303,7 @@ describe('useBuildSpreadSheetImportFields', () => {
     const targetObjectMetadata = createMockObjectMetadataItem({
       id: 'target-object-id',
       nameSingular: 'keluarga',
-      namePlural: 'keluargas',
+      namePlural: 'daftarKeluarga',
       labelSingular: 'Keluarga',
       labelPlural: 'Keluarga',
       fields: [
@@ -402,7 +402,7 @@ describe('useBuildSpreadSheetImportFields', () => {
           targetObjectMetadata: {
             id: 'target-object-id',
             nameSingular: 'keluarga',
-            namePlural: 'keluargas',
+            namePlural: 'daftarKeluarga',
           },
         } as any,
       }),

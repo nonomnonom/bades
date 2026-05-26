@@ -18,7 +18,7 @@ describe('restoreManyObjectRecordsPermissions', () => {
     // Buat record penduduk
     const createGraphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -35,7 +35,7 @@ describe('restoreManyObjectRecordsPermissions', () => {
     // Hapus (soft-delete) record penduduk
     const deleteGraphqlOperation = deleteManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -50,7 +50,7 @@ describe('restoreManyObjectRecordsPermissions', () => {
   it('should throw a permission error when user does not have permission (guest role)', async () => {
     const graphqlOperation = restoreManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -61,7 +61,7 @@ describe('restoreManyObjectRecordsPermissions', () => {
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ restorePenduduks: null });
+    expect(response.body.data).toStrictEqual({ restoreDaftarPenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -72,7 +72,7 @@ describe('restoreManyObjectRecordsPermissions', () => {
   it('should restore multiple object records when user has permission (admin role)', async () => {
     const graphqlOperation = restoreManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       filter: {
         id: {
@@ -84,10 +84,10 @@ describe('restoreManyObjectRecordsPermissions', () => {
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.restorePenduduks).toBeDefined();
-    expect(response.body.data.restorePenduduks).toHaveLength(2);
+    expect(response.body.data.restoreDaftarPenduduk).toBeDefined();
+    expect(response.body.data.restoreDaftarPenduduk).toHaveLength(2);
     expect(
-      response.body.data.restorePenduduks.map((penduduk: { id: string }) => penduduk.id),
+      response.body.data.restoreDaftarPenduduk.map((penduduk: { id: string }) => penduduk.id),
     ).toEqual(expect.arrayContaining([pendudukId1, pendudukId2]));
   });
 });

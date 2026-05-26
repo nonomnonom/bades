@@ -6,8 +6,8 @@ import { print } from 'graphql';
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
-  query FindManyPeople($filter: PendudukFilterInput, $orderBy: [PendudukOrderByInput], $lastCursor: String, $limit: Int, $offset: Int) {
-    people(
+  query FindManyDaftarPenduduk($filter: PendudukFilterInput, $orderBy: [PendudukOrderByInput], $lastCursor: String, $limit: Int, $offset: Int) {
+    daftarPenduduk(
       filter: $filter
       orderBy: $orderBy
       first: $limit

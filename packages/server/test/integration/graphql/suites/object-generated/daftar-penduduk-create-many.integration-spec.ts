@@ -5,17 +5,17 @@ import { findOneOperationFactory } from 'test/integration/graphql/utils/find-one
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 import { deleteAllRecords } from 'test/integration/utils/delete-all-records';
 
-describe('penduduks resolvers (integration)', () => {
+describe('daftarPenduduk resolvers (integration)', () => {
   let penduduk2Id: string;
 
   beforeAll(async () => {
     await deleteAllRecords('penduduk');
   });
 
-  it('should create many penduduks', async () => {
+  it('should create many daftarPenduduk', async () => {
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -48,11 +48,11 @@ describe('penduduks resolvers (integration)', () => {
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.createPenduduks).toHaveLength(3);
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(3);
     expect(response.body.errors).toBeUndefined();
   });
 
-  it('should update many penduduks', async () => {
+  it('should update many daftarPenduduk', async () => {
     const findOneOperation = findOneOperationFactory({
       objectMetadataSingularName: 'penduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
@@ -69,7 +69,7 @@ describe('penduduks resolvers (integration)', () => {
 
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -88,26 +88,26 @@ describe('penduduks resolvers (integration)', () => {
 
     const findAllOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
     });
 
     const findAllResponse = await makeGraphqlAPIRequest(findAllOperation);
 
-    expect(findAllResponse.body.data.penduduks.edges.length).toBe(3);
+    expect(findAllResponse.body.data.daftarPenduduk.edges.length).toBe(3);
 
-    expect(response.body.data.createPenduduks).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
     expect(response.body.errors).toBeUndefined();
 
-    response.body.data.createPenduduks.forEach((penduduk: any) => {
+    response.body.data.createDaftarPenduduk.forEach((penduduk: any) => {
       expect(penduduk.tempatLahir).toBeTruthy();
     });
   });
 
-  it('should update and create many penduduks', async () => {
+  it('should update and create many daftarPenduduk', async () => {
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
       data: [
         {
@@ -138,17 +138,17 @@ describe('penduduks resolvers (integration)', () => {
 
     const findAllOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
     });
 
     const findAllResponse = await makeGraphqlAPIRequest(findAllOperation);
 
-    expect(findAllResponse.body.data.penduduks.edges.length).toBe(4);
+    expect(findAllResponse.body.data.daftarPenduduk.edges.length).toBe(4);
 
-    expect(response.body.data.createPenduduks).toHaveLength(3);
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(3);
     expect(
-      response.body.data.createPenduduks.find(
+      response.body.data.createDaftarPenduduk.find(
         (penduduk: any) => penduduk.id === penduduk2Id,
       ).namaLengkap.firstName,
     ).toEqual('Siti');

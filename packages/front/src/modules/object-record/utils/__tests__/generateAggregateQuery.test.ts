@@ -5,7 +5,7 @@ describe('generateAggregateQuery', () => {
   it('should generate correct aggregate query', () => {
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
       nameSingular: 'keluarga',
-      namePlural: 'keluargas',
+      namePlural: 'daftarKeluarga',
       id: 'test-id',
       universalIdentifier: 'test-id',
       labelSingular: 'Keluarga',
@@ -41,14 +41,14 @@ describe('generateAggregateQuery', () => {
     const normalizedQuery = result.loc?.source.body.replace(/\s+/g, ' ').trim();
 
     expect(normalizedQuery).toBe(
-      'query AggregateKeluargas($filter: KeluargaFilterInput) { keluargas(filter: $filter) { id name createdAt } }',
+      'query AggregateDaftarKeluarga($filter: KeluargaFilterInput) { daftarKeluarga(filter: $filter) { id name createdAt } }',
     );
   });
 
   it('should handle empty record fields', () => {
     const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
       nameSingular: 'penduduk',
-      namePlural: 'penduduks',
+      namePlural: 'daftarPenduduk',
       id: 'test-id',
       universalIdentifier: 'test-id',
       labelSingular: 'Penduduk',
@@ -81,7 +81,7 @@ describe('generateAggregateQuery', () => {
     const normalizedQuery = result.loc?.source.body.replace(/\s+/g, ' ').trim();
 
     expect(normalizedQuery).toBe(
-      'query AggregatePenduduks($filter: PendudukFilterInput) { penduduks(filter: $filter) { id } }',
+      'query AggregateDaftarPenduduk($filter: PendudukFilterInput) { daftarPenduduk(filter: $filter) { id } }',
     );
   });
 });

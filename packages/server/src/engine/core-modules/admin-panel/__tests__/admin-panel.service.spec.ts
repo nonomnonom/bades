@@ -250,7 +250,7 @@ describe('AdminPanelConfigService', () => {
       BadesConfigServiceGetVariableWithMetadataMock.mockReturnValue(undefined);
 
       expect(() => configService.getConfigVariable('INVALID_VAR')).toThrow(
-        'Config variable INVALID_VAR not found',
+        'Variabel konfigurasi INVALID_VAR tidak ditemukan',
       );
     });
   });

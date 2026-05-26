@@ -59,7 +59,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: `id`,
         filter: {
           id: {
@@ -71,7 +71,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     await createManyOperation({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields: 'id',
       data: [keluarga1, keluarga2],
     });
@@ -81,7 +81,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: `id`,
         filter: {
           id: {
@@ -96,7 +96,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
         objectMetadataSingularName: 'keluarga',
-        objectMetadataPluralName: 'keluargas',
+        objectMetadataPluralName: 'daftarKeluarga',
         gqlFields: `id`,
         filter: {
           id: {
@@ -108,7 +108,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
         objectMetadataSingularName: 'penduduk',
-        objectMetadataPluralName: 'penduduks',
+        objectMetadataPluralName: 'daftarPenduduk',
         gqlFields: `id`,
         filter: {
           id: {
@@ -145,7 +145,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
   it('should connect to other records through a MANY-TO-ONE relation - create Many - upsert false', async () => {
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       data: [
         {
@@ -169,12 +169,12 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.createPenduduks).toBeDefined();
-    expect(response.body.data.createPenduduks).toHaveLength(2);
-    expect(response.body.data.createPenduduks[0].keluarga.id).toBe(
+    expect(response.body.data.createDaftarPenduduk).toBeDefined();
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk[0].keluarga.id).toBe(
       TEST_KELUARGA_1_ID,
     );
-    expect(response.body.data.createPenduduks[1].keluarga.id).toBe(
+    expect(response.body.data.createDaftarPenduduk[1].keluarga.id).toBe(
       TEST_KELUARGA_2_ID,
     );
   });
@@ -194,7 +194,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       data: [
         {
@@ -220,14 +220,14 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.createPenduduks).toBeDefined();
-    expect(response.body.data.createPenduduks).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk).toBeDefined();
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
 
-    const updatedPenduduk = response.body.data.createPenduduks.find(
+    const updatedPenduduk = response.body.data.createDaftarPenduduk.find(
       (penduduk: ObjectRecord) => penduduk.id === TEST_PENDUDUK_1_ID,
     );
 
-    const insertedPenduduk = response.body.data.createPenduduks.find(
+    const insertedPenduduk = response.body.data.createDaftarPenduduk.find(
       (penduduk: ObjectRecord) => penduduk.id === TEST_PENDUDUK_2_ID,
     );
 
@@ -274,9 +274,9 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
   });
 
   it('should connect to other records through a MANY-TO-ONE relation - update Many', async () => {
-    const createPenduduksToUpdateOperation = createManyOperationFactory({
+    const createDaftarPendudukToUpdateOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       data: [
         {
@@ -289,11 +289,11 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
       ],
     });
 
-    await makeGraphqlAPIRequest(createPenduduksToUpdateOperation);
+    await makeGraphqlAPIRequest(createDaftarPendudukToUpdateOperation);
 
     const graphqlOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       filter: {
         id: {
@@ -311,13 +311,13 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.updatePenduduks).toBeDefined();
-    expect(response.body.data.updatePenduduks).toHaveLength(2);
+    expect(response.body.data.updateDaftarPenduduk).toBeDefined();
+    expect(response.body.data.updateDaftarPenduduk).toHaveLength(2);
 
-    expect(response.body.data.updatePenduduks[0].keluarga.id).toBe(
+    expect(response.body.data.updateDaftarPenduduk[0].keluarga.id).toBe(
       TEST_KELUARGA_2_ID,
     );
-    expect(response.body.data.updatePenduduks[1].keluarga.id).toBe(
+    expect(response.body.data.updateDaftarPenduduk[1].keluarga.id).toBe(
       TEST_KELUARGA_2_ID,
     );
   });
@@ -376,7 +376,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
   it('should throw an error if unique constraint is not the same for all created records', async () => {
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       data: [
         {
@@ -520,9 +520,9 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
   });
 
   it('should disconnect a record from a MANY-TO-ONE relation - update Many', async () => {
-    const createPenduduksToUpdateOperation = createManyOperationFactory({
+    const createDaftarPendudukToUpdateOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       data: [
         {
@@ -536,11 +536,11 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
       ],
     });
 
-    await makeGraphqlAPIRequest(createPenduduksToUpdateOperation);
+    await makeGraphqlAPIRequest(createDaftarPendudukToUpdateOperation);
 
     const graphqlOperation = updateManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       filter: {
         id: {
@@ -556,11 +556,11 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.updatePenduduks).toBeDefined();
-    expect(response.body.data.updatePenduduks).toHaveLength(2);
+    expect(response.body.data.updateDaftarPenduduk).toBeDefined();
+    expect(response.body.data.updateDaftarPenduduk).toHaveLength(2);
 
-    expect(response.body.data.updatePenduduks[0].keluarga?.id).toBeUndefined();
-    expect(response.body.data.updatePenduduks[1].keluarga?.id).toBeUndefined();
+    expect(response.body.data.updateDaftarPenduduk[0].keluarga?.id).toBeUndefined();
+    expect(response.body.data.updateDaftarPenduduk[1].keluarga?.id).toBeUndefined();
   });
 
   it('should disconnect a record from a MANY-TO-ONE relation - create Many - upsert true', async () => {
@@ -577,7 +577,7 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const graphqlOperation = createManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS_WITH_KELUARGA,
       data: [
         {
@@ -600,14 +600,14 @@ describe('relation connect in workspace createOne/createMany resolvers  (e2e)', 
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    expect(response.body.data.createPenduduks).toBeDefined();
-    expect(response.body.data.createPenduduks).toHaveLength(2);
+    expect(response.body.data.createDaftarPenduduk).toBeDefined();
+    expect(response.body.data.createDaftarPenduduk).toHaveLength(2);
 
-    const updatedPenduduk = response.body.data.createPenduduks.find(
+    const updatedPenduduk = response.body.data.createDaftarPenduduk.find(
       (penduduk: ObjectRecord) => penduduk.id === TEST_PENDUDUK_1_ID,
     );
 
-    const insertedPenduduk = response.body.data.createPenduduks.find(
+    const insertedPenduduk = response.body.data.createDaftarPenduduk.find(
       (penduduk: ObjectRecord) => penduduk.id === TEST_PENDUDUK_2_ID,
     );
 

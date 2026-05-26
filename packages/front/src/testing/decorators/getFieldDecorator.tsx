@@ -22,12 +22,12 @@ const mockedTasks = mockedTaskRecords.map((record) =>
 );
 
 const RecordMockSetterEffect = ({
-  keluargas,
-  penduduks,
+  daftarKeluarga,
+  daftarPenduduk,
   tasks,
 }: {
-  keluargas: ObjectRecord[];
-  penduduks: ObjectRecord[];
+  daftarKeluarga: ObjectRecord[];
+  daftarPenduduk: ObjectRecord[];
   tasks: ObjectRecord[];
 }) => {
   const setRecordInStores = useCallback((record: ObjectRecord) => {
@@ -35,18 +35,18 @@ const RecordMockSetterEffect = ({
   }, []);
 
   useEffect(() => {
-    for (const keluarga of keluargas) {
+    for (const keluarga of daftarKeluarga) {
       setRecordInStores(keluarga);
     }
 
-    for (const penduduk of penduduks) {
+    for (const penduduk of daftarPenduduk) {
       setRecordInStores(penduduk);
     }
 
     for (const task of tasks) {
       setRecordInStores(task);
     }
-  }, [keluargas, penduduks, tasks, setRecordInStores]);
+  }, [daftarKeluarga, daftarPenduduk, tasks, setRecordInStores]);
 
   return null;
 };
@@ -60,7 +60,7 @@ export const getFieldDecorator =
   (Story) => {
     const keluargasMock = [...mockedKeluargaRecords];
 
-    const keluargas =
+    const daftarKeluarga =
       objectNameSingular === 'keluarga' && isDefined(fieldValue)
         ? [
             { ...keluargasMock[0], [fieldName]: fieldValue },
@@ -70,7 +70,7 @@ export const getFieldDecorator =
 
     const pendudukMock = [...mockedPendudukRecords];
 
-    const penduduks =
+    const daftarPenduduk =
       objectNameSingular === 'penduduk' && isDefined(fieldValue)
         ? [
             { ...pendudukMock[0], [fieldName]: fieldValue },
@@ -87,9 +87,9 @@ export const getFieldDecorator =
 
     const record =
       objectNameSingular === 'keluarga'
-        ? keluargas[0]
+        ? daftarKeluarga[0]
         : objectNameSingular === 'penduduk'
-          ? penduduks[0]
+          ? daftarPenduduk[0]
           : tasks[0];
 
     if (isDefined(fieldValue)) {
@@ -142,8 +142,8 @@ export const getFieldDecorator =
           }}
         >
           <RecordMockSetterEffect
-            keluargas={keluargas}
-            penduduks={penduduks}
+            daftarKeluarga={daftarKeluarga}
+            daftarPenduduk={daftarPenduduk}
             tasks={tasks}
           />
           <Story />

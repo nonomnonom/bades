@@ -6,7 +6,7 @@ const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
   {
     id: 'company-id',
     nameSingular: 'keluarga',
-    namePlural: 'keluargas',
+    namePlural: 'daftarKeluarga',
     labelSingular: 'Keluarga',
     labelPlural: 'Keluarga',
     icon: 'IconBuilding',
@@ -81,7 +81,7 @@ describe('getManualTriggerDefaultSettings', () => {
         {
           id: 'person-id',
           nameSingular: 'penduduk',
-          namePlural: 'penduduks',
+          namePlural: 'daftarPenduduk',
           labelSingular: 'Penduduk',
           labelPlural: 'Penduduk',
           icon: 'IconUser',

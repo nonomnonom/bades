@@ -190,6 +190,6 @@ describe('generateFakeObjectRecordEvent', () => {
         mockCompanyObjectMetadataInfo,
         'UNKNOWN' as DatabaseEventAction,
       );
-    }).toThrow("Unknown action 'UNKNOWN'");
+    }).toThrow("Action 'UNKNOWN' tidak dikenal");
   });
 });

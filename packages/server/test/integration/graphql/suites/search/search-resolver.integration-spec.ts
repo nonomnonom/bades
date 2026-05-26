@@ -41,7 +41,7 @@ import { type SearchCursor } from 'src/engine/core-modules/search/services/searc
 
 describe('SearchResolver', () => {
   // Penduduk dengan namaLengkap unik untuk keperluan pencarian
-  const penduduks = [
+  const daftarPenduduk = [
     {
       id: TEST_PENDUDUK_1_ID,
       namaLengkap: { firstName: 'searchInput1' },
@@ -87,7 +87,7 @@ describe('SearchResolver', () => {
 
   // Diacritic test: nomorKk = 16-digit (KTP-el format), alamat menyimpan
   // konten ber-aksen Café/Naïve untuk uji search accent-insensitive.
-  const keluargas = [
+  const daftarKeluarga = [
     {
       id: TEST_KELUARGA_1_ID,
       nomorKk: '3201060000000001',
@@ -118,8 +118,8 @@ describe('SearchResolver', () => {
     francoisPendudukNoAccent,
     budiPenduduk,
     sitiPenduduk,
-  ] = penduduks;
-  const [cafeKk, naiveKk] = keluargas;
+  ] = daftarPenduduk;
+  const [cafeKk, naiveKk] = daftarKeluarga;
   const [searchInput1Pet, searchInput2Pet, cafePet, naivePet, cjkPet] = pets;
 
   beforeAll(async () => {
@@ -145,16 +145,16 @@ describe('SearchResolver', () => {
 
     await createManyOperation({
       objectMetadataSingularName: 'penduduk',
-      objectMetadataPluralName: 'penduduks',
+      objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: PENDUDUK_GQL_FIELDS,
-      data: penduduks,
+      data: daftarPenduduk,
     });
 
     await createManyOperation({
       objectMetadataSingularName: 'keluarga',
-      objectMetadataPluralName: 'keluargas',
+      objectMetadataPluralName: 'daftarKeluarga',
       gqlFields: KELUARGA_GQL_FIELDS,
-      data: keluargas,
+      data: daftarKeluarga,
     });
   });
 

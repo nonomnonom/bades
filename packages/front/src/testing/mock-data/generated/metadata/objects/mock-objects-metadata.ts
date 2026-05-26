@@ -2044,7 +2044,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -2152,7 +2152,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -5056,7 +5056,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                     "nameSingular": "keluarga",
-                    "namePlural": "companies"
+                    "namePlural": "daftarKeluarga"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -5134,7 +5134,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                     "nameSingular": "penduduk",
-                    "namePlural": "people"
+                    "namePlural": "daftarPenduduk"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -8154,7 +8154,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                     "nameSingular": "keluarga",
-                    "namePlural": "companies"
+                    "namePlural": "daftarKeluarga"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -8180,7 +8180,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                     "nameSingular": "penduduk",
-                    "namePlural": "people"
+                    "namePlural": "daftarPenduduk"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -8868,7 +8868,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -9541,7 +9541,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                     "nameSingular": "penduduk",
-                    "namePlural": "people"
+                    "namePlural": "daftarPenduduk"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -9567,7 +9567,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                     "nameSingular": "keluarga",
-                    "namePlural": "companies"
+                    "namePlural": "daftarKeluarga"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -10796,7 +10796,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -13641,7 +13641,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -15822,7 +15822,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                     "nameSingular": "penduduk",
-                    "namePlural": "people"
+                    "namePlural": "daftarPenduduk"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -15848,7 +15848,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                     "nameSingular": "keluarga",
-                    "namePlural": "companies"
+                    "namePlural": "daftarKeluarga"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -17600,7 +17600,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
           "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
           "universalIdentifier": "20202020-e674-48e5-a542-72570eee7213",
           "nameSingular": "penduduk",
-          "namePlural": "people",
+          "namePlural": "daftarPenduduk",
           "isCustom": false,
           "isRemote": false,
           "isActive": true,
@@ -18128,7 +18128,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18181,7 +18181,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18236,13 +18236,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -18289,7 +18289,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18342,7 +18342,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18395,7 +18395,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18448,7 +18448,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18501,7 +18501,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18717,7 +18717,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -18771,7 +18771,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -19235,7 +19235,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                     "nameSingular": "keluarga",
-                    "namePlural": "companies"
+                    "namePlural": "daftarKeluarga"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -19287,7 +19287,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                     "nameSingular": "penduduk",
-                    "namePlural": "people"
+                    "namePlural": "daftarPenduduk"
                   },
                   "sourceFieldMetadata": {
                     "__typename": "Field",
@@ -19502,7 +19502,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
           "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
           "universalIdentifier": "20202020-b374-4779-a561-80086cb2e17f",
           "nameSingular": "keluarga",
-          "namePlural": "companies",
+          "namePlural": "daftarKeluarga",
           "isCustom": false,
           "isRemote": false,
           "isActive": true,
@@ -19996,7 +19996,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20049,13 +20049,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -20104,7 +20104,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20157,7 +20157,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20210,7 +20210,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20263,7 +20263,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20316,7 +20316,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20496,7 +20496,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -20550,7 +20550,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
@@ -23027,7 +23027,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
                   "nameSingular": "penduduk",
-                  "namePlural": "people"
+                  "namePlural": "daftarPenduduk"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
@@ -23082,7 +23082,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
                   "nameSingular": "keluarga",
-                  "namePlural": "companies"
+                  "namePlural": "daftarKeluarga"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",

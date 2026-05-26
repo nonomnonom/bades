@@ -3,13 +3,13 @@ import { gql } from '@apollo/client';
 import { PENDUDUK_FRAGMENT_WITH_DEPTH_ZERO_RELATIONS } from '@/object-record/hooks/__mocks__/pendudukFragments';
 
 export const query = gql`
-  query FindManyPenduduks(
+  query FindManyDaftarPenduduk(
     $filter: PendudukFilterInput
     $orderBy: PendudukOrderByInput
     $lastCursor: String
     $limit: Int
   ) {
-    penduduks(
+    daftarPenduduk(
       filter: $filter
       orderBy: $orderBy
       first: $limit

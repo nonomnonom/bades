@@ -64,7 +64,7 @@ const meta: Meta<PageDecoratorArgs> = {
   args: {
     routePath: '/objects/:objectNamePlural',
     routeParams: {
-      ':objectNamePlural': 'keluargas',
+      ':objectNamePlural': 'daftarKeluarga',
     },
   },
   parameters: {

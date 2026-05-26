@@ -307,7 +307,7 @@ describe('ApprovedAccessDomainService', () => {
 
       jest
         .spyOn(workspaceDomainsService, 'buildWorkspaceURL')
-        .mockReturnValue(new URL('https://sub.twenty.com'));
+        .mockReturnValue(new URL('https://sub.bades.id'));
 
       jest
         .spyOn(badesConfigService, 'get')

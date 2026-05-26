@@ -47,7 +47,7 @@ const meta: Meta = {
               objectPermissionsByObjectMetadataId: {},
               indexIdentifierUrl: () => '',
               onIndexRecordsLoaded: () => {},
-              objectNamePlural: CoreObjectNamePlural.Company,
+              objectNamePlural: CoreObjectNamePlural.Keluarga,
               objectNameSingular: 'company',
               objectMetadataItem: companyObjectMetadataItem,
               recordIndexId: instanceId,

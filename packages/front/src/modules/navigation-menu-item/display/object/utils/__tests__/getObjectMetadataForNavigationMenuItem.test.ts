@@ -7,12 +7,12 @@ const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
   {
     id: 'metadata-1',
     nameSingular: 'penduduk',
-    namePlural: 'penduduks',
+    namePlural: 'daftarPenduduk',
   } as EnrichedObjectMetadataItem,
   {
     id: 'metadata-2',
     nameSingular: 'keluarga',
-    namePlural: 'keluargas',
+    namePlural: 'daftarKeluarga',
   } as EnrichedObjectMetadataItem,
 ];
 

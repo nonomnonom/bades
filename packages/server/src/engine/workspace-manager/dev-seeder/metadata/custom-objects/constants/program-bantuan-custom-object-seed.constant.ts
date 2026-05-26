@@ -3,7 +3,7 @@ import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder
 export const PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Program Bantuan',
   labelSingular: 'Program Bantuan',
-  namePlural: 'programBantuans',
+  namePlural: 'daftarProgramBantuan',
   nameSingular: 'programBantuan',
   icon: 'IconGift',
 };

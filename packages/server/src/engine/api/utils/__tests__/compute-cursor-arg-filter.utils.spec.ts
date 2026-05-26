@@ -87,7 +87,7 @@ describe('computeCursorArgFilter', () => {
     id: objectMetadataId,
     workspaceId,
     nameSingular: 'penduduk',
-    namePlural: 'penduduks',
+    namePlural: 'daftarPenduduk',
     labelSingular: 'Penduduk',
     labelPlural: 'Penduduk',
     targetTableName: 'penduduk',

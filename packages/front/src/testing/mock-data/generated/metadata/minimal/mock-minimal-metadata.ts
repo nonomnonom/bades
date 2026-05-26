@@ -263,7 +263,7 @@ export const mockedMinimalMetadata: MinimalMetadata =
     {
       "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
       "nameSingular": "keluarga",
-      "namePlural": "companies",
+      "namePlural": "daftarKeluarga",
       "labelSingular": "Company",
       "labelPlural": "Companies",
       "icon": "IconBuildingSkyscraper",
@@ -299,7 +299,7 @@ export const mockedMinimalMetadata: MinimalMetadata =
     {
       "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
       "nameSingular": "penduduk",
-      "namePlural": "people",
+      "namePlural": "daftarPenduduk",
       "labelSingular": "Person",
       "labelPlural": "People",
       "icon": "IconUser",

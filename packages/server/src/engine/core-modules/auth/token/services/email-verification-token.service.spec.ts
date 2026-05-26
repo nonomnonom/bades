@@ -131,7 +131,7 @@ describe('EmailVerificationTokenService', () => {
       await expect(
         service.validateEmailVerificationTokenOrThrow({
           emailVerificationToken: 'invalid-token',
-          email: 'test@twenty.com',
+          email: 'test@bades.id',
         }),
       ).rejects.toThrow(
         new EmailVerificationException(

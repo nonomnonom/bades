@@ -9,7 +9,7 @@ describe('computeMetadataNamesFromLabelsOrThrow', () => {
       }),
     ).toEqual({
       nameSingular: 'keluarga',
-      namePlural: 'keluargas',
+      namePlural: 'daftarKeluarga',
     });
   });
 
@@ -45,7 +45,7 @@ describe('computeMetadataNamesFromLabelsOrThrow', () => {
       }),
     ).toEqual({
       nameSingular: 'penduduk',
-      namePlural: 'penduduks',
+      namePlural: 'daftarPenduduk',
     });
   });
 

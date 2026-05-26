@@ -36,7 +36,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         fieldName: 'target',
         relationType: 'MANY_TO_ONE' as any,
         targetObjectMetadataNameSingular: 'programBantuan',
-        targetObjectMetadataNamePlural: 'programBantuans',
+        targetObjectMetadataNamePlural: 'daftarProgramBantuan',
       }),
     ).toBe('targetOpportunityId');
   });
@@ -47,7 +47,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         fieldName: 'caretaker',
         relationType: 'ONE_TO_MANY' as any,
         targetObjectMetadataNameSingular: 'penduduk',
-        targetObjectMetadataNamePlural: 'penduduks',
+        targetObjectMetadataNamePlural: 'daftarPenduduk',
       }),
     ).toBe('caretakerPeopleId');
   });
@@ -58,7 +58,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         fieldName: 'parent',
         relationType: 'ONE_TO_MANY' as any,
         targetObjectMetadataNameSingular: 'keluarga',
-        targetObjectMetadataNamePlural: 'keluargas',
+        targetObjectMetadataNamePlural: 'daftarKeluarga',
       }),
     ).toBe('parentCompaniesId');
   });
@@ -69,7 +69,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         fieldName: 'target',
         relationType: 'INVALID' as any,
         targetObjectMetadataNameSingular: 'programBantuan',
-        targetObjectMetadataNamePlural: 'programBantuans',
+        targetObjectMetadataNamePlural: 'daftarProgramBantuan',
       }),
     ).toThrow();
   });

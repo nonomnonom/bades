@@ -3,7 +3,7 @@ import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder
 export const WILAYAH_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   labelPlural: 'Wilayah',
   labelSingular: 'Wilayah',
-  namePlural: 'wilayahs',
+  namePlural: 'daftarWilayah',
   nameSingular: 'wilayah',
   icon: 'IconMapPin',
 };
