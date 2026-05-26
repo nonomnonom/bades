@@ -19,10 +19,10 @@ jest.mock(
 
 const mockQuery = gql`
   query CombinedFindManyRecords(
-    $filterPerson: PersonFilterInput
-    $filterCompany: CompanyFilterInput
-    $orderByPerson: [PersonOrderByInput]
-    $orderByCompany: [CompanyOrderByInput]
+    $filterPenduduk: PendudukFilterInput
+    $filterKeluarga: KeluargaFilterInput
+    $orderByPerson: [PendudukOrderByInput]
+    $orderByCompany: [KeluargaOrderByInput]
     $firstPerson: Int
     $lastPerson: Int
     $afterPerson: String
@@ -34,8 +34,8 @@ const mockQuery = gql`
     $limitPerson: Int
     $limitCompany: Int
   ) {
-    people(
-      filter: $filterPerson
+    penduduks(
+      filter: $filterPenduduk
       orderBy: $orderByPerson
       first: $firstPerson
       after: $afterPerson
@@ -62,8 +62,8 @@ const mockQuery = gql`
       }
       totalCount
     }
-    companies(
-      filter: $filterCompany
+    keluargas(
+      filter: $filterKeluarga
       orderBy: $orderByCompany
       first: $firstCompany
       after: $afterCompany
@@ -158,7 +158,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should return records for multiple objects', async () => {
     const mockResponseData = {
-      people: {
+      penduduks: {
         edges: [
           {
             node: {
@@ -180,7 +180,7 @@ describe('useCombinedFindManyRecords', () => {
         },
         totalCount: 1,
       },
-      companies: {
+      keluargas: {
         edges: [
           {
             node: {
@@ -225,7 +225,7 @@ describe('useCombinedFindManyRecords', () => {
       ],
       mockResponseData,
       expectedResult: {
-        people: [
+        penduduks: [
           {
             __typename: 'Person',
             id: '1',
@@ -235,7 +235,7 @@ describe('useCombinedFindManyRecords', () => {
             },
           },
         ],
-        companies: [
+        keluargas: [
           {
             __typename: 'Company',
             id: '1',
@@ -248,7 +248,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle forward pagination with after cursor and first limit', async () => {
     const mockResponseData = {
-      people: {
+      penduduks: {
         edges: [
           {
             node: {
@@ -298,7 +298,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        people: [
+        penduduks: [
           {
             __typename: 'Person',
             id: '1',
@@ -314,7 +314,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle backward pagination with before cursor and last limit', async () => {
     const mockResponseData = {
-      people: {
+      penduduks: {
         edges: [
           {
             node: {
@@ -364,7 +364,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        people: [
+        penduduks: [
           {
             __typename: 'Person',
             id: '2',
@@ -380,7 +380,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle limit-based pagination without cursor', async () => {
     const mockResponseData = {
-      people: {
+      penduduks: {
         edges: [
           {
             node: {
@@ -425,7 +425,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        people: [
+        penduduks: [
           {
             __typename: 'Person',
             id: '3',
@@ -441,7 +441,7 @@ describe('useCombinedFindManyRecords', () => {
 
   it('should handle multiple objects with different pagination strategies', async () => {
     const mockResponseData = {
-      people: {
+      penduduks: {
         edges: [
           {
             node: {
@@ -463,7 +463,7 @@ describe('useCombinedFindManyRecords', () => {
         },
         totalCount: 10,
       },
-      companies: {
+      keluargas: {
         edges: [
           {
             node: {
@@ -521,7 +521,7 @@ describe('useCombinedFindManyRecords', () => {
       },
       mockResponseData,
       expectedResult: {
-        people: [
+        penduduks: [
           {
             __typename: 'Person',
             id: '1',
@@ -531,7 +531,7 @@ describe('useCombinedFindManyRecords', () => {
             },
           },
         ],
-        companies: [
+        keluargas: [
           {
             __typename: 'Company',
             id: '1',

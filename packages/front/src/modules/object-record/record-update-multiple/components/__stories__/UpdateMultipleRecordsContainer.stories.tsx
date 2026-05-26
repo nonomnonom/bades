@@ -21,9 +21,9 @@ import { RootDecorator } from '~/testing/decorators/RootDecorator';
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
 
 const UPDATE_MANY_COMPANIES_MUTATION = gql`
-  mutation UpdateManyCompanies(
-    $filter: CompanyFilterInput!
-    $data: CompanyUpdateInput!
+  mutation UpdateManyKeluargas(
+    $filter: KeluargaFilterInput!
+    $data: KeluargaUpdateInput!
   ) {
     updateManyCompanies(filter: $filter, data: $data) {
       id

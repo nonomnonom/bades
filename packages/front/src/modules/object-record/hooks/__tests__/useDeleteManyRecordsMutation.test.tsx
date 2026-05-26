@@ -5,7 +5,7 @@ import { useDeleteManyRecordsMutation } from '@/object-record/hooks/useDeleteMan
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
-  mutation DeleteManyPeople($filter: PersonFilterInput!) {
+  mutation DeleteManyPenduduks($filter: PendudukFilterInput!) {
     deletePeople(filter: $filter) {
       id
     }
