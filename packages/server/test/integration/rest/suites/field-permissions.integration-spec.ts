@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
-import { TEST_COMPANY_1_ID } from 'test/integration/constants/test-company-ids.constants';
-import { TEST_PERSON_1_ID } from 'test/integration/constants/test-person-ids.constants';
-import { TEST_PRIMARY_LINK_URL } from 'test/integration/constants/test-primary-link-url.constant';
+import { TEST_KELUARGA_1_ID } from 'test/integration/constants/test-keluarga-ids.constants';
+import { TEST_PENDUDUK_1_ID } from 'test/integration/constants/test-penduduk-ids.constants';
 import { upsertFieldPermissions } from 'test/integration/graphql/utils/upsert-field-permissions.util';
 import { upsertRowLevelPermissionPredicates } from 'test/integration/metadata/suites/row-level-permission-predicate/utils/upsert-row-level-permission-predicates.util';
 import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/make-metadata-api-request.util';
@@ -10,44 +9,43 @@ import { generateRecordName } from 'test/integration/utils/generate-record-name'
 import { RowLevelPermissionPredicateOperand } from 'shared/types';
 
 describe('Restricted fields', () => {
-  let personCity: string;
+  let pendudukTempatLahir: string;
   let memberRoleId: string;
-  let personObjectId: string;
-  let emailsFieldId: string;
-  let phonesFieldId: string;
+  let pendudukObjectId: string;
+  // Field `tempatLahir` (TEXT) dipakai sebagai field terbatas utama
+  // menggantikan `emails` (EMAILS composite) yang tidak ada di SID.
+  let tempatLahirFieldId: string;
+  // Field `nik` (TEXT) dipakai sebagai field terbatas sekunder
+  // menggantikan `phones` (PHONES composite) yang tidak ada di SID.
+  let nikFieldId: string;
 
   beforeAll(async () => {
-    personCity = generateRecordName(TEST_PERSON_1_ID);
+    pendudukTempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
 
+    // Buat keluarga sebagai parent record penduduk
     await makeRestAPIRequest({
       method: 'post',
-      path: '/companies',
+      path: '/keluargas',
       body: {
-        id: TEST_COMPANY_1_ID,
-        domainName: {
-          primaryLinkUrl: TEST_PRIMARY_LINK_URL,
-        },
+        id: TEST_KELUARGA_1_ID,
+        nomorKk: '3578012345678901',
+        alamat: 'Jl. Raya Desa No. 1, Surabaya',
       },
     });
 
+    // Buat penduduk dengan field yang akan diuji pembatasannya
     await makeRestAPIRequest({
       method: 'post',
-      path: '/people',
+      path: '/penduduks',
       body: {
-        id: TEST_PERSON_1_ID,
-        city: personCity,
-        emails: {
-          primaryEmail: 'test@test.com',
-        },
-        phones: {
-          primaryPhoneNumber: '123456789',
-          primaryPhoneCountryCode: 'US',
-          primaryPhoneCallingCode: '+1',
-        },
+        id: TEST_PENDUDUK_1_ID,
+        tempatLahir: pendudukTempatLahir,
+        nik: '3578011234567890',
+        kartuKeluargaId: TEST_KELUARGA_1_ID,
       },
     });
 
-    // Get object metadata IDs for Person and Company
+    // Ambil metadata ID object penduduk
     const getObjectMetadataOperation = {
       query: gql`
         query {
@@ -68,11 +66,11 @@ describe('Restricted fields', () => {
     );
     const objects = objectMetadataResponse.body.data.objects.edges;
 
-    personObjectId = objects.find(
-      (obj: any) => obj.node.nameSingular === 'person',
+    pendudukObjectId = objects.find(
+      (obj: any) => obj.node.nameSingular === 'penduduk',
     )?.node.id;
 
-    // Get field metadata ID for email field
+    // Ambil metadata ID field tempatLahir dan nik
     const getFieldMetadataOperation = {
       query: gql`
         query {
@@ -96,19 +94,19 @@ describe('Restricted fields', () => {
     );
     const fields = fieldMetadataResponse.body.data.fields.edges;
 
-    emailsFieldId = fields.find(
+    tempatLahirFieldId = fields.find(
       (field: any) =>
-        field.node.name === 'emails' &&
-        field.node.object.nameSingular === 'person',
+        field.node.name === 'tempatLahir' &&
+        field.node.object.nameSingular === 'penduduk',
     ).node.id;
 
-    phonesFieldId = fields.find(
+    nikFieldId = fields.find(
       (field: any) =>
-        field.node.name === 'phones' &&
-        field.node.object.nameSingular === 'person',
+        field.node.name === 'nik' &&
+        field.node.object.nameSingular === 'penduduk',
     ).node.id;
 
-    // Get member role ID
+    // Ambil ID role Member
     const getRolesOperation = {
       query: gql`
         query {
@@ -126,13 +124,13 @@ describe('Restricted fields', () => {
       (role: any) => role.label === 'Member',
     )?.id;
 
-    // Create field permission restricting read access to email field
+    // Batasi hak baca field `tempatLahir` untuk role Member
     await upsertFieldPermissions({
       roleId: memberRoleId,
       fieldPermissions: [
         {
-          objectMetadataId: personObjectId,
-          fieldMetadataId: emailsFieldId,
+          objectMetadataId: pendudukObjectId,
+          fieldMetadataId: tempatLahirFieldId,
           canReadFieldValue: false,
           canUpdateFieldValue: null,
         },
@@ -143,28 +141,29 @@ describe('Restricted fields', () => {
   it('should hide fields when user has restricted read permissions - findOne', async () => {
     await makeRestAPIRequest({
       method: 'get',
-      path: `/people/${TEST_PERSON_1_ID}`,
+      path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
       bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
     })
       .expect(200)
       .expect((res) => {
-        const person = res.body.data.person;
+        const penduduk = res.body.data.penduduk;
 
-        expect(person).toBeDefined();
-        expect(person.id).toBeDefined();
-        expect(person.emails).toBeUndefined();
+        expect(penduduk).toBeDefined();
+        expect(penduduk.id).toBeDefined();
+        // tempatLahir dibatasi — harus disembunyikan dari respons
+        expect(penduduk.tempatLahir).toBeUndefined();
       });
   });
 
   describe('updateOne', () => {
     it('should hide fields in the response when user has restricted read permissions', async () => {
-      // Create field permission restricting update access to phones field
+      // Batasi hak baca field `nik`
       await upsertFieldPermissions({
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: false,
             canUpdateFieldValue: null,
           },
@@ -173,30 +172,32 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'patch',
-        path: `/people/${TEST_PERSON_1_ID}`,
+        path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
-          name: {
-            firstName: 'John',
+          namaLengkap: {
+            firstName: 'Budi',
           },
         },
       })
         .expect(200)
         .expect((res) => {
-          const updatedPerson = res.body.data.updatePerson;
+          const updatedPenduduk = res.body.data.updatePenduduk;
 
-          expect(updatedPerson.name.firstName).toBe('John');
-          expect(updatedPerson.phones).toBeUndefined();
+          expect(updatedPenduduk.namaLengkap.firstName).toBe('Budi');
+          // nik dibatasi — harus disembunyikan dari respons
+          expect(updatedPenduduk.nik).toBeUndefined();
         });
     });
+
     it('should block update when user tries to update non-updatable field', async () => {
-      // Create field permission restricting update access to phones field
+      // Batasi hak update field `nik`
       await upsertFieldPermissions({
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: false,
           },
@@ -205,14 +206,10 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'patch',
-        path: `/people/${TEST_PERSON_1_ID}`,
+        path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
-          phones: {
-            primaryPhoneNumber: '987654321',
-            primaryPhoneCountryCode: 'FR',
-            primaryPhoneCallingCode: '+33',
-          },
+          nik: '3578019999999999',
         },
       })
         .expect(400)
@@ -224,13 +221,13 @@ describe('Restricted fields', () => {
     });
 
     it('should allow update when user has no restricted update permissions', async () => {
-      // Remove field permission restrictions
+      // Hapus pembatasan field `nik`
       await upsertFieldPermissions({
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: null,
           },
@@ -239,17 +236,17 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'patch',
-        path: `/people/${TEST_PERSON_1_ID}`,
+        path: `/penduduks/${TEST_PENDUDUK_1_ID}`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
-          city: 'Updated City',
+          tempatLahir: 'Malang',
         },
       })
         .expect(200)
         .expect((res) => {
-          const updatedPerson = res.body.data.updatePerson;
+          const updatedPenduduk = res.body.data.updatePenduduk;
 
-          expect(updatedPerson.city).toBe('Updated City');
+          expect(updatedPenduduk.tempatLahir).toBe('Malang');
         });
     });
   });
@@ -260,8 +257,8 @@ describe('Restricted fields', () => {
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: false,
           },
@@ -270,14 +267,10 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/people`,
+        path: `/penduduks`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
-          phones: {
-            primaryPhoneNumber: '555123456',
-            primaryPhoneCountryCode: 'US',
-            primaryPhoneCallingCode: '+1',
-          },
+          nik: '3578010000000001',
         },
       })
         .expect(400)
@@ -293,8 +286,8 @@ describe('Restricted fields', () => {
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: false,
           },
@@ -304,10 +297,10 @@ describe('Restricted fields', () => {
       await upsertRowLevelPermissionPredicates({
         input: {
           roleId: memberRoleId,
-          objectMetadataId: personObjectId,
+          objectMetadataId: pendudukObjectId,
           predicates: [
             {
-              fieldMetadataId: phonesFieldId,
+              fieldMetadataId: nikFieldId,
               operand: RowLevelPermissionPredicateOperand.IS_NOT_EMPTY,
             },
           ],
@@ -317,28 +310,24 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/people`,
+        path: `/penduduks`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
-          phones: {
-            primaryPhoneNumber: '555123456',
-            primaryPhoneCountryCode: 'US',
-            primaryPhoneCallingCode: '+1',
-          },
+          nik: '3578010000000002',
         },
       })
         .expect(201)
         .expect((res) => {
-          const createdPerson = res.body.data.createPerson;
+          const createdPenduduk = res.body.data.createPenduduk;
 
-          expect(createdPerson).toBeDefined();
-          expect(createdPerson.phones.primaryPhoneNumber).toBe('555123456');
+          expect(createdPenduduk).toBeDefined();
+          expect(createdPenduduk.nik).toBe('3578010000000002');
         });
 
       await upsertRowLevelPermissionPredicates({
         input: {
           roleId: memberRoleId,
-          objectMetadataId: personObjectId,
+          objectMetadataId: pendudukObjectId,
           predicates: [],
           predicateGroups: [],
         },
@@ -350,14 +339,14 @@ describe('Restricted fields', () => {
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: null,
           },
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: emailsFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: tempatLahirFieldId,
             canReadFieldValue: false,
             canUpdateFieldValue: null,
           },
@@ -366,18 +355,19 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/people`,
+        path: `/penduduks`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: {
-          city: 'New City',
+          tempatLahir: 'Depok',
         },
       })
         .expect(201)
         .expect((res) => {
-          const createdPerson = res.body.data.createPerson;
+          const createdPenduduk = res.body.data.createPenduduk;
 
-          expect(createdPerson.city).toBe('New City');
-          expect(createdPerson.emails).toBeUndefined();
+          expect(createdPenduduk).toBeDefined();
+          // tempatLahir dibatasi read — harus disembunyikan dari respons
+          expect(createdPenduduk.tempatLahir).toBeUndefined();
         });
     });
   });
@@ -388,8 +378,8 @@ describe('Restricted fields', () => {
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: false,
           },
@@ -398,15 +388,11 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/batch/people`,
+        path: `/batch/penduduks`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: [
           {
-            phones: {
-              primaryPhoneNumber: '555123456',
-              primaryPhoneCountryCode: 'US',
-              primaryPhoneCallingCode: '+1',
-            },
+            nik: '3578010000000010',
           },
         ],
       })
@@ -423,8 +409,8 @@ describe('Restricted fields', () => {
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: false,
           },
@@ -434,10 +420,10 @@ describe('Restricted fields', () => {
       await upsertRowLevelPermissionPredicates({
         input: {
           roleId: memberRoleId,
-          objectMetadataId: personObjectId,
+          objectMetadataId: pendudukObjectId,
           predicates: [
             {
-              fieldMetadataId: phonesFieldId,
+              fieldMetadataId: nikFieldId,
               operand: RowLevelPermissionPredicateOperand.IS_NOT_EMPTY,
             },
           ],
@@ -447,30 +433,26 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/batch/people`,
+        path: `/batch/penduduks`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: [
           {
-            phones: {
-              primaryPhoneNumber: '555123456',
-              primaryPhoneCountryCode: 'US',
-              primaryPhoneCallingCode: '+1',
-            },
+            nik: '3578010000000011',
           },
         ],
       })
         .expect(201)
         .expect((res) => {
-          const createdPeople = res.body.data.createPeople;
+          const createdPenduduks = res.body.data.createPenduduks;
 
-          expect(createdPeople).toHaveLength(1);
-          expect(createdPeople[0].phones.primaryPhoneNumber).toBe('555123456');
+          expect(createdPenduduks).toHaveLength(1);
+          expect(createdPenduduks[0].nik).toBe('3578010000000011');
         });
 
       await upsertRowLevelPermissionPredicates({
         input: {
           roleId: memberRoleId,
-          objectMetadataId: personObjectId,
+          objectMetadataId: pendudukObjectId,
           predicates: [],
           predicateGroups: [],
         },
@@ -482,14 +464,14 @@ describe('Restricted fields', () => {
         roleId: memberRoleId,
         fieldPermissions: [
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: phonesFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: nikFieldId,
             canReadFieldValue: null,
             canUpdateFieldValue: null,
           },
           {
-            objectMetadataId: personObjectId,
-            fieldMetadataId: emailsFieldId,
+            objectMetadataId: pendudukObjectId,
+            fieldMetadataId: tempatLahirFieldId,
             canReadFieldValue: false,
             canUpdateFieldValue: null,
           },
@@ -498,26 +480,25 @@ describe('Restricted fields', () => {
 
       await makeRestAPIRequest({
         method: 'post',
-        path: `/batch/people`,
+        path: `/batch/penduduks`,
         bearer: APPLE_JONY_MEMBER_ACCESS_TOKEN,
         body: [
           {
-            city: 'Batch City 1',
+            tempatLahir: 'Bekasi',
           },
           {
-            city: 'Batch City 2',
+            tempatLahir: 'Tangerang',
           },
         ],
       })
         .expect(201)
         .expect((res) => {
-          const createdPeople = res.body.data.createPeople;
+          const createdPenduduks = res.body.data.createPenduduks;
 
-          expect(createdPeople).toHaveLength(2);
-          expect(createdPeople[0].city).toBe('Batch City 1');
-          expect(createdPeople[0].emails).toBeUndefined();
-          expect(createdPeople[1].city).toBe('Batch City 2');
-          expect(createdPeople[1].emails).toBeUndefined();
+          expect(createdPenduduks).toHaveLength(2);
+          // tempatLahir dibatasi read — harus disembunyikan dari respons
+          expect(createdPenduduks[0].tempatLahir).toBeUndefined();
+          expect(createdPenduduks[1].tempatLahir).toBeUndefined();
         });
     });
   });

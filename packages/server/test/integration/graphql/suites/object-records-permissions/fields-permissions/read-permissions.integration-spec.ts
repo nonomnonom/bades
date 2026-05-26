@@ -24,48 +24,34 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 
 const client = request(`http://localhost:${APP_PORT}`);
 
-const COMPANY_GQL_FIELDS_WITH_PEOPLE_CITY = `
+// GQL fields keluarga dengan relasi penduduks dan tempatLahir (setara company+people.city)
+const KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR = `
       id
-      name
-      people {
+      nomorKk
+      penduduks {
         edges {
           node {
             id
-            name {
+            namaLengkap {
               firstName
               lastName
             }
-            city
+            tempatLahir
           }
         }
       }
 `;
 
-const COMPANY_GQL_FIELDS_WITH_EMPLOYEES = `
+// GQL fields keluarga dengan field `alamat` (field teks terbatas yang diuji RBAC-nya)
+const KELUARGA_GQL_FIELDS_WITH_ALAMAT = `
       id
-      name
-      employees
-      people {
+      nomorKk
+      alamat
+      penduduks {
         edges {
           node {
             id
-            name {
-              firstName
-              lastName
-            }
-          }
-        }
-      }
-`;
-
-const COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES_AND_WITHOUT_PEOPLE_CITY = `
-      id
-      name
-      people {
-        edges {
-          node {
-            id
-            name {
+            namaLengkap {
               firstName
               lastName
             }
@@ -74,11 +60,29 @@ const COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES_AND_WITHOUT_PEOPLE_CITY = `
       }
 `;
 
-const COMPANY_GQL_FIELDS_WITH_PEOPLE_CITY_AGGREGATE = `
+// GQL fields keluarga tanpa field terbatas (alamat dan tempatLahir dihilangkan)
+const KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT_AND_WITHOUT_PENDUDUK_TEMPAT_LAHIR = `
       id
-      name
-      people {
-        percentageEmptyCity
+      nomorKk
+      penduduks {
+        edges {
+          node {
+            id
+            namaLengkap {
+              firstName
+              lastName
+            }
+          }
+        }
+      }
+`;
+
+// GQL fields aggregate keluarga atas tempatLahir di relasi penduduks
+const KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR_AGGREGATE = `
+      id
+      nomorKk
+      penduduks {
+        percentageEmptyTempatLahir
       }
 `;
 
@@ -97,43 +101,45 @@ const expectPermissionDeniedError = (response: any) => {
 };
 
 describe('Field permissions restrictions', () => {
-  let companyId: string;
-  let personId: string;
+  let testKeluargaId: string;
+  let testPendudukId: string;
   let customRoleId: string;
-  let companyObjectId: string;
-  let personObjectId: string;
-  let restrictedCompanyFieldId: string;
-  let restrictedPersonFieldId: string;
+  let keluargaObjectId: string;
+  let pendudukObjectId: string;
+  let restrictedKeluargaFieldId: string;
+  let restrictedPendudukFieldId: string;
   let originalMemberRoleId: string;
 
-  const restrictAccessToCompanyEmployee = async (
+  // Batasi akses ke field `alamat` pada keluarga (setara employees di company CRM)
+  const restrictAccessToKeluargaAlamat = async (
     roleId: string,
-    companyObjectId: string,
-    restrictedCompanyFieldId: string,
+    keluargaObjId: string,
+    fieldId: string,
   ) => {
     await upsertFieldPermissions({
       roleId,
       fieldPermissions: [
         {
-          objectMetadataId: companyObjectId,
-          fieldMetadataId: restrictedCompanyFieldId,
+          objectMetadataId: keluargaObjId,
+          fieldMetadataId: fieldId,
           canUpdateFieldValue: false,
         },
       ],
     });
   };
 
-  const restrictAccessToPersonCity = async (
+  // Batasi akses ke field `tempatLahir` pada penduduk (setara city di person CRM)
+  const restrictAccessToPendudukTempatLahir = async (
     roleId: string,
-    personObjectId: string,
-    restrictedPersonFieldId: string,
+    pendudukObjId: string,
+    fieldId: string,
   ) => {
     await upsertFieldPermissions({
       roleId,
       fieldPermissions: [
         {
-          objectMetadataId: personObjectId,
-          fieldMetadataId: restrictedPersonFieldId,
+          objectMetadataId: pendudukObjId,
+          fieldMetadataId: fieldId,
           canUpdateFieldValue: false,
         },
       ],
@@ -141,7 +147,7 @@ describe('Field permissions restrictions', () => {
   };
 
   beforeAll(async () => {
-    // Get the original Member role ID for restoration later
+    // Ambil ID role Member asli untuk dipulihkan setelah suite selesai
     const getRolesQuery = {
       query: `
         query GetRoles {
@@ -161,25 +167,35 @@ describe('Field permissions restrictions', () => {
       (role: any) => role.label === 'Member',
     ).id;
 
-    // Create a company and a person
-    companyId = randomUUID();
-    personId = randomUUID();
-    const createCompanyOp = createOneOperationFactory({
-      objectMetadataSingularName: 'company',
-      gqlFields: 'id name',
-      data: { id: companyId, name: 'TestCompany' },
+    // Buat record keluarga dan penduduk untuk dipakai dalam test
+    testKeluargaId = randomUUID();
+    testPendudukId = randomUUID();
+
+    const createKeluargaOp = createOneOperationFactory({
+      objectMetadataSingularName: 'keluarga',
+      gqlFields: 'id nomorKk',
+      data: {
+        id: testKeluargaId,
+        nomorKk: '3578012345678901',
+        alamat: 'Jl. Pahlawan No. 10, Surabaya',
+      },
     });
 
-    await makeGraphqlAPIRequest(createCompanyOp);
-    const createPersonOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: 'id city',
-      data: { id: personId, city: 'Paris', companyId },
+    await makeGraphqlAPIRequest(createKeluargaOp);
+
+    const createPendudukOperation = createOneOperationFactory({
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: 'id tempatLahir',
+      data: {
+        id: testPendudukId,
+        tempatLahir: 'Surabaya',
+        kartuKeluargaId: testKeluargaId,
+      },
     });
 
-    await makeGraphqlAPIRequest(createPersonOperation);
+    await makeGraphqlAPIRequest(createPendudukOperation);
 
-    // Get object and field metadata IDs
+    // Ambil metadata ID object dan field yang diperlukan
     const getObjectMetadataOp = {
       query: gql`
         query {
@@ -198,11 +214,11 @@ describe('Field permissions restrictions', () => {
       await makeMetadataAPIRequest(getObjectMetadataOp);
     const objects = objectMetadataResponse.body.data.objects.edges;
 
-    companyObjectId = objects.find(
-      (obj: any) => obj.node.nameSingular === 'company',
+    keluargaObjectId = objects.find(
+      (obj: any) => obj.node.nameSingular === 'keluarga',
     ).node.id;
-    personObjectId = objects.find(
-      (obj: any) => obj.node.nameSingular === 'person',
+    pendudukObjectId = objects.find(
+      (obj: any) => obj.node.nameSingular === 'penduduk',
     ).node.id;
 
     const getFieldMetadataOp = {
@@ -226,20 +242,20 @@ describe('Field permissions restrictions', () => {
       await makeMetadataAPIRequest(getFieldMetadataOp);
     const fields = fieldMetadataResponse.body.data.fields.edges;
 
-    restrictedCompanyFieldId = fields.find(
+    restrictedKeluargaFieldId = fields.find(
       (field: any) =>
-        field.node.name === 'employees' &&
-        field.node.object.nameSingular === 'company',
+        field.node.name === 'alamat' &&
+        field.node.object.nameSingular === 'keluarga',
     ).node.id;
-    restrictedPersonFieldId = fields.find(
+    restrictedPendudukFieldId = fields.find(
       (field: any) =>
-        field.node.name === 'city' &&
-        field.node.object.nameSingular === 'person',
+        field.node.name === 'tempatLahir' &&
+        field.node.object.nameSingular === 'penduduk',
     ).node.id;
   });
 
   afterAll(async () => {
-    // Restore original role
+    // Pulihkan role Member asli
     const restoreMemberRoleQuery = {
       query: `
         mutation UpdateWorkspaceMemberRole {
@@ -259,9 +275,9 @@ describe('Field permissions restrictions', () => {
 
   beforeEach(async () => {
     const { roleId } = await createCustomRoleWithObjectPermissions({
-      label: 'CompanyPeopleRole',
-      canReadCompany: true,
-      canReadPerson: true,
+      label: 'KeluargaPendudukRole',
+      canReadKeluarga: true,
+      canReadPenduduk: true,
     });
 
     customRoleId = roleId;
@@ -281,48 +297,48 @@ describe('Field permissions restrictions', () => {
 
   describe('should allow restricted fields to be read', () => {
     beforeEach(async () => {
-      await restrictAccessToCompanyEmployee(
+      await restrictAccessToKeluargaAlamat(
         customRoleId,
-        companyObjectId,
-        restrictedCompanyFieldId,
+        keluargaObjectId,
+        restrictedKeluargaFieldId,
       );
     });
 
     it('1. findMany', async () => {
       const graphqlOperation = findManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
       });
       const response =
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
       expectNoGraphQLErrors(response);
       expect(
-        response.body.data.companies.edges[0].node.employees,
+        response.body.data.keluargas.edges[0].node.alamat,
       ).toBeDefined();
     });
 
     it('2. findOne', async () => {
       const graphqlOperation = findOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        filter: { id: { eq: companyId } },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        filter: { id: { eq: testKeluargaId } },
       });
       const response =
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
       expectNoGraphQLErrors(response);
-      expect(response.body.data.company.employees).toBeDefined();
+      expect(response.body.data.keluarga.alamat).toBeDefined();
     });
 
     it('3. updateMany', async () => {
       const graphqlOperation = updateManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        filter: { id: { eq: companyId } },
-        data: { name: 'TestUpdate' },
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        filter: { id: { eq: testKeluargaId } },
+        data: { nomorKk: '3578012345678902' },
       });
 
       const response =
@@ -333,10 +349,10 @@ describe('Field permissions restrictions', () => {
 
     it('4. updateOne', async () => {
       const graphqlOperation = updateOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        recordId: companyId,
-        data: { name: 'TestUpdate' },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        recordId: testKeluargaId,
+        data: { nomorKk: '3578012345678903' },
       });
 
       const response =
@@ -347,12 +363,20 @@ describe('Field permissions restrictions', () => {
 
     it('5. createMany', async () => {
       const graphqlOperation = createManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         data: [
-          { id: randomUUID(), name: 'TestCompany' },
-          { id: randomUUID(), name: 'TestCompany2' },
+          {
+            id: randomUUID(),
+            nomorKk: '3578012345670001',
+            alamat: 'Jl. Merdeka No. 1, Jakarta',
+          },
+          {
+            id: randomUUID(),
+            nomorKk: '3578012345670002',
+            alamat: 'Jl. Diponegoro No. 5, Bandung',
+          },
         ],
       });
 
@@ -364,9 +388,13 @@ describe('Field permissions restrictions', () => {
 
     it('5. createOne', async () => {
       const graphqlOperation = createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        data: { id: randomUUID(), name: 'TestCompany3' },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        data: {
+          id: randomUUID(),
+          nomorKk: '3578012345670003',
+          alamat: 'Jl. Gatot Subroto No. 9, Semarang',
+        },
       });
 
       const response =
@@ -377,10 +405,10 @@ describe('Field permissions restrictions', () => {
 
     it('6. deleteMany', async () => {
       const graphqlOperation = deleteManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        filter: { id: { eq: companyId } },
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        filter: { id: { eq: testKeluargaId } },
       });
 
       const response =
@@ -391,9 +419,9 @@ describe('Field permissions restrictions', () => {
 
     it('7. deleteOne', async () => {
       const graphqlOperation = deleteOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        recordId: companyId,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        recordId: testKeluargaId,
       });
 
       const response =
@@ -404,65 +432,67 @@ describe('Field permissions restrictions', () => {
   });
 
   it('2. should allow a restricted field of a related object to be read', async () => {
-    await restrictAccessToPersonCity(
+    await restrictAccessToPendudukTempatLahir(
       customRoleId,
-      personObjectId,
-      restrictedPersonFieldId,
+      pendudukObjectId,
+      restrictedPendudukFieldId,
     );
     const graphqlOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'company',
-      objectMetadataPluralName: 'companies',
-      gqlFields: COMPANY_GQL_FIELDS_WITH_PEOPLE_CITY,
+      objectMetadataSingularName: 'keluarga',
+      objectMetadataPluralName: 'keluargas',
+      gqlFields: KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR,
     });
     const response =
       await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
     expectNoGraphQLErrors(response);
     expect(
-      response.body.data.companies.edges[0].node.people.edges[0].node.city,
+      response.body.data.keluargas.edges[0].node.penduduks.edges[0].node
+        .tempatLahir,
     ).toBeDefined();
   });
 
   it('3. should succeed if restricted fields exist but are not requested', async () => {
-    await restrictAccessToCompanyEmployee(
+    await restrictAccessToKeluargaAlamat(
       customRoleId,
-      companyObjectId,
-      restrictedCompanyFieldId,
+      keluargaObjectId,
+      restrictedKeluargaFieldId,
     );
-    await restrictAccessToPersonCity(
+    await restrictAccessToPendudukTempatLahir(
       customRoleId,
-      personObjectId,
-      restrictedPersonFieldId,
+      pendudukObjectId,
+      restrictedPendudukFieldId,
     );
 
-    // Query NOT requesting the restricted field
+    // Query TIDAK meminta field yang dibatasi
     const graphqlOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'company',
-      objectMetadataPluralName: 'companies',
-      gqlFields: COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES_AND_WITHOUT_PEOPLE_CITY,
+      objectMetadataSingularName: 'keluarga',
+      objectMetadataPluralName: 'keluargas',
+      gqlFields:
+        KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT_AND_WITHOUT_PENDUDUK_TEMPAT_LAHIR,
     });
     const response =
       await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.companies.edges[0].node.id).toBeDefined();
+    expect(response.body.data.keluargas.edges[0].node.id).toBeDefined();
   });
 
   describe('Aggregate operations', () => {
     it('1. should allow aggregate over a restricted field', async () => {
-      await restrictAccessToCompanyEmployee(
+      await restrictAccessToKeluargaAlamat(
         customRoleId,
-        companyObjectId,
-        restrictedCompanyFieldId,
+        keluargaObjectId,
+        restrictedKeluargaFieldId,
       );
 
-      // Query requesting the aggregate restricted field
+      // Query meminta aggregate dari field yang dibatasi
       const graphqlOperation = {
         query: gql`
-          query Companies {
-            companies {
-              countEmptyEmployees
+          query Keluargas {
+            keluargas {
+              countEmptyAlamat
             }
           }
         `,
@@ -471,28 +501,29 @@ describe('Field permissions restrictions', () => {
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
       expectNoGraphQLErrors(response);
-      expect(response.body.data.companies.countEmptyEmployees).toBeDefined();
+      expect(response.body.data.keluargas.countEmptyAlamat).toBeDefined();
     });
 
     it('2. should allow aggregate over a restricted field on a related object', async () => {
-      await restrictAccessToPersonCity(
+      await restrictAccessToPendudukTempatLahir(
         customRoleId,
-        personObjectId,
-        restrictedPersonFieldId,
+        pendudukObjectId,
+        restrictedPendudukFieldId,
       );
 
-      // Query requesting the aggregate restricted field
+      // Query meminta aggregate dari field terbatas pada object relasi
       const graphqlOperation = findManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_PEOPLE_CITY_AGGREGATE,
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_PENDUDUK_TEMPAT_LAHIR_AGGREGATE,
       });
       const response =
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
       expectNoGraphQLErrors(response);
       expect(
-        response.body.data.companies.edges[0].node.people.percentageEmptyCity,
+        response.body.data.keluargas.edges[0].node.penduduks
+          .percentageEmptyTempatLahir,
       ).toBeDefined();
     });
   });

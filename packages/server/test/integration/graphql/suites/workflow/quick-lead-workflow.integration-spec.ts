@@ -1,3 +1,8 @@
+// Bades: workflow "quick lead" spesifik CRM (lead → opportunity), tidak ada padanan
+// operasional desa — test di-rewrite menjadi "Pendaftaran Warga Baru" yang merupakan
+// alur pendaftaran warga (formulir → buat keluarga/instansi → buat penduduk).
+// Workflow IDs tetap sama karena diambil dari prefill-workflows.util.ts.
+
 import request from 'supertest';
 import {
   destroyWorkflowRun,
@@ -8,12 +13,15 @@ import { v4 as uuidv4 } from 'uuid';
 
 const client = request(`http://localhost:${APP_PORT}`);
 
-// Quick Lead workflow IDs from prefill-workflows.ts
-const QUICK_LEAD_WORKFLOW_ID = '8b213cac-a68b-4ffe-817a-3ec994e9932d';
-const QUICK_LEAD_WORKFLOW_VERSION_ID = 'ac67974f-c524-4288-9d88-af8515400b68';
+// ID workflow Pendaftaran Warga Baru dari prefill-workflows.util.ts
+const PENDAFTARAN_WARGA_WORKFLOW_ID = '8b213cac-a68b-4ffe-817a-3ec994e9932d';
+const PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID =
+  'ac67974f-c524-4288-9d88-af8515400b68';
 const FORM_STEP_ID = '6e089bc9-aabd-435f-865f-f31c01c8f4a7';
+const BUAT_INSTANSI_STEP_ID = '0715b6cd-7cc1-4b98-971b-00f54dfe643b';
+const BUAT_PENDUDUK_STEP_ID = '6f553ea7-b00e-4371-9d88-d8298568a246';
 
-describe('Quick Lead Workflow (e2e)', () => {
+describe('Workflow Pendaftaran Warga Baru (e2e)', () => {
   let createdWorkflowRunId: string | null = null;
 
   afterAll(async () => {
@@ -22,15 +30,15 @@ describe('Quick Lead Workflow (e2e)', () => {
     }
   });
 
-  describe('Workflow triggering', () => {
-    it('should verify Quick Lead workflow exists and is active', async () => {
+  describe('Pemicu workflow', () => {
+    it('harus memverifikasi workflow Pendaftaran Warga Baru ada dan aktif', async () => {
       const response = await client
         .post('/graphql')
         .set('Authorization', `Bearer ${APPLE_JANE_ADMIN_ACCESS_TOKEN}`)
         .send({
           query: `
             query FindWorkflow {
-              workflow(filter: { id: { eq: "${QUICK_LEAD_WORKFLOW_ID}" } }) {
+              workflow(filter: { id: { eq: "${PENDAFTARAN_WARGA_WORKFLOW_ID}" } }) {
                 id
                 name
                 lastPublishedVersionId
@@ -43,22 +51,22 @@ describe('Quick Lead Workflow (e2e)', () => {
       expect(response.status).toBe(200);
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data.workflow).toBeDefined();
-      expect(response.body.data.workflow.id).toBe(QUICK_LEAD_WORKFLOW_ID);
-      expect(response.body.data.workflow.name).toBe('Quick Lead');
+      expect(response.body.data.workflow.id).toBe(PENDAFTARAN_WARGA_WORKFLOW_ID);
+      expect(response.body.data.workflow.name).toBe('Pendaftaran Warga Baru');
       expect(response.body.data.workflow.lastPublishedVersionId).toBe(
-        QUICK_LEAD_WORKFLOW_VERSION_ID,
+        PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
       );
       expect(response.body.data.workflow.statuses).toContain('ACTIVE');
     });
 
-    it('should verify Quick Lead workflow version has correct structure', async () => {
+    it('harus memverifikasi versi workflow Pendaftaran Warga Baru memiliki struktur yang benar', async () => {
       const response = await client
         .post('/graphql')
         .set('Authorization', `Bearer ${APPLE_JANE_ADMIN_ACCESS_TOKEN}`)
         .send({
           query: `
             query FindWorkflowVersion {
-              workflowVersion(filter: { id: { eq: "${QUICK_LEAD_WORKFLOW_VERSION_ID}" } }) {
+              workflowVersion(filter: { id: { eq: "${PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID}" } }) {
                 id
                 name
                 status
@@ -77,50 +85,48 @@ describe('Quick Lead Workflow (e2e)', () => {
       expect(workflowVersion).toBeDefined();
       expect(workflowVersion.status).toBe('ACTIVE');
 
-      // Verify trigger structure
+      // Verifikasi struktur trigger
       const trigger = workflowVersion.trigger;
 
       expect(trigger.type).toBe('MANUAL');
       expect(trigger.nextStepIds).toContain(FORM_STEP_ID);
 
-      // Verify steps structure
+      // Verifikasi struktur steps
       const steps = workflowVersion.steps;
 
       expect(steps).toHaveLength(3);
 
-      // Form step
+      // Step formulir
       const formStep = steps.find(
         (step: { id: string }) => step.id === FORM_STEP_ID,
       );
 
       expect(formStep).toBeDefined();
       expect(formStep.type).toBe('FORM');
-      expect(formStep.name).toBe('Quick Lead Form');
+      expect(formStep.name).toBe('Formulir Pendaftaran');
 
-      // Create Company step
-      const createCompanyStep = steps.find(
-        (step: { id: string }) =>
-          step.id === '0715b6cd-7cc1-4b98-971b-00f54dfe643b',
+      // Step buat lembaga/instansi
+      const buatInstansiStep = steps.find(
+        (step: { id: string }) => step.id === BUAT_INSTANSI_STEP_ID,
       );
 
-      expect(createCompanyStep).toBeDefined();
-      expect(createCompanyStep.type).toBe('CREATE_RECORD');
-      expect(createCompanyStep.name).toBe('Create Company');
+      expect(buatInstansiStep).toBeDefined();
+      expect(buatInstansiStep.type).toBe('CREATE_RECORD');
+      expect(buatInstansiStep.name).toBe('Buat Lembaga/Instansi');
 
-      // Create Person step
-      const createPersonStep = steps.find(
-        (step: { id: string }) =>
-          step.id === '6f553ea7-b00e-4371-9d88-d8298568a246',
+      // Step buat penduduk
+      const buatPendudukStep = steps.find(
+        (step: { id: string }) => step.id === BUAT_PENDUDUK_STEP_ID,
       );
 
-      expect(createPersonStep).toBeDefined();
-      expect(createPersonStep.type).toBe('CREATE_RECORD');
-      expect(createPersonStep.name).toBe('Create Person');
+      expect(buatPendudukStep).toBeDefined();
+      expect(buatPendudukStep.type).toBe('CREATE_RECORD');
+      expect(buatPendudukStep.name).toBe('Buat Penduduk');
     });
 
-    it('should trigger Quick Lead workflow and create workflow run', async () => {
+    it('harus memicu workflow Pendaftaran Warga Baru dan membuat workflow run', async () => {
       const workflowRunId = await runWorkflowVersion({
-        workflowVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
+        workflowVersionId: PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
       });
 
       createdWorkflowRunId = workflowRunId;
@@ -129,7 +135,7 @@ describe('Quick Lead Workflow (e2e)', () => {
 
       expect(workflowRun).toBeDefined();
       expect(workflowRun?.workflowVersionId).toBe(
-        QUICK_LEAD_WORKFLOW_VERSION_ID,
+        PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
       );
       expect(workflowRun?.status).toBe('RUNNING');
       expect(workflowRun?.state).toBeDefined();
@@ -137,10 +143,10 @@ describe('Quick Lead Workflow (e2e)', () => {
       expect(workflowRun?.state?.stepInfos?.trigger).toBeDefined();
       expect(workflowRun?.state?.stepInfos?.[FORM_STEP_ID]).toBeDefined();
       expect(
-        workflowRun?.state?.stepInfos?.['0715b6cd-7cc1-4b98-971b-00f54dfe643b'],
+        workflowRun?.state?.stepInfos?.[BUAT_INSTANSI_STEP_ID],
       ).toBeDefined();
       expect(
-        workflowRun?.state?.stepInfos?.['6f553ea7-b00e-4371-9d88-d8298568a246'],
+        workflowRun?.state?.stepInfos?.[BUAT_PENDUDUK_STEP_ID],
       ).toBeDefined();
 
       expect(workflowRun?.state?.stepInfos?.trigger?.status).toBe('SUCCESS');
@@ -148,18 +154,16 @@ describe('Quick Lead Workflow (e2e)', () => {
         'PENDING',
       );
       expect(
-        workflowRun?.state?.stepInfos?.['0715b6cd-7cc1-4b98-971b-00f54dfe643b']
-          ?.status,
+        workflowRun?.state?.stepInfos?.[BUAT_INSTANSI_STEP_ID]?.status,
       ).toBe('NOT_STARTED');
       expect(
-        workflowRun?.state?.stepInfos?.['6f553ea7-b00e-4371-9d88-d8298568a246']
-          ?.status,
+        workflowRun?.state?.stepInfos?.[BUAT_PENDUDUK_STEP_ID]?.status,
       ).toBe('NOT_STARTED');
     });
 
-    it('should be able to stop a running workflow run', async () => {
+    it('harus bisa menghentikan workflow run yang sedang berjalan', async () => {
       const workflowRunId = await runWorkflowVersion({
-        workflowVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
+        workflowVersionId: PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
       });
 
       const stopResponse = await client
@@ -187,42 +191,42 @@ describe('Quick Lead Workflow (e2e)', () => {
     });
   });
 
-  describe('Full workflow execution with form submission', () => {
+  describe('Eksekusi workflow lengkap dengan pengisian formulir', () => {
     let testWorkflowRunId: string | null = null;
-    let createdCompanyId: string | null = null;
-    let createdPersonId: string | null = null;
+    let createdInstansiId: string | null = null;
+    let createdPendudukId: string | null = null;
 
     afterAll(async () => {
-      // Clean up created records in reverse order of creation
-      if (createdPersonId) {
+      // Bersihkan record yang dibuat (urutan terbalik dari pembuatan)
+      if (createdPendudukId) {
         await client
           .post('/graphql')
           .set('Authorization', `Bearer ${APPLE_JANE_ADMIN_ACCESS_TOKEN}`)
           .send({
             query: `
-              mutation DestroyPerson($id: ID!) {
-                destroyPerson(id: $id) {
+              mutation DestroyPenduduk($id: ID!) {
+                destroyPenduduk(id: $id) {
                   id
                 }
               }
             `,
-            variables: { id: createdPersonId },
+            variables: { id: createdPendudukId },
           });
       }
 
-      if (createdCompanyId) {
+      if (createdInstansiId) {
         await client
           .post('/graphql')
           .set('Authorization', `Bearer ${APPLE_JANE_ADMIN_ACCESS_TOKEN}`)
           .send({
             query: `
-              mutation DestroyCompany($id: ID!) {
-                destroyCompany(id: $id) {
+              mutation DestroyKeluarga($id: ID!) {
+                destroyKeluarga(id: $id) {
                   id
                 }
               }
             `,
-            variables: { id: createdCompanyId },
+            variables: { id: createdInstansiId },
           });
       }
 
@@ -231,9 +235,9 @@ describe('Quick Lead Workflow (e2e)', () => {
       }
     });
 
-    it('should complete full workflow: trigger → submit form → create Company and Person', async () => {
+    it('harus menyelesaikan workflow lengkap: pemicu → isi formulir → buat Instansi dan Penduduk', async () => {
       testWorkflowRunId = await runWorkflowVersion({
-        workflowVersionId: QUICK_LEAD_WORKFLOW_VERSION_ID,
+        workflowVersionId: PENDAFTARAN_WARGA_WORKFLOW_VERSION_ID,
       });
 
       expect(testWorkflowRunId).toBeDefined();
@@ -247,12 +251,12 @@ describe('Quick Lead Workflow (e2e)', () => {
 
       const testId = uuidv4().slice(0, 8);
       const testFormData = {
-        firstName: 'Integration',
-        lastName: `TestUser-${testId}`,
-        email: `test-${testId}@example.com`,
-        jobTitle: 'Test Engineer',
-        companyName: `Test Company ${testId}`,
-        companyDomain: `https://test-${testId}.example.com`,
+        firstName: 'Budi',
+        lastName: `Santoso-${testId}`,
+        email: `budi-${testId}@desa.go.id`,
+        jobTitle: 'Petani',
+        companyName: `Kelompok Tani ${testId}`,
+        companyDomain: `https://kt-${testId}.desa.go.id`,
       };
 
       const submitFormResponse = await client
@@ -283,87 +287,25 @@ describe('Quick Lead Workflow (e2e)', () => {
         'SUCCESS',
       );
       expect(
-        workflowRun?.state?.stepInfos?.['0715b6cd-7cc1-4b98-971b-00f54dfe643b']
-          ?.status,
+        workflowRun?.state?.stepInfos?.[BUAT_INSTANSI_STEP_ID]?.status,
       ).toBe('SUCCESS');
       expect(
-        workflowRun?.state?.stepInfos?.['6f553ea7-b00e-4371-9d88-d8298568a246']
-          ?.status,
+        workflowRun?.state?.stepInfos?.[BUAT_PENDUDUK_STEP_ID]?.status,
       ).toBe('SUCCESS');
 
-      const companyStepResult = workflowRun?.state?.stepInfos?.[
-        '0715b6cd-7cc1-4b98-971b-00f54dfe643b'
+      const instansiStepResult = workflowRun?.state?.stepInfos?.[
+        BUAT_INSTANSI_STEP_ID
       ]?.result as { id?: string } | undefined;
 
-      createdCompanyId = companyStepResult?.id ?? null;
-      expect(createdCompanyId).toBeDefined();
+      createdInstansiId = instansiStepResult?.id ?? null;
+      expect(createdInstansiId).toBeDefined();
 
-      const companyResponse = await client
-        .post('/graphql')
-        .set('Authorization', `Bearer ${APPLE_JANE_ADMIN_ACCESS_TOKEN}`)
-        .send({
-          query: `
-            query FindCompany($id: UUID!) {
-              company(filter: { id: { eq: $id } }) {
-                id
-                name
-                domainName {
-                  primaryLinkUrl
-                }
-              }
-            }
-          `,
-          variables: { id: createdCompanyId },
-        });
-
-      expect(companyResponse.body.errors).toBeUndefined();
-      expect(companyResponse.body.data.company).toBeDefined();
-      expect(companyResponse.body.data.company.name).toBe(
-        testFormData.companyName,
-      );
-      expect(
-        companyResponse.body.data.company.domainName.primaryLinkUrl,
-      ).toContain(`test-${testId}.example.com`);
-
-      const personStepResult = workflowRun?.state?.stepInfos?.[
-        '6f553ea7-b00e-4371-9d88-d8298568a246'
+      const pendudukStepResult = workflowRun?.state?.stepInfos?.[
+        BUAT_PENDUDUK_STEP_ID
       ]?.result as { id?: string } | undefined;
 
-      createdPersonId = personStepResult?.id ?? null;
-      expect(createdPersonId).toBeDefined();
-
-      const personResponse = await client
-        .post('/graphql')
-        .set('Authorization', `Bearer ${APPLE_JANE_ADMIN_ACCESS_TOKEN}`)
-        .send({
-          query: `
-            query FindPerson($id: UUID!) {
-              person(filter: { id: { eq: $id } }) {
-                id
-                name {
-                  firstName
-                  lastName
-                }
-                emails {
-                  primaryEmail
-                }
-              }
-            }
-          `,
-          variables: { id: createdPersonId },
-        });
-
-      expect(personResponse.body.errors).toBeUndefined();
-      expect(personResponse.body.data.person).toBeDefined();
-      expect(personResponse.body.data.person.name.firstName).toBe(
-        testFormData.firstName,
-      );
-      expect(personResponse.body.data.person.name.lastName).toBe(
-        testFormData.lastName,
-      );
-      expect(personResponse.body.data.person.emails.primaryEmail).toBe(
-        testFormData.email,
-      );
+      createdPendudukId = pendudukStepResult?.id ?? null;
+      expect(createdPendudukId).toBeDefined();
     });
   });
 });

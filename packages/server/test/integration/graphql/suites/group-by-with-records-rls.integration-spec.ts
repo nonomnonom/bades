@@ -1,7 +1,7 @@
 import { randomUUID } from 'crypto';
 
 import gql from 'graphql-tag';
-import { COMPANY_GQL_FIELDS } from 'test/integration/constants/company-gql-fields.constants';
+import { KELUARGA_GQL_FIELDS } from 'test/integration/constants/keluarga-gql-fields.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { destroyOneOperationFactory } from 'test/integration/graphql/utils/destroy-one-operation-factory.util';
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
@@ -23,13 +23,16 @@ const FILTER_2020 = {
   ],
 };
 
+// Bades: test RLS pada group-by menggunakan objek `keluarga` (Kartu Keluarga)
+// sebagai pengganti `company` dari CRM warisan Twenty. Filter RLS diset pada
+// field `nomorKk` — identifier utama keluarga.
 describe('group-by with records respects row-level permission predicates', () => {
-  const testCompanyId1 = randomUUID();
-  const testCompanyId2 = randomUUID();
+  const testKeluargaId1 = randomUUID();
+  const testKeluargaId2 = randomUUID();
   let customRoleId: string;
   let originalMemberRoleId: string;
-  let companyObjectMetadataId: string;
-  let companyNameFieldMetadataId: string;
+  let keluargaObjectMetadataId: string;
+  let keluargaNomorKkFieldMetadataId: string;
 
   beforeAll(async () => {
     const { objects } = await findManyObjectMetadata({
@@ -50,19 +53,19 @@ describe('group-by with records respects row-level permission predicates', () =>
 
     jestExpectToBeDefined(objects);
 
-    const companyObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'company',
+    const keluargaObjectMetadata = objects.find(
+      (object: { nameSingular: string }) => object.nameSingular === 'keluarga',
     );
 
-    jestExpectToBeDefined(companyObjectMetadata);
-    companyObjectMetadataId = companyObjectMetadata.id;
+    jestExpectToBeDefined(keluargaObjectMetadata);
+    keluargaObjectMetadataId = keluargaObjectMetadata.id;
 
-    const nameField = companyObjectMetadata.fieldsList?.find(
-      (field: { name: string }) => field.name === 'name',
+    const nomorKkField = keluargaObjectMetadata.fieldsList?.find(
+      (field: { name: string }) => field.name === 'nomorKk',
     );
 
-    jestExpectToBeDefined(nameField);
-    companyNameFieldMetadataId = nameField.id;
+    jestExpectToBeDefined(nomorKkField);
+    keluargaNomorKkFieldMetadataId = nomorKkField.id;
 
     const memberRole = await findOneRoleByLabel({ label: 'Member' });
 
@@ -72,7 +75,7 @@ describe('group-by with records respects row-level permission predicates', () =>
       expectToFail: false,
       input: {
         label: 'RLS GroupBy Test Role',
-        description: 'Role for testing RLS in group-by with records',
+        description: 'Role untuk test RLS group-by dengan objek keluarga',
         icon: 'IconSettings',
         canUpdateAllSettings: false,
         canAccessAllTools: true,
@@ -89,16 +92,17 @@ describe('group-by with records respects row-level permission predicates', () =>
     customRoleId = roleData?.createOneRole?.id;
     jestExpectToBeDefined(customRoleId);
 
+    // Set RLS predicate: hanya keluarga yang nomorKk mengandung 'Terlihat' yang visible
     await upsertRowLevelPermissionPredicates({
       expectToFail: false,
       input: {
         roleId: customRoleId,
-        objectMetadataId: companyObjectMetadataId,
+        objectMetadataId: keluargaObjectMetadataId,
         predicates: [
           {
-            fieldMetadataId: companyNameFieldMetadataId,
+            fieldMetadataId: keluargaNomorKkFieldMetadataId,
             operand: RowLevelPermissionPredicateOperand.CONTAINS,
-            value: 'Visible',
+            value: 'Terlihat',
           },
         ],
         predicateGroups: [],
@@ -115,12 +119,11 @@ describe('group-by with records respects row-level permission predicates', () =>
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS,
         data: {
-          id: testCompanyId1,
-          name: 'RLS Visible Company',
-          employees: 99,
+          id: testKeluargaId1,
+          nomorKk: 'RLS-Terlihat-3201010101010001',
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -128,12 +131,11 @@ describe('group-by with records respects row-level permission predicates', () =>
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS,
         data: {
-          id: testCompanyId2,
-          name: 'RLS Hidden Company',
-          employees: 99,
+          id: testKeluargaId2,
+          nomorKk: 'RLS-Tersembunyi-3201010101010002',
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -149,10 +151,10 @@ describe('group-by with records respects row-level permission predicates', () =>
       expectToFail: false,
     });
 
-    for (const id of [testCompanyId1, testCompanyId2]) {
+    for (const id of [testKeluargaId1, testKeluargaId2]) {
       await makeGraphqlAPIRequest(
         destroyOneOperationFactory({
-          objectMetadataSingularName: 'company',
+          objectMetadataSingularName: 'keluarga',
           gqlFields: 'id',
           recordId: id,
         }),
@@ -171,12 +173,12 @@ describe('group-by with records respects row-level permission predicates', () =>
     const response = await makeGraphqlAPIRequest(
       {
         query: gql`
-          query CompaniesGroupBy(
-            $groupBy: [CompanyGroupByInput!]!
-            $filter: CompanyFilterInput
+          query KeluargasGroupBy(
+            $groupBy: [KeluargaGroupByInput!]!
+            $filter: KeluargaFilterInput
             $limit: Int
           ) {
-            companiesGroupBy(
+            keluargasGroupBy(
               groupBy: $groupBy
               filter: $filter
               limit: $limit
@@ -184,15 +186,14 @@ describe('group-by with records respects row-level permission predicates', () =>
               groupByDimensionValues
               edges {
                 node {
-                  name
-                  employees
+                  nomorKk
                 }
               }
             }
           }
         `,
         variables: {
-          groupBy: [{ employees: true }],
+          groupBy: [{ createdAt: { granularity: 'MONTH' } }],
           filter: FILTER_2020,
           limit: 10,
         },
@@ -203,18 +204,20 @@ describe('group-by with records respects row-level permission predicates', () =>
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const groups = response.body.data.companiesGroupBy;
+    const groups = response.body.data.keluargasGroupBy;
 
     const allRecords = groups.flatMap(
-      (group: { edges: { node: { name: string } }[] }) =>
-        group.edges.map((edge: { node: { name: string } }) => edge.node),
+      (group: { edges: { node: { nomorKk: string } }[] }) =>
+        group.edges.map((edge: { node: { nomorKk: string } }) => edge.node),
     );
 
     const visibleRecords = allRecords.filter(
-      (record: { name: string }) => record.name === 'RLS Visible Company',
+      (record: { nomorKk: string }) =>
+        record.nomorKk === 'RLS-Terlihat-3201010101010001',
     );
     const hiddenRecords = allRecords.filter(
-      (record: { name: string }) => record.name === 'RLS Hidden Company',
+      (record: { nomorKk: string }) =>
+        record.nomorKk === 'RLS-Tersembunyi-3201010101010002',
     );
 
     expect(visibleRecords).toHaveLength(1);

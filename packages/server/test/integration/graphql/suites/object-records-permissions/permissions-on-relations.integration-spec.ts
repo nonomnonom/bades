@@ -103,8 +103,8 @@ describe('permissionsOnRelations', () => {
     // Create a role with person read permission but no company read permission
     const { roleId } = await createCustomRoleWithObjectPermissions({
       label: 'PersonOnlyRole',
-      canReadPerson: true,
-      canReadCompany: false,
+      canReadPenduduk: true,
+      canReadKeluarga: false,
     });
 
     customRoleId = roleId;
@@ -143,8 +143,8 @@ describe('permissionsOnRelations', () => {
     // Create a role with both person and company read permissions
     const { roleId } = await createCustomRoleWithObjectPermissions({
       label: 'PersonAndCompanyRole',
-      canReadPerson: true,
-      canReadCompany: true,
+      canReadPenduduk: true,
+      canReadKeluarga: true,
     });
 
     customRoleId = roleId;
@@ -186,9 +186,9 @@ describe('permissionsOnRelations', () => {
 
     const { roleId } = await createCustomRoleWithObjectPermissions({
       label: 'PersonCompanyOnlyRole',
-      canReadPerson: true,
-      canReadCompany: true,
-      canReadOpportunities: false,
+      canReadPenduduk: true,
+      canReadKeluarga: true,
+      canReadProgramBantuan: false,
     });
 
     customRoleId = roleId;

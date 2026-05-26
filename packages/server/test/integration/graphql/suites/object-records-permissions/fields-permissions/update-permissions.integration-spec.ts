@@ -22,16 +22,19 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 
 const client = request(`http://localhost:${APP_PORT}`);
 
-const COMPANY_GQL_FIELDS_WITH_EMPLOYEES = `
+// GQL fields keluarga dengan field `alamat` (pengganti company.employees)
+const KELUARGA_GQL_FIELDS_WITH_ALAMAT = `
       id
-      name
-      employees
+      nomorKk
+      alamat
 `;
 
-const COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES = `
+// GQL fields keluarga tanpa field terbatas
+const KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT = `
       id
-      name
+      nomorKk
 `;
+
 const expectPermissionDeniedError = (response: any) => {
   expect(response.body.errors).toBeDefined();
   expect(response.body.errors.length).toBeGreaterThan(0);
@@ -41,63 +44,64 @@ const expectPermissionDeniedError = (response: any) => {
   expect(response.body.errors[0].extensions.code).toBe(ErrorCode.FORBIDDEN);
 };
 
-const expectEmployeesIsAccessible = ({
+const expectAlamatIsAccessible = ({
   response,
   operationName,
-  expectedEmployees,
+  expectedAlamat,
 }: {
   response: any;
-  operationName: 'createCompanies' | 'createCompany';
-  expectedEmployees: number;
+  operationName: 'createKeluargas' | 'createKeluarga';
+  expectedAlamat: string;
 }) => {
   expect(response.body.errors).toBeUndefined();
   expect(response.body.data).toBeDefined();
 
   const result =
-    operationName === 'createCompany'
+    operationName === 'createKeluarga'
       ? response.body.data[operationName]
       : response.body.data[operationName]?.[0];
 
   expect(result).toBeDefined();
-  expect(result.employees).toBe(expectedEmployees);
+  expect(result.alamat).toBe(expectedAlamat);
 };
 
 describe('Field update permissions restrictions', () => {
-  let companyId: string;
-  let personId: string;
+  let testKeluargaId: string;
   let customRoleId: string;
-  let companyObjectId: string;
-  let restrictedCompanyFieldId: string;
+  let keluargaObjectId: string;
+  let restrictedKeluargaFieldId: string;
   let originalMemberRoleId: string;
 
-  const restrictUpdateAccessToCompanyEmployee = async (
+  // Batasi hak update ke field `alamat` pada keluarga (setara employees di company CRM)
+  const restrictUpdateAccessToKeluargaAlamat = async (
     roleId: string,
-    companyObjectId: string,
-    restrictedCompanyFieldId: string,
+    keluargaObjId: string,
+    fieldId: string,
   ) => {
     await upsertFieldPermissions({
       roleId,
       fieldPermissions: [
         {
-          objectMetadataId: companyObjectId,
-          fieldMetadataId: restrictedCompanyFieldId,
+          objectMetadataId: keluargaObjId,
+          fieldMetadataId: fieldId,
           canUpdateFieldValue: false,
         },
       ],
     });
   };
 
-  const restrictReadAccessToCompanyEmployee = async (
+  // Batasi hak baca ke field `alamat` pada keluarga
+  const restrictReadAccessToKeluargaAlamat = async (
     roleId: string,
-    companyObjectId: string,
-    restrictedCompanyFieldId: string,
+    keluargaObjId: string,
+    fieldId: string,
   ) => {
     await upsertFieldPermissions({
       roleId,
       fieldPermissions: [
         {
-          objectMetadataId: companyObjectId,
-          fieldMetadataId: restrictedCompanyFieldId,
+          objectMetadataId: keluargaObjId,
+          fieldMetadataId: fieldId,
           canReadFieldValue: false,
         },
       ],
@@ -105,7 +109,7 @@ describe('Field update permissions restrictions', () => {
   };
 
   beforeAll(async () => {
-    // Get the original Member role ID for restoration later
+    // Ambil ID role Member asli untuk dipulihkan setelah suite selesai
     const getRolesQuery = {
       query: `
         query GetRoles {
@@ -125,25 +129,22 @@ describe('Field update permissions restrictions', () => {
       (role: any) => role.label === 'Member',
     ).id;
 
-    // Create a company and a person
-    companyId = randomUUID();
-    personId = randomUUID();
-    const createCompanyOp = createOneOperationFactory({
-      objectMetadataSingularName: 'company',
-      gqlFields: 'id name employees',
-      data: { id: companyId, name: 'TestCompany', employees: 10 },
+    // Buat record keluarga untuk dipakai dalam test update/read permission
+    testKeluargaId = randomUUID();
+
+    const createKeluargaOp = createOneOperationFactory({
+      objectMetadataSingularName: 'keluarga',
+      gqlFields: 'id nomorKk alamat',
+      data: {
+        id: testKeluargaId,
+        nomorKk: '3578019876543210',
+        alamat: 'Jl. Sudirman No. 20, Jakarta',
+      },
     });
 
-    await makeGraphqlAPIRequest(createCompanyOp);
-    const createPersonOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: 'id city',
-      data: { id: personId, city: 'Paris', companyId },
-    });
+    await makeGraphqlAPIRequest(createKeluargaOp);
 
-    await makeGraphqlAPIRequest(createPersonOperation);
-
-    // Get object and field metadata IDs
+    // Ambil metadata ID object dan field
     const getObjectMetadataOp = {
       query: gql`
         query {
@@ -162,8 +163,8 @@ describe('Field update permissions restrictions', () => {
       await makeMetadataAPIRequest(getObjectMetadataOp);
     const objects = objectMetadataResponse.body.data.objects.edges;
 
-    companyObjectId = objects.find(
-      (obj: any) => obj.node.nameSingular === 'company',
+    keluargaObjectId = objects.find(
+      (obj: any) => obj.node.nameSingular === 'keluarga',
     ).node.id;
 
     const getFieldMetadataOp = {
@@ -187,15 +188,15 @@ describe('Field update permissions restrictions', () => {
       await makeMetadataAPIRequest(getFieldMetadataOp);
     const fields = fieldMetadataResponse.body.data.fields.edges;
 
-    restrictedCompanyFieldId = fields.find(
+    restrictedKeluargaFieldId = fields.find(
       (field: any) =>
-        field.node.name === 'employees' &&
-        field.node.object.nameSingular === 'company',
+        field.node.name === 'alamat' &&
+        field.node.object.nameSingular === 'keluarga',
     ).node.id;
   });
 
   afterAll(async () => {
-    // Restore original role
+    // Pulihkan role Member asli
     const restoreMemberRoleQuery = {
       query: `
         mutation UpdateWorkspaceMemberRole {
@@ -215,13 +216,13 @@ describe('Field update permissions restrictions', () => {
 
   beforeEach(async () => {
     const { roleId } = await createCustomRoleWithObjectPermissions({
-      label: 'CompanyPeopleRole',
-      canReadCompany: true,
-      canReadPerson: true,
+      label: 'KeluargaPendudukRole',
+      canReadKeluarga: true,
+      canReadPenduduk: true,
       hasAllObjectRecordsReadPermission: true,
-      canUpdateCompany: true,
-      canUpdatePerson: true,
-      canUpdateOpportunities: true,
+      canUpdateKeluarga: true,
+      canUpdatePenduduk: true,
+      canUpdateProgramBantuan: true,
     });
 
     customRoleId = roleId;
@@ -241,19 +242,19 @@ describe('Field update permissions restrictions', () => {
 
   // describe('should throw an error if updating a restricted field', () => {
   //   beforeEach(async () => {
-  //     await restrictUpdateAccessToCompanyEmployee(
+  //     await restrictUpdateAccessToKeluargaAlamat(
   //       customRoleId,
-  //       companyObjectId,
-  //       restrictedCompanyFieldId,
+  //       keluargaObjectId,
+  //       restrictedKeluargaFieldId,
   //     );
   //   });
 
   //   it('1. updateMany with restricted field', async () => {
   //     const graphqlOperation = updateManyOperationFactory({
-  //       objectMetadataSingularName: 'company',
-  //       objectMetadataPluralName: 'companies',
-  //       gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-  //       data: { employees: 20 },
+  //       objectMetadataSingularName: 'keluarga',
+  //       objectMetadataPluralName: 'keluargas',
+  //       gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+  //       data: { alamat: 'Jl. Baru No. 99' },
   //     });
 
   //     const response =
@@ -264,10 +265,10 @@ describe('Field update permissions restrictions', () => {
 
   //   it('2. updateOne with restricted field', async () => {
   //     const graphqlOperation = updateOneOperationFactory({
-  //       objectMetadataSingularName: 'company',
-  //       gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-  //       recordId: companyId,
-  //       data: { employees: 20 },
+  //       objectMetadataSingularName: 'keluarga',
+  //       gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+  //       recordId: testKeluargaId,
+  //       data: { alamat: 'Jl. Baru No. 99' },
   //     });
 
   //     const response =
@@ -279,19 +280,19 @@ describe('Field update permissions restrictions', () => {
 
   // describe('should succeed if updating non-restricted fields', () => {
   //   beforeEach(async () => {
-  //     await restrictUpdateAccessToCompanyEmployee(
+  //     await restrictUpdateAccessToKeluargaAlamat(
   //       customRoleId,
-  //       companyObjectId,
-  //       restrictedCompanyFieldId,
+  //       keluargaObjectId,
+  //       restrictedKeluargaFieldId,
   //     );
   //   });
 
   //   it('1. updateMany with non-restricted field', async () => {
   //     const graphqlOperation = updateManyOperationFactory({
-  //       objectMetadataSingularName: 'company',
-  //       objectMetadataPluralName: 'companies',
-  //       gqlFields: COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES,
-  //       data: { name: 'UpdatedCompany' },
+  //       objectMetadataSingularName: 'keluarga',
+  //       objectMetadataPluralName: 'keluargas',
+  //       gqlFields: KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT,
+  //       data: { nomorKk: '3578019999999999' },
   //     });
 
   //     const response =
@@ -299,15 +300,15 @@ describe('Field update permissions restrictions', () => {
 
   //     expect(response.body.errors).toBeUndefined();
   //     expect(response.body.data).toBeDefined();
-  //     expect(response.body.data.updateCompanies[0].name).toBe('UpdatedCompany');
+  //     expect(response.body.data.updateKeluargas[0].nomorKk).toBe('3578019999999999');
   //   });
 
   //   it('2. updateOne with non-restricted field', async () => {
   //     const graphqlOperation = updateOneOperationFactory({
-  //       objectMetadataSingularName: 'company',
-  //       gqlFields: COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES,
-  //       recordId: companyId,
-  //       data: { name: 'UpdatedCompany2' },
+  //       objectMetadataSingularName: 'keluarga',
+  //       gqlFields: KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT,
+  //       recordId: testKeluargaId,
+  //       data: { nomorKk: '3578019999999998' },
   //     });
 
   //     const response =
@@ -315,25 +316,25 @@ describe('Field update permissions restrictions', () => {
 
   //     expect(response.body.errors).toBeUndefined();
   //     expect(response.body.data).toBeDefined();
-  //     expect(response.body.data.updateCompany.name).toBe('UpdatedCompany2');
+  //     expect(response.body.data.updateKeluarga.nomorKk).toBe('3578019999999998');
   //   });
   // });
 
-  describe('should allow employees field when creating if field is in RLS predicate', () => {
+  describe('should allow alamat field when creating if field is in RLS predicate', () => {
     beforeEach(async () => {
-      await restrictUpdateAccessToCompanyEmployee(
+      await restrictUpdateAccessToKeluargaAlamat(
         customRoleId,
-        companyObjectId,
-        restrictedCompanyFieldId,
+        keluargaObjectId,
+        restrictedKeluargaFieldId,
       );
 
       await upsertRowLevelPermissionPredicates({
         input: {
           roleId: customRoleId,
-          objectMetadataId: companyObjectId,
+          objectMetadataId: keluargaObjectId,
           predicates: [
             {
-              fieldMetadataId: restrictedCompanyFieldId,
+              fieldMetadataId: restrictedKeluargaFieldId,
               operand: RowLevelPermissionPredicateOperand.IS_NOT_EMPTY,
             },
           ],
@@ -346,7 +347,7 @@ describe('Field update permissions restrictions', () => {
       await upsertRowLevelPermissionPredicates({
         input: {
           roleId: customRoleId,
-          objectMetadataId: companyObjectId,
+          objectMetadataId: keluargaObjectId,
           predicates: [],
           predicateGroups: [],
         },
@@ -355,58 +356,71 @@ describe('Field update permissions restrictions', () => {
 
     it('1. createMany with restricted field in RLS predicate', async () => {
       const graphqlOperation = createManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
         data: [
-          { id: randomUUID(), name: 'NewCompany1', employees: 15 },
-          { id: randomUUID(), name: 'NewCompany2', employees: 20 },
+          {
+            id: randomUUID(),
+            nomorKk: '3578011111111111',
+            alamat: 'Jl. Ahmad Yani No. 3, Malang',
+          },
+          {
+            id: randomUUID(),
+            nomorKk: '3578011111111112',
+            alamat: 'Jl. Pemuda No. 7, Semarang',
+          },
         ],
       });
 
       const response =
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
-      expectEmployeesIsAccessible({
+      expectAlamatIsAccessible({
         response,
-        operationName: 'createCompanies',
-        expectedEmployees: 15,
+        operationName: 'createKeluargas',
+        expectedAlamat: 'Jl. Ahmad Yani No. 3, Malang',
       });
     });
 
     it('2. createOne with restricted field in RLS predicate', async () => {
       const graphqlOperation = createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        data: { id: randomUUID(), name: 'NewCompany3', employees: 25 },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        data: {
+          id: randomUUID(),
+          nomorKk: '3578011111111113',
+          alamat: 'Jl. Veteran No. 15, Surabaya',
+        },
       });
 
       const response =
         await makeGraphqlAPIRequestWithMemberRole(graphqlOperation);
 
-      expectEmployeesIsAccessible({
+      expectAlamatIsAccessible({
         response,
-        operationName: 'createCompany',
-        expectedEmployees: 25,
+        operationName: 'createKeluarga',
+        expectedAlamat: 'Jl. Veteran No. 15, Surabaya',
       });
     });
   });
+
   describe('should block read-restricted field in update operation responses', () => {
     beforeEach(async () => {
-      await restrictReadAccessToCompanyEmployee(
+      await restrictReadAccessToKeluargaAlamat(
         customRoleId,
-        companyObjectId,
-        restrictedCompanyFieldId,
+        keluargaObjectId,
+        restrictedKeluargaFieldId,
       );
     });
 
     it('1. updateMany requesting restricted field in response', async () => {
       const graphqlOperation = updateManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        data: { name: 'UpdatedCompany' },
-        filter: { id: { eq: companyId } },
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        data: { nomorKk: '3578019876543211' },
+        filter: { id: { eq: testKeluargaId } },
       });
 
       const response =
@@ -417,10 +431,10 @@ describe('Field update permissions restrictions', () => {
 
     it('2. updateOne requesting restricted field in response', async () => {
       const graphqlOperation = updateOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITH_EMPLOYEES,
-        recordId: companyId,
-        data: { name: 'UpdatedCompany' },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITH_ALAMAT,
+        recordId: testKeluargaId,
+        data: { nomorKk: '3578019876543212' },
       });
 
       const response =
@@ -432,20 +446,20 @@ describe('Field update permissions restrictions', () => {
 
   describe('should succeed if not requesting restricted fields in update operations', () => {
     beforeEach(async () => {
-      await restrictUpdateAccessToCompanyEmployee(
+      await restrictUpdateAccessToKeluargaAlamat(
         customRoleId,
-        companyObjectId,
-        restrictedCompanyFieldId,
+        keluargaObjectId,
+        restrictedKeluargaFieldId,
       );
     });
 
     it('1. updateMany not requesting restricted field in response', async () => {
       const graphqlOperation = updateManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
-        gqlFields: COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES,
-        data: { name: 'UpdatedCompany' },
-        filter: { id: { eq: companyId } },
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
+        gqlFields: KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT,
+        data: { nomorKk: '3578019876500001' },
+        filter: { id: { eq: testKeluargaId } },
       });
 
       const response =
@@ -453,15 +467,17 @@ describe('Field update permissions restrictions', () => {
 
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data).toBeDefined();
-      expect(response.body.data.updateCompanies[0].name).toBe('UpdatedCompany');
+      expect(response.body.data.updateKeluargas[0].nomorKk).toBe(
+        '3578019876500001',
+      );
     });
 
     it('2. updateOne not requesting restricted field in response', async () => {
       const graphqlOperation = updateOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS_WITHOUT_EMPLOYEES,
-        recordId: companyId,
-        data: { name: 'UpdatedCompany2' },
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS_WITHOUT_ALAMAT,
+        recordId: testKeluargaId,
+        data: { nomorKk: '3578019876500002' },
       });
 
       const response =
@@ -469,7 +485,9 @@ describe('Field update permissions restrictions', () => {
 
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data).toBeDefined();
-      expect(response.body.data.updateCompany.name).toBe('UpdatedCompany2');
+      expect(response.body.data.updateKeluarga.nomorKk).toBe(
+        '3578019876500002',
+      );
     });
   });
 });

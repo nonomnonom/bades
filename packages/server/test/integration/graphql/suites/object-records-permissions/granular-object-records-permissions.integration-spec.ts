@@ -67,7 +67,7 @@ describe('granularObjectRecordsPermissions', () => {
       // Arrange
       const { roleId } = await createCustomRoleWithObjectPermissions({
         label: 'PersonReadRightsExcludedRole',
-        canReadPerson: false,
+        canReadPenduduk: false,
       });
 
       customRoleId = roleId;
@@ -121,7 +121,7 @@ describe('granularObjectRecordsPermissions', () => {
       // Arrange
       const { roleId } = await createCustomRoleWithObjectPermissions({
         label: 'PersonRole',
-        canReadPerson: true,
+        canReadPenduduk: true,
         hasAllObjectRecordsReadPermission: false,
       });
 

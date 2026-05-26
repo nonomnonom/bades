@@ -1,9 +1,5 @@
-import { TEST_COMPANY_1_ID } from 'test/integration/constants/test-company-ids.constants';
-import { TEST_PERSON_1_ID } from 'test/integration/constants/test-person-ids.constants';
-import {
-  TEST_PRIMARY_LINK_URL,
-  TEST_PRIMARY_LINK_URL_WIITHOUT_TRAILING_SLASH,
-} from 'test/integration/constants/test-primary-link-url.constant';
+import { TEST_KELUARGA_1_ID } from 'test/integration/constants/test-keluarga-ids.constants';
+import { TEST_PENDUDUK_1_ID } from 'test/integration/constants/test-penduduk-ids.constants';
 import { makeRestAPIRequest } from 'test/integration/rest/utils/make-rest-api-request.util';
 import { deleteAllRecords } from 'test/integration/utils/delete-all-records';
 import { generateRecordName } from 'test/integration/utils/generate-record-name';
@@ -13,55 +9,57 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 
 describe('Core REST API Create One endpoint', () => {
   beforeEach(async () => {
-    await deleteAllRecords('person');
-    await deleteAllRecords('company');
+    await deleteAllRecords('penduduk');
+    await deleteAllRecords('keluarga');
     await makeRestAPIRequest({
       method: 'post',
-      path: '/companies',
+      path: '/keluargas',
       body: {
-        id: TEST_COMPANY_1_ID,
-        domainName: {
-          primaryLinkUrl: TEST_PRIMARY_LINK_URL,
-        },
+        id: TEST_KELUARGA_1_ID,
+        nomorKk: '3201234567890000',
       },
     });
+    // Catatan: relasi penduduk → keluarga melalui junction field 'anggota' (ONE_TO_MANY).
+    // Field di penduduk yang mengacu keluarga adalah 'kartuKeluargaId' (dari targetFieldLabel
+    // 'Kartu Keluarga' yang di-camelCase oleh engine → 'kartuKeluarga').
+    // Test depth menggunakan nama field yang di-generate dinamis ini.
   });
 
   afterAll(async () => {
-    await deleteAllRecords('person');
-    await deleteAllRecords('company');
+    await deleteAllRecords('penduduk');
+    await deleteAllRecords('keluarga');
   });
 
-  it('should create a new person', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus membuat penduduk baru', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
-      companyId: TEST_COMPANY_1_ID,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
+      kartuKeluargaId: TEST_KELUARGA_1_ID,
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/penduduks`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
-        const createdPerson = res.body.data.createPerson;
+        const createdPenduduk = res.body.data.createPenduduk;
 
-        expect(createdPerson.id).toBe(TEST_PERSON_1_ID);
-        expect(createdPerson.city).toBe(personCity);
-        expect(createdPerson.createdBy.source).toBe(FieldActorSource.API);
-        expect(createdPerson.createdBy.workspaceMemberId).toBe(null);
+        expect(createdPenduduk.id).toBe(TEST_PENDUDUK_1_ID);
+        expect(createdPenduduk.tempatLahir).toBe(tempatLahir);
+        expect(createdPenduduk.createdBy.source).toBe(FieldActorSource.API);
+        expect(createdPenduduk.createdBy.workspaceMemberId).toBe(null);
       });
   });
 
-  it('should create a new person with specific createdBy', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus membuat penduduk baru dengan createdBy spesifik', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
-      companyId: TEST_COMPANY_1_ID,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
+      kartuKeluargaId: TEST_KELUARGA_1_ID,
       createdBy: {
         source: FieldActorSource.EMAIL,
       },
@@ -69,121 +67,119 @@ describe('Core REST API Create One endpoint', () => {
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/penduduks`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
-        const createdPerson = res.body.data.createPerson;
+        const createdPenduduk = res.body.data.createPenduduk;
 
-        expect(createdPerson.createdBy.source).toBe(FieldActorSource.EMAIL);
-        expect(createdPerson.createdBy.workspaceMemberId).toBe(null);
+        expect(createdPenduduk.createdBy.source).toBe(FieldActorSource.EMAIL);
+        expect(createdPenduduk.createdBy.workspaceMemberId).toBe(null);
       });
   });
 
-  it('should create a new person with MANUAL createdBy if user identified', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus membuat penduduk dengan createdBy MANUAL jika user teridentifikasi', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
-      companyId: TEST_COMPANY_1_ID,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
+      kartuKeluargaId: TEST_KELUARGA_1_ID,
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/penduduks`,
       body: requestBody,
       bearer: APPLE_JANE_ADMIN_ACCESS_TOKEN,
     })
       .expect(201)
       .expect((res) => {
-        const createdPerson = res.body.data.createPerson;
+        const createdPenduduk = res.body.data.createPenduduk;
 
-        expect(createdPerson.createdBy.source).toBe(FieldActorSource.MANUAL);
-        expect(createdPerson.createdBy.workspaceMemberId).toBe(
+        expect(createdPenduduk.createdBy.source).toBe(FieldActorSource.MANUAL);
+        expect(createdPenduduk.createdBy.workspaceMemberId).toBe(
           WORKSPACE_MEMBER_DATA_SEED_IDS.KADES,
         );
       });
   });
 
-  it('should support depth 0 parameter', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus mendukung parameter depth 0', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
-      companyId: TEST_COMPANY_1_ID,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
+      kartuKeluargaId: TEST_KELUARGA_1_ID,
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people?depth=0`,
+      path: `/penduduks?depth=0`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
-        const createdPerson = res.body.data.createPerson;
+        const createdPenduduk = res.body.data.createPenduduk;
 
-        expect(createdPerson.companyId).toBeDefined();
-        expect(createdPerson.company).not.toBeDefined();
+        expect(createdPenduduk.kartuKeluargaId).toBeDefined();
+        expect(createdPenduduk.kartuKeluarga).not.toBeDefined();
       });
   });
 
-  it('should support depth 1 parameter', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus mendukung parameter depth 1', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
-      companyId: TEST_COMPANY_1_ID,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
+      kartuKeluargaId: TEST_KELUARGA_1_ID,
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people?depth=1`,
+      path: `/penduduks?depth=1`,
       body: requestBody,
     })
       .expect(201)
       .expect((res) => {
-        const createdPerson = res.body.data.createPerson;
+        const createdPenduduk = res.body.data.createPenduduk;
 
-        expect(createdPerson.company).toBeDefined();
-        expect(createdPerson.company.domainName.primaryLinkUrl).toBe(
-          TEST_PRIMARY_LINK_URL_WIITHOUT_TRAILING_SLASH,
-        );
-        expect(createdPerson.company.people).not.toBeDefined();
+        expect(createdPenduduk.kartuKeluarga).toBeDefined();
+        expect(createdPenduduk.kartuKeluarga.nomorKk).toBe('3201234567890000');
+        expect(createdPenduduk.kartuKeluarga.anggota).not.toBeDefined();
       });
   });
 
-  it('should not support depth 2 parameter', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus tidak mendukung parameter depth 2', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
-      companyId: TEST_COMPANY_1_ID,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
+      kartuKeluargaId: TEST_KELUARGA_1_ID,
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people?depth=2`,
+      path: `/penduduks?depth=2`,
       body: requestBody,
     }).expect(400);
   });
 
-  it('should return a BadRequestException when trying to create a person with an existing ID', async () => {
-    const personCity = generateRecordName(TEST_PERSON_1_ID);
+  it('harus mengembalikan BadRequestException saat membuat penduduk dengan ID yang sudah ada', async () => {
+    const tempatLahir = generateRecordName(TEST_PENDUDUK_1_ID);
     const requestBody = {
-      id: TEST_PERSON_1_ID,
-      city: personCity,
+      id: TEST_PENDUDUK_1_ID,
+      tempatLahir,
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/penduduks`,
       body: requestBody,
     });
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/people`,
+      path: `/penduduks`,
       body: requestBody,
     })
       .expect(400)
@@ -195,20 +191,20 @@ describe('Core REST API Create One endpoint', () => {
       });
   });
 
-  it('should return a BadRequestException when trying to create an opportunity with an invalid enum', async () => {
+  it('harus mengembalikan BadRequestException saat membuat programBantuan dengan enum tidak valid', async () => {
     const requestBody = {
-      stage: 'INVALID_ENUM_VALUE',
+      status: 'NILAI_ENUM_TIDAK_VALID',
     };
 
     await makeRestAPIRequest({
       method: 'post',
-      path: `/opportunities`,
+      path: `/programBantuans`,
       body: requestBody,
     })
       .expect(400)
       .expect((res) => {
         expect(res.body.messages[0]).toMatch(
-          'Invalid value "INVALID_ENUM_VALUE" for field "stage". Valid values are: NEW, SCREENING, MEETING, PROPOSAL, CUSTOMER',
+          /Invalid value "NILAI_ENUM_TIDAK_VALID" for field "status"/,
         );
         expect(res.body.error).toBe('BadRequestException');
       });

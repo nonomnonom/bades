@@ -34,19 +34,19 @@ const DELETE_CONFIG_VARIABLE_MUTATION = gql`
   }
 `;
 
-const DESTROY_PERSON_MUTATION = gql`
-  mutation DestroyPerson($id: ID!) {
-    destroyPerson(id: $id) {
+const DESTROY_PENDUDUK_MUTATION = gql`
+  mutation DestroyPenduduk($id: ID!) {
+    destroyPenduduk(id: $id) {
       id
     }
   }
 `;
 
-const CREATE_PERSON_MUTATION = gql`
-  mutation CreatePerson($data: PersonCreateInput!) {
-    createPerson(data: $data) {
+const CREATE_PENDUDUK_MUTATION = gql`
+  mutation CreatePenduduk($data: PendudukCreateInput!) {
+    createPenduduk(data: $data) {
       id
-      name {
+      namaLengkap {
         firstName
         lastName
       }
@@ -56,15 +56,15 @@ const CREATE_PERSON_MUTATION = gql`
 
 describe('webhooksResolver (e2e)', () => {
   let createdWebhookId: string | undefined;
-  let createdPersonId: string | undefined;
+  let createdPendudukId: string | undefined;
 
   afterEach(async () => {
-    if (createdPersonId) {
+    if (createdPendudukId) {
       await makeGraphqlAPIRequest({
-        query: DESTROY_PERSON_MUTATION,
-        variables: { id: createdPersonId },
+        query: DESTROY_PENDUDUK_MUTATION,
+        variables: { id: createdPendudukId },
       }).catch(() => {});
-      createdPersonId = undefined;
+      createdPendudukId = undefined;
     }
 
     if (createdWebhookId) {
@@ -74,7 +74,7 @@ describe('webhooksResolver (e2e)', () => {
   });
 
   describe('webhooks query', () => {
-    it('should find many webhooks', async () => {
+    it('harus menemukan banyak webhook', async () => {
       const response = await getWebhooks();
 
       expect(response.status).toBe(200);
@@ -86,10 +86,10 @@ describe('webhooksResolver (e2e)', () => {
   });
 
   describe('createWebhook mutation', () => {
-    it('should create a webhook successfully', async () => {
+    it('harus membuat webhook berhasil', async () => {
       const webhookInput = {
         targetUrl: 'https://example.com/webhook',
-        operations: ['person.created', 'company.updated'],
+        operations: ['penduduk.created', 'keluarga.updated'],
         description: 'Test webhook',
         secret: 'test-secret',
       };
@@ -112,10 +112,10 @@ describe('webhooksResolver (e2e)', () => {
       createdWebhookId = createdWebhookData.id;
     });
 
-    it('should fail to create webhook with invalid URL', async () => {
+    it('harus gagal membuat webhook dengan URL tidak valid', async () => {
       const webhookInput = {
-        targetUrl: 'invalid-url',
-        operations: ['person.created'],
+        targetUrl: 'url-tidak-valid',
+        operations: ['penduduk.created'],
         description: 'Test webhook',
         secret: 'test-secret',
       };
@@ -129,10 +129,10 @@ describe('webhooksResolver (e2e)', () => {
   });
 
   describe('updateWebhook mutation', () => {
-    it('should update a webhook successfully', async () => {
+    it('harus mengupdate webhook berhasil', async () => {
       const createResponse = await createWebhook({
         targetUrl: 'https://example.com/webhook',
-        operations: ['person.created'],
+        operations: ['penduduk.created'],
         description: 'Test webhook',
         secret: 'test-secret',
       });
@@ -145,7 +145,7 @@ describe('webhooksResolver (e2e)', () => {
         id: createdWebhookData.id,
         update: {
           targetUrl: 'https://updated.com/webhook',
-          operations: ['person.updated', 'company.created'],
+          operations: ['penduduk.updated', 'keluarga.created'],
           description: 'Updated webhook',
           secret: 'updated-secret',
         },
@@ -172,10 +172,10 @@ describe('webhooksResolver (e2e)', () => {
   });
 
   describe('webhook query', () => {
-    it('should find a specific webhook', async () => {
+    it('harus menemukan webhook spesifik', async () => {
       const createResponse = await createWebhook({
         targetUrl: 'https://example.com/webhook',
-        operations: ['person.created'],
+        operations: ['penduduk.created'],
         description: 'Test webhook',
         secret: 'test-secret',
       });
@@ -202,10 +202,10 @@ describe('webhooksResolver (e2e)', () => {
   });
 
   describe('deleteWebhook mutation', () => {
-    it('should delete a webhook successfully', async () => {
+    it('harus menghapus webhook berhasil', async () => {
       const createResponse = await createWebhook({
         targetUrl: 'https://example.com/webhook',
-        operations: ['person.created'],
+        operations: ['penduduk.created'],
         description: 'Test webhook',
         secret: 'test-secret',
       });
@@ -230,14 +230,14 @@ describe('webhooksResolver (e2e)', () => {
   describe('webhook delivery', () => {
     const WEBHOOK_RECEIVER_PORT = 4317;
 
-    it('should block delivery to private IP when safe mode is enabled (SSRF protection)', async () => {
+    it('harus memblokir pengiriman ke IP privat saat safe mode aktif (proteksi SSRF)', async () => {
       const receiver = await createWebhookReceiver(WEBHOOK_RECEIVER_PORT);
 
       try {
         const createWebhookResponse = await createWebhook({
           targetUrl: `http://127.0.0.1:${WEBHOOK_RECEIVER_PORT}/webhook`,
-          operations: ['person.created'],
-          description: 'SSRF test webhook',
+          operations: ['penduduk.created'],
+          description: 'Test webhook SSRF',
           secret: 'test-secret',
         });
 
@@ -245,21 +245,21 @@ describe('webhooksResolver (e2e)', () => {
         createdWebhookId = createWebhookResponse.body.data.createWebhook.id;
 
         const testId = uuidv4().slice(0, 8);
-        const createPersonResponse = await makeGraphqlAPIRequest({
-          query: CREATE_PERSON_MUTATION,
+        const createPendudukResponse = await makeGraphqlAPIRequest({
+          query: CREATE_PENDUDUK_MUTATION,
           variables: {
             data: {
-              name: {
-                firstName: 'SSRFTest',
-                lastName: `User-${testId}`,
+              namaLengkap: {
+                firstName: 'TestSSRF',
+                lastName: `Warga-${testId}`,
               },
             },
           },
         });
 
-        expect(createPersonResponse.status).toBe(200);
-        expect(createPersonResponse.body.errors).toBeUndefined();
-        createdPersonId = createPersonResponse.body.data.createPerson.id;
+        expect(createPendudukResponse.status).toBe(200);
+        expect(createPendudukResponse.body.errors).toBeUndefined();
+        createdPendudukId = createPendudukResponse.body.data.createPenduduk.id;
 
         jest.useRealTimers();
         await new Promise((resolve) => setTimeout(resolve, 100));
@@ -271,7 +271,7 @@ describe('webhooksResolver (e2e)', () => {
       }
     });
 
-    it('should deliver webhook successfully when safe mode is disabled', async () => {
+    it('harus mengirimkan webhook berhasil saat safe mode dinonaktifkan', async () => {
       jest.useRealTimers();
 
       const receiver = await createWebhookReceiver(WEBHOOK_RECEIVER_PORT);
@@ -304,8 +304,8 @@ describe('webhooksResolver (e2e)', () => {
 
         const createWebhookResponse = await createWebhook({
           targetUrl: `http://127.0.0.1:${WEBHOOK_RECEIVER_PORT}/webhook`,
-          operations: ['person.created'],
-          description: 'Delivery test webhook',
+          operations: ['penduduk.created'],
+          description: 'Test webhook pengiriman',
           secret: 'test-secret',
         });
 
@@ -313,28 +313,28 @@ describe('webhooksResolver (e2e)', () => {
         createdWebhookId = createWebhookResponse.body.data.createWebhook.id;
 
         const testId = uuidv4().slice(0, 8);
-        const createPersonResponse = await makeGraphqlAPIRequest({
-          query: CREATE_PERSON_MUTATION,
+        const createPendudukResponse = await makeGraphqlAPIRequest({
+          query: CREATE_PENDUDUK_MUTATION,
           variables: {
             data: {
-              name: {
-                firstName: 'WebhookDelivery',
-                lastName: `Test-${testId}`,
+              namaLengkap: {
+                firstName: 'TestPengiriman',
+                lastName: `Webhook-${testId}`,
               },
             },
           },
         });
 
-        expect(createPersonResponse.status).toBe(200);
-        expect(createPersonResponse.body.errors).toBeUndefined();
-        createdPersonId = createPersonResponse.body.data.createPerson.id;
+        expect(createPendudukResponse.status).toBe(200);
+        expect(createPendudukResponse.body.errors).toBeUndefined();
+        createdPendudukId = createPendudukResponse.body.data.createPenduduk.id;
 
         await new Promise((resolve) => setTimeout(resolve, 100));
 
         expect(receiver.receivedPayloads.length).toBe(1);
         expect(receiver.receivedPayloads[0]).toMatchObject({
           targetUrl: `http://127.0.0.1:${WEBHOOK_RECEIVER_PORT}/webhook`,
-          eventName: 'person.created',
+          eventName: 'penduduk.created',
         });
       } finally {
         await receiver.close();

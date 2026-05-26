@@ -3,18 +3,20 @@ import { createManyOperationFactory } from 'test/integration/graphql/utils/creat
 import { deleteManyOperationFactory } from 'test/integration/graphql/utils/delete-many-operation-factory.util';
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 
-const TEST_COMPANY_IDS = {
-  AIRBNB: '20202020-cccc-4000-8000-000000000001',
-  STRIPE: '20202020-cccc-4000-8000-000000000002',
-  NOTION: '20202020-cccc-4000-8000-000000000003',
+// ID keluarga untuk test filter relasi penduduk → keluarga
+const TEST_KELUARGA_IDS = {
+  SUKAMAJU: '20202020-cccc-4000-8000-000000000001',
+  MEKAR_SARI: '20202020-cccc-4000-8000-000000000002',
+  DUSUN_PASAR: '20202020-cccc-4000-8000-000000000003',
 };
 
-const TEST_PERSON_IDS = {
-  AIRBNB_ENGINEER: '20202020-dddd-4000-8000-000000000001',
-  AIRBNB_DESIGNER: '20202020-dddd-4000-8000-000000000002',
-  STRIPE_ENGINEER: '20202020-dddd-4000-8000-000000000003',
-  NOTION_ENGINEER: '20202020-dddd-4000-8000-000000000004',
-  UNAFFILIATED: '20202020-dddd-4000-8000-000000000005',
+// ID penduduk untuk test filter
+const TEST_PENDUDUK_IDS = {
+  SUKAMAJU_WARGA_1: '20202020-dddd-4000-8000-000000000001',
+  SUKAMAJU_WARGA_2: '20202020-dddd-4000-8000-000000000002',
+  MEKAR_SARI_WARGA: '20202020-dddd-4000-8000-000000000003',
+  DUSUN_PASAR_WARGA: '20202020-dddd-4000-8000-000000000004',
+  TIDAK_TERDAFTAR: '20202020-dddd-4000-8000-000000000005',
 };
 
 const TEST_ROCKET_IDS = {
@@ -27,81 +29,74 @@ const TEST_PET_IDS = {
   STARSHIP_PET: '20202020-dddd-4000-8000-100000000002',
 };
 
-const ALL_TEST_PERSON_IDS = Object.values(TEST_PERSON_IDS);
+const ALL_TEST_PENDUDUK_IDS = Object.values(TEST_PENDUDUK_IDS);
 const ALL_TEST_PET_IDS = Object.values(TEST_PET_IDS);
 
 describe('Filter by relation field (e2e)', () => {
   beforeAll(async () => {
-    const createCompanies = createManyOperationFactory({
-      objectMetadataSingularName: 'company',
-      objectMetadataPluralName: 'companies',
-      gqlFields: 'id name',
+    // Buat data keluarga terlebih dahulu
+    const createKeluargas = createManyOperationFactory({
+      objectMetadataSingularName: 'keluarga',
+      objectMetadataPluralName: 'keluargas',
+      gqlFields: 'id nomorKk',
       data: [
         {
-          id: TEST_COMPANY_IDS.AIRBNB,
-          name: 'Airbnb',
-          annualRecurringRevenue: {
-            amountMicros: 50_000_000_000_000,
-            currencyCode: 'USD',
-          },
+          id: TEST_KELUARGA_IDS.SUKAMAJU,
+          nomorKk: 'Sukamaju',
+          jumlahAnggota: 50,
         },
         {
-          id: TEST_COMPANY_IDS.STRIPE,
-          name: 'Stripe',
-          annualRecurringRevenue: {
-            amountMicros: 10_000_000_000_000,
-            currencyCode: 'USD',
-          },
+          id: TEST_KELUARGA_IDS.MEKAR_SARI,
+          nomorKk: 'MekarSari',
+          jumlahAnggota: 10,
         },
         {
-          id: TEST_COMPANY_IDS.NOTION,
-          name: 'Notion',
-          annualRecurringRevenue: {
-            amountMicros: 5_000_000_000_000,
-            currencyCode: 'USD',
-          },
+          id: TEST_KELUARGA_IDS.DUSUN_PASAR,
+          nomorKk: 'DusunPasar',
+          jumlahAnggota: 5,
         },
       ],
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createCompanies);
+    await makeGraphqlAPIRequest(createKeluargas);
 
-    const createPeople = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+    // Buat data penduduk dengan relasi ke keluarga
+    const createPenduduks = createManyOperationFactory({
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
       data: [
         {
-          id: TEST_PERSON_IDS.AIRBNB_ENGINEER,
-          companyId: TEST_COMPANY_IDS.AIRBNB,
-          jobTitle: 'Engineer',
+          id: TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_1,
+          kartuKeluargaId: TEST_KELUARGA_IDS.SUKAMAJU,
+          pekerjaan: 'Petani',
         },
         {
-          id: TEST_PERSON_IDS.AIRBNB_DESIGNER,
-          companyId: TEST_COMPANY_IDS.AIRBNB,
-          jobTitle: 'Designer',
+          id: TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_2,
+          kartuKeluargaId: TEST_KELUARGA_IDS.SUKAMAJU,
+          pekerjaan: 'Pedagang',
         },
         {
-          id: TEST_PERSON_IDS.STRIPE_ENGINEER,
-          companyId: TEST_COMPANY_IDS.STRIPE,
-          jobTitle: 'Engineer',
+          id: TEST_PENDUDUK_IDS.MEKAR_SARI_WARGA,
+          kartuKeluargaId: TEST_KELUARGA_IDS.MEKAR_SARI,
+          pekerjaan: 'Petani',
         },
         {
-          id: TEST_PERSON_IDS.NOTION_ENGINEER,
-          companyId: TEST_COMPANY_IDS.NOTION,
-          jobTitle: 'Engineer',
+          id: TEST_PENDUDUK_IDS.DUSUN_PASAR_WARGA,
+          kartuKeluargaId: TEST_KELUARGA_IDS.DUSUN_PASAR,
+          pekerjaan: 'Petani',
         },
         {
-          id: TEST_PERSON_IDS.UNAFFILIATED,
-          companyId: null,
-          jobTitle: 'Engineer',
+          id: TEST_PENDUDUK_IDS.TIDAK_TERDAFTAR,
+          kartuKeluargaId: null,
+          pekerjaan: 'Petani',
         },
       ],
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createPeople);
+    await makeGraphqlAPIRequest(createPenduduks);
 
     const createRockets = createManyOperationFactory({
       objectMetadataSingularName: 'rocket',
@@ -138,11 +133,11 @@ describe('Filter by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(createPets);
   });
 
-  it('should filter people by company name (exact match)', async () => {
+  it('harus memfilter penduduk berdasarkan nomorKk keluarga (exact match)', async () => {
     const queryData = {
       query: gql`
-        query People($filter: PersonFilterInput) {
-          people(filter: $filter, first: 10) {
+        query Penduduks($filter: PendudukFilterInput) {
+          penduduks(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -154,8 +149,8 @@ describe('Filter by relation field (e2e)', () => {
       variables: {
         filter: {
           and: [
-            { id: { in: ALL_TEST_PERSON_IDS } },
-            { company: { name: { eq: 'Airbnb' } } },
+            { id: { in: ALL_TEST_PENDUDUK_IDS } },
+            { kartuKeluarga: { nomorKk: { eq: 'Sukamaju' } } },
           ],
         },
       },
@@ -166,20 +161,23 @@ describe('Filter by relation field (e2e)', () => {
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const ids = response.body.data.people.edges.map(
+    const ids = response.body.data.penduduks.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
     expect(ids.sort()).toEqual(
-      [TEST_PERSON_IDS.AIRBNB_ENGINEER, TEST_PERSON_IDS.AIRBNB_DESIGNER].sort(),
+      [
+        TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_1,
+        TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_2,
+      ].sort(),
     );
   });
 
-  it('should filter people by company name with like operator', async () => {
+  it('harus memfilter penduduk berdasarkan nomorKk keluarga dengan operator like', async () => {
     const queryData = {
       query: gql`
-        query People($filter: PersonFilterInput) {
-          people(filter: $filter, first: 10) {
+        query Penduduks($filter: PendudukFilterInput) {
+          penduduks(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -191,8 +189,8 @@ describe('Filter by relation field (e2e)', () => {
       variables: {
         filter: {
           and: [
-            { id: { in: ALL_TEST_PERSON_IDS } },
-            { company: { name: { like: '%irbnb%' } } },
+            { id: { in: ALL_TEST_PENDUDUK_IDS } },
+            { kartuKeluarga: { nomorKk: { like: '%ukamaju%' } } },
           ],
         },
       },
@@ -202,20 +200,23 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.people.edges.map(
+    const ids = response.body.data.penduduks.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
     expect(ids.sort()).toEqual(
-      [TEST_PERSON_IDS.AIRBNB_ENGINEER, TEST_PERSON_IDS.AIRBNB_DESIGNER].sort(),
+      [
+        TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_1,
+        TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_2,
+      ].sort(),
     );
   });
 
-  it('should combine a relation filter with a scalar filter on the root object', async () => {
+  it('harus menggabungkan filter relasi dengan filter scalar pada object root', async () => {
     const queryData = {
       query: gql`
-        query People($filter: PersonFilterInput) {
-          people(filter: $filter, first: 10) {
+        query Penduduks($filter: PendudukFilterInput) {
+          penduduks(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -227,9 +228,9 @@ describe('Filter by relation field (e2e)', () => {
       variables: {
         filter: {
           and: [
-            { id: { in: ALL_TEST_PERSON_IDS } },
-            { company: { name: { eq: 'Airbnb' } } },
-            { jobTitle: { eq: 'Designer' } },
+            { id: { in: ALL_TEST_PENDUDUK_IDS } },
+            { kartuKeluarga: { nomorKk: { eq: 'Sukamaju' } } },
+            { pekerjaan: { eq: 'Pedagang' } },
           ],
         },
       },
@@ -239,26 +240,26 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.people.edges.map(
+    const ids = response.body.data.penduduks.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
-    expect(ids).toEqual([TEST_PERSON_IDS.AIRBNB_DESIGNER]);
+    expect(ids).toEqual([TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_2]);
   });
 
-  it('should combine a relation filter with an order-by on the same relation (join dedupe)', async () => {
+  it('harus menggabungkan filter relasi dengan order-by pada relasi yang sama (dedup join)', async () => {
     const queryData = {
       query: gql`
-        query People(
-          $filter: PersonFilterInput
-          $orderBy: [PersonOrderByInput]
+        query Penduduks(
+          $filter: PendudukFilterInput
+          $orderBy: [PendudukOrderByInput]
         ) {
-          people(filter: $filter, orderBy: $orderBy, first: 10) {
+          penduduks(filter: $filter, orderBy: $orderBy, first: 10) {
             edges {
               node {
                 id
-                company {
-                  name
+                kartuKeluarga {
+                  nomorKk
                 }
               }
             }
@@ -268,11 +269,11 @@ describe('Filter by relation field (e2e)', () => {
       variables: {
         filter: {
           and: [
-            { id: { in: ALL_TEST_PERSON_IDS } },
-            { company: { name: { like: '%i%' } } },
+            { id: { in: ALL_TEST_PENDUDUK_IDS } },
+            { kartuKeluarga: { nomorKk: { like: '%a%' } } },
           ],
         },
-        orderBy: [{ company: { name: 'AscNullsLast' } }],
+        orderBy: [{ kartuKeluarga: { nomorKk: 'AscNullsLast' } }],
       },
     };
 
@@ -280,20 +281,25 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const companyNames = response.body.data.people.edges.map(
-      (edge: { node: { company: { name: string } | null } }) =>
-        edge.node.company?.name ?? null,
+    const nomorKks = response.body.data.penduduks.edges.map(
+      (edge: { node: { kartuKeluarga: { nomorKk: string } | null } }) =>
+        edge.node.kartuKeluarga?.nomorKk ?? null,
     );
 
-    // Airbnb, Notion, Stripe all contain "i"; ascending order
-    expect(companyNames).toEqual(['Airbnb', 'Airbnb', 'Notion', 'Stripe']);
+    // DusunPasar, MekarSari, Sukamaju (x2) — semua mengandung 'a', urut ascending
+    expect(nomorKks).toEqual([
+      'DusunPasar',
+      'MekarSari',
+      'Sukamaju',
+      'Sukamaju',
+    ]);
   });
 
-  it('should filter on a composite sub-field of the related object without tripping the depth cap', async () => {
+  it('harus memfilter pada sub-field numerik object relasi tanpa melebihi batas kedalaman', async () => {
     const queryData = {
       query: gql`
-        query People($filter: PersonFilterInput) {
-          people(filter: $filter, first: 10) {
+        query Penduduks($filter: PendudukFilterInput) {
+          penduduks(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -305,12 +311,10 @@ describe('Filter by relation field (e2e)', () => {
       variables: {
         filter: {
           and: [
-            { id: { in: ALL_TEST_PERSON_IDS } },
+            { id: { in: ALL_TEST_PENDUDUK_IDS } },
             {
-              company: {
-                annualRecurringRevenue: {
-                  amountMicros: { gte: 20_000_000_000_000 },
-                },
+              kartuKeluarga: {
+                jumlahAnggota: { gte: 20 },
               },
             },
           ],
@@ -322,21 +326,24 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.people.edges.map(
+    const ids = response.body.data.penduduks.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
-    // Only Airbnb (50M) is >= 20M; Stripe (10M) and Notion (5M) excluded.
+    // Hanya Sukamaju (50 anggota) >= 20; MekarSari (10) dan DusunPasar (5) tidak termasuk
     expect(ids.sort()).toEqual(
-      [TEST_PERSON_IDS.AIRBNB_ENGINEER, TEST_PERSON_IDS.AIRBNB_DESIGNER].sort(),
+      [
+        TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_1,
+        TEST_PENDUDUK_IDS.SUKAMAJU_WARGA_2,
+      ].sort(),
     );
   });
 
-  it('should reject relation filters nested deeper than one hop', async () => {
+  it('harus menolak filter relasi yang bersarang lebih dari satu hop', async () => {
     const queryData = {
       query: gql`
-        query People($filter: PersonFilterInput) {
-          people(filter: $filter, first: 10) {
+        query Penduduks($filter: PendudukFilterInput) {
+          penduduks(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -347,9 +354,9 @@ describe('Filter by relation field (e2e)', () => {
       `,
       variables: {
         filter: {
-          company: {
-            accountOwner: {
-              name: { firstName: { eq: 'Anything' } },
+          kartuKeluarga: {
+            createdBy: {
+              name: { firstName: { eq: 'Apa saja' } },
             },
           },
         },
@@ -362,21 +369,21 @@ describe('Filter by relation field (e2e)', () => {
     expect(response.body.errors.length).toBeGreaterThan(0);
   });
 
-  it('should not widen the root query when a relation block contains a deletedAt filter', async () => {
-    // A deletedAt nested inside a relation block belongs to the related
-    // entity — it must not call `withDeleted()` on the root builder and
-    // surface soft-deleted root rows.
+  it('harus tidak memperlebar query root saat filter relasi berisi deletedAt', async () => {
+    // deletedAt di dalam blok relasi milik entity terkait —
+    // tidak boleh memanggil withDeleted() pada builder root dan
+    // menampilkan baris root yang sudah di-soft-delete.
     const liveId = '20202020-dddd-4000-8000-000000000098';
     const softDeletedId = '20202020-dddd-4000-8000-000000000099';
 
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
         data: [
-          { id: liveId, companyId: TEST_COMPANY_IDS.AIRBNB },
-          { id: softDeletedId, companyId: TEST_COMPANY_IDS.AIRBNB },
+          { id: liveId, kartuKeluargaId: TEST_KELUARGA_IDS.SUKAMAJU },
+          { id: softDeletedId, kartuKeluargaId: TEST_KELUARGA_IDS.SUKAMAJU },
         ],
         upsert: true,
       }),
@@ -384,8 +391,8 @@ describe('Filter by relation field (e2e)', () => {
 
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
         filter: { id: { in: [softDeletedId] } },
       }),
@@ -393,8 +400,8 @@ describe('Filter by relation field (e2e)', () => {
 
     const queryData = {
       query: gql`
-        query People($filter: PersonFilterInput) {
-          people(filter: $filter, first: 10) {
+        query Penduduks($filter: PendudukFilterInput) {
+          penduduks(filter: $filter, first: 10) {
             edges {
               node {
                 id
@@ -407,7 +414,7 @@ describe('Filter by relation field (e2e)', () => {
         filter: {
           and: [
             { id: { in: [liveId, softDeletedId] } },
-            { company: { deletedAt: { is: 'NULL' } } },
+            { kartuKeluarga: { deletedAt: { is: 'NULL' } } },
           ],
         },
       },
@@ -417,14 +424,14 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const ids = response.body.data.people.edges.map(
+    const ids = response.body.data.penduduks.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
     expect(ids).toEqual([liveId]);
   });
 
-  it('should filter pets by a MORPH_RELATION target field (rocket name)', async () => {
+  it('harus memfilter pet berdasarkan field target MORPH_RELATION (nama rocket)', async () => {
     const queryData = {
       query: gql`
         query Pets($filter: PetFilterInput) {

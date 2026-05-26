@@ -3,12 +3,12 @@ import { makeMetadataAPIRequest } from 'test/integration/metadata/suites/utils/m
 
 export const createCustomRoleWithObjectPermissions = async (options: {
   label: string;
-  canReadPerson?: boolean;
-  canReadCompany?: boolean;
-  canReadOpportunities?: boolean;
-  canUpdatePerson?: boolean;
-  canUpdateCompany?: boolean;
-  canUpdateOpportunities?: boolean;
+  canReadPenduduk?: boolean;
+  canReadKeluarga?: boolean;
+  canReadProgramBantuan?: boolean;
+  canUpdatePenduduk?: boolean;
+  canUpdateKeluarga?: boolean;
+  canUpdateProgramBantuan?: boolean;
   hasAllObjectRecordsReadPermission?: boolean;
 }) => {
   const createRoleOperation = {
@@ -16,7 +16,7 @@ export const createCustomRoleWithObjectPermissions = async (options: {
         mutation CreateOneRole {
           createOneRole(createRoleInput: {
             label: "${options.label}"
-            description: "Test role for permission testing"
+            description: "Test role untuk pengujian permission"
             canUpdateAllSettings: ${options.hasAllObjectRecordsReadPermission ?? true}
             canReadAllObjectRecords: ${options.hasAllObjectRecordsReadPermission ?? true}
             canUpdateAllObjectRecords: ${options.hasAllObjectRecordsReadPermission ?? true}
@@ -36,7 +36,7 @@ export const createCustomRoleWithObjectPermissions = async (options: {
   expect(response.body.data.createOneRole).toBeDefined();
   const roleId = response.body.data.createOneRole.id;
 
-  // Get object metadata IDs for Person and Company
+  // Ambil metadata ID object SID
   const getObjectMetadataOperation = {
     query: gql`
       query {
@@ -57,60 +57,74 @@ export const createCustomRoleWithObjectPermissions = async (options: {
   );
   const objects = objectMetadataResponse.body.data.objects.edges;
 
-  const personObjectId = objects.find(
-    (obj: any) => obj.node.nameSingular === 'person',
+  const pendudukObjectId = objects.find(
+    (obj: any) => obj.node.nameSingular === 'penduduk',
   )?.node.id;
-  const companyObjectId = objects.find(
-    (obj: any) => obj.node.nameSingular === 'company',
+  const keluargaObjectId = objects.find(
+    (obj: any) => obj.node.nameSingular === 'keluarga',
   )?.node.id;
-  const opportunityObjectId = objects.find(
-    (obj: any) => obj.node.nameSingular === 'opportunity',
+  const programBantuanObjectId = objects.find(
+    (obj: any) => obj.node.nameSingular === 'programBantuan',
   )?.node.id;
 
-  // Create object permissions based on the options
-  const objectPermissions = [];
+  const resolvedCanReadPenduduk = options.canReadPenduduk;
+  const resolvedCanUpdatePenduduk = options.canUpdatePenduduk;
+  const resolvedCanReadKeluarga = options.canReadKeluarga;
+  const resolvedCanUpdateKeluarga = options.canUpdateKeluarga;
+  const resolvedCanReadProgramBantuan = options.canReadProgramBantuan;
+  const resolvedCanUpdateProgramBantuan = options.canUpdateProgramBantuan;
+
+  const objectPermissions: Array<{
+    objectMetadataId: string | undefined;
+    canReadObjectRecords: boolean | undefined;
+    canUpdateObjectRecords: boolean;
+    canSoftDeleteObjectRecords: boolean;
+    canDestroyObjectRecords: boolean;
+  }> = [];
 
   if (
-    options.canReadPerson !== undefined ||
-    options.canUpdatePerson !== undefined
+    resolvedCanReadPenduduk !== undefined ||
+    resolvedCanUpdatePenduduk !== undefined
   ) {
     objectPermissions.push({
-      objectMetadataId: personObjectId,
-      canReadObjectRecords: options.canReadPerson,
+      objectMetadataId: pendudukObjectId,
+      canReadObjectRecords: resolvedCanReadPenduduk,
       canUpdateObjectRecords:
-        options.canUpdatePerson === undefined ? false : options.canUpdatePerson,
+        resolvedCanUpdatePenduduk === undefined
+          ? false
+          : resolvedCanUpdatePenduduk,
       canSoftDeleteObjectRecords: false,
       canDestroyObjectRecords: false,
     });
   }
 
   if (
-    options.canReadCompany !== undefined ||
-    options.canUpdateCompany !== undefined
+    resolvedCanReadKeluarga !== undefined ||
+    resolvedCanUpdateKeluarga !== undefined
   ) {
     objectPermissions.push({
-      objectMetadataId: companyObjectId,
-      canReadObjectRecords: options.canReadCompany,
+      objectMetadataId: keluargaObjectId,
+      canReadObjectRecords: resolvedCanReadKeluarga,
       canUpdateObjectRecords:
-        options.canUpdateCompany === undefined
+        resolvedCanUpdateKeluarga === undefined
           ? false
-          : options.canUpdateCompany,
+          : resolvedCanUpdateKeluarga,
       canSoftDeleteObjectRecords: false,
       canDestroyObjectRecords: false,
     });
   }
 
   if (
-    options.canReadOpportunities !== undefined ||
-    options.canUpdateOpportunities !== undefined
+    resolvedCanReadProgramBantuan !== undefined ||
+    resolvedCanUpdateProgramBantuan !== undefined
   ) {
     objectPermissions.push({
-      objectMetadataId: opportunityObjectId,
-      canReadObjectRecords: options.canReadOpportunities,
+      objectMetadataId: programBantuanObjectId,
+      canReadObjectRecords: resolvedCanReadProgramBantuan,
       canUpdateObjectRecords:
-        options.canUpdateOpportunities === undefined
+        resolvedCanUpdateProgramBantuan === undefined
           ? false
-          : options.canUpdateOpportunities,
+          : resolvedCanUpdateProgramBantuan,
       canSoftDeleteObjectRecords: false,
       canDestroyObjectRecords: false,
     });
@@ -145,8 +159,12 @@ export const createCustomRoleWithObjectPermissions = async (options: {
 
   return {
     roleId,
-    personObjectId,
-    companyObjectId,
-    opportunityObjectId,
+    pendudukObjectId,
+    keluargaObjectId,
+    programBantuanObjectId,
+    // Alias legacy — kembalikan untuk kompatibilitas caller lama
+    personObjectId: pendudukObjectId,
+    companyObjectId: keluargaObjectId,
+    opportunityObjectId: programBantuanObjectId,
   };
 };

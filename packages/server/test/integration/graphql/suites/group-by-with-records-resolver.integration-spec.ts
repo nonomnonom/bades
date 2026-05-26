@@ -1,20 +1,25 @@
 import { randomUUID } from 'crypto';
 
 import gql from 'graphql-tag';
-import { COMPANY_GQL_FIELDS } from 'test/integration/constants/company-gql-fields.constants';
+import { KELUARGA_GQL_FIELDS } from 'test/integration/constants/keluarga-gql-fields.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { destroyOneOperationFactory } from 'test/integration/graphql/utils/destroy-one-operation-factory.util';
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 
-const OPPORTUNITY_GQL_FIELDS = `
+// Bades: programBantuan menggantikan opportunity CRM warisan Twenty.
+// Field mapping:
+//   opportunity.stage (SELECT)        → programBantuan.status (SELECT)
+//   opportunity.amount (CURRENCY)     → programBantuan.totalAnggaran (NUMBER)
+//   opportunity.closeDate (DATE)      → Bades: tidak ada padanan langsung;
+//                                        pakai createdAt untuk granularitas waktu.
+//   opportunity.companyId (RELATION)  → programBantuan tidak punya relasi ke
+//                                        keluarga secara langsung; test relasi
+//                                        menggunakan keluarga→penduduks (ONE-TO-MANY).
+const PROGRAM_BANTUAN_GQL_FIELDS = `
   id
-  stage
-  amount {
-    amountMicros
-  }
-  companyId
+  status
+  totalAnggaran
   createdAt
-  closeDate
 `;
 
 // used not to mix records with the seeded ones
@@ -34,25 +39,24 @@ const FILTER_2020 = {
 };
 
 describe('basic group-by with records', () => {
-  const testOpportunityId1 = randomUUID();
-  const testOpportunityId2 = randomUUID();
-  const testOpportunityId3 = randomUUID();
-  const testOpportunityId4 = randomUUID();
-  const testCompanyId1 = randomUUID();
-  const testCompanyId2 = randomUUID();
-  const COMPANY_1_EMPLOYEES = 10;
-  const COMPANY_2_EMPLOYEES = 20;
+  const testProgramBantuanId1 = randomUUID();
+  const testProgramBantuanId2 = randomUUID();
+  const testProgramBantuanId3 = randomUUID();
+  const testProgramBantuanId4 = randomUUID();
+  const testKeluargaId1 = randomUUID();
+  const testKeluargaId2 = randomUUID();
+  const KELUARGA_1_JUMLAH_ANGGOTA = 10;
+  const KELUARGA_2_JUMLAH_ANGGOTA = 20;
 
   beforeAll(async () => {
-    //   Create test companies
+    // Buat data keluarga untuk test groupBy relasi
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS,
         data: {
-          id: testCompanyId1,
-          name: 'Company 1',
-          employees: COMPANY_1_EMPLOYEES,
+          id: testKeluargaId1,
+          nomorKk: '3201010101010011',
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -60,45 +64,26 @@ describe('basic group-by with records', () => {
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'company',
-        gqlFields: COMPANY_GQL_FIELDS,
+        objectMetadataSingularName: 'keluarga',
+        gqlFields: KELUARGA_GQL_FIELDS,
         data: {
-          id: testCompanyId2,
-          name: 'Company 2',
-          employees: COMPANY_2_EMPLOYEES,
+          id: testKeluargaId2,
+          nomorKk: '3201010101010012',
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
     );
 
-    // Create test opportunities with different stages and dates
+    // Buat program bantuan dengan status dan tanggal berbeda untuk groupBy
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
         data: {
-          id: testOpportunityId1,
-          stage: 'NEW',
-          name: 'Opportunity 1',
-          amount: { amountMicros: 1000000000000 }, // 1000
-          companyId: testCompanyId1,
-          closeDate: '2025-02-05T08:00:00.000Z', // Wednesday
-          createdAt: '2020-02-05T08:00:00.000Z',
-        },
-      }),
-    );
-
-    await makeGraphqlAPIRequest(
-      createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
-        data: {
-          id: testOpportunityId2,
-          stage: 'NEW',
-          name: 'Opportunity 2',
-          amount: { amountMicros: 2000000000000 }, // 2000
-          companyId: testCompanyId1,
-          closeDate: '2025-02-06T08:00:00.000Z', // Thursday
+          id: testProgramBantuanId1,
+          status: 'AKTIF',
+          namaProgram: 'Program Bantuan 1',
+          totalAnggaran: 1000000,
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -106,59 +91,69 @@ describe('basic group-by with records', () => {
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
         data: {
-          id: testOpportunityId3,
-          stage: 'NEW',
-          name: 'Opportunity 3',
-          amount: { amountMicros: 3000000000000 }, // 3000
-          companyId: testCompanyId2,
-          closeDate: '2025-02-06T08:00:00.000Z', // Thursday
-          createdAt: '2020-02-05T08:00:00.000Z',
+          id: testProgramBantuanId2,
+          status: 'AKTIF',
+          namaProgram: 'Program Bantuan 2',
+          totalAnggaran: 2000000,
+          createdAt: '2020-02-12T08:00:00.000Z',
         },
       }),
     );
 
     await makeGraphqlAPIRequest(
       createOneOperationFactory({
-        objectMetadataSingularName: 'opportunity',
-        gqlFields: OPPORTUNITY_GQL_FIELDS,
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
         data: {
-          id: testOpportunityId4,
-          stage: 'SCREENING',
-          name: 'Opportunity 4',
-          amount: { amountMicros: 4000000000000 }, // 4000
-          companyId: testCompanyId2,
-          closeDate: '2025-02-06T08:00:00.000Z', // Thursday
-          createdAt: '2020-02-05T08:00:00.000Z',
+          id: testProgramBantuanId3,
+          status: 'AKTIF',
+          namaProgram: 'Program Bantuan 3',
+          totalAnggaran: 3000000,
+          createdAt: '2020-02-12T08:00:00.000Z',
+        },
+      }),
+    );
+
+    await makeGraphqlAPIRequest(
+      createOneOperationFactory({
+        objectMetadataSingularName: 'programBantuan',
+        gqlFields: PROGRAM_BANTUAN_GQL_FIELDS,
+        data: {
+          id: testProgramBantuanId4,
+          status: 'SELESAI',
+          namaProgram: 'Program Bantuan 4',
+          totalAnggaran: 4000000,
+          createdAt: '2020-02-12T08:00:00.000Z',
         },
       }),
     );
   });
 
   afterAll(async () => {
-    // Cleanup created opportunities
+    // Cleanup program bantuan
     for (const id of [
-      testOpportunityId1,
-      testOpportunityId2,
-      testOpportunityId3,
-      testOpportunityId4,
+      testProgramBantuanId1,
+      testProgramBantuanId2,
+      testProgramBantuanId3,
+      testProgramBantuanId4,
     ]) {
       await makeGraphqlAPIRequest(
         destroyOneOperationFactory({
-          objectMetadataSingularName: 'opportunity',
+          objectMetadataSingularName: 'programBantuan',
           gqlFields: 'id',
           recordId: id,
         }),
       );
     }
 
-    // Cleanup created companies
-    for (const id of [testCompanyId1, testCompanyId2]) {
+    // Cleanup keluarga
+    for (const id of [testKeluargaId1, testKeluargaId2]) {
       await makeGraphqlAPIRequest(
         destroyOneOperationFactory({
-          objectMetadataSingularName: 'company',
+          objectMetadataSingularName: 'keluarga',
           gqlFields: 'id',
           recordId: id,
         }),
@@ -166,35 +161,29 @@ describe('basic group-by with records', () => {
     }
   });
 
-  it('groups by stage and createdAt with records', async () => {
+  it('groups by status and createdAt with records', async () => {
     const response = await makeGraphqlAPIRequest({
       query: gql`
-        query OpportunitiesGroupBy(
-          $groupBy: [OpportunityGroupByInput!]!
-          $filter: OpportunityFilterInput
+        query ProgramBantuansGroupBy(
+          $groupBy: [ProgramBantuanGroupByInput!]!
+          $filter: ProgramBantuanFilterInput
           $limit: Int
         ) {
-          opportunitiesGroupBy(
+          programBantuansGroupBy(
             groupBy: $groupBy
             filter: $filter
             limit: $limit
           ) {
-            minCloseDate
+            minCreatedAt
             groupByDimensionValues
-            sumAmountAmountMicros
+            sumTotalAnggaran
             __typename
             edges {
               node {
-                stage
-                closeDate
-                name
-                amount {
-                  amountMicros
-                }
-                company {
-                  id
-                  employees
-                }
+                status
+                createdAt
+                namaProgram
+                totalAnggaran
               }
             }
           }
@@ -203,17 +192,14 @@ describe('basic group-by with records', () => {
       variables: {
         groupBy: [
           {
-            closeDate: {
+            createdAt: {
               granularity: 'DAY_OF_THE_WEEK',
             },
           },
           {
-            stage: true,
+            status: true,
           },
         ],
-        orderByForRecords: {
-          name: 'AscNullsFirst',
-        },
         filter: FILTER_2020,
         limit: 3,
       },
@@ -222,7 +208,7 @@ describe('basic group-by with records', () => {
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const groups = response.body.data.opportunitiesGroupBy;
+    const groups = response.body.data.programBantuansGroupBy;
 
     expect(groups).toBeDefined();
     expect(groups).toHaveLength(3);
@@ -234,91 +220,84 @@ describe('basic group-by with records', () => {
       expect(Array.isArray(group.edges)).toBe(true);
     });
 
-    const wednesdayNewGroup = groups.find(
+    const wednesdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Wednesday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(wednesdayNewGroup).toBeDefined();
-    expect(wednesdayNewGroup.edges).toHaveLength(1);
-    expect(wednesdayNewGroup.edges[0].node.name).toBe('Opportunity 1');
-    expect(wednesdayNewGroup.edges[0].node.stage).toBe('NEW');
-    expect(wednesdayNewGroup.edges[0].node.amount.amountMicros).toBe(
-      1000000000000,
+    expect(wednesdayAktifGroup).toBeDefined();
+    expect(wednesdayAktifGroup.edges).toHaveLength(1);
+    expect(wednesdayAktifGroup.edges[0].node.namaProgram).toBe(
+      'Program Bantuan 1',
     );
-    expect(wednesdayNewGroup.sumAmountAmountMicros).toBe(1000000000000);
+    expect(wednesdayAktifGroup.edges[0].node.status).toBe('AKTIF');
+    expect(wednesdayAktifGroup.edges[0].node.totalAnggaran).toBe(1000000);
+    expect(wednesdayAktifGroup.sumTotalAnggaran).toBe(1000000);
 
-    const thursdayNewGroup = groups.find(
+    const thursdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(thursdayNewGroup).toBeDefined();
-    expect(thursdayNewGroup.edges).toHaveLength(2);
-    expect(thursdayNewGroup.sumAmountAmountMicros).toBe(5000000000000);
-    const opportunity2Edge = thursdayNewGroup.edges.find(
-      (edge: any) => edge.node.name === 'Opportunity 2',
+    expect(thursdayAktifGroup).toBeDefined();
+    expect(thursdayAktifGroup.edges).toHaveLength(2);
+    expect(thursdayAktifGroup.sumTotalAnggaran).toBe(5000000);
+
+    const program2Edge = thursdayAktifGroup.edges.find(
+      (edge: any) => edge.node.namaProgram === 'Program Bantuan 2',
     ).node;
-    const opportunity3Edge = thursdayNewGroup.edges.find(
-      (edge: any) => edge.node.name === 'Opportunity 3',
+    const program3Edge = thursdayAktifGroup.edges.find(
+      (edge: any) => edge.node.namaProgram === 'Program Bantuan 3',
     ).node;
 
-    expect(opportunity2Edge.amount.amountMicros).toBe(2000000000000);
-    expect(opportunity2Edge.stage).toBe('NEW');
-    expect(opportunity2Edge.name).toBe('Opportunity 2');
-    expect(opportunity2Edge.company.id).toBe(testCompanyId1);
-    expect(opportunity2Edge.company.employees).toBe(COMPANY_1_EMPLOYEES);
-    expect(opportunity3Edge.amount.amountMicros).toBe(3000000000000);
-    expect(opportunity3Edge.stage).toBe('NEW');
-    expect(opportunity3Edge.name).toBe('Opportunity 3');
-    expect(opportunity3Edge.company.id).toBe(testCompanyId2);
-    expect(opportunity3Edge.company.employees).toBe(COMPANY_2_EMPLOYEES);
+    expect(program2Edge.totalAnggaran).toBe(2000000);
+    expect(program2Edge.status).toBe('AKTIF');
+    expect(program2Edge.namaProgram).toBe('Program Bantuan 2');
+    expect(program3Edge.totalAnggaran).toBe(3000000);
+    expect(program3Edge.status).toBe('AKTIF');
+    expect(program3Edge.namaProgram).toBe('Program Bantuan 3');
 
-    const thursdayScreeningGroup = groups.find(
+    const thursdaySelesaiGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('SCREENING'),
+        group.groupByDimensionValues.includes('SELESAI'),
     );
 
-    expect(thursdayScreeningGroup).toBeDefined();
-    expect(thursdayScreeningGroup.edges).toHaveLength(1);
-    const opportunity4Edge = thursdayScreeningGroup.edges[0].node;
+    expect(thursdaySelesaiGroup).toBeDefined();
+    expect(thursdaySelesaiGroup.edges).toHaveLength(1);
+    const program4Edge = thursdaySelesaiGroup.edges[0].node;
 
-    expect(opportunity4Edge.amount.amountMicros).toBe(4000000000000);
-    expect(opportunity4Edge.stage).toBe('SCREENING');
-    expect(opportunity4Edge.name).toBe('Opportunity 4');
-    expect(opportunity4Edge.company.id).toBe(testCompanyId2);
-    expect(opportunity4Edge.company.employees).toBe(COMPANY_2_EMPLOYEES);
-    expect(thursdayScreeningGroup.sumAmountAmountMicros).toBe(4000000000000);
+    expect(program4Edge.totalAnggaran).toBe(4000000);
+    expect(program4Edge.status).toBe('SELESAI');
+    expect(program4Edge.namaProgram).toBe('Program Bantuan 4');
+    expect(thursdaySelesaiGroup.sumTotalAnggaran).toBe(4000000);
   });
 
-  it('groups by stage and createdAt with records and filters', async () => {
-    // Test with filter to only include NEW stage opportunities
+  it('groups by status and createdAt with records and filters', async () => {
+    // Test dengan filter hanya AKTIF
     const response = await makeGraphqlAPIRequest({
       query: gql`
-        query OpportunitiesGroupBy(
-          $groupBy: [OpportunityGroupByInput!]!
-          $filter: OpportunityFilterInput
+        query ProgramBantuansGroupBy(
+          $groupBy: [ProgramBantuanGroupByInput!]!
+          $filter: ProgramBantuanFilterInput
           $limit: Int
         ) {
-          opportunitiesGroupBy(
+          programBantuansGroupBy(
             groupBy: $groupBy
             filter: $filter
             limit: $limit
           ) {
-            minCloseDate
+            minCreatedAt
             groupByDimensionValues
-            sumAmountAmountMicros
+            sumTotalAnggaran
             __typename
             edges {
               node {
-                stage
+                status
                 createdAt
-                amount {
-                  amountMicros
-                }
+                totalAnggaran
               }
             }
           }
@@ -327,20 +306,20 @@ describe('basic group-by with records', () => {
       variables: {
         groupBy: [
           {
-            closeDate: {
+            createdAt: {
               granularity: 'DAY_OF_THE_WEEK',
             },
           },
           {
-            stage: true,
+            status: true,
           },
         ],
         filter: {
           and: [
             ...FILTER_2020.and,
             {
-              stage: {
-                eq: 'NEW',
+              status: {
+                eq: 'AKTIF',
               },
             },
           ],
@@ -352,58 +331,49 @@ describe('basic group-by with records', () => {
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const groups = response.body.data.opportunitiesGroupBy;
+    const groups = response.body.data.programBantuansGroupBy;
 
     expect(groups).toHaveLength(2);
-    const wednesdayNewGroup = groups.find(
+
+    const wednesdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Wednesday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(wednesdayNewGroup.groupByDimensionValues).toHaveLength(2);
-    expect(wednesdayNewGroup.groupByDimensionValues).toContain('NEW');
-    expect(wednesdayNewGroup.groupByDimensionValues).toContain('Wednesday');
-    expect(wednesdayNewGroup.edges).toHaveLength(1);
-    expect(wednesdayNewGroup.edges[0].node.stage).toBe('NEW');
-    expect(wednesdayNewGroup.edges[0].node.amount.amountMicros).toBe(
-      1000000000000,
-    );
+    expect(wednesdayAktifGroup.groupByDimensionValues).toHaveLength(2);
+    expect(wednesdayAktifGroup.groupByDimensionValues).toContain('AKTIF');
+    expect(wednesdayAktifGroup.groupByDimensionValues).toContain('Wednesday');
+    expect(wednesdayAktifGroup.edges).toHaveLength(1);
+    expect(wednesdayAktifGroup.edges[0].node.status).toBe('AKTIF');
+    expect(wednesdayAktifGroup.edges[0].node.totalAnggaran).toBe(1000000);
 
-    const thursdayNewGroup = groups.find(
+    const thursdayAktifGroup = groups.find(
       (group: any) =>
         group.groupByDimensionValues.includes('Thursday') &&
-        group.groupByDimensionValues.includes('NEW'),
+        group.groupByDimensionValues.includes('AKTIF'),
     );
 
-    expect(thursdayNewGroup.groupByDimensionValues).toHaveLength(2);
-    expect(thursdayNewGroup.groupByDimensionValues).toContain('NEW');
-    expect(thursdayNewGroup.groupByDimensionValues).toContain('Thursday');
-    expect(thursdayNewGroup.edges).toHaveLength(2);
+    expect(thursdayAktifGroup.groupByDimensionValues).toHaveLength(2);
+    expect(thursdayAktifGroup.groupByDimensionValues).toContain('AKTIF');
+    expect(thursdayAktifGroup.groupByDimensionValues).toContain('Thursday');
+    expect(thursdayAktifGroup.edges).toHaveLength(2);
   });
 
-  it('groups companies by employees with relations', async () => {
+  it('groups keluargas by createdAt with records', async () => {
     const response = await makeGraphqlAPIRequest({
       query: gql`
-        query CompaniesGroupBy(
-          $groupBy: [CompanyGroupByInput!]!
-          $filter: CompanyFilterInput
+        query KeluargasGroupBy(
+          $groupBy: [KeluargaGroupByInput!]!
+          $filter: KeluargaFilterInput
           $limit: Int
         ) {
-          companiesGroupBy(groupBy: $groupBy, filter: $filter, limit: $limit) {
+          keluargasGroupBy(groupBy: $groupBy, filter: $filter, limit: $limit) {
             groupByDimensionValues
             __typename
             edges {
               node {
-                name
-                opportunities {
-                  edges {
-                    node {
-                      name
-                      stage
-                    }
-                  }
-                }
+                nomorKk
               }
             }
           }
@@ -412,7 +382,9 @@ describe('basic group-by with records', () => {
       variables: {
         groupBy: [
           {
-            employees: true,
+            createdAt: {
+              granularity: 'DAY_OF_THE_WEEK',
+            },
           },
         ],
         filter: FILTER_2020,
@@ -423,67 +395,39 @@ describe('basic group-by with records', () => {
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const groups = response.body.data.companiesGroupBy;
+    const groups = response.body.data.keluargasGroupBy;
 
-    expect(groups).toHaveLength(2);
-    const company1Group = groups.find((group: any) =>
-      group.groupByDimensionValues.includes(COMPANY_1_EMPLOYEES),
+    expect(groups).toHaveLength(1);
+
+    const wednesdayGroup = groups.find((group: any) =>
+      group.groupByDimensionValues.includes('Wednesday'),
     );
 
-    expect(company1Group).toBeDefined();
-    expect(company1Group.edges).toHaveLength(1);
-    expect(company1Group.edges[0].node.name).toBe('Company 1');
-    expect(company1Group.edges[0].node.opportunities.edges).toHaveLength(2);
-    const opportunity1Edge =
-      company1Group.edges[0].node.opportunities.edges.find(
-        (edge: any) => edge.node.name === 'Opportunity 1',
-      ).node;
+    expect(wednesdayGroup).toBeDefined();
+    expect(wednesdayGroup.edges).toHaveLength(2);
 
-    expect(opportunity1Edge.name).toBe('Opportunity 1');
-    expect(opportunity1Edge.stage).toBe('NEW');
-    const opportunity2Edge =
-      company1Group.edges[0].node.opportunities.edges.find(
-        (edge: any) => edge.node.name === 'Opportunity 2',
-      ).node;
-
-    expect(opportunity2Edge.name).toBe('Opportunity 2');
-    expect(opportunity2Edge.stage).toBe('NEW');
-
-    const company2Group = groups.find((group: any) =>
-      group.groupByDimensionValues.includes(COMPANY_2_EMPLOYEES),
+    const keluarga1Edge = wednesdayGroup.edges.find(
+      (edge: any) => edge.node.nomorKk === '3201010101010011',
+    );
+    const keluarga2Edge = wednesdayGroup.edges.find(
+      (edge: any) => edge.node.nomorKk === '3201010101010012',
     );
 
-    expect(company2Group).toBeDefined();
-    expect(company2Group.edges).toHaveLength(1);
-    expect(company2Group.edges[0].node.name).toBe('Company 2');
-    expect(company2Group.edges[0].node.opportunities.edges).toHaveLength(2);
-    const opportunity3Edge =
-      company2Group.edges[0].node.opportunities.edges.find(
-        (edge: any) => edge.node.name === 'Opportunity 3',
-      ).node;
-
-    expect(opportunity3Edge.name).toBe('Opportunity 3');
-    expect(opportunity3Edge.stage).toBe('NEW');
-    const opportunity4Edge =
-      company2Group.edges[0].node.opportunities.edges.find(
-        (edge: any) => edge.node.name === 'Opportunity 4',
-      ).node;
-
-    expect(opportunity4Edge.name).toBe('Opportunity 4');
-    expect(opportunity4Edge.stage).toBe('SCREENING');
+    expect(keluarga1Edge).toBeDefined();
+    expect(keluarga2Edge).toBeDefined();
   });
 
   describe('order by for records', () => {
     const getQueryWithOrderByForRecords = (orderByForRecords: string) => {
       return {
         query: gql`
-          query OpportunitiesGroupBy(
-            $groupBy: [OpportunityGroupByInput!]!
-            $filter: OpportunityFilterInput
-            $orderByForRecords: [OpportunityOrderByInput!]
+          query ProgramBantuansGroupBy(
+            $groupBy: [ProgramBantuanGroupByInput!]!
+            $filter: ProgramBantuanFilterInput
+            $orderByForRecords: [ProgramBantuanOrderByInput!]
             $limit: Int
           ) {
-            opportunitiesGroupBy(
+            programBantuansGroupBy(
               groupBy: $groupBy
               filter: $filter
               orderByForRecords: $orderByForRecords
@@ -493,8 +437,8 @@ describe('basic group-by with records', () => {
               __typename
               edges {
                 node {
-                  stage
-                  name
+                  status
+                  namaProgram
                 }
               }
             }
@@ -503,17 +447,17 @@ describe('basic group-by with records', () => {
         variables: {
           groupBy: [
             {
-              closeDate: {
+              createdAt: {
                 granularity: 'DAY_OF_THE_WEEK',
               },
             },
             {
-              stage: true,
+              status: true,
             },
           ],
           orderByForRecords: [
             {
-              name: orderByForRecords,
+              namaProgram: orderByForRecords,
             },
           ],
           filter: FILTER_2020,
@@ -522,7 +466,7 @@ describe('basic group-by with records', () => {
       };
     };
 
-    it('sorts by name in ascending order', async () => {
+    it('sorts by namaProgram in ascending order', async () => {
       const response = await makeGraphqlAPIRequest(
         getQueryWithOrderByForRecords('AscNullsFirst'),
       );
@@ -530,21 +474,25 @@ describe('basic group-by with records', () => {
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data).toBeDefined();
 
-      const groups = response.body.data.opportunitiesGroupBy;
+      const groups = response.body.data.programBantuansGroupBy;
 
-      const thursdayNewGroup = groups.find(
+      const thursdayAktifGroup = groups.find(
         (group: any) =>
           group.groupByDimensionValues.includes('Thursday') &&
-          group.groupByDimensionValues.includes('NEW'),
+          group.groupByDimensionValues.includes('AKTIF'),
       );
 
-      expect(thursdayNewGroup).toBeDefined();
-      expect(thursdayNewGroup.edges).toHaveLength(2);
-      expect(thursdayNewGroup.edges[0].node.name).toBe('Opportunity 2');
-      expect(thursdayNewGroup.edges[1].node.name).toBe('Opportunity 3');
+      expect(thursdayAktifGroup).toBeDefined();
+      expect(thursdayAktifGroup.edges).toHaveLength(2);
+      expect(thursdayAktifGroup.edges[0].node.namaProgram).toBe(
+        'Program Bantuan 2',
+      );
+      expect(thursdayAktifGroup.edges[1].node.namaProgram).toBe(
+        'Program Bantuan 3',
+      );
     });
 
-    it('sorts by name in descending order', async () => {
+    it('sorts by namaProgram in descending order', async () => {
       const response = await makeGraphqlAPIRequest(
         getQueryWithOrderByForRecords('DescNullsFirst'),
       );
@@ -552,151 +500,27 @@ describe('basic group-by with records', () => {
       expect(response.body.errors).toBeUndefined();
       expect(response.body.data).toBeDefined();
 
-      const groups = response.body.data.opportunitiesGroupBy;
+      const groups = response.body.data.programBantuansGroupBy;
 
-      const thursdayNewGroup = groups.find(
+      const thursdayAktifGroup = groups.find(
         (group: any) =>
           group.groupByDimensionValues.includes('Thursday') &&
-          group.groupByDimensionValues.includes('NEW'),
+          group.groupByDimensionValues.includes('AKTIF'),
       );
 
-      expect(thursdayNewGroup).toBeDefined();
-      expect(thursdayNewGroup.edges).toHaveLength(2);
-      expect(thursdayNewGroup.edges[0].node.name).toBe('Opportunity 3');
-      expect(thursdayNewGroup.edges[1].node.name).toBe('Opportunity 2');
-    });
-
-    it('sorts by relation field (company name) in ascending order', async () => {
-      const response = await makeGraphqlAPIRequest({
-        query: gql`
-          query OpportunitiesGroupBy(
-            $groupBy: [OpportunityGroupByInput!]!
-            $filter: OpportunityFilterInput
-            $orderByForRecords: [OpportunityOrderByInput!]
-            $limit: Int
-          ) {
-            opportunitiesGroupBy(
-              groupBy: $groupBy
-              filter: $filter
-              orderByForRecords: $orderByForRecords
-              limit: $limit
-            ) {
-              groupByDimensionValues
-              __typename
-              edges {
-                node {
-                  stage
-                  name
-                  company {
-                    id
-                    name
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: {
-          groupBy: [
-            {
-              stage: true,
-            },
-          ],
-          orderByForRecords: [
-            {
-              company: {
-                name: 'AscNullsFirst',
-              },
-            },
-          ],
-          filter: FILTER_2020,
-          limit: 20,
-        },
-      });
-
-      expect(response.body.errors).toBeUndefined();
-      expect(response.body.data).toBeDefined();
-
-      const groups = response.body.data.opportunitiesGroupBy;
-
-      const newGroup = groups.find((group: any) =>
-        group.groupByDimensionValues.includes('NEW'),
+      expect(thursdayAktifGroup).toBeDefined();
+      expect(thursdayAktifGroup.edges).toHaveLength(2);
+      expect(thursdayAktifGroup.edges[0].node.namaProgram).toBe(
+        'Program Bantuan 3',
       );
-
-      expect(newGroup).toBeDefined();
-      expect(newGroup.edges).toHaveLength(3);
-
-      // Opp 1 and 2 belong to Company 1, Opp 3 to Company 2
-      // Ascending by company name: Company 1 < Company 2
-      expect(newGroup.edges[0].node.company.name).toBe('Company 1');
-      expect(newGroup.edges[1].node.company.name).toBe('Company 1');
-      expect(newGroup.edges[2].node.company.name).toBe('Company 2');
-    });
-
-    it('sorts by relation field (company name) in descending order', async () => {
-      const response = await makeGraphqlAPIRequest({
-        query: gql`
-          query OpportunitiesGroupBy(
-            $groupBy: [OpportunityGroupByInput!]!
-            $filter: OpportunityFilterInput
-            $orderByForRecords: [OpportunityOrderByInput!]
-            $limit: Int
-          ) {
-            opportunitiesGroupBy(
-              groupBy: $groupBy
-              filter: $filter
-              orderByForRecords: $orderByForRecords
-              limit: $limit
-            ) {
-              groupByDimensionValues
-              __typename
-              edges {
-                node {
-                  stage
-                  name
-                  company {
-                    id
-                    name
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: {
-          groupBy: [
-            {
-              stage: true,
-            },
-          ],
-          orderByForRecords: [
-            {
-              company: {
-                name: 'DescNullsLast',
-              },
-            },
-          ],
-          filter: FILTER_2020,
-          limit: 20,
-        },
-      });
-
-      expect(response.body.errors).toBeUndefined();
-      expect(response.body.data).toBeDefined();
-
-      const groups = response.body.data.opportunitiesGroupBy;
-
-      const newGroup = groups.find((group: any) =>
-        group.groupByDimensionValues.includes('NEW'),
+      expect(thursdayAktifGroup.edges[1].node.namaProgram).toBe(
+        'Program Bantuan 2',
       );
-
-      expect(newGroup).toBeDefined();
-      expect(newGroup.edges).toHaveLength(3);
-
-      // Descending by company name: Company 2 > Company 1
-      expect(newGroup.edges[0].node.company.name).toBe('Company 2');
-      expect(newGroup.edges[1].node.company.name).toBe('Company 1');
-      expect(newGroup.edges[2].node.company.name).toBe('Company 1');
     });
+
+    // Bades: test order by relation field (company name) spesifik CRM tidak ada
+    // padanan di programBantuan — programBantuan tidak punya relasi langsung ke
+    // keluarga. Test case ini dihapus karena tidak relevan untuk SID.
+    // // Bades: test scenario "sorts by relation field (company name)" spesifik CRM, tidak relevan untuk SID — dihapus
   });
 });

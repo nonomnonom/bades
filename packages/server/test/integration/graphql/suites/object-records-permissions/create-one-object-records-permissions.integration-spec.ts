@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import { PERSON_GQL_FIELDS } from 'test/integration/constants/person-gql-fields.constants';
+import { PENDUDUK_GQL_FIELDS } from 'test/integration/constants/penduduk-gql-fields.constants';
 import { createOneOperationFactory } from 'test/integration/graphql/utils/create-one-operation-factory.util';
 import { makeGraphqlAPIRequestWithApiKey } from 'test/integration/graphql/utils/make-graphql-api-request-with-api-key.util';
 import { makeGraphqlAPIRequestWithGuestRole } from 'test/integration/graphql/utils/make-graphql-api-request-with-guest-role.util';
@@ -11,19 +11,19 @@ import { ErrorCode } from 'src/engine/core-modules/graphql/utils/graphql-errors.
 import { PermissionsExceptionMessage } from 'src/engine/metadata-modules/permissions/permissions.exception';
 
 describe('createOneObjectRecordsPermissions', () => {
-  let createdPersonIds: string[] = [];
+  let createdPendudukIds: string[] = [];
 
   afterEach(async () => {
-    if (createdPersonIds.length > 0) {
-      await deleteRecordsByIds('person', createdPersonIds);
-      createdPersonIds = [];
+    if (createdPendudukIds.length > 0) {
+      await deleteRecordsByIds('penduduk', createdPendudukIds);
+      createdPendudukIds = [];
     }
   });
 
-  it('should throw a permission error when user does not have permission (guest role)', async () => {
+  it('harus melempar error permission saat user tidak punya izin (guest role)', async () => {
     const graphqlOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: {
         id: randomUUID(),
       },
@@ -31,7 +31,7 @@ describe('createOneObjectRecordsPermissions', () => {
 
     const response = await makeGraphqlAPIRequestWithGuestRole(graphqlOperation);
 
-    expect(response.body.data).toStrictEqual({ createPerson: null });
+    expect(response.body.data).toStrictEqual({ createPenduduk: null });
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toBe(
       PermissionsExceptionMessage.PERMISSION_DENIED,
@@ -39,41 +39,41 @@ describe('createOneObjectRecordsPermissions', () => {
     expect(response.body.errors[0].extensions.code).toBe(ErrorCode.FORBIDDEN);
   });
 
-  it('should create an object record when user has permission (admin role)', async () => {
-    const personId = randomUUID();
+  it('harus berhasil membuat record saat user punya izin (admin role)', async () => {
+    const testPendudukId = randomUUID();
     const graphqlOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: {
-        id: personId,
+        id: testPendudukId,
       },
     });
 
     const response = await makeGraphqlAPIRequest(graphqlOperation);
 
-    createdPersonIds.push(personId);
+    createdPendudukIds.push(testPendudukId);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.createPerson).toBeDefined();
-    expect(response.body.data.createPerson.id).toBe(personId);
+    expect(response.body.data.createPenduduk).toBeDefined();
+    expect(response.body.data.createPenduduk.id).toBe(testPendudukId);
   });
 
-  it('should create an object record when executed by api key', async () => {
-    const personId = randomUUID();
+  it('harus berhasil membuat record saat dieksekusi via API key', async () => {
+    const testPendudukId = randomUUID();
     const graphqlOperation = createOneOperationFactory({
-      objectMetadataSingularName: 'person',
-      gqlFields: PERSON_GQL_FIELDS,
+      objectMetadataSingularName: 'penduduk',
+      gqlFields: PENDUDUK_GQL_FIELDS,
       data: {
-        id: personId,
+        id: testPendudukId,
       },
     });
 
     const response = await makeGraphqlAPIRequestWithApiKey(graphqlOperation);
 
-    createdPersonIds.push(personId);
+    createdPendudukIds.push(testPendudukId);
 
     expect(response.body.data).toBeDefined();
-    expect(response.body.data.createPerson).toBeDefined();
-    expect(response.body.data.createPerson.id).toBe(personId);
+    expect(response.body.data.createPenduduk).toBeDefined();
+    expect(response.body.data.createPenduduk.id).toBe(testPendudukId);
   });
 });
