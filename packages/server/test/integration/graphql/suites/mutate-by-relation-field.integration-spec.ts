@@ -6,102 +6,97 @@ import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graph
 import { restoreManyOperationFactory } from 'test/integration/graphql/utils/restore-many-operation-factory.util';
 import { updateManyOperationFactory } from 'test/integration/graphql/utils/update-many-operation-factory.util';
 
-// Distinct ID prefix (eeee / ffff) from filter-by-relation-field.integration-
-// spec.ts so the two suites can share the workspace database without colliding.
-const TEST_COMPANY_IDS = {
-  AIRBNB: '20202020-eeee-4000-8000-000000000001',
-  STRIPE: '20202020-eeee-4000-8000-000000000002',
-  NOTION: '20202020-eeee-4000-8000-000000000003',
+// Prefix ID berbeda (eeee / ffff) dari filter-by-relation-field.integration-
+// spec.ts agar dua suite dapat berbagi database workspace tanpa tabrakan.
+const TEST_KELUARGA_IDS = {
+  KK_SANTOSO: '20202020-eeee-4000-8000-000000000001',
+  KK_WIJAYA: '20202020-eeee-4000-8000-000000000002',
+  KK_RAHMAN: '20202020-eeee-4000-8000-000000000003',
 };
 
-const TEST_PERSON_IDS = {
-  AIRBNB_ENGINEER: '20202020-ffff-4000-8000-000000000001',
-  AIRBNB_DESIGNER: '20202020-ffff-4000-8000-000000000002',
-  STRIPE_ENGINEER: '20202020-ffff-4000-8000-000000000003',
-  NOTION_ENGINEER: '20202020-ffff-4000-8000-000000000004',
-  UNAFFILIATED: '20202020-ffff-4000-8000-000000000005',
+const TEST_PENDUDUK_IDS = {
+  KK_SANTOSO_ANGGOTA_1: '20202020-ffff-4000-8000-000000000001',
+  KK_SANTOSO_ANGGOTA_2: '20202020-ffff-4000-8000-000000000002',
+  KK_WIJAYA_ANGGOTA_1: '20202020-ffff-4000-8000-000000000003',
+  KK_RAHMAN_ANGGOTA_1: '20202020-ffff-4000-8000-000000000004',
+  TANPA_KK: '20202020-ffff-4000-8000-000000000005',
 };
 
-const ALL_TEST_PERSON_IDS = Object.values(TEST_PERSON_IDS);
+const ALL_TEST_PENDUDUK_IDS = Object.values(TEST_PENDUDUK_IDS);
 
-// Each of the four many-record mutations must support relation-traversal
-// filters: the join survives into the generated UPDATE / DELETE / SoftDelete /
-// Restore SQL via an `id IN (subquery)` rewrite.
+// Setiap dari empat mutasi many-record harus mendukung filter relation-traversal:
+// JOIN bertahan ke SQL UPDATE / DELETE / SoftDelete / Restore yang dihasilkan
+// melalui penulisan ulang `id IN (subquery)`.
 describe('Mutate by relation field (e2e)', () => {
   const resetFixtures = async () => {
-    const createCompanies = createManyOperationFactory({
-      objectMetadataSingularName: 'company',
-      objectMetadataPluralName: 'companies',
-      gqlFields: 'id name',
+    const createKeluargas = createManyOperationFactory({
+      objectMetadataSingularName: 'keluarga',
+      objectMetadataPluralName: 'keluargas',
+      gqlFields: 'id nomorKk',
       data: [
-        { id: TEST_COMPANY_IDS.AIRBNB, name: 'AirbnbMutate' },
-        { id: TEST_COMPANY_IDS.STRIPE, name: 'StripeMutate' },
-        { id: TEST_COMPANY_IDS.NOTION, name: 'NotionMutate' },
+        { id: TEST_KELUARGA_IDS.KK_SANTOSO, nomorKk: '3201030000000001', alamat: 'KK Santoso Mutate' },
+        { id: TEST_KELUARGA_IDS.KK_WIJAYA, nomorKk: '3201030000000002', alamat: 'KK Wijaya Mutate' },
+        { id: TEST_KELUARGA_IDS.KK_RAHMAN, nomorKk: '3201030000000003', alamat: 'KK Rahman Mutate' },
       ],
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createCompanies);
+    await makeGraphqlAPIRequest(createKeluargas);
 
-    const createPeople = createManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+    const createPenduduks = createManyOperationFactory({
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
       data: [
         {
-          id: TEST_PERSON_IDS.AIRBNB_ENGINEER,
-          companyId: TEST_COMPANY_IDS.AIRBNB,
-          jobTitle: 'Engineer',
-          city: 'Original City',
+          id: TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1,
+          kartuKeluargaId: TEST_KELUARGA_IDS.KK_SANTOSO,
+          tempatLahir: 'Kota Asal',
         },
         {
-          id: TEST_PERSON_IDS.AIRBNB_DESIGNER,
-          companyId: TEST_COMPANY_IDS.AIRBNB,
-          jobTitle: 'Designer',
-          city: 'Original City',
+          id: TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2,
+          kartuKeluargaId: TEST_KELUARGA_IDS.KK_SANTOSO,
+          tempatLahir: 'Kota Asal',
         },
         {
-          id: TEST_PERSON_IDS.STRIPE_ENGINEER,
-          companyId: TEST_COMPANY_IDS.STRIPE,
-          jobTitle: 'Engineer',
-          city: 'Original City',
+          id: TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1,
+          kartuKeluargaId: TEST_KELUARGA_IDS.KK_WIJAYA,
+          tempatLahir: 'Kota Asal',
         },
         {
-          id: TEST_PERSON_IDS.NOTION_ENGINEER,
-          companyId: TEST_COMPANY_IDS.NOTION,
-          jobTitle: 'Engineer',
-          city: 'Original City',
+          id: TEST_PENDUDUK_IDS.KK_RAHMAN_ANGGOTA_1,
+          kartuKeluargaId: TEST_KELUARGA_IDS.KK_RAHMAN,
+          tempatLahir: 'Kota Asal',
         },
         {
-          id: TEST_PERSON_IDS.UNAFFILIATED,
-          companyId: null,
-          jobTitle: 'Engineer',
-          city: 'Original City',
+          id: TEST_PENDUDUK_IDS.TANPA_KK,
+          kartuKeluargaId: null,
+          tempatLahir: 'Kota Asal',
         },
       ],
       upsert: true,
     });
 
-    await makeGraphqlAPIRequest(createPeople);
+    await makeGraphqlAPIRequest(createPenduduks);
   };
 
   beforeEach(async () => {
-    // Each test mutates state, so wipe + reseed before every one.
+    // Setiap test memutasi state, jadi hapus dan seed ulang sebelum setiap test.
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
-        filter: { id: { in: ALL_TEST_PERSON_IDS } },
+        filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
       }),
     );
 
     await makeGraphqlAPIRequest(
       destroyManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
         gqlFields: 'id',
-        filter: { id: { in: Object.values(TEST_COMPANY_IDS) } },
+        filter: { id: { in: Object.values(TEST_KELUARGA_IDS) } },
       }),
     );
 
@@ -110,14 +105,14 @@ describe('Mutate by relation field (e2e)', () => {
 
   it('should updateMany via a relation traversal filter', async () => {
     const updateOperation = updateManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: 'id city',
-      data: { city: 'Updated City' },
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: 'id tempatLahir',
+      data: { tempatLahir: 'Kota Diperbarui' },
       filter: {
         and: [
-          { id: { in: ALL_TEST_PERSON_IDS } },
-          { company: { name: { eq: 'AirbnbMutate' } } },
+          { id: { in: ALL_TEST_PENDUDUK_IDS } },
+          { kartuKeluarga: { alamat: { eq: 'KK Santoso Mutate' } } },
         ],
       },
     });
@@ -126,62 +121,67 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(updateResponse.body.errors).toBeUndefined();
 
-    const updatedPeople = updateResponse.body.data.updatePeople;
+    const updatedPenduduks = updateResponse.body.data.updatePenduduks;
 
-    expect(updatedPeople).toHaveLength(2);
+    expect(updatedPenduduks).toHaveLength(2);
     expect(
-      updatedPeople.map((person: { id: string }) => person.id).sort(),
+      updatedPenduduks
+        .map((penduduk: { id: string }) => penduduk.id)
+        .sort(),
     ).toEqual(
-      [TEST_PERSON_IDS.AIRBNB_ENGINEER, TEST_PERSON_IDS.AIRBNB_DESIGNER].sort(),
+      [
+        TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1,
+        TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2,
+      ].sort(),
     );
 
     const findOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: 'id city',
-      filter: { id: { in: ALL_TEST_PERSON_IDS } },
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: 'id tempatLahir',
+      filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
     });
 
     const findResponse = await makeGraphqlAPIRequest(findOperation);
 
-    const cityByPersonId = Object.fromEntries(
-      findResponse.body.data.people.edges.map(
-        (edge: { node: { id: string; city: string } }) => [
+    const tempatLahirByPendudukId = Object.fromEntries(
+      findResponse.body.data.penduduks.edges.map(
+        (edge: { node: { id: string; tempatLahir: string } }) => [
           edge.node.id,
-          edge.node.city,
+          edge.node.tempatLahir,
         ],
       ),
     );
 
-    expect(cityByPersonId[TEST_PERSON_IDS.AIRBNB_ENGINEER]).toEqual(
-      'Updated City',
-    );
-    expect(cityByPersonId[TEST_PERSON_IDS.AIRBNB_DESIGNER]).toEqual(
-      'Updated City',
-    );
+    expect(
+      tempatLahirByPendudukId[TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1],
+    ).toEqual('Kota Diperbarui');
+    expect(
+      tempatLahirByPendudukId[TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2],
+    ).toEqual('Kota Diperbarui');
 
-    // Non-Airbnb rows must stay untouched — the JOIN must not widen the
-    // mutation past the filter.
-    expect(cityByPersonId[TEST_PERSON_IDS.STRIPE_ENGINEER]).toEqual(
-      'Original City',
-    );
-    expect(cityByPersonId[TEST_PERSON_IDS.NOTION_ENGINEER]).toEqual(
-      'Original City',
-    );
-    expect(cityByPersonId[TEST_PERSON_IDS.UNAFFILIATED]).toEqual(
-      'Original City',
+    // Baris non-Santoso tidak boleh berubah — JOIN tidak boleh memperluas
+    // mutasi melampaui filter.
+    expect(
+      tempatLahirByPendudukId[TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1],
+    ).toEqual('Kota Asal');
+    expect(
+      tempatLahirByPendudukId[TEST_PENDUDUK_IDS.KK_RAHMAN_ANGGOTA_1],
+    ).toEqual('Kota Asal');
+    expect(tempatLahirByPendudukId[TEST_PENDUDUK_IDS.TANPA_KK]).toEqual(
+      'Kota Asal',
     );
   });
 
   it('should deleteMany via a relation traversal filter (soft-delete)', async () => {
     const deleteOperation = deleteManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id deletedAt',
       filter: {
         and: [
-          { id: { in: ALL_TEST_PERSON_IDS } },
-          { company: { name: { eq: 'NotionMutate' } } },
+          { id: { in: ALL_TEST_PENDUDUK_IDS } },
+          { kartuKeluarga: { alamat: { eq: 'KK Rahman Mutate' } } },
         ],
       },
     });
@@ -190,47 +190,49 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(deleteResponse.body.errors).toBeUndefined();
 
-    const deletedPeople = deleteResponse.body.data.deletePeople;
+    const deletedPenduduks = deleteResponse.body.data.deletePenduduks;
 
-    expect(deletedPeople).toHaveLength(1);
-    expect(deletedPeople[0].id).toEqual(TEST_PERSON_IDS.NOTION_ENGINEER);
-    expect(deletedPeople[0].deletedAt).toBeTruthy();
+    expect(deletedPenduduks).toHaveLength(1);
+    expect(deletedPenduduks[0].id).toEqual(
+      TEST_PENDUDUK_IDS.KK_RAHMAN_ANGGOTA_1,
+    );
+    expect(deletedPenduduks[0].deletedAt).toBeTruthy();
 
     const findOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
-      filter: { id: { in: ALL_TEST_PERSON_IDS } },
+      filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
     });
 
     const findResponse = await makeGraphqlAPIRequest(findOperation);
-    const remainingIds = findResponse.body.data.people.edges.map(
+    const remainingIds = findResponse.body.data.penduduks.edges.map(
       (edge: { node: { id: string } }) => edge.node.id,
     );
 
     expect(remainingIds.sort()).toEqual(
       [
-        TEST_PERSON_IDS.AIRBNB_ENGINEER,
-        TEST_PERSON_IDS.AIRBNB_DESIGNER,
-        TEST_PERSON_IDS.STRIPE_ENGINEER,
-        TEST_PERSON_IDS.UNAFFILIATED,
+        TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1,
+        TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2,
+        TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1,
+        TEST_PENDUDUK_IDS.TANPA_KK,
       ].sort(),
     );
   });
 
   it('should restoreMany via a relation traversal filter', async () => {
-    // Soft-delete via a scalar filter so restore is the only step exercising
-    // the traversal path.
+    // Soft-delete via filter skalar agar restore menjadi satu-satunya langkah
+    // yang menguji jalur traversal.
     const deleteOperation = deleteManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
       filter: {
         id: {
           in: [
-            TEST_PERSON_IDS.AIRBNB_ENGINEER,
-            TEST_PERSON_IDS.AIRBNB_DESIGNER,
-            TEST_PERSON_IDS.STRIPE_ENGINEER,
+            TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1,
+            TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2,
+            TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1,
           ],
         },
       },
@@ -239,13 +241,13 @@ describe('Mutate by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(deleteOperation);
 
     const restoreOperation = restoreManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id deletedAt',
       filter: {
         and: [
-          { id: { in: ALL_TEST_PERSON_IDS } },
-          { company: { name: { eq: 'AirbnbMutate' } } },
+          { id: { in: ALL_TEST_PENDUDUK_IDS } },
+          { kartuKeluarga: { alamat: { eq: 'KK Santoso Mutate' } } },
         ],
       },
     });
@@ -254,41 +256,44 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(restoreResponse.body.errors).toBeUndefined();
 
-    const restoredPeople = restoreResponse.body.data.restorePeople;
+    const restoredPenduduks = restoreResponse.body.data.restorePenduduks;
 
-    expect(restoredPeople).toHaveLength(2);
+    expect(restoredPenduduks).toHaveLength(2);
     expect(
-      restoredPeople.map((person: { id: string }) => person.id).sort(),
+      restoredPenduduks.map((penduduk: { id: string }) => penduduk.id).sort(),
     ).toEqual(
-      [TEST_PERSON_IDS.AIRBNB_ENGINEER, TEST_PERSON_IDS.AIRBNB_DESIGNER].sort(),
+      [
+        TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_1,
+        TEST_PENDUDUK_IDS.KK_SANTOSO_ANGGOTA_2,
+      ].sort(),
     );
-    restoredPeople.forEach((person: { deletedAt: string | null }) => {
-      expect(person.deletedAt).toBeNull();
+    restoredPenduduks.forEach((penduduk: { deletedAt: string | null }) => {
+      expect(penduduk.deletedAt).toBeNull();
     });
 
-    // The Stripe engineer was soft-deleted too but doesn't match the
-    // company filter — must remain deleted.
-    const findStripe = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+    // Anggota KK Wijaya juga soft-delete tapi tidak cocok dengan filter keluarga
+    // — harus tetap terhapus.
+    const findWijaya = findManyOperationFactory({
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
-      filter: { id: { in: [TEST_PERSON_IDS.STRIPE_ENGINEER] } },
+      filter: { id: { in: [TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1] } },
     });
 
-    const findStripeResponse = await makeGraphqlAPIRequest(findStripe);
+    const findWijayaResponse = await makeGraphqlAPIRequest(findWijaya);
 
-    expect(findStripeResponse.body.data.people.edges).toEqual([]);
+    expect(findWijayaResponse.body.data.penduduks.edges).toEqual([]);
   });
 
   it('should destroyMany via a relation traversal filter (hard-delete)', async () => {
     const destroyOperation = destroyManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
       filter: {
         and: [
-          { id: { in: ALL_TEST_PERSON_IDS } },
-          { company: { name: { eq: 'StripeMutate' } } },
+          { id: { in: ALL_TEST_PENDUDUK_IDS } },
+          { kartuKeluarga: { alamat: { eq: 'KK Wijaya Mutate' } } },
         ],
       },
     });
@@ -297,45 +302,47 @@ describe('Mutate by relation field (e2e)', () => {
 
     expect(destroyResponse.body.errors).toBeUndefined();
 
-    const destroyedPeople = destroyResponse.body.data.destroyPeople;
+    const destroyedPenduduks = destroyResponse.body.data.destroyPenduduks;
 
-    expect(destroyedPeople).toHaveLength(1);
-    expect(destroyedPeople[0].id).toEqual(TEST_PERSON_IDS.STRIPE_ENGINEER);
+    expect(destroyedPenduduks).toHaveLength(1);
+    expect(destroyedPenduduks[0].id).toEqual(
+      TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1,
+    );
 
-    // destroy is a hard-delete — the row must be gone even when querying
-    // with a deletedAt filter.
+    // destroy adalah hard-delete — baris harus hilang bahkan saat query
+    // dengan filter deletedAt.
     const findOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
       gqlFields: 'id',
       filter: {
-        id: { in: [TEST_PERSON_IDS.STRIPE_ENGINEER] },
+        id: { in: [TEST_PENDUDUK_IDS.KK_WIJAYA_ANGGOTA_1] },
         not: { deletedAt: { is: 'NULL' } },
       },
     });
 
     const findResponse = await makeGraphqlAPIRequest(findOperation);
 
-    expect(findResponse.body.data.people.edges).toEqual([]);
+    expect(findResponse.body.data.penduduks.edges).toEqual([]);
   });
 
   it('should keep scalar-only mutations working unchanged', async () => {
-    // Pins the no-traversal branch of the mutation builder helper: scalar
-    // filters keep emitting a direct WHERE without the IN-subquery wrap.
+    // Memastikan cabang no-traversal pada helper mutation builder tetap berfungsi:
+    // filter skalar terus menghasilkan WHERE langsung tanpa pembungkus IN-subquery.
     const updateOperation = updateManyOperationFactory({
-      objectMetadataSingularName: 'person',
-      objectMetadataPluralName: 'people',
-      gqlFields: 'id city',
-      data: { city: 'Scalar Updated City' },
-      filter: { id: { eq: TEST_PERSON_IDS.UNAFFILIATED } },
+      objectMetadataSingularName: 'penduduk',
+      objectMetadataPluralName: 'penduduks',
+      gqlFields: 'id tempatLahir',
+      data: { tempatLahir: 'Kota Diperbarui Skalar' },
+      filter: { id: { eq: TEST_PENDUDUK_IDS.TANPA_KK } },
     });
 
     const updateResponse = await makeGraphqlAPIRequest(updateOperation);
 
     expect(updateResponse.body.errors).toBeUndefined();
-    expect(updateResponse.body.data.updatePeople).toHaveLength(1);
-    expect(updateResponse.body.data.updatePeople[0].city).toEqual(
-      'Scalar Updated City',
+    expect(updateResponse.body.data.updatePenduduks).toHaveLength(1);
+    expect(updateResponse.body.data.updatePenduduks[0].tempatLahir).toEqual(
+      'Kota Diperbarui Skalar',
     );
   });
 });

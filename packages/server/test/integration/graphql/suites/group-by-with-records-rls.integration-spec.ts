@@ -25,14 +25,15 @@ const FILTER_2020 = {
 
 // Bades: test RLS pada group-by menggunakan objek `keluarga` (Kartu Keluarga)
 // sebagai pengganti `company` dari CRM warisan Twenty. Filter RLS diset pada
-// field `nomorKk` — identifier utama keluarga.
+// field `alamat` (TEXT bebas) — `nomorKk` adalah identifier 16-digit numerik
+// per Permendagri 109/2019, jadi tidak cocok untuk CONTAINS predicate.
 describe('group-by with records respects row-level permission predicates', () => {
   const testKeluargaId1 = randomUUID();
   const testKeluargaId2 = randomUUID();
   let customRoleId: string;
   let originalMemberRoleId: string;
   let keluargaObjectMetadataId: string;
-  let keluargaNomorKkFieldMetadataId: string;
+  let keluargaAlamatFieldMetadataId: string;
 
   beforeAll(async () => {
     const { objects } = await findManyObjectMetadata({
@@ -60,12 +61,12 @@ describe('group-by with records respects row-level permission predicates', () =>
     jestExpectToBeDefined(keluargaObjectMetadata);
     keluargaObjectMetadataId = keluargaObjectMetadata.id;
 
-    const nomorKkField = keluargaObjectMetadata.fieldsList?.find(
-      (field: { name: string }) => field.name === 'nomorKk',
+    const alamatField = keluargaObjectMetadata.fieldsList?.find(
+      (field: { name: string }) => field.name === 'alamat',
     );
 
-    jestExpectToBeDefined(nomorKkField);
-    keluargaNomorKkFieldMetadataId = nomorKkField.id;
+    jestExpectToBeDefined(alamatField);
+    keluargaAlamatFieldMetadataId = alamatField.id;
 
     const memberRole = await findOneRoleByLabel({ label: 'Member' });
 
@@ -92,7 +93,7 @@ describe('group-by with records respects row-level permission predicates', () =>
     customRoleId = roleData?.createOneRole?.id;
     jestExpectToBeDefined(customRoleId);
 
-    // Set RLS predicate: hanya keluarga yang nomorKk mengandung 'Terlihat' yang visible
+    // Set RLS predicate: hanya keluarga yang alamat mengandung 'Terlihat' yang visible
     await upsertRowLevelPermissionPredicates({
       expectToFail: false,
       input: {
@@ -100,7 +101,7 @@ describe('group-by with records respects row-level permission predicates', () =>
         objectMetadataId: keluargaObjectMetadataId,
         predicates: [
           {
-            fieldMetadataId: keluargaNomorKkFieldMetadataId,
+            fieldMetadataId: keluargaAlamatFieldMetadataId,
             operand: RowLevelPermissionPredicateOperand.CONTAINS,
             value: 'Terlihat',
           },
@@ -123,7 +124,7 @@ describe('group-by with records respects row-level permission predicates', () =>
         gqlFields: KELUARGA_GQL_FIELDS,
         data: {
           id: testKeluargaId1,
-          nomorKk: 'RLS-Terlihat-3201010101010001',
+          nomorKk: '3201050000000001', alamat: 'Dusun Terlihat',
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -135,7 +136,7 @@ describe('group-by with records respects row-level permission predicates', () =>
         gqlFields: KELUARGA_GQL_FIELDS,
         data: {
           id: testKeluargaId2,
-          nomorKk: 'RLS-Tersembunyi-3201010101010002',
+          nomorKk: '3201050000000002', alamat: 'Dusun Tersembunyi',
           createdAt: '2020-02-05T08:00:00.000Z',
         },
       }),
@@ -187,6 +188,7 @@ describe('group-by with records respects row-level permission predicates', () =>
               edges {
                 node {
                   nomorKk
+                  alamat
                 }
               }
             }
@@ -207,17 +209,18 @@ describe('group-by with records respects row-level permission predicates', () =>
     const groups = response.body.data.keluargasGroupBy;
 
     const allRecords = groups.flatMap(
-      (group: { edges: { node: { nomorKk: string } }[] }) =>
-        group.edges.map((edge: { node: { nomorKk: string } }) => edge.node),
+      (group: { edges: { node: { nomorKk: string; alamat: string } }[] }) =>
+        group.edges.map(
+          (edge: { node: { nomorKk: string; alamat: string } }) => edge.node,
+        ),
     );
 
     const visibleRecords = allRecords.filter(
-      (record: { nomorKk: string }) =>
-        record.nomorKk === 'RLS-Terlihat-3201010101010001',
+      (record: { alamat: string }) => record.alamat === 'Dusun Terlihat',
     );
     const hiddenRecords = allRecords.filter(
-      (record: { nomorKk: string }) =>
-        record.nomorKk === 'RLS-Tersembunyi-3201010101010002',
+      (record: { alamat: string }) =>
+        record.alamat === 'Dusun Tersembunyi',
     );
 
     expect(visibleRecords).toHaveLength(1);

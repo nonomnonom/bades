@@ -8,25 +8,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 const client = request(`http://localhost:${APP_PORT}`);
 
-const TEST_COMPANY_AIRBNB_ID = '20202020-aaaa-4000-8000-000000000001';
-const TEST_COMPANY_STRIPE_ID = '20202020-aaaa-4000-8000-000000000002';
-const TEST_PERSON_AIRBNB_1_ID = '20202020-bbbb-4000-8000-000000000001';
-const TEST_PERSON_AIRBNB_2_ID = '20202020-bbbb-4000-8000-000000000002';
-const TEST_PERSON_STRIPE_1_ID = '20202020-bbbb-4000-8000-000000000003';
-const SHARED_JOB_TITLE = 'chart-test-relation-traversal';
-const ALL_TEST_PERSON_IDS = [
-  TEST_PERSON_AIRBNB_1_ID,
-  TEST_PERSON_AIRBNB_2_ID,
-  TEST_PERSON_STRIPE_1_ID,
+const TEST_KELUARGA_KK1_ID = '30303030-aaaa-4000-8000-000000000001';
+const TEST_KELUARGA_KK2_ID = '30303030-aaaa-4000-8000-000000000002';
+const TEST_PENDUDUK_KK1_ANGGOTA_1_ID = '30303030-bbbb-4000-8000-000000000001';
+const TEST_PENDUDUK_KK1_ANGGOTA_2_ID = '30303030-bbbb-4000-8000-000000000002';
+const TEST_PENDUDUK_KK2_ANGGOTA_1_ID = '30303030-bbbb-4000-8000-000000000003';
+const SHARED_TEMPAT_LAHIR = 'chart-test-relation-traversal';
+const ALL_TEST_PENDUDUK_IDS = [
+  TEST_PENDUDUK_KK1_ANGGOTA_1_ID,
+  TEST_PENDUDUK_KK1_ANGGOTA_2_ID,
+  TEST_PENDUDUK_KK2_ANGGOTA_1_ID,
 ];
-const ALL_TEST_COMPANY_IDS = [TEST_COMPANY_AIRBNB_ID, TEST_COMPANY_STRIPE_ID];
+const ALL_TEST_KELUARGA_IDS = [TEST_KELUARGA_KK1_ID, TEST_KELUARGA_KK2_ID];
 
 describe('BarChartData with relation-traversal filter (e2e)', () => {
-  let personObjectMetadataId: string | null = null;
-  let personIdFieldMetadataId: string | null = null;
-  let personJobTitleFieldMetadataId: string | null = null;
-  let personCompanyFieldMetadataId: string | null = null;
-  let companyNameFieldMetadataId: string | null = null;
+  let pendudukObjectMetadataId: string | null = null;
+  let pendudukIdFieldMetadataId: string | null = null;
+  let pendudukTempatLahirFieldMetadataId: string | null = null;
+  let pendudukKartuKeluargaFieldMetadataId: string | null = null;
+  let keluargaAlamatFieldMetadataId: string | null = null;
 
   const lookupMetadataIds = async () => {
     const objectsResponse = await makeMetadataAPIRequest({
@@ -59,25 +59,27 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
       (edge: { node: unknown }) => edge.node,
     );
 
-    const personObject = objects.find((o) => o.nameSingular === 'person');
-    const companyObject = objects.find((o) => o.nameSingular === 'company');
+    const pendudukObject = objects.find((o) => o.nameSingular === 'penduduk');
+    const keluargaObject = objects.find((o) => o.nameSingular === 'keluarga');
 
-    personObjectMetadataId = personObject?.id ?? null;
-    personIdFieldMetadataId =
-      personObject?.fieldsList.find((f) => f.name === 'id')?.id ?? null;
-    personJobTitleFieldMetadataId =
-      personObject?.fieldsList.find((f) => f.name === 'jobTitle')?.id ?? null;
-    personCompanyFieldMetadataId =
-      personObject?.fieldsList.find((f) => f.name === 'company')?.id ?? null;
-    companyNameFieldMetadataId =
-      companyObject?.fieldsList.find((f) => f.name === 'name')?.id ?? null;
+    pendudukObjectMetadataId = pendudukObject?.id ?? null;
+    pendudukIdFieldMetadataId =
+      pendudukObject?.fieldsList.find((f) => f.name === 'id')?.id ?? null;
+    pendudukTempatLahirFieldMetadataId =
+      pendudukObject?.fieldsList.find((f) => f.name === 'tempatLahir')?.id ??
+      null;
+    pendudukKartuKeluargaFieldMetadataId =
+      pendudukObject?.fieldsList.find((f) => f.name === 'kartuKeluarga')?.id ??
+      null;
+    keluargaAlamatFieldMetadataId =
+      keluargaObject?.fieldsList.find((f) => f.name === 'alamat')?.id ?? null;
 
     if (
-      !personObjectMetadataId ||
-      !personIdFieldMetadataId ||
-      !personJobTitleFieldMetadataId ||
-      !personCompanyFieldMetadataId ||
-      !companyNameFieldMetadataId
+      !pendudukObjectMetadataId ||
+      !pendudukIdFieldMetadataId ||
+      !pendudukTempatLahirFieldMetadataId ||
+      !pendudukKartuKeluargaFieldMetadataId ||
+      !keluargaAlamatFieldMetadataId
     ) {
       throw new Error('Failed to resolve required metadata ids for chart test');
     }
@@ -86,12 +88,12 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
   const seedTestRecords = async () => {
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
         gqlFields: 'id',
         data: [
-          { id: TEST_COMPANY_AIRBNB_ID, name: 'AirbnbChartTest' },
-          { id: TEST_COMPANY_STRIPE_ID, name: 'StripeChartTest' },
+          { id: TEST_KELUARGA_KK1_ID, nomorKk: '3201040000000001', alamat: 'KK Chart 001' },
+          { id: TEST_KELUARGA_KK2_ID, nomorKk: '3201040000000002', alamat: 'KK Chart 002' },
         ],
         upsert: true,
       }),
@@ -99,24 +101,24 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
 
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
         data: [
           {
-            id: TEST_PERSON_AIRBNB_1_ID,
-            companyId: TEST_COMPANY_AIRBNB_ID,
-            jobTitle: SHARED_JOB_TITLE,
+            id: TEST_PENDUDUK_KK1_ANGGOTA_1_ID,
+            kartuKeluargaId: TEST_KELUARGA_KK1_ID,
+            tempatLahir: SHARED_TEMPAT_LAHIR,
           },
           {
-            id: TEST_PERSON_AIRBNB_2_ID,
-            companyId: TEST_COMPANY_AIRBNB_ID,
-            jobTitle: SHARED_JOB_TITLE,
+            id: TEST_PENDUDUK_KK1_ANGGOTA_2_ID,
+            kartuKeluargaId: TEST_KELUARGA_KK1_ID,
+            tempatLahir: SHARED_TEMPAT_LAHIR,
           },
           {
-            id: TEST_PERSON_STRIPE_1_ID,
-            companyId: TEST_COMPANY_STRIPE_ID,
-            jobTitle: SHARED_JOB_TITLE,
+            id: TEST_PENDUDUK_KK2_ANGGOTA_1_ID,
+            kartuKeluargaId: TEST_KELUARGA_KK2_ID,
+            tempatLahir: SHARED_TEMPAT_LAHIR,
           },
         ],
         upsert: true,
@@ -131,8 +133,8 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
         id: uuidv4(),
         type: 'TEXT',
         operand: 'CONTAINS',
-        value: SHARED_JOB_TITLE,
-        fieldMetadataId: personJobTitleFieldMetadataId,
+        value: SHARED_TEMPAT_LAHIR,
+        fieldMetadataId: pendudukTempatLahirFieldMetadataId,
         recordFilterGroupId: filterGroupId,
       },
       ...extraRecordFilters.map((filter) => ({
@@ -156,13 +158,13 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
         `,
         variables: {
           input: {
-            objectMetadataId: personObjectMetadataId,
+            objectMetadataId: pendudukObjectMetadataId,
             configuration: {
               configurationType: 'BAR_CHART',
               layout: 'VERTICAL',
-              aggregateFieldMetadataId: personIdFieldMetadataId,
+              aggregateFieldMetadataId: pendudukIdFieldMetadataId,
               aggregateOperation: 'COUNT',
-              primaryAxisGroupByFieldMetadataId: personJobTitleFieldMetadataId,
+              primaryAxisGroupByFieldMetadataId: pendudukTempatLahirFieldMetadataId,
               primaryAxisOrderBy: 'VALUE_DESC',
               filter: {
                 recordFilters: allRecordFilters,
@@ -178,7 +180,7 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
     expect(response.body.errors).toBeUndefined();
     const data: Array<Record<string, string | number>> =
       response.body.data.barChartData.data;
-    const row = data.find((entry) => entry.jobTitle === SHARED_JOB_TITLE);
+    const row = data.find((entry) => entry.tempatLahir === SHARED_TEMPAT_LAHIR);
 
     return typeof row?.id === 'number' ? row.id : 0;
   };
@@ -191,37 +193,37 @@ describe('BarChartData with relation-traversal filter (e2e)', () => {
   afterAll(async () => {
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
-        filter: { id: { in: ALL_TEST_PERSON_IDS } },
+        filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
       }),
     );
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
         gqlFields: 'id',
-        filter: { id: { in: ALL_TEST_COMPANY_IDS } },
+        filter: { id: { in: ALL_TEST_KELUARGA_IDS } },
       }),
     );
   });
 
-  it('should count all 3 test people without a relation-traversal filter', async () => {
+  it('should count all 3 test penduduk without a relation-traversal filter', async () => {
     const count = await queryBarChartCount();
 
     expect(count).toBe(3);
   });
 
-  it('should apply a one-hop relation-traversal filter and only count Airbnb people', async () => {
+  it('should apply a one-hop relation-traversal filter and only count penduduk from KK1', async () => {
     const count = await queryBarChartCount([
       {
         id: uuidv4(),
         type: 'TEXT',
         operand: 'CONTAINS',
-        value: 'AirbnbChartTest',
-        fieldMetadataId: personCompanyFieldMetadataId,
-        relationTargetFieldMetadataId: companyNameFieldMetadataId,
+        value: 'KK Chart 001',
+        fieldMetadataId: pendudukKartuKeluargaFieldMetadataId,
+        relationTargetFieldMetadataId: keluargaAlamatFieldMetadataId,
       },
     ]);
 

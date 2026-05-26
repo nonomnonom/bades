@@ -34,25 +34,30 @@ const ALL_TEST_PET_IDS = Object.values(TEST_PET_IDS);
 
 describe('Filter by relation field (e2e)', () => {
   beforeAll(async () => {
-    // Buat data keluarga terlebih dahulu
+    // Buat data keluarga terlebih dahulu. nomorKk = 16-digit numerik
+    // (format KTP-el Permendagri 109/2019), alamat = TEXT bebas yang
+    // dipakai filter natural-language.
     const createKeluargas = createManyOperationFactory({
       objectMetadataSingularName: 'keluarga',
       objectMetadataPluralName: 'keluargas',
-      gqlFields: 'id nomorKk',
+      gqlFields: 'id nomorKk alamat',
       data: [
         {
           id: TEST_KELUARGA_IDS.SUKAMAJU,
-          nomorKk: 'Sukamaju',
+          nomorKk: '3201020000000001',
+          alamat: 'Dusun Sukamaju RT 01 RW 02',
           jumlahAnggota: 50,
         },
         {
           id: TEST_KELUARGA_IDS.MEKAR_SARI,
-          nomorKk: 'MekarSari',
+          nomorKk: '3201020000000002',
+          alamat: 'Dusun Mekar Sari RT 03 RW 01',
           jumlahAnggota: 10,
         },
         {
           id: TEST_KELUARGA_IDS.DUSUN_PASAR,
-          nomorKk: 'DusunPasar',
+          nomorKk: '3201020000000003',
+          alamat: 'Dusun Pasar RT 02 RW 02',
           jumlahAnggota: 5,
         },
       ],
@@ -133,7 +138,7 @@ describe('Filter by relation field (e2e)', () => {
     await makeGraphqlAPIRequest(createPets);
   });
 
-  it('harus memfilter penduduk berdasarkan nomorKk keluarga (exact match)', async () => {
+  it('harus memfilter penduduk berdasarkan alamat keluarga (exact match)', async () => {
     const queryData = {
       query: gql`
         query Penduduks($filter: PendudukFilterInput) {
@@ -150,7 +155,7 @@ describe('Filter by relation field (e2e)', () => {
         filter: {
           and: [
             { id: { in: ALL_TEST_PENDUDUK_IDS } },
-            { kartuKeluarga: { nomorKk: { eq: 'Sukamaju' } } },
+            { kartuKeluarga: { alamat: { eq: 'Dusun Sukamaju RT 01 RW 02' } } },
           ],
         },
       },
@@ -173,7 +178,7 @@ describe('Filter by relation field (e2e)', () => {
     );
   });
 
-  it('harus memfilter penduduk berdasarkan nomorKk keluarga dengan operator like', async () => {
+  it('harus memfilter penduduk berdasarkan alamat keluarga dengan operator like', async () => {
     const queryData = {
       query: gql`
         query Penduduks($filter: PendudukFilterInput) {
@@ -190,7 +195,7 @@ describe('Filter by relation field (e2e)', () => {
         filter: {
           and: [
             { id: { in: ALL_TEST_PENDUDUK_IDS } },
-            { kartuKeluarga: { nomorKk: { like: '%ukamaju%' } } },
+            { kartuKeluarga: { alamat: { like: '%Sukamaju%' } } },
           ],
         },
       },
@@ -229,7 +234,7 @@ describe('Filter by relation field (e2e)', () => {
         filter: {
           and: [
             { id: { in: ALL_TEST_PENDUDUK_IDS } },
-            { kartuKeluarga: { nomorKk: { eq: 'Sukamaju' } } },
+            { kartuKeluarga: { alamat: { eq: 'Dusun Sukamaju RT 01 RW 02' } } },
             { pekerjaan: { eq: 'Pedagang' } },
           ],
         },
@@ -259,7 +264,7 @@ describe('Filter by relation field (e2e)', () => {
               node {
                 id
                 kartuKeluarga {
-                  nomorKk
+                  alamat
                 }
               }
             }
@@ -270,10 +275,10 @@ describe('Filter by relation field (e2e)', () => {
         filter: {
           and: [
             { id: { in: ALL_TEST_PENDUDUK_IDS } },
-            { kartuKeluarga: { nomorKk: { like: '%a%' } } },
+            { kartuKeluarga: { alamat: { like: '%Dusun%' } } },
           ],
         },
-        orderBy: [{ kartuKeluarga: { nomorKk: 'AscNullsLast' } }],
+        orderBy: [{ kartuKeluarga: { alamat: 'AscNullsLast' } }],
       },
     };
 
@@ -281,17 +286,17 @@ describe('Filter by relation field (e2e)', () => {
 
     expect(response.body.errors).toBeUndefined();
 
-    const nomorKks = response.body.data.penduduks.edges.map(
-      (edge: { node: { kartuKeluarga: { nomorKk: string } | null } }) =>
-        edge.node.kartuKeluarga?.nomorKk ?? null,
+    const alamats = response.body.data.penduduks.edges.map(
+      (edge: { node: { kartuKeluarga: { alamat: string } | null } }) =>
+        edge.node.kartuKeluarga?.alamat ?? null,
     );
 
-    // DusunPasar, MekarSari, Sukamaju (x2) — semua mengandung 'a', urut ascending
-    expect(nomorKks).toEqual([
-      'DusunPasar',
-      'MekarSari',
-      'Sukamaju',
-      'Sukamaju',
+    // Mekar Sari, Pasar, Sukamaju (x2) — semua mengandung 'Dusun', urut ascending
+    expect(alamats).toEqual([
+      'Dusun Mekar Sari RT 03 RW 01',
+      'Dusun Pasar RT 02 RW 02',
+      'Dusun Sukamaju RT 01 RW 02',
+      'Dusun Sukamaju RT 01 RW 02',
     ]);
   });
 

@@ -26,9 +26,9 @@ const RELATION_TRAVERSAL_GQL_FIELDS = `
 describe('View Filter relation-traversal round-trip should succeed', () => {
   let createdViewId: string;
   let createdViewFilterId: string;
-  let personCompanyRelationFieldId: string;
-  let companyNameFieldId: string;
-  let companyDomainNameFieldId: string;
+  let pendudukKartuKeluargaRelationFieldId: string;
+  let keluargaAlamatFieldId: string;
+  let keluargaNomorKkFieldId: string;
 
   beforeAll(async () => {
     const { objects } = await findManyObjectMetadata({
@@ -50,42 +50,42 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
 
     jestExpectToBeDefined(objects);
 
-    const personObject = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'person',
+    const pendudukObject = objects.find(
+      (object: { nameSingular: string }) => object.nameSingular === 'penduduk',
     );
-    jestExpectToBeDefined(personObject);
+    jestExpectToBeDefined(pendudukObject);
 
-    const companyObject = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'company',
+    const keluargaObject = objects.find(
+      (object: { nameSingular: string }) => object.nameSingular === 'keluarga',
     );
-    jestExpectToBeDefined(companyObject);
+    jestExpectToBeDefined(keluargaObject);
 
-    const personCompanyRelationField = personObject.fieldsList?.find(
+    const pendudukKartuKeluargaRelationField = pendudukObject.fieldsList?.find(
       (field: { name: string; type: string }) =>
-        field.name === 'company' && field.type === 'RELATION',
+        field.name === 'kartuKeluarga' && field.type === 'RELATION',
     );
-    jestExpectToBeDefined(personCompanyRelationField);
-    personCompanyRelationFieldId = personCompanyRelationField.id;
+    jestExpectToBeDefined(pendudukKartuKeluargaRelationField);
+    pendudukKartuKeluargaRelationFieldId = pendudukKartuKeluargaRelationField.id;
 
-    const companyNameField = companyObject.fieldsList?.find(
-      (field: { name: string }) => field.name === 'name',
+    const keluargaAlamatField = keluargaObject.fieldsList?.find(
+      (field: { name: string }) => field.name === 'alamat',
     );
-    jestExpectToBeDefined(companyNameField);
-    companyNameFieldId = companyNameField.id;
+    jestExpectToBeDefined(keluargaAlamatField);
+    keluargaAlamatFieldId = keluargaAlamatField.id;
 
-    const companyDomainNameField = companyObject.fieldsList?.find(
-      (field: { name: string }) => field.name === 'domainName',
+    const keluargaNomorKkField = keluargaObject.fieldsList?.find(
+      (field: { name: string }) => field.name === 'nomorKk',
     );
-    jestExpectToBeDefined(companyDomainNameField);
-    companyDomainNameFieldId = companyDomainNameField.id;
+    jestExpectToBeDefined(keluargaNomorKkField);
+    keluargaNomorKkFieldId = keluargaNomorKkField.id;
 
     const { data: viewData } = await createOneView({
       expectToFail: false,
       input: {
-        name: 'Test View For Relation Traversal Filter',
-        objectMetadataId: personObject.id,
+        name: 'Test View untuk Filter Traversal Relasi',
+        objectMetadataId: pendudukObject.id,
         type: ViewType.TABLE,
-        icon: 'IconUser',
+        icon: 'IconUsers',
       },
     });
 
@@ -117,10 +117,10 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
       expectToFail: false,
       input: {
         viewId: createdViewId,
-        fieldMetadataId: personCompanyRelationFieldId,
+        fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
         operand: ViewFilterOperand.CONTAINS,
-        value: 'Acme',
-        relationTargetFieldMetadataId: companyNameFieldId,
+        value: 'Sukamaju',
+        relationTargetFieldMetadataId: keluargaAlamatFieldId,
       },
       gqlFields: RELATION_TRAVERSAL_GQL_FIELDS,
     });
@@ -130,10 +130,10 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
     expect(data.createViewFilter).toMatchObject({
       id: expect.any(String),
       viewId: createdViewId,
-      fieldMetadataId: personCompanyRelationFieldId,
-      relationTargetFieldMetadataId: companyNameFieldId,
+      fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
+      relationTargetFieldMetadataId: keluargaAlamatFieldId,
       operand: ViewFilterOperand.CONTAINS,
-      value: 'Acme',
+      value: 'Sukamaju',
     });
   });
 
@@ -142,9 +142,9 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
       expectToFail: false,
       input: {
         viewId: createdViewId,
-        fieldMetadataId: personCompanyRelationFieldId,
+        fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
         operand: ViewFilterOperand.CONTAINS,
-        value: 'Acme',
+        value: 'Sukamaju',
       },
       gqlFields: RELATION_TRAVERSAL_GQL_FIELDS,
     });
@@ -154,7 +154,7 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
     expect(data.createViewFilter).toMatchObject({
       id: expect.any(String),
       viewId: createdViewId,
-      fieldMetadataId: personCompanyRelationFieldId,
+      fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
       relationTargetFieldMetadataId: null,
     });
   });
@@ -164,10 +164,10 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
       expectToFail: false,
       input: {
         viewId: createdViewId,
-        fieldMetadataId: personCompanyRelationFieldId,
+        fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
         operand: ViewFilterOperand.CONTAINS,
-        value: 'Acme',
-        relationTargetFieldMetadataId: companyNameFieldId,
+        value: 'Sukamaju',
+        relationTargetFieldMetadataId: keluargaAlamatFieldId,
       },
       gqlFields: RELATION_TRAVERSAL_GQL_FIELDS,
     });
@@ -180,7 +180,7 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
       input: {
         id: createdViewFilterId,
         update: {
-          relationTargetFieldMetadataId: companyDomainNameFieldId,
+          relationTargetFieldMetadataId: keluargaNomorKkFieldId,
         },
       },
       gqlFields: RELATION_TRAVERSAL_GQL_FIELDS,
@@ -188,8 +188,8 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
 
     expect(updateData.updateViewFilter).toMatchObject({
       id: createdViewFilterId,
-      fieldMetadataId: personCompanyRelationFieldId,
-      relationTargetFieldMetadataId: companyDomainNameFieldId,
+      fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
+      relationTargetFieldMetadataId: keluargaNomorKkFieldId,
     });
   });
 
@@ -198,10 +198,10 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
       expectToFail: false,
       input: {
         viewId: createdViewId,
-        fieldMetadataId: personCompanyRelationFieldId,
+        fieldMetadataId: pendudukKartuKeluargaRelationFieldId,
         operand: ViewFilterOperand.CONTAINS,
-        value: 'Acme',
-        relationTargetFieldMetadataId: companyNameFieldId,
+        value: 'Sukamaju',
+        relationTargetFieldMetadataId: keluargaAlamatFieldId,
       },
       gqlFields: RELATION_TRAVERSAL_GQL_FIELDS,
     });
@@ -214,7 +214,7 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
       input: {
         id: createdViewFilterId,
         update: {
-          value: 'Acme Corp',
+          value: 'Desa Sukamaju Indah',
         },
       },
       gqlFields: RELATION_TRAVERSAL_GQL_FIELDS,
@@ -222,8 +222,8 @@ describe('View Filter relation-traversal round-trip should succeed', () => {
 
     expect(updateData.updateViewFilter).toMatchObject({
       id: createdViewFilterId,
-      value: 'Acme Corp',
-      relationTargetFieldMetadataId: companyNameFieldId,
+      value: 'Desa Sukamaju Indah',
+      relationTargetFieldMetadataId: keluargaAlamatFieldId,
     });
   });
 });

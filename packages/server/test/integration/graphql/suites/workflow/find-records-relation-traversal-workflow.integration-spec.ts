@@ -13,25 +13,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 const client = request(`http://localhost:${APP_PORT}`);
 
-const TEST_COMPANY_AIRBNB_ID = '20202020-eeee-4000-8000-000000000001';
-const TEST_COMPANY_STRIPE_ID = '20202020-eeee-4000-8000-000000000002';
-const TEST_PERSON_AIRBNB_1_ID = '20202020-ffff-4000-8000-000000000001';
-const TEST_PERSON_AIRBNB_2_ID = '20202020-ffff-4000-8000-000000000002';
-const TEST_PERSON_STRIPE_1_ID = '20202020-ffff-4000-8000-000000000003';
-const ALL_TEST_PERSON_IDS = [
-  TEST_PERSON_AIRBNB_1_ID,
-  TEST_PERSON_AIRBNB_2_ID,
-  TEST_PERSON_STRIPE_1_ID,
+const TEST_KELUARGA_KK1_ID = '30303030-eeee-4000-8000-000000000001';
+const TEST_KELUARGA_KK2_ID = '30303030-eeee-4000-8000-000000000002';
+const TEST_PENDUDUK_KK1_ANGGOTA_1_ID = '30303030-ffff-4000-8000-000000000001';
+const TEST_PENDUDUK_KK1_ANGGOTA_2_ID = '30303030-ffff-4000-8000-000000000002';
+const TEST_PENDUDUK_KK2_ANGGOTA_1_ID = '30303030-ffff-4000-8000-000000000003';
+const ALL_TEST_PENDUDUK_IDS = [
+  TEST_PENDUDUK_KK1_ANGGOTA_1_ID,
+  TEST_PENDUDUK_KK1_ANGGOTA_2_ID,
+  TEST_PENDUDUK_KK2_ANGGOTA_1_ID,
 ];
-const ALL_TEST_COMPANY_IDS = [TEST_COMPANY_AIRBNB_ID, TEST_COMPANY_STRIPE_ID];
+const ALL_TEST_KELUARGA_IDS = [TEST_KELUARGA_KK1_ID, TEST_KELUARGA_KK2_ID];
 
 describe('FindRecords workflow action with relation-traversal filter (e2e)', () => {
   let createdWorkflowId: string | null = null;
   let createdWorkflowVersionId: string | null = null;
   let findRecordsStepId: string | null = null;
   let createdWorkflowRunId: string | null = null;
-  let personCompanyFieldMetadataId: string | null = null;
-  let companyNameFieldMetadataId: string | null = null;
+  let pendudukKartuKeluargaFieldMetadataId: string | null = null;
+  let keluargaAlamatFieldMetadataId: string | null = null;
 
   const lookupFieldMetadataIds = async () => {
     const objectsResponse = await makeMetadataAPIRequest({
@@ -62,17 +62,21 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
       (edge: { node: unknown }) => edge.node,
     );
 
-    const personObject = objects.find((o) => o.nameSingular === 'person');
-    const companyObject = objects.find((o) => o.nameSingular === 'company');
+    const pendudukObject = objects.find((o) => o.nameSingular === 'penduduk');
+    const keluargaObject = objects.find((o) => o.nameSingular === 'keluarga');
 
-    personCompanyFieldMetadataId =
-      personObject?.fieldsList.find((f) => f.name === 'company')?.id ?? null;
-    companyNameFieldMetadataId =
-      companyObject?.fieldsList.find((f) => f.name === 'name')?.id ?? null;
+    pendudukKartuKeluargaFieldMetadataId =
+      pendudukObject?.fieldsList.find((f) => f.name === 'kartuKeluarga')?.id ??
+      null;
+    keluargaAlamatFieldMetadataId =
+      keluargaObject?.fieldsList.find((f) => f.name === 'alamat')?.id ?? null;
 
-    if (!personCompanyFieldMetadataId || !companyNameFieldMetadataId) {
+    if (
+      !pendudukKartuKeluargaFieldMetadataId ||
+      !keluargaAlamatFieldMetadataId
+    ) {
       throw new Error(
-        `Could not resolve required field metadata ids — person.company=${personCompanyFieldMetadataId}, company.name=${companyNameFieldMetadataId}`,
+        `Could not resolve required field metadata ids — penduduk.kartuKeluarga=${pendudukKartuKeluargaFieldMetadataId}, keluarga.alamat=${keluargaAlamatFieldMetadataId}`,
       );
     }
   };
@@ -80,12 +84,20 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
   const seedTestRecords = async () => {
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
         gqlFields: 'id',
         data: [
-          { id: TEST_COMPANY_AIRBNB_ID, name: 'AirbnbWorkflowTest' },
-          { id: TEST_COMPANY_STRIPE_ID, name: 'StripeWorkflowTest' },
+          {
+            id: TEST_KELUARGA_KK1_ID,
+            nomorKk: '3201070000000001',
+            alamat: 'Dusun Workflow 001',
+          },
+          {
+            id: TEST_KELUARGA_KK2_ID,
+            nomorKk: '3201070000000002',
+            alamat: 'Dusun Workflow 002',
+          },
         ],
         upsert: true,
       }),
@@ -93,24 +105,24 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
 
     await makeGraphqlAPIRequest(
       createManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
         data: [
           {
-            id: TEST_PERSON_AIRBNB_1_ID,
-            companyId: TEST_COMPANY_AIRBNB_ID,
-            jobTitle: 'workflow-test-airbnb-1',
+            id: TEST_PENDUDUK_KK1_ANGGOTA_1_ID,
+            kartuKeluargaId: TEST_KELUARGA_KK1_ID,
+            tempatLahir: 'workflow-test-kk1-anggota-1',
           },
           {
-            id: TEST_PERSON_AIRBNB_2_ID,
-            companyId: TEST_COMPANY_AIRBNB_ID,
-            jobTitle: 'workflow-test-airbnb-2',
+            id: TEST_PENDUDUK_KK1_ANGGOTA_2_ID,
+            kartuKeluargaId: TEST_KELUARGA_KK1_ID,
+            tempatLahir: 'workflow-test-kk1-anggota-2',
           },
           {
-            id: TEST_PERSON_STRIPE_1_ID,
-            companyId: TEST_COMPANY_STRIPE_ID,
-            jobTitle: 'workflow-test-stripe-1',
+            id: TEST_PENDUDUK_KK2_ANGGOTA_1_ID,
+            kartuKeluargaId: TEST_KELUARGA_KK2_ID,
+            tempatLahir: 'workflow-test-kk2-anggota-1',
           },
         ],
         upsert: true,
@@ -238,20 +250,20 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
                 ...findRecordsStep.settings,
                 input: {
                   ...findRecordsStep.settings.input,
-                  objectName: 'person',
+                  objectName: 'penduduk',
                   limit: 25,
                   filter: {
                     recordFilters: [
                       {
                         id: filterId,
                         type: 'TEXT',
-                        label: 'Company → Name',
-                        value: 'AirbnbWorkflowTest',
+                        label: 'Kartu Keluarga → Alamat',
+                        value: 'Dusun Workflow 001',
                         operand: 'CONTAINS',
-                        displayValue: 'AirbnbWorkflowTest',
-                        fieldMetadataId: personCompanyFieldMetadataId,
+                        displayValue: 'Dusun Workflow 001',
+                        fieldMetadataId: pendudukKartuKeluargaFieldMetadataId,
                         relationTargetFieldMetadataId:
-                          companyNameFieldMetadataId,
+                          keluargaAlamatFieldMetadataId,
                         recordFilterGroupId: filterGroupId,
                       },
                     ],
@@ -304,18 +316,18 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
     }
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
-        objectMetadataSingularName: 'person',
-        objectMetadataPluralName: 'people',
+        objectMetadataSingularName: 'penduduk',
+        objectMetadataPluralName: 'penduduks',
         gqlFields: 'id',
-        filter: { id: { in: ALL_TEST_PERSON_IDS } },
+        filter: { id: { in: ALL_TEST_PENDUDUK_IDS } },
       }),
     );
     await makeGraphqlAPIRequest(
       deleteManyOperationFactory({
-        objectMetadataSingularName: 'company',
-        objectMetadataPluralName: 'companies',
+        objectMetadataSingularName: 'keluarga',
+        objectMetadataPluralName: 'keluargas',
         gqlFields: 'id',
-        filter: { id: { in: ALL_TEST_COMPANY_IDS } },
+        filter: { id: { in: ALL_TEST_KELUARGA_IDS } },
       }),
     );
   });
@@ -341,8 +353,8 @@ describe('FindRecords workflow action with relation-traversal filter (e2e)', () 
 
     const returnedIds = (result?.all ?? []).map((record) => record.id);
 
-    expect(returnedIds).toContain(TEST_PERSON_AIRBNB_1_ID);
-    expect(returnedIds).toContain(TEST_PERSON_AIRBNB_2_ID);
-    expect(returnedIds).not.toContain(TEST_PERSON_STRIPE_1_ID);
+    expect(returnedIds).toContain(TEST_PENDUDUK_KK1_ANGGOTA_1_ID);
+    expect(returnedIds).toContain(TEST_PENDUDUK_KK1_ANGGOTA_2_ID);
+    expect(returnedIds).not.toContain(TEST_PENDUDUK_KK2_ANGGOTA_1_ID);
   });
 });

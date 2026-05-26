@@ -156,7 +156,7 @@ describe('Page layout with tabs update should fail', () => {
       }
 
       const chartWidgetId = v4();
-      const chartTitle = 'Opportunities by Name';
+      const chartTitle = 'Program Bantuan per Nama';
       const chartConfiguration = {
         configurationType: WidgetConfigurationType.PIE_CHART,
         aggregateFieldMetadataId: testFieldMetadataIds.fieldMetadataId1,
@@ -167,7 +167,7 @@ describe('Page layout with tabs update should fail', () => {
             {
               fieldMetadataId: testFilterFieldMetadataId,
               operand: 'contains',
-              value: 'acme',
+              value: 'sukamaju',
             },
           ],
           recordFilterGroups: [],

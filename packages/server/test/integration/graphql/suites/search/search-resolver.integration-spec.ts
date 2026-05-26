@@ -85,15 +85,17 @@ describe('SearchResolver', () => {
     },
   ];
 
+  // Diacritic test: nomorKk = 16-digit (KTP-el format), alamat menyimpan
+  // konten ber-aksen Café/Naïve untuk uji search accent-insensitive.
   const keluargas = [
     {
       id: TEST_KELUARGA_1_ID,
-      nomorKk: 'Café KK',
+      nomorKk: '3201060000000001',
       alamat: 'Jl. Café No. 1, Desa Mekar',
     },
     {
       id: TEST_KELUARGA_2_ID,
-      nomorKk: 'Naïve KK',
+      nomorKk: '3201060000000002',
       alamat: 'Jl. Naïve No. 2, Desa Sari',
     },
   ];
