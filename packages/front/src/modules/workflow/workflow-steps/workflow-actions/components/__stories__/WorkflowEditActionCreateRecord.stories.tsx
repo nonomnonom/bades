@@ -24,7 +24,7 @@ const meta: Meta<typeof WorkflowEditActionCreateRecord> = {
       valid: false,
       settings: {
         input: {
-          objectName: 'person',
+          objectName: 'penduduk',
           objectRecord: {},
         },
         outputSchema: {},

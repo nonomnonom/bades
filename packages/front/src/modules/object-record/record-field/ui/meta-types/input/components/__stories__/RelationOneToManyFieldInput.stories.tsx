@@ -30,11 +30,11 @@ const personMetadata = getMockObjectMetadataItemOrThrow('penduduk');
 const companyMetadata = getMockObjectMetadataItemOrThrow('keluarga');
 const companyFieldOnPerson = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: personMetadata,
-  fieldName: 'company',
+  fieldName: 'keluarga',
 });
 const peopleFieldOnCompany = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyMetadata,
-  fieldName: 'people',
+  fieldName: 'penduduks',
 });
 
 const RelationWorkspaceSetterEffect = () => {
@@ -56,9 +56,9 @@ const RelationOneToManyFieldInputWithContext = () => {
       type: FieldMetadataType.RELATION,
       iconName: 'IconLink',
       metadata: {
-        fieldName: 'people',
+        fieldName: 'penduduks',
         relationType: RelationType.ONE_TO_MANY,
-        relationObjectMetadataNamePlural: 'people',
+        relationObjectMetadataNamePlural: 'penduduks',
         relationObjectMetadataNameSingular: CoreObjectNameSingular.Person,
         objectMetadataNameSingular: 'keluarga',
         relationFieldMetadataId: companyFieldOnPerson.id,
@@ -69,7 +69,7 @@ const RelationOneToManyFieldInputWithContext = () => {
 
   const setRecordStoreFieldValue = useSetAtom(
     recordStoreFamilySelector.selectorFamily({
-      fieldName: 'people',
+      fieldName: 'penduduks',
       recordId: 'recordId',
     }),
   );

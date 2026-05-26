@@ -111,7 +111,7 @@ const companyWorkPolicyField = getMockFieldMetadataItemOrThrow({
 
 const companyPeopleField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,
-  fieldName: 'people',
+  fieldName: 'penduduks',
 });
 
 const timelineActivityWorkspaceMemberField = getMockFieldMetadataItemOrThrow({

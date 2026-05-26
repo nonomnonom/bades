@@ -34,7 +34,7 @@ const meta: Meta = {
     ScrollWrapperDecorator,
   ],
   parameters: {
-    recordTableObjectNameSingular: 'person',
+    recordTableObjectNameSingular: 'penduduk',
     msw: graphqlMocks,
   },
 };

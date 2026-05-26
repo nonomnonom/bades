@@ -68,7 +68,7 @@ const accountOwnerField = getMockFieldMetadataItemOrThrow({
 });
 const companyPeopleField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,
-  fieldName: 'people',
+  fieldName: 'penduduks',
 });
 
 const TEST_RECORD_ID = 'test-record-123';

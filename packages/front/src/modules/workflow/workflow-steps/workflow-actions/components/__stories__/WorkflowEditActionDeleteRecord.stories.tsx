@@ -20,7 +20,7 @@ const DEFAULT_ACTION = {
   valid: false,
   settings: {
     input: {
-      objectName: 'person',
+      objectName: 'penduduk',
       objectRecordId: '',
     },
     outputSchema: {},

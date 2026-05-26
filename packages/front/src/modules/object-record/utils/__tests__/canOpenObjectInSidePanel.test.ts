@@ -8,8 +8,8 @@ describe('canOpenObjectInSidePanel', () => {
   });
 
   it('should return true for other objects', () => {
-    expect(canOpenObjectInSidePanel('person')).toBe(true);
-    expect(canOpenObjectInSidePanel('company')).toBe(true);
+    expect(canOpenObjectInSidePanel('penduduk')).toBe(true);
+    expect(canOpenObjectInSidePanel('keluarga')).toBe(true);
     expect(canOpenObjectInSidePanel('task')).toBe(true);
   });
 });

@@ -395,7 +395,7 @@ describe('useBuildSpreadSheetImportFields', () => {
     const fieldMetadataItems: FieldMetadataItem[] = [
       createMockFieldMetadataItem({
         type: FieldMetadataType.RELATION,
-        name: 'company',
+        name: 'keluarga',
         label: 'Keluarga',
         relation: {
           type: RelationType.MANY_TO_ONE,

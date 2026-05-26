@@ -46,7 +46,7 @@ Set {
       valid: false,
       settings: {
         input: {
-          objectName: 'company',
+          objectName: 'keluarga',
           objectRecord: {
             name: 'Test',
             address: {

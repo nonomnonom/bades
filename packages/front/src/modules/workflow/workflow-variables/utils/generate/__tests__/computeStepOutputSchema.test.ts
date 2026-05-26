@@ -203,7 +203,7 @@ describe('computeStepOutputSchema', () => {
         objectMetadataItems: [mockCompanyObjectMetadataItem],
       });
 
-      expect(result).toHaveProperty('companies');
+      expect(result).toHaveProperty('keluargas');
       expect((result as any).companies).toMatchObject({
         isLeaf: true,
         label: 'Companies',
@@ -306,7 +306,7 @@ describe('computeStepOutputSchema', () => {
         const result = computeStepOutputSchema({
           step: {
             type: stepType,
-            settings: { input: { objectName: 'company' } },
+            settings: { input: { objectName: 'keluarga' } },
           } as any,
           objectMetadataItems: [mockCompanyObjectMetadataItem],
         });
@@ -343,7 +343,7 @@ describe('computeStepOutputSchema', () => {
       const result = computeStepOutputSchema({
         step: {
           type: 'FIND_RECORDS',
-          settings: { input: { objectName: 'company' } },
+          settings: { input: { objectName: 'keluarga' } },
         } as any,
         objectMetadataItems: [mockCompanyObjectMetadataItem],
       });

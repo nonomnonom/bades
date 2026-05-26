@@ -35,11 +35,11 @@ const personMetadata = getMockObjectMetadataItemOrThrow('penduduk');
 const companyMetadata = getMockObjectMetadataItemOrThrow('keluarga');
 const companyFieldOnPerson = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: personMetadata,
-  fieldName: 'company',
+  fieldName: 'keluarga',
 });
 const peopleFieldOnCompany = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyMetadata,
-  fieldName: 'people',
+  fieldName: 'penduduks',
 });
 
 const RelationWorkspaceSetterEffect = () => {
@@ -93,8 +93,8 @@ const RelationManyToOneFieldInputWithContext = ({
             type: FieldMetadataType.RELATION,
             iconName: 'IconLink',
             metadata: {
-              fieldName: 'company',
-              relationObjectMetadataNamePlural: 'companies',
+              fieldName: 'keluarga',
+              relationObjectMetadataNamePlural: 'keluargas',
               relationObjectMetadataNameSingular:
                 CoreObjectNameSingular.Company,
               relationObjectMetadataId: companyMetadata.id,

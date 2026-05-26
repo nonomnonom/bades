@@ -207,7 +207,7 @@ export const relationFromManyFieldDisplayMock = {
       relationType: 'FROM_MANY_OBJECTS',
       relationFieldMetadataId: '01fa2247-7937-4493-b7e2-3d72f05d6d25',
       relationObjectMetadataNameSingular: 'keluarga',
-      relationObjectMetadataNamePlural: 'companies',
+      relationObjectMetadataNamePlural: 'keluargas',
       objectMetadataNameSingular: 'penduduk',
       options: null,
     },

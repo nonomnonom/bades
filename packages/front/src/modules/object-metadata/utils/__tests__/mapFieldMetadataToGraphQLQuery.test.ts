@@ -43,9 +43,9 @@ describe('mapFieldMetadataToGraphQLQuery', () => {
   it('should return non relation subFields if relation', async () => {
     const res = mapFieldMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      gqlField: 'company',
+      gqlField: 'keluarga',
       fieldMetadata: personObjectMetadataItem.fields.find(
-        (field) => field.name === 'company',
+        (field) => field.name === 'keluarga',
       )!,
       objectPermissionsByObjectMetadataId: {},
     });
@@ -121,9 +121,9 @@ idealCustomerProfile
         id: true,
         idealCustomerProfile: true,
       },
-      gqlField: 'company',
+      gqlField: 'keluarga',
       fieldMetadata: personObjectMetadataItem.fields.find(
-        (field) => field.name === 'company',
+        (field) => field.name === 'keluarga',
       )!,
       objectPermissionsByObjectMetadataId: {},
     });

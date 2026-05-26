@@ -81,7 +81,7 @@ describe('getFieldMetadataFromGqlField', () => {
     const objectMetadataItem = {
       fields: [
         {
-          name: 'company',
+          name: 'keluarga',
           type: FieldMetadataType.RELATION,
           settings: {
             joinColumnName: 'companyId',

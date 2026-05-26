@@ -121,7 +121,7 @@ export const Rating: Story = {
 export const Relation: Story = {
   args: {
     fieldMetadataItem: mockedPersonObjectMetadataItem?.fields.find(
-      ({ name }) => name === 'company',
+      ({ name }) => name === 'keluarga',
     ),
     objectNameSingular: mockedPersonObjectMetadataItem.nameSingular,
   },

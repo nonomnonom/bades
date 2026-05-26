@@ -64,7 +64,7 @@ describe('getManualTriggerDefaultSettings', () => {
       });
 
       expect(result).toEqual({
-        objectType: 'company',
+        objectType: 'keluarga',
         availability: {
           type: 'SINGLE_RECORD',
           objectNameSingular: 'keluarga',
@@ -110,7 +110,7 @@ describe('getManualTriggerDefaultSettings', () => {
       });
 
       expect(result).toEqual({
-        objectType: 'company',
+        objectType: 'keluarga',
         availability: {
           type: 'BULK_RECORDS',
           objectNameSingular: 'keluarga',

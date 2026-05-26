@@ -26,7 +26,7 @@ describe('mergeOneToManyRelationships', () => {
       },
     ];
 
-    const result = mergeOneToManyRelationships(records, 'opportunities');
+    const result = mergeOneToManyRelationships(records, 'programBantuans');
 
     expect(result).toHaveLength(3);
     expect(result).toEqual([
@@ -50,7 +50,7 @@ describe('mergeOneToManyRelationships', () => {
       },
     ];
 
-    const result = mergeOneToManyRelationships(records, 'opportunities');
+    const result = mergeOneToManyRelationships(records, 'programBantuans');
 
     expect(result).toEqual([]);
   });
@@ -76,7 +76,7 @@ describe('mergeOneToManyRelationships', () => {
       },
     ];
 
-    const result = mergeOneToManyRelationships(records, 'opportunities');
+    const result = mergeOneToManyRelationships(records, 'programBantuans');
 
     expect(result).toEqual([
       { __typename: 'ProgramBantuan', id: 'opp1', name: 'Opportunity 1' },
@@ -84,7 +84,7 @@ describe('mergeOneToManyRelationships', () => {
   });
 
   it('should handle empty records array', () => {
-    const result = mergeOneToManyRelationships([], 'opportunities');
+    const result = mergeOneToManyRelationships([], 'programBantuans');
 
     expect(result).toEqual([]);
   });
@@ -172,7 +172,7 @@ describe('mergeRecordRelationshipData', () => {
   const mockFieldMetadataItems: FieldMetadataItem[] = [
     {
       id: 'field1',
-      name: 'opportunities',
+      name: 'programBantuans',
       type: FieldMetadataType.RELATION,
       relation: {
         type: RelationType.ONE_TO_MANY,
@@ -180,7 +180,7 @@ describe('mergeRecordRelationshipData', () => {
     } as FieldMetadataItem,
     {
       id: 'field2',
-      name: 'company',
+      name: 'keluarga',
       type: FieldMetadataType.RELATION,
       relation: {
         type: RelationType.MANY_TO_ONE,
@@ -298,7 +298,7 @@ describe('mergeRecordRelationshipData', () => {
     const fieldsWithoutRelation: FieldMetadataItem[] = [
       {
         id: 'field1',
-        name: 'opportunities',
+        name: 'programBantuans',
         type: FieldMetadataType.RELATION,
         relation: null,
       } as FieldMetadataItem,

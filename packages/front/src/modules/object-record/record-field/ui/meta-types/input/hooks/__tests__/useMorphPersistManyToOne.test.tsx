@@ -161,7 +161,7 @@ describe('useMorphPersistManyToOne', () => {
         recordId: 'test-record-id',
         fieldDefinition: mockMorphFieldDefinition,
         valueToPersist: 'selected-company-id',
-        targetObjectMetadataNameSingular: 'company',
+        targetObjectMetadataNameSingular: 'keluarga',
       });
     });
 

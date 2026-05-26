@@ -14,7 +14,7 @@ describe('getObjectNavigationMenuItemSecondaryLabel', () => {
   it('should return labelSingular for matching object metadata item', () => {
     const result = getObjectNavigationMenuItemSecondaryLabel({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      navigationMenuItemObjectNameSingular: 'person',
+      navigationMenuItemObjectNameSingular: 'penduduk',
     });
 
     expect(result).toBe('Person');

@@ -79,7 +79,7 @@ describe('getStepHeaderLabel', () => {
   });
 
   it('should return the field label when the path is not empty', () => {
-    const currentPath: string[] = ['company'];
+    const currentPath: string[] = ['keluarga'];
     expect(getStepHeaderLabel(mockStep, currentPath)).toBe('Company');
   });
 

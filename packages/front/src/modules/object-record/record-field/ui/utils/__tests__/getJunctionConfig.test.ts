@@ -93,7 +93,7 @@ describe('getJunctionConfig', () => {
     it('should return targetFields for regular relation', () => {
       const targetField = createMockField({
         id: 'target-field-id',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relation: createMockRelation('company-metadata-id', 'company'),
       });
@@ -136,7 +136,7 @@ describe('getJunctionConfig', () => {
     it('should return null for regular relation without relation property', () => {
       const targetField = createMockField({
         id: 'target-field-id',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relation: undefined,
       });
@@ -186,7 +186,7 @@ describe('getJunctionConfig', () => {
       });
       const targetField = createMockField({
         id: 'target-field-id',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relation: createMockRelation('company-metadata-id', 'company'),
       });
@@ -216,7 +216,7 @@ describe('getJunctionConfig', () => {
       });
       const morphField = createMockField({
         id: 'morph-field-1',
-        name: 'company',
+        name: 'keluarga',
         morphId: 'morph-group-1',
         type: FieldMetadataType.MORPH_RELATION,
       });

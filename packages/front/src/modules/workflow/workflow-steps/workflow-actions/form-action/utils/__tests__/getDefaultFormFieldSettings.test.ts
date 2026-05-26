@@ -49,7 +49,7 @@ describe('getDefaultFormFieldSettings', () => {
       label: 'Record',
       placeholder: 'Select a Company',
       settings: {
-        objectName: 'company',
+        objectName: 'keluarga',
       },
     });
   });
@@ -117,7 +117,7 @@ describe('getDefaultFormFieldSettings', () => {
 
   it('should have correct settings object for RECORD type', () => {
     const result = getDefaultFormFieldSettings('RECORD');
-    expect(result.settings).toEqual({ objectName: 'company' });
+    expect(result.settings).toEqual({ objectName: 'keluarga' });
     expect(result.settings?.objectName).toBe('keluarga');
   });
 

@@ -79,7 +79,7 @@ describe('useUpdateStep', () => {
       type: 'CREATE_RECORD' as const,
       settings: {
         input: {
-          objectName: 'company',
+          objectName: 'keluarga',
         },
         errorHandlingOptions: {
           retryOnFailure: { value: false },

@@ -201,7 +201,7 @@ export const oneSucceededWorkflowRunQueryResult = {
             valid: false,
             settings: {
               input: {
-                objectName: 'opportunity',
+                objectName: 'programBantuan',
                 objectRecord: {
                   name: 'Opportunity with {{trigger.properties.after.name}}',
                   stage: 'NEW',
@@ -778,7 +778,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                       {
                         id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                         icon: 'IconUsers',
-                        name: 'people',
+                        name: 'penduduks',
                         type: 'RELATION',
                         label: 'People',
                         options: null,
@@ -905,7 +905,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                       {
                         id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                         icon: 'IconTargetArrow',
-                        name: 'opportunities',
+                        name: 'programBantuans',
                         type: 'RELATION',
                         label: 'Opportunities',
                         options: null,
@@ -1169,7 +1169,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                   },
                   namePlural: {
                     label: ' Name Plural',
-                    value: 'companies',
+                    value: 'keluargas',
                     isLeaf: true,
                   },
                   standardId: {
@@ -1199,7 +1199,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                   },
                   nameSingular: {
                     label: ' Name Singular',
-                    value: 'company',
+                    value: 'keluarga',
                     isLeaf: true,
                   },
                   isAuditLogged: {
@@ -1932,7 +1932,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 {
                   id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                   icon: 'IconUsers',
-                  name: 'people',
+                  name: 'penduduks',
                   type: 'RELATION',
                   label: 'People',
                   options: null,
@@ -2112,7 +2112,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 {
                   id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                   icon: 'IconTargetArrow',
-                  name: 'opportunities',
+                  name: 'programBantuans',
                   type: 'RELATION',
                   label: 'Opportunities',
                   options: null,
@@ -2627,7 +2627,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 '11a04849-150b-4af0-9332-b4a9ba693b17': {
                   id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                   icon: 'IconUsers',
-                  name: 'people',
+                  name: 'penduduks',
                   type: 'RELATION',
                   label: 'People',
                   options: null,
@@ -2991,7 +2991,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 '7524cc63-2522-4c70-8b12-21fe2fe8de26': {
                   id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                   icon: 'IconTargetArrow',
-                  name: 'opportunities',
+                  name: 'programBantuans',
                   type: 'RELATION',
                   label: 'Opportunities',
                   options: null,
@@ -3494,7 +3494,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 people: {
                   id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                   icon: 'IconUsers',
-                  name: 'people',
+                  name: 'penduduks',
                   type: 'RELATION',
                   label: 'People',
                   options: null,
@@ -4115,7 +4115,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 opportunities: {
                   id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                   icon: 'IconTargetArrow',
-                  name: 'opportunities',
+                  name: 'programBantuans',
                   type: 'RELATION',
                   label: 'Opportunities',
                   options: null,
@@ -4444,7 +4444,7 @@ export const oneSucceededWorkflowRunQueryResult = {
             },
             deletedAt: null,
             updatedAt: '2025-03-06T12:15:43.386Z',
-            searchVector: "'opportunity':1 'with':2",
+            searchVector: "'programBantuan':1 'with':2",
             pointOfContactId: null,
           },
           status: StepStatus.SUCCESS,
@@ -4668,7 +4668,7 @@ export const oneSucceededWorkflowRunQueryResult = {
           valid: false,
           settings: {
             input: {
-              objectName: 'opportunity',
+              objectName: 'programBantuan',
               objectRecord: {
                 name: 'Opportunity with {{trigger.properties.after.name}}',
                 stage: 'NEW',
@@ -5230,7 +5230,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                     {
                       id: '11a04849-150b-4af0-9332-b4a9ba693b17',
                       icon: 'IconUsers',
-                      name: 'people',
+                      name: 'penduduks',
                       type: 'RELATION',
                       label: 'People',
                       options: null,
@@ -5352,7 +5352,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                     {
                       id: '7524cc63-2522-4c70-8b12-21fe2fe8de26',
                       icon: 'IconTargetArrow',
-                      name: 'opportunities',
+                      name: 'programBantuans',
                       type: 'RELATION',
                       label: 'Opportunities',
                       options: null,
@@ -5607,7 +5607,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 },
                 namePlural: {
                   label: ' Name Plural',
-                  value: 'companies',
+                  value: 'keluargas',
                   isLeaf: true,
                 },
                 standardId: {
@@ -5637,7 +5637,7 @@ export const oneSucceededWorkflowRunQueryResult = {
                 },
                 nameSingular: {
                   label: ' Name Singular',
-                  value: 'company',
+                  value: 'keluarga',
                   isLeaf: true,
                 },
                 isAuditLogged: {

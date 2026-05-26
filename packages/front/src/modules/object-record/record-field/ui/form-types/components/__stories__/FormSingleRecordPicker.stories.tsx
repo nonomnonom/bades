@@ -34,7 +34,7 @@ export const Default: Story = {
   args: {
     label: 'Keluarga',
     defaultValue: '123e4567-e89b-12d3-a456-426614174000',
-    objectNameSingulars: ['company'],
+    objectNameSingulars: ['keluarga'],
     onChange: fn(),
   },
   play: async ({ canvasElement }) => {
@@ -54,7 +54,7 @@ export const WithVariables: Story = {
   args: {
     label: 'Keluarga',
     defaultValue: `{{${MOCKED_STEP_ID}.company.id}}`,
-    objectNameSingulars: ['company'],
+    objectNameSingulars: ['keluarga'],
     onChange: fn(),
     VariablePicker: () => <div>VariablePicker</div>,
   },
@@ -78,7 +78,7 @@ export const Disabled: Story = {
   args: {
     label: 'Keluarga',
     defaultValue: '123e4567-e89b-12d3-a456-426614174000',
-    objectNameSingulars: ['company'],
+    objectNameSingulars: ['keluarga'],
     onChange: fn(),
     disabled: true,
     VariablePicker: () => <div>VariablePicker</div>,

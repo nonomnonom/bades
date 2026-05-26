@@ -6,7 +6,7 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 describe('getOrderByForRelationField', () => {
   it('should generate nested orderBy for relation with TEXT label identifier', () => {
     const field: Pick<FieldMetadataItem, 'name'> = {
-      name: 'company',
+      name: 'keluarga',
     };
 
     const relatedObjectMetadataItem: Pick<
@@ -35,7 +35,7 @@ describe('getOrderByForRelationField', () => {
 
   it('should generate nested orderBy for relation with FULL_NAME label identifier', () => {
     const field: Pick<FieldMetadataItem, 'name'> = {
-      name: 'person',
+      name: 'penduduk',
     };
 
     const relatedObjectMetadataItem: Pick<
@@ -66,7 +66,7 @@ describe('getOrderByForRelationField', () => {
 
   it('should fallback to FK when no label identifier field is found', () => {
     const field: Pick<FieldMetadataItem, 'name'> = {
-      name: 'company',
+      name: 'keluarga',
     };
 
     const relatedObjectMetadataItem: Pick<
@@ -88,7 +88,7 @@ describe('getOrderByForRelationField', () => {
 
   it('should use default "name" field when labelIdentifierFieldMetadataId is not set', () => {
     const field: Pick<FieldMetadataItem, 'name'> = {
-      name: 'company',
+      name: 'keluarga',
     };
 
     const relatedObjectMetadataItem: Pick<
@@ -118,7 +118,7 @@ describe('getOrderByForRelationField', () => {
 
   it('should handle descending direction', () => {
     const field: Pick<FieldMetadataItem, 'name'> = {
-      name: 'company',
+      name: 'keluarga',
     };
 
     const relatedObjectMetadataItem: Pick<

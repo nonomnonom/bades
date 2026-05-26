@@ -61,7 +61,7 @@ const mockAction: WorkflowFormAction = {
         type: 'RECORD',
         placeholder: 'Select a record',
         settings: {
-          objectName: 'company',
+          objectName: 'keluarga',
         },
       },
       {

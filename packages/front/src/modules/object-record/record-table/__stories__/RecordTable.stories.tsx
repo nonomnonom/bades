@@ -35,7 +35,7 @@ const meta: Meta = {
     objectNameSingular: 'keluarga',
   },
   parameters: {
-    recordTableObjectNameSingular: 'company',
+    recordTableObjectNameSingular: 'keluarga',
     msw: graphqlMocks,
   },
 };

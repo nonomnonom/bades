@@ -176,7 +176,7 @@ describe('generateRecordOutputSchema', () => {
       fields: [
         {
           id: 'company-relation-id',
-          name: 'company',
+          name: 'keluarga',
           label: 'Keluarga',
           type: FieldMetadataType.RELATION,
           isActive: true,
@@ -191,7 +191,7 @@ describe('generateRecordOutputSchema', () => {
 
     const result = generateRecordOutputSchema(objectMetadataItem);
 
-    expect(result.fields).not.toHaveProperty('company');
+    expect(result.fields).not.toHaveProperty('keluarga');
     expect(result.fields).toHaveProperty('companyId');
     expect(result.fields.companyId).toMatchObject({
       isLeaf: true,
@@ -205,7 +205,7 @@ describe('generateRecordOutputSchema', () => {
       fields: [
         {
           id: 'people-relation-id',
-          name: 'people',
+          name: 'penduduks',
           label: 'People',
           type: FieldMetadataType.RELATION,
           isActive: true,
@@ -219,7 +219,7 @@ describe('generateRecordOutputSchema', () => {
 
     const result = generateRecordOutputSchema(objectMetadataItem);
 
-    expect(result.fields).not.toHaveProperty('people');
+    expect(result.fields).not.toHaveProperty('penduduks');
     expect(result.fields).not.toHaveProperty('peopleId');
   });
 

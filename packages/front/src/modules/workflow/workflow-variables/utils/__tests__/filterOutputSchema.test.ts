@@ -121,7 +121,7 @@ describe('filterOutputSchema', () => {
         const inputSchema = createBaseSchema({
           field1: {
             isLeaf: false,
-            value: createRecordSchema('person'),
+            value: createRecordSchema('penduduk'),
           },
           field2: { isLeaf: true, type: FieldMetadataType.NUMBER },
         });
@@ -129,7 +129,7 @@ describe('filterOutputSchema', () => {
         const expectedSchema = {
           field1: {
             isLeaf: false,
-            value: createRecordSchema('person'),
+            value: createRecordSchema('penduduk'),
           },
         };
 

@@ -7,7 +7,7 @@ describe('getWorkflowDiagramTriggerNode', () => {
       const trigger: WorkflowTrigger = {
         type: 'MANUAL',
         settings: {
-          objectType: 'person',
+          objectType: 'penduduk',
           outputSchema: {},
           icon: 'IconUser',
         },
@@ -125,7 +125,7 @@ describe('getWorkflowDiagramTriggerNode', () => {
         settings: {
           eventName: 'company.created',
           outputSchema: {},
-          objectType: 'company',
+          objectType: 'keluarga',
         },
       };
 
@@ -160,7 +160,7 @@ describe('getWorkflowDiagramTriggerNode', () => {
         settings: {
           eventName: 'company.unknownEvent',
           outputSchema: {},
-          objectType: 'company',
+          objectType: 'keluarga',
         },
       };
 
@@ -196,7 +196,7 @@ describe('getWorkflowDiagramTriggerNode', () => {
         type: 'MANUAL',
         name: 'Custom Trigger Name',
         settings: {
-          objectType: 'person',
+          objectType: 'penduduk',
           outputSchema: {},
           icon: 'IconUser',
         },

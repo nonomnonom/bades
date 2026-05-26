@@ -18,7 +18,7 @@ const DEFAULT_ACTION = {
   valid: false,
   settings: {
     input: {
-      objectName: 'person',
+      objectName: 'penduduk',
       limit: 1,
     },
     outputSchema: {},

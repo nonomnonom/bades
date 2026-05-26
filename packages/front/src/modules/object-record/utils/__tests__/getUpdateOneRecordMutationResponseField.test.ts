@@ -2,13 +2,13 @@ import { getUpdateOneRecordMutationResponseField } from '@/object-record/utils/g
 
 describe('getUpdateOneRecordMutationResponseField', () => {
   it('should capitalize and prefix with "update"', () => {
-    expect(getUpdateOneRecordMutationResponseField('person')).toBe(
+    expect(getUpdateOneRecordMutationResponseField('penduduk')).toBe(
       'updatePenduduk',
     );
   });
 
   it('should handle multi-word object names', () => {
-    expect(getUpdateOneRecordMutationResponseField('company')).toBe(
+    expect(getUpdateOneRecordMutationResponseField('keluarga')).toBe(
       'updateKeluarga',
     );
   });

@@ -27,7 +27,7 @@ export const Default: Story = {};
 
 const mockedPersonObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.namePlural === 'person',
+    (item) => item.namePlural === 'penduduk',
   );
 
 export const WithFieldMetadataItem: Story = {

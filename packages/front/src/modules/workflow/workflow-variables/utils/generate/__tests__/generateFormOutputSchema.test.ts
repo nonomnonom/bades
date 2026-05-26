@@ -102,7 +102,7 @@ describe('generateFormOutputSchema', () => {
           label: 'Selected Company',
           type: 'RECORD',
           settings: {
-            objectName: 'company',
+            objectName: 'keluarga',
           },
         },
       ];
@@ -198,11 +198,11 @@ describe('generateFormOutputSchema', () => {
         },
         {
           id: 'field-3',
-          name: 'company',
+          name: 'keluarga',
           label: 'Keluarga',
           type: 'RECORD',
           settings: {
-            objectName: 'company',
+            objectName: 'keluarga',
           },
         },
       ];
@@ -218,7 +218,7 @@ describe('generateFormOutputSchema', () => {
       expect(Object.keys(result)).toHaveLength(3);
       expect(result).toHaveProperty('firstName');
       expect(result).toHaveProperty('age');
-      expect(result).toHaveProperty('company');
+      expect(result).toHaveProperty('keluarga');
     });
   });
 

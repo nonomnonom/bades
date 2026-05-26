@@ -21,7 +21,7 @@ const meta: Meta<typeof RecordDetailDuplicatesSection> = {
         value={{
           targetRecordIdentifier: {
             id: mockedKeluargaRecords[0].id,
-            targetObjectNameSingular: 'company',
+            targetObjectNameSingular: 'keluarga',
           },
           layoutType: PageLayoutType.RECORD_PAGE,
           isInSidePanel: false,

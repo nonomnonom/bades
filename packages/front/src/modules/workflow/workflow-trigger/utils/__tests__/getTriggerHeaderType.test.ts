@@ -70,7 +70,7 @@ describe('getTriggerHeaderType', () => {
         type: 'MANUAL',
         name: 'Manual Trigger',
         settings: {
-          objectType: 'company',
+          objectType: 'keluarga',
           outputSchema: {},
           icon: 'IconHandMove',
         },

@@ -26,7 +26,7 @@ export const textfieldDefinition: FieldDefinition<FieldTextMetadata> = {
 
 const mockedPersonObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    ({ nameSingular }) => nameSingular === 'person',
+    ({ nameSingular }) => nameSingular === 'penduduk',
   );
 
 if (!mockedPersonObjectMetadataItem) {
@@ -34,7 +34,7 @@ if (!mockedPersonObjectMetadataItem) {
 }
 
 const relationFieldMetadataItem = mockedPersonObjectMetadataItem?.fields?.find(
-  ({ name }) => name === 'company',
+  ({ name }) => name === 'keluarga',
 );
 
 export const relationFieldDefinition = formatFieldMetadataItemAsFieldDefinition(

@@ -16,7 +16,7 @@ describe('findJunctionRecordByTargetId', () => {
     const result = findJunctionRecordByTargetId({
       junctionRecords: [],
       targetRecordId: 'target-1',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
     expect(result).toBeUndefined();
   });
@@ -34,7 +34,7 @@ describe('findJunctionRecordByTargetId', () => {
     const result = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'company-2',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
 
     expect(result?.id).toBe('junction-2');
@@ -50,7 +50,7 @@ describe('findJunctionRecordByTargetId', () => {
     const result = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'non-existent',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
 
     expect(result).toBeUndefined();
@@ -67,7 +67,7 @@ describe('findJunctionRecordByTargetId', () => {
     const result = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'company-1',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
 
     expect(result?.id).toBe('junction-1');
@@ -84,7 +84,7 @@ describe('findJunctionRecordByTargetId', () => {
     const result = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'company-1',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
 
     expect(result?.id).toBe('junction-2');
@@ -103,7 +103,7 @@ describe('findJunctionRecordByTargetId', () => {
     const result = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'company-1',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
 
     expect(result?.id).toBe('junction-2');
@@ -120,14 +120,14 @@ describe('findJunctionRecordByTargetId', () => {
     const personResult = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'person-1',
-      targetFieldName: 'person',
+      targetFieldName: 'penduduk',
     });
     expect(personResult?.id).toBe('junction-1');
 
     const companyResult = findJunctionRecordByTargetId({
       junctionRecords,
       targetRecordId: 'company-1',
-      targetFieldName: 'company',
+      targetFieldName: 'keluarga',
     });
     expect(companyResult?.id).toBe('junction-1');
   });

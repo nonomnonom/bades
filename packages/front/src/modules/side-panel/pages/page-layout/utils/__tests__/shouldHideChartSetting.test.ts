@@ -387,7 +387,7 @@ describe('shouldHideChartSetting', () => {
     describe('DATE_GRANULARITY (Pie Chart)', () => {
       const relationField: any = {
         id: 'relation-field-id',
-        name: 'company',
+        name: 'keluarga',
         label: 'Keluarga',
         type: FieldMetadataType.RELATION,
         relation: {

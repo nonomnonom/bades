@@ -20,7 +20,7 @@ const DEFAULT_ACTION = {
     input: [
       {
         id: 'ed00b897-519f-44cd-8201-a6502a3a9dc8',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.TEXT,
         label: 'Keluarga',
         placeholder: 'Select a company',

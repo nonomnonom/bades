@@ -19,7 +19,7 @@ const DEFAULT_ACTION = {
   type: 'UPDATE_RECORD',
   settings: {
     input: {
-      objectName: 'person',
+      objectName: 'penduduk',
       objectRecordId: '',
       objectRecord: {},
       fieldsToUpdate: ['city', 'emails', 'jobTitle', 'name', 'phones'],

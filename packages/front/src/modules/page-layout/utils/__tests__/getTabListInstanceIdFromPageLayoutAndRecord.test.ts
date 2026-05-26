@@ -8,7 +8,7 @@ describe('getTabListInstanceIdFromPageLayoutAndRecord', () => {
       layoutType: PageLayoutType.RECORD_PAGE,
       targetRecordIdentifier: {
         id: 'record-42',
-        targetObjectNameSingular: 'company',
+        targetObjectNameSingular: 'keluarga',
       },
     });
 
@@ -21,7 +21,7 @@ describe('getTabListInstanceIdFromPageLayoutAndRecord', () => {
       layoutType: PageLayoutType.DASHBOARD,
       targetRecordIdentifier: {
         id: 'record-42',
-        targetObjectNameSingular: 'company',
+        targetObjectNameSingular: 'keluarga',
       },
     });
 

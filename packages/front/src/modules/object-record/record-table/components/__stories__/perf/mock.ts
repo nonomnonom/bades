@@ -23,7 +23,7 @@ export const mockPerformance = {
         __typename: 'field',
         id: '9058056e-36b3-4a3f-9037-f0bca9744296',
         type: 'RELATION',
-        name: 'company',
+        name: 'keluarga',
         primaryLinkLabel: 'Company',
         description: 'Contact’s company',
         icon: 'IconBuildingSkyscraper',
@@ -48,7 +48,7 @@ export const mockPerformance = {
           sourceFieldMetadata: {
             __typename: 'field',
             id: '9058056e-36b3-4a3f-9037-f0bca9744296',
-            name: 'company',
+            name: 'keluarga',
           },
           targetObjectMetadata: {
             __typename: 'object',
@@ -59,7 +59,7 @@ export const mockPerformance = {
           targetFieldMetadata: {
             __typename: 'field',
             id: '7b281010-5f47-4771-b3f5-f4bcd24ed1b5',
-            name: 'people',
+            name: 'penduduks',
           },
         },
       },
@@ -139,7 +139,7 @@ export const mockPerformance = {
           targetFieldMetadata: {
             __typename: 'field',
             id: 'f5f515cc-6d8a-44c3-b2d4-f04b9868a9c5',
-            name: 'person',
+            name: 'penduduk',
           },
         },
       },
@@ -227,7 +227,7 @@ export const mockPerformance = {
           targetFieldMetadata: {
             __typename: 'field',
             id: 'c1cdebda-b514-4487-9b9c-aa59d8fca8eb',
-            name: 'person',
+            name: 'penduduk',
           },
         },
       },
@@ -310,7 +310,7 @@ export const mockPerformance = {
           targetFieldMetadata: {
             __typename: 'field',
             id: 'a920a0d6-8e71-4ab8-90b9-ab540e04732a',
-            name: 'person',
+            name: 'penduduk',
           },
         },
       },
@@ -462,7 +462,7 @@ export const mockPerformance = {
           targetFieldMetadata: {
             __typename: 'field',
             id: '556a12d4-ef0a-4232-963f-0f317f4c5ef5',
-            name: 'person',
+            name: 'penduduk',
           },
         },
       },
@@ -548,7 +548,7 @@ export const mockPerformance = {
           targetFieldMetadata: {
             __typename: 'field',
             id: '8c4593a1-ad40-4681-92fe-43ad4fe60205',
-            name: 'person',
+            name: 'penduduk',
           },
         },
       },
@@ -667,12 +667,12 @@ export const mockPerformance = {
     fieldMetadataId: '9058056e-36b3-4a3f-9037-f0bca9744296',
     primaryLinkLabel: 'Company',
     metadata: {
-      fieldName: 'company',
+      fieldName: 'keluarga',
       placeHolder: 'Company',
       relationType: 'TO_ONE_OBJECT',
       relationFieldMetadataId: '7b281010-5f47-4771-b3f5-f4bcd24ed1b5',
-      relationObjectMetadataNameSingular: 'company',
-      relationObjectMetadataNamePlural: 'companies',
+      relationObjectMetadataNameSingular: 'keluarga',
+      relationObjectMetadataNamePlural: 'keluargas',
       objectMetadataNameSingular: 'penduduk',
       options: null,
     },
@@ -740,12 +740,12 @@ export const mockPerformance = {
       fieldMetadataId: '9058056e-36b3-4a3f-9037-f0bca9744296',
       primaryLinkLabel: 'Company',
       metadata: {
-        fieldName: 'company',
+        fieldName: 'keluarga',
         placeHolder: 'Company',
         relationType: 'TO_ONE_OBJECT',
         relationFieldMetadataId: '7b281010-5f47-4771-b3f5-f4bcd24ed1b5',
-        relationObjectMetadataNameSingular: 'company',
-        relationObjectMetadataNamePlural: 'companies',
+        relationObjectMetadataNameSingular: 'keluarga',
+        relationObjectMetadataNamePlural: 'keluargas',
         objectMetadataNameSingular: 'penduduk',
         options: null,
       },

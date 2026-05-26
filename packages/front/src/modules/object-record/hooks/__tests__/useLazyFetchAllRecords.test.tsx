@@ -128,7 +128,7 @@ const Wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({
     mode: 'selection',
     selectedRecordIds: [],
   },
-  contextStoreCurrentObjectMetadataNameSingular: 'person',
+  contextStoreCurrentObjectMetadataNameSingular: 'penduduk',
 });
 
 describe('useLazyFetchAllRecords', () => {

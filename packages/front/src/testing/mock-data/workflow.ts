@@ -65,7 +65,7 @@ export const workflowQueryResult = {
                       valid: false,
                       settings: {
                         input: {
-                          objectName: 'opportunity',
+                          objectName: 'programBantuan',
                           objectRecord: {
                             name: 'Opportunity – {{trigger.properties.after.name}}',
                             amount: {
@@ -1054,7 +1054,7 @@ export const workflowQueryResult = {
                                 {
                                   id: 'af45f003-5432-45bd-86cf-2aebf3a0489c',
                                   icon: 'IconUsers',
-                                  name: 'people',
+                                  name: 'penduduks',
                                   type: 'RELATION',
                                   label: 'People',
                                   options: null,
@@ -1191,7 +1191,7 @@ export const workflowQueryResult = {
                                 {
                                   id: '9af1d970-34a0-482d-bb35-394911bfad6f',
                                   icon: 'IconTargetArrow',
-                                  name: 'opportunities',
+                                  name: 'programBantuans',
                                   type: 'RELATION',
                                   label: 'Opportunities',
                                   options: null,
@@ -1463,7 +1463,7 @@ export const workflowQueryResult = {
                               isLeaf: true,
                             },
                             namePlural: {
-                              value: 'companies',
+                              value: 'keluargas',
                               isLeaf: true,
                             },
                             standardId: {
@@ -1483,7 +1483,7 @@ export const workflowQueryResult = {
                               isLeaf: true,
                             },
                             nameSingular: {
-                              value: 'company',
+                              value: 'keluarga',
                               isLeaf: true,
                             },
                             isAuditLogged: {

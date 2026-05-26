@@ -39,7 +39,7 @@ const peopleObjectMetadataItemMock = getMockObjectMetadataItemOrThrow('penduduk'
 const personCityFieldMetadataItemMock =
   peopleObjectMetadataItemMock.fields.find((field) => field.name === 'city');
 const personCompanyFieldMetadataItemMock =
-  peopleObjectMetadataItemMock.fields.find((field) => field.name === 'company');
+  peopleObjectMetadataItemMock.fields.find((field) => field.name === 'keluarga');
 const personCreatedAtFieldMetadataItemMock =
   peopleObjectMetadataItemMock.fields.find(
     (field) => field.name === 'createdAt',

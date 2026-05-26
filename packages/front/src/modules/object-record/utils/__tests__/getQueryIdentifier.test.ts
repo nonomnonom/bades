@@ -9,7 +9,7 @@ describe('getQueryIdentifier', () => {
       limit: 10,
     });
 
-    expect(result).toContain('person');
+    expect(result).toContain('penduduk');
     expect(result).toContain('Alice');
     expect(result).toContain('10');
   });

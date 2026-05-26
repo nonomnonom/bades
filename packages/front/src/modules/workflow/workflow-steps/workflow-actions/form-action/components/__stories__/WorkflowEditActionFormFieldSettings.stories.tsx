@@ -95,11 +95,11 @@ export const SingleRecordFieldSettings: Story = {
   args: {
     field: {
       id: 'field-3',
-      name: 'company',
+      name: 'keluarga',
       label: 'Keluarga',
       type: 'RECORD',
       settings: {
-        objectName: 'company',
+        objectName: 'keluarga',
       },
     },
     onClose: fn(),

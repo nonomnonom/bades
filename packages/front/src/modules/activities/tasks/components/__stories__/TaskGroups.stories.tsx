@@ -47,7 +47,7 @@ export const WithTasks: Story = {
   args: {
     targetableObject: {
       id: flatPersonRecords[0].id,
-      targetObjectNameSingular: 'person',
+      targetObjectNameSingular: 'penduduk',
     } as ActivityTargetableObject,
   },
   parameters: {

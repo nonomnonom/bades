@@ -45,7 +45,7 @@ const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
 
 const mockTargetField: FieldMetadataItem = {
   id: 'target-field-id',
-  name: 'company',
+  name: 'keluarga',
   type: FieldMetadataType.RELATION,
   relation: createMockRelation('company-metadata-id', 'company'),
 } as FieldMetadataItem;
@@ -66,13 +66,13 @@ const mockMorphFieldWithRelations: FieldMetadataItem = {
 const mockMultipleRelationFields: FieldMetadataItem[] = [
   {
     id: 'relation-field-company-id',
-    name: 'company',
+    name: 'keluarga',
     type: FieldMetadataType.RELATION,
     relation: createMockRelation('company-metadata-id', 'company'),
   } as FieldMetadataItem,
   {
     id: 'relation-field-person-id',
-    name: 'person',
+    name: 'penduduk',
     type: FieldMetadataType.RELATION,
     relation: createMockRelation('person-metadata-id', 'person'),
   } as FieldMetadataItem,

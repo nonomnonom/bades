@@ -205,7 +205,7 @@ describe('generateRecordEventOutputSchema', () => {
         fields: [
           {
             id: 'company-relation-id',
-            name: 'company',
+            name: 'keluarga',
             label: 'Keluarga',
             type: FieldMetadataType.RELATION,
             isActive: true,
@@ -326,7 +326,7 @@ describe('generateRecordEventOutputSchema', () => {
         fields: [
           {
             id: 'people-relation-id',
-            name: 'people',
+            name: 'penduduks',
             label: 'People',
             type: FieldMetadataType.RELATION,
             isActive: true,

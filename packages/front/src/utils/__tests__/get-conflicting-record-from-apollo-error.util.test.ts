@@ -26,7 +26,7 @@ describe('getConflictingRecordFromApolloError', () => {
       {
         message: 'error',
         extensions: {
-          conflictingObjectNameSingular: 'person',
+          conflictingObjectNameSingular: 'penduduk',
         },
       } as any,
     ]);
@@ -53,7 +53,7 @@ describe('getConflictingRecordFromApolloError', () => {
         message: 'error',
         extensions: {
           conflictingRecordId: 123,
-          conflictingObjectNameSingular: 'person',
+          conflictingObjectNameSingular: 'penduduk',
         },
       } as any,
     ]);
@@ -81,14 +81,14 @@ describe('getConflictingRecordFromApolloError', () => {
         message: 'error',
         extensions: {
           conflictingRecordId: 'record-123',
-          conflictingObjectNameSingular: 'person',
+          conflictingObjectNameSingular: 'penduduk',
         },
       } as any,
     ]);
 
     expect(getConflictingRecordFromApolloError(error)).toEqual({
       conflictingRecordId: 'record-123',
-      conflictingObjectNameSingular: 'person',
+      conflictingObjectNameSingular: 'penduduk',
     });
   });
 });
