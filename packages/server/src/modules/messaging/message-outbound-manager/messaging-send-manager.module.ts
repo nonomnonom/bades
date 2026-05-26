@@ -28,9 +28,6 @@ import { SendEmailService } from 'src/modules/messaging/message-outbound-manager
     MessagingMessageOutboundService,
     SendEmailService,
   ],
-  exports: [
-    MessagingMessageOutboundService,
-    SendEmailService,
-  ],
+  exports: [MessagingMessageOutboundService, SendEmailService],
 })
 export class MessagingSendManagerModule {}

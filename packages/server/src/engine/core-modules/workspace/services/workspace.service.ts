@@ -59,11 +59,7 @@ import { getWorkspaceSchemaName } from 'src/engine/workspace-datasource/utils/ge
 import { WorkspaceDataSourceService } from 'src/engine/workspace-datasource/workspace-datasource.service';
 import { SdkClientGenerationService } from 'src/engine/core-modules/sdk-client/sdk-client-generation.service';
 import { PrefillLogicFunctionService } from 'src/engine/workspace-manager/standard-objects-prefill-data/services/prefill-logic-function.service';
-import { prefillCompanies } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-companies.util';
 import { prefillDashboards } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-dashboards.util';
-import { prefillOpportunities } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-opportunities.util';
-import { prefillPeople } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-people.util';
-import { getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-code-step-logic-functions.util';
 import { prefillWorkflowCommandMenuItems } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflow-command-menu-items.util';
 import { prefillWorkflows } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-workflows.util';
 import { WorkspaceManagerService } from 'src/engine/workspace-manager/workspace-manager.service';
@@ -749,13 +745,8 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
         },
       );
 
-    await this.prefillLogicFunctionService.ensureSeeded({
-      workspaceId,
-      definitions:
-        getCreateCompanyWhenAddingNewPersonCodeStepLogicFunctionDefinitions(
-          workspaceId,
-        ),
-    });
+    // Bades: prefill workflow logic-function CRM ("buat company saat tambah
+    // person") dihapus karena person/company sudah tidak ada.
 
     const queryRunner = this.coreDataSource.createQueryRunner();
 
@@ -764,9 +755,9 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     try {
       await queryRunner.startTransaction();
 
-      await prefillCompanies(queryRunner.manager, schemaName);
-
-      await prefillPeople(queryRunner.manager, schemaName);
+      // Bades: prefill CRM (companies, people, opportunities) dihapus.
+      // SID standard objects (penduduk, keluarga, dst) sudah di-seed via
+      // SidStandardSeedService di workspace-manager.service.ts.
 
       await prefillWorkflows(
         queryRunner.manager,
@@ -775,8 +766,6 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
       );
-
-      await prefillOpportunities(queryRunner.manager, schemaName);
 
       await prefillDashboards(
         queryRunner.manager,

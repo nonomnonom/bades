@@ -280,7 +280,9 @@ export class DevSeederPermissionsService {
     );
 
     if (!companyLinkedinLinkFieldMetadata) {
-      throw new Error('Metadata kolom link linkedin perusahaan tidak ditemukan');
+      throw new Error(
+        'Metadata kolom link linkedin perusahaan tidak ditemukan',
+      );
     }
 
     const readOnlyOnPersonCityFieldPermission = {

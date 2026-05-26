@@ -469,14 +469,18 @@ export class ViewToolsFactory {
             );
 
             if (!existingView) {
-              throw new Error(`Tampilan dengan id ${parameters.id} tidak ditemukan`);
+              throw new Error(
+                `Tampilan dengan id ${parameters.id} tidak ditemukan`,
+              );
             }
 
             if (
               existingView.visibility === ViewVisibility.UNLISTED &&
               existingView.createdByUserWorkspaceId !== userWorkspaceId
             ) {
-              throw new Error('Anda hanya dapat mengubah tampilan Anda sendiri yang tidak terdaftar');
+              throw new Error(
+                'Anda hanya dapat mengubah tampilan Anda sendiri yang tidak terdaftar',
+              );
             }
 
             const view = await this.viewService.updateOne({
@@ -516,14 +520,18 @@ export class ViewToolsFactory {
             );
 
             if (!existingView) {
-              throw new Error(`Tampilan dengan id ${parameters.id} tidak ditemukan`);
+              throw new Error(
+                `Tampilan dengan id ${parameters.id} tidak ditemukan`,
+              );
             }
 
             if (
               existingView.visibility === ViewVisibility.UNLISTED &&
               existingView.createdByUserWorkspaceId !== userWorkspaceId
             ) {
-              throw new Error('Anda hanya dapat menghapus tampilan Anda sendiri yang tidak terdaftar');
+              throw new Error(
+                'Anda hanya dapat menghapus tampilan Anda sendiri yang tidak terdaftar',
+              );
             }
 
             const view = await this.viewService.deleteOne({

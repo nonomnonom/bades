@@ -47,10 +47,10 @@ export class CompositeFieldMetadataGroupByGqlInputTypeGenerator {
     for (const property of compositeType.properties) {
       // Relation fields are not supported in composite types
       if (isMorphOrRelationFieldMetadataType(property.type)) {
-        this.logger.error(
-          'Kolom relasi tidak didukung dalam tipe komposit',
-          { compositeType, property },
-        );
+        this.logger.error('Kolom relasi tidak didukung dalam tipe komposit', {
+          compositeType,
+          property,
+        });
 
         throw new Error('Kolom relasi tidak didukung dalam tipe komposit');
       }
