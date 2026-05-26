@@ -9,7 +9,7 @@ import {
 describe('buildOrderByColumnExpression', () => {
   describe('returns unquoted column expressions for TypeORM', () => {
     it('should return unquoted alias.column format', () => {
-      const result = buildOrderByColumnExpression('company', 'name');
+      const result = buildOrderByColumnExpression('keluarga', 'name');
 
       expect(result).toBe('company.name');
     });
@@ -21,7 +21,7 @@ describe('buildOrderByColumnExpression', () => {
     });
 
     it('should handle composite column names (e.g., nameFirstName)', () => {
-      const result = buildOrderByColumnExpression('person', 'nameFirstName');
+      const result = buildOrderByColumnExpression('penduduk', 'nameFirstName');
 
       expect(result).toBe('person.nameFirstName');
     });

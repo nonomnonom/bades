@@ -95,7 +95,7 @@ describe('getJunctionConfig', () => {
         id: 'target-field-id',
         name: 'keluarga',
         type: FieldMetadataType.RELATION,
-        relation: createMockRelation('company-metadata-id', 'company'),
+        relation: createMockRelation('company-metadata-id', 'keluarga'),
       });
       const junctionObject = createMockObjectMetadata({
         id: 'junction-id',
@@ -188,7 +188,7 @@ describe('getJunctionConfig', () => {
         id: 'target-field-id',
         name: 'keluarga',
         type: FieldMetadataType.RELATION,
-        relation: createMockRelation('company-metadata-id', 'company'),
+        relation: createMockRelation('company-metadata-id', 'keluarga'),
       });
       const junctionObject = createMockObjectMetadata({
         id: 'junction-id',

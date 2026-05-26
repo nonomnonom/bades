@@ -5,8 +5,8 @@ import { getJestMetadataAndApolloMocksAndCommandMenuWrapper } from '~/testing/je
 
 const testComponentInstanceId = 'test';
 const testCurrentViewId = 'view-id';
-const testObjectMetadataItemNameSingular = 'person';
-const testObjectMetadataItemNamePlural = 'people';
+const testObjectMetadataItemNameSingular = 'penduduk';
+const testObjectMetadataItemNamePlural = 'penduduks';
 
 const Wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({
   apolloMocks: [],

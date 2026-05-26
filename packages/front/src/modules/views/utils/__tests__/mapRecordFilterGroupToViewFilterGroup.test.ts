@@ -10,7 +10,7 @@ import { isDefined } from 'shared/utils';
 import { ViewOpenRecordIn, ViewVisibility } from '~/generated-metadata/graphql';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 
-const mockObjectMetadataItemNameSingular = 'company';
+const mockObjectMetadataItemNameSingular = 'keluarga';
 
 describe('mapRecordFilterGroupToViewFilterGroup', () => {
   const mockObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
@@ -19,7 +19,7 @@ describe('mapRecordFilterGroupToViewFilterGroup', () => {
 
   if (!isDefined(mockObjectMetadataItem)) {
     throw new Error(
-      'Missing mock object metadata item with name singular "company"',
+      'Missing mock object metadata item with name singular "keluarga"',
     );
   }
 

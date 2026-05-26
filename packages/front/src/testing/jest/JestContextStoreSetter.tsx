@@ -40,7 +40,7 @@ export const JestContextStoreSetter = ({
     selectedRecordIds: [],
   },
   contextStoreNumberOfSelectedRecords = 0,
-  contextStoreCurrentObjectMetadataNameSingular = 'company',
+  contextStoreCurrentObjectMetadataNameSingular = 'keluarga',
   contextStoreFilters = [],
   contextStoreFilterGroups = [],
   contextStoreCurrentViewType,

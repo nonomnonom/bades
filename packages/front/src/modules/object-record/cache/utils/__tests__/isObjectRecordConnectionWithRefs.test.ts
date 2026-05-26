@@ -20,7 +20,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
       ],
     };
 
-    const result = isObjectRecordConnectionWithRefs('person', storeValue);
+    const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
 
     expect(result).toBe(true);
   });
@@ -31,7 +31,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
       edges: [],
     };
 
-    const result = isObjectRecordConnectionWithRefs('company', storeValue);
+    const result = isObjectRecordConnectionWithRefs('keluarga', storeValue);
 
     expect(result).toBe(true);
   });
@@ -41,7 +41,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
       __typename: 'PersonConnection',
     };
 
-    const result = isObjectRecordConnectionWithRefs('person', storeValue);
+    const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
 
     expect(result).toBe(false);
   });
@@ -52,7 +52,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
       edges: [],
     };
 
-    const result = isObjectRecordConnectionWithRefs('person', storeValue);
+    const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
 
     expect(result).toBe(false);
   });
@@ -70,7 +70,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
       ],
     };
 
-    const result = isObjectRecordConnectionWithRefs('person', storeValue);
+    const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
 
     expect(result).toBe(false);
   });
@@ -88,25 +88,25 @@ describe('isObjectRecordConnectionWithRefs', () => {
       ],
     };
 
-    const result = isObjectRecordConnectionWithRefs('person', storeValue);
+    const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
 
     expect(result).toBe(false);
   });
 
   it('should return false for null value', () => {
-    const result = isObjectRecordConnectionWithRefs('person', null);
+    const result = isObjectRecordConnectionWithRefs('penduduk', null);
 
     expect(result).toBe(false);
   });
 
   it('should return false for undefined value', () => {
-    const result = isObjectRecordConnectionWithRefs('person', undefined);
+    const result = isObjectRecordConnectionWithRefs('penduduk', undefined);
 
     expect(result).toBe(false);
   });
 
   it('should return false for primitive value', () => {
-    const result = isObjectRecordConnectionWithRefs('person', 'not an object');
+    const result = isObjectRecordConnectionWithRefs('penduduk', 'not an object');
 
     expect(result).toBe(false);
   });
@@ -145,7 +145,7 @@ describe('isObjectRecordConnectionWithRefs', () => {
       ],
     };
 
-    const result = isObjectRecordConnectionWithRefs('person', storeValue);
+    const result = isObjectRecordConnectionWithRefs('penduduk', storeValue);
 
     expect(result).toBe(false);
   });

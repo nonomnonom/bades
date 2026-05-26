@@ -132,7 +132,7 @@ const Wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({
 });
 
 describe('useLazyFetchAllRecords', () => {
-  const objectNameSingular = 'person';
+  const objectNameSingular = 'penduduk';
   const objectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === objectNameSingular,
   );

@@ -25,7 +25,7 @@ describe('ViewToolsFactory', () => {
   const mockUserWorkspaceId = 'user-workspace-id';
   const mockViewId = 'view-id';
   const mockObjectMetadataId = 'object-metadata-id';
-  const mockObjectNameSingular = 'company';
+  const mockObjectNameSingular = 'keluarga';
   const mockCalendarFieldMetadataId = 'calendar-field-metadata-id';
 
   const mockNameFieldMetadataId = 'name-field-metadata-id';
@@ -73,7 +73,7 @@ describe('ViewToolsFactory', () => {
       'object-universal-id': {
         id: mockObjectMetadataId,
         nameSingular: mockObjectNameSingular,
-        namePlural: 'companies',
+        namePlural: 'keluargas',
         labelSingular: 'Company',
         labelPlural: 'Companies',
         universalIdentifier: 'object-universal-id',

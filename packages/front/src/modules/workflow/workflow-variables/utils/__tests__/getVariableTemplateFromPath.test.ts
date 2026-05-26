@@ -13,7 +13,7 @@ describe('getVariableTemplateFromPath', () => {
   it('should return stepId with path', () => {
     const result = getVariableTemplateFromPath({
       stepId: 'step-2',
-      path: ['company', 'name'],
+      path: ['keluarga', 'name'],
     });
 
     expect(result).toBe('{{step-2.company.name}}');

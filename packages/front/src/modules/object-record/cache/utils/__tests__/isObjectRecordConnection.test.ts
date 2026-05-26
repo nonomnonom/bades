@@ -20,7 +20,7 @@ describe('isObjectRecordConnection', () => {
       ],
     };
 
-    const result = isObjectRecordConnection('person', storeValue);
+    const result = isObjectRecordConnection('penduduk', storeValue);
 
     expect(result).toBe(true);
   });
@@ -31,7 +31,7 @@ describe('isObjectRecordConnection', () => {
       edges: [],
     };
 
-    const result = isObjectRecordConnection('company', storeValue);
+    const result = isObjectRecordConnection('keluarga', storeValue);
 
     expect(result).toBe(true);
   });
@@ -41,7 +41,7 @@ describe('isObjectRecordConnection', () => {
       __typename: 'PersonConnection',
     };
 
-    const result = isObjectRecordConnection('person', storeValue);
+    const result = isObjectRecordConnection('penduduk', storeValue);
 
     expect(result).toBe(true);
   });
@@ -52,7 +52,7 @@ describe('isObjectRecordConnection', () => {
       edges: [],
     };
 
-    const result = isObjectRecordConnection('person', storeValue);
+    const result = isObjectRecordConnection('penduduk', storeValue);
 
     expect(result).toBe(false);
   });
@@ -70,7 +70,7 @@ describe('isObjectRecordConnection', () => {
       ],
     };
 
-    const result = isObjectRecordConnection('person', storeValue);
+    const result = isObjectRecordConnection('penduduk', storeValue);
 
     expect(result).toBe(false);
   });
@@ -89,25 +89,25 @@ describe('isObjectRecordConnection', () => {
       ],
     };
 
-    const result = isObjectRecordConnection('person', storeValue);
+    const result = isObjectRecordConnection('penduduk', storeValue);
 
     expect(result).toBe(true);
   });
 
   it('should return false for null value', () => {
-    const result = isObjectRecordConnection('person', null);
+    const result = isObjectRecordConnection('penduduk', null);
 
     expect(result).toBe(false);
   });
 
   it('should return false for undefined value', () => {
-    const result = isObjectRecordConnection('person', undefined);
+    const result = isObjectRecordConnection('penduduk', undefined);
 
     expect(result).toBe(false);
   });
 
   it('should return false for primitive value', () => {
-    const result = isObjectRecordConnection('person', 'not an object');
+    const result = isObjectRecordConnection('penduduk', 'not an object');
 
     expect(result).toBe(false);
   });

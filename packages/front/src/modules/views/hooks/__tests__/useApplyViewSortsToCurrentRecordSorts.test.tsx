@@ -11,7 +11,7 @@ import { ViewSortDirection } from '~/generated-metadata/graphql';
 import { getJestMetadataAndApolloMocksAndCommandMenuWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksAndCommandMenuWrapper';
 import { useApplyViewSortsToCurrentRecordSorts } from '@/views/hooks/useApplyViewSortsToCurrentRecordSorts';
 
-const mockObjectMetadataItemNameSingular = 'company';
+const mockObjectMetadataItemNameSingular = 'keluarga';
 
 describe('useApplyViewSortsToCurrentRecordSorts', () => {
   const mockObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(

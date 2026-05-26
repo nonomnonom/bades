@@ -39,8 +39,8 @@ export const prefillWorkflows = async (
     flatObjectMetadataMaps,
   );
 
-  const companyObjectMetadataId = objectIdByNameSingular['company'];
-  const personObjectMetadataId = objectIdByNameSingular['person'];
+  const companyObjectMetadataId = objectIdByNameSingular['keluarga'];
+  const personObjectMetadataId = objectIdByNameSingular['penduduk'];
 
   if (
     !isDefined(companyObjectMetadataId) ||

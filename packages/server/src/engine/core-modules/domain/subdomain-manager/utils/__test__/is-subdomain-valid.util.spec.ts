@@ -209,7 +209,7 @@ describe('isSubdomainValid', () => {
         'demo',
         'api',
         't',
-        'companies',
+        'keluargas',
         'telemetry',
         'logs',
         'metrics',

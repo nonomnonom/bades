@@ -39,13 +39,13 @@ export const createMorphRelationBetweenObjects = async ({
     morphRelationsCreationPayload: [
       {
         targetObjectMetadataId: firstTargetObjectMetadataId,
-        targetFieldLabel: targetFieldLabel || 'opportunity',
+        targetFieldLabel: targetFieldLabel || 'programBantuan',
         targetFieldIcon: targetFieldIcon || 'IconListOpportunity',
         type: relationType,
       },
       {
         targetObjectMetadataId: secondTargetObjectMetadataId,
-        targetFieldLabel: targetFieldLabel || 'opportunity',
+        targetFieldLabel: targetFieldLabel || 'programBantuan',
         targetFieldIcon: targetFieldIcon || 'IconListOpportunity',
         type: relationType,
       },

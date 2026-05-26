@@ -20,7 +20,7 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 
 describe('useDeleteOneRecordMutation', () => {
   it('should return a valid deleteOneRecordMutation', () => {
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
 
     const { result } = renderHook(
       () =>

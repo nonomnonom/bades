@@ -113,7 +113,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
     ),
     createMockFlatFieldMetadata(
       'company-id',
-      'company',
+      'keluarga',
       FieldMetadataType.RELATION,
       {
         joinColumnName: 'companyId',

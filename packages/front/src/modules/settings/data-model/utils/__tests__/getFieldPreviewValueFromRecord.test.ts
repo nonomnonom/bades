@@ -28,7 +28,7 @@ describe('getFieldPreviewValueFromRecord', () => {
         __typename: 'ProgramBantuan',
       };
       const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
-        ({ name }) => name === 'people',
+        ({ name }) => name === 'penduduks',
       );
 
       if (!fieldMetadataItem) {

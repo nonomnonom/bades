@@ -76,7 +76,7 @@ jest.mock('@/object-record/hooks/useLazyFetchAllRecords', () => ({
 }));
 
 describe('useRecordData', () => {
-  const recordIndexId = 'people';
+  const recordIndexId = 'penduduks';
   const objectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'penduduk',
   );

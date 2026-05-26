@@ -63,7 +63,7 @@ describe('getFieldPreviewValue', () => {
 
   it('returns null if the field is supported in Settings but has no pre-configured placeholder defaultValue', () => {
     // Given
-    const fieldName = 'company';
+    const fieldName = 'keluarga';
     const fieldMetadataItem = mockedPersonObjectMetadataItem?.fields.find(
       ({ name }) => name === fieldName,
     );

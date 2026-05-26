@@ -28,7 +28,7 @@ const GetObjectMetadataInputSchema = z.object({
 const CreateObjectMetadataInputSchema = z.object({
   nameSingular: z
     .string()
-    .describe('Singular name for the object (e.g., "company")'),
+    .describe('Singular name for the object (e.g., "keluarga")'),
   namePlural: z
     .string()
     .describe('Plural name for the object (e.g., "companies")'),

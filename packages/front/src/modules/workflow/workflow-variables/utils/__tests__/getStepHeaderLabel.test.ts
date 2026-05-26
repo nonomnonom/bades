@@ -84,7 +84,7 @@ describe('getStepHeaderLabel', () => {
   });
 
   it('should return the nested field label when the path is not empty', () => {
-    const currentPath: string[] = ['company', 'address'];
+    const currentPath: string[] = ['keluarga', 'address'];
     expect(getStepHeaderLabel(mockStep, currentPath)).toBe('Address');
   });
 });

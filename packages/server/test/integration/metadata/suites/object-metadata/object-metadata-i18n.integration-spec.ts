@@ -78,7 +78,7 @@ describe('object metadata i18n', () => {
     expect(response.body.errors).toBeUndefined();
 
     const edges = response.body.data.objects.edges;
-    const company = findObjectByName(edges, 'company');
+    const company = findObjectByName(edges, 'keluarga');
 
     expect(company).toBeDefined();
     expect(company!.labelSingular).toBe('Company');
@@ -95,9 +95,9 @@ describe('object metadata i18n', () => {
     expect(response.body.errors).toBeUndefined();
 
     const edges = response.body.data.objects.edges;
-    const company = findObjectByName(edges, 'company');
-    const person = findObjectByName(edges, 'person');
-    const opportunity = findObjectByName(edges, 'opportunity');
+    const company = findObjectByName(edges, 'keluarga');
+    const person = findObjectByName(edges, 'penduduk');
+    const opportunity = findObjectByName(edges, 'programBantuan');
 
     expect(company).toBeDefined();
     expect(company!.labelSingular).toBe('Entreprise');

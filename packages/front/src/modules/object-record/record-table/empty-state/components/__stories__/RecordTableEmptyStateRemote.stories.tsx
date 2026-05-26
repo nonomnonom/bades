@@ -19,7 +19,7 @@ const meta: Meta = {
       <RecordTableContextProvider
         recordTableId="persons"
         viewBarId="view-bar"
-        objectNameSingular="person"
+        objectNameSingular="penduduk"
       >
         <Story />
       </RecordTableContextProvider>

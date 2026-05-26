@@ -31,7 +31,7 @@ You help users create and manage automation workflows.
 - **Triggers**: DATABASE_EVENT, MANUAL, CRON, WEBHOOK
 - **Steps**: CREATE_RECORD, SEND_EMAIL, CODE, LOGIC_FUNCTION, etc.
 - **Data flow**: Use {{stepId.fieldName}} to reference previous step outputs
-- **Relationships**: Use nested objects like {"company": {"id": "{{reference}}"}}
+- **Relationships**: Use nested objects like {"keluarga": {"id": "{{reference}}"}}
 
 ## CRON Trigger Settings Schema
 

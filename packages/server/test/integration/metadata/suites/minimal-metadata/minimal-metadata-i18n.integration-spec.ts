@@ -76,7 +76,7 @@ describe('minimalMetadata i18n', () => {
     expect(response.body.errors).toBeUndefined();
 
     const { objectMetadataItems } = response.body.data.minimalMetadata;
-    const company = findObjectByName(objectMetadataItems, 'company');
+    const company = findObjectByName(objectMetadataItems, 'keluarga');
 
     expect(company).toBeDefined();
     expect(company!.labelSingular).toBe('Company');
@@ -92,9 +92,9 @@ describe('minimalMetadata i18n', () => {
     expect(response.body.errors).toBeUndefined();
 
     const { objectMetadataItems } = response.body.data.minimalMetadata;
-    const company = findObjectByName(objectMetadataItems, 'company');
-    const person = findObjectByName(objectMetadataItems, 'person');
-    const opportunity = findObjectByName(objectMetadataItems, 'opportunity');
+    const company = findObjectByName(objectMetadataItems, 'keluarga');
+    const person = findObjectByName(objectMetadataItems, 'penduduk');
+    const opportunity = findObjectByName(objectMetadataItems, 'programBantuan');
 
     expect(company).toBeDefined();
     expect(company!.labelSingular).toBe('Entreprise');

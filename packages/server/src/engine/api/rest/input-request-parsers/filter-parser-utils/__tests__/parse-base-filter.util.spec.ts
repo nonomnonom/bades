@@ -29,7 +29,7 @@ describe('parseBaseFilter', () => {
     expect(
       parseBaseFilter('person.createdAt[gt]:"2023-12-01T14:23:23.914Z"'),
     ).toEqual({
-      fields: ['person', 'createdAt'],
+      fields: ['penduduk', 'createdAt'],
       comparator: 'gt',
       value: '"2023-12-01T14:23:23.914Z"',
     });
@@ -41,7 +41,7 @@ describe('parseBaseFilter', () => {
         'person.createdAt[in]:["2023-12-01T14:23:23.914Z","2024-12-01T14:23:23.914Z"]',
       ),
     ).toEqual({
-      fields: ['person', 'createdAt'],
+      fields: ['penduduk', 'createdAt'],
       comparator: 'in',
       value: '["2023-12-01T14:23:23.914Z","2024-12-01T14:23:23.914Z"]',
     });

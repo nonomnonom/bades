@@ -37,7 +37,7 @@ const buildGroupByRegularField = (
 });
 
 describe('getGroupByExpression', () => {
-  const columnNameWithQuotes = '"company"."createdAt"';
+  const columnNameWithQuotes = '"keluarga"."createdAt"';
 
   describe('timezone validation', () => {
     it('should accept valid IANA timezones', () => {
@@ -141,7 +141,7 @@ describe('getGroupByExpression', () => {
   });
 
   describe('array unnest handling', () => {
-    const arrayColumnNameWithQuotes = '"company"."tags"';
+    const arrayColumnNameWithQuotes = '"keluarga"."tags"';
 
     it('should unnest array fields when split mode is enabled', () => {
       const groupByField = buildGroupByRegularField({

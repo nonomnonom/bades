@@ -34,12 +34,12 @@ const mockStep = {
 
 describe('getCurrentSubStepFromPath', () => {
   it('should return the current sub step from the path', () => {
-    const path = ['company', 'name'];
+    const path = ['keluarga', 'name'];
     expect(getCurrentSubStepFromPath(mockStep, path)).toBe('Bades');
   });
 
   it('should return undefined when the path is not valid', () => {
-    const path = ['company', 'unknown'];
+    const path = ['keluarga', 'unknown'];
     expect(getCurrentSubStepFromPath(mockStep, path)).toBe(undefined);
   });
 });

@@ -18,7 +18,7 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 
 describe('useUpdateManyRecordsMutation', () => {
   it('should return a valid updateManyRecordsMutation', () => {
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
 
     const { result } = renderHook(
       () =>

@@ -28,7 +28,7 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 describe('useFindDuplicateRecords', () => {
   it('should fetch duplicate records and return the correct data', async () => {
     const objectRecordId = '6205681e-7c11-40b4-9e32-f523dbe54590';
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
 
     const { result } = renderHook(
       () =>

@@ -54,7 +54,7 @@ describe('SearchService', () => {
       const objectMetadataItems = service.filterObjectMetadataItems({
         flatObjectMetadatas: mockFlatObjectMetadatas,
         includedObjectNameSingulars: [],
-        excludedObjectNameSingulars: ['company'],
+        excludedObjectNameSingulars: ['keluarga'],
       });
 
       expect(objectMetadataItems).toEqual([
@@ -65,7 +65,7 @@ describe('SearchService', () => {
     it('should return searchable object metadata items with included ones only', () => {
       const objectMetadataItems = service.filterObjectMetadataItems({
         flatObjectMetadatas: mockFlatObjectMetadatas,
-        includedObjectNameSingulars: ['company'],
+        includedObjectNameSingulars: ['keluarga'],
         excludedObjectNameSingulars: [],
       });
 

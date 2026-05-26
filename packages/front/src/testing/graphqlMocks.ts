@@ -419,7 +419,7 @@ export const graphqlMocks = {
       return HttpResponse.json({
         data: {
           companyDuplicates: [
-            wrapRecordsAsConnection('company', [duplicateCompanyMock]),
+            wrapRecordsAsConnection('keluarga', [duplicateCompanyMock]),
           ],
         },
       });

@@ -5,7 +5,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 
 describe('getAggregateLabelWithFieldName', () => {
   const mockFieldMetadataItem = getMockObjectMetadataItemOrThrow(
-    'company',
+    'keluarga',
   ).fields.find(findByProperty('name', 'name'))!;
 
   it('should return correct label for provided field metadata item and operation', () => {

@@ -386,7 +386,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
       const companyPeopleRelation = createMockField({
         id: 'field-3',
-        name: 'people',
+        name: 'penduduks',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'company-id',
         settings: {

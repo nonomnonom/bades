@@ -28,10 +28,10 @@ describe('isActivityTargetField', () => {
 
   it('should return false for regular field names', () => {
     expect(
-      isActivityTargetField('company', CoreObjectNameSingular.Person),
+      isActivityTargetField('keluarga', CoreObjectNameSingular.Person),
     ).toBe(false);
     expect(
-      isActivityTargetField('people', CoreObjectNameSingular.Company),
+      isActivityTargetField('penduduks', CoreObjectNameSingular.Company),
     ).toBe(false);
   });
 });

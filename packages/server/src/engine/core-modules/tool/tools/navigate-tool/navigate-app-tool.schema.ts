@@ -22,7 +22,7 @@ export const NavigateAppInputZodSchema = z.discriminatedUnion('type', [
     objectNameSingular: z
       .string()
       .describe(
-        'The singular name of the object to navigate to (e.g. "company", "person", "opportunity")',
+        'The singular name of the object to navigate to (e.g. "keluarga", "penduduk", "programBantuan")',
       ),
   }),
   z.object({
@@ -34,7 +34,7 @@ export const NavigateAppInputZodSchema = z.discriminatedUnion('type', [
     objectNameSingular: z
       .string()
       .describe(
-        'The singular name of the object type (e.g. "company", "person", "opportunity")',
+        'The singular name of the object type (e.g. "keluarga", "penduduk", "programBantuan")',
       ),
     recordName: z
       .string()

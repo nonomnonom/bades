@@ -14,7 +14,7 @@ describe('parseCompositeFieldForOrder', () => {
       const result = parseCompositeFieldForOrder(
         fieldMetadata,
         { firstName: 'AscNullsFirst' },
-        'person',
+        'penduduk',
         true,
       );
 
@@ -37,7 +37,7 @@ describe('parseCompositeFieldForOrder', () => {
       const result = parseCompositeFieldForOrder(
         fieldMetadata,
         { primaryLinkLabel: 'DescNullsLast' },
-        'company',
+        'keluarga',
         true,
       );
 
@@ -60,7 +60,7 @@ describe('parseCompositeFieldForOrder', () => {
       const result = parseCompositeFieldForOrder(
         fieldMetadata,
         { addressCity: 'AscNullsLast' },
-        'company',
+        'keluarga',
         true,
       );
 
@@ -85,7 +85,7 @@ describe('parseCompositeFieldForOrder', () => {
       const result = parseCompositeFieldForOrder(
         fieldMetadata,
         { amountMicros: 'DescNullsFirst' },
-        'company',
+        'keluarga',
         true,
       );
 
@@ -108,7 +108,7 @@ describe('parseCompositeFieldForOrder', () => {
       const result = parseCompositeFieldForOrder(
         fieldMetadata,
         { addressLat: 'AscNullsFirst' },
-        'company',
+        'keluarga',
         true,
       );
 
@@ -133,7 +133,7 @@ describe('parseCompositeFieldForOrder', () => {
       const result = parseCompositeFieldForOrder(
         fieldMetadata,
         { firstName: 'AscNullsFirst' },
-        'person',
+        'penduduk',
         false,
       );
 
@@ -159,7 +159,7 @@ describe('parseCompositeFieldForOrder', () => {
         parseCompositeFieldForOrder(
           fieldMetadata,
           { invalidSubField: 'AscNullsFirst' },
-          'person',
+          'penduduk',
           true,
         ),
       ).toThrow('Sub field metadata not found');
@@ -175,7 +175,7 @@ describe('parseCompositeFieldForOrder', () => {
         parseCompositeFieldForOrder(
           fieldMetadata,
           { firstName: 'InvalidDirection' },
-          'person',
+          'penduduk',
           true,
         ),
       ).toThrow('Sub field order by value must be of type OrderByDirection');

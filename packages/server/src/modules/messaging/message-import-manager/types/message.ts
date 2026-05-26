@@ -39,7 +39,7 @@ export type MessageParticipant = Omit<
   | 'deletedAt'
   | 'personId'
   | 'workspaceMemberId'
-  | 'person'
+  | 'penduduk'
   | 'workspaceMember'
   | 'message'
   | 'messageId'

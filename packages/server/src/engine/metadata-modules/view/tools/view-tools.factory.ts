@@ -25,7 +25,7 @@ const GetViewsInputSchema = z.object({
     .string()
     .optional()
     .describe(
-      'Filter views by object name (e.g., "task", "person", "company"). If omitted, returns all views.',
+      'Filter views by object name (e.g., "task", "penduduk", "keluarga"). If omitted, returns all views.',
     ),
   limit: z
     .number()
@@ -48,7 +48,7 @@ const CreateViewInputSchema = z.object({
   objectNameSingular: z
     .string()
     .describe(
-      'Object name this view is for (e.g., "task", "person", "company")',
+      'Object name this view is for (e.g., "task", "penduduk", "keluarga")',
     ),
   icon: z
     .string()

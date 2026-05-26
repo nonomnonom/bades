@@ -19,7 +19,7 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 
 describe('useFindOneRecordQuery', () => {
   it('should return a valid findOneRecordQuery', () => {
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
 
     const { result } = renderHook(
       () =>

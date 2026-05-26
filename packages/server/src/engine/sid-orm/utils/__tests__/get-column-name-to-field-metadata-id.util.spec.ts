@@ -242,7 +242,7 @@ describe('getColumnNameToFieldMetadataIdMap', () => {
       const fields = [
         createMockFlatFieldMetadata(
           'field-1',
-          'company',
+          'keluarga',
           FieldMetadataType.RELATION,
           {
             relationType: 'ONE_TO_ONE',
@@ -262,7 +262,7 @@ describe('getColumnNameToFieldMetadataIdMap', () => {
       );
 
       expect(result['companyId']).toBe('field-1');
-      expect(result['company']).toBe('field-1');
+      expect(result['keluarga']).toBe('field-1');
       expect(result['name']).toBe('field-2');
       expect(Object.keys(result)).toHaveLength(3);
     });

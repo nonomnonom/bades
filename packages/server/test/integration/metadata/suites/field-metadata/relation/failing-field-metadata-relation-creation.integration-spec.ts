@@ -455,7 +455,7 @@ describe('Field metadata relation creation should fail', () => {
   });
 
   it('should fail when creating a relation field with name that conflicts with existing join column name', async () => {
-    const relationFieldName = 'company';
+    const relationFieldName = 'keluarga';
 
     await createOneFieldMetadata({
       expectToFail: false,

@@ -118,7 +118,7 @@ describe('useOpenRecordInSidePanel', () => {
     const { result } = renderHooks();
 
     const recordId = 'record-123';
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
 
     act(() => {
       result.current.openRecordInSidePanel({
@@ -166,7 +166,7 @@ describe('useOpenRecordInSidePanel', () => {
     const { result } = renderHooks();
 
     const recordId = 'new-record-123';
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
 
     act(() => {
       result.current.openRecordInSidePanel({

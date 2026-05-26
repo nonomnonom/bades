@@ -122,8 +122,8 @@ describe('TrashCleanupService', () => {
         },
       ]);
 
-      const companyRepository = createRepositoryMock('company', 2);
-      const personRepository = createRepositoryMock('person', 1);
+      const companyRepository = createRepositoryMock('keluarga', 2);
+      const personRepository = createRepositoryMock('penduduk', 1);
 
       mockGlobalWorkspaceOrmManager.getRepository
         .mockResolvedValueOnce(companyRepository)
@@ -176,8 +176,8 @@ describe('TrashCleanupService', () => {
         },
       ]);
 
-      const companyRepository = createRepositoryMock('company', 2);
-      const personRepository = createRepositoryMock('person', 5);
+      const companyRepository = createRepositoryMock('keluarga', 2);
+      const personRepository = createRepositoryMock('penduduk', 5);
 
       mockGlobalWorkspaceOrmManager.getRepository
         .mockResolvedValueOnce(companyRepository)
@@ -208,7 +208,7 @@ describe('TrashCleanupService', () => {
         },
       ]);
 
-      const companyRepository = createRepositoryMock('company', 0);
+      const companyRepository = createRepositoryMock('keluarga', 0);
 
       mockGlobalWorkspaceOrmManager.getRepository.mockResolvedValueOnce(
         companyRepository,
@@ -232,7 +232,7 @@ describe('TrashCleanupService', () => {
         },
       ]);
 
-      const companyRepository = createRepositoryMock('company', 5);
+      const companyRepository = createRepositoryMock('keluarga', 5);
 
       mockGlobalWorkspaceOrmManager.getRepository.mockResolvedValueOnce(
         companyRepository,

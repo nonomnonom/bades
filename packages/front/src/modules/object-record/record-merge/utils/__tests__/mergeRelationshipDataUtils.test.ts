@@ -110,7 +110,7 @@ describe('mergeManyToOneRelationship', () => {
       },
     ];
 
-    const result = mergeManyToOneRelationship(records, 'company');
+    const result = mergeManyToOneRelationship(records, 'keluarga');
 
     expect(result).toEqual({
       __typename: 'Keluarga',
@@ -133,7 +133,7 @@ describe('mergeManyToOneRelationship', () => {
       },
     ];
 
-    const result = mergeManyToOneRelationship(records, 'company');
+    const result = mergeManyToOneRelationship(records, 'keluarga');
 
     expect(result).toEqual({
       __typename: 'Keluarga',
@@ -156,13 +156,13 @@ describe('mergeManyToOneRelationship', () => {
       },
     ];
 
-    const result = mergeManyToOneRelationship(records, 'company');
+    const result = mergeManyToOneRelationship(records, 'keluarga');
 
     expect(result).toBeNull();
   });
 
   it('should handle empty records array', () => {
-    const result = mergeManyToOneRelationship([], 'company');
+    const result = mergeManyToOneRelationship([], 'keluarga');
 
     expect(result).toBeNull();
   });

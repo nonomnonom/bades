@@ -18,8 +18,8 @@ import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/pendud
 import { generateMockRecordConnection } from '~/testing/utils/generateMockRecordConnection';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const recordTableId = 'people';
-const objectNameSingular = 'person';
+const recordTableId = 'penduduks';
+const objectNameSingular = 'penduduk';
 const mockPendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
 const flatPersonRecords = mockedPendudukRecords.map((record) =>

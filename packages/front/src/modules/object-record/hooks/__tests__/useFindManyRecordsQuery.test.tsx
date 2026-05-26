@@ -37,7 +37,7 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 
 describe('useFindManyRecordsQuery', () => {
   it('should return a valid findManyRecordsQuery', () => {
-    const objectNameSingular = 'person';
+    const objectNameSingular = 'penduduk';
     const computeReferences = true;
 
     const { result } = renderHook(

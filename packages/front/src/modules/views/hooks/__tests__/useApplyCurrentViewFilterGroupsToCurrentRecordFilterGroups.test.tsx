@@ -19,7 +19,7 @@ import { mockedViews } from '~/testing/mock-data/generated/metadata/views/mock-v
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { setTestViewsInMetadataStore } from '~/testing/utils/setTestViewsInMetadataStore';
 
-const mockObjectMetadataItemNameSingular = 'company';
+const mockObjectMetadataItemNameSingular = 'keluarga';
 
 describe('useApplyCurrentViewFilterGroupsToCurrentRecordFilterGroups', () => {
   const mockObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
@@ -28,7 +28,7 @@ describe('useApplyCurrentViewFilterGroupsToCurrentRecordFilterGroups', () => {
 
   if (!isDefined(mockObjectMetadataItem)) {
     throw new Error(
-      'Missing mock object metadata item with name singular "company"',
+      'Missing mock object metadata item with name singular "keluarga"',
     );
   }
 

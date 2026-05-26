@@ -31,14 +31,14 @@ export const createRelationBetweenObjects = async <
   targetFieldIcon?: string;
 }) => {
   const createFieldInput: CreateOneFieldFactoryInput = {
-    name: name || 'person',
+    name: name || 'penduduk',
     label: label || 'person field',
     type: type,
     objectMetadataId: objectMetadataId,
     isLabelSyncedWithName: isLabelSyncedWithName || false,
     relationCreationPayload: {
       targetObjectMetadataId: targetObjectMetadataId,
-      targetFieldLabel: targetFieldLabel || 'opportunity',
+      targetFieldLabel: targetFieldLabel || 'programBantuan',
       targetFieldIcon: targetFieldIcon || 'IconListOpportunity',
       type: relationType,
     },

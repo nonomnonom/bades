@@ -47,7 +47,7 @@ const mockTargetField: FieldMetadataItem = {
   id: 'target-field-id',
   name: 'keluarga',
   type: FieldMetadataType.RELATION,
-  relation: createMockRelation('company-metadata-id', 'company'),
+  relation: createMockRelation('company-metadata-id', 'keluarga'),
 } as FieldMetadataItem;
 
 // Mock morph field with morphRelations (how real data looks)
@@ -57,8 +57,8 @@ const mockMorphFieldWithRelations: FieldMetadataItem = {
   morphId: 'morph-group-1',
   type: FieldMetadataType.MORPH_RELATION,
   morphRelations: [
-    createMockRelation('company-metadata-id', 'company', 'caretaker'),
-    createMockRelation('person-metadata-id', 'person', 'caretaker'),
+    createMockRelation('company-metadata-id', 'keluarga', 'caretaker'),
+    createMockRelation('person-metadata-id', 'penduduk', 'caretaker'),
   ],
 } as FieldMetadataItem;
 
@@ -68,13 +68,13 @@ const mockMultipleRelationFields: FieldMetadataItem[] = [
     id: 'relation-field-company-id',
     name: 'keluarga',
     type: FieldMetadataType.RELATION,
-    relation: createMockRelation('company-metadata-id', 'company'),
+    relation: createMockRelation('company-metadata-id', 'keluarga'),
   } as FieldMetadataItem,
   {
     id: 'relation-field-person-id',
     name: 'penduduk',
     type: FieldMetadataType.RELATION,
-    relation: createMockRelation('person-metadata-id', 'person'),
+    relation: createMockRelation('person-metadata-id', 'penduduk'),
   } as FieldMetadataItem,
 ];
 

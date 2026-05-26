@@ -24,7 +24,7 @@ describe('filterOutputSchema', () => {
   describe('shouldDisplayRecordFields only (true, false)', () => {
     describe('record schema', () => {
       it('should return the input schema unchanged', () => {
-        const inputSchema = createRecordSchema('person', {
+        const inputSchema = createRecordSchema('penduduk', {
           name: { isLeaf: true, value: 'string' },
           id: { isLeaf: true, type: FieldMetadataType.UUID },
         });
@@ -70,7 +70,7 @@ describe('filterOutputSchema', () => {
   describe('shouldDisplayRecordObjects and related fields only (false, true)', () => {
     describe('record schema', () => {
       it('should keep record schema with object and filter compatible fields', () => {
-        const inputSchema = createRecordSchema('person', {
+        const inputSchema = createRecordSchema('penduduk', {
           name: { isLeaf: true, value: 'string' },
           id: { isLeaf: true, type: FieldMetadataType.UUID },
           employee: {
@@ -80,7 +80,7 @@ describe('filterOutputSchema', () => {
           domain: { isLeaf: true, type: FieldMetadataType.TEXT },
         });
 
-        const expectedSchema = createRecordSchema('person', {
+        const expectedSchema = createRecordSchema('penduduk', {
           id: { isLeaf: true, type: FieldMetadataType.UUID },
           name: { isLeaf: true, value: 'string' },
           employee: {
@@ -161,7 +161,7 @@ describe('filterOutputSchema', () => {
 
   describe('both shouldDisplayRecordFields and shouldDisplayRecordObjects (true, true)', () => {
     it('should return the input schema unchanged for record schema', () => {
-      const inputSchema = createRecordSchema('person', {
+      const inputSchema = createRecordSchema('penduduk', {
         name: { isLeaf: true, value: 'string' },
         id: { isLeaf: true, type: FieldMetadataType.UUID },
       });
@@ -203,7 +203,7 @@ describe('filterOutputSchema', () => {
 
   describe('both shouldDisplayRecordFields and shouldDisplayRecordObjects false (false, false)', () => {
     it('should return the input schema unchanged', () => {
-      const inputSchema = createRecordSchema('person', {
+      const inputSchema = createRecordSchema('penduduk', {
         name: { isLeaf: true, value: 'string' },
       });
 
@@ -229,13 +229,13 @@ describe('filterOutputSchema', () => {
 
   describe('fieldTypesToExclude', () => {
     it('should filter out the types', () => {
-      const inputSchema = createRecordSchema('person', {
+      const inputSchema = createRecordSchema('penduduk', {
         name: { isLeaf: true, type: undefined, value: 'toto' },
         age: { isLeaf: true, type: FieldMetadataType.NUMBER },
         id: { isLeaf: true, type: FieldMetadataType.UUID },
       });
 
-      const expectedSchema = createRecordSchema('person', {
+      const expectedSchema = createRecordSchema('penduduk', {
         name: { isLeaf: true, type: undefined, value: 'toto' },
         age: { isLeaf: true, type: FieldMetadataType.NUMBER },
       });
@@ -251,7 +251,7 @@ describe('filterOutputSchema', () => {
     });
 
     it('should return the same schema if no types to filter', () => {
-      const inputSchema = createRecordSchema('person', {
+      const inputSchema = createRecordSchema('penduduk', {
         name: { isLeaf: true, value: 'string' },
         id: { isLeaf: true, type: FieldMetadataType.UUID },
       });

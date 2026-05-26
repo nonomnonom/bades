@@ -1,7 +1,7 @@
 import { extractObjectSingularNameFromTargetColumnName } from 'src/modules/timeline/utils/extract-object-singular-name-from-target-column-name.util';
 
 describe('extractObjectSingularNameFromTargetColumnName', () => {
-  it('should extract "person" from "targetPersonId"', () => {
+  it('should extract "penduduk" from "targetPersonId"', () => {
     expect(
       extractObjectSingularNameFromTargetColumnName('targetPersonId'),
     ).toBe('penduduk');
