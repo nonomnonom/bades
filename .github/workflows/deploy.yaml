@@ -121,6 +121,9 @@ jobs:
             # compose up biasa — downtime singkat ditutupi Caddy retry
             # (lb_try_duration 30s di Caddyfile). Setelah workflow stabil,
             # restore rollout flow di iterasi berikutnya.
+            echo "==> Pastikan db + redis sehat dulu (no-op kalau sudah running)"
+            sudo docker compose --env-file .env up -d db redis
+
             echo "==> Restart server + worker (downtime ~30s, Caddy retry handle)"
             sudo docker compose --env-file .env up -d --force-recreate --no-deps server worker
 
