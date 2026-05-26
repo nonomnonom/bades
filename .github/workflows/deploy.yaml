@@ -124,7 +124,9 @@ jobs:
               set -a
               source .env
               set +a
-              sudo -E docker rollout -f docker-compose.yml --wait-after-healthy 5 server
+              # Plugin docker-rollout di EC2 versi lama tidak punya -f flag.
+              # Plugin auto-pakai docker-compose.yml di cwd /home/ubuntu.
+              sudo -E docker rollout --wait-after-healthy 5 server
 
               echo "==> Restart worker (no zero-downtime needed)"
               sudo docker compose --env-file .env up -d --force-recreate --no-deps worker
