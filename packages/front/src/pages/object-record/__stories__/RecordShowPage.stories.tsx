@@ -4,13 +4,13 @@ import { HttpResponse, graphql } from 'msw';
 import { type PageDecoratorArgs } from '~/testing/decorators/PageDecorator';
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
 import { graphqlMocks } from '~/testing/graphqlMocks';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { mockedWorkspaceMemberData } from '~/testing/mock-data/users';
 import { generateMockRecordConnection } from '~/testing/utils/generateMockRecordConnection';
 
 import { RecordShowPage } from '~/pages/object-record/RecordShowPage';
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -28,10 +28,10 @@ const meta: Meta<PageDecoratorArgs> = {
   parameters: {
     msw: {
       handlers: [
-        graphql.query('FindManyPeople', () => {
+        graphql.query('FindManyPenduduks', () => {
           return HttpResponse.json({
             data: {
-              people: generateMockRecordConnection({
+              penduduks: generateMockRecordConnection({
                 objectNameSingular: 'person',
                 records: flatPersonRecords,
               }),

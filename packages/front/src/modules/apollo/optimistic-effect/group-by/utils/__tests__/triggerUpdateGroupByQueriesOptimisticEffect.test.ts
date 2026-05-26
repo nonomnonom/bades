@@ -34,7 +34,7 @@ describe('triggerUpdateGroupByQueriesOptimisticEffect', () => {
     expect(mockModify).toHaveBeenCalledWith({
       broadcast: false,
       fields: expect.objectContaining({
-        peopleGroupBy: expect.any(Function),
+        penduduksGroupBy: expect.any(Function),
       }),
     });
   });

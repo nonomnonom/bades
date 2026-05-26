@@ -25,7 +25,7 @@ const successTestData: HttpRequestTestData = {
     data: JSON.stringify(
       {
         id: '12345',
-        name: 'Acme Corp',
+        name: 'Keluarga Santoso',
         industry: 'Technology',
         employees: 150,
         revenue: '$50M',

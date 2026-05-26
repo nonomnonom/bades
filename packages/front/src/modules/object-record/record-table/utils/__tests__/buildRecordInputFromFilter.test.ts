@@ -58,13 +58,13 @@ describe('buildRecordInputFromFilter', () => {
           fieldMetadataId: FIELD_ID_TEXT,
           type: 'TEXT',
           operand: ViewFilterOperand.CONTAINS,
-          value: 'Acme',
+          value: 'Sukamaju',
         }),
       ],
       objectMetadataItem: mockObjectMetadataItem,
     });
 
-    expect(result).toEqual({ companyName: 'Acme' });
+    expect(result).toEqual({ companyName: 'Sukamaju' });
   });
 
   it('should subtract one minute for DATE_TIME with IS_BEFORE operand', () => {

@@ -202,7 +202,7 @@ const mockTimelineActivityRecord: ObjectRecord = {
 const mockCompanyRecord: ObjectRecord = {
   __typename: 'Company',
   id: TEST_RECORD_ID,
-  name: 'Acme Corporation',
+  name: 'Keluarga Anggrek',
   address: {
     addressStreet1: '123 Business St',
     addressStreet2: null,
@@ -420,7 +420,7 @@ export const TextFieldWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const companyName = await canvas.findByText('Acme Corporation');
+    const companyName = await canvas.findByText('Keluarga Anggrek');
     expect(companyName).toBeVisible();
   },
 };

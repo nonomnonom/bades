@@ -11,9 +11,9 @@ import { recordStoreFamilyState } from '@/object-record/record-store/states/reco
 import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { CustomError, isDefined } from 'shared/utils';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 import { mockedTaskRecords } from '~/testing/mock-data/generated/data/tasks/mock-tasks-data';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
@@ -58,7 +58,7 @@ export const getFieldDecorator =
     fieldValue?: any,
   ): Decorator =>
   (Story) => {
-    const companiesMock = [...mockedCompanyRecords];
+    const companiesMock = [...mockedKeluargaRecords];
 
     const companies =
       objectNameSingular === 'company' && isDefined(fieldValue)
@@ -68,7 +68,7 @@ export const getFieldDecorator =
           ]
         : companiesMock;
 
-    const peopleMock = [...mockedPersonRecords];
+    const peopleMock = [...mockedPendudukRecords];
 
     const people =
       objectNameSingular === 'person' && isDefined(fieldValue)

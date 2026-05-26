@@ -10,7 +10,7 @@ import { WorkflowStepDecorator } from '~/testing/decorators/WorkflowStepDecorato
 import { WorkspaceDecorator } from '~/testing/decorators/WorkspaceDecorator';
 import { getRecordFromRecordNode } from '@/object-record/cache/utils/getRecordFromRecordNode';
 import { graphqlMocks } from '~/testing/graphqlMocks';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { getWorkflowNodeIdMock } from '~/testing/mock-data/workflow';
 
 const DEFAULT_ACTION = {
@@ -110,7 +110,7 @@ export const DisabledWithEmptyValues: Story = {
   },
 };
 
-const flatPersonRecords = mockedPersonRecords.map((record) =>
+const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -144,7 +144,7 @@ export const DisabledWithDefaultStaticValues: Story = {
     expect(searchInputInSelectDropdown).not.toBeInTheDocument();
 
     const selectedRecord = await canvas.findByText(
-      `${peopleMock.name.firstName} ${peopleMock.name.lastName}`,
+      `${peopleMock.namaLengkap.firstName} ${peopleMock.namaLengkap.lastName}`,
       undefined,
       { timeout: 5000 },
     );

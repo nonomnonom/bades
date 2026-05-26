@@ -167,7 +167,7 @@ export const HttpRequestResponse: Story = {
     result: JSON.stringify(
       {
         id: '12345',
-        name: 'Acme Corp',
+        name: 'Keluarga Santoso',
         industry: 'Technology',
         employees: 150,
         founded: 2010,

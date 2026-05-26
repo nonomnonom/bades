@@ -83,7 +83,7 @@ const TAB_ID_OVERVIEW = 'tab-overview';
 const mockCompanyRecord: ObjectRecord = {
   __typename: 'Company',
   id: TEST_RECORD_ID,
-  name: 'Acme Corporation',
+  name: 'Keluarga Anggrek',
   address: {
     addressStreet1: '123 Business St',
     addressStreet2: null,
@@ -369,7 +369,7 @@ export const WithViewFieldGroups: Story = {
     const businessHeader = await canvas.findByText('Business');
     expect(businessHeader).toBeVisible();
 
-    const companyName = await canvas.findByText('Acme Corporation');
+    const companyName = await canvas.findByText('Keluarga Anggrek');
     expect(companyName).toBeVisible();
   },
 };

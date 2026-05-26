@@ -24,12 +24,12 @@ describe('resolveToolInput', () => {
   it('should unwrap execute_tool input', () => {
     const input = {
       toolName: 'find_companies',
-      arguments: { filter: { name: 'Acme' } },
+      arguments: { filter: { name: 'Sukamaju' } },
     };
     const result = resolveToolInput(input, 'execute_tool');
 
     expect(result).toEqual({
-      resolvedInput: { filter: { name: 'Acme' } },
+      resolvedInput: { filter: { name: 'Sukamaju' } },
       resolvedToolName: 'find_companies',
     });
   });

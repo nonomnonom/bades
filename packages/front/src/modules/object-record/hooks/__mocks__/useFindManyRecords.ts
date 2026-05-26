@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
 export const query = gql`
-  query FindManyPeople(
-    $filter: PersonFilterInput
-    $orderBy: PersonOrderByInput
+  query FindManyPenduduks(
+    $filter: PendudukFilterInput
+    $orderBy: PendudukOrderByInput
     $lastCursor: String
     $limit: Int
   ) {

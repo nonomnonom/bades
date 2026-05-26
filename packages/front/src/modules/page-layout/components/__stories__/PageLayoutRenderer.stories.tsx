@@ -224,7 +224,7 @@ const graphqlMocks: MockedResponse[] = [
     },
     result: {
       data: {
-        peopleGroupBy: [
+        penduduksGroupBy: [
           {
             groupByDimensionValues: ['2024-01-15T00:00:00.000Z'],
             totalCount: 12,

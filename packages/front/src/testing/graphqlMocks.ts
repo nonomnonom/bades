@@ -8,7 +8,7 @@ import { GET_CURRENT_USER } from '@/users/graphql/queries/getCurrentUser';
 import { REACT_APP_SERVER_BASE_URL } from '~/config';
 import { mockedClientConfig } from '~/testing/mock-data/config';
 import { mockedNoteRecords } from '~/testing/mock-data/generated/data/notes/mock-notes-data';
-import { mockedPersonRecords } from '~/testing/mock-data/generated/data/people/mock-people-data';
+import { mockedPendudukRecords } from '~/testing/mock-data/generated/data/penduduk/mock-penduduk-data';
 import { mockedWorkspaceMemberRecords } from '~/testing/mock-data/generated/data/workspaceMembers/mock-workspaceMembers-data';
 import { mockedViews } from '~/testing/mock-data/generated/metadata/views/mock-views-data';
 import { mockedPublicWorkspaceDataBySubdomain } from '~/testing/mock-data/publicWorkspaceDataBySubdomain';
@@ -20,7 +20,7 @@ import { GET_RESOURCE_CREDIT_USAGE } from '@/settings/billing/graphql/queries/ge
 import { LIST_PLANS } from '@/settings/billing/graphql/queries/listPlans';
 import { GET_ROLES } from '@/settings/roles/graphql/queries/getRolesQuery';
 import { mockBillingPlans } from '~/testing/mock-data/billing-plans';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 import { mockedTaskRecords } from '~/testing/mock-data/generated/data/tasks/mock-tasks-data';
 import { mockedStandardObjectMetadataQueryResult } from '~/testing/mock-data/generated/metadata/objects/mock-objects-metadata';
 import { mockedRoles } from '~/testing/mock-data/generated/metadata/roles/mock-roles-data';
@@ -45,10 +45,10 @@ import {
 } from '~/testing/mock-data/workflow';
 import { oneSucceededWorkflowRunQueryResult } from '~/testing/mock-data/workflow-run';
 
-const peopleMock = [...mockedPersonRecords];
-const companiesMock = [...mockedCompanyRecords];
+const peopleMock = [...mockedPendudukRecords];
+const companiesMock = [...mockedKeluargaRecords];
 const duplicateCompanyMock = {
-  ...mockedCompanyRecords[0],
+  ...mockedKeluargaRecords[0],
   id: '8b40856a-2ec9-4c03-8bc0-c032c89e1824',
 };
 
@@ -282,10 +282,10 @@ export const graphqlMocks = {
           node: {
             __typename: 'SearchRecordDTO',
             recordId: person.id,
-            objectNameSingular: 'person',
-            objectLabelSingular: 'Person',
+            objectNameSingular: 'penduduk',
+            objectLabelSingular: 'Penduduk',
             label:
-              `${(person.name as Record<string, string>)?.firstName ?? ''} ${(person.name as Record<string, string>)?.lastName ?? ''}`.trim(),
+              `${((person.namaLengkap ?? person.name) as Record<string, string>)?.firstName ?? ''} ${((person.namaLengkap ?? person.name) as Record<string, string>)?.lastName ?? ''}`.trim(),
             imageUrl: '',
             tsRankCD: 0.2,
             tsRank: 0.12158542,
@@ -299,9 +299,9 @@ export const graphqlMocks = {
           node: {
             __typename: 'SearchRecordDTO',
             recordId: company.id,
-            objectNameSingular: 'company',
-            objectLabelSingular: 'Company',
-            label: company.name,
+            objectNameSingular: 'keluarga',
+            objectLabelSingular: 'Keluarga',
+            label: (company.nomorKk ?? company.name) as string,
             imageUrl: '',
             tsRankCD: 0.2,
             tsRank: 0.12158542,
@@ -404,14 +404,14 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('FindManyCompanies', ({ variables }) => {
+    graphql.query('FindManyKeluargas', ({ variables }) => {
       const mockedData = variables.limit
         ? companiesMock.slice(0, variables.limit)
         : companiesMock;
 
       return HttpResponse.json({
         data: {
-          companies: wrapRecordsAsConnection('company', mockedData),
+          keluargas: wrapRecordsAsConnection('keluarga', mockedData),
         },
       });
     }),
@@ -424,10 +424,10 @@ export const graphqlMocks = {
         },
       });
     }),
-    graphql.query('FindManyPeople', () => {
+    graphql.query('FindManyPenduduks', () => {
       return HttpResponse.json({
         data: {
-          people: wrapRecordsAsConnection('person', peopleMock),
+          penduduks: wrapRecordsAsConnection('penduduk', peopleMock),
         },
       });
     }),

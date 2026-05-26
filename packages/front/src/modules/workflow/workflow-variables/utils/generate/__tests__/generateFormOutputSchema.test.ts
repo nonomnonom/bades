@@ -108,7 +108,7 @@ describe('generateFormOutputSchema', () => {
       ];
       const objectMetadataItems = [
         createMockObjectMetadataItem({
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           labelSingular: 'Company',
         }),
       ];
@@ -171,7 +171,7 @@ describe('generateFormOutputSchema', () => {
       ];
       const objectMetadataItems = [
         createMockObjectMetadataItem({
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
         }),
       ];
 
@@ -208,7 +208,7 @@ describe('generateFormOutputSchema', () => {
       ];
       const objectMetadataItems = [
         createMockObjectMetadataItem({
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           labelSingular: 'Company',
         }),
       ];

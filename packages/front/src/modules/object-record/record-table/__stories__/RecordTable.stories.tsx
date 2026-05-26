@@ -11,7 +11,7 @@ import { ObjectMetadataItemsDecorator } from '~/testing/decorators/ObjectMetadat
 import { RecordTableDecorator } from '~/testing/decorators/RecordTableDecorator';
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
 import { graphqlMocks } from '~/testing/graphqlMocks';
-import { mockedCompanyRecords } from '~/testing/mock-data/generated/data/companies/mock-companies-data';
+import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluarga/mock-keluarga-data';
 import { mockedViews } from '~/testing/mock-data/generated/metadata/views/mock-views-data';
 import { sleep } from '~/utils/sleep';
 
@@ -74,7 +74,7 @@ export const ScrolledLeft: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await canvas.findAllByText(
-      mockedCompanyRecords[0].name,
+      mockedKeluargaRecords[0].nomorKk,
       {},
       { timeout: 3000 },
     );
@@ -95,7 +95,7 @@ export const ScrolledLeft: Story = {
       },
     });
 
-    await canvas.findByText(mockedCompanyRecords[1].name);
+    await canvas.findByText(mockedKeluargaRecords[1].nomorKk);
   },
 };
 
@@ -108,7 +108,7 @@ export const ScrolledBottom: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await canvas.findAllByText(
-      mockedCompanyRecords[0].name,
+      mockedKeluargaRecords[0].nomorKk,
       {},
       { timeout: 3000 },
     );
@@ -129,6 +129,6 @@ export const ScrolledBottom: Story = {
       },
     });
 
-    await canvas.findByText(mockedCompanyRecords[1].name);
+    await canvas.findByText(mockedKeluargaRecords[1].nomorKk);
   },
 };

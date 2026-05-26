@@ -68,9 +68,9 @@ const mockPerson = {
 const mock: MockedResponse = {
   request: {
     query: gql`
-          query FindManyPeople(
-              $filter: PersonFilterInput
-              $orderBy: [PersonOrderByInput]
+          query FindManyPenduduks(
+              $filter: PendudukFilterInput
+              $orderBy: [PendudukOrderByInput]
               $lastCursor: String
               $limit: Int
               $offset: Int

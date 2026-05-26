@@ -7,8 +7,8 @@ import { FieldMetadataType } from 'shared/types';
 
 const mockCompanyObjectMetadataItem: EnrichedObjectMetadataItem = {
   id: 'company-metadata-id',
-  nameSingular: 'company',
-  namePlural: 'companies',
+  nameSingular: 'keluarga',
+  namePlural: 'keluargas',
   labelSingular: 'Company',
   labelPlural: 'Companies',
   icon: 'IconBuildingSkyscraper',

@@ -101,7 +101,7 @@ const mockPersonRecord: ObjectRecord = {
 const mockCompanyRecord: ObjectRecord = {
   __typename: 'Company',
   id: TEST_RECORD_ID,
-  name: 'Acme Corporation',
+  name: 'Keluarga Anggrek',
   people: [
     {
       __typename: 'Person',
@@ -182,7 +182,7 @@ const graphqlMocks: MockedResponse[] = [
     },
     result: {
       data: {
-        companiesGroupBy: [
+        keluargasGroupBy: [
           {
             groupByDimensionValues: ['2024-01-15T00:00:00.000Z'],
             totalCount: 12,

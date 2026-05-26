@@ -52,7 +52,7 @@ const CONFIGURED_ACTION: WorkflowFilterAction = {
           stepFilterGroupId: 'filter-group-1',
           stepOutputKey: 'company.name',
           operand: ViewFilterOperand.CONTAINS,
-          value: 'Acme',
+          value: 'Sukamaju',
           type: 'string',
         },
       ],

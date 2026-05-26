@@ -45,9 +45,9 @@ describe('computeViewRecordGqlOperationFilter', () => {
 
     const nameFilter: RecordFilter = {
       id: 'company-name-filter',
-      value: mockedCompanyRecords[0].name,
+      value: mockedKeluargaRecords[0].nomorKk,
       fieldMetadataId: companyMockNameFieldMetadataId.id,
-      displayValue: mockedCompanyRecords[0].name,
+      displayValue: mockedKeluargaRecords[0].nomorKk,
       operand: RecordFilterOperand.CONTAINS,
       type: 'TEXT',
       label: 'Name',
@@ -62,7 +62,7 @@ describe('computeViewRecordGqlOperationFilter', () => {
 
     expect(result).toEqual({
       name: {
-        ilike: `%${mockedCompanyRecords[0].name}%`,
+        ilike: `%${mockedKeluargaRecords[0].nomorKk}%`,
       },
     });
   });
@@ -88,9 +88,9 @@ describe('computeViewRecordGqlOperationFilter', () => {
 
     const nameFilter: RecordFilter = {
       id: 'company-name-filter',
-      value: mockedCompanyRecords[0].name,
+      value: mockedKeluargaRecords[0].nomorKk,
       fieldMetadataId: companyMockNameFieldMetadataId.id,
-      displayValue: mockedCompanyRecords[0].name,
+      displayValue: mockedKeluargaRecords[0].nomorKk,
       operand: ViewFilterOperand.CONTAINS,
       type: FieldMetadataType.TEXT,
       label: 'Name',
@@ -117,7 +117,7 @@ describe('computeViewRecordGqlOperationFilter', () => {
       and: [
         {
           name: {
-            ilike: `%${mockedCompanyRecords[0].name}%`,
+            ilike: `%${mockedKeluargaRecords[0].nomorKk}%`,
           },
         },
         {

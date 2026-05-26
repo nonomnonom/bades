@@ -14,7 +14,7 @@ describe('searchVariableThroughFindRecordsOutputSchema', () => {
         isLeaf: true,
         type: FieldMetadataType.TEXT,
         label: 'Company Name',
-        value: 'Acme Corp',
+        value: 'Keluarga Santoso',
         fieldMetadataId: 'company-name-metadata-id',
         isCompositeSubField: false,
       },

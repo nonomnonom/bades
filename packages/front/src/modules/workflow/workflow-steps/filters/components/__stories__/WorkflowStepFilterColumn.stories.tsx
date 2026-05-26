@@ -24,7 +24,7 @@ const TEXT_STEP_FILTER: StepFilter = {
   stepFilterGroupId: 'filter-group-1',
   stepOutputKey: 'company.name',
   type: 'text',
-  value: 'Acme',
+  value: 'Sukamaju',
   operand: ViewFilterOperand.CONTAINS,
 };
 

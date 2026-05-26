@@ -15,7 +15,7 @@ const TEXT_FILTER: StepFilter = {
   stepOutputKey: 'company.name',
   type: 'text',
   operand: ViewFilterOperand.CONTAINS,
-  value: 'Acme',
+  value: 'Sukamaju',
   positionInStepFilterGroup: 0,
 };
 
@@ -54,7 +54,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await expect(await canvas.findByText('Acme')).toBeVisible();
+    await expect(await canvas.findByText('Sukamaju')).toBeVisible();
   },
 };
 
