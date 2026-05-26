@@ -14,7 +14,7 @@ import { addFlatEntityToFlatEntityMapsOrThrow } from 'src/engine/metadata-module
 import { COMPANY_FLAT_FIELDS_MOCK } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/company-flat-fields.mock';
 import { getFlatFieldMetadataMock } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/get-flat-field-metadata.mock';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
-import { COMPANY_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/company-flat-object.mock';
+import { KELUARGA_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/keluarga-flat-object.mock';
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
 import { EventStreamService } from 'src/engine/subscriptions/event-stream.service';
 import { SubscriptionService } from 'src/engine/subscriptions/subscription.service';
@@ -97,12 +97,12 @@ describe('ObjectRecordEventPublisher', () => {
     Pick<GlobalWorkspaceOrmManager, 'getGlobalWorkspaceDataSourceReplica'>
   >;
 
-  const workspaceId = COMPANY_FLAT_OBJECT_MOCK.workspaceId;
+  const workspaceId = KELUARGA_FLAT_OBJECT_MOCK.workspaceId;
   const streamChannelId = 'test-stream-channel-id';
   const userWorkspaceId = 'test-user-workspace-id';
   const roleId = 'test-role-id';
 
-  const companyObjectMetadata: FlatObjectMetadata = COMPANY_FLAT_OBJECT_MOCK;
+  const companyObjectMetadata: FlatObjectMetadata = KELUARGA_FLAT_OBJECT_MOCK;
 
   const companyNameField = COMPANY_FLAT_FIELDS_MOCK.name;
 

@@ -15,7 +15,7 @@ import {
   fromCreateFieldInputToFlatFieldMetadatasToCreate,
   type FromCreateFieldInputToFlatObjectMetadataArgs,
 } from 'src/engine/metadata-modules/flat-field-metadata/utils/from-create-field-input-to-flat-field-metadatas-to-create.util';
-import { COMPANY_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/company-flat-object.mock';
+import { KELUARGA_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/keluarga-flat-object.mock';
 import { FLAT_OBJECT_METADATA_MAPS_MOCKS } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/flat-object-metadata-maps.mock';
 import { PET_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/pet-flat-object.mock';
 import { ROCKET_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/rocket-flat-object.mock';
@@ -48,7 +48,7 @@ const MOCK_FLAT_APPLICATION: FlatApplication = {
 };
 
 const flatObjectMetadataMaps = [
-  COMPANY_FLAT_OBJECT_MOCK,
+  KELUARGA_FLAT_OBJECT_MOCK,
   ROCKET_FLAT_OBJECT_MOCK,
   PET_FLAT_OBJECT_MOCK,
 ].reduce((flatObjectMetadataMaps, flatObjectMetadata) => {
@@ -90,7 +90,7 @@ describe('fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test s
                 },
                 {
                   type: RelationType.ONE_TO_MANY,
-                  targetObjectMetadataId: COMPANY_FLAT_OBJECT_MOCK.id,
+                  targetObjectMetadataId: KELUARGA_FLAT_OBJECT_MOCK.id,
                   targetFieldLabel: 'Company',
                   targetFieldIcon: 'IconBuilding',
                 },
@@ -188,7 +188,7 @@ describe('fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test s
                 },
                 {
                   type: RelationType.MANY_TO_ONE,
-                  targetObjectMetadataId: COMPANY_FLAT_OBJECT_MOCK.id,
+                  targetObjectMetadataId: KELUARGA_FLAT_OBJECT_MOCK.id,
                   targetFieldLabel: 'Company',
                   targetFieldIcon: 'IconPet',
                 },

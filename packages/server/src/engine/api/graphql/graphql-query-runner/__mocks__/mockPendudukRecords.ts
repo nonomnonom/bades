@@ -1,6 +1,6 @@
 import { type ObjectRecord } from 'shared/types';
 
-export const mockPersonRecords: Partial<ObjectRecord>[] = [
+export const mockPendudukRecords: Partial<ObjectRecord>[] = [
   {
     name: {
       firstName: 'Testfirst',

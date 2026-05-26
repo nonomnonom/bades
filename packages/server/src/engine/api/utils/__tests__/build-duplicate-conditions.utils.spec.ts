@@ -2,8 +2,8 @@ import {
   mockPersonFlatFieldMetadataMaps,
   mockPersonFlatObjectMetadata,
   mockPersonFlatObjectMetadataMaps,
-} from 'src/engine/api/graphql/graphql-query-runner/__mocks__/mockPersonObjectMetadata';
-import { mockPersonRecords } from 'src/engine/api/graphql/graphql-query-runner/__mocks__/mockPersonRecords';
+} from 'src/engine/api/graphql/graphql-query-runner/__mocks__/mockPendudukObjectMetadata';
+import { mockPendudukRecords } from 'src/engine/api/graphql/graphql-query-runner/__mocks__/mockPendudukRecords';
 import { buildDuplicateConditions } from 'src/engine/api/utils/build-duplicate-conditions.utils';
 
 describe('buildDuplicateConditions', () => {
@@ -12,7 +12,7 @@ describe('buildDuplicateConditions', () => {
       mockPersonFlatObjectMetadata([['emailsPrimaryEmail']]),
       mockPersonFlatObjectMetadataMaps([['emailsPrimaryEmail']]),
       mockPersonFlatFieldMetadataMaps(),
-      mockPersonRecords,
+      mockPendudukRecords,
       'recordId',
     );
 
@@ -37,7 +37,7 @@ describe('buildDuplicateConditions', () => {
       mockPersonFlatObjectMetadata([['jobTitle']]),
       mockPersonFlatObjectMetadataMaps([['jobTitle']]),
       mockPersonFlatFieldMetadataMaps(),
-      mockPersonRecords,
+      mockPendudukRecords,
       'recordId',
     );
 
@@ -60,7 +60,7 @@ describe('buildDuplicateConditions', () => {
       mockPersonFlatObjectMetadata([['linkedinLinkPrimaryLinkUrl']]),
       mockPersonFlatObjectMetadataMaps([['linkedinLinkPrimaryLinkUrl']]),
       mockPersonFlatFieldMetadataMaps(),
-      mockPersonRecords,
+      mockPendudukRecords,
       'recordId',
     );
 
@@ -72,7 +72,7 @@ describe('buildDuplicateConditions', () => {
       mockPersonFlatObjectMetadata([['jobTitle']]),
       mockPersonFlatObjectMetadataMaps([['jobTitle']]),
       mockPersonFlatFieldMetadataMaps(),
-      mockPersonRecords,
+      mockPendudukRecords,
     );
 
     expect(duplicateConditons).toEqual({

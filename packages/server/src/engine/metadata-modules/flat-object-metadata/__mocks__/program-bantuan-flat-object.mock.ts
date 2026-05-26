@@ -1,12 +1,12 @@
 import { getFlatObjectMetadataMock } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/get-flat-object-metadata.mock';
 
-export const OPPORTUNITY_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
+export const PROGRAM_BANTUAN_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
   id: 'e6996bbf-dd41-423a-9324-8546f5b22fa7',
   nameSingular: 'programBantuan',
   namePlural: 'programBantuans',
   labelSingular: 'Program Bantuan',
   labelPlural: 'Program Bantuan',
-  description: 'An opportunity',
+  description: 'Program bantuan sosial',
   icon: 'IconTargetArrow',
   standardOverrides: null,
   targetTableName: 'DEPRECATED',

@@ -20,7 +20,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 
 const recordTableId = 'people';
 const objectNameSingular = 'person';
-const mockPersonObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const mockPendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
 
 const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
@@ -147,7 +147,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
           componentInstanceId={recordTableId}
         >
           <JestRecordIndexContextProviderWrapper
-            objectMetadataItem={mockPersonObjectMetadataItem}
+            objectMetadataItem={mockPendudukObjectMetadataItem}
           >
             <RecordTableContextProvider
               objectNameSingular={objectNameSingular}

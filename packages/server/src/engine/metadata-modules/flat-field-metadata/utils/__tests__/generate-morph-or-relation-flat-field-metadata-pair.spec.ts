@@ -12,7 +12,7 @@ import {
   generateMorphOrRelationFlatFieldMetadataPair,
   type SourceTargetMorphOrRelationFlatFieldAndFlatIndex,
 } from 'src/engine/metadata-modules/flat-field-metadata/utils/generate-morph-or-relation-flat-field-metadata-pair.util';
-import { COMPANY_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/company-flat-object.mock';
+import { KELUARGA_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/keluarga-flat-object.mock';
 import { PET_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/pet-flat-object.mock';
 
 const MOCK_FLAT_APPLICATION: FlatApplication = {
@@ -63,7 +63,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           'should generate a regular RELATION field pair with ONE_TO_MANY relation type',
         context: {
           input: {
-            sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+            sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
             targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
             targetFlatFieldMetadataType: FieldMetadataType.RELATION,
             sourceFlatObjectMetadataJoinColumnName: 'petId',
@@ -98,7 +98,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           'should generate a regular RELATION field pair with MANY_TO_ONE relation type',
         context: {
           input: {
-            sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+            sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
             targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
             targetFlatFieldMetadataType: FieldMetadataType.RELATION,
             sourceFlatObjectMetadataJoinColumnName: 'petId',
@@ -133,7 +133,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           'should generate a regular RELATION with isCustom, isSytem, isUnique not default values',
         context: {
           input: {
-            sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+            sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
             targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
             targetFlatFieldMetadataType: FieldMetadataType.RELATION,
             sourceFlatObjectMetadataJoinColumnName: 'petId',
@@ -168,7 +168,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           'should generate a MORPH_RELATION (MANY_TO_ONE) field pair with morphId when provided',
         context: {
           input: {
-            sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+            sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
             targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
             targetFlatFieldMetadataType: FieldMetadataType.RELATION,
             sourceFlatObjectMetadataJoinColumnName: 'targetPetId',
@@ -204,7 +204,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           'should generate a MORPH_RELATION (ONE_TO_MANY) field pair with morphId when provided',
         context: {
           input: {
-            sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+            sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
             targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
             targetFlatFieldMetadataType: FieldMetadataType.RELATION,
             sourceFlatObjectMetadataJoinColumnName: 'targetPetId',
@@ -240,7 +240,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           'should generate a MORPH_RELATION (ONE_TO_MANY) field pair with MORPH as target',
         context: {
           input: {
-            sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+            sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
             targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
             targetFlatFieldMetadataType: FieldMetadataType.MORPH_RELATION,
             sourceFlatObjectMetadataJoinColumnName: 'targetPetId',
@@ -352,7 +352,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
       const sourceUniversalIdentifier = '11111111-2222-3333-4444-555555555555';
 
       const input: GenerateMorphOrRelationFlatFieldMetadataPairTestInput = {
-        sourceFlatObjectMetadata: COMPANY_FLAT_OBJECT_MOCK,
+        sourceFlatObjectMetadata: KELUARGA_FLAT_OBJECT_MOCK,
         targetFlatObjectMetadata: PET_FLAT_OBJECT_MOCK,
         targetFlatFieldMetadataType: FieldMetadataType.RELATION,
         sourceFlatObjectMetadataJoinColumnName: 'petId',

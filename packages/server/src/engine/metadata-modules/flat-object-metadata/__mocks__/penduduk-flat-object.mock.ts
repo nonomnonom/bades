@@ -1,12 +1,12 @@
 import { getFlatObjectMetadataMock } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/get-flat-object-metadata.mock';
 
-export const PERSON_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
+export const PENDUDUK_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
   id: '843e0b67-9619-4628-91c4-2fa62256a611',
   nameSingular: 'penduduk',
   namePlural: 'penduduks',
   labelSingular: 'Penduduk',
   labelPlural: 'Penduduk',
-  description: 'A person',
+  description: 'Warga desa',
   icon: 'IconUser',
   standardOverrides: null,
   targetTableName: 'DEPRECATED',

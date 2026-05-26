@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateGroupByQuery should generate valid GraphQL query for empty aggregate operations 1`] = `
 "
-    query PeopleGroupByAggregates(
-      $groupBy: [PersonGroupByInput!]!
-      $filter: PersonFilterInput
-      $orderBy: [PersonOrderByWithGroupByInput!]
+    query PenduduksGroupByAggregates(
+      $groupBy: [PendudukGroupByInput!]!
+      $filter: PendudukFilterInput
+      $orderBy: [PendudukOrderByWithGroupByInput!]
       $viewId: UUID
       $limit: Int
     ) {
-      peopleGroupBy(
+      penduduksGroupBy(
         groupBy: $groupBy
         filter: $filter
         orderBy: $orderBy
@@ -24,14 +24,14 @@ exports[`generateGroupByQuery should generate valid GraphQL query for empty aggr
 
 exports[`generateGroupByQuery should generate valid GraphQL query for multiple aggregate operations 1`] = `
 "
-    query OpportunitiesGroupByAggregates(
-      $groupBy: [OpportunityGroupByInput!]!
-      $filter: OpportunityFilterInput
-      $orderBy: [OpportunityOrderByWithGroupByInput!]
+    query ProgramBantuansGroupByAggregates(
+      $groupBy: [ProgramBantuanGroupByInput!]!
+      $filter: ProgramBantuanFilterInput
+      $orderBy: [ProgramBantuanOrderByWithGroupByInput!]
       $viewId: UUID
       $limit: Int
     ) {
-      opportunitiesGroupBy(
+      programBantuansGroupBy(
         groupBy: $groupBy
         filter: $filter
         orderBy: $orderBy
@@ -49,14 +49,14 @@ exports[`generateGroupByQuery should generate valid GraphQL query for multiple a
 
 exports[`generateGroupByQuery should generate valid GraphQL query for single aggregate operation 1`] = `
 "
-    query OpportunitiesGroupByAggregates(
-      $groupBy: [OpportunityGroupByInput!]!
-      $filter: OpportunityFilterInput
-      $orderBy: [OpportunityOrderByWithGroupByInput!]
+    query ProgramBantuansGroupByAggregates(
+      $groupBy: [ProgramBantuanGroupByInput!]!
+      $filter: ProgramBantuanFilterInput
+      $orderBy: [ProgramBantuanOrderByWithGroupByInput!]
       $viewId: UUID
       $limit: Int
     ) {
-      opportunitiesGroupBy(
+      programBantuansGroupBy(
         groupBy: $groupBy
         filter: $filter
         orderBy: $orderBy

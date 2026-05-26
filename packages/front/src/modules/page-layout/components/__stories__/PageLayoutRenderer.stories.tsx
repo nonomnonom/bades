@@ -26,20 +26,20 @@ import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMeta
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const mockPersonObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const mockPendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
 const mockDashboardObjectMetadataItem =
   getMockObjectMetadataItemOrThrow('dashboard');
 
 const idField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: mockPersonObjectMetadataItem,
+  objectMetadataItem: mockPendudukObjectMetadataItem,
   fieldName: 'id',
 });
 const nameField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: mockPersonObjectMetadataItem,
+  objectMetadataItem: mockPendudukObjectMetadataItem,
   fieldName: 'name',
 });
 const createdAtField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: mockPersonObjectMetadataItem,
+  objectMetadataItem: mockPendudukObjectMetadataItem,
   fieldName: 'createdAt',
 });
 
@@ -81,7 +81,7 @@ const mixedGraphsPageLayoutMocks = {
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
           title: 'Revenue',
-          objectMetadataId: mockPersonObjectMetadataItem.id,
+          objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
             row: 0,
@@ -107,7 +107,7 @@ const mixedGraphsPageLayoutMocks = {
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
           title: 'Goal Progress',
-          objectMetadataId: mockPersonObjectMetadataItem.id,
+          objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
             row: 0,
@@ -134,7 +134,7 @@ const mixedGraphsPageLayoutMocks = {
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
           title: 'Revenue Sources',
-          objectMetadataId: mockPersonObjectMetadataItem.id,
+          objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
             row: 0,
@@ -162,7 +162,7 @@ const mixedGraphsPageLayoutMocks = {
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
           title: 'Quarterly Comparison',
-          objectMetadataId: mockPersonObjectMetadataItem.id,
+          objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
             row: 2,
@@ -191,7 +191,7 @@ const mixedGraphsPageLayoutMocks = {
 };
 
 const barChartGroupByQuery = generateGroupByAggregateQuery({
-  objectMetadataItem: mockPersonObjectMetadataItem,
+  objectMetadataItem: mockPendudukObjectMetadataItem,
   aggregateOperationGqlFields: ['totalCount'],
 });
 
