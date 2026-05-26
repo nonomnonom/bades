@@ -1,5 +1,5 @@
 import { DatabaseEventAction } from 'src/engine/api/graphql/graphql-query-runner/enums/database-event-action';
-import { mockCompanyObjectMetadataInfo } from 'src/engine/core-modules/__mocks__/mockObjectMetadataItemsWithFieldMaps';
+import { mockKeluargaObjectMetadataInfo } from 'src/engine/core-modules/__mocks__/mockObjectMetadataItemsWithFieldMaps';
 import { generateFakeObjectRecordEvent } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-fake-object-record-event';
 import { generateObjectRecordFields } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-object-record-fields';
 
@@ -31,16 +31,16 @@ describe('generateFakeObjectRecordEvent', () => {
 
   it('should generate record with "after" prefix for CREATED action', () => {
     const result = generateFakeObjectRecordEvent(
-      mockCompanyObjectMetadataInfo,
+      mockKeluargaObjectMetadataInfo,
       DatabaseEventAction.CREATED,
     );
 
     expect(result).toEqual({
       object: {
         isLeaf: true,
-        icon: 'test-company-icon',
-        label: 'Company',
-        value: 'A company',
+        icon: 'test-keluarga-icon',
+        label: 'Keluarga',
+        value: 'A keluarga',
         fieldIdName: 'properties.after.id',
         objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
       },
@@ -62,16 +62,16 @@ describe('generateFakeObjectRecordEvent', () => {
 
   it('should generate record with "after" prefix for UPDATED action', () => {
     const result = generateFakeObjectRecordEvent(
-      mockCompanyObjectMetadataInfo,
+      mockKeluargaObjectMetadataInfo,
       DatabaseEventAction.UPDATED,
     );
 
     expect(result).toEqual({
       object: {
         isLeaf: true,
-        icon: 'test-company-icon',
-        label: 'Company',
-        value: 'A company',
+        icon: 'test-keluarga-icon',
+        label: 'Keluarga',
+        value: 'A keluarga',
         fieldIdName: 'properties.after.id',
         objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
       },
@@ -93,16 +93,16 @@ describe('generateFakeObjectRecordEvent', () => {
 
   it('should generate record with "before" prefix for DELETED action', () => {
     const result = generateFakeObjectRecordEvent(
-      mockCompanyObjectMetadataInfo,
+      mockKeluargaObjectMetadataInfo,
       DatabaseEventAction.DELETED,
     );
 
     expect(result).toEqual({
       object: {
         isLeaf: true,
-        icon: 'test-company-icon',
-        label: 'Company',
-        value: 'A company',
+        icon: 'test-keluarga-icon',
+        label: 'Keluarga',
+        value: 'A keluarga',
         fieldIdName: 'properties.before.id',
         objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
       },
@@ -124,16 +124,16 @@ describe('generateFakeObjectRecordEvent', () => {
 
   it('should generate record with "before" prefix for DESTROYED action', () => {
     const result = generateFakeObjectRecordEvent(
-      mockCompanyObjectMetadataInfo,
+      mockKeluargaObjectMetadataInfo,
       DatabaseEventAction.DESTROYED,
     );
 
     expect(result).toEqual({
       object: {
         isLeaf: true,
-        icon: 'test-company-icon',
-        label: 'Company',
-        value: 'A company',
+        icon: 'test-keluarga-icon',
+        label: 'Keluarga',
+        value: 'A keluarga',
         fieldIdName: 'properties.before.id',
         objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
       },
@@ -155,16 +155,16 @@ describe('generateFakeObjectRecordEvent', () => {
 
   it('should generate record with "after" prefix for UPSERTED action', () => {
     const result = generateFakeObjectRecordEvent(
-      mockCompanyObjectMetadataInfo,
+      mockKeluargaObjectMetadataInfo,
       DatabaseEventAction.UPSERTED,
     );
 
     expect(result).toEqual({
       object: {
         isLeaf: true,
-        icon: 'test-company-icon',
-        label: 'Company',
-        value: 'A company',
+        icon: 'test-keluarga-icon',
+        label: 'Keluarga',
+        value: 'A keluarga',
         fieldIdName: 'properties.after.id',
         objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
       },
@@ -187,7 +187,7 @@ describe('generateFakeObjectRecordEvent', () => {
   it('should throw error for unknown action', () => {
     expect(() => {
       generateFakeObjectRecordEvent(
-        mockCompanyObjectMetadataInfo,
+        mockKeluargaObjectMetadataInfo,
         'UNKNOWN' as DatabaseEventAction,
       );
     }).toThrow("Action 'UNKNOWN' tidak dikenal");

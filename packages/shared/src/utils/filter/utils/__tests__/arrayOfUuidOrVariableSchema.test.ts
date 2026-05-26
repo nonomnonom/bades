@@ -57,7 +57,7 @@ describe('arrayOfUuidOrVariableSchema', () => {
       const validVariables = [
         '{{variable}}',
         '{{user.id}}',
-        '{{company.name}}',
+        '{{keluarga.name}}',
       ];
 
       validVariables.forEach((variable) => {

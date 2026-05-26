@@ -2,7 +2,7 @@ import { isWorkEmail } from 'src/utils/is-work-email';
 
 describe('isWorkEmail', () => {
   it('should return true for a work email', () => {
-    expect(isWorkEmail('user@company.com')).toBe(true);
+    expect(isWorkEmail('user@keluarga.com')).toBe(true);
   });
 
   it('should return false for a personal email', () => {

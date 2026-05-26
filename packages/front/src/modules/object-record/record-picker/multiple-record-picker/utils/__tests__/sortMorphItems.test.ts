@@ -16,7 +16,7 @@ const createSearchRecord = (recordId: string): SearchRecord => ({
   recordId,
   label: `Record ${recordId}`,
   objectNameSingular: 'penduduk',
-  objectLabelSingular: 'Person',
+  objectLabelSingular: 'Penduduk',
   tsRank: 0,
   tsRankCD: 0,
 });

@@ -86,8 +86,8 @@ describe('useOpenCreateActivityDrawer', () => {
   it('should create a note target with the targetable object relation when targets are provided', async () => {
     const targetableObjects = [
       {
-        id: 'company-id',
-        targetObjectNameSingular: 'company',
+        id: 'keluarga-id',
+        targetObjectNameSingular: 'keluarga',
       },
     ];
 

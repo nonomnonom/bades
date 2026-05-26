@@ -19,7 +19,7 @@ const createMockObjectMetadataItem = (
 describe('generateRecordOutputSchema', () => {
   it('should generate schema with correct object metadata', () => {
     const objectMetadataItem = createMockObjectMetadataItem({
-      id: 'company-id',
+      id: 'keluarga-id',
       labelSingular: 'Keluarga',
       icon: 'IconBuilding',
     });
@@ -30,7 +30,7 @@ describe('generateRecordOutputSchema', () => {
       object: {
         icon: 'IconBuilding',
         label: 'Keluarga',
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
         fieldIdName: 'id',
       },
       fields: {},
@@ -175,7 +175,7 @@ describe('generateRecordOutputSchema', () => {
     const objectMetadataItem = createMockObjectMetadataItem({
       fields: [
         {
-          id: 'company-relation-id',
+          id: 'keluarga-relation-id',
           name: 'keluarga',
           label: 'Keluarga',
           type: FieldMetadataType.RELATION,
@@ -204,7 +204,7 @@ describe('generateRecordOutputSchema', () => {
     const objectMetadataItem = createMockObjectMetadataItem({
       fields: [
         {
-          id: 'people-relation-id',
+          id: 'daftarPenduduk-relation-id',
           name: 'daftarPenduduk',
           label: 'People',
           type: FieldMetadataType.RELATION,

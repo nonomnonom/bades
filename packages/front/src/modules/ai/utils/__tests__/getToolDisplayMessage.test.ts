@@ -188,7 +188,7 @@ describe('getToolDisplayMessage', () => {
       );
 
       expect(message).toContain('Menjalankan');
-      expect(message).toContain('find companies');
+      expect(message).toContain('find daftarKeluarga');
     });
   });
 });

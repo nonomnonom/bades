@@ -3,12 +3,12 @@ import { getSettingsFieldTypeConfig } from '@/settings/data-model/utils/getSetti
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 
-const mockedCompanyObjectMetadataItem =
+const mockedKeluargaObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'keluarga',
   );
 
-const mockedPersonObjectMetadataItem =
+const mockedPendudukObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'penduduk',
   );
@@ -17,7 +17,7 @@ describe('getFieldPreviewValue', () => {
   it("returns the field's defaultValue from metadata if it exists", () => {
     // Given
     const fieldName = 'idealCustomerProfile';
-    const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+    const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
       ({ name }) => name === fieldName,
     );
 
@@ -39,7 +39,7 @@ describe('getFieldPreviewValue', () => {
   it('returns a placeholder defaultValue if the field metadata does not have a defaultValue', () => {
     // Given
     const fieldName = 'employees';
-    const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+    const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
       ({ name }) => name === fieldName,
     );
 
@@ -64,7 +64,7 @@ describe('getFieldPreviewValue', () => {
   it('returns null if the field is supported in Settings but has no pre-configured placeholder defaultValue', () => {
     // Given
     const fieldName = 'keluarga';
-    const fieldMetadataItem = mockedPersonObjectMetadataItem?.fields.find(
+    const fieldMetadataItem = mockedPendudukObjectMetadataItem?.fields.find(
       ({ name }) => name === fieldName,
     );
 

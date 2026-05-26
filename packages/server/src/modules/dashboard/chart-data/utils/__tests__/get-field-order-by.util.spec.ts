@@ -179,7 +179,7 @@ describe('getFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           name: OrderByDirection.AscNullsLast,
         },
       });

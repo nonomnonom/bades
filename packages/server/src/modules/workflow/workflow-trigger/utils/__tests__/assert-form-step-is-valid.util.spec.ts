@@ -45,8 +45,8 @@ const settings: WorkflowFormActionSettings = {
         },
         object: {
           icon: 'IconBuildingSkyscraper',
-          label: 'Company',
-          value: 'A company',
+          label: 'Keluarga',
+          value: 'A keluarga',
           isLeaf: true,
           fieldIdName: 'id',
           objectMetadataId: '123e4567-e89b-12d3-a456-426614174000',

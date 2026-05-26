@@ -15,7 +15,7 @@ describe('classifyTopLevelFields', () => {
     const query = `
       query {
         __schema { types { name } }
-        __type(name: "Company") { name }
+        __type(name: "Keluarga") { name }
       }
     `;
 

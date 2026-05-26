@@ -26,12 +26,12 @@ describe('getMultiItemFieldEditorContent', () => {
 
   it('should handle mixed emails and variables', () => {
     const result = getMultiItemFieldEditorContent(
-      '{{trigger.record.email}}, sales@company.com, {{user.managerEmail}}',
+      '{{trigger.record.email}}, sales@keluarga.com, {{user.managerEmail}}',
     );
 
     expect(result.content?.[0]?.content).toEqual([
       { type: 'variableTag', attrs: { variable: '{{trigger.record.email}}' } },
-      { type: 'textTag', attrs: { text: 'sales@company.com' } },
+      { type: 'textTag', attrs: { text: 'sales@keluarga.com' } },
       { type: 'variableTag', attrs: { variable: '{{user.managerEmail}}' } },
     ]);
   });

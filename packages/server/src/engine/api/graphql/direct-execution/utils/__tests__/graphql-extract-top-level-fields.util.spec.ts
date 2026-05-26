@@ -81,7 +81,7 @@ describe('graphQLExtractTopLevelFields', () => {
         ...DataFragment
       }
       fragment DataFragment on Query {
-        companies { id }
+        daftarKeluarga { id }
       }
     `;
 
@@ -89,7 +89,7 @@ describe('graphQLExtractTopLevelFields', () => {
 
     expect(fields).toHaveLength(2);
     expect(fields[0].name.value).toBe('__schema');
-    expect(fields[1].name.value).toBe('companies');
+    expect(fields[1].name.value).toBe('daftarKeluarga');
   });
 
   it('should expand inline fragments at the top level', () => {
@@ -97,7 +97,7 @@ describe('graphQLExtractTopLevelFields', () => {
       query {
         __schema { types { name } }
         ... on Query {
-          companies { id }
+          daftarKeluarga { id }
         }
       }
     `;
@@ -106,6 +106,6 @@ describe('graphQLExtractTopLevelFields', () => {
 
     expect(fields).toHaveLength(2);
     expect(fields[0].name.value).toBe('__schema');
-    expect(fields[1].name.value).toBe('companies');
+    expect(fields[1].name.value).toBe('daftarKeluarga');
   });
 });

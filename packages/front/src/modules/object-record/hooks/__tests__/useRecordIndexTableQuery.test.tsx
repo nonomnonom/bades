@@ -23,7 +23,7 @@ const objectNameSingular = 'penduduk';
 const mockPendudukObjectMetadataItem =
   getMockObjectMetadataItemOrThrow('penduduk');
 
-const flatPersonRecords = mockedPendudukRecords.map((record) =>
+const flatPendudukRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
@@ -110,7 +110,7 @@ const mocks: MockedResponse[] = [
       data: {
         daftarPenduduk: generateMockRecordConnection({
           objectNameSingular: 'penduduk',
-          records: flatPersonRecords,
+          records: flatPendudukRecords,
         }),
       },
     })),
@@ -182,7 +182,7 @@ describe('useRecordIndexTableQuery', () => {
     );
 
     await waitFor(() => {
-      expect(result.current.records).toHaveLength(flatPersonRecords.length);
+      expect(result.current.records).toHaveLength(flatPendudukRecords.length);
     });
   });
 });

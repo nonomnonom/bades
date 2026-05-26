@@ -41,11 +41,11 @@ describe('computeViewRecordGqlOperationFilter', () => {
       );
 
     if (!isDefined(companyMockNameFieldMetadataId)) {
-      throw new Error('Company mock name field metadata ID is undefined');
+      throw new Error('Keluarga mock name field metadata ID is undefined');
     }
 
     const nameFilter: RecordFilter = {
-      id: 'company-name-filter',
+      id: 'keluarga-name-filter',
       value: mockedKeluargaRecords[0].nomorKk,
       fieldMetadataId: companyMockNameFieldMetadataId.id,
       displayValue: mockedKeluargaRecords[0].nomorKk,
@@ -75,7 +75,7 @@ describe('computeViewRecordGqlOperationFilter', () => {
       );
 
     if (!isDefined(companyMockNameFieldMetadataId)) {
-      throw new Error('Company mock name field metadata ID is undefined');
+      throw new Error('Keluarga mock name field metadata ID is undefined');
     }
 
     const companyMockEmployeesFieldMetadataId =
@@ -84,11 +84,11 @@ describe('computeViewRecordGqlOperationFilter', () => {
       );
 
     if (!isDefined(companyMockEmployeesFieldMetadataId)) {
-      throw new Error('Company mock employees field metadata ID is undefined');
+      throw new Error('Keluarga mock employees field metadata ID is undefined');
     }
 
     const nameFilter: RecordFilter = {
-      id: 'company-name-filter',
+      id: 'keluarga-name-filter',
       value: mockedKeluargaRecords[0].nomorKk,
       fieldMetadataId: companyMockNameFieldMetadataId.id,
       displayValue: mockedKeluargaRecords[0].nomorKk,
@@ -98,7 +98,7 @@ describe('computeViewRecordGqlOperationFilter', () => {
     };
 
     const employeesFilter: RecordFilter = {
-      id: 'company-employees-filter',
+      id: 'keluarga-employees-filter',
       value: '1000',
       fieldMetadataId: companyMockEmployeesFieldMetadataId.id,
       displayValue: '1000',
@@ -139,11 +139,11 @@ describe('should work as expected for the different field types', () => {
       );
 
     if (!isDefined(companyMockAddressFieldMetadataId)) {
-      throw new Error('Company mock address field metadata ID is undefined');
+      throw new Error('Keluarga mock address field metadata ID is undefined');
     }
 
     const addressFilterContains: RecordFilter = {
-      id: 'company-address-filter-contains',
+      id: 'keluarga-address-filter-contains',
       value: '123 Main St',
       fieldMetadataId: companyMockAddressFieldMetadataId.id,
       displayValue: '123 Main St',
@@ -153,7 +153,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const addressFilterDoesNotContain: RecordFilter = {
-      id: 'company-address-filter-does-not-contain',
+      id: 'keluarga-address-filter-does-not-contain',
       value: '123 Main St',
       fieldMetadataId: companyMockAddressFieldMetadataId?.id,
       displayValue: '123 Main St',
@@ -163,7 +163,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const addressFilterIsEmpty: RecordFilter = {
-      id: 'company-address-filter-is-empty',
+      id: 'keluarga-address-filter-is-empty',
       value: '',
       fieldMetadataId: companyMockAddressFieldMetadataId?.id,
       displayValue: '',
@@ -173,7 +173,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const addressFilterIsNotEmpty: RecordFilter = {
-      id: 'company-address-filter-is-not-empty',
+      id: 'keluarga-address-filter-is-not-empty',
       value: '',
       fieldMetadataId: companyMockAddressFieldMetadataId?.id,
       displayValue: '',
@@ -603,11 +603,11 @@ describe('should work as expected for the different field types', () => {
       );
 
     if (!isDefined(personMockPhonesFieldMetadataId)) {
-      throw new Error('Person mock phones field metadata ID is undefined');
+      throw new Error('Penduduk mock phones field metadata ID is undefined');
     }
 
     const phonesFilterContains: RecordFilter = {
-      id: 'person-phones-filter-contains',
+      id: 'penduduk-phones-filter-contains',
       value: '1234567890',
       fieldMetadataId: personMockPhonesFieldMetadataId.id,
       displayValue: '1234567890',
@@ -617,7 +617,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const phonesFilterDoesNotContain: RecordFilter = {
-      id: 'person-phones-filter-does-not-contain',
+      id: 'penduduk-phones-filter-does-not-contain',
       value: '1234567890',
       fieldMetadataId: personMockPhonesFieldMetadataId.id,
       displayValue: '1234567890',
@@ -627,7 +627,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const phonesFilterIsEmpty: RecordFilter = {
-      id: 'person-phones-filter-is-empty',
+      id: 'penduduk-phones-filter-is-empty',
       value: '',
       fieldMetadataId: personMockPhonesFieldMetadataId?.id,
       displayValue: '',
@@ -637,7 +637,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const phonesFilterIsNotEmpty: RecordFilter = {
-      id: 'person-phones-filter-is-not-empty',
+      id: 'penduduk-phones-filter-is-not-empty',
       value: '',
       fieldMetadataId: personMockPhonesFieldMetadataId?.id,
       displayValue: '',
@@ -804,7 +804,7 @@ describe('should work as expected for the different field types', () => {
     });
 
     const emailsFilterContains: RecordFilter = {
-      id: 'person-emails-filter-contains',
+      id: 'penduduk-emails-filter-contains',
       value: 'test@test.com',
       fieldMetadataId: personMockEmailFieldMetadataId.id,
       displayValue: 'test@test.com',
@@ -814,7 +814,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const emailsFilterDoesNotContain: RecordFilter = {
-      id: 'person-emails-filter-does-not-contain',
+      id: 'penduduk-emails-filter-does-not-contain',
       value: 'test@test.com',
       fieldMetadataId: personMockEmailFieldMetadataId.id,
       displayValue: 'test@test.com',
@@ -824,7 +824,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const emailsFilterIsEmpty: RecordFilter = {
-      id: 'person-emails-filter-is-empty',
+      id: 'penduduk-emails-filter-is-empty',
       value: '',
       fieldMetadataId: personMockEmailFieldMetadataId?.id,
       displayValue: '',
@@ -834,7 +834,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const emailsFilterIsNotEmpty: RecordFilter = {
-      id: 'person-emails-filter-is-not-empty',
+      id: 'penduduk-emails-filter-is-not-empty',
       value: '',
       fieldMetadataId: personMockEmailFieldMetadataId?.id,
       displayValue: '',
@@ -1001,11 +1001,11 @@ describe('should work as expected for the different field types', () => {
       );
 
     if (!isDefined(companyMockDateFieldMetadataId)) {
-      throw new Error('Company mock date field metadata ID is undefined');
+      throw new Error('Keluarga mock date field metadata ID is undefined');
     }
 
     const dateFilterIsAfter: RecordFilter = {
-      id: 'company-date-filter-is-after',
+      id: 'keluarga-date-filter-is-after',
       value: '2024-09-17T20:46:58.922Z',
       fieldMetadataId: companyMockDateFieldMetadataId?.id,
       displayValue: '2024-09-17T20:46:58.922Z',
@@ -1015,7 +1015,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const dateFilterIsBefore: RecordFilter = {
-      id: 'company-date-filter-is-before',
+      id: 'keluarga-date-filter-is-before',
       value: '2024-09-17T20:46:58.922Z',
       fieldMetadataId: companyMockDateFieldMetadataId?.id,
       displayValue: '2024-09-17T20:46:58.922Z',
@@ -1025,7 +1025,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const dateFilterIs: RecordFilter = {
-      id: 'company-date-filter-is',
+      id: 'keluarga-date-filter-is',
       value: '2024-09-17',
       fieldMetadataId: companyMockDateFieldMetadataId?.id,
       displayValue: '2024-09-17',
@@ -1035,7 +1035,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const dateFilterIsEmpty: RecordFilter = {
-      id: 'company-date-filter-is-empty',
+      id: 'keluarga-date-filter-is-empty',
       value: '',
       fieldMetadataId: companyMockDateFieldMetadataId?.id,
       displayValue: '',
@@ -1045,7 +1045,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const dateFilterIsNotEmpty: RecordFilter = {
-      id: 'company-date-filter-is-not-empty',
+      id: 'keluarga-date-filter-is-not-empty',
       value: '',
       fieldMetadataId: companyMockDateFieldMetadataId?.id,
       displayValue: '',
@@ -1118,7 +1118,7 @@ describe('should work as expected for the different field types', () => {
     );
 
     const employeesFilterIsGreaterThan: RecordFilter = {
-      id: 'company-employees-filter-is-greater-than',
+      id: 'keluarga-employees-filter-is-greater-than',
       value: '1000',
       fieldMetadataId: companyMockEmployeesFieldMetadataId?.id,
       displayValue: '1000',
@@ -1128,7 +1128,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const employeesFilterIsLessThan: RecordFilter = {
-      id: 'company-employees-filter-is-less-than',
+      id: 'keluarga-employees-filter-is-less-than',
       value: '1000',
       fieldMetadataId: companyMockEmployeesFieldMetadataId?.id,
       displayValue: '1000',
@@ -1138,7 +1138,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const employeesFilterIsEmpty: RecordFilter = {
-      id: 'company-employees-filter-is-empty',
+      id: 'keluarga-employees-filter-is-empty',
       value: '',
       fieldMetadataId: companyMockEmployeesFieldMetadataId?.id,
       displayValue: '',
@@ -1148,7 +1148,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const employeesFilterIsNotEmpty: RecordFilter = {
-      id: 'company-employees-filter-is-not-empty',
+      id: 'keluarga-employees-filter-is-not-empty',
       value: '',
       fieldMetadataId: companyMockEmployeesFieldMetadataId?.id,
       displayValue: '',
@@ -1204,7 +1204,7 @@ describe('should work as expected for the different field types', () => {
     });
 
     const ARRFilterIsGreaterThan: RecordFilter = {
-      id: 'company-ARR-filter-is-greater-than',
+      id: 'keluarga-ARR-filter-is-greater-than',
       value: '1000',
       fieldMetadataId: companyMockARRFieldMetadataId?.id,
       displayValue: '1000',
@@ -1218,7 +1218,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const ARRFilterIsLessThan: RecordFilter = {
-      id: 'company-ARR-filter-is-less-than',
+      id: 'keluarga-ARR-filter-is-less-than',
       value: '1000',
       fieldMetadataId: companyMockARRFieldMetadataId.id,
       displayValue: '1000',
@@ -1232,7 +1232,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const ARRFilterIs: RecordFilter = {
-      id: 'company-ARR-filter-is',
+      id: 'keluarga-ARR-filter-is',
       value: '1000',
       fieldMetadataId: companyMockARRFieldMetadataId.id,
       displayValue: '1000',
@@ -1246,7 +1246,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const ARRFilterIsNot: RecordFilter = {
-      id: 'company-ARR-filter-is-not',
+      id: 'keluarga-ARR-filter-is-not',
       value: '1000',
       fieldMetadataId: companyMockARRFieldMetadataId.id,
       displayValue: '1000',
@@ -1314,7 +1314,7 @@ describe('should work as expected for the different field types', () => {
     });
 
     const ARRFilterIn: RecordFilter = {
-      id: 'company-ARR-filter-in',
+      id: 'keluarga-ARR-filter-in',
       value: '["USD"]',
       fieldMetadataId: companyMockARRFieldMetadataId.id,
       displayValue: 'USD',
@@ -1328,7 +1328,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const ARRFilterNotIn: RecordFilter = {
-      id: 'company-ARR-filter-not-in',
+      id: 'keluarga-ARR-filter-not-in',
       value: '["USD"]',
       fieldMetadataId: companyMockARRFieldMetadataId.id,
       displayValue: 'Not USD',
@@ -1392,7 +1392,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const selectFilterIsNot: RecordFilter = {
-      id: 'company-select-filter-is-not',
+      id: 'keluarga-select-filter-is-not',
       value: '["DOG",""]',
       fieldMetadataId: selectFieldMetadata.id,
       displayValue: '["Dog",""]',
@@ -1452,7 +1452,7 @@ describe('should work as expected for the different field types', () => {
     )!;
 
     const multiSelectFilterContains: RecordFilter = {
-      id: 'company-multi-select-filter-contains',
+      id: 'keluarga-multi-select-filter-contains',
       value: '["option1",""]',
       fieldMetadataId: multiSelectFieldMetadata.id,
       displayValue: '["option1",""]',
@@ -1462,7 +1462,7 @@ describe('should work as expected for the different field types', () => {
     };
 
     const multiSelectFilterDoesNotContain: RecordFilter = {
-      id: 'company-multi-select-filter-does-not-contain',
+      id: 'keluarga-multi-select-filter-does-not-contain',
       value: '["option1",""]',
       fieldMetadataId: multiSelectFieldMetadata.id,
       displayValue: '["option1",""]',

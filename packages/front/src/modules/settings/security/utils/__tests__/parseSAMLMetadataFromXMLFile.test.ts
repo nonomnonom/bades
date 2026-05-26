@@ -58,7 +58,7 @@ describe('parseSAMLMetadataFromXMLFile', () => {
     const result = parseSAMLMetadataFromXMLFile(xmlString);
     expect(result).toEqual({
       success: false,
-      error: new Error('Error parsing XML'),
+      error: new Error('Error saat memproses XML'),
     });
   });
 });

@@ -11,16 +11,16 @@ import { computeRelationConnectQueryConfigs } from 'src/engine/sid-orm/utils/com
 describe('computeRelationConnectQueryConfigs', () => {
   const personFields: FlatFieldMetadata[] = [
     {
-      id: 'person-id-field-id',
+      id: 'penduduk-id-field-id',
       name: 'id',
       type: FieldMetadataType.UUID,
       label: 'id',
-      objectMetadataId: 'person-object-metadata-id',
+      objectMetadataId: 'penduduk-object-metadata-id',
       isNullable: false,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'person-id-field-id',
+      universalIdentifier: 'penduduk-id-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -28,16 +28,16 @@ describe('computeRelationConnectQueryConfigs', () => {
       applicationId: null,
     } as unknown as FlatFieldMetadata,
     {
-      id: 'person-name-field-id',
+      id: 'penduduk-name-field-id',
       name: 'name',
       type: FieldMetadataType.FULL_NAME,
       label: 'name',
-      objectMetadataId: 'person-object-metadata-id',
+      objectMetadataId: 'penduduk-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'person-name-field-id',
+      universalIdentifier: 'penduduk-name-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -45,65 +45,65 @@ describe('computeRelationConnectQueryConfigs', () => {
       applicationId: null,
     } as unknown as FlatFieldMetadata,
     {
-      id: 'person-company-1-field-id',
-      name: 'company-related-to-1',
+      id: 'penduduk-keluarga-1-field-id',
+      name: 'keluarga-related-to-1',
       type: FieldMetadataType.RELATION,
-      label: 'company-related-to-1',
-      objectMetadataId: 'person-object-metadata-id',
+      label: 'keluarga-related-to-1',
+      objectMetadataId: 'penduduk-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'person-company-1-field-id',
+      universalIdentifier: 'penduduk-keluarga-1-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
       calendarViewIds: [],
       applicationId: null,
-      relationTargetObjectMetadataId: 'company-object-metadata-id',
-      relationTargetFieldMetadataId: 'company-id-field-id',
+      relationTargetObjectMetadataId: 'keluarga-object-metadata-id',
+      relationTargetFieldMetadataId: 'keluarga-id-field-id',
       settings: {
         relationType: RelationType.MANY_TO_ONE,
-        joinColumnName: 'company-related-to-1Id',
+        joinColumnName: 'keluarga-related-to-1Id',
       },
     } as unknown as FlatFieldMetadata,
     {
-      id: 'person-company-2-field-id',
-      name: 'company-related-to-2',
+      id: 'penduduk-keluarga-2-field-id',
+      name: 'keluarga-related-to-2',
       type: FieldMetadataType.RELATION,
-      label: 'company-related-to-2',
-      objectMetadataId: 'person-object-metadata-id',
+      label: 'keluarga-related-to-2',
+      objectMetadataId: 'penduduk-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'person-company-2-field-id',
+      universalIdentifier: 'penduduk-keluarga-2-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
       calendarViewIds: [],
       applicationId: null,
-      relationTargetObjectMetadataId: 'company-object-metadata-id',
-      relationTargetFieldMetadataId: 'company-id-field-id',
+      relationTargetObjectMetadataId: 'keluarga-object-metadata-id',
+      relationTargetFieldMetadataId: 'keluarga-id-field-id',
       settings: {
         relationType: RelationType.MANY_TO_ONE,
-        joinColumnName: 'company-related-to-2Id',
+        joinColumnName: 'keluarga-related-to-2Id',
       },
     } as unknown as FlatFieldMetadata,
   ];
 
   const companyFields: FlatFieldMetadata[] = [
     {
-      id: 'company-id-field-id',
+      id: 'keluarga-id-field-id',
       name: 'id',
       type: FieldMetadataType.UUID,
       label: 'id',
-      objectMetadataId: 'company-object-metadata-id',
+      objectMetadataId: 'keluarga-object-metadata-id',
       isNullable: false,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'company-id-field-id',
+      universalIdentifier: 'keluarga-id-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -111,16 +111,16 @@ describe('computeRelationConnectQueryConfigs', () => {
       applicationId: null,
     } as unknown as FlatFieldMetadata,
     {
-      id: 'company-name-field-id',
+      id: 'keluarga-name-field-id',
       name: 'name',
       type: FieldMetadataType.TEXT,
       label: 'name',
-      objectMetadataId: 'company-object-metadata-id',
+      objectMetadataId: 'keluarga-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'company-name-field-id',
+      universalIdentifier: 'keluarga-name-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -128,16 +128,16 @@ describe('computeRelationConnectQueryConfigs', () => {
       applicationId: null,
     } as unknown as FlatFieldMetadata,
     {
-      id: 'company-description-field-id',
+      id: 'keluarga-description-field-id',
       name: 'description',
       type: FieldMetadataType.TEXT,
       label: 'description',
-      objectMetadataId: 'company-object-metadata-id',
+      objectMetadataId: 'keluarga-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'company-description-field-id',
+      universalIdentifier: 'keluarga-description-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -145,16 +145,16 @@ describe('computeRelationConnectQueryConfigs', () => {
       applicationId: null,
     } as unknown as FlatFieldMetadata,
     {
-      id: 'company-domain-name-field-id',
+      id: 'keluarga-domain-name-field-id',
       name: 'domainName',
       type: FieldMetadataType.LINKS,
       label: 'domainName',
-      objectMetadataId: 'company-object-metadata-id',
+      objectMetadataId: 'keluarga-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'company-domain-name-field-id',
+      universalIdentifier: 'keluarga-domain-name-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -162,16 +162,16 @@ describe('computeRelationConnectQueryConfigs', () => {
       applicationId: null,
     } as unknown as FlatFieldMetadata,
     {
-      id: 'company-address-field-id',
+      id: 'keluarga-address-field-id',
       name: 'address',
       type: FieldMetadataType.TEXT,
       label: 'address',
-      objectMetadataId: 'company-object-metadata-id',
+      objectMetadataId: 'keluarga-object-metadata-id',
       isNullable: true,
       isLabelSyncedWithName: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-      universalIdentifier: 'company-address-field-id',
+      universalIdentifier: 'keluarga-address-field-id',
       viewFieldIds: [],
       viewFilterIds: [],
       kanbanAggregateOperationViewIds: [],
@@ -249,31 +249,31 @@ describe('computeRelationConnectQueryConfigs', () => {
     }) as FlatObjectMetadata;
 
   const personMetadata = createFlatObjectMetadata({
-    id: 'person-object-metadata-id',
+    id: 'penduduk-object-metadata-id',
     nameSingular: 'penduduk',
     indexMetadataIds: [],
     fieldIds: personFields.map((f) => f.id),
   });
 
   const companyMetadata = createFlatObjectMetadata({
-    id: 'company-object-metadata-id',
+    id: 'keluarga-object-metadata-id',
     nameSingular: 'keluarga',
     indexMetadataIds: [
-      'company-id-index-metadata-id',
-      'company-domain-index-metadata-id',
-      'company-composite-index-metadata-id',
+      'keluarga-id-index-metadata-id',
+      'keluarga-domain-index-metadata-id',
+      'keluarga-composite-index-metadata-id',
     ],
     fieldIds: companyFields.map((f) => f.id),
   });
 
   const flatObjectMetadataMaps: FlatEntityMaps<FlatObjectMetadata> = {
     byUniversalIdentifier: {
-      'person-object-metadata-id': personMetadata,
-      'company-object-metadata-id': companyMetadata,
+      'penduduk-object-metadata-id': personMetadata,
+      'keluarga-object-metadata-id': companyMetadata,
     },
     universalIdentifierById: {
-      'person-object-metadata-id': 'person-object-metadata-id',
-      'company-object-metadata-id': 'company-object-metadata-id',
+      'penduduk-object-metadata-id': 'penduduk-object-metadata-id',
+      'keluarga-object-metadata-id': 'keluarga-object-metadata-id',
     },
     universalIdentifiersByApplicationId: {},
   };
@@ -294,63 +294,63 @@ describe('computeRelationConnectQueryConfigs', () => {
 
   const flatIndexMaps: FlatEntityMaps<FlatIndexMetadata> = {
     byUniversalIdentifier: {
-      'company-id-index-metadata-id': {
-        id: 'company-id-index-metadata-id',
-        name: 'company-id-index-metadata-name',
+      'keluarga-id-index-metadata-id': {
+        id: 'keluarga-id-index-metadata-id',
+        name: 'keluarga-id-index-metadata-name',
         isUnique: true,
-        objectMetadataId: 'company-object-metadata-id',
-        universalIdentifier: 'company-id-index-metadata-id',
+        objectMetadataId: 'keluarga-object-metadata-id',
+        universalIdentifier: 'keluarga-id-index-metadata-id',
         flatIndexFieldMetadatas: [
           createFlatIndexFieldMetadata(
-            'company-id-index-field-metadata-id',
-            'company-id-field-id',
-            'company-id-index-metadata-id',
+            'keluarga-id-index-field-metadata-id',
+            'keluarga-id-field-id',
+            'keluarga-id-index-metadata-id',
             0,
           ),
         ],
       } as unknown as FlatIndexMetadata,
-      'company-domain-index-metadata-id': {
-        id: 'company-domain-index-metadata-id',
-        name: 'company-domain-index-metadata-name',
+      'keluarga-domain-index-metadata-id': {
+        id: 'keluarga-domain-index-metadata-id',
+        name: 'keluarga-domain-index-metadata-name',
         isUnique: true,
-        objectMetadataId: 'company-object-metadata-id',
-        universalIdentifier: 'company-domain-index-metadata-id',
+        objectMetadataId: 'keluarga-object-metadata-id',
+        universalIdentifier: 'keluarga-domain-index-metadata-id',
         flatIndexFieldMetadatas: [
           createFlatIndexFieldMetadata(
-            'company-domain-index-field-metadata-id',
-            'company-domain-name-field-id',
-            'company-domain-index-metadata-id',
+            'keluarga-domain-index-field-metadata-id',
+            'keluarga-domain-name-field-id',
+            'keluarga-domain-index-metadata-id',
             0,
           ),
         ],
       } as unknown as FlatIndexMetadata,
-      'company-composite-index-metadata-id': {
-        id: 'company-composite-index-metadata-id',
-        name: 'company-composite-index-metadata-name',
+      'keluarga-composite-index-metadata-id': {
+        id: 'keluarga-composite-index-metadata-id',
+        name: 'keluarga-composite-index-metadata-name',
         isUnique: true,
-        objectMetadataId: 'company-object-metadata-id',
-        universalIdentifier: 'company-composite-index-metadata-id',
+        objectMetadataId: 'keluarga-object-metadata-id',
+        universalIdentifier: 'keluarga-composite-index-metadata-id',
         flatIndexFieldMetadatas: [
           createFlatIndexFieldMetadata(
-            'company-name-index-field-metadata-id',
-            'company-name-field-id',
-            'company-composite-index-metadata-id',
+            'keluarga-name-index-field-metadata-id',
+            'keluarga-name-field-id',
+            'keluarga-composite-index-metadata-id',
             0,
           ),
           createFlatIndexFieldMetadata(
-            'company-description-index-field-metadata-id',
-            'company-description-field-id',
-            'company-composite-index-metadata-id',
+            'keluarga-description-index-field-metadata-id',
+            'keluarga-description-field-id',
+            'keluarga-composite-index-metadata-id',
             1,
           ),
         ],
       } as unknown as FlatIndexMetadata,
     },
     universalIdentifierById: {
-      'company-id-index-metadata-id': 'company-id-index-metadata-id',
-      'company-domain-index-metadata-id': 'company-domain-index-metadata-id',
-      'company-composite-index-metadata-id':
-        'company-composite-index-metadata-id',
+      'keluarga-id-index-metadata-id': 'keluarga-id-index-metadata-id',
+      'keluarga-domain-index-metadata-id': 'keluarga-domain-index-metadata-id',
+      'keluarga-composite-index-metadata-id':
+        'keluarga-composite-index-metadata-id',
     },
     universalIdentifiersByApplicationId: {},
   };
@@ -412,7 +412,7 @@ describe('computeRelationConnectQueryConfigs', () => {
     const peopleEntityInputs = [
       {
         id: '1',
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: { where: { name: 'company1' } },
         },
       },
@@ -420,7 +420,7 @@ describe('computeRelationConnectQueryConfigs', () => {
 
     const relationConnectQueryFieldsByEntityIndex = {
       '0': {
-        'company-related-to-1': { connect: { where: { name: 'company1' } } },
+        'keluarga-related-to-1': { connect: { where: { name: 'company1' } } },
       },
     };
 
@@ -434,7 +434,7 @@ describe('computeRelationConnectQueryConfigs', () => {
         relationConnectQueryFieldsByEntityIndex,
       );
     }).toThrow(
-      "Missing required fields: at least one unique constraint have to be fully populated for 'company-related-to-1'.",
+      "Missing required fields: at least one unique constraint have to be fully populated for 'keluarga-related-to-1'.",
     );
   });
 
@@ -442,7 +442,7 @@ describe('computeRelationConnectQueryConfigs', () => {
     const peopleEntityInputs = [
       {
         id: '1',
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
             where: {
               domainName: { primaryLinkUrl: 'company1.com' },
@@ -456,7 +456,7 @@ describe('computeRelationConnectQueryConfigs', () => {
 
     const relationConnectQueryFieldsByEntityIndex = {
       '0': {
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
             where: {
               domainName: { primaryLinkUrl: 'company1.com' },
@@ -478,7 +478,7 @@ describe('computeRelationConnectQueryConfigs', () => {
         relationConnectQueryFieldsByEntityIndex,
       );
     }).toThrow(
-      "Field address is not a unique constraint field for 'company-related-to-1'.",
+      "Field address is not a unique constraint field for 'keluarga-related-to-1'.",
     );
   });
 
@@ -486,7 +486,7 @@ describe('computeRelationConnectQueryConfigs', () => {
     const peopleEntityInputs = [
       {
         id: '1',
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
             where: {
               domainName: { primaryLinkUrl: 'company1.com' },
@@ -496,7 +496,7 @@ describe('computeRelationConnectQueryConfigs', () => {
       },
       {
         id: '2',
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
             where: { id: '2' },
           },
@@ -506,7 +506,7 @@ describe('computeRelationConnectQueryConfigs', () => {
 
     const relationConnectQueryFieldsByEntityIndex = {
       '0': {
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
             where: {
               domainName: { primaryLinkUrl: 'company1.com' },
@@ -515,7 +515,7 @@ describe('computeRelationConnectQueryConfigs', () => {
         },
       },
       '1': {
-        'company-related-to-1': { connect: { where: { id: '2' } } },
+        'keluarga-related-to-1': { connect: { where: { id: '2' } } },
       },
     };
 
@@ -529,7 +529,7 @@ describe('computeRelationConnectQueryConfigs', () => {
         relationConnectQueryFieldsByEntityIndex,
       );
     }).toThrow(
-      'Expected the same constraint fields to be used consistently across all operations for company-related-to-1.',
+      'Expected the same constraint fields to be used consistently across all operations for keluarga-related-to-1.',
     );
   });
 
@@ -537,14 +537,14 @@ describe('computeRelationConnectQueryConfigs', () => {
     const peopleEntityInputs = [
       {
         id: '1',
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
             where: {
-              domainName: { primaryLinkUrl: 'company.com' },
+              domainName: { primaryLinkUrl: 'keluarga.com' },
             },
           },
         },
-        'company-related-to-2': {
+        'keluarga-related-to-2': {
           connect: {
             where: { id: '1' },
           },
@@ -552,12 +552,12 @@ describe('computeRelationConnectQueryConfigs', () => {
       },
       {
         id: '2',
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
-            where: { domainName: { primaryLinkUrl: 'other-company.com' } },
+            where: { domainName: { primaryLinkUrl: 'other-keluarga.com' } },
           },
         },
-        'company-related-to-2': {
+        'keluarga-related-to-2': {
           connect: {
             where: { id: '2' },
           },
@@ -567,24 +567,24 @@ describe('computeRelationConnectQueryConfigs', () => {
 
     const relationConnectQueryFieldsByEntityIndex = {
       '0': {
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
-            where: { domainName: { primaryLinkUrl: 'company.com' } },
+            where: { domainName: { primaryLinkUrl: 'keluarga.com' } },
           },
         },
-        'company-related-to-2': {
+        'keluarga-related-to-2': {
           connect: {
             where: { id: '1' },
           },
         },
       },
       '1': {
-        'company-related-to-1': {
+        'keluarga-related-to-1': {
           connect: {
-            where: { domainName: { primaryLinkUrl: 'other-company.com' } },
+            where: { domainName: { primaryLinkUrl: 'other-keluarga.com' } },
           },
         },
-        'company-related-to-2': {
+        'keluarga-related-to-2': {
           connect: {
             where: { id: '2' },
           },
@@ -603,37 +603,37 @@ describe('computeRelationConnectQueryConfigs', () => {
 
     expect(result).toEqual([
       {
-        connectFieldName: 'company-related-to-1',
+        connectFieldName: 'keluarga-related-to-1',
         recordToConnectConditions: [
-          [['domainNamePrimaryLinkUrl', 'company.com']],
-          [['domainNamePrimaryLinkUrl', 'other-company.com']],
+          [['domainNamePrimaryLinkUrl', 'keluarga.com']],
+          [['domainNamePrimaryLinkUrl', 'other-keluarga.com']],
         ],
         recordToConnectConditionByEntityIndex: {
-          '0': [['domainNamePrimaryLinkUrl', 'company.com']],
-          '1': [['domainNamePrimaryLinkUrl', 'other-company.com']],
+          '0': [['domainNamePrimaryLinkUrl', 'keluarga.com']],
+          '1': [['domainNamePrimaryLinkUrl', 'other-keluarga.com']],
         },
-        relationFieldName: 'company-related-to-1Id',
+        relationFieldName: 'keluarga-related-to-1Id',
         targetObjectName: 'keluarga',
         uniqueConstraintFields: [
           expect.objectContaining({
-            id: 'company-domain-name-field-id',
+            id: 'keluarga-domain-name-field-id',
             name: 'domainName',
             type: FieldMetadataType.LINKS,
           }),
         ],
       },
       {
-        connectFieldName: 'company-related-to-2',
+        connectFieldName: 'keluarga-related-to-2',
         recordToConnectConditions: [[['id', '1']], [['id', '2']]],
         recordToConnectConditionByEntityIndex: {
           '0': [['id', '1']],
           '1': [['id', '2']],
         },
-        relationFieldName: 'company-related-to-2Id',
+        relationFieldName: 'keluarga-related-to-2Id',
         targetObjectName: 'keluarga',
         uniqueConstraintFields: [
           expect.objectContaining({
-            id: 'company-id-field-id',
+            id: 'keluarga-id-field-id',
             name: 'id',
             type: FieldMetadataType.UUID,
           }),

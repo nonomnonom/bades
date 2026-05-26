@@ -279,7 +279,7 @@ describe('ViewQueryParamsService', () => {
             id: relationFieldId,
             name: 'keluarga',
             type: FieldMetadataType.RELATION,
-            label: 'Company',
+            label: 'Keluarga',
             options: null,
             universalIdentifier: 'relation-universal-id',
           },
@@ -342,7 +342,7 @@ describe('ViewQueryParamsService', () => {
       // Filter is nested under the relation field name, not flattened
       // against the FK column.
       expect(result.filter).toEqual({
-        and: [{ company: { name: { ilike: '%Acme%' } } }],
+        and: [{ keluarga: { name: { ilike: '%Acme%' } } }],
       });
     });
   });

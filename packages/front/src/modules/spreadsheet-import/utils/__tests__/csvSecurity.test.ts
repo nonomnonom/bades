@@ -215,7 +215,7 @@ describe('csvSecurity', () => {
       const chineseTexts = [
         '你好世界', // "Hello World" in Chinese
         '北京市朝阳区', // Beijing address
-        '有限公司', // Limited company
+        '有限公司', // Limited keluarga
         '2024年12月31日', // Date in Chinese
         '价格：¥100.00', // Price in yuan
       ];
@@ -246,7 +246,7 @@ describe('csvSecurity', () => {
     it('should not interfere with Arabic characters', () => {
       const arabicTexts = [
         'مرحبا بالعالم', // "Hello World" in Arabic
-        'شركة محدودة المسؤولية', // Limited liability company
+        'شركة محدودة المسؤولية', // Limited liability keluarga
         'الرياض، المملكة العربية السعودية', // Riyadh, Saudi Arabia
         'السعر: 100 ريال', // Price in riyal
       ];

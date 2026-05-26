@@ -32,12 +32,12 @@ const createMockRelation = (
 
 const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
   {
-    id: 'company-metadata-id',
+    id: 'keluarga-metadata-id',
     nameSingular: 'keluarga',
     namePlural: 'daftarKeluarga',
   } as EnrichedObjectMetadataItem,
   {
-    id: 'person-metadata-id',
+    id: 'penduduk-metadata-id',
     nameSingular: 'penduduk',
     namePlural: 'daftarPenduduk',
   } as EnrichedObjectMetadataItem,
@@ -47,7 +47,7 @@ const mockTargetField: FieldMetadataItem = {
   id: 'target-field-id',
   name: 'keluarga',
   type: FieldMetadataType.RELATION,
-  relation: createMockRelation('company-metadata-id', 'keluarga'),
+  relation: createMockRelation('keluarga-metadata-id', 'keluarga'),
 } as FieldMetadataItem;
 
 // Mock morph field with morphRelations (how real data looks)
@@ -60,24 +60,24 @@ const mockMorphFieldWithRelations: FieldMetadataItem = {
   morphId: 'morph-group-1',
   type: FieldMetadataType.MORPH_RELATION,
   morphRelations: [
-    createMockRelation('company-metadata-id', 'keluarga', 'caretaker'),
-    createMockRelation('person-metadata-id', 'penduduk', 'caretaker'),
+    createMockRelation('keluarga-metadata-id', 'keluarga', 'caretaker'),
+    createMockRelation('penduduk-metadata-id', 'penduduk', 'caretaker'),
   ],
 } as FieldMetadataItem;
 
 // Mock multiple regular relation fields (for multiple target testing)
 const mockMultipleRelationFields: FieldMetadataItem[] = [
   {
-    id: 'relation-field-company-id',
+    id: 'relation-field-keluarga-id',
     name: 'keluarga',
     type: FieldMetadataType.RELATION,
-    relation: createMockRelation('company-metadata-id', 'keluarga'),
+    relation: createMockRelation('keluarga-metadata-id', 'keluarga'),
   } as FieldMetadataItem,
   {
-    id: 'relation-field-person-id',
+    id: 'relation-field-penduduk-id',
     name: 'penduduk',
     type: FieldMetadataType.RELATION,
-    relation: createMockRelation('person-metadata-id', 'penduduk'),
+    relation: createMockRelation('penduduk-metadata-id', 'penduduk'),
   } as FieldMetadataItem,
 ];
 
@@ -145,8 +145,8 @@ describe('extractTargetRecordsFromJunction', () => {
       });
 
       expect(result).toEqual([
-        { recordId: 'keluarga-1', objectMetadataId: 'company-metadata-id' },
-        { recordId: 'keluarga-2', objectMetadataId: 'company-metadata-id' },
+        { recordId: 'keluarga-1', objectMetadataId: 'keluarga-metadata-id' },
+        { recordId: 'keluarga-2', objectMetadataId: 'keluarga-metadata-id' },
       ]);
     });
 
@@ -167,7 +167,7 @@ describe('extractTargetRecordsFromJunction', () => {
       expect(result).toEqual([
         {
           recordId: 'keluarga-1',
-          objectMetadataId: 'company-metadata-id',
+          objectMetadataId: 'keluarga-metadata-id',
           record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
         },
       ]);
@@ -212,11 +212,11 @@ describe('extractTargetRecordsFromJunction', () => {
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         recordId: 'keluarga-1',
-        objectMetadataId: 'company-metadata-id',
+        objectMetadataId: 'keluarga-metadata-id',
       });
       expect(result[1]).toEqual({
         recordId: 'penduduk-1',
-        objectMetadataId: 'person-metadata-id',
+        objectMetadataId: 'penduduk-metadata-id',
       });
     });
 
@@ -233,7 +233,7 @@ describe('extractTargetRecordsFromJunction', () => {
         objectMetadataItems: mockObjectMetadataItems,
       });
 
-      expect(result[0].objectMetadataId).toBe('person-metadata-id');
+      expect(result[0].objectMetadataId).toBe('penduduk-metadata-id');
     });
 
     it('should include record when includeRecord is true', () => {
@@ -252,7 +252,7 @@ describe('extractTargetRecordsFromJunction', () => {
 
       expect(result[0]).toEqual({
         recordId: 'keluarga-1',
-        objectMetadataId: 'company-metadata-id',
+        objectMetadataId: 'keluarga-metadata-id',
         record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       });
     });
@@ -280,11 +280,11 @@ describe('extractTargetRecordsFromJunction', () => {
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         recordId: 'keluarga-1',
-        objectMetadataId: 'company-metadata-id',
+        objectMetadataId: 'keluarga-metadata-id',
       });
       expect(result[1]).toEqual({
         recordId: 'penduduk-1',
-        objectMetadataId: 'person-metadata-id',
+        objectMetadataId: 'penduduk-metadata-id',
       });
     });
 
@@ -304,7 +304,7 @@ describe('extractTargetRecordsFromJunction', () => {
 
       expect(result[0]).toEqual({
         recordId: 'keluarga-1',
-        objectMetadataId: 'company-metadata-id',
+        objectMetadataId: 'keluarga-metadata-id',
         record: { id: 'keluarga-1', name: 'Keluarga Santoso' },
       });
     });

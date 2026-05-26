@@ -5,35 +5,35 @@ const testUUID = '20202020-ef5a-4822-9e08-cf6e4a4dcd6b';
 describe('parseCorePath', () => {
   it('should parse find one object from request path', () => {
     const request: any = {
-      path: `/rest/companies/${testUUID}`,
+      path: `/rest/daftarKeluarga/${testUUID}`,
     };
 
     expect(parseCorePath(request)).toEqual({
-      object: 'companies',
+      object: 'daftarKeluarga',
       id: testUUID,
     });
   });
 
   it('should parse find many object from request path', () => {
-    const request: any = { path: '/rest/companies' };
+    const request: any = { path: '/rest/daftarKeluarga' };
 
     expect(parseCorePath(request)).toEqual({
-      object: 'companies',
+      object: 'daftarKeluarga',
       id: undefined,
     });
   });
 
   it('should throw for wrong request path', () => {
-    const request: any = { path: `/rest/companies/${testUUID}/toto` };
+    const request: any = { path: `/rest/daftarKeluarga/${testUUID}/toto` };
 
     expect(() => parseCorePath(request)).toThrow(
-      `Query path '/rest/companies/${testUUID}/toto' invalid. Valid examples: /rest/companies/id or /rest/companies or /rest/batch/companies`,
+      `Query path '/rest/daftarKeluarga/${testUUID}/toto' invalid. Valid examples: /rest/daftarKeluarga/id or /rest/daftarKeluarga or /rest/batch/daftarKeluarga`,
     );
   });
 
   it('should throw for malformed uuid in findOne request', () => {
     const malformedUUID = 'malformed-uuid';
-    const request: any = { path: `/rest/companies/${malformedUUID}` };
+    const request: any = { path: `/rest/daftarKeluarga/${malformedUUID}` };
 
     expect(() => parseCorePath(request)).toThrow(
       `'${malformedUUID}' is not a valid UUID`,
@@ -44,32 +44,32 @@ describe('parseCorePath', () => {
     const request: any = { path: '/rest' };
 
     expect(() => parseCorePath(request)).toThrow(
-      "Query path '/rest' invalid. Valid examples: /rest/companies/id or /rest/companies or /rest/batch/companies",
+      "Query path '/rest' invalid. Valid examples: /rest/daftarKeluarga/id or /rest/daftarKeluarga or /rest/batch/daftarKeluarga",
     );
   });
 
   it('should parse object from batch request', () => {
-    const request: any = { path: '/rest/batch/companies' };
+    const request: any = { path: '/rest/batch/daftarKeluarga' };
 
     expect(parseCorePath(request)).toEqual({
-      object: 'companies',
+      object: 'daftarKeluarga',
       id: undefined,
     });
   });
 
   it('should throw for wrong batch request', () => {
-    const request: any = { path: `/rest/batch/companies/${testUUID}` };
+    const request: any = { path: `/rest/batch/daftarKeluarga/${testUUID}` };
 
     expect(() => parseCorePath(request)).toThrow(
-      `Query path '/rest/batch/companies/${testUUID}' invalid. Valid examples: /rest/companies/id or /rest/companies or /rest/batch/companies`,
+      `Query path '/rest/batch/daftarKeluarga/${testUUID}' invalid. Valid examples: /rest/daftarKeluarga/id or /rest/daftarKeluarga or /rest/batch/daftarKeluarga`,
     );
   });
 
   it('should parse object from duplicates request', () => {
-    const request: any = { path: '/rest/companies/duplicates' };
+    const request: any = { path: '/rest/daftarKeluarga/duplicates' };
 
     expect(parseCorePath(request)).toEqual({
-      object: 'companies',
+      object: 'daftarKeluarga',
       id: undefined,
     });
   });

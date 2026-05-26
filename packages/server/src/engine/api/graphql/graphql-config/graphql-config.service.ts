@@ -62,9 +62,7 @@ export class GraphQLConfigService
         i18nService: this.i18nService,
         badesConfigService: this.badesConfigService,
       }),
-      useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(
-        this.badesConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
-      ),
+      useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(),
       useValidateGraphqlQueryComplexity({
         maximumAllowedFields: this.badesConfigService.get('GRAPHQL_MAX_FIELDS'),
         maximumAllowedRootResolvers: this.badesConfigService.get(

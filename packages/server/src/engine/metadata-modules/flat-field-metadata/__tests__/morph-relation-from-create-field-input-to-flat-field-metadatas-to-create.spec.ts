@@ -91,7 +91,7 @@ describe('fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test s
                 {
                   type: RelationType.ONE_TO_MANY,
                   targetObjectMetadataId: KELUARGA_FLAT_OBJECT_MOCK.id,
-                  targetFieldLabel: 'Company',
+                  targetFieldLabel: 'Keluarga',
                   targetFieldIcon: 'IconBuilding',
                 },
               ],
@@ -189,7 +189,7 @@ describe('fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test s
                 {
                   type: RelationType.MANY_TO_ONE,
                   targetObjectMetadataId: KELUARGA_FLAT_OBJECT_MOCK.id,
-                  targetFieldLabel: 'Company',
+                  targetFieldLabel: 'Keluarga',
                   targetFieldIcon: 'IconPet',
                 },
               ],

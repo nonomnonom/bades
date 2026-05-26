@@ -40,9 +40,7 @@ export const adminPanelModuleFactory = async (
         i18nService,
         badesConfigService,
       }),
-      useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(
-        badesConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
-      ),
+      useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(),
       useValidateGraphqlQueryComplexity({
         maximumAllowedFields: badesConfigService.get('GRAPHQL_MAX_FIELDS'),
         maximumAllowedRootResolvers: 10,

@@ -71,7 +71,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
             createFieldInput: {
               name: 'pets',
               label: 'Pets',
-              description: 'Company pets',
+              description: 'Keluarga pets',
               icon: 'IconCat',
               type: FieldMetadataType.RELATION,
               isCustom: true,
@@ -81,7 +81,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
                 type: RelationType.ONE_TO_MANY,
                 targetObjectMetadataId:
                   PET_FLAT_OBJECT_MOCK.universalIdentifier,
-                targetFieldLabel: 'Company',
+                targetFieldLabel: 'Keluarga',
                 targetFieldIcon: 'IconBuildingSkyscraper',
               },
             },
@@ -106,7 +106,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
             createFieldInput: {
               name: 'pets',
               label: 'Pets',
-              description: 'Company pets',
+              description: 'Keluarga pets',
               icon: 'IconCat',
               type: FieldMetadataType.RELATION,
               isCustom: true,
@@ -116,7 +116,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
                 type: RelationType.MANY_TO_ONE,
                 targetObjectMetadataId:
                   PET_FLAT_OBJECT_MOCK.universalIdentifier,
-                targetFieldLabel: 'Company',
+                targetFieldLabel: 'Keluarga',
                 targetFieldIcon: 'IconBuildingSkyscraper',
               },
             },
@@ -141,7 +141,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
             createFieldInput: {
               name: 'pets',
               label: 'Pets',
-              description: 'Company pets',
+              description: 'Keluarga pets',
               icon: 'IconCat',
               type: FieldMetadataType.RELATION,
               isCustom: false,
@@ -151,7 +151,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
                 type: RelationType.MANY_TO_ONE,
                 targetObjectMetadataId:
                   PET_FLAT_OBJECT_MOCK.universalIdentifier,
-                targetFieldLabel: 'Company',
+                targetFieldLabel: 'Keluarga',
                 targetFieldIcon: 'IconBuildingSkyscraper',
               },
             },
@@ -360,7 +360,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
         createFieldInput: {
           name: 'pets',
           label: 'Pets',
-          description: 'Company pets',
+          description: 'Keluarga pets',
           icon: 'IconCat',
           type: FieldMetadataType.RELATION,
           isCustom: true,
@@ -370,7 +370,7 @@ describe('generate Morph Or Relation Flat Field Metadata Pair test suite', () =>
           relationCreationPayload: {
             type: RelationType.ONE_TO_MANY,
             targetObjectMetadataId: PET_FLAT_OBJECT_MOCK.id,
-            targetFieldLabel: 'Company',
+            targetFieldLabel: 'Keluarga',
             targetFieldIcon: 'IconBuildingSkyscraper',
           },
         },

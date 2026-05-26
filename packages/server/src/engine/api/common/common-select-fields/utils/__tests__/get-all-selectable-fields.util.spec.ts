@@ -310,7 +310,7 @@ describe('getAllSelectableFields', () => {
       });
     });
 
-    it('should include domainName for company objects even if not image identifier', () => {
+    it('should include domainName for keluarga objects even if not image identifier', () => {
       const idField = createMockField({
         id: 'field-id',
         name: 'id',
@@ -519,7 +519,7 @@ describe('getAllSelectableFields', () => {
 
       expect(result).toEqual({
         name: true,
-        people: true, // ONE_TO_MANY relations are included as regular fields
+        daftarPenduduk: true, // ONE_TO_MANY relations are included as regular fields
       });
     });
 

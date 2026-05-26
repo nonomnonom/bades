@@ -27,7 +27,7 @@ describe('generateFakeFormResponse', () => {
         id: '96939213-49ac-4dee-949d-56e6c7be98e8',
         name: 'keluarga',
         type: 'RECORD',
-        label: 'Company',
+        label: 'Keluarga',
         settings: {
           objectName: 'keluarga',
         },
@@ -55,9 +55,9 @@ describe('generateFakeFormResponse', () => {
         type: 'NUMBER',
         value: 20,
       },
-      company: {
+      keluarga: {
         isLeaf: false,
-        label: 'Company',
+        label: 'Keluarga',
         value: {
           _outputSchemaType: 'RECORD',
           fields: {
@@ -95,7 +95,7 @@ describe('generateFakeFormResponse', () => {
               },
             },
             name: {
-              fieldMetadataId: 'nameFieldMetadataId-company',
+              fieldMetadataId: 'nameFieldMetadataId-keluarga',
               icon: 'test-field-icon',
               isLeaf: true,
               label: 'Name',
@@ -105,11 +105,11 @@ describe('generateFakeFormResponse', () => {
           },
           object: {
             fieldIdName: 'id',
-            icon: 'test-company-icon',
+            icon: 'test-keluarga-icon',
             isLeaf: true,
-            label: 'Company',
+            label: 'Keluarga',
             objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
-            value: 'A company',
+            value: 'A keluarga',
           },
         },
       },

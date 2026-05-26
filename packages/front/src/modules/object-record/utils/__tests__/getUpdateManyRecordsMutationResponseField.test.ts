@@ -2,7 +2,7 @@ import { getUpdateManyRecordsMutationResponseField } from '@/object-record/utils
 
 describe('getUpdateManyRecordsMutationResponseField', () => {
   it('should work', () => {
-    expect(getUpdateManyRecordsMutationResponseField('companies')).toBe(
+    expect(getUpdateManyRecordsMutationResponseField('daftarKeluarga')).toBe(
       'updateCompanies',
     );
   });

@@ -80,7 +80,7 @@ describe('getWorkflowVersionDiagram', () => {
         steps: null,
         trigger: {
           name: 'Record is created',
-          settings: { eventName: 'company.created', outputSchema: {} },
+          settings: { eventName: 'keluarga.created', outputSchema: {} },
           type: 'DATABASE_EVENT',
         },
         updatedAt: '',
@@ -145,8 +145,8 @@ describe('getWorkflowVersionDiagram', () => {
           },
         ],
         trigger: {
-          name: 'Company created',
-          settings: { eventName: 'company.created', outputSchema: {} },
+          name: 'Keluarga created',
+          settings: { eventName: 'keluarga.created', outputSchema: {} },
           type: 'DATABASE_EVENT',
           nextStepIds: ['step-1'],
         },
@@ -182,7 +182,7 @@ describe('getWorkflowVersionDiagram', () => {
       "data": {
         "hasNextStepIds": true,
         "icon": "IconPlaylistAdd",
-        "name": "Company created",
+        "name": "Keluarga created",
         "nodeType": "trigger",
         "position": {
           "x": 0,

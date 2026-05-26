@@ -13,14 +13,14 @@ describe('getAppPath', () => {
       getAppPath(AppPath.RecordIndexPage, {
         objectNamePlural: 'daftarKeluarga',
       }),
-    ).toBe('/objects/companies');
+    ).toBe('/objects/daftarKeluarga');
 
     expect(
       getAppPath(AppPath.RecordShowPage, {
         objectNameSingular: 'keluarga',
         objectRecordId: '123',
       }),
-    ).toBe('/object/company/123');
+    ).toBe('/object/keluarga/123');
 
     expect(
       getAppPath(AppPath.Invite, {
@@ -51,7 +51,7 @@ describe('getAppPath', () => {
         { objectNamePlural: 'daftarKeluarga' },
         { filter: 'active', view: 'table' },
       ),
-    ).toBe('/objects/companies?filter=active&view=table');
+    ).toBe('/objects/daftarKeluarga?filter=active&view=table');
 
     expect(
       getAppPath(
@@ -59,7 +59,7 @@ describe('getAppPath', () => {
         { objectNameSingular: 'keluarga', objectRecordId: '123' },
         { tab: 'details' },
       ),
-    ).toBe('/object/company/123?tab=details');
+    ).toBe('/object/keluarga/123?tab=details');
   });
 
   it('should filter out null and undefined values from query params', () => {

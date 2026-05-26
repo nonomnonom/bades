@@ -30,15 +30,15 @@ describe('ActorFromAuthContextService', () => {
             getOrRecomputeManyOrAllFlatEntityMaps: jest.fn().mockResolvedValue({
               flatObjectMetadataMaps: {
                 byUniversalIdentifier: {
-                  'person-universal-id': {
-                    id: 'person-id',
+                  'penduduk-universal-id': {
+                    id: 'penduduk-id',
                     nameSingular: 'penduduk',
                     fieldIds: ['createdBy-id'],
-                    universalIdentifier: 'person-universal-id',
+                    universalIdentifier: 'penduduk-universal-id',
                   },
                 },
                 universalIdentifierById: {
-                  'person-id': 'person-universal-id',
+                  'penduduk-id': 'penduduk-universal-id',
                 },
                 universalIdentifiersByApplicationId: {},
               },
@@ -47,7 +47,7 @@ describe('ActorFromAuthContextService', () => {
                   'createdBy-universal-id': {
                     id: 'createdBy-id',
                     name: 'createdBy',
-                    objectMetadataId: 'person-id',
+                    objectMetadataId: 'penduduk-id',
                     universalIdentifier: 'createdBy-universal-id',
                   },
                 },

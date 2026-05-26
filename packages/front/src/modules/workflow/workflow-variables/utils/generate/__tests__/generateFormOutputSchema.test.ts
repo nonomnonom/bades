@@ -99,7 +99,7 @@ describe('generateFormOutputSchema', () => {
         {
           id: 'field-1',
           name: 'selectedCompany',
-          label: 'Selected Company',
+          label: 'Selected Keluarga',
           type: 'RECORD',
           settings: {
             objectName: 'keluarga',
@@ -109,7 +109,7 @@ describe('generateFormOutputSchema', () => {
       const objectMetadataItems = [
         createMockObjectMetadataItem({
           nameSingular: 'keluarga',
-          labelSingular: 'Company',
+          labelSingular: 'Keluarga',
         }),
       ];
 
@@ -118,7 +118,7 @@ describe('generateFormOutputSchema', () => {
       expect(result).toHaveProperty('selectedCompany');
       expect(result.selectedCompany).toMatchObject({
         isLeaf: false,
-        label: 'Selected Company',
+        label: 'Selected Keluarga',
       });
       expect((result.selectedCompany as any).value).toHaveProperty(
         '_outputSchemaType',
@@ -131,7 +131,7 @@ describe('generateFormOutputSchema', () => {
         {
           id: 'field-1',
           name: 'selectedCompany',
-          label: 'Selected Company',
+          label: 'Selected Keluarga',
           type: 'RECORD',
           settings: {},
         },
@@ -147,7 +147,7 @@ describe('generateFormOutputSchema', () => {
         {
           id: 'field-1',
           name: 'selectedCompany',
-          label: 'Selected Company',
+          label: 'Selected Keluarga',
           type: 'RECORD',
         },
       ];
@@ -162,7 +162,7 @@ describe('generateFormOutputSchema', () => {
         {
           id: 'field-1',
           name: 'selectedCompany',
-          label: 'Selected Company',
+          label: 'Selected Keluarga',
           type: 'RECORD',
           settings: {
             objectName: 'unknownObject',
@@ -209,7 +209,7 @@ describe('generateFormOutputSchema', () => {
       const objectMetadataItems = [
         createMockObjectMetadataItem({
           nameSingular: 'keluarga',
-          labelSingular: 'Company',
+          labelSingular: 'Keluarga',
         }),
       ];
 

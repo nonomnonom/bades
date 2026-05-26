@@ -148,7 +148,7 @@ describe('ApprovedAccessDomainService', () => {
       );
       expect(result).toEqual(expectedApprovedAccessDomain);
     });
-    it('should throw an exception if approved access domain is not a company domain', async () => {
+    it('should throw an exception if approved access domain is not a keluarga domain', async () => {
       await expect(
         service.createApprovedAccessDomain(
           'gmail.com',
@@ -160,7 +160,7 @@ describe('ApprovedAccessDomainService', () => {
         ),
       ).rejects.toThrowError(
         new ApprovedAccessDomainException(
-          'Approved access domain must be a company domain',
+          'Approved access domain must be a keluarga domain',
           ApprovedAccessDomainExceptionCode.APPROVED_ACCESS_DOMAIN_MUST_BE_A_COMPANY_DOMAIN,
         ),
       );

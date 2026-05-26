@@ -21,7 +21,7 @@ describe('generateRecordEventOutputSchema', () => {
   describe('CREATED action', () => {
     it('should generate schema with properties.after prefix', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        id: 'company-id',
+        id: 'keluarga-id',
         labelSingular: 'Keluarga',
         icon: 'IconBuilding',
       });
@@ -35,7 +35,7 @@ describe('generateRecordEventOutputSchema', () => {
         object: {
           icon: 'IconBuilding',
           label: 'Keluarga',
-          objectMetadataId: 'company-id',
+          objectMetadataId: 'keluarga-id',
           fieldIdName: 'properties.after.id',
         },
         fields: {},
@@ -70,8 +70,8 @@ describe('generateRecordEventOutputSchema', () => {
   describe('UPDATED action', () => {
     it('should generate schema with properties.after prefix', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        id: 'company-id',
-        labelSingular: 'Company',
+        id: 'keluarga-id',
+        labelSingular: 'Keluarga',
       });
 
       const result = generateRecordEventOutputSchema(
@@ -86,8 +86,8 @@ describe('generateRecordEventOutputSchema', () => {
   describe('DELETED action', () => {
     it('should generate schema with properties.before prefix', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        id: 'company-id',
-        labelSingular: 'Company',
+        id: 'keluarga-id',
+        labelSingular: 'Keluarga',
       });
 
       const result = generateRecordEventOutputSchema(
@@ -124,8 +124,8 @@ describe('generateRecordEventOutputSchema', () => {
   describe('DESTROYED action', () => {
     it('should generate schema with properties.before prefix', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        id: 'company-id',
-        labelSingular: 'Company',
+        id: 'keluarga-id',
+        labelSingular: 'Keluarga',
       });
 
       const result = generateRecordEventOutputSchema(
@@ -140,8 +140,8 @@ describe('generateRecordEventOutputSchema', () => {
   describe('UPSERTED action', () => {
     it('should generate schema with properties.after prefix', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        id: 'company-id',
-        labelSingular: 'Company',
+        id: 'keluarga-id',
+        labelSingular: 'Keluarga',
       });
 
       const result = generateRecordEventOutputSchema(
@@ -204,7 +204,7 @@ describe('generateRecordEventOutputSchema', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
         fields: [
           {
-            id: 'company-relation-id',
+            id: 'keluarga-relation-id',
             name: 'keluarga',
             label: 'Keluarga',
             type: FieldMetadataType.RELATION,
@@ -325,7 +325,7 @@ describe('generateRecordEventOutputSchema', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
         fields: [
           {
-            id: 'people-relation-id',
+            id: 'daftarPenduduk-relation-id',
             name: 'daftarPenduduk',
             label: 'People',
             type: FieldMetadataType.RELATION,
@@ -344,7 +344,7 @@ describe('generateRecordEventOutputSchema', () => {
       );
 
       expect(Object.keys(result.fields)).not.toContain(
-        'properties.after.people',
+        'properties.after.daftarPenduduk',
       );
       expect(Object.keys(result.fields)).not.toContain(
         'properties.after.peopleId',
@@ -355,8 +355,8 @@ describe('generateRecordEventOutputSchema', () => {
   describe('Default action handling', () => {
     it('should default to properties.after for unknown action', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        id: 'company-id',
-        labelSingular: 'Company',
+        id: 'keluarga-id',
+        labelSingular: 'Keluarga',
       });
 
       const result = generateRecordEventOutputSchema(

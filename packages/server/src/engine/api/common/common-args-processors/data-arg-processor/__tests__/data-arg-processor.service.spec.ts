@@ -119,14 +119,14 @@ describe('DataArgProcessorService', () => {
   it('should normalize relation connect where composite values', async () => {
     const flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata> = {
       byUniversalIdentifier: {
-        'company-universal-id': {
-          id: 'company-id',
+        'keluarga-universal-id': {
+          id: 'keluarga-id',
           name: 'keluarga',
           type: FieldMetadataType.RELATION,
           isNullable: true,
           objectMetadataId: 'object-id',
-          universalIdentifier: 'company-universal-id',
-          relationTargetObjectMetadataId: 'target-company-object-id',
+          universalIdentifier: 'keluarga-universal-id',
+          relationTargetObjectMetadataId: 'target-keluarga-object-id',
           settings: {
             relationType: RelationType.MANY_TO_ONE,
             joinColumnName: 'companyId',
@@ -137,7 +137,7 @@ describe('DataArgProcessorService', () => {
           name: 'emails',
           type: FieldMetadataType.EMAILS,
           isNullable: true,
-          objectMetadataId: 'target-company-object-id',
+          objectMetadataId: 'target-keluarga-object-id',
           universalIdentifier: 'emails-universal-id',
         } as FlatFieldMetadata,
         'domainName-universal-id': {
@@ -145,12 +145,12 @@ describe('DataArgProcessorService', () => {
           name: 'domainName',
           type: FieldMetadataType.LINKS,
           isNullable: true,
-          objectMetadataId: 'target-company-object-id',
+          objectMetadataId: 'target-keluarga-object-id',
           universalIdentifier: 'domainName-universal-id',
         } as FlatFieldMetadata,
       },
       universalIdentifierById: {
-        'company-id': 'company-universal-id',
+        'keluarga-id': 'keluarga-universal-id',
         'emails-id': 'emails-universal-id',
         'domainName-id': 'domainName-universal-id',
       },
@@ -162,7 +162,7 @@ describe('DataArgProcessorService', () => {
       nameSingular: 'testObject',
       namePlural: 'testObjects',
       isCustom: false,
-      fieldIds: ['company-id'],
+      fieldIds: ['keluarga-id'],
       universalIdentifier: 'test-object-universal-id',
       labelIdentifierFieldMetadataUniversalIdentifier: null,
       imageIdentifierFieldMetadataUniversalIdentifier: null,
@@ -170,19 +170,19 @@ describe('DataArgProcessorService', () => {
 
     const flatObjectMetadataMaps = {
       byUniversalIdentifier: {
-        'target-company-universal-id': {
-          id: 'target-company-object-id',
+        'target-keluarga-universal-id': {
+          id: 'target-keluarga-object-id',
           nameSingular: 'keluarga',
           namePlural: 'daftarKeluarga',
           isCustom: false,
           fieldIds: ['emails-id', 'domainName-id'],
-          universalIdentifier: 'target-company-universal-id',
+          universalIdentifier: 'target-keluarga-universal-id',
           labelIdentifierFieldMetadataUniversalIdentifier: null,
           imageIdentifierFieldMetadataUniversalIdentifier: null,
         } as FlatObjectMetadata,
       },
       universalIdentifierById: {
-        'target-company-object-id': 'target-company-universal-id',
+        'target-keluarga-object-id': 'target-keluarga-universal-id',
       },
       universalIdentifiersByApplicationId: {},
     };
@@ -190,7 +190,7 @@ describe('DataArgProcessorService', () => {
     const result = await dataArgProcessorService.process({
       partialRecordInputs: [
         {
-          company: {
+          keluarga: {
             connect: {
               where: {
                 emails: {
@@ -212,7 +212,7 @@ describe('DataArgProcessorService', () => {
 
     expect(result).toEqual([
       {
-        company: {
+        keluarga: {
           connect: {
             where: {
               emails: {

@@ -93,7 +93,7 @@ const mockFieldMetadatas: FlatFieldMetadata[] = [
   } as unknown as FlatFieldMetadata,
 ];
 
-export const mockPersonFlatFieldMetadataMaps =
+export const mockPendudukFlatFieldMetadataMaps =
   (): FlatEntityMaps<FlatFieldMetadata> => ({
     byUniversalIdentifier: mockFieldMetadatas.reduce(
       (acc, field) => {
@@ -114,10 +114,10 @@ export const mockPersonFlatFieldMetadataMaps =
     universalIdentifiersByApplicationId: {},
   });
 
-export const mockPersonFlatObjectMetadataMaps = (
+export const mockPendudukFlatObjectMetadataMaps = (
   duplicateCriteria: WorkspaceEntityDuplicateCriteria[],
 ): FlatEntityMaps<FlatObjectMetadata> => {
-  const flatObjectMetadata = mockPersonFlatObjectMetadata(duplicateCriteria);
+  const flatObjectMetadata = mockPendudukFlatObjectMetadata(duplicateCriteria);
 
   return {
     byUniversalIdentifier: {
@@ -130,7 +130,7 @@ export const mockPersonFlatObjectMetadataMaps = (
   };
 };
 
-export const mockPersonFlatObjectMetadata = (
+export const mockPendudukFlatObjectMetadata = (
   duplicateCriteria: WorkspaceEntityDuplicateCriteria[],
 ): FlatObjectMetadata => ({
   id: objectMetadataId,

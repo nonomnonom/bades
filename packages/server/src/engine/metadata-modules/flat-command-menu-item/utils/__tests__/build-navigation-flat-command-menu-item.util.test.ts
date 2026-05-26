@@ -110,7 +110,7 @@ describe('buildNavigationFlatCommandMenuItem', () => {
     const result = buildNavigationFlatCommandMenuItem(baseArgs);
 
     expect(result.conditionalAvailabilityExpression).toBe(
-      'targetObjectReadPermissions.person',
+      'targetObjectReadPermissions.penduduk',
     );
   });
 

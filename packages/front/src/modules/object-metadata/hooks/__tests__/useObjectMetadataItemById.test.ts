@@ -15,7 +15,7 @@ describe('useObjectMetadataItemById', () => {
     );
 
   if (!opportunityObjectMetadata) {
-    throw new Error('Opportunity object metadata not found');
+    throw new Error('Peluang object metadata not found');
   }
 
   it('should return correct properties', async () => {

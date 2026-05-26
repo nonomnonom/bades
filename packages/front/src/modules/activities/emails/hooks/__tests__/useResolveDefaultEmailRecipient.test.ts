@@ -28,12 +28,12 @@ describe('useResolveDefaultEmailRecipient', () => {
     });
   });
 
-  it('should return the person primary email for a Person record', () => {
+  it('should return the penduduk primary email for a Penduduk record', () => {
     mockUseFindOneRecord.mockImplementation(
       (args: { objectNameSingular: string }) => {
-        if (args.objectNameSingular === 'person') {
+        if (args.objectNameSingular === 'penduduk') {
           return {
-            record: { emails: { primaryEmail: 'person@example.com' } },
+            record: { emails: { primaryEmail: 'penduduk@example.com' } },
             loading: false,
           };
         }
@@ -44,35 +44,35 @@ describe('useResolveDefaultEmailRecipient', () => {
 
     const { result } = renderHook(() =>
       useResolveDefaultEmailRecipient({
-        objectNameSingular: 'person',
-        recordId: 'person-id',
+        objectNameSingular: 'penduduk',
+        recordId: 'penduduk-id',
       }),
     );
 
-    expect(result.current.defaultTo).toBe('person@example.com');
+    expect(result.current.defaultTo).toBe('penduduk@example.com');
     expect(result.current.loading).toBe(false);
   });
 
-  it('should return the first company employee email for a Company record', () => {
+  it('should return the first keluarga employee email for a Keluarga record', () => {
     mockUseFindManyRecords.mockReturnValue({
-      records: [{ emails: { primaryEmail: 'employee@company.com' } }],
+      records: [{ emails: { primaryEmail: 'employee@keluarga.com' } }],
       loading: false,
     });
 
     const { result } = renderHook(() =>
       useResolveDefaultEmailRecipient({
-        objectNameSingular: 'company',
-        recordId: 'company-id',
+        objectNameSingular: 'keluarga',
+        recordId: 'keluarga-id',
       }),
     );
 
-    expect(result.current.defaultTo).toBe('employee@company.com');
+    expect(result.current.defaultTo).toBe('employee@keluarga.com');
   });
 
-  it('should return the opportunity point of contact email', () => {
+  it('should return the peluang point of contact email', () => {
     mockUseFindOneRecord.mockImplementation(
       (args: { objectNameSingular: string }) => {
-        if (args.objectNameSingular === 'opportunity') {
+        if (args.objectNameSingular === 'peluang') {
           return {
             record: {
               pointOfContact: {
@@ -89,7 +89,7 @@ describe('useResolveDefaultEmailRecipient', () => {
 
     const { result } = renderHook(() =>
       useResolveDefaultEmailRecipient({
-        objectNameSingular: 'opportunity',
+        objectNameSingular: 'peluang',
         recordId: 'opp-id',
       }),
     );
@@ -112,7 +112,7 @@ describe('useResolveDefaultEmailRecipient', () => {
   it('should return empty string when recordId is null', () => {
     const { result } = renderHook(() =>
       useResolveDefaultEmailRecipient({
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         recordId: null,
       }),
     );
@@ -123,7 +123,7 @@ describe('useResolveDefaultEmailRecipient', () => {
   it('should report loading when the relevant query is in flight', () => {
     mockUseFindOneRecord.mockImplementation(
       (args: { objectNameSingular: string }) => {
-        if (args.objectNameSingular === 'person') {
+        if (args.objectNameSingular === 'penduduk') {
           return { record: null, loading: true };
         }
 
@@ -133,8 +133,8 @@ describe('useResolveDefaultEmailRecipient', () => {
 
     const { result } = renderHook(() =>
       useResolveDefaultEmailRecipient({
-        objectNameSingular: 'person',
-        recordId: 'person-id',
+        objectNameSingular: 'penduduk',
+        recordId: 'penduduk-id',
       }),
     );
 
@@ -144,28 +144,28 @@ describe('useResolveDefaultEmailRecipient', () => {
   it('should pass skip=true to queries for non-matching object types', () => {
     renderHook(() =>
       useResolveDefaultEmailRecipient({
-        objectNameSingular: 'person',
-        recordId: 'person-id',
+        objectNameSingular: 'penduduk',
+        recordId: 'penduduk-id',
       }),
     );
 
-    // Person query should NOT be skipped
+    // Penduduk query should NOT be skipped
     const personCall = mockUseFindOneRecord.mock.calls.find(
       (call: { objectNameSingular: string }[]) =>
-        call[0].objectNameSingular === 'person',
+        call[0].objectNameSingular === 'penduduk',
     );
 
     expect(personCall?.[0].skip).toBe(false);
 
-    // Opportunity query SHOULD be skipped
+    // Peluang query SHOULD be skipped
     const oppCall = mockUseFindOneRecord.mock.calls.find(
       (call: { objectNameSingular: string }[]) =>
-        call[0].objectNameSingular === 'opportunity',
+        call[0].objectNameSingular === 'peluang',
     );
 
     expect(oppCall?.[0].skip).toBe(true);
 
-    // Company people query SHOULD be skipped
+    // Keluarga daftarPenduduk query SHOULD be skipped
     expect(mockUseFindManyRecords.mock.calls[0][0].skip).toBe(true);
   });
 });

@@ -6,16 +6,16 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 describe('searchVariableThroughFindRecordsOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
-      objectMetadataId: 'company-metadata-id',
+      objectMetadataId: 'keluarga-metadata-id',
       label: 'Keluarga',
     },
     fields: {
       name: {
         isLeaf: true,
         type: FieldMetadataType.TEXT,
-        label: 'Company Name',
+        label: 'Keluarga Name',
         value: 'Keluarga Santoso',
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         isCompositeSubField: false,
       },
       revenue: {
@@ -23,7 +23,7 @@ describe('searchVariableThroughFindRecordsOutputSchema', () => {
         type: FieldMetadataType.NUMBER,
         label: 'Revenue',
         value: 1000000,
-        fieldMetadataId: 'company-revenue-metadata-id',
+        fieldMetadataId: 'keluarga-revenue-metadata-id',
         isCompositeSubField: false,
       },
     },
@@ -74,10 +74,10 @@ describe('searchVariableThroughFindRecordsOutputSchema', () => {
     });
 
     expect(result).toEqual({
-      variableLabel: 'Company Name',
-      variablePathLabel: 'Find Companies > First > Company Name',
+      variableLabel: 'Keluarga Name',
+      variablePathLabel: 'Find Companies > First > Keluarga Name',
       variableType: FieldMetadataType.TEXT,
-      fieldMetadataId: 'company-name-metadata-id',
+      fieldMetadataId: 'keluarga-name-metadata-id',
       compositeFieldSubFieldName: undefined,
     });
   });

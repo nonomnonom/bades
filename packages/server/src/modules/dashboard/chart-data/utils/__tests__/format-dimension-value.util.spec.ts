@@ -248,13 +248,13 @@ describe('formatDimensionValue', () => {
 
     it('should return string value for relation', () => {
       const result = formatDimensionValue({
-        value: 'Company Name',
+        value: 'Keluarga Name',
         fieldMetadata: relationFieldMetadata,
         userTimezone,
         firstDayOfTheWeek,
       });
 
-      expect(result).toBe('Company Name');
+      expect(result).toBe('Keluarga Name');
     });
 
     it('should return string value for relation with date granularity', () => {

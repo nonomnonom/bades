@@ -125,7 +125,7 @@ describe('useIncrementalFetchAndMutateRecords', () => {
   it('should abort processing when cancel is called', async () => {
     mockFindManyRecordsLazy.mockResolvedValue({
       data: {
-        companies: {
+        daftarKeluarga: {
           totalCount: 10,
           edges: [],
           pageInfo: { hasNextPage: true, endCursor: 'c1' },

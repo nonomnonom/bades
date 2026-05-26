@@ -4,12 +4,12 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 import { getCurrencyFieldPreviewValue } from '@/settings/data-model/fields/preview/utils/getCurrencyFieldPreviewValue';
 import { CurrencyCode } from 'shared/constants';
 
-const mockedCompanyObjectMetadataItem =
+const mockedKeluargaObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'keluarga',
   );
 
-const mockedOpportunityObjectMetadataItem =
+const mockedPeluangObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'programBantuan',
   );
@@ -17,7 +17,7 @@ const mockedOpportunityObjectMetadataItem =
 describe('getCurrencyFieldPreviewValue', () => {
   it('returns null if the field is not a Currency field', () => {
     // Given
-    const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+    const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
       ({ type }) => type !== FieldMetadataType.CURRENCY,
     );
 
@@ -33,7 +33,7 @@ describe('getCurrencyFieldPreviewValue', () => {
   });
 
   const fieldName = 'amount';
-  const fieldMetadataItem = mockedOpportunityObjectMetadataItem?.fields.find(
+  const fieldMetadataItem = mockedPeluangObjectMetadataItem?.fields.find(
     ({ name, type }) =>
       name === fieldName && type === FieldMetadataType.CURRENCY,
   );

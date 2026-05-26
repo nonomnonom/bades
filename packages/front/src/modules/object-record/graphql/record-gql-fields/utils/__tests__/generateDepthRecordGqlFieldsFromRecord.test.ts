@@ -10,7 +10,7 @@ describe('generateDepthRecordGqlFieldsFromRecord', () => {
       depth: 1,
       record: {
         id: '123',
-        name: 'Test Company',
+        name: 'Test Keluarga',
         domainName: 'test.com',
       },
     });
@@ -25,7 +25,7 @@ describe('generateDepthRecordGqlFieldsFromRecord', () => {
       depth: 0,
       record: {
         id: '123',
-        name: 'Test Company',
+        name: 'Test Keluarga',
       },
     });
 

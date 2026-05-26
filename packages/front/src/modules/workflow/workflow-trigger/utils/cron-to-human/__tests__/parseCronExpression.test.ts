@@ -39,10 +39,10 @@ describe('parseCronExpression', () => {
 
   it('should reject expressions with wrong field count', () => {
     expect(() => parseCronExpression('* *')).toThrow(
-      'Invalid cron expression. Expected 4-6 fields, got 2',
+      'Ekspresi cron tidak valid. Diharapkan 4-6 field, terima 2',
     );
     expect(() => parseCronExpression('* * * * * * *')).toThrow(
-      'Invalid cron expression. Expected 4-6 fields, got 7',
+      'Ekspresi cron tidak valid. Diharapkan 4-6 field, terima 7',
     );
   });
 

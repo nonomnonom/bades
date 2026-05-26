@@ -12,7 +12,7 @@ const createMockLogicFunction = (
     id: 'function-1',
     workspaceId: 'workspace-1',
     databaseEventTriggerSettings: {
-      eventName: 'company.updated',
+      eventName: 'keluarga.updated',
     },
     ...overrides,
   }) as LogicFunctionEntity;
@@ -31,10 +31,10 @@ const createMockEvent = (
 const createMockWorkspaceEventBatch = (
   overrides: Partial<WorkspaceEventBatch<ObjectRecordEvent>> = {},
 ): WorkspaceEventBatch<ObjectRecordEvent> => ({
-  name: 'company.updated',
+  name: 'keluarga.updated',
   workspaceId: 'workspace-1',
   objectMetadata: getFlatObjectMetadataMock({
-    universalIdentifier: 'company-uuid',
+    universalIdentifier: 'keluarga-uuid',
     nameSingular: 'keluarga',
   }),
   events: [createMockEvent()],
@@ -57,7 +57,7 @@ describe('transformEventBatchToEventPayloads', () => {
         logicFunctionId: 'function-1',
         workspaceId: 'workspace-1',
         payload: expect.objectContaining({
-          name: 'company.updated',
+          name: 'keluarga.updated',
           workspaceId: 'workspace-1',
           recordId: 'record-1',
         }),
@@ -112,7 +112,7 @@ describe('transformEventBatchToEventPayloads', () => {
   describe('updatedFields filtering', () => {
     it('should include all events when updatedFields is undefined', () => {
       const workspaceEventBatch = createMockWorkspaceEventBatch({
-        name: 'company.updated',
+        name: 'keluarga.updated',
         events: [
           createMockEvent({
             recordId: 'record-1',
@@ -126,7 +126,7 @@ describe('transformEventBatchToEventPayloads', () => {
       });
       const logicFunctions = [
         createMockLogicFunction({
-          databaseEventTriggerSettings: { eventName: 'company.updated' },
+          databaseEventTriggerSettings: { eventName: 'keluarga.updated' },
         }),
       ];
 
@@ -140,7 +140,7 @@ describe('transformEventBatchToEventPayloads', () => {
 
     it('should include all events when updatedFields is empty array', () => {
       const workspaceEventBatch = createMockWorkspaceEventBatch({
-        name: 'company.updated',
+        name: 'keluarga.updated',
         events: [
           createMockEvent({
             recordId: 'record-1',
@@ -155,7 +155,7 @@ describe('transformEventBatchToEventPayloads', () => {
       const logicFunctions = [
         createMockLogicFunction({
           databaseEventTriggerSettings: {
-            eventName: 'company.updated',
+            eventName: 'keluarga.updated',
             updatedFields: [],
           },
         }),
@@ -171,7 +171,7 @@ describe('transformEventBatchToEventPayloads', () => {
 
     it('should filter events to only those matching updatedFields', () => {
       const workspaceEventBatch = createMockWorkspaceEventBatch({
-        name: 'company.updated',
+        name: 'keluarga.updated',
         events: [
           createMockEvent({
             recordId: 'record-1',
@@ -190,7 +190,7 @@ describe('transformEventBatchToEventPayloads', () => {
       const logicFunctions = [
         createMockLogicFunction({
           databaseEventTriggerSettings: {
-            eventName: 'company.updated',
+            eventName: 'keluarga.updated',
             updatedFields: ['name'],
           },
         }),
@@ -209,7 +209,7 @@ describe('transformEventBatchToEventPayloads', () => {
 
     it('should filter events matching any of the specified updatedFields', () => {
       const workspaceEventBatch = createMockWorkspaceEventBatch({
-        name: 'company.updated',
+        name: 'keluarga.updated',
         events: [
           createMockEvent({
             recordId: 'record-1',
@@ -228,7 +228,7 @@ describe('transformEventBatchToEventPayloads', () => {
       const logicFunctions = [
         createMockLogicFunction({
           databaseEventTriggerSettings: {
-            eventName: 'company.updated',
+            eventName: 'keluarga.updated',
             updatedFields: ['name', 'address'],
           },
         }),
@@ -247,7 +247,7 @@ describe('transformEventBatchToEventPayloads', () => {
 
     it('should return no events when none match the updatedFields filter', () => {
       const workspaceEventBatch = createMockWorkspaceEventBatch({
-        name: 'company.updated',
+        name: 'keluarga.updated',
         events: [
           createMockEvent({
             recordId: 'record-1',
@@ -262,7 +262,7 @@ describe('transformEventBatchToEventPayloads', () => {
       const logicFunctions = [
         createMockLogicFunction({
           databaseEventTriggerSettings: {
-            eventName: 'company.updated',
+            eventName: 'keluarga.updated',
             updatedFields: ['phone'],
           },
         }),
@@ -278,7 +278,7 @@ describe('transformEventBatchToEventPayloads', () => {
 
     it('should handle different updatedFields filters per logic function', () => {
       const workspaceEventBatch = createMockWorkspaceEventBatch({
-        name: 'company.updated',
+        name: 'keluarga.updated',
         events: [
           createMockEvent({
             recordId: 'record-1',
@@ -294,14 +294,14 @@ describe('transformEventBatchToEventPayloads', () => {
         createMockLogicFunction({
           id: 'function-1',
           databaseEventTriggerSettings: {
-            eventName: 'company.updated',
+            eventName: 'keluarga.updated',
             updatedFields: ['name'],
           },
         }),
         createMockLogicFunction({
           id: 'function-2',
           databaseEventTriggerSettings: {
-            eventName: 'company.updated',
+            eventName: 'keluarga.updated',
             updatedFields: ['address'],
           },
         }),

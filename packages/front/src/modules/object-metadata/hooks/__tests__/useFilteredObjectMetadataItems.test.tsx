@@ -48,9 +48,9 @@ describe('useFilteredObjectMetadataItems', () => {
 
     act(() => {
       const res =
-        result.current.findActiveObjectMetadataItemByNamePlural('people');
+        result.current.findActiveObjectMetadataItemByNamePlural('daftarPenduduk');
       expect(res).toBeDefined();
-      expect(res?.namePlural).toBe('people');
+      expect(res?.namePlural).toBe('daftarPenduduk');
     });
   });
 
@@ -60,15 +60,15 @@ describe('useFilteredObjectMetadataItems', () => {
     });
 
     act(() => {
-      const res = result.current.findObjectMetadataItemByNamePlural('people');
+      const res = result.current.findObjectMetadataItemByNamePlural('daftarPenduduk');
       expect(res).toBeDefined();
-      expect(res?.namePlural).toBe('people');
+      expect(res?.namePlural).toBe('daftarPenduduk');
     });
   });
 
   it('should findObjectMetadataItemById', async () => {
     const peopleObjectMetadata = getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.namePlural === 'people',
+      (item) => item.namePlural === 'daftarPenduduk',
     );
 
     if (!isDefined(peopleObjectMetadata)) {
@@ -84,7 +84,7 @@ describe('useFilteredObjectMetadataItems', () => {
         peopleObjectMetadata.id,
       );
       expect(res).toBeDefined();
-      expect(res?.namePlural).toBe('people');
+      expect(res?.namePlural).toBe('daftarPenduduk');
     });
   });
 
@@ -95,9 +95,9 @@ describe('useFilteredObjectMetadataItems', () => {
 
     act(() => {
       const res =
-        result.current.findObjectMetadataItemByNamePlural('opportunities');
+        result.current.findObjectMetadataItemByNamePlural('daftarPeluang');
       expect(res).toBeDefined();
-      expect(res?.namePlural).toBe('opportunities');
+      expect(res?.namePlural).toBe('daftarPeluang');
     });
   });
 });

@@ -174,12 +174,12 @@ describe('turnSortsIntoOrderBy', () => {
 
   describe('relation field sorting', () => {
     const companyObjectMetadataItem: EnrichedObjectMetadataItem = {
-      id: 'company-object-id',
-      universalIdentifier: 'company-object-id',
+      id: 'keluarga-object-id',
+      universalIdentifier: 'keluarga-object-id',
       fields: [
         {
-          id: 'company-name-field-id',
-          universalIdentifier: 'company-name-field-id',
+          id: 'keluarga-name-field-id',
+          universalIdentifier: 'keluarga-name-field-id',
           name: 'name',
           type: FieldMetadataType.TEXT,
           label: 'Name',
@@ -195,7 +195,7 @@ describe('turnSortsIntoOrderBy', () => {
       updatedAt: '2021-01-01',
       nameSingular: 'keluarga',
       namePlural: 'daftarKeluarga',
-      labelIdentifierFieldMetadataId: 'company-name-field-id',
+      labelIdentifierFieldMetadataId: 'keluarga-name-field-id',
       icon: 'IconBuildingSkyscraper',
       isActive: true,
       isSystem: false,
@@ -209,12 +209,12 @@ describe('turnSortsIntoOrderBy', () => {
     };
 
     const personObjectMetadataItem: EnrichedObjectMetadataItem = {
-      id: 'person-object-id',
-      universalIdentifier: 'person-object-id',
+      id: 'penduduk-object-id',
+      universalIdentifier: 'penduduk-object-id',
       fields: [
         {
-          id: 'company-relation-field-id',
-          universalIdentifier: 'company-relation-field-id',
+          id: 'keluarga-relation-field-id',
+          universalIdentifier: 'keluarga-relation-field-id',
           name: 'keluarga',
           type: FieldMetadataType.RELATION,
           label: 'Keluarga',
@@ -245,7 +245,7 @@ describe('turnSortsIntoOrderBy', () => {
       updatedAt: '2021-01-01',
       nameSingular: 'penduduk',
       namePlural: 'daftarPenduduk',
-      labelIdentifierFieldMetadataId: 'person-name-field-id',
+      labelIdentifierFieldMetadataId: 'penduduk-name-field-id',
       icon: 'IconUser',
       isActive: true,
       isSystem: false,
@@ -262,7 +262,7 @@ describe('turnSortsIntoOrderBy', () => {
       const sorts: RecordSort[] = [
         {
           id: 'sort-1',
-          fieldMetadataId: 'company-relation-field-id',
+          fieldMetadataId: 'keluarga-relation-field-id',
           direction: ViewSortDirection.ASC,
         },
       ];
@@ -271,9 +271,9 @@ describe('turnSortsIntoOrderBy', () => {
         companyObjectMetadataItem,
       ]);
 
-      // Should produce nested structure for GraphQL: { company: { name: 'AscNullsFirst' } }
+      // Should produce nested structure for GraphQL: { keluarga: { name: 'AscNullsFirst' } }
       expect(result).toEqual([
-        { company: { name: 'AscNullsFirst' } },
+        { keluarga: { name: 'AscNullsFirst' } },
         { position: 'AscNullsFirst' },
       ]);
     });
@@ -282,7 +282,7 @@ describe('turnSortsIntoOrderBy', () => {
       const sorts: RecordSort[] = [
         {
           id: 'sort-1',
-          fieldMetadataId: 'company-relation-field-id',
+          fieldMetadataId: 'keluarga-relation-field-id',
           direction: ViewSortDirection.DESC,
         },
       ];
@@ -291,9 +291,9 @@ describe('turnSortsIntoOrderBy', () => {
         companyObjectMetadataItem,
       ]);
 
-      // Should produce nested structure for GraphQL: { company: { name: 'DescNullsLast' } }
+      // Should produce nested structure for GraphQL: { keluarga: { name: 'DescNullsLast' } }
       expect(result).toEqual([
-        { company: { name: 'DescNullsLast' } },
+        { keluarga: { name: 'DescNullsLast' } },
         { position: 'AscNullsFirst' },
       ]);
     });
@@ -302,7 +302,7 @@ describe('turnSortsIntoOrderBy', () => {
       const sorts: RecordSort[] = [
         {
           id: 'sort-1',
-          fieldMetadataId: 'company-relation-field-id',
+          fieldMetadataId: 'keluarga-relation-field-id',
           direction: ViewSortDirection.ASC,
         },
       ];

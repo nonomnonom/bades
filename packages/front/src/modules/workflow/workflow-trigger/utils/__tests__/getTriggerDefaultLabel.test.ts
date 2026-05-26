@@ -7,9 +7,9 @@ describe('getTriggerDefaultLabel', () => {
     it('returns "Record is created" for created event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Company Created',
+        name: 'Keluarga Created',
         settings: {
-          eventName: 'company.created',
+          eventName: 'keluarga.created',
           outputSchema: {},
         },
       };
@@ -22,9 +22,9 @@ describe('getTriggerDefaultLabel', () => {
     it('returns "Record is updated" for updated event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Company Updated',
+        name: 'Keluarga Updated',
         settings: {
-          eventName: 'company.updated',
+          eventName: 'keluarga.updated',
           outputSchema: {},
         },
       };
@@ -37,9 +37,9 @@ describe('getTriggerDefaultLabel', () => {
     it('returns "Record is deleted" for deleted event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Company Deleted',
+        name: 'Keluarga Deleted',
         settings: {
-          eventName: 'company.deleted',
+          eventName: 'keluarga.deleted',
           outputSchema: {},
         },
       };
@@ -52,9 +52,9 @@ describe('getTriggerDefaultLabel', () => {
     it('works with different object types', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Person Created',
+        name: 'Penduduk Created',
         settings: {
-          eventName: 'person.created',
+          eventName: 'penduduk.created',
           outputSchema: {},
         },
       };
@@ -69,7 +69,7 @@ describe('getTriggerDefaultLabel', () => {
         type: 'DATABASE_EVENT',
         name: 'Unknown Event',
         settings: {
-          eventName: 'company.unknown',
+          eventName: 'keluarga.unknown',
           outputSchema: {},
         },
       };

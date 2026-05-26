@@ -5,7 +5,7 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 describe('searchVariableThroughRecordEventOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
-      objectMetadataId: 'company-metadata-id',
+      objectMetadataId: 'keluarga-metadata-id',
       label: 'Keluarga',
     },
     fields: {
@@ -13,9 +13,9 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       'properties.after.name': {
         isLeaf: true,
         type: FieldMetadataType.TEXT,
-        label: 'Company Name',
+        label: 'Keluarga Name',
         value: 'Keluarga Santoso',
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         isCompositeSubField: false,
       },
       'properties.after.address': {
@@ -49,8 +49,8 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
         type: FieldMetadataType.RELATION,
         value: {
           object: {
-            objectMetadataId: 'person-metadata-id',
-            label: 'Owner Person',
+            objectMetadataId: 'penduduk-metadata-id',
+            label: 'Owner Penduduk',
             isRelationField: true,
           },
           fields: {
@@ -78,9 +78,9 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       'properties.before.name': {
         isLeaf: true,
         type: FieldMetadataType.TEXT,
-        label: 'Company Name',
+        label: 'Keluarga Name',
         value: 'Old Acme Corp',
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         isCompositeSubField: false,
       },
       'properties.before.address': {
@@ -114,8 +114,8 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
         type: FieldMetadataType.RELATION,
         value: {
           object: {
-            objectMetadataId: 'person-metadata-id',
-            label: 'Owner Person',
+            objectMetadataId: 'penduduk-metadata-id',
+            label: 'Owner Penduduk',
             isRelationField: true,
           },
           fields: {
@@ -153,10 +153,10 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       });
 
       expect(result).toEqual({
-        variableLabel: 'Company Name',
-        variablePathLabel: 'Record Updated > Company Name',
+        variableLabel: 'Keluarga Name',
+        variablePathLabel: 'Record Updated > Keluarga Name',
         variableType: FieldMetadataType.TEXT,
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         compositeFieldSubFieldName: undefined,
       });
     });
@@ -206,10 +206,10 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       });
 
       expect(result).toEqual({
-        variableLabel: 'Company Name',
-        variablePathLabel: 'Record Updated > Company Name',
+        variableLabel: 'Keluarga Name',
+        variablePathLabel: 'Record Updated > Keluarga Name',
         variableType: FieldMetadataType.TEXT,
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         compositeFieldSubFieldName: undefined,
       });
     });
@@ -259,10 +259,10 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       });
 
       expect(result).toEqual({
-        variableLabel: 'Company Name',
-        variablePathLabel: 'Record Updated > Company Name',
+        variableLabel: 'Keluarga Name',
+        variablePathLabel: 'Record Updated > Keluarga Name',
         variableType: FieldMetadataType.TEXT,
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         compositeFieldSubFieldName: undefined,
       });
     });
@@ -331,8 +331,8 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
       });
 
       expect(result).toEqual({
-        variableLabel: 'Owner Person',
-        variablePathLabel: 'Record Updated > Owner > Owner Person',
+        variableLabel: 'Owner Penduduk',
+        variablePathLabel: 'Record Updated > Owner > Owner Penduduk',
         variableType: undefined,
         fieldMetadataId: undefined,
         compositeFieldSubFieldName: undefined,

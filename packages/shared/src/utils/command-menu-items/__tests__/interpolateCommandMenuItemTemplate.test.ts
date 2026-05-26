@@ -52,7 +52,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Second: ${objectMetadataItem.labelPlural}',
           context,
         }),
-      ).toBe('Second: people');
+      ).toBe('Second: daftarPenduduk');
     });
   });
 
@@ -112,7 +112,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Create new ${objectMetadataItem.labelSingular}',
           context,
         }),
-      ).toBe('Create new person');
+      ).toBe('Create new penduduk');
     });
 
     it('should interpolate objectMetadataItem.labelPlural', () => {
@@ -125,7 +125,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Delete ${objectMetadataItem.labelPlural}',
           context,
         }),
-      ).toBe('Delete companies');
+      ).toBe('Delete daftarKeluarga');
     });
   });
 
@@ -142,7 +142,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
             '${numberOfSelectedRecords} ${objectMetadataItem.labelPlural} selected',
           context,
         }),
-      ).toBe('3 people selected');
+      ).toBe('3 daftarPenduduk selected');
     });
   });
 
@@ -160,7 +160,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'New ${objectMetadataItem.nameSingular}',
           context,
         }),
-      ).toBe('New opportunity');
+      ).toBe('New peluang');
     });
   });
 
@@ -243,7 +243,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Create new ${objectMetadataItem.labelSingular}',
           context,
         }),
-      ).toBe('Create new Person');
+      ).toBe('Create new Penduduk');
     });
   });
 
@@ -258,7 +258,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: '${capitalize(objectMetadataItem.labelSingular)} details',
           context,
         }),
-      ).toBe('Person details');
+      ).toBe('Penduduk details');
     });
 
     it('should capitalize a mixed-case value', () => {
@@ -271,7 +271,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: '${capitalize(objectMetadataItem.labelPlural)} selected',
           context,
         }),
-      ).toBe('CompanyRecords selected');
+      ).toBe('KeluargaRecords selected');
     });
 
     it('should return empty string when the nested property is undefined', () => {
@@ -299,7 +299,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Create ${lowercase(objectMetadataItem.labelSingular)}',
           context,
         }),
-      ).toBe('Create person');
+      ).toBe('Create penduduk');
     });
 
     it('should lowercase all characters', () => {
@@ -312,7 +312,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Delete ${lowercase(objectMetadataItem.labelPlural)}',
           context,
         }),
-      ).toBe('Delete people');
+      ).toBe('Delete daftarPenduduk');
     });
   });
 
@@ -353,7 +353,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Delete ${capitalize(objectMetadataLabel)}',
           context,
         }),
-      ).toBe('Delete Person');
+      ).toBe('Delete Penduduk');
     });
 
     it('should resolve plural label with capitalize transform', () => {
@@ -379,12 +379,12 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: '${objectMetadataLabel} selected',
           context,
         }),
-      ).toBe('people selected');
+      ).toBe('daftarPenduduk selected');
     });
 
     it('should resolve objectMetadataLabel with lowercase transform', () => {
       const context = buildContext({
-        objectMetadataLabel: 'Person',
+        objectMetadataLabel: 'Penduduk',
       });
 
       expect(
@@ -392,7 +392,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
           label: 'Create ${lowercase(objectMetadataLabel)}',
           context,
         }),
-      ).toBe('Create person');
+      ).toBe('Create penduduk');
     });
 
     it('should return empty segment when objectMetadataLabel is empty', () => {

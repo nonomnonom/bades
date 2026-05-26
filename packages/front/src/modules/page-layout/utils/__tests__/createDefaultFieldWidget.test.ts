@@ -11,7 +11,7 @@ describe('createDefaultFieldWidget', () => {
     const widget = createDefaultFieldWidget({
       id: 'widget-1',
       pageLayoutTabId: 'tab-1',
-      title: 'Company Name',
+      title: 'Keluarga Name',
       fieldMetadataId: 'field-1',
       objectMetadataId: 'object-1',
       positionIndex: 0,
@@ -21,7 +21,7 @@ describe('createDefaultFieldWidget', () => {
       __typename: 'PageLayoutWidget',
       id: 'widget-1',
       pageLayoutTabId: 'tab-1',
-      title: 'Company Name',
+      title: 'Keluarga Name',
       isActive: true,
       type: WidgetType.FIELD,
       configuration: {

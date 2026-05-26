@@ -21,7 +21,7 @@ describe('useRefetchAggregateQueries', () => {
 
   it('should refetch queries', async () => {
     // Arrange
-    const objectMetadataNamePlural = 'opportunities';
+    const objectMetadataNamePlural = 'daftarPeluang';
     const expectedQueryName = getAggregateQueryName(objectMetadataNamePlural);
     const expectedQueryNameGroupBy = getGroupByAggregateQueryName({
       objectMetadataNamePlural,
@@ -42,7 +42,7 @@ describe('useRefetchAggregateQueries', () => {
     // Arrange
     const error = new Error('Refetch failed');
     mockRefetchQueries.mockRejectedValue(error);
-    const objectMetadataNamePlural = 'opportunities';
+    const objectMetadataNamePlural = 'daftarPeluang';
 
     // Act
     const { result } = renderHook(() => useRefetchAggregateQueries());

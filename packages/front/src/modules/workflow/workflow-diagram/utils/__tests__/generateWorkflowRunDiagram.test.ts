@@ -23,10 +23,10 @@ afterAll(() => {
 describe('generateWorkflowRunDiagram', () => {
   it('marks node as failed when the last attempt failed', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -175,7 +175,7 @@ describe('generateWorkflowRunDiagram', () => {
         "data": {
           "hasNextStepIds": true,
           "icon": "IconPlaylistAdd",
-          "name": "Company created",
+          "name": "Keluarga created",
           "nodeType": "trigger",
           "position": {
             "x": 0,
@@ -257,10 +257,10 @@ describe('generateWorkflowRunDiagram', () => {
 
   it('marks all nodes as successful when each node has an output', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -411,7 +411,7 @@ describe('generateWorkflowRunDiagram', () => {
         "data": {
           "hasNextStepIds": true,
           "icon": "IconPlaylistAdd",
-          "name": "Company created",
+          "name": "Keluarga created",
           "nodeType": "trigger",
           "position": {
             "x": 0,
@@ -493,10 +493,10 @@ describe('generateWorkflowRunDiagram', () => {
 
   it('marks node as running and all other ones as not-executed when no output is available at all', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -647,7 +647,7 @@ describe('generateWorkflowRunDiagram', () => {
         "data": {
           "hasNextStepIds": true,
           "icon": "IconPlaylistAdd",
-          "name": "Company created",
+          "name": "Keluarga created",
           "nodeType": "trigger",
           "position": {
             "x": 0,
@@ -729,10 +729,10 @@ describe('generateWorkflowRunDiagram', () => {
 
   it("marks node as running and all other ones as not-executed when a node doesn't have an attached output", () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -919,7 +919,7 @@ describe('generateWorkflowRunDiagram', () => {
         "data": {
           "hasNextStepIds": true,
           "icon": "IconPlaylistAdd",
-          "name": "Company created",
+          "name": "Keluarga created",
           "nodeType": "trigger",
           "position": {
             "x": 0,
@@ -1020,10 +1020,10 @@ describe('generateWorkflowRunDiagram', () => {
 
   it('marks node as running when a Form step is pending and return its data as the stepToOpenByDefault object', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -1107,7 +1107,7 @@ describe('generateWorkflowRunDiagram', () => {
         "data": {
           "hasNextStepIds": true,
           "icon": "IconPlaylistAdd",
-          "name": "Company created",
+          "name": "Keluarga created",
           "nodeType": "trigger",
           "position": {
             "x": 0,

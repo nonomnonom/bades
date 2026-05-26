@@ -31,7 +31,7 @@ describe('getWorkflowNodeIconKey', () => {
         ...baseNodeData,
         nodeType: 'trigger',
         triggerType: 'DATABASE_EVENT',
-        name: 'Company Created',
+        name: 'Keluarga Created',
         icon: 'IconDatabase',
       };
 
@@ -75,7 +75,7 @@ describe('getWorkflowNodeIconKey', () => {
         ...baseNodeData,
         nodeType: 'action',
         actionType: 'CREATE_RECORD',
-        name: 'Create Company',
+        name: 'Create Keluarga',
       };
 
       const result = getWorkflowNodeIconKey(createActionData);
@@ -88,7 +88,7 @@ describe('getWorkflowNodeIconKey', () => {
         ...baseNodeData,
         nodeType: 'action',
         actionType: 'UPDATE_RECORD',
-        name: 'Update Company',
+        name: 'Update Keluarga',
       };
 
       const result = getWorkflowNodeIconKey(updateActionData);
@@ -101,7 +101,7 @@ describe('getWorkflowNodeIconKey', () => {
         ...baseNodeData,
         nodeType: 'action',
         actionType: 'DELETE_RECORD',
-        name: 'Delete Company',
+        name: 'Delete Keluarga',
       };
 
       const result = getWorkflowNodeIconKey(deleteActionData);

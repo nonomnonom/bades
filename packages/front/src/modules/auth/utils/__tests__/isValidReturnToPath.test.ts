@@ -10,7 +10,7 @@ describe('isValidReturnToPath', () => {
   });
 
   it('should return false for paths not starting with slash', () => {
-    expect(isValidReturnToPath('objects/people')).toBe(false);
+    expect(isValidReturnToPath('objects/daftarPenduduk')).toBe(false);
   });
 
   it('should return false for double-slash paths', () => {
@@ -32,7 +32,7 @@ describe('isValidReturnToPath', () => {
   });
 
   it('should return true for valid application paths', () => {
-    expect(isValidReturnToPath('/objects/people')).toBe(true);
+    expect(isValidReturnToPath('/objects/daftarPenduduk')).toBe(true);
     expect(isValidReturnToPath('/settings/accounts')).toBe(true);
   });
 });

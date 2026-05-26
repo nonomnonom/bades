@@ -133,17 +133,17 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-1',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
       const emailField = createMockField({
         id: 'field-2',
         name: 'email',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
 
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-1', 'field-2'],
       });
@@ -157,7 +157,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       ]);
 
       const result = handler.computeFromDepth({
-        objectsPermissions: createObjectsPermissions(['person-id']),
+        objectsPermissions: createObjectsPermissions(['penduduk-id']),
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
         flatObjectMetadata: personObject,
@@ -175,33 +175,33 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-1',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
       const companyRelationField = createMockField({
         id: 'field-2',
         name: 'keluarga',
         type: FieldMetadataType.RELATION,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
           joinColumnName: 'companyId',
         },
-        relationTargetObjectMetadataId: 'company-id',
+        relationTargetObjectMetadataId: 'keluarga-id',
       });
       const companyNameField = createMockField({
         id: 'field-3',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
 
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-1', 'field-2'],
       });
       const companyObject = createMockObjectMetadata({
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         fieldIds: ['field-3'],
       });
@@ -218,8 +218,8 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const result = handler.computeFromDepth({
         objectsPermissions: createObjectsPermissions([
-          'person-id',
-          'company-id',
+          'penduduk-id',
+          'keluarga-id',
         ]),
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
@@ -230,7 +230,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       expect(result).toEqual({
         name: true,
         companyId: true, // join column for MANY_TO_ONE
-        company: {
+        keluarga: {
           name: true,
         },
       });
@@ -241,32 +241,32 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-1',
         name: 'keluarga',
         type: FieldMetadataType.RELATION,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
         settings: {
           relationType: RelationType.ONE_TO_MANY,
         },
-        relationTargetObjectMetadataId: 'company-id',
+        relationTargetObjectMetadataId: 'keluarga-id',
       });
       const companyNameField = createMockField({
         id: 'field-2',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
       const companySecretField = createMockField({
         id: 'field-3',
         name: 'secret',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
 
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-1'],
       });
       const companyObject = createMockObjectMetadata({
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         fieldIds: ['field-2', 'field-3'],
       });
@@ -282,11 +282,11 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       ]);
 
       const objectsPermissions = createObjectsPermissions([
-        'person-id',
-        'company-id',
+        'penduduk-id',
+        'keluarga-id',
       ]);
 
-      objectsPermissions['company-id'].restrictedFields = {
+      objectsPermissions['keluarga-id'].restrictedFields = {
         'field-3': { canRead: false, canUpdate: false },
       };
 
@@ -299,7 +299,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           name: true,
           // secret field is excluded due to restrictions
         },
@@ -311,26 +311,26 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-1',
         name: 'keluarga',
         type: FieldMetadataType.RELATION,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
         settings: {
           relationType: RelationType.ONE_TO_MANY,
         },
-        relationTargetObjectMetadataId: 'company-id',
+        relationTargetObjectMetadataId: 'keluarga-id',
       });
       const companyNameField = createMockField({
         id: 'field-2',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
 
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-1'],
       });
       const companyObject = createMockObjectMetadata({
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         fieldIds: ['field-2'],
       });
@@ -345,11 +345,11 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       ]);
 
       const objectsPermissions = createObjectsPermissions([
-        'person-id',
-        'company-id',
+        'penduduk-id',
+        'keluarga-id',
       ]);
 
-      objectsPermissions['company-id'].restrictedFields = {
+      objectsPermissions['keluarga-id'].restrictedFields = {
         'field-2': { canRead: false, canUpdate: false },
       };
 
@@ -363,57 +363,57 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       // ONE_TO_MANY relations are included as regular boolean fields
       expect(result).toEqual({
-        company: true,
+        keluarga: true,
       });
     });
 
     it('should handle nested relations up to MAX_DEPTH', () => {
-      const personCompanyRelation = createMockField({
+      const personKeluargaRelation = createMockField({
         id: 'field-1',
         name: 'keluarga',
         type: FieldMetadataType.RELATION,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
         },
-        relationTargetObjectMetadataId: 'company-id',
+        relationTargetObjectMetadataId: 'keluarga-id',
       });
       const companyNameField = createMockField({
         id: 'field-2',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
       const companyPeopleRelation = createMockField({
         id: 'field-3',
         name: 'daftarPenduduk',
         type: FieldMetadataType.RELATION,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
         settings: {
           relationType: RelationType.ONE_TO_MANY,
         },
-        relationTargetObjectMetadataId: 'person-id',
+        relationTargetObjectMetadataId: 'penduduk-id',
       });
       const personNameField = createMockField({
         id: 'field-4',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
 
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-1', 'field-4'],
       });
       const companyObject = createMockObjectMetadata({
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         fieldIds: ['field-2', 'field-3'],
       });
 
       const flatFieldMetadataMaps = buildFlatFieldMetadataMaps([
-        personCompanyRelation,
+        personKeluargaRelation,
         companyNameField,
         companyPeopleRelation,
         personNameField,
@@ -425,8 +425,8 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const result = handler.computeFromDepth({
         objectsPermissions: createObjectsPermissions([
-          'person-id',
-          'company-id',
+          'penduduk-id',
+          'keluarga-id',
         ]),
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
@@ -437,9 +437,9 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       expect(result).toEqual({
         name: true,
         companyId: true,
-        company: {
+        keluarga: {
           name: true,
-          people: {
+          daftarPenduduk: {
             name: true,
             companyId: true,
           },
@@ -452,23 +452,23 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-id',
         name: 'id',
         type: FieldMetadataType.UUID,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
       const nameField = createMockField({
         id: 'field-1',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
       const emailField = createMockField({
         id: 'field-2',
         name: 'email',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
 
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-id', 'field-1', 'field-2'],
         labelIdentifierFieldMetadataId: 'field-1',
@@ -484,7 +484,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       ]);
 
       const result = handler.computeFromDepth({
-        objectsPermissions: createObjectsPermissions(['person-id']),
+        objectsPermissions: createObjectsPermissions(['penduduk-id']),
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
         flatObjectMetadata: personObject,
@@ -519,7 +519,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         settings: {
           relationType: RelationType.MANY_TO_ONE,
         },
-        relationTargetObjectMetadataId: 'company-id',
+        relationTargetObjectMetadataId: 'keluarga-id',
       });
       const noteNameField = createMockField({
         id: 'field-3',
@@ -531,7 +531,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-4',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
 
       const noteTargetObject = createMockObjectMetadata({
@@ -545,7 +545,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         fieldIds: ['field-3'],
       });
       const companyObject = createMockObjectMetadata({
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         fieldIds: ['field-4'],
       });
@@ -566,7 +566,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         objectsPermissions: createObjectsPermissions([
           'noteTarget-id',
           'note-id',
-          'company-id',
+          'keluarga-id',
         ]),
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
@@ -580,7 +580,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
           title: true,
         },
         companyId: true,
-        company: {
+        keluarga: {
           name: true,
         },
       });
@@ -596,7 +596,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
           relationType: RelationType.MANY_TO_ONE,
           joinColumnName: 'personId',
         },
-        relationTargetObjectMetadataId: 'person-id',
+        relationTargetObjectMetadataId: 'penduduk-id',
       });
       const junctionRelation2 = createMockField({
         id: 'field-2',
@@ -607,13 +607,13 @@ describe('RestToCommonSelectedFieldsHandler', () => {
           relationType: RelationType.MANY_TO_ONE,
           joinColumnName: 'companyId',
         },
-        relationTargetObjectMetadataId: 'company-id',
+        relationTargetObjectMetadataId: 'keluarga-id',
       });
       const companyJunctionRelation = createMockField({
         id: 'field-3',
         name: 'personCompanies',
         type: FieldMetadataType.RELATION,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
         settings: {
           relationType: RelationType.ONE_TO_MANY,
           junctionTargetFieldId: 'field-2',
@@ -624,17 +624,17 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         id: 'field-4',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'company-id',
+        objectMetadataId: 'keluarga-id',
       });
       const personNameField = createMockField({
         id: 'field-5',
         name: 'name',
         type: FieldMetadataType.TEXT,
-        objectMetadataId: 'person-id',
+        objectMetadataId: 'penduduk-id',
       });
 
       const companyObject = createMockObjectMetadata({
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         fieldIds: ['field-3', 'field-4'],
       });
@@ -644,7 +644,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         fieldIds: ['field-1', 'field-2'],
       });
       const personObject = createMockObjectMetadata({
-        id: 'person-id',
+        id: 'penduduk-id',
         nameSingular: 'penduduk',
         fieldIds: ['field-5'],
       });
@@ -664,9 +664,9 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const result = handler.computeFromDepth({
         objectsPermissions: createObjectsPermissions([
-          'company-id',
+          'keluarga-id',
           'junction-id',
-          'person-id',
+          'penduduk-id',
         ]),
         flatObjectMetadataMaps,
         flatFieldMetadataMaps,
@@ -679,10 +679,10 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         personCompanies: {
           personId: true,
           companyId: true,
-          person: {
+          penduduk: {
             name: true,
           },
-          company: {
+          keluarga: {
             name: true,
             personCompanies: true, // Circular reference shows as boolean
           },

@@ -56,7 +56,7 @@ describe('useSidePanelHistory', () => {
     act(() => {
       result.current.commandMenu.navigateSidePanelMenu({
         page: SidePanelPages.ViewRecord,
-        pageTitle: 'Company',
+        pageTitle: 'Keluarga',
         pageIcon: IconList,
         pageId: '2',
       });
@@ -71,7 +71,7 @@ describe('useSidePanelHistory', () => {
       },
       {
         page: SidePanelPages.ViewRecord,
-        pageTitle: 'Company',
+        pageTitle: 'Keluarga',
         pageIcon: IconList,
         pageId: '2',
       },
@@ -124,7 +124,7 @@ describe('useSidePanelHistory', () => {
     act(() => {
       result.current.commandMenu.navigateSidePanelMenu({
         page: SidePanelPages.ViewRecord,
-        pageTitle: 'Company',
+        pageTitle: 'Keluarga',
         pageIcon: IconList,
         pageId: '1',
       });
@@ -133,7 +133,7 @@ describe('useSidePanelHistory', () => {
     expect(jotaiStore.get(sidePanelNavigationStackState.atom)).toEqual([
       {
         page: SidePanelPages.ViewRecord,
-        pageTitle: 'Company',
+        pageTitle: 'Keluarga',
         pageIcon: IconList,
         pageId: '1',
       },

@@ -308,19 +308,19 @@ describe('useBuildSpreadSheetImportFields', () => {
       labelPlural: 'Keluarga',
       fields: [
         createMockFieldMetadataItem({
-          id: 'company-id-field',
+          id: 'keluarga-id-field',
           name: 'id',
           label: 'ID',
           type: FieldMetadataType.UUID,
         }),
         createMockFieldMetadataItem({
-          id: 'company-name-field',
+          id: 'keluarga-name-field',
           name: 'name',
           label: 'Name',
           type: FieldMetadataType.TEXT,
         }),
         createMockFieldMetadataItem({
-          id: 'company-email-field',
+          id: 'keluarga-email-field',
           name: 'emails',
           label: 'Emails',
           type: FieldMetadataType.EMAILS,
@@ -336,7 +336,7 @@ describe('useBuildSpreadSheetImportFields', () => {
           indexFieldMetadatas: [
             {
               id: 'index-field-1',
-              fieldMetadataId: 'company-id-field',
+              fieldMetadataId: 'keluarga-id-field',
               createdAt: '2023-01-01',
               updatedAt: '2023-01-01',
               order: 0,
@@ -352,7 +352,7 @@ describe('useBuildSpreadSheetImportFields', () => {
           indexFieldMetadatas: [
             {
               id: 'index-field-2',
-              fieldMetadataId: 'company-name-field',
+              fieldMetadataId: 'keluarga-name-field',
               createdAt: '2023-01-01',
               updatedAt: '2023-01-01',
               order: 0,
@@ -368,7 +368,7 @@ describe('useBuildSpreadSheetImportFields', () => {
           indexFieldMetadatas: [
             {
               id: 'index-field-3',
-              fieldMetadataId: 'company-email-field',
+              fieldMetadataId: 'keluarga-email-field',
               createdAt: '2023-01-01',
               updatedAt: '2023-01-01',
               order: 0,
@@ -414,43 +414,43 @@ describe('useBuildSpreadSheetImportFields', () => {
     expect(spreadsheetImportFields).toHaveLength(4);
 
     const idField = spreadsheetImportFields.find((field) =>
-      field.key.includes('id (company)'),
+      field.key.includes('id (keluarga)'),
     );
     expect(idField).toBeDefined();
     expect(idField).toMatchObject({
-      label: 'Company / ID',
-      key: 'id (company)',
+      label: 'Keluarga / ID',
+      key: 'id (keluarga)',
       fieldMetadataItemId: 'test-field-id',
       fieldMetadataType: FieldMetadataType.RELATION,
       isNestedField: true,
       isRelationConnectField: true,
       uniqueFieldMetadataItem: {
-        id: 'company-id-field',
+        id: 'keluarga-id-field',
         name: 'id',
         type: FieldMetadataType.UUID,
       },
     });
 
     const nameField = spreadsheetImportFields.find((field) =>
-      field.key.includes('name (company)'),
+      field.key.includes('name (keluarga)'),
     );
     expect(nameField).toBeDefined();
     expect(nameField).toMatchObject({
-      label: 'Company / Name',
-      key: 'name (company)',
+      label: 'Keluarga / Name',
+      key: 'name (keluarga)',
       fieldMetadataItemId: 'test-field-id',
       fieldMetadataType: FieldMetadataType.RELATION,
       isNestedField: true,
       isRelationConnectField: true,
       uniqueFieldMetadataItem: {
-        id: 'company-name-field',
+        id: 'keluarga-name-field',
         name: 'name',
         type: FieldMetadataType.TEXT,
       },
     });
 
     const primaryEmailField = spreadsheetImportFields.find((field) =>
-      field.key.includes('primaryEmail-emails (company)'),
+      field.key.includes('primaryEmail-emails (keluarga)'),
     );
     expect(primaryEmailField).toBeDefined();
     expect(primaryEmailField).toMatchObject({
@@ -459,7 +459,7 @@ describe('useBuildSpreadSheetImportFields', () => {
       isRelationConnectField: true,
       compositeSubFieldKey: 'primaryEmail',
       uniqueFieldMetadataItem: {
-        id: 'company-email-field',
+        id: 'keluarga-email-field',
         name: 'emails',
         type: FieldMetadataType.EMAILS,
       },

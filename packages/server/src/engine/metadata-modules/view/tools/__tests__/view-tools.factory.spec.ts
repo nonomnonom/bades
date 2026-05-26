@@ -74,7 +74,7 @@ describe('ViewToolsFactory', () => {
         id: mockObjectMetadataId,
         nameSingular: mockObjectNameSingular,
         namePlural: 'daftarKeluarga',
-        labelSingular: 'Company',
+        labelSingular: 'Keluarga',
         labelPlural: 'Companies',
         universalIdentifier: 'object-universal-id',
       },

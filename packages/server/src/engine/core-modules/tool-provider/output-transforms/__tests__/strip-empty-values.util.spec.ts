@@ -84,7 +84,7 @@ describe('stripEmptyValues', () => {
   it('should handle a realistic tool output', () => {
     const toolOutput = {
       success: true,
-      message: 'Found 2 company records',
+      message: 'Found 2 keluarga records',
       result: {
         records: [
           {
@@ -117,7 +117,7 @@ describe('stripEmptyValues', () => {
 
     expect(stripEmptyValues(toolOutput)).toEqual({
       success: true,
-      message: 'Found 2 company records',
+      message: 'Found 2 keluarga records',
       result: {
         records: [
           {

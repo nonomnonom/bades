@@ -12,7 +12,7 @@ describe('createApolloStoreFieldName', () => {
 
   it('should create field name with complex variables', () => {
     const result = createApolloStoreFieldName({
-      fieldName: 'companies',
+      fieldName: 'daftarKeluarga',
       fieldVariables: {
         filter: { name: { ilike: '%test%' } },
         orderBy: [{ createdAt: 'DESC' }],
@@ -21,7 +21,7 @@ describe('createApolloStoreFieldName', () => {
     });
 
     expect(result).toBe(
-      'companies({"filter":{"name":{"ilike":"%test%"}},"orderBy":[{"createdAt":"DESC"}],"first":20})',
+      'daftarKeluarga({"filter":{"name":{"ilike":"%test%"}},"orderBy":[{"createdAt":"DESC"}],"first":20})',
     );
   });
 

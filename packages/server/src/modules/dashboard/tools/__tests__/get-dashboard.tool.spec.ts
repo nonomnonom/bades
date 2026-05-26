@@ -30,7 +30,7 @@ const flatFieldMetadataMaps = {
       type: FieldMetadataType.RELATION,
       relationTargetObjectMetadataId: PERSON_OBJECT_ID,
     },
-    'field-person-address': {
+    'field-penduduk-address': {
       id: PERSON_ADDRESS_FIELD_ID,
       name: 'address',
       label: 'Address',
@@ -42,7 +42,7 @@ const flatFieldMetadataMaps = {
   universalIdentifierById: {
     [AGG_FIELD_ID]: 'field-amount',
     [OWNER_FIELD_ID]: 'field-owner',
-    [PERSON_ADDRESS_FIELD_ID]: 'field-person-address',
+    [PERSON_ADDRESS_FIELD_ID]: 'field-penduduk-address',
   },
   universalIdentifiersByApplicationId: {},
 };

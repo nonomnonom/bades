@@ -20,7 +20,7 @@ describe('buildChartGroupByFieldConfigUpdate', () => {
     namePlural: 'daftarProgramBantuan',
     labelSingular: 'Program Bantuan',
     labelPlural: 'Program Bantuan',
-    description: 'An opportunity',
+    description: 'An peluang',
     icon: 'IconTargetArrow',
     isActive: true,
     isSystem: false,

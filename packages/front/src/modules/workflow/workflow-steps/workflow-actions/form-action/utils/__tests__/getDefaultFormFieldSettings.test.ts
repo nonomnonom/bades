@@ -112,7 +112,7 @@ describe('getDefaultFormFieldSettings', () => {
     const recordResult = getDefaultFormFieldSettings('RECORD');
     expect(recordResult.name).toBe('record');
     expect(recordResult.label).toBe('Record');
-    expect(recordResult.placeholder).toBe('Select a Company');
+    expect(recordResult.placeholder).toBe('Select a Keluarga');
   });
 
   it('should have correct settings object for RECORD type', () => {

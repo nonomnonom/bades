@@ -98,8 +98,10 @@ const mock: MockedResponse = {
               }
           }
       `,
+    variables: {
+      limit: 30,
+    },
   },
-  variableMatcher: () => true,
   result: jest.fn(() => ({
     data: {
       daftarPenduduk: {

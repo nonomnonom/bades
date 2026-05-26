@@ -17,12 +17,12 @@ jest.mock('@/object-metadata/hooks/useObjectMetadataItems', () => ({
   useObjectMetadataItems: () => ({
     objectMetadataItems: [
       {
-        id: 'company-metadata-id',
+        id: 'keluarga-metadata-id',
         nameSingular: 'keluarga',
         namePlural: 'daftarKeluarga',
       },
       {
-        id: 'person-metadata-id',
+        id: 'penduduk-metadata-id',
         nameSingular: 'penduduk',
         namePlural: 'daftarPenduduk',
       },
@@ -57,7 +57,7 @@ const mockMorphFieldDefinition = {
           namePlural: 'tasks',
         },
         targetObjectMetadata: {
-          id: 'company-metadata-id',
+          id: 'keluarga-metadata-id',
           nameSingular: 'keluarga',
           namePlural: 'daftarKeluarga',
         },
@@ -79,7 +79,7 @@ const mockMorphFieldDefinition = {
           namePlural: 'tasks',
         },
         targetObjectMetadata: {
-          id: 'person-metadata-id',
+          id: 'penduduk-metadata-id',
           nameSingular: 'penduduk',
           namePlural: 'daftarPenduduk',
         },
@@ -114,8 +114,8 @@ describe('useMorphPersistManyToOne', () => {
         objectNameSingular: 'task',
         idToUpdate: 'test-record-id',
         updateOneRecordInput: {
-          polymorphicOwnerCompanyId: null,
-          polymorphicOwnerPersonId: null,
+          polymorphicOwnerKeluargaId: null,
+          polymorphicOwnerPendudukId: null,
         },
       });
     });
@@ -142,8 +142,8 @@ describe('useMorphPersistManyToOne', () => {
         objectNameSingular: 'task',
         idToUpdate: 'test-record-id',
         updateOneRecordInput: {
-          polymorphicOwnerCompanyId: null,
-          polymorphicOwnerPersonId: null,
+          polymorphicOwnerKeluargaId: null,
+          polymorphicOwnerPendudukId: null,
         },
       });
     });
@@ -160,7 +160,7 @@ describe('useMorphPersistManyToOne', () => {
       await result.current.persistMorphManyToOne({
         recordId: 'test-record-id',
         fieldDefinition: mockMorphFieldDefinition,
-        valueToPersist: 'selected-company-id',
+        valueToPersist: 'selected-keluarga-id',
         targetObjectMetadataNameSingular: 'keluarga',
       });
     });
@@ -171,8 +171,8 @@ describe('useMorphPersistManyToOne', () => {
         objectNameSingular: 'task',
         idToUpdate: 'test-record-id',
         updateOneRecordInput: {
-          polymorphicOwnerCompanyId: 'selected-company-id',
-          polymorphicOwnerPersonId: null,
+          polymorphicOwnerKeluargaId: 'selected-keluarga-id',
+          polymorphicOwnerPendudukId: null,
         },
       });
     });

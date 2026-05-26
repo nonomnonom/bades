@@ -6,7 +6,7 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 describe('searchVariableThroughFormOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
-      objectMetadataId: 'person-metadata-id',
+      objectMetadataId: 'penduduk-metadata-id',
       label: 'Penduduk',
     },
     fields: {
@@ -15,7 +15,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
         type: FieldMetadataType.TEXT,
         label: 'First Name',
         value: 'John',
-        fieldMetadataId: 'person-firstName-metadata-id',
+        fieldMetadataId: 'penduduk-firstName-metadata-id',
         isCompositeSubField: false,
       },
       lastName: {
@@ -23,7 +23,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
         type: FieldMetadataType.TEXT,
         label: 'Last Name',
         value: 'Doe',
-        fieldMetadataId: 'person-lastName-metadata-id',
+        fieldMetadataId: 'penduduk-lastName-metadata-id',
         isCompositeSubField: false,
       },
       email: {
@@ -31,7 +31,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
         type: FieldMetadataType.EMAILS,
         label: 'Email',
         value: 'john.doe@example.com',
-        fieldMetadataId: 'person-email-metadata-id',
+        fieldMetadataId: 'penduduk-email-metadata-id',
         isCompositeSubField: false,
       },
     },
@@ -43,7 +43,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
     companyName: {
       isLeaf: true,
       type: FieldMetadataType.TEXT,
-      label: 'Company Name',
+      label: 'Keluarga Name',
       value: 'Keluarga Santoso',
     },
     // Number field
@@ -63,29 +63,29 @@ describe('searchVariableThroughFormOutputSchema', () => {
     // Record field (nested record)
     contactPerson: {
       isLeaf: false,
-      label: 'Contact Person',
+      label: 'Contact Penduduk',
       value: mockRecordSchema,
     },
   };
 
   it('should handle simple text field access correctly', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.companyName}}',
       isFullRecord: false,
     });
 
     expect(result).toEqual({
-      variableLabel: 'Company Name',
-      variablePathLabel: 'Company Form > Company Name',
+      variableLabel: 'Keluarga Name',
+      variablePathLabel: 'Keluarga Form > Keluarga Name',
       variableType: FieldMetadataType.TEXT,
     });
   });
 
   it('should handle number field access correctly', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.revenue}}',
       isFullRecord: false,
@@ -93,14 +93,14 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
     expect(result).toEqual({
       variableLabel: 'Annual Revenue',
-      variablePathLabel: 'Company Form > Annual Revenue',
+      variablePathLabel: 'Keluarga Form > Annual Revenue',
       variableType: FieldMetadataType.NUMBER,
     });
   });
 
   it('should handle email field access correctly', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.contactEmail}}',
       isFullRecord: false,
@@ -108,14 +108,14 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
     expect(result).toEqual({
       variableLabel: 'Contact Email',
-      variablePathLabel: 'Company Form > Contact Email',
+      variablePathLabel: 'Keluarga Form > Contact Email',
       variableType: FieldMetadataType.EMAILS,
     });
   });
 
   it('should handle nested record field access correctly', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.contactPerson.firstName}}',
       isFullRecord: false,
@@ -123,16 +123,16 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
     expect(result).toEqual({
       variableLabel: 'First Name',
-      variablePathLabel: 'Company Form > Contact Person > First Name',
+      variablePathLabel: 'Keluarga Form > Contact Penduduk > First Name',
       variableType: FieldMetadataType.TEXT,
-      fieldMetadataId: 'person-firstName-metadata-id',
+      fieldMetadataId: 'penduduk-firstName-metadata-id',
       compositeFieldSubFieldName: undefined,
     });
   });
 
   it('should handle nested record email field access correctly', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.contactPerson.email}}',
       isFullRecord: false,
@@ -140,16 +140,16 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
     expect(result).toEqual({
       variableLabel: 'Email',
-      variablePathLabel: 'Company Form > Contact Person > Email',
+      variablePathLabel: 'Keluarga Form > Contact Penduduk > Email',
       variableType: FieldMetadataType.EMAILS,
-      fieldMetadataId: 'person-email-metadata-id',
+      fieldMetadataId: 'penduduk-email-metadata-id',
       compositeFieldSubFieldName: undefined,
     });
   });
 
   it('should return undefined for invalid field name', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.invalidField}}',
       isFullRecord: false,
@@ -163,7 +163,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
   it('should return undefined for invalid nested field name', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.contactPerson.invalidField}}',
       isFullRecord: false,
@@ -177,7 +177,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
   it('should return undefined when trying to access record field without specifying property', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.contactPerson}}',
       isFullRecord: false,
@@ -191,7 +191,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
   it('should return undefined when formOutputSchema is undefined', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: undefined as any,
       rawVariableName: '{{step1.companyName}}',
       isFullRecord: false,
@@ -205,7 +205,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
   it('should return undefined when stepId or fieldName is undefined', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{}}',
       isFullRecord: false,
@@ -219,15 +219,15 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
   it('should handle variables without curly braces', () => {
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: 'step1.companyName',
       isFullRecord: false,
     });
 
     expect(result).toEqual({
-      variableLabel: 'Company Name',
-      variablePathLabel: 'Company Form > Company Name',
+      variableLabel: 'Keluarga Name',
+      variablePathLabel: 'Keluarga Form > Keluarga Name',
       variableType: FieldMetadataType.TEXT,
     });
   });
@@ -235,7 +235,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
   it('should handle complex nested path correctly', () => {
     // Test with a deeper path in case we have complex nested records
     const result = searchVariableThroughFormOutputSchema({
-      stepName: 'Company Form',
+      stepName: 'Keluarga Form',
       formOutputSchema: mockFormSchema,
       rawVariableName: '{{step1.contactPerson.lastName}}',
       isFullRecord: false,
@@ -243,9 +243,9 @@ describe('searchVariableThroughFormOutputSchema', () => {
 
     expect(result).toEqual({
       variableLabel: 'Last Name',
-      variablePathLabel: 'Company Form > Contact Person > Last Name',
+      variablePathLabel: 'Keluarga Form > Contact Penduduk > Last Name',
       variableType: FieldMetadataType.TEXT,
-      fieldMetadataId: 'person-lastName-metadata-id',
+      fieldMetadataId: 'penduduk-lastName-metadata-id',
       compositeFieldSubFieldName: undefined,
     });
   });

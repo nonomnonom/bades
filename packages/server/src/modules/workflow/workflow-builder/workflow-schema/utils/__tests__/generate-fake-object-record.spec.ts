@@ -1,4 +1,4 @@
-import { mockCompanyObjectMetadataInfo } from 'src/engine/core-modules/__mocks__/mockObjectMetadataItemsWithFieldMaps';
+import { mockKeluargaObjectMetadataInfo } from 'src/engine/core-modules/__mocks__/mockObjectMetadataItemsWithFieldMaps';
 import { generateFakeObjectRecord } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-fake-object-record';
 import { generateObjectRecordFields } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-object-record-fields';
 
@@ -15,15 +15,15 @@ jest.mock(
 describe('generateFakeObjectRecord', () => {
   it('should generate a record with correct object metadata', () => {
     const result = generateFakeObjectRecord({
-      objectMetadataInfo: mockCompanyObjectMetadataInfo,
+      objectMetadataInfo: mockKeluargaObjectMetadataInfo,
     });
 
     expect(result).toEqual({
       object: {
         isLeaf: true,
-        icon: 'test-company-icon',
-        label: 'Company',
-        value: 'A company',
+        icon: 'test-keluarga-icon',
+        label: 'Keluarga',
+        value: 'A keluarga',
         fieldIdName: 'id',
         objectMetadataId: '20202020-c03c-45d6-a4b0-04afe1357c5c',
       },
@@ -37,11 +37,11 @@ describe('generateFakeObjectRecord', () => {
 
   it('should call generateObjectRecordFields with the object metadata', () => {
     generateFakeObjectRecord({
-      objectMetadataInfo: mockCompanyObjectMetadataInfo,
+      objectMetadataInfo: mockKeluargaObjectMetadataInfo,
     });
 
     expect(generateObjectRecordFields).toHaveBeenCalledWith({
-      objectMetadataInfo: mockCompanyObjectMetadataInfo,
+      objectMetadataInfo: mockKeluargaObjectMetadataInfo,
     });
   });
 });

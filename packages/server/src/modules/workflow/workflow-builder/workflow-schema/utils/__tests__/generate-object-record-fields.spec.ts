@@ -1,6 +1,6 @@
 import { FieldMetadataType } from 'shared/types';
 
-import { mockCompanyObjectMetadataInfo } from 'src/engine/core-modules/__mocks__/mockObjectMetadataItemsWithFieldMaps';
+import { mockKeluargaObjectMetadataInfo } from 'src/engine/core-modules/__mocks__/mockObjectMetadataItemsWithFieldMaps';
 import { generateFakeRecordField } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-fake-record-field';
 import { generateObjectRecordFields } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/generate-object-record-fields';
 import { shouldGenerateFieldFakeValue } from 'src/modules/workflow/workflow-builder/workflow-schema/utils/should-generate-field-fake-value';
@@ -32,7 +32,7 @@ describe('generateObjectRecordFields', () => {
     );
 
     const result = generateObjectRecordFields({
-      objectMetadataInfo: mockCompanyObjectMetadataInfo,
+      objectMetadataInfo: mockKeluargaObjectMetadataInfo,
     });
 
     expect(result).toEqual({
@@ -58,7 +58,7 @@ describe('generateObjectRecordFields', () => {
     (shouldGenerateFieldFakeValue as jest.Mock).mockReturnValue(false);
 
     const result = generateObjectRecordFields({
-      objectMetadataInfo: mockCompanyObjectMetadataInfo,
+      objectMetadataInfo: mockKeluargaObjectMetadataInfo,
     });
 
     expect(result).toEqual({});

@@ -37,13 +37,13 @@ describe('getWorkspaceUrl', () => {
 
   it('should return customUrl when both customUrl and subdomainUrl are defined', () => {
     const workspaceUrls: WorkspaceUrls = {
-      customUrl: 'https://my-company.com',
+      customUrl: 'https://my-keluarga.com',
       subdomainUrl: 'https://mycompany.bades.id',
     };
 
     const result = getWorkspaceUrl(workspaceUrls);
 
-    expect(result).toBe('https://my-company.com');
+    expect(result).toBe('https://my-keluarga.com');
   });
 
   it('should return empty string when customUrl is empty string', () => {

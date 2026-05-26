@@ -29,7 +29,7 @@ describe('generateFindRecordsOutputSchema', () => {
   describe('first property', () => {
     it('should be a non-leaf node with record schema as value', () => {
       const objectMetadataItem = createMockObjectMetadataItem({
-        labelSingular: 'Company',
+        labelSingular: 'Keluarga',
       });
 
       const result = generateFindRecordsOutputSchema(objectMetadataItem);
@@ -37,7 +37,7 @@ describe('generateFindRecordsOutputSchema', () => {
       expect(result.first).toMatchObject({
         isLeaf: false,
         icon: 'IconAlpha',
-        label: 'First Company',
+        label: 'First Keluarga',
       });
       expect(result.first.value).toHaveProperty('_outputSchemaType', 'RECORD');
     });

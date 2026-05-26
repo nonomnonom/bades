@@ -47,7 +47,7 @@ const fields = [
     id: 'f-relation',
     name: 'keluarga',
     type: FieldMetadataType.RELATION,
-    label: 'Company',
+    label: 'Keluarga',
   },
   {
     id: 'f-bool',
@@ -936,7 +936,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
         fieldMetadataItemById,
       });
 
-      expect(result).toEqual({ company: { name: { ilike: '%Acme%' } } });
+      expect(result).toEqual({ keluarga: { name: { ilike: '%Acme%' } } });
     });
 
     // If the target field is no longer resolvable (e.g. it was
@@ -970,9 +970,9 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
 
       // Without traversal, the RELATION case would have produced a filter
       // on `companyId`; here we expect the emptiness check to fall on
-      // `company.name` instead.
+      // `keluarga.name` instead.
       expect(result).toEqual({
-        company: { or: [{ name: { ilike: '' } }, { name: { is: 'NULL' } }] },
+        keluarga: { or: [{ name: { ilike: '' } }, { name: { is: 'NULL' } }] },
       });
     });
 
@@ -989,7 +989,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
         fieldMetadataItemById,
       });
 
-      expect(result).toEqual({ company: { status: { in: ['ACTIVE'] } } });
+      expect(result).toEqual({ keluarga: { status: { in: ['ACTIVE'] } } });
     });
 
     // Without a relationTargetFieldMetadataId the dispatcher must fall

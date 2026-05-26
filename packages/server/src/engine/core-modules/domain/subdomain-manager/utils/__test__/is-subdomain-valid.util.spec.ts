@@ -10,7 +10,7 @@ describe('isSubdomainValid', () => {
     });
 
     it('should accept subdomains with hyphens in the middle', () => {
-      expect(isSubdomainValid('my-company')).toBe(true);
+      expect(isSubdomainValid('my-keluarga')).toBe(true);
       expect(isSubdomainValid('test-workspace')).toBe(true);
       expect(isSubdomainValid('multi-word-subdomain')).toBe(true);
       expect(isSubdomainValid('a-b-c-d-e')).toBe(true);
@@ -18,7 +18,7 @@ describe('isSubdomainValid', () => {
 
     it('should accept subdomains with mixed alphanumeric and hyphens', () => {
       expect(isSubdomainValid('test-123')).toBe(true);
-      expect(isSubdomainValid('company-2024')).toBe(true);
+      expect(isSubdomainValid('keluarga-2024')).toBe(true);
       expect(isSubdomainValid('workspace-v2')).toBe(true);
       expect(isSubdomainValid('my-app-123')).toBe(true);
     });
@@ -71,37 +71,37 @@ describe('isSubdomainValid', () => {
     it('should reject subdomains starting with hyphens', () => {
       expect(isSubdomainValid('-test')).toBe(false);
       expect(isSubdomainValid('-abc')).toBe(false);
-      expect(isSubdomainValid('-my-company')).toBe(false);
+      expect(isSubdomainValid('-my-keluarga')).toBe(false);
     });
 
     it('should reject subdomains ending with hyphens', () => {
       expect(isSubdomainValid('test-')).toBe(false);
       expect(isSubdomainValid('abc-')).toBe(false);
-      expect(isSubdomainValid('my-company-')).toBe(false);
+      expect(isSubdomainValid('my-keluarga-')).toBe(false);
     });
 
     it('should reject subdomains with uppercase letters', () => {
       expect(isSubdomainValid('Test')).toBe(false);
       expect(isSubdomainValid('MyCompany')).toBe(false);
       expect(isSubdomainValid('WORKSPACE')).toBe(false);
-      expect(isSubdomainValid('test-Company')).toBe(false);
+      expect(isSubdomainValid('test-Keluarga')).toBe(false);
     });
 
     it('should reject subdomains with special characters', () => {
-      expect(isSubdomainValid('test@company')).toBe(false);
+      expect(isSubdomainValid('test@keluarga')).toBe(false);
       expect(isSubdomainValid('my_workspace')).toBe(false);
-      expect(isSubdomainValid('test.company')).toBe(false);
+      expect(isSubdomainValid('test.keluarga')).toBe(false);
       expect(isSubdomainValid('workspace#1')).toBe(false);
-      expect(isSubdomainValid('test$company')).toBe(false);
+      expect(isSubdomainValid('test$keluarga')).toBe(false);
       expect(isSubdomainValid('my%workspace')).toBe(false);
-      expect(isSubdomainValid('test&company')).toBe(false);
+      expect(isSubdomainValid('test&keluarga')).toBe(false);
       expect(isSubdomainValid('workspace*1')).toBe(false);
-      expect(isSubdomainValid('test+company')).toBe(false);
+      expect(isSubdomainValid('test+keluarga')).toBe(false);
       expect(isSubdomainValid('my=workspace')).toBe(false);
     });
 
     it('should reject subdomains with spaces', () => {
-      expect(isSubdomainValid('test company')).toBe(false);
+      expect(isSubdomainValid('test keluarga')).toBe(false);
       expect(isSubdomainValid('my workspace')).toBe(false);
       expect(isSubdomainValid(' test')).toBe(false);
       expect(isSubdomainValid('test ')).toBe(false);
@@ -110,7 +110,7 @@ describe('isSubdomainValid', () => {
 
     it('should reject subdomains starting with "api-"', () => {
       expect(isSubdomainValid('api-test')).toBe(false);
-      expect(isSubdomainValid('api-company')).toBe(false);
+      expect(isSubdomainValid('api-keluarga')).toBe(false);
       expect(isSubdomainValid('api-workspace')).toBe(false);
       expect(isSubdomainValid('api-123')).toBe(false);
     });

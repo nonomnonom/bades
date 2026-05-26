@@ -217,7 +217,7 @@ describe('getGroupByOrderBy', () => {
       });
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           name: OrderByDirection.DescNullsLast,
         },
       });

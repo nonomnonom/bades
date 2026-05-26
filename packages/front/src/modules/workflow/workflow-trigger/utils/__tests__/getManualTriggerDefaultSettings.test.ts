@@ -4,7 +4,7 @@ import { getManualTriggerDefaultSettings } from '@/workflow/workflow-trigger/uti
 
 const mockObjectMetadataItems: EnrichedObjectMetadataItem[] = [
   {
-    id: 'company-id',
+    id: 'keluarga-id',
     nameSingular: 'keluarga',
     namePlural: 'daftarKeluarga',
     labelSingular: 'Keluarga',
@@ -79,7 +79,7 @@ describe('getManualTriggerDefaultSettings', () => {
       const multipleObjects: EnrichedObjectMetadataItem[] = [
         ...mockObjectMetadataItems,
         {
-          id: 'person-id',
+          id: 'penduduk-id',
           nameSingular: 'penduduk',
           namePlural: 'daftarPenduduk',
           labelSingular: 'Penduduk',

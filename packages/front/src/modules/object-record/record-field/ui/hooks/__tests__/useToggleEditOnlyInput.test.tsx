@@ -20,7 +20,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 const recordId = 'recordId';
 
 const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
-const updateOneCompanyMutation = generateUpdateOneRecordMutation({
+const updateOneKeluargaMutation = generateUpdateOneRecordMutation({
   objectMetadataItem: companyObjectMetadataItem,
   objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
   computeReferences: false,
@@ -30,7 +30,7 @@ const updateOneCompanyMutation = generateUpdateOneRecordMutation({
 const mocks: MockedResponse[] = [
   {
     request: {
-      query: updateOneCompanyMutation,
+      query: updateOneKeluargaMutation,
       variables: {
         idToUpdate: 'recordId',
         input: { idealCustomerProfile: true },

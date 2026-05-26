@@ -1,7 +1,7 @@
 import {
-  mockPersonFlatFieldMetadataMaps,
-  mockPersonFlatObjectMetadata,
-  mockPersonFlatObjectMetadataMaps,
+  mockPendudukFlatFieldMetadataMaps,
+  mockPendudukFlatObjectMetadata,
+  mockPendudukFlatObjectMetadataMaps,
 } from 'src/engine/api/graphql/graphql-query-runner/__mocks__/mockPendudukObjectMetadata';
 import { mockPendudukRecords } from 'src/engine/api/graphql/graphql-query-runner/__mocks__/mockPendudukRecords';
 import { buildDuplicateConditions } from 'src/engine/api/utils/build-duplicate-conditions.utils';
@@ -9,9 +9,9 @@ import { buildDuplicateConditions } from 'src/engine/api/utils/build-duplicate-c
 describe('buildDuplicateConditions', () => {
   it('should build conditions based on duplicate criteria from composite field', () => {
     const duplicateConditons = buildDuplicateConditions(
-      mockPersonFlatObjectMetadata([['emailsPrimaryEmail']]),
-      mockPersonFlatObjectMetadataMaps([['emailsPrimaryEmail']]),
-      mockPersonFlatFieldMetadataMaps(),
+      mockPendudukFlatObjectMetadata([['emailsPrimaryEmail']]),
+      mockPendudukFlatObjectMetadataMaps([['emailsPrimaryEmail']]),
+      mockPendudukFlatFieldMetadataMaps(),
       mockPendudukRecords,
       'recordId',
     );
@@ -34,9 +34,9 @@ describe('buildDuplicateConditions', () => {
 
   it('should build conditions based on duplicate criteria from basic field', () => {
     const duplicateConditons = buildDuplicateConditions(
-      mockPersonFlatObjectMetadata([['jobTitle']]),
-      mockPersonFlatObjectMetadataMaps([['jobTitle']]),
-      mockPersonFlatFieldMetadataMaps(),
+      mockPendudukFlatObjectMetadata([['jobTitle']]),
+      mockPendudukFlatObjectMetadataMaps([['jobTitle']]),
+      mockPendudukFlatFieldMetadataMaps(),
       mockPendudukRecords,
       'recordId',
     );
@@ -57,9 +57,9 @@ describe('buildDuplicateConditions', () => {
 
   it('should not build conditions based on duplicate criteria if record value is null or too small', () => {
     const duplicateConditons = buildDuplicateConditions(
-      mockPersonFlatObjectMetadata([['linkedinLinkPrimaryLinkUrl']]),
-      mockPersonFlatObjectMetadataMaps([['linkedinLinkPrimaryLinkUrl']]),
-      mockPersonFlatFieldMetadataMaps(),
+      mockPendudukFlatObjectMetadata([['linkedinLinkPrimaryLinkUrl']]),
+      mockPendudukFlatObjectMetadataMaps([['linkedinLinkPrimaryLinkUrl']]),
+      mockPendudukFlatFieldMetadataMaps(),
       mockPendudukRecords,
       'recordId',
     );
@@ -69,9 +69,9 @@ describe('buildDuplicateConditions', () => {
 
   it('should build conditions based on duplicate criteria and without recordId filter', () => {
     const duplicateConditons = buildDuplicateConditions(
-      mockPersonFlatObjectMetadata([['jobTitle']]),
-      mockPersonFlatObjectMetadataMaps([['jobTitle']]),
-      mockPersonFlatFieldMetadataMaps(),
+      mockPendudukFlatObjectMetadata([['jobTitle']]),
+      mockPendudukFlatObjectMetadataMaps([['jobTitle']]),
+      mockPendudukFlatFieldMetadataMaps(),
       mockPendudukRecords,
     );
 

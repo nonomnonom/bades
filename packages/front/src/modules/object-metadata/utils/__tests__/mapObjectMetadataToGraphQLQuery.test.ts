@@ -16,7 +16,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       objectMetadataItem: personObjectMetadataItem,
       recordGqlFields: {
-        company: true,
+        keluarga: true,
         xLink: true,
         id: true,
         createdAt: true,
@@ -73,7 +73,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
       primaryLinkLabel
       secondaryLinks
     }
-    company
+    keluarga
     {
     __typename
     idealCustomerProfile
@@ -135,7 +135,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
     const res = mapObjectMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       objectMetadataItem: personObjectMetadataItem,
-      recordGqlFields: { company: { id: true }, id: true, name: true },
+      recordGqlFields: { keluarga: { id: true }, id: true, name: true },
       objectPermissionsByObjectMetadataId: {
         [personObjectMetadataItem.id]: {
           canReadObjectRecords: true,
@@ -153,7 +153,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
       normalizeGQLQuery(`{
 __typename
 id
-company
+keluarga
 {
 __typename
 id

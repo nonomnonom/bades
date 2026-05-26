@@ -17,7 +17,7 @@ describe('getObjectNavigationMenuItemSecondaryLabel', () => {
       navigationMenuItemObjectNameSingular: 'penduduk',
     });
 
-    expect(result).toBe('Person');
+    expect(result).toBe('Penduduk');
   });
 
   it('should return undefined when object metadata item is not found', () => {

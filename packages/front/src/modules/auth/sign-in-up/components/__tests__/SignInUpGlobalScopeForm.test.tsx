@@ -43,7 +43,7 @@ jest.mock('@/auth/sign-in-up/hooks/useSignUpInNewWorkspace', () => ({
 jest.mock('@/auth/sign-in-up/hooks/useSignInUpForm', () => ({
   useSignInUpForm: () => ({
     form: {
-      getValues: () => 'person@example.com',
+      getValues: () => 'penduduk@example.com',
     },
   }),
 }));
@@ -104,7 +104,7 @@ describe('SignInUpGlobalScopeForm', () => {
     const forgotPasswordLink = screen.getByText('Lupa kata sandi?');
 
     expect(forgotPasswordLink).toBeInTheDocument();
-    expect(handleResetPasswordMock).toHaveBeenCalledWith('person@example.com');
+    expect(handleResetPasswordMock).toHaveBeenCalledWith('penduduk@example.com');
 
     fireEvent.click(forgotPasswordLink);
 

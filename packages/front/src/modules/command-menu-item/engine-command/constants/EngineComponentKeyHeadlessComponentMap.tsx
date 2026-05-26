@@ -144,6 +144,12 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
       params={{ objectNamePlural: CoreObjectNamePlural.Dashboard }}
     />
   ),
+  [EngineComponentKey.GO_TO_OPPORTUNITIES]: (
+    <HeadlessNavigateEngineCommand
+      to={AppPath.RecordIndexPage}
+      params={{ objectNamePlural: CoreObjectNamePlural.Dashboard }}
+    />
+  ),
   [EngineComponentKey.GO_TO_SETTINGS]: (
     <HeadlessNavigateEngineCommand
       to={AppPath.SettingsCatchAll}

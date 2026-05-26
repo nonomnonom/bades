@@ -349,7 +349,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
       'Negara (addressField)': 'USA',
       'Email Utama (emailField)': 'john.doe@example.com',
       'Email Tambahan (emailField)':
-        '["john.doe+work@example.com", "j.doe@company.com"]',
+        '["john.doe+work@example.com", "j.doe@keluarga.com"]',
       'Nomor Telepon Utama (phoneField)': '+1-555-0123',
       'Kode Negara Telepon Utama (phoneField)': 'US',
       'Kode Panggil Telepon Utama (phoneField)': '+1',
@@ -385,7 +385,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
     expect(result).toEqual({
       emailField: {
         primaryEmail: 'john.doe@example.com',
-        additionalEmails: ['john.doe+work@example.com', 'j.doe@company.com'],
+        additionalEmails: ['john.doe+work@example.com', 'j.doe@keluarga.com'],
       },
       booleanField: true,
       numberField: 30,

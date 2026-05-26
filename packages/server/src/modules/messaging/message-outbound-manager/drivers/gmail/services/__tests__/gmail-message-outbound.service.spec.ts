@@ -31,7 +31,7 @@ describe('GmailMessageOutboundService', () => {
   };
 
   const mockPeopleClient = {
-    people: {
+    daftarPenduduk: {
       get: jest.fn().mockResolvedValue({
         data: {
           names: [

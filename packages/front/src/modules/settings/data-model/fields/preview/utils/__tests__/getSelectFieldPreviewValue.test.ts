@@ -3,12 +3,12 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { getSelectFieldPreviewValue } from '@/settings/data-model/fields/preview/utils/getSelectFieldPreviewValue';
 
-const mockedCompanyObjectMetadataItem =
+const mockedKeluargaObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'keluarga',
   );
 
-const mockedOpportunityObjectMetadataItem =
+const mockedPeluangObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'programBantuan',
   );
@@ -16,7 +16,7 @@ const mockedOpportunityObjectMetadataItem =
 describe('getSelectFieldPreviewValue', () => {
   it('returns null if the field is not a Select field', () => {
     // Given
-    const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+    const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
       ({ type }) => type !== FieldMetadataType.SELECT,
     );
 
@@ -32,7 +32,7 @@ describe('getSelectFieldPreviewValue', () => {
   });
 
   const fieldName = 'stage';
-  const fieldMetadataItem = mockedOpportunityObjectMetadataItem?.fields.find(
+  const fieldMetadataItem = mockedPeluangObjectMetadataItem?.fields.find(
     ({ name }) => name === fieldName,
   );
 

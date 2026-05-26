@@ -267,7 +267,7 @@ describe('fastDeepEqual', () => {
           trigger: {
             name: 'trigger',
             type: 'DATABASE_EVENT',
-            settings: { eventName: 'company.created', outputSchema: {} },
+            settings: { eventName: 'keluarga.created', outputSchema: {} },
           },
           steps: Array.from({ length: 100 }, (_, index) => ({
             id: `step-${index}`,

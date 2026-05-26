@@ -111,14 +111,14 @@ describe('TrashCleanupService', () => {
     it('should return deleted count when cleanup succeeds', async () => {
       setObjectMetadataCache([
         {
-          id: 'obj-company',
+          id: 'obj-keluarga',
           nameSingular: 'keluarga',
-          universalIdentifier: 'uni-company',
+          universalIdentifier: 'uni-keluarga',
         },
         {
-          id: 'obj-person',
+          id: 'obj-penduduk',
           nameSingular: 'penduduk',
-          universalIdentifier: 'uni-person',
+          universalIdentifier: 'uni-penduduk',
         },
       ]);
 
@@ -165,14 +165,14 @@ describe('TrashCleanupService', () => {
       (service as any).batchSize = 3;
       setObjectMetadataCache([
         {
-          id: 'obj-company',
+          id: 'obj-keluarga',
           nameSingular: 'keluarga',
-          universalIdentifier: 'uni-company',
+          universalIdentifier: 'uni-keluarga',
         },
         {
-          id: 'obj-person',
+          id: 'obj-penduduk',
           nameSingular: 'penduduk',
-          universalIdentifier: 'uni-person',
+          universalIdentifier: 'uni-penduduk',
         },
       ]);
 
@@ -202,9 +202,9 @@ describe('TrashCleanupService', () => {
     it('should ignore objects without soft deleted records', async () => {
       setObjectMetadataCache([
         {
-          id: 'obj-company',
+          id: 'obj-keluarga',
           nameSingular: 'keluarga',
-          universalIdentifier: 'uni-company',
+          universalIdentifier: 'uni-keluarga',
         },
       ]);
 
@@ -226,9 +226,9 @@ describe('TrashCleanupService', () => {
     it('should delete records across multiple batches', async () => {
       setObjectMetadataCache([
         {
-          id: 'obj-company',
+          id: 'obj-keluarga',
           nameSingular: 'keluarga',
-          universalIdentifier: 'uni-company',
+          universalIdentifier: 'uni-keluarga',
         },
       ]);
 

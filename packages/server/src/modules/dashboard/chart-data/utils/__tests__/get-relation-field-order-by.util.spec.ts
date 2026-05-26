@@ -60,7 +60,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           name: OrderByDirection.AscNullsLast,
         },
       });
@@ -74,7 +74,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           name: OrderByDirection.DescNullsLast,
         },
       });
@@ -90,7 +90,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           address: {
             addressCity: OrderByDirection.AscNullsLast,
           },
@@ -110,7 +110,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             orderBy: OrderByDirection.AscNullsLast,
             granularity: ObjectRecordGroupByDateGranularity.MONTH,
@@ -129,7 +129,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             orderBy: OrderByDirection.AscNullsLast,
             granularity: ObjectRecordGroupByDateGranularity.DAY,
@@ -147,7 +147,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        company: {
+        keluarga: {
           createdAt: {
             orderBy: OrderByDirection.DescNullsLast,
             granularity: ObjectRecordGroupByDateGranularity.YEAR,

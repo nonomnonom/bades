@@ -35,7 +35,7 @@ describe('getRecordFromRecordNode', () => {
       id: '123',
       __typename: 'Keluarga',
       name: 'Acme Inc',
-      people: {
+      daftarPenduduk: {
         edges: [
           {
             node: {

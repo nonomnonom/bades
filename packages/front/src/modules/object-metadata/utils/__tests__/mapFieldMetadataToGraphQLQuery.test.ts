@@ -50,7 +50,7 @@ describe('mapFieldMetadataToGraphQLQuery', () => {
       objectPermissionsByObjectMetadataId: {},
     });
     expect(normalizeGQLField(res)).toEqual(
-      normalizeGQLField(`company
+      normalizeGQLField(`keluarga
 {
 __typename
 xLink
@@ -103,7 +103,7 @@ idealCustomerProfile
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       relationRecordGqlFields: {
         accountOwner: { id: true, name: true },
-        people: true,
+        daftarPenduduk: true,
         xLink: true,
         linkedinLink: true,
         domainName: {
@@ -128,7 +128,7 @@ idealCustomerProfile
       objectPermissionsByObjectMetadataId: {},
     });
     expect(normalizeGQLField(res)).toEqual(
-      normalizeGQLField(`company
+      normalizeGQLField(`keluarga
 {
 __typename
 xLink
@@ -177,7 +177,7 @@ address
   addressLng
 }
 updatedAt
-people
+daftarPenduduk
 {
   edges {
     node {

@@ -42,7 +42,7 @@ describe('AutomatedTriggerWorkspaceService', () => {
     const workflowId = 'workflow-1';
     const cronSettings = { pattern: '* * * * *' };
     const databaseEventSettings = {
-      eventName: 'company.created',
+      eventName: 'keluarga.created',
       fields: [],
     };
 

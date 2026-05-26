@@ -36,7 +36,7 @@ describe('isOneToManyRelationFieldReadOnlyDueToTargetUpdatePermission', () => {
 
   const oneToManyFieldDefinition = {
     type: FieldMetadataType.RELATION,
-    fieldMetadataId: 'field-on-person',
+    fieldMetadataId: 'field-on-penduduk',
     label: 'yehe',
     iconName: 'IconRelation',
     metadata: {

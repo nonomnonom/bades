@@ -5,8 +5,8 @@ import {
 } from '@/workflow/workflow-variables/utils/generate/computeStepOutputSchema';
 import { FieldMetadataType } from 'shared/types';
 
-const mockCompanyObjectMetadataItem: EnrichedObjectMetadataItem = {
-  id: 'company-metadata-id',
+const mockKeluargaObjectMetadataItem: EnrichedObjectMetadataItem = {
+  id: 'keluarga-metadata-id',
   nameSingular: 'keluarga',
   namePlural: 'daftarKeluarga',
   labelSingular: 'Keluarga',
@@ -76,7 +76,7 @@ describe('computeStepOutputSchema', () => {
     it('should return empty object when eventName is not defined', () => {
       const result = computeStepOutputSchema({
         step: { type: 'DATABASE_EVENT', settings: {} } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -88,7 +88,7 @@ describe('computeStepOutputSchema', () => {
           type: 'DATABASE_EVENT',
           settings: { eventName: 'invalid' },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -100,7 +100,7 @@ describe('computeStepOutputSchema', () => {
           type: 'DATABASE_EVENT',
           settings: { eventName: 'unknownObject.created' },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -112,7 +112,7 @@ describe('computeStepOutputSchema', () => {
           type: 'DATABASE_EVENT',
           settings: { eventName: 'keluarga.created' },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toHaveProperty('_outputSchemaType', 'RECORD');
@@ -126,7 +126,7 @@ describe('computeStepOutputSchema', () => {
           type: 'DATABASE_EVENT',
           settings: { eventName: 'keluarga.invalidAction' },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -140,7 +140,7 @@ describe('computeStepOutputSchema', () => {
             type: 'DATABASE_EVENT',
             settings: { eventName: `keluarga.${action}` },
           } as any,
-          objectMetadataItems: [mockCompanyObjectMetadataItem],
+          objectMetadataItems: [mockKeluargaObjectMetadataItem],
         });
 
         expect(result).toHaveProperty('_outputSchemaType', 'RECORD');
@@ -153,7 +153,7 @@ describe('computeStepOutputSchema', () => {
     it('should return empty object when availability is not defined', () => {
       const result = computeStepOutputSchema({
         step: { type: 'MANUAL', settings: {} } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -165,7 +165,7 @@ describe('computeStepOutputSchema', () => {
           type: 'MANUAL',
           settings: { availability: { type: 'GLOBAL' } },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -182,7 +182,7 @@ describe('computeStepOutputSchema', () => {
             },
           },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toHaveProperty('_outputSchemaType', 'RECORD');
@@ -200,7 +200,7 @@ describe('computeStepOutputSchema', () => {
             },
           },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toHaveProperty('daftarKeluarga');
@@ -222,7 +222,7 @@ describe('computeStepOutputSchema', () => {
             },
           },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -239,7 +239,7 @@ describe('computeStepOutputSchema', () => {
             },
           },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -268,7 +268,7 @@ describe('computeStepOutputSchema', () => {
       (stepType) => {
         const result = computeStepOutputSchema({
           step: { type: stepType, settings: { input: {} } } as any,
-          objectMetadataItems: [mockCompanyObjectMetadataItem],
+          objectMetadataItems: [mockKeluargaObjectMetadataItem],
         });
 
         expect(result).toEqual({});
@@ -288,7 +288,7 @@ describe('computeStepOutputSchema', () => {
             type: stepType,
             settings: { input: { objectName: 'unknownObject' } },
           } as any,
-          objectMetadataItems: [mockCompanyObjectMetadataItem],
+          objectMetadataItems: [mockKeluargaObjectMetadataItem],
         });
 
         expect(result).toEqual({});
@@ -308,7 +308,7 @@ describe('computeStepOutputSchema', () => {
             type: stepType,
             settings: { input: { objectName: 'keluarga' } },
           } as any,
-          objectMetadataItems: [mockCompanyObjectMetadataItem],
+          objectMetadataItems: [mockKeluargaObjectMetadataItem],
         });
 
         expect(result).toHaveProperty('_outputSchemaType', 'RECORD');
@@ -321,7 +321,7 @@ describe('computeStepOutputSchema', () => {
     it('should return empty object when objectName is not defined', () => {
       const result = computeStepOutputSchema({
         step: { type: 'FIND_RECORDS', settings: { input: {} } } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -333,7 +333,7 @@ describe('computeStepOutputSchema', () => {
           type: 'FIND_RECORDS',
           settings: { input: { objectName: 'unknownObject' } },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toEqual({});
@@ -345,7 +345,7 @@ describe('computeStepOutputSchema', () => {
           type: 'FIND_RECORDS',
           settings: { input: { objectName: 'keluarga' } },
         } as any,
-        objectMetadataItems: [mockCompanyObjectMetadataItem],
+        objectMetadataItems: [mockKeluargaObjectMetadataItem],
       });
 
       expect(result).toHaveProperty('first');

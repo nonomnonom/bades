@@ -92,7 +92,7 @@ describe('SearchService', () => {
   });
 
   describe('getLabelIdentifierColumns', () => {
-    it('should return the two label identifier columns for a person object metadata item', () => {
+    it('should return the two label identifier columns for a penduduk object metadata item', () => {
       const labelIdentifierColumns = service.getLabelIdentifierColumns(
         mockFlatObjectMetadatas[0],
         mockFlatFieldMetadataMaps,
@@ -111,7 +111,7 @@ describe('SearchService', () => {
   });
 
   describe('getImageIdentifierColumn', () => {
-    it('should return `avatarFile` if the object metadata item is a person', () => {
+    it('should return `avatarFile` if the object metadata item is a penduduk', () => {
       const imageIdentifierColumn = service.getImageIdentifierColumn(
         mockFlatObjectMetadatas[0],
         mockFlatFieldMetadataMaps,
@@ -119,7 +119,7 @@ describe('SearchService', () => {
 
       expect(imageIdentifierColumn).toEqual('avatarFile');
     });
-    it('should return `domainNamePrimaryLinkUrl` column for a company object metadata item', () => {
+    it('should return `domainNamePrimaryLinkUrl` column for a keluarga object metadata item', () => {
       const imageIdentifierColumn = service.getImageIdentifierColumn(
         mockFlatObjectMetadatas[1],
         mockFlatFieldMetadataMaps,
@@ -143,7 +143,7 @@ describe('SearchService', () => {
       const objectResults = [
         {
           objectNameSingular: 'penduduk',
-          objectLabelSingular: 'Person',
+          objectLabelSingular: 'Penduduk',
           tsRankCD: 2,
           tsRank: 1,
           recordId: '',
@@ -152,7 +152,7 @@ describe('SearchService', () => {
         },
         {
           objectNameSingular: 'keluarga',
-          objectLabelSingular: 'Company',
+          objectLabelSingular: 'Keluarga',
           tsRankCD: 1,
           tsRank: 1,
           recordId: '',
@@ -181,7 +181,7 @@ describe('SearchService', () => {
       const objectResults = [
         {
           objectNameSingular: 'penduduk',
-          objectLabelSingular: 'Person',
+          objectLabelSingular: 'Penduduk',
           tsRankCD: 1,
           tsRank: 1,
           recordId: '',
@@ -190,7 +190,7 @@ describe('SearchService', () => {
         },
         {
           objectNameSingular: 'keluarga',
-          objectLabelSingular: 'Company',
+          objectLabelSingular: 'Keluarga',
           tsRankCD: 1,
           tsRank: 2,
           recordId: '',
@@ -219,7 +219,7 @@ describe('SearchService', () => {
       const objectResults = [
         {
           objectNameSingular: 'keluarga',
-          objectLabelSingular: 'Company',
+          objectLabelSingular: 'Keluarga',
           tsRankCD: 1,
           tsRank: 1,
           recordId: '',
@@ -228,7 +228,7 @@ describe('SearchService', () => {
         },
         {
           objectNameSingular: 'penduduk',
-          objectLabelSingular: 'Person',
+          objectLabelSingular: 'Penduduk',
           tsRankCD: 1,
           tsRank: 1,
           recordId: '',
@@ -260,7 +260,7 @@ describe('SearchService', () => {
         {
           record: {
             objectNameSingular: 'keluarga',
-            objectLabelSingular: 'Company',
+            objectLabelSingular: 'Keluarga',
             tsRankCD: 0.9,
             tsRank: 0.9,
             recordId: 'companyId1',
@@ -270,14 +270,14 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.9, tsRank: 0.9 },
             lastRecordIdsPerObject: {
-              company: 'companyId1',
+              keluarga: 'companyId1',
             },
           }),
         },
         {
           record: {
             objectNameSingular: 'keluarga',
-            objectLabelSingular: 'Company',
+            objectLabelSingular: 'Keluarga',
             tsRankCD: 0.89,
             tsRank: 0.89,
             recordId: 'companyId2',
@@ -287,14 +287,14 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.89, tsRank: 0.89 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
+              keluarga: 'companyId2',
             },
           }),
         },
         {
           record: {
             objectNameSingular: 'penduduk',
-            objectLabelSingular: 'Person',
+            objectLabelSingular: 'Penduduk',
             tsRankCD: 0.87,
             tsRank: 0.87,
             recordId: 'personId1',
@@ -304,15 +304,15 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.87, tsRank: 0.87 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId1',
+              keluarga: 'companyId2',
+              penduduk: 'personId1',
             },
           }),
         },
         {
           record: {
             objectNameSingular: 'penduduk',
-            objectLabelSingular: 'Person',
+            objectLabelSingular: 'Penduduk',
             tsRankCD: 0.87,
             tsRank: 0.87,
             recordId: 'personId2',
@@ -322,15 +322,15 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.87, tsRank: 0.87 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId2',
+              keluarga: 'companyId2',
+              penduduk: 'personId2',
             },
           }),
         },
         {
           record: {
             objectNameSingular: 'programBantuan',
-            objectLabelSingular: 'Opportunity',
+            objectLabelSingular: 'Peluang',
             tsRankCD: 0.87,
             tsRank: 0.87,
             recordId: 'opportunityId1',
@@ -340,9 +340,9 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.87, tsRank: 0.87 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId2',
-              opportunity: 'opportunityId1',
+              keluarga: 'companyId2',
+              penduduk: 'personId2',
+              peluang: 'opportunityId1',
             },
           }),
         },
@@ -359,9 +359,9 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.2, tsRank: 0.2 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId2',
-              opportunity: 'opportunityId1',
+              keluarga: 'companyId2',
+              penduduk: 'personId2',
+              peluang: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -369,7 +369,7 @@ describe('SearchService', () => {
         {
           record: {
             objectNameSingular: 'keluarga',
-            objectLabelSingular: 'Company',
+            objectLabelSingular: 'Keluarga',
             tsRankCD: 0.1,
             tsRank: 0.1,
             recordId: 'companyId3',
@@ -379,9 +379,9 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.1, tsRank: 0.1 },
             lastRecordIdsPerObject: {
-              company: 'companyId3',
-              person: 'personId2',
-              opportunity: 'opportunityId1',
+              keluarga: 'companyId3',
+              penduduk: 'personId2',
+              peluang: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -402,7 +402,7 @@ describe('SearchService', () => {
         {
           record: {
             objectNameSingular: 'penduduk',
-            objectLabelSingular: 'Person',
+            objectLabelSingular: 'Penduduk',
             tsRankCD: 0.87,
             tsRank: 0.87,
             recordId: 'personId2',
@@ -412,15 +412,15 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.87, tsRank: 0.87 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId2',
+              keluarga: 'companyId2',
+              penduduk: 'personId2',
             },
           }),
         },
         {
           record: {
             objectNameSingular: 'programBantuan',
-            objectLabelSingular: 'Opportunity',
+            objectLabelSingular: 'Peluang',
             tsRankCD: 0.87,
             tsRank: 0.87,
             recordId: 'opportunityId1',
@@ -430,9 +430,9 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.87, tsRank: 0.87 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId2',
-              opportunity: 'opportunityId1',
+              keluarga: 'companyId2',
+              penduduk: 'personId2',
+              peluang: 'opportunityId1',
             },
           }),
         },
@@ -449,9 +449,9 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.2, tsRank: 0.2 },
             lastRecordIdsPerObject: {
-              company: 'companyId2',
-              person: 'personId2',
-              opportunity: 'opportunityId1',
+              keluarga: 'companyId2',
+              penduduk: 'personId2',
+              peluang: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -459,7 +459,7 @@ describe('SearchService', () => {
         {
           record: {
             objectNameSingular: 'keluarga',
-            objectLabelSingular: 'Company',
+            objectLabelSingular: 'Keluarga',
             tsRankCD: 0.1,
             tsRank: 0.1,
             recordId: 'companyId3',
@@ -469,9 +469,9 @@ describe('SearchService', () => {
           expectedCursor: encodeCursorData({
             lastRanks: { tsRankCD: 0.1, tsRank: 0.1 },
             lastRecordIdsPerObject: {
-              company: 'companyId3',
-              person: 'personId2',
-              opportunity: 'opportunityId1',
+              keluarga: 'companyId3',
+              penduduk: 'personId2',
+              peluang: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -481,8 +481,8 @@ describe('SearchService', () => {
       const afterCursor = encodeCursorData({
         lastRanks: { tsRankCD: 0.87, tsRank: 0.87 },
         lastRecordIdsPerObject: {
-          company: 'companyId2',
-          person: 'personId1',
+          keluarga: 'companyId2',
+          penduduk: 'personId1',
         },
       });
 

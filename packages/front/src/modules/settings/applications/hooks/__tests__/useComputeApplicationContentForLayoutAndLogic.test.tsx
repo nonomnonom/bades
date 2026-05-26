@@ -32,7 +32,7 @@ describe('useComputeApplicationContentForLayoutAndLogic', () => {
         pageLayouts: [
           {
             universalIdentifier: 'pl-1',
-            name: 'Person dashboard',
+            name: 'Penduduk dashboard',
             objectUniversalIdentifier: personObject.universalIdentifier,
             tabs: [
               { universalIdentifier: 't1' },
@@ -51,7 +51,7 @@ describe('useComputeApplicationContentForLayoutAndLogic', () => {
       expect(result.current.pageLayoutRows).toHaveLength(1);
       const [row] = result.current.pageLayoutRows;
       expect(row.key).toBe('pl-1');
-      expect(row.name).toBe('Person dashboard');
+      expect(row.name).toBe('Penduduk dashboard');
       expect(row.secondary).toContain(personObject.labelSingular);
       expect(row.secondary).toContain('2 tabs');
       expect(row.link).toBeUndefined();

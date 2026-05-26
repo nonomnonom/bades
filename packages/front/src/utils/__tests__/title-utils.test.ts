@@ -9,7 +9,7 @@ describe('title-utils', () => {
     );
     expect(getPageTitleFromPath('/create/workspace')).toBe('Buat Ruang Kerja');
     expect(getPageTitleFromPath('/create/profile')).toBe('Buat Profil');
-    expect(getPageTitleFromPath('/settings/objects/opportunities')).toBe(
+    expect(getPageTitleFromPath('/settings/objects/daftarPeluang')).toBe(
       'Model Data - Pengaturan',
     );
     expect(getPageTitleFromPath('/settings/profile')).toBe(

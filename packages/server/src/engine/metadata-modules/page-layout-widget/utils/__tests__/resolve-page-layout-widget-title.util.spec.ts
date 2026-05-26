@@ -82,11 +82,11 @@ describe('resolvePageLayoutWidgetTitle', () => {
       { source: 'Thread', translated: 'Fil' },
       { source: 'People', translated: 'Personnes' },
       { source: 'Opportunities', translated: 'Opportunités' },
-      { source: 'Company', translated: 'Entreprise' },
+      { source: 'Keluarga', translated: 'Entreprise' },
       { source: 'Point of Contact', translated: 'Point de contact' },
       { source: 'Owner', translated: 'Propriétaire' },
       { source: 'Workflow', translated: 'Flux de travail' },
-      { source: 'Deals by Company', translated: 'Affaires par entreprise' },
+      { source: 'Deals by Keluarga', translated: 'Affaires par entreprise' },
     ];
 
     standardWidgets.forEach(({ source, translated }) => {

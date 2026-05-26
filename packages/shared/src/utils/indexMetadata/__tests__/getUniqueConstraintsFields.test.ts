@@ -85,7 +85,7 @@ describe('getUniqueConstraintsFields', () => {
     namePlural: 'daftarPenduduk',
     labelSingular: 'Penduduk',
     labelPlural: 'Penduduk',
-    description: 'A person object',
+    description: 'A penduduk object',
     icon: 'IconUser',
     targetTableName: 'penduduk',
     fields,

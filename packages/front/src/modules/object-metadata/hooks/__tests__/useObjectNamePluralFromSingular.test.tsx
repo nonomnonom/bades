@@ -15,6 +15,6 @@ describe('useObjectNamePluralFromSingular', () => {
       },
     );
 
-    expect(result.current.objectNamePlural).toBe('people');
+    expect(result.current.objectNamePlural).toBe('daftarPenduduk');
   });
 });

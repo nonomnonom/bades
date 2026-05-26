@@ -301,3 +301,43 @@ exports[`buildCompositeFieldWhereCondition multiple properties cases should matc
   ],
 }
 `;
+
+exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for ascending order with backward pagination: single property - ascending order with backward pagination 1`] = `
+{
+  "penduduk": {
+    "firstName": {
+      "lt": "Budi",
+    },
+  },
+}
+`;
+
+exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for ascending order with forward pagination: single property - ascending order with forward pagination 1`] = `
+{
+  "penduduk": {
+    "firstName": {
+      "gt": "Budi",
+    },
+  },
+}
+`;
+
+exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for descending order with backward pagination: single property - descending order with backward pagination 1`] = `
+{
+  "penduduk": {
+    "firstName": {
+      "gt": "Budi",
+    },
+  },
+}
+`;
+
+exports[`buildCompositeFieldWhereCondition single property cases should match snapshot for descending order with forward pagination: single property - descending order with forward pagination 1`] = `
+{
+  "penduduk": {
+    "firstName": {
+      "lt": "Budi",
+    },
+  },
+}
+`;

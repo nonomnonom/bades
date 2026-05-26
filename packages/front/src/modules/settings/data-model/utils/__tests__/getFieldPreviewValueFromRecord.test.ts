@@ -2,12 +2,12 @@ import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { getFieldPreviewValueFromRecord } from '@/settings/data-model/utils/getFieldPreviewValueFromRecord';
-const mockedCompanyObjectMetadataItem =
+const mockedKeluargaObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'keluarga',
   );
 
-const mockedPersonObjectMetadataItem =
+const mockedPendudukObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'penduduk',
   );
@@ -27,7 +27,7 @@ describe('getFieldPreviewValueFromRecord', () => {
         },
         __typename: 'ProgramBantuan',
       };
-      const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+      const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
         ({ name }) => name === 'daftarPenduduk',
       );
 
@@ -53,7 +53,7 @@ describe('getFieldPreviewValueFromRecord', () => {
         keluarga: relationRecord,
         __typename: 'ProgramBantuan',
       };
-      const fieldMetadataItem = mockedPersonObjectMetadataItem?.fields.find(
+      const fieldMetadataItem = mockedPendudukObjectMetadataItem?.fields.find(
         ({ name }) => name === 'keluarga',
       );
 
@@ -76,7 +76,7 @@ describe('getFieldPreviewValueFromRecord', () => {
     it('returns the record field value', () => {
       // Given
       const record = { id: '', name: 'Bades', __typename: 'Permohonan' };
-      const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+      const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
         ({ name }) => name === 'name',
       );
 

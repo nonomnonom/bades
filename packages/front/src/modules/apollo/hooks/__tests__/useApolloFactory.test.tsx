@@ -27,7 +27,7 @@ jest.mock('react-router-dom', () => {
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <MemoryRouter
-    initialEntries={['/welcome', '/verify', '/opportunities']}
+    initialEntries={['/welcome', '/verify', '/daftarPeluang']}
     initialIndex={2}
   >
     <SnackBarComponentInstanceContext.Provider
@@ -79,7 +79,7 @@ describe('useApolloFactory', () => {
       },
     );
 
-    expect(result.current.location.pathname).toBe('/opportunities');
+    expect(result.current.location.pathname).toBe('/daftarPeluang');
 
     try {
       await act(async () => {

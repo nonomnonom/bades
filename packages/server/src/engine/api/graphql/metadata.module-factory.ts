@@ -53,9 +53,7 @@ export const metadataModuleFactory = async (
         cacheSetter: cacheStorageService.set.bind(cacheStorageService),
         operationsToCache: ['ObjectMetadataItems', 'FindAllViews'],
       }),
-      useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(
-        badesConfigService.get('NODE_ENV') === NodeEnvironment.PRODUCTION,
-      ),
+      useDisableIntrospectionAndSuggestionsForUnauthenticatedUsers(),
       useValidateGraphqlQueryComplexity({
         maximumAllowedFields: badesConfigService.get('GRAPHQL_MAX_FIELDS'),
         maximumAllowedRootResolvers: 10,

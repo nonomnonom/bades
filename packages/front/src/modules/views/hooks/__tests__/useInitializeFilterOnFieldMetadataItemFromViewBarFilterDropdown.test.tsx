@@ -39,7 +39,7 @@ const peopleObjectMetadataItemMock =
   getMockObjectMetadataItemOrThrow('penduduk');
 const personCityFieldMetadataItemMock =
   peopleObjectMetadataItemMock.fields.find((field) => field.name === 'city');
-const personCompanyFieldMetadataItemMock =
+const personKeluargaFieldMetadataItemMock =
   peopleObjectMetadataItemMock.fields.find(
     (field) => field.name === 'keluarga',
   );
@@ -154,24 +154,24 @@ describe('useInitializeFilterOnFieldMetadataItemFromViewBarFilterDropdown', () =
       },
     );
 
-    if (!personCompanyFieldMetadataItemMock) {
-      throw new Error('personCompanyFieldMetadataItemMock is not defined');
+    if (!personKeluargaFieldMetadataItemMock) {
+      throw new Error('personKeluargaFieldMetadataItemMock is not defined');
     }
 
     const defaultOperand = getRecordFilterOperands({
       filterType: getFilterTypeFromFieldType(
-        personCompanyFieldMetadataItemMock.type,
+        personKeluargaFieldMetadataItemMock.type,
       ),
     })?.[0];
 
     act(() => {
       result.current.initializeFilterOnFieldMetataItemFromViewBarFilterDropdown(
-        personCompanyFieldMetadataItemMock,
+        personKeluargaFieldMetadataItemMock,
       );
     });
 
     expect(result.current.fieldMetadataItemUsedInDropdown?.id).toBe(
-      personCompanyFieldMetadataItemMock.id,
+      personKeluargaFieldMetadataItemMock.id,
     );
     expect(result.current.objectFilterDropdownFilterIsSelected).toBe(true);
     expect(result.current.selectedOperandInDropdown).toBe(defaultOperand);
@@ -179,7 +179,7 @@ describe('useInitializeFilterOnFieldMetadataItemFromViewBarFilterDropdown', () =
       focusId: ViewBarFilterDropdownIds.MAIN,
       component: {
         type: FocusComponentType.DROPDOWN,
-        instanceId: personCompanyFieldMetadataItemMock.id,
+        instanceId: personKeluargaFieldMetadataItemMock.id,
       },
       globalHotkeysConfig: {
         enableGlobalHotkeysConflictingWithKeyboard: false,

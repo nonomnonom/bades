@@ -23,9 +23,9 @@ const taskTarget = {
   id: '89bb825c-171e-4bcc-9cf7-43448d6fb300',
   createdAt: '2023-04-26T10:12:42.33625+00:00',
   updatedAt: '2023-04-26T10:23:42.33625+00:00',
-  targetCompanyId: null,
+  targetKeluargaId: null,
   targetCompany: null,
-  targetPersonId: '89bb825c-171e-4bcc-9cf7-43448d6fb280',
+  targetPendudukId: '89bb825c-171e-4bcc-9cf7-43448d6fb280',
   targetPerson: {
     id: '89bb825c-171e-4bcc-9cf7-43448d6fb280',
     createdAt: '2023-04-26T10:12:42.33625+00:00',
@@ -60,9 +60,9 @@ cache.writeFragment({
       __typename
       updatedAt
       createdAt
-      targetPersonId
+      targetPendudukId
       taskId
-      targetCompanyId
+      targetKeluargaId
       id
       task {
         __typename

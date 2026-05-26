@@ -65,14 +65,14 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
     rerender({
       record: {
         id: 'recordId',
-        domainName: 'https://cool-company.com',
+        domainName: 'https://cool-keluarga.com',
       },
       objectNameSingular: 'keluarga',
     });
 
     expect(result.current.linkToShowPage).toBe('/object/keluarga/recordId');
     expect(result.current.avatarUrl).toBe(
-      'https://icons.bades.id/cool-company.com',
+      'https://icons.bades.id/cool-keluarga.com',
     );
     expect(result.current.avatarType).toBe('squared');
   });

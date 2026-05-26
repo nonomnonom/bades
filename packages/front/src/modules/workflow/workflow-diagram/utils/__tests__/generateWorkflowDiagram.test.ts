@@ -7,10 +7,10 @@ import { generateWorkflowDiagram } from '@/workflow/workflow-diagram/utils/gener
 describe('generateWorkflowDiagram', () => {
   it('should generate a single trigger node when no step is provided', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
     };
@@ -34,10 +34,10 @@ describe('generateWorkflowDiagram', () => {
 
   it('should generate a diagram with nodes and edges corresponding to the steps', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -111,10 +111,10 @@ describe('generateWorkflowDiagram', () => {
 
   it('should correctly link nodes with edges', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step1'],
@@ -176,10 +176,10 @@ describe('generateWorkflowDiagram', () => {
 
   it('should take nextStepIds into account', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step2'],
@@ -241,10 +241,10 @@ describe('generateWorkflowDiagram', () => {
 
   it('should take nextStepIds into account for complex diagram', () => {
     const trigger: WorkflowTrigger = {
-      name: 'Company created',
+      name: 'Keluarga created',
       type: 'DATABASE_EVENT',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
       nextStepIds: ['step2', 'step3'],

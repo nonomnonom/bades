@@ -19,7 +19,7 @@ describe('computeRelationGqlFieldJoinColumnName', () => {
   it('should append `Id` to a morph-aware field name', () => {
     expect(
       computeRelationGqlFieldJoinColumnName({ name: 'targetOpportunity' }),
-    ).toBe('targetOpportunityId');
+    ).toBe('targetPeluangId');
   });
 
   it('should not strip an existing trailing `Id` (it just appends)', () => {
@@ -38,7 +38,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
         targetObjectMetadataNameSingular: 'programBantuan',
         targetObjectMetadataNamePlural: 'daftarProgramBantuan',
       }),
-    ).toBe('targetOpportunityId');
+    ).toBe('targetPeluangId');
   });
 
   it('should combine field name and capitalized plural target for ONE_TO_MANY', () => {
@@ -52,7 +52,7 @@ describe('computeMorphRelationGqlFieldJoinColumnName', () => {
     ).toBe('caretakerPeopleId');
   });
 
-  it('should handle simple plurals (e.g. `companies`)', () => {
+  it('should handle simple plurals (e.g. `daftarKeluarga`)', () => {
     expect(
       computeMorphRelationGqlFieldJoinColumnName({
         fieldName: 'parent',

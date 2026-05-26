@@ -27,7 +27,7 @@ const makeFlatObjectMetadata = (
     workspaceId: 'ws-1',
     applicationId: 'app-1',
     labelPlural: 'People',
-    labelSingular: 'Person',
+    labelSingular: 'Penduduk',
     icon: 'IconUser',
     isCustom: false,
     standardOverrides: null,

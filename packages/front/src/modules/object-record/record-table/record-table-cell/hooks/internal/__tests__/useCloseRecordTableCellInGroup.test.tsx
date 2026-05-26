@@ -42,7 +42,7 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
             <RecordTableContextProvider
               recordTableId={recordTableId}
               viewBarId="viewBarId"
-              objectNameSingular={'person'}
+              objectNameSingular={'penduduk'}
             >
               <FieldContext.Provider
                 value={{

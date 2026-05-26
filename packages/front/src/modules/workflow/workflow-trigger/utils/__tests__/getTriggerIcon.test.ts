@@ -5,7 +5,7 @@ describe('getTriggerIcon', () => {
     expect(
       getTriggerIcon({
         type: 'DATABASE_EVENT',
-        settings: { eventName: 'company.created', outputSchema: {} },
+        settings: { eventName: 'keluarga.created', outputSchema: {} },
       }),
     ).toBe('IconPlaylistAdd');
   });

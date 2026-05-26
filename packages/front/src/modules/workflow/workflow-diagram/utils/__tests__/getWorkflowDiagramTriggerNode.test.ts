@@ -123,7 +123,7 @@ describe('getWorkflowDiagramTriggerNode', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
         settings: {
-          eventName: 'company.created',
+          eventName: 'keluarga.created',
           outputSchema: {},
           objectType: 'keluarga',
         },
@@ -158,7 +158,7 @@ describe('getWorkflowDiagramTriggerNode', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
         settings: {
-          eventName: 'company.unknownEvent',
+          eventName: 'keluarga.unknownEvent',
           outputSchema: {},
           objectType: 'keluarga',
         },

@@ -9,7 +9,7 @@ describe('getStepDefinitionOrThrow', () => {
   const mockTrigger: WorkflowTrigger = {
     type: 'DATABASE_EVENT',
     settings: {
-      eventName: 'company.created',
+      eventName: 'keluarga.created',
       outputSchema: {},
     },
   };
@@ -26,7 +26,7 @@ describe('getStepDefinitionOrThrow', () => {
           retryOnFailure: { value: false },
         },
         input: {
-          objectName: 'Company',
+          objectName: 'Keluarga',
           objectRecord: {},
         },
         outputSchema: {},
@@ -43,7 +43,7 @@ describe('getStepDefinitionOrThrow', () => {
           retryOnFailure: { value: false },
         },
         input: {
-          objectName: 'Company',
+          objectName: 'Keluarga',
           objectRecord: {},
           objectRecordId: 'test-id',
           fieldsToUpdate: ['name'],

@@ -67,7 +67,7 @@ describe('sanitizeFlatEntityUpdate', () => {
     const result = sanitizeUniversalFlatEntityUpdate({
       flatEntityUpdate: {
         isActive: true,
-        labelSingular: 'Person',
+        labelSingular: 'Penduduk',
         labelPlural: 'People',
         invalidProperty: 'should be removed',
       } as any,

@@ -170,7 +170,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
   describe('Standard objects - Color overrides', () => {
     it('should return override color when available for standard object', () => {
       const objectMetadata = {
-        labelSingular: 'Company',
+        labelSingular: 'Keluarga',
         labelPlural: 'Companies',
         description: 'Standard Description',
         icon: 'default-icon',
@@ -193,7 +193,7 @@ describe('resolveObjectMetadataStandardOverride', () => {
 
     it('should return base color when no override exists for standard object', () => {
       const objectMetadata = {
-        labelSingular: 'Company',
+        labelSingular: 'Keluarga',
         labelPlural: 'Companies',
         description: 'Standard Description',
         icon: 'default-icon',

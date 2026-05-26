@@ -13,14 +13,14 @@ describe('getSettingsPath', () => {
       getSettingsPath(SettingsPath.ObjectDetail, {
         objectNamePlural: 'daftarKeluarga',
       }),
-    ).toBe('/settings/objects/companies');
+    ).toBe('/settings/objects/daftarKeluarga');
 
     expect(
       getSettingsPath(SettingsPath.ObjectFieldEdit, {
         objectNamePlural: 'daftarKeluarga',
         fieldName: 'name',
       }),
-    ).toBe('/settings/objects/companies/name');
+    ).toBe('/settings/objects/daftarKeluarga/name');
 
     expect(
       getSettingsPath(SettingsPath.LogicFunctionDetail, {
@@ -91,7 +91,7 @@ describe('getSettingsPath', () => {
         { tab: 'fields', edit: 'true' },
         'advanced',
       ),
-    ).toBe('/settings/objects/companies?tab=fields&edit=true#advanced');
+    ).toBe('/settings/objects/daftarKeluarga?tab=fields&edit=true#advanced');
 
     expect(
       getSettingsPath(

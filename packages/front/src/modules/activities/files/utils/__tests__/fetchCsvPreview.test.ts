@@ -69,7 +69,7 @@ describe('fetchCsvPreview', () => {
   it('should limit rows to the preview amount', async () => {
     const lines = ['Name'];
     for (let i = 0; i < 100; i++) {
-      lines.push(`Person${i}`);
+      lines.push(`Penduduk${i}`);
     }
     mockFetch(lines.join('\n'));
 

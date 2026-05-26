@@ -10,17 +10,17 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
 describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
-  const mockCompanyObjectMetadataItem =
+  const mockKeluargaObjectMetadataItem =
     getMockObjectMetadataItemOrThrow('keluarga');
-  const mockCompanyEmployeesFieldMetadataItem =
-    mockCompanyObjectMetadataItem.fields.find(
+  const mockKeluargaEmployeesFieldMetadataItem =
+    mockKeluargaObjectMetadataItem.fields.find(
       findByProperty('name', 'employees'),
     );
 
   it('should return correct display value for avg of employees', () => {
     expect(
       transformAggregateRawValueIntoAggregateDisplayValue({
-        aggregateFieldMetadataItem: mockCompanyEmployeesFieldMetadataItem,
+        aggregateFieldMetadataItem: mockKeluargaEmployeesFieldMetadataItem,
         aggregateOperation: AggregateOperations.AVG,
         aggregateRawValue: 300,
         dateFormat: DateFormat.DAY_FIRST,
@@ -76,7 +76,7 @@ describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
   it('should return correct percentage formatted value', () => {
     expect(
       transformAggregateRawValueIntoAggregateDisplayValue({
-        aggregateFieldMetadataItem: mockCompanyEmployeesFieldMetadataItem,
+        aggregateFieldMetadataItem: mockKeluargaEmployeesFieldMetadataItem,
         aggregateOperation: AggregateOperations.PERCENTAGE_EMPTY,
         aggregateRawValue: 0.09,
         dateFormat: DateFormat.DAY_FIRST,
@@ -89,7 +89,7 @@ describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
 
   it('should return correct currency formatted value from amount micro', () => {
     const mockCurrencyFieldMetadataItem = {
-      ...mockCompanyEmployeesFieldMetadataItem,
+      ...mockKeluargaEmployeesFieldMetadataItem,
       type: FieldMetadataType.CURRENCY,
     } as FieldMetadataItem;
 
@@ -109,7 +109,7 @@ describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
   it('should return correct number formatted value', () => {
     expect(
       transformAggregateRawValueIntoAggregateDisplayValue({
-        aggregateFieldMetadataItem: mockCompanyEmployeesFieldMetadataItem,
+        aggregateFieldMetadataItem: mockKeluargaEmployeesFieldMetadataItem,
         aggregateOperation: AggregateOperations.SUM,
         aggregateRawValue: 100000000,
         dateFormat: DateFormat.DAY_FIRST,
@@ -122,7 +122,7 @@ describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
 
   it('should return correct DATE formatted value', () => {
     const mockDateFieldMetadataItem = {
-      ...mockCompanyEmployeesFieldMetadataItem,
+      ...mockKeluargaEmployeesFieldMetadataItem,
       type: FieldMetadataType.DATE,
       settings: undefined,
     } as FieldMetadataItem;
@@ -142,7 +142,7 @@ describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
 
   it('should return correct DATE_TIME formatted value', () => {
     const mockDateFieldMetadataItem = {
-      ...mockCompanyEmployeesFieldMetadataItem,
+      ...mockKeluargaEmployeesFieldMetadataItem,
       type: FieldMetadataType.DATE_TIME,
       settings: undefined,
     } as FieldMetadataItem;

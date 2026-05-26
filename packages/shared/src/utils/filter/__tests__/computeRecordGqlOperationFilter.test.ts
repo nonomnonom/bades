@@ -8,7 +8,7 @@ import { ViewFilterOperand } from '@/types/ViewFilterOperand';
 describe('computeRecordGqlOperationFilter', () => {
   it('should match Is UUID', () => {
     const companyIdField: PartialFieldMetadataItem = {
-      id: 'company-id-field',
+      id: 'keluarga-id-field',
       name: 'id',
       label: 'ID',
       type: FieldMetadataType.UUID,

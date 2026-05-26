@@ -154,7 +154,7 @@ describe('useOpenRecordInSidePanel', () => {
 
     expect(mockNavigateSidePanel).toHaveBeenCalledWith({
       page: SidePanelPages.ViewRecord,
-      pageTitle: 'Person',
+      pageTitle: 'Penduduk',
       pageIcon: result.current.getIcon(personMockObjectMetadataItem.icon),
       pageIconColor: 'currentColor',
       pageId: 'mocked-uuid',
@@ -178,7 +178,7 @@ describe('useOpenRecordInSidePanel', () => {
 
     expect(mockNavigateSidePanel).toHaveBeenCalledWith({
       page: SidePanelPages.ViewRecord,
-      pageTitle: 'Person baru',
+      pageTitle: 'Penduduk baru',
       pageIcon: result.current.getIcon(personMockObjectMetadataItem.icon),
       pageIconColor: 'currentColor',
       pageId: 'mocked-uuid',

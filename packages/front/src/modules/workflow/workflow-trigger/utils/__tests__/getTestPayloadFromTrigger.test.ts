@@ -63,7 +63,7 @@ describe('getTestPayloadFromTrigger', () => {
       type: 'DATABASE_EVENT',
       name: 'Test',
       settings: {
-        eventName: 'company.created',
+        eventName: 'keluarga.created',
         outputSchema: {},
       },
     };

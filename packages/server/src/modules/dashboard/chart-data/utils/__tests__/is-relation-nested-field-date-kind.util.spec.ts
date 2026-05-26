@@ -29,7 +29,7 @@ const createMockObjectMetadata = (
   }) as FlatObjectMetadata;
 
 describe('isRelationNestedFieldDateKind', () => {
-  const companyObjectId = 'company-object-id';
+  const companyObjectId = 'keluarga-object-id';
   const createdAtFieldId = 'created-at-field-id';
   const nameFieldId = 'name-field-id';
 

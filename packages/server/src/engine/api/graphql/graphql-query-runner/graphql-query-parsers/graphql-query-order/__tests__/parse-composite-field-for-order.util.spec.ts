@@ -42,7 +42,7 @@ describe('parseCompositeFieldForOrder', () => {
       );
 
       expect(result).toEqual({
-        'company.linkedinLinkPrimaryLinkLabel': {
+        'keluarga.linkedinLinkPrimaryLinkLabel': {
           order: 'DESC',
           nulls: 'NULLS LAST',
           useLower: true,
@@ -65,7 +65,7 @@ describe('parseCompositeFieldForOrder', () => {
       );
 
       expect(result).toEqual({
-        'company.addressAddressCity': {
+        'keluarga.addressAddressCity': {
           order: 'ASC',
           nulls: 'NULLS LAST',
           useLower: true,
@@ -90,7 +90,7 @@ describe('parseCompositeFieldForOrder', () => {
       );
 
       expect(result).toEqual({
-        'company.annualRevenueAmountMicros': {
+        'keluarga.annualRevenueAmountMicros': {
           order: 'DESC',
           nulls: 'NULLS FIRST',
           useLower: false,
@@ -113,7 +113,7 @@ describe('parseCompositeFieldForOrder', () => {
       );
 
       expect(result).toEqual({
-        'company.addressAddressLat': {
+        'keluarga.addressAddressLat': {
           order: 'ASC',
           nulls: 'NULLS FIRST',
           useLower: false,

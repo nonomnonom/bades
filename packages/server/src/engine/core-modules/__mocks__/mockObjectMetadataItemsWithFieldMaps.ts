@@ -23,8 +23,8 @@ const personFlatObject = getFlatObjectMetadataMock({
   namePlural: 'daftarPenduduk',
   labelSingular: 'Penduduk',
   labelPlural: 'Penduduk',
-  description: 'A person',
-  icon: 'test-person-icon',
+  description: 'A penduduk',
+  icon: 'test-penduduk-icon',
   targetTableName: 'DEPRECATED',
   isCustom: false,
   isRemote: false,
@@ -47,8 +47,8 @@ const companyFlatObject = getFlatObjectMetadataMock({
   namePlural: 'daftarKeluarga',
   labelSingular: 'Keluarga',
   labelPlural: 'Keluarga',
-  description: 'A company',
-  icon: 'test-company-icon',
+  description: 'A keluarga',
+  icon: 'test-keluarga-icon',
   targetTableName: 'DEPRECATED',
   isCustom: false,
   isRemote: false,
@@ -281,7 +281,7 @@ export const getMockObjectMetadataInfo = (
 
 export const mockPendudukObjectMetadataInfo =
   getMockObjectMetadataInfo('penduduk');
-export const mockCompanyObjectMetadataInfo =
+export const mockKeluargaObjectMetadataInfo =
   getMockObjectMetadataInfo('keluarga');
 export const mockCustomObjectMetadataInfo = getMockObjectMetadataInfo(
   'regular-custom-object',

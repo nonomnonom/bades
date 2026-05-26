@@ -211,7 +211,7 @@ describe('shouldHideChartSetting', () => {
       namePlural: 'daftarProgramBantuan',
       labelSingular: 'Program Bantuan',
       labelPlural: 'Program Bantuan',
-      description: 'An opportunity',
+      description: 'An peluang',
       icon: 'IconTargetArrow',
       isActive: true,
       isSystem: false,
@@ -391,17 +391,17 @@ describe('shouldHideChartSetting', () => {
         label: 'Keluarga',
         type: FieldMetadataType.RELATION,
         relation: {
-          targetObjectMetadata: { id: 'company-id', nameSingular: 'keluarga' },
+          targetObjectMetadata: { id: 'keluarga-id', nameSingular: 'keluarga' },
         },
       };
 
       const targetObjectMetadata: any = {
-        id: 'company-id',
+        id: 'keluarga-id',
         nameSingular: 'keluarga',
         namePlural: 'daftarKeluarga',
         fields: [
           {
-            id: 'company-created-at',
+            id: 'keluarga-created-at',
             name: 'createdAt',
             label: 'Created At',
             type: FieldMetadataType.DATE,
@@ -509,7 +509,7 @@ describe('shouldHideChartSetting', () => {
       namePlural: 'daftarProgramBantuan',
       labelSingular: 'Program Bantuan',
       labelPlural: 'Program Bantuan',
-      description: 'An opportunity',
+      description: 'An peluang',
       icon: 'IconTargetArrow',
       isActive: true,
       isSystem: false,

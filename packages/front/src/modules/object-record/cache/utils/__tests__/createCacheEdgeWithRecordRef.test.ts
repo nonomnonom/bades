@@ -22,7 +22,7 @@ describe('createCacheEdgeWithRecordRef', () => {
     } as EnrichedObjectMetadataItem;
 
     const mockReference: Reference = {
-      __ref: 'Person:123',
+      __ref: 'Penduduk:123',
     };
 
     const toReference: ToReferenceFunction = jest.fn(() => mockReference);
@@ -37,7 +37,7 @@ describe('createCacheEdgeWithRecordRef', () => {
     // Then
     expect(result).not.toBeNull();
     expect(result).toEqual({
-      __typename: 'PersonEdge',
+      __typename: 'PendudukEdge',
       node: mockReference,
       cursor: encodeCursor(record),
     });

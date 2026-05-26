@@ -9,7 +9,7 @@ describe('isStepNode', () => {
       data: {
         nodeType: 'trigger',
         triggerType: 'DATABASE_EVENT',
-        name: 'Company Created',
+        name: 'Keluarga Created',
         icon: 'IconPlus',
         stepId: 'trigger',
         hasNextStepIds: false,
@@ -29,7 +29,7 @@ describe('isStepNode', () => {
       data: {
         nodeType: 'action',
         actionType: 'CREATE_RECORD',
-        name: 'Create Company',
+        name: 'Create Keluarga',
         stepId: 'action-1',
         hasNextStepIds: false,
         position: { x: 0, y: 0 },

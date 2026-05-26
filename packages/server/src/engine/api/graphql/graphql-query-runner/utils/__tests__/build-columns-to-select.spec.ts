@@ -61,10 +61,10 @@ describe('buildColumnsToSelect', () => {
     id: companyFieldId,
     type: FieldMetadataType.RELATION,
     name: 'keluarga',
-    label: 'Company',
+    label: 'Keluarga',
     objectMetadataId: personObjectId,
     defaultValue: null,
-    description: "Contact's company",
+    description: "Contact's keluarga",
     icon: 'IconBuildingSkyscraper',
     settings: {
       relationType: RelationType.MANY_TO_ONE,
@@ -84,7 +84,7 @@ describe('buildColumnsToSelect', () => {
       namePlural: 'daftarPenduduk',
       labelSingular: 'Penduduk',
       labelPlural: 'Penduduk',
-      description: 'A person',
+      description: 'A penduduk',
       icon: 'IconUser',
       targetTableName: 'DEPRECATED',
       isCustom: false,
@@ -183,14 +183,14 @@ describe('buildColumnsToSelect', () => {
 
     const select = {
       nameFirstName: true,
-      company: {
+      keluarga: {
         id: true,
         name: true,
       },
     };
 
     const relations = {
-      company: {},
+      keluarga: {},
     };
 
     const result = buildColumnsToSelect({
@@ -261,7 +261,7 @@ describe('buildColumnsToSelect', () => {
     const select = {
       nameFirstName: true,
       nameLastName: false,
-      company: { id: true },
+      keluarga: { id: true },
     };
 
     const relations = {};
@@ -317,11 +317,11 @@ describe('buildColumnsToSelect', () => {
   });
 
   it('should handle relation field that is not MANY_TO_ONE', () => {
-    const oneToManyCompanyField = createMockField({
+    const oneToManyKeluargaField = createMockField({
       id: companyFieldId,
       type: FieldMetadataType.RELATION,
       name: 'keluarga',
-      label: 'Company',
+      label: 'Keluarga',
       objectMetadataId: personObjectId,
       defaultValue: null,
       settings: {
@@ -337,7 +337,7 @@ describe('buildColumnsToSelect', () => {
     ]);
     const flatFieldMetadataMaps = buildFlatFieldMetadataMaps([
       nameField,
-      oneToManyCompanyField,
+      oneToManyKeluargaField,
     ]);
     const flatObjectMetadataMaps = buildFlatObjectMetadataMaps([
       flatObjectMetadata,
@@ -349,7 +349,7 @@ describe('buildColumnsToSelect', () => {
     };
 
     const relations = {
-      company: {},
+      keluarga: {},
     };
 
     const result = buildColumnsToSelect({

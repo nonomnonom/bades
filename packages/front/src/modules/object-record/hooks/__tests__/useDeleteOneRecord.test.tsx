@@ -20,23 +20,23 @@ const mockRefetchAggregateQueries = jest.fn();
   refetchAggregateQueries: mockRefetchAggregateQueries,
 });
 
-const flatPersonRecords = mockedPendudukRecords.map((record) =>
+const flatPendudukRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
-const flatCompanyRecords = mockedKeluargaRecords.map((record) =>
+const flatKeluargaRecords = mockedKeluargaRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
 describe('useDeleteOneRecord', () => {
-  const matchingCompanyId = flatCompanyRecords[0].id;
+  const matchingKeluargaId = flatKeluargaRecords[0].id;
   const personRecord = {
-    ...flatPersonRecords[0],
+    ...flatPendudukRecords[0],
     deletedAt: null,
-    kartuKeluargaId: matchingCompanyId,
-    kartuKeluarga: { ...flatCompanyRecords[0] },
+    kartuKeluargaId: matchingKeluargaId,
+    kartuKeluarga: { ...flatKeluargaRecords[0] },
   };
-  const relatedCompanyRecord = flatCompanyRecords[0];
+  const relatedKeluargaRecord = flatKeluargaRecords[0];
   const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
   const companyObjectMetadataItem =
     getMockObjectMetadataItemOrThrow('keluarga');
@@ -186,7 +186,7 @@ describe('useDeleteOneRecord', () => {
             objectMetadataItem: personObjectMetadataItem,
           });
           assertCachedRecordIsNull({
-            recordId: relatedCompanyRecord.id,
+            recordId: relatedKeluargaRecord.id,
             objectMetadataItem: companyObjectMetadataItem,
           });
         }
@@ -204,11 +204,11 @@ describe('useDeleteOneRecord', () => {
       initialRecordsInCache: [
         {
           objectMetadataItem: companyObjectMetadataItem,
-          records: flatCompanyRecords,
+          records: flatKeluargaRecords,
         },
         {
           objectMetadataItem: personObjectMetadataItem,
-          records: flatPersonRecords,
+          records: flatPendudukRecords,
         },
       ],
     });

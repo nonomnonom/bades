@@ -112,7 +112,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
       FieldMetadataType.ADDRESS,
     ),
     createMockFlatFieldMetadata(
-      'company-id',
+      'keluarga-id',
       'keluarga',
       FieldMetadataType.RELATION,
       {
@@ -136,7 +136,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
       addressStreet1: 'Main Street',
       addressCity: 'Paris',
     },
-    companyId: 'company-1',
+    companyId: 'keluarga-1',
     deletedAt: null,
     id: 'record-1',
     createdAt: new Date().toISOString(),
@@ -278,7 +278,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
       record: baseRecord,
       filter: {
         companyId: {
-          eq: 'company-1',
+          eq: 'keluarga-1',
         },
       },
       flatObjectMetadata,

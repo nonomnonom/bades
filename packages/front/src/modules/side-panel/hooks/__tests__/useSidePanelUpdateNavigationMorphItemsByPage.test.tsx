@@ -5,7 +5,7 @@ import { renderHook } from '@testing-library/react';
 import { Provider as JotaiProvider } from 'jotai';
 import { act } from 'react';
 const pageId = 'merge-page-id';
-const objectMetadataId = 'company-metadata-id';
+const objectMetadataId = 'keluarga-metadata-id';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <JotaiProvider store={jotaiStore}>{children}</JotaiProvider>

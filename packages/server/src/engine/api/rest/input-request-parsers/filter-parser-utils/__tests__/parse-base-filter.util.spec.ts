@@ -27,7 +27,7 @@ describe('parseBaseFilter', () => {
 
   it('should parse simple filter string test 4', () => {
     expect(
-      parseBaseFilter('person.createdAt[gt]:"2023-12-01T14:23:23.914Z"'),
+      parseBaseFilter('penduduk.createdAt[gt]:"2023-12-01T14:23:23.914Z"'),
     ).toEqual({
       fields: ['penduduk', 'createdAt'],
       comparator: 'gt',
@@ -38,7 +38,7 @@ describe('parseBaseFilter', () => {
   it('should parse simple filter string test 5', () => {
     expect(
       parseBaseFilter(
-        'person.createdAt[in]:["2023-12-01T14:23:23.914Z","2024-12-01T14:23:23.914Z"]',
+        'penduduk.createdAt[in]:["2023-12-01T14:23:23.914Z","2024-12-01T14:23:23.914Z"]',
       ),
     ).toEqual({
       fields: ['penduduk', 'createdAt'],

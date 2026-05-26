@@ -47,13 +47,13 @@ describe('isFieldOrNestedFieldDateKind', () => {
         {
           id: 'relation-field-id',
           type: FieldMetadataType.RELATION,
-          relation: { targetObjectMetadata: { id: 'company-id' } },
+          relation: { targetObjectMetadata: { id: 'keluarga-id' } },
         },
       ],
     } as EnrichedObjectMetadataItem;
 
     const companyObjectMetadataItem = {
-      id: 'company-id',
+      id: 'keluarga-id',
       nameSingular: 'keluarga',
       fields: [
         {

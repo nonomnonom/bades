@@ -20,7 +20,7 @@ export const parseCronExpression = (
 
   if (parts.length < 4 || parts.length > 6) {
     throw new Error(
-      `Invalid cron expression. Expected 4-6 fields, got ${parts.length}`,
+      `Ekspresi cron tidak valid. Diharapkan 4-6 field, terima ${parts.length}`,
     );
   }
 

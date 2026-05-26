@@ -6,9 +6,9 @@ describe('getTriggerHeaderType', () => {
     it('returns "Trigger · Data dibuat" for created event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Company Created',
+        name: 'Keluarga Created',
         settings: {
-          eventName: 'company.created',
+          eventName: 'keluarga.created',
           outputSchema: {},
         },
       };
@@ -21,9 +21,9 @@ describe('getTriggerHeaderType', () => {
     it('returns "Trigger · Data diperbarui" for updated event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Company Updated',
+        name: 'Keluarga Updated',
         settings: {
-          eventName: 'company.updated',
+          eventName: 'keluarga.updated',
           outputSchema: {},
         },
       };
@@ -36,9 +36,9 @@ describe('getTriggerHeaderType', () => {
     it('returns "Trigger · Data dihapus" for deleted event', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Company Deleted',
+        name: 'Keluarga Deleted',
         settings: {
-          eventName: 'company.deleted',
+          eventName: 'keluarga.deleted',
           outputSchema: {},
         },
       };
@@ -51,9 +51,9 @@ describe('getTriggerHeaderType', () => {
     it('works with different object types', () => {
       const trigger: WorkflowTrigger = {
         type: 'DATABASE_EVENT',
-        name: 'Person Created',
+        name: 'Penduduk Created',
         settings: {
-          eventName: 'person.created',
+          eventName: 'penduduk.created',
           outputSchema: {},
         },
       };

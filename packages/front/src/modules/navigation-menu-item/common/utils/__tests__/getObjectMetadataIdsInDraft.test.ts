@@ -6,20 +6,20 @@ describe('getObjectMetadataIdsInDraft', () => {
     const draft = [
       {
         type: NavigationMenuItemType.OBJECT,
-        targetObjectMetadataId: 'object-people',
+        targetObjectMetadataId: 'object-daftarPenduduk',
       },
     ];
 
     const result = getObjectMetadataIdsInDraft(draft);
 
-    expect(result).toEqual(new Set(['object-people']));
+    expect(result).toEqual(new Set(['object-daftarPenduduk']));
   });
 
   it('should NOT collect objectMetadataId from VIEW-type items', () => {
     const draft = [
       {
         type: NavigationMenuItemType.VIEW,
-        targetObjectMetadataId: 'object-people',
+        targetObjectMetadataId: 'object-daftarPenduduk',
       },
     ];
 
@@ -32,7 +32,7 @@ describe('getObjectMetadataIdsInDraft', () => {
     const draft = [
       {
         type: NavigationMenuItemType.RECORD,
-        targetObjectMetadataId: 'object-people',
+        targetObjectMetadataId: 'object-daftarPenduduk',
       },
     ];
 
@@ -45,39 +45,39 @@ describe('getObjectMetadataIdsInDraft', () => {
     const draft = [
       {
         type: NavigationMenuItemType.RECORD,
-        targetObjectMetadataId: 'object-people',
+        targetObjectMetadataId: 'object-daftarPenduduk',
       },
       {
         type: NavigationMenuItemType.VIEW,
-        targetObjectMetadataId: 'object-people',
+        targetObjectMetadataId: 'object-daftarPenduduk',
       },
       {
         type: NavigationMenuItemType.OBJECT,
-        targetObjectMetadataId: 'object-companies',
+        targetObjectMetadataId: 'object-daftarKeluarga',
       },
     ];
 
     const result = getObjectMetadataIdsInDraft(draft);
 
-    expect(result.has('object-people')).toBe(false);
-    expect(result.has('object-companies')).toBe(true);
+    expect(result.has('object-daftarPenduduk')).toBe(false);
+    expect(result.has('object-daftarKeluarga')).toBe(true);
   });
 
   it('should collect from multiple OBJECT items', () => {
     const draft = [
       {
         type: NavigationMenuItemType.OBJECT,
-        targetObjectMetadataId: 'object-people',
+        targetObjectMetadataId: 'object-daftarPenduduk',
       },
       {
         type: NavigationMenuItemType.OBJECT,
-        targetObjectMetadataId: 'object-companies',
+        targetObjectMetadataId: 'object-daftarKeluarga',
       },
     ];
 
     const result = getObjectMetadataIdsInDraft(draft);
 
-    expect(result).toEqual(new Set(['object-people', 'object-companies']));
+    expect(result).toEqual(new Set(['object-daftarPenduduk', 'object-daftarKeluarga']));
   });
 
   it('should skip FOLDER and LINK items', () => {

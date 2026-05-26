@@ -27,8 +27,8 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
 
     // Bades single-language: payload locale tidak lagi diterapkan.
     expect(result).not.toBe(previous);
-    expect(previous.locale).toBe('en');
-    expect(result.locale).toBe('en');
+    expect(previous.locale).toBe('id');
+    expect(result.locale).toBe('id');
   });
 
   it('should merge colorScheme tanpa mengubah locale', () => {
@@ -39,7 +39,7 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
       colorScheme: 'Dark',
     });
 
-    expect(result.locale).toBe('en');
+    expect(result.locale).toBe('id');
     expect(result.colorScheme).toBe('Dark');
     expect(result.userEmail).toBe(previous.userEmail);
     expect(result.id).toBe(previous.id);
@@ -142,7 +142,7 @@ describe('mergeWorkspaceMemberSettingsIntoCurrent', () => {
     } as Record<string, unknown>);
 
     // locale tidak lagi diterapkan; field unknown tetap diabaikan.
-    expect(result.locale).toBe('en');
+    expect(result.locale).toBe('id');
     expect('unknownField' in result).toBe(false);
   });
 });

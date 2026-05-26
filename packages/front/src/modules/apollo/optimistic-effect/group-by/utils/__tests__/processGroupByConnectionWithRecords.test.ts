@@ -24,7 +24,7 @@ describe('processGroupByConnectionWithRecords', () => {
   };
 
   const mockReference: Reference = {
-    __ref: 'Person:123',
+    __ref: 'Penduduk:123',
   };
 
   const mockReadField = jest.fn(
@@ -90,7 +90,7 @@ describe('processGroupByConnectionWithRecords', () => {
 
   it('should handle delete operation', () => {
     const mockEdge: RecordGqlRefEdge = {
-      __typename: 'PersonEdge',
+      __typename: 'PendudukEdge',
       node: mockReference,
       cursor: 'cursor123',
     };

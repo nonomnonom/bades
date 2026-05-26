@@ -2,12 +2,12 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { getMultiSelectFieldPreviewValue } from '@/settings/data-model/fields/preview/utils/getMultiSelectFieldPreviewValue';
 
-const mockedCompanyObjectMetadataItem =
+const mockedKeluargaObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'keluarga',
   );
 
-const mockedOpportunityObjectMetadataItem =
+const mockedPeluangObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
     (item) => item.nameSingular === 'programBantuan',
   );
@@ -15,7 +15,7 @@ const mockedOpportunityObjectMetadataItem =
 describe('getMultiSelectFieldPreviewValue', () => {
   it('returns null if the field is not a Multi-Select field', () => {
     // Given
-    const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
+    const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
       ({ type }) => type !== FieldMetadataType.MULTI_SELECT,
     );
 
@@ -32,7 +32,7 @@ describe('getMultiSelectFieldPreviewValue', () => {
 
   const fieldName = 'stage';
   const selectFieldMetadataItem =
-    mockedOpportunityObjectMetadataItem?.fields.find(
+    mockedPeluangObjectMetadataItem?.fields.find(
       ({ name }) => name === fieldName,
     );
 

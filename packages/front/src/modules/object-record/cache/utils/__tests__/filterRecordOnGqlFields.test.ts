@@ -143,12 +143,12 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      company: null,
+      keluarga: null,
     };
 
     const recordGqlFields = {
       id: true,
-      company: {
+      keluarga: {
         id: true,
         name: true,
       },
@@ -158,7 +158,7 @@ describe('filterRecordOnGqlFields', () => {
 
     expect(result).toEqual({
       id: '1',
-      company: null,
+      keluarga: null,
     });
   });
 
@@ -166,12 +166,12 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      company: undefined,
+      keluarga: undefined,
     };
 
     const recordGqlFields = {
       id: true,
-      company: {
+      keluarga: {
         id: true,
         name: true,
       },
@@ -181,7 +181,7 @@ describe('filterRecordOnGqlFields', () => {
 
     expect(result).toEqual({
       id: '1',
-      company: undefined,
+      keluarga: undefined,
     });
   });
 
@@ -189,7 +189,7 @@ describe('filterRecordOnGqlFields', () => {
     const record = {
       id: '1',
       __typename: 'Penduduk',
-      company: {
+      keluarga: {
         id: '2',
         taskTargets: [
           {
@@ -204,7 +204,7 @@ describe('filterRecordOnGqlFields', () => {
             },
             targetCompany: {
               id: '5',
-              name: 'Company 1',
+              name: 'Keluarga 1',
             },
           },
         ],
@@ -213,7 +213,7 @@ describe('filterRecordOnGqlFields', () => {
 
     const recordGqlFields = {
       id: true,
-      company: {
+      keluarga: {
         id: true,
         taskTargets: {
           id: true,
@@ -233,7 +233,7 @@ describe('filterRecordOnGqlFields', () => {
 
     expect(result).toEqual({
       id: '1',
-      company: {
+      keluarga: {
         id: '2',
         taskTargets: [
           {
@@ -244,7 +244,7 @@ describe('filterRecordOnGqlFields', () => {
             },
             targetCompany: {
               id: '5',
-              name: 'Company 1',
+              name: 'Keluarga 1',
             },
           },
         ],

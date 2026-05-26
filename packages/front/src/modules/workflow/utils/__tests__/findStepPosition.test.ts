@@ -15,7 +15,7 @@ describe('findStepPosition', () => {
           retryOnFailure: { value: false },
         },
         input: {
-          objectName: 'Company',
+          objectName: 'Keluarga',
           objectRecord: {},
         },
         outputSchema: {},
@@ -32,7 +32,7 @@ describe('findStepPosition', () => {
           retryOnFailure: { value: false },
         },
         input: {
-          objectName: 'Company',
+          objectName: 'Keluarga',
           objectRecord: {},
           objectRecordId: 'test-id',
           fieldsToUpdate: ['name'],
@@ -51,7 +51,7 @@ describe('findStepPosition', () => {
           retryOnFailure: { value: false },
         },
         input: {
-          objectName: 'Company',
+          objectName: 'Keluarga',
           objectRecordId: 'test-id',
         },
         outputSchema: {},

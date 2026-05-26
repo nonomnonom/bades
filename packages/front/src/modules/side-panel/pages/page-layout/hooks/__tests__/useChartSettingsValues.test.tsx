@@ -26,9 +26,9 @@ const mockObjectMetadataItem: EnrichedObjectMetadataItem = {
   labelPlural: 'Keluarga',
   fields: [
     {
-      id: 'field-company-name',
+      id: 'field-keluarga-name',
       name: 'name',
-      label: 'Company Name',
+      label: 'Keluarga Name',
       type: FieldMetadataType.TEXT,
     },
     {
@@ -67,7 +67,7 @@ const buildBarChartConfiguration = (
     __typename: 'BarChartConfiguration',
     aggregateFieldMetadataId: 'field-amount',
     aggregateOperation: AggregateOperations.SUM,
-    primaryAxisGroupByFieldMetadataId: 'field-company-name',
+    primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
     primaryAxisGroupBySubFieldName: null,
     secondaryAxisGroupByFieldMetadataId: null,
     secondaryAxisGroupBySubFieldName: null,
@@ -101,7 +101,7 @@ const renderUseChartSettingsValues = (configuration: ChartConfiguration) => {
 describe('useChartSettingsValues', () => {
   describe('Vertical bar chart (1D - single grouping)', () => {
     const verticalBarConfig = buildBarChartConfiguration({
-      primaryAxisGroupByFieldMetadataId: 'field-company-name',
+      primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
       secondaryAxisGroupByFieldMetadataId: null,
     });
 
@@ -112,7 +112,7 @@ describe('useChartSettingsValues', () => {
         CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_X,
       );
 
-      expect(value).toBe('Company Name');
+      expect(value).toBe('Keluarga Name');
     });
 
     it('should return aggregate field with operation for DATA_ON_DISPLAY_Y', () => {
@@ -171,7 +171,7 @@ describe('useChartSettingsValues', () => {
   describe('Horizontal bar chart (1D - single grouping)', () => {
     const horizontalBarConfig = buildBarChartConfiguration({
       layout: BarChartLayout.HORIZONTAL,
-      primaryAxisGroupByFieldMetadataId: 'field-company-name',
+      primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
       secondaryAxisGroupByFieldMetadataId: null,
     });
 
@@ -183,7 +183,7 @@ describe('useChartSettingsValues', () => {
       );
 
       // Critical test: horizontal should return the SAME value as vertical
-      expect(value).toBe('Company Name');
+      expect(value).toBe('Keluarga Name');
     });
 
     it('should return SAME aggregate field for DATA_ON_DISPLAY_Y (no swapping)', () => {
@@ -212,7 +212,7 @@ describe('useChartSettingsValues', () => {
   describe('Vertical bar chart (2D - with secondary grouping)', () => {
     const verticalBar2DConfig = buildBarChartConfiguration({
       layout: BarChartLayout.VERTICAL,
-      primaryAxisGroupByFieldMetadataId: 'field-company-name',
+      primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
       secondaryAxisGroupByFieldMetadataId: 'field-stage',
       secondaryAxisOrderBy: GraphOrderBy.FIELD_DESC,
     });
@@ -224,7 +224,7 @@ describe('useChartSettingsValues', () => {
         CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_X,
       );
 
-      expect(value).toBe('Company Name');
+      expect(value).toBe('Keluarga Name');
     });
 
     it('should return secondary field label for GROUP_BY', () => {
@@ -252,7 +252,7 @@ describe('useChartSettingsValues', () => {
   describe('Horizontal bar chart (2D - with secondary grouping)', () => {
     const horizontalBar2DConfig = buildBarChartConfiguration({
       layout: BarChartLayout.HORIZONTAL,
-      primaryAxisGroupByFieldMetadataId: 'field-company-name',
+      primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
       secondaryAxisGroupByFieldMetadataId: 'field-stage',
       secondaryAxisOrderBy: GraphOrderBy.FIELD_DESC,
     });
@@ -264,7 +264,7 @@ describe('useChartSettingsValues', () => {
         CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_X,
       );
 
-      expect(value).toBe('Company Name');
+      expect(value).toBe('Keluarga Name');
     });
 
     it('should return SAME secondary field for GROUP_BY (no swapping)', () => {
@@ -522,7 +522,7 @@ describe('useChartSettingsValues', () => {
     it('horizontal bar with NULL secondary should still return primary for DATA_ON_DISPLAY_X', () => {
       const horizontalConfig = buildBarChartConfiguration({
         layout: BarChartLayout.HORIZONTAL,
-        primaryAxisGroupByFieldMetadataId: 'field-company-name',
+        primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
         secondaryAxisGroupByFieldMetadataId: null,
       });
 
@@ -532,13 +532,13 @@ describe('useChartSettingsValues', () => {
         CHART_CONFIGURATION_SETTING_IDS.DATA_ON_DISPLAY_X,
       );
 
-      expect(value).toBe('Company Name');
+      expect(value).toBe('Keluarga Name');
       expect(value).not.toBeUndefined();
     });
 
     it('should return identical values for all settings regardless of orientation', () => {
       const baseConfig = {
-        primaryAxisGroupByFieldMetadataId: 'field-company-name',
+        primaryAxisGroupByFieldMetadataId: 'field-keluarga-name',
         secondaryAxisGroupByFieldMetadataId: 'field-stage',
         aggregateFieldMetadataId: 'field-amount',
         aggregateOperation: AggregateOperations.SUM,

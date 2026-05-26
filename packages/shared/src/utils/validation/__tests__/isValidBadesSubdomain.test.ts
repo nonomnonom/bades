@@ -10,7 +10,7 @@ describe('isValidBadesSubdomain', () => {
     });
 
     it('should accept subdomains with hyphens in the middle', () => {
-      expect(isValidBadesSubdomain('my-company')).toBe(true);
+      expect(isValidBadesSubdomain('my-keluarga')).toBe(true);
       expect(isValidBadesSubdomain('test-workspace')).toBe(true);
       expect(isValidBadesSubdomain('multi-word-subdomain')).toBe(true);
       expect(isValidBadesSubdomain('a-b-c-d-e')).toBe(true);
@@ -69,21 +69,21 @@ describe('isValidBadesSubdomain', () => {
     });
 
     it('should reject subdomains with special characters', () => {
-      expect(isValidBadesSubdomain('test@company')).toBe(false);
+      expect(isValidBadesSubdomain('test@keluarga')).toBe(false);
       expect(isValidBadesSubdomain('my_workspace')).toBe(false);
-      expect(isValidBadesSubdomain('test.company')).toBe(false);
+      expect(isValidBadesSubdomain('test.keluarga')).toBe(false);
       expect(isValidBadesSubdomain('workspace#1')).toBe(false);
     });
 
     it('should reject subdomains with spaces', () => {
-      expect(isValidBadesSubdomain('test company')).toBe(false);
+      expect(isValidBadesSubdomain('test keluarga')).toBe(false);
       expect(isValidBadesSubdomain(' test')).toBe(false);
       expect(isValidBadesSubdomain('test ')).toBe(false);
     });
 
     it('should reject subdomains starting with "api-"', () => {
       expect(isValidBadesSubdomain('api-test')).toBe(false);
-      expect(isValidBadesSubdomain('api-company')).toBe(false);
+      expect(isValidBadesSubdomain('api-keluarga')).toBe(false);
       expect(isValidBadesSubdomain('api-123')).toBe(false);
     });
 

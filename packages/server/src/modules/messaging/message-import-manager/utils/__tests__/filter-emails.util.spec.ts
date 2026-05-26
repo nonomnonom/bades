@@ -99,13 +99,13 @@ describe('filterEmails', () => {
         subject: 'Support ticket',
         receivedAt: new Date('2025-01-09T09:54:37.000Z'),
         text: 'Support response',
-        headerMessageId: '<support@company.com>',
+        headerMessageId: '<support@keluarga.com>',
         messageThreadExternalId: 'thread-2',
         direction: MessageDirection.INCOMING,
         participants: [
           {
             role: MessageParticipantRole.FROM,
-            handle: 'support@company.com',
+            handle: 'support@keluarga.com',
             displayName: 'Support Team',
           },
         ],
@@ -212,21 +212,21 @@ describe('filterEmails', () => {
   });
 
   it('should not filter out messages when user handle looks like a group email', () => {
-    const primaryHandle = 'hello@company.com';
-    const handleAliases = ['support@company.com'];
+    const primaryHandle = 'hello@keluarga.com';
+    const handleAliases = ['support@keluarga.com'];
     const messages: MessageWithParticipants[] = [
       {
         externalId: 'user-sent-message',
         subject: 'User sent message',
         receivedAt: new Date('2025-01-09T09:54:37.000Z'),
         text: 'User sending from hello@ address',
-        headerMessageId: '<msg1@company.com>',
+        headerMessageId: '<msg1@keluarga.com>',
         messageThreadExternalId: 'thread-1',
         direction: MessageDirection.OUTGOING,
         participants: [
           {
             role: MessageParticipantRole.FROM,
-            handle: 'hello@company.com',
+            handle: 'hello@keluarga.com',
             displayName: 'Hello',
           },
           {
@@ -242,13 +242,13 @@ describe('filterEmails', () => {
         subject: 'Alias sent message',
         receivedAt: new Date('2025-01-09T09:54:37.000Z'),
         text: 'User sending from support@ alias',
-        headerMessageId: '<msg2@company.com>',
+        headerMessageId: '<msg2@keluarga.com>',
         messageThreadExternalId: 'thread-2',
         direction: MessageDirection.OUTGOING,
         participants: [
           {
             role: MessageParticipantRole.FROM,
-            handle: 'support@company.com',
+            handle: 'support@keluarga.com',
             displayName: 'Support',
           },
           {
@@ -275,7 +275,7 @@ describe('filterEmails', () => {
           },
           {
             role: MessageParticipantRole.TO,
-            handle: 'hello@company.com',
+            handle: 'hello@keluarga.com',
             displayName: 'Hello',
           },
         ],
@@ -297,7 +297,7 @@ describe('filterEmails', () => {
           },
           {
             role: MessageParticipantRole.TO,
-            handle: 'hello@company.com',
+            handle: 'hello@keluarga.com',
             displayName: 'Hello',
           },
         ],

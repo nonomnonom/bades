@@ -17,8 +17,8 @@ const mockI18nInstance = {
 const mockObjectMetadata = {
   id: 'obj-id-1',
   labelPlural: 'People',
-  labelSingular: 'Person',
-  description: 'A person',
+  labelSingular: 'Penduduk',
+  description: 'A penduduk',
   icon: 'IconUser',
   isCustom: false,
   standardOverrides: undefined,

@@ -5,16 +5,16 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 describe('searchVariableThroughRecordOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
-      objectMetadataId: 'company-metadata-id',
+      objectMetadataId: 'keluarga-metadata-id',
       label: 'Keluarga',
     },
     fields: {
       name: {
         isLeaf: true,
         type: FieldMetadataType.TEXT,
-        label: 'Company Name',
+        label: 'Keluarga Name',
         value: 'Keluarga Santoso',
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         isCompositeSubField: false,
       },
       address: {
@@ -41,8 +41,8 @@ describe('searchVariableThroughRecordOutputSchema', () => {
         type: FieldMetadataType.RELATION,
         value: {
           object: {
-            objectMetadataId: 'person-metadata-id',
-            label: 'Owner Person',
+            objectMetadataId: 'penduduk-metadata-id',
+            label: 'Owner Penduduk',
             isRelationField: true,
           },
           fields: {
@@ -65,17 +65,17 @@ describe('searchVariableThroughRecordOutputSchema', () => {
   describe('basic field access', () => {
     it('should find a basic field (leaf)', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.name}}',
         isFullRecord: false,
       });
 
       expect(result).toEqual({
-        variableLabel: 'Company Name',
-        variablePathLabel: 'Create Company > Company Name',
+        variableLabel: 'Keluarga Name',
+        variablePathLabel: 'Create Keluarga > Keluarga Name',
         variableType: FieldMetadataType.TEXT,
-        fieldMetadataId: 'company-name-metadata-id',
+        fieldMetadataId: 'keluarga-name-metadata-id',
         compositeFieldSubFieldName: undefined,
       });
     });
@@ -84,7 +84,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
   describe('node field access', () => {
     it('should find a node field (composite field)', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.address.street}}',
         isFullRecord: false,
@@ -92,7 +92,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
 
       expect(result).toEqual({
         variableLabel: 'Street',
-        variablePathLabel: 'Create Company > Address > Street',
+        variablePathLabel: 'Create Keluarga > Address > Street',
         variableType: FieldMetadataType.TEXT,
         fieldMetadataId: 'street-metadata-id',
         compositeFieldSubFieldName: 'street',
@@ -103,7 +103,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
   describe('record field access', () => {
     it('should find a record field (nested record)', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.owner.firstName}}',
         isFullRecord: false,
@@ -111,7 +111,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
 
       expect(result).toEqual({
         variableLabel: 'Owner First Name',
-        variablePathLabel: 'Create Company > Owner > Owner First Name',
+        variablePathLabel: 'Create Keluarga > Owner > Owner First Name',
         variableType: FieldMetadataType.TEXT,
         fieldMetadataId: 'owner-firstName-metadata-id',
         compositeFieldSubFieldName: undefined,
@@ -122,7 +122,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
   describe('full record mode', () => {
     it('should return record object label when isFullRecord is true', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.id}}',
         isFullRecord: true,
@@ -130,7 +130,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
 
       expect(result).toEqual({
         variableLabel: 'Keluarga',
-        variablePathLabel: 'Create Company > Keluarga',
+        variablePathLabel: 'Create Keluarga > Keluarga',
         variableType: undefined,
         fieldMetadataId: undefined,
         compositeFieldSubFieldName: undefined,
@@ -139,15 +139,15 @@ describe('searchVariableThroughRecordOutputSchema', () => {
 
     it('should return nested record object label when isFullRecord is true', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.owner.id}}',
         isFullRecord: true,
       });
 
       expect(result).toEqual({
-        variableLabel: 'Owner Person',
-        variablePathLabel: 'Create Company > Owner > Owner Person',
+        variableLabel: 'Owner Penduduk',
+        variablePathLabel: 'Create Keluarga > Owner > Owner Penduduk',
         variableType: undefined,
         fieldMetadataId: undefined,
         compositeFieldSubFieldName: undefined,
@@ -172,7 +172,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
 
     it('should handle non-existent field', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.nonExistentField}}',
         isFullRecord: false,
@@ -187,7 +187,7 @@ describe('searchVariableThroughRecordOutputSchema', () => {
 
     it('should handle broken nested path', () => {
       const result = searchVariableThroughRecordOutputSchema({
-        stepName: 'Create Company',
+        stepName: 'Create Keluarga',
         recordOutputSchema: mockRecordSchema,
         rawVariableName: '{{step1.address.nonExistent}}',
         isFullRecord: false,

@@ -27,10 +27,10 @@ jest.mock('@/workflow/workflow-variables/hooks/useStepsOutputSchema', () => ({
 
 describe('useUpdateWorkflowVersionTrigger', () => {
   const trigger: WorkflowTrigger = {
-    name: 'Company created',
+    name: 'Keluarga created',
     type: 'DATABASE_EVENT',
     settings: {
-      eventName: 'company.created',
+      eventName: 'keluarga.created',
       outputSchema: {},
     },
     nextStepIds: ['step1'],

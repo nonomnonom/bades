@@ -70,9 +70,9 @@ describe('buildHttpPayload', () => {
 describe('buildDatabaseEventPayload', () => {
   it('returns null before for created events', () => {
     expect(
-      buildDatabaseEventPayload({ eventName: 'person.created' }),
+      buildDatabaseEventPayload({ eventName: 'penduduk.created' }),
     ).toMatchObject({
-      name: 'person.created',
+      name: 'penduduk.created',
       objectMetadata: { nameSingular: 'penduduk' },
       properties: { after: {}, before: null, updatedFields: [] },
     });
@@ -80,7 +80,7 @@ describe('buildDatabaseEventPayload', () => {
 
   it('returns an empty before for non-created events', () => {
     expect(
-      buildDatabaseEventPayload({ eventName: 'person.updated' }),
+      buildDatabaseEventPayload({ eventName: 'penduduk.updated' }),
     ).toMatchObject({
       properties: { after: {}, before: {}, updatedFields: [] },
     });
@@ -89,7 +89,7 @@ describe('buildDatabaseEventPayload', () => {
   it('threads updatedFields through', () => {
     expect(
       buildDatabaseEventPayload({
-        eventName: 'person.updated',
+        eventName: 'penduduk.updated',
         updatedFields: ['name'],
       }),
     ).toMatchObject({ properties: { updatedFields: ['name'] } });

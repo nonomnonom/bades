@@ -11,7 +11,7 @@ import { createEmptyFlatEntityMaps } from 'src/engine/metadata-modules/flat-enti
 import { WorkspaceManyOrAllFlatEntityMapsCacheService } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.service';
 import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { addFlatEntityToFlatEntityMapsOrThrow } from 'src/engine/metadata-modules/flat-entity/utils/add-flat-entity-to-flat-entity-maps-or-throw.util';
-import { COMPANY_FLAT_FIELDS_MOCK } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/company-flat-fields.mock';
+import { KELUARGA_FLAT_FIELDS_MOCK } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/keluarga-flat-fields.mock';
 import { getFlatFieldMetadataMock } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/get-flat-field-metadata.mock';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { KELUARGA_FLAT_OBJECT_MOCK } from 'src/engine/metadata-modules/flat-object-metadata/__mocks__/keluarga-flat-object.mock';
@@ -104,7 +104,7 @@ describe('ObjectRecordEventPublisher', () => {
 
   const companyObjectMetadata: FlatObjectMetadata = KELUARGA_FLAT_OBJECT_MOCK;
 
-  const companyNameField = COMPANY_FLAT_FIELDS_MOCK.name;
+  const companyNameField = KELUARGA_FLAT_FIELDS_MOCK.name;
 
   const mockFlatFieldMetadataMaps = buildFlatFieldMetadataMaps([
     companyNameField,
@@ -151,7 +151,7 @@ describe('ObjectRecordEventPublisher', () => {
     userId: 'test-user-id',
     workspaceMemberId: 'test-workspace-member-id',
     properties: {
-      after: { id: 'record-1', name: 'Test Company' },
+      after: { id: 'record-1', name: 'Test Keluarga' },
     },
     ...overrides,
   });
@@ -318,7 +318,7 @@ describe('ObjectRecordEventPublisher', () => {
       mockEventStreamService.getActiveStreamIds.mockResolvedValue([]);
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -337,7 +337,7 @@ describe('ObjectRecordEventPublisher', () => {
 
     it('should publish events when record matches query and permissions', async () => {
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -380,7 +380,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -412,7 +412,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -436,7 +436,7 @@ describe('ObjectRecordEventPublisher', () => {
           'query-1': {
             objectNameSingular: 'keluarga',
             variables: {
-              filter: { name: { eq: 'Other Company' } },
+              filter: { name: { eq: 'Other Keluarga' } },
             },
           },
         },
@@ -450,7 +450,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -466,7 +466,7 @@ describe('ObjectRecordEventPublisher', () => {
     it('should filter restricted fields from events', async () => {
       const restrictedField = getFlatFieldMetadataMock({
         objectMetadataId: companyObjectMetadata.id,
-        type: COMPANY_FLAT_FIELDS_MOCK.name.type,
+        type: KELUARGA_FLAT_FIELDS_MOCK.name.type,
         name: 'secretField',
         universalIdentifier: 'restricted-field-universal-id',
         workspaceId,
@@ -500,7 +500,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [
@@ -508,7 +508,7 @@ describe('ObjectRecordEventPublisher', () => {
             properties: {
               after: {
                 id: 'record-1',
-                name: 'Test Company',
+                name: 'Test Keluarga',
                 secretField: 'secret-value',
               },
             },
@@ -536,7 +536,7 @@ describe('ObjectRecordEventPublisher', () => {
     it('should skip update events when all updated fields are restricted', async () => {
       const restrictedField = getFlatFieldMetadataMock({
         objectMetadataId: companyObjectMetadata.id,
-        type: COMPANY_FLAT_FIELDS_MOCK.name.type,
+        type: KELUARGA_FLAT_FIELDS_MOCK.name.type,
         name: 'secretField',
         universalIdentifier: 'restricted-field-universal-id',
         workspaceId,
@@ -570,7 +570,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.updated',
+        name: 'keluarga.updated',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [
@@ -597,7 +597,7 @@ describe('ObjectRecordEventPublisher', () => {
     it('should filter diff when restricted fields are updated', async () => {
       const restrictedField = getFlatFieldMetadataMock({
         objectMetadataId: companyObjectMetadata.id,
-        type: COMPANY_FLAT_FIELDS_MOCK.name.type,
+        type: KELUARGA_FLAT_FIELDS_MOCK.name.type,
         name: 'secretField',
         universalIdentifier: 'restricted-field-universal-id',
         workspaceId,
@@ -631,7 +631,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.updated',
+        name: 'keluarga.updated',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [
@@ -690,7 +690,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -717,7 +717,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -736,7 +736,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -762,7 +762,7 @@ describe('ObjectRecordEventPublisher', () => {
           'query-1': {
             objectNameSingular: 'keluarga',
             variables: {
-              filter: { name: { eq: 'Test Company' } },
+              filter: { name: { eq: 'Test Keluarga' } },
             },
           },
         },
@@ -776,7 +776,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [
@@ -784,7 +784,7 @@ describe('ObjectRecordEventPublisher', () => {
             properties: {
               after: {
                 id: 'record-1',
-                name: 'Test Company',
+                name: 'Test Keluarga',
                 status: 'active',
               },
             },
@@ -799,12 +799,12 @@ describe('ObjectRecordEventPublisher', () => {
       ).toHaveBeenCalledWith(
         expect.objectContaining({
           record: expect.objectContaining({
-            name: 'Test Company',
+            name: 'Test Keluarga',
             status: 'active',
           }),
           filter: expect.objectContaining({
             and: expect.arrayContaining([
-              { name: { eq: 'Test Company' } },
+              { name: { eq: 'Test Keluarga' } },
               { status: { eq: 'active' } },
             ]),
           }),
@@ -814,17 +814,17 @@ describe('ObjectRecordEventPublisher', () => {
 
     it('should handle multiple events in a batch', async () => {
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [
           createMockEvent({
             recordId: 'record-1',
-            properties: { after: { id: 'record-1', name: 'Company 1' } },
+            properties: { after: { id: 'record-1', name: 'Keluarga 1' } },
           }),
           createMockEvent({
             recordId: 'record-2',
-            properties: { after: { id: 'record-2', name: 'Company 2' } },
+            properties: { after: { id: 'record-2', name: 'Keluarga 2' } },
           }),
         ],
       };
@@ -864,7 +864,7 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.created',
+        name: 'keluarga.created',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [createMockEvent()],
@@ -892,7 +892,7 @@ describe('ObjectRecordEventPublisher', () => {
           'query-1': {
             objectNameSingular: 'keluarga',
             variables: {
-              filter: { name: { eq: 'Deleted Company' } },
+              filter: { name: { eq: 'Deleted Keluarga' } },
             },
           },
         },
@@ -906,13 +906,13 @@ describe('ObjectRecordEventPublisher', () => {
       );
 
       const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-        name: 'company.deleted',
+        name: 'keluarga.deleted',
         workspaceId,
         objectMetadata: companyObjectMetadata,
         events: [
           createMockEvent({
             properties: {
-              before: { id: 'record-1', name: 'Deleted Company' },
+              before: { id: 'record-1', name: 'Deleted Keluarga' },
             },
           }),
         ],
@@ -926,7 +926,7 @@ describe('ObjectRecordEventPublisher', () => {
         expect.objectContaining({
           record: expect.objectContaining({
             id: 'record-1',
-            name: 'Deleted Company',
+            name: 'Deleted Keluarga',
           }),
         }),
       );
@@ -958,7 +958,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [createMockEvent()],
@@ -999,7 +999,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [createMockEvent()],
@@ -1035,7 +1035,7 @@ describe('ObjectRecordEventPublisher', () => {
             'query-1': {
               objectNameSingular: 'keluarga',
               variables: {
-                filter: { name: { eq: 'Test Company' } },
+                filter: { name: { eq: 'Test Keluarga' } },
               },
             },
           },
@@ -1054,7 +1054,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
@@ -1062,7 +1062,7 @@ describe('ObjectRecordEventPublisher', () => {
               properties: {
                 after: {
                   id: 'record-1',
-                  name: 'Test Company',
+                  name: 'Test Keluarga',
                   assigneeId: workspaceMemberId,
                 },
               },
@@ -1136,7 +1136,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
@@ -1144,7 +1144,7 @@ describe('ObjectRecordEventPublisher', () => {
               properties: {
                 after: {
                   id: 'record-1',
-                  name: 'Test Company',
+                  name: 'Test Keluarga',
                   locale: 'id',
                 },
               },
@@ -1199,7 +1199,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [createMockEvent()],
@@ -1217,10 +1217,10 @@ describe('ObjectRecordEventPublisher', () => {
 
     describe('nested relations enrichment', () => {
       it('should enrich events with nested relations when publishing', async () => {
-        const recordAfter = { id: 'record-1', name: 'Test Company' };
+        const recordAfter = { id: 'record-1', name: 'Test Keluarga' };
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
@@ -1270,7 +1270,7 @@ describe('ObjectRecordEventPublisher', () => {
         const recordAfter = { id: 'record-1', name: 'New Name' };
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.updated',
+          name: 'keluarga.updated',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
@@ -1300,7 +1300,7 @@ describe('ObjectRecordEventPublisher', () => {
       });
 
       it('should include only before records when enriching delete events', async () => {
-        const recordBefore = { id: 'record-1', name: 'Deleted Company' };
+        const recordBefore = { id: 'record-1', name: 'Deleted Keluarga' };
 
         const streamDataWithFilter: EventStreamData = {
           ...mockStreamData,
@@ -1320,7 +1320,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.deleted',
+          name: 'keluarga.deleted',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
@@ -1344,12 +1344,12 @@ describe('ObjectRecordEventPublisher', () => {
       });
 
       it('should enrich multiple records from batch events', async () => {
-        const record1 = { id: 'record-1', name: 'Company 1' };
-        const record2 = { id: 'record-2', name: 'Company 2' };
-        const record3 = { id: 'record-3', name: 'Company 3' };
+        const record1 = { id: 'record-1', name: 'Keluarga 1' };
+        const record2 = { id: 'record-2', name: 'Keluarga 2' };
+        const record3 = { id: 'record-3', name: 'Keluarga 3' };
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
@@ -1403,7 +1403,7 @@ describe('ObjectRecordEventPublisher', () => {
         );
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [createMockEvent()],
@@ -1443,10 +1443,10 @@ describe('ObjectRecordEventPublisher', () => {
           }),
         );
 
-        const recordAfter = { id: 'record-1', name: 'Test Company' };
+        const recordAfter = { id: 'record-1', name: 'Test Keluarga' };
 
         const eventBatch: WorkspaceEventBatch<MockObjectRecordEvent> = {
-          name: 'company.created',
+          name: 'keluarga.created',
           workspaceId,
           objectMetadata: companyObjectMetadata,
           events: [
