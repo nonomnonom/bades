@@ -7,6 +7,10 @@ export enum CoreObjectNameSingular {
   CalendarChannel = 'calendarChannel',
   CalendarEvent = 'calendarEvent',
   Comment = 'comment',
+  // Bades: Company/Person/Opportunity dipertahankan sebagai enum value
+  // kompatibilitas untuk consumer legacy (page-layout defaults, activity
+  // resolver) — TIDAK lagi ada object aktif di STANDARD_OBJECTS. SID
+  // equivalent: keluarga (KK), penduduk, programBantuan.
   Company = 'company',
   ConnectedAccount = 'connectedAccount',
   Dashboard = 'dashboard',
