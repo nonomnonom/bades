@@ -8,12 +8,9 @@ name: Deploy Bades
 #   4. Healthcheck https://bades.id/healthz
 
 on:
+  # Auto deploy ke main dimatikan sementara — sedang manual deploy dulu
+  # via local docker build + ssh ke EC2 sampai workflow-nya stabil lagi.
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    tags:
-      - 'v*.*.*'
 
 concurrency:
   group: ${{ github.workflow }}
