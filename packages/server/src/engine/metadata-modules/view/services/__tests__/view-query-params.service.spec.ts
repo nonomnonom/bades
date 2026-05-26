@@ -301,7 +301,7 @@ describe('ViewQueryParamsService', () => {
 
       const mockView = {
         id: mockViewId,
-        name: 'People at Acme',
+        name: 'Penduduk di Sukamaju',
         objectMetadataId: mockObjectMetadataId,
         type: ViewType.TABLE,
         visibility: ViewVisibility.WORKSPACE,
@@ -342,7 +342,7 @@ describe('ViewQueryParamsService', () => {
       // Filter is nested under the relation field name, not flattened
       // against the FK column.
       expect(result.filter).toEqual({
-        and: [{ keluarga: { name: { ilike: '%Acme%' } } }],
+        and: [{ keluarga: { name: { ilike: '%Sukamaju%' } } }],
       });
     });
   });

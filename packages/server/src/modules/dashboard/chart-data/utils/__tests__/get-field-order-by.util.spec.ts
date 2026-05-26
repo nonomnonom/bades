@@ -160,7 +160,7 @@ describe('getFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        companyId: OrderByDirection.AscNullsLast,
+        keluargaId: OrderByDirection.AscNullsLast,
       });
     });
 

@@ -342,7 +342,7 @@ describe('SearchService', () => {
             lastRecordIdsPerObject: {
               keluarga: 'companyId2',
               penduduk: 'personId2',
-              peluang: 'opportunityId1',
+              programBantuan: 'opportunityId1',
             },
           }),
         },
@@ -361,7 +361,7 @@ describe('SearchService', () => {
             lastRecordIdsPerObject: {
               keluarga: 'companyId2',
               penduduk: 'personId2',
-              peluang: 'opportunityId1',
+              programBantuan: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -381,7 +381,7 @@ describe('SearchService', () => {
             lastRecordIdsPerObject: {
               keluarga: 'companyId3',
               penduduk: 'personId2',
-              peluang: 'opportunityId1',
+              programBantuan: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -432,7 +432,7 @@ describe('SearchService', () => {
             lastRecordIdsPerObject: {
               keluarga: 'companyId2',
               penduduk: 'personId2',
-              peluang: 'opportunityId1',
+              programBantuan: 'opportunityId1',
             },
           }),
         },
@@ -451,7 +451,7 @@ describe('SearchService', () => {
             lastRecordIdsPerObject: {
               keluarga: 'companyId2',
               penduduk: 'personId2',
-              peluang: 'opportunityId1',
+              programBantuan: 'opportunityId1',
               note: 'noteId1',
             },
           }),
@@ -471,7 +471,7 @@ describe('SearchService', () => {
             lastRecordIdsPerObject: {
               keluarga: 'companyId3',
               penduduk: 'personId2',
-              peluang: 'opportunityId1',
+              programBantuan: 'opportunityId1',
               note: 'noteId1',
             },
           }),

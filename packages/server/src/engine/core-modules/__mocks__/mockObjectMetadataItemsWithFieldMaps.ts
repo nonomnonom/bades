@@ -11,8 +11,8 @@ import { type ObjectMetadataInfo } from 'src/modules/workflow/common/workspace-s
 
 const workspaceId = '20202020-0000-0000-0000-000000000000';
 
-const personNameFieldId = 'nameFieldMetadataId-person';
-const companyNameFieldId = 'nameFieldMetadataId-company';
+const personNameFieldId = 'nameFieldMetadataId-penduduk';
+const companyNameFieldId = 'nameFieldMetadataId-keluarga';
 const companyDomainNameFieldId = 'domainNameFieldMetadataId';
 const customObjectNameFieldId = 'nameFieldMetadataId-custom';
 const customObjectImageFieldId = 'imageIdentifierFieldMetadataId';

@@ -15,8 +15,8 @@ const mockActivityTarget = {
   __typename: 'TaskTarget',
   updatedAt: '2021-08-03T19:20:06.000Z',
   createdAt: '2021-08-03T19:20:06.000Z',
-  personId: '1',
-  companyId: '1',
+  pendudukId: '1',
+  keluargaId: '1',
   id: '123',
 };
 

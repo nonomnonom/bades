@@ -232,10 +232,10 @@ exports[`fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test su
         "isUIReadOnly": false,
         "isUnique": false,
         "kanbanAggregateOperationViewUniversalIdentifiers": [],
-        "label": "Company",
+        "label": "Keluarga",
         "mainGroupByFieldMetadataViewUniversalIdentifiers": [],
         "morphId": null,
-        "name": "company",
+        "name": "keluarga",
         "objectMetadataUniversalIdentifier": Any<String>,
         "options": null,
         "relationTargetFieldMetadataUniversalIdentifier": Any<String>,
@@ -244,7 +244,7 @@ exports[`fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test su
         "type": "RELATION",
         "universalIdentifier": Any<String>,
         "universalSettings": {
-          "joinColumnName": "companyId",
+          "joinColumnName": "keluargaId",
           "onDelete": "SET_NULL",
           "relationType": "MANY_TO_ONE",
         },
@@ -283,7 +283,7 @@ exports[`fromCreateFieldInputToFlatFieldMetadatasToCreate MORPH_RELATION test su
         "indexWhereClause": null,
         "isCustom": true,
         "isUnique": false,
-        "name": "IDX_f2d716d4ae72d1cfdbd8a3d8427",
+        "name": "IDX_56006141f188efab92079038f1e",
         "objectMetadataUniversalIdentifier": Any<String>,
         "universalFlatIndexFieldMetadatas": [
           {

@@ -13,7 +13,7 @@ describe('Generate Column Definitions', () => {
     universalIdentifier: 'penduduk',
     id: mockObjectId,
     nameSingular: 'penduduk',
-    namePlural: 'persons',
+    namePlural: 'daftarPenduduk',
   });
 
   const mockSchemaName = getWorkspaceSchemaName(workspaceId);
@@ -55,7 +55,7 @@ describe('Generate Column Definitions', () => {
 
       expect(column).toEqual({
         name: 'status',
-        type: `"${mockSchemaName}"."_person_status_enum"`,
+        type: `"${mockSchemaName}"."_penduduk_status_enum"`,
         isArray: false,
         isNullable: true,
         isPrimary: false,
@@ -100,7 +100,7 @@ describe('Generate Column Definitions', () => {
 
       expect(column).toEqual({
         name: 'tags',
-        type: `"${mockSchemaName}"."_person_tags_enum"`,
+        type: `"${mockSchemaName}"."_penduduk_tags_enum"`,
         isArray: true,
         isNullable: true,
         isPrimary: false,
@@ -138,7 +138,7 @@ describe('Generate Column Definitions', () => {
         name: 'keluarga',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
-          joinColumnName: 'companyId',
+          joinColumnName: 'keluargaId',
         },
       });
 
@@ -153,7 +153,7 @@ describe('Generate Column Definitions', () => {
       const column = columns[0];
 
       expect(column).toEqual({
-        name: 'companyId',
+        name: 'keluargaId',
         type: 'uuid',
         isNullable: true,
         isPrimary: false,

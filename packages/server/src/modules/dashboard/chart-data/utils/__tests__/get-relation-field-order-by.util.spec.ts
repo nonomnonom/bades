@@ -34,7 +34,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        companyId: OrderByDirection.AscNullsLast,
+        keluargaId: OrderByDirection.AscNullsLast,
       });
     });
 
@@ -46,7 +46,7 @@ describe('getRelationFieldOrderBy', () => {
       );
 
       expect(result).toEqual({
-        companyId: OrderByDirection.DescNullsLast,
+        keluargaId: OrderByDirection.DescNullsLast,
       });
     });
   });

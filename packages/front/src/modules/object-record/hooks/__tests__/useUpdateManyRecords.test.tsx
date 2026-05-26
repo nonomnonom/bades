@@ -211,7 +211,21 @@ describe('useUpdateManyRecords', () => {
           });
           fail('Should have thrown an error');
         } catch (e) {
-          expect(e).toMatchInlineSnapshot(`[Error: Internal server error]`);
+          expect(e).toMatchInlineSnapshot(`
+[Error: No more mocked responses for the query:
+mutation UpdateManyDaftarPenduduk($filter: PendudukFilterInput!, $data: PendudukUpdateInput!) {
+  updateDaftarPenduduk(filter: $filter, data: $data) {
+    id
+    __typename
+  }
+}
+
+Request variables: {"filter":{"id":{"in":["a7286b9a-c039-4a89-9567-2dfa7953cda9","37faabcd-cb39-4a0a-8618-7e3fda9afca0"]}},"data":{}}
+
+Failed to match variables against 1 mock for this query. The available mocks had the following variables:
+  {"filter":{"id":{"in":["a7286b9a-c039-4a89-9567-2dfa7953cda9","37faabcd-cb39-4a0a-8618-7e3fda9afca0"]}},"data":{"pekerjaan":"PETANI"}}
+]
+`);
           // Setelah rollback, record masih ada di cache (tidak dihapus)
           pendudukIds.forEach((pendudukId) => {
             const cachedRecord = getRecordFromCache({

@@ -216,7 +216,7 @@ linkedinLink
 }
 updatedAt
 avatarUrl
-companyId
+keluargaId
 }
   }
 }

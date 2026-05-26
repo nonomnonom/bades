@@ -129,7 +129,7 @@ describe('DataArgProcessorService', () => {
           relationTargetObjectMetadataId: 'target-keluarga-object-id',
           settings: {
             relationType: RelationType.MANY_TO_ONE,
-            joinColumnName: 'companyId',
+            joinColumnName: 'keluargaId',
           },
         } as FlatFieldMetadata,
         'emails-universal-id': {

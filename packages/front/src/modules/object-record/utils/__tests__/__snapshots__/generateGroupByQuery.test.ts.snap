@@ -9,7 +9,7 @@ exports[`generateGroupByQuery should generate valid GraphQL query for empty aggr
       $viewId: UUID
       $limit: Int
     ) {
-      penduduksGroupBy(
+      daftarPendudukGroupBy(
         groupBy: $groupBy
         filter: $filter
         orderBy: $orderBy
@@ -31,7 +31,7 @@ exports[`generateGroupByQuery should generate valid GraphQL query for multiple a
       $viewId: UUID
       $limit: Int
     ) {
-      programBantuansGroupBy(
+      daftarProgramBantuanGroupBy(
         groupBy: $groupBy
         filter: $filter
         orderBy: $orderBy
@@ -56,7 +56,7 @@ exports[`generateGroupByQuery should generate valid GraphQL query for single agg
       $viewId: UUID
       $limit: Int
     ) {
-      programBantuansGroupBy(
+      daftarProgramBantuanGroupBy(
         groupBy: $groupBy
         filter: $filter
         orderBy: $orderBy

@@ -114,7 +114,7 @@ describe('computeMetadataNameFromLabel', () => {
         input: '!@#$%^&*()',
         expectToThrow: {
           error: new InvalidMetadataException(
-            'Invalid label: "!@#$%^&*()"',
+            'Label tidak valid: "!@#$%^&*()"',
             InvalidMetadataExceptionCode.INVALID_LABEL,
           ),
         },

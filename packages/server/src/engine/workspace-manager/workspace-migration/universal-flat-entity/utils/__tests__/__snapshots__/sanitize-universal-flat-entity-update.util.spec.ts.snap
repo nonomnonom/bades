@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`sanitizeFlatEntityUpdate should handle agent metadata updates 1`] = `
 {
@@ -52,7 +52,7 @@ exports[`sanitizeFlatEntityUpdate should return only valid properties for object
 {
   "isActive": true,
   "labelPlural": "People",
-  "labelSingular": "Person",
+  "labelSingular": "Penduduk",
 }
 `;
 

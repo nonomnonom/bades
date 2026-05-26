@@ -17626,8 +17626,8 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "emailsPrimaryEmail"
             ]
           ],
-          "labelSingular": "Person",
-          "labelPlural": "People",
+          "labelSingular": "Penduduk",
+          "labelPlural": "Penduduk",
           "description": "A person",
           "icon": "IconUser",
           "fieldsList": [
@@ -19524,8 +19524,8 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "domainNamePrimaryLinkUrl"
             ]
           ],
-          "labelSingular": "Company",
-          "labelPlural": "Companies",
+          "labelSingular": "Keluarga",
+          "labelPlural": "Keluarga",
           "description": "A company",
           "icon": "IconBuildingSkyscraper",
           "fieldsList": [

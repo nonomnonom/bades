@@ -40,7 +40,7 @@ describe('useTimelineActivities', () => {
         workspaceMemberId: '20202020-0687-4c41-b707-ed1bfca972a7',
         createdAt: '2024-03-22T08:28:44.830Z',
         name: 'updated.keluarga',
-        companyId: '460b6fb1-ed89-413a-b31a-962986e67bb4',
+        keluargaId: '460b6fb1-ed89-413a-b31a-962986e67bb4',
         properties: '{"diff": {"address": {"after": "Paris", "before": ""}}}',
         updatedAt: '2024-03-22T08:28:44.830Z',
       },

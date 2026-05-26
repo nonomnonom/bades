@@ -68,7 +68,7 @@ describe('buildColumnsToSelect', () => {
     icon: 'IconBuildingSkyscraper',
     settings: {
       relationType: RelationType.MANY_TO_ONE,
-      joinColumnName: 'companyId',
+      joinColumnName: 'keluargaId',
     },
     relationTargetFieldMetadataId: '83cd9e7f-dfbc-4b93-a0a7-4c04b76d2009',
     relationTargetObjectMetadataId: companyObjectId,
@@ -203,7 +203,7 @@ describe('buildColumnsToSelect', () => {
 
     expect(result).toEqual({
       nameFirstName: true,
-      companyId: true,
+      keluargaId: true,
       id: true,
     });
   });
@@ -326,7 +326,7 @@ describe('buildColumnsToSelect', () => {
       defaultValue: null,
       settings: {
         relationType: RelationType.ONE_TO_MANY,
-        joinColumnName: 'companyId',
+        joinColumnName: 'keluargaId',
       },
       relationTargetObjectMetadataId: companyObjectId,
     });

@@ -17,13 +17,13 @@ export const parseCorePath = (
     (queryAction.length > 3 && queryAction[0] === 'restore')
   ) {
     throw new BadRequestException(
-      `Query path '${request.path}' invalid. Valid examples: /rest/companies/id or /rest/companies or /rest/batch/companies`,
+      `Query path '${request.path}' invalid. Valid examples: /rest/daftarKeluarga/id or /rest/daftarKeluarga or /rest/batch/daftarKeluarga`,
     );
   }
 
   if (queryAction.length === 0) {
     throw new BadRequestException(
-      `Query path '${request.path}' invalid. Valid examples: /rest/companies/id or /rest/companies or /rest/batch/companies`,
+      `Query path '${request.path}' invalid. Valid examples: /rest/daftarKeluarga/id or /rest/daftarKeluarga or /rest/batch/daftarKeluarga`,
     );
   }
 

@@ -5,8 +5,8 @@ import { useUpdateManyRecordsMutation } from '@/object-record/hooks/useUpdateMan
 import { getJestMetadataAndApolloMocksWrapper } from '~/testing/jest/getJestMetadataAndApolloMocksWrapper';
 
 const expectedQueryTemplate = `
-  mutation UpdateManyPeople($filter: PendudukFilterInput!, $data: PendudukUpdateInput!) {
-    updatePeople(filter: $filter, data: $data) {
+  mutation UpdateManyDaftarPenduduk($filter: PendudukFilterInput!, $data: PendudukUpdateInput!) {
+    updateDaftarPenduduk(filter: $filter, data: $data) {
       id
     }
   }

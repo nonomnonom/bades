@@ -239,7 +239,7 @@ export class ApprovedAccessDomainService {
   ): Promise<ApprovedAccessDomainEntity> {
     if (!isWorkDomain(domain)) {
       throw new ApprovedAccessDomainException(
-        'Approved access domain must be a company domain',
+        'Approved access domain must be a keluarga domain',
         ApprovedAccessDomainExceptionCode.APPROVED_ACCESS_DOMAIN_MUST_BE_A_COMPANY_DOMAIN,
       );
     }

@@ -116,7 +116,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
       'keluarga',
       FieldMetadataType.RELATION,
       {
-        joinColumnName: 'companyId',
+        joinColumnName: 'keluargaId',
       },
     ),
   ];
@@ -136,7 +136,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
       addressStreet1: 'Main Street',
       addressCity: 'Paris',
     },
-    companyId: 'keluarga-1',
+    keluargaId: 'keluarga-1',
     deletedAt: null,
     id: 'record-1',
     createdAt: new Date().toISOString(),
@@ -277,7 +277,7 @@ describe('isRecordMatchingRLSRowLevelPermissionPredicate', () => {
     const result = isRecordMatchingRLSRowLevelPermissionPredicate({
       record: baseRecord,
       filter: {
-        companyId: {
+        keluargaId: {
           eq: 'keluarga-1',
         },
       },

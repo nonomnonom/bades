@@ -28,7 +28,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
         linkedinLink: true,
         updatedAt: true,
         avatarUrl: true,
-        companyId: true,
+        keluargaId: true,
       },
       objectPermissionsByObjectMetadataId: {
         [personObjectMetadataItem.id]: {
@@ -120,7 +120,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
     updatedAt
     }
     updatedAt
-    companyId
+    keluargaId
     linkedinLink
     {
       primaryLinkUrl

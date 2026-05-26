@@ -246,7 +246,7 @@ describe('getColumnNameToFieldMetadataIdMap', () => {
           FieldMetadataType.RELATION,
           {
             relationType: 'ONE_TO_ONE',
-            joinColumnName: 'companyId',
+            joinColumnName: 'keluargaId',
           },
         ),
         createMockFlatFieldMetadata('field-2', 'name', FieldMetadataType.TEXT),
@@ -261,7 +261,7 @@ describe('getColumnNameToFieldMetadataIdMap', () => {
         flatFieldMetadataMaps,
       );
 
-      expect(result['companyId']).toBe('field-1');
+      expect(result['keluargaId']).toBe('field-1');
       expect(result['keluarga']).toBe('field-1');
       expect(result['name']).toBe('field-2');
       expect(Object.keys(result)).toHaveLength(3);
@@ -275,7 +275,7 @@ describe('getColumnNameToFieldMetadataIdMap', () => {
           FieldMetadataType.RELATION,
           {
             relationType: 'ONE_TO_MANY',
-            joinColumnName: 'companyId',
+            joinColumnName: 'keluargaId',
           },
         ),
         createMockFlatFieldMetadata('field-2', 'name', FieldMetadataType.TEXT),
@@ -291,7 +291,7 @@ describe('getColumnNameToFieldMetadataIdMap', () => {
       );
 
       expect(result['name']).toBe('field-2');
-      expect(result['companyId']).toBeUndefined();
+      expect(result['keluargaId']).toBeUndefined();
       expect(Object.keys(result)).toHaveLength(1);
     });
   });

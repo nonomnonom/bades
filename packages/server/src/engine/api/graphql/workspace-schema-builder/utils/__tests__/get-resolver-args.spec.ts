@@ -74,6 +74,6 @@ describe('getResolverArgs', () => {
 
     expect(() =>
       getResolverArgs(unknownType as WorkspaceResolverBuilderMethodNames),
-    ).toThrow(`Unknown resolver type: ${unknownType}`);
+    ).toThrow(`Tipe resolver tidak dikenal: ${unknownType}`);
   });
 });

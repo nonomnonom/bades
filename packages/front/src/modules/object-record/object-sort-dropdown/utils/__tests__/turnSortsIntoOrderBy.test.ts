@@ -311,7 +311,7 @@ describe('turnSortsIntoOrderBy', () => {
       const result = turnSortsIntoOrderBy(personObjectMetadataItem, sorts, []);
 
       expect(result).toEqual([
-        { companyId: 'AscNullsFirst' },
+        { keluargaId: 'AscNullsFirst' },
         { position: 'AscNullsFirst' },
       ]);
     });

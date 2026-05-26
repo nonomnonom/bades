@@ -246,7 +246,7 @@ describe('FileController', () => {
         workspaceId: 'workspace-id',
         applicationId: 'app-id',
         fileFolder: FileFolder.PublicAsset,
-        filepath: 'images/logo.png',
+        filepath: ['images', 'logo.png'].join(require('path').sep),
       });
       expect(mockResponse.setHeader).toHaveBeenCalledWith(
         'Content-Type',

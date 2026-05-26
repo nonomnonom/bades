@@ -166,7 +166,7 @@ describe('McpProtocolService', () => {
       await expect(
         service.getRoleId('workspace-1', 'user-workspace-1'),
       ).rejects.toThrow(
-        new HttpException('Role ID missing', HttpStatus.FORBIDDEN),
+        new HttpException('ID peran tidak ada', HttpStatus.FORBIDDEN),
       );
     });
 
@@ -445,7 +445,7 @@ describe('McpProtocolService', () => {
 
     it('should wrap HttpException errors with SERVER_ERROR code', async () => {
       userRoleService.getRoleIdForUserWorkspace.mockRejectedValue(
-        new HttpException('Role ID missing', HttpStatus.FORBIDDEN),
+        new HttpException('ID peran tidak ada', HttpStatus.FORBIDDEN),
       );
 
       const mockRequest: JsonRpc = {
@@ -466,7 +466,7 @@ describe('McpProtocolService', () => {
         jsonrpc: '2.0',
         error: {
           code: JSON_RPC_ERROR_CODE.SERVER_ERROR,
-          message: 'Role ID missing',
+          message: 'ID peran tidak ada',
         },
       });
     });

@@ -272,7 +272,7 @@ describe('useTestHttpRequest', () => {
 
     expect(result.current.isTesting).toBe(false);
     expect(result.current.httpRequestTestData.output?.error).toBe(
-      'No response from server',
+      'Tidak ada respons dari server',
     );
   });
 

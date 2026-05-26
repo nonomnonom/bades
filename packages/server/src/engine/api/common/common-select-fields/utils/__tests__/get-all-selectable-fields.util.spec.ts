@@ -424,7 +424,7 @@ describe('getAllSelectableFields', () => {
         type: FieldMetadataType.RELATION,
         settings: {
           relationType: RelationType.MANY_TO_ONE,
-          joinColumnName: 'companyId',
+          joinColumnName: 'keluargaId',
         },
       });
 
@@ -445,7 +445,7 @@ describe('getAllSelectableFields', () => {
 
       expect(result).toEqual({
         name: true,
-        companyId: true, // join column name instead of relation name
+        keluargaId: true, // join column name instead of relation name
       });
     });
 
@@ -461,7 +461,7 @@ describe('getAllSelectableFields', () => {
         type: FieldMetadataType.RELATION,
         settings: {
           relationType: RelationType.MANY_TO_ONE,
-          joinColumnName: 'companyId',
+          joinColumnName: 'keluargaId',
         },
       });
 
@@ -555,7 +555,7 @@ describe('getAllSelectableFields', () => {
 
       expect(result).toEqual({
         name: true,
-        companyId: true,
+        keluargaId: true,
       });
     });
   });

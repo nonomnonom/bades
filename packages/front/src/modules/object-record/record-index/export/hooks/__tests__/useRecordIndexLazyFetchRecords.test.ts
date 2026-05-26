@@ -15,7 +15,7 @@ const mockPerson = {
   __typename: 'Penduduk',
   avatarUrl: 'avatarUrl',
   city: 'city',
-  companyId: '1',
+  keluargaId: '1',
   createdAt: '2021-08-03T19:20:06.000Z',
   createdBy: {
     name: 'name',

@@ -184,7 +184,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         objectMetadataId: 'penduduk-id',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
-          joinColumnName: 'companyId',
+          joinColumnName: 'keluargaId',
         },
         relationTargetObjectMetadataId: 'keluarga-id',
       });
@@ -229,7 +229,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       expect(result).toEqual({
         name: true,
-        companyId: true, // join column for MANY_TO_ONE
+        keluargaId: true, // join column for MANY_TO_ONE
         keluarga: {
           name: true,
         },
@@ -436,12 +436,12 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       expect(result).toEqual({
         name: true,
-        companyId: true,
+        keluargaId: true,
         keluarga: {
           name: true,
           daftarPenduduk: {
             name: true,
-            companyId: true,
+            keluargaId: true,
           },
         },
       });
@@ -579,7 +579,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         note: {
           title: true,
         },
-        companyId: true,
+        keluargaId: true,
         keluarga: {
           name: true,
         },
@@ -594,7 +594,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         objectMetadataId: 'junction-id',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
-          joinColumnName: 'personId',
+          joinColumnName: 'pendudukId',
         },
         relationTargetObjectMetadataId: 'penduduk-id',
       });
@@ -605,7 +605,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
         objectMetadataId: 'junction-id',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
-          joinColumnName: 'companyId',
+          joinColumnName: 'keluargaId',
         },
         relationTargetObjectMetadataId: 'keluarga-id',
       });
@@ -677,8 +677,8 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       expect(result).toEqual({
         name: true,
         personCompanies: {
-          personId: true,
-          companyId: true,
+          pendudukId: true,
+          keluargaId: true,
           penduduk: {
             name: true,
           },

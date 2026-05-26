@@ -28,9 +28,7 @@ exports[`getRecordFromRecordNode should handle array values 1`] = `
 exports[`getRecordFromRecordNode should handle connection fields with edges 1`] = `
 {
   "__typename": "Keluarga",
-  "id": "123",
-  "name": "Acme Inc",
-  "people": [
+  "daftarPenduduk": [
     {
       "__typename": "Penduduk",
       "id": "456",
@@ -42,6 +40,8 @@ exports[`getRecordFromRecordNode should handle connection fields with edges 1`] 
       "name": "Jane Smith",
     },
   ],
+  "id": "123",
+  "name": "Acme Inc",
 }
 `;
 

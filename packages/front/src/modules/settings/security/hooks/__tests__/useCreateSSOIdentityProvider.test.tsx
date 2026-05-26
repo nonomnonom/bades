@@ -98,6 +98,6 @@ describe('useCreateSSOIdentityProvider', () => {
     await expect(
       // @ts-expect-error - It's expected to throw an error
       result.current.createSSOIdentityProvider(OTHERParams),
-    ).rejects.toThrow('Invalid IdpType');
+    ).rejects.toThrow('Tipe Idp tidak valid');
   });
 });
