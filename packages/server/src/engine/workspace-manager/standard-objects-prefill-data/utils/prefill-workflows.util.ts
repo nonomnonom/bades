@@ -258,7 +258,7 @@ export const prefillWorkflows = async (
             valid: false,
             settings: {
               input: {
-                objectName: 'company',
+                objectName: 'keluarga',
                 objectRecord: {
                   name: '{{6e089bc9-aabd-435f-865f-f31c01c8f4a7.companyName}}',
                   domainName: {
@@ -301,7 +301,7 @@ export const prefillWorkflows = async (
             valid: false,
             settings: {
               input: {
-                objectName: 'person',
+                objectName: 'penduduk',
                 objectRecord: {
                   name: {
                     lastName:
@@ -520,7 +520,7 @@ export const prefillWorkflows = async (
                     },
                   ],
                 },
-                objectName: 'company',
+                objectName: 'keluarga',
               },
               outputSchema: {},
               errorHandlingOptions: {
@@ -643,7 +643,7 @@ export const prefillWorkflows = async (
             },
             settings: {
               input: {
-                objectName: 'person',
+                objectName: 'penduduk',
                 objectRecord: {
                   companyId:
                     '{{9d0b6ef2-aad2-4853-92e1-95f2abf10d5b.companyId}}',
@@ -674,7 +674,7 @@ export const prefillWorkflows = async (
             },
             settings: {
               input: {
-                objectName: 'company',
+                objectName: 'keluarga',
                 objectRecord: {
                   name: '{{1b01193b-8300-4d79-940b-44464bf45505.domain}}',
                   domainName: {
@@ -709,7 +709,7 @@ export const prefillWorkflows = async (
             },
             settings: {
               input: {
-                objectName: 'person',
+                objectName: 'penduduk',
                 objectRecord: {
                   companyId: '{{ddafb9db-a94f-40b9-a5c9-becce857edf7.id}}',
                 },

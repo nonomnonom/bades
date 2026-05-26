@@ -110,7 +110,7 @@ describe('Field metadata relation update should fail', () => {
         isLabelSyncedWithName: false,
         type: FieldMetadataType.RELATION,
         relationCreationPayload: {
-          targetFieldLabel: 'company',
+          targetFieldLabel: 'keluarga',
           type: RelationType.ONE_TO_MANY,
           targetObjectMetadataId: employeeObjectId,
           targetFieldIcon: 'IconUsers',

@@ -9,7 +9,7 @@ import { RelationType } from 'src/engine/metadata-modules/field-metadata/interfa
 import { getFlatFieldMetadataMock } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/get-flat-field-metadata.mock';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 
-export const OPPORTUNITY_FLAT_FIELDS_MOCK = {
+export const PROGRAM_BANTUAN_FLAT_FIELDS_MOCK = {
   name: getFlatFieldMetadataMock({
     id: '5f510348-58e9-4ded-8dbe-144ae3644bd4',
     objectMetadataId: 'e6996bbf-dd41-423a-9324-8546f5b22fa7',
@@ -334,7 +334,7 @@ export const OPPORTUNITY_FLAT_FIELDS_MOCK = {
     id: '512890f1-4da0-4b96-bb71-5ccabefb82e7',
     objectMetadataId: 'e6996bbf-dd41-423a-9324-8546f5b22fa7',
     type: FieldMetadataType.RELATION,
-    name: 'company',
+    name: 'keluarga',
     label: 'Company',
     defaultValue: null,
     description: 'Opportunity company',

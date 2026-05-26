@@ -137,7 +137,7 @@ describe('ObjectRecordEventPublisher', () => {
     workspaceId,
     queries: {
       'query-1': {
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         variables: {},
       },
     },
@@ -398,7 +398,7 @@ describe('ObjectRecordEventPublisher', () => {
         ...mockStreamData,
         queries: {
           'query-1': {
-            objectNameSingular: 'person',
+            objectNameSingular: 'penduduk',
             variables: {},
           },
         },
@@ -434,7 +434,7 @@ describe('ObjectRecordEventPublisher', () => {
         ...mockStreamData,
         queries: {
           'query-1': {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             variables: {
               filter: { name: { eq: 'Other Company' } },
             },
@@ -760,7 +760,7 @@ describe('ObjectRecordEventPublisher', () => {
         ...mockStreamData,
         queries: {
           'query-1': {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             variables: {
               filter: { name: { eq: 'Test Company' } },
             },
@@ -846,11 +846,11 @@ describe('ObjectRecordEventPublisher', () => {
         ...mockStreamData,
         queries: {
           'query-1': {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             variables: {},
           },
           'query-2': {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             variables: {},
           },
         },
@@ -890,7 +890,7 @@ describe('ObjectRecordEventPublisher', () => {
         ...mockStreamData,
         queries: {
           'query-1': {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             variables: {
               filter: { name: { eq: 'Deleted Company' } },
             },
@@ -939,7 +939,7 @@ describe('ObjectRecordEventPublisher', () => {
           workspaceId,
           queries: {
             'query-1': {
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
               variables: {},
             },
           },
@@ -980,7 +980,7 @@ describe('ObjectRecordEventPublisher', () => {
           workspaceId,
           queries: {
             'query-1': {
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
               variables: {},
             },
           },
@@ -1033,7 +1033,7 @@ describe('ObjectRecordEventPublisher', () => {
           workspaceId,
           queries: {
             'query-1': {
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
               variables: {
                 filter: { name: { eq: 'Test Company' } },
               },
@@ -1117,7 +1117,7 @@ describe('ObjectRecordEventPublisher', () => {
           workspaceId,
           queries: {
             'query-1': {
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
               variables: {},
             },
           },
@@ -1180,7 +1180,7 @@ describe('ObjectRecordEventPublisher', () => {
           workspaceId,
           queries: {
             'query-1': {
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
               variables: {},
             },
           },
@@ -1306,7 +1306,7 @@ describe('ObjectRecordEventPublisher', () => {
           ...mockStreamData,
           queries: {
             'query-1': {
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
               variables: {},
             },
           },

@@ -47,10 +47,10 @@ export const getMinimalSelectForRecordIdentifier = ({
     }
   }
 
-  if (flatObjectMetadata.nameSingular === 'company') {
+  if (flatObjectMetadata.nameSingular === 'keluarga') {
     selectColumns.push(COMPANY_AVATAR_COLUMN);
     //TODO: Temporary solution before imageIdentifier refactor
-  } else if (flatObjectMetadata.nameSingular === 'person') {
+  } else if (flatObjectMetadata.nameSingular === 'penduduk') {
     selectColumns.push(PERSON_AVATAR_COLUMN);
   } else if (isDefined(flatObjectMetadata.imageIdentifierFieldMetadataId)) {
     const imageField = findFlatEntityByIdInFlatEntityMaps({

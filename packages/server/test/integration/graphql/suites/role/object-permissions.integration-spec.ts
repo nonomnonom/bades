@@ -38,10 +38,10 @@ describe('Object Permissions Validation', () => {
     const objects = objectMetadataResponse.body.data.objects.edges;
 
     personObjectId = objects.find(
-      (obj: any) => obj.node.nameSingular === 'person',
+      (obj: any) => obj.node.nameSingular === 'penduduk',
     )?.node.id;
     companyObjectId = objects.find(
-      (obj: any) => obj.node.nameSingular === 'company',
+      (obj: any) => obj.node.nameSingular === 'keluarga',
     )?.node.id;
 
     expect(personObjectId).toBeDefined();

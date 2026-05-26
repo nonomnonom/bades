@@ -133,7 +133,7 @@ describe('ViewQueryParamsService', () => {
         mockWorkspaceId,
       );
 
-      expect(result.objectNameSingular).toBe('company');
+      expect(result.objectNameSingular).toBe('keluarga');
       expect(result.filter).toEqual({});
       expect(result.orderBy).toEqual([]);
       expect(result.viewName).toBe('All Companies');
@@ -181,7 +181,7 @@ describe('ViewQueryParamsService', () => {
         mockWorkspaceId,
       );
 
-      expect(result.objectNameSingular).toBe('company');
+      expect(result.objectNameSingular).toBe('keluarga');
       expect(result.viewName).toBe('Companies with Name');
       expect(result.filter).toBeDefined();
     });
@@ -217,7 +217,7 @@ describe('ViewQueryParamsService', () => {
         mockWorkspaceId,
       );
 
-      expect(result.objectNameSingular).toBe('company');
+      expect(result.objectNameSingular).toBe('keluarga');
       expect(result.orderBy).toHaveLength(1);
       expect(result.orderBy[0]).toHaveProperty('name');
     });
@@ -277,7 +277,7 @@ describe('ViewQueryParamsService', () => {
         byUniversalIdentifier: {
           'relation-universal-id': {
             id: relationFieldId,
-            name: 'company',
+            name: 'keluarga',
             type: FieldMetadataType.RELATION,
             label: 'Company',
             options: null,

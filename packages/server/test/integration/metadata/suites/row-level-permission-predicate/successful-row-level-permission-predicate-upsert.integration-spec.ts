@@ -36,7 +36,7 @@ describe('Row Level Permission Predicate upsert should succeed', () => {
     jestExpectToBeDefined(objects);
 
     const companyObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'company',
+      (object: { nameSingular: string }) => object.nameSingular === 'keluarga',
     );
 
     jestExpectToBeDefined(companyObjectMetadata);

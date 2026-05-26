@@ -27,10 +27,10 @@ describe('NavigationMenuItem batch creation should succeed', () => {
     jestExpectToBeDefined(objects);
 
     const personObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'person',
+      (object: { nameSingular: string }) => object.nameSingular === 'penduduk',
     );
     const companyObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'company',
+      (object: { nameSingular: string }) => object.nameSingular === 'keluarga',
     );
 
     jestExpectToBeDefined(personObjectMetadata);

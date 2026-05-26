@@ -23,7 +23,7 @@ describe('buildGroupByFieldObject', () => {
   describe('relation fields', () => {
     it('should return field with Id suffix for relation fields without subFieldName', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -35,7 +35,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should return nested object for relation field with subFieldName', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -50,7 +50,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should return deeply nested object for relation with composite subfield', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -67,7 +67,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should return date granularity for relation date field', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -92,7 +92,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should throw error for nested date field without time zone when required', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -109,7 +109,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should include weekStartDay for nested date field with WEEK granularity and MONDAY', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -136,7 +136,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should include weekStartDay for nested date field with WEEK granularity and SUNDAY', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -163,7 +163,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should not include weekStartDay for nested date field with WEEK granularity and SYSTEM', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });
@@ -189,7 +189,7 @@ describe('buildGroupByFieldObject', () => {
 
     it('should not include weekStartDay for nested date field with non-WEEK granularity', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-object-id',
       });

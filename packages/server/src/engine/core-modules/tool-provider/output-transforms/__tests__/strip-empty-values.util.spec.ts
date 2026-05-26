@@ -108,7 +108,7 @@ describe('stripEmptyValues', () => {
       },
       recordReferences: [
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           recordId: 'abc-123',
           displayName: 'Keluarga Santoso',
         },
@@ -133,7 +133,7 @@ describe('stripEmptyValues', () => {
       },
       recordReferences: [
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           recordId: 'abc-123',
           displayName: 'Keluarga Santoso',
         },

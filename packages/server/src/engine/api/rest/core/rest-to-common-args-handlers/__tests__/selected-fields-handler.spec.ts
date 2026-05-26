@@ -179,7 +179,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
       const companyRelationField = createMockField({
         id: 'field-2',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'person-id',
         settings: {
@@ -239,7 +239,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
     it('should respect restricted fields in related objects', () => {
       const companyRelationField = createMockField({
         id: 'field-1',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'person-id',
         settings: {
@@ -309,7 +309,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
     it('should not include relation if all fields are restricted', () => {
       const companyRelationField = createMockField({
         id: 'field-1',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'person-id',
         settings: {
@@ -370,7 +370,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
     it('should handle nested relations up to MAX_DEPTH', () => {
       const personCompanyRelation = createMockField({
         id: 'field-1',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'person-id',
         settings: {
@@ -513,7 +513,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
       const targetRelationField = createMockField({
         id: 'field-2',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'noteTarget-id',
         settings: {
@@ -589,7 +589,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
     it('should handle junction table relations with depth', () => {
       const junctionRelation1 = createMockField({
         id: 'field-1',
-        name: 'person',
+        name: 'penduduk',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'junction-id',
         settings: {
@@ -600,7 +600,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
       const junctionRelation2 = createMockField({
         id: 'field-2',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         objectMetadataId: 'junction-id',
         settings: {

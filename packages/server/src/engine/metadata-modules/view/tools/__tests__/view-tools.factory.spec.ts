@@ -231,7 +231,7 @@ describe('ViewToolsFactory', () => {
     describe('get-view-query-parameters tool', () => {
       it('should return query parameters for a view', async () => {
         const mockQueryParams = {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           filter: { name: { ilike: '%Acme%' } },
           orderBy: [{ name: OrderByDirection.AscNullsFirst }],
           viewName: 'All Companies',

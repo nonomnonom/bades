@@ -62,7 +62,7 @@ describe('View Filter Group update should fail', () => {
     jestExpectToBeDefined(objects);
 
     const companyObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'company',
+      (object: { nameSingular: string }) => object.nameSingular === 'keluarga',
     );
 
     jestExpectToBeDefined(companyObjectMetadata);

@@ -205,7 +205,7 @@ describe('getGroupByOrderBy', () => {
 
     it('should handle relation field with subFieldName', () => {
       const relationFieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-id',
       });

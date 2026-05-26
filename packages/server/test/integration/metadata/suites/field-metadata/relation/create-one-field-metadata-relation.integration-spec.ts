@@ -84,11 +84,11 @@ describe('createOne FieldMetadataService relation fields', () => {
       targetObjectMetadataId: createdObjectMetadataPersonId,
       relationType: RelationType.MANY_TO_ONE,
       type: FieldMetadataType.RELATION,
-      name: 'person',
+      name: 'penduduk',
     });
 
     expect(createdField).toMatchObject({
-      name: 'person',
+      name: 'penduduk',
       relation: {
         type: RelationType.MANY_TO_ONE,
       },
@@ -130,11 +130,11 @@ describe('createOne FieldMetadataService relation fields', () => {
       targetObjectMetadataId: createdObjectMetadataPersonId,
       relationType: RelationType.ONE_TO_MANY,
       type: FieldMetadataType.RELATION,
-      name: 'person',
+      name: 'penduduk',
     });
 
     expect(createdField).toMatchObject({
-      name: 'person',
+      name: 'penduduk',
       relation: {
         type: RelationType.ONE_TO_MANY,
       },

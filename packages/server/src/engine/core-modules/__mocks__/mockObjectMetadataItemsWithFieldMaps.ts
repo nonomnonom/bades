@@ -279,9 +279,9 @@ export const getMockObjectMetadataInfo = (
   };
 };
 
-export const mockPendudukObjectMetadataInfo = getMockObjectMetadataInfo('person');
+export const mockPendudukObjectMetadataInfo = getMockObjectMetadataInfo('penduduk');
 export const mockCompanyObjectMetadataInfo =
-  getMockObjectMetadataInfo('company');
+  getMockObjectMetadataInfo('keluarga');
 export const mockCustomObjectMetadataInfo = getMockObjectMetadataInfo(
   'regular-custom-object',
 );

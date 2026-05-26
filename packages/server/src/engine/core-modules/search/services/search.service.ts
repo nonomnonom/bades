@@ -556,12 +556,12 @@ export class SearchService {
     flatObjectMetadata: FlatObjectMetadata,
     flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata>,
   ) {
-    if (flatObjectMetadata.nameSingular === 'company') {
+    if (flatObjectMetadata.nameSingular === 'keluarga') {
       return 'domainNamePrimaryLinkUrl';
     }
 
     //TODO: Temporary solution before imageIdentifier refactor
-    if (flatObjectMetadata.nameSingular === 'person') {
+    if (flatObjectMetadata.nameSingular === 'penduduk') {
       return 'avatarFile';
     }
 
@@ -609,14 +609,14 @@ export class SearchService {
     );
 
     if (
-      flatObjectMetadata.nameSingular === 'company' &&
+      flatObjectMetadata.nameSingular === 'keluarga' &&
       this.badesConfigService.get('ALLOW_REQUESTS_TO_FAVICON_SERVICE')
     ) {
       return getLogoUrlFromDomainName(record.domainNamePrimaryLinkUrl) || '';
     }
 
     //TODO: Temporary solution before imageIdentifier refactor
-    if (flatObjectMetadata.nameSingular === 'person') {
+    if (flatObjectMetadata.nameSingular === 'penduduk') {
       const avatarFileId = (record.avatarFile as FileOutput[])?.[0]?.fileId;
       if (!isDefined(avatarFileId)) {
         return '';

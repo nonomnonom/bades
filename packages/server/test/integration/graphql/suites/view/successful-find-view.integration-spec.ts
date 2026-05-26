@@ -50,7 +50,7 @@ describe('successful find view with all sub-relations (e2e)', () => {
       `,
     });
 
-    const companyObject = objects.find((obj) => obj.nameSingular === 'company');
+    const companyObject = objects.find((obj) => obj.nameSingular === 'keluarga');
 
     jestExpectToBeDefined(companyObject);
     companyObjectMetadataId = companyObject.id;

@@ -56,7 +56,7 @@ describe('isRelationNestedFieldDateKind', () => {
 
   const relationField = createMockFieldMetadata({
     id: 'relation-field-id',
-    name: 'company',
+    name: 'keluarga',
     type: FieldMetadataType.RELATION,
     relationTargetObjectMetadataId: companyObjectId,
     universalIdentifier: 'relation-universal-id',
@@ -135,7 +135,7 @@ describe('isRelationNestedFieldDateKind', () => {
 
   it('should return false when target object is not found', () => {
     const relationFieldWithMissingTarget = createMockFieldMetadata({
-      name: 'company',
+      name: 'keluarga',
       type: FieldMetadataType.RELATION,
       relationTargetObjectMetadataId: 'non-existent-object-id',
     });
@@ -189,7 +189,7 @@ describe('isRelationNestedFieldDateKind', () => {
     });
 
     const personRelationField = createMockFieldMetadata({
-      name: 'person',
+      name: 'penduduk',
       type: FieldMetadataType.RELATION,
       relationTargetObjectMetadataId: 'object-with-date-id',
     });
@@ -224,7 +224,7 @@ describe('isRelationNestedFieldDateKind', () => {
 
   it('should return false when relationTargetObjectMetadataId is undefined', () => {
     const relationFieldWithoutTarget = createMockFieldMetadata({
-      name: 'company',
+      name: 'keluarga',
       type: FieldMetadataType.RELATION,
       relationTargetObjectMetadataId: undefined,
     });

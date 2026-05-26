@@ -147,7 +147,7 @@ describe('getFieldOrderBy', () => {
   describe('relation fields', () => {
     it('should return Id suffix for relation field without subFieldName', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-id',
       });
@@ -166,7 +166,7 @@ describe('getFieldOrderBy', () => {
 
     it('should return nested object for relation field with subFieldName', () => {
       const fieldMetadata = createMockFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         relationTargetObjectMetadataId: 'target-id',
       });

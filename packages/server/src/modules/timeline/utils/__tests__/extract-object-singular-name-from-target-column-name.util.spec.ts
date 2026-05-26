@@ -4,7 +4,7 @@ describe('extractObjectSingularNameFromTargetColumnName', () => {
   it('should extract "person" from "targetPersonId"', () => {
     expect(
       extractObjectSingularNameFromTargetColumnName('targetPersonId'),
-    ).toBe('person');
+    ).toBe('penduduk');
   });
 
   it('should extract "arrowTarget" from "targetArrowTargetId"', () => {

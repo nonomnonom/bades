@@ -18,7 +18,7 @@ const settings: WorkflowFormActionSettings = {
       type: 'RECORD',
       label: 'Record',
       settings: {
-        objectName: 'company',
+        objectName: 'keluarga',
       },
       placeholder: '',
     },

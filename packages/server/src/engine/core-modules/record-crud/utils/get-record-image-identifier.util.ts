@@ -25,7 +25,7 @@ export const getRecordImageIdentifier = async ({
   flatFieldMetadataMaps,
   signUrl,
 }: GetRecordImageIdentifierOptions): Promise<string | null> => {
-  if (flatObjectMetadata.nameSingular === 'company') {
+  if (flatObjectMetadata.nameSingular === 'keluarga') {
     const domainNameObj = record.domainName as
       | { primaryLinkUrl?: string }
       | undefined;
@@ -37,7 +37,7 @@ export const getRecordImageIdentifier = async ({
   }
 
   //TODO: Temporary solution before imageIdentifier refactor
-  if (signUrl && flatObjectMetadata.nameSingular === 'person') {
+  if (signUrl && flatObjectMetadata.nameSingular === 'penduduk') {
     const avatarFileId = (record.avatarFile as FileOutput[])?.[0]?.fileId;
     if (!isDefined(avatarFileId)) {
       return null;

@@ -20,7 +20,7 @@ const createMockFieldMetadata = (
 
 describe('getRelationFieldOrderBy', () => {
   const relationFieldMetadata = createMockFieldMetadata({
-    name: 'company',
+    name: 'keluarga',
     type: FieldMetadataType.RELATION,
     relationTargetObjectMetadataId: 'target-id',
   });

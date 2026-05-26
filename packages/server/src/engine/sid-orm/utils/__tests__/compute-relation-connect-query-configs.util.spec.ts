@@ -613,7 +613,7 @@ describe('computeRelationConnectQueryConfigs', () => {
           '1': [['domainNamePrimaryLinkUrl', 'other-company.com']],
         },
         relationFieldName: 'company-related-to-1Id',
-        targetObjectName: 'company',
+        targetObjectName: 'keluarga',
         uniqueConstraintFields: [
           expect.objectContaining({
             id: 'company-domain-name-field-id',
@@ -630,7 +630,7 @@ describe('computeRelationConnectQueryConfigs', () => {
           '1': [['id', '2']],
         },
         relationFieldName: 'company-related-to-2Id',
-        targetObjectName: 'company',
+        targetObjectName: 'keluarga',
         uniqueConstraintFields: [
           expect.objectContaining({
             id: 'company-id-field-id',

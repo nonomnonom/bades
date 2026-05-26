@@ -50,7 +50,7 @@ describe('NavigationMenuItem batch deletion should fail', () => {
     jestExpectToBeDefined(objects);
 
     const personObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'person',
+      (object: { nameSingular: string }) => object.nameSingular === 'penduduk',
     );
 
     jestExpectToBeDefined(personObjectMetadata);

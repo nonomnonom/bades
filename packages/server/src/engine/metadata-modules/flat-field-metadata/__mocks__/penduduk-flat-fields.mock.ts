@@ -376,7 +376,7 @@ export const PENDUDUK_FLAT_FIELDS_MOCK = {
     id: 'ee247ca6-fdaa-4a56-87a2-730cf84f5f29',
     objectMetadataId: '843e0b67-9619-4628-91c4-2fa62256a611',
     type: FieldMetadataType.RELATION,
-    name: 'company',
+    name: 'keluarga',
     label: 'Company',
     defaultValue: null,
     description: 'Contact’s company',

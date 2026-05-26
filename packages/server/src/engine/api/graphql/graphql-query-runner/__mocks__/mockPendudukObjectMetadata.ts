@@ -140,7 +140,7 @@ export const mockPersonFlatObjectMetadata = (
   namePlural: 'penduduks',
   labelSingular: 'Penduduk',
   labelPlural: 'Penduduk',
-  targetTableName: 'person',
+  targetTableName: 'penduduk',
   isCustom: false,
   isRemote: false,
   isActive: true,

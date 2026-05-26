@@ -105,7 +105,7 @@ describe('computeFlatViewFieldsToCreate', () => {
         type: FieldMetadataType.TEXT,
       }),
       makeFieldMetadata({
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
       }),
       makeFieldMetadata({

@@ -208,7 +208,7 @@ describe('WorkspaceSchemaEnumOperations', () => {
         universalIdentifier: 'relation',
         objectMetadataId: '20202020-1c25-4d02-bf25-6aeccf7ea419',
         type: FieldMetadataType.RELATION,
-        name: 'company',
+        name: 'keluarga',
       });
 
       const enumOps = collectEnumOperationsForField({

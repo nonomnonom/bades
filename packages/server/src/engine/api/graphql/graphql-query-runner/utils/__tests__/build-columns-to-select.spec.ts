@@ -60,7 +60,7 @@ describe('buildColumnsToSelect', () => {
   const companyRelationField = createMockField({
     id: companyFieldId,
     type: FieldMetadataType.RELATION,
-    name: 'company',
+    name: 'keluarga',
     label: 'Company',
     objectMetadataId: personObjectId,
     defaultValue: null,
@@ -320,7 +320,7 @@ describe('buildColumnsToSelect', () => {
     const oneToManyCompanyField = createMockField({
       id: companyFieldId,
       type: FieldMetadataType.RELATION,
-      name: 'company',
+      name: 'keluarga',
       label: 'Company',
       objectMetadataId: personObjectId,
       defaultValue: null,

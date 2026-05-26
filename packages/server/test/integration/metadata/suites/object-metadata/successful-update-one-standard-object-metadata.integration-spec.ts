@@ -81,7 +81,7 @@ describe('Standard object metadata update should succeed', () => {
       `,
     });
 
-    const companyObject = objects.find((o) => o.nameSingular === 'company');
+    const companyObject = objects.find((o) => o.nameSingular === 'keluarga');
 
     jestExpectToBeDefined(companyObject);
     companyObjectMetadataId = companyObject.id;

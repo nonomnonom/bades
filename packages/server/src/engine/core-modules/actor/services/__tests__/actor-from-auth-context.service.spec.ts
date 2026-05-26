@@ -103,7 +103,7 @@ describe('ActorFromAuthContextService', () => {
 
       const result = await service.injectCreatedBy({
         records: [{}],
-        objectMetadataNameSingular: 'person',
+        objectMetadataNameSingular: 'penduduk',
         authContext,
       });
 
@@ -131,7 +131,7 @@ describe('ActorFromAuthContextService', () => {
 
       const result = await service.injectCreatedBy({
         records: [{}],
-        objectMetadataNameSingular: 'person',
+        objectMetadataNameSingular: 'penduduk',
         authContext,
       });
 
@@ -156,7 +156,7 @@ describe('ActorFromAuthContextService', () => {
       await expect(
         service.injectCreatedBy({
           records: [{}],
-          objectMetadataNameSingular: 'person',
+          objectMetadataNameSingular: 'penduduk',
           authContext,
         }),
       ).rejects.toThrowErrorMatchingInlineSnapshot(

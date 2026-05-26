@@ -25,11 +25,11 @@ describe('generateFakeFormResponse', () => {
       },
       {
         id: '96939213-49ac-4dee-949d-56e6c7be98e8',
-        name: 'company',
+        name: 'keluarga',
         type: 'RECORD',
         label: 'Company',
         settings: {
-          objectName: 'company',
+          objectName: 'keluarga',
         },
       },
       {

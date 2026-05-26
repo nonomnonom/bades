@@ -32,7 +32,7 @@ export const fetchTestFieldMetadataIds =
     });
 
     const companyObject = objects.find(
-      (object) => object.nameSingular === 'company',
+      (object) => object.nameSingular === 'keluarga',
     );
 
     jestExpectToBeDefined(companyObject);

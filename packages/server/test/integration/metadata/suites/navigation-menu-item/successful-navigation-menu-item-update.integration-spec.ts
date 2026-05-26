@@ -27,7 +27,7 @@ describe('NavigationMenuItem update should succeed', () => {
     jestExpectToBeDefined(objects);
 
     const personObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'person',
+      (object: { nameSingular: string }) => object.nameSingular === 'penduduk',
     );
 
     jestExpectToBeDefined(personObjectMetadata);

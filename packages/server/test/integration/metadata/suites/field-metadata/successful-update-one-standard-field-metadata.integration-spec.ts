@@ -118,7 +118,7 @@ describe('Standard field metadata update should succeed', () => {
     });
 
     const opportunityObject = objects.find(
-      (o) => o.nameSingular === 'opportunity',
+      (o) => o.nameSingular === 'programBantuan',
     );
 
     jestExpectToBeDefined(opportunityObject?.fieldsList);

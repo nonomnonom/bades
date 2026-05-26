@@ -142,7 +142,7 @@ describe('SearchService', () => {
     it('should sort the search object results by tsRankCD', () => {
       const objectResults = [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           objectLabelSingular: 'Person',
           tsRankCD: 2,
           tsRank: 1,
@@ -151,7 +151,7 @@ describe('SearchService', () => {
           imageUrl: '',
         },
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           objectLabelSingular: 'Company',
           tsRankCD: 1,
           tsRank: 1,
@@ -180,7 +180,7 @@ describe('SearchService', () => {
     it('should sort the search object results by tsRank, if tsRankCD is the same', () => {
       const objectResults = [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           objectLabelSingular: 'Person',
           tsRankCD: 1,
           tsRank: 1,
@@ -189,7 +189,7 @@ describe('SearchService', () => {
           imageUrl: '',
         },
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           objectLabelSingular: 'Company',
           tsRankCD: 1,
           tsRank: 2,
@@ -218,7 +218,7 @@ describe('SearchService', () => {
     it('should sort the search object results by priority rank, if tsRankCD and tsRank are the same', () => {
       const objectResults = [
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           objectLabelSingular: 'Company',
           tsRankCD: 1,
           tsRank: 1,
@@ -227,7 +227,7 @@ describe('SearchService', () => {
           imageUrl: '',
         },
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           objectLabelSingular: 'Person',
           tsRankCD: 1,
           tsRank: 1,
@@ -259,7 +259,7 @@ describe('SearchService', () => {
       const sortedSlicedRecords = [
         {
           record: {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             objectLabelSingular: 'Company',
             tsRankCD: 0.9,
             tsRank: 0.9,
@@ -276,7 +276,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             objectLabelSingular: 'Company',
             tsRankCD: 0.89,
             tsRank: 0.89,
@@ -293,7 +293,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'person',
+            objectNameSingular: 'penduduk',
             objectLabelSingular: 'Person',
             tsRankCD: 0.87,
             tsRank: 0.87,
@@ -311,7 +311,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'person',
+            objectNameSingular: 'penduduk',
             objectLabelSingular: 'Person',
             tsRankCD: 0.87,
             tsRank: 0.87,
@@ -329,7 +329,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'opportunity',
+            objectNameSingular: 'programBantuan',
             objectLabelSingular: 'Opportunity',
             tsRankCD: 0.87,
             tsRank: 0.87,
@@ -368,7 +368,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             objectLabelSingular: 'Company',
             tsRankCD: 0.1,
             tsRank: 0.1,
@@ -401,7 +401,7 @@ describe('SearchService', () => {
       const sortedSlicedRecords = [
         {
           record: {
-            objectNameSingular: 'person',
+            objectNameSingular: 'penduduk',
             objectLabelSingular: 'Person',
             tsRankCD: 0.87,
             tsRank: 0.87,
@@ -419,7 +419,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'opportunity',
+            objectNameSingular: 'programBantuan',
             objectLabelSingular: 'Opportunity',
             tsRankCD: 0.87,
             tsRank: 0.87,
@@ -458,7 +458,7 @@ describe('SearchService', () => {
         },
         {
           record: {
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             objectLabelSingular: 'Company',
             tsRankCD: 0.1,
             tsRank: 0.1,

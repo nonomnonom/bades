@@ -121,7 +121,7 @@ describe('DataArgProcessorService', () => {
       byUniversalIdentifier: {
         'company-universal-id': {
           id: 'company-id',
-          name: 'company',
+          name: 'keluarga',
           type: FieldMetadataType.RELATION,
           isNullable: true,
           objectMetadataId: 'object-id',

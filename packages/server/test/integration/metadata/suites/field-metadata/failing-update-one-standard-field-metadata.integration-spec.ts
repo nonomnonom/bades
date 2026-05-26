@@ -64,7 +64,7 @@ describe('Standard field metadata update should be ignored', () => {
       `,
     });
 
-    const companyObject = objects.find((o) => o.nameSingular === 'company');
+    const companyObject = objects.find((o) => o.nameSingular === 'keluarga');
 
     jestExpectToBeDefined(companyObject);
 
@@ -129,7 +129,7 @@ xdescribe('Standard field with standard unique index update should fail on isUni
       `,
     });
 
-    const companyObject = objects.find((o) => o.nameSingular === 'company');
+    const companyObject = objects.find((o) => o.nameSingular === 'keluarga');
 
     jestExpectToBeDefined(companyObject);
 

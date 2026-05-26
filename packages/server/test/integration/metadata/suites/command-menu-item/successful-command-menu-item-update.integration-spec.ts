@@ -29,10 +29,10 @@ describe('CommandMenuItem update should succeed', () => {
     jestExpectToBeDefined(objects);
 
     const companyObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'company',
+      (object: { nameSingular: string }) => object.nameSingular === 'keluarga',
     );
     const personObjectMetadata = objects.find(
-      (object: { nameSingular: string }) => object.nameSingular === 'person',
+      (object: { nameSingular: string }) => object.nameSingular === 'penduduk',
     );
 
     jestExpectToBeDefined(companyObjectMetadata);

@@ -10,7 +10,7 @@ describe('Generate Column Definitions', () => {
   const mockObjectId = '20202020-object-id';
 
   const mockObjectMetadata = getFlatObjectMetadataMock({
-    universalIdentifier: 'person',
+    universalIdentifier: 'penduduk',
     id: mockObjectId,
     nameSingular: 'penduduk',
     namePlural: 'persons',
@@ -113,10 +113,10 @@ describe('Generate Column Definitions', () => {
   describe('Relation Field Schema Generation', () => {
     it('should handle null relation settings without crashing', () => {
       const relationField = getFlatFieldMetadataMock({
-        universalIdentifier: 'company',
+        universalIdentifier: 'keluarga',
         objectMetadataId: mockObjectId,
         type: FieldMetadataType.RELATION,
-        name: 'company',
+        name: 'keluarga',
         universalSettings: null,
       });
 
@@ -132,10 +132,10 @@ describe('Generate Column Definitions', () => {
 
     it('should generate proper UUID foreign key columns for valid relations', () => {
       const relationField = getFlatFieldMetadataMock({
-        universalIdentifier: 'company',
+        universalIdentifier: 'keluarga',
         objectMetadataId: mockObjectId,
         type: FieldMetadataType.RELATION,
-        name: 'company',
+        name: 'keluarga',
         settings: {
           relationType: RelationType.MANY_TO_ONE,
           joinColumnName: 'companyId',

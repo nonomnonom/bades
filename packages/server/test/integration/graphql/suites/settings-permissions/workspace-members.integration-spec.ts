@@ -46,7 +46,7 @@ describe('workspace members permissions', () => {
       (objectMetadata) => objectMetadata.nameSingular === 'workspaceMember',
     )?.id;
     const companyObjectMetadataId = objects.find(
-      (objectMetadata) => objectMetadata.nameSingular === 'company',
+      (objectMetadata) => objectMetadata.nameSingular === 'keluarga',
     )?.id;
 
     expect(workspaceMemberObjectMetadataId).toBeDefined();

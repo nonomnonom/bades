@@ -53,7 +53,7 @@ describe('buildCompositeFieldWhereCondition', () => {
         context: {
           description: 'ascending order with forward pagination',
           fieldType: FieldMetadataType.FULL_NAME,
-          fieldKey: 'person',
+          fieldKey: 'penduduk',
           orderBy: [{ person: { firstName: OrderByDirection.AscNullsLast } }],
           value: { firstName: 'John' },
           isForwardPagination: true,
@@ -66,7 +66,7 @@ describe('buildCompositeFieldWhereCondition', () => {
         context: {
           description: 'ascending order with backward pagination',
           fieldType: FieldMetadataType.FULL_NAME,
-          fieldKey: 'person',
+          fieldKey: 'penduduk',
           orderBy: [{ person: { firstName: OrderByDirection.AscNullsLast } }],
           value: { firstName: 'John' },
           isForwardPagination: false,
@@ -79,7 +79,7 @@ describe('buildCompositeFieldWhereCondition', () => {
         context: {
           description: 'descending order with forward pagination',
           fieldType: FieldMetadataType.FULL_NAME,
-          fieldKey: 'person',
+          fieldKey: 'penduduk',
           orderBy: [{ person: { firstName: OrderByDirection.DescNullsLast } }],
           value: { firstName: 'John' },
           isForwardPagination: true,
@@ -92,7 +92,7 @@ describe('buildCompositeFieldWhereCondition', () => {
         context: {
           description: 'descending order with backward pagination',
           fieldType: FieldMetadataType.FULL_NAME,
-          fieldKey: 'person',
+          fieldKey: 'penduduk',
           orderBy: [{ person: { firstName: OrderByDirection.DescNullsLast } }],
           value: { firstName: 'John' },
           isForwardPagination: false,
@@ -332,7 +332,7 @@ describe('buildCompositeFieldWhereCondition', () => {
       expect(() =>
         buildCursorCompositeFieldWhereCondition({
           fieldType: FieldMetadataType.TEXT,
-          fieldKey: 'person',
+          fieldKey: 'penduduk',
           orderBy: [{ person: { firstName: OrderByDirection.AscNullsLast } }],
           cursorValue: { firstName: 'John' },
           isForwardPagination: true,
@@ -344,7 +344,7 @@ describe('buildCompositeFieldWhereCondition', () => {
       expect(() =>
         buildCursorCompositeFieldWhereCondition({
           fieldType: FieldMetadataType.FULL_NAME,
-          fieldKey: 'person',
+          fieldKey: 'penduduk',
           orderBy: [],
           cursorValue: { firstName: 'John' },
           isForwardPagination: true,

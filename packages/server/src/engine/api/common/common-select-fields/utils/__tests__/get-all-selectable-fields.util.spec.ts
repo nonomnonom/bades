@@ -420,7 +420,7 @@ describe('getAllSelectableFields', () => {
       });
       const companyRelationField = createMockField({
         id: 'field-2',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         settings: {
           relationType: RelationType.MANY_TO_ONE,
@@ -457,7 +457,7 @@ describe('getAllSelectableFields', () => {
       });
       const companyRelationField = createMockField({
         id: 'field-2',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         settings: {
           relationType: RelationType.MANY_TO_ONE,
@@ -531,7 +531,7 @@ describe('getAllSelectableFields', () => {
       });
       const relationFieldWithoutJoinColumn = createMockField({
         id: 'field-2',
-        name: 'company',
+        name: 'keluarga',
         type: FieldMetadataType.RELATION,
         settings: {
           relationType: RelationType.MANY_TO_ONE,

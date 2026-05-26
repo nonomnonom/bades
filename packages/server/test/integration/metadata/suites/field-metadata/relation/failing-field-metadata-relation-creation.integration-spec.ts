@@ -466,7 +466,7 @@ describe('Field metadata relation creation should fail', () => {
         isLabelSyncedWithName: false,
         type: FieldMetadataType.RELATION,
         relationCreationPayload: {
-          targetFieldLabel: 'company',
+          targetFieldLabel: 'keluarga',
           type: RelationType.MANY_TO_ONE,
           targetObjectMetadataId:
             globalTestContext.objectMetadataIds.targetObjectId,
