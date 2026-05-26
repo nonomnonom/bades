@@ -124,12 +124,12 @@ jobs:
             echo "==> Pastikan db + redis sehat dulu (no-op kalau sudah running)"
             sudo docker compose --env-file .env up -d db redis
 
-            echo "==> Restart server + worker (downtime ~30s, Caddy retry handle)"
-            sudo docker compose --env-file .env up -d --force-recreate --no-deps server worker
+            echo "==> Recreate server (--no-deps supaya tidak menunggu worker depends_on)"
+            sudo docker compose --env-file .env up -d --force-recreate --no-deps server
 
             echo "==> Tunggu server healthy"
             HEALTHY=0
-            for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; do
               STATUS=$(sudo docker compose --env-file .env ps server --format '{{.Status}}')
               echo "Attempt $i: $STATUS"
               if echo "$STATUS" | grep -q "(healthy)"; then
@@ -140,12 +140,13 @@ jobs:
             done
 
             if [ "$HEALTHY" -ne 1 ]; then
-              echo "!! Server tidak menjadi healthy dalam 120s"
-              sudo docker compose --env-file .env logs server --tail 80
+              echo "!! Server tidak menjadi healthy dalam 180s"
+              sudo docker compose --env-file .env logs server --tail 200
               exit 1
             fi
 
-            echo "==> Server healthy"
+            echo "==> Server healthy, recreate worker"
+            sudo docker compose --env-file .env up -d --force-recreate --no-deps worker
 
       - name: Healthcheck public
         run: |
