@@ -13,6 +13,7 @@ import { UserRoleService } from 'src/engine/metadata-modules/user-role/user-role
 import { WorkspaceDataSourceService } from 'src/engine/workspace-datasource/workspace-datasource.service';
 import { STANDARD_ROLE } from 'src/engine/workspace-manager/bades-standard-application/constants/standard-role.constant';
 import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
+import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.service';
 
 @Injectable()
 export class WorkspaceManagerService {
@@ -30,6 +31,7 @@ export class WorkspaceManagerService {
     @InjectRepository(RoleEntity)
     private readonly roleRepository: Repository<RoleEntity>,
     private readonly applicationService: ApplicationService,
+    private readonly sidStandardSeedService: SidStandardSeedService,
   ) {}
 
   public async init({
@@ -66,6 +68,19 @@ export class WorkspaceManagerService {
       {
         workspaceId,
       },
+    );
+
+    // Bades SID standard seed: 23 objek desa (Penduduk, Keluarga, Wilayah,
+    // Lembaga Desa, Surat, Anggaran, Bantuan, Aset, dll) di-tanam ke setiap
+    // workspace baru menggantikan defaults CRM. Idempotent — aman kalau
+    // dipanggil ulang lewat upgrade command.
+    const sidSeedResult =
+      await this.sidStandardSeedService.seedSidStandardObjects({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Seed SID standard untuk workspace ${workspaceId}: ${sidSeedResult.createdObjects} objek, ${sidSeedResult.createdFields} field`,
     );
 
     const dataSourceMetadataCreationEnd = performance.now();

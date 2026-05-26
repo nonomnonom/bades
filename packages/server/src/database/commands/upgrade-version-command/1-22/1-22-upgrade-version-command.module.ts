@@ -4,15 +4,18 @@ import { WorkspaceIteratorModule } from 'src/database/commands/command-runners/w
 import { BackfillStandardSkillsCommand } from 'src/database/commands/upgrade-version-command/1-22/1-22-workspace-command-1780000002000-backfill-standard-skills.command';
 import { FixMergeCommandSelectAllCommand } from 'src/database/commands/upgrade-version-command/1-22/1-22-workspace-command-1780000003000-fix-merge-command-select-all.command';
 import { SyncBadesStandardDropCrmObjectsCommand } from 'src/database/commands/upgrade-version-command/1-22/1-22-workspace-command-1780000004000-sync-bades-standard-drop-crm-objects.command';
+import { SeedSidStandardObjectsCommand } from 'src/database/commands/upgrade-version-command/1-22/1-22-workspace-command-1780000005000-seed-sid-standard-objects.command';
 import { ApplicationModule } from 'src/engine/core-modules/application/application.module';
 import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache.module';
 import { BadesStandardApplicationModule } from 'src/engine/workspace-manager/bades-standard-application/bades-standard-application.module';
+import { SidStandardSeedModule } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.module';
 import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace-migration/workspace-migration.module';
 
 @Module({
   imports: [
     ApplicationModule,
     BadesStandardApplicationModule,
+    SidStandardSeedModule,
     WorkspaceCacheModule,
     WorkspaceIteratorModule,
     WorkspaceMigrationModule,
@@ -21,6 +24,7 @@ import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace
     BackfillStandardSkillsCommand,
     FixMergeCommandSelectAllCommand,
     SyncBadesStandardDropCrmObjectsCommand,
+    SeedSidStandardObjectsCommand,
   ],
 })
 export class V1_22_UpgradeVersionCommandModule {}
