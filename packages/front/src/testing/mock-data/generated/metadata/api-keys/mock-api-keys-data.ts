@@ -9,7 +9,7 @@ export const mockedApiKeys: Record<string, unknown>[] =
   {
     "__typename": "ApiKey",
     "id": "20202020-f401-4d8a-a731-64d007c27bad",
-    "name": "My api key",
+    "name": "Kunci API Saya",
     "expiresAt": "2025-12-31T23:59:59.000Z",
     "createdAt": "2026-02-27T01:17:26.394Z",
     "updatedAt": "2026-02-27T01:17:26.394Z",
