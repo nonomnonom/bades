@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { BackgroundMockTableRow } from '@/sign-in-background-mock/components/BackgroundMockTableRow';
 import { BACKGROUND_MOCK_COLUMNS } from '@/sign-in-background-mock/constants/BackgroundMockColumns';
-import { BACKGROUND_MOCK_COMPANIES } from '@/sign-in-background-mock/constants/BackgroundMockCompanies';
+import { BACKGROUND_MOCK_KELUARGAS } from '@/sign-in-background-mock/constants/BackgroundMockKeluargas';
 import { BACKGROUND_MOCK_TABLE_DIMENSIONS } from '@/sign-in-background-mock/constants/BackgroundMockTableDimensions';
 import {
   IconChevronDown,
@@ -187,8 +187,8 @@ export const BackgroundMockTable = () => {
           </StyledAddColumnHeaderCell>
         </StyledHeaderRow>
         <StyledTableBody>
-          {BACKGROUND_MOCK_COMPANIES.map((company) => (
-            <BackgroundMockTableRow key={company.id} company={company} />
+          {BACKGROUND_MOCK_KELUARGAS.map((keluarga) => (
+            <BackgroundMockTableRow key={keluarga.id} keluarga={keluarga} />
           ))}
         </StyledTableBody>
         <StyledFooterRow>

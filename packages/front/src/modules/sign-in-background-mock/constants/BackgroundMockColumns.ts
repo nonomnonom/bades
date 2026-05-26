@@ -13,14 +13,14 @@ export const BACKGROUND_MOCK_COLUMNS = [
     width: BACKGROUND_MOCK_COLUMN_WIDTHS.Nama,
   },
   {
-    label: 'Domain',
-    iconName: 'IconLink',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Domain,
+    label: 'Alamat',
+    iconName: 'IconMap',
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Alamat,
   },
   {
-    label: 'Dibuat oleh',
+    label: 'Pengurus',
     iconName: 'IconUserCircle',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Dibuat oleh'],
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Pengurus,
   },
   {
     label: 'Penanggung jawab',
@@ -28,18 +28,13 @@ export const BACKGROUND_MOCK_COLUMNS = [
     width: BACKGROUND_MOCK_COLUMN_WIDTHS['Penanggung jawab'],
   },
   {
-    label: 'Tanggal dibuat',
+    label: 'Waktu dibuat',
     iconName: 'IconCalendar',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Tanggal dibuat'],
+    width: BACKGROUND_MOCK_COLUMN_WIDTHS['Waktu dibuat'],
   },
   {
     label: 'Anggota',
     iconName: 'IconUsers',
     width: BACKGROUND_MOCK_COLUMN_WIDTHS.Anggota,
-  },
-  {
-    label: 'Alamat',
-    iconName: 'IconMap',
-    width: BACKGROUND_MOCK_COLUMN_WIDTHS.Alamat,
   },
 ] satisfies BackgroundMockColumn[];

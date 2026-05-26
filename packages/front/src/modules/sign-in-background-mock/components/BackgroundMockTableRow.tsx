@@ -1,14 +1,13 @@
 import { styled } from '@linaria/react';
 import { useContext } from 'react';
 
-import { type BackgroundMockCompany } from '@/sign-in-background-mock/constants/BackgroundMockCompanies';
+import { type BackgroundMockKeluarga } from '@/sign-in-background-mock/constants/BackgroundMockKeluargas';
 import { BACKGROUND_MOCK_COLUMN_WIDTHS } from '@/sign-in-background-mock/constants/BackgroundMockColumnWidths';
 import { BACKGROUND_MOCK_TABLE_DIMENSIONS } from '@/sign-in-background-mock/constants/BackgroundMockTableDimensions';
-import { Avatar, IconLink } from 'ui/display';
+import { Avatar, IconBuildingSkyscraper } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { Chip, ChipAccent, ChipSize, ChipVariant } from 'ui/components';
 import { Checkbox } from 'ui/input';
-import { getLogoUrlFromDomainName } from 'shared/utils';
 
 const StyledRow = styled.div`
   display: flex;
@@ -67,7 +66,7 @@ const StyledLastEmptyCell = styled.div`
 `;
 
 type BackgroundMockTableRowProps = {
-  company: BackgroundMockCompany;
+  keluarga: BackgroundMockKeluarga;
 };
 
 const formatNumber = (value: number) => value.toLocaleString('en-US');
@@ -97,11 +96,9 @@ const PersonChip = ({ fullName }: { fullName: string | null }) => {
 };
 
 export const BackgroundMockTableRow = ({
-  company,
+  keluarga,
 }: BackgroundMockTableRowProps) => {
   const { theme } = useContext(ThemeContext);
-
-  const logoUrl = getLogoUrlFromDomainName(company.domainName);
 
   return (
     <StyledRow>
@@ -111,7 +108,7 @@ export const BackgroundMockTableRow = ({
       </StyledCheckboxColumn>
       <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Nama}>
         <Chip
-          label={company.name}
+          label={keluarga.namaLembaga}
           size={ChipSize.Small}
           variant={ChipVariant.Transparent}
           accent={ChipAccent.TextPrimary}
@@ -119,23 +116,22 @@ export const BackgroundMockTableRow = ({
           leftComponent={
             <Avatar
               type="squared"
-              avatarUrl={logoUrl}
-              placeholder={company.name}
-              placeholderColorSeed={company.id}
+              placeholder={keluarga.namaLembaga}
+              placeholderColorSeed={keluarga.id}
               size="md"
             />
           }
         />
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Domain}>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Alamat}>
         <Chip
-          label={company.domainName}
+          label={keluarga.alamat}
           size={ChipSize.Small}
           variant={ChipVariant.Transparent}
           accent={ChipAccent.TextSecondary}
           clickable={false}
           leftComponent={
-            <IconLink
+            <IconBuildingSkyscraper
               size={theme.icon.size.sm}
               stroke={theme.icon.stroke.sm}
               color={theme.font.color.tertiary}
@@ -143,20 +139,19 @@ export const BackgroundMockTableRow = ({
           }
         />
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Dibuat oleh']}>
-        <PersonChip fullName={company.createdBy} />
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Pengurus}>
+        <PersonChip fullName={keluarga.pengurus} />
       </StyledCell>
       <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Penanggung jawab']}>
-        <PersonChip fullName={company.accountOwner} />
+        <PersonChip fullName={keluarga.penanggungJawab} />
       </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Tanggal dibuat']}>
-        <StyledMutedText>{company.creationDate}</StyledMutedText>
+      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS['Waktu dibuat']}>
+        <StyledMutedText>{keluarga.waktuDibuat}</StyledMutedText>
       </StyledCell>
       <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Anggota}>
-        <StyledTruncated>{formatNumber(company.employees)}</StyledTruncated>
-      </StyledCell>
-      <StyledCell width={BACKGROUND_MOCK_COLUMN_WIDTHS.Alamat}>
-        <StyledTruncated>{company.address}</StyledTruncated>
+        <StyledTruncated>
+          {formatNumber(keluarga.jumlahAnggota)}
+        </StyledTruncated>
       </StyledCell>
       <StyledLastEmptyCell />
     </StyledRow>
