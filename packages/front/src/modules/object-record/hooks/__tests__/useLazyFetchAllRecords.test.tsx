@@ -17,7 +17,7 @@ const defaultResponseData = {
 };
 
 const mockPerson = {
-  __typename: 'Person',
+  __typename: 'Penduduk',
   updatedAt: '2021-08-03T19:20:06.000Z',
   whatsapp: {
     primaryPhoneNumber: '+1',

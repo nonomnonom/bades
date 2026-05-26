@@ -217,7 +217,7 @@ describe('turnSortsIntoOrderBy', () => {
           universalIdentifier: 'company-relation-field-id',
           name: 'company',
           type: FieldMetadataType.RELATION,
-          label: 'Company',
+          label: 'Keluarga',
           createdAt: '2021-01-01',
           updatedAt: '2021-01-01',
           isActive: true,

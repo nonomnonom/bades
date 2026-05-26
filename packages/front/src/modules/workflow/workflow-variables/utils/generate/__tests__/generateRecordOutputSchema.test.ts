@@ -29,7 +29,7 @@ describe('generateRecordOutputSchema', () => {
     expect(result).toEqual({
       object: {
         icon: 'IconBuilding',
-        label: 'Company',
+        label: 'Keluarga',
         objectMetadataId: 'company-id',
         fieldIdName: 'id',
       },
@@ -177,7 +177,7 @@ describe('generateRecordOutputSchema', () => {
         {
           id: 'company-relation-id',
           name: 'company',
-          label: 'Company',
+          label: 'Keluarga',
           type: FieldMetadataType.RELATION,
           isActive: true,
           isSystem: false,

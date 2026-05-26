@@ -42,7 +42,7 @@ const mocks = [
     },
     result: {
       data: {
-        updateManyCompanies: [{ id: '1', __typename: 'Company' }],
+        updateManyCompanies: [{ id: '1', __typename: 'Keluarga' }],
       },
     },
   },

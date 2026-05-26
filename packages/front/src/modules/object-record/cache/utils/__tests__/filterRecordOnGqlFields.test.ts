@@ -4,7 +4,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should filter fields based on recordGqlFields with true values', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John',
       email: 'john@example.com',
       phone: '123-456-7890',
@@ -26,7 +26,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should exclude fields with false values', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John',
       email: 'john@example.com',
     };
@@ -48,7 +48,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should exclude fields with undefined values', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John',
       email: 'john@example.com',
     };
@@ -70,7 +70,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle composite fields with RecordGqlFields', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       fullName: {
         firstName: 'John',
         lastName: 'Doe',
@@ -100,11 +100,11 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle arrays with nested RecordGqlFields', () => {
     const record = {
       id: '1',
-      __typename: 'Company',
+      __typename: 'Keluarga',
       name: 'Acme Inc',
       employees: [
-        { id: '2', __typename: 'Person', name: 'John', email: 'john@test.com' },
-        { id: '3', __typename: 'Person', name: 'Jane', email: 'jane@test.com' },
+        { id: '2', __typename: 'Penduduk', name: 'John', email: 'john@test.com' },
+        { id: '3', __typename: 'Penduduk', name: 'Jane', email: 'jane@test.com' },
       ],
     };
 
@@ -132,7 +132,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle null values in nested objects', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       company: null,
     };
 
@@ -155,7 +155,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle undefined values in nested objects', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       company: undefined,
     };
 
@@ -178,7 +178,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle deeply nested structures', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       company: {
         id: '2',
         taskTargets: [
@@ -245,7 +245,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle arrays with primitive values when gqlField is true', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       tags: ['tag1', 'tag2', 'tag3'],
     };
 
@@ -265,11 +265,11 @@ describe('filterRecordOnGqlFields', () => {
   it('should handle mixed arrays with null values', () => {
     const record = {
       id: '1',
-      __typename: 'Company',
+      __typename: 'Keluarga',
       employees: [
-        { id: '2', __typename: 'Person', name: 'John' },
+        { id: '2', __typename: 'Penduduk', name: 'John' },
         null,
-        { id: '3', __typename: 'Person', name: 'Jane' },
+        { id: '3', __typename: 'Penduduk', name: 'Jane' },
       ],
     };
 
@@ -292,7 +292,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should return empty object when no fields match', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John',
     };
 
@@ -309,7 +309,7 @@ describe('filterRecordOnGqlFields', () => {
   it('should not include fields that are not in recordGqlFields', () => {
     const record = {
       id: '1',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John',
       email: 'john@example.com',
       phone: '123-456-7890',

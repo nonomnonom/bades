@@ -388,7 +388,7 @@ describe('shouldHideChartSetting', () => {
       const relationField: any = {
         id: 'relation-field-id',
         name: 'company',
-        label: 'Company',
+        label: 'Keluarga',
         type: FieldMetadataType.RELATION,
         relation: {
           targetObjectMetadata: { id: 'company-id', nameSingular: 'keluarga' },

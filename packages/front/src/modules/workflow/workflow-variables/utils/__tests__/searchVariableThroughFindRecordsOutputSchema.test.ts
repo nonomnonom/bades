@@ -7,7 +7,7 @@ describe('searchVariableThroughFindRecordsOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
       objectMetadataId: 'company-metadata-id',
-      label: 'Company',
+      label: 'Keluarga',
     },
     fields: {
       name: {

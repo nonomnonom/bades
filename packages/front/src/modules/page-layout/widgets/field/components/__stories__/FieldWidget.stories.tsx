@@ -125,7 +125,7 @@ const TEST_OPPORTUNITY_RECORD_ID = 'test-opportunity-789';
 const TEST_TIMELINE_ACTIVITY_RECORD_ID = 'test-timeline-def';
 
 const mockPersonRecord: ObjectRecord = {
-  __typename: 'Person',
+  __typename: 'Penduduk',
   id: TEST_PERSON_RECORD_ID,
   name: {
     __typename: 'FullName',
@@ -147,7 +147,7 @@ const mockPersonRecord: ObjectRecord = {
 };
 
 const mockOpportunityRecord: ObjectRecord = {
-  __typename: 'Opportunity',
+  __typename: 'ProgramBantuan',
   id: TEST_OPPORTUNITY_RECORD_ID,
   name: 'Enterprise Deal',
   stage: 'PROPOSAL',
@@ -200,7 +200,7 @@ const mockTimelineActivityRecord: ObjectRecord = {
 };
 
 const mockCompanyRecord: ObjectRecord = {
-  __typename: 'Company',
+  __typename: 'Keluarga',
   id: TEST_RECORD_ID,
   name: 'Keluarga Anggrek',
   address: {
@@ -228,7 +228,7 @@ const mockCompanyRecord: ObjectRecord = {
   workPolicy: ['ON_SITE', 'HYBRID'],
   people: [
     {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: TEST_PERSON_RECORD_ID,
       name: {
         __typename: 'FullName',
@@ -1927,7 +1927,7 @@ const generateMockPendudukRecords = (count: number) => {
     const recordId = `person-${index + 1}`;
     return {
       id: recordId,
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: {
         __typename: 'FullName',
         firstName: nameInfo.firstName,

@@ -89,7 +89,7 @@ const WIDGET_ID_CATALOG = 'catalog-widget';
 const TAB_ID_OVERVIEW = 'tab-overview';
 
 const mockPersonRecord: ObjectRecord = {
-  __typename: 'Person',
+  __typename: 'Penduduk',
   id: TEST_PERSON_RECORD_ID,
   name: {
     __typename: 'FullName',
@@ -99,12 +99,12 @@ const mockPersonRecord: ObjectRecord = {
 };
 
 const mockCompanyRecord: ObjectRecord = {
-  __typename: 'Company',
+  __typename: 'Keluarga',
   id: TEST_RECORD_ID,
   name: 'Keluarga Anggrek',
   people: [
     {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: TEST_PERSON_RECORD_ID,
       name: {
         __typename: 'FullName',

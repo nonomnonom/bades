@@ -2,7 +2,7 @@ import { FieldMetadataType } from '~/generated-metadata/graphql';
 
 export const fieldValue = [
   {
-    __typename: 'Company',
+    __typename: 'Keluarga',
     domainName: { primaryLinkUrl: 'google.com', primaryLinkLabel: '' },
     xLink: {
       __typename: 'Link',
@@ -30,7 +30,7 @@ export const fieldValue = [
     },
   },
   {
-    __typename: 'Company',
+    __typename: 'Keluarga',
     domainName: { primaryLinkUrl: 'bumdes-sukamaju.id', primaryLinkLabel: '' },
     xLink: {
       __typename: 'Link',
@@ -61,14 +61,14 @@ export const fieldValue = [
 
 export const otherPersonMock = {
   entityValue: {
-    __typename: 'Person',
+    __typename: 'Penduduk',
     asd: '',
     city: 'Paris',
     jobTitle: '',
     name: 'John Doe',
     createdAt: '2024-05-01T13:16:29.046Z',
     company: {
-      __typename: 'Company',
+      __typename: 'Keluarga',
       domainName: { primaryLinkUrl: 'google.com', primaryLinkLabel: '' },
       xLink: {
         __typename: 'Link',
@@ -117,14 +117,14 @@ export const relationFromManyFieldDisplayMock = {
   recordId: '20202020-2d40-4e49-8df4-9c6a049191df',
   relationRecordId: '20202020-c21e-4ec2-873b-de4264d89025',
   entityValue: {
-    __typename: 'Person',
+    __typename: 'Penduduk',
     asd: '',
     city: 'Seattle',
     jobTitle: '',
     name: 'Lorie Vladim',
     createdAt: '2024-05-01T13:16:29.046Z',
     company: {
-      __typename: 'Company',
+      __typename: 'Keluarga',
       domainName: { primaryLinkUrl: 'google.com', primaryLinkLabel: '' },
       xLink: {
         __typename: 'Link',
@@ -168,7 +168,7 @@ export const relationFromManyFieldDisplayMock = {
     position: 15,
   },
   relationFieldValue: {
-    __typename: 'Company',
+    __typename: 'Keluarga',
     domainName: {
       primaryLinkLabel: '',
       primaryLinkUrl: 'microsoft.com',

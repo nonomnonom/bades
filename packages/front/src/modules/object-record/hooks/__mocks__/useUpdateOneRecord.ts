@@ -59,6 +59,6 @@ export const variables = {
 };
 
 export const responseData = {
-  ...{ ...basePerson, __typename: 'Person' },
+  ...{ ...basePerson, __typename: 'Penduduk' },
   ...connectedObjects,
 };

@@ -4,7 +4,7 @@ describe('getRecordFromRecordNode', () => {
   it('should convert a simple record node', () => {
     const recordNode = {
       id: '123',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John Doe',
       email: 'john@example.com',
     };
@@ -17,7 +17,7 @@ describe('getRecordFromRecordNode', () => {
   it('should handle nested object fields', () => {
     const recordNode = {
       id: '123',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: {
         __typename: 'FullName',
         firstName: 'John',
@@ -33,21 +33,21 @@ describe('getRecordFromRecordNode', () => {
   it('should handle connection fields with edges', () => {
     const recordNode = {
       id: '123',
-      __typename: 'Company',
+      __typename: 'Keluarga',
       name: 'Acme Inc',
       people: {
         edges: [
           {
             node: {
               id: '456',
-              __typename: 'Person',
+              __typename: 'Penduduk',
               name: 'John Doe',
             },
           },
           {
             node: {
               id: '789',
-              __typename: 'Person',
+              __typename: 'Penduduk',
               name: 'Jane Smith',
             },
           },
@@ -63,7 +63,7 @@ describe('getRecordFromRecordNode', () => {
   it('should handle null and undefined values', () => {
     const recordNode = {
       id: '123',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John Doe',
       email: null,
       phone: undefined,
@@ -77,7 +77,7 @@ describe('getRecordFromRecordNode', () => {
   it('should handle array values', () => {
     const recordNode = {
       id: '123',
-      __typename: 'Person',
+      __typename: 'Penduduk',
       tags: ['developer', 'designer'],
       scores: [100, 200, 300],
     };
@@ -109,7 +109,7 @@ describe('getRecordFromRecordNode', () => {
   it('should handle mixed nested objects and connections', () => {
     const recordNode = {
       id: '123',
-      __typename: 'Company',
+      __typename: 'Keluarga',
       name: 'Acme Inc',
       address: {
         __typename: 'Address',
@@ -121,7 +121,7 @@ describe('getRecordFromRecordNode', () => {
           {
             node: {
               id: '456',
-              __typename: 'Person',
+              __typename: 'Penduduk',
               name: {
                 __typename: 'FullName',
                 firstName: 'John',

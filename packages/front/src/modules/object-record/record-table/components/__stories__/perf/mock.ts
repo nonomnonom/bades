@@ -575,7 +575,7 @@ export const mockPerformance = {
   recordId: '20202020-2d40-4e49-8df4-9c6a049191df',
   relationRecordId: '20202020-c21e-4ec2-873b-de4264d89025',
   entityValue: {
-    __typename: 'Person',
+    __typename: 'Penduduk',
     asd: '',
     city: 'Seattle',
     jobTitle: '',
@@ -586,7 +586,7 @@ export const mockPerformance = {
     },
     createdAt: '2024-05-01T13:16:29.046Z',
     company: {
-      __typename: 'Company',
+      __typename: 'Keluarga',
       domainName: 'google.com',
       xLink: {
         __typename: 'Link',
@@ -636,7 +636,7 @@ export const mockPerformance = {
     position: 15,
   },
   relationFieldValue: {
-    __typename: 'Company',
+    __typename: 'Keluarga',
     domainName: 'microsoft.com',
     xLink: {
       __typename: 'Link',
@@ -676,7 +676,7 @@ export const mockPerformance = {
       objectMetadataNameSingular: 'penduduk',
       options: null,
     },
-    label: 'Company',
+    label: 'Keluarga',
     iconName: 'IconBuildingSkyscraper',
     type: FieldMetadataType.RELATION,
     position: 2,

@@ -50,7 +50,7 @@ describe('useIsFieldEmpty', () => {
       result.current.setRecordStore({
         id: 'id',
         phone: '+1 233223',
-        __typename: 'Person',
+        __typename: 'Penduduk',
       });
     });
 

@@ -5,7 +5,7 @@ import { doesRecordBelongToGroup } from '@/apollo/optimistic-effect/group-by/uti
 describe('doesRecordBelongToGroup', () => {
   it('should return true when groupByConfig is undefined', () => {
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
       name: 'John',
     };
@@ -17,7 +17,7 @@ describe('doesRecordBelongToGroup', () => {
 
   it('should return true when groupByConfig is empty', () => {
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
       name: 'John',
     };
@@ -29,7 +29,7 @@ describe('doesRecordBelongToGroup', () => {
 
   it('should return true when record matches group dimension values', () => {
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
       name: 'John',
     };
@@ -41,7 +41,7 @@ describe('doesRecordBelongToGroup', () => {
 
   it('should return false when record does not match group dimension values', () => {
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
       name: 'John',
     };
@@ -53,7 +53,7 @@ describe('doesRecordBelongToGroup', () => {
 
   it('should return false when record field is undefined', () => {
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
     };
 

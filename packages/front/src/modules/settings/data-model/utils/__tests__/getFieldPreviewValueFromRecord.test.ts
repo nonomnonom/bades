@@ -25,7 +25,7 @@ describe('getFieldPreviewValueFromRecord', () => {
         people: {
           edges: [{ node: firstRelationRecord }, { node: { id: '2' } }],
         },
-        __typename: 'Opportunity',
+        __typename: 'ProgramBantuan',
       };
       const fieldMetadataItem = mockedCompanyObjectMetadataItem?.fields.find(
         ({ name }) => name === 'people',
@@ -51,7 +51,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       const record = {
         id: '',
         company: relationRecord,
-        __typename: 'Opportunity',
+        __typename: 'ProgramBantuan',
       };
       const fieldMetadataItem = mockedPersonObjectMetadataItem?.fields.find(
         ({ name }) => name === 'company',

@@ -32,7 +32,7 @@ type Story = StoryObj<typeof FormSingleRecordPicker>;
 
 export const Default: Story = {
   args: {
-    label: 'Company',
+    label: 'Keluarga',
     defaultValue: '123e4567-e89b-12d3-a456-426614174000',
     objectNameSingulars: ['company'],
     onChange: fn(),
@@ -40,7 +40,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const label = await canvas.findByText('Company');
+    const label = await canvas.findByText('Keluarga');
     expect(label).toBeVisible();
 
     const dropdown = await canvas.findByRole('button');
@@ -52,7 +52,7 @@ export const Default: Story = {
 
 export const WithVariables: Story = {
   args: {
-    label: 'Company',
+    label: 'Keluarga',
     defaultValue: `{{${MOCKED_STEP_ID}.company.id}}`,
     objectNameSingulars: ['company'],
     onChange: fn(),
@@ -68,7 +68,7 @@ export const WithVariables: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Company');
+    await canvas.findByText('Keluarga');
     const variablePicker = await canvas.findByText('VariablePicker');
     expect(variablePicker).toBeVisible();
   },
@@ -76,7 +76,7 @@ export const WithVariables: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Company',
+    label: 'Keluarga',
     defaultValue: '123e4567-e89b-12d3-a456-426614174000',
     objectNameSingulars: ['company'],
     onChange: fn(),
@@ -86,7 +86,7 @@ export const Disabled: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Company');
+    await canvas.findByText('Keluarga');
     const dropdown = canvas.queryByRole('button');
     expect(dropdown).not.toBeInTheDocument();
 

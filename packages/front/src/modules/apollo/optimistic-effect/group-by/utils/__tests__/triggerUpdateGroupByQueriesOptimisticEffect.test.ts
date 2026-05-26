@@ -12,7 +12,7 @@ describe('triggerUpdateGroupByQueriesOptimisticEffect', () => {
   } as EnrichedObjectMetadataItem;
 
   const mockRecord: RecordGqlNode = {
-    __typename: 'Person',
+    __typename: 'Penduduk',
     id: '123',
     name: 'John',
   };

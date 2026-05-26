@@ -137,7 +137,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
     const companyRecord = {
       id: '123',
-      __typename: 'Company',
+      __typename: 'Keluarga',
     };
 
     const objectMetadataItem: EnrichedObjectMetadataItem = {
@@ -187,7 +187,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
     const companyRecord = {
       id: '123',
-      __typename: 'Company',
+      __typename: 'Keluarga',
     };
 
     const objectMetadataItem: EnrichedObjectMetadataItem = {

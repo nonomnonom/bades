@@ -55,7 +55,7 @@ describe('useDeleteOneRecord', () => {
       result: jest.fn((variables) => ({
         data: {
           deletePenduduk: {
-            __typename: 'Person',
+            __typename: 'Penduduk',
             deletedAt: '2024-02-14T09:45:00Z',
             id: variables.idToDelete,
           },
@@ -233,7 +233,7 @@ describe('useDeleteOneRecord', () => {
       await act(async () => {
         const res = await result.current.deleteOneRecord(personRecord.id);
         expect(res).toMatchObject({
-          __typename: 'Person',
+          __typename: 'Penduduk',
           id: personRecord.id,
           deletedAt: expect.any(String),
         });

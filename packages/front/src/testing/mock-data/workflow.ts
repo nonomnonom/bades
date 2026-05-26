@@ -262,7 +262,7 @@ export const workflowQueryResult = {
                           },
                           object: {
                             icon: 'IconTargetArrow',
-                            label: 'Opportunity',
+                            label: 'Program Bantuan',
                             value: 'An opportunity',
                             isLeaf: true,
                             fieldIdName: 'id',
@@ -580,7 +580,7 @@ export const workflowQueryResult = {
                                 },
                                 object: {
                                   icon: 'IconBuildingSkyscraper',
-                                  label: 'Company',
+                                  label: 'Keluarga',
                                   value: 'A company',
                                   isLeaf: true,
                                   fieldIdName: 'id',

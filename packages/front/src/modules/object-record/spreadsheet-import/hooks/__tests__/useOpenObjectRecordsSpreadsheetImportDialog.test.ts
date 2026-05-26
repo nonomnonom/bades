@@ -30,7 +30,7 @@ const mockResult = jest.fn(() => ({
         name: 'Example Company',
         employees: 0,
         idealCustomerProfile: true,
-        __typename: 'Company',
+        __typename: 'Keluarga',
       },
     ],
   },

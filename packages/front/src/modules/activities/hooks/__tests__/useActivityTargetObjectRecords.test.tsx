@@ -35,7 +35,7 @@ const taskTarget = {
       firstName: 'John',
       lastName: 'Doe',
     },
-    __typename: 'Person',
+    __typename: 'Penduduk',
   },
   taskId: '89bb825c-171e-4bcc-9cf7-43448d6fb230',
   task: {

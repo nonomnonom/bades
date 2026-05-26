@@ -13,7 +13,7 @@ describe('createCacheEdgeWithRecordRef', () => {
   it('should create an edge with reference when toReference returns a reference', () => {
     // Given
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
     };
 
@@ -47,7 +47,7 @@ describe('createCacheEdgeWithRecordRef', () => {
   it('should return null when toReference returns undefined', () => {
     // Given
     const record: RecordGqlNode = {
-      __typename: 'Person',
+      __typename: 'Penduduk',
       id: '123',
     };
 

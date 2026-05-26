@@ -162,7 +162,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Person',
+              __typename: 'Penduduk',
               id: '1',
               name: {
                 firstName: 'John',
@@ -184,7 +184,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Company',
+              __typename: 'Keluarga',
               id: '1',
               name: 'Bades',
             },
@@ -227,7 +227,7 @@ describe('useCombinedFindManyRecords', () => {
       expectedResult: {
         penduduks: [
           {
-            __typename: 'Person',
+            __typename: 'Penduduk',
             id: '1',
             name: {
               firstName: 'John',
@@ -237,7 +237,7 @@ describe('useCombinedFindManyRecords', () => {
         ],
         keluargas: [
           {
-            __typename: 'Company',
+            __typename: 'Keluarga',
             id: '1',
             name: 'Bades',
           },
@@ -252,7 +252,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Person',
+              __typename: 'Penduduk',
               id: '1',
               name: {
                 firstName: 'John',
@@ -300,7 +300,7 @@ describe('useCombinedFindManyRecords', () => {
       expectedResult: {
         penduduks: [
           {
-            __typename: 'Person',
+            __typename: 'Penduduk',
             id: '1',
             name: {
               firstName: 'John',
@@ -318,7 +318,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Person',
+              __typename: 'Penduduk',
               id: '2',
               name: {
                 firstName: 'Jane',
@@ -366,7 +366,7 @@ describe('useCombinedFindManyRecords', () => {
       expectedResult: {
         penduduks: [
           {
-            __typename: 'Person',
+            __typename: 'Penduduk',
             id: '2',
             name: {
               firstName: 'Jane',
@@ -384,7 +384,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Person',
+              __typename: 'Penduduk',
               id: '3',
               name: {
                 firstName: 'Alice',
@@ -427,7 +427,7 @@ describe('useCombinedFindManyRecords', () => {
       expectedResult: {
         penduduks: [
           {
-            __typename: 'Person',
+            __typename: 'Penduduk',
             id: '3',
             name: {
               firstName: 'Alice',
@@ -445,7 +445,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Person',
+              __typename: 'Penduduk',
               id: '1',
               name: {
                 firstName: 'John',
@@ -467,7 +467,7 @@ describe('useCombinedFindManyRecords', () => {
         edges: [
           {
             node: {
-              __typename: 'Company',
+              __typename: 'Keluarga',
               id: '1',
               name: 'Bades',
             },
@@ -523,7 +523,7 @@ describe('useCombinedFindManyRecords', () => {
       expectedResult: {
         penduduks: [
           {
-            __typename: 'Person',
+            __typename: 'Penduduk',
             id: '1',
             name: {
               firstName: 'John',
@@ -533,7 +533,7 @@ describe('useCombinedFindManyRecords', () => {
         ],
         keluargas: [
           {
-            __typename: 'Company',
+            __typename: 'Keluarga',
             id: '1',
             name: 'Bades',
           },

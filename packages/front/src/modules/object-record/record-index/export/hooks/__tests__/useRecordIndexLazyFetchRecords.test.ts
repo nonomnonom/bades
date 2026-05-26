@@ -12,7 +12,7 @@ import { getJestMetadataAndApolloMocksAndCommandMenuWrapper } from '~/testing/je
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 
 const mockPerson = {
-  __typename: 'Person',
+  __typename: 'Penduduk',
   avatarUrl: 'avatarUrl',
   city: 'city',
   companyId: '1',

@@ -9,10 +9,10 @@ const mockStep = {
   outputSchema: {
     company: {
       isLeaf: false,
-      label: 'Company',
+      label: 'Keluarga',
       value: {
         object: {
-          label: 'Company',
+          label: 'Keluarga',
           objectMetadataId: '123',
           isRelationField: false,
         },

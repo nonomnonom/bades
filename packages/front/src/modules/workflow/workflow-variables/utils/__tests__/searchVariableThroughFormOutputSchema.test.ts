@@ -7,7 +7,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
       objectMetadataId: 'person-metadata-id',
-      label: 'Person',
+      label: 'Penduduk',
     },
     fields: {
       firstName: {

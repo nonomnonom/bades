@@ -6,7 +6,7 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
   const mockRecordSchema: RecordOutputSchemaV2 = {
     object: {
       objectMetadataId: 'company-metadata-id',
-      label: 'Company',
+      label: 'Keluarga',
     },
     fields: {
       // Event-based fields with properties.after prefix

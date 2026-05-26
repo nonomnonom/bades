@@ -81,7 +81,7 @@ const FIELDS_VIEW_ID = 'test-fields-view-001';
 const TAB_ID_OVERVIEW = 'tab-overview';
 
 const mockCompanyRecord: ObjectRecord = {
-  __typename: 'Company',
+  __typename: 'Keluarga',
   id: TEST_RECORD_ID,
   name: 'Keluarga Anggrek',
   address: {

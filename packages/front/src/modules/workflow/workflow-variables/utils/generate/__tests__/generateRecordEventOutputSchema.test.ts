@@ -34,7 +34,7 @@ describe('generateRecordEventOutputSchema', () => {
       expect(result).toEqual({
         object: {
           icon: 'IconBuilding',
-          label: 'Company',
+          label: 'Keluarga',
           objectMetadataId: 'company-id',
           fieldIdName: 'properties.after.id',
         },
@@ -206,7 +206,7 @@ describe('generateRecordEventOutputSchema', () => {
           {
             id: 'company-relation-id',
             name: 'company',
-            label: 'Company',
+            label: 'Keluarga',
             type: FieldMetadataType.RELATION,
             isActive: true,
             isSystem: false,

@@ -199,7 +199,7 @@ describe('generateFormOutputSchema', () => {
         {
           id: 'field-3',
           name: 'company',
-          label: 'Company',
+          label: 'Keluarga',
           type: 'RECORD',
           settings: {
             objectName: 'company',

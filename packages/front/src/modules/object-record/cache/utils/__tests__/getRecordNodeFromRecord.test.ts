@@ -40,7 +40,7 @@ describe('getRecordNodeFromRecord', () => {
 
     // Then
     expect(result).toEqual({
-      __typename: 'Person',
+      __typename: 'Penduduk',
       kartuKeluarga: {
         __ref: `Keluarga:${record.kartuKeluarga.id}`,
       },
@@ -87,7 +87,7 @@ describe('getRecordNodeFromRecord', () => {
 
     // Then
     expect(result).toEqual({
-      __typename: 'Person',
+      __typename: 'Penduduk',
       kartuKeluarga: record.kartuKeluarga,
       namaLengkap: {
         __typename: 'FullName',

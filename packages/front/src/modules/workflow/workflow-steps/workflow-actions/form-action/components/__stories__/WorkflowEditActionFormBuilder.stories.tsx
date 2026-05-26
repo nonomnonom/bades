@@ -22,7 +22,7 @@ const DEFAULT_ACTION = {
         id: 'ed00b897-519f-44cd-8201-a6502a3a9dc8',
         name: 'company',
         type: FieldMetadataType.TEXT,
-        label: 'Company',
+        label: 'Keluarga',
         placeholder: 'Select a company',
         settings: {},
       },
@@ -79,7 +79,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Company');
+    await canvas.findByText('Keluarga');
     await canvas.findByText('Add Field');
   },
 };
@@ -93,7 +93,7 @@ export const DeleteFields: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const companyInput = await canvas.findByText('Company');
+    const companyInput = await canvas.findByText('Keluarga');
 
     await userEvent.hover(companyInput);
 
@@ -159,7 +159,7 @@ export const DisabledWithEmptyValues: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Company');
+    await canvas.findByText('Keluarga');
 
     const addFieldButton = canvas.queryByText('Add Field');
     expect(addFieldButton).not.toBeInTheDocument();

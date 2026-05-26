@@ -35,7 +35,7 @@ describe('useUpsertRecordsInStore', () => {
         partialRecords: [
           {
             id: recordId,
-            __typename: 'Person',
+            __typename: 'Penduduk',
             name: 'John Doe',
             email: 'john@example.com',
           },
@@ -45,7 +45,7 @@ describe('useUpsertRecordsInStore', () => {
 
     expect(result.current.recordStore).toEqual({
       id: recordId,
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John Doe',
       email: 'john@example.com',
     });
@@ -72,7 +72,7 @@ describe('useUpsertRecordsInStore', () => {
         partialRecords: [
           {
             id: recordId,
-            __typename: 'Person',
+            __typename: 'Penduduk',
             name: 'John Doe',
             email: 'john@example.com',
           },
@@ -82,7 +82,7 @@ describe('useUpsertRecordsInStore', () => {
 
     expect(result.current.recordStore).toEqual({
       id: recordId,
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'John Doe',
       email: 'john@example.com',
     });
@@ -92,7 +92,7 @@ describe('useUpsertRecordsInStore', () => {
         partialRecords: [
           {
             id: recordId,
-            __typename: 'Person',
+            __typename: 'Penduduk',
             name: 'Jane Doe',
             phone: '123-456-7890',
           },
@@ -106,7 +106,7 @@ describe('useUpsertRecordsInStore', () => {
 
     expect(result.current.recordStore).toEqual({
       id: recordId,
-      __typename: 'Person',
+      __typename: 'Penduduk',
       name: 'Jane Doe',
       email: 'john@example.com',
     });
@@ -133,7 +133,7 @@ describe('useUpsertRecordsInStore', () => {
         partialRecords: [
           {
             id: recordId,
-            __typename: 'Person',
+            __typename: 'Penduduk',
             name: 'John Doe',
             email: 'john@example.com',
           },
@@ -148,7 +148,7 @@ describe('useUpsertRecordsInStore', () => {
         partialRecords: [
           {
             id: recordId,
-            __typename: 'Person',
+            __typename: 'Penduduk',
             name: 'John Doe',
             phone: '123-456-7890',
           },

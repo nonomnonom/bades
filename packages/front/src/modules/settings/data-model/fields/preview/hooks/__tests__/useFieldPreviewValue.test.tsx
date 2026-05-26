@@ -96,7 +96,7 @@ describe('useFieldPreviewValue', () => {
     // Then
     expect(result.current).toEqual([
       {
-        __typename: 'Person',
+        __typename: 'Penduduk',
         id: '',
         name: {
           firstName: 'John',

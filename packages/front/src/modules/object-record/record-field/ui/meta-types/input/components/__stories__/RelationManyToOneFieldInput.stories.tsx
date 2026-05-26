@@ -89,7 +89,7 @@ const RelationManyToOneFieldInputWithContext = ({
         value={{
           fieldDefinition: {
             fieldMetadataId: companyFieldOnPerson.id,
-            label: 'Company',
+            label: 'Keluarga',
             type: FieldMetadataType.RELATION,
             iconName: 'IconLink',
             metadata: {

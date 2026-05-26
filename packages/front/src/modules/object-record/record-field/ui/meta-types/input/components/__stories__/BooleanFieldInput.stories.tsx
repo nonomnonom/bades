@@ -29,7 +29,7 @@ const BooleanFieldValueSetterEffect = ({
   );
 
   useEffect(() => {
-    setRecordStore({ id: recordId, Boolean: value, __typename: 'Person' });
+    setRecordStore({ id: recordId, Boolean: value, __typename: 'Penduduk' });
   }, [recordId, setRecordStore, value]);
 
   return <></>;
