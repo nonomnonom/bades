@@ -163,7 +163,7 @@ export class BillingSubscriptionUpdateService {
   }
 
   /**
-   * Update subscription secara DB-only (tanpa Stripe).
+   * Update subscription secara DB-only untuk billing Midtrans Bades.
    * Perubahan yang berlaku di periode berikutnya dicatat di field `phases`.
    */
   async updateSubscription(

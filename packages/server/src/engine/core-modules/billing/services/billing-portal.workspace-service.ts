@@ -38,8 +38,8 @@ export class BillingPortalWorkspaceService {
   ) {}
 
   /**
-   * Mengembalikan URL halaman billing internal Bades.
-   * Midtrans tidak menyediakan portal pelanggan seperti Stripe.
+   * Mengembalikan URL halaman billing internal Bades. Manajemen langganan
+   * dilakukan langsung di workspace, tidak via portal eksternal.
    */
   async computeBillingPortalSessionURLOrThrow(
     workspace: WorkspaceEntity,

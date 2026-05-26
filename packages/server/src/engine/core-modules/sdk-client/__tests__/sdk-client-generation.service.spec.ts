@@ -65,7 +65,7 @@ describe('SdkClientGenerationService', () => {
     const apps = {
       badesStandardFlatApplication: {
         id: 'std-app-id',
-        universalIdentifier: 'twenty-standard',
+        universalIdentifier: 'bades-standard',
       },
       workspaceCustomFlatApplication: {
         id: 'custom-app-id',
@@ -87,7 +87,7 @@ describe('SdkClientGenerationService', () => {
         {
           workspaceId,
           applicationId: 'std-app-id',
-          applicationUniversalIdentifier: 'twenty-standard',
+          applicationUniversalIdentifier: 'bades-standard',
         },
         {
           id: `sdk-client:${workspaceId}:std-app-id`,

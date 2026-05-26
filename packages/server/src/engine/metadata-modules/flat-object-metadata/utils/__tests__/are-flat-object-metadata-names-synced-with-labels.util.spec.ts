@@ -7,7 +7,7 @@ const THIRD_PARTY_BUILD_OPTIONS: WorkspaceMigrationBuilderOptions = {
   applicationUniversalIdentifier: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
 };
 
-const TWENTY_STANDARD_BUILD_OPTIONS: WorkspaceMigrationBuilderOptions = {
+const BADES_STANDARD_BUILD_OPTIONS: WorkspaceMigrationBuilderOptions = {
   isSystemBuild: false,
   applicationUniversalIdentifier:
     BADES_STANDARD_APPLICATION.universalIdentifier,
@@ -93,7 +93,7 @@ describe('areFlatObjectMetadataNamesSyncedWithLabels', () => {
         labelSingular: 'Event',
         labelPlural: 'Events',
       },
-      buildOptions: TWENTY_STANDARD_BUILD_OPTIONS,
+      buildOptions: BADES_STANDARD_BUILD_OPTIONS,
     });
 
     expect(result).toBe(true);

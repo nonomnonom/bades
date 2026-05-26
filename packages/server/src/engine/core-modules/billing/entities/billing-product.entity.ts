@@ -47,20 +47,18 @@ export class BillingProductEntity {
   @Column({ nullable: false, type: 'jsonb', default: [] })
   images: string[];
 
-  /** Fitur marketing dalam format string sederhana, bukan tipe Stripe. */
+  /** Fitur marketing dalam format string sederhana. */
   @Column({ nullable: false, type: 'jsonb', default: [] })
   marketingFeatures: string[];
 
   /**
    * Kode produk internal Bades, mis. `bades-product-base`.
-   * Menggantikan stripeProductId.
    */
   @Column({ nullable: false, unique: true })
   productCode: string;
 
   /**
    * Slug harga default untuk produk ini.
-   * Menggantikan defaultStripePriceId.
    */
   @Column({ nullable: true, type: 'text' })
   defaultPriceId: string | null;

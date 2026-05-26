@@ -5,8 +5,8 @@ import { Injectable } from '@nestjs/common';
 import { CoreApi, Snap } from 'midtrans-client';
 
 /**
- * Wrapper SDK Midtrans — menyediakan instance Snap dan CoreApi.
- * Analog dengan StripeSDKService di modul Stripe.
+ * Wrapper SDK Midtrans — menyediakan instance Snap dan CoreApi
+ * untuk billing Bades.
  */
 @Injectable()
 export class MidtransSDKService {

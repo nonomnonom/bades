@@ -8,8 +8,7 @@ export class BillingSessionDTO {
   url: string;
 
   /**
-   * ID pesanan Midtrans untuk transaksi ini. Diisi hanya saat pembayaran
-   * memakai Midtrans Snap; null untuk alur Stripe.
+   * ID pesanan Midtrans untuk transaksi ini.
    */
   @Field(() => String, { nullable: true })
   orderId?: string;

@@ -135,8 +135,8 @@ export class BillingSubscriptionService {
   }
 
   /**
-   * Membuat atau memperbarui subscription DB-only.
-   * Menggantikan syncSubscriptionToDatabase berbasis Stripe.
+   * Membuat atau memperbarui subscription DB-only untuk Midtrans
+   * sebagai payment rail tunggal Bades.
    */
   async createOrRenewSubscription(
     workspaceId: string,

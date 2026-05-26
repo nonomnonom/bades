@@ -8,9 +8,8 @@ import { BillingUsageType } from 'src/engine/core-modules/billing/enums/billing-
 /**
  * Katalog produk & harga billing Bades.
  *
- * Menggantikan sinkronisasi produk/harga dari Stripe. Semua harga dalam IDR
- * (Rupiah penuh, bukan sen) karena Midtrans memproses transaksi dalam IDR.
- * `productCode` dan `priceId` adalah slug internal Bades, bukan id Stripe.
+ * Semua harga dalam IDR (Rupiah penuh, bukan sen) karena Midtrans memproses
+ * transaksi dalam IDR. `productCode` dan `priceId` adalah slug internal Bades.
  */
 
 export type BadesBillingPriceCatalogEntry = {

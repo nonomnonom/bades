@@ -58,7 +58,6 @@ export class BillingSubscriptionItemEntity {
 
   /**
    * Kode produk internal Bades, mis. `bades-product-base`.
-   * Menggantikan stripeProductId.
    */
   @Column({ nullable: false })
   productCode: string;

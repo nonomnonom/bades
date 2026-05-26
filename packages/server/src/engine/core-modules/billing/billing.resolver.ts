@@ -86,8 +86,7 @@ export class BillingResolver {
     @AuthWorkspace() workspace: WorkspaceEntity,
     @Args() { returnUrlPath }: BillingSessionInput,
   ) {
-    // Midtrans tidak menyediakan portal pelanggan seperti Stripe.
-    // Kembalikan URL halaman billing internal Bades sebagai pengganti.
+    // Manajemen langganan dilakukan via halaman billing internal Bades.
     return {
       url: await this.billingPortalWorkspaceService.computeBillingPortalSessionURLOrThrow(
         workspace,

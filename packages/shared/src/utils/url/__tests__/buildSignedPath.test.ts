@@ -48,22 +48,22 @@ describe('buildSignedPath', () => {
   it('should ignore absolute https urls', () => {
     expect(
       buildSignedPath({
-        path: 'https://placehold.co/600x400/EEE/999?text=workspaces/twenty-logo.png',
+        path: 'https://placehold.co/600x400/EEE/999?text=workspaces/bades-logo.png',
         token: 'tokenValue',
       }),
     ).toBe(
-      'https://placehold.co/600x400/EEE/999?text=workspaces/twenty-logo.png',
+      'https://placehold.co/600x400/EEE/999?text=workspaces/bades-logo.png',
     );
   });
 
   it('should ignore absolute http urls', () => {
     expect(
       buildSignedPath({
-        path: 'http://placehold.co/600x400/EEE/999?text=workspaces/twenty-logo.png',
+        path: 'http://placehold.co/600x400/EEE/999?text=workspaces/bades-logo.png',
         token: 'tokenValue',
       }),
     ).toBe(
-      'http://placehold.co/600x400/EEE/999?text=workspaces/twenty-logo.png',
+      'http://placehold.co/600x400/EEE/999?text=workspaces/bades-logo.png',
     );
   });
 });

@@ -60,7 +60,6 @@ export class BillingSubscriptionEntity extends WorkspaceRelatedEntity {
 
   /**
    * Kode paket langganan Bades, mis. PRO atau ENTERPRISE.
-   * Menggantikan penghitungan runtim dari metadata Stripe.
    */
   @Field(() => BillingPlanKey, { nullable: true })
   @Column({

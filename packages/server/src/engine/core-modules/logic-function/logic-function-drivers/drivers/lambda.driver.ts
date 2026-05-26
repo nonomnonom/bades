@@ -326,7 +326,7 @@ export class LambdaDriver implements LogicFunctionDriver {
       .digest('hex')
       .slice(0, 12);
 
-    this.builderFunctionName = `twenty-builder-${checksum}`;
+    this.builderFunctionName = `bades-builder-${checksum}`;
 
     return this.builderFunctionName;
   }

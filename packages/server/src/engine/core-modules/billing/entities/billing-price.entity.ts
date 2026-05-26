@@ -22,8 +22,7 @@ import { BillingUsageType } from 'src/engine/core-modules/billing/enums/billing-
 import { BillingPriceMetadata } from 'src/engine/core-modules/billing/types/billing-price-metadata.type';
 
 /**
- * Tier harga bertingkat (untuk METERED pricing).
- * Menggunakan tipe lokal agar tidak bergantung pada tipe Stripe.
+ * Tier harga bertingkat (untuk METERED pricing) — tipe lokal Bades.
  */
 export type BillingPriceTierLocal = {
   up_to: number | null;
@@ -56,7 +55,6 @@ export class BillingPriceEntity {
 
   /**
    * Kode produk yang merujuk ke billingProduct.productCode.
-   * Menggantikan stripeProductId.
    */
   @Column({ nullable: false })
   productCode: string;
