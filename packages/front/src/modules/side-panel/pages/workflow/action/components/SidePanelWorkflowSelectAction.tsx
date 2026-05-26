@@ -56,9 +56,7 @@ export const SidePanelWorkflowSelectAction = ({
         onClick={handleActionClick}
       />
 
-      <SidePanelWorkflowSelectStepTitle>
-        t`AI`
-      </SidePanelWorkflowSelectStepTitle>
+      <SidePanelWorkflowSelectStepTitle>t`AI`</SidePanelWorkflowSelectStepTitle>
       <WorkflowActionMenuItems
         actions={AI_ACTIONS}
         onClick={handleActionClick}

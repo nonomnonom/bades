@@ -14,7 +14,9 @@ export const SeeActiveVersionWorkflowSingleRecordCommand = () => {
   });
 
   if (!isDefined(recordId)) {
-    throw new Error('ID Rekaman diperlukan untuk melihat versi aktif alur kerja');
+    throw new Error(
+      'ID Rekaman diperlukan untuk melihat versi aktif alur kerja',
+    );
   }
 
   if (loading) {

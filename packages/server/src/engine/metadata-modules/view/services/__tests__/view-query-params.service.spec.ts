@@ -105,7 +105,7 @@ describe('ViewQueryParamsService', () => {
           mockViewId,
           mockWorkspaceId,
         ),
-      ).rejects.toThrow(`View with id ${mockViewId} not found`);
+      ).rejects.toThrow(`Tampilan dengan id ${mockViewId} tidak ditemukan`);
     });
 
     it('should return query params for a view without filters or sorts', async () => {

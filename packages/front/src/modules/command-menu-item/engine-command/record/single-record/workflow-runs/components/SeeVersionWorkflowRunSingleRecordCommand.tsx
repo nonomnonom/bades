@@ -11,7 +11,9 @@ export const SeeVersionWorkflowRunSingleRecordCommand = () => {
     !isDefined(selectedRecord) ||
     !isDefined(selectedRecord?.workflowVersion?.id)
   ) {
-    throw new Error('Rekaman terpilih diperlukan untuk melihat versi jalankan alur kerja');
+    throw new Error(
+      'Rekaman terpilih diperlukan untuk melihat versi jalankan alur kerja',
+    );
   }
 
   return (

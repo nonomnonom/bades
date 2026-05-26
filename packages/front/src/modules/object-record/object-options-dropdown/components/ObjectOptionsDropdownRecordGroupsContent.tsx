@@ -95,7 +95,9 @@ export const ObjectOptionsDropdownRecordGroupsContent = () => {
   );
 
   const selectableItemIdArray = [
-    ...(currentView?.key !== 'INDEX' ? ['Kelompokkan berdasarkan', 'Urutkan'] : []),
+    ...(currentView?.key !== 'INDEX'
+      ? ['Kelompokkan berdasarkan', 'Urutkan']
+      : []),
     'Sembunyikan kelompok kosong',
   ];
 

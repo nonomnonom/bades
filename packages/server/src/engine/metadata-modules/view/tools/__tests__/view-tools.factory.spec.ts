@@ -562,7 +562,9 @@ describe('ViewToolsFactory', () => {
             id: mockViewId,
             name: 'Updated Name',
           }),
-        ).rejects.toThrow('You can only update your own unlisted views');
+        ).rejects.toThrow(
+          'Anda hanya dapat mengubah tampilan Anda sendiri yang tidak terdaftar',
+        );
       });
 
       it('should throw error when view not found', async () => {
@@ -575,7 +577,7 @@ describe('ViewToolsFactory', () => {
             id: 'non-existent-id',
             name: 'Updated Name',
           }),
-        ).rejects.toThrow('View with id non-existent-id not found');
+        ).rejects.toThrow('Tampilan dengan id non-existent-id tidak ditemukan');
       });
     });
 
@@ -631,7 +633,9 @@ describe('ViewToolsFactory', () => {
           callExecute(tools['delete_view'], {
             id: mockViewId,
           }),
-        ).rejects.toThrow('You can only delete your own unlisted views');
+        ).rejects.toThrow(
+          'Anda hanya dapat menghapus tampilan Anda sendiri yang tidak terdaftar',
+        );
       });
     });
   });

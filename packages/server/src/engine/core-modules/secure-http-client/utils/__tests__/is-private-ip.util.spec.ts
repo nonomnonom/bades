@@ -231,7 +231,7 @@ describe('isPrivateIp', () => {
     });
 
     it('should throw on invalid IP', () => {
-      expect(() => isPrivateIp('invalid')).toThrow('invalid ipv4 address');
+      expect(() => isPrivateIp('invalid')).toThrow('alamat ipv4 tidak valid');
     });
 
     it('should handle hex-encoded private IPs', () => {
