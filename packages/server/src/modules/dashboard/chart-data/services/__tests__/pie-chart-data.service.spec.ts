@@ -48,8 +48,8 @@ describe('PieChartDataService', () => {
 
   const mockObjectMetadata = {
     id: objectMetadataId,
-    nameSingular: 'company',
-    namePlural: 'companies',
+    nameSingular: 'keluarga',
+    namePlural: 'keluargas',
   };
 
   beforeEach(async () => {

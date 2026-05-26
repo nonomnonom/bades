@@ -12,7 +12,7 @@ describe('Generate Column Definitions', () => {
   const mockObjectMetadata = getFlatObjectMetadataMock({
     universalIdentifier: 'person',
     id: mockObjectId,
-    nameSingular: 'person',
+    nameSingular: 'penduduk',
     namePlural: 'persons',
   });
 

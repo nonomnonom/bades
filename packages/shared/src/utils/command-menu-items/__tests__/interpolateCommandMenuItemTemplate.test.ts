@@ -151,7 +151,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
       const context = buildContext({
         objectMetadataItem: {
           labelSingular: 'opportunity',
-          nameSingular: 'opportunity',
+          nameSingular: 'programBantuan',
         },
       });
 
@@ -235,7 +235,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should pass through string values as-is without forced lowercasing', () => {
       const context = buildContext({
-        objectMetadataItem: { labelSingular: 'Person' },
+        objectMetadataItem: { labelSingular: 'Penduduk' },
       });
 
       expect(
@@ -291,7 +291,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
   describe('lowercase transform', () => {
     it('should lowercase the resolved value', () => {
       const context = buildContext({
-        objectMetadataItem: { labelSingular: 'Person' },
+        objectMetadataItem: { labelSingular: 'Penduduk' },
       });
 
       expect(
@@ -304,7 +304,7 @@ describe('interpolateCommandMenuItemTemplate', () => {
 
     it('should lowercase all characters', () => {
       const context = buildContext({
-        objectMetadataItem: { labelPlural: 'People' },
+        objectMetadataItem: { labelPlural: 'Penduduk' },
       });
 
       expect(

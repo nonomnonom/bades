@@ -19,10 +19,10 @@ const customObjectImageFieldId = 'imageIdentifierFieldMetadataId';
 
 const personFlatObject = getFlatObjectMetadataMock({
   id: '20202020-8dec-43d5-b2ff-6eef05095bec',
-  nameSingular: 'person',
-  namePlural: 'people',
-  labelSingular: 'Person',
-  labelPlural: 'People',
+  nameSingular: 'penduduk',
+  namePlural: 'penduduks',
+  labelSingular: 'Penduduk',
+  labelPlural: 'Penduduk',
   description: 'A person',
   icon: 'test-person-icon',
   targetTableName: 'DEPRECATED',
@@ -43,10 +43,10 @@ const personFlatObject = getFlatObjectMetadataMock({
 
 const companyFlatObject = getFlatObjectMetadataMock({
   id: '20202020-c03c-45d6-a4b0-04afe1357c5c',
-  nameSingular: 'company',
-  namePlural: 'companies',
-  labelSingular: 'Company',
-  labelPlural: 'Companies',
+  nameSingular: 'keluarga',
+  namePlural: 'keluargas',
+  labelSingular: 'Keluarga',
+  labelPlural: 'Keluarga',
   description: 'A company',
   icon: 'test-company-icon',
   targetTableName: 'DEPRECATED',

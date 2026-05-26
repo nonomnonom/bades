@@ -225,7 +225,7 @@ export class DevSeederPermissionsService {
     const personObjectMetadata =
       await this.objectMetadataRepository.findOneOrFail({
         where: {
-          nameSingular: 'person',
+          nameSingular: 'penduduk',
           workspaceId,
         },
         relations: {
@@ -236,7 +236,7 @@ export class DevSeederPermissionsService {
     const companyObjectMetadata =
       await this.objectMetadataRepository.findOneOrFail({
         where: {
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           workspaceId,
         },
         relations: {

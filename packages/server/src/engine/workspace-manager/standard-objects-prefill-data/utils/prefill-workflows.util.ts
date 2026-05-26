@@ -275,7 +275,7 @@ export const prefillWorkflows = async (
                   value: 'Sebuah lembaga',
                   isLeaf: true,
                   fieldIdName: 'id',
-                  nameSingular: 'company',
+                  nameSingular: 'keluarga',
                 },
                 _outputSchemaType: 'RECORD',
                 fields: generateObjectRecordFields({

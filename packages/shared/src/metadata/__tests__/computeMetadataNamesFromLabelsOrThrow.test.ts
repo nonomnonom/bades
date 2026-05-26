@@ -4,12 +4,12 @@ describe('computeMetadataNamesFromLabelsOrThrow', () => {
   it('should compute different names from different labels', () => {
     expect(
       computeMetadataNamesFromLabelsOrThrow({
-        labelSingular: 'Company',
-        labelPlural: 'Companies',
+        labelSingular: 'Keluarga',
+        labelPlural: 'Keluarga',
       }),
     ).toEqual({
-      nameSingular: 'company',
-      namePlural: 'companies',
+      nameSingular: 'keluarga',
+      namePlural: 'keluargas',
     });
   });
 
@@ -40,12 +40,12 @@ describe('computeMetadataNamesFromLabelsOrThrow', () => {
   it('should not append "s" when labels produce different names', () => {
     expect(
       computeMetadataNamesFromLabelsOrThrow({
-        labelSingular: 'Person',
-        labelPlural: 'People',
+        labelSingular: 'Penduduk',
+        labelPlural: 'Penduduk',
       }),
     ).toEqual({
-      nameSingular: 'person',
-      namePlural: 'people',
+      nameSingular: 'penduduk',
+      namePlural: 'penduduks',
     });
   });
 

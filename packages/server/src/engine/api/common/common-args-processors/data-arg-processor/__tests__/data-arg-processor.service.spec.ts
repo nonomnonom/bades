@@ -172,8 +172,8 @@ describe('DataArgProcessorService', () => {
       byUniversalIdentifier: {
         'target-company-universal-id': {
           id: 'target-company-object-id',
-          nameSingular: 'company',
-          namePlural: 'companies',
+          nameSingular: 'keluarga',
+          namePlural: 'keluargas',
           isCustom: false,
           fieldIds: ['emails-id', 'domainName-id'],
           universalIdentifier: 'target-company-universal-id',

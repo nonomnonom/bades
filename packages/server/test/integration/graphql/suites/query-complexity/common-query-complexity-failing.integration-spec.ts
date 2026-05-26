@@ -24,7 +24,7 @@ describe('Query Complexity - Failing Scenarios', () => {
 
   it('should fail findMany query with two nested one to many relations', async () => {
     const findManyPeopleOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
+      objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'people',
       gqlFields: TWO_NESTED_ONE_TO_MANY_QUERY_GQL_FIELDS,
       first: 200,
@@ -38,7 +38,7 @@ describe('Query Complexity - Failing Scenarios', () => {
 
   it('should fail findMany query with too many relation fields', async () => {
     const findManyPeopleOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
+      objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'people',
       gqlFields: TOO_MANY_RELATION_QUERY_GQL_FIELDS,
     });
@@ -51,7 +51,7 @@ describe('Query Complexity - Failing Scenarios', () => {
 
   it('should fail groupBy query with too many relation fields', async () => {
     const groupByOperation = groupByOperationFactory({
-      objectMetadataSingularName: 'person',
+      objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'people',
       groupBy: [{ city: true }],
       gqlFields: `edges { node { id company { id } } }`,

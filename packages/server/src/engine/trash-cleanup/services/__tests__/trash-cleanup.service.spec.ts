@@ -112,12 +112,12 @@ describe('TrashCleanupService', () => {
       setObjectMetadataCache([
         {
           id: 'obj-company',
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           universalIdentifier: 'uni-company',
         },
         {
           id: 'obj-person',
-          nameSingular: 'person',
+          nameSingular: 'penduduk',
           universalIdentifier: 'uni-person',
         },
       ]);
@@ -166,12 +166,12 @@ describe('TrashCleanupService', () => {
       setObjectMetadataCache([
         {
           id: 'obj-company',
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           universalIdentifier: 'uni-company',
         },
         {
           id: 'obj-person',
-          nameSingular: 'person',
+          nameSingular: 'penduduk',
           universalIdentifier: 'uni-person',
         },
       ]);
@@ -203,7 +203,7 @@ describe('TrashCleanupService', () => {
       setObjectMetadataCache([
         {
           id: 'obj-company',
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           universalIdentifier: 'uni-company',
         },
       ]);
@@ -227,7 +227,7 @@ describe('TrashCleanupService', () => {
       setObjectMetadataCache([
         {
           id: 'obj-company',
-          nameSingular: 'company',
+          nameSingular: 'keluarga',
           universalIdentifier: 'uni-company',
         },
       ]);

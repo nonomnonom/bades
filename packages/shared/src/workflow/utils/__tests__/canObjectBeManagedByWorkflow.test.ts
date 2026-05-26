@@ -4,7 +4,7 @@ describe('canObjectBeManagedByWorkflow', () => {
   it('should return true for non-system, non-excluded objects', () => {
     expect(
       canObjectBeManagedByWorkflow({
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         isSystem: false,
       }),
     ).toBe(true);
@@ -13,7 +13,7 @@ describe('canObjectBeManagedByWorkflow', () => {
   it('should return false for system objects', () => {
     expect(
       canObjectBeManagedByWorkflow({
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         isSystem: true,
       }),
     ).toBe(false);

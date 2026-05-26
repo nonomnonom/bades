@@ -80,10 +80,10 @@ describe('buildColumnsToSelect', () => {
     ({
       id: personObjectId,
       standardId: '20202020-e674-48e5-a542-72570eee7213',
-      nameSingular: 'person',
-      namePlural: 'people',
-      labelSingular: 'Person',
-      labelPlural: 'People',
+      nameSingular: 'penduduk',
+      namePlural: 'penduduks',
+      labelSingular: 'Penduduk',
+      labelPlural: 'Penduduk',
       description: 'A person',
       icon: 'IconUser',
       targetTableName: 'DEPRECATED',
@@ -160,8 +160,8 @@ describe('buildColumnsToSelect', () => {
 
   const companyObjectMetadata: FlatObjectMetadata = {
     id: companyObjectId,
-    nameSingular: 'company',
-    namePlural: 'companies',
+    nameSingular: 'keluarga',
+    namePlural: 'keluargas',
     fieldIds: [],
     indexMetadataIds: [],
     viewIds: [],

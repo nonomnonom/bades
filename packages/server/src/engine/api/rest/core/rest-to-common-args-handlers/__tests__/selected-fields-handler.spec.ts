@@ -144,7 +144,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-1', 'field-2'],
       });
 
@@ -197,12 +197,12 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-1', 'field-2'],
       });
       const companyObject = createMockObjectMetadata({
         id: 'company-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         fieldIds: ['field-3'],
       });
 
@@ -262,12 +262,12 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-1'],
       });
       const companyObject = createMockObjectMetadata({
         id: 'company-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         fieldIds: ['field-2', 'field-3'],
       });
 
@@ -326,12 +326,12 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-1'],
       });
       const companyObject = createMockObjectMetadata({
         id: 'company-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         fieldIds: ['field-2'],
       });
 
@@ -403,12 +403,12 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-1', 'field-4'],
       });
       const companyObject = createMockObjectMetadata({
         id: 'company-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         fieldIds: ['field-2', 'field-3'],
       });
 
@@ -469,7 +469,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-id', 'field-1', 'field-2'],
         labelIdentifierFieldMetadataId: 'field-1',
       });
@@ -546,7 +546,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
       const companyObject = createMockObjectMetadata({
         id: 'company-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         fieldIds: ['field-4'],
       });
 
@@ -635,7 +635,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
 
       const companyObject = createMockObjectMetadata({
         id: 'company-id',
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         fieldIds: ['field-3', 'field-4'],
       });
       const junctionObject = createMockObjectMetadata({
@@ -645,7 +645,7 @@ describe('RestToCommonSelectedFieldsHandler', () => {
       });
       const personObject = createMockObjectMetadata({
         id: 'person-id',
-        nameSingular: 'person',
+        nameSingular: 'penduduk',
         fieldIds: ['field-5'],
       });
 

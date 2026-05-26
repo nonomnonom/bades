@@ -345,7 +345,7 @@ describe('getAllSelectableFields', () => {
           'field-2',
           'field-3',
         ]),
-        nameSingular: 'company',
+        nameSingular: 'keluarga',
         labelIdentifierFieldMetadataId: 'field-1',
       };
 

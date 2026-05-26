@@ -44,7 +44,7 @@ export const App: Story = {
   args: {
     type: 'app',
     avatarUrl: '',
-    placeholder: 'Acme',
+    placeholder: 'Sukamaju',
     placeholderColorSeed: 'acme-app',
   },
 };

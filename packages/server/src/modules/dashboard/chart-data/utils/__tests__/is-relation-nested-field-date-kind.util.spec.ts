@@ -49,8 +49,8 @@ describe('isRelationNestedFieldDateKind', () => {
 
   const companyObject = createMockObjectMetadata({
     id: companyObjectId,
-    nameSingular: 'company',
-    namePlural: 'companies',
+    nameSingular: 'keluarga',
+    namePlural: 'keluargas',
     fieldIds: [createdAtFieldId, nameFieldId],
   });
 
@@ -183,8 +183,8 @@ describe('isRelationNestedFieldDateKind', () => {
 
     const objectWithDateField = createMockObjectMetadata({
       id: 'object-with-date-id',
-      nameSingular: 'person',
-      namePlural: 'people',
+      nameSingular: 'penduduk',
+      namePlural: 'penduduks',
       fieldIds: [dateFieldId],
     });
 

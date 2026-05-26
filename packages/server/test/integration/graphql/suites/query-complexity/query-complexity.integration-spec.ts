@@ -9,7 +9,7 @@ describe('Query Complexity', () => {
     const gqlFields = generateGqlFields(100);
 
     const findManyPeopleOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
+      objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'people',
       gqlFields: gqlFields,
     });
@@ -25,7 +25,7 @@ describe('Query Complexity', () => {
     const gqlFields = generateGqlFields(2001);
 
     const findManyPeopleOperation = findManyOperationFactory({
-      objectMetadataSingularName: 'person',
+      objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'people',
       gqlFields: gqlFields,
     });

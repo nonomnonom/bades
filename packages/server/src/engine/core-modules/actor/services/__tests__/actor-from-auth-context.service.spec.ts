@@ -32,7 +32,7 @@ describe('ActorFromAuthContextService', () => {
                 byUniversalIdentifier: {
                   'person-universal-id': {
                     id: 'person-id',
-                    nameSingular: 'person',
+                    nameSingular: 'penduduk',
                     fieldIds: ['createdBy-id'],
                     universalIdentifier: 'person-universal-id',
                   },

@@ -35,7 +35,7 @@ const createMockWorkspaceEventBatch = (
   workspaceId: 'workspace-1',
   objectMetadata: getFlatObjectMetadataMock({
     universalIdentifier: 'company-uuid',
-    nameSingular: 'company',
+    nameSingular: 'keluarga',
   }),
   events: [createMockEvent()],
   ...overrides,

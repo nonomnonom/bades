@@ -41,7 +41,7 @@ describe('RecordPositionService', () => {
   });
 
   describe('buildRecordPosition', () => {
-    const objectMetadata = { isCustom: false, nameSingular: 'company' };
+    const objectMetadata = { isCustom: false, nameSingular: 'keluarga' };
     const workspaceId = 'workspaceId';
 
     it('should return the value when value is a number', async () => {

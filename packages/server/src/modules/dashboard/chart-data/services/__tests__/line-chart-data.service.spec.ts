@@ -50,8 +50,8 @@ describe('LineChartDataService', () => {
 
   const mockObjectMetadata = {
     id: objectMetadataId,
-    nameSingular: 'opportunity',
-    namePlural: 'opportunities',
+    nameSingular: 'programBantuan',
+    namePlural: 'programBantuans',
   };
 
   beforeEach(async () => {

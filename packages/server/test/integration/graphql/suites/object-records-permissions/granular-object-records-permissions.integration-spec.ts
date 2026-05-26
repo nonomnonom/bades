@@ -80,7 +80,7 @@ describe('granularObjectRecordsPermissions', () => {
 
       // Act
       const graphqlOperation = findOneOperationFactory({
-        objectMetadataSingularName: 'person',
+        objectMetadataSingularName: 'penduduk',
         gqlFields: `
           id
           city
@@ -90,7 +90,7 @@ describe('granularObjectRecordsPermissions', () => {
       });
 
       const companyGraphqlOperation = findOneOperationFactory({
-        objectMetadataSingularName: 'company',
+        objectMetadataSingularName: 'keluarga',
         gqlFields: `
                   id
                   name
@@ -135,7 +135,7 @@ describe('granularObjectRecordsPermissions', () => {
 
       // Act
       const graphqlOperation = findOneOperationFactory({
-        objectMetadataSingularName: 'person',
+        objectMetadataSingularName: 'penduduk',
         gqlFields: `
           id
           city
@@ -145,7 +145,7 @@ describe('granularObjectRecordsPermissions', () => {
       });
 
       const companyGraphqlOperation = findOneOperationFactory({
-        objectMetadataSingularName: 'company',
+        objectMetadataSingularName: 'keluarga',
         gqlFields: `
                   id
                   name

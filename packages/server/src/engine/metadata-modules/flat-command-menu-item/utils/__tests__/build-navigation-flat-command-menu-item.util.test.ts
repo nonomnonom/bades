@@ -16,7 +16,7 @@ const NAVIGATION_COMMAND_UUID_NAMESPACE =
 const baseObjectMetadata = {
   id: 'obj-id-1',
   universalIdentifier: 'obj-universal-1',
-  nameSingular: 'person',
+  nameSingular: 'penduduk',
   shortcut: 'P',
 };
 

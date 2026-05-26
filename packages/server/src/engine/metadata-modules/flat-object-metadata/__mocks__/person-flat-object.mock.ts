@@ -2,10 +2,10 @@ import { getFlatObjectMetadataMock } from 'src/engine/metadata-modules/flat-obje
 
 export const PERSON_FLAT_OBJECT_MOCK = getFlatObjectMetadataMock({
   id: '843e0b67-9619-4628-91c4-2fa62256a611',
-  nameSingular: 'person',
-  namePlural: 'people',
-  labelSingular: 'Person',
-  labelPlural: 'People',
+  nameSingular: 'penduduk',
+  namePlural: 'penduduks',
+  labelSingular: 'Penduduk',
+  labelPlural: 'Penduduk',
   description: 'A person',
   icon: 'IconUser',
   standardOverrides: null,

@@ -250,14 +250,14 @@ describe('computeRelationConnectQueryConfigs', () => {
 
   const personMetadata = createFlatObjectMetadata({
     id: 'person-object-metadata-id',
-    nameSingular: 'person',
+    nameSingular: 'penduduk',
     indexMetadataIds: [],
     fieldIds: personFields.map((f) => f.id),
   });
 
   const companyMetadata = createFlatObjectMetadata({
     id: 'company-object-metadata-id',
-    nameSingular: 'company',
+    nameSingular: 'keluarga',
     indexMetadataIds: [
       'company-id-index-metadata-id',
       'company-domain-index-metadata-id',

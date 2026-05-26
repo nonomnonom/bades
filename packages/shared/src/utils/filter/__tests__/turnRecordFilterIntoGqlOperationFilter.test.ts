@@ -930,7 +930,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
       const result = turnRecordFilterIntoRecordGqlOperationFilter({
         filterValueDependencies,
         recordFilter: {
-          ...makeFilter('f-relation', RecordFilterOperand.CONTAINS, 'Acme'),
+          ...makeFilter('f-relation', RecordFilterOperand.CONTAINS, 'Sukamaju'),
           relationTargetFieldMetadataId: 'f-text',
         } as RecordFilter,
         fieldMetadataItemById,
@@ -947,7 +947,7 @@ describe('turnRecordFilterIntoRecordGqlOperationFilter', () => {
       const result = turnRecordFilterIntoRecordGqlOperationFilter({
         filterValueDependencies,
         recordFilter: {
-          ...makeFilter('f-relation', RecordFilterOperand.CONTAINS, 'Acme'),
+          ...makeFilter('f-relation', RecordFilterOperand.CONTAINS, 'Sukamaju'),
           relationTargetFieldMetadataId: 'nonexistent-target',
         } as RecordFilter,
         fieldMetadataItemById,
