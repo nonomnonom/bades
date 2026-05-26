@@ -9,18 +9,18 @@ import {
   UploadFilesFieldFileDocument,
 } from '~/generated-metadata/graphql';
 
-export const usePersonAvatarUpload = (personRecordId: string) => {
+export const usePendudukAvatarUpload = (pendudukRecordId: string) => {
   const apolloClient = useApolloClient();
   const [uploadFilesFieldFile] = useMutation(UploadFilesFieldFileDocument, {
     client: apolloClient,
   });
   const { updateOneRecord } = useUpdateOneRecord();
 
-  const { objectMetadataItem: personMetadata } = useObjectMetadataItem({
+  const { objectMetadataItem: pendudukMetadata } = useObjectMetadataItem({
     objectNameSingular: CoreObjectNameSingular.Person,
   });
 
-  const avatarFileFieldMetadataId = personMetadata.fields.find(
+  const avatarFileFieldMetadataId = pendudukMetadata.fields.find(
     (field) =>
       field.type === FieldMetadataType.FILES && field.name === 'avatarFile',
   )?.id;
@@ -28,7 +28,7 @@ export const usePersonAvatarUpload = (personRecordId: string) => {
   const onUploadPicture = async (file: File) => {
     assertIsDefinedOrThrow(
       avatarFileFieldMetadataId,
-      new Error(t`Kolom berkas avatar tidak ditemukan untuk objek orang`),
+      new Error(t`Kolom berkas avatar tidak ditemukan untuk objek penduduk`),
     );
 
     const result = await uploadFilesFieldFile({
@@ -43,7 +43,7 @@ export const usePersonAvatarUpload = (personRecordId: string) => {
 
     await updateOneRecord({
       objectNameSingular: CoreObjectNameSingular.Person,
-      idToUpdate: personRecordId,
+      idToUpdate: pendudukRecordId,
       updateOneRecordInput: {
         avatarFile: [
           {

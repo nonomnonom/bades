@@ -4,7 +4,7 @@ import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadata
 import { CoreObjectNameSingular } from 'shared/types';
 import { useIsRecordFieldReadOnly } from '@/object-record/read-only/hooks/useIsRecordFieldReadOnly';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
-import { usePersonAvatarUpload } from '@/object-record/record-show/hooks/usePersonAvatarUpload';
+import { usePendudukAvatarUpload } from '@/object-record/record-show/hooks/usePendudukAvatarUpload';
 import { useRecordShowContainerActions } from '@/object-record/record-show/hooks/useRecordShowContainerActions';
 import { useRecordShowContainerData } from '@/object-record/record-show/hooks/useRecordShowContainerData';
 import { recordStoreFamilySelector } from '@/object-record/record-store/states/selectors/recordStoreFamilySelector';
@@ -49,7 +49,7 @@ export const SummaryCard = ({
     objectNameSingular,
   });
 
-  const { onUploadPicture } = usePersonAvatarUpload(objectRecordId);
+  const { onUploadPicture } = usePendudukAvatarUpload(objectRecordId);
 
   const isMobile = useIsMobile() || isInSidePanel;
 
