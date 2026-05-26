@@ -399,7 +399,7 @@ export const computeApplicationManifestAllUniversalFlatEntityMaps = ({
   for (const pageLayoutTabManifest of manifest.pageLayoutTabs ?? []) {
     if (!isDefined(pageLayoutTabManifest.pageLayoutUniversalIdentifier)) {
       throw new Error(
-        `Top-level pageLayoutTab "${pageLayoutTabManifest.universalIdentifier}" is missing required pageLayoutUniversalIdentifier`,
+        `pageLayoutTab level atas "${pageLayoutTabManifest.universalIdentifier}" lacks pageLayoutUniversalIdentifier yang diperlukan`,
       );
     }
 
@@ -458,7 +458,7 @@ export const computeApplicationManifestAllUniversalFlatEntityMaps = ({
   for (const commandMenuItemManifest of manifest.commandMenuItems ?? []) {
     if (!isDefined(commandMenuItemManifest.frontComponentUniversalIdentifier)) {
       throw new Error(
-        `Top-level commandMenuItem "${commandMenuItemManifest.universalIdentifier}" is missing required frontComponentUniversalIdentifier`,
+        `commandMenuItem level atas "${commandMenuItemManifest.universalIdentifier}" lacks frontComponentUniversalIdentifier yang diperlukan`,
       );
     }
 

@@ -1,5 +1,7 @@
 import { isNonEmptyString } from '@sniptt/guards';
 
+import { t } from '~/utils/i18n/badesI18n';
+
 import { CaptchaDriverType } from '~/generated-metadata/graphql';
 
 export const getCaptchaUrlByProvider = (
@@ -17,6 +19,6 @@ export const getCaptchaUrlByProvider = (
     case CaptchaDriverType.TURNSTILE:
       return 'https://challenges.cloudflare.com/turnstile/v0/api.js';
     default:
-      throw new Error('Unknown captcha provider');
+      throw new Error(t`Penyedia captcha tidak dikenal`);
   }
 };

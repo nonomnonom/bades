@@ -66,7 +66,7 @@ const seedChatThreads = async ({
     userWorkspaceId = USER_WORKSPACE_DATA_SEED_IDS.KADES_ACME;
   } else {
     throw new Error(
-      `Unsupported workspace ID for agent chat thread seeding: ${workspaceId}`,
+      `ID workspace tidak didukung untuk seed thread chat agent: ${workspaceId}`,
     );
   }
 
@@ -322,7 +322,7 @@ const seedChatMessages = async ({
     ];
   } else {
     throw new Error(
-      `Unsupported workspace ID for agent chat message seeding: ${workspaceId}`,
+      `ID workspace tidak didukung untuk seed pesan chat agent: ${workspaceId}`,
     );
   }
 

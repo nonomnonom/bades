@@ -17,7 +17,7 @@ export const isMatchingBooleanFilter = ({
     }
   } else {
     throw new Error(
-      `Unexpected value for string filter : ${JSON.stringify(booleanFilter)}`,
+      `Nilai tidak valid untuk filter boolean: ${JSON.stringify(booleanFilter)}`,
     );
   }
 };

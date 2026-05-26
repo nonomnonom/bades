@@ -21,7 +21,7 @@ export class MicrosoftEmailAliasManagerService {
       .api('/me?$select=proxyAddresses')
       .get()
       .catch((error) => {
-        throw new Error(`Failed to fetch email aliases: ${error.message}`);
+        throw new Error(`Gagal mengambil alias email: ${error.message}`);
       });
 
     const proxyAddresses = response.proxyAddresses;

@@ -43,13 +43,13 @@ export class MessagingMessageOutboundService {
         // the user's own Gmail/Outlook/IMAP account to avoid masking the
         // sender.
         throw new Error(
-          'Email group channels are inbound-only; reply using your personal account.',
+          'Channel email group hanya untuk menerima pesan; balas menggunakan akun pribadi Anda.',
         );
       case ConnectedAccountProvider.OIDC:
       case ConnectedAccountProvider.SAML:
       case ConnectedAccountProvider.APP:
         throw new Error(
-          `Provider ${connectedAccount.provider} does not support sending messages`,
+          `Provider ${connectedAccount.provider} tidak mendukung pengiriman pesan`,
         );
       default:
         assertUnreachable(
@@ -84,7 +84,7 @@ export class MessagingMessageOutboundService {
       case ConnectedAccountProvider.SAML:
       case ConnectedAccountProvider.APP:
         throw new Error(
-          `Provider ${connectedAccount.provider} does not support creating drafts`,
+          `Provider ${connectedAccount.provider} tidak mendukung membuat draft`,
         );
       default:
         assertUnreachable(

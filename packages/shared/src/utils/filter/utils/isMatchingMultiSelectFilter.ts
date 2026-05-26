@@ -26,7 +26,7 @@ export const isMatchingMultiSelectFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for multi-select filter: ${JSON.stringify(
+        `Nilai tidak valid untuk filter multi-pilihan: ${JSON.stringify(
           multiSelectFilter,
         )}`,
       );

@@ -28,7 +28,7 @@ export class AuthSsoService {
       return 'isPasswordAuthEnabled';
     }
 
-    throw new Error(`${authProvider} is not a valid auth provider.`);
+    throw new Error(`${authProvider} bukan provider auth yang valid.`);
   }
 
   async findWorkspaceFromWorkspaceIdOrAuthProvider(

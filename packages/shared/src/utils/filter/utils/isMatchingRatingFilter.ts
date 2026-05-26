@@ -23,7 +23,7 @@ export const isMatchingRatingFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for rating filter : ${JSON.stringify(ratingFilter)}`,
+        `Nilai tidak valid untuk filter rating: ${JSON.stringify(ratingFilter)}`,
       );
     }
   }

@@ -38,7 +38,7 @@ export function makeTrackEvent<T extends TrackEventName>(
   const schema = eventsRegistry.get(event);
 
   if (!schema) {
-    throw new Error(`Schema for event ${event} is not implemented`);
+    throw new Error(`Schema untuk event ${event} belum diimplementasi`);
   }
 
   return schema.parse({

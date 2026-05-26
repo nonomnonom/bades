@@ -69,7 +69,7 @@ export class MessageQueueCoreModule extends ConfigurableModuleClass {
 
           return this.createDriver(config);
         }
-        throw new Error('useFactory is not defined');
+        throw new Error('useFactory tidak terdefinisi');
       },
       inject: options.inject || [],
     };

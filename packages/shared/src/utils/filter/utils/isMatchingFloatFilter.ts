@@ -38,7 +38,7 @@ export const isMatchingFloatFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for float filter : ${JSON.stringify(floatFilter)}`,
+        `Nilai tidak valid untuk filter angka: ${JSON.stringify(floatFilter)}`,
       );
     }
   }

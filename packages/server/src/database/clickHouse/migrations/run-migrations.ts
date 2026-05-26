@@ -20,7 +20,7 @@ const clickHouseUrl = () => {
   if (url) return url;
 
   throw new Error(
-    'CLICKHOUSE_URL environment variable is not set. Please set it to the ClickHouse URL.',
+    'Variabel environment CLICKHOUSE_URL belum diatur. Harap isi dengan URL ClickHouse.',
   );
 };
 

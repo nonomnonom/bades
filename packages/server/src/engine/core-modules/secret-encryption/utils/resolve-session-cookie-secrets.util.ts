@@ -27,7 +27,7 @@ export const resolveSessionCookieSecretsOrThrow = ({
 
   if (!isNonEmptyString(rawPrimary)) {
     throw new Error(
-      'Cannot derive session cookie secret: set ENCRYPTION_KEY (or APP_SECRET for legacy deployments).',
+      'Tidak dapat menurunkan secret cookie session: set ENCRYPTION_KEY (atau APP_SECRET untuk deployment legacy).',
     );
   }
 

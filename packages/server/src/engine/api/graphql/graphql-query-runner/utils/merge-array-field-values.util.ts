@@ -14,7 +14,7 @@ export const mergeArrayFieldValues = <T>(
 
     if (!Array.isArray(record.value)) {
       throw new Error(
-        `Expected array value but received ${typeof record.value}`,
+        `Nilai array diharapkan tetapi menerima ${typeof record.value}`,
       );
     }
 

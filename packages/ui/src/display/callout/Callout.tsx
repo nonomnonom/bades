@@ -166,7 +166,7 @@ export const Callout = ({
           <LightIconButton
             Icon={IconX}
             size="small"
-            aria-label="Close"
+            aria-label="Tutup"
             onClick={handleClose}
           />
         )}

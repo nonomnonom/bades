@@ -39,7 +39,7 @@ export const getImageBufferFromUrl = async (
     });
 
     if (!response.data) {
-      throw new Error('Received empty response from image URL');
+      throw new Error('Respons kosong diterima dari URL gambar');
     }
 
     const bufferLength = Buffer.isBuffer(response.data)
@@ -47,14 +47,14 @@ export const getImageBufferFromUrl = async (
       : response.data.byteLength;
 
     if (bufferLength === 0) {
-      throw new Error('Received empty response from image URL');
+      throw new Error('Respons kosong diterima dari URL gambar');
     }
 
     const contentType = response.headers['content-type'];
 
     if (contentType && !contentType.startsWith('image/')) {
       throw new Error(
-        `Invalid content type: expected image/*, got ${contentType}`,
+        `Tipe konten tidak valid: diharapkan gambar/*, erhalten ${contentType}`,
       );
     }
 
@@ -62,6 +62,6 @@ export const getImageBufferFromUrl = async (
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
 
-    throw new Error(`Failed to fetch image from ${url}: ${message}`);
+    throw new Error(`Gagal mengambil gambar dari ${url}: ${message}`);
   }
 };

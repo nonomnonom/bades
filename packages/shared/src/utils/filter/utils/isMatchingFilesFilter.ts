@@ -29,7 +29,7 @@ export const isMatchingFilesFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for files filter : ${JSON.stringify(filesFilter)}`,
+        `Nilai tidak valid untuk filter berkas: ${JSON.stringify(filesFilter)}`,
       );
     }
   }

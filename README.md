@@ -37,19 +37,26 @@ infrastruktur yang perlu Anda kelola sendiri.
 
 Bades.id menyatukan tugas administrasi desa ke dalam beberapa domain utama:
 
-- **Demografi & Wilayah** - data Penduduk, Keluarga/KK, Rumah Tangga, dan
-  pembagian wilayah RT/RW/Dusun.
-- **Pemerintahan Desa** - jabatan, periode jabatan, dan lembaga desa.
-- **Pelayanan Surat** - jenis surat, permohonan layanan warga, serta surat
-  masuk dan surat keluar.
-- **Keuangan Desa** - APBDes, bidang anggaran, kegiatan, realisasi, dan sumber
-  dana.
-- **Program Sosial & Bantuan** - program bantuan, penerima bantuan, dan
-  posyandu.
-- **Aset & Ekonomi Desa** - aset desa, bidang tanah, UMKM, dan kegiatan desa.
+Workspace standar Bades datang dengan **9 object inti SID** sesuai format
+dokumen resmi (Permendagri 109/2019, 12/2007, 47/2016, 67/2017, 1/2016 dan
+UU 6/2014) plus dua object generik bawaan (Catatan, Tugas) yang bisa
+ditempel ke mana saja:
+
+- **Penduduk** - data warga lengkap mengikuti KTP-el.
+- **Keluarga** - data per Kartu Keluarga.
+- **Wilayah** - hierarki Dusun, RW, dan RT desa.
+- **Layanan** - alur permohonan surat dan layanan dari warga.
+- **Surat** - arsip surat masuk dan keluar dalam satu tempat.
+- **Perangkat Desa** - penduduk yang sedang atau pernah menjabat.
+- **Program Bantuan** - PKH, BLT-DD, BPNT, RTLH, PIP, KIS, dan program
+  sosial lain.
+- **Penerima Bantuan** - daftar warga atau keluarga penerima per program.
+- **Aset Desa** - aset bergerak dan tak bergerak milik desa.
 
 Setiap desa mendapat dashboard, peran pengguna, dan alur kerja yang dapat
-disesuaikan dengan kebutuhan administrasinya.
+disesuaikan dengan kebutuhan administrasinya. Object lain seperti APBDes,
+Posyandu, UMKM, Bidang Tanah, atau Kegiatan Desa tersedia sebagai modul
+kustom per implementasi klien, bukan beban default semua workspace.
 
 <br />
 
@@ -72,7 +79,8 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 
 Stack runtime Bades: `packages/docker/`. Berisi `docker-compose.yml`
 (server + worker + Postgres + Redis), `docker-compose.dev.yml` (Postgres
-+ Redis only untuk dev lokal), `Makefile`, dan `bades/Dockerfile`.
+
+- Redis only untuk dev lokal), `Makefile`, dan `bades/Dockerfile`.
 
 ### Lokal — build & run image produksi
 
@@ -104,4 +112,3 @@ Docker apapun. Setup untuk single-server production akan ditambahkan
 saat infrastruktur final dipilih.
 
 Panduan operasional internal: [`.github/DEPLOY.md`](./.github/DEPLOY.md).
-

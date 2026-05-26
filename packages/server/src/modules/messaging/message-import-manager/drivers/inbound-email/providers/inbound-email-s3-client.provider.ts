@@ -51,7 +51,7 @@ export class InboundEmailS3ClientProvider {
     const region = this.badesConfigService.get('STORAGE_S3_REGION');
 
     if (!isNonEmptyString(region)) {
-      throw new Error('STORAGE_S3_REGION must be set to use email group.');
+      throw new Error('STORAGE_S3_REGION harus diatur untuk menggunakan grup email.');
     }
 
     const config: S3ClientConfig = { region };

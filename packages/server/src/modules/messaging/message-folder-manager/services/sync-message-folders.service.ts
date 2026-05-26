@@ -106,7 +106,7 @@ export class SyncMessageFoldersService {
         );
       default:
         throw new Error(
-          `Provider ${connectedAccount.provider} is not supported`,
+          `Provider ${connectedAccount.provider} tidak didukung`,
         );
     }
   }

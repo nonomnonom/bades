@@ -121,7 +121,7 @@ export class AdminPanelHealthService {
     const healthIndicator = this.healthIndicators[indicatorId];
 
     if (!healthIndicator) {
-      throw new Error(`Health indicator not found: ${indicatorId}`);
+      throw new Error(`Indikator kesehatan tidak ditemukan: ${indicatorId}`);
     }
 
     const result = await Promise.allSettled([healthIndicator.isHealthy()]);

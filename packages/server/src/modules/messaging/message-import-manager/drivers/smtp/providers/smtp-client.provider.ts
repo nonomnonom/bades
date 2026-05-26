@@ -28,7 +28,7 @@ export class SmtpClientProvider {
       connectedAccount.provider !== ConnectedAccountProvider.IMAP_SMTP_CALDAV ||
       !isDefined(connectedAccount.connectionParameters?.SMTP)
     ) {
-      throw new Error('Connected account is not an SMTP provider');
+      throw new Error('Akun yang terhubung bukan provider SMTP');
     }
 
     const smtpParams =

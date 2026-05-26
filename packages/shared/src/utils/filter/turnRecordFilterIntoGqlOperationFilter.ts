@@ -178,7 +178,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new CustomError(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
             'UNKNOWN_OPERAND_FOR_FILTER',
           );
       }
@@ -192,7 +192,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     case 'RAW_JSON':
@@ -213,7 +213,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     case 'FILES':
@@ -234,7 +234,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     case 'DATE': {
@@ -252,7 +252,7 @@ const buildDirectFieldGqlOperationFilter = ({
         });
 
         if (!defaultDateRange) {
-          throw new Error('Failed to resolve default date range');
+          throw new Error('Gagal menyelesaikan rentang tanggal default');
         }
 
         const start =
@@ -338,7 +338,7 @@ const buildDirectFieldGqlOperationFilter = ({
       }
 
       throw new Error(
-        `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+        `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
       );
     }
     case 'DATE_TIME': {
@@ -356,7 +356,7 @@ const buildDirectFieldGqlOperationFilter = ({
 
         if (!isDefined(parsedRelativeDateFilterValue)) {
           throw new Error(
-            `Cannot parse relative date filter : "${recordFilter.value}"`,
+            `Tidak dapat mengurai filter tanggal relatif: "${recordFilter.value}"`,
           );
         }
 
@@ -369,7 +369,7 @@ const buildDirectFieldGqlOperationFilter = ({
           !isDefined(defaultDateRange?.start) ||
           !isDefined(defaultDateRange?.end)
         ) {
-          throw new Error('Failed to resolve default date range');
+          throw new Error('Gagal menyelesaikan rentang tanggal default');
         }
 
         const start =
@@ -435,7 +435,7 @@ const buildDirectFieldGqlOperationFilter = ({
         }
       } else {
         if (!isNonEmptyString(recordFilter.value)) {
-          throw new Error(`Date filter is empty`);
+          throw new Error(`Filter tanggal kosong`);
         }
 
         if (recordFilter.operand === RecordFilterOperand.IS) {
@@ -451,7 +451,7 @@ const buildDirectFieldGqlOperationFilter = ({
               : Temporal.PlainDate.from(recordFilter.value);
           } catch {
             throw new Error(
-              `Cannot parse "${recordFilter.value}" for ${filterType} filter`,
+              `Tidak dapat mengurai "${recordFilter.value}" untuk filter ${filterType}`,
             );
           }
 
@@ -496,7 +496,7 @@ const buildDirectFieldGqlOperationFilter = ({
       }
 
       throw new Error(
-        `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+        `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
       );
     }
     case 'RATING':
@@ -525,7 +525,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     case 'NUMBER':
@@ -558,7 +558,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     case 'RELATION': {
@@ -609,7 +609,7 @@ const buildDirectFieldGqlOperationFilter = ({
         }
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     }
@@ -642,7 +642,7 @@ const buildDirectFieldGqlOperationFilter = ({
             };
           default:
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${filterType} / ${subFieldName} filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType} / ${subFieldName}`,
             );
         }
       } else if (
@@ -684,12 +684,12 @@ const buildDirectFieldGqlOperationFilter = ({
             };
           default:
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${filterType} / ${subFieldName}  filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType} / ${subFieldName}`,
             );
         }
       } else {
         throw new Error(
-          `Unknown subfield ${subFieldName} for ${filterType} filter`,
+          `Subfield tidak dikenal ${subFieldName} untuk filter ${filterType}`,
         );
       }
     }
@@ -743,7 +743,7 @@ const buildDirectFieldGqlOperationFilter = ({
           }
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     }
@@ -1008,7 +1008,7 @@ const buildDirectFieldGqlOperationFilter = ({
           }
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     case 'MULTI_SELECT': {
@@ -1065,7 +1065,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     }
@@ -1126,7 +1126,7 @@ const buildDirectFieldGqlOperationFilter = ({
         }
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     }
@@ -1148,7 +1148,7 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     }
@@ -1191,7 +1191,7 @@ const buildDirectFieldGqlOperationFilter = ({
           }
           default: {
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${fieldMetadataItem.label} filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${fieldMetadataItem.label}`,
             );
           }
         }
@@ -1252,7 +1252,7 @@ const buildDirectFieldGqlOperationFilter = ({
           }
           default: {
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${fieldMetadataItem.label} filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${fieldMetadataItem.label}`,
             );
           }
         }
@@ -1318,7 +1318,7 @@ const buildDirectFieldGqlOperationFilter = ({
         }
         default: {
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${fieldMetadataItem.label} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${fieldMetadataItem.label}`,
           );
         }
       }
@@ -1410,7 +1410,7 @@ const buildDirectFieldGqlOperationFilter = ({
             };
           default:
             throw new Error(
-              `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+              `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
             );
         }
       }
@@ -1455,7 +1455,7 @@ const buildDirectFieldGqlOperationFilter = ({
               };
             default:
               throw new Error(
-                `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+                `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
               );
           }
         }
@@ -1481,7 +1481,7 @@ const buildDirectFieldGqlOperationFilter = ({
               };
             default:
               throw new Error(
-                `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+                `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
               );
           }
         }
@@ -1507,13 +1507,13 @@ const buildDirectFieldGqlOperationFilter = ({
               };
             default:
               throw new Error(
-                `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+                `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
               );
           }
         }
         default:
           throw new Error(
-            `Unknown subfield ${subFieldName} for ${filterType} filter`,
+            `Subfield tidak dikenal ${subFieldName} untuk filter ${filterType}`,
           );
       }
     }
@@ -1538,11 +1538,11 @@ const buildDirectFieldGqlOperationFilter = ({
           };
         default:
           throw new Error(
-            `Unknown operand ${recordFilter.operand} for ${filterType} filter`,
+            `Operand tidak dikenal ${recordFilter.operand} untuk filter ${filterType}`,
           );
       }
     }
     default:
-      throw new Error('Unknown filter type');
+      throw new Error('Tipe filter tidak dikenal');
   }
 };

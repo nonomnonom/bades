@@ -316,7 +316,7 @@ function evaluateCurrencyFilter(filter: ResolvedFilter): boolean {
         return isNonEmptyString(filter.leftOperand);
       default:
         throw new Error(
-          `Operand ${filter.operand} not supported for currency filter`,
+          `Operand ${filter.operand} tidak didukung untuk filter mata uang`,
         );
     }
   } else {

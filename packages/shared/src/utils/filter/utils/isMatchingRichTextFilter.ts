@@ -18,7 +18,7 @@ export const isMatchingRichTextFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for RICH_TEXT filter : ${JSON.stringify(richTextFilter)}`,
+        `Nilai tidak valid untuk filter rich text: ${JSON.stringify(richTextFilter)}`,
       );
     }
   }

@@ -21,7 +21,7 @@ export class InboundEmailStorageService {
     );
 
     if (!isDefined(response.Body)) {
-      throw new Error(`S3 object ${s3Key} has no body`);
+      throw new Error(`Objek S3 ${s3Key} tidak memiliki body`);
     }
 
     const stream = response.Body as Readable;

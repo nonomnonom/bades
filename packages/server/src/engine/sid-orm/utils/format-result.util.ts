@@ -55,7 +55,7 @@ export function formatResult<T>(
   }
 
   if (!flatObjectMetadata) {
-    throw new Error('Object metadata is missing');
+    throw new Error('Metadata objek hilang');
   }
 
   const fieldMaps =
@@ -98,7 +98,7 @@ export function formatResult<T>(
     if (isRelation) {
       if (!isDefined(fieldMetadata?.relationTargetObjectMetadataId)) {
         throw new Error(
-          `Relation target object metadata ID is missing for field "${key}"`,
+          `ID metadata objek target relasi hilang untuk field "${key}"`,
         );
       }
 
@@ -109,7 +109,7 @@ export function formatResult<T>(
 
       if (!targetObjectMetadata) {
         throw new Error(
-          `Object metadata for object metadataId "${fieldMetadata.relationTargetObjectMetadataId}" is missing`,
+          `Metadata objek untuk object metadataId "${fieldMetadata.relationTargetObjectMetadataId}" hilang`,
         );
       }
 
@@ -210,7 +210,7 @@ export function formatResult<T>(
       const stringifiedUnknownValue = stringifySafely(rawUpdatedDateTime);
 
       throw new Error(
-        `Invalid DATE_TIME field "${dateTimeField.name}", value: "${stringifiedUnknownValue}", it should be a string, Date instance or plain object, (current type : ${typeof rawUpdatedDateTime}).`,
+        `Field DATE_TIME tidak valid "${dateTimeField.name}", nilai: "${stringifiedUnknownValue}", harus berupa string, instance Date, atau object biasa...`,
       );
     }
   }

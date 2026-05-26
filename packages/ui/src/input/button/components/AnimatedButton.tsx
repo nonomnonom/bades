@@ -443,7 +443,7 @@ export const AnimatedButton = ({
   transition,
   dataClickOutsideId,
   dataGloballyPreventClickOutside,
-  soonLabel = 'Soon',
+  soonLabel = 'Segera',
 }: AnimatedButtonProps) => {
   const { theme } = useContext(ThemeContext);
   const isMobile = useIsMobile();

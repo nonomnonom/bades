@@ -79,5 +79,8 @@ export const SID_STANDARD_OBJECT_SEEDS: SidStandardObjectSeed[] = [
   },
 
   // 5. Aset Desa
-  { object: ASET_DESA_CUSTOM_OBJECT_SEED, fields: ASET_DESA_CUSTOM_FIELD_SEEDS },
+  {
+    object: ASET_DESA_CUSTOM_OBJECT_SEED,
+    fields: ASET_DESA_CUSTOM_FIELD_SEEDS,
+  },
 ];

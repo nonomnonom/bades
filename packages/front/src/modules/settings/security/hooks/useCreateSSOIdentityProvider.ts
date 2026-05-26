@@ -1,3 +1,5 @@
+import { t } from '~/utils/i18n/badesI18n';
+
 /* @license Enterprise */
 
 import { SSOIdentitiesProvidersState } from '@/settings/security/states/SSOIdentitiesProvidersState';
@@ -56,7 +58,7 @@ export const useCreateSSOIdentityProvider = () => {
         },
       });
     } else {
-      throw new Error('Invalid IdpType');
+      throw new Error(t`Tipe Idp tidak valid`);
     }
   };
 

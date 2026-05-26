@@ -34,7 +34,7 @@ export class EmailDriverFactory extends DriverFactoryBase<EmailDriverInterface> 
       return `smtp|${emailConfigHash}`;
     }
 
-    throw new Error(`Unsupported email driver: ${driver}`);
+    throw new Error(`Driver email tidak didukung: ${driver}`);
   }
 
   protected createDriver(): EmailDriverInterface {
@@ -52,7 +52,7 @@ export class EmailDriverFactory extends DriverFactoryBase<EmailDriverInterface> 
         const noTLS = this.badesConfigService.get('EMAIL_SMTP_NO_TLS');
 
         if (!host || !port) {
-          throw new Error('SMTP driver requires host and port to be defined');
+          throw new Error('Driver SMTP memerlukan host dan port terdefinisi');
         }
 
         const options: {
@@ -77,7 +77,7 @@ export class EmailDriverFactory extends DriverFactoryBase<EmailDriverInterface> 
       }
 
       default:
-        throw new Error(`Invalid email driver: ${driver}`);
+        throw new Error(`Driver email tidak valid: ${driver}`);
     }
   }
 }

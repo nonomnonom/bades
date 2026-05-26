@@ -34,7 +34,7 @@ export class CalDavGetEventsService {
 
     try {
       if (!isDefined(connectedAccount.connectionParameters?.CALDAV)) {
-        throw new Error('CalDAV settings not configured for this account');
+        throw new Error('Pengaturan CalDAV tidak dikonfigurasi untuk akun ini');
       }
 
       const params =

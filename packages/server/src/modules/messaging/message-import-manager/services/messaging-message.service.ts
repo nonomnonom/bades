@@ -142,7 +142,7 @@ export class MessagingMessageService {
 
           if (!isDefined(messageAccumulator)) {
             throw new Error(
-              `Message accumulator should reference the message, this should never happen`,
+              `Akumulator pesan harus mereferensi pesan tersebut, ini tidak boleh terjadi`,
             );
           }
 
@@ -152,7 +152,7 @@ export class MessagingMessageService {
 
           if (!isDefined(messageThreadId)) {
             throw new Error(
-              `Message thread id should be defined, either in the threadToCreate or existingThreadInDB`,
+              `ID thread pesan harus terdefinisi, baik di threadToCreate atau existingThreadInDB`,
             );
           }
 
@@ -478,7 +478,7 @@ export class MessagingMessageService {
 
         if (!isDefined(previousMessageThreadId)) {
           throw new Error(
-            `Previous message should have a thread id, either in the messageToCreate or existingMessageInDB`,
+            `Pesan sebelumnya harus memiliki ID thread, baik di messageToCreate atau existingMessageInDB`,
           );
         }
 

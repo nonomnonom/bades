@@ -88,7 +88,7 @@ export class WorkspaceMemberTranspiler {
     const roles = fromRoleEntitiesToRoleDtos(userWorkspaceRoles);
 
     if (!isDefined(userEmail)) {
-      throw new Error(`Workspace member ${id} has no userEmail`);
+      throw new Error(`Member workspace ${id} tidak memiliki userEmail`);
     }
 
     return {
@@ -130,7 +130,7 @@ export class WorkspaceMemberTranspiler {
     } = workspaceMember;
 
     if (!isDefined(userEmail)) {
-      throw new Error(`Workspace member ${id} has no userEmail`);
+      throw new Error(`Member workspace ${id} tidak memiliki userEmail`);
     }
 
     const avatarUrl = userWorkspaceId

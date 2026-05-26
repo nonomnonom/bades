@@ -149,7 +149,7 @@ export class UsageAnalyticsService {
         groupByField as (typeof ALLOWED_GROUP_BY_FIELDS)[number],
       )
     ) {
-      throw new Error(`Invalid groupByField: ${groupByField}`);
+      throw new Error(`groupByField tidak valid: ${groupByField}`);
     }
 
     const opTypeFilter =

@@ -34,7 +34,7 @@ export const TwoFactorAuthenticationSetupForSettingsEffect = () => {
           !initiateOTPProvisioningResult.data
             ?.initiateOTPProvisioningForAuthenticatedUser.uri
         ) {
-          throw new Error('No URI returned from OTP provisioning');
+          throw new Error(t`URI tidak dikembalikan dari provisioning OTP`);
         }
 
         setQrCode(

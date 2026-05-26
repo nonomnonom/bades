@@ -11,7 +11,7 @@ export const extractMailboxState = (
   mailbox: NonNullable<ImapFlow['mailbox']>,
 ): MailboxState => {
   if (typeof mailbox === 'boolean') {
-    throw new Error('Invalid mailbox state');
+    throw new Error('Status mailbox tidak valid');
   }
 
   const uidNext = Number(mailbox.uidNext ?? 1);

@@ -20,7 +20,7 @@ export const resolveAndValidateHostname = async (
 
   if (isPrivateIp(resolvedIp)) {
     throw new Error(
-      `Connection to internal IP address ${resolvedIp} is not allowed.`,
+      `Koneksi ke alamat IP internal ${resolvedIp} tidak diizinkan.`,
     );
   }
 

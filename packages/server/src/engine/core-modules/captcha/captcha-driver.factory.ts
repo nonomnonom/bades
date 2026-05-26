@@ -41,7 +41,7 @@ export class CaptchaDriverFactory extends DriverFactoryBase<CaptchaDriver | null
     }
 
     if (!siteKey || !secretKey) {
-      throw new Error('Captcha driver requires site key and secret key');
+      throw new Error('Driver captcha memerlukan site key dan secret key');
     }
 
     const captchaOptions = { siteKey, secretKey };
@@ -65,7 +65,7 @@ export class CaptchaDriverFactory extends DriverFactoryBase<CaptchaDriver | null
         );
 
       default:
-        throw new Error(`Invalid captcha driver type: ${driver}`);
+        throw new Error(`Tipe driver captcha tidak valid: ${driver}`);
     }
   }
 

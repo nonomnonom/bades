@@ -59,7 +59,7 @@ const annotatePreloadedMcpTools = (toolSet: ToolSet): ToolSet =>
       const annotations = MCP_PRELOADED_TOOL_ANNOTATIONS[name];
 
       if (!isDefined(annotations)) {
-        throw new Error(`Missing MCP annotations for preloaded tool "${name}"`);
+        throw new Error(`Annotasi MCP hilang untuk tool preloaded "${name}"`);
       }
 
       return [

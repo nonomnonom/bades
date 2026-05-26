@@ -57,7 +57,7 @@ export class ImapClientProvider {
       connectedAccount.provider !== ConnectedAccountProvider.IMAP_SMTP_CALDAV ||
       !isDefined(connectedAccount.connectionParameters?.IMAP)
     ) {
-      throw new Error('Connected account is not an IMAP provider');
+      throw new Error('Akun yang terhubung bukan provider IMAP');
     }
 
     const imapParams =

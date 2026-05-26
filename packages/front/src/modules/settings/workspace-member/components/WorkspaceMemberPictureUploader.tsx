@@ -74,7 +74,7 @@ export const WorkspaceMemberPictureUploader = ({
 
       const uploadedFile = data?.uploadWorkspaceMemberProfilePicture;
       if (!isDefined(uploadedFile)) {
-        throw new Error('Avatar upload failed');
+        throw new Error(t`Gagal mengunggah avatar`);
       }
 
       newAvatarUrl = `${REACT_APP_SERVER_BASE_URL}/file/${FileFolder.CorePicture}/${uploadedFile.id}`;

@@ -82,7 +82,7 @@ export class RotateSecretEncryptionCommand extends CommandRunner {
 
     if (totalErrors > 0) {
       throw new Error(
-        `secret-encryption:rotate completed with ${totalErrors} error(s) — see logs above.`,
+        `secret-encryption:rotate selesai dengan ${totalErrors} error(s) — lihat log di atas.`,
       );
     }
   }

@@ -26,7 +26,7 @@ export const isMatchingSelectFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for select filter : ${JSON.stringify(selectFilter)}`,
+        `Nilai tidak valid untuk filter pilihan: ${JSON.stringify(selectFilter)}`,
       );
     }
   }

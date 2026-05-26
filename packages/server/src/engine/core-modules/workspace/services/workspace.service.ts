@@ -307,7 +307,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     if (
       workspace.activationStatus !== WorkspaceActivationStatus.PENDING_CREATION
     ) {
-      throw new Error('Workspace is not pending creation');
+      throw new Error('Workspace tidak dalam status menunggu pembuatan');
     }
 
     await this.workspaceRepository.update(workspace.id, {

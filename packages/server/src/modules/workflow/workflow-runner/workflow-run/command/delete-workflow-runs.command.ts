@@ -32,7 +32,7 @@ export class DeleteWorkflowRunsCommand extends ActiveOrSuspendedWorkspaceCommand
     const date = new Date(val);
 
     if (isNaN(date.getTime())) {
-      throw new Error(`Invalid date format: ${val}`);
+      throw new Error(`Format tanggal tidak valid: ${val}`);
     }
 
     const createdBeforeDate = date.toISOString();

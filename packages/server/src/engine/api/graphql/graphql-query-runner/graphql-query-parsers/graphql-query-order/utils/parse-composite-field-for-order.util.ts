@@ -24,7 +24,7 @@ export const parseCompositeFieldForOrder = (
 
   if (!compositeType) {
     throw new Error(
-      `Composite type definition not found for type: ${fieldMetadata.type}`,
+      `Definisi tipe komposit tidak ditemukan untuk tipe: ${fieldMetadata.type}`,
     );
   }
 
@@ -36,7 +36,7 @@ export const parseCompositeFieldForOrder = (
 
       if (!subFieldMetadata) {
         throw new Error(
-          `Sub field metadata not found for composite type: ${fieldMetadata.type}`,
+          `Metadata sub field tidak ditemukan untuk tipe komposit: ${fieldMetadata.type}`,
         );
       }
 
@@ -47,7 +47,7 @@ export const parseCompositeFieldForOrder = (
 
       if (!isOrderByDirection(subFieldValue)) {
         throw new Error(
-          `Sub field order by value must be of type OrderByDirection, but got: ${subFieldValue}`,
+          `Nilai order by sub field harus berupa OrderByDirection, tetapi terima: ${subFieldValue}`,
         );
       }
 

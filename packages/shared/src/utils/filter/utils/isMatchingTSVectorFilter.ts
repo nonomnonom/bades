@@ -21,7 +21,7 @@ export const isMatchingTSVectorFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for ts_vector filter : ${JSON.stringify(tsVectorFilter)}`,
+        `Nilai tidak valid untuk filter ts_vector: ${JSON.stringify(tsVectorFilter)}`,
       );
     }
   }

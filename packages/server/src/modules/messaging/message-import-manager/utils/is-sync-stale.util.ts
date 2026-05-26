@@ -10,7 +10,7 @@ export const isSyncStale = (syncStageStartedAt?: string | null): boolean => {
   const syncStageStartedTime = new Date(syncStageStartedAt).getTime();
 
   if (isNaN(syncStageStartedTime)) {
-    throw new Error('Invalid date format');
+    throw new Error('Format tanggal tidak valid');
   }
 
   return (

@@ -38,7 +38,7 @@ const getColumnExpressionsFromField = (
 
     if (!compositeType) {
       throw new Error(
-        `Composite type not found for field metadata type: ${fieldMetadataTypeAndName.type}`,
+        `Tipe komposit tidak ditemukan untuk tipe metadata field: ${fieldMetadataTypeAndName.type}`,
       );
     }
 

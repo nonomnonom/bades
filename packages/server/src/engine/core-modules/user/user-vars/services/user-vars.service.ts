@@ -53,7 +53,7 @@ export class UserVarsService<
     }
 
     if (userVarUserLevel.length > 1) {
-      throw new Error(`Multiple values found for key ${key} at user level`);
+      throw new Error(`Beberapa nilai ditemukan untuk kunci ${key} di level pengguna`);
     }
 
     // oxlint-disable-next-line @typescripttypescript/no-explicit-any

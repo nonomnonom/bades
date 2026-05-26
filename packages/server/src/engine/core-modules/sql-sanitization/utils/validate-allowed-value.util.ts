@@ -7,6 +7,6 @@ export const validateAllowedValue = (
   label: string,
 ): void => {
   if (!allowedValues.includes(value)) {
-    throw new Error(`Invalid ${label}: ${value}`);
+    throw new Error(`${label} tidak valid: ${value}`);
   }
 };

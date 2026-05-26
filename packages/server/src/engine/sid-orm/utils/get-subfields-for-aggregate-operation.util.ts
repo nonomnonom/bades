@@ -39,7 +39,7 @@ export const getSubfieldsForAggregateOperation = (
       case FieldMetadataType.RICH_TEXT:
         return ['blocknote', 'markdown'];
       default:
-        throw new Error(`Unsupported composite field type: ${fieldType}`);
+        throw new Error(`Tipe field komposit tidak didukung: ${fieldType}`);
     }
   }
 };

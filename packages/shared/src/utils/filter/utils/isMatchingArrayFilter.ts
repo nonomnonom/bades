@@ -27,7 +27,7 @@ export const isMatchingArrayFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for array filter: ${JSON.stringify(arrayFilter)}`,
+        `Nilai tidak valid untuk filter array: ${JSON.stringify(arrayFilter)}`,
       );
     }
   }

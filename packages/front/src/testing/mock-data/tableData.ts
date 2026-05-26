@@ -38,13 +38,13 @@ export const mockedTableData = [
     fieldsCount: 4,
   },
   {
-    labelPlural: 'Kegiatan Desa',
+    labelPlural: 'Aset Desa',
     fieldsCount: 5,
   },
 ];
 
 export const tableDataSortedBylabelInAscendingOrder = [
-  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Aset Desa', fieldsCount: 5 },
   { labelPlural: 'Penduduk', fieldsCount: 3 },
   { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
   { labelPlural: 'Program Bantuan', fieldsCount: 4 },
@@ -54,19 +54,19 @@ export const tableDataSortedBylabelInDescendingOrder = [
   { labelPlural: 'Program Bantuan', fieldsCount: 4 },
   { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
   { labelPlural: 'Penduduk', fieldsCount: 3 },
-  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Aset Desa', fieldsCount: 5 },
 ];
 
 export const tableDataSortedByFieldsCountInAscendingOrder = [
   { labelPlural: 'Penduduk', fieldsCount: 3 },
   { labelPlural: 'Program Bantuan', fieldsCount: 4 },
-  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Aset Desa', fieldsCount: 5 },
   { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
 ];
 
 export const tableDataSortedByFieldsCountInDescendingOrder = [
   { labelPlural: 'Permohonan Layanan', fieldsCount: 11 },
-  { labelPlural: 'Kegiatan Desa', fieldsCount: 5 },
+  { labelPlural: 'Aset Desa', fieldsCount: 5 },
   { labelPlural: 'Program Bantuan', fieldsCount: 4 },
   { labelPlural: 'Penduduk', fieldsCount: 3 },
 ];

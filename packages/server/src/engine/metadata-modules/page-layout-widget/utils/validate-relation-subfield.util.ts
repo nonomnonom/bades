@@ -31,7 +31,7 @@ export const validateRelationSubfield = ({
     dotIndex === -1 ? undefined : subFieldName.slice(dotIndex + 1);
 
   if (!nestedFieldName) {
-    throw new Error(`Relation subfield "${subFieldName}" is invalid.`);
+    throw new Error(`Subfield relasi "${subFieldName}" tidak valid.`);
   }
 
   if (isDefined(nestedSubFieldName) && nestedSubFieldName.includes('.')) {

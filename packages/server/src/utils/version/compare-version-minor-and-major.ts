@@ -13,7 +13,7 @@ export function compareVersionMajorAndMinor(
   );
 
   if (version1 === null || version2 === null) {
-    throw new Error(`Received invalid version: ${rawVersion1} ${rawVersion2}`);
+    throw new Error(`Menerima versi tidak valid: ${rawVersion1} ${rawVersion2}`);
   }
 
   const v1WithoutPatch = `${version1.major}.${version1.minor}.0`;
@@ -33,7 +33,7 @@ export function compareVersionMajorAndMinor(
     }
     default: {
       throw new Error(
-        `Should never occur, encountered an unexpected value from semver.compare ${compareResult}`,
+        `Tidak boleh terjadi, mendapatkan nilai tidak terduga dari semver.compare ${compareResult}`,
       );
     }
   }

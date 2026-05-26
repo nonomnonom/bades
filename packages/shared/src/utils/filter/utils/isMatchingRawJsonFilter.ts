@@ -25,7 +25,7 @@ export const isMatchingRawJsonFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for string filter : ${JSON.stringify(rawJsonFilter)}`,
+        `Nilai tidak valid untuk filter raw JSON: ${JSON.stringify(rawJsonFilter)}`,
       );
     }
   }

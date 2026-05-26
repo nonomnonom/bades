@@ -233,7 +233,7 @@ export class RunWorkflowJob {
         key = MetricsKeys.WorkflowRunStartedManualTrigger;
         break;
       default:
-        throw new Error('Invalid trigger type');
+        throw new Error('Tipe trigger tidak valid');
     }
 
     await this.metricsService.incrementCounter({

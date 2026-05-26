@@ -21,7 +21,7 @@ export const executeToolFromToolSet = async (
 
   if (!tool?.execute) {
     throw new Error(
-      `Tool "${toolName}" not found in ToolSet for category "${category}"`,
+      `Tool "${toolName}" tidak ditemukan di ToolSet untuk kategori "${category}"`,
     );
   }
 

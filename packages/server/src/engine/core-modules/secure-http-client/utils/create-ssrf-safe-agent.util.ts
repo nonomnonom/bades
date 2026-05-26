@@ -18,7 +18,7 @@ const isHostnamePrivateIp = (hostname: string): boolean => {
 
 const validateHost = (host?: string) => {
   if (host && isHostnamePrivateIp(host)) {
-    throw new Error(`Request to internal IP address ${host} is not allowed.`);
+    throw new Error(`Request ke alamat IP internal ${host} tidak diizinkan.`);
   }
 };
 

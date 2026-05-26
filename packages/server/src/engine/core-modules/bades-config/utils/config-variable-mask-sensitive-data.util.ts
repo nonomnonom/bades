@@ -27,7 +27,7 @@ export const configVariableMaskSensitiveData = (
         return url.toString();
       } catch {
         throw new Error(
-          `Invalid URL format for ${options?.variableName || 'config variable'} in HIDE_PASSWORD masking strategy`,
+          `Format URL tidak valid untuk ${options?.variableName || 'config variable'} dalam strategi masking HIDE_PASSWORD`,
         );
       }
     }

@@ -50,6 +50,6 @@ export class CacheLockService {
       await this.delay(ms);
     }
 
-    throw new Error(`Failed to acquire lock for key: ${key}`);
+    throw new Error(`Gagal mendapatkan kunci untuk: ${key}`);
   }
 }

@@ -49,6 +49,6 @@ export const getResolverName = (
       return `${camelCase(objectMetadata.namePlural)}GroupBy`;
 
     default:
-      throw new Error(`Unknown resolver type: ${type}`);
+      throw new Error(`Tipe resolver tidak dikenal: ${type}`);
   }
 };

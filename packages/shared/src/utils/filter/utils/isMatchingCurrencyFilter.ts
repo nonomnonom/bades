@@ -19,7 +19,7 @@ const isMatchingCurrencyCodeFilter = (
     }
     default: {
       throw new Error(
-        `Unexpected operand for currency code filter : ${JSON.stringify(
+        `Operand tidak valid untuk filter kode mata uang: ${JSON.stringify(
           currencyCodeFilter,
         )}`,
       );
@@ -59,7 +59,7 @@ const isMatchingAmountMicrosFilter = (
     }
     default: {
       throw new Error(
-        `Unexpected operand for currency amount micros filter : ${JSON.stringify(
+        `Operand tidak valid untuk filter jumlah mata uang: ${JSON.stringify(
           amountMicrosFilter,
         )}`,
       );
@@ -104,6 +104,6 @@ export const isMatchingCurrencyFilter = ({
   }
 
   throw new Error(
-    `Unexpected filter for currency : ${JSON.stringify(currencyFilter)}`,
+    `Filter tidak valid untuk mata uang: ${JSON.stringify(currencyFilter)}`,
   );
 };

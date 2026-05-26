@@ -15,11 +15,11 @@ const FORBIDDEN_OBJECT_KEYS = ['__proto__', 'constructor', 'prototype'];
 
 export const applyDiff = <T>(obj: T, diffs: Difference[]): T => {
   if (!isDefined(obj)) {
-    throw new Error('Cannot apply diff to null or undefined object');
+    throw new Error('Tidak dapat menerapkan diff ke objek null atau undefined');
   }
 
   if (!Array.isArray(diffs)) {
-    throw new Error('Diffs must be an array');
+    throw new Error('Diff harus berupa array');
   }
 
   // Create a deep copy to avoid modifying read-only/frozen objects
@@ -35,7 +35,7 @@ export const applyDiff = <T>(obj: T, diffs: Difference[]): T => {
       applyDiffToPath(mutableObj as MutableData, diff, arrayDeletionQueue);
     } catch (error) {
       throw new Error(
-        `Failed to apply diff at path ${diff.path.join('.')}: ${error}`,
+        `Gagal menerapkan diff di jalur ${diff.path.join('.')}: ${error}`,
       );
     }
   }
@@ -74,7 +74,7 @@ const applyDiffToPath = (
       break;
 
     default:
-      throw new Error(`Unsupported diff type: ${type}`);
+      throw new Error(`Jenis diff tidak didukung: ${type}`);
   }
 };
 
@@ -89,18 +89,18 @@ const navigateToParent = (
 
     if (current === null || current === undefined) {
       throw new Error(
-        `Cannot traverse path: found null/undefined at element ${i}`,
+        `Tidak dapat menelusuri jalur: ditemukan null/undefined di elemen ${i}`,
       );
     }
 
     if (isNumber(pathElement) && !Array.isArray(current)) {
       throw new Error(
-        `Expected array at path element ${i}, got ${typeof current}`,
+        `Array diharapkan di elemen jalur ${i}, diterima ${typeof current}`,
       );
     }
 
     if (isString(pathElement) && Array.isArray(current)) {
-      throw new Error(`Expected object at path element ${i}, got array`);
+      throw new Error(`Objek diharapkan di elemen jalur ${i}, diterima array`);
     }
 
     if (Array.isArray(current)) {
@@ -121,7 +121,7 @@ const setValueAtPath = (
   if (Array.isArray(container)) {
     if (!isNumber(pathElement)) {
       throw new Error(
-        `Expected numeric index for array, got ${typeof pathElement}`,
+        `Indeks numerik diharapkan untuk array, diterima ${typeof pathElement}`,
       );
     }
 
@@ -129,13 +129,13 @@ const setValueAtPath = (
       container[pathElement] = value;
     } catch (error) {
       throw new Error(
-        `Cannot set array element at index ${pathElement}: ${error}. Array may be non-extensible.`,
+        `Tidak dapat mengatur elemen array di indeks ${pathElement}: ${error}. Array mungkin tidak dapat diperluas.`,
       );
     }
   } else if (isObject(container)) {
     if (FORBIDDEN_OBJECT_KEYS.includes(pathElement as string)) {
       throw new Error(
-        `Refusing to set forbidden property key '${pathElement}' on object (prototype pollution protection)`,
+        `Menolak mengatur properti terlarang '${pathElement}' pada objek (perlindungan prototype pollution)`,
       );
     }
 
@@ -143,11 +143,11 @@ const setValueAtPath = (
       container[pathElement] = value;
     } catch (error) {
       throw new Error(
-        `Cannot set property '${String(pathElement)}': ${error}. Object may be non-extensible.`,
+        `Tidak dapat mengatur properti '${String(pathElement)}': ${error}. Objek mungkin tidak dapat diperluas.`,
       );
     }
   } else {
-    throw new Error(`Expected object or array, got ${typeof container}`);
+    throw new Error(`Objek atau array diharapkan, diterima ${typeof container}`);
   }
 };
 
@@ -181,7 +181,7 @@ const handleArrayRemoval = (
 ): void => {
   if (typeof index !== 'number') {
     throw new Error(
-      `Expected numeric index for array removal, got ${typeof index}`,
+      `Indeks numerik diharapkan untuk penghapusan array, diterima ${typeof index}`,
     );
   }
 
@@ -243,6 +243,6 @@ const deepCloneJson = (obj: MutableData): MutableData => {
   try {
     return JSON.parse(JSON.stringify(obj)) as MutableData;
   } catch {
-    throw new Error('Failed to clone object');
+    throw new Error('Gagal mengkloning objek');
   }
 };

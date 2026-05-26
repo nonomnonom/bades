@@ -17,7 +17,7 @@ export const buildWorkspaceSchemaBuilderContext = (
 
   if (!flatObjectMetadata) {
     throw new Error(
-      `Object metadata not found for universal identifier: ${entry.objectMetadataUniversalIdentifier}`,
+      `Metadata objek tidak ditemukan untuk universal identifier: ${entry.objectMetadataUniversalIdentifier}`,
     );
   }
 

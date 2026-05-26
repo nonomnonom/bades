@@ -7,6 +7,6 @@ export const converRelationTypeToTypeORMRelationType = (type: RelationType) => {
     case RelationType.MANY_TO_ONE:
       return 'many-to-one';
     default:
-      throw new Error(`Invalid relation type: ${type}`);
+      throw new Error(`Tipe relasi tidak valid: ${type}`);
   }
 };

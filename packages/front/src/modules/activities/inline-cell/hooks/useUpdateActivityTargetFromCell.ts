@@ -6,6 +6,7 @@ import { getJoinObjectNameSingular } from '@/activities/utils/getJoinObjectNameS
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useCreateOneRecord } from '@/object-record/hooks/useCreateOneRecord';
+import { t } from '~/utils/i18n/badesI18n';
 import { useDeleteOneRecord } from '@/object-record/hooks/useDeleteOneRecord';
 import { searchRecordStoreFamilyState } from '@/object-record/record-picker/multiple-record-picker/states/searchRecordStoreComponentFamilyState';
 import { type RecordPickerPickableMorphItem } from '@/object-record/record-picker/types/RecordPickerPickableMorphItem';
@@ -76,7 +77,7 @@ export const useUpdateActivityTargetFromCell = ({
       );
 
       if (!isDefined(pickedObjectMetadataItem)) {
-        throw new Error('Could not find object metadata item');
+        throw new Error(t`Item metadata objek tidak ditemukan`);
       }
 
       const targetFieldName = getActivityTargetFieldNameForObject({

@@ -43,7 +43,7 @@ export const isMatchingDateFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for string filter : ${JSON.stringify(dateFilter)}`,
+        `Nilai tidak valid untuk filter tanggal: ${JSON.stringify(dateFilter)}`,
       );
     }
   }

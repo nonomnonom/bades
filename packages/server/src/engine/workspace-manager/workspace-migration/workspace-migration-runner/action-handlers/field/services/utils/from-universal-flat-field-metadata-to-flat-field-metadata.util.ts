@@ -79,7 +79,7 @@ export const fromUniversalFlatFieldMetadataToFlatFieldMetadata = ({
 
     if (!isDefined(relationTargetFieldMetadataId)) {
       throw new Error(
-        `Relation target field metadata not found for universal identifier: ${relationTargetFieldMetadataUniversalIdentifier}`,
+        `Metadata field target relasi tidak ditemukan untuk universal identifier: ${relationTargetFieldMetadataUniversalIdentifier}`,
       );
     }
   }
@@ -94,7 +94,7 @@ export const fromUniversalFlatFieldMetadataToFlatFieldMetadata = ({
 
     if (!isDefined(relationTargetObjectMetadataId)) {
       throw new Error(
-        `Relation target object metadata not found for universal identifier: ${relationTargetObjectMetadataUniversalIdentifier}`,
+        `Metadata objek target relasi tidak ditemukan untuk universal identifier: ${relationTargetObjectMetadataUniversalIdentifier}`,
       );
     }
   }

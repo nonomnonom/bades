@@ -134,7 +134,7 @@ export class MessagingMessagesImportCronJob {
               },
             });
             throw new Error(
-              'Workspace schema not found while the workspace is still active',
+              'Schema workspace tidak ditemukan padahal workspace masih aktif',
             );
           }
         } else {

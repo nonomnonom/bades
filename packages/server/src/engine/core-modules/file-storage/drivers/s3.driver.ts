@@ -313,7 +313,7 @@ export class S3Driver implements StorageDriver {
     );
 
     if (!listedObjects.Contents || listedObjects.Contents.length === 0) {
-      throw new Error(`No objects found in the source folder ${fromKey}.`);
+      throw new Error(`Tidak ada objek ditemukan di folder sumber ${fromKey}.`);
     }
 
     for (const object of listedObjects.Contents) {

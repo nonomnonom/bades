@@ -68,7 +68,7 @@ export const getAllSelectableFields = ({
 
       if (!compositeType) {
         throw new Error(
-          `Composite type definition not found for type: ${flatField.type}`,
+          `Definisi tipe komposit tidak ditemukan untuk tipe: ${flatField.type}`,
         );
       }
 

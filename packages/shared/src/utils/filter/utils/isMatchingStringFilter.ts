@@ -56,7 +56,7 @@ export const isMatchingStringFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for string filter : ${JSON.stringify(stringFilter)}`,
+        `Nilai tidak valid untuk filter string: ${JSON.stringify(stringFilter)}`,
       );
     }
   }

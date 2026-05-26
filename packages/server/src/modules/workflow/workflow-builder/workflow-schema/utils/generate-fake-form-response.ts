@@ -36,7 +36,7 @@ export const generateFakeFormResponse = ({
 
       if (!isDefined(objectId)) {
         throw new Error(
-          `Object metadata not found for object name ${formFieldMetadata?.settings?.objectName}`,
+          `Metadata objek tidak ditemukan untuk nama objek ${formFieldMetadata?.settings?.objectName}`,
         );
       }
 
@@ -47,7 +47,7 @@ export const generateFakeFormResponse = ({
 
       if (!isDefined(flatObjectMetadata)) {
         throw new Error(
-          `Object metadata not found for object name ${formFieldMetadata?.settings?.objectName}`,
+          `Metadata objek tidak ditemukan untuk nama objek ${formFieldMetadata?.settings?.objectName}`,
         );
       }
 

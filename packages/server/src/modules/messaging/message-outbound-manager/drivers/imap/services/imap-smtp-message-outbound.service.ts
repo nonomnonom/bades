@@ -118,7 +118,7 @@ export class ImapSmtpMessageOutboundService implements MessageOutboundDriver {
         );
 
       if (!isDefined(draftsFolder)) {
-        throw new Error('No drafts folder found and could not create one');
+        throw new Error('Folder draf tidak ditemukan dan tidak dapat dibuat');
       }
       const DRAFT_FLAG = '\\Draft';
 

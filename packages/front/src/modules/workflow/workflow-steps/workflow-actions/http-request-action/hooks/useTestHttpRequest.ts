@@ -102,7 +102,7 @@ export const useTestHttpRequest = (actionId: string) => {
       const response = result?.data?.testHttpRequest;
 
       if (!response) {
-        throw new Error('No response from server');
+        throw new Error(t`Tidak ada respons dari server`);
       }
 
       if (response.success === true) {

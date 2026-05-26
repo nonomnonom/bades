@@ -151,7 +151,7 @@ export const EventCardCalendarEvent = ({
   const endsAtDate = calendarEvent?.endsAt;
 
   if (isUndefinedOrNull(startsAtDate)) {
-    throw new Error("Can't render a calendarEvent without a start date");
+    throw new Error(t`Tidak dapat merender kalender tanpa tanggal mulai`);
   }
 
   const startsAtMonth = formatToHumanReadableMonth(startsAtDate, timeZone);

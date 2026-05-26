@@ -8,7 +8,7 @@ export const parseTokenResponse = (
 
   if (!accessToken) {
     throw new Error(
-      `Token endpoint did not return an access_token. Response keys: ${Object.keys(json).join(', ')}`,
+      `Endpoint token tidak mengembalikan access_token. Keys respons: ${Object.keys(json).join(', ')}`,
     );
   }
 

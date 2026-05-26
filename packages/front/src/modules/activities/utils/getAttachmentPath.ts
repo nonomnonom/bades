@@ -11,7 +11,7 @@ export const getAttachmentPath = (attachmentFullPath: string) => {
   const rawPath = attachmentFullPath?.split('/files/')[1]?.split('?')[0];
 
   if (!rawPath) {
-    throw new Error(`Invalid attachment path: ${attachmentFullPath}`);
+    throw new Error(`Jalur lampiran tidak valid: ${attachmentFullPath}`);
   }
 
   if (!rawPath.startsWith('attachment/')) {

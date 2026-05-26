@@ -40,7 +40,7 @@ export class FileStorageDriverFactory extends DriverFactoryBase<StorageDriver> {
       return `s3|${storageConfigHash}`;
     }
 
-    throw new Error(`Unsupported storage type: ${storageType}`);
+    throw new Error(`Tipe storage tidak didukung: ${storageType}`);
   }
 
   protected createDriver(): StorageDriver {
@@ -89,7 +89,7 @@ export class FileStorageDriverFactory extends DriverFactoryBase<StorageDriver> {
       }
 
       default:
-        throw new Error(`Invalid storage driver type: ${storageType}`);
+        throw new Error(`Tipe driver storage tidak valid: ${storageType}`);
     }
 
     return new ValidatedStorageDriver(rawDriver);

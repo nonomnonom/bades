@@ -84,7 +84,7 @@ export const getFieldArgumentsByKey = (
 
   // If the field is not found, throw an error
   if (!targetField) {
-    throw new Error(`Field "${fieldKey}" not found.`);
+    throw new Error(`Field "${fieldKey}" tidak ditemukan.`);
   }
 
   // Extract the arguments from the field we've found

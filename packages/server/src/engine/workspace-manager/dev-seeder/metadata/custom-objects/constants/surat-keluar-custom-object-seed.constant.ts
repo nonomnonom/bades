@@ -1,9 +1,14 @@
 import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
 
 export const SURAT_KELUAR_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
-  labelPlural: 'Surat Keluar',
-  labelSingular: 'Surat Keluar',
+  // Label publik "Surat" per GOAL.md — object ini menampung surat masuk dan
+  // keluar dalam satu tempat (dibedakan via field `arah_surat` saat reshape
+  // field final). nameSingular tetap `suratKeluar` untuk kompatibilitas
+  // table/relasi.
+  labelPlural: 'Surat',
+  labelSingular: 'Surat',
   namePlural: 'suratKeluars',
   nameSingular: 'suratKeluar',
-  icon: 'IconMailForward',
+  icon: 'IconMail',
+  description: 'Arsip surat masuk dan keluar desa',
 };

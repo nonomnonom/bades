@@ -164,7 +164,7 @@ export class CalendarSaveEventsService {
                 .map(({ fetchedCalendarEvent, existingCalendarEvent }) => {
                   if (!existingCalendarEvent) {
                     throw new Error(
-                      `Existing calendar event with iCalUid ${fetchedCalendarEvent.iCalUid} not found - should never happen`,
+                      `Event kalender yang ada dengan iCalUid ${fetchedCalendarEvent.iCalUid} tidak ditemukan - tidak boleh terjadi`,
                     );
                   }
 
@@ -214,7 +214,7 @@ export class CalendarSaveEventsService {
               .map(({ fetchedCalendarEvent, newlyCreatedCalendarEvent }) => {
                 if (!newlyCreatedCalendarEvent?.id) {
                   throw new Error(
-                    `Calendar event id not found for event with iCalUid ${fetchedCalendarEvent.iCalUid} - should never happen`,
+                    `ID event kalender tidak ditemukan untuk event dengan iCalUid ${fetchedCalendarEvent.iCalUid} - tidak boleh terjadi`,
                   );
                 }
 
@@ -266,7 +266,7 @@ export class CalendarSaveEventsService {
                   ({ newlyCreatedCalendarEvent, fetchedCalendarEvent }) => {
                     if (!newlyCreatedCalendarEvent?.id) {
                       throw new Error(
-                        `Newly created calendar event with iCalUid ${fetchedCalendarEvent.iCalUid} not found - should never happen`,
+                        `Event kalender yang baru dibuat dengan iCalUid ${fetchedCalendarEvent.iCalUid} tidak ditemukan - tidak boleh terjadi`,
                       );
                     }
 
@@ -289,7 +289,7 @@ export class CalendarSaveEventsService {
                 .flatMap(({ fetchedCalendarEvent, existingCalendarEvent }) => {
                   if (!existingCalendarEvent?.id) {
                     throw new Error(
-                      `Existing calendar event with iCalUid ${fetchedCalendarEvent.iCalUid} not found - should never happen`,
+                      `Event kalender yang ada dengan iCalUid ${fetchedCalendarEvent.iCalUid} tidak ditemukan - tidak boleh terjadi`,
                     );
                   }
 

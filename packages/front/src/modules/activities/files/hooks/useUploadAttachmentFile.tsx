@@ -47,7 +47,7 @@ export const useUploadAttachmentFile = () => {
     const uploadedFile = result?.data?.uploadFilesFieldFile;
 
     if (!isDefined(uploadedFile)) {
-      throw new Error("Couldn't upload the attachment.");
+      throw new Error(t`Gagal mengunggah lampiran.`);
     }
 
     const targetableObjectFieldIdName = getActivityTargetObjectFieldIdName({

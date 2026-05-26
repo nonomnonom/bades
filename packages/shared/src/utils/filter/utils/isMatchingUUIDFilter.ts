@@ -26,7 +26,7 @@ export const isMatchingUUIDFilter = ({
     }
     default: {
       throw new Error(
-        `Unexpected value for string filter : ${JSON.stringify(uuidFilter)}`,
+        `Nilai tidak valid untuk filter UUID: ${JSON.stringify(uuidFilter)}`,
       );
     }
   }

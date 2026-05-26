@@ -50,7 +50,7 @@ export function formatData<T>(
 
     if (!fieldMetadata) {
       throw new Error(
-        `Field metadata for field "${key}" is missing in object metadata ${flatObjectMetadata.nameSingular}`,
+        `Metadata field untuk field "${key}" hilang di metadata objek ${flatObjectMetadata.nameSingular}`,
       );
     }
 
@@ -81,7 +81,7 @@ export function formatCompositeField(
 
   if (!compositeType) {
     throw new Error(
-      `Composite type definition not found for type: ${fieldMetadata.type}`,
+      `Definisi tipe komposit tidak ditemukan untuk tipe: ${fieldMetadata.type}`,
     );
   }
 

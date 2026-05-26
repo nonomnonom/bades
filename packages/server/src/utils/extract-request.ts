@@ -20,7 +20,7 @@ export const getRequest = (context: ExecutionContext) => {
         : req;
   } else if (context.getType() === 'rpc') {
     // if context is a rpc request
-    throw new Error('Not implemented');
+    throw new Error('Belum diimplementasi');
   }
 
   return request;

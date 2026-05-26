@@ -72,7 +72,7 @@ export class AdminPanelConfigService {
       );
 
     if (!variableWithMetadata) {
-      throw new Error(`Config variable ${key} not found`);
+      throw new Error(`Variabel konfigurasi ${key} tidak ditemukan`);
     }
 
     const { value, metadata, source } = variableWithMetadata;

@@ -34,7 +34,7 @@ export class EmailingDomainDriverFactory extends DriverFactoryBase<EmailingDomai
       return `aws-ses|${awsConfigHash}`;
     }
 
-    throw new Error(`Unsupported emailing domain driver: ${driver}`);
+    throw new Error(`Driver domain email tidak didukung: ${driver}`);
   }
 
   protected createDriver(): EmailingDomainDriverInterface {
@@ -71,7 +71,7 @@ export class EmailingDomainDriverFactory extends DriverFactoryBase<EmailingDomai
       }
 
       default:
-        throw new Error(`Invalid emailing domain driver: ${driver}`);
+        throw new Error(`Driver domain email tidak valid: ${driver}`);
     }
   }
 }

@@ -59,6 +59,6 @@ export const generateFakeObjectRecordEvent = (
         prefix: 'properties.before',
       });
     default:
-      throw new Error(`Unknown action '${action}'`);
+      throw new Error(`Action '${action}' tidak dikenal`);
   }
 };
