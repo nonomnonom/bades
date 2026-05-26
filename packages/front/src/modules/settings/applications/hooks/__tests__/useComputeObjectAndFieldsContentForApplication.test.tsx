@@ -8,10 +8,10 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 const mockObjectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
 
 const personObject = mockObjectMetadataItems.find(
-  (item) => item.nameSingular === 'person',
+  (item) => item.nameSingular === 'penduduk',
 )!;
 const companyObject = mockObjectMetadataItems.find(
-  (item) => item.nameSingular === 'company',
+  (item) => item.nameSingular === 'keluarga',
 )!;
 
 const APP_ID = 'test-app-id';

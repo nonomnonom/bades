@@ -6,7 +6,7 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
 describe('spreadsheetImportGetUnicityTableHook', () => {
-  const baseMockCompany = getMockObjectMetadataItemOrThrow('company');
+  const baseMockCompany = getMockObjectMetadataItemOrThrow('keluarga');
 
   const nameField = getMockFieldMetadataItemOrThrow({
     objectMetadataItem: baseMockCompany,

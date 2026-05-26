@@ -12,7 +12,7 @@ describe('useGetObjectOrderByField', () => {
     const { result } = renderHook(
       () => {
         const { getObjectOrderByField } = useGetObjectOrderByField({
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
         });
 
         return getObjectOrderByField('AscNullsLast');

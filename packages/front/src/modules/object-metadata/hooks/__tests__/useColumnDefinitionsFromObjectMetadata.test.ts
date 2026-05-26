@@ -20,7 +20,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 const Wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({
   apolloMocks: [],
   componentInstanceId: 'instanceId',
-  contextStoreCurrentObjectMetadataNameSingular: 'company',
+  contextStoreCurrentObjectMetadataNameSingular: 'keluarga',
 });
 
 describe('useColumnDefinitionsFromObjectMetadata', () => {
@@ -77,7 +77,7 @@ describe('useColumnDefinitionsFromObjectMetadata', () => {
     });
 
     const companyObjectMetadata = getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'company',
+      (item) => item.nameSingular === 'keluarga',
     );
 
     const { result } = renderHook(

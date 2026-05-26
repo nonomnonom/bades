@@ -11,7 +11,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/PhonesFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('person', 'phones'),
+    getFieldDecorator('penduduk', 'phones'),
     ComponentDecorator,
     SnackBarDecorator,
   ],
@@ -36,7 +36,7 @@ export const Elipsis: Story = {
 
 export const WrongNumber: Story = {
   decorators: [
-    getFieldDecorator('person', 'phones', {
+    getFieldDecorator('penduduk', 'phones', {
       primaryPhoneNumber: '123-456-7890',
       primaryPhoneCountryCode: '+1',
       additionalPhones: null,

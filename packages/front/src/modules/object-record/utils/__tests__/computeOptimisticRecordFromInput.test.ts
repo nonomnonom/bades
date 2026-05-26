@@ -32,7 +32,7 @@ describe('computeOptimisticRecordFromInput', () => {
   const currentWorkspaceMemberFullname = `${currentWorkspaceMember.name.firstName} ${currentWorkspaceMember.name.lastName}`;
   it('should generate correct optimistic record if no relation field is present', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
@@ -52,7 +52,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record with actor field', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
     const actorFieldValueForInput: FieldActorForInputValue = {
       context: {},
       source: 'API',
@@ -82,7 +82,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record createdBy when recordInput contains id', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
@@ -111,7 +111,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record if relation field is present but cache is empty', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
@@ -131,9 +131,9 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record even if recordInput contains field __typename', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
     const companyObjectMetadataItem =
-      getMockObjectMetadataItemOrThrow('company');
+      getMockObjectMetadataItemOrThrow('keluarga');
 
     const companyRecord = {
       id: '123',
@@ -181,9 +181,9 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record if relation field is present and cache is not empty', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
     const companyObjectMetadataItem =
-      getMockObjectMetadataItemOrThrow('company');
+      getMockObjectMetadataItemOrThrow('keluarga');
 
     const companyRecord = {
       id: '123',
@@ -233,7 +233,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record if relation field is null and cache is empty', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
@@ -254,7 +254,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should throw an error if recordInput contains fields unrelated to the current objectMetadata', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+    const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
     expect(() =>
       computeOptimisticRecordFromInput({

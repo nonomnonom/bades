@@ -20,7 +20,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 
 const recordTableId = 'people';
 const objectNameSingular = 'person';
-const mockPendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const mockPendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
 const flatPersonRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),

@@ -13,7 +13,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 if (!mockedCompanyObjectMetadataItem) {
@@ -55,7 +55,7 @@ export const WithRelationForm: Story = {
   args: {
     existingFieldMetadataId: 'new-field',
     fieldType: FieldMetadataType.RELATION,
-    objectNameSingular: 'company',
+    objectNameSingular: 'keluarga',
   },
 };
 
@@ -63,6 +63,6 @@ export const WithSelectForm: Story = {
   args: {
     existingFieldMetadataId: 'new-field',
     fieldType: FieldMetadataType.SELECT,
-    objectNameSingular: 'company',
+    objectNameSingular: 'keluarga',
   },
 };

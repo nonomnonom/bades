@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { getTimelineThreadsFromCompanyId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromCompanyId';
+import { getTimelineThreadsFromPendudukId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPendudukId';
 
 jest.mock('@apollo/client', () => ({
   gql: jest.fn().mockImplementation((strings) => {
@@ -8,9 +8,9 @@ jest.mock('@apollo/client', () => ({
   }),
 }));
 
-describe('getTimelineThreadsFromCompanyId query', () => {
+describe('getTimelineThreadsFromPendudukId query', () => {
   test('should construct the query correctly', () => {
     expect(gql).toHaveBeenCalled();
-    expect(getTimelineThreadsFromCompanyId).toBeDefined();
+    expect(getTimelineThreadsFromPendudukId).toBeDefined();
   });
 });

@@ -10,7 +10,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/FullNameFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('person', 'name'),
+    getFieldDecorator('penduduk', 'name'),
     ComponentDecorator,
   ],
   component: FullNameFieldDisplay,

@@ -3,7 +3,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 import { normalizeGQLField } from '~/utils/normalizeGQLField';
 
 const personObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
-  (item) => item.nameSingular === 'person',
+  (item) => item.nameSingular === 'penduduk',
 );
 
 if (!personObjectMetadataItem) {

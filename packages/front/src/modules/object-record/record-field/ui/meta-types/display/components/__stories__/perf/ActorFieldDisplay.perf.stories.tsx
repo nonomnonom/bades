@@ -14,7 +14,7 @@ const meta: Meta = {
     AuthContextDecorator,
     MemoryRouterDecorator,
     ChipGeneratorsDecorator,
-    getFieldDecorator('company', 'createdBy', {
+    getFieldDecorator('keluarga', 'createdBy', {
       id: '1',
       name: 'John Doe',
     }),

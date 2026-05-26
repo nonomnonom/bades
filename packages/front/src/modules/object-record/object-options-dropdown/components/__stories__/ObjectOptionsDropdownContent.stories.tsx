@@ -74,7 +74,7 @@ const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
     (Story) => {
       const companyObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === 'company',
+          (item) => item.nameSingular === 'keluarga',
         )!;
 
       const {
@@ -94,7 +94,7 @@ const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
             objectNamePlural: 'companies',
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             objectMetadataItem: companyObjectMetadataItem,
             recordIndexId: instanceId,
             viewBarInstanceId: instanceId,

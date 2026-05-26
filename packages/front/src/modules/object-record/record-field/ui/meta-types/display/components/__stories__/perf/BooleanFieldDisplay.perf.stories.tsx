@@ -10,7 +10,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/BooleanFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('company', 'idealCustomerProfile'),
+    getFieldDecorator('keluarga', 'idealCustomerProfile'),
     ComponentDecorator,
   ],
   component: BooleanFieldDisplay,

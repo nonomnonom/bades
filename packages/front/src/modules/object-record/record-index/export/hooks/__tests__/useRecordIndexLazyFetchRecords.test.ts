@@ -68,7 +68,7 @@ const Wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({
     mode: 'selection',
     selectedRecordIds: [],
   },
-  contextStoreCurrentObjectMetadataNameSingular: 'person',
+  contextStoreCurrentObjectMetadataNameSingular: 'penduduk',
 });
 
 jest.mock('@/object-record/hooks/useLazyFetchAllRecords', () => ({
@@ -78,7 +78,7 @@ jest.mock('@/object-record/hooks/useLazyFetchAllRecords', () => ({
 describe('useRecordData', () => {
   const recordIndexId = 'people';
   const objectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'person',
+    (item) => item.nameSingular === 'penduduk',
   );
   let mockFetchAllRecords: jest.Mock;
 

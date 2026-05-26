@@ -4,12 +4,12 @@ import { getMultiSelectFieldPreviewValue } from '@/settings/data-model/fields/pr
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 const mockedOpportunityObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'opportunity',
+    (item) => item.nameSingular === 'programBantuan',
   );
 
 describe('getMultiSelectFieldPreviewValue', () => {

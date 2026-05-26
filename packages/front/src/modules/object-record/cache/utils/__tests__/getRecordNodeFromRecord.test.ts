@@ -17,7 +17,7 @@ describe('getRecordNodeFromRecord', () => {
           'fields' | 'namePlural' | 'nameSingular'
         >
       | undefined = getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'person',
+      (item) => item.nameSingular === 'penduduk',
     );
 
     if (!objectMetadataItem) {
@@ -62,7 +62,7 @@ describe('getRecordNodeFromRecord', () => {
           'fields' | 'namePlural' | 'nameSingular'
         >
       | undefined = getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'person',
+      (item) => item.nameSingular === 'penduduk',
     );
 
     if (!objectMetadataItem) {

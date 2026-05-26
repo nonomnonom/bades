@@ -24,7 +24,7 @@ describe('useGetRelationMetadata', () => {
 
   it('should return correct properties', async () => {
     const objectMetadata = getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'person',
+      (item) => item.nameSingular === 'penduduk',
     )!;
     const fieldMetadataItem = objectMetadata.fields.find(
       (field) => field.name === 'pointOfContactForOpportunities',
@@ -43,7 +43,7 @@ describe('useGetRelationMetadata', () => {
 
     const expectedRelationObjectMetadataItem =
       getTestEnrichedObjectMetadataItemsMock().find(
-        (item) => item.nameSingular === 'opportunity',
+        (item) => item.nameSingular === 'programBantuan',
       );
     const expectedRelationFieldMetadataItem =
       expectedRelationObjectMetadataItem?.fields.find(

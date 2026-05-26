@@ -93,7 +93,7 @@ const LinksInputWithContext = ({
               metadata: {
                 fieldName: 'links',
                 placeHolder: 'Enter URL',
-                objectMetadataNameSingular: 'company',
+                objectMetadataNameSingular: 'keluarga',
               },
             },
             recordId,

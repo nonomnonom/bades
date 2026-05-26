@@ -210,7 +210,7 @@ const addNewAddressToMetadataItems = (
   subFields: string[],
 ) => {
   return objectMetadataItems
-    .filter((item) => item.nameSingular === 'company')
+    .filter((item) => item.nameSingular === 'keluarga')
     .map((item) => {
       const fields = item.fields;
       const addressField = fields.find(

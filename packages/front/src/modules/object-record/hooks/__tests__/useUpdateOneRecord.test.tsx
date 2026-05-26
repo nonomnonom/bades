@@ -59,7 +59,7 @@ describe('useUpdateOneRecord', () => {
 
     await act(async () => {
       const res = await result.current.updateOneRecord({
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         idToUpdate,
         updateOneRecordInput: updateInput,
       });

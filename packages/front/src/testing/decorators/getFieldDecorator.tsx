@@ -22,12 +22,12 @@ const mockedTasks = mockedTaskRecords.map((record) =>
 );
 
 const RecordMockSetterEffect = ({
-  companies,
-  people,
+  keluargas,
+  penduduks,
   tasks,
 }: {
-  companies: ObjectRecord[];
-  people: ObjectRecord[];
+  keluargas: ObjectRecord[];
+  penduduks: ObjectRecord[];
   tasks: ObjectRecord[];
 }) => {
   const setRecordInStores = useCallback((record: ObjectRecord) => {
@@ -35,48 +35,48 @@ const RecordMockSetterEffect = ({
   }, []);
 
   useEffect(() => {
-    for (const company of companies) {
-      setRecordInStores(company);
+    for (const keluarga of keluargas) {
+      setRecordInStores(keluarga);
     }
 
-    for (const person of people) {
-      setRecordInStores(person);
+    for (const penduduk of penduduks) {
+      setRecordInStores(penduduk);
     }
 
     for (const task of tasks) {
       setRecordInStores(task);
     }
-  }, [companies, people, tasks, setRecordInStores]);
+  }, [keluargas, penduduks, tasks, setRecordInStores]);
 
   return null;
 };
 
 export const getFieldDecorator =
   (
-    objectNameSingular: 'company' | 'person' | 'task' | 'workflowVersions',
+    objectNameSingular: 'keluarga' | 'penduduk' | 'task' | 'workflowVersions',
     fieldName: string,
     fieldValue?: any,
   ): Decorator =>
   (Story) => {
-    const companiesMock = [...mockedKeluargaRecords];
+    const keluargasMock = [...mockedKeluargaRecords];
 
-    const companies =
-      objectNameSingular === 'company' && isDefined(fieldValue)
+    const keluargas =
+      objectNameSingular === 'keluarga' && isDefined(fieldValue)
         ? [
-            { ...companiesMock[0], [fieldName]: fieldValue },
-            ...companiesMock.slice(1),
+            { ...keluargasMock[0], [fieldName]: fieldValue },
+            ...keluargasMock.slice(1),
           ]
-        : companiesMock;
+        : keluargasMock;
 
-    const peopleMock = [...mockedPendudukRecords];
+    const pendudukMock = [...mockedPendudukRecords];
 
-    const people =
-      objectNameSingular === 'person' && isDefined(fieldValue)
+    const penduduks =
+      objectNameSingular === 'penduduk' && isDefined(fieldValue)
         ? [
-            { ...peopleMock[0], [fieldName]: fieldValue },
-            ...peopleMock.slice(1),
+            { ...pendudukMock[0], [fieldName]: fieldValue },
+            ...pendudukMock.slice(1),
           ]
-        : peopleMock;
+        : pendudukMock;
 
     const tasksMock = mockedTasks;
 
@@ -86,10 +86,10 @@ export const getFieldDecorator =
         : tasksMock;
 
     const record =
-      objectNameSingular === 'company'
-        ? companies[0]
-        : objectNameSingular === 'person'
-          ? people[0]
+      objectNameSingular === 'keluarga'
+        ? keluargas[0]
+        : objectNameSingular === 'penduduk'
+          ? penduduks[0]
           : tasks[0];
 
     if (isDefined(fieldValue)) {
@@ -142,8 +142,8 @@ export const getFieldDecorator =
           }}
         >
           <RecordMockSetterEffect
-            companies={companies}
-            people={people}
+            keluargas={keluargas}
+            penduduks={penduduks}
             tasks={tasks}
           />
           <Story />

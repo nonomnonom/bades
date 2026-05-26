@@ -32,7 +32,7 @@ const meta: Meta<PageDecoratorArgs> = {
           return HttpResponse.json({
             data: {
               penduduks: generateMockRecordConnection({
-                objectNameSingular: 'person',
+                objectNameSingular: 'penduduk',
                 records: flatPersonRecords,
               }),
             },

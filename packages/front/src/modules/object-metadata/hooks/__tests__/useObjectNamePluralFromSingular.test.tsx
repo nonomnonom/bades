@@ -5,7 +5,7 @@ import { useObjectNamePluralFromSingular } from '@/object-metadata/hooks/useObje
 describe('useObjectNamePluralFromSingular', () => {
   it('should work as expected', async () => {
     const { result } = renderHook(
-      () => useObjectNamePluralFromSingular({ objectNameSingular: 'person' }),
+      () => useObjectNamePluralFromSingular({ objectNameSingular: 'penduduk' }),
       {
         wrapper: ({ children }) => (
           <JestObjectMetadataItemSetter>

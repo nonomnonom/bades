@@ -90,7 +90,7 @@ export const ratingFieldDefinition: FieldDefinition<FieldRatingMetadata> = {
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 if (!mockedCompanyObjectMetadataItem) {
@@ -113,7 +113,7 @@ export const actorFieldDefinition: FieldDefinition<FieldActorMetadata> = {
   defaultValue: { source: 'MANUAL', name: '' },
   metadata: {
     fieldName: 'actor',
-    objectMetadataNameSingular: 'person',
+    objectMetadataNameSingular: 'penduduk',
   },
 };
 
@@ -129,7 +129,7 @@ export const linksFieldDefinition: FieldDefinition<FieldLinksMetadata> = {
   },
   metadata: {
     fieldName: 'links',
-    objectMetadataNameSingular: 'company',
+    objectMetadataNameSingular: 'keluarga',
     settings: null,
   },
 };
@@ -154,7 +154,7 @@ export const morphRelationFieldDefinition: FieldDefinition<FieldMorphRelationMet
     defaultValue: [],
     metadata: {
       fieldName: 'attachments',
-      objectMetadataNameSingular: 'company',
+      objectMetadataNameSingular: 'keluarga',
       morphRelations: [],
       relationType: RelationType.ONE_TO_MANY,
       settings: null,

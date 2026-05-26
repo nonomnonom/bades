@@ -5,7 +5,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 describe('generateDepthRecordGqlFieldsFromObject', () => {
   it('should generate depth one record gql fields from object', () => {
     const result = generateDepthRecordGqlFieldsFromObject({
-      objectMetadataItem: getMockObjectMetadataItemOrThrow('company'),
+      objectMetadataItem: getMockObjectMetadataItemOrThrow('keluarga'),
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       depth: 1,
     });
@@ -15,7 +15,7 @@ describe('generateDepthRecordGqlFieldsFromObject', () => {
 
   it('should generate depth zero record gql fields from object', () => {
     const result = generateDepthRecordGqlFieldsFromObject({
-      objectMetadataItem: getMockObjectMetadataItemOrThrow('company'),
+      objectMetadataItem: getMockObjectMetadataItemOrThrow('keluarga'),
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       depth: 0,
     });

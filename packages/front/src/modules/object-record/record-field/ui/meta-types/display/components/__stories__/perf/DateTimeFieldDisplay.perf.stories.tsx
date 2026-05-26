@@ -13,7 +13,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/DateTimeFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('person', 'createdAt'),
+    getFieldDecorator('penduduk', 'createdAt'),
     ComponentDecorator,
     (Story) => {
       return (

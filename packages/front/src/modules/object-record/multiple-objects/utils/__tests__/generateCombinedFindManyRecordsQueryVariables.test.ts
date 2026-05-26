@@ -6,7 +6,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
   it('should generate variables with after cursor and first limit', () => {
     const operationSignatures: RecordGqlOperationSignature[] = [
       {
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         fields: {
           id: true,
           name: {
@@ -41,7 +41,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
   it('should generate variables with before cursor and last limit', () => {
     const operationSignatures: RecordGqlOperationSignature[] = [
       {
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         fields: {
           id: true,
           name: true,
@@ -73,7 +73,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
   it('should generate variables with limit only (no cursor)', () => {
     const operationSignatures: RecordGqlOperationSignature[] = [
       {
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         fields: {
           id: true,
           name: true,
@@ -100,7 +100,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
   it('should handle multiple objects with different pagination strategies', () => {
     const operationSignatures: RecordGqlOperationSignature[] = [
       {
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         fields: {
           id: true,
         } as RecordGqlFields,
@@ -114,7 +114,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
         },
       },
       {
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         fields: {
           id: true,
         } as RecordGqlFields,
@@ -149,7 +149,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
   it('should handle empty variables', () => {
     const operationSignatures: RecordGqlOperationSignature[] = [
       {
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         fields: {
           id: true,
         } as RecordGqlFields,
@@ -167,7 +167,7 @@ describe('useCombinedFindManyRecordsQueryVariables', () => {
   it('should handle cursor without limit', () => {
     const operationSignatures: RecordGqlOperationSignature[] = [
       {
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         fields: {
           id: true,
         } as RecordGqlFields,

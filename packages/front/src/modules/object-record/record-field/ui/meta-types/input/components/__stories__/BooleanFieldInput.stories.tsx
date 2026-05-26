@@ -64,7 +64,7 @@ const BooleanFieldInputWithContext = ({
             type: FieldMetadataType.BOOLEAN,
             metadata: {
               fieldName: 'Boolean',
-              objectMetadataNameSingular: 'person',
+              objectMetadataNameSingular: 'penduduk',
             },
           },
           recordId: recordId ?? '123',

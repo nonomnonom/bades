@@ -12,7 +12,7 @@ describe('useMapToObjectRecordIdentifier', () => {
     const { result } = renderHook(
       () => {
         const { mapToObjectRecordIdentifier } = useMapToObjectRecordIdentifier({
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           allowRequestsToFaviconService: true,
         });
 

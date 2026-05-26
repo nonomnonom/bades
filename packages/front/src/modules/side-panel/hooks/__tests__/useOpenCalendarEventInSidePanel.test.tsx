@@ -24,7 +24,7 @@ jest.mock('@/side-panel/hooks/useNavigateSidePanel', () => ({
 
 const personMockObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'person',
+    (item) => item.nameSingular === 'penduduk',
   )!;
 
 const wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({

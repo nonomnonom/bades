@@ -10,7 +10,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 const StyledContainer = styled.div`

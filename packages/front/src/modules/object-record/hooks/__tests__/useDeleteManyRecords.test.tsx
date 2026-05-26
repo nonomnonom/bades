@@ -42,7 +42,7 @@ const mockRefetchAggregateQueries = jest.fn();
 (useRefetchAggregateQueries as jest.Mock).mockReturnValue({
   refetchAggregateQueries: mockRefetchAggregateQueries,
 });
-const objectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const objectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 const objectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
 const expectedCachedRecordsWithDeletedAt = personRecords.map(
   (personRecord) => ({
@@ -89,7 +89,7 @@ describe('useDeleteManyRecords', () => {
     it('1. Should handle optimistic behavior after many records deletion', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useDeleteManyRecords({ objectNameSingular: 'person' }),
+        () => useDeleteManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks,
@@ -132,7 +132,7 @@ describe('useDeleteManyRecords', () => {
     it('1. Should handle optimistic behavior after many successful records deletion', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useDeleteManyRecords({ objectNameSingular: 'person' }),
+        () => useDeleteManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks,
@@ -156,7 +156,7 @@ describe('useDeleteManyRecords', () => {
     it('2. Should handle optimistic behavior before send many record deletion', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useDeleteManyRecords({ objectNameSingular: 'person' }),
+        () => useDeleteManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks: getDefaultMocks({
@@ -183,7 +183,7 @@ describe('useDeleteManyRecords', () => {
     it('3. Should rollback optimistic behavior after failing to delete many records', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useDeleteManyRecords({ objectNameSingular: 'person' }),
+        () => useDeleteManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks: getDefaultMocks({

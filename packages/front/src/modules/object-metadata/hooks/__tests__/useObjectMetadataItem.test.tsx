@@ -13,11 +13,11 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 describe('useObjectMetadataItem', () => {
   const opportunityObjectMetadata =
     getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'opportunity',
+      (item) => item.nameSingular === 'programBantuan',
     );
   it('should return correct properties', async () => {
     const { result } = renderHook(
-      () => useObjectMetadataItem({ objectNameSingular: 'opportunity' }),
+      () => useObjectMetadataItem({ objectNameSingular: 'programBantuan' }),
       {
         wrapper: Wrapper,
       },

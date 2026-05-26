@@ -53,7 +53,7 @@ describe('useUpdateMultipleRecordsActions', () => {
   it('should call incrementalUpdateManyRecords and return the count', async () => {
     const { result } = renderHook(() =>
       useUpdateMultipleRecordsActions({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         contextStoreInstanceId: 'test-id',
       }),
     );
@@ -73,7 +73,7 @@ describe('useUpdateMultipleRecordsActions', () => {
 
     const { result } = renderHook(() =>
       useUpdateMultipleRecordsActions({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
         contextStoreInstanceId: 'test-id',
       }),
     );

@@ -32,7 +32,7 @@ const meta: Meta = {
   args: {
     recordTableId: `companies-${companyView.id}`,
     viewBarId: 'view-bar',
-    objectNameSingular: 'company',
+    objectNameSingular: 'keluarga',
   },
   parameters: {
     recordTableObjectNameSingular: 'company',

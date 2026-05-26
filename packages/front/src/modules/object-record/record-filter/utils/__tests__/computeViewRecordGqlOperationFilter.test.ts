@@ -13,11 +13,11 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
 const companyMockObjectMetadataItem =
-  getMockObjectMetadataItemOrThrow('company');
+  getMockObjectMetadataItemOrThrow('keluarga');
 
 const petMockObjectMetadataItem = getMockObjectMetadataItemOrThrow('pet');
 
-const personMockObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const personMockObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
 const companyFields = companyMockObjectMetadataItem.fields;
 

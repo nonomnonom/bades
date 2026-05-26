@@ -11,7 +11,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/AddressFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('company', 'address', {
+    getFieldDecorator('keluarga', 'address', {
       addressCity: 'San Francisco',
       addressCountry: 'United States',
       addressStreet1: '1234 Elm Street',
@@ -41,7 +41,7 @@ export const Elipsis: Story = {
     container: { width: 100 },
   },
   decorators: [
-    getFieldDecorator('company', 'address', {
+    getFieldDecorator('keluarga', 'address', {
       addressCity:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam',
       addressCountry: 'United States',

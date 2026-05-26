@@ -77,7 +77,7 @@ const RatingFieldInputWithContext = ({
             type: FieldMetadataType.RATING,
             metadata: {
               fieldName: 'rating',
-              objectMetadataNameSingular: 'person',
+              objectMetadataNameSingular: 'penduduk',
             },
           },
           recordId: recordId ?? '123',

@@ -45,7 +45,7 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
 
     rerender({
       record: { id: 'recordId', avatarUrl: 'https://fake-url.com' },
-      objectNameSingular: 'opportunity',
+      objectNameSingular: 'programBantuan',
     });
 
     expect(result.current.linkToShowPage).toBe('/object/opportunity/recordId');
@@ -55,7 +55,7 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
         id: 'recordId',
         name: { firstName: 'John', lastName: 'Connor' },
       },
-      objectNameSingular: 'person',
+      objectNameSingular: 'penduduk',
     });
 
     expect(result.current.linkToShowPage).toBe('/object/person/recordId');
@@ -67,7 +67,7 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
         id: 'recordId',
         domainName: 'https://cool-company.com',
       },
-      objectNameSingular: 'company',
+      objectNameSingular: 'keluarga',
     });
 
     expect(result.current.linkToShowPage).toBe('/object/company/recordId');

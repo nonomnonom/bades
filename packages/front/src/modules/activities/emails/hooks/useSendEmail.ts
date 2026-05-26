@@ -3,9 +3,9 @@ import { useCallback } from 'react';
 import { type EmailAttachment } from 'shared/types';
 
 import { SEND_EMAIL } from '@/activities/emails/graphql/mutations/sendEmail';
-import { getTimelineThreadsFromCompanyId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromCompanyId';
-import { getTimelineThreadsFromOpportunityId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromOpportunityId';
-import { getTimelineThreadsFromPersonId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPersonId';
+import { getTimelineThreadsFromKeluargaId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromKeluargaId';
+import { getTimelineThreadsFromProgramBantuanId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromProgramBantuanId';
+import { getTimelineThreadsFromPendudukId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPendudukId';
 import { useApolloCoreClient } from '@/object-metadata/hooks/useApolloCoreClient';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { t } from '~/utils/i18n/badesI18n';
@@ -60,9 +60,9 @@ export const useSendEmail = () => {
 
           await apolloCoreClient.refetchQueries({
             include: [
-              getTimelineThreadsFromCompanyId,
-              getTimelineThreadsFromPersonId,
-              getTimelineThreadsFromOpportunityId,
+              getTimelineThreadsFromKeluargaId,
+              getTimelineThreadsFromPendudukId,
+              getTimelineThreadsFromProgramBantuanId,
               'FindManyMessages',
               'FindManyMessageParticipants',
               'FindManyMessageChannelMessageAssociations',

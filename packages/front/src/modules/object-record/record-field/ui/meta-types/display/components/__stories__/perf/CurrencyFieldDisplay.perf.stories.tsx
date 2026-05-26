@@ -10,7 +10,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/CurrencyFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('company', 'annualRecurringRevenue'),
+    getFieldDecorator('keluarga', 'annualRecurringRevenue'),
     ComponentDecorator,
   ],
   component: CurrencyFieldDisplay,
@@ -28,7 +28,7 @@ export const Default: Story = {};
 
 export const Millions: Story = {
   decorators: [
-    getFieldDecorator('company', 'annualRecurringRevenue', {
+    getFieldDecorator('keluarga', 'annualRecurringRevenue', {
       __typename: 'Currency',
       amountMicros: 18200000 * 1000000,
       currencyCode: 'EUR',
@@ -38,7 +38,7 @@ export const Millions: Story = {
 
 export const Billions: Story = {
   decorators: [
-    getFieldDecorator('company', 'annualRecurringRevenue', {
+    getFieldDecorator('keluarga', 'annualRecurringRevenue', {
       __typename: 'Currency',
       amountMicros: 3230000000 * 1000000,
       currencyCode: 'USD',
@@ -48,7 +48,7 @@ export const Billions: Story = {
 
 export const Bazillions: Story = {
   decorators: [
-    getFieldDecorator('company', 'annualRecurringRevenue', {
+    getFieldDecorator('keluarga', 'annualRecurringRevenue', {
       __typename: 'Currency',
       amountMicros: 1e100,
       currencyCode: 'USD',

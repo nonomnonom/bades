@@ -6,9 +6,9 @@ import { format, getYear } from 'date-fns';
 import { CalendarMonthCard } from '@/activities/calendar/components/CalendarMonthCard';
 import { TIMELINE_CALENDAR_EVENTS_DEFAULT_PAGE_SIZE } from '@/activities/calendar/constants/Calendar';
 import { CalendarContext } from '@/activities/calendar/contexts/CalendarContext';
-import { getTimelineCalendarEventsFromCompanyId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromCompanyId';
-import { getTimelineCalendarEventsFromOpportunityId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromOpportunityId';
-import { getTimelineCalendarEventsFromPersonId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromPersonId';
+import { getTimelineCalendarEventsFromKeluargaId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromKeluargaId';
+import { getTimelineCalendarEventsFromProgramBantuanId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromProgramBantuanId';
+import { getTimelineCalendarEventsFromPendudukId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromPendudukId';
 import { useCalendarEvents } from '@/activities/calendar/hooks/useCalendarEvents';
 import { CustomResolverFetchMoreLoader } from '@/activities/components/CustomResolverFetchMoreLoader';
 import { SkeletonLoader } from '@/activities/components/SkeletonLoader';
@@ -55,17 +55,17 @@ export const CalendarEventsCard = () => {
   const [query, queryName] =
     targetRecord.targetObjectNameSingular === CoreObjectNameSingular.Person
       ? [
-          getTimelineCalendarEventsFromPersonId,
-          'getTimelineCalendarEventsFromPersonId',
+          getTimelineCalendarEventsFromPendudukId,
+          'getTimelineCalendarEventsFromPendudukId',
         ]
       : targetRecord.targetObjectNameSingular === CoreObjectNameSingular.Company
         ? [
-            getTimelineCalendarEventsFromCompanyId,
-            'getTimelineCalendarEventsFromCompanyId',
+            getTimelineCalendarEventsFromKeluargaId,
+            'getTimelineCalendarEventsFromKeluargaId',
           ]
         : [
-            getTimelineCalendarEventsFromOpportunityId,
-            'getTimelineCalendarEventsFromOpportunityId',
+            getTimelineCalendarEventsFromProgramBantuanId,
+            'getTimelineCalendarEventsFromProgramBantuanId',
           ];
 
   const { data, firstQueryLoading, isFetchingMore, fetchMoreRecords } =

@@ -7,9 +7,9 @@ import { ComposeEmailButton } from '@/activities/emails/components/ComposeEmailB
 import { EmailThreadPreview } from '@/activities/emails/components/EmailThreadPreview';
 import { EmptyInboxPlaceholder } from '@/activities/emails/components/EmptyInboxPlaceholder';
 import { TIMELINE_THREADS_DEFAULT_PAGE_SIZE } from '@/activities/emails/constants/Messaging';
-import { getTimelineThreadsFromCompanyId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromCompanyId';
-import { getTimelineThreadsFromOpportunityId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromOpportunityId';
-import { getTimelineThreadsFromPersonId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPersonId';
+import { getTimelineThreadsFromKeluargaId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromKeluargaId';
+import { getTimelineThreadsFromProgramBantuanId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromProgramBantuanId';
+import { getTimelineThreadsFromPendudukId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPendudukId';
 import { useCustomResolver } from '@/activities/hooks/useCustomResolver';
 import { CoreObjectNameSingular } from 'shared/types';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
@@ -54,12 +54,12 @@ export const EmailsCard = () => {
 
   const [query, queryName] =
     targetRecord.targetObjectNameSingular === CoreObjectNameSingular.Person
-      ? [getTimelineThreadsFromPersonId, 'getTimelineThreadsFromPersonId']
+      ? [getTimelineThreadsFromPendudukId, 'getTimelineThreadsFromPendudukId']
       : targetRecord.targetObjectNameSingular === CoreObjectNameSingular.Company
-        ? [getTimelineThreadsFromCompanyId, 'getTimelineThreadsFromCompanyId']
+        ? [getTimelineThreadsFromKeluargaId, 'getTimelineThreadsFromKeluargaId']
         : [
-            getTimelineThreadsFromOpportunityId,
-            'getTimelineThreadsFromOpportunityId',
+            getTimelineThreadsFromProgramBantuanId,
+            'getTimelineThreadsFromProgramBantuanId',
           ];
 
   const { data, firstQueryLoading, isFetchingMore, fetchMoreRecords } =

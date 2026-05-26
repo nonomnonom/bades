@@ -12,13 +12,13 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
 const mockedCompanyObjectMetadataItem =
-  getMockObjectMetadataItemOrThrow('company');
+  getMockObjectMetadataItemOrThrow('keluarga');
 
 const mockedOpportunityObjectMetadataItem =
-  getMockObjectMetadataItemOrThrow('opportunity');
+  getMockObjectMetadataItemOrThrow('programBantuan');
 
 const mockedPersonObjectMetadataItem =
-  getMockObjectMetadataItemOrThrow('person');
+  getMockObjectMetadataItemOrThrow('penduduk');
 
 const meta: Meta<typeof SettingsDataModelFieldPreviewWidget> = {
   title:

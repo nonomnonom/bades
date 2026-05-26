@@ -26,8 +26,8 @@ import { RelationType } from '~/generated-metadata/graphql';
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const personMetadata = getMockObjectMetadataItemOrThrow('person');
-const companyMetadata = getMockObjectMetadataItemOrThrow('company');
+const personMetadata = getMockObjectMetadataItemOrThrow('penduduk');
+const companyMetadata = getMockObjectMetadataItemOrThrow('keluarga');
 const companyFieldOnPerson = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: personMetadata,
   fieldName: 'company',
@@ -60,7 +60,7 @@ const RelationOneToManyFieldInputWithContext = () => {
         relationType: RelationType.ONE_TO_MANY,
         relationObjectMetadataNamePlural: 'people',
         relationObjectMetadataNameSingular: CoreObjectNameSingular.Person,
-        objectMetadataNameSingular: 'company',
+        objectMetadataNameSingular: 'keluarga',
         relationFieldMetadataId: companyFieldOnPerson.id,
       },
     }),

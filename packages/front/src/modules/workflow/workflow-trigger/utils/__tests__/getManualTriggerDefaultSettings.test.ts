@@ -94,11 +94,11 @@ describe('getManualTriggerDefaultSettings', () => {
         activeNonSystemObjectMetadataItems: multipleObjects,
       });
 
-      expect(result.objectType).toBe('company');
+      expect(result.objectType).toBe('keluarga');
       expect(
         (result.availability as { objectNameSingular: string })
           .objectNameSingular,
-      ).toBe('company');
+      ).toBe('keluarga');
     });
   });
 

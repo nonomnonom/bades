@@ -10,7 +10,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/TextFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('person', 'city'),
+    getFieldDecorator('penduduk', 'city'),
     ComponentDecorator,
   ],
   component: TextFieldDisplay,
@@ -32,7 +32,7 @@ export const Elipsis: Story = {
   },
   decorators: [
     getFieldDecorator(
-      'person',
+      'penduduk',
       'city',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum fugiat veniam illum accusantium saepe, voluptate inventore libero doloribus doloremque distinctio blanditiis amet quis dolor a nulla? Placeat nam itaque rerum esse quidem animi, temporibus saepe debitis commodi quia eius eos minus inventore. Voluptates fugit optio sit ab consectetur ipsum, neque eius atque blanditiis. Ullam provident at porro minima, nobis vero dicta consequatur maxime laboriosam fugit repudiandae repellat tempore voluptas non voluptatibus neque aliquam ducimus doloribus ipsa? Sapiente suscipit unde modi commodi possimus doloribus eum voluptatibus, architecto laudantium, magnam, eos numquam exercitationem est maxime explicabo odio nemo qui distinctio temporibus.',
     ),

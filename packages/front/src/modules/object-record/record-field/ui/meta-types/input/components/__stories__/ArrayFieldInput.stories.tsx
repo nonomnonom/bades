@@ -81,7 +81,7 @@ const ArrayInputWithContext = ({
             metadata: {
               fieldName: 'tags',
               placeHolder: 'Enter value',
-              objectMetadataNameSingular: 'company',
+              objectMetadataNameSingular: 'keluarga',
             },
           },
           recordId,

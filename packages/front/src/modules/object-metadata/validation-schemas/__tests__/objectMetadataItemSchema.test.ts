@@ -7,7 +7,7 @@ describe('objectMetadataItemSchema', () => {
     // Given
     const validObjectMetadataItem =
       getTestEnrichedObjectMetadataItemsMock().find(
-        (item) => item.nameSingular === 'company',
+        (item) => item.nameSingular === 'keluarga',
       );
 
     // When
@@ -21,7 +21,7 @@ describe('objectMetadataItemSchema', () => {
     // Given
     const validObjectMetadataItem =
       getTestEnrichedObjectMetadataItemsMock().find(
-        (item) => item.nameSingular === 'company',
+        (item) => item.nameSingular === 'keluarga',
       );
     expect(validObjectMetadataItem).not.toBeUndefined();
     if (validObjectMetadataItem === undefined)

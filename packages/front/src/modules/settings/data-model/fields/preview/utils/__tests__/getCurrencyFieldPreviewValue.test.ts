@@ -6,12 +6,12 @@ import { CurrencyCode } from 'shared/constants';
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 const mockedOpportunityObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'opportunity',
+    (item) => item.nameSingular === 'programBantuan',
   );
 
 describe('getCurrencyFieldPreviewValue', () => {

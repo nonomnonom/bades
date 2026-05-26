@@ -31,7 +31,7 @@ const objectRecordId = '6205681e-7c11-40b4-9e32-f523dbe54590';
 describe('useLazyFindOneRecord', () => {
   it('fetches record data when called', async () => {
     const { result } = renderHook(
-      () => useLazyFindOneRecord({ objectNameSingular: 'person' }),
+      () => useLazyFindOneRecord({ objectNameSingular: 'penduduk' }),
       {
         wrapper: Wrapper,
       },

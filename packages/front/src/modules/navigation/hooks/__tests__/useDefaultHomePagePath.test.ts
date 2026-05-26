@@ -58,7 +58,7 @@ const renderHooks = ({
             {
               id: 'viewId',
               name: 'Test View',
-              objectMetadataId: getMockObjectMetadataItemOrThrow('company').id,
+              objectMetadataId: getMockObjectMetadataItemOrThrow('keluarga').id,
               type: ViewType.TABLE,
               key: null,
               isCompact: false,

@@ -24,7 +24,7 @@ export const ContextStoreDecorator: Decorator = (Story, context) => {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const objectMetadataItem = getMockObjectMetadataItemOrThrow('company');
+  const objectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 
   useEffect(() => {
     setContextStoreCurrentObjectMetadataItemId(objectMetadataItem.id);

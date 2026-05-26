@@ -115,7 +115,7 @@ describe('getJunctionConfig', () => {
       expect(result).not.toBeNull();
       expect(result!.isMorphRelation).toBe(false);
       expect(result!.targetFields).toHaveLength(1);
-      expect(result!.targetFields[0].name).toBe('company');
+      expect(result!.targetFields[0].name).toBe('keluarga');
     });
 
     it('should return null when target field not found', () => {

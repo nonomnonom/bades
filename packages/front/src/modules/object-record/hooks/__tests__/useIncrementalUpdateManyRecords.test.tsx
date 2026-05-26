@@ -78,7 +78,7 @@ describe('useIncrementalUpdateManyRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalUpdateManyRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 
@@ -132,7 +132,7 @@ describe('useIncrementalUpdateManyRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalUpdateManyRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 
@@ -152,7 +152,7 @@ describe('useIncrementalUpdateManyRecords', () => {
 
     const { result } = renderHook(() =>
       useIncrementalUpdateManyRecords({
-        objectNameSingular: 'company',
+        objectNameSingular: 'keluarga',
       } as any),
     );
 

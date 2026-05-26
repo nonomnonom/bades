@@ -178,7 +178,7 @@ describe('computeStepOutputSchema', () => {
           settings: {
             availability: {
               type: 'SINGLE_RECORD',
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
             },
           },
         } as any,
@@ -196,7 +196,7 @@ describe('computeStepOutputSchema', () => {
           settings: {
             availability: {
               type: 'BULK_RECORDS',
-              objectNameSingular: 'company',
+              objectNameSingular: 'keluarga',
             },
           },
         } as any,

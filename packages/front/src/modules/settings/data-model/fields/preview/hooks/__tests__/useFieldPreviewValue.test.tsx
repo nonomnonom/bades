@@ -9,17 +9,17 @@ import { useFieldPreviewValue } from '@/settings/data-model/fields/preview/hooks
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 const mockedOpportunityObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'opportunity',
+    (item) => item.nameSingular === 'programBantuan',
   );
 
 const mockedPersonObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'person',
+    (item) => item.nameSingular === 'penduduk',
   );
 
 const Wrapper = getJestMetadataAndApolloMocksWrapper({

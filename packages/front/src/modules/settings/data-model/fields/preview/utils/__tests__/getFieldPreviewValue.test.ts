@@ -5,12 +5,12 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 
 const mockedCompanyObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'company',
+    (item) => item.nameSingular === 'keluarga',
   );
 
 const mockedPersonObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'person',
+    (item) => item.nameSingular === 'penduduk',
   );
 
 describe('getFieldPreviewValue', () => {

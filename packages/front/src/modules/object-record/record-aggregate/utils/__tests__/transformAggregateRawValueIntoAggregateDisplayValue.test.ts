@@ -11,7 +11,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 
 describe('transformAggregateRawValueIntoAggregateDisplayValue', () => {
   const mockCompanyObjectMetadataItem =
-    getMockObjectMetadataItemOrThrow('company');
+    getMockObjectMetadataItemOrThrow('keluarga');
   const mockCompanyEmployeesFieldMetadataItem =
     mockCompanyObjectMetadataItem.fields.find(
       findByProperty('name', 'employees'),

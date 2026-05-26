@@ -12,7 +12,7 @@ const meta: Meta = {
   decorators: [
     MemoryRouterDecorator,
     ChipGeneratorsDecorator,
-    getFieldDecorator('person', 'company'),
+    getFieldDecorator('penduduk', 'keluarga'),
     ComponentDecorator,
   ],
   component: RelationToOneFieldDisplay,

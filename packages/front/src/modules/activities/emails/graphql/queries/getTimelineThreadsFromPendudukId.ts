@@ -2,13 +2,13 @@ import { gql } from '@apollo/client';
 
 import { timelineThreadWithTotalFragment } from '@/activities/emails/graphql/queries/fragments/timelineThreadWithTotalFragment';
 
-export const getTimelineThreadsFromPersonId = gql`
+export const getTimelineThreadsFromPendudukId = gql`
   query GetTimelineThreadsFromPersonId(
     $personId: UUID!
     $page: Int!
     $pageSize: Int!
   ) {
-    getTimelineThreadsFromPersonId(
+    getTimelineThreadsFromPendudukId(
       personId: $personId
       page: $page
       pageSize: $pageSize

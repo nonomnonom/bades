@@ -1,15 +1,14 @@
+import { timelineThreadWithTotalFragment } from '@/activities/emails/graphql/queries/fragments/timelineThreadWithTotalFragment';
 import { gql } from '@apollo/client';
 
-import { timelineThreadWithTotalFragment } from '@/activities/emails/graphql/queries/fragments/timelineThreadWithTotalFragment';
-
-export const getTimelineThreadsFromOpportunityId = gql`
-  query GetTimelineThreadsFromOpportunityId(
-    $opportunityId: UUID!
+export const getTimelineThreadsFromKeluargaId = gql`
+  query GetTimelineThreadsFromCompanyId(
+    $companyId: UUID!
     $page: Int!
     $pageSize: Int!
   ) {
-    getTimelineThreadsFromOpportunityId(
-      opportunityId: $opportunityId
+    getTimelineThreadsFromKeluargaId(
+      companyId: $companyId
       page: $page
       pageSize: $pageSize
     ) {

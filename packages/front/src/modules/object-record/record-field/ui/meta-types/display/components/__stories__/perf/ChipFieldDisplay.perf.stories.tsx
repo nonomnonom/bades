@@ -65,7 +65,7 @@ const meta: Meta = {
     },
     MemoryRouterDecorator,
     ChipGeneratorsDecorator,
-    getFieldDecorator('person', 'name'),
+    getFieldDecorator('penduduk', 'name'),
     ComponentDecorator,
   ],
   component: ChipFieldDisplay,

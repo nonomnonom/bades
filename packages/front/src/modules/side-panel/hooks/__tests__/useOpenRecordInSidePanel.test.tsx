@@ -42,7 +42,7 @@ jest.mock(
 
 const personMockObjectMetadataItem =
   getTestEnrichedObjectMetadataItemsMock().find(
-    (item) => item.nameSingular === 'person',
+    (item) => item.nameSingular === 'penduduk',
   )!;
 
 const wrapper = getJestMetadataAndApolloMocksAndCommandMenuWrapper({
@@ -192,7 +192,7 @@ describe('useOpenRecordInSidePanel', () => {
     act(() => {
       result.current.openRecordInSidePanel({
         recordId: 'new-record-123',
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
         isNewRecord: true,
       });
     });
@@ -211,7 +211,7 @@ describe('useOpenRecordInSidePanel', () => {
     act(() => {
       result.current.openRecordInSidePanel({
         recordId: 'record-123',
-        objectNameSingular: 'person',
+        objectNameSingular: 'penduduk',
       });
     });
 

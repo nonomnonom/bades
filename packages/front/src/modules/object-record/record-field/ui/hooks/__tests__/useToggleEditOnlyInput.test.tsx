@@ -19,7 +19,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 
 const recordId = 'recordId';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
+const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 const updateOneCompanyMutation = generateUpdateOneRecordMutation({
   objectMetadataItem: companyObjectMetadataItem,
   objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),

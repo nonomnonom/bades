@@ -154,7 +154,7 @@ const meta: Meta = {
             indexIdentifierUrl: (_recordId: string) => '',
             onIndexRecordsLoaded: () => {},
             objectNamePlural: 'companies',
-            objectNameSingular: 'company',
+            objectNameSingular: 'keluarga',
             // TODO: update performance mocks with new data, and merge with common mocks if possible
             objectMetadataItem: mockPerformance.objectMetadataItem as any,
             recordIndexId: 'recordIndexId',

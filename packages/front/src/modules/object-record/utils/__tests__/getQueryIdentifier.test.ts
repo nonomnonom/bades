@@ -3,7 +3,7 @@ import { getQueryIdentifier } from '@/object-record/utils/getQueryIdentifier';
 describe('getQueryIdentifier', () => {
   it('should create identifier from object name and variables', () => {
     const result = getQueryIdentifier({
-      objectNameSingular: 'person',
+      objectNameSingular: 'penduduk',
       filter: { name: { eq: 'Alice' } },
       orderBy: [{ name: 'AscNullsFirst' }],
       limit: 10,
@@ -16,7 +16,7 @@ describe('getQueryIdentifier', () => {
 
   it('should include cursor filter when present', () => {
     const result = getQueryIdentifier({
-      objectNameSingular: 'company',
+      objectNameSingular: 'keluarga',
       filter: {},
       orderBy: [],
       limit: 20,
@@ -40,14 +40,14 @@ describe('getQueryIdentifier', () => {
 
   it('should produce different identifiers for different filters', () => {
     const resultA = getQueryIdentifier({
-      objectNameSingular: 'person',
+      objectNameSingular: 'penduduk',
       filter: { name: { eq: 'Alice' } },
       orderBy: [],
       limit: 10,
     });
 
     const resultB = getQueryIdentifier({
-      objectNameSingular: 'person',
+      objectNameSingular: 'penduduk',
       filter: { name: { eq: 'Bob' } },
       orderBy: [],
       limit: 10,

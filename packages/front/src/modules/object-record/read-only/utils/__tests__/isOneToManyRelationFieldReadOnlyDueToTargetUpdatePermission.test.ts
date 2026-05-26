@@ -46,7 +46,7 @@ describe('isOneToManyRelationFieldReadOnlyDueToTargetUpdatePermission', () => {
       relationObjectMetadataNameSingular: 'workspaceMember',
       relationObjectMetadataNamePlural: 'workspaceMembers',
       relationFieldMetadataId: 'target-field',
-      objectMetadataNameSingular: 'person',
+      objectMetadataNameSingular: 'penduduk',
       targetFieldMetadataName: 'person',
       settings: null,
       isCustom: true,

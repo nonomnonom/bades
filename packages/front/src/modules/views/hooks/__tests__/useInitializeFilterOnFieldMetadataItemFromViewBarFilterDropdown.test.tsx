@@ -35,7 +35,7 @@ jest.mock('@/ui/utilities/focus/hooks/usePushFocusItemToFocusStack', () => ({
   }),
 }));
 
-const peopleObjectMetadataItemMock = getMockObjectMetadataItemOrThrow('person');
+const peopleObjectMetadataItemMock = getMockObjectMetadataItemOrThrow('penduduk');
 const personCityFieldMetadataItemMock =
   peopleObjectMetadataItemMock.fields.find((field) => field.name === 'city');
 const personCompanyFieldMetadataItemMock =

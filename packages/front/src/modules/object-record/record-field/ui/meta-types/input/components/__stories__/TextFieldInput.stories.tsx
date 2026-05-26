@@ -86,7 +86,7 @@ const TextFieldInputWithContext = ({
             iconName: 'IconText',
             metadata: {
               fieldName: 'text',
-              objectMetadataNameSingular: 'person',
+              objectMetadataNameSingular: 'penduduk',
               placeHolder: 'Enter text',
             },
           },

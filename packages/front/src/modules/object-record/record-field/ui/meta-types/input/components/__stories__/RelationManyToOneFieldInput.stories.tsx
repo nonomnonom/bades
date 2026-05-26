@@ -31,8 +31,8 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 import { getFieldInputEventContextProviderWithJestMocks } from './utils/getFieldInputEventContextProviderWithJestMocks';
 
-const personMetadata = getMockObjectMetadataItemOrThrow('person');
-const companyMetadata = getMockObjectMetadataItemOrThrow('company');
+const personMetadata = getMockObjectMetadataItemOrThrow('penduduk');
+const companyMetadata = getMockObjectMetadataItemOrThrow('keluarga');
 const companyFieldOnPerson = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: personMetadata,
   fieldName: 'company',
@@ -98,7 +98,7 @@ const RelationManyToOneFieldInputWithContext = ({
               relationObjectMetadataNameSingular:
                 CoreObjectNameSingular.Company,
               relationObjectMetadataId: companyMetadata.id,
-              objectMetadataNameSingular: 'person',
+              objectMetadataNameSingular: 'penduduk',
               relationFieldMetadataId: peopleFieldOnCompany.id,
             },
           },

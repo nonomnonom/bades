@@ -79,7 +79,7 @@ const EmailInputWithContext = ({
             metadata: {
               fieldName: 'emails',
               placeHolder: 'Email',
-              objectMetadataNameSingular: 'company',
+              objectMetadataNameSingular: 'keluarga',
             },
           },
           recordId,

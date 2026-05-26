@@ -204,7 +204,7 @@ describe('useCombinedFindManyRecords', () => {
     await renderUseCombinedFindManyRecordsHook({
       operationSignatures: [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           fields: {
             id: true,
             name: {
@@ -215,7 +215,7 @@ describe('useCombinedFindManyRecords', () => {
           variables: {},
         },
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           fields: {
             id: true,
             name: true,
@@ -275,7 +275,7 @@ describe('useCombinedFindManyRecords', () => {
     await renderUseCombinedFindManyRecordsHook({
       operationSignatures: [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           fields: {
             id: true,
             name: {
@@ -341,7 +341,7 @@ describe('useCombinedFindManyRecords', () => {
     await renderUseCombinedFindManyRecordsHook({
       operationSignatures: [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           fields: {
             id: true,
             name: {
@@ -407,7 +407,7 @@ describe('useCombinedFindManyRecords', () => {
     await renderUseCombinedFindManyRecordsHook({
       operationSignatures: [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           fields: {
             id: true,
             name: {
@@ -487,7 +487,7 @@ describe('useCombinedFindManyRecords', () => {
     await renderUseCombinedFindManyRecordsHook({
       operationSignatures: [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           fields: {
             id: true,
             name: {
@@ -504,7 +504,7 @@ describe('useCombinedFindManyRecords', () => {
           },
         },
         {
-          objectNameSingular: 'company',
+          objectNameSingular: 'keluarga',
           fields: {
             id: true,
             name: true,
@@ -554,7 +554,7 @@ describe('useCombinedFindManyRecords', () => {
     await renderUseCombinedFindManyRecordsHook({
       operationSignatures: [
         {
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           fields: {
             id: true,
           } satisfies RecordGqlFields,

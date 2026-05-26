@@ -4,7 +4,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 describe('isObjectMetadataAvailableForRelation', () => {
   it('should work as expected', () => {
     const objectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'person',
+      (item) => item.nameSingular === 'penduduk',
     )!;
 
     const res = isObjectMetadataAvailableForRelation(objectMetadataItem);

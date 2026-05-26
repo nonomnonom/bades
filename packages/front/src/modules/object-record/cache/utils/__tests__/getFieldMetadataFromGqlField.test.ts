@@ -96,7 +96,7 @@ describe('getFieldMetadataFromGqlField', () => {
     });
 
     expect(result).toBeDefined();
-    expect(result?.name).toBe('company');
+    expect(result?.name).toBe('keluarga');
     expect(result?.type).toBe(FieldMetadataType.RELATION);
     expect(result?.settings?.joinColumnName).toBe('companyId');
   });

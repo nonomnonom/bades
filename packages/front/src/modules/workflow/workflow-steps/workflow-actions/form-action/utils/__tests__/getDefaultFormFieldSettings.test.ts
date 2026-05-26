@@ -118,7 +118,7 @@ describe('getDefaultFormFieldSettings', () => {
   it('should have correct settings object for RECORD type', () => {
     const result = getDefaultFormFieldSettings('RECORD');
     expect(result.settings).toEqual({ objectName: 'company' });
-    expect(result.settings?.objectName).toBe('company');
+    expect(result.settings?.objectName).toBe('keluarga');
   });
 
   it('should return consistent results for the same field type', () => {

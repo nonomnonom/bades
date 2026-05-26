@@ -44,7 +44,7 @@ describe('getObjectMetadataForNavigationMenuItem', () => {
       mockViews,
     );
     expect(result).toEqual(mockObjectMetadataItems[0]);
-    expect(result?.nameSingular).toBe('person');
+    expect(result?.nameSingular).toBe('penduduk');
   });
 
   it('should return null for view item when view is not found', () => {
@@ -78,7 +78,7 @@ describe('getObjectMetadataForNavigationMenuItem', () => {
       mockViews,
     );
     expect(result).toEqual(mockObjectMetadataItems[1]);
-    expect(result?.nameSingular).toBe('company');
+    expect(result?.nameSingular).toBe('keluarga');
   });
 
   it('should return null for record item when targetObjectMetadataId is undefined', () => {

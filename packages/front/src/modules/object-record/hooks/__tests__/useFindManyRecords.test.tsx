@@ -31,7 +31,7 @@ describe('useFindManyRecords', () => {
     const { result } = renderHook(
       () => {
         return useFindManyRecords({
-          objectNameSingular: 'person',
+          objectNameSingular: 'penduduk',
           onCompleted,
           skip: true,
         });

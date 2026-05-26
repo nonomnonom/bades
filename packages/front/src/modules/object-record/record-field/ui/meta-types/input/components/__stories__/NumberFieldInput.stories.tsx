@@ -92,7 +92,7 @@ const NumberFieldInputWithContext = ({
             metadata: {
               fieldName: 'number',
               placeHolder: 'Enter number',
-              objectMetadataNameSingular: 'person',
+              objectMetadataNameSingular: 'penduduk',
             },
           },
           recordId: '123',

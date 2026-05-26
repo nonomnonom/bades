@@ -15,7 +15,7 @@ const createMorphItem = (
 const createSearchRecord = (recordId: string): SearchRecord => ({
   recordId,
   label: `Record ${recordId}`,
-  objectNameSingular: 'person',
+  objectNameSingular: 'penduduk',
   objectLabelSingular: 'Person',
   tsRank: 0,
   tsRankCD: 0,

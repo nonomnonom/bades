@@ -94,7 +94,7 @@ const meta: Meta<typeof UpdateMultipleRecordsContainer> = {
     RootDecorator,
   ],
   args: {
-    objectNameSingular: 'company',
+    objectNameSingular: 'keluarga',
     contextStoreInstanceId: MAIN_CONTEXT_STORE_INSTANCE_ID,
   },
   parameters: {

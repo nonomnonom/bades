@@ -10,7 +10,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/NumberFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('company', 'employees'),
+    getFieldDecorator('keluarga', 'employees'),
     ComponentDecorator,
   ],
   component: NumberFieldDisplay,
@@ -31,18 +31,18 @@ export const Default: Story = {
 };
 
 export const Elipsis: Story = {
-  decorators: [getFieldDecorator('company', 'employees', 1e100)],
+  decorators: [getFieldDecorator('keluarga', 'employees', 1e100)],
   parameters: {
     container: { width: 100 },
   },
 };
 
 export const Negative: Story = {
-  decorators: [getFieldDecorator('company', 'employees', -1000)],
+  decorators: [getFieldDecorator('keluarga', 'employees', -1000)],
 };
 
 export const Float: Story = {
-  decorators: [getFieldDecorator('company', 'employees', 3.14159)],
+  decorators: [getFieldDecorator('keluarga', 'employees', 3.14159)],
 };
 
 export const Performance = getProfilingStory({

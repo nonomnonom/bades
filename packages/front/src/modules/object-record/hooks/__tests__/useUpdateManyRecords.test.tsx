@@ -44,7 +44,7 @@ const mockRefetchAggregateQueries = jest.fn();
   refetchAggregateQueries: mockRefetchAggregateQueries,
 });
 
-const objectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const objectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 const objectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
 
 const expectedCachedRecordsWithUpdatedCity = personRecords.map(
@@ -94,7 +94,7 @@ describe('useUpdateManyRecords', () => {
     it('1. Should handle update many records when cache is empty', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useUpdateManyRecords({ objectNameSingular: 'person' }),
+        () => useUpdateManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks,
@@ -139,7 +139,7 @@ describe('useUpdateManyRecords', () => {
     it('1. Should handle optimistic behavior after many successful records update', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useUpdateManyRecords({ objectNameSingular: 'person' }),
+        () => useUpdateManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks,
@@ -164,7 +164,7 @@ describe('useUpdateManyRecords', () => {
     it('2. Should handle optimistic behavior before send many record update', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useUpdateManyRecords({ objectNameSingular: 'person' }),
+        () => useUpdateManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks: getDefaultMocks({
@@ -192,7 +192,7 @@ describe('useUpdateManyRecords', () => {
     it('3. Should rollback optimistic behavior after failing to update many records', async () => {
       const apolloMocks = getDefaultMocks();
       const { result } = renderHook(
-        () => useUpdateManyRecords({ objectNameSingular: 'person' }),
+        () => useUpdateManyRecords({ objectNameSingular: 'penduduk' }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
             apolloMocks: getDefaultMocks({

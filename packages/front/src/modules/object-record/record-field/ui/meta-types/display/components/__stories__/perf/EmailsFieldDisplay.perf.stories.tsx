@@ -11,7 +11,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/EmailsFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('person', 'emails', {
+    getFieldDecorator('penduduk', 'emails', {
       primaryEmail: 'test@test.com',
       additionalEmails: ['toto@test.com'],
     }),
@@ -36,7 +36,7 @@ export const Elipsis: Story = {
     container: { width: 100 },
   },
   decorators: [
-    getFieldDecorator('person', 'emails', {
+    getFieldDecorator('penduduk', 'emails', {
       primaryEmail:
         'asdasdasdaksjdhkajshdkajhasmdkamskdsd@asdkjhaksjdhaksjd.com',
       additionalEmails: [],

@@ -11,7 +11,7 @@ const Wrapper = getJestMetadataAndApolloMocksWrapper({
 describe('useObjectMetadataItemById', () => {
   const opportunityObjectMetadata =
     getTestEnrichedObjectMetadataItemsMock().find(
-      (item) => item.nameSingular === 'opportunity',
+      (item) => item.nameSingular === 'programBantuan',
     );
 
   if (!opportunityObjectMetadata) {

@@ -76,7 +76,7 @@ const PhoneInputWithContext = ({
             metadata: {
               fieldName: 'phones',
               placeHolder: 'Phone',
-              objectMetadataNameSingular: 'company',
+              objectMetadataNameSingular: 'keluarga',
             },
           },
           recordId,

@@ -83,7 +83,7 @@ const AddressInputWithContext = ({
               metadata: {
                 fieldName: 'Address',
                 placeHolder: 'Enter text',
-                objectMetadataNameSingular: 'person',
+                objectMetadataNameSingular: 'penduduk',
               },
             },
             recordId: recordId ?? '123',

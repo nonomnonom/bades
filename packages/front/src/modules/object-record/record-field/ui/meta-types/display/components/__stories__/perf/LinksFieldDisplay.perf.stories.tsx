@@ -24,7 +24,7 @@ const meta: Meta = {
   title: 'UI/Data/Field/Display/LinksFieldDisplay',
   decorators: [
     MemoryRouterDecorator,
-    getFieldDecorator('company', 'domainName', {
+    getFieldDecorator('keluarga', 'domainName', {
       primaryLinkUrl: 'https://www.google.com',
       primaryLinkLabel: 'Google',
       secondaryLinks: ['https://www.toto.com'],
