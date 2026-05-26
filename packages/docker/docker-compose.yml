@@ -2,7 +2,7 @@ name: bades
 
 services:
   server:
-    image: badesid/bades:${TAG:-latest}
+    image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades-server}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
     expose:
@@ -62,7 +62,7 @@ services:
     restart: always
 
   worker:
-    image: badesid/bades:${TAG:-latest}
+    image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades-server}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
     command: ["yarn", "worker:prod"]
