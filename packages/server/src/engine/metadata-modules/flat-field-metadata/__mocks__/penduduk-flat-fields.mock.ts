@@ -9,7 +9,7 @@ import { RelationType } from 'src/engine/metadata-modules/field-metadata/interfa
 import { getFlatFieldMetadataMock } from 'src/engine/metadata-modules/flat-field-metadata/__mocks__/get-flat-field-metadata.mock';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 
-export const PERSON_FLAT_FIELDS_MOCK = {
+export const PENDUDUK_FLAT_FIELDS_MOCK = {
   name: getFlatFieldMetadataMock({
     id: 'f410c1cd-2523-4802-be8e-1acc852b4b1a',
     objectMetadataId: '843e0b67-9619-4628-91c4-2fa62256a611',

@@ -1905,18 +1905,18 @@ export const TimelineActivityRelationCardWidget: Story = {
   },
 };
 
-// Helper function to generate mock person records for progressive loading tests
-const generateMockPersonRecords = (count: number) => {
+// Helper untuk membuat mock record penduduk pada test progressive loading
+const generateMockPendudukRecords = (count: number) => {
   const names = [
-    { firstName: 'Jane', lastName: 'Smith' },
-    { firstName: 'John', lastName: 'Williams' },
-    { firstName: 'Alice', lastName: 'Brown' },
-    { firstName: 'Bob', lastName: 'Davis' },
-    { firstName: 'Carol', lastName: 'Miller' },
-    { firstName: 'David', lastName: 'Wilson' },
-    { firstName: 'Emma', lastName: 'Moore' },
-    { firstName: 'Frank', lastName: 'Taylor' },
-    { firstName: 'Grace', lastName: 'Anderson' },
+    { firstName: 'Siti', lastName: 'Aminah' },
+    { firstName: 'Budi', lastName: 'Santoso' },
+    { firstName: 'Aisyah', lastName: 'Putri' },
+    { firstName: 'Ahmad', lastName: 'Wijaya' },
+    { firstName: 'Cahya', lastName: 'Lestari' },
+    { firstName: 'Dimas', lastName: 'Pratama' },
+    { firstName: 'Eka', lastName: 'Saputra' },
+    { firstName: 'Fitri', lastName: 'Anggraini' },
+    { firstName: 'Gita', lastName: 'Permata' },
     { firstName: 'Henry', lastName: 'Thomas' },
     { firstName: 'Ivy', lastName: 'Jackson' },
     { firstName: 'Jack', lastName: 'White' },
@@ -1951,10 +1951,10 @@ const generateMockPersonRecords = (count: number) => {
 
 export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
   render: () => {
-    const mockPeople = generateMockPersonRecords(12);
+    const mockPenduduks = generateMockPendudukRecords(12);
     const companyWithManyPeople = {
       ...mockCompanyRecord,
-      people: mockPeople.map(({ id, __typename, name }) => ({
+      people: mockPenduduks.map(({ id, __typename, name }) => ({
         __typename,
         id,
         name,
@@ -2010,8 +2010,8 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
       pageLayoutData,
     );
     setRecordInStores(TEST_RECORD_ID, companyWithManyPeople);
-    // Set each person record in the store
-    mockPeople.forEach((person) => {
+    // Set tiap record penduduk di store
+    mockPenduduks.forEach((person) => {
       setRecordInStores(person.id, person);
     });
 
@@ -2060,7 +2060,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
     const fifthPerson = await canvas.findByText('Carol Miller 5');
     expect(fifthPerson).toBeVisible();
 
-    // Verify sixth person is NOT visible initially
+    // Verifikasi penduduk ke-6 TIDAK terlihat di awal
     expect(canvas.queryByText('David Wilson 6')).not.toBeInTheDocument();
 
     // Verify "More (7)" button is visible (12 total - 5 shown = 7 remaining)
