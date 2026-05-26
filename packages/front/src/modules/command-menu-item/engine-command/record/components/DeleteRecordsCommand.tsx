@@ -15,7 +15,7 @@ export const DeleteRecordsCommand = () => {
 
   if (!isDefined(recordIndexId) || !isDefined(objectMetadataItem)) {
     throw new Error(
-      'Record index ID and object metadata are required to delete records',
+      'Indeks rekaman dan metadata objek diperlukan untuk menghapus rekaman',
     );
   }
 
@@ -57,7 +57,7 @@ export const DeleteRecordsCommand = () => {
     }
 
     if (!isDefined(graphqlFilter)) {
-      throw new Error('Cannot delete records without a valid filter');
+      throw new Error('Tidak dapat menghapus rekaman tanpa filter yang valid');
     }
 
     await incrementalDeleteManyRecords();

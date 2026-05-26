@@ -63,7 +63,7 @@ See create_complete_dashboard for full configuration examples.`,
 
       return {
         success: true,
-        message: `Widget "${parameters.title}" added`,
+        message: `Widget "${parameters.title}" ditambahkan`,
         result: {
           widgetId: widget.id,
           title: widget.title,
@@ -75,7 +75,7 @@ See create_complete_dashboard for full configuration examples.`,
     } catch (error) {
       return {
         success: false,
-        message: `Failed to add widget: ${error.message}`,
+        message: `Gagal menambahkan widget: ${error.message}`,
         error: error.message,
       };
     }

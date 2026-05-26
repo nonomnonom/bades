@@ -30,7 +30,7 @@ export const createDeleteDashboardWidgetTool = (
 
       return {
         success: true,
-        message: `Widget "${widget.title}" deleted`,
+        message: `Widget "${widget.title}" dihapus`,
         result: {
           deletedWidgetId: parameters.widgetId,
           deletedWidgetTitle: widget.title,
@@ -39,7 +39,7 @@ export const createDeleteDashboardWidgetTool = (
     } catch (error) {
       return {
         success: false,
-        message: `Failed to delete widget: ${error.message}`,
+        message: `Gagal menghapus widget: ${error.message}`,
         error: error.message,
       };
     }

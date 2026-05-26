@@ -7,12 +7,12 @@ export const MANUAL_TRIGGER_AVAILABILITY_OPTIONS: Array<{
   Icon: IconComponent;
 }> = [
   {
-    label: 'When records are selected',
+    label: 'Saat rekaman dipilih',
     value: 'WHEN_RECORD_SELECTED',
     Icon: IconCheckbox,
   },
   {
-    label: 'When no records are selected',
+    label: 'Saat tidak ada rekaman yang dipilih',
     value: 'EVERYWHERE',
     Icon: IconSquare,
   },

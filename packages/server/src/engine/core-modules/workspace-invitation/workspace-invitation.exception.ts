@@ -19,13 +19,13 @@ const getWorkspaceInvitationExceptionUserFriendlyMessage = (
     case WorkspaceInvitationExceptionCode.INVALID_APP_TOKEN_TYPE:
     case WorkspaceInvitationExceptionCode.INVITATION_CORRUPTED:
     case WorkspaceInvitationExceptionCode.INVALID_INVITATION:
-      return msg`There is an issue with your invitation. Please try again.`;
+      return msg`Ada masalah dengan undangan Anda. Silakan coba lagi.`;
     case WorkspaceInvitationExceptionCode.INVITATION_ALREADY_EXIST:
-      return msg`An invitation has already been sent to this email.`;
+      return msg`Undangan sudah dikirim ke email ini.`;
     case WorkspaceInvitationExceptionCode.USER_ALREADY_EXIST:
-      return msg`This user is already a member of the workspace.`;
+      return msg`Pengguna ini sudah menjadi anggota workspace.`;
     case WorkspaceInvitationExceptionCode.EMAIL_MISSING:
-      return msg`Email is required.`;
+      return msg`Email wajib diisi.`;
     default:
       assertUnreachable(code);
   }

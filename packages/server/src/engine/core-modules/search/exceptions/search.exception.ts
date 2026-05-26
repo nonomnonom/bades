@@ -11,9 +11,9 @@ export enum SearchExceptionCode {
 const getSearchExceptionUserFriendlyMessage = (code: SearchExceptionCode) => {
   switch (code) {
     case SearchExceptionCode.LABEL_IDENTIFIER_FIELD_NOT_FOUND:
-      return msg`No identifier to search by was found.`;
+      return msg`Tidak ada identifier yang bisa digunakan untuk pencarian.`;
     case SearchExceptionCode.OBJECT_METADATA_NOT_FOUND:
-      return msg`Object not found.`;
+      return msg`Objek tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

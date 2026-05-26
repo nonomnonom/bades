@@ -15,13 +15,13 @@ const getWorkspaceMigrationRunnerExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkspaceMigrationRunnerExceptionCode.INTERNAL_SERVER_ERROR:
-      return msg`An unexpected error occurred.`;
+      return msg`Terjadi kesalahan yang tidak diharapkan.`;
     case WorkspaceMigrationRunnerExceptionCode.EXECUTION_FAILED:
-      return msg`Migration execution failed.`;
+      return msg`Migrasi gagal dijalankan.`;
     case WorkspaceMigrationRunnerExceptionCode.APPLICATION_NOT_FOUND:
-      return msg`Application not found.`;
+      return msg`Aplikasi tidak ditemukan.`;
     case WorkspaceMigrationRunnerExceptionCode.DDL_LOCKED:
-      return msg`Workspace schema changes are temporarily locked.`;
+      return msg`Perubahan schema workspace sementara dikunci.`;
     default:
       assertUnreachable(code);
   }

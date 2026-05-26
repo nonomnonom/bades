@@ -10,7 +10,7 @@ export enum CaptchaExceptionCode {
 const getCaptchaExceptionUserFriendlyMessage = (code: CaptchaExceptionCode) => {
   switch (code) {
     case CaptchaExceptionCode.INVALID_CAPTCHA:
-      return msg`Invalid captcha. Please try again.`;
+      return msg`Captcha tidak valid. Silakan coba lagi.`;
     default:
       assertUnreachable(code);
   }

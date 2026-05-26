@@ -14,7 +14,7 @@ export const CreateNewViewNoSelectionRecordCommand = () => {
 
   if (!isDefined(currentViewId) || !isDefined(recordIndexId)) {
     throw new Error(
-      'Current view ID and record index ID are required to create new view',
+      'ID tampilan saat ini dan ID indeks rekaman diperlukan untuk membuat tampilan baru',
     );
   }
 

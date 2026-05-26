@@ -13,9 +13,9 @@ const getWorkflowVersionEdgeExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowVersionEdgeExceptionCode.NOT_FOUND:
-      return msg`Workflow edge not found.`;
+      return msg`Edge alur kerja tidak ditemukan.`;
     case WorkflowVersionEdgeExceptionCode.INVALID_REQUEST:
-      return msg`Invalid workflow edge request.`;
+      return msg`Permintaan edge alur kerja tidak valid.`;
     default:
       assertUnreachable(code);
   }

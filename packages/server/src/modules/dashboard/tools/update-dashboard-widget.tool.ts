@@ -75,7 +75,7 @@ Only provide fields you want to change - others remain unchanged.`,
 
       return {
         success: true,
-        message: `Widget "${widget.title}" updated`,
+        message: `Widget "${widget.title}" diperbarui`,
         result: {
           widgetId: widget.id,
           title: widget.title,
@@ -87,7 +87,7 @@ Only provide fields you want to change - others remain unchanged.`,
     } catch (error) {
       return {
         success: false,
-        message: `Failed to update widget: ${error.message}`,
+        message: `Gagal memperbarui widget: ${error.message}`,
         error: error.message,
       };
     }

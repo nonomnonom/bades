@@ -18,19 +18,19 @@ const getRestInputRequestParserExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case RestInputRequestParserExceptionCode.INVALID_AGGREGATE_FIELDS_QUERY_PARAM:
-      return msg`Invalid aggregate fields parameter.`;
+      return msg`Parameter kolom agregat tidak valid.`;
     case RestInputRequestParserExceptionCode.INVALID_GROUP_BY_QUERY_PARAM:
-      return msg`Invalid group by parameter.`;
+      return msg`Parameter group by tidak valid.`;
     case RestInputRequestParserExceptionCode.INVALID_ORDER_BY_WITH_GROUP_BY_QUERY_PARAM:
-      return msg`Invalid order by with group by parameter.`;
+      return msg`Parameter order by dengan group by tidak valid.`;
     case RestInputRequestParserExceptionCode.INVALID_ORDER_BY_QUERY_PARAM:
-      return msg`Invalid order by parameter.`;
+      return msg`Parameter order by tidak valid.`;
     case RestInputRequestParserExceptionCode.INVALID_DEPTH_QUERY_PARAM:
-      return msg`Invalid depth parameter.`;
+      return msg`Parameter depth tidak valid.`;
     case RestInputRequestParserExceptionCode.INVALID_LIMIT_QUERY_PARAM:
-      return msg`Invalid limit parameter.`;
+      return msg`Parameter limit tidak valid.`;
     case RestInputRequestParserExceptionCode.INVALID_FILTER_QUERY_PARAM:
-      return msg`Invalid filter parameter.`;
+      return msg`Parameter filter tidak valid.`;
     default:
       assertUnreachable(code);
   }

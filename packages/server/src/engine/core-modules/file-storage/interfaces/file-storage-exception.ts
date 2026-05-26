@@ -14,11 +14,11 @@ const getFileStorageExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case FileStorageExceptionCode.INVALID_EXTENSION:
-      return msg`Wrong extension for file.`;
+      return msg`Ekstensi file salah.`;
     case FileStorageExceptionCode.FILE_NOT_FOUND:
-      return msg`File not found.`;
+      return msg`File tidak ditemukan.`;
     case FileStorageExceptionCode.ACCESS_DENIED:
-      return msg`Access denied.`;
+      return msg`Akses ditolak.`;
     default:
       assertUnreachable(code);
   }

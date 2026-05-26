@@ -7,7 +7,7 @@ const workspaceMigrationV2ExceptionUserFriendlyMessages: Partial<
   Record<WorkspaceMigrationV2ExceptionCode, MessageDescriptor>
 > = {};
 
-const defaultUserFriendlyMessage = msg`An error occurred during workspace migration.`;
+const defaultUserFriendlyMessage = msg`Terjadi kesalahan saat migrasi workspace.`;
 
 export class WorkspaceMigrationV2Exception extends CustomException<WorkspaceMigrationV2ExceptionCode> {
   constructor(

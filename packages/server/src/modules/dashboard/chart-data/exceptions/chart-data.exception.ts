@@ -17,17 +17,17 @@ const getChartDataExceptionUserFriendlyMessage = (
 ): MessageDescriptor => {
   switch (code) {
     case ChartDataExceptionCode.WIDGET_NOT_FOUND:
-      return msg`Widget not found.`;
+      return msg`Widget tidak ditemukan.`;
     case ChartDataExceptionCode.INVALID_WIDGET_CONFIGURATION:
-      return msg`Invalid widget configuration.`;
+      return msg`Konfigurasi widget tidak valid.`;
     case ChartDataExceptionCode.OBJECT_METADATA_NOT_FOUND:
-      return msg`Object metadata not found.`;
+      return msg`Metadata objek tidak ditemukan.`;
     case ChartDataExceptionCode.FIELD_METADATA_NOT_FOUND:
-      return msg`Field metadata not found.`;
+      return msg`Metadata kolom tidak ditemukan.`;
     case ChartDataExceptionCode.QUERY_EXECUTION_FAILED:
-      return msg`Query execution failed.`;
+      return msg`Eksekusi kueri gagal.`;
     case ChartDataExceptionCode.TRANSFORMATION_FAILED:
-      return msg`Transformation failed.`;
+      return msg`Transformasi gagal.`;
     default:
       assertUnreachable(code);
   }
@@ -51,12 +51,12 @@ export const generateChartDataExceptionMessage = (
   context?: string,
 ): string => {
   const messages: Record<ChartDataExceptionCode, string> = {
-    [ChartDataExceptionCode.WIDGET_NOT_FOUND]: `Widget not found${context ? `: ${context}` : ''}`,
-    [ChartDataExceptionCode.INVALID_WIDGET_CONFIGURATION]: `Invalid widget configuration${context ? `: ${context}` : ''}`,
-    [ChartDataExceptionCode.OBJECT_METADATA_NOT_FOUND]: `Object metadata not found${context ? `: ${context}` : ''}`,
-    [ChartDataExceptionCode.FIELD_METADATA_NOT_FOUND]: `Field metadata not found${context ? `: ${context}` : ''}`,
-    [ChartDataExceptionCode.QUERY_EXECUTION_FAILED]: `Query execution failed${context ? `: ${context}` : ''}`,
-    [ChartDataExceptionCode.TRANSFORMATION_FAILED]: `Transformation failed${context ? `: ${context}` : ''}`,
+    [ChartDataExceptionCode.WIDGET_NOT_FOUND]: `Widget tidak ditemukan${context ? `: ${context}` : ''}`,
+    [ChartDataExceptionCode.INVALID_WIDGET_CONFIGURATION]: `Konfigurasi widget tidak valid${context ? `: ${context}` : ''}`,
+    [ChartDataExceptionCode.OBJECT_METADATA_NOT_FOUND]: `Metadata objek tidak ditemukan${context ? `: ${context}` : ''}`,
+    [ChartDataExceptionCode.FIELD_METADATA_NOT_FOUND]: `Metadata kolom tidak ditemukan${context ? `: ${context}` : ''}`,
+    [ChartDataExceptionCode.QUERY_EXECUTION_FAILED]: `Eksekusi kueri gagal${context ? `: ${context}` : ''}`,
+    [ChartDataExceptionCode.TRANSFORMATION_FAILED]: `Transformasi gagal${context ? `: ${context}` : ''}`,
   };
 
   return messages[code];

@@ -12,7 +12,7 @@ const getWorkspaceMetadataVersionExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkspaceMetadataVersionExceptionCode.METADATA_VERSION_NOT_FOUND:
-      return msg`Metadata version not found.`;
+      return msg`Versi metadata tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

@@ -8,7 +8,7 @@ export const CreateNewIndexRecordNoSelectionRecordCommand = () => {
 
   if (!isDefined(objectMetadataItem) || !isDefined(recordIndexId)) {
     throw new Error(
-      'Object metadata item and record index ID are required to create new index record',
+      'Item metadata objek dan ID indeks rekaman diperlukan untuk membuat rekaman indeks baru',
     );
   }
 

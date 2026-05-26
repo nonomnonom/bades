@@ -87,7 +87,7 @@ export const createGetDashboardTool = (
       if (!isDefined(dashboard)) {
         return {
           success: false,
-          message: `Dashboard "${parameters.dashboardId}" not found`,
+          message: `Dashboard "${parameters.dashboardId}" tidak ditemukan`,
           error: 'DASHBOARD_NOT_FOUND',
         };
       }
@@ -95,7 +95,7 @@ export const createGetDashboardTool = (
       if (!isDefined(dashboard.pageLayoutId)) {
         return {
           success: false,
-          message: `Dashboard "${dashboard.title}" has no page layout`,
+          message: `Dashboard "${dashboard.title}" tidak memiliki tata letak halaman`,
           error: 'PAGE_LAYOUT_NOT_FOUND',
         };
       }
@@ -199,7 +199,7 @@ export const createGetDashboardTool = (
 
       return {
         success: true,
-        message: `Retrieved dashboard "${dashboard.title}" with ${tabs.length} tab(s)`,
+        message: `Dashboard "${dashboard.title}" retrieved dengan ${tabs.length} tab`,
         result: {
           dashboard: {
             id: dashboard.id,
@@ -217,7 +217,7 @@ export const createGetDashboardTool = (
 
       return {
         success: false,
-        message: `Failed to get dashboard: ${errorMessage}`,
+        message: `Gagal mengambil dashboard: ${errorMessage}`,
         error: errorMessage,
       };
     }

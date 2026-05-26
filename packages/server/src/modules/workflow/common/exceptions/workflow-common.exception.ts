@@ -12,7 +12,7 @@ const getWorkflowCommonExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowCommonExceptionCode.OBJECT_METADATA_NOT_FOUND:
-      return msg`Object metadata not found.`;
+      return msg`Metadata objek tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

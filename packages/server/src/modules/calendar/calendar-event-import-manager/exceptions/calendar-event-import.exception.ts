@@ -13,9 +13,9 @@ const getCalendarEventImportExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case CalendarEventImportExceptionCode.PROVIDER_NOT_SUPPORTED:
-      return msg`Calendar provider is not supported.`;
+      return msg`Penyedia kalender tidak didukung.`;
     case CalendarEventImportExceptionCode.UNKNOWN:
-      return msg`An unknown calendar error occurred.`;
+      return msg`Terjadi kesalahan kalender yang tidak diketahui.`;
     default:
       assertUnreachable(code);
   }

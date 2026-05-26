@@ -15,7 +15,7 @@ export const RestoreRecordsCommand = () => {
 
   if (!isDefined(recordIndexId) || !isDefined(objectMetadataItem)) {
     throw new Error(
-      'Record index ID and object metadata are required to restore records',
+      'Indeks rekaman dan metadata objek diperlukan untuk memulihkan rekaman',
     );
   }
 
@@ -51,7 +51,7 @@ export const RestoreRecordsCommand = () => {
     removeSelectedRecordsFromRecordBoard();
 
     if (!isDefined(graphqlFilter)) {
-      throw new Error('Cannot restore records without a valid filter');
+      throw new Error('Tidak dapat memulihkan rekaman tanpa filter yang valid');
     }
 
     const recordsToRestore = await fetchAllRecordIds();

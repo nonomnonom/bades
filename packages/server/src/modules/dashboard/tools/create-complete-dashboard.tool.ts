@@ -172,7 +172,7 @@ AGGREGATION OPERATIONS: COUNT, SUM, AVG, MIN, MAX, COUNT_EMPTY, COUNT_NOT_EMPTY`
       if (widgetErrors.length > 0) {
         return {
           success: true,
-          message: `Dashboard created with ${createdWidgets.length} widgets. ${widgetErrors.length} widget(s) failed.`,
+          message: `Dashboard dibuat dengan ${createdWidgets.length} widget. ${widgetErrors.length} widget gagal.`,
           result,
           widgetErrors,
           recordReferences: [
@@ -187,7 +187,7 @@ AGGREGATION OPERATIONS: COUNT, SUM, AVG, MIN, MAX, COUNT_EMPTY, COUNT_NOT_EMPTY`
 
       return {
         success: true,
-        message: `Dashboard "${parameters.title}" created with ${createdWidgets.length} widgets`,
+        message: `Dashboard "${parameters.title}" dibuat dengan ${createdWidgets.length} widget`,
         result,
         recordReferences: [
           {
@@ -200,7 +200,7 @@ AGGREGATION OPERATIONS: COUNT, SUM, AVG, MIN, MAX, COUNT_EMPTY, COUNT_NOT_EMPTY`
     } catch (error) {
       return {
         success: false,
-        message: `Failed to create dashboard: ${error.message}`,
+        message: `Gagal membuat dashboard: ${error.message}`,
         error: error.message,
       };
     }

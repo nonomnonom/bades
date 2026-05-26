@@ -13,13 +13,13 @@ export enum WebhookExceptionCode {
 const getWebhookExceptionUserFriendlyMessage = (code: WebhookExceptionCode) => {
   switch (code) {
     case WebhookExceptionCode.WEBHOOK_NOT_FOUND:
-      return msg`Webhook not found.`;
+      return msg`Webhook tidak ditemukan.`;
     case WebhookExceptionCode.WEBHOOK_ALREADY_EXISTS:
-      return msg`A webhook with this configuration already exists.`;
+      return msg`Webhook dengan konfigurasi ini sudah ada.`;
     case WebhookExceptionCode.INVALID_WEBHOOK_INPUT:
-      return msg`Invalid webhook input.`;
+      return msg`Input webhook tidak valid.`;
     case WebhookExceptionCode.INVALID_TARGET_URL:
-      return msg`Invalid target URL. Please provide a valid HTTP or HTTPS URL.`;
+      return msg`URL target tidak valid. Harap berikan URL HTTP atau HTTPS yang valid.`;
     default:
       assertUnreachable(code);
   }

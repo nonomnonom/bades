@@ -52,13 +52,13 @@ export const createListDashboardsTool = (
 
       return {
         success: true,
-        message: `Found ${dashboardList.length} dashboard(s)`,
+        message: `Ditemukan ${dashboardList.length} dashboard`,
         result: { dashboards: dashboardList, count: dashboardList.length },
       };
     } catch (error) {
       return {
         success: false,
-        message: `Failed to list dashboards: ${error.message}`,
+        message: `Gagal menampilkan daftar dashboard: ${error.message}`,
         error: error.message,
       };
     }

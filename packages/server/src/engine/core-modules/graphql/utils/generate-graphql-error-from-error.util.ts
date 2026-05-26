@@ -13,7 +13,7 @@ export const generateGraphQLErrorFromError = (error: Error, i18n: I18n) => {
       ? convertExceptionToGraphQLError(error)
       : new BaseGraphQLError(error.message, ErrorCode.INTERNAL_SERVER_ERROR);
 
-  const defaultErrorMessage = msg`An error occurred.`;
+  const defaultErrorMessage = msg`Terjadi kesalahan.`;
 
   const userFriendlyMessage =
     'userFriendlyMessage' in error

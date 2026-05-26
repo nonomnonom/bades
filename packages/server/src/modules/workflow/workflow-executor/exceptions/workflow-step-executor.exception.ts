@@ -17,13 +17,13 @@ const getWorkflowStepExecutorExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowStepExecutorExceptionCode.SCOPED_WORKSPACE_NOT_FOUND:
-      return msg`Workspace not found.`;
+      return msg`Workspace tidak ditemukan.`;
     case WorkflowStepExecutorExceptionCode.INVALID_STEP_TYPE:
-      return msg`Invalid workflow step type.`;
+      return msg`Tipe langkah alur kerja tidak valid.`;
     case WorkflowStepExecutorExceptionCode.STEP_NOT_FOUND:
-      return msg`Workflow step not found.`;
+      return msg`Langkah alur kerja tidak ditemukan.`;
     case WorkflowStepExecutorExceptionCode.INVALID_STEP_INPUT:
-      return msg`Invalid workflow step input.`;
+      return msg`Input langkah alur kerja tidak valid.`;
     case WorkflowStepExecutorExceptionCode.INTERNAL_ERROR:
       return STANDARD_ERROR_MESSAGE;
     default:

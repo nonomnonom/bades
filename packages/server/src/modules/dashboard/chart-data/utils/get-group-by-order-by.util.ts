@@ -52,7 +52,7 @@ export const getGroupByOrderBy = ({
         !isDefined(aggregateFieldMetadata)
       ) {
         throw new Error(
-          `Aggregate operation or field metadata not found (field: ${groupByFieldMetadata.name})`,
+          `Operasi agregasi atau metadata kolom tidak ditemukan (field: ${groupByFieldMetadata.name})`,
         );
       }
 

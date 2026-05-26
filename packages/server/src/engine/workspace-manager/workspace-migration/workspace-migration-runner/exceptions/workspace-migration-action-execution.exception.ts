@@ -18,23 +18,23 @@ const getWorkspaceMigrationActionExecutionExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkspaceMigrationActionExecutionExceptionCode.FIELD_METADATA_NOT_FOUND:
-      return msg`Field metadata not found.`;
+      return msg`Metadata kolom tidak ditemukan.`;
     case WorkspaceMigrationActionExecutionExceptionCode.OBJECT_METADATA_NOT_FOUND:
-      return msg`Object metadata not found.`;
+      return msg`Metadata objek tidak ditemukan.`;
     case WorkspaceMigrationActionExecutionExceptionCode.ENUM_OPERATION_FAILED:
-      return msg`Enum operation failed.`;
+      return msg`Operasi enum gagal.`;
     case WorkspaceMigrationActionExecutionExceptionCode.UNSUPPORTED_COMPOSITE_COLUMN_TYPE:
-      return msg`Unsupported composite column type.`;
+      return msg`Tipe kolom komposit tidak didukung.`;
     case WorkspaceMigrationActionExecutionExceptionCode.NOT_SUPPORTED:
-      return msg`This operation is not supported.`;
+      return msg`Operasi ini tidak didukung.`;
     case WorkspaceMigrationActionExecutionExceptionCode.INVALID_ACTION_TYPE:
-      return msg`Invalid action type.`;
+      return msg`Tipe aksi tidak valid.`;
     case WorkspaceMigrationActionExecutionExceptionCode.FLAT_ENTITY_NOT_FOUND:
-      return msg`Entity not found.`;
+      return msg`Entitas tidak ditemukan.`;
     case WorkspaceMigrationActionExecutionExceptionCode.UNSUPPORTED_FIELD_METADATA_TYPE:
-      return msg`Unsupported field metadata type.`;
+      return msg`Tipe metadata kolom tidak didukung.`;
     case WorkspaceMigrationActionExecutionExceptionCode.INTERNAL_SERVER_ERROR:
-      return msg`An unexpected error occurred.`;
+      return msg`Terjadi kesalahan yang tidak diharapkan.`;
     default:
       assertUnreachable(code);
   }

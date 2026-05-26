@@ -19,21 +19,21 @@ const getCalendarEventImportDriverExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case CalendarEventImportDriverExceptionCode.NOT_FOUND:
-      return msg`Calendar event not found.`;
+      return msg`Peristiwa kalender tidak ditemukan.`;
     case CalendarEventImportDriverExceptionCode.TEMPORARY_ERROR:
-      return msg`A temporary error occurred. Please try again.`;
+      return msg`Terjadi kesalahan sementara. Silakan coba lagi.`;
     case CalendarEventImportDriverExceptionCode.INSUFFICIENT_PERMISSIONS:
-      return msg`Insufficient permissions to access calendar.`;
+      return msg`Izin tidak cukup untuk mengakses kalender.`;
     case CalendarEventImportDriverExceptionCode.SYNC_CURSOR_ERROR:
-      return msg`Calendar sync error.`;
+      return msg`Kesalahan sinkronisasi kalender.`;
     case CalendarEventImportDriverExceptionCode.UNKNOWN:
-      return msg`An unknown calendar error occurred.`;
+      return msg`Terjadi kesalahan kalender yang tidak diketahui.`;
     case CalendarEventImportDriverExceptionCode.UNKNOWN_NETWORK_ERROR:
-      return msg`A network error occurred while accessing calendar.`;
+      return msg`Terjadi kesalahan jaringan saat mengakses kalender.`;
     case CalendarEventImportDriverExceptionCode.HANDLE_ALIASES_REQUIRED:
-      return msg`Handle aliases are required.`;
+      return msg`Alias handle diperlukan.`;
     case CalendarEventImportDriverExceptionCode.CHANNEL_MISCONFIGURED:
-      return msg`Calendar channel is misconfigured.`;
+      return msg`Saluran kalender tidak dikonfigurasi dengan benar.`;
     default:
       assertUnreachable(code);
   }

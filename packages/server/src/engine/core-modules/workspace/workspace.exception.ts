@@ -19,21 +19,21 @@ const getWorkspaceExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkspaceExceptionCode.SUBDOMAIN_NOT_FOUND:
-      return msg`Subdomain not found.`;
+      return msg`Subdomain tidak ditemukan.`;
     case WorkspaceExceptionCode.SUBDOMAIN_ALREADY_TAKEN:
-      return msg`This subdomain is already taken.`;
+      return msg`Subdomain ini sudah digunakan.`;
     case WorkspaceExceptionCode.SUBDOMAIN_NOT_VALID:
-      return msg`Invalid subdomain.`;
+      return msg`Subdomain tidak valid.`;
     case WorkspaceExceptionCode.DOMAIN_ALREADY_TAKEN:
-      return msg`This domain is already taken.`;
+      return msg`Domain ini sudah digunakan.`;
     case WorkspaceExceptionCode.WORKSPACE_NOT_FOUND:
-      return msg`Workspace not found.`;
+      return msg`Workspace tidak ditemukan.`;
     case WorkspaceExceptionCode.WORKSPACE_CUSTOM_DOMAIN_DISABLED:
-      return msg`Custom domains are disabled for this workspace.`;
+      return msg`Domain kustom dinonaktifkan untuk workspace ini.`;
     case WorkspaceExceptionCode.ENVIRONMENT_VAR_NOT_ENABLED:
-      return msg`This feature is not enabled.`;
+      return msg`Fitur ini tidak diaktifkan.`;
     case WorkspaceExceptionCode.CUSTOM_DOMAIN_NOT_FOUND:
-      return msg`Custom domain not found.`;
+      return msg`Domain kustom tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

@@ -21,7 +21,7 @@ const selectOptionSchema = z
       }
     },
     {
-      error: 'Label is not transliterable',
+      error: 'Label tidak dapat dikonversi',
     },
   );
 
@@ -34,7 +34,7 @@ export const selectOptionsSchema = z
       return new Set(optionIds).size === options.length;
     },
     {
-      error: 'Options must have unique ids',
+      error: 'Opsi harus memiliki ID yang unik',
     },
   )
   .refine(
@@ -43,13 +43,13 @@ export const selectOptionsSchema = z
       return new Set(optionValues).size === options.length;
     },
     {
-      error: 'Options must have unique values',
+      error: 'Opsi harus memiliki nilai yang unik',
     },
   )
   .refine(
     (options) =>
       [...options].sort().every((option, index) => option.position === index),
     {
-      error: 'Options positions must be sequential',
+      error: 'Posisi opsi harus berurutan',
     },
   );

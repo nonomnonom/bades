@@ -13,9 +13,9 @@ const getEventStreamExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case EventStreamExceptionCode.EVENT_STREAM_ALREADY_EXISTS:
-      return msg`Failed to receive real time updates.`;
+      return msg`Gagal menerima pembaruan real-time.`;
     case EventStreamExceptionCode.NOT_AUTHORIZED:
-      return msg`You are not authorized to perform this action.`;
+      return msg`Anda tidak memiliki izin untuk melakukan tindakan ini.`;
     default:
       assertUnreachable(code);
   }

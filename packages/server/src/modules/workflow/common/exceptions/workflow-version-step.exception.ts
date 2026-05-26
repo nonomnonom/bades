@@ -15,13 +15,13 @@ const getWorkflowVersionStepExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowVersionStepExceptionCode.INVALID_REQUEST:
-      return msg`Invalid workflow step request.`;
+      return msg`Permintaan langkah alur kerja tidak valid.`;
     case WorkflowVersionStepExceptionCode.NOT_FOUND:
-      return msg`Workflow step not found.`;
+      return msg`Langkah alur kerja tidak ditemukan.`;
     case WorkflowVersionStepExceptionCode.CODE_STEP_FAILURE:
-      return msg`Code step execution failed.`;
+      return msg`Eksekusi langkah kode gagal.`;
     case WorkflowVersionStepExceptionCode.AI_AGENT_STEP_FAILURE:
-      return msg`AI agent step execution failed.`;
+      return msg`Eksekusi langkah AI agent gagal.`;
     default:
       assertUnreachable(code);
   }

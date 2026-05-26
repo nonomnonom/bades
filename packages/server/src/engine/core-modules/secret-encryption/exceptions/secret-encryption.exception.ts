@@ -24,7 +24,7 @@ const getSecretEncryptionExceptionUserFriendlyMessage = (
     case SecretEncryptionExceptionCode.INVALID_KEY_ID_FORMAT:
     case SecretEncryptionExceptionCode.CIPHERTEXT_TOO_SHORT:
     case SecretEncryptionExceptionCode.ALREADY_ENCRYPTED:
-      return msg`An internal error occurred while handling encrypted data.`;
+      return msg`Terjadi kesalahan internal saat memproses data terenkripsi.`;
     default:
       assertUnreachable(code);
   }

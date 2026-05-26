@@ -61,7 +61,7 @@ After creating a tab, use add_dashboard_widget with the returned tab ID to add w
 
       return {
         success: true,
-        message: `Tab "${parameters.title}" added to dashboard`,
+        message: `Tab "${parameters.title}" ditambahkan ke dashboard`,
         result: {
           pageLayoutTabId: tab.id,
           title: tab.title,
@@ -75,7 +75,7 @@ After creating a tab, use add_dashboard_widget with the returned tab ID to add w
 
       return {
         success: false,
-        message: `Failed to add tab: ${errorMessage}`,
+        message: `Gagal menambahkan tab: ${errorMessage}`,
         error: errorMessage,
       };
     }

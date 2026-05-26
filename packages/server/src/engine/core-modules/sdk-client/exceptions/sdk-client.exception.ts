@@ -15,13 +15,13 @@ const getSdkClientExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case SdkClientExceptionCode.ARCHIVE_NOT_FOUND:
-      return msg`SDK client archive not found. The SDK client may not have been generated for this application.`;
+      return msg`Arsip SDK client tidak ditemukan. SDK client mungkin belum dibuat untuk aplikasi ini.`;
     case SdkClientExceptionCode.ARCHIVE_EXTRACTION_FAILED:
-      return msg`Failed to extract SDK client archive.`;
+      return msg`Gagal mengekstrak arsip SDK client.`;
     case SdkClientExceptionCode.FILE_NOT_FOUND_IN_ARCHIVE:
-      return msg`File not found in SDK client archive.`;
+      return msg`File tidak ditemukan dalam arsip SDK client.`;
     case SdkClientExceptionCode.GENERATION_FAILED:
-      return msg`Failed to generate SDK client.`;
+      return msg`Gagal membuat SDK client.`;
     default:
       assertUnreachable(code);
   }

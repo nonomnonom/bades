@@ -12,7 +12,7 @@ const getWorkspaceCleanerExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkspaceCleanerExceptionCode.BILLING_SUBSCRIPTION_NOT_FOUND:
-      return msg`Billing subscription not found.`;
+      return msg`Langganan billing tidak ditemukan.`;
     default:
       assertUnreachable(code);
   }

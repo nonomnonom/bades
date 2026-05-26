@@ -18,19 +18,19 @@ const getRecordTransformerExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case RecordTransformerExceptionCode.INVALID_URL:
-      return msg`Invalid URL format.`;
+      return msg`Format URL tidak valid.`;
     case RecordTransformerExceptionCode.INVALID_PHONE_NUMBER:
-      return msg`Invalid phone number.`;
+      return msg`Nomor telepon tidak valid.`;
     case RecordTransformerExceptionCode.INVALID_PHONE_COUNTRY_CODE:
-      return msg`Invalid phone country code.`;
+      return msg`Kode negara telepon tidak valid.`;
     case RecordTransformerExceptionCode.INVALID_PHONE_CALLING_CODE:
-      return msg`Invalid phone calling code.`;
+      return msg`Kode panggil telepon tidak valid.`;
     case RecordTransformerExceptionCode.CONFLICTING_PHONE_COUNTRY_CODE:
-      return msg`Conflicting phone country code.`;
+      return msg`Kode negara telepon bertentangan.`;
     case RecordTransformerExceptionCode.CONFLICTING_PHONE_CALLING_CODE:
-      return msg`Conflicting phone calling code.`;
+      return msg`Kode panggil telepon bertentangan.`;
     case RecordTransformerExceptionCode.CONFLICTING_PHONE_CALLING_CODE_AND_COUNTRY_CODE:
-      return msg`Conflicting phone calling code and country code.`;
+      return msg`Kode panggil dan kode negara telepon bertentangan.`;
     default:
       assertUnreachable(code);
   }

@@ -12,7 +12,7 @@ const getWorkflowQueryValidationExceptionUserFriendlyMessage = (
 ) => {
   switch (code) {
     case WorkflowQueryValidationExceptionCode.FORBIDDEN:
-      return msg`You do not have permission to perform this workflow action.`;
+      return msg`Anda tidak memiliki izin untuk melakukan tindakan alur kerja ini.`;
     default:
       assertUnreachable(code);
   }

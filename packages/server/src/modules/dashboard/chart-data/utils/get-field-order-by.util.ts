@@ -27,7 +27,7 @@ export const getFieldOrderBy = (
   if (isCompositeFieldMetadataType(groupByFieldMetadata.type)) {
     if (!isDefined(groupBySubFieldName)) {
       throw new Error(
-        `Group by subFieldName is required for composite fields (field: ${groupByFieldMetadata.name})`,
+        `groupBySubFieldName diperlukan untuk field komposit (field: ${groupByFieldMetadata.name})`,
       );
     }
 

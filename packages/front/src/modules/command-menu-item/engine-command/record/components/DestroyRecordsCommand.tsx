@@ -15,7 +15,7 @@ export const DestroyRecordsCommand = () => {
 
   if (!isDefined(recordIndexId) || !isDefined(objectMetadataItem)) {
     throw new Error(
-      'Record index ID and object metadata are required to destroy records',
+      'Indeks rekaman dan metadata objek diperlukan untuk menghancurkan rekaman',
     );
   }
 
@@ -50,7 +50,7 @@ export const DestroyRecordsCommand = () => {
     resetTableRowSelection();
 
     if (!isDefined(graphqlFilter)) {
-      throw new Error('Cannot destroy records without a valid filter');
+      throw new Error('Tidak dapat menghancurkan rekaman tanpa filter yang valid');
     }
 
     await incrementalDestroyManyRecords();
