@@ -1,7 +1,7 @@
 import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
-import { DEFAULT_COMPANY_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultCompanyRecordPageLayoutId';
-import { DEFAULT_PERSON_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultPersonRecordPageLayoutId';
+import { DEFAULT_NOTE_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultNoteRecordPageLayoutId';
 import { DEFAULT_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultRecordPageLayoutId';
+import { DEFAULT_TASK_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultTaskRecordPageLayoutId';
 import { getRecordPageLayoutId } from '@/page-layout/utils/getRecordPageLayoutId';
 import { CoreObjectNameSingular } from 'shared/types';
 
@@ -17,7 +17,7 @@ describe('getRecordPageLayoutId', () => {
   it('should return null when record is null', () => {
     const result = getRecordPageLayoutId({
       record: null,
-      targetObjectNameSingular: CoreObjectNameSingular.Company,
+      targetObjectNameSingular: CoreObjectNameSingular.Note,
     });
 
     expect(result).toBeNull();
@@ -26,7 +26,7 @@ describe('getRecordPageLayoutId', () => {
   it('should return null when record is undefined', () => {
     const result = getRecordPageLayoutId({
       record: undefined,
-      targetObjectNameSingular: CoreObjectNameSingular.Company,
+      targetObjectNameSingular: CoreObjectNameSingular.Note,
     });
 
     expect(result).toBeNull();
@@ -37,32 +37,43 @@ describe('getRecordPageLayoutId', () => {
 
     const result = getRecordPageLayoutId({
       record,
-      targetObjectNameSingular: CoreObjectNameSingular.Company,
+      targetObjectNameSingular: CoreObjectNameSingular.Note,
     });
 
     expect(result).toBe('custom-layout-123');
   });
 
-  it('should return Company default layout for Company object', () => {
+  it('should return Note default layout for Note object', () => {
     const record = createMockRecord();
 
     const result = getRecordPageLayoutId({
       record,
-      targetObjectNameSingular: CoreObjectNameSingular.Company,
+      targetObjectNameSingular: CoreObjectNameSingular.Note,
     });
 
-    expect(result).toBe(DEFAULT_COMPANY_RECORD_PAGE_LAYOUT_ID);
+    expect(result).toBe(DEFAULT_NOTE_RECORD_PAGE_LAYOUT_ID);
   });
 
-  it('should return Person default layout for Person object', () => {
+  it('should return Task default layout for Task object', () => {
     const record = createMockRecord();
 
     const result = getRecordPageLayoutId({
       record,
-      targetObjectNameSingular: CoreObjectNameSingular.Person,
+      targetObjectNameSingular: CoreObjectNameSingular.Task,
     });
 
-    expect(result).toBe(DEFAULT_PERSON_RECORD_PAGE_LAYOUT_ID);
+    expect(result).toBe(DEFAULT_TASK_RECORD_PAGE_LAYOUT_ID);
+  });
+
+  it('should return generic default layout for SID custom object (penduduk)', () => {
+    const record = createMockRecord();
+
+    const result = getRecordPageLayoutId({
+      record,
+      targetObjectNameSingular: 'penduduk',
+    });
+
+    expect(result).toBe(DEFAULT_RECORD_PAGE_LAYOUT_ID);
   });
 
   it('should return generic default layout for unknown object type', () => {

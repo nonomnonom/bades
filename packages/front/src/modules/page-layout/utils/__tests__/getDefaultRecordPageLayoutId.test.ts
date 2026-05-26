@@ -1,8 +1,5 @@
 import { CoreObjectNameSingular } from 'shared/types';
-import { DEFAULT_COMPANY_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultCompanyRecordPageLayoutId';
 import { DEFAULT_NOTE_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultNoteRecordPageLayoutId';
-import { DEFAULT_OPPORTUNITY_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultOpportunityRecordPageLayoutId';
-import { DEFAULT_PERSON_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultPersonRecordPageLayoutId';
 import { DEFAULT_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultRecordPageLayoutId';
 import { DEFAULT_TASK_RECORD_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultTaskRecordPageLayoutId';
 import { DEFAULT_WORKFLOW_PAGE_LAYOUT_ID } from '@/page-layout/constants/DefaultWorkflowPageLayoutId';
@@ -11,30 +8,6 @@ import { DEFAULT_WORKFLOW_VERSION_PAGE_LAYOUT_ID } from '@/page-layout/constants
 import { getDefaultRecordPageLayoutId } from '@/page-layout/utils/getDefaultRecordPageLayoutId';
 
 describe('getDefaultRecordPageLayoutId', () => {
-  it('should return Company layout id for Company object', () => {
-    expect(
-      getDefaultRecordPageLayoutId({
-        targetObjectNameSingular: CoreObjectNameSingular.Company,
-      }),
-    ).toBe(DEFAULT_COMPANY_RECORD_PAGE_LAYOUT_ID);
-  });
-
-  it('should return Person layout id for Person object', () => {
-    expect(
-      getDefaultRecordPageLayoutId({
-        targetObjectNameSingular: CoreObjectNameSingular.Person,
-      }),
-    ).toBe(DEFAULT_PERSON_RECORD_PAGE_LAYOUT_ID);
-  });
-
-  it('should return Opportunity layout id for Opportunity object', () => {
-    expect(
-      getDefaultRecordPageLayoutId({
-        targetObjectNameSingular: CoreObjectNameSingular.Opportunity,
-      }),
-    ).toBe(DEFAULT_OPPORTUNITY_RECORD_PAGE_LAYOUT_ID);
-  });
-
   it('should return Note layout id for Note object', () => {
     expect(
       getDefaultRecordPageLayoutId({
@@ -73,6 +46,14 @@ describe('getDefaultRecordPageLayoutId', () => {
         targetObjectNameSingular: CoreObjectNameSingular.WorkflowRun,
       }),
     ).toBe(DEFAULT_WORKFLOW_RUN_PAGE_LAYOUT_ID);
+  });
+
+  it('should return default record page layout id for SID custom object (penduduk)', () => {
+    expect(
+      getDefaultRecordPageLayoutId({
+        targetObjectNameSingular: 'penduduk',
+      }),
+    ).toBe(DEFAULT_RECORD_PAGE_LAYOUT_ID);
   });
 
   it('should return default record page layout id for unknown object', () => {

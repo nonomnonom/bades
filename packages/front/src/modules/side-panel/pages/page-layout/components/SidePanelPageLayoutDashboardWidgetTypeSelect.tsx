@@ -6,7 +6,10 @@ import { useCreatePageLayoutGraphWidget } from '@/page-layout/hooks/useCreatePag
 import { useCreatePageLayoutIframeWidget } from '@/page-layout/hooks/useCreatePageLayoutIframeWidget';
 import { useCreatePageLayoutRecordTableWidget } from '@/page-layout/hooks/useCreatePageLayoutRecordTableWidget';
 import { useCreatePageLayoutStandaloneRichTextWidget } from '@/page-layout/hooks/useCreatePageLayoutStandaloneRichTextWidget';
-import { useOpportunityDefaultChartConfig } from '@/page-layout/hooks/useOpportunityDefaultChartConfig';
+// Bades: hook useOpportunityDefaultChartConfig sudah dihapus karena
+// object Opportunity CRM warisan Twenty tidak ada lagi di STANDARD_OBJECTS.
+// Chart widget baru tidak lagi auto-isi field selection; user pilih object
+// + field manual via SidePanelPages.DashboardChartSettings.
 import { useRemovePageLayoutWidgetAndPreservePosition } from '@/page-layout/hooks/useRemovePageLayoutWidgetAndPreservePosition';
 import { pageLayoutDraftComponentState } from '@/page-layout/states/pageLayoutDraftComponentState';
 import { pageLayoutEditingWidgetIdComponentState } from '@/page-layout/states/pageLayoutEditingWidgetIdComponentState';
@@ -41,8 +44,6 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
   const { closeSidePanelMenu } = useSidePanelMenu();
 
   const { navigatePageLayoutSidePanel } = useNavigatePageLayoutSidePanel();
-
-  const { buildBarChartFieldSelection } = useOpportunityDefaultChartConfig();
 
   const pageLayoutDraft = useAtomComponentStateValue(
     pageLayoutDraftComponentState,
@@ -132,8 +133,9 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
         removePageLayoutWidgetAndPreservePosition(pageLayoutEditingWidgetId);
       }
 
-      const fieldSelection = buildBarChartFieldSelection();
-      const newWidget = createPageLayoutGraphWidget({ fieldSelection });
+      const newWidget = createPageLayoutGraphWidget({
+        fieldSelection: undefined,
+      });
       setPageLayoutEditingWidgetId(newWidget.id);
     }
 
