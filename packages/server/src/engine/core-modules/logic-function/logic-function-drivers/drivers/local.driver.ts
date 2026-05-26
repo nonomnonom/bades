@@ -28,7 +28,7 @@ import type { WorkspaceCacheService } from 'src/engine/workspace-cache/services/
 const LAYER_BUILD_LOCK_TTL_MS = 120_000;
 const LAYER_BUILD_LOCK_RETRY_MS = 500;
 const LAYER_BUILD_LOCK_MAX_RETRIES = 240;
-const LAYER_BUILD_READY_SENTINEL = '.twenty-layer-ready';
+const LAYER_BUILD_READY_SENTINEL = '.bades-layer-ready';
 
 export interface LocalDriverOptions {
   logicFunctionResourceService: LogicFunctionResourceService;

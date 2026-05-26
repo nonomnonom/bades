@@ -77,7 +77,7 @@ export const SidePanelNewSidebarItemRecordItem = ({
         customIconContent={
           <Avatar
             type={
-              record.objectNameSingular === CoreObjectNameSingular.Company
+              record.objectNameSingular === 'company'
                 ? 'squared'
                 : 'rounded'
             }

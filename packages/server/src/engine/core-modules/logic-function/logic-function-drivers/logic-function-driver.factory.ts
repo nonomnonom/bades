@@ -77,7 +77,7 @@ export class LogicFunctionDriverFactory extends DriverFactoryBase<LogicFunctionD
         const layerBucket =
           this.badesConfigService.get('LOGIC_FUNCTION_LAMBDA_LAYER_BUCKET') ??
           s3BucketName ??
-          'twenty-lambda-layer';
+          'bades-lambda-layer';
         const layerBucketRegion =
           this.badesConfigService.get(
             'LOGIC_FUNCTION_LAMBDA_LAYER_BUCKET_REGION',

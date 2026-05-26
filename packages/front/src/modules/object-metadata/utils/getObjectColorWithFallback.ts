@@ -10,13 +10,10 @@ const SYSTEM_OBJECT_COLOR: ThemeColor = 'gray';
 const STANDARD_OBJECT_FALLBACK_COLOR: Partial<
   Record<CoreObjectNameSingular, ThemeColor>
 > = {
-  [CoreObjectNameSingular.Company]: 'blue',
-  [CoreObjectNameSingular.Person]: 'blue',
   [CoreObjectNameSingular.Task]: 'turquoise',
   [CoreObjectNameSingular.TaskTarget]: 'turquoise',
   [CoreObjectNameSingular.Note]: 'turquoise',
   [CoreObjectNameSingular.NoteTarget]: 'turquoise',
-  [CoreObjectNameSingular.Opportunity]: 'red',
   [CoreObjectNameSingular.Dashboard]: SYSTEM_OBJECT_COLOR,
   [CoreObjectNameSingular.Workflow]: SYSTEM_OBJECT_COLOR,
   [CoreObjectNameSingular.WorkflowRun]: SYSTEM_OBJECT_COLOR,

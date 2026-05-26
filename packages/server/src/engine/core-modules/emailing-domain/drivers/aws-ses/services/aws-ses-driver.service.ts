@@ -103,6 +103,11 @@ export class AwsSesDriver implements EmailingDomainDriverInterface {
   }
 
   private generateTenantName(workspaceId: string): string {
+    // Bades: prefix tenant name di-FREEZE sebagai `twenty-workspace-*` untuk
+    // kompatibilitas dengan AWS SES tenant yang sudah ada di production.
+    // Mengubah prefix berarti workspace existing kehilangan akses ke tenant
+    // SES lama (config, domain verification, sending quota). Identifier
+    // internal AWS, tidak terlihat user. Aman dipertahankan per GOAL.md.
     return `twenty-workspace-${workspaceId}`;
   }
 

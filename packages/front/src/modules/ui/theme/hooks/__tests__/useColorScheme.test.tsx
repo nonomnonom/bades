@@ -21,7 +21,7 @@ const workspaceMember: CurrentWorkspaceMember = {
     firstName: 'firstName',
     lastName: 'lastName',
   },
-  locale: 'en',
+  locale: 'id',
   colorScheme: 'System',
   userEmail: 'userEmail',
 };

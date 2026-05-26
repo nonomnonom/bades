@@ -87,7 +87,7 @@ describe('useOpenCreateActivityDrawer', () => {
     const targetableObjects = [
       {
         id: 'company-id',
-        targetObjectNameSingular: CoreObjectNameSingular.Company,
+        targetObjectNameSingular: 'company',
       },
     ];
 

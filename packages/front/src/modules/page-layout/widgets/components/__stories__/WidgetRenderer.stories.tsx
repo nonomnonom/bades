@@ -52,7 +52,7 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
 const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  CoreObjectNameSingular.Company,
+  'company',
 );
 const idField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,
@@ -124,7 +124,7 @@ const mockCompanyRecord: ObjectRecord = {
     avatarUrl: '',
     userEmail: 'john.doe@acme.com',
     colorScheme: 'Light',
-    locale: 'en',
+    locale: 'id',
     createdAt: '2024-01-01T00:00:00Z',
     updatedAt: '2024-01-01T00:00:00Z',
     userId: '20202020-9e3b-46d4-a556-88b9ddc2b034',

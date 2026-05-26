@@ -37,7 +37,7 @@ const meta: Meta<typeof RecordDetailDuplicatesSection> = {
   ],
   args: {
     objectRecordId: mockedKeluargaRecords[0].id,
-    objectNameSingular: CoreObjectNameSingular.Company,
+    objectNameSingular: 'company',
   },
   parameters: {
     msw: graphqlMocks,

@@ -49,7 +49,7 @@ describe('useCreateOneRecord', () => {
     const { result } = renderHook(
       () =>
         useCreateOneRecord({
-          objectNameSingular: CoreObjectNameSingular.Person,
+          objectNameSingular: 'person',
         }),
       {
         wrapper: Wrapper,

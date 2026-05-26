@@ -61,7 +61,7 @@ export const ParticipantChip = ({
     <StyledContainer className={className}>
       {person ? (
         <RecordChip
-          objectNameSingular={CoreObjectNameSingular.Person}
+          objectNameSingular={'person'}
           record={person}
           isBold={variant === 'bold'}
         />

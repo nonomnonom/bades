@@ -25,7 +25,7 @@ const meta: Meta<typeof CalendarEventsCard> = {
         value={{
           targetRecordIdentifier: {
             id: '1',
-            targetObjectNameSingular: CoreObjectNameSingular.Company,
+            targetObjectNameSingular: 'company',
           },
           layoutType: PageLayoutType.RECORD_PAGE,
           isInSidePanel: false,

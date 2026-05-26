@@ -41,7 +41,7 @@ const mockOnPayloadTooLarge = jest.fn();
 
 const mockWorkspaceMember = {
   id: 'workspace-member-id',
-  locale: 'en',
+  locale: 'id',
   name: {
     firstName: 'Budi',
     lastName: 'Saputra',

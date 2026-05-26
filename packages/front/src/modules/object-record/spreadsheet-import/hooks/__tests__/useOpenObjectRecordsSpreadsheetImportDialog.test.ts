@@ -79,7 +79,7 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
       () => {
         const { openObjectRecordsSpreadsheetImportDialog } =
           useOpenObjectRecordsSpreadsheetImportDialog(
-            CoreObjectNameSingular.Company,
+            'company',
           );
         return {
           openObjectRecordsSpreadsheetImportDialog,
@@ -115,7 +115,7 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
       () => {
         const { openObjectRecordsSpreadsheetImportDialog } =
           useOpenObjectRecordsSpreadsheetImportDialog(
-            CoreObjectNameSingular.Company,
+            'company',
           );
         return {
           openObjectRecordsSpreadsheetImportDialog,

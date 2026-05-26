@@ -232,7 +232,7 @@ describe('buildValueFromFilter', () => {
     const mockCurrentWorkspaceMember = {
       id: 'current-workspace-member-id',
       name: { firstName: 'Budi', lastName: 'Saputra' },
-      locale: 'en',
+      locale: 'id',
       colorScheme: 'Light' as ColorScheme,
       avatarUrl: '',
       dateFormat: null,

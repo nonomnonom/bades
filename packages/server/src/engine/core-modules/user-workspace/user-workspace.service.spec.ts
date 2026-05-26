@@ -248,7 +248,7 @@ describe('UserWorkspaceService', () => {
         email: 'test@example.com',
         firstName: 'Budi',
         lastName: 'Saputra',
-        locale: 'en',
+        locale: 'id',
         isEmailVerified: false,
         disabled: false,
         canImpersonate: false,
@@ -296,7 +296,7 @@ describe('UserWorkspaceService', () => {
         colorScheme: 'System',
         userId: user.id,
         userEmail: user.email,
-        locale: 'en',
+        locale: 'id',
         avatarUrl: 'userWorkspace-avatar-url',
       });
     });

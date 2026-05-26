@@ -21,7 +21,7 @@ describe('useFindManyRecords', () => {
     jotaiStore.set(currentWorkspaceMemberState.atom, {
       id: '32219445-f587-4c40-b2b1-6d3205ed96da',
       name: { firstName: 'Budi', lastName: 'Connor' },
-      locale: 'en',
+      locale: 'id',
       colorScheme: 'Light',
       userEmail: 'userEmail',
     });

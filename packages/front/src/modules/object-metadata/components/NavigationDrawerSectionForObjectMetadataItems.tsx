@@ -12,9 +12,9 @@ import { useAtomFamilyStateValue } from '@/ui/utilities/state/jotai/hooks/useAto
 import { isDefined } from 'shared/utils';
 
 const ORDERED_FIRST_STANDARD_OBJECTS: string[] = [
-  CoreObjectNameSingular.Person,
-  CoreObjectNameSingular.Company,
-  CoreObjectNameSingular.Opportunity,
+  'person',
+  'company',
+  'opportunity',
   CoreObjectNameSingular.Task,
   CoreObjectNameSingular.Note,
 ];

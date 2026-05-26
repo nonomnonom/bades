@@ -11,17 +11,17 @@ export const useResolveDefaultEmailRecipient = ({
   objectNameSingular,
   recordId,
 }: UseResolveDefaultEmailRecipientParams) => {
-  const isPerson = objectNameSingular === CoreObjectNameSingular.Person;
-  const isCompany = objectNameSingular === CoreObjectNameSingular.Company;
+  const isPerson = objectNameSingular === 'person';
+  const isCompany = objectNameSingular === 'company';
   const isOpportunity =
-    objectNameSingular === CoreObjectNameSingular.Opportunity;
+    objectNameSingular === 'opportunity';
 
   const skipPerson = !isPerson || !recordId;
   const skipCompanyPeople = !isCompany || !recordId;
   const skipOpportunity = !isOpportunity || !recordId;
 
   const { record: personRecord, loading: personLoading } = useFindOneRecord({
-    objectNameSingular: CoreObjectNameSingular.Person,
+    objectNameSingular: 'person',
     objectRecordId: recordId ?? '',
     recordGqlFields: { id: true, emails: { primaryEmail: true } },
     skip: skipPerson,
@@ -29,7 +29,7 @@ export const useResolveDefaultEmailRecipient = ({
 
   const { records: companyPeople, loading: companyPeopleLoading } =
     useFindManyRecords({
-      objectNameSingular: CoreObjectNameSingular.Person,
+      objectNameSingular: 'person',
       filter: { companyId: { eq: recordId ?? '' } },
       recordGqlFields: { id: true, emails: { primaryEmail: true } },
       limit: 1,
@@ -38,7 +38,7 @@ export const useResolveDefaultEmailRecipient = ({
 
   const { record: opportunityRecord, loading: opportunityLoading } =
     useFindOneRecord({
-      objectNameSingular: CoreObjectNameSingular.Opportunity,
+      objectNameSingular: 'opportunity',
       objectRecordId: recordId ?? '',
       recordGqlFields: {
         id: true,

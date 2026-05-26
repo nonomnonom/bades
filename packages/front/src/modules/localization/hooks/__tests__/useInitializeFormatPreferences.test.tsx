@@ -33,7 +33,7 @@ describe('useInitializeFormatPreferences', () => {
     const mockWorkspaceMember: CurrentWorkspaceMember = {
       id: '1',
       name: { firstName: 'Test', lastName: 'User' },
-      locale: 'en',
+      locale: 'id',
       avatarUrl: null,
       userEmail: 'test@example.com',
       colorScheme: 'Light',

@@ -59,7 +59,7 @@ const mockUpdateWorkspaceMemberSettingsFn = jest.fn();
 const mockCurrentWorkspaceMember = {
   id: 'workspace-member-1',
   name: { firstName: 'Test', lastName: 'User' },
-  locale: 'en',
+  locale: 'id',
   avatarUrl: null,
   userEmail: 'test@example.com',
   userId: 'user-1',

@@ -33,7 +33,7 @@ export const getDefaultFormFieldSettings = (type: WorkflowFormFieldType) => {
         label: 'Record',
         placeholder: `Select a Company`,
         settings: {
-          objectName: CoreObjectNameSingular.Company,
+          objectName: 'company',
         },
       };
     case FieldMetadataType.SELECT:

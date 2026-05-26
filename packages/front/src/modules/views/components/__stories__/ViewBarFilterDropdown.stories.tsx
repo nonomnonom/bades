@@ -41,7 +41,7 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
     (Story) => {
       const companyObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === CoreObjectNameSingular.Company,
+          (item) => item.nameSingular === 'company',
         )!;
       const instanceId = companyObjectMetadataItem.id;
 
@@ -107,7 +107,7 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
             objectNamePlural: CoreObjectNamePlural.Company,
-            objectNameSingular: CoreObjectNameSingular.Company,
+            objectNameSingular: 'company',
             objectMetadataItem: companyObjectMetadataItem,
             recordIndexId: instanceId,
             viewBarInstanceId: instanceId,
@@ -205,7 +205,7 @@ export const AdvancedFilterCountBadge: Story = {
     (Story) => {
       const companyObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === CoreObjectNameSingular.Company,
+          (item) => item.nameSingular === 'company',
         )!;
       const instanceId = companyObjectMetadataItem.id;
 

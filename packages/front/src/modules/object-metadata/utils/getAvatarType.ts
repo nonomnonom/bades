@@ -5,7 +5,7 @@ export const getAvatarType = (objectNameSingular: string) => {
     return 'rounded';
   }
 
-  if (objectNameSingular === CoreObjectNameSingular.Company) {
+  if (objectNameSingular === 'company') {
     return 'squared';
   }
 

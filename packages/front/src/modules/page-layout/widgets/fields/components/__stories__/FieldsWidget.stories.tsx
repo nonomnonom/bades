@@ -43,7 +43,7 @@ import { setTestViewsInMetadataStore } from '~/testing/utils/setTestViewsInMetad
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 
 const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  CoreObjectNameSingular.Company,
+  'company',
 );
 
 const nameField = getMockFieldMetadataItemOrThrow({

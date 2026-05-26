@@ -91,7 +91,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
   const firstAvailableObjectMetadataItem =
     readableObjectMetadataItems.find(
       (objectMetadataItem) =>
-        objectMetadataItem.nameSingular === CoreObjectNameSingular.Company,
+        objectMetadataItem.nameSingular === 'company',
     ) ||
     [...readableObjectMetadataItems].sort((first, second) =>
       first.labelPlural.localeCompare(second.labelPlural),

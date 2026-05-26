@@ -23,7 +23,7 @@ const meta: Meta = {
 
       const companyObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === CoreObjectNameSingular.Company,
+          (item) => item.nameSingular === 'company',
         )!;
 
       const {
@@ -48,7 +48,7 @@ const meta: Meta = {
               indexIdentifierUrl: () => '',
               onIndexRecordsLoaded: () => {},
               objectNamePlural: CoreObjectNamePlural.Company,
-              objectNameSingular: CoreObjectNameSingular.Company,
+              objectNameSingular: 'company',
               objectMetadataItem: companyObjectMetadataItem,
               recordIndexId: instanceId,
               viewBarInstanceId: instanceId,

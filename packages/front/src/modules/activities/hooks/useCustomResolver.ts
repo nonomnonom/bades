@@ -48,10 +48,10 @@ export const useCustomResolver = <
 
   const queryVariables = {
     ...(activityTargetableObject.targetObjectNameSingular ===
-    CoreObjectNameSingular.Person
+    'person'
       ? { personId: activityTargetableObject.id }
       : activityTargetableObject.targetObjectNameSingular ===
-          CoreObjectNameSingular.Opportunity
+          'opportunity'
         ? { opportunityId: activityTargetableObject.id }
         : { companyId: activityTargetableObject.id }),
     page: 1,

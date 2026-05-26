@@ -24,7 +24,7 @@ export const ComposeEmailCommand = () => {
   } = useHeadlessCommandContextApi();
 
   const objectNameSingular = objectMetadataItem?.nameSingular ?? null;
-  const isPerson = objectNameSingular === CoreObjectNameSingular.Person;
+  const isPerson = objectNameSingular === 'person';
 
   const isBulkPerson =
     isPerson &&
@@ -32,7 +32,7 @@ export const ComposeEmailCommand = () => {
 
   const { records: bulkPersonRecords, loading: bulkLoading } =
     useFindManyRecords({
-      objectNameSingular: CoreObjectNameSingular.Person,
+      objectNameSingular: 'person',
       filter: graphqlFilter ?? undefined,
       recordGqlFields: { id: true, emails: { primaryEmail: true } },
       limit: MAX_EMAIL_RECIPIENTS,

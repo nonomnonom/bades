@@ -14,7 +14,7 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
 const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  CoreObjectNameSingular.Company,
+  'company',
 );
 const idField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,

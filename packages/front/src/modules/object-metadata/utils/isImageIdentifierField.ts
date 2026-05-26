@@ -13,13 +13,13 @@ export const isImageIdentifierField = ({
   >;
 }) => {
   if (
-    objectMetadataItem.nameSingular === CoreObjectNameSingular.Company &&
+    objectMetadataItem.nameSingular === 'company' &&
     fieldMetadataItem.name === 'domainName'
   ) {
     return true;
   }
 
-  if (objectMetadataItem.nameSingular === CoreObjectNameSingular.Person) {
+  if (objectMetadataItem.nameSingular === 'person') {
     return fieldMetadataItem.name === 'avatarFile';
   }
 

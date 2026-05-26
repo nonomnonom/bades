@@ -68,7 +68,7 @@ describe('TwoFactorAuthenticationResolver', () => {
     createdAt: MOCK_USER_ISO,
     updatedAt: MOCK_USER_ISO,
     deletedAt: null,
-    locale: 'en',
+    locale: 'id',
   } as unknown as FlatAuthContextUser;
 
   const mockWorkspace: WorkspaceEntity = {

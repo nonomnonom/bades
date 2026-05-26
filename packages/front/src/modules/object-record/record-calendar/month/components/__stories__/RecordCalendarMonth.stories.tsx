@@ -36,7 +36,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
     (Story) => {
       const companyObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === CoreObjectNameSingular.Company,
+          (item) => item.nameSingular === 'company',
         )!;
       const instanceId = companyObjectMetadataItem.id;
 
@@ -102,7 +102,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
             objectNamePlural: CoreObjectNamePlural.Company,
-            objectNameSingular: CoreObjectNameSingular.Company,
+            objectNameSingular: 'company',
             objectMetadataItem: companyObjectMetadataItem,
             recordIndexId: instanceId,
             viewBarInstanceId: instanceId,
@@ -127,7 +127,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
                   <RecordCalendarContextProvider
                     value={{
                       viewBarInstanceId: instanceId,
-                      objectNameSingular: CoreObjectNameSingular.Company,
+                      objectNameSingular: 'company',
                       visibleRecordFields: [],
                       objectMetadataItem: companyObjectMetadataItem,
                       objectPermissions: {

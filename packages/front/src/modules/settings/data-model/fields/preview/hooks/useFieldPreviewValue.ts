@@ -26,7 +26,7 @@ export const useFieldPreviewValue = ({
 }: UseFieldPreviewParams) => {
   const relationFieldPreviewValue = useRelationFieldPreviewValue({
     relationObjectNameSingular:
-      relationObjectNameSingular ?? CoreObjectNameSingular.Company,
+      relationObjectNameSingular ?? 'company',
     skip:
       skip ||
       (fieldMetadataItem.type !== FieldMetadataType.RELATION &&

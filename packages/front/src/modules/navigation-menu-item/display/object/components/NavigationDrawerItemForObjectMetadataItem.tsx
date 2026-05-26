@@ -144,7 +144,7 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
     ? () => (
         <Avatar
           type={
-            objectMetadataItem.nameSingular === CoreObjectNameSingular.Company
+            objectMetadataItem.nameSingular === 'company'
               ? 'squared'
               : 'rounded'
           }

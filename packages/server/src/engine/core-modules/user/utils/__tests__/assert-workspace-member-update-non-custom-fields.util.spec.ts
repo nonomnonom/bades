@@ -17,7 +17,7 @@ describe('assertWorkspaceMemberUpdateUsesNonCustomFieldsOnly', () => {
       assertWorkspaceMemberUpdateUsesNonCustomFieldsOnly({
         update: {
           timeZone: 'Europe/Paris',
-          locale: 'en',
+          locale: 'id',
         },
       }),
     ).not.toThrow();

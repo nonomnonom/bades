@@ -62,7 +62,7 @@ const UPDATE_FUNCTION_DURATION_TIMEOUT_IN_SECONDS = 60;
 const CREDENTIALS_DURATION_IN_SECONDS = 60 * 60; // 1h
 const YARN_INSTALL_LAMBDA_TIMEOUT_SECONDS = 300;
 const YARN_INSTALL_LAMBDA_MEMORY_MB = 1024;
-const COMMON_LAYER_NAME_PREFIX = 'twenty-common-layer';
+const COMMON_LAYER_NAME_PREFIX = 'bades-common-layer';
 const BUILDER_LAMBDA_TIMEOUT_SECONDS = 60;
 const BUILDER_LAMBDA_MEMORY_MB = 512;
 const EXECUTOR_LAMBDA_MEMORY_MB = 512;
@@ -310,7 +310,7 @@ export class LambdaDriver implements LogicFunctionDriver {
       .digest('hex')
       .slice(0, 12);
 
-    this.yarnInstallFunctionName = `twenty-yarn-install-${checksum}`;
+    this.yarnInstallFunctionName = `bades-yarn-install-${checksum}`;
 
     return this.yarnInstallFunctionName;
   }

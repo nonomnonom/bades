@@ -44,7 +44,7 @@ describe('MicrosoftOAuthGuard', () => {
     it('should redirect to /auth/microsoft on first AADSTS650051', () => {
       const { context, redirect } = createMockContext();
       const request = createMockRequest({
-        state: JSON.stringify({ workspaceId: 'ws-123', locale: 'en' }),
+        state: JSON.stringify({ workspaceId: 'ws-123', locale: 'id' }),
       });
 
       const result = callHandler(guard, context, request, AADSTS650051_ERROR);

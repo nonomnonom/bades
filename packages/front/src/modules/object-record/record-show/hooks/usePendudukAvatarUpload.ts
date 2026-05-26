@@ -17,7 +17,7 @@ export const usePendudukAvatarUpload = (pendudukRecordId: string) => {
   const { updateOneRecord } = useUpdateOneRecord();
 
   const { objectMetadataItem: pendudukMetadata } = useObjectMetadataItem({
-    objectNameSingular: CoreObjectNameSingular.Person,
+    objectNameSingular: 'person',
   });
 
   const avatarFileFieldMetadataId = pendudukMetadata.fields.find(
@@ -42,7 +42,7 @@ export const usePendudukAvatarUpload = (pendudukRecordId: string) => {
     }
 
     await updateOneRecord({
-      objectNameSingular: CoreObjectNameSingular.Person,
+      objectNameSingular: 'person',
       idToUpdate: pendudukRecordId,
       updateOneRecordInput: {
         avatarFile: [

@@ -39,15 +39,15 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 
 const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  CoreObjectNameSingular.Company,
+  'company',
 );
 
 const personObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  CoreObjectNameSingular.Person,
+  'person',
 );
 
 const opportunityObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  CoreObjectNameSingular.Opportunity,
+  'opportunity',
 );
 
 const timelineActivityObjectMetadataItem = getMockObjectMetadataItemOrThrow(
@@ -170,7 +170,7 @@ const mockWorkspaceMemberRecord: ObjectRecord = {
   avatarUrl: '',
   userEmail: 'sarah.johnson@acme.com',
   colorScheme: 'Light',
-  locale: 'en',
+  locale: 'id',
   createdAt: '2024-01-01T00:00:00Z',
   updatedAt: '2024-01-01T00:00:00Z',
   userId: 'test-user-xyz',
@@ -191,7 +191,7 @@ const mockTimelineActivityRecord: ObjectRecord = {
     avatarUrl: '',
     userEmail: 'sarah.johnson@acme.com',
     colorScheme: 'Light',
-    locale: 'en',
+    locale: 'id',
     createdAt: '2024-01-01T00:00:00Z',
     updatedAt: '2024-01-01T00:00:00Z',
     userId: 'test-user-xyz',
@@ -248,7 +248,7 @@ const mockCompanyRecord: ObjectRecord = {
     avatarUrl: '',
     userEmail: 'john.doe@acme.com',
     colorScheme: 'Light',
-    locale: 'en',
+    locale: 'id',
     createdAt: '2024-01-01T00:00:00Z',
     updatedAt: '2024-01-01T00:00:00Z',
     userId: '20202020-9e3b-46d4-a556-88b9ddc2b034',

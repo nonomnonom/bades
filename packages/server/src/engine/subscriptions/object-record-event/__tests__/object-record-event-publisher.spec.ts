@@ -162,7 +162,7 @@ describe('ObjectRecordEventPublisher', () => {
         id: 'test-workspace-member-id',
         userId: 'test-user-id',
         name: { firstName: 'Test', lastName: 'User' },
-        locale: 'en',
+        locale: 'id',
       },
     },
     idByUserId: {
@@ -1087,7 +1087,7 @@ describe('ObjectRecordEventPublisher', () => {
           id: workspaceMemberId,
           userId: 'test-user-id',
           name: { firstName: 'Budi', lastName: 'Saputra' },
-          locale: 'en',
+          locale: 'id',
           colorScheme: 'light',
         };
 
@@ -1145,7 +1145,7 @@ describe('ObjectRecordEventPublisher', () => {
                 after: {
                   id: 'record-1',
                   name: 'Test Company',
-                  locale: 'en',
+                  locale: 'id',
                 },
               },
             }),

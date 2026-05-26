@@ -59,7 +59,7 @@ const RelationOneToManyFieldInputWithContext = () => {
         fieldName: 'penduduks',
         relationType: RelationType.ONE_TO_MANY,
         relationObjectMetadataNamePlural: 'penduduks',
-        relationObjectMetadataNameSingular: CoreObjectNameSingular.Person,
+        relationObjectMetadataNameSingular: 'person',
         objectMetadataNameSingular: 'keluarga',
         relationFieldMetadataId: companyFieldOnPerson.id,
       },

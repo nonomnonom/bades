@@ -7,7 +7,7 @@ const createBaseWorkspaceMember = (): CurrentWorkspaceMember => ({
     firstName: 'Siti',
     lastName: 'Saputra',
   },
-  locale: 'en',
+  locale: 'id',
   colorScheme: 'System',
   userEmail: 'jane@example.com',
   avatarUrl: 'https://example.com/avatar.png',

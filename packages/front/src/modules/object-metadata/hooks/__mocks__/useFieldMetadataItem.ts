@@ -144,7 +144,7 @@ export const responseData = {
         },
         colorScheme: 'light',
         avatarUrl: null,
-        locale: 'en',
+        locale: 'id',
         timeZone: 'UTC',
         dateFormat: 'MM/DD/YYYY',
         timeFormat: '24',

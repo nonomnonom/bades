@@ -37,7 +37,7 @@ describe('useNavigateApp', () => {
     });
 
     result.current(AppPath.RecordShowPage, {
-      objectNameSingular: CoreObjectNameSingular.Company,
+      objectNameSingular: 'company',
       objectRecordId: '123',
     });
 

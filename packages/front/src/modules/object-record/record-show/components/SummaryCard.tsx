@@ -116,7 +116,7 @@ export const SummaryCard = ({
       }
       avatarType={recordIdentifier?.avatarType ?? 'rounded'}
       onUploadPicture={
-        objectNameSingular === CoreObjectNameSingular.Person
+        objectNameSingular === 'person'
           ? onUploadPicture
           : undefined
       }

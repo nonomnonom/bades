@@ -195,7 +195,7 @@ describe('WorkspaceInvitationService', () => {
       const sender = {
         userEmail: 'sender@example.com',
         name: { firstName: 'Sender' },
-        locale: 'en',
+        locale: 'id',
       };
 
       jest.spyOn(service, 'createWorkspaceInvitation').mockResolvedValue({
