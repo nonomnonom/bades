@@ -1565,7 +1565,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
           "__typename": "Object",
           "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
           "universalIdentifier": "20202020-9549-49dd-b2b2-883999db8938",
-          "nameSingular": "opportunity",
+          "nameSingular": "programBantuan",
           "namePlural": "opportunities",
           "isCustom": false,
           "isRemote": false,
@@ -1982,7 +1982,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
@@ -2009,7 +2009,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "id": "4cafe09c-e246-4de8-a4f3-8c60e1186395",
               "universalIdentifier": "20202020-cbac-457e-b565-adece5fc815f",
               "type": "RELATION",
-              "name": "company",
+              "name": "keluarga",
               "label": "Company",
               "description": "Opportunity company",
               "icon": "IconBuildingSkyscraper",
@@ -2037,19 +2037,19 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
                   "id": "4cafe09c-e246-4de8-a4f3-8c60e1186395",
-                  "name": "company"
+                  "name": "keluarga"
                 },
                 "targetFieldMetadata": {
                   "__typename": "Field",
@@ -2090,7 +2090,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
@@ -2145,13 +2145,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "sourceFieldMetadata": {
@@ -2198,7 +2198,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
@@ -2251,7 +2251,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
@@ -2306,7 +2306,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "targetObjectMetadata": {
@@ -5029,7 +5029,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                    "nameSingular": "opportunity",
+                    "nameSingular": "programBantuan",
                     "namePlural": "opportunities"
                   },
                   "sourceFieldMetadata": {
@@ -5055,7 +5055,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                    "nameSingular": "company",
+                    "nameSingular": "keluarga",
                     "namePlural": "companies"
                   },
                   "sourceFieldMetadata": {
@@ -5133,7 +5133,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                    "nameSingular": "person",
+                    "nameSingular": "penduduk",
                     "namePlural": "people"
                   },
                   "sourceFieldMetadata": {
@@ -8153,7 +8153,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                    "nameSingular": "company",
+                    "nameSingular": "keluarga",
                     "namePlural": "companies"
                   },
                   "sourceFieldMetadata": {
@@ -8179,7 +8179,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                    "nameSingular": "person",
+                    "nameSingular": "penduduk",
                     "namePlural": "people"
                   },
                   "sourceFieldMetadata": {
@@ -8205,7 +8205,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                    "nameSingular": "opportunity",
+                    "nameSingular": "programBantuan",
                     "namePlural": "opportunities"
                   },
                   "sourceFieldMetadata": {
@@ -8833,7 +8833,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "id": "2e21f68d-8657-40a7-9050-02c5609f03a0",
               "universalIdentifier": "20202020-249d-4e0f-82cd-1b9df5cd3da2",
               "type": "RELATION",
-              "name": "person",
+              "name": "penduduk",
               "label": "Person",
               "description": "Person",
               "icon": "IconUser",
@@ -8867,13 +8867,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
                   "id": "2e21f68d-8657-40a7-9050-02c5609f03a0",
-                  "name": "person"
+                  "name": "penduduk"
                 },
                 "targetFieldMetadata": {
                   "__typename": "Field",
@@ -9540,7 +9540,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                    "nameSingular": "person",
+                    "nameSingular": "penduduk",
                     "namePlural": "people"
                   },
                   "sourceFieldMetadata": {
@@ -9566,7 +9566,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                    "nameSingular": "company",
+                    "nameSingular": "keluarga",
                     "namePlural": "companies"
                   },
                   "sourceFieldMetadata": {
@@ -9592,7 +9592,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                    "nameSingular": "opportunity",
+                    "nameSingular": "programBantuan",
                     "namePlural": "opportunities"
                   },
                   "sourceFieldMetadata": {
@@ -10761,7 +10761,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "id": "9fe7868b-0622-479c-aa76-426045e24f4b",
               "universalIdentifier": "20202020-5761-4842-8186-e1898ef93966",
               "type": "RELATION",
-              "name": "person",
+              "name": "penduduk",
               "label": "Person",
               "description": "Person",
               "icon": "IconUser",
@@ -10795,13 +10795,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
                   "id": "9fe7868b-0622-479c-aa76-426045e24f4b",
-                  "name": "person"
+                  "name": "penduduk"
                 },
                 "targetFieldMetadata": {
                   "__typename": "Field",
@@ -13640,7 +13640,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "sourceFieldMetadata": {
@@ -13799,7 +13799,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "sourceFieldMetadata": {
@@ -15821,7 +15821,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                    "nameSingular": "person",
+                    "nameSingular": "penduduk",
                     "namePlural": "people"
                   },
                   "sourceFieldMetadata": {
@@ -15847,7 +15847,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                    "nameSingular": "company",
+                    "nameSingular": "keluarga",
                     "namePlural": "companies"
                   },
                   "sourceFieldMetadata": {
@@ -17599,7 +17599,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
           "__typename": "Object",
           "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
           "universalIdentifier": "20202020-e674-48e5-a542-72570eee7213",
-          "nameSingular": "person",
+          "nameSingular": "penduduk",
           "namePlural": "people",
           "isCustom": false,
           "isRemote": false,
@@ -18127,7 +18127,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18180,7 +18180,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18197,7 +18197,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetFieldMetadata": {
                   "__typename": "Field",
                   "id": "9fe7868b-0622-479c-aa76-426045e24f4b",
-                  "name": "person"
+                  "name": "penduduk"
                 }
               },
               "morphRelations": null
@@ -18207,7 +18207,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "id": "289e5729-b5af-4371-8d6a-749c4418d10e",
               "universalIdentifier": "20202020-e2f3-448e-b34c-2d625f0025fd",
               "type": "RELATION",
-              "name": "company",
+              "name": "keluarga",
               "label": "Company",
               "description": "Contact's company",
               "icon": "IconBuildingSkyscraper",
@@ -18235,19 +18235,19 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
                   "id": "289e5729-b5af-4371-8d6a-749c4418d10e",
-                  "name": "company"
+                  "name": "keluarga"
                 },
                 "targetFieldMetadata": {
                   "__typename": "Field",
@@ -18288,7 +18288,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18305,7 +18305,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetFieldMetadata": {
                   "__typename": "Field",
                   "id": "2e21f68d-8657-40a7-9050-02c5609f03a0",
-                  "name": "person"
+                  "name": "penduduk"
                 }
               },
               "morphRelations": null
@@ -18341,7 +18341,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18394,13 +18394,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "sourceFieldMetadata": {
@@ -18447,7 +18447,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18500,7 +18500,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18716,7 +18716,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -18733,7 +18733,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetFieldMetadata": {
                   "__typename": "Field",
                   "id": "2b1d0803-6079-4337-ba07-03660a4f72ad",
-                  "name": "person"
+                  "name": "penduduk"
                 }
               },
               "morphRelations": null
@@ -18770,7 +18770,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "targetObjectMetadata": {
@@ -19234,7 +19234,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                    "nameSingular": "company",
+                    "nameSingular": "keluarga",
                     "namePlural": "companies"
                   },
                   "sourceFieldMetadata": {
@@ -19260,7 +19260,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                    "nameSingular": "opportunity",
+                    "nameSingular": "programBantuan",
                     "namePlural": "opportunities"
                   },
                   "sourceFieldMetadata": {
@@ -19286,7 +19286,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                   "targetObjectMetadata": {
                     "__typename": "Object",
                     "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                    "nameSingular": "person",
+                    "nameSingular": "penduduk",
                     "namePlural": "people"
                   },
                   "sourceFieldMetadata": {
@@ -19501,7 +19501,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
           "__typename": "Object",
           "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
           "universalIdentifier": "20202020-b374-4779-a561-80086cb2e17f",
-          "nameSingular": "company",
+          "nameSingular": "keluarga",
           "namePlural": "companies",
           "isCustom": false,
           "isRemote": false,
@@ -19995,7 +19995,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20048,13 +20048,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "sourceFieldMetadata": {
@@ -20065,7 +20065,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetFieldMetadata": {
                   "__typename": "Field",
                   "id": "289e5729-b5af-4371-8d6a-749c4418d10e",
-                  "name": "company"
+                  "name": "keluarga"
                 }
               },
               "morphRelations": null
@@ -20103,7 +20103,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20156,7 +20156,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20209,7 +20209,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20262,13 +20262,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-                  "nameSingular": "opportunity",
+                  "nameSingular": "programBantuan",
                   "namePlural": "opportunities"
                 },
                 "sourceFieldMetadata": {
@@ -20279,7 +20279,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetFieldMetadata": {
                   "__typename": "Field",
                   "id": "4cafe09c-e246-4de8-a4f3-8c60e1186395",
-                  "name": "company"
+                  "name": "keluarga"
                 }
               },
               "morphRelations": null
@@ -20315,7 +20315,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20495,7 +20495,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20549,7 +20549,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "sourceObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "targetObjectMetadata": {
@@ -20566,7 +20566,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetFieldMetadata": {
                   "__typename": "Field",
                   "id": "3884e8c9-4f36-4870-952d-f5c173b9f894",
-                  "name": "company"
+                  "name": "keluarga"
                 }
               },
               "morphRelations": null
@@ -22992,7 +22992,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "id": "2b1d0803-6079-4337-ba07-03660a4f72ad",
               "universalIdentifier": "976778fd-b59a-4ada-8abf-29b9b3c8405f",
               "type": "RELATION",
-              "name": "person",
+              "name": "penduduk",
               "label": "Person",
               "description": "EmploymentHistories Person",
               "icon": "IconUser",
@@ -23026,13 +23026,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-                  "nameSingular": "person",
+                  "nameSingular": "penduduk",
                   "namePlural": "people"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
                   "id": "2b1d0803-6079-4337-ba07-03660a4f72ad",
-                  "name": "person"
+                  "name": "penduduk"
                 },
                 "targetFieldMetadata": {
                   "__typename": "Field",
@@ -23047,7 +23047,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
               "id": "3884e8c9-4f36-4870-952d-f5c173b9f894",
               "universalIdentifier": "113c3f82-73bb-4361-9851-dfa1944e65c0",
               "type": "RELATION",
-              "name": "company",
+              "name": "keluarga",
               "label": "Company",
               "description": "EmploymentHistories Company",
               "icon": "IconBuildingSkyscraper",
@@ -23081,13 +23081,13 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
                 "targetObjectMetadata": {
                   "__typename": "Object",
                   "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-                  "nameSingular": "company",
+                  "nameSingular": "keluarga",
                   "namePlural": "companies"
                 },
                 "sourceFieldMetadata": {
                   "__typename": "Field",
                   "id": "3884e8c9-4f36-4870-952d-f5c173b9f894",
-                  "name": "company"
+                  "name": "keluarga"
                 },
                 "targetFieldMetadata": {
                   "__typename": "Field",

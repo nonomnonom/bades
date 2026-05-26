@@ -190,7 +190,7 @@ export const mockedMinimalMetadata: MinimalMetadata =
     },
     {
       "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
-      "nameSingular": "opportunity",
+      "nameSingular": "programBantuan",
       "namePlural": "opportunities",
       "labelSingular": "Opportunity",
       "labelPlural": "Opportunities",
@@ -262,7 +262,7 @@ export const mockedMinimalMetadata: MinimalMetadata =
     },
     {
       "id": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
-      "nameSingular": "company",
+      "nameSingular": "keluarga",
       "namePlural": "companies",
       "labelSingular": "Company",
       "labelPlural": "Companies",
@@ -298,7 +298,7 @@ export const mockedMinimalMetadata: MinimalMetadata =
     },
     {
       "id": "2e0d7477-8143-4d8f-bc36-2b4f92cbd101",
-      "nameSingular": "person",
+      "nameSingular": "penduduk",
       "namePlural": "people",
       "labelSingular": "Person",
       "labelPlural": "People",
