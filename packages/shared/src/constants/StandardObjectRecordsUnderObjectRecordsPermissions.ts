@@ -1,7 +1,7 @@
 export const STANDARD_OBJECT_RECORDS_UNDER_OBJECT_RECORDS_PERMISSIONS = [
-  'person',
-  'company',
-  'opportunity',
+  'penduduk',
+  'keluarga',
+  'programBantuan',
   'note',
   'task',
 ];

@@ -2,34 +2,34 @@ import { splitWorkflowTriggerEventName } from '@/workflow/utils/splitWorkflowTri
 
 describe('splitWorkflowTriggerEventName', () => {
   it('should split a basic event name into objectType and event', () => {
-    const eventName = 'company.created';
+    const eventName = 'keluarga.created';
 
     const result = splitWorkflowTriggerEventName(eventName);
 
     expect(result).toEqual({
-      objectType: 'company',
+      objectType: 'keluarga',
       event: 'created',
     });
   });
 
   it('should split event name with updated event', () => {
-    const eventName = 'person.updated';
+    const eventName = 'penduduk.updated';
 
     const result = splitWorkflowTriggerEventName(eventName);
 
     expect(result).toEqual({
-      objectType: 'person',
+      objectType: 'penduduk',
       event: 'updated',
     });
   });
 
   it('should split event name with deleted event', () => {
-    const eventName = 'opportunity.deleted';
+    const eventName = 'programBantuan.deleted';
 
     const result = splitWorkflowTriggerEventName(eventName);
 
     expect(result).toEqual({
-      objectType: 'opportunity',
+      objectType: 'programBantuan',
       event: 'deleted',
     });
   });
@@ -90,23 +90,23 @@ describe('splitWorkflowTriggerEventName', () => {
   });
 
   it('should handle event name ending with dot', () => {
-    const eventName = 'company.';
+    const eventName = 'keluarga.';
 
     const result = splitWorkflowTriggerEventName(eventName);
 
     expect(result).toEqual({
-      objectType: 'company',
+      objectType: 'keluarga',
       event: '',
     });
   });
 
   it('should split event name with upserted event', () => {
-    const eventName = 'company.upserted';
+    const eventName = 'keluarga.upserted';
 
     const result = splitWorkflowTriggerEventName(eventName);
 
     expect(result).toEqual({
-      objectType: 'company',
+      objectType: 'keluarga',
       event: 'upserted',
     });
   });

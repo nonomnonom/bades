@@ -232,7 +232,7 @@ export const mockedLimitedPermissionsUserData: MockedUser = {
       .filter(
         (objectMetadata) =>
           objectMetadata.nameSingular !== 'task' &&
-          objectMetadata.nameSingular !== 'opportunity',
+          objectMetadata.nameSingular !== 'programBantuan',
       )
       .map((item) => ({
         objectMetadataId: item.id,
