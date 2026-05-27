@@ -77,7 +77,9 @@ describe('getObjectMetadataIdsInDraft', () => {
 
     const result = getObjectMetadataIdsInDraft(draft);
 
-    expect(result).toEqual(new Set(['object-daftarPenduduk', 'object-daftarKeluarga']));
+    expect(result).toEqual(
+      new Set(['object-daftarPenduduk', 'object-daftarKeluarga']),
+    );
   });
 
   it('should skip FOLDER and LINK items', () => {

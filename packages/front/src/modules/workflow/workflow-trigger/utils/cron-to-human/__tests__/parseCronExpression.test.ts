@@ -47,9 +47,7 @@ describe('parseCronExpression', () => {
   });
 
   it('should throw error for empty expression', () => {
-    expect(() => parseCronExpression('')).toThrow(
-      'Ekspresi cron wajib diisi',
-    );
+    expect(() => parseCronExpression('')).toThrow('Ekspresi cron wajib diisi');
   });
 
   it('should throw error for invalid cron syntax', () => {
@@ -139,9 +137,17 @@ describe('parseCronExpression', () => {
   });
 
   it('should reject expressions with out-of-range values', () => {
-    expect(() => parseCronExpression('60 * * * *')).toThrow('Ekspresi cron tidak valid');
-    expect(() => parseCronExpression('0 25 * * *')).toThrow('Ekspresi cron tidak valid');
-    expect(() => parseCronExpression('0 0 32 * *')).toThrow('Ekspresi cron tidak valid');
-    expect(() => parseCronExpression('0 0 0 13 *')).toThrow('Ekspresi cron tidak valid');
+    expect(() => parseCronExpression('60 * * * *')).toThrow(
+      'Ekspresi cron tidak valid',
+    );
+    expect(() => parseCronExpression('0 25 * * *')).toThrow(
+      'Ekspresi cron tidak valid',
+    );
+    expect(() => parseCronExpression('0 0 32 * *')).toThrow(
+      'Ekspresi cron tidak valid',
+    );
+    expect(() => parseCronExpression('0 0 0 13 *')).toThrow(
+      'Ekspresi cron tidak valid',
+    );
   });
 });

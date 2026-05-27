@@ -95,8 +95,7 @@ const RelationManyToOneFieldInputWithContext = ({
             metadata: {
               fieldName: 'keluarga',
               relationObjectMetadataNamePlural: 'daftarKeluarga',
-              relationObjectMetadataNameSingular:
-                'company',
+              relationObjectMetadataNameSingular: 'company',
               relationObjectMetadataId: companyMetadata.id,
               objectMetadataNameSingular: 'penduduk',
               relationFieldMetadataId: peopleFieldOnCompany.id,

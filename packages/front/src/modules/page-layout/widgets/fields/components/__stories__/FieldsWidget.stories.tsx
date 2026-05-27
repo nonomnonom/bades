@@ -42,9 +42,7 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 import { setTestViewsInMetadataStore } from '~/testing/utils/setTestViewsInMetadataStore';
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  'company',
-);
+const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
 
 const nameField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,

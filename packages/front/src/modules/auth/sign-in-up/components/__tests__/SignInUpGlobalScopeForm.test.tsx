@@ -104,7 +104,9 @@ describe('SignInUpGlobalScopeForm', () => {
     const forgotPasswordLink = screen.getByText('Lupa kata sandi?');
 
     expect(forgotPasswordLink).toBeInTheDocument();
-    expect(handleResetPasswordMock).toHaveBeenCalledWith('penduduk@example.com');
+    expect(handleResetPasswordMock).toHaveBeenCalledWith(
+      'penduduk@example.com',
+    );
 
     fireEvent.click(forgotPasswordLink);
 

@@ -101,12 +101,20 @@ describe('mergeManyToOneRelationship', () => {
       {
         __typename: 'Penduduk',
         id: 'record2',
-        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+        keluarga: {
+          __typename: 'Keluarga',
+          id: 'keluarga1',
+          name: 'Keluarga Santoso',
+        },
       },
       {
         __typename: 'Penduduk',
         id: 'record3',
-        keluarga: { __typename: 'Keluarga', id: 'keluarga2', name: 'Keluarga Budiman' },
+        keluarga: {
+          __typename: 'Keluarga',
+          id: 'keluarga2',
+          name: 'Keluarga Budiman',
+        },
       },
     ];
 
@@ -129,7 +137,11 @@ describe('mergeManyToOneRelationship', () => {
       {
         __typename: 'Penduduk',
         id: 'record2',
-        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+        keluarga: {
+          __typename: 'Keluarga',
+          id: 'keluarga1',
+          name: 'Keluarga Santoso',
+        },
       },
     ];
 
@@ -212,7 +224,11 @@ describe('mergeRecordRelationshipData', () => {
           { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
           { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
         ],
-        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+        keluarga: {
+          __typename: 'Keluarga',
+          id: 'keluarga1',
+          name: 'Keluarga Santoso',
+        },
         name: 'Record 2',
       },
     ];
@@ -229,7 +245,11 @@ describe('mergeRecordRelationshipData', () => {
         { __typename: 'ProgramBantuan', id: 'pb2', name: 'Program 2' },
         { __typename: 'ProgramBantuan', id: 'pb3', name: 'Program 3' },
       ],
-      keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+      keluarga: {
+        __typename: 'Keluarga',
+        id: 'keluarga1',
+        name: 'Keluarga Santoso',
+      },
     });
   });
 
@@ -241,7 +261,11 @@ describe('mergeRecordRelationshipData', () => {
         daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
-        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+        keluarga: {
+          __typename: 'Keluarga',
+          id: 'keluarga1',
+          name: 'Keluarga Santoso',
+        },
       },
     ];
 
@@ -272,7 +296,11 @@ describe('mergeRecordRelationshipData', () => {
         daftarProgramBantuan: [
           { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
         ],
-        keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+        keluarga: {
+          __typename: 'Keluarga',
+          id: 'keluarga1',
+          name: 'Keluarga Santoso',
+        },
         name: 'Record 1',
         email: 'test@example.com',
       },
@@ -288,7 +316,11 @@ describe('mergeRecordRelationshipData', () => {
       daftarProgramBantuan: [
         { __typename: 'ProgramBantuan', id: 'pb1', name: 'Program 1' },
       ],
-      keluarga: { __typename: 'Keluarga', id: 'keluarga1', name: 'Keluarga Santoso' },
+      keluarga: {
+        __typename: 'Keluarga',
+        id: 'keluarga1',
+        name: 'Keluarga Santoso',
+      },
     });
     expect(result).not.toHaveProperty('name');
     expect(result).not.toHaveProperty('email');
@@ -311,7 +343,11 @@ describe('mergeRecordRelationshipData', () => {
       },
     ];
 
-    const result = mergeRecordRelationshipData(records, fieldsWithoutRelation, false);
+    const result = mergeRecordRelationshipData(
+      records,
+      fieldsWithoutRelation,
+      false,
+    );
 
     expect(result).toEqual({});
   });

@@ -5,8 +5,12 @@ describe('getAggregateQueryName', () => {
     expect(getAggregateQueryName('daftarProgramBantuan')).toBe(
       'AggregateDaftarProgramBantuan',
     );
-    expect(getAggregateQueryName('daftarKeluarga')).toBe('AggregateDaftarKeluarga');
-    expect(getAggregateQueryName('daftarPenduduk')).toBe('AggregateDaftarPenduduk');
+    expect(getAggregateQueryName('daftarKeluarga')).toBe(
+      'AggregateDaftarKeluarga',
+    );
+    expect(getAggregateQueryName('daftarPenduduk')).toBe(
+      'AggregateDaftarPenduduk',
+    );
   });
 
   it('should throw an error when input is undefined', () => {

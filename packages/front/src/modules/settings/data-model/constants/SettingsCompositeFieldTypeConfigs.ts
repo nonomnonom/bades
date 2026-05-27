@@ -28,7 +28,6 @@ import {
 } from 'ui/display';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
-
 export type CompositeSubFieldConfig<T> = {
   subFieldName: keyof T;
   subFieldLabel: string;

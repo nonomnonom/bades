@@ -61,9 +61,9 @@ describe('applyFieldMasking', () => {
 
   describe('FULL_MASK strategy', () => {
     it('should mengganti seluruh value dengan replacement default ***', () => {
-      expect(
-        applyFieldMasking('rahasia', { strategy: 'FULL_MASK' }),
-      ).toBe('***');
+      expect(applyFieldMasking('rahasia', { strategy: 'FULL_MASK' })).toBe(
+        '***',
+      );
     });
 
     it('should mengganti dengan replacement kustom', () => {
@@ -78,9 +78,7 @@ describe('applyFieldMasking', () => {
 
   describe('null/undefined handling', () => {
     it('should kembalikan null apa adanya', () => {
-      expect(
-        applyFieldMasking(null, { strategy: 'FULL_MASK' }),
-      ).toBeNull();
+      expect(applyFieldMasking(null, { strategy: 'FULL_MASK' })).toBeNull();
     });
 
     it('should kembalikan undefined apa adanya', () => {

@@ -27,11 +27,7 @@ describe('isActivityTargetField', () => {
   });
 
   it('should return false for regular field names', () => {
-    expect(
-      isActivityTargetField('keluarga', 'penduduk'),
-    ).toBe(false);
-    expect(
-      isActivityTargetField('daftarPenduduk', 'keluarga'),
-    ).toBe(false);
+    expect(isActivityTargetField('keluarga', 'penduduk')).toBe(false);
+    expect(isActivityTargetField('daftarPenduduk', 'keluarga')).toBe(false);
   });
 });

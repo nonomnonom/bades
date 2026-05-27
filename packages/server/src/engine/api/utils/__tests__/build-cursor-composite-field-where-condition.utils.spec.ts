@@ -80,7 +80,9 @@ describe('buildCompositeFieldWhereCondition', () => {
           description: 'descending order with forward pagination',
           fieldType: FieldMetadataType.FULL_NAME,
           fieldKey: 'penduduk',
-          orderBy: [{ penduduk: { firstName: OrderByDirection.DescNullsLast } }],
+          orderBy: [
+            { penduduk: { firstName: OrderByDirection.DescNullsLast } },
+          ],
           value: { firstName: 'Budi' },
           isForwardPagination: true,
           operator: undefined,
@@ -93,7 +95,9 @@ describe('buildCompositeFieldWhereCondition', () => {
           description: 'descending order with backward pagination',
           fieldType: FieldMetadataType.FULL_NAME,
           fieldKey: 'penduduk',
-          orderBy: [{ penduduk: { firstName: OrderByDirection.DescNullsLast } }],
+          orderBy: [
+            { penduduk: { firstName: OrderByDirection.DescNullsLast } },
+          ],
           value: { firstName: 'Budi' },
           isForwardPagination: false,
           operator: undefined,

@@ -15,12 +15,12 @@ export const messagingGetMessagesServiceGetMessages = [
     participants: [
       {
         role: MessageParticipantRole.FROM,
-        handle: 'from@desa.id',
+        handle: 'from@bades.id',
         displayName: 'From',
       },
       {
         role: MessageParticipantRole.TO,
-        handle: 'to@desa.id',
+        handle: 'to@bades.id',
         displayName: 'To',
       },
     ],
@@ -37,7 +37,7 @@ export const messagingGetMessagesServiceGetMessages = [
     participants: [
       {
         role: MessageParticipantRole.FROM,
-        handle: 'from@desa.id',
+        handle: 'from@bades.id',
         displayName: 'From',
       },
       {

@@ -71,9 +71,7 @@ describe('csvSecurity', () => {
 
     it('should not modify safe strings', () => {
       expect(sanitizeValueForCSVExport('Budi Santoso')).toBe('Budi Santoso');
-      expect(sanitizeValueForCSVExport('budi@bades.id')).toBe(
-        'budi@bades.id',
-      );
+      expect(sanitizeValueForCSVExport('budi@bades.id')).toBe('budi@bades.id');
       expect(sanitizeValueForCSVExport('Text with = in middle')).toBe(
         'Text with = in middle',
       );
@@ -119,9 +117,7 @@ describe('csvSecurity', () => {
 
     it('should not modify values without ZWJ prefix', () => {
       expect(cleanZWJFromImportedValue('Budi Santoso')).toBe('Budi Santoso');
-      expect(cleanZWJFromImportedValue('budi@bades.id')).toBe(
-        'budi@bades.id',
-      );
+      expect(cleanZWJFromImportedValue('budi@bades.id')).toBe('budi@bades.id');
       expect(cleanZWJFromImportedValue('Normal text')).toBe('Normal text');
     });
 

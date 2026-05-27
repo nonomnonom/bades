@@ -350,32 +350,30 @@ export const SettingsObjectFieldEdit = () => {
                 readonly={readonly}
               />
             </Section>
-            {
-              fieldMetadataItem.name !== CoreObjectNamePlural.NoteTarget &&
-                fieldMetadataItem.name !== CoreObjectNamePlural.TaskTarget && (
-                  <>
-                    <Section>
-                      {fieldMetadataItem.isUnique ? (
-                        <H2Title
-                          title={t`Nilai`}
-                          description={t`Nilai kolom ini harus unik`}
-                        />
-                      ) : (
-                        <H2Title
-                          title={t`Nilai`}
-                          description={t`Nilai kolom ini`}
-                        />
-                      )}
-                      <SettingsDataModelFieldSettingsFormCard
-                        fieldType={fieldMetadataItem.type}
-                        existingFieldMetadataId={fieldMetadataItem.id}
-                        objectNameSingular={objectMetadataItem.nameSingular}
-                        disabled={readonly}
+            {fieldMetadataItem.name !== CoreObjectNamePlural.NoteTarget &&
+              fieldMetadataItem.name !== CoreObjectNamePlural.TaskTarget && (
+                <>
+                  <Section>
+                    {fieldMetadataItem.isUnique ? (
+                      <H2Title
+                        title={t`Nilai`}
+                        description={t`Nilai kolom ini harus unik`}
                       />
-                    </Section>
-                  </>
-                )
-            }
+                    ) : (
+                      <H2Title
+                        title={t`Nilai`}
+                        description={t`Nilai kolom ini`}
+                      />
+                    )}
+                    <SettingsDataModelFieldSettingsFormCard
+                      fieldType={fieldMetadataItem.type}
+                      existingFieldMetadataId={fieldMetadataItem.id}
+                      objectNameSingular={objectMetadataItem.nameSingular}
+                      disabled={readonly}
+                    />
+                  </Section>
+                </>
+              )}
             <Section>
               <H2Title
                 title={t`Deskripsi`}

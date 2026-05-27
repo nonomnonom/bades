@@ -31,10 +31,9 @@ describe('getMultiSelectFieldPreviewValue', () => {
   });
 
   const fieldName = 'stage';
-  const selectFieldMetadataItem =
-    mockedPeluangObjectMetadataItem?.fields.find(
-      ({ name }) => name === fieldName,
-    );
+  const selectFieldMetadataItem = mockedPeluangObjectMetadataItem?.fields.find(
+    ({ name }) => name === fieldName,
+  );
 
   if (!selectFieldMetadataItem) {
     throw new Error(`Field '${fieldName}' not found`);

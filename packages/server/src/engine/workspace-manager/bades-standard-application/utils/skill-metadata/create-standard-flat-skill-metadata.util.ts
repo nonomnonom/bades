@@ -447,8 +447,7 @@ Setelah membuat tab, gunakan tabId yang dikembalikan sebagai pageLayoutTabId saa
         skillName: 'metadata-building',
         name: 'metadata-building',
         label: 'Penyusunan Metadata',
-        description:
-          'Mengelola model data: membuat objek, field, dan relasi',
+        description: 'Mengelola model data: membuat objek, field, dan relasi',
         icon: 'IconBuildingSkyscraper',
         content: `# Skill Penyusunan Metadata
 

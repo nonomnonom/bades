@@ -51,9 +51,7 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  'company',
-);
+const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
 const idField = getMockFieldMetadataItemOrThrow({
   objectMetadataItem: companyObjectMetadataItem,
   fieldName: 'id',

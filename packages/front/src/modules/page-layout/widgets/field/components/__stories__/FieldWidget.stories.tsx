@@ -38,17 +38,12 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  'company',
-);
+const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
 
-const personObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  'person',
-);
+const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
 
-const opportunityObjectMetadataItem = getMockObjectMetadataItemOrThrow(
-  'opportunity',
-);
+const opportunityObjectMetadataItem =
+  getMockObjectMetadataItemOrThrow('opportunity');
 
 const timelineActivityObjectMetadataItem = getMockObjectMetadataItemOrThrow(
   CoreObjectNameSingular.TimelineActivity,

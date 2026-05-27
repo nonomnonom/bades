@@ -135,9 +135,7 @@ describe('useDefaultHomePagePath', () => {
     });
 
     await waitFor(() => {
-      expect(result.current.defaultHomePagePath).toEqual(
-        '/objects/dashboards',
-      );
+      expect(result.current.defaultHomePagePath).toEqual('/objects/dashboards');
     });
   });
   // Regression: during the post-login transition window object metadata may

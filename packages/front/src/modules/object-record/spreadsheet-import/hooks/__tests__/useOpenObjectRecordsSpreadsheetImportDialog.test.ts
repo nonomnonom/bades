@@ -73,9 +73,7 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
     const { result } = renderHook(
       () => {
         const { openObjectRecordsSpreadsheetImportDialog } =
-          useOpenObjectRecordsSpreadsheetImportDialog(
-            'keluarga',
-          );
+          useOpenObjectRecordsSpreadsheetImportDialog('keluarga');
         return {
           openObjectRecordsSpreadsheetImportDialog,
         };
@@ -109,9 +107,7 @@ describe('useOpenObjectRecordsSpreadsheetImportDialog', () => {
     const { result } = renderHook(
       () => {
         const { openObjectRecordsSpreadsheetImportDialog } =
-          useOpenObjectRecordsSpreadsheetImportDialog(
-            'keluarga',
-          );
+          useOpenObjectRecordsSpreadsheetImportDialog('keluarga');
         return {
           openObjectRecordsSpreadsheetImportDialog,
         };
