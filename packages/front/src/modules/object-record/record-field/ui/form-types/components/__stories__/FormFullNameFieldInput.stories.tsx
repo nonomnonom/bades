@@ -18,7 +18,7 @@ type Story = StoryObj<typeof FormFullNameFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'Name',
+    label: 'Nama',
     defaultValue: {
       firstName: 'Budi',
       lastName: 'Saputra',
@@ -35,7 +35,7 @@ export const Default: Story = {
 
 export const WithVariable: Story = {
   args: {
-    label: 'Name',
+    label: 'Nama',
     defaultValue: {
       firstName: `{{${MOCKED_STEP_ID}.name}}`,
       lastName: `{{${MOCKED_STEP_ID}.amount}}`,
@@ -45,7 +45,7 @@ export const WithVariable: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findAllByText('Name');
+    await canvas.findAllByText('Nama');
 
     const lastNameVariable = await canvas.findByText('Amount');
     expect(lastNameVariable).toBeVisible();
@@ -56,7 +56,7 @@ export const WithVariable: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Name',
+    label: 'Nama',
     readonly: true,
     defaultValue: {
       firstName: 'Budi',

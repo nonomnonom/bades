@@ -70,12 +70,12 @@ const PhoneInputWithContext = ({
         value={{
           fieldDefinition: {
             fieldMetadataId: 'phones',
-            label: 'Phones',
+            label: 'Telepon',
             type: FieldMetadataType.PHONES,
             iconName: 'IconMail',
             metadata: {
-              fieldName: 'phones',
-              placeHolder: 'Phone',
+              fieldName: 'telepon',
+              placeHolder: 'Telepon',
               objectMetadataNameSingular: 'keluarga',
             },
           },

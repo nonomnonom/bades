@@ -13,8 +13,8 @@ import { graphqlMocks } from '~/testing/graphqlMocks';
 import { getWorkflowNodeIdMock } from '~/testing/mock-data/workflow';
 
 const DEFAULT_PROPS = {
-  label: 'Advanced Text Field',
-  placeholder: 'Enter your content...',
+  label: 'Kolom Teks Lanjutan',
+  placeholder: 'Masukkan konten Anda...',
   defaultValue: '',
   onChange: fn(),
   readonly: false,
@@ -114,7 +114,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Advanced Text Field')).toBeVisible();
+    expect(await canvas.findByText('Kolom Teks Lanjutan')).toBeVisible();
     expect(await canvas.findByRole('textbox')).toBeVisible();
   },
 };
@@ -122,13 +122,13 @@ export const Default: Story = {
 export const WithRichContent: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Rich Text Content',
+    label: 'Konten Rich Text',
     defaultValue: RICH_CONTENT_VALUE,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Rich Text Content')).toBeVisible();
+    expect(await canvas.findByText('Konten Rich Text')).toBeVisible();
     expect(await canvas.findByText('Welcome!')).toBeVisible();
     expect(await canvas.findByText('excited')).toBeVisible();
     expect(await canvas.findByText('website')).toBeVisible();
@@ -138,14 +138,14 @@ export const WithRichContent: Story = {
 export const ReadOnly: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Read Only Field',
+    label: 'Kolom Hanya Baca',
     defaultValue: RICH_CONTENT_VALUE,
     readonly: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Read Only Field')).toBeVisible();
+    expect(await canvas.findByText('Kolom Hanya Baca')).toBeVisible();
     expect(await canvas.findByText('Welcome!')).toBeVisible();
   },
 };
@@ -153,30 +153,30 @@ export const ReadOnly: Story = {
 export const WithError: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Field with Error',
-    error: 'This field is required',
+    label: 'Kolom dengan Error',
+    error: 'Kolom ini wajib diisi',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Field with Error')).toBeVisible();
-    expect(await canvas.findByText('This field is required')).toBeVisible();
+    expect(await canvas.findByText('Kolom dengan Error')).toBeVisible();
+    expect(await canvas.findByText('Kolom ini wajib diisi')).toBeVisible();
   },
 };
 
 export const WithHint: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Field with Hint',
-    hint: 'You can use variables, format text, and add images to your content.',
+    label: 'Kolom dengan Petunjuk',
+    hint: 'Anda dapat menggunakan variabel, memformat teks, dan menambahkan gambar ke konten Anda.',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Field with Hint')).toBeVisible();
+    expect(await canvas.findByText('Kolom dengan Petunjuk')).toBeVisible();
     expect(
       await canvas.findByText(
-        'You can use variables, format text, and add images to your content.',
+        'Anda dapat menggunakan variabel, memformat teks, dan menambahkan gambar ke konten Anda.',
       ),
     ).toBeVisible();
   },
@@ -185,13 +185,13 @@ export const WithHint: Story = {
 export const Interactive: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Interactive Field',
-    placeholder: 'Start typing to see the editor in action...',
+    label: 'Kolom Interaktif',
+    placeholder: 'Mulai ketik untuk melihat editor beraksi...',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Interactive Field')).toBeVisible();
+    expect(await canvas.findByText('Kolom Interaktif')).toBeVisible();
 
     const editor = await canvas.findByRole('textbox');
     expect(editor).toBeVisible();
@@ -204,13 +204,13 @@ export const Interactive: Story = {
 export const WithVariablePicker: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Field with Variable Picker',
+    label: 'Kolom dengan Pemilih Variabel',
     VariablePicker: WorkflowVariablePicker,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Field with Variable Picker')).toBeVisible();
+    expect(await canvas.findByText('Kolom dengan Pemilih Variabel')).toBeVisible();
     expect(await canvas.findByRole('textbox')).toBeVisible();
   },
 };
@@ -218,13 +218,13 @@ export const WithVariablePicker: Story = {
 export const WithoutVariablePicker: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Field without Variable Picker',
+    label: 'Kolom tanpa Pemilih Variabel',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     expect(
-      await canvas.findByText('Field without Variable Picker'),
+      await canvas.findByText('Kolom tanpa Pemilih Variabel'),
     ).toBeVisible();
     expect(await canvas.findByRole('textbox')).toBeVisible();
   },
@@ -233,7 +233,7 @@ export const WithoutVariablePicker: Story = {
 export const WithLongContent: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Field with Long Content',
+    label: 'Kolom dengan Konten Panjang',
     defaultValue: JSON.stringify({
       type: 'doc',
       content: Array.from({ length: 20 }, (_, i) => ({
@@ -252,17 +252,17 @@ export const WithLongContent: Story = {
 export const CustomSize: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Custom Size Field',
+    label: 'Kolom Ukuran Kustom',
     minHeight: 300,
     maxWidth: 600,
-    placeholder: 'This field has custom dimensions...',
+    placeholder: 'Kolom ini memiliki dimensi kustom...',
   },
 };
 
 export const DisabledFullScreen: Story = {
   args: {
     ...DEFAULT_PROPS,
-    label: 'Field without Full Screen',
+    label: 'Kolom tanpa Layar Penuh',
     enableFullScreen: false,
   },
 };

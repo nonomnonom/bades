@@ -73,12 +73,12 @@ const EmailInputWithContext = ({
         value={{
           fieldDefinition: {
             fieldMetadataId: 'emails',
-            label: 'Emails',
+            label: 'Surel',
             type: FieldMetadataType.EMAILS,
             iconName: 'IconMail',
             metadata: {
-              fieldName: 'emails',
-              placeHolder: 'Email',
+              fieldName: 'surel',
+              placeHolder: 'Surel',
               objectMetadataNameSingular: 'keluarga',
             },
           },
@@ -116,10 +116,10 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Tambah Email');
+    const addButton = await canvas.findByText('Tambah Surel');
     await userEvent.click(addButton);
 
-    const input = await canvas.findByPlaceholderText('Email');
+    const input = await canvas.findByPlaceholderText('Surel');
     await userEvent.type(input, 'new.email@example.com{enter}');
 
     const newEmailElement = await canvas.findByText('new.email@example.com');
@@ -137,10 +137,10 @@ export const TrimInput: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Tambah Email');
+    const addButton = await canvas.findByText('Tambah Surel');
     await userEvent.click(addButton);
 
-    const input = await canvas.findByPlaceholderText('Email');
+    const input = await canvas.findByPlaceholderText('Surel');
     await userEvent.type(input, '  new.email@example.com  {enter}');
 
     const newEmailElement = await canvas.findByText('new.email@example.com');

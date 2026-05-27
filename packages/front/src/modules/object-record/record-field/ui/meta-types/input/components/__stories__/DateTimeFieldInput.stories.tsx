@@ -53,7 +53,7 @@ const DateFieldInputWithContext = ({
   const { pushFocusItemToFocusStack } = usePushFocusItemToFocusStack();
   const instanceId = getRecordFieldInputInstanceId({
     recordId,
-    fieldName: 'Date',
+    fieldName: 'Tanggal',
     prefix: RECORD_TABLE_CELL_INPUT_ID_PREFIX,
   });
 
@@ -78,11 +78,11 @@ const DateFieldInputWithContext = ({
           fieldDefinition: {
             fieldMetadataId: 'date',
             defaultValue: null,
-            label: 'Date',
+            label: 'Tanggal',
             type: FieldMetadataType.DATE_TIME,
             iconName: 'IconCalendarEvent',
             metadata: {
-              fieldName: 'Date',
+              fieldName: 'Tanggal',
               objectMetadataNameSingular: 'penduduk',
             },
           },

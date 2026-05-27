@@ -55,7 +55,7 @@ const NumberFieldInputWithContext = ({
 
   const instanceId = getRecordFieldInputInstanceId({
     recordId,
-    fieldName: 'Number',
+    fieldName: 'Angka',
     prefix: RECORD_TABLE_CELL_INPUT_ID_PREFIX,
   });
 
@@ -77,7 +77,7 @@ const NumberFieldInputWithContext = ({
       value={{
         instanceId: getRecordFieldInputInstanceId({
           recordId,
-          fieldName: 'Number',
+          fieldName: 'Angka',
           prefix: RECORD_TABLE_CELL_INPUT_ID_PREFIX,
         }),
       }}
@@ -86,7 +86,7 @@ const NumberFieldInputWithContext = ({
         value={{
           fieldDefinition: {
             fieldMetadataId: 'number',
-            label: 'Number',
+            label: 'Angka',
             iconName: 'Icon123',
             type: FieldMetadataType.NUMBER,
             metadata: {
