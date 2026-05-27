@@ -27,6 +27,10 @@ services:
       FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY}
       APP_SECRET: ${APP_SECRET:-}
 
+      # Mode SaaS managed: multi-tenant aktif, signup publik
+      IS_MULTIWORKSPACE_ENABLED: ${IS_MULTIWORKSPACE_ENABLED:-true}
+      IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS: ${IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS:-false}
+
       # AI Bades — OpenRouter sebagai provider tunggal user-facing
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
       AI_MODEL_PREFERENCES: ${AI_MODEL_PREFERENCES:-}
@@ -86,6 +90,10 @@ services:
       ENCRYPTION_KEY: ${ENCRYPTION_KEY}
       FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY}
       APP_SECRET: ${APP_SECRET:-}
+
+      # Mode SaaS managed: multi-tenant aktif, signup publik
+      IS_MULTIWORKSPACE_ENABLED: ${IS_MULTIWORKSPACE_ENABLED:-true}
+      IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS: ${IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS:-false}
 
       # AI Bades — OpenRouter sebagai provider tunggal user-facing
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
