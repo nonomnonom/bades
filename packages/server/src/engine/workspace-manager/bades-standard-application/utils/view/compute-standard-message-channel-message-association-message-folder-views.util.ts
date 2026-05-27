@@ -20,7 +20,7 @@ export const computeStandardMessageChannelMessageAssociationMessageFolderViews =
           objectName: 'messageChannelMessageAssociationMessageFolder',
           context: {
             viewName: 'allMessageChannelMessageAssociationMessageFolders',
-            name: 'All {objectLabelPlural}',
+            name: 'Semua {objectLabelPlural}',
             type: ViewType.TABLE,
             key: ViewKey.INDEX,
             position: 0,

@@ -15,7 +15,7 @@ export const computeStandardBlocklistViews = (
       objectName: 'blocklist',
       context: {
         viewName: 'allBlocklists',
-        name: 'All {objectLabelPlural}',
+        name: 'Semua {objectLabelPlural}',
         type: ViewType.TABLE,
         key: ViewKey.INDEX,
         position: 0,

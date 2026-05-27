@@ -221,7 +221,7 @@ export class WorkflowSchemaWorkspaceService {
 
     const all: Leaf = {
       isLeaf: true,
-      label: `All ${objectMetadataInfo.flatObjectMetadata.labelPlural ?? 'Records'}`,
+      label: `Semua ${objectMetadataInfo.flatObjectMetadata.labelPlural ?? 'Data'}`,
       type: 'array',
       icon: 'IconListDetails',
       value: 'Returns an array of records',

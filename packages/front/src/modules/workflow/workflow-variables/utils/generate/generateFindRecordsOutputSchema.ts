@@ -17,7 +17,7 @@ export const generateFindRecordsOutputSchema = (
     all: {
       isLeaf: true,
       icon: 'IconListDetails',
-      label: `All ${objectMetadataItem.labelPlural ?? 'Records'}`,
+      label: `Semua ${objectMetadataItem.labelPlural ?? 'Data'}`,
       type: 'array',
       value: 'Returns an array of records',
     },

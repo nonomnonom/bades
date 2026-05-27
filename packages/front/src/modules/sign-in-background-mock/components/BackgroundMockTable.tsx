@@ -216,13 +216,7 @@ export const BackgroundMockTable = () => {
             <StyledFooterLabel>
               <OverflowingTextWithTooltip text="Maksimum Anggota" />
             </StyledFooterLabel>
-            <StyledFooterValue>284,571</StyledFooterValue>
-          </StyledFooterCell>
-          <StyledFooterCell width={BACKGROUND_MOCK_COLUMNS[6].width}>
-            <StyledFooterLabel>
-              <OverflowingTextWithTooltip text="Terisi pada Alamat" />
-            </StyledFooterLabel>
-            <StyledFooterValue>599</StyledFooterValue>
+            <StyledFooterValue>2.847</StyledFooterValue>
           </StyledFooterCell>
           <StyledLastEmptyCell />
         </StyledFooterRow>
