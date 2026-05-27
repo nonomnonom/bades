@@ -48,7 +48,9 @@ describe('useFilteredObjectMetadataItems', () => {
 
     act(() => {
       const res =
-        result.current.findActiveObjectMetadataItemByNamePlural('daftarPenduduk');
+        result.current.findActiveObjectMetadataItemByNamePlural(
+          'daftarPenduduk',
+        );
       expect(res).toBeDefined();
       expect(res?.namePlural).toBe('daftarPenduduk');
     });
@@ -60,7 +62,8 @@ describe('useFilteredObjectMetadataItems', () => {
     });
 
     act(() => {
-      const res = result.current.findObjectMetadataItemByNamePlural('daftarPenduduk');
+      const res =
+        result.current.findObjectMetadataItemByNamePlural('daftarPenduduk');
       expect(res).toBeDefined();
       expect(res?.namePlural).toBe('daftarPenduduk');
     });
@@ -95,9 +98,9 @@ describe('useFilteredObjectMetadataItems', () => {
 
     act(() => {
       const res =
-        result.current.findObjectMetadataItemByNamePlural('daftarPeluang');
+        result.current.findObjectMetadataItemByNamePlural('daftarKeluarga');
       expect(res).toBeDefined();
-      expect(res?.namePlural).toBe('daftarPeluang');
+      expect(res?.namePlural).toBe('daftarKeluarga');
     });
   });
 });

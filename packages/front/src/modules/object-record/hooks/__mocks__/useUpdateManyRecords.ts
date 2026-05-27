@@ -24,13 +24,15 @@ const flatPendudukRecords = mockedPendudukRecords.map((record) =>
   getRecordFromRecordNode({ recordNode: record }),
 );
 
-export const pendudukRecords = pendudukIds.map<ObjectRecord>((pendudukId, index) => ({
-  ...flatPendudukRecords[index],
-  id: pendudukId,
-}));
+export const pendudukRecords = pendudukIds.map<ObjectRecord>(
+  (pendudukId, index) => ({
+    ...flatPendudukRecords[index],
+    id: pendudukId,
+  }),
+);
 
 export const updateInput = {
-  pekerjaan: 'PETANI',
+  jobTitle: 'Operator Desa',
 };
 
 export const variables = {
@@ -46,7 +48,7 @@ export const updatedPendudukRecords = pendudukIds.map<ObjectRecord>(
   (pendudukId, index) => ({
     ...flatPendudukRecords[index],
     id: pendudukId,
-    pekerjaan: 'PETANI',
+    jobTitle: 'Operator Desa',
   }),
 );
 

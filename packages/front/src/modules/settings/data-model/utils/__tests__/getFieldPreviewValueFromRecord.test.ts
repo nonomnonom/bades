@@ -22,13 +22,13 @@ describe('getFieldPreviewValueFromRecord', () => {
       };
       const record: ObjectRecord = {
         id: '',
-        daftarPenduduk: {
+        people: {
           edges: [{ node: firstRelationRecord }, { node: { id: '2' } }],
         },
         __typename: 'ProgramBantuan',
       };
       const fieldMetadataItem = mockedKeluargaObjectMetadataItem?.fields.find(
-        ({ name }) => name === 'daftarPenduduk',
+        ({ name }) => name === 'people',
       );
 
       if (!fieldMetadataItem) {

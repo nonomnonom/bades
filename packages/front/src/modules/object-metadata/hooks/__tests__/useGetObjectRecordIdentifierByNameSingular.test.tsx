@@ -48,7 +48,9 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
       objectNameSingular: 'programBantuan',
     });
 
-    expect(result.current.linkToShowPage).toBe('/object/programBantuan/recordId');
+    expect(result.current.linkToShowPage).toBe(
+      '/object/programBantuan/recordId',
+    );
 
     rerender({
       record: {
@@ -71,9 +73,9 @@ describe('useGetObjectRecordIdentifierByNameSingular', () => {
     });
 
     expect(result.current.linkToShowPage).toBe('/object/keluarga/recordId');
-    expect(result.current.avatarUrl).toBe(
-      'https://icons.bades.id/cool-keluarga.com',
-    );
-    expect(result.current.avatarType).toBe('squared');
+    // Layanan favicon eksternal sudah dilepas dari Bades; avatarUrl jatuh ke
+    // image identifier field value (kosong untuk fixture ini).
+    expect(result.current.avatarUrl).toBe('');
+    expect(result.current.avatarType).toBe('rounded');
   });
 });

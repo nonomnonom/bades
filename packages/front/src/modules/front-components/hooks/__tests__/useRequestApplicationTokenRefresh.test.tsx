@@ -232,6 +232,6 @@ describe('useRequestApplicationTokenRefresh', () => {
 
     await expect(
       act(() => result.current.requestAccessTokenRefresh()),
-    ).rejects.toThrow('Failed to refetch application token pair');
+    ).rejects.toThrow('Gagal mengambil ulang token aplikasi');
   });
 });

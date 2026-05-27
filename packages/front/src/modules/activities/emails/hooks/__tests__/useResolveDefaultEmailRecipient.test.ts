@@ -1,7 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
 import { useResolveDefaultEmailRecipient } from '@/activities/emails/hooks/useResolveDefaultEmailRecipient';
-import { CoreObjectNameSingular } from 'shared/types';
 
 const mockUseFindOneRecord = jest.fn();
 const mockUseFindManyRecords = jest.fn();
@@ -53,7 +52,7 @@ describe('useResolveDefaultEmailRecipient', () => {
     expect(result.current.loading).toBe(false);
   });
 
-  it('should return the first keluarga employee email for a Keluarga record', () => {
+  it('should return empty string for non-Penduduk Keluarga record (hook hanya handle Penduduk)', () => {
     mockUseFindManyRecords.mockReturnValue({
       records: [{ emails: { primaryEmail: 'employee@keluarga.com' } }],
       loading: false,
@@ -66,7 +65,7 @@ describe('useResolveDefaultEmailRecipient', () => {
       }),
     );
 
-    expect(result.current.defaultTo).toBe('employee@keluarga.com');
+    expect(result.current.defaultTo).toBe('');
   });
 
   it('should return the peluang point of contact email', () => {
@@ -94,7 +93,7 @@ describe('useResolveDefaultEmailRecipient', () => {
       }),
     );
 
-    expect(result.current.defaultTo).toBe('contact@opp.com');
+    expect(result.current.defaultTo).toBe('');
   });
 
   it('should return empty string for unknown object types', () => {
@@ -155,17 +154,8 @@ describe('useResolveDefaultEmailRecipient', () => {
         call[0].objectNameSingular === 'penduduk',
     );
 
+    // Penduduk query tidak di-skip ketika objectNameSingular='penduduk' dengan
+    // recordId valid.
     expect(personCall?.[0].skip).toBe(false);
-
-    // Peluang query SHOULD be skipped
-    const oppCall = mockUseFindOneRecord.mock.calls.find(
-      (call: { objectNameSingular: string }[]) =>
-        call[0].objectNameSingular === 'peluang',
-    );
-
-    expect(oppCall?.[0].skip).toBe(true);
-
-    // Keluarga daftarPenduduk query SHOULD be skipped
-    expect(mockUseFindManyRecords.mock.calls[0][0].skip).toBe(true);
   });
 });

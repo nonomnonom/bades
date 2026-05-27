@@ -26,7 +26,7 @@ const taskTarget = {
   targetKeluargaId: null,
   targetCompany: null,
   targetPendudukId: '89bb825c-171e-4bcc-9cf7-43448d6fb280',
-  targetPerson: {
+  targetPenduduk: {
     id: '89bb825c-171e-4bcc-9cf7-43448d6fb280',
     createdAt: '2023-04-26T10:12:42.33625+00:00',
     updatedAt: '2023-04-26T10:23:42.33625+00:00',
@@ -77,7 +77,7 @@ cache.writeFragment({
         id
         assigneeId
       }
-      targetPerson {
+      targetPenduduk {
         __typename
         id
         createdAt
@@ -174,7 +174,7 @@ describe('useActivityTargetObjectRecords', () => {
     expect(activityTargetObjectRecords).toHaveLength(1);
     expect(activityTargetObjectRecords[0].activityTarget).toEqual(taskTarget);
     expect(activityTargetObjectRecords[0].targetObject).toEqual(
-      taskTarget.targetPerson,
+      taskTarget.targetPenduduk,
     );
     expect(
       activityTargetObjectRecords[0].targetObjectMetadataItem.nameSingular,

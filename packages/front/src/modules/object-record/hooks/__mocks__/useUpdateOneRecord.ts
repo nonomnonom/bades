@@ -10,6 +10,9 @@ export const query = gql`
   }
 `;
 
+// Catatan: bentuk data di sini mengikuti schema mock metadata aktual
+// (warisan Twenty Person). Saat seed Bades SID lengkap diterapkan, mock ini
+// akan diregenerasi mengikuti field SID (NIK, KK, namaLengkap, tempatLahir).
 const basePenduduk = {
   __typename: 'Penduduk',
   id: '36abbb63-34ed-4a16-89f5-f549ac55d0f9',
@@ -18,51 +21,74 @@ const basePenduduk = {
   updatedAt: '2025-01-15T08:00:00.000Z',
   updatedBy: null,
   deletedAt: null,
-  nik: '3201011501800001',
-  nomorKk: '3201010101010001',
-  namaLengkap: { firstName: 'Made', lastName: 'Sutrisna' },
-  tempatLahir: 'Denpasar',
-  tanggalLahir: '1985-06-20',
-  jenisKelamin: 'LAKI_LAKI',
-  agama: 'HINDU',
-  statusPerkawinan: 'KAWIN',
-  pendidikan: 'S1',
-  pekerjaan: 'PETANI',
-  golonganDarah: 'O',
-  kewarganegaraan: 'WNI',
-  alamat: {
-    addressLine1: 'Jl. Raya Desa No. 5',
-    addressLine2: null,
-    city: 'Bangli',
-    country: 'Indonesia',
-    postalCode: '80619',
-    state: 'Bali',
+  attachments: { edges: [], __typename: 'PendudukAttachmentsConnection' },
+  avatarFile: null,
+  avatarUrl: '',
+  calendarEventParticipants: {
+    edges: [],
+    __typename: 'PendudukCalendarEventParticipantsConnection',
   },
-  rt: '01',
-  rw: '01',
-  dusun: 'Dusun Selatan',
-  statusHubunganKeluarga: 'KEPALA_KELUARGA',
-  tipeWarga: 'TETAP',
-  statusHidup: 'HIDUP',
-  nikAyah: '3201011501800002',
-  nikIbu: '3201011501800003',
-  foto: { primaryLinkUrl: '', primaryLinkLabel: null },
-  kartuKeluargaId: 'a0abbb63-34ed-4a16-89f5-f549ac55d0f9',
+  caredForPets: { edges: [], __typename: 'PendudukCaredForPetsConnection' },
+  city: 'Denpasar',
+  emails: { primaryEmail: 'budi@example.com', additionalEmails: [] },
+  intro: null,
+  jobTitle: 'Operator Desa',
+  keluargaId: 'a0abbb63-34ed-4a16-89f5-f549ac55d0f9',
   keluarga: {
     __typename: 'Keluarga',
     id: 'a0abbb63-34ed-4a16-89f5-f549ac55d0f9',
-    nomorKk: '3201010101010001',
-    alamat: 'Jl. Mawar No. 3, RT 01/RW 01, Desa Mekarsari',
-    jumlahAnggota: 4,
-    kecamatan: 'Cisarua',
-    klasifikasiKeluarga: 'SEJAHTERA_1',
+    name: 'Keluarga Saputra',
+  },
+  linkedinLink: {
+    primaryLinkUrl: '',
+    primaryLinkLabel: '',
+    secondaryLinks: [],
+  },
+  messageParticipants: {
+    edges: [],
+    __typename: 'PendudukMessageParticipantsConnection',
+  },
+  name: { firstName: 'Budi', lastName: 'Saputra' },
+  noteTargets: { edges: [], __typename: 'PendudukNoteTargetsConnection' },
+  performanceRating: 0,
+  phones: {
+    primaryPhoneNumber: '+62 812 3456 7890',
+    primaryPhoneCountryCode: 'ID',
+    primaryPhoneCallingCode: '+62',
+    additionalPhones: [],
+  },
+  pointOfContactForOpportunities: {
+    edges: [],
+    __typename: 'PendudukPointOfContactForOpportunitiesConnection',
+  },
+  position: 0,
+  previousCompanies: {
+    edges: [],
+    __typename: 'PendudukPreviousCompaniesConnection',
+  },
+  taskTargets: { edges: [], __typename: 'PendudukTaskTargetsConnection' },
+  timelineActivities: {
+    edges: [],
+    __typename: 'PendudukTimelineActivitiesConnection',
+  },
+  whatsapp: {
+    primaryPhoneNumber: '+62 812 3456 7890',
+    primaryPhoneCountryCode: 'ID',
+    primaryPhoneCallingCode: '+62',
+    additionalPhones: [],
+  },
+  workPreference: 'KANTOR',
+  xLink: {
+    primaryLinkUrl: '',
+    primaryLinkLabel: '',
+    secondaryLinks: [],
   },
 };
 
 export const variables = {
   idToUpdate: '36abbb63-34ed-4a16-89f5-f549ac55d0f9',
   input: {
-    namaLengkap: { firstName: 'Made', lastName: 'Sutrisna' },
+    name: { firstName: 'Budi', lastName: 'Saputra' },
   },
 };
 

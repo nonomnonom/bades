@@ -132,7 +132,7 @@ describe('useChartSettingsValues', () => {
         CHART_CONFIGURATION_SETTING_IDS.SOURCE,
       );
 
-      expect(value).toBe('Companies');
+      expect(value).toBe('Keluarga');
     });
 
     it('should return sort label for SORT_BY_X', () => {
