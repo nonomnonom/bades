@@ -77,13 +77,14 @@ export const useInstantiateSupportChat = () => {
       isDefined(currentWorkspaceMember) &&
       !isFrontChatLoaded
     ) {
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         configureFront(
           supportChat.supportFrontChatId as string,
           currentUser,
           currentWorkspaceMember,
         );
       }, 500);
+      return () => clearTimeout(timeoutId);
     }
   }, [
     configureFront,

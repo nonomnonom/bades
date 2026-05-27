@@ -10,9 +10,9 @@ test('Sign up with invite link via email', async ({
   profileSection,
   confirmationModal,
 }) => {
-  const email = `test${randomUUID().replaceAll('-', '')}@apple.dev`;
-  const firstName = 'John';
-  const lastName = 'Doe';
+  const email = `test${randomUUID().replaceAll('-', '')}@bades.id`;
+  const firstName = 'Budi';
+  const lastName = 'Santoso';
 
   const inviteLink: string =
     await test.step('Go to Settings and copy invite link', async () => {
@@ -45,11 +45,11 @@ test('Sign up with invite link via email', async ({
   });
 
   await test.step('Delete account from workspace', async () => {
-    await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Pengaturan' })).toBeVisible();
     await leftMenu.goToSettings();
     await settingsPage.goToProfileSection();
     await profileSection.deleteAccount();
-    await expect(page.getByText('Account Deletion')).toBeVisible();
+    await expect(page.getByText('Hapus Akun')).toBeVisible();
     await confirmationModal.typePlaceholderToInput();
     await confirmationModal.clickConfirmButton();
 

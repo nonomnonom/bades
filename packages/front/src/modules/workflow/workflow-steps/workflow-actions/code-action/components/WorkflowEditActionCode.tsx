@@ -441,6 +441,7 @@ export const WorkflowEditActionCode = ({
               activeTabId === WorkflowLogicFunctionTabId.TEST
                 ? [
                     <WorkflowStepCmdEnterButton
+                      key="test"
                       title={t`Uji Coba`}
                       onClick={handleTestFunction}
                       disabled={isExecuting}

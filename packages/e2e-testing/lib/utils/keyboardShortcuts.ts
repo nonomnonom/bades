@@ -48,32 +48,32 @@ export async function pasteByKeyboard(page: Page) {
   await keyUpCtrlOrMeta(page);
 }
 
-export async function companiesShortcut(page: Page) {
+export async function keluargaShortcut(page: Page) {
   await page.keyboard.press('g', { delay: 50 });
   await page.keyboard.press('c');
 }
 
-export async function notesShortcut(page: Page) {
+export async function catatanShortcut(page: Page) {
   await page.keyboard.press('g', { delay: 50 });
   await page.keyboard.press('n');
 }
 
-export async function opportunitiesShortcut(page: Page) {
+export async function programBantuanShortcut(page: Page) {
   await page.keyboard.press('g', { delay: 50 });
   await page.keyboard.press('o');
 }
 
-export async function peopleShortcut(page: Page) {
+export async function pendudukShortcut(page: Page) {
   await page.keyboard.press('g', { delay: 50 });
   await page.keyboard.press('p');
 }
 
-export async function rocketsShortcut(page: Page) {
+export async function roketShortcut(page: Page) {
   await page.keyboard.press('g', { delay: 50 });
   await page.keyboard.press('r');
 }
 
-export async function tasksShortcut(page: Page) {
+export async function tugasShortcut(page: Page) {
   await page.keyboard.press('g', { delay: 50 });
   await page.keyboard.press('t');
 }

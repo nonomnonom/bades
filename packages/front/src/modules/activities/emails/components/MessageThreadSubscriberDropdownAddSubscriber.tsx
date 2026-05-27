@@ -32,6 +32,7 @@ export const MessageThreadSubscriberDropdownAddSubscriber = ({
       <DropdownMenuSeparator />
       {workspaceMembersLeftToAdd.map((workspaceMember) => (
         <MessageThreadSubscriberDropdownAddSubscriberMenuItem
+          key={workspaceMember.id}
           workspaceMember={workspaceMember}
         />
       ))}

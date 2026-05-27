@@ -217,6 +217,7 @@ export const WorkflowEditActionHttpRequest = ({
             activeTabId === WorkflowHttpRequestTabId.TEST
               ? [
                   <WorkflowStepCmdEnterButton
+                    key="test"
                     title={t`Uji Coba`}
                     onClick={handleTestRequest}
                     disabled={isTesting}

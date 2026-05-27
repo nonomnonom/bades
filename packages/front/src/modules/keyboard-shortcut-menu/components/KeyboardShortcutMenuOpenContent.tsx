@@ -35,8 +35,8 @@ export const KeyboardShortcutMenuOpenContent = () => {
           ))}
         </KeyboardMenuGroup>
         <KeyboardMenuGroup heading={'Umum'}>
-          {KEYBOARD_SHORTCUTS_GENERAL.map((GeneralShortcut) => (
-            <KeyboardMenuItem shortcut={GeneralShortcut} />
+          {KEYBOARD_SHORTCUTS_GENERAL.map((GeneralShortcut, index) => (
+            <KeyboardMenuItem key={index} shortcut={GeneralShortcut} />
           ))}
         </KeyboardMenuGroup>
       </KeyboardMenuDialog>

@@ -90,6 +90,7 @@ export const MultipleSelectDropdown = ({
         {itemsInDropdown?.map((item) => {
           return (
             <SelectableListItem
+              key={item.id}
               itemId={item.id}
               onEnter={() => {
                 resetSelectedItem();
@@ -97,7 +98,6 @@ export const MultipleSelectDropdown = ({
               }}
             >
               <MenuItemMultiSelectAvatar
-                key={item.id}
                 selected={item.isSelected}
                 isKeySelected={item.id === selectedItemId}
                 onSelectChange={(newCheckedValue) => {

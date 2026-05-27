@@ -53,14 +53,14 @@ test('Create and update record', async ({ page }) => {
     await page.getByRole('button', { name: 'Create new Person' }).click();
 
     // Generate a random email for testing
-    const randomEmail = `testuser_${Math.random().toString(36).substring(2, 10)}@example.com`;
+    const randomEmail = `testuser_${Math.random().toString(36).substring(2, 10)}@bades.id`;
     // Fill first name and last name
     const firstNameInput = page.getByRole('textbox', { name: 'F‌‌irst name' })
     await expect(firstNameInput).toBeFocused();
-    await firstNameInput.fill('John');
+    await firstNameInput.fill('Budi');
     const lastNameInput = page.getByPlaceholder('L‌‌ast name');
     await expect(lastNameInput).toBeVisible();
-    await lastNameInput.fill('Doe');
+    await lastNameInput.fill('Santoso');
     await lastNameInput.press('Enter');
 
     // Focus on recordFieldList
@@ -90,7 +90,7 @@ test('Create and update record', async ({ page }) => {
     const urlInput = recordFieldList.getByText('Linkedin').nth(1);
     await expect(urlInput).toBeVisible();
     await urlInput.click({ force: true });
-    await page.getByPlaceholder('URL').fill('linkedin.com/johndoe');
+    await page.getByPlaceholder('URL').fill('linkedin.com/budisantoso');
     await page.getByPlaceholder('URL').press('Enter');
 
     // Click on 4th star to rate
@@ -103,7 +103,7 @@ test('Create and update record', async ({ page }) => {
     const phoneInput = recordFieldList.getByText('Phones').nth(1);
     await expect(phoneInput).toBeVisible();
     await phoneInput.click({ force: true });
-    await page.getByPlaceholder('Phone').fill('+336 1 122 3344');
+    await page.getByPlaceholder('Phone').fill('+62 812 3456 7890');
     await page.getByPlaceholder('Phone').press('Enter');
 
     // Fill work preference
@@ -135,12 +135,12 @@ test('Create and update record', async ({ page }) => {
 
     const findOnePersonReponseBody = await findOnePersonResponse.json();
 
-    expect(findOnePersonReponseBody.data.person.name.firstName).toBe('John');
-    expect(findOnePersonReponseBody.data.person.name.lastName).toBe('Doe');
+    expect(findOnePersonReponseBody.data.person.name.firstName).toBe('Budi');
+    expect(findOnePersonReponseBody.data.person.name.lastName).toBe('Santoso');
     expect(findOnePersonReponseBody.data.person.emails.primaryEmail).toBe(randomEmail);
     expect(findOnePersonReponseBody.data.person.intro).toBe('This is an intro');
-    expect(findOnePersonReponseBody.data.person.linkedinLink.primaryLinkUrl).toBe('linkedin.com/johndoe');
-    expect(findOnePersonReponseBody.data.person.phones.primaryPhoneNumber).toBe('611223344');
+    expect(findOnePersonReponseBody.data.person.linkedinLink.primaryLinkUrl).toBe('linkedin.com/budisantoso');
+    expect(findOnePersonReponseBody.data.person.phones.primaryPhoneNumber).toBe('81234567890');
     expect(findOnePersonReponseBody.data.person.workPreference).toEqual(['HYBRID']);
 
 });

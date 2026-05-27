@@ -27,8 +27,8 @@ test('Login test', async ({ loginPage, page }) => {
       await loginPage.clickSignInButton();
       await page.waitForLoadState('networkidle');
       await expect(page.getByText(/Welcome, .+/)).not.toBeVisible();
-      await expect(page.getByText('Choose a workspace')).toBeVisible();
-      await page.getByText('Apple', {exact: true}).click();
+      await expect(page.getByText('Pilih workspace')).toBeVisible();
+      await page.getByText('Desa Sukamaju', {exact: true}).click();
       await page.waitForFunction(() => window.location.href.includes('verify'));
       await page.waitForFunction(() => !window.location.href.includes('verify'));
       process.env.LINK = page.url();

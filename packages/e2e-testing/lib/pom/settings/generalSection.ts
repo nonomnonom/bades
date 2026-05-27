@@ -9,13 +9,13 @@ export class GeneralSection {
 
   constructor(public readonly page: Page) {
     this.page = page;
-    this.workspaceNameField = page.getByPlaceholder('Apple');
+    this.workspaceNameField = page.getByPlaceholder('Desa Sukamaju');
     this.supportSwitch = page.getByRole('checkbox').nth(1);
     this.deleteWorkspaceButton = page.getByRole('button', {
-      name: 'Delete workspace',
+      name: 'Hapus workspace',
     });
     this.customizeDomainButton = page.getByRole('button', {
-      name: 'Customize domain',
+      name: 'Atur domain',
     });
     this.subdomainInput = page.locator(
       '//div[contains(.,".bades.id")]/../input',

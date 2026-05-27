@@ -400,7 +400,7 @@ export const PageChangeEffect = () => {
   ]);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setSessionId();
       eventTracker(AnalyticsType['PAGEVIEW'], {
         name: getPageTitleFromPath(location.pathname),
@@ -414,6 +414,7 @@ export const PageChangeEffect = () => {
         },
       });
     }, 500);
+    return () => clearTimeout(timeoutId);
   }, [eventTracker, location.pathname]);
 
   const { requestFreshCaptchaToken } = useRequestFreshCaptchaToken();

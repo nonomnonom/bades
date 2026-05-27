@@ -153,6 +153,7 @@ export const SettingsLogicFunctionTestTab = ({
             title={t`Masukan`}
             rightNodes={[
               <Button
+                key="run-function"
                 title={t`Jalankan Fungsi`}
                 variant="primary"
                 accent="blue"

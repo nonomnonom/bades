@@ -5,38 +5,42 @@ export class LeftMenu {
   private readonly leftMenu: Locator;
   private readonly searchSubTab: Locator;
   private readonly settingsTab: Locator;
-  private readonly peopleTab: Locator;
-  private readonly companiesTab: Locator;
-  private readonly opportunitiesTab: Locator;
-  private readonly opportunitiesTabAll: Locator;
-  private readonly opportunitiesTabByStage: Locator;
-  private readonly tasksTab: Locator;
-  private readonly tasksTabAll: Locator;
-  private readonly tasksTabByStatus: Locator;
-  private readonly notesTab: Locator;
-  private readonly rocketsTab: Locator;
+  private readonly pendudukTab: Locator;
+  private readonly keluargaTab: Locator;
+  private readonly programBantuanTab: Locator;
+  private readonly programBantuanTabAll: Locator;
+  private readonly programBantuanTabByStage: Locator;
+  private readonly tugasTab: Locator;
+  private readonly tugasTabAll: Locator;
+  private readonly tugasTabByStatus: Locator;
+  private readonly catatanTab: Locator;
+  private readonly roketTab: Locator;
   private readonly workflowsTab: Locator;
 
   constructor(public readonly page: Page) {
     this.page = page;
     this.workspaceDropdown = page.getByTestId('workspace-dropdown');
     this.leftMenu = page.getByRole('button').first();
-    this.searchSubTab = page.getByText('Search');
-    this.settingsTab = page.getByRole('button', { name: 'Settings' });
-    this.peopleTab = page.getByRole('link', { name: 'People' });
-    this.companiesTab = page.getByRole('link', { name: 'Companies' });
-    this.opportunitiesTab = page.getByRole('link', { name: 'Opportunities' });
-    this.opportunitiesTabAll = page.getByRole('link', {
-      name: 'All',
+    this.searchSubTab = page.getByText('Cari');
+    this.settingsTab = page.getByRole('button', { name: 'Pengaturan' });
+    this.pendudukTab = page.getByRole('link', { name: 'Penduduk' });
+    this.keluargaTab = page.getByRole('link', { name: 'Keluarga' });
+    this.programBantuanTab = page.getByRole('link', {
+      name: 'Program Bantuan',
+    });
+    this.programBantuanTabAll = page.getByRole('link', {
+      name: 'Semua',
       exact: true,
     });
-    this.opportunitiesTabByStage = page.getByRole('link', { name: 'By Stage' });
-    this.tasksTab = page.getByRole('link', { name: 'Tasks' });
-    this.tasksTabAll = page.getByRole('link', { name: 'All tasks' });
-    this.tasksTabByStatus = page.getByRole('link', { name: 'Notes' });
-    this.notesTab = page.getByRole('link', { name: 'Notes' });
-    this.rocketsTab = page.getByRole('link', { name: 'Rockets' });
-    this.workflowsTab = page.getByRole('link', { name: 'Workflows' });
+    this.programBantuanTabByStage = page.getByRole('link', {
+      name: 'Per Tahap',
+    });
+    this.tugasTab = page.getByRole('link', { name: 'Tugas' });
+    this.tugasTabAll = page.getByRole('link', { name: 'Semua Tugas' });
+    this.tugasTabByStatus = page.getByRole('link', { name: 'Catatan' });
+    this.catatanTab = page.getByRole('link', { name: 'Catatan' });
+    this.roketTab = page.getByRole('link', { name: 'Roket' });
+    this.workflowsTab = page.getByRole('link', { name: 'Workflow' });
   }
 
   async selectWorkspace(workspaceName: string) {
@@ -59,44 +63,44 @@ export class LeftMenu {
     await this.settingsTab.click();
   }
 
-  async goToPeopleTab() {
-    await this.peopleTab.click();
+  async goToPendudukTab() {
+    await this.pendudukTab.click();
   }
 
-  async goToCompaniesTab() {
-    await this.companiesTab.click();
+  async goToKeluargaTab() {
+    await this.keluargaTab.click();
   }
 
-  async goToOpportunitiesTab() {
-    await this.opportunitiesTab.click();
+  async goToProgramBantuanTab() {
+    await this.programBantuanTab.click();
   }
 
-  async goToOpportunitiesTableView() {
-    await this.opportunitiesTabAll.click();
+  async goToProgramBantuanTableView() {
+    await this.programBantuanTabAll.click();
   }
 
-  async goToOpportunitiesKanbanView() {
-    await this.opportunitiesTabByStage.click();
+  async goToProgramBantuanKanbanView() {
+    await this.programBantuanTabByStage.click();
   }
 
-  async goToTasksTab() {
-    await this.tasksTab.click();
+  async goToTugasTab() {
+    await this.tugasTab.click();
   }
 
-  async goToTasksTableView() {
-    await this.tasksTabAll.click();
+  async goToTugasTableView() {
+    await this.tugasTabAll.click();
   }
 
-  async goToTasksKanbanView() {
-    await this.tasksTabByStatus.click();
+  async goToTugasKanbanView() {
+    await this.tugasTabByStatus.click();
   }
 
-  async goToNotesTab() {
-    await this.notesTab.click();
+  async goToCatatanTab() {
+    await this.catatanTab.click();
   }
 
-  async goToRocketsTab() {
-    await this.rocketsTab.click();
+  async goToRoketTab() {
+    await this.roketTab.click();
   }
 
   async goToWorkflowsTab() {

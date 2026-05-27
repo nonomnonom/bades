@@ -49,14 +49,14 @@ export class LoginPage {
     this.forgotPasswordButton = page.getByText('Forgot your password?');
     this.passwordField = page.getByPlaceholder('Password');
     this.revealPasswordButton = page.getByTestId('reveal-password-button');
-    this.signInButton = page.getByRole('button', { name: 'Sign in' });
-    this.signUpButton = page.getByRole('button', { name: 'Sign up' });
+    this.signInButton = page.getByRole('button', { name: 'Masuk' });
+    this.signUpButton = page.getByRole('button', { name: 'Daftar' });
     this.previewImageButton = page.locator('.css-1qzw107'); // TODO: fix
-    this.uploadImageButton = page.getByRole('button', { name: 'Upload' });
-    this.deleteImageButton = page.getByRole('button', { name: 'Remove' });
-    this.workspaceNameField = page.getByPlaceholder('Apple');
-    this.firstNameField = page.getByPlaceholder('Tim');
-    this.lastNameField = page.getByPlaceholder('Cook');
+    this.uploadImageButton = page.getByRole('button', { name: 'Unggah' });
+    this.deleteImageButton = page.getByRole('button', { name: 'Hapus' });
+    this.workspaceNameField = page.getByPlaceholder('Desa Sukamaju');
+    this.firstNameField = page.getByPlaceholder('Budi');
+    this.lastNameField = page.getByPlaceholder('Santoso');
     this.syncEverythingWithGoogleRadio = page.locator(
       'input[value="SHARE_EVERYTHING"]',
     );

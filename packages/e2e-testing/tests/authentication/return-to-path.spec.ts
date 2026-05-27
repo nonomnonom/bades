@@ -18,7 +18,7 @@ const loginAndSelectWorkspace = async (loginPage: LoginPage, page: any) => {
   await loginPage.clickSignInButton();
   await page.waitForLoadState('domcontentloaded');
 
-  const workspaceButton = page.getByText('Apple', { exact: true });
+  const workspaceButton = page.getByText('Desa Sukamaju', { exact: true });
 
   await workspaceButton.waitFor({ state: 'visible', timeout: 30000 }).catch(
     () => {

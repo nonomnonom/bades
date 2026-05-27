@@ -186,6 +186,7 @@ export const WorkflowEditActionFormFiller = ({
         <SidePanelFooter
           actions={[
             <WorkflowStepCmdEnterButton
+              key="submit"
               title={t`Kirim`}
               onClick={onSubmit}
               disabled={!canSubmit}

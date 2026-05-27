@@ -41,14 +41,14 @@ export class RecordDetails {
   async createRelatedNote() {
     await this.addShowPageButton.click();
     await this.page
-      .locator('//div[@data-testid="tooltip" and contains(., "Note")]')
+      .locator('//div[@data-testid="tooltip" and contains(., "Catatan")]')
       .click();
   }
 
   async createRelatedTask() {
     await this.addShowPageButton.click();
     await this.page
-      .locator('//div[@data-testid="tooltip" and contains(., "Task")]')
+      .locator('//div[@data-testid="tooltip" and contains(., "Tugas")]')
       .click();
   }
 
@@ -139,12 +139,12 @@ export class RecordDetails {
   }
 
   async searchRelationRecord(name: string) {
-    await this.page.getByPlaceholder('Search').fill(name);
+    await this.page.getByPlaceholder('Cari').fill(name);
   }
 
   async createNewRelationRecord() {
     await this.page
-      .locator('//div[@data-testid="tooltip" and contains(., "Add New")]')
+      .locator('//div[@data-testid="tooltip" and contains(., "Tambah Baru")]')
       .click();
   }
 }

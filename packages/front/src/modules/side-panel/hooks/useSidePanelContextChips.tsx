@@ -109,9 +109,9 @@ export const useSidePanelContextChips = () => {
         return {
           page,
           Icons: isLastChip
-            ? [<page.pageIcon size={iconSizeSm} />]
+            ? [<page.pageIcon key="icon" size={iconSizeSm} />]
             : [
-                <SidePanelContextChipIconWrapper>
+                <SidePanelContextChipIconWrapper key="icon-wrapper">
                   <page.pageIcon
                     size={iconSizeSm}
                     color={

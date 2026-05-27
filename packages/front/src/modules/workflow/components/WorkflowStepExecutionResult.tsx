@@ -129,7 +129,7 @@ export const WorkflowStepExecutionResult = ({
     <StyledContainer>
       <CoreEditorHeader
         leftNodes={[computeLeftNode()]}
-        rightNodes={[<LightCopyIconButton copyText={result} />]}
+        rightNodes={[<LightCopyIconButton key="copy" copyText={result} />]}
       />
       <StyledCodeEditorWrapper>
         <CodeEditor
