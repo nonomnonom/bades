@@ -12,20 +12,20 @@ export class APIsSection {
   constructor(public readonly page: Page) {
     this.page = page;
     this.createAPIKeyButton = page.getByRole('link', {
-      name: 'Create API Key',
+      name: 'Buat Kunci API',
     });
     this.nameOfAPIKeyInput = page
-      .getByPlaceholder('E.g. backoffice integration')
+      .getByPlaceholder('Mis. integrasi backoffice')
       .first();
     this.expirationDateAPIKeySelect = page.locator(
       'div[aria-controls="object-field-type-select-options"]',
     );
     this.regenerateAPIKeyButton = page.getByRole('button', {
-      name: 'Regenerate Key',
+      name: 'Regenerasi Kunci',
     });
-    this.cancelButton = page.getByRole('button', { name: 'Cancel' });
-    this.saveButton = page.getByRole('button', { name: 'Save' });
-    this.deleteButton = page.getByRole('button', { name: 'Delete' });
+    this.cancelButton = page.getByRole('button', { name: 'Batal' });
+    this.saveButton = page.getByRole('button', { name: 'Simpan' });
+    this.deleteButton = page.getByRole('button', { name: 'Hapus' });
   }
 
   async createAPIKey() {

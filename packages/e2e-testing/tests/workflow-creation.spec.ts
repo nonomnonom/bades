@@ -2,19 +2,19 @@ import { expect, test } from '../lib/fixtures/screenshot';
 import { deleteWorkflow } from '../lib/requests/delete-workflow';
 import { destroyWorkflow } from '../lib/requests/destroy-workflow';
 
-test('Create workflow', async ({ page }) => {
-  const NEW_WORKFLOW_NAME = 'Test Workflow';
+test('Buat workflow', async ({ page }) => {
+  const NEW_WORKFLOW_NAME = 'Workflow Uji';
 
   await page.goto(process.env.LINK);
 
-  const workflowsFolder = page.getByRole('button', { name: 'Workflows' });
+  const workflowsFolder = page.getByRole('button', { name: 'Workflow' });
   await workflowsFolder.click();
 
-  const workflowsLink = page.getByRole('link', { name: 'Workflows' });
+  const workflowsLink = page.getByRole('link', { name: 'Workflow' });
   await workflowsLink.click();
 
   const createWorkflowButton = page.getByRole('button', {
-    name: 'Create new workflow',
+    name: 'Buat workflow baru',
   });
 
   const [createWorkflowResponse] = await Promise.all([
@@ -32,7 +32,7 @@ test('Create workflow', async ({ page }) => {
   ]);
 
 
-  const recordName = page.getByTestId('top-bar-title').getByPlaceholder('Name');
+  const recordName = page.getByTestId('top-bar-title').getByPlaceholder('Nama');
   await expect(recordName).toBeVisible();
   await recordName.fill(NEW_WORKFLOW_NAME);
 
@@ -45,7 +45,7 @@ test('Create workflow', async ({ page }) => {
   try {
     const workflowName = page
       .getByTestId('top-bar-title')
-      .getByText(NEW_WORKFLOW_NAME);
+      .getByText(NEW_WORKFLOW_NAME); // 'Workflow Uji'
 
     // Wait for the name to be visible and not hidden
     await workflowName.waitFor({ state: 'visible' });

@@ -22,23 +22,23 @@ export class SettingsPage {
 
   constructor(public readonly page: Page) {
     this.page = page;
-    this.exitSettingsLink = page.getByRole('button', { name: 'Exit Settings' });
-    this.profileLink = page.getByRole('link', { name: 'Profile' });
-    this.experienceLink = page.getByRole('link', { name: 'Experience' });
-    this.accountsLink = page.getByRole('link', { name: 'Accounts' });
-    this.emailsLink = page.getByRole('link', { name: 'Emails', exact: true });
-    this.calendarsLink = page.getByRole('link', { name: 'Calendars' });
-    this.generalLink = page.getByRole('link', { name: 'General' });
-    this.membersLink = page.getByRole('link', { name: 'Members' });
-    this.rolesLink = page.getByRole('link', { name: 'Roles' });
-    this.dataModelLink = page.getByRole('link', { name: 'Data model' });
-    this.integrationsLink = page.getByRole('link', { name: 'Integrations' });
-    this.securityLink = page.getByRole('link', { name: 'Security' });
-    this.apisLink = page.getByRole('link', { name: 'APIs' });
-    this.webhooksLink = page.getByRole('link', { name: 'Webhooks' });
-    this.adminPanelLink = page.getByRole('link', { name: 'Admin Panel' });
+    this.exitSettingsLink = page.getByRole('button', { name: 'Keluar Pengaturan' });
+    this.profileLink = page.getByRole('link', { name: 'Profil' });
+    this.experienceLink = page.getByRole('link', { name: 'Pengalaman' });
+    this.accountsLink = page.getByRole('link', { name: 'Akun' });
+    this.emailsLink = page.getByRole('link', { name: 'Email', exact: true });
+    this.calendarsLink = page.getByRole('link', { name: 'Kalender' });
+    this.generalLink = page.getByRole('link', { name: 'Umum' });
+    this.membersLink = page.getByRole('link', { name: 'Anggota' });
+    this.rolesLink = page.getByRole('link', { name: 'Peran' });
+    this.dataModelLink = page.getByRole('link', { name: 'Model data' });
+    this.integrationsLink = page.getByRole('link', { name: 'Integrasi' });
+    this.securityLink = page.getByRole('link', { name: 'Keamanan' });
+    this.apisLink = page.getByRole('link', { name: 'API' });
+    this.webhooksLink = page.getByRole('link', { name: 'Webhook' });
+    this.adminPanelLink = page.getByRole('link', { name: 'Panel Admin' });
     this.labLink = page.getByRole('link', { name: 'Lab' });
-    this.releasesLink = page.getByRole('link', { name: 'Releases' });
+    this.releasesLink = page.getByRole('link', { name: 'Rilis' });
     this.advancedToggle = page.locator('input[type="checkbox"]').first();
   }
 
@@ -111,7 +111,7 @@ export class SettingsPage {
   }
 
   async logout() {
-    await this.page.getByText('Logout').click();
+    await this.page.getByText('Keluar').click();
   }
 
   async toggleAdvancedSettings() {

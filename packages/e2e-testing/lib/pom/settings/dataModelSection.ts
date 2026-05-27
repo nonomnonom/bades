@@ -27,15 +27,15 @@ export class DataModelSection {
   private readonly saveButton: Locator;
 
   constructor(public readonly page: Page) {
-    this.searchObjectInput = page.getByPlaceholder('Search an object...');
-    this.addObjectButton = page.getByRole('button', { name: 'Add object' });
+    this.searchObjectInput = page.getByPlaceholder('Cari objek...');
+    this.addObjectButton = page.getByRole('button', { name: 'Tambah objek' });
     this.objectSingularNameInput = page.getByPlaceholder('Listing', {
       exact: true,
     });
     this.objectPluralNameInput = page.getByPlaceholder('Listings', {
       exact: true,
     });
-    this.objectDescription = page.getByPlaceholder('Write a description');
+    this.objectDescription = page.getByPlaceholder('Tulis deskripsi');
     this.synchronizeLabelAPIToggle = page.getByRole('checkbox').nth(1);
     this.objectAPISingularNameInput = page.getByPlaceholder('listing', {
       exact: true,
@@ -43,28 +43,28 @@ export class DataModelSection {
     this.objectAPIPluralNameInput = page.getByPlaceholder('listings', {
       exact: true,
     });
-    this.objectMoreOptionsButton = page.getByLabel('Object Options');
-    this.editObjectButton = page.getByTestId('tooltip').getByText('Edit');
+    this.objectMoreOptionsButton = page.getByLabel('Opsi Objek');
+    this.editObjectButton = page.getByTestId('tooltip').getByText('Ubah');
     this.deactivateMoreOptionsButton = page
       .getByTestId('tooltip')
-      .getByText('Deactivate');
+      .getByText('Nonaktifkan');
     this.activateMoreOptionsButton = page
       .getByTestId('tooltip')
-      .getByText('Activate');
-    this.deleteObjectButton = page.getByTestId('tooltip').getByText('Delete');
-    this.activeSection = page.getByText('Active', { exact: true });
-    this.inactiveSection = page.getByText('Inactive');
-    this.searchFieldInput = page.getByPlaceholder('Search a field...');
-    this.addFieldButton = page.getByRole('button', { name: 'Add field' });
+      .getByText('Aktifkan');
+    this.deleteObjectButton = page.getByTestId('tooltip').getByText('Hapus');
+    this.activeSection = page.getByText('Aktif', { exact: true });
+    this.inactiveSection = page.getByText('Tidak aktif');
+    this.searchFieldInput = page.getByPlaceholder('Cari field...');
+    this.addFieldButton = page.getByRole('button', { name: 'Tambah field' });
     this.viewFieldDetailsMoreOptionsButton = page
       .getByTestId('tooltip')
-      .getByText('View');
+      .getByText('Lihat');
     this.nameFieldInput = page.getByPlaceholder('Employees');
-    this.descriptionFieldInput = page.getByPlaceholder('Write a description');
-    this.deactivateButton = page.getByRole('button', { name: 'Deactivate' });
-    this.activateButton = page.getByRole('button', { name: 'Activate' });
-    this.cancelButton = page.getByRole('button', { name: 'Cancel' });
-    this.saveButton = page.getByRole('button', { name: 'Save' });
+    this.descriptionFieldInput = page.getByPlaceholder('Tulis deskripsi');
+    this.deactivateButton = page.getByRole('button', { name: 'Nonaktifkan' });
+    this.activateButton = page.getByRole('button', { name: 'Aktifkan' });
+    this.cancelButton = page.getByRole('button', { name: 'Batal' });
+    this.saveButton = page.getByRole('button', { name: 'Simpan' });
   }
 
   async searchObject(name: string) {

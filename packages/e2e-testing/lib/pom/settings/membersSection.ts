@@ -10,10 +10,10 @@ export class MembersSection {
     this.page = page;
     this.inviteTab = page.getByTestId('tab-invite');
     this.inviteMembersField = page.getByPlaceholder(
-      'tim@apple.com, jony.ive@apple',
+      'budi@bades.id, siti@bades.id',
     );
-    this.inviteMembersButton = page.getByRole('button', { name: 'Invite' });
-    this.inviteLinkButton = page.getByRole('button', { name: 'Copy link' });
+    this.inviteMembersButton = page.getByRole('button', { name: 'Undang' });
+    this.inviteLinkButton = page.getByRole('button', { name: 'Salin tautan' });
   }
 
   async goToInviteTab() {

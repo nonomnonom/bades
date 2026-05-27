@@ -37,7 +37,7 @@ export class NewFieldSection {
   private readonly descriptionFieldInput: Locator;
 
   constructor(public readonly page: Page) {
-    this.searchTypeFieldInput = page.getByPlaceholder('Search a type');
+    this.searchTypeFieldInput = page.getByPlaceholder('Cari tipe');
     this.currencyFieldLink = page.getByRole('link', { name: 'Currency' });
     this.currencyDefaultUnitSelect = page.locator(
       "//span[contains(., 'Default Unit')]/../div",
@@ -71,11 +71,11 @@ export class NewFieldSection {
     });
     this.setAsDefaultOptionButton = page
       .getByTestId('tooltip')
-      .getByText('Set as default');
+      .getByText('Jadikan default');
     this.removeOptionButton = page
       .getByTestId('tooltip')
-      .getByText('Remove option');
-    this.addOptionButton = page.getByRole('button', { name: 'Add option' });
+      .getByText('Hapus opsi');
+    this.addOptionButton = page.getByRole('button', { name: 'Tambah opsi' });
     this.ratingFieldLink = page.getByRole('link', { name: 'Rating' });
     this.JSONFieldLink = page.getByRole('link', { name: 'JSON' });
     this.arrayFieldLink = page.getByRole('link', { name: 'Array' });
@@ -87,11 +87,11 @@ export class NewFieldSection {
       "//span[contains(., 'Object destination')]/../div",
     );
     this.relationIconSelect = page.getByLabel('Click to select icon (').nth(1);
-    this.relationFieldNameInput = page.getByPlaceholder('Field name');
-    this.fullNameFieldLink = page.getByRole('link', { name: 'Full Name' });
-    this.UUIDFieldLink = page.getByRole('link', { name: 'Unique ID' });
+    this.relationFieldNameInput = page.getByPlaceholder('Nama field');
+    this.fullNameFieldLink = page.getByRole('link', { name: 'Nama Lengkap' });
+    this.UUIDFieldLink = page.getByRole('link', { name: 'ID Unik' });
     this.nameFieldInput = page.getByPlaceholder('Employees');
-    this.descriptionFieldInput = page.getByPlaceholder('Write a description');
+    this.descriptionFieldInput = page.getByPlaceholder('Tulis deskripsi');
   }
 
   async searchTypeField(name: string) {

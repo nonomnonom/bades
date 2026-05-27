@@ -8,7 +8,7 @@ export class ConfirmationModal {
   constructor(public readonly page: Page) {
     this.page = page;
     this.input = page.getByTestId('confirmation-modal-input');
-    this.cancelButton = page.getByRole('button', { name: 'Cancel' });
+    this.cancelButton = page.getByRole('button', { name: 'Batal' });
     this.confirmButton = page.getByTestId('confirmation-modal-confirm-button');
   }
 
@@ -27,7 +27,7 @@ export class ConfirmationModal {
   }
 
   async clickCancelButton() {
-    await this.page.getByRole('button', { name: 'Cancel' }).click();
+    await this.page.getByRole('button', { name: 'Batal' }).click();
   }
 
   async clickConfirmButton() {

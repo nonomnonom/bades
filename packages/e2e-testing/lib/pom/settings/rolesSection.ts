@@ -7,7 +7,7 @@ export class RolesSection {
 
   constructor(page: Page) {
     this.page = page;
-    this.createRoleButton = page.getByRole('button', { name: 'Create Role' });
+    this.createRoleButton = page.getByRole('button', { name: 'Buat Peran' });
     this.defaultRoleDropdown = page.getByTestId('tooltip');
   }
 

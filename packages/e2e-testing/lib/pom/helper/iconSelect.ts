@@ -6,7 +6,7 @@ export class IconSelect {
 
   constructor(public readonly page: Page) {
     this.iconSelectButton = page.getByLabel('Click to select icon (');
-    this.iconSearchInput = page.getByPlaceholder('Search icon');
+    this.iconSearchInput = page.getByPlaceholder('Cari ikon');
   }
 
   async selectIcon(name: string) {

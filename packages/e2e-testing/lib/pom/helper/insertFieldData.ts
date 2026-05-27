@@ -46,14 +46,14 @@ export class InsertFieldData {
     this.countrySelect = page.locator(
       '//span[contains(., "COUNTRY")]/../div[last()]/div',
     );
-    this.arrayValueInput = page.locator("//input[@placeholder='Enter value']");
+    this.arrayValueInput = page.locator("//input[@placeholder='Masukkan nilai']");
     this.arrayAddValueButton = page.locator(
       "//div[@data-testid='tooltip' and contains(.,'Add item')]",
     );
     this.currencySelect = page.locator(
       '//body/div[last()]/div/div/div[first()]/div/div',
     );
-    this.currencyAmountInput = page.locator("//input[@placeholder='Currency']");
+    this.currencyAmountInput = page.locator("//input[@placeholder='Mata uang']");
     this.monthSelect; // TODO: add once some other attributes are added
     this.yearSelect;
     this.previousMonthButton;
@@ -61,9 +61,9 @@ export class InsertFieldData {
     this.clearDateButton = page.locator(
       "//div[@data-testid='tooltip' and contains(., 'Clear')]",
     );
-    this.dateInput = page.locator("//input[@placeholder='Type date and time']");
-    this.firstNameInput = page.locator("//input[@placeholder='First name']"); // may fail if placeholder is `F&zwnj;&zwnj;irst name` instead of `First name`
-    this.lastNameInput = page.locator("//input[@placeholder='Last name']"); // may fail if placeholder is `L&zwnj;&zwnj;ast name` instead of `Last name`
+    this.dateInput = page.locator("//input[@placeholder='Ketik tanggal dan waktu']");
+    this.firstNameInput = page.locator("//input[@placeholder='Nama depan']");
+    this.lastNameInput = page.locator("//input[@placeholder='Nama belakang']");
     this.addURLButton = page.locator(
       "//div[@data-testid='tooltip' and contains(., 'Add URL')]",
     );
@@ -166,7 +166,7 @@ export class InsertFieldData {
 
   // email
   async typeEmail(value: string) {
-    await this.page.locator(`//input[@placeholder='Email']`).fill(value);
+    await this.page.locator(`//input[@placeholder='Surel']`).fill(value);
   }
 
   async clickAddMailButton() {
@@ -224,7 +224,7 @@ export class InsertFieldData {
   }
 
   async typePhoneNumber(value: string) {
-    await this.page.locator(`//input[@placeholder='Phone']`).fill(value);
+    await this.page.locator(`//input[@placeholder='Telepon']`).fill(value);
   }
 
   async clickAddPhoneButton() {
@@ -250,18 +250,18 @@ export class InsertFieldData {
   }
 
   async searchValue(value: string) {
-    await this.page.locator(`//div[@placeholder='Search']`).fill(value);
+    await this.page.locator(`//div[@placeholder='Cari']`).fill(value);
   }
 
   async clickEditButton() {
     await this.page
-      .locator("//div[@data-testid='tooltip' and contains(., 'Edit')]")
+      .locator("//div[@data-testid='tooltip' and contains(., 'Ubah')]")
       .click();
   }
 
   async clickDeleteButton() {
     await this.page
-      .locator("//div[@data-testid='tooltip' and contains(., 'Delete')]")
+      .locator("//div[@data-testid='tooltip' and contains(., 'Hapus')]")
       .click();
   }
 }

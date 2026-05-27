@@ -10,21 +10,21 @@ export class AccountsSection {
 
   constructor(public readonly page: Page) {
     this.page = page;
-    this.addAccountButton = page.getByRole('button', { name: 'Add account' });
+    this.addAccountButton = page.getByRole('button', { name: 'Tambah akun' });
     this.deleteAccountButton = page
       .getByTestId('tooltip')
-      .getByText('Remove account');
+      .getByText('Hapus akun');
     this.addBlocklistField = page.getByPlaceholder(
-      'eddy@gmail.com, @apple.com',
+      'budi@gmail.com, @bades.id',
     );
     this.addBlocklistButton = page.getByRole('button', {
-      name: 'Add to blocklist',
+      name: 'Tambah ke daftar blokir',
     });
     this.connectWithGoogleButton = page.getByRole('button', {
-      name: 'Connect with Google',
+      name: 'Hubungkan dengan Google',
     });
     this.connectWithMicrosoftButton = page.getByRole('button', {
-      name: 'Connect with Microsoft',
+      name: 'Hubungkan dengan Microsoft',
     });
   }
 

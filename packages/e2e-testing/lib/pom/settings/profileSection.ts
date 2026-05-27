@@ -9,14 +9,14 @@ export class ProfileSection {
 
   constructor(public readonly page: Page) {
     this.page = page;
-    this.firstNameField = page.getByPlaceholder('Tim');
-    this.lastNameField = page.getByPlaceholder('Cook');
+    this.firstNameField = page.getByPlaceholder('Budi');
+    this.lastNameField = page.getByPlaceholder('Wijaya');
     this.emailField = page.getByRole('textbox').nth(2);
     this.passwordLinkButton = page.getByRole('button', {
       name: /Change Password|Set Password/,
     });
     this.deleteAccountButton = page.getByRole('button', {
-      name: 'Delete account',
+      name: 'Hapus akun',
     });
   }
 

@@ -9,11 +9,11 @@ export class WebhooksSection {
   constructor(public readonly page: Page) {
     this.page = page;
     this.createWebhookButton = page.getByRole('link', {
-      name: 'Create Webhook',
+      name: 'Buat Webhook',
     });
     this.webhookURLInput = page.getByPlaceholder('URL');
-    this.webhookDescription = page.getByPlaceholder('Write a description');
-    this.deleteButton = page.getByRole('button', { name: 'Delete' });
+    this.webhookDescription = page.getByPlaceholder('Tulis deskripsi');
+    this.deleteButton = page.getByRole('button', { name: 'Hapus' });
   }
 
   async deleteWebhook() {

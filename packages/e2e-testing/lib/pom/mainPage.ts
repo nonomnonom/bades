@@ -34,45 +34,45 @@ export class MainPage {
     this.tableViews = page.getByText('·');
     this.addViewButton = page
       .getByTestId('tooltip')
-      .filter({ hasText: /^Add view$/ });
+      .filter({ hasText: /^Tambah tampilan$/ });
     this.viewIconSelect = page.getByLabel('Click to select icon (');
-    this.viewNameInput; // can be selected using only actual value
+    this.viewNameInput; // dapat dipilih menggunakan nilai aktual saja
     this.viewTypeSelect = page.locator(
-      "//span[contains(., 'View type')]/../div",
+      "//span[contains(., 'Tipe tampilan')]/../div",
     );
-    this.createViewButton = page.getByRole('button', { name: 'Create' });
-    this.deleteViewButton = page.getByRole('button', { name: 'Delete' });
+    this.createViewButton = page.getByRole('button', { name: 'Buat' });
+    this.deleteViewButton = page.getByRole('button', { name: 'Hapus' });
     this.filterButton = page.getByText('Filter');
-    this.searchFieldInput = page.getByPlaceholder('Search fields');
+    this.searchFieldInput = page.getByPlaceholder('Cari field');
     this.advancedFilterButton = page
       .getByTestId('tooltip')
-      .filter({ hasText: /^Advanced filter$/ });
-    this.addFilterButton = page.getByRole('button', { name: 'Add Filter' });
+      .filter({ hasText: /^Filter lanjutan$/ });
+    this.addFilterButton = page.getByRole('button', { name: 'Tambah Filter' });
     this.resetFilterButton = page.getByTestId('cancel-button');
     this.saveFilterAsViewButton = page.getByRole('button', {
-      name: 'Save as new view',
+      name: 'Simpan sebagai tampilan baru',
     });
-    this.sortButton = page.getByText('Sort');
+    this.sortButton = page.getByText('Urutkan');
     this.sortOrderButton = page.locator('//li');
-    this.optionsButton = page.getByText('Options');
-    this.fieldsButton = page.getByText('Fields');
+    this.optionsButton = page.getByText('Opsi');
+    this.fieldsButton = page.getByText('Field');
     this.goBackButton = page.getByTestId('dropdown-menu-header-end-icon');
     this.hiddenFieldsButton = page
       .getByTestId('tooltip')
-      .filter({ hasText: /^Hidden Fields$/ });
+      .filter({ hasText: /^Field Tersembunyi$/ });
     this.editFieldsButton = page
       .getByTestId('tooltip')
-      .filter({ hasText: /^Edit Fields$/ });
+      .filter({ hasText: /^Ubah Field$/ });
     this.importButton = page
       .getByTestId('tooltip')
-      .filter({ hasText: /^Import$/ });
+      .filter({ hasText: /^Impor$/ });
     this.deletedRecordsButton = page
       .getByTestId('tooltip')
-      .filter({ hasText: /^Deleted */ });
+      .filter({ hasText: /^Terhapus */ });
     this.createNewRecordButton = page.getByTestId('add-button');
-    this.addToFavoritesButton = page.getByText('Add to favorites');
-    this.deleteFromFavoritesButton = page.getByText('Delete from favorites');
-    this.deleteRecordsButton = page.getByText('Delete');
+    this.addToFavoritesButton = page.getByText('Tambah ke favorit');
+    this.deleteFromFavoritesButton = page.getByText('Hapus dari favorit');
+    this.deleteRecordsButton = page.getByText('Hapus');
   }
 
   async clickTableViews() {

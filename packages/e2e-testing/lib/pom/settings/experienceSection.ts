@@ -22,7 +22,7 @@ export class ExperienceSection {
     this.timeFormatDropdown = page.locator(
       '//span[contains(., "Time format")]/../div/div/div',
     );
-    this.searchInput = page.getByPlaceholder('Search');
+    this.searchInput = page.getByPlaceholder('Cari');
     this.languageDropdown = page.locator(
       '//h2[contains(., "Language")]/../../../div/div/div',
     );

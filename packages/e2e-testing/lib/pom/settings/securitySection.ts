@@ -9,8 +9,8 @@ export class SecuritySection {
   constructor(public readonly page: Page) {
     this.googleToggle = page.getByLabel('Google');
     this.microsoftToggle = page.getByLabel('Microsoft');
-    this.passwordToggle = page.getByLabel('Password');
-    this.inviteByLinkToggle = page.getByLabel('Invite by Link');
+    this.passwordToggle = page.getByLabel('Kata sandi');
+    this.inviteByLinkToggle = page.getByLabel('Undang lewat Tautan');
   }
 
   async toggleGoogle() {

@@ -28,35 +28,35 @@ export class WorkflowVisualizerPage {
   readonly goBackInCommandMenu: Locator;
 
   #actionNames: Record<WorkflowActionType, string> = {
-    'create-record': 'Create Record',
-    'update-record': 'Update Record',
-    'delete-record': 'Delete Record',
-    code: 'Code',
-    'send-email': 'Send Email',
-    form: 'Form',
+    'create-record': 'Buat Record',
+    'update-record': 'Perbarui Record',
+    'delete-record': 'Hapus Record',
+    code: 'Kode',
+    'send-email': 'Kirim Email',
+    form: 'Formulir',
   };
 
   #createdActionNames: Record<WorkflowActionType, string> = {
-    'create-record': 'Create Record',
-    'update-record': 'Update Record',
-    'delete-record': 'Delete Record',
-    code: 'Code - Serverless Function',
-    'send-email': 'Send Email',
-    form: 'Form',
+    'create-record': 'Buat Record',
+    'update-record': 'Perbarui Record',
+    'delete-record': 'Hapus Record',
+    code: 'Kode - Serverless Function',
+    'send-email': 'Kirim Email',
+    form: 'Formulir',
   };
 
   #triggerNames: Record<WorkflowTriggerType, string> = {
-    'record-created': 'Record is created',
-    'record-updated': 'Record is updated',
-    'record-deleted': 'Record is deleted',
-    manual: 'Launch manually',
+    'record-created': 'Record dibuat',
+    'record-updated': 'Record diperbarui',
+    'record-deleted': 'Record dihapus',
+    manual: 'Jalankan manual',
   };
 
   #createdTriggerNames: Record<WorkflowTriggerType, string> = {
-    'record-created': 'Record is created',
-    'record-updated': 'Record is updated',
-    'record-deleted': 'Record is deleted',
-    manual: 'Launch manually',
+    'record-created': 'Record dibuat',
+    'record-updated': 'Record diperbarui',
+    'record-deleted': 'Record dihapus',
+    manual: 'Jalankan manual',
   };
 
   constructor({ page, workflowName }: { page: Page; workflowName: string }) {
@@ -65,13 +65,13 @@ export class WorkflowVisualizerPage {
 
     this.addStepButton = page.getByLabel('Add a step');
     this.workflowStatus = page.getByTestId('workflow-visualizer-status');
-    this.activateWorkflowButton = page.getByLabel('Activate Workflow', {
+    this.activateWorkflowButton = page.getByLabel('Aktifkan Workflow', {
       exact: true,
     });
-    this.deactivateWorkflowButton = page.getByLabel('Deactivate Workflow', {
+    this.deactivateWorkflowButton = page.getByLabel('Nonaktifkan Workflow', {
       exact: true,
     });
-    this.addTriggerButton = page.getByText('Add a Trigger');
+    this.addTriggerButton = page.getByText('Tambah Pemicu');
     this.commandMenu = page.getByTestId('command-menu');
     this.stepHeaderInCommandMenu = this.commandMenu.getByTestId(
       'workflow-step-header',
@@ -81,14 +81,14 @@ export class WorkflowVisualizerPage {
       .getByText(this.workflowName);
     this.triggerNode = this.#page.getByTestId('rf__node-trigger');
     this.background = page.locator('.react-flow__pane');
-    this.useAsDraftButton = page.getByRole('button', { name: 'Use as draft' });
+    this.useAsDraftButton = page.getByRole('button', { name: 'Gunakan sebagai konsep' });
     this.overrideDraftButton = page.getByRole('button', {
-      name: 'Override Draft',
+      name: 'Timpa Konsep',
     });
     this.discardDraftButton = page.getByRole('button', {
-      name: 'Discard Draft',
+      name: 'Buang Konsep',
     });
-    this.seeRunsButton = page.getByRole('link', { name: 'See runs' });
+    this.seeRunsButton = page.getByRole('link', { name: 'Lihat riwayat' });
     this.goBackInCommandMenu = this.commandMenu
       .getByRole('button')
       .and(this.commandMenu.getByTestId('command-menu-go-back-button'));
@@ -118,7 +118,7 @@ export class WorkflowVisualizerPage {
   async goToWorkflowVisualizerPage() {
     await this.#page.goto(`/`);
 
-    const workflowsLink = this.#page.getByRole('link', { name: 'Workflows' });
+    const workflowsLink = this.#page.getByRole('link', { name: 'Workflow' });
 
     await workflowsLink.click();
 
@@ -231,7 +231,7 @@ export class WorkflowVisualizerPage {
     await this.triggerNode.click();
 
     await Promise.all([
-      expect(this.triggerNode).toContainText('Add a Trigger'),
+      expect(this.triggerNode).toContainText('Tambah Pemicu'),
       this.#page.waitForResponse((response) => {
         if (!response.url().endsWith('/graphql')) {
           return false;
@@ -251,7 +251,7 @@ export class WorkflowVisualizerPage {
 
   async closeSidePanel() {
     const closeButton = this.#page.getByRole('button', {
-      name: 'Close command menu',
+      name: 'Tutup menu perintah',
     });
 
     await closeButton.click();
@@ -264,24 +264,24 @@ export class WorkflowVisualizerPage {
   }
 
   async setWorkflowsOpenInMode(mode: 'side-panel' | 'record-page') {
-    const recordTableOptionsButton = this.#page.getByText('Options');
+    const recordTableOptionsButton = this.#page.getByText('Opsi');
     await recordTableOptionsButton.click();
 
-    const layoutButton = this.#page.getByText('Layout');
+    const layoutButton = this.#page.getByText('Tata letak');
     await layoutButton.click();
 
-    const openInButton = this.#page.getByText('Open in');
+    const openInButton = this.#page.getByText('Buka di');
     await openInButton.click();
 
     if (mode === 'side-panel') {
       const openInSidePanelOption = this.#page.getByRole('option', {
-        name: 'Side Panel',
+        name: 'Panel Samping',
       });
 
       await openInSidePanelOption.click();
     } else {
       const openInRecordPageOption = this.#page.getByRole('option', {
-        name: 'Record Page',
+        name: 'Halaman Record',
       });
 
       await openInRecordPageOption.click();
@@ -298,7 +298,7 @@ export const test = base.extend<{
   workflowVisualizer: async ({ page }, use) => {
     const workflowVisualizer = new WorkflowVisualizerPage({
       page,
-      workflowName: 'Test Workflow',
+      workflowName: 'Workflow Uji',
     });
 
     await workflowVisualizer.createOneWorkflow();
