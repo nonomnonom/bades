@@ -11,7 +11,6 @@ import { getTimelineThreadsFromKeluargaId } from '@/activities/emails/graphql/qu
 import { getTimelineThreadsFromProgramBantuanId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromProgramBantuanId';
 import { getTimelineThreadsFromPendudukId } from '@/activities/emails/graphql/queries/getTimelineThreadsFromPendudukId';
 import { useCustomResolver } from '@/activities/hooks/useCustomResolver';
-import { CoreObjectNameSingular } from 'shared/types';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { Trans } from '~/utils/i18n/badesI18n';
 import { H1Title, H1TitleFontColor } from 'ui/display';

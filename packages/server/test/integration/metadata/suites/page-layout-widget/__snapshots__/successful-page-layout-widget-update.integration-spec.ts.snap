@@ -319,7 +319,7 @@ exports[`Page layout widget update should succeed from an IFRAME widget should u
 {
   "configuration": {
     "configurationType": "IFRAME",
-    "url": "https://app.twenty.com/analytics",
+    "url": "https://app.bades.id/analytics",
   },
   "createdAt": Any<String>,
   "deletedAt": null,

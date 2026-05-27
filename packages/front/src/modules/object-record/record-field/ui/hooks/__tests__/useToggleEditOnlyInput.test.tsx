@@ -2,7 +2,6 @@ import { type MockedResponse } from '@apollo/client/testing';
 import { renderHook, waitFor } from '@testing-library/react';
 import { act, type ReactNode } from 'react';
 
-import { CoreObjectNameSingular } from 'shared/types';
 import { generateUpdateOneRecordMutation } from '@/object-metadata/utils/generateUpdateOneRecordMutation';
 import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { booleanFieldDefinition } from '@/object-record/record-field/ui/__mocks__/fieldDefinitions';

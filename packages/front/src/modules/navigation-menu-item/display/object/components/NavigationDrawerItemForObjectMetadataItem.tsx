@@ -20,11 +20,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { viewsSelector } from '@/views/states/selectors/viewsSelector';
 import { useNavigate } from 'react-router-dom';
-import {
-  AppPath,
-  CoreObjectNameSingular,
-  NavigationMenuItemType,
-} from 'shared/types';
+import { AppPath, NavigationMenuItemType } from 'shared/types';
 import { getAppPath, isDefined } from 'shared/utils';
 import { Avatar, IconLock, useIcons } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';

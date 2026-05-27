@@ -32,7 +32,7 @@ const filterData = <DataT>(
         if (isDefined(filterElement.is)) {
           const nestedKey = Object.keys(filterElement.is)[0] as string;
           if (
-            item[key as keyof typeof item] &&
+            isDefined(item[key as keyof typeof item]) &&
             isObject(item[key as keyof typeof item])
           ) {
             const nestedItem = item[key as keyof typeof item];
@@ -112,7 +112,7 @@ export const filterAndSortData = <DataT>(
     filteredData.sort((itemA, itemB) => {
       const itemAValue = itemA[key as unknown as keyof typeof itemA];
       const itemBValue = itemB[key as unknown as keyof typeof itemB];
-      if (!itemAValue || !itemBValue) {
+      if (!isDefined(itemAValue) || !isDefined(itemBValue)) {
         return 0;
       }
 

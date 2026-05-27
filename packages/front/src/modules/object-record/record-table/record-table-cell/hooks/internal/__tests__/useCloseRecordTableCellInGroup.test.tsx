@@ -2,7 +2,6 @@ import { MockedProvider } from '@apollo/client/testing/react';
 import { act, renderHook } from '@testing-library/react';
 import { Provider as JotaiProvider } from 'jotai';
 
-import { CoreObjectNameSingular } from 'shared/types';
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 import { RecordComponentInstanceContextsWrapper } from '@/object-record/components/RecordComponentInstanceContextsWrapper';
 import { textfieldDefinition } from '@/object-record/record-field/ui/__mocks__/fieldDefinitions';

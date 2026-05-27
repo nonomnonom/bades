@@ -1,4 +1,4 @@
-import { CoreObjectNameSingular, FieldMetadataType } from 'shared/types';
+import { FieldMetadataType } from 'shared/types';
 import { type WorkflowFormFieldType } from '@/workflow/workflow-steps/workflow-actions/form-action/types/WorkflowFormFieldType';
 import { assertUnreachable } from 'shared/utils';
 import { v4 } from 'uuid';

@@ -27,7 +27,7 @@ import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomC
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useQuery } from '@apollo/client/react';
 import { t } from '~/utils/i18n/badesI18n';
-import { CoreObjectNameSingular, SidePanelPages } from 'shared/types';
+import { SidePanelPages } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import {
   IconAlignBoxLeftTop,

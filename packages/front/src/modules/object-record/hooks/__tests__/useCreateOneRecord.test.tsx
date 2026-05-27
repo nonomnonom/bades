@@ -1,6 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
 
-import { CoreObjectNameSingular } from 'shared/types';
 import {
   query,
   responseData,

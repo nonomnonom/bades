@@ -8,7 +8,7 @@ import {
   assertUnreachable,
   isDefined,
 } from 'shared/utils';
-import { In, type Repository } from 'typeorm';
+import { type Repository } from 'typeorm';
 
 import { billingValidator } from 'src/engine/core-modules/billing/billing.validate';
 import { BillingPriceEntity } from 'src/engine/core-modules/billing/entities/billing-price.entity';

@@ -17,10 +17,6 @@ const mockAssociationRepository = {
   updateMany: jest.fn(),
 };
 
-const mockCalendarEventParticipantService = {
-  upsertAndDeleteCalendarEventParticipants: jest.fn(),
-};
-
 const mockGlobalWorkspaceOrmManager = {
   executeInWorkspaceContext: jest.fn(async (callback: () => Promise<void>) => {
     await callback();

@@ -1,6 +1,5 @@
 import { msg } from 'src/utils/bades-i18n';
 import { i18nLabel } from 'src/engine/workspace-manager/bades-standard-application/utils/i18n-label.util';
-import { STANDARD_OBJECTS } from 'shared/metadata';
 import {
   DateDisplayFormat,
   FieldMetadataType,

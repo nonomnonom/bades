@@ -174,12 +174,12 @@ export const setupTestObjectsWithAllFieldTypes = async (
           booleanField: true,
           numberField: 1,
           linksField: {
-            primaryLinkUrl: 'twenty.com',
-            primaryLinkLabel: 'twenty - #1 Open source CRM',
+            primaryLinkUrl: 'bades.id',
+            primaryLinkLabel: 'bades - SID Indonesia',
             secondaryLinks: [
               {
-                url: 'twenty.com',
-                label: 'twenty - #1 Open source CRM',
+                url: 'bades.id',
+                label: 'bades - SID Indonesia',
               },
             ],
           },

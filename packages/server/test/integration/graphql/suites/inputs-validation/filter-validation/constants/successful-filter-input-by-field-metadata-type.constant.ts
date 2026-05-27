@@ -699,25 +699,23 @@ export const successfulFilterInputByFieldMetadataType: {
   [FieldMetadataType.LINKS]: [
     {
       gqlFilterInput: {
-        linksField: { primaryLinkUrl: { eq: 'twenty.com' } },
+        linksField: { primaryLinkUrl: { eq: 'bades.id' } },
       },
-      restFilterInput: 'linksField.primaryLinkUrl[eq]:"twenty.com"',
+      restFilterInput: 'linksField.primaryLinkUrl[eq]:"bades.id"',
       validateFilter: (record: Record<string, any>) => {
-        return record.linksField.primaryLinkUrl === 'twenty.com';
+        return record.linksField.primaryLinkUrl === 'bades.id';
       },
     },
     {
       gqlFilterInput: {
         linksField: {
-          primaryLinkLabel: { eq: 'twenty - #1 Open source CRM' },
+          primaryLinkLabel: { eq: 'bades - SID Indonesia' },
         },
       },
       restFilterInput:
-        'linksField.primaryLinkLabel[eq]:"twenty - #1 Open source CRM"',
+        'linksField.primaryLinkLabel[eq]:"bades - SID Indonesia"',
       validateFilter: (record: Record<string, any>) => {
-        return (
-          record.linksField.primaryLinkLabel === 'twenty - #1 Open source CRM'
-        );
+        return record.linksField.primaryLinkLabel === 'bades - SID Indonesia';
       },
     },
     {

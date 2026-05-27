@@ -353,17 +353,17 @@ export const successfulCreateInputByFieldMetadataType: {
     {
       input: {
         linksField: {
-          primaryLinkUrl: 'https://twenty.com',
+          primaryLinkUrl: 'https://bades.id',
           primaryLinkLabel: '#1 Open source CRM',
-          secondaryLinks: [{ url: 'twenty.com', label: '#1 Open source CRM' }],
+          secondaryLinks: [{ url: 'bades.id', label: '#1 Open source CRM' }],
         },
       },
       validateInput: (record: Record<string, any>) => {
         return (
-          record.linksField.primaryLinkUrl === 'https://twenty.com' &&
+          record.linksField.primaryLinkUrl === 'https://bades.id' &&
           record.linksField.primaryLinkLabel === '#1 Open source CRM' &&
           record.linksField.secondaryLinks.length === 1 &&
-          record.linksField.secondaryLinks[0].url === 'twenty.com' &&
+          record.linksField.secondaryLinks[0].url === 'bades.id' &&
           record.linksField.secondaryLinks[0].label === '#1 Open source CRM'
         );
       },

@@ -9,10 +9,7 @@ import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { useRunWorkflowVersion } from '@/workflow/hooks/useRunWorkflowVersion';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
-import {
-  CoreObjectNameSingular,
-  type RecordGqlOperationFilter,
-} from 'shared/types';
+import { type RecordGqlOperationFilter } from 'shared/types';
 import { isNonEmptyArray } from 'shared/utils';
 
 export const TriggerWorkflowVersionEngineCommand = () => {

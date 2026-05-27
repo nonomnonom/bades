@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { MemoryRouter, useNavigate } from 'react-router-dom';
 
-import { CoreObjectNameSingular, AppPath } from 'shared/types';
+import { AppPath } from 'shared/types';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 
 jest.mock('react-router-dom', () => ({
@@ -41,7 +41,10 @@ describe('useNavigateApp', () => {
       objectRecordId: '123',
     });
 
-    expect(mockNavigate).toHaveBeenCalledWith('/object/keluarga/123', undefined);
+    expect(mockNavigate).toHaveBeenCalledWith(
+      '/object/keluarga/123',
+      undefined,
+    );
   });
 
   it('should navigate with query params', () => {

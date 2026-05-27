@@ -4,7 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { isDefined, isNonEmptyArray } from 'shared/utils';
-import { Not, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 
 import {
   BillingException,
@@ -61,7 +61,6 @@ export class BillingPortalWorkspaceService {
    * Untuk trial 7 hari tanpa metode pembayaran.
    */
   async createDirectSubscription({
-    user,
     workspace,
     plan,
     interval,
@@ -125,7 +124,6 @@ export class BillingPortalWorkspaceService {
     user,
     workspace,
     plan,
-    interval,
     successUrlPath,
   }: {
     user: AuthContextUser;
