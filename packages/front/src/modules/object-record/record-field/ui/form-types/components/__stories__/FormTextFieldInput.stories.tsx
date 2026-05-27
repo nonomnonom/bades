@@ -32,32 +32,32 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText(/^Text$/);
+    await canvas.findByText(/^Teks$/);
   },
 };
 
 export const Multiline: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     multiline: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText(/^Text$/);
+    await canvas.findByText(/^Teks$/);
   },
 };
 
 export const MultilineWithDefaultValue: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     defaultValue: 'Line 1\nLine 2\n\nLine 4',
     placeholder: 'Text field...',
     multiline: true,
@@ -65,7 +65,7 @@ export const MultilineWithDefaultValue: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText(/^Text$/);
+    await canvas.findByText(/^Teks$/);
 
     const editor = canvasElement.querySelector('.ProseMirror > p');
 
@@ -75,7 +75,7 @@ export const MultilineWithDefaultValue: Story = {
 
 export const WithVariable: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     VariablePicker: ({ onVariableSelect }) => {
       return (
@@ -94,12 +94,12 @@ export const WithVariable: Story = {
     const canvas = within(canvasElement);
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.click(addVariableButton);
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
     expect(variable).toBeVisible();
 
     await waitFor(() => {
@@ -111,7 +111,7 @@ export const WithVariable: Story = {
 
 export const WithDeletableVariable: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     defaultValue: `test {{${MOCKED_STEP_ID}.name}} test`,
     onChange: fn(),
@@ -126,11 +126,11 @@ export const WithDeletableVariable: Story = {
 
     const editor = canvasElement.querySelector('.ProseMirror > p');
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
     expect(variable).toBeVisible();
 
     const deleteVariableButton = await canvas.findByRole('button', {
-      name: 'Remove variable',
+      name: 'Hapus variabel',
     });
 
     await Promise.all([
@@ -150,7 +150,7 @@ export const WithDeletableVariable: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     defaultValue: 'Text field',
     readonly: true,
@@ -186,7 +186,7 @@ export const Disabled: Story = {
 
 export const DisabledWithVariable: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     defaultValue: `test {{${MOCKED_STEP_ID}.name}} test`,
     readonly: true,
   },
@@ -210,7 +210,7 @@ export const DisabledWithVariable: Story = {
 
 export const HasHistory: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     VariablePicker: ({ onVariableSelect }) => {
       return (
@@ -241,7 +241,7 @@ export const HasHistory: Story = {
     }
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.type(editor, 'Hello World ');

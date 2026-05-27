@@ -21,18 +21,18 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Select a value');
+    await canvas.findByText('Pilih nilai');
   },
 };
 
 export const WithLabel: Story = {
   args: {
-    label: 'Boolean',
+    label: 'Boole',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Boolean');
+    await canvas.findByText('Boole');
   },
 };
 
@@ -43,7 +43,7 @@ export const EmptyByDefault: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Select a value');
+    await canvas.findByText('Pilih nilai');
   },
 };
 
@@ -54,7 +54,7 @@ export const TrueByDefault: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('True');
+    await canvas.findByText('Benar');
   },
 };
 
@@ -65,7 +65,7 @@ export const FalseByDefault: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('False');
+    await canvas.findByText('Salah');
   },
 };
 
@@ -91,12 +91,12 @@ export const Disabled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const toggle = await canvas.findByText('False');
+    const toggle = await canvas.findByText('Salah');
     expect(toggle).toBeVisible();
 
     await userEvent.click(toggle);
 
-    expect(toggle).toHaveTextContent('False');
+    expect(toggle).toHaveTextContent('Salah');
 
     const variablePicker = canvas.queryByText('VariablePicker');
     expect(variablePicker).not.toBeInTheDocument();
@@ -106,19 +106,19 @@ export const Disabled: Story = {
 export const ChangesValueToTrue: Story = {
   args: {
     defaultValue: undefined,
-    label: 'Boolean',
+    label: 'Boole',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const select = await canvas.findByText('Select a value');
+    const select = await canvas.findByText('Pilih nilai');
 
     await userEvent.click(select);
 
     const trueOption = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('True');
+    ).findByText('Benar');
 
     await userEvent.click(trueOption);
 
@@ -131,19 +131,19 @@ export const ChangesValueToTrue: Story = {
 export const ChangesValueToFalse: Story = {
   args: {
     defaultValue: undefined,
-    label: 'Boolean',
+    label: 'Boole',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const select = await canvas.findByText('Select a value');
+    const select = await canvas.findByText('Pilih nilai');
 
     await userEvent.click(select);
 
     const falseOption = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('False');
+    ).findByText('Salah');
 
     await userEvent.click(falseOption);
 
@@ -156,7 +156,7 @@ export const ChangesValueToFalse: Story = {
 export const ChangesValueToVariable: Story = {
   args: {
     defaultValue: undefined,
-    label: 'Boolean',
+    label: 'Boole',
     VariablePicker: ({ onVariableSelect }) => {
       return (
         <button
@@ -174,7 +174,7 @@ export const ChangesValueToVariable: Story = {
     const canvas = within(canvasElement);
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.click(addVariableButton);

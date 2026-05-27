@@ -18,7 +18,7 @@ type Story = StoryObj<typeof FormEmailsFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'Emails',
+    label: 'Surel',
     defaultValue: {
       primaryEmail: 'tim@bades.id',
       additionalEmails: [],
@@ -27,15 +27,15 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Emails');
-    await canvas.findByText('Primary Email');
+    await canvas.findByText('Surel');
+    await canvas.findByText('Surel Utama');
     await canvas.findByText('tim@bades.id');
   },
 };
 
 export const WithVariable: Story = {
   args: {
-    label: 'Emails',
+    label: 'Surel',
     defaultValue: {
       primaryEmail: `{{${MOCKED_STEP_ID}.name}}`,
       additionalEmails: [],
@@ -45,7 +45,7 @@ export const WithVariable: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryEmailVariable = await canvas.findByText('Name');
+    const primaryEmailVariable = await canvas.findByText('Nama');
     expect(primaryEmailVariable).toBeVisible();
 
     const variablePicker = await canvas.findByText('VariablePicker');
@@ -55,7 +55,7 @@ export const WithVariable: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Emails',
+    label: 'Surel',
     defaultValue: {
       primaryEmail: 'tim@bades.id',
       additionalEmails: [],

@@ -10,4 +10,6 @@ export const JABATAN_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   nameSingular: 'jabatan',
   icon: 'IconIdBadge',
   description: 'Perangkat desa yang sedang atau pernah menjabat',
+  // namaJabatan adalah representasi utama record perangkat desa
+  labelIdentifierFieldName: 'namaJabatan',
 };

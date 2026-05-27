@@ -5,4 +5,11 @@ export type ObjectMetadataSeed = Omit<
   'workspaceId' | 'fields'
 > & {
   skipNameField?: boolean;
+  /**
+   * Nama field domain yang dipakai sebagai label identifier (main display
+   * field) setelah object dibuat. Jika diisi, service akan memanggil
+   * updateOneObject untuk set labelIdentifierFieldMetadataId ke field dengan
+   * nama ini. Jika tidak diisi, engine default (field `name`) yang dipakai.
+   */
+  labelIdentifierFieldName?: string;
 };

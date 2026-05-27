@@ -52,19 +52,19 @@ const FormPhoneFieldInputWithState = ({
 
 export const Default: Story = {
   args: {
-    label: 'Phone',
+    label: 'Telepon',
     defaultValue: defaultPhoneValue,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Phone');
+    await canvas.findByText('Telepon');
   },
 };
 
 export const WithVariablesAsDefaultValues: Story = {
   args: {
-    label: 'Phone',
+    label: 'Telepon',
     defaultValue: {
       primaryPhoneCountryCode: '',
       primaryPhoneCallingCode: `{{${MOCKED_STEP_ID}.name}}`,
@@ -75,7 +75,7 @@ export const WithVariablesAsDefaultValues: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const callingCodeVariable = await canvas.findByText('Name');
+    const callingCodeVariable = await canvas.findByText('Nama');
     expect(callingCodeVariable).toBeVisible();
 
     const variablePickers = await canvas.findAllByText('VariablePicker');
@@ -90,7 +90,7 @@ export const WithVariablesAsDefaultValues: Story = {
 
 export const SelectingVariables: Story = {
   args: {
-    label: 'Phone',
+    label: 'Telepon',
     VariablePicker: ({ onVariableSelect }) => {
       return (
         <button
@@ -129,7 +129,7 @@ export const SelectingVariables: Story = {
 
     await userEvent.click(phoneNumberVariablePicker);
 
-    const phoneNumberVariable = await canvas.findByText('Amount Micros');
+    const phoneNumberVariable = await canvas.findByText('Jumlah Mikro');
     expect(phoneNumberVariable).toBeVisible();
 
     await waitFor(() => {
@@ -144,7 +144,7 @@ export const SelectingVariables: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Phone',
+    label: 'Telepon',
     readonly: true,
     VariablePicker: () => <div>VariablePicker</div>,
   },

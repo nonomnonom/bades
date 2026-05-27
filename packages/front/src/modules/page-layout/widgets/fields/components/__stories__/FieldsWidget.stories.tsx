@@ -143,7 +143,7 @@ const createPageLayoutWithWidget = (
       isActive: true,
       applicationId: '',
       id: TAB_ID_OVERVIEW,
-      title: 'Overview',
+      title: 'Ringkasan',
       position: 0,
       pageLayoutId: PAGE_LAYOUT_TEST_INSTANCE_ID,
       widgets: [widget],
@@ -164,7 +164,7 @@ const createFieldsWidget = (viewId: string | null): PageLayoutWidget => ({
   id: 'widget-fields',
   pageLayoutTabId: TAB_ID_OVERVIEW,
   type: WidgetType.FIELDS,
-  title: 'Fields',
+  title: 'Ringkasan',
   objectMetadataId: companyObjectMetadataItem.id,
   gridPosition: {
     __typename: 'GridPosition',
@@ -187,7 +187,7 @@ const createView = (
   overrides: Partial<ViewWithRelations> = {},
 ): ViewWithRelations => ({
   id: FIELDS_VIEW_ID,
-  name: 'Company Fields',
+  name: 'Kolom Keluarga',
   objectMetadataId: companyObjectMetadataItem.id,
   type: ViewType.FIELDS_WIDGET,
   icon: 'IconList',
@@ -288,11 +288,11 @@ export const WithViewFieldGroups: Story = {
       viewFieldGroups: [
         createViewFieldGroup(
           'group-contact-info',
-          'Contact Info',
+          'Info Kontak',
           0,
           contactInfoFields,
         ),
-        createViewFieldGroup('group-business', 'Business', 1, businessFields),
+        createViewFieldGroup('group-business', 'Bisnis', 1, businessFields),
       ],
     });
 
@@ -361,10 +361,10 @@ export const WithViewFieldGroups: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const contactInfoHeader = await canvas.findByText('Contact Info');
+    const contactInfoHeader = await canvas.findByText('Info Kontak');
     expect(contactInfoHeader).toBeVisible();
 
-    const businessHeader = await canvas.findByText('Business');
+    const businessHeader = await canvas.findByText('Bisnis');
     expect(businessHeader).toBeVisible();
 
     const companyName = await canvas.findByText('Keluarga Anggrek');
@@ -441,10 +441,10 @@ export const WithDefaultGroups: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const generalHeader = await canvas.findByText('General');
+    const generalHeader = await canvas.findByText('Umum');
     expect(generalHeader).toBeVisible();
 
-    const creationDateElements = await canvas.findAllByText('Creation date');
+    const creationDateElements = await canvas.findAllByText('Tanggal Pembuatan');
     expect(creationDateElements.length).toBeGreaterThan(0);
     expect(creationDateElements[0]).toBeVisible();
   },
@@ -454,7 +454,7 @@ export const Empty: Story = {
   render: () => {
     const view = createView({
       viewFieldGroups: [
-        createViewFieldGroup('group-empty', 'Empty Group', 0, [], false),
+        createViewFieldGroup('group-empty', 'Grup Kosong', 0, [], false),
       ],
     });
 
@@ -524,12 +524,12 @@ export const Empty: Story = {
     const canvas = within(canvasElement);
 
     await waitFor(() => {
-      expect(canvas.getByText('No fields to display')).toBeVisible();
+      expect(canvas.getByText('Tidak ada kolom untuk ditampilkan')).toBeVisible();
     });
 
     await waitFor(() => {
       expect(
-        canvas.getByText('Configure this widget to display fields'),
+        canvas.getByText('Konfigurasi widget ini untuk menampilkan kolom'),
       ).toBeVisible();
     });
   },

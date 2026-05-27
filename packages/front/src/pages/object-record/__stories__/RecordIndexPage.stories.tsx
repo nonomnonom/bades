@@ -32,7 +32,7 @@ export type Story = StoryObj<typeof RecordIndexPage>;
 //   play: async ({ canvasElement }) => {
 //     const canvas = within(canvasElement);
 
-//     await canvas.findAllByText('Companies', undefined, { timeout: 3000 });
+//     await canvas.findAllByText('Perusahaan', undefined, { timeout: 3000 });
 //     await canvas.findByText('Linkedin');
 //   },
 // };

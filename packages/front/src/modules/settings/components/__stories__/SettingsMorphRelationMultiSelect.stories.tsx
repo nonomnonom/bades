@@ -21,7 +21,7 @@ export const Default: Story = {
     dropdownWidth: GenericDropdownContentWidth.Medium,
     dropdownWidthAuto: true,
     fullWidth: true,
-    label: 'Select objects',
+    label: 'Pilih objek',
     selectedObjectMetadataIds: [
       '4a45f524-b8cb-40e8-8450-28e402b442cf',
       '6f3b9df6-57c0-4fe0-b8af-1a5ed20d76bd',

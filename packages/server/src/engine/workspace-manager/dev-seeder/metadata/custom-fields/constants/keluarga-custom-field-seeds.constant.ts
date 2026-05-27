@@ -73,12 +73,69 @@ export const KELUARGA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     type: FieldMetadataType.SELECT,
     label: 'Klasifikasi Keluarga',
     name: 'klasifikasiKeluarga',
-    description: 'Klasifikasi berdasarkan status sosial',
+    description:
+      'Klasifikasi sosial-ekonomi keluarga (KS1/KS2/KS3/Plus sesuai indikator BPS)',
     options: [
-      { label: 'Miskin', value: 'MISKIN', position: 0 },
-      { label: 'Menengah', value: 'MENENGAH', position: 1 },
-      { label: 'Mampu', value: 'MAMPU', position: 2 },
+      { label: 'KS1 (Miskin)', value: 'KS1', position: 0, color: 'red' },
+      {
+        label: 'KS2 (Hampir Miskin)',
+        value: 'KS2',
+        position: 1,
+        color: 'orange',
+      },
+      { label: 'KS3 (Menengah)', value: 'KS3', position: 2, color: 'yellow' },
+      { label: 'KS3+ (Mampu)', value: 'KS3_PLUS', position: 3, color: 'green' },
     ],
+  },
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Jenis Rumah',
+    name: 'jenisRumah',
+    description: 'Jenis bangunan tempat tinggal',
+    options: [
+      { label: 'Permanen', value: 'PERMANEN', position: 0, color: 'green' },
+      {
+        label: 'Semi Permanen',
+        value: 'SEMI_PERMANEN',
+        position: 1,
+        color: 'yellow',
+      },
+      {
+        label: 'Tidak Permanen',
+        value: 'TIDAK_PERMANEN',
+        position: 2,
+        color: 'red',
+      },
+    ],
+  },
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Status Kepemilikan Rumah',
+    name: 'statusKepemilikanRumah',
+    description: 'Status kepemilikan tempat tinggal',
+    options: [
+      {
+        label: 'Milik Sendiri',
+        value: 'MILIK_SENDIRI',
+        position: 0,
+        color: 'green',
+      },
+      { label: 'Sewa', value: 'SEWA', position: 1, color: 'blue' },
+      { label: 'Kontrak', value: 'KONTRAK', position: 2, color: 'orange' },
+      {
+        label: 'Numpang/Menumpang',
+        value: 'NUMPANG',
+        position: 3,
+        color: 'gray',
+      },
+      { label: 'Lainnya', value: 'LAINNYA', position: 4, color: 'purple' },
+    ],
+  },
+  {
+    type: FieldMetadataType.CURRENCY,
+    label: 'Pendapatan Bulanan',
+    name: 'pendapatanBulanan',
+    description: 'Estimasi pendapatan bulanan keluarga (Rupiah)',
   },
   // Indikator Pendataan Keluarga BPS
   {

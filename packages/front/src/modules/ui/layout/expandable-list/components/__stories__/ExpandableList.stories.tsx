@@ -21,7 +21,7 @@ const meta: Meta<typeof ExpandableList> = {
     children: Array.from({ length: 7 }, (_, index) => (
       <Tag
         key={index}
-        text={`Option ${index + 1}`}
+        text={`Opsi ${index + 1}`}
         color={MAIN_COLOR_NAMES[index]}
       />
     )),
@@ -53,6 +53,6 @@ export const WithExpandedList: Story = {
     const body = canvasElement.ownerDocument.body;
     const bodyCanvas = within(body);
 
-    expect(await bodyCanvas.findByText('Option 7')).toBeDefined();
+    expect(await bodyCanvas.findByText('Opsi 7')).toBeDefined();
   },
 };

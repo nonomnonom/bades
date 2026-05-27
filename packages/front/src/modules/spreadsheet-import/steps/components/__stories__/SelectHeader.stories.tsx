@@ -14,7 +14,7 @@ import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { Provider as JotaiProvider } from 'jotai';
 
 const meta: Meta<typeof SelectHeaderStep> = {
-  title: 'Modules/SpreadsheetImport/SelectHeaderStep',
+  title: 'Modules/SpreadsheetImport/PilihHeaderStep',
   component: SelectHeaderStep,
   parameters: {
     layout: 'fullscreen',

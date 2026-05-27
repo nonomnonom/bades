@@ -24,7 +24,7 @@ const meta: Meta<typeof TextInput> = {
   title: 'UI/Input/TextInput',
   component: TextInput,
   decorators: [ComponentDecorator],
-  args: { placeholder: 'Tim' },
+  args: { placeholder: 'Nama Tim' },
   render: Render,
 };
 
@@ -34,27 +34,27 @@ type Story = StoryObj<typeof TextInput>;
 export const Default: Story = {};
 
 export const Filled: Story = {
-  args: { value: 'Tim' },
+  args: { value: 'Nama Tim' },
 };
 
 export const Disabled: Story = {
-  args: { disabled: true, value: 'Tim' },
+  args: { disabled: true, value: 'Nama Tim' },
 };
 
 export const AutoGrow: Story = {
-  args: { autoGrow: true, value: 'Tim' },
+  args: { autoGrow: true, value: 'Nama Tim' },
 };
 
 export const AutoGrowWithPlaceholder: Story = {
-  args: { autoGrow: true, placeholder: 'Tim' },
+  args: { autoGrow: true, placeholder: 'Nama Tim' },
 };
 
 export const Small: Story = {
-  args: { sizeVariant: 'sm', value: 'Tim' },
+  args: { sizeVariant: 'sm', value: 'Nama Tim' },
 };
 
 export const AutoGrowSmall: Story = {
-  args: { autoGrow: true, sizeVariant: 'sm', value: 'Tim' },
+  args: { autoGrow: true, sizeVariant: 'sm', value: 'Nama Tim' },
 };
 
 export const WithLeftAdornment: Story = {

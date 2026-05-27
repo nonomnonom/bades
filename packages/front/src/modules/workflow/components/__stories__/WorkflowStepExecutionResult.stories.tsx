@@ -77,13 +77,13 @@ export const Error: Story = {
 
 export const ErrorWithAdditionalInfo: Story = {
   args: {
-    result: 'Connection timeout',
+    result: 'Waktu koneksi habis',
     language: 'plaintext',
     status: {
       isSuccess: false,
       isError: true,
       errorMessage: 'Request Failed',
-      additionalInfo: 'Connection timeout after 30 seconds',
+      additionalInfo: 'Waktu koneksi habis setelah 30 detik',
     },
   },
 };

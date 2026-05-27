@@ -199,7 +199,7 @@ export const SetVariable: Story = {
     const canvas = within(canvasElement);
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.click(addVariableButton);
@@ -208,7 +208,7 @@ export const SetVariable: Story = {
       expect(args.onChange).toHaveBeenCalledWith(`{{${MOCKED_STEP_ID}.name}}`);
     });
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
 
     expect(variable).toBeVisible();
   },
@@ -235,7 +235,7 @@ export const ReplaceItemsWithVariable: Story = {
     const canvas = within(canvasElement);
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.click(addVariableButton);
@@ -244,7 +244,7 @@ export const ReplaceItemsWithVariable: Story = {
       expect(args.onChange).toHaveBeenCalledWith(`{{${MOCKED_STEP_ID}.name}}`);
     });
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
 
     expect(variable).toBeVisible();
   },
@@ -271,7 +271,7 @@ export const ReplaceVariableWithItems: Story = {
     const canvas = within(canvasElement);
 
     const deleteVariableButton = await canvas.findByRole('button', {
-      name: 'Remove variable',
+      name: 'Hapus variabel',
     });
 
     await userEvent.click(deleteVariableButton);

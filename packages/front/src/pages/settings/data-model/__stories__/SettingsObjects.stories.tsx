@@ -27,6 +27,6 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Existing objects', undefined, { timeout: 5000 });
+    await canvas.findByText('Objek yang ada', undefined, { timeout: 5000 });
   },
 };

@@ -77,7 +77,7 @@ export type Story = StoryObj<typeof RecordShowPage>;
 //       }),
 //     ).toBeInTheDocument();
 //     expect(
-//       await canvas.findByText('No activity yet', undefined, {
+//       await canvas.findByText('Belum ada aktivitas', undefined, {
 //         timeout: 5000,
 //       }),
 //     ).toBeInTheDocument();

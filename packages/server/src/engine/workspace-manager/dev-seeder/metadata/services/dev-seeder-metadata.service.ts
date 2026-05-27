@@ -5,6 +5,7 @@ import { isDefined } from 'shared/utils';
 
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
 import { WorkspaceManyOrAllFlatEntityMapsCacheService } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.service';
+import { UpdateOneObjectInput } from 'src/engine/metadata-modules/object-metadata/dtos/update-object.input';
 import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { findFlatEntityByIdInFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-id-in-flat-entity-maps.util';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
@@ -207,6 +208,14 @@ export class DevSeederMetadataService {
           fieldMetadataSeeds: obj.fields,
         });
       }
+
+      if (obj.seed.labelIdentifierFieldName) {
+        await this.applyLabelIdentifier({
+          workspaceId,
+          objectMetadataNameSingular: obj.seed.nameSingular,
+          labelIdentifierFieldName: obj.seed.labelIdentifierFieldName,
+        });
+      }
     }
 
     for (const fieldConfig of config.fields) {
@@ -216,6 +225,53 @@ export class DevSeederMetadataService {
         fieldMetadataSeeds: fieldConfig.seeds,
       });
     }
+  }
+
+  /**
+   * Setelah object dan fields di-seed, set labelIdentifierFieldMetadataId ke
+   * field dengan nama `labelIdentifierFieldName`. Dipanggil hanya jika
+   * ObjectMetadataSeed mendefinisikan `labelIdentifierFieldName`.
+   */
+  private async applyLabelIdentifier({
+    workspaceId,
+    objectMetadataNameSingular,
+    labelIdentifierFieldName,
+  }: {
+    workspaceId: string;
+    objectMetadataNameSingular: string;
+    labelIdentifierFieldName: string;
+  }): Promise<void> {
+    const objectMetadata =
+      await this.objectMetadataService.findOneWithinWorkspace(workspaceId, {
+        where: { nameSingular: objectMetadataNameSingular },
+        relations: ['fields'],
+      });
+
+    if (!isDefined(objectMetadata)) {
+      throw new Error(
+        `applyLabelIdentifier: object tidak ditemukan: ${objectMetadataNameSingular}`,
+      );
+    }
+
+    const targetField = objectMetadata.fields?.find(
+      (f) => f.name === labelIdentifierFieldName,
+    );
+
+    if (!isDefined(targetField)) {
+      throw new Error(
+        `applyLabelIdentifier: field tidak ditemukan: ${objectMetadataNameSingular}.${labelIdentifierFieldName}`,
+      );
+    }
+
+    const updateInput: UpdateOneObjectInput = {
+      id: objectMetadata.id,
+      update: { labelIdentifierFieldMetadataId: targetField.id },
+    };
+
+    await this.objectMetadataService.updateOneObject({
+      updateObjectInput: updateInput,
+      workspaceId,
+    });
   }
 
   private async seedCustomObject({

@@ -6,7 +6,7 @@ const meta: Meta<typeof FormBooleanFieldToggleInput> = {
   title: 'UI/Data/Field/Form/Input/FormBooleanFieldToggleInput',
   component: FormBooleanFieldToggleInput,
   args: {
-    description: 'Continue on iteration failure',
+    description: 'Lanjutkan jika iterasi gagal',
     value: false,
     onChange: fn(),
   },
@@ -21,7 +21,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Continue on iteration failure');
+    await canvas.findByText('Lanjutkan jika iterasi gagal');
 
     const checkbox = canvas.getByRole('checkbox');
 
@@ -31,25 +31,25 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: 'Settings',
+    label: 'Pengaturan',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Settings');
-    await canvas.findByText('Continue on iteration failure');
+    await canvas.findByText('Pengaturan');
+    await canvas.findByText('Lanjutkan jika iterasi gagal');
   },
 };
 
 export const WithHint: Story = {
   args: {
-    hint: 'If enabled, the workflow will continue to the next iteration even if the current one fails.',
+    hint: 'Jika diaktifkan, alur kerja akan berlanjut ke iterasi berikutnya meskipun iterasi saat ini gagal.',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     await canvas.findByText(
-      'If enabled, the workflow will continue to the next iteration even if the current one fails.',
+      'Jika diaktifkan, alur kerja akan berlanjut ke iterasi berikutnya meskipun iterasi saat ini gagal.',
     );
   },
 };

@@ -13,7 +13,7 @@ import { getWorkflowNodeIdMock } from '~/testing/mock-data/workflow';
 
 const DEFAULT_ACTION = {
   id: getWorkflowNodeIdMock(),
-  name: 'Form',
+  name: 'Formulir',
   type: 'FORM',
   valid: false,
   settings: {
@@ -30,7 +30,7 @@ const DEFAULT_ACTION = {
         id: 'ed00b897-519f-44cd-8201-a6502a3a9dc9',
         name: 'number',
         type: FieldMetadataType.NUMBER,
-        label: 'Number',
+        label: 'Nomor',
         placeholder: '1000',
         settings: {},
       },
@@ -80,7 +80,7 @@ export const Default: Story = {
     const canvas = within(canvasElement);
 
     await canvas.findByText('Keluarga');
-    await canvas.findByText('Add Field');
+    await canvas.findByText('Tambah Kolom');
   },
 };
 
@@ -98,7 +98,7 @@ export const DeleteFields: Story = {
     await userEvent.hover(companyInput);
 
     const deleteButton = await canvas.findByRole('button', {
-      name: 'Delete field',
+      name: 'Hapus kolom',
     });
 
     await userEvent.click(deleteButton);
@@ -120,7 +120,7 @@ export const DeleteFields: Story = {
                 id: 'ed00b897-519f-44cd-8201-a6502a3a9dc9',
                 name: 'number',
                 type: FieldMetadataType.NUMBER,
-                label: 'Number',
+                label: 'Nomor',
                 placeholder: '1000',
                 settings: {},
               },
@@ -144,7 +144,7 @@ export const OpenFieldSettings: Story = {
 
     await userEvent.click(companyInput);
 
-    const inputSettingsLabel = await canvas.findByText('Input settings');
+    const inputSettingsLabel = await canvas.findByText('Pengaturan input');
 
     expect(inputSettingsLabel).toBeVisible();
   },
@@ -161,7 +161,7 @@ export const DisabledWithEmptyValues: Story = {
 
     await canvas.findByText('Keluarga');
 
-    const addFieldButton = canvas.queryByText('Add Field');
+    const addFieldButton = canvas.queryByText('Tambah Kolom');
     expect(addFieldButton).not.toBeInTheDocument();
   },
 };
@@ -181,11 +181,11 @@ export const EmptyForm: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const messageContainer = await canvas.findByText('Add inputs to your form');
+    const messageContainer = await canvas.findByText('Tambahkan kolom ke formulir Anda');
 
     expect(messageContainer).toBeVisible();
 
-    const addFieldButton = await canvas.findByText('Add Field');
+    const addFieldButton = await canvas.findByText('Tambah Kolom');
     expect(addFieldButton).toBeVisible();
   },
 };

@@ -11,4 +11,6 @@ export const SURAT_KELUAR_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   nameSingular: 'suratKeluar',
   icon: 'IconMail',
   description: 'Arsip surat masuk dan keluar desa',
+  // nomorSurat adalah identifier unik arsip surat desa
+  labelIdentifierFieldName: 'nomorSurat',
 };

@@ -25,19 +25,19 @@ const defaultSalaryValue: FieldCurrencyValue = {
 
 export const Default: Story = {
   args: {
-    label: 'Salary',
+    label: 'Gaji',
     defaultValue: defaultSalaryValue,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.findByText('Currency Code');
-    await canvas.findByText('Amount Micros');
+    await canvas.findByText('Kode Mata Uang');
+    await canvas.findByText('Jumlah Mikro');
   },
 };
 
 export const WithVariable: Story = {
   args: {
-    label: 'Salary',
+    label: 'Gaji',
     defaultValue: {
       currencyCode: `{{${MOCKED_STEP_ID}.amount.currencyCode}}` as CurrencyCode,
       amountMicros: `{{${MOCKED_STEP_ID}.amount.amountMicros}}`,
@@ -46,8 +46,8 @@ export const WithVariable: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const amountMicros = await canvas.findAllByText('Amount Micros');
-    const currencyCode = await canvas.findAllByText('Currency Code');
+    const amountMicros = await canvas.findAllByText('Jumlah Mikro');
+    const currencyCode = await canvas.findAllByText('Kode Mata Uang');
 
     expect(amountMicros).toHaveLength(2);
     expect(currencyCode).toHaveLength(2);
@@ -69,7 +69,7 @@ export const WithVariablePicker: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Salary',
+    label: 'Gaji',
     defaultValue: defaultSalaryValue,
     VariablePicker: () => <div>VariablePicker</div>,
     readonly: true,

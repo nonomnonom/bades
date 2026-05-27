@@ -108,7 +108,7 @@ export const Empty: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(await canvas.findByText('No output')).toBeVisible();
+    expect(await canvas.findByText('Tidak ada output')).toBeVisible();
   },
 };
 

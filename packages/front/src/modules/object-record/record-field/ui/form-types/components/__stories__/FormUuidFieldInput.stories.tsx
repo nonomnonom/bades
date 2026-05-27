@@ -17,20 +17,20 @@ type Story = StoryObj<typeof FormUuidFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('UUID field');
+    await canvas.findByText('Kolom UUID');
   },
 };
 
 export const SetUuidWithDashes: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -38,7 +38,7 @@ export const SetUuidWithDashes: Story = {
 
     const uuid = 'fc50139a-9047-467e-a313-700fd75700ac';
 
-    const input = await canvas.findByPlaceholderText('Enter UUID');
+    const input = await canvas.findByPlaceholderText('Masukkan UUID');
     expect(input).toBeVisible();
 
     await userEvent.type(input, uuid);
@@ -51,8 +51,8 @@ export const SetUuidWithDashes: Story = {
 
 export const SetUuidWithoutDashes: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -60,7 +60,7 @@ export const SetUuidWithoutDashes: Story = {
 
     const uuid = 'fc50139a9047467ea313700fd75700ac';
 
-    const input = await canvas.findByPlaceholderText('Enter UUID');
+    const input = await canvas.findByPlaceholderText('Masukkan UUID');
     expect(input).toBeVisible();
 
     await userEvent.type(input, uuid);
@@ -73,8 +73,8 @@ export const SetUuidWithoutDashes: Story = {
 
 export const SetInvalidUuidWithNoValidation: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -82,7 +82,7 @@ export const SetInvalidUuidWithNoValidation: Story = {
 
     const uuid = 'invalid';
 
-    const input = await canvas.findByPlaceholderText('Enter UUID');
+    const input = await canvas.findByPlaceholderText('Masukkan UUID');
     expect(input).toBeVisible();
 
     await userEvent.type(input, uuid);
@@ -95,8 +95,8 @@ export const SetInvalidUuidWithNoValidation: Story = {
 
 export const TrimInputBeforePersisting: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -104,7 +104,7 @@ export const TrimInputBeforePersisting: Story = {
 
     const uuid = 'fc50139a9047467ea313700fd75700ac';
 
-    const input = await canvas.findByPlaceholderText('Enter UUID');
+    const input = await canvas.findByPlaceholderText('Masukkan UUID');
     expect(input).toBeVisible();
 
     await userEvent.type(input, `{Space>2}${uuid}{Space>3}`);
@@ -117,14 +117,14 @@ export const TrimInputBeforePersisting: Story = {
 
 export const ClearField: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const input = await canvas.findByPlaceholderText('Enter UUID');
+    const input = await canvas.findByPlaceholderText('Masukkan UUID');
     expect(input).toBeVisible();
 
     const uuid = 'test';
@@ -147,8 +147,8 @@ export const ClearField: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'UUID field',
-    placeholder: 'Enter UUID',
+    label: 'Kolom UUID',
+    placeholder: 'Masukkan UUID',
     readonly: true,
     VariablePicker: ({ onVariableSelect }) => {
       return (
@@ -157,7 +157,7 @@ export const Disabled: Story = {
             onVariableSelect(`{{${MOCKED_STEP_ID}.name}}`);
           }}
         >
-          Add variable
+          Tambah variabel
         </button>
       );
     },
@@ -165,11 +165,11 @@ export const Disabled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const input = await canvas.findByPlaceholderText('Enter UUID');
+    const input = await canvas.findByPlaceholderText('Masukkan UUID');
 
     expect(input).toBeDisabled();
 
-    const variablePicker = canvas.queryByText('Add variable');
+    const variablePicker = canvas.queryByText('Tambah variabel');
 
     expect(variablePicker).not.toBeInTheDocument();
   },

@@ -29,9 +29,9 @@ export type Story = StoryObj<typeof SettingsObjectNewFieldSelect>;
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.findByText('Objects');
-    await canvas.findByText('1. Select a field type');
-    const searchInput = await canvas.findByPlaceholderText('Search a type');
+    await canvas.findByText('Objek');
+    await canvas.findByText('1. Pilih jenis kolom');
+    const searchInput = await canvas.findByPlaceholderText('Cari jenis');
     await userEvent.type(searchInput, 'Rela');
     await new Promise((resolve) => setTimeout(resolve, 1500));
     await userEvent.clear(searchInput);

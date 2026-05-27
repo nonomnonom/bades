@@ -114,10 +114,10 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Add Item');
+    const addButton = await canvas.findByText('Tambah Item');
     await userEvent.click(addButton);
 
-    const input = await canvas.findByPlaceholderText('Enter value');
+    const input = await canvas.findByPlaceholderText('Masukkan nilai');
     await userEvent.type(input, 'tag3{enter}');
 
     const tag3Element = await canvas.findByText('tag3');
@@ -132,10 +132,10 @@ export const TrimInput: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Add Item');
+    const addButton = await canvas.findByText('Tambah Item');
     await userEvent.click(addButton);
 
-    const input = await canvas.findByPlaceholderText('Enter value');
+    const input = await canvas.findByPlaceholderText('Masukkan nilai');
     await userEvent.type(input, '  tag2  {enter}');
 
     await waitFor(() => {

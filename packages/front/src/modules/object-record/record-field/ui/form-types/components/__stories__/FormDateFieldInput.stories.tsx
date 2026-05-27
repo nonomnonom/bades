@@ -18,7 +18,7 @@ type Story = StoryObj<typeof FormDateFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'Date',
+    label: 'Tanggal',
     defaultValue: undefined,
     onChange: fn(),
   },
@@ -26,7 +26,7 @@ export const Default: Story = {
 
 export const WithDefaultValue: Story = {
   args: {
-    label: 'Date',
+    label: 'Tanggal',
     defaultValue: '2024-06-15',
     onChange: fn(),
   },
@@ -34,7 +34,7 @@ export const WithDefaultValue: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Date',
+    label: 'Tanggal',
     defaultValue: '2024-06-15',
     readonly: true,
     VariablePicker: () => <div>VariablePicker</div>,
@@ -62,14 +62,14 @@ export const Disabled: Story = {
 
 export const DisabledWithVariable: Story = {
   args: {
-    label: 'Date',
+    label: 'Tanggal',
     defaultValue: `{{${MOCKED_STEP_ID}.name}}`,
     readonly: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
     expect(variable).toBeVisible();
 
     const deleteVariableButton = canvas.queryByRole('button');
@@ -79,7 +79,7 @@ export const DisabledWithVariable: Story = {
 
 export const WithVariable: Story = {
   args: {
-    label: 'Date',
+    label: 'Tanggal',
     defaultValue: undefined,
     VariablePicker: ({ onVariableSelect }) => {
       return (
@@ -98,12 +98,12 @@ export const WithVariable: Story = {
     const canvas = within(canvasElement);
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.click(addVariableButton);
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
     expect(variable).toBeVisible();
 
     expect(args.onChange).toHaveBeenCalledWith(`{{${MOCKED_STEP_ID}.name}}`);

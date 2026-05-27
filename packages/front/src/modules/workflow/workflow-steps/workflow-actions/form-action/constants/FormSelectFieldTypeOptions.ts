@@ -34,12 +34,12 @@ export const FORM_SELECT_FIELD_TYPE_OPTIONS: SelectOption<WorkflowFormFieldType>
       Icon: IllustrationIconOneToMany,
     },
     {
-      label: 'Select',
+      label: 'Pilih',
       value: FieldMetadataType.SELECT,
       Icon: IllustrationIconTag,
     },
     {
-      label: 'Multi-Select',
+      label: 'Multi-Pilih',
       value: FieldMetadataType.MULTI_SELECT,
       Icon: IllustrationIconTags,
     },

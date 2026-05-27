@@ -6,5 +6,8 @@ export const KELUARGA_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   namePlural: 'daftarKeluarga',
   nameSingular: 'keluarga',
   icon: 'IconHome',
-  description: 'Kartu Keluarga (KK) terdaftar di desa sesuai Permendagri 12/2007',
+  description:
+    'Kartu Keluarga (KK) terdaftar di desa sesuai Permendagri 12/2007',
+  // nomorKk adalah identifier utama KK
+  labelIdentifierFieldName: 'nomorKk',
 };

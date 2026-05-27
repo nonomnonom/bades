@@ -41,6 +41,6 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await expect(await canvas.findByText('Add filter rule')).toBeVisible();
+    await expect(await canvas.findByText('Tambah aturan filter')).toBeVisible();
   },
 };

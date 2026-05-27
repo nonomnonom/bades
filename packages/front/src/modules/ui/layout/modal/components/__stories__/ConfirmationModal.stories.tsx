@@ -73,15 +73,15 @@ export const InputConfirmation: Story = {
 export const CloseOnEscape: Story = {
   args: {
     modalInstanceId: 'confirmation-modal',
-    title: 'Escape Key Test',
-    subtitle: 'This modal should close when pressing the Escape key.',
-    confirmButtonText: 'Confirm',
+    title: 'Tes Tombol Escape',
+    subtitle: 'Modal ini harus menutup saat menekan tombol Escape.',
+    confirmButtonText: 'Konfirmasi',
     onClose: closeMock,
   },
   play: async ({ canvasElement }) => {
     const body = within(canvasElement.ownerDocument.body);
 
-    await body.findByText('Escape Key Test');
+    await body.findByText('Tes Tombol Escape');
 
     closeMock.mockClear();
 
@@ -96,15 +96,15 @@ export const CloseOnEscape: Story = {
 export const CloseOnClickOutside: Story = {
   args: {
     modalInstanceId: 'confirmation-modal',
-    title: 'Click Outside Test',
-    subtitle: 'This modal should close when clicking outside of it.',
-    confirmButtonText: 'Confirm',
+    title: 'Tes Klik di Luar',
+    subtitle: 'Modal ini harus menutup saat mengeklik di luar area modal.',
+    confirmButtonText: 'Konfirmasi',
     onClose: closeMock,
   },
   play: async ({ canvasElement }) => {
     const body = within(canvasElement.ownerDocument.body);
 
-    await body.findByText('Click Outside Test');
+    await body.findByText('Tes Klik di Luar');
 
     const backdrop = await body.findByTestId('modal-backdrop');
 
@@ -122,15 +122,15 @@ export const CloseOnClickOutside: Story = {
 export const ConfirmWithEnterKey: Story = {
   args: {
     modalInstanceId: 'confirmation-modal',
-    title: 'Enter Key Test',
-    subtitle: 'This modal should confirm when pressing the Enter key.',
-    confirmButtonText: 'Confirm',
+    title: 'Tes Tombol Enter',
+    subtitle: 'Modal ini harus mengkonfirmasi saat menekan tombol Enter.',
+    confirmButtonText: 'Konfirmasi',
     onConfirmClick: confirmMock,
   },
   play: async ({ canvasElement }) => {
     const body = within(canvasElement.ownerDocument.body);
 
-    await body.findByText('Enter Key Test');
+    await body.findByText('Tes Tombol Enter');
 
     await userEvent.keyboard('{Enter}');
 
@@ -143,18 +143,18 @@ export const ConfirmWithEnterKey: Story = {
 export const CancelButtonClick: Story = {
   args: {
     modalInstanceId: 'confirmation-modal',
-    title: 'Cancel Button Test',
-    subtitle: 'Clicking the cancel button should close the modal',
-    confirmButtonText: 'Confirm',
+    title: 'Tes Tombol Batal',
+    subtitle: 'Menekan tombol Batal harus menutup modal.',
+    confirmButtonText: 'Konfirmasi',
     onClose: closeMock,
   },
   play: async ({ canvasElement }) => {
     const body = within(canvasElement.ownerDocument.body);
 
-    await body.findByText('Cancel Button Test');
+    await body.findByText('Tes Tombol Batal');
 
     const cancelButton = await body.findByRole('button', {
-      name: /Cancel/,
+      name: /Batal/,
     });
     await userEvent.click(cancelButton);
 
@@ -167,18 +167,18 @@ export const CancelButtonClick: Story = {
 export const ConfirmButtonClick: Story = {
   args: {
     modalInstanceId: 'confirmation-modal',
-    title: 'Confirm Button Test',
-    subtitle: 'Clicking the confirm button should trigger the confirm action',
-    confirmButtonText: 'Confirm',
+    title: 'Tes Tombol Konfirmasi',
+    subtitle: 'Menekan tombol Konfirmasi harus memicu tindakan konfirmasi.',
+    confirmButtonText: 'Konfirmasi',
     onConfirmClick: confirmMock,
   },
   play: async ({ canvasElement }) => {
     const body = within(canvasElement.ownerDocument.body);
 
-    await body.findByText('Confirm Button Test');
+    await body.findByText('Tes Tombol Konfirmasi');
 
     const confirmButton = await body.findByRole('button', {
-      name: /Confirm/,
+      name: /Konfirmasi/,
     });
 
     await userEvent.click(confirmButton);

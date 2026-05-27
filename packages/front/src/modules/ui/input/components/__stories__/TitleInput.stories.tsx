@@ -8,7 +8,7 @@ const meta: Meta<typeof TitleInput> = {
   component: TitleInput,
   decorators: [ComponentDecorator],
   args: {
-    placeholder: 'Enter title',
+    placeholder: 'Masukkan judul',
     sizeVariant: 'md',
   },
   argTypes: {
@@ -22,33 +22,33 @@ type Story = StoryObj<typeof TitleInput>;
 export const Default: Story = {};
 
 export const WithValue: Story = {
-  args: { value: 'Sample Title' },
+  args: { value: 'Judul Contoh' },
 };
 
 export const Disabled: Story = {
-  args: { disabled: true, value: 'Disabled Title' },
+  args: { disabled: true, value: 'Judul Dinonaktifkan' },
 };
 
 export const ExtraSmall: Story = {
-  args: { sizeVariant: 'xs', value: 'Extra Small Title' },
+  args: { sizeVariant: 'xs', value: 'Judul Extra Kecil' },
 };
 
 export const Small: Story = {
-  args: { sizeVariant: 'sm', value: 'Small Title' },
+  args: { sizeVariant: 'sm', value: 'Judul Kecil' },
 };
 
 export const Medium: Story = {
-  args: { sizeVariant: 'md', value: 'Medium Title' },
+  args: { sizeVariant: 'md', value: 'Judul Sedang' },
 };
 
 export const Large: Story = {
-  args: { sizeVariant: 'lg', value: 'Large Title' },
+  args: { sizeVariant: 'lg', value: 'Judul Besar' },
 };
 
 export const WithLongText: Story = {
   args: {
     value:
-      'This is a very long title that will likely overflow and demonstrate the tooltip behavior of the component',
+      'Ini adalah judul yang sangat panjang dan kemungkinan akan meluap serta mendemonstrasikan perilaku tooltip komponen',
   },
   parameters: {
     container: {
@@ -58,5 +58,5 @@ export const WithLongText: Story = {
 };
 
 export const WithCustomPlaceholder: Story = {
-  args: { placeholder: 'Custom placeholder example' },
+  args: { placeholder: 'Contoh placeholder kustom' },
 };

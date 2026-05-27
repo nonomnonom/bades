@@ -31,6 +31,6 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Keyboard shortcuts')).toBeInTheDocument();
+    expect(await canvas.findByText('Pintasan Papan Ketik')).toBeInTheDocument();
   },
 };

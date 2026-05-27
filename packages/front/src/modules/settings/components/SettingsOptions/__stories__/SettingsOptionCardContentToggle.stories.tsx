@@ -45,8 +45,8 @@ type Story = StoryObj<typeof SettingsOptionCardContentToggleWrapper>;
 export const Default: Story = {
   args: {
     Icon: IconBell,
-    title: 'Notifications',
-    description: 'Receive notifications about important updates',
+    title: 'Notifikasi',
+    description: 'Terima notifikasi tentang pembaruan penting',
     checked: true,
   },
   argTypes: {
@@ -58,8 +58,8 @@ export const Default: Story = {
 export const Disabled: Story = {
   args: {
     Icon: IconLock,
-    title: 'Locked Setting',
-    description: 'This setting is currently unavailable',
+    title: 'Pengaturan Terkunci',
+    description: 'Pengaturan ini saat ini tidak tersedia',
     checked: false,
     disabled: true,
   },
@@ -68,8 +68,8 @@ export const Disabled: Story = {
 export const AdvancedMode: Story = {
   args: {
     Icon: IconRobot,
-    title: 'Advanced Features',
-    description: 'Enable experimental features',
+    title: 'Fitur Lanjutan',
+    description: 'Aktifkan fitur eksperimental',
     checked: true,
     advancedMode: true,
   },
@@ -77,8 +77,8 @@ export const AdvancedMode: Story = {
 
 export const WithoutIcon: Story = {
   args: {
-    title: 'Simple Toggle',
-    description: 'A basic toggle without an icon',
+    title: 'Toggle Sederhana',
+    description: 'Toggle dasar tanpa ikon',
     checked: true,
   },
 };
@@ -86,7 +86,7 @@ export const WithoutIcon: Story = {
 export const WithoutDescription: Story = {
   args: {
     Icon: IconUsers,
-    title: 'Team Access',
+    title: 'Akses Tim',
     checked: false,
   },
 };

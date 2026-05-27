@@ -10,9 +10,9 @@ const meta: Meta<typeof Breadcrumb> = {
   decorators: [ComponentDecorator, ComponentWithRouterDecorator],
   args: {
     links: [
-      { children: 'Objects', href: '/link-1' },
-      { children: 'Companies', href: '/link-2' },
-      { children: 'New' },
+      { children: 'Objek', href: '/link-1' },
+      { children: 'Perusahaan', href: '/link-2' },
+      { children: 'Baru' },
     ],
   },
 };

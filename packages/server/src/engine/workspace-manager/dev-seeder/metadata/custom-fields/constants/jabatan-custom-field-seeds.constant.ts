@@ -51,6 +51,7 @@ export const JABATAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'NIPD',
     name: 'nipd',
     description: 'Nomor Induk Perangkat Desa',
+    isUnique: true,
   },
   {
     type: FieldMetadataType.TEXT,

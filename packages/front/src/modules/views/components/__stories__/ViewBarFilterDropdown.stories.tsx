@@ -281,7 +281,7 @@ export const AdvancedFilterCountBadge: Story = {
 
     await userEvent.click(filterButton);
 
-    const advancedFilterButton = await canvas.findByText('Advanced filter');
+    const advancedFilterButton = await canvas.findByText('Saring lanjutan');
 
     expect(advancedFilterButton).toBeVisible();
 

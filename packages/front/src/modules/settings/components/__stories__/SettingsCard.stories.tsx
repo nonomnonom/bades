@@ -16,7 +16,7 @@ export const Default: Story = {
   args: {
     onClick: () => {},
     Icon: React.createElement(IconMailCog),
-    title: 'Settings Card',
+    title: 'Kartu Pengaturan',
   },
   argTypes: {
     className: { control: false },

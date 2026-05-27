@@ -29,17 +29,17 @@ export const WithStandardSelected: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('New Object');
+    await canvas.findByText('Objek Baru');
 
-    const listingInput = await canvas.findByPlaceholderText('Listing');
-    const pluralInput = await canvas.findByPlaceholderText('Listings');
+    const listingInput = await canvas.findByPlaceholderText('Nama singular');
+    const pluralInput = await canvas.findByPlaceholderText('Nama plural');
     const descriptionInput = await canvas.findByPlaceholderText(
-      'Write a description',
+      'Tulis deskripsi',
     );
-    const saveButton = await canvas.findByText('Save');
-    await userEvent.type(listingInput, 'Company');
-    await userEvent.type(pluralInput, 'Companies');
-    await userEvent.type(descriptionInput, 'Test Description');
+    const saveButton = await canvas.findByText('Simpan');
+    await userEvent.type(listingInput, 'Perusahaan');
+    await userEvent.type(pluralInput, ' daftar');
+    await userEvent.type(descriptionInput, 'Deskripsi percobaan');
 
     await userEvent.click(saveButton);
   },

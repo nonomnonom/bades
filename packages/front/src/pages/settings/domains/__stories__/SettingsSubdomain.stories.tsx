@@ -35,12 +35,12 @@ export const TooShortSubdomain: Story = {
     await userEvent.type(input, 'ab');
 
     const errorMessage = await canvas.findByText(
-      'Subdomain can not be shorter than 3 characters',
+      'Subdomain minimal 3 karakter',
     );
 
     await expect(errorMessage).toBeVisible();
 
-    const saveButton = canvas.getByText('Save');
+    const saveButton = canvas.getByText('Simpan');
 
     await expect(saveButton.closest('button')).toBeDisabled();
   },
@@ -56,12 +56,12 @@ export const InvalidCharacters: Story = {
     await userEvent.type(input, 'api-test');
 
     const errorMessage = await canvas.findByText(
-      'Use letter, number and dash only. Start and finish with a letter or a number',
+      'Gunakan huruf, angka, dan strip saja. Mulai dan akhiri dengan huruf atau angka',
     );
 
     await expect(errorMessage).toBeVisible();
 
-    const saveButton = canvas.getByText('Save');
+    const saveButton = canvas.getByText('Simpan');
 
     await expect(saveButton.closest('button')).toBeDisabled();
   },
@@ -76,11 +76,11 @@ export const ReservedSubdomain: Story = {
     await userEvent.clear(input);
     await userEvent.type(input, 'api');
 
-    const errorMessage = await canvas.findByText('This subdomain is reserved');
+    const errorMessage = await canvas.findByText('Subdomain ini sudah dipesan');
 
     await expect(errorMessage).toBeVisible();
 
-    const saveButton = canvas.getByText('Save');
+    const saveButton = canvas.getByText('Simpan');
 
     await expect(saveButton.closest('button')).toBeDisabled();
   },
@@ -95,7 +95,7 @@ export const ValidSubdomain: Story = {
     await userEvent.clear(input);
     await userEvent.type(input, 'my-workspace');
 
-    const saveButton = canvas.getByText('Save');
+    const saveButton = canvas.getByText('Simpan');
 
     await expect(saveButton.closest('button')).toBeEnabled();
   },

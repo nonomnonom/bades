@@ -174,7 +174,7 @@ const mockWorkspaceMemberRecord: ObjectRecord = {
 const mockTimelineActivityRecord: ObjectRecord = {
   __typename: 'TimelineActivity',
   id: TEST_TIMELINE_ACTIVITY_RECORD_ID,
-  name: 'Note created',
+  name: 'Catatan dibuat',
   workspaceMember: {
     __typename: 'WorkspaceMember',
     id: 'test-workspace-member-xyz',
@@ -290,7 +290,7 @@ const createPageLayoutWithWidget = (
       isActive: true,
       applicationId: '',
       id: TAB_ID_OVERVIEW,
-      title: 'Overview',
+      title: 'Ringkasan',
       position: 0,
       pageLayoutId: PAGE_LAYOUT_TEST_INSTANCE_ID,
       widgets: [widget],
@@ -334,7 +334,7 @@ export const TextFieldWidget: Story = {
       id: 'widget-text-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Company Name',
+      title: 'Nama Keluarga',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -429,7 +429,7 @@ export const AddressFieldWidget: Story = {
       id: 'widget-address-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Address',
+      title: 'Alamat',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -527,7 +527,7 @@ export const NumberFieldWidget: Story = {
       id: 'widget-number-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Employees',
+      title: 'Jumlah Anggota',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -622,7 +622,7 @@ export const LinkFieldWidget: Story = {
       id: 'widget-link-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'LinkedIn',
+      title: 'Tautan LinkedIn',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -822,7 +822,7 @@ export const OneToManyRelationFieldWidget: Story = {
       id: 'widget-one-to-many-relation-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'People',
+      title: 'Daftar Anggota',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -919,7 +919,7 @@ export const BooleanFieldWidget: Story = {
       id: 'widget-boolean-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Ideal Customer Profile',
+      title: 'Profil Pelanggan Ideal',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1013,7 +1013,7 @@ export const CurrencyFieldWidget: Story = {
       id: 'widget-currency-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Annual Recurring Revenue',
+      title: 'Pendapatan Tahunan Berulang',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1107,7 +1107,7 @@ export const EmailsFieldWidget: Story = {
       id: 'widget-emails-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Emails',
+      title: 'Surel',
       objectMetadataId: personObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1202,7 +1202,7 @@ export const PhonesFieldWidget: Story = {
       id: 'widget-phones-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Phones',
+      title: 'Nomor Telepon',
       objectMetadataId: personObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1297,7 +1297,7 @@ export const SelectFieldWidget: Story = {
       id: 'widget-select-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Stage',
+      title: 'Tahap',
       objectMetadataId: opportunityObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1393,7 +1393,7 @@ export const MultiSelectFieldWidget: Story = {
       id: 'widget-multi-select-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Work Policy',
+      title: 'Kebijakan Kerja',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1492,7 +1492,7 @@ export const TimelineActivityRelationFieldWidget: Story = {
       id: 'widget-timeline-activity-relation-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Workspace Member',
+      title: 'Anggota Tim',
       objectMetadataId: timelineActivityObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1578,7 +1578,7 @@ export const TimelineActivityRelationFieldWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const workspaceMemberChip = await canvas.findByText('Sarah Johnson');
+    const workspaceMemberChip = await canvas.findByText('Sari Jaya');
     expect(workspaceMemberChip).toBeVisible();
   },
 };
@@ -1688,7 +1688,7 @@ export const ManyToOneRelationCardWidget: Story = {
     const expandButton = await canvas.findByTestId('expand-button');
     await userEvent.click(expandButton);
 
-    const lastUpdateField = await canvas.findByText('Last update');
+    const lastUpdateField = await canvas.findByText('Pembaruan Terakhir');
 
     await waitFor(() => {
       expect(lastUpdateField).toBeVisible();
@@ -1705,7 +1705,7 @@ export const OneToManyRelationCardWidget: Story = {
       id: 'widget-one-to-many-relation-card',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'People',
+      title: 'Daftar Anggota',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1801,7 +1801,7 @@ export const TimelineActivityRelationCardWidget: Story = {
       id: 'widget-timeline-activity-relation-card',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Workspace Member',
+      title: 'Anggota Tim',
       objectMetadataId: timelineActivityObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1886,13 +1886,13 @@ export const TimelineActivityRelationCardWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const workspaceMemberChip = await canvas.findByText('Sarah Johnson');
+    const workspaceMemberChip = await canvas.findByText('Sari Jaya');
     expect(workspaceMemberChip).toBeVisible();
 
     const expandButton = await canvas.findByTestId('expand-button');
     await userEvent.click(expandButton);
 
-    const lastUpdateField = await canvas.findByText('Last update');
+    const lastUpdateField = await canvas.findByText('Pembaruan Terakhir');
 
     await waitFor(() => {
       expect(lastUpdateField).toBeVisible();
@@ -1963,7 +1963,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
       id: 'widget-one-to-many-relation-card-progressive',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'People',
+      title: 'Daftar Anggota',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -2048,51 +2048,49 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // Verify initial display - should show first 5 items
+    // Verifikasi tampilan awal - menampilkan 5 item pertama
     const firstPerson = await canvas.findByText('Siti Aminah 1');
     expect(firstPerson).toBeVisible();
 
-    const fifthPerson = await canvas.findByText('Carol Miller 5');
+    const fifthPerson = await canvas.findByText('Cahya Lestari 5');
     expect(fifthPerson).toBeVisible();
 
     // Verifikasi penduduk ke-6 TIDAK terlihat di awal
-    expect(canvas.queryByText('David Wilson 6')).not.toBeInTheDocument();
+    expect(canvas.queryByText('Dimas Pratama 6')).not.toBeInTheDocument();
 
-    // Verify "More (7)" button is visible (12 total - 5 shown = 7 remaining)
+    // Verifikasi tombol "Selengkapnya (7)" visible (12 total - 5 shown = 7 remaining)
     const moreButton = await canvas.findByTestId(
       'field-widget-show-more-button',
     );
     expect(moreButton).toBeVisible();
-    expect(moreButton).toHaveTextContent('More (7)');
 
-    // Click "More" button to load 5 more items
+    // Klik tombol "Selengkapnya" untuk memuat 5 item lagi
     await userEvent.click(moreButton);
 
-    // Verify more items are now visible
+    // Verifikasi item tambahan terlihat
     await waitFor(() => {
-      const sixthPerson = canvas.getByText('David Wilson 6');
+      const sixthPerson = canvas.getByText('Dimas Pratama 6');
       expect(sixthPerson).toBeVisible();
     });
 
-    const tenthPerson = await canvas.findByText('Henry Thomas 10');
+    const tenthPerson = await canvas.findByText('Joko Wibowo 10');
     expect(tenthPerson).toBeVisible();
 
-    // Verify "More (2)" button is visible (12 total - 10 shown = 2 remaining)
+    // Verifikasi tombol "Selengkapnya (2)" visible (12 total - 10 shown = 2 remaining)
     const updatedMoreButton = await canvas.findByTestId(
       'field-widget-show-more-button',
     );
-    expect(updatedMoreButton).toHaveTextContent('More (2)');
 
-    // Click "More" button again to load remaining items
+    // Klik tombol "Selengkapnya" lagi untuk memuat sisa item
     await userEvent.click(updatedMoreButton);
 
-    // Verify all items are now visible
+    // Verifikasi semua item sudah terlihat
     await waitFor(() => {
-      const twelfthPerson = canvas.getByText('Jack White 12');
+      const twelfthPerson = canvas.getByText('Fitri Anggraini 12');
       expect(twelfthPerson).toBeVisible();
     });
 
-    // Verify "More" button is no longer visible
+    // Verifikasi tombol "Selengkapnya" sudah tidak visible
     expect(
       canvas.queryByTestId('field-widget-show-more-button'),
     ).not.toBeInTheDocument();

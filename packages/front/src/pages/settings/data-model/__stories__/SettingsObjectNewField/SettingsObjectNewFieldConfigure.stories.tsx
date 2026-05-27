@@ -30,12 +30,12 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('2. Configure field');
+    await canvas.findByText('2. Konfigurasi kolom');
 
-    const employeeInput = await canvas.findByPlaceholderText('Employees');
-    await userEvent.type(employeeInput, 'Test');
+    const employeeInput = await canvas.findByPlaceholderText('Karyawan');
+    await userEvent.type(employeeInput, 'Tes');
 
-    const saveButton = await canvas.findByText('Save');
+    const saveButton = await canvas.findByText('Simpan');
     await new Promise((resolve) => setTimeout(resolve, 5000));
     await userEvent.click(saveButton);
   },

@@ -10,4 +10,6 @@ export const PERMOHONAN_SURAT_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   nameSingular: 'permohonanSurat',
   icon: 'IconClipboardList',
   description: 'Permohonan surat dan layanan administratif dari warga desa',
+  // nomorPermohonan adalah identifier unik setiap permohonan layanan
+  labelIdentifierFieldName: 'nomorPermohonan',
 };

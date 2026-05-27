@@ -812,8 +812,8 @@ export const GroupedWithAllBarsTooltip: Story = {
     indexBy: 'period',
     keys: ['lastYear', 'thisYear'],
     seriesLabels: {
-      lastYear: 'Last year',
-      thisYear: 'This year',
+      lastYear: 'Tahun lalu',
+      thisYear: 'Tahun ini',
     },
     displayType: 'shortNumber',
     showLegend: true,
@@ -868,8 +868,8 @@ export const GroupedDefaultTooltip: Story = {
     indexBy: 'period',
     keys: ['lastYear', 'thisYear'],
     seriesLabels: {
-      lastYear: 'Last year',
-      thisYear: 'This year',
+      lastYear: 'Tahun lalu',
+      thisYear: 'Tahun ini',
     },
     displayType: 'shortNumber',
     showLegend: true,

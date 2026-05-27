@@ -22,7 +22,7 @@ const fields = [
     name: 'name',
     label: 'Name',
     type: FieldMetadataType.TEXT,
-    description: 'Company name',
+    description: 'Nama Perusahaan',
     isCustom: false,
     isActive: true,
     isSystem: false,

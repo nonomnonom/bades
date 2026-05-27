@@ -7,4 +7,6 @@ export const ASET_DESA_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   nameSingular: 'asetDesa',
   icon: 'IconBuilding',
   description: 'Inventaris dan pengelolaan aset desa sesuai Permendagri 1/2016',
+  // namaAset adalah representasi utama record aset desa
+  labelIdentifierFieldName: 'namaAset',
 };

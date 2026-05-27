@@ -154,7 +154,7 @@ export const EmptyState: Story = {
     expect(input).toBeVisible();
     expect(input).toHaveValue('');
 
-    const addButton = canvas.queryByText('Add URL');
+    const addButton = canvas.queryByText('Tambah URL');
     expect(addButton).not.toBeInTheDocument();
   },
 };
@@ -173,7 +173,7 @@ export const PrimaryLinkOnly: Story = {
     const primaryLink = await canvas.findByText('Bades.id Website');
     expect(primaryLink).toBeVisible();
 
-    const addButton = await canvas.findByText('Add URL');
+    const addButton = await canvas.findByText('Tambah URL');
     expect(addButton).toBeVisible();
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
@@ -213,7 +213,7 @@ export const WithSecondaryLinks: Story = {
     const githubLink = await canvas.findByText('GitHub');
     expect(githubLink).toBeVisible();
 
-    const addButton = await canvas.findByText('Add URL');
+    const addButton = await canvas.findByText('Tambah URL');
     expect(addButton).toBeVisible();
   },
 };
@@ -262,7 +262,7 @@ export const AddSecondaryLink: Story = {
 
     expect(getPrimaryLinkBookmarkIcon(canvasElement)).not.toBeInTheDocument();
 
-    const addButton = await canvas.findByText('Add URL');
+    const addButton = await canvas.findByText('Tambah URL');
     await userEvent.click(addButton);
 
     const input = await canvas.findByPlaceholderText('URL');

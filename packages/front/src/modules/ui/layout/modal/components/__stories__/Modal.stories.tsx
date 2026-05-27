@@ -59,14 +59,14 @@ export const Default: Story = {
     padding: 'medium',
     children: (
       <>
-        <ModalHeader>Stay in touch</ModalHeader>
+        <ModalHeader>Tetap Terhubung</ModalHeader>
         <ModalContent>
-          This is a dummy newletter form so don't bother trying to test it. Not
-          that I expect you to, anyways. :)
+          Ini adalah formulir newsletter sederhana, jadi jangan repot-repot
+          mengujinya. Bukan berarti saya berharap Anda akan melakukannya. :)
         </ModalContent>
         <ModalFooter>
           Dengan menggunakan Bades, Anda memilih pengalaman SID terbaik yang
-          ever encounter.
+          pernah ada.
         </ModalFooter>
       </>
     ),
@@ -82,9 +82,9 @@ export const CloseClosableModalOnClickOutside: Story = {
     onClose: closeMock,
     children: (
       <>
-        <ModalHeader>Click Outside Test</ModalHeader>
+        <ModalHeader>Tes Klik di Luar</ModalHeader>
         <ModalContent>
-          This modal should close when clicking outside of it.
+          Modal ini harus menutup saat mengeklik di luar area modal.
         </ModalContent>
       </>
     ),
@@ -92,7 +92,7 @@ export const CloseClosableModalOnClickOutside: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Click Outside Test');
+    await canvas.findByText('Tes Klik di Luar');
 
     const backdrop = await canvas.findByTestId('modal-backdrop');
     await sleep(100);
@@ -113,9 +113,9 @@ export const CloseClosableModalOnEscape: Story = {
     onClose: closeMock,
     children: (
       <>
-        <ModalHeader>Escape Key Test</ModalHeader>
+        <ModalHeader>Tes Tombol Escape</ModalHeader>
         <ModalContent>
-          This modal should close when pressing the Escape key.
+          Modal ini harus menutup saat menekan tombol Escape.
         </ModalContent>
       </>
     ),
@@ -123,7 +123,7 @@ export const CloseClosableModalOnEscape: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Escape Key Test');
+    await canvas.findByText('Tes Tombol Escape');
 
     await userEvent.keyboard('{Escape}');
 

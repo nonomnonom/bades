@@ -47,16 +47,16 @@ const createdAtField = getMockFieldMetadataItemOrThrow({
 const validatePageLayoutContent = async (canvasElement: HTMLElement) => {
   const canvas = within(canvasElement);
 
-  await expect(await canvas.findByText('Revenue')).toBeVisible();
-  await expect(await canvas.findByText('Goal Progress')).toBeVisible();
-  await expect(await canvas.findByText('Revenue Sources')).toBeVisible();
-  await expect(await canvas.findByText('Quarterly Comparison')).toBeVisible();
+  await expect(await canvas.findByText('Pendapatan')).toBeVisible();
+  await expect(await canvas.findByText('Kemajuan Tujuan')).toBeVisible();
+  await expect(await canvas.findByText('Sumber Pendapatan')).toBeVisible();
+  await expect(await canvas.findByText('Perbandingan Kuartalan')).toBeVisible();
 };
 
 const mixedGraphsPageLayoutMocks = {
   __typename: 'PageLayout',
-  id: 'mixed-graphs-layout',
-  name: 'Mixed Graph Dashboard',
+  id: 'dasbor-grafik-campuran',
+  name: 'Dasbor Grafik Campuran',
   type: PageLayoutType.DASHBOARD,
   objectMetadataId: mockDashboardObjectMetadataItem.id,
   createdAt: '2024-01-01T00:00:00Z',
@@ -67,7 +67,7 @@ const mixedGraphsPageLayoutMocks = {
       __typename: 'PageLayoutTab',
       isActive: true,
       id: 'mixed-tab',
-      title: 'Mixed Graphs',
+      title: 'Grafik Campuran',
       position: 0,
       pageLayoutId: 'mixed-graphs-layout',
       createdAt: '2024-01-01T00:00:00Z',
@@ -81,7 +81,7 @@ const mixedGraphsPageLayoutMocks = {
           id: 'number-widget',
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
-          title: 'Revenue',
+          title: 'Pendapatan',
           objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
@@ -107,7 +107,7 @@ const mixedGraphsPageLayoutMocks = {
           id: 'gauge-widget',
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
-          title: 'Goal Progress',
+          title: 'Kemajuan Tujuan',
           objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
@@ -134,7 +134,7 @@ const mixedGraphsPageLayoutMocks = {
           id: 'pie-widget',
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
-          title: 'Revenue Sources',
+          title: 'Sumber Pendapatan',
           objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
@@ -162,7 +162,7 @@ const mixedGraphsPageLayoutMocks = {
           id: 'bar-widget',
           pageLayoutTabId: 'mixed-tab',
           type: WidgetType.GRAPH,
-          title: 'Quarterly Comparison',
+          title: 'Perbandingan Kuartalan',
           objectMetadataId: mockPendudukObjectMetadataItem.id,
           gridPosition: {
             __typename: 'GridPosition',
@@ -201,7 +201,7 @@ const graphqlMocks: MockedResponse[] = [
     request: {
       query: FindOnePageLayoutDocument,
       variables: {
-        id: 'mixed-graphs-layout',
+        id: 'dasbor-grafik-campuran',
       },
     },
     result: {

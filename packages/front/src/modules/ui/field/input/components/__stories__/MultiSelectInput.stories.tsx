@@ -30,50 +30,50 @@ type RenderProps = {
 const sampleOptions: SelectOption[] = [
   {
     value: 'social-media',
-    label: 'Social Media',
+    label: 'Media Sosial',
     color: 'blue',
     Icon: IconTag,
   },
   {
     value: 'search-engine',
-    label: 'Search Engine',
+    label: 'Mesin Pencari',
     color: 'green',
     Icon: IconBrandGoogle,
   },
   {
     value: 'professional',
-    label: 'Professional Network',
+    label: 'Jaringan Profesional',
     color: 'purple',
     Icon: IconBrandLinkedin,
   },
-  { value: 'referral', label: 'Referral', color: 'orange', Icon: IconTag },
+  { value: 'referral', label: 'Rujukan', color: 'orange', Icon: IconTag },
   {
     value: 'advertising',
-    label: 'Advertising',
+    label: 'Periklanan',
     color: 'red',
     Icon: IconTarget,
   },
   {
     value: 'content',
-    label: 'Content Marketing',
+    label: 'Pemasaran Konten',
     color: 'yellow',
     Icon: IconCheck,
   },
-  { value: 'email', label: 'Email Campaign', color: 'pink', Icon: IconHeart },
+  { value: 'email', label: 'Kampanye Email', color: 'pink', Icon: IconHeart },
   {
     value: 'viral',
-    label: 'Viral Marketing',
+    label: 'Pemasaran Viral',
     color: 'turquoise',
     Icon: IconBolt,
   },
-  { value: 'growth', label: 'Growth Hacking', color: 'gray', Icon: IconRocket },
+  { value: 'growth', label: 'Pertumbuhan', color: 'gray', Icon: IconRocket },
 ];
 
 const priorityOptions: SelectOption[] = [
-  { value: 'low', label: 'Low Priority', color: 'green' },
-  { value: 'medium', label: 'Medium Priority', color: 'yellow' },
-  { value: 'high', label: 'High Priority', color: 'orange' },
-  { value: 'urgent', label: 'Urgent', color: 'red' },
+  { value: 'low', label: 'Rendah', color: 'green' },
+  { value: 'medium', label: 'Sedang', color: 'yellow' },
+  { value: 'high', label: 'Tinggi', color: 'orange' },
+  { value: 'urgent', label: 'Mendesak', color: 'red' },
 ];
 
 const instanceId = getRecordFieldInputInstanceId({
@@ -203,7 +203,7 @@ export const SingleSelection: Story = {
       expect(canvas.getByText(option.label)).toBeVisible();
     }
 
-    await userEvent.click(canvas.getByText('Professional Network'));
+    await userEvent.click(canvas.getByText('Jaringan Profesional'));
 
     await waitFor(() => {
       const checkboxes = canvas.queryAllByRole('checkbox', { checked: true });
@@ -236,18 +236,18 @@ export const LongLabels: Story = {
       {
         value: 'long-option-1',
         label:
-          'This is a very long option label that might overflow the container',
+          'Ini adalah label opsi yang sangat panjang dan mungkin akan melampaui batas kontainer',
         color: 'blue',
       },
       {
         value: 'long-option-2',
         label:
-          'Another extremely long option label to test text wrapping behavior',
+          'Label opsi lain yang sangat panjang untuk menguji perilaku pembungkusan teks',
         color: 'green',
       },
       {
         value: 'short',
-        label: 'Short',
+        label: 'Singkat',
         color: 'red',
       },
     ],
@@ -261,10 +261,10 @@ export const LongLabels: Story = {
 
     expect(
       canvas.getByText(
-        'This is a very long option label that might overflow the container',
+        'Ini adalah label opsi yang sangat panjang dan mungkin akan melampaui batas kontainer',
       ),
     ).toBeVisible();
-    expect(canvas.getByText('Short')).toBeVisible();
+    expect(canvas.getByText('Singkat')).toBeVisible();
   },
 };
 
@@ -281,11 +281,11 @@ export const SearchFiltering: Story = {
     await userEvent.type(searchInput, 'marketing');
 
     await waitFor(() => {
-      expect(canvas.getByText('Content Marketing')).toBeVisible();
-      expect(canvas.getByText('Viral Marketing')).toBeVisible();
+      expect(canvas.getByText('Pemasaran Konten')).toBeVisible();
+      expect(canvas.getByText('Pemasaran Viral')).toBeVisible();
     });
 
-    expect(canvas.queryByText('Social Media')).not.toBeInTheDocument();
+    expect(canvas.queryByText('Media Sosial')).not.toBeInTheDocument();
     expect(canvas.getAllByRole('checkbox')).toHaveLength(2);
   },
 };
@@ -327,7 +327,7 @@ export const KeyboardNavigation: Story = {
     await userEvent.keyboard('{ArrowDown}');
     await userEvent.keyboard('{ArrowDown}');
 
-    const secondOption = await canvas.findByText('Medium Priority');
+    const secondOption = await canvas.findByText('Sedang');
     expect(secondOption).toBeVisible();
 
     await userEvent.keyboard('{Enter}');

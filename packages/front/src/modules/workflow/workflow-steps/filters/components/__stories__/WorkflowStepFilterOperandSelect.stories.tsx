@@ -54,7 +54,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await expect(await canvas.findByText('Contains')).toBeVisible();
+    await expect(await canvas.findByText('Berisi')).toBeVisible();
   },
 };
 
@@ -66,7 +66,7 @@ export const WithGreaterThanOperand: Story = {
     const canvas = within(canvasElement);
 
     await expect(
-      await canvas.findByText('Greater than or equal'),
+      await canvas.findByText('Lebih dari atau sama dengan'),
     ).toBeVisible();
   },
 };

@@ -54,7 +54,7 @@ export const Breadcrumb: Story = {
           args={{
             indentationLevel: 2,
             subItemState: 'intermediate-before-selected',
-            label: 'First not selected',
+            label: 'Awal tidak dipilih',
             Icon: IconSearch,
           }}
         />
@@ -62,7 +62,7 @@ export const Breadcrumb: Story = {
           args={{
             indentationLevel: 2,
             subItemState: 'intermediate-before-selected',
-            label: 'Before selected',
+            label: 'Sebelum dipilih',
             Icon: IconSearch,
           }}
         />
@@ -70,7 +70,7 @@ export const Breadcrumb: Story = {
           args={{
             indentationLevel: 2,
             subItemState: 'intermediate-selected',
-            label: 'Selected',
+            label: 'Dipilih',
             Icon: IconSearch,
           }}
         />
@@ -78,7 +78,7 @@ export const Breadcrumb: Story = {
           args={{
             indentationLevel: 2,
             subItemState: 'intermediate-after-selected',
-            label: 'After selected',
+            label: 'Setelah dipilih',
             Icon: IconSearch,
           }}
         />
@@ -86,7 +86,7 @@ export const Breadcrumb: Story = {
           args={{
             indentationLevel: 2,
             subItemState: 'last-not-selected',
-            label: 'Last not selected',
+            label: 'Terakhir tidak dipilih',
             Icon: IconSearch,
           }}
         />
@@ -100,17 +100,17 @@ export const NewPill: Story = {
   decorators: [
     (Story) => (
       <StyledContainer>
-        <h1>New Pill Examples</h1>
+        <h1>Contoh Label Baru</h1>
         <Story
           args={{
-            label: 'New Feature',
+            label: 'Fitur Baru',
             Icon: IconSearch,
             modifier: 'new',
           }}
         />
         <Story
           args={{
-            label: 'Feature with Keyboard Shortcut',
+            label: 'Fitur dengan Pintasan Papan Ketik',
             Icon: IconSearch,
             modifier: { keyboard: [getOsControlSymbol(), 'N'] },
           }}
@@ -144,23 +144,23 @@ export const BreadcrumbCatalog: CatalogStory<
         {
           name: 'subItemState',
           values: [
-            'Intermediate before selected',
-            'Intermediate selected',
-            'Intermediate after selected',
-            'Last not selected',
-            'Last selected',
+            'Sebelum dipilih',
+            'Intermediate dipilih',
+            'Setelah dipilih',
+            'Terakhir tidak dipilih',
+            'Terakhir dipilih',
           ],
           props: (state: string) => {
             switch (state) {
-              case 'Intermediate before selected':
+              case 'Sebelum dipilih':
                 return { subItemState: 'intermediate-before-selected' };
-              case 'Intermediate selected':
+              case 'Intermediate dipilih':
                 return { subItemState: 'intermediate-selected' };
-              case 'Intermediate after selected':
+              case 'Setelah dipilih':
                 return { subItemState: 'intermediate-after-selected' };
-              case 'Last not selected':
+              case 'Terakhir tidak dipilih':
                 return { subItemState: 'last-not-selected' };
-              case 'Last selected':
+              case 'Terakhir dipilih':
                 return { subItemState: 'last-selected' };
               default:
                 throw new Error(`Unknown state: ${state}`);
@@ -190,7 +190,7 @@ export const Catalog: CatalogStory<Story, typeof NavigationDrawerItem> = {
           name: 'active',
           values: [true, false],
           props: (active: boolean) => ({ active }),
-          labels: (active: boolean) => (active ? 'Active' : 'Inactive'),
+          labels: (active: boolean) => (active ? 'Aktif' : 'Tidak Aktif'),
         },
         {
           name: 'states',
@@ -201,7 +201,7 @@ export const Catalog: CatalogStory<Story, typeof NavigationDrawerItem> = {
         },
         {
           name: 'adornments',
-          values: ['Without Modifier', 'Soon', 'New', 'Keyboard Keys'],
+          values: ['Tanpa Modifikasi', 'Segera', 'Baru', 'Tombol Papan Ketik'],
           props: (adornmentName: string) =>
             adornmentName === 'Soon'
               ? { modifier: 'soon' }

@@ -26,13 +26,13 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: 'Number',
+    label: 'Angka',
     placeholder: 'Number field...',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Number');
+    await canvas.findByText('Angka');
     await canvas.findByPlaceholderText('Number field...');
   },
 };
@@ -72,12 +72,12 @@ export const Disabled: Story = {
 
 export const WithError: Story = {
   args: {
-    error: 'Invalid number',
+    error: 'Nomor tidak valid',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const error = await canvas.findByText('Invalid number');
+    const error = await canvas.findByText('Nomor tidak valid');
 
     expect(error).toBeVisible();
   },

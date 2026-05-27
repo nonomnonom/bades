@@ -27,6 +27,7 @@ export const SURAT_KELUAR_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'nomorSurat',
     icon: 'IconHash',
     description: 'Nomor surat resmi yang dikeluarkan desa (unik)',
+    isUnique: true,
   },
   {
     type: FieldMetadataType.DATE,
@@ -54,12 +55,25 @@ export const SURAT_KELUAR_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Klasifikasi',
     name: 'klasifikasi',
     icon: 'IconFlag',
-    description: 'Tingkat kepentingan surat',
+    description: 'Tingkat kepentingan surat (Permendagri 47/2016)',
     options: [
       { label: 'Biasa', value: 'BIASA', position: 0, color: 'gray' },
       { label: 'Segera', value: 'SEGERA', position: 1, color: 'orange' },
       { label: 'Rahasia', value: 'RAHASIA', position: 2, color: 'red' },
+      {
+        label: 'Sangat Rahasia',
+        value: 'SANGAT_RAHASIA',
+        position: 3,
+        color: 'pink',
+      },
     ],
+  },
+  {
+    type: FieldMetadataType.LINKS,
+    label: 'File Lampiran',
+    name: 'fileLampiran',
+    icon: 'IconPaperclip',
+    description: 'Tautan file lampiran surat',
   },
   {
     type: FieldMetadataType.TEXT,

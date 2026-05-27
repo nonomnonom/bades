@@ -324,9 +324,9 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
     context: {
       fieldName: 'contactAutoCreationPolicy',
       type: FieldMetadataType.SELECT,
-      label: i18nLabel(msg`Contact auto creation policy`),
+      label: i18nLabel(msg`Kebijakan pembuatan kontak otomatis`),
       description: i18nLabel(
-        msg`Automatically create People records when receiving or sending emails`,
+        msg`Buat rekam kontak secara otomatis saat menerima atau mengirim email`,
       ),
       icon: 'IconUserCircle',
       isNullable: false,
@@ -336,21 +336,21 @@ export const buildMessageChannelStandardFlatFieldMetadatas = ({
         {
           id: '20202020-1923-4ffd-907d-be8cc37ecee5',
           value: 'SENT_AND_RECEIVED',
-          label: i18nLabel(msg`Sent and Received`),
+          label: i18nLabel(msg`Terkirim dan Diterima`),
           position: 0,
           color: 'green',
         },
         {
           id: '20202020-8f6a-44d8-bdbb-90cf8b919467',
           value: 'SENT',
-          label: i18nLabel(msg`Sent`),
+          label: i18nLabel(msg`Terkirim`),
           position: 1,
           color: 'blue',
         },
         {
           id: '20202020-b43e-4bc4-840e-d903a69e2ffc',
           value: 'NONE',
-          label: i18nLabel(msg`None`),
+          label: i18nLabel(msg`Tidak Ada`),
           position: 2,
           color: 'red',
         },

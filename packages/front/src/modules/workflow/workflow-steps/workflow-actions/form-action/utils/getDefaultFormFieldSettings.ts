@@ -9,29 +9,29 @@ export const getDefaultFormFieldSettings = (type: WorkflowFormFieldType) => {
       return {
         id: v4(),
         name: 'text',
-        label: 'Text',
-        placeholder: 'Enter your text',
+        label: 'Teks',
+        placeholder: 'Masukkan teks',
       };
     case FieldMetadataType.NUMBER:
       return {
         id: v4(),
         name: 'number',
-        label: 'Number',
+        label: 'Nomor',
         placeholder: '1000',
       };
     case FieldMetadataType.DATE:
       return {
         id: v4(),
         name: 'date',
-        label: 'Date',
-        placeholder: 'mm/dd/yyyy',
+        label: 'Tanggal',
+        placeholder: 'dd/mm/yyyy',
       };
     case 'RECORD':
       return {
         id: v4(),
         name: 'record',
-        label: 'Record',
-        placeholder: `Pilih Keluarga`,
+        label: 'Rekaman',
+        placeholder: 'Pilih Keluarga',
         settings: {
           objectName: 'keluarga',
         },
@@ -40,8 +40,8 @@ export const getDefaultFormFieldSettings = (type: WorkflowFormFieldType) => {
       return {
         id: v4(),
         name: 'select',
-        label: 'Select',
-        placeholder: 'Choose a value',
+        label: 'Pilih',
+        placeholder: 'Pilih nilai',
         settings: {
           selectType: 'EXISTING_FIELD',
           selectedFieldId: undefined,
@@ -51,8 +51,8 @@ export const getDefaultFormFieldSettings = (type: WorkflowFormFieldType) => {
       return {
         id: v4(),
         name: 'multiSelect',
-        label: 'Multi-Select',
-        placeholder: 'Choose values',
+        label: 'Multi-Pilih',
+        placeholder: 'Pilih beberapa nilai',
         settings: {
           selectType: 'EXISTING_FIELD',
           selectedFieldId: undefined,

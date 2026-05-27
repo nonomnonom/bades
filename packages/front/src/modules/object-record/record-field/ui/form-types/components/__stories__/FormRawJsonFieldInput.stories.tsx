@@ -19,20 +19,20 @@ type Story = StoryObj<typeof FormRawJsonFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'JSON field',
-    placeholder: 'Enter valid json',
+    label: 'Kolom JSON',
+    placeholder: 'Masukkan JSON yang valid',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('JSON field');
+    await canvas.findByText('Kolom JSON');
   },
 };
 
 export const Readonly: Story = {
   args: {
-    label: 'JSON field',
-    placeholder: 'Enter valid json',
+    label: 'Kolom JSON',
+    placeholder: 'Masukkan JSON yang valid',
     readonly: true,
     onChange: fn(),
     VariablePicker: ({ onVariableSelect }) => {
@@ -70,14 +70,14 @@ export const Readonly: Story = {
 
     expect(args.onChange).not.toHaveBeenCalled();
 
-    const addVariableButton = canvas.queryByText('Add variable');
+    const addVariableButton = canvas.queryByText('Tambah variabel');
     expect(addVariableButton).not.toBeInTheDocument();
   },
 };
 
 export const SaveValidJson: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -101,7 +101,7 @@ export const SaveValidJson: Story = {
 
 export const SaveValidMultilineJson: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -130,7 +130,7 @@ export const SaveValidMultilineJson: Story = {
 
 export const MultilineWithDefaultValue: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     defaultValue: '{\n  "a": {\n    "b" : "d"\n  }\n}',
   },
   play: async ({ canvasElement }) => {
@@ -150,7 +150,7 @@ export const MultilineWithDefaultValue: Story = {
 
 export const DoesNotIgnoreInvalidJson: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -174,7 +174,7 @@ export const DoesNotIgnoreInvalidJson: Story = {
 
 export const DisplayDefaultValueWithVariablesProperly: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     defaultValue: `{ "a": { "b" :  {{${MOCKED_STEP_ID}.name}} } }`,
     onChange: fn(),
   },
@@ -183,7 +183,7 @@ export const DisplayDefaultValueWithVariablesProperly: Story = {
 
     await canvas.findByText(/{ "a": { "b" : /);
 
-    const variableTag = await canvas.findByText('Name');
+    const variableTag = await canvas.findByText('Nama');
     await expect(variableTag).toBeVisible();
 
     await canvas.findByText(/ } }/);
@@ -192,7 +192,7 @@ export const DisplayDefaultValueWithVariablesProperly: Story = {
 
 export const InsertVariableInTheMiddleOnTextInput: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     VariablePicker: ({ onVariableSelect }) => {
       return (
         <button
@@ -220,7 +220,7 @@ export const InsertVariableInTheMiddleOnTextInput: Story = {
     }
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.type(editor, '{{ "a": {{ "b" : ');
@@ -241,7 +241,7 @@ export const InsertVariableInTheMiddleOnTextInput: Story = {
 
 export const CanUseVariableAsObjectProperty: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     VariablePicker: ({ onVariableSelect }) => {
       return (
         <button
@@ -269,7 +269,7 @@ export const CanUseVariableAsObjectProperty: Story = {
     }
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.type(editor, '{{ "');
@@ -286,7 +286,7 @@ export const CanUseVariableAsObjectProperty: Story = {
 
 export const ClearField: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     defaultValue: '{ "a": 2 }',
     onChange: fn(),
   },
@@ -319,7 +319,7 @@ export const ClearField: Story = {
  */
 export const DoesNotBreakWhenUserInsertsNewlineInJsonString: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -343,7 +343,7 @@ export const DoesNotBreakWhenUserInsertsNewlineInJsonString: Story = {
 
 export const AcceptsJsonEncodedNewline: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
@@ -367,7 +367,7 @@ export const AcceptsJsonEncodedNewline: Story = {
 
 export const HasHistory: Story = {
   args: {
-    placeholder: 'Enter valid json',
+    placeholder: 'Masukkan JSON yang valid',
     VariablePicker: ({ onVariableSelect }) => {
       return (
         <button
@@ -397,7 +397,7 @@ export const HasHistory: Story = {
     }
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.type(editor, '{{ "a": ');

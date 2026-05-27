@@ -38,7 +38,7 @@ export const Default: Story = {
 
     expect(
       buttons.findIndex((button) =>
-        button.outerHTML.includes('View billing details'),
+        button.outerHTML.includes('Lihat detail tagihan'),
       ),
     ).toBeGreaterThan(-1);
   },

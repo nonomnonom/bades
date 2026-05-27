@@ -78,12 +78,12 @@ export const WithVariable: Story = {
     await userEvent.click(editor);
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.click(addVariableButton);
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
     expect(variable).toBeVisible();
 
     await waitFor(() => {
@@ -118,11 +118,11 @@ export const WithDeletableVariable: Story = {
       return editor;
     });
 
-    const variable = await canvas.findByText('Name');
+    const variable = await canvas.findByText('Nama');
     expect(variable).toBeVisible();
 
     const deleteVariableButton = await canvas.findByRole('button', {
-      name: 'Remove variable',
+      name: 'Tambah variabel',
     });
 
     await Promise.all([
@@ -245,7 +245,7 @@ export const HasHistory: Story = {
     }
 
     const addVariableButton = await canvas.findByRole('button', {
-      name: 'Add variable',
+      name: 'Tambah variabel',
     });
 
     await userEvent.type(editor, 'Hello World ');

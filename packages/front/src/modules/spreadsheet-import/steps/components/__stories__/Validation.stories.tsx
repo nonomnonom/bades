@@ -14,7 +14,7 @@ import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { Provider as JotaiProvider } from 'jotai';
 
 const meta: Meta<typeof ValidationStep> = {
-  title: 'Modules/SpreadsheetImport/ValidationStep',
+  title: 'Modules/SpreadsheetImport/ValidasiStep',
   component: ValidationStep,
   parameters: {
     layout: 'fullscreen',
@@ -38,7 +38,7 @@ const meta: Meta<typeof ValidationStep> = {
 
 export default meta;
 
-const file = new File([''], 'file.csv');
+const berkas = new File([''], 'berkas.csv');
 
 export const Default = () => (
   <DialogComponentInstanceContext.Provider
@@ -51,7 +51,7 @@ export const Default = () => (
       >
         <ValidationStep
           initialData={editableTableInitialData}
-          file={file}
+          file={berkas}
           importedColumns={importedColums}
           onBack={() => Promise.resolve()}
           setCurrentStepState={() => null}

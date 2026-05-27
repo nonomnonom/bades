@@ -52,7 +52,7 @@ const AddressInputWithContext = ({
 
   const instanceId = getRecordFieldInputInstanceId({
     recordId: recordId ?? '',
-    fieldName: 'Address',
+    fieldName: 'Alamat',
     prefix: RECORD_TABLE_CELL_INPUT_ID_PREFIX,
   });
 
@@ -77,12 +77,12 @@ const AddressInputWithContext = ({
           value={{
             fieldDefinition: {
               fieldMetadataId: 'text',
-              label: 'Address',
+              label: 'Alamat',
               type: FieldMetadataType.ADDRESS,
               iconName: 'IconTag',
               metadata: {
-                fieldName: 'Address',
-                placeHolder: 'Enter text',
+                fieldName: 'Alamat',
+                placeHolder: 'Masukkan teks',
                 objectMetadataNameSingular: 'penduduk',
               },
             },

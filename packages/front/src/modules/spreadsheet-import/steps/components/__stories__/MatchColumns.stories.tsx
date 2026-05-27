@@ -9,7 +9,7 @@ import { DialogComponentInstanceContext } from '@/ui/feedback/dialog-manager/con
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
 
 const meta: Meta<typeof MatchColumnsStep> = {
-  title: 'Modules/SpreadsheetImport/MatchColumnsStep',
+  title: 'Modules/SpreadsheetImport/SamakanKolomStep',
   component: MatchColumnsStep,
   parameters: {
     layout: 'fullscreen',

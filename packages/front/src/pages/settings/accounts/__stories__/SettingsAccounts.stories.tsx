@@ -30,7 +30,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Connected accounts', undefined, {
+    await canvas.findByText('Akun terhubung', undefined, {
       timeout: 3000,
     });
   },

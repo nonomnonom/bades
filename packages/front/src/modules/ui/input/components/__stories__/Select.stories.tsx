@@ -27,9 +27,9 @@ const meta: Meta<typeof Select> = {
     dropdownId: 'select',
     value: 'a',
     options: [
-      { value: 'a', label: 'Option A' },
-      { value: 'b', label: 'Option B' },
-      { value: 'c', label: 'Option C' },
+      { value: 'a', label: 'Opsi A' },
+      { value: 'b', label: 'Opsi B' },
+      { value: 'c', label: 'Opsi C' },
     ],
   },
   render: Render,
@@ -44,7 +44,7 @@ export const Open: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const selectLabel = await canvas.getByText('Option A');
+    const selectLabel = await canvas.getByText('Opsi A');
 
     await userEvent.click(selectLabel);
   },
@@ -63,29 +63,29 @@ export const CallToActionButton: Story = {
     callToActionButton: {
       onClick: () => {},
       Icon: IconPlus,
-      text: 'Add action',
+      text: 'Tambah aksi',
     },
   },
 };
 
 export const WithLabel: Story = {
   args: {
-    label: 'Test label',
+    label: 'Label uji',
   },
 };
 
 export const WithDescription: Story = {
   args: {
-    description: 'Test description',
+    description: 'Deskripsi uji',
   },
 };
 
 export const WithNullOption: Story = {
   args: {
     options: [
-      { value: 'a', label: 'Option A' },
-      { value: 'b', label: 'Option B' },
-      { value: null, label: 'Option C' },
+      { value: 'a', label: 'Opsi A' },
+      { value: 'b', label: 'Opsi B' },
+      { value: null, label: 'Opsi C' },
     ],
   },
 };

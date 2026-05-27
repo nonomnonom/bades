@@ -184,6 +184,24 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'NIK Ibu Kandung',
   },
   {
+    type: FieldMetadataType.PHONES,
+    label: 'Nomor HP',
+    name: 'noHp',
+    description: 'Nomor telepon genggam penduduk',
+  },
+  {
+    type: FieldMetadataType.EMAILS,
+    label: 'Email',
+    name: 'email',
+    description: 'Alamat email penduduk',
+  },
+  {
+    type: FieldMetadataType.DATE,
+    label: 'Tanggal Meninggal',
+    name: 'tanggalMeninggal',
+    description: 'Tanggal meninggal dunia (diisi jika statusHidup = Meninggal)',
+  },
+  {
     type: FieldMetadataType.LINKS,
     label: 'Foto',
     name: 'foto',

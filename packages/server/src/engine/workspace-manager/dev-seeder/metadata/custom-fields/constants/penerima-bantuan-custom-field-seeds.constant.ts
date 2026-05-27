@@ -15,10 +15,10 @@ export const PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Nomor Induk Kependudukan',
   },
   {
-    type: FieldMetadataType.TEXT,
+    type: FieldMetadataType.ADDRESS,
     label: 'Alamat',
     name: 'alamat',
-    description: 'Alamat penerima',
+    description: 'Alamat lengkap penerima bantuan',
   },
   {
     type: FieldMetadataType.SELECT,

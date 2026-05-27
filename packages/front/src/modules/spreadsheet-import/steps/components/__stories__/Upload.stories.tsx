@@ -14,7 +14,7 @@ import { ObjectMetadataItemsDecorator } from '~/testing/decorators/ObjectMetadat
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
 
 const meta: Meta<typeof UploadStep> = {
-  title: 'Modules/SpreadsheetImport/UploadStep',
+  title: 'Modules/SpreadsheetImport/UnggahStep',
   component: UploadStep,
   parameters: {
     layout: 'fullscreen',

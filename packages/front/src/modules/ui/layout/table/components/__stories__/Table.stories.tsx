@@ -23,23 +23,23 @@ export const Default: Story = {
   render: () => (
     <Table>
       <TableRow>
-        <TableHeader>Header 1</TableHeader>
-        <TableHeader>Header 2</TableHeader>
-        <TableHeader align="right">Numbers</TableHeader>
+        <TableHeader>Judul 1</TableHeader>
+        <TableHeader>Judul 2</TableHeader>
+        <TableHeader align="right">Angka</TableHeader>
       </TableRow>
-      <TableSection title="Section 1">
+      <TableSection title="Bagian 1">
         <TableRow>
-          <TableCell>Cell 1</TableCell>
-          <TableCell>Cell 2</TableCell>
+          <TableCell>Sel 1</TableCell>
+          <TableCell>Sel 2</TableCell>
           <TableCell align="right">3</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>Cell 4</TableCell>
-          <TableCell>Cell 5</TableCell>
+          <TableCell>Sel 4</TableCell>
+          <TableCell>Sel 5</TableCell>
           <TableCell align="right">6</TableCell>
         </TableRow>
       </TableSection>
-      <TableSection title="Section 2">
+      <TableSection title="Bagian 2">
         <TableRow>
           <TableCell>Lorem ipsum dolor sit amet</TableCell>
           <TableCell>Lorem ipsum</TableCell>

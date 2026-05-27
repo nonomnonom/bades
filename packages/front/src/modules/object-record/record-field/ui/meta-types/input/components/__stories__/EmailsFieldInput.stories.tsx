@@ -116,7 +116,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Add Email');
+    const addButton = await canvas.findByText('Tambah Email');
     await userEvent.click(addButton);
 
     const input = await canvas.findByPlaceholderText('Email');
@@ -137,7 +137,7 @@ export const TrimInput: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Add Email');
+    const addButton = await canvas.findByText('Tambah Email');
     await userEvent.click(addButton);
 
     const input = await canvas.findByPlaceholderText('Email');

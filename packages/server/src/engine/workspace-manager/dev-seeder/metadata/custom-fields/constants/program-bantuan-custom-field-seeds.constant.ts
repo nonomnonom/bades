@@ -76,6 +76,12 @@ export const PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     ],
   },
   {
+    type: FieldMetadataType.CURRENCY,
+    label: 'Total Anggaran',
+    name: 'totalAnggaran',
+    description: 'Total anggaran program (Rupiah)',
+  },
+  {
     type: FieldMetadataType.TEXT,
     label: 'Keterangan',
     name: 'keterangan',

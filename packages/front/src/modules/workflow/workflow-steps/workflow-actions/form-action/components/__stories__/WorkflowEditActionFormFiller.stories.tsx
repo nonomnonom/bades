@@ -34,32 +34,32 @@ type Story = StoryObj<typeof WorkflowEditActionFormFiller>;
 const mockAction: WorkflowFormAction = {
   id: 'form-action-1',
   type: 'FORM',
-  name: 'Test Form',
+  name: 'Formulir Uji',
   valid: true,
   settings: {
     input: [
       {
         id: 'field-1',
         name: 'text',
-        label: 'Text Field',
+        label: 'Kolom Teks',
         type: FieldMetadataType.TEXT,
-        placeholder: 'Enter text',
+        placeholder: 'Masukkan teks',
         settings: {},
       },
       {
         id: 'field-2',
         name: 'number',
-        label: 'Number Field',
+        label: 'Kolom Nomor',
         type: FieldMetadataType.NUMBER,
-        placeholder: 'Enter number',
+        placeholder: 'Masukkan nomor',
         settings: {},
       },
       {
         id: 'field-3',
         name: 'record',
-        label: 'Record',
+        label: 'Rekaman',
         type: 'RECORD',
-        placeholder: 'Select a record',
+        placeholder: 'Pilih rekaman',
         settings: {
           objectName: 'keluarga',
         },
@@ -67,9 +67,9 @@ const mockAction: WorkflowFormAction = {
       {
         id: 'field-4',
         name: 'date',
-        label: 'Date',
+        label: 'Tanggal',
         type: FieldMetadataType.DATE,
-        placeholder: 'mm/dd/yyyy',
+        placeholder: 'dd/mm/yyyy',
         settings: {},
       },
     ],
@@ -91,16 +91,16 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const textField = await canvas.findByText('Text Field');
+    const textField = await canvas.findByText('Kolom Teks');
     expect(textField).toBeVisible();
 
-    const numberField = await canvas.findByText('Number Field');
+    const numberField = await canvas.findByText('Kolom Nomor');
     expect(numberField).toBeVisible();
 
-    const recordField = await canvas.findByText('Record');
+    const recordField = await canvas.findByText('Rekaman');
     expect(recordField).toBeVisible();
 
-    const dateField = await canvas.findByText('Date');
+    const dateField = await canvas.findByText('Tanggal');
     expect(dateField).toBeVisible();
   },
 };
@@ -115,13 +115,13 @@ export const ReadonlyMode: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const textField = await canvas.findByText('Text Field');
+    const textField = await canvas.findByText('Kolom Teks');
     expect(textField).toBeVisible();
 
-    const numberInput = await canvas.findByPlaceholderText('Enter number');
+    const numberInput = await canvas.findByPlaceholderText('Masukkan nomor');
     expect(numberInput).toBeDisabled();
 
-    const submitButton = canvas.queryByText('Submit');
+    const submitButton = canvas.queryByText('Kirim');
     expect(submitButton).not.toBeInTheDocument();
   },
 };

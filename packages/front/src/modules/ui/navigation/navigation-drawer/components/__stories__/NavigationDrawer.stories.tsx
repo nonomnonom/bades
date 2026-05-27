@@ -123,7 +123,7 @@ export const Default: Story = {
 
 export const Settings: Story = {
   args: {
-    title: 'Settings',
+    title: 'Pengaturan',
     children: (
       <>
         <NavigationDrawerSection>

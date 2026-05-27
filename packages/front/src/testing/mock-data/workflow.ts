@@ -86,7 +86,7 @@ export const workflowQueryResult = {
                             name: {
                               icon: 'IconTargetArrow',
                               type: 'TEXT',
-                              label: 'Name',
+                              label: 'Nama',
                               value: 'My text',
                               isLeaf: true,
                             },
@@ -245,7 +245,7 @@ export const workflowQueryResult = {
                             },
                             phone: {
                               isLeaf: false,
-                              label: 'Phone',
+                              label: 'Telepon',
                               value: {
                                 countryCode: {
                                   isLeaf: true,
@@ -317,7 +317,7 @@ export const workflowQueryResult = {
                                   name: {
                                     icon: 'IconBuildingSkyscraper',
                                     type: 'TEXT',
-                                    label: 'Name',
+                                    label: 'Nama',
                                     value: 'My text',
                                     isLeaf: true,
                                   },
@@ -348,7 +348,7 @@ export const workflowQueryResult = {
                                   },
                                   address: {
                                     icon: 'IconMap',
-                                    label: 'Address',
+                                    label: 'Alamat',
                                     value: {
                                       addressLat: {
                                         type: 'NUMERIC',
@@ -611,7 +611,7 @@ export const workflowQueryResult = {
                                   icon: 'IconBuildingSkyscraper',
                                   name: 'name',
                                   type: 'TEXT',
-                                  label: 'Name',
+                                  label: 'Nama',
                                   options: null,
                                   isActive: true,
                                   isCustom: false,
@@ -791,7 +791,7 @@ export const workflowQueryResult = {
                                   icon: 'IconMap',
                                   name: 'address',
                                   type: 'ADDRESS',
-                                  label: 'Address',
+                                  label: 'Alamat',
                                   options: null,
                                   isActive: true,
                                   isCustom: false,

@@ -17,7 +17,7 @@ type Story = StoryObj<typeof FormLinksFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'Domain Name',
+    label: 'Nama Domain',
     defaultValue: {
       primaryLinkLabel: 'Google',
       primaryLinkUrl: 'https://www.google.com',
@@ -26,15 +26,15 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Domain Name');
-    await canvas.findByText('Primary Link Label');
+    await canvas.findByText('Nama Domain');
+    await canvas.findByText('Label Tautan Utama');
     await canvas.findByText('Google');
   },
 };
 
 export const WithVariables: Story = {
   args: {
-    label: 'Domain Name',
+    label: 'Nama Domain',
     defaultValue: {
       primaryLinkLabel: '{{04d5f3bf-9714-400d-ba27-644006a5fb1b.name}}',
       primaryLinkUrl: '{{04d5f3bf-9714-400d-ba27-644006a5fb1b.stage}}',
@@ -44,7 +44,7 @@ export const WithVariables: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const primaryLinkLabelVariable = await canvas.findByText('Name');
+    const primaryLinkLabelVariable = await canvas.findByText('Nama');
     expect(primaryLinkLabelVariable).toBeVisible();
 
     const primaryLinkUrlVariable = await canvas.findByText('Stage');
@@ -61,7 +61,7 @@ export const WithVariables: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Domain Name',
+    label: 'Nama Domain',
     readonly: true,
     onChange: fn(),
     VariablePicker: () => <div>VariablePicker</div>,

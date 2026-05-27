@@ -49,7 +49,7 @@ const BooleanFieldInputWithContext = ({
       value={{
         instanceId: getRecordFieldInputInstanceId({
           recordId: recordId ?? '',
-          fieldName: 'Boolean',
+          fieldName: 'Boole',
           prefix: RECORD_TABLE_CELL_INPUT_ID_PREFIX,
         }),
       }}
@@ -59,11 +59,11 @@ const BooleanFieldInputWithContext = ({
           fieldDefinition: {
             defaultValue: false,
             fieldMetadataId: 'boolean',
-            label: 'Boolean',
+            label: 'Boole',
             iconName: 'Icon123',
             type: FieldMetadataType.BOOLEAN,
             metadata: {
-              fieldName: 'Boolean',
+              fieldName: 'Boole',
               objectMetadataNameSingular: 'penduduk',
             },
           },
@@ -114,13 +114,13 @@ export const Toggle: Story = {
 
     await userEvent.click(input);
 
-    await expect(input).toHaveTextContent('False');
+    await expect(input).toHaveTextContent('Salah');
 
     await expect(handleSubmitMocked).toHaveBeenCalledTimes(1);
 
     await userEvent.click(input);
 
-    await expect(input).toHaveTextContent('True');
+    await expect(input).toHaveTextContent('Benar');
 
     await expect(handleSubmitMocked).toHaveBeenCalledTimes(2);
   },

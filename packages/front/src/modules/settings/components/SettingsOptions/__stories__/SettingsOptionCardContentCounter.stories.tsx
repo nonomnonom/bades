@@ -46,8 +46,8 @@ type Story = StoryObj<typeof SettingsOptionCardContentCounterWrapper>;
 export const Default: Story = {
   args: {
     Icon: IconUsers,
-    title: 'Team Members',
-    description: 'Set the maximum number of team members',
+    title: 'Anggota Tim',
+    description: 'Tetapkan jumlah maksimum anggota tim',
     value: 5,
     minValue: 1,
     maxValue: 10,
@@ -61,8 +61,8 @@ export const Default: Story = {
 
 export const WithoutIcon: Story = {
   args: {
-    title: 'Items Per Page',
-    description: 'Configure the number of items shown per page',
+    title: 'Item per Halaman',
+    description: 'Konfigurasi jumlah item yang ditampilkan per halaman',
     value: 20,
     minValue: 10,
     maxValue: 50,
@@ -73,8 +73,8 @@ export const WithoutIcon: Story = {
 export const Disabled: Story = {
   args: {
     Icon: IconUsers,
-    title: 'Disabled Counter',
-    description: 'This counter is currently disabled',
+    title: 'Penghitung Nonaktif',
+    description: 'Penghitung ini saat ini tidak aktif',
     value: 3,
     disabled: true,
     minValue: 1,
@@ -86,8 +86,8 @@ export const Disabled: Story = {
 export const WithoutButtons: Story = {
   args: {
     Icon: IconUsers,
-    title: 'Trash Retention',
-    description: 'Adjust the number of days before deletion',
+    title: 'Retensi Sampah',
+    description: 'Sesuaikan jumlah hari sebelum penghapusan',
     value: 14,
     minValue: 0,
     showButtons: false,

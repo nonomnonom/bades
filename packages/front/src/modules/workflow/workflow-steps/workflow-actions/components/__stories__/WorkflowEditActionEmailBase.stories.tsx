@@ -165,7 +165,7 @@ export const Default: Story = {
     expect(await canvas.findByText('To')).toBeVisible();
     expect(await canvas.findByText('Subject')).toBeVisible();
     expect(await canvas.findByText('Body')).toBeVisible();
-    expect(await canvas.findByText('Advanced options')).toBeVisible();
+    expect(await canvas.findByText('Opsi lanjutan')).toBeVisible();
   },
 };
 
@@ -204,6 +204,6 @@ export const DraftEmail: Story = {
     expect(await canvas.findByText('To')).toBeVisible();
     expect(await canvas.findByText('Subject')).toBeVisible();
     expect(await canvas.findByText('Body')).toBeVisible();
-    expect(await canvas.findByText('Advanced options')).toBeVisible();
+    expect(await canvas.findByText('Opsi lanjutan')).toBeVisible();
   },
 };

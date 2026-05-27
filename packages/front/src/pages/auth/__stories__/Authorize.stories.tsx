@@ -98,7 +98,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.findByText('Connect ChatGPT to your account', undefined, {
+    await canvas.findByText('Hubungkan ChatGPT ke akun Anda', undefined, {
       timeout: 5000,
     });
   },
@@ -125,7 +125,7 @@ export const WithApiScopeOnly: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await canvas.findByText(
-      'Connect Internal Tool to your account',
+      'Hubungkan Internal Tool ke akun Anda',
       undefined,
       { timeout: 5000 },
     );
@@ -153,7 +153,7 @@ export const WithLongAppName: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await canvas.findByText(
-      'Connect Custom Workspace Automation Suite to your account',
+      'Hubungkan Custom Workspace Automation Suite ke akun Anda',
       undefined,
       { timeout: 5000 },
     );

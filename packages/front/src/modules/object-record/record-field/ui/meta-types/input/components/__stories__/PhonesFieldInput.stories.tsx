@@ -121,10 +121,10 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Add Phone');
+    const addButton = await canvas.findByText('Tambah Telepon');
     await userEvent.click(addButton);
 
-    const input = await canvas.findByPlaceholderText('Phone');
+    const input = await canvas.findByPlaceholderText('Telepon');
     await userEvent.type(input, '+33642646274{enter}');
 
     const newPhoneElement = await canvas.findByText('+33 6 42 64 62 74');
@@ -150,10 +150,10 @@ export const TrimInput: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const addButton = await canvas.findByText('Add Phone');
+    const addButton = await canvas.findByText('Tambah Telepon');
     await userEvent.click(addButton);
 
-    const input = await canvas.findByPlaceholderText('Phone');
+    const input = await canvas.findByPlaceholderText('Telepon');
     await userEvent.type(input, '+33642646274  {enter}');
 
     const newPhoneElement = await canvas.findByText('+33 6 42 64 62 74');

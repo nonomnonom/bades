@@ -43,7 +43,7 @@ export const Open: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     const dropdownButton = await canvas.findByRole('button', {
-      name: 'Inactive Object Options',
+      name: 'Pilihan Objek Nonaktif',
     });
 
     await userEvent.click(dropdownButton);
@@ -55,14 +55,14 @@ export const WithActivate: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     const dropdownButton = await canvas.findByRole('button', {
-      name: 'Inactive Object Options',
+      name: 'Pilihan Objek Nonaktif',
     });
 
     await userEvent.click(dropdownButton);
 
     await expect(handleActivateMockFunction).toHaveBeenCalledTimes(0);
 
-    const activateMenuItem = await canvas.findByText('Activate');
+    const activateMenuItem = await canvas.findByText('Aktifkan');
 
     await userEvent.click(activateMenuItem);
 
@@ -78,7 +78,7 @@ export const WithDelete: Story = {
     const canvas = within(canvasElement.ownerDocument.body);
 
     const dropdownButton = await canvas.findByRole('button', {
-      name: 'Inactive Object Options',
+      name: 'Pilihan Objek Nonaktif',
     });
 
     await userEvent.click(dropdownButton);

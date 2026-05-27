@@ -17,7 +17,7 @@ type Story = StoryObj<typeof FormAddressFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'Address',
+    label: 'Alamat',
     defaultValue: {
       addressStreet1: '123 Main St',
       addressStreet2: 'Apt 123',
@@ -33,14 +33,14 @@ export const Default: Story = {
     const canvas = within(canvasElement);
 
     await canvas.findByText('123 Main St');
-    await canvas.findByText('Address');
-    await canvas.findByText('Post Code');
+    await canvas.findByText('Alamat');
+    await canvas.findByText('Kode Pos');
   },
 };
 
 export const WithVariables: Story = {
   args: {
-    label: 'Address',
+    label: 'Alamat',
     defaultValue: {
       addressStreet1: `{{trigger.properties.after.address.addressStreet1}}`,
       addressStreet2: `{{trigger.properties.after.address.addressStreet2}}`,
@@ -56,11 +56,11 @@ export const WithVariables: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const street1Variable = await canvas.findByText('Address Street1');
-    const street2Variable = await canvas.findByText('Address Street2');
-    const cityVariable = await canvas.findByText('Address City');
-    const stateVariable = await canvas.findByText('Address State');
-    const postcodeVariable = await canvas.findByText('Address Postcode');
+    const street1Variable = await canvas.findByText('Alamat Jalan 1');
+    const street2Variable = await canvas.findByText('Alamat Jalan 2');
+    const cityVariable = await canvas.findByText('Alamat Kota');
+    const stateVariable = await canvas.findByText('Alamat Provinsi');
+    const postcodeVariable = await canvas.findByText('Alamat Kode Pos');
 
     expect(street1Variable).toBeVisible();
     expect(street2Variable).toBeVisible();
@@ -75,7 +75,7 @@ export const WithVariables: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Address',
+    label: 'Alamat',
     readonly: true,
     defaultValue: {
       addressStreet1: '123 Main St',

@@ -68,13 +68,13 @@ type Story = StoryObj<typeof SettingsOptionCardContentSelectWrapper>;
 export const StringSelect: Story = {
   args: {
     Icon: IconLanguage,
-    title: 'Language',
-    description: 'Select your preferred language',
+    title: 'Bahasa',
+    description: 'Pilih bahasa yang Anda inginkan',
     value: 'en',
     options: [
-      { value: 'en', label: 'English' },
-      { value: 'fr', label: 'French' },
-      { value: 'es', label: 'Spanish' },
+      { value: 'en', label: 'Inggris' },
+      { value: 'fr', label: 'Prancis' },
+      { value: 'es', label: 'Spanyol' },
     ],
     dropdownId: 'language-select',
   },
@@ -87,8 +87,8 @@ export const StringSelect: Story = {
 export const NumberSelect: Story = {
   args: {
     Icon: IconNotes,
-    title: 'Items Per Page',
-    description: 'Number of items to display per page',
+    title: 'Item per Halaman',
+    description: 'Jumlah item yang ditampilkan per halaman',
     value: 25,
     options: [
       { value: 10, label: '10' },
@@ -103,13 +103,13 @@ export const NumberSelect: Story = {
 export const WithIconOptions: Story = {
   args: {
     Icon: IconUsers,
-    title: 'Team View',
-    description: 'Select how to display team members',
+    title: 'Tampilan Tim',
+    description: 'Pilih cara menampilkan anggota tim',
     value: 'grid',
     options: [
-      { value: 'list', label: 'List View', Icon: IconList },
-      { value: 'kanban', label: 'Kanban View', Icon: IconLayoutKanban },
-      { value: 'table', label: 'Table View', Icon: IconTable },
+      { value: 'list', label: 'Tampilan Daftar', Icon: IconList },
+      { value: 'kanban', label: 'Tampilan Kanban', Icon: IconLayoutKanban },
+      { value: 'table', label: 'Tampilan Tabel', Icon: IconTable },
     ],
     dropdownId: 'view-select',
   },
@@ -118,14 +118,14 @@ export const WithIconOptions: Story = {
 export const Disabled: Story = {
   args: {
     Icon: IconUsers,
-    title: 'Disabled Select',
-    description: 'This select is currently disabled',
+    title: 'Pilihan Nonaktif',
+    description: 'Pilihan ini saat ini tidak aktif',
     disabled: true,
     value: 'option1',
     options: [
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-      { value: 'option3', label: 'Option 3' },
+      { value: 'option1', label: 'Opsi 1' },
+      { value: 'option2', label: 'Opsi 2' },
+      { value: 'option3', label: 'Opsi 3' },
     ],
     dropdownId: 'disabled-select',
   },
@@ -133,18 +133,18 @@ export const Disabled: Story = {
 
 export const FullWidth: Story = {
   args: {
-    title: 'Full Width Select',
-    description: 'This select uses the full width of the dropdown',
+    title: 'Pilihan Lebar Penuh',
+    description: 'Pilihan ini menggunakan lebar penuh dropdown',
     value: 'short',
     options: [
-      { value: 'short', label: 'Short option' },
+      { value: 'short', label: 'Opsi pendek' },
       {
         value: 'very-long',
-        label: 'This is a very long option that needs more space',
+        label: 'Pilihan yang sangat panjang',
       },
       {
         value: 'another-long',
-        label: 'Another long option that extends the width',
+        label: 'Pilihan panjang lainnya',
       },
     ],
     dropdownId: 'full-width-select',

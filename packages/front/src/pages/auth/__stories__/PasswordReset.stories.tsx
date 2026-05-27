@@ -74,7 +74,7 @@ export const ChangePassword: Story = {
     const canvas = within(canvasElement);
     await canvas.findByRole(
       'button',
-      { name: 'Change Password' },
+      { name: 'Ubah Kata Sandi' },
       { timeout: 3000 },
     );
   },
@@ -96,7 +96,7 @@ export const SetPassword: Story = {
     const canvas = within(canvasElement);
     await canvas.findByRole(
       'button',
-      { name: 'Set Password' },
+      { name: 'Atur Kata Sandi' },
       { timeout: 3000 },
     );
   },

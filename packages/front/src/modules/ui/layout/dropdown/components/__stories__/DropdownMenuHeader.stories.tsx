@@ -26,13 +26,13 @@ type Story = StoryObj<typeof DropdownMenuHeader>;
 
 export const Text: Story = {
   args: {
-    children: 'Text only',
+    children: 'Teks saja',
   },
 };
 export const StartIcon: Story = {
   args: {
     StartComponent: <DropdownMenuHeaderLeftComponent Icon={IconChevronLeft} />,
-    children: 'Start Icon',
+    children: 'Ikon Awal',
   },
 };
 
@@ -40,7 +40,7 @@ export const StartAndEndIcon: Story = {
   args: {
     StartComponent: <DropdownMenuHeaderLeftComponent Icon={IconChevronLeft} />,
     EndComponent: <IconChevronRight />,
-    children: 'Start and End Icon',
+    children: 'Ikon Awal dan Akhir',
   },
 };
 

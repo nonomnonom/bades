@@ -34,11 +34,11 @@ export const InvalidDomain: Story = {
     await userEvent.clear(input);
     await userEvent.type(input, 'not-a-domain');
 
-    const errorMessage = await canvas.findByText(/Invalid domain/);
+    const errorMessage = await canvas.findByText(/Domain tidak valid/);
 
     await expect(errorMessage).toBeVisible();
 
-    const saveButton = canvas.getByText('Save');
+    const saveButton = canvas.getByText('Simpan');
 
     await expect(saveButton.closest('button')).toBeDisabled();
   },
@@ -53,7 +53,7 @@ export const ValidDomain: Story = {
     await userEvent.clear(input);
     await userEvent.type(input, 'crm.example.com');
 
-    const saveButton = canvas.getByText('Save');
+    const saveButton = canvas.getByText('Simpan');
 
     await expect(saveButton.closest('button')).toBeEnabled();
   },

@@ -50,14 +50,14 @@ export const MultipleItems: Story = {
     items: [
       {
         key: 'lastYear',
-        label: 'Last year',
+        label: 'Tahun lalu',
         formattedValue: '20k',
         value: 20000,
         dotColor: 'blue',
       },
       {
         key: 'thisYear',
-        label: 'This year',
+        label: 'Tahun ini',
         formattedValue: '20k',
         value: 20000,
         dotColor: 'purple',

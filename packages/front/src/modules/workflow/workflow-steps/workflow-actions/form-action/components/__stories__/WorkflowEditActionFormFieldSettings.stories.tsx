@@ -23,16 +23,16 @@ type Story = StoryObj<typeof WorkflowEditActionFormFieldSettings>;
 const mockAction: WorkflowFormAction = {
   id: 'form-action-1',
   type: 'FORM',
-  name: 'Test Form',
+  name: 'Formulir Uji',
   valid: true,
   settings: {
     input: [
       {
         id: 'field-1',
         name: 'text',
-        label: 'Text Field',
+        label: 'Kolom Teks',
         type: FieldMetadataType.TEXT,
-        placeholder: 'Enter text',
+        placeholder: 'Masukkan teks',
         settings: {},
       },
     ],
@@ -52,10 +52,10 @@ export const TextFieldSettings: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const typeSelect = await canvas.findByText('Text');
+    const typeSelect = await canvas.findByText('Teks');
     expect(typeSelect).toBeVisible();
 
-    const placeholderInput = await canvas.findByText('Enter text');
+    const placeholderInput = await canvas.findByText('Masukkan teks');
     expect(placeholderInput).toBeVisible();
 
     const closeButton = await canvas.findByTestId('close-button');
@@ -69,9 +69,9 @@ export const NumberFieldSettings: Story = {
     field: {
       id: 'field-2',
       name: 'number',
-      label: 'Number Field',
+      label: 'Kolom Nomor',
       type: FieldMetadataType.NUMBER,
-      placeholder: 'Enter number',
+      placeholder: 'Masukkan nomor',
       settings: {},
     },
     onClose: fn(),
@@ -79,10 +79,10 @@ export const NumberFieldSettings: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const typeSelect = await canvas.findByText('Number');
+    const typeSelect = await canvas.findByText('Nomor');
     expect(typeSelect).toBeVisible();
 
-    const placeholderInput = await canvas.findByText('Enter number');
+    const placeholderInput = await canvas.findByText('Masukkan nomor');
     expect(placeholderInput).toBeInTheDocument();
 
     const closeButton = await canvas.findByTestId('close-button');
@@ -108,10 +108,10 @@ export const SingleRecordFieldSettings: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const typeSelect = await canvas.findByText('Record');
+    const typeSelect = await canvas.findByText('Rekaman');
     expect(typeSelect).toBeVisible();
 
-    const objectSelect = await canvas.findByText('Companies');
+    const objectSelect = await canvas.findByText('Keluarga');
     expect(objectSelect).toBeVisible();
 
     const closeButton = await canvas.findByTestId('close-button');
@@ -125,9 +125,9 @@ export const DateFieldSettings: Story = {
     field: {
       id: 'field-4',
       name: 'date',
-      label: 'Date Field',
+      label: 'Kolom Tanggal',
       type: FieldMetadataType.DATE,
-      placeholder: 'Enter date',
+      placeholder: 'Masukkan tanggal',
       settings: {},
     },
     onClose: fn(),
@@ -135,7 +135,7 @@ export const DateFieldSettings: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const typeSelect = await canvas.findByText('Date');
+    const typeSelect = await canvas.findByText('Tanggal');
     expect(typeSelect).toBeVisible();
 
     const closeButton = await canvas.findByTestId('close-button');
@@ -149,7 +149,7 @@ export const SelectFieldSettings: Story = {
     field: {
       id: 'field-5',
       name: 'select',
-      label: 'Select Field',
+      label: 'Pilih Kolom',
       type: FieldMetadataType.SELECT,
       settings: {
         selectedFieldId: 'field-1',
@@ -160,10 +160,10 @@ export const SelectFieldSettings: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const fieldTypeSelect = await canvas.findByText('Select');
+    const fieldTypeSelect = await canvas.findByText('Teks');
     expect(fieldTypeSelect).toBeVisible();
 
-    const selectTypeSelect = await canvas.findByText('Select Type');
+    const selectTypeSelect = await canvas.findByText('Pilih');
     expect(selectTypeSelect).toBeVisible();
 
     const closeButton = await canvas.findByTestId('close-button');

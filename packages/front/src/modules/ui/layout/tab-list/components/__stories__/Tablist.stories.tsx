@@ -13,26 +13,26 @@ import {
 import { ComponentWithRouterDecorator } from 'ui/testing';
 
 const tabs = [
-  { id: 'general', title: 'General', logo: 'https://picsum.photos/200' },
-  { id: 'contacts', title: 'Contacts', Icon: IconUser },
-  { id: 'messages', title: 'Messages', Icon: IconMail },
-  { id: 'calls', title: 'Calls', Icon: IconPhone },
-  { id: 'calendar', title: 'Calendar', Icon: IconCalendar },
-  { id: 'sales', title: 'Sales', Icon: IconHome, disabled: true },
-  { id: 'hidden', title: 'Hidden Tab', Icon: IconCheckbox, hide: true },
+  { id: 'general', title: 'Umum', logo: 'https://picsum.photos/200' },
+  { id: 'contacts', title: 'Kontak', Icon: IconUser },
+  { id: 'messages', title: 'Pesan', Icon: IconMail },
+  { id: 'calls', title: 'Panggilan', Icon: IconPhone },
+  { id: 'calendar', title: 'Kalender', Icon: IconCalendar },
+  { id: 'sales', title: 'Penjualan', Icon: IconHome, disabled: true },
+  { id: 'hidden', title: 'Tab Tersembunyi', Icon: IconCheckbox, hide: true },
   {
     id: 'time',
-    title: 'Time Tracking',
+    title: 'Pelacakan Waktu',
     logo: 'https://picsum.photos/192/192',
   },
   {
     id: 'activity',
-    title: 'Activity',
+    title: 'Aktivitas',
     logo: 'https://picsum.photos/192/192',
     disabled: true,
   },
-  { id: 'favorites', title: 'Favorites', Icon: IconHeart },
-  { id: 'reports', title: 'Reports', Icon: IconCheckbox },
+  { id: 'favorites', title: 'Favorit', Icon: IconHeart },
+  { id: 'reports', title: 'Laporan', Icon: IconCheckbox },
 ];
 
 import { themeCssVariables } from 'ui/theme-constants';
@@ -69,7 +69,7 @@ export const Default: Story = {
   render: (args) => (
     <StyledInteractiveContainer>
       <p>
-        <strong>↔ Drag the bottom-right corner to resize!</strong>
+        <strong>Seret sudut kanan-bawah untuk mengubah ukuran!</strong>
       </p>
       <TabList
         tabs={args.tabs}

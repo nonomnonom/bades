@@ -117,12 +117,12 @@ export const Default: Story = {
 
     await userEvent.type(nameInput, 'New Name');
 
-    const applyButton = await canvas.findByRole('button', { name: /Apply/i });
+    const applyButton = await canvas.findByRole('button', { name: /Terapkan/i });
     expect(applyButton).toBeEnabled();
 
     await userEvent.click(applyButton);
 
-    const cancelButton = await canvas.findByRole('button', { name: /Cancel/i });
+    const cancelButton = await canvas.findByRole('button', { name: /Batal/i });
     expect(cancelButton).toBeEnabled();
 
     await userEvent.click(cancelButton);

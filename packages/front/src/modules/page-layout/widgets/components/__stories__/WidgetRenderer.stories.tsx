@@ -145,7 +145,7 @@ const createPageLayoutWithWidget = (
       isActive: true,
       applicationId: '',
       id: TAB_ID_OVERVIEW,
-      title: 'Overview',
+      title: 'Ringkasan',
       position: 0,
       pageLayoutId: PAGE_LAYOUT_TEST_INSTANCE_ID,
       widgets: [widget],
@@ -345,7 +345,7 @@ export const WithGaugeChart: Story = {
       id: WIDGET_ID_GAUGE_CHART,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Conversion Rate',
+      title: 'Tingkat Konversi',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -433,7 +433,7 @@ export const WithBarChart: Story = {
       id: WIDGET_ID_BAR_CHART,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Monthly Trends',
+      title: 'Tren Bulanan',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -532,7 +532,7 @@ export const SmallWidget: Story = {
       id: WIDGET_ID_SMALL,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Small Widget (2x2 grid)',
+      title: 'Widget Kecil (grid 2x2)',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -627,7 +627,7 @@ export const MediumWidget: Story = {
       id: WIDGET_ID_MEDIUM,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Medium Widget (4x3 grid)',
+      title: 'Widget Sedang (grid 4x3)',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -726,7 +726,7 @@ export const LargeWidget: Story = {
       id: WIDGET_ID_LARGE,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Large Widget (6x4 grid)',
+      title: 'Widget Besar (grid 6x4)',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -825,7 +825,7 @@ export const WideWidget: Story = {
       id: WIDGET_ID_WIDE,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Wide Widget (8x2 grid)',
+      title: 'Widget Lebar (grid 8x2)',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -920,7 +920,7 @@ export const TallWidget: Story = {
       id: WIDGET_ID_TALL,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Tall Widget (3x6 grid)',
+      title: 'Widget Tinggi (grid 3x6)',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1140,7 +1140,7 @@ export const WithOneToManyRelationFieldWidget: Story = {
       id: WIDGET_ID_ONE_TO_MANY_RELATION,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'People',
+      title: 'Daftar Anggota',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1252,7 +1252,7 @@ export const OneToManyRelationFieldWidgetWithSeeAllButton: Story = {
       id: WIDGET_ID_ONE_TO_MANY_RELATION,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'People',
+      title: 'Daftar Anggota',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1390,7 +1390,7 @@ export const OnMobile: Story = {
       id: 'widget-mobile',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Mobile Widget',
+      title: 'Widget Seluler',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1489,7 +1489,7 @@ export const InSidePanel: Story = {
       id: 'widget-side-panel',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Side Panel Widget',
+      title: 'Widget Panel Samping',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1649,7 +1649,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
       pageLayoutTabId:
         variant === 'side-column' ? 'pinned-tab' : TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Widget name',
+      title: 'Nama Widget',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1755,7 +1755,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
                 isActive: true,
                 applicationId: '',
                 id: 'pinned-tab',
-                title: 'Pinned Tab',
+                title: 'Tab Disematkan',
                 position: 0,
                 pageLayoutId: PAGE_LAYOUT_TEST_INSTANCE_ID,
                 widgets: [widget],
@@ -1768,7 +1768,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
                 isActive: true,
                 applicationId: '',
                 id: 'other-tab',
-                title: 'Other Tab',
+                title: 'Tab Lainnya',
                 position: 1,
                 pageLayoutId: PAGE_LAYOUT_TEST_INSTANCE_ID,
                 widgets: [],
@@ -1783,7 +1783,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
                 isActive: true,
                 applicationId: '',
                 id: TAB_ID_OVERVIEW,
-                title: 'Overview',
+                title: 'Ringkasan',
                 position: 0,
                 pageLayoutId: PAGE_LAYOUT_TEST_INSTANCE_ID,
                 widgets: [widget],

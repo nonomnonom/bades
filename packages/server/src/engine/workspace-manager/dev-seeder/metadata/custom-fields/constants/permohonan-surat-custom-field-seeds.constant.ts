@@ -8,6 +8,7 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'nomorPermohonan',
     icon: 'IconHash',
     description: 'Nomor registrasi permohonan',
+    isUnique: true,
   },
   {
     type: FieldMetadataType.DATE,
