@@ -7,13 +7,12 @@ export class ProfileSection {
   private readonly passwordLinkButton: Locator;
   private readonly deleteAccountButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
-    this.firstNameField = page.getByPlaceholder('Budi');
-    this.lastNameField = page.getByPlaceholder('Wijaya');
+  constructor(private readonly page: Page) {
+    this.firstNameField = page.getByPlaceholder('Nama depan');
+    this.lastNameField = page.getByPlaceholder('Nama belakang');
     this.emailField = page.getByRole('textbox').nth(2);
     this.passwordLinkButton = page.getByRole('button', {
-      name: /Change Password|Set Password/,
+      name: /Ubah Kata Sandi|Atur Kata Sandi/,
     });
     this.deleteAccountButton = page.getByRole('button', {
       name: 'Hapus akun',

@@ -88,4 +88,10 @@ export const JABATAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'wilayahId',
     description: 'Referensi ke wilayah (khusus Kepala Dusun / RT / RW)',
   },
+  {
+    type: FieldMetadataType.UUID,
+    label: 'ID Penduduk',
+    name: 'pendudukId',
+    description: 'Referensi ke penduduk yang memegang jabatan ini (UU 6/2014)',
+  },
 ];

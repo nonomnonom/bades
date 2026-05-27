@@ -20,8 +20,7 @@ export class SettingsPage {
   private readonly releasesLink: Locator;
   private readonly advancedToggle: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.exitSettingsLink = page.getByRole('button', { name: 'Keluar Pengaturan' });
     this.profileLink = page.getByRole('link', { name: 'Profil' });
     this.experienceLink = page.getByRole('link', { name: 'Pengalaman' });

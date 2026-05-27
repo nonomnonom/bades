@@ -77,7 +77,9 @@ export const mapUIMessagePartsToDBParts = (
         case 'data-thread-title':
           // Thread title is a transient notification for the client
           return null;
-        default:
+        case 'tool-call':
+        case 'tool-result':
+        case 'dynamic-tool':
           {
             if (isToolPart(part)) {
               const { toolCallId, input, output, errorText, state } = part;

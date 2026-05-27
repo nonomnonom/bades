@@ -1,5 +1,5 @@
 import { isNonEmptyString } from '@sniptt/guards';
-import { getLogoUrlFromDomainName, isDefined } from 'shared/utils';
+import { isDefined } from 'shared/utils';
 
 import { FileOutput } from 'src/engine/api/common/common-args-processors/data-arg-processor/types/file-item.type';
 import { extractFileIdFromUrl } from 'src/engine/core-modules/file/files-field/utils/extract-file-id-from-url.util';
@@ -25,18 +25,6 @@ export const getRecordImageIdentifier = async ({
   flatFieldMetadataMaps,
   signUrl,
 }: GetRecordImageIdentifierOptions): Promise<string | null> => {
-  if (flatObjectMetadata.nameSingular === 'keluarga') {
-    const domainNameObj = record.domainName as
-      | { primaryLinkUrl?: string }
-      | undefined;
-    const domainNamePrimaryLinkUrl = domainNameObj?.primaryLinkUrl;
-
-    return domainNamePrimaryLinkUrl
-      ? getLogoUrlFromDomainName(domainNamePrimaryLinkUrl) || null
-      : null;
-  }
-
-  //TODO: Temporary solution before imageIdentifier refactor
   if (signUrl && flatObjectMetadata.nameSingular === 'penduduk') {
     const avatarFileId = (record.avatarFile as FileOutput[])?.[0]?.fileId;
     if (!isDefined(avatarFileId)) {

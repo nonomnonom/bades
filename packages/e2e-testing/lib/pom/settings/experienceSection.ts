@@ -9,22 +9,21 @@ export class ExperienceSection {
   private readonly searchInput: Locator;
   private readonly languageDropdown: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.lightThemeButton = page.locator('div[variant="Light"]').first();
     this.darkThemeButton = page.locator('div[variant="Dark"]').first();
     this.timezoneDropdown = page.locator(
-      '//span[contains(., "Time zone")]/../div/div/div',
+      '//span[contains(., "Zona waktu")]/../div/div/div',
     );
     this.dateFormatDropdown = page.locator(
-      '//span[contains(., "Date format")]/../div/div/div',
+      '//span[contains(., "Format tanggal")]/../div/div/div',
     );
     this.timeFormatDropdown = page.locator(
-      '//span[contains(., "Time format")]/../div/div/div',
+      '//span[contains(., "Format waktu")]/../div/div/div',
     );
     this.searchInput = page.getByPlaceholder('Cari');
     this.languageDropdown = page.locator(
-      '//h2[contains(., "Language")]/../../../div/div/div',
+      '//h2[contains(., "Bahasa")]/../../../div/div/div',
     );
   }
 

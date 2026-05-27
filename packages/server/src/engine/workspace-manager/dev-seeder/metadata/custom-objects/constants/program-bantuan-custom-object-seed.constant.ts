@@ -6,4 +6,5 @@ export const PROGRAM_BANTUAN_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   namePlural: 'daftarProgramBantuan',
   nameSingular: 'programBantuan',
   icon: 'IconGift',
+  description: 'Program bantuan sosial desa (PKH, BLT-DD, BPNT, RTLH, PIP, KIS, dll)',
 };

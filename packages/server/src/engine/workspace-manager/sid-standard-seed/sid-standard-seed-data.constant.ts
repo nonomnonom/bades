@@ -281,13 +281,17 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     // Field metadata Bades tidak memiliki `tahunAnggaran` — gunakan
     // `tanggalMulai`/`tanggalSelesai` untuk rentang program, dan
     // `jumlahPenerima`/`nilaiPerOrang` untuk indikator kasar.
+    // `nilaiPerOrang` adalah composite CURRENCY: didekomposisi jadi
+    // `nilaiPerOrangAmountMicros` (BigInt, 1 IDR = 1_000_000 micros) +
+    // `nilaiPerOrangCurrencyCode`.
     columns: [
       'id',
       'namaProgram',
       'jenisBantuan',
       'sumberDana',
       'jumlahPenerima',
-      'nilaiPerOrang',
+      'nilaiPerOrangAmountMicros',
+      'nilaiPerOrangCurrencyCode',
       'tanggalMulai',
       'tanggalSelesai',
       'status',
@@ -301,7 +305,8 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         jenisBantuan: 'BLT',
         sumberDana: 'Dana Desa',
         jumlahPenerima: 25,
-        nilaiPerOrang: 300000,
+        nilaiPerOrangAmountMicros: 300000000000,
+        nilaiPerOrangCurrencyCode: 'IDR',
         tanggalMulai: '2025-01-01',
         tanggalSelesai: '2025-12-31',
         status: 'PELAKSANAAN',
@@ -313,7 +318,8 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         jenisBantuan: 'BPNT',
         sumberDana: 'APBDes',
         jumlahPenerima: 15,
-        nilaiPerOrang: 150000,
+        nilaiPerOrangAmountMicros: 150000000000,
+        nilaiPerOrangCurrencyCode: 'IDR',
         tanggalMulai: '2025-03-01',
         tanggalSelesai: '2025-06-30',
         status: 'PERENCANAAN',
@@ -362,8 +368,12 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   },
   {
     tableName: '_asetDesa',
-    // Skema Bades pakai `jenisAset` (bukan `jenis`) dan `nilaiAset`
-    // (bukan `nilaiPerolehan`). `kondisi` tetap ada sebagai field terpisah.
+    // Skema Bades: `jenisAset` (bukan `jenis`), `nilaiAset` CURRENCY
+    // composite (didekomposisi jadi `nilaiAsetAmountMicros` +
+    // `nilaiAsetCurrencyCode`), `kondisi` tetap field SELECT terpisah,
+    // dan `statusPengelolaan` (rename dari `status` generik) sesuai
+    // Permendagri 1/2016 (Aktif Dipakai / Tidak Dipakai / Dipinjamkan /
+    // Disewakan / Dilepas).
     columns: [
       'id',
       'kodeAset',
@@ -372,8 +382,10 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       'lokasi',
       'tahunPerolehan',
       'asalPerolehan',
-      'nilaiAset',
+      'nilaiAsetAmountMicros',
+      'nilaiAsetCurrencyCode',
       'kondisi',
+      'statusPengelolaan',
       'position',
       ...ACTOR_AUDIT_COLUMNS,
     ],
@@ -384,10 +396,12 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         namaAset: 'Kantor Balai Desa',
         jenisAset: 'BANGUNAN',
         lokasi: 'Jl. Raya Desa No. 1',
-        tahunPerolehan: 2020,
+        tahunPerolehan: '2020',
         asalPerolehan: 'APBDES',
-        nilaiAset: 450000000,
+        nilaiAsetAmountMicros: 450000000000000,
+        nilaiAsetCurrencyCode: 'IDR',
         kondisi: 'BAIK',
+        statusPengelolaan: 'AKTIF',
         position: 0,
       },
       {
@@ -396,10 +410,12 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         namaAset: 'Motor Operasional Desa',
         jenisAset: 'KENDARAAN',
         lokasi: 'Garasi Balai Desa',
-        tahunPerolehan: 2022,
+        tahunPerolehan: '2022',
         asalPerolehan: 'BANTUAN_PEMERINTAH',
-        nilaiAset: 18000000,
+        nilaiAsetAmountMicros: 18000000000000,
+        nilaiAsetCurrencyCode: 'IDR',
         kondisi: 'BAIK',
+        statusPengelolaan: 'AKTIF',
         position: 1,
       },
       {
@@ -408,10 +424,12 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         namaAset: 'Komputer Sekretariat',
         jenisAset: 'PERALATAN',
         lokasi: 'Ruang Sekretaris Desa',
-        tahunPerolehan: 2024,
+        tahunPerolehan: '2024',
         asalPerolehan: 'APBDES',
-        nilaiAset: 7500000,
+        nilaiAsetAmountMicros: 7500000000000,
+        nilaiAsetCurrencyCode: 'IDR',
         kondisi: 'BAIK',
+        statusPengelolaan: 'AKTIF',
         position: 2,
       },
     ]),

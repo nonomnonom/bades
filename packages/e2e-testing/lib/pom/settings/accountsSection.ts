@@ -8,8 +8,7 @@ export class AccountsSection {
   private readonly connectWithGoogleButton: Locator;
   private readonly connectWithMicrosoftButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.addAccountButton = page.getByRole('button', { name: 'Tambah akun' });
     this.deleteAccountButton = page
       .getByTestId('tooltip')

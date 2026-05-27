@@ -1,3 +1,5 @@
+import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
+
 type PenerimaBantuanDataSeed = {
   id: string;
   namaPenerima: string;
@@ -5,6 +7,12 @@ type PenerimaBantuanDataSeed = {
   alamat: string;
   statusPenerimaan: string;
   keterangan: string;
+  createdBySource: string;
+  createdByWorkspaceMemberId: string;
+  createdByName: string;
+  updatedBySource: string;
+  updatedByWorkspaceMemberId: string;
+  updatedByName: string;
   position: number;
 };
 
@@ -16,6 +24,12 @@ export const PENERIMA_BANTUAN_DATA_SEED_COLUMNS: (keyof PenerimaBantuanDataSeed)
     'alamat',
     'statusPenerimaan',
     'keterangan',
+    'createdBySource',
+    'createdByWorkspaceMemberId',
+    'createdByName',
+    'updatedBySource',
+    'updatedByWorkspaceMemberId',
+    'updatedByName',
     'position',
   ];
 
@@ -25,6 +39,8 @@ export const PENERIMA_BANTUAN_DATA_SEED_IDS = {
   PENERIMA_3: '20202020-f003-422c-8fcf-5b7496f94975',
 };
 
+const KADES_USER_ID = WORKSPACE_MEMBER_DATA_SEED_IDS.KADES;
+
 export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
   {
     id: PENERIMA_BANTUAN_DATA_SEED_IDS.PENERIMA_1,
@@ -33,6 +49,12 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     alamat: 'Jl. Desa Sukamaju No. 1',
     statusPenerimaan: 'TERVERIFIKASI',
     keterangan: 'Penerima BLT DD',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 0,
   },
   {
@@ -42,6 +64,12 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     alamat: 'Jl. Raya Desa No. 10',
     statusPenerimaan: 'TERVERIFIKASI',
     keterangan: 'Penerima BPNT',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 1,
   },
   {
@@ -51,6 +79,12 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     alamat: 'Jl. Desa Mekar Sari No. 8',
     statusPenerimaan: 'MENUNGGU',
     keterangan: 'Pendaftar baru PKH',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 2,
   },
 ];

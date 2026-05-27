@@ -7,6 +7,7 @@ export const KELUARGA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Nomor KK',
     name: 'nomorKk',
     description: 'Nomor Kartu Keluarga',
+    isUnique: true,
   },
   {
     type: FieldMetadataType.TEXT,
@@ -21,7 +22,7 @@ export const KELUARGA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Tanggal KK dibuat',
   },
   {
-    type: FieldMetadataType.TEXT,
+    type: FieldMetadataType.ADDRESS,
     label: 'Alamat',
     name: 'alamat',
     description: 'Alamat lengkap keluarga',

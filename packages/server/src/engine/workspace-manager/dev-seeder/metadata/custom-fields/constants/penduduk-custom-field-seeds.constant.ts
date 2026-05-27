@@ -8,6 +8,7 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'NIK',
     name: 'nik',
     description: 'Nomor Induk Kependudukan',
+    isUnique: true,
   },
   {
     type: FieldMetadataType.TEXT,
@@ -35,8 +36,8 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Jenis Kelamin',
     name: 'jenisKelamin',
     options: [
-      { label: 'Laki-laki', value: 'LAKI_LAKI', position: 0 },
-      { label: 'Perempuan', value: 'PEREMPUAN', position: 1 },
+      { label: 'Laki-laki', value: 'LAKI_LAKI', position: 0, color: 'blue' },
+      { label: 'Perempuan', value: 'PEREMPUAN', position: 1, color: 'pink' },
     ],
   },
   {
@@ -50,6 +51,11 @@ export const PENDUDUK_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Hindu', value: 'HINDU', position: 3 },
       { label: 'Buddha', value: 'BUDDHA', position: 4 },
       { label: 'Konghucu', value: 'KONGHUCU', position: 5 },
+      {
+        label: 'Penghayat Kepercayaan',
+        value: 'PENGHAYAT_KEPERCAYAAN',
+        position: 6,
+      },
     ],
   },
   {

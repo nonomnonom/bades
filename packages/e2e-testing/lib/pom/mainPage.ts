@@ -30,13 +30,12 @@ export class MainPage {
   private readonly exportBottomBarButton: Locator;
   private readonly deleteRecordsButton: Locator;
 
-  constructor(public readonly page: Page) {
+  constructor(private readonly page: Page) {
     this.tableViews = page.getByText('·');
     this.addViewButton = page
       .getByTestId('tooltip')
       .filter({ hasText: /^Tambah tampilan$/ });
     this.viewIconSelect = page.getByLabel('Click to select icon (');
-    this.viewNameInput; // dapat dipilih menggunakan nilai aktual saja
     this.viewTypeSelect = page.locator(
       "//span[contains(., 'Tipe tampilan')]/../div",
     );

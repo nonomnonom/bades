@@ -78,7 +78,7 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Datang', value: 'DATANG', position: 7, color: 'yellow' },
       { label: 'Usaha', value: 'USAHA', position: 8, color: 'sky' },
       { label: 'Ahli Waris', value: 'AHLI_WARIS', position: 9, color: 'red' },
-      { label: 'Pengaduan', value: 'PENGADUAN', position: 10, color: 'red' },
+      { label: 'Pengaduan', value: 'PENGADUAN', position: 10, color: 'orange' },
       { label: 'Lainnya', value: 'LAINNYA', position: 11, color: 'gray' },
     ],
   },
@@ -88,5 +88,12 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'petugasId',
     icon: 'IconUserCog',
     description: 'Referensi ke perangkat desa yang memproses permohonan',
+  },
+  {
+    type: FieldMetadataType.UUID,
+    label: 'ID Penduduk Pemohon',
+    name: 'pendudukId',
+    icon: 'IconUser',
+    description: 'Referensi ke penduduk yang mengajukan permohonan',
   },
 ];

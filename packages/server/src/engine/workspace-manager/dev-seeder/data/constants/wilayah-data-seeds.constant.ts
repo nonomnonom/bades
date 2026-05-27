@@ -1,9 +1,17 @@
+import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
+
 type WilayahDataSeed = {
   id: string;
   namaWilayah: string;
   jenisWilayah: string;
   kode: string;
   keterangan: string;
+  createdBySource: string;
+  createdByWorkspaceMemberId: string;
+  createdByName: string;
+  updatedBySource: string;
+  updatedByWorkspaceMemberId: string;
+  updatedByName: string;
   position: number;
 };
 
@@ -13,8 +21,16 @@ export const WILAYAH_DATA_SEED_COLUMNS: (keyof WilayahDataSeed)[] = [
   'jenisWilayah',
   'kode',
   'keterangan',
+  'createdBySource',
+  'createdByWorkspaceMemberId',
+  'createdByName',
+  'updatedBySource',
+  'updatedByWorkspaceMemberId',
+  'updatedByName',
   'position',
 ];
+
+const KADES_USER_ID = WORKSPACE_MEMBER_DATA_SEED_IDS.KADES;
 
 // prettier-ignore
 export const WILAYAH_DATA_SEED_IDS = {
@@ -43,6 +59,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'DUSUN',
     kode: '01',
     keterangan: 'Dusun pusat Desa Sukamaju, kantor desa berada di sini',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 0,
   },
   {
@@ -51,6 +73,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'DUSUN',
     kode: '02',
     keterangan: 'Dusun bagian utara Desa Sukamaju',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 1,
   },
   {
@@ -59,6 +87,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'DUSUN',
     kode: '03',
     keterangan: 'Dusun bagian selatan, sebagian besar lahan pertanian',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 2,
   },
   // RW (4) — anak dari Dusun
@@ -68,6 +102,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RW',
     kode: '001',
     keterangan: 'RW di Dusun Krajan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 3,
   },
   {
@@ -76,6 +116,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RW',
     kode: '002',
     keterangan: 'RW di Dusun Krajan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 4,
   },
   {
@@ -84,6 +130,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RW',
     kode: '003',
     keterangan: 'RW di Dusun Mekar Sari',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 5,
   },
   {
@@ -92,6 +144,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RW',
     kode: '004',
     keterangan: 'RW di Dusun Tegal Asri',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 6,
   },
   // RT (5) — anak dari RW
@@ -101,6 +159,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RT',
     kode: '001',
     keterangan: 'RT di RW 001 Dusun Krajan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 7,
   },
   {
@@ -109,6 +173,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RT',
     kode: '002',
     keterangan: 'RT di RW 001 Dusun Krajan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 8,
   },
   {
@@ -117,6 +187,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RT',
     kode: '003',
     keterangan: 'RT di RW 002 Dusun Krajan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 9,
   },
   {
@@ -125,6 +201,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RT',
     kode: '001',
     keterangan: 'RT di RW 003 Dusun Mekar Sari',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 10,
   },
   {
@@ -133,6 +215,12 @@ export const WILAYAH_DATA_SEEDS: WilayahDataSeed[] = [
     jenisWilayah: 'RT',
     kode: '001',
     keterangan: 'RT di RW 004 Dusun Tegal Asri',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 11,
   },
 ];

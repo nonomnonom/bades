@@ -2,145 +2,106 @@ import { expect, test } from '../lib/fixtures/screenshot';
 import { backendGraphQLUrl } from '../lib/requests/backend';
 import { getAccessAuthToken } from '../lib/utils/getAccessAuthToken';
 
-const query = `query FindOnePerson($objectRecordId: UUID!) {
-  person(
-    filter: {or: [{deletedAt: {is: NULL}}, {deletedAt: {is: NOT_NULL}}], id: {eq: $objectRecordId}}
+const query = `query FindOnePenduduk($objectRecordId: UUID!) {
+  penduduk(
+    filter: {id: {eq: $objectRecordId}}
   ) {
-    previousCompanies {
-      edges {
-        node {
-          company {
-            name
-          }
-        }
-      }
-    }
-    emails {
-      primaryEmail
-      additionalEmails
-      __typename
-    }
     id
-    intro
-    jobTitle
-    linkedinLink {
-      primaryLinkUrl
-      primaryLinkLabel
-      secondaryLinks
-      __typename
-    }
-    name {
-      firstName
-      lastName
-      __typename
-    }
-    performanceRating
-    phones {
-      primaryPhoneNumber
-      primaryPhoneCountryCode
-      primaryPhoneCallingCode
-      additionalPhones
-      __typename
-    }
-    position
-    workPreference
+    nama
+    nik
+    noKk
+    tempatLahir
+    tanggalLahir
+    jenisKelamin
+    agama
+    statusPerkawinan
+    pendidikan
+    pekerjaan
+    golonganDarah
+    kewarganegaraan
+    alamat
+    noHp
+    email
+    statusHubunganKeluarga
+    tipeWarga
+    statusHidup
     updatedAt
   }
 }`
 
-test('Create and update record', async ({ page }) => {
-    await page.goto('/objects/people');
-    await page.getByRole('button', { name: 'Create new Person' }).click();
+test('Buat dan perbarui record Penduduk', async ({ page }) => {
+    await page.goto('/objects/penduduks');
+    await page.getByRole('button', { name: 'Buat Penduduk baru' }).click();
 
-    // Generate a random email for testing
-    const randomEmail = `testuser_${Math.random().toString(36).substring(2, 10)}@bades.id`;
-    // Fill first name and last name
-    const firstNameInput = page.getByRole('textbox', { name: 'F‌‌irst name' })
-    await expect(firstNameInput).toBeFocused();
-    await firstNameInput.fill('Budi');
-    const lastNameInput = page.getByPlaceholder('L‌‌ast name');
-    await expect(lastNameInput).toBeVisible();
-    await lastNameInput.fill('Santoso');
-    await lastNameInput.press('Enter');
+    // Generate data testing
+    const randomNik = `${Math.floor(Math.random() * 1000000000000000 + 9000000000000000)}`;
+
+    // Fill nama lengkap
+    const namaInput = page.getByRole('textbox', { name: 'Nama' });
+    await expect(namaInput).toBeFocused();
+    await namaInput.fill('Budi Santoso');
+
+    // Fill NIK
+    const nikInput = page.getByPlaceholder('NIK');
+    await expect(nikInput).toBeVisible();
+    await nikInput.fill(randomNik);
+    await page.keyboard.press('Enter');
 
     // Focus on recordFieldList
     const recordFieldList = page.getByTestId('record-fields-widget');
     await expect(recordFieldList).toBeVisible();
-    await recordFieldList.getByText('Emails').first().click();
 
-    // Fill email
-    const emailInput = recordFieldList.getByText('Emails').nth(1);
-    await expect(emailInput).toBeVisible();
-    await emailInput.click({ force: true });
-    await page.getByPlaceholder('Email').fill(randomEmail);
+    // Fill tempat lahir
+    const tempatLahirField = recordFieldList.getByText('Tempat Lahir').first();
+    await tempatLahirField.click();
+    const tempatLahirInput = recordFieldList.getByText('Tempat Lahir').nth(1);
+    await expect(tempatLahirInput).toBeVisible();
+    await tempatLahirInput.click({ force: true });
+    await page.getByPlaceholder('Tempat lahir').fill('Jakarta');
     await page.keyboard.press('Enter');
-    await recordFieldList.getByText('Emails').first().click();
 
+    // Fill pekerjaan
+    const pekerjaanField = recordFieldList.getByText('Pekerjaan').first();
+    await pekerjaanField.click();
+    const pekerjaanInput = recordFieldList.getByText('Pekerjaan').nth(1);
+    await expect(pekerjaanInput).toBeVisible();
+    await pekerjaanInput.click({ force: true });
+    await page.getByPlaceholder('Pekerjaan').fill('Petani');
+    await page.keyboard.press('Enter');
 
-    // Fill intro
-    const introInput = recordFieldList.getByText('Intro').nth(1);
-    await expect(introInput).toBeVisible();
-    await introInput.click({ force: true });
-    await introInput.click({ force: true });
-    await page.getByPlaceholder('Intro').fill('This is an intro');
-    await page.getByPlaceholder('Intro').press('Enter');
+    // Fill alamat
+    const alamatField = recordFieldList.getByText('Alamat').first();
+    await alamatField.click();
+    const alamatInput = recordFieldList.getByText('Alamat').nth(1);
+    await expect(alamatInput).toBeVisible();
+    await alamatInput.click({ force: true });
+    await page.getByPlaceholder('Alamat').fill('Jl. Desa No. 1');
+    await page.keyboard.press('Enter');
 
-    // Fill URL
-    await recordFieldList.getByText('Linkedin').first().click();
-    const urlInput = recordFieldList.getByText('Linkedin').nth(1);
-    await expect(urlInput).toBeVisible();
-    await urlInput.click({ force: true });
-    await page.getByPlaceholder('URL').fill('linkedin.com/budisantoso');
-    await page.getByPlaceholder('URL').press('Enter');
+    // Open full record page to get penduduk ID
+    await page.getByRole('button', { name: /^Buka$/ }).click();
+    await page.waitForURL(/\/object\/penduduk\//);
+    const newPendudukId = page.url().match(/\/object\/penduduk\/([a-f0-9-]+)/)?.[1];
 
-    // Click on 4th star to rate
-    await recordFieldList.getByText('Performance Rating').first().click({ force: true });
-    const ratingContainer = recordFieldList.locator('div[aria-label="Rating"]');
-    await ratingContainer.locator('svg').nth(3).click({force: true});
-
-    // Fill phone field
-    await recordFieldList.getByText('Phones').first().click();
-    const phoneInput = recordFieldList.getByText('Phones').nth(1);
-    await expect(phoneInput).toBeVisible();
-    await phoneInput.click({ force: true });
-    await page.getByPlaceholder('Phone').fill('+62 812 3456 7890');
-    await page.getByPlaceholder('Phone').press('Enter');
-
-    // Fill work preference
-    await recordFieldList.getByText('Work Preference').first().click({force: true});
-    await recordFieldList.getByText('Work Preference').nth(1).click({force: true});
-    const options = page.getByRole('listbox');
-    await options.getByText('Hybrid').first().click({force: true});
-    recordFieldList.getByText('Work Preference').first().click({force: true});
-
-    // Open full record page to get person ID
-    await page.getByRole('button', { name: /^Open/ }).click();
-    await page.waitForURL(/\/object\/person\//);
-    const newPersonId = page.url().match(/\/object\/person\/([a-f0-9-]+)/)?.[1];
-
-    // Check data was saved
+    // Check data was saved via GraphQL
     const { authToken } = await getAccessAuthToken(page);
-    const findOnePersonResponse = await page.request.post(backendGraphQLUrl, {
+    const findOnePendudukResponse = await page.request.post(backendGraphQLUrl, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
       data: {
-        operationName: 'FindOnePerson',
+        operationName: 'FindOnePenduduk',
         query,
         variables: {
-          objectRecordId: newPersonId,
+          objectRecordId: newPendudukId,
         }
       },
     });
 
-    const findOnePersonReponseBody = await findOnePersonResponse.json();
+    const responseBody = await findOnePendudukResponse.json();
 
-    expect(findOnePersonReponseBody.data.person.name.firstName).toBe('Budi');
-    expect(findOnePersonReponseBody.data.person.name.lastName).toBe('Santoso');
-    expect(findOnePersonReponseBody.data.person.emails.primaryEmail).toBe(randomEmail);
-    expect(findOnePersonReponseBody.data.person.intro).toBe('This is an intro');
-    expect(findOnePersonReponseBody.data.person.linkedinLink.primaryLinkUrl).toBe('linkedin.com/budisantoso');
-    expect(findOnePersonReponseBody.data.person.phones.primaryPhoneNumber).toBe('81234567890');
-    expect(findOnePersonReponseBody.data.person.workPreference).toEqual(['HYBRID']);
-
+    expect(responseBody.data.penduduk.nama).toBe('Budi Santoso');
+    expect(responseBody.data.penduduk.nik).toBe(randomNik);
+    expect(responseBody.data.penduduk.tempatLahir).toBe('Jakarta');
+    expect(responseBody.data.penduduk.pekerjaan).toBe('Petani');
 });

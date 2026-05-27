@@ -26,21 +26,21 @@ export class DataModelSection {
   private readonly cancelButton: Locator;
   private readonly saveButton: Locator;
 
-  constructor(public readonly page: Page) {
+  constructor(private readonly page: Page) {
     this.searchObjectInput = page.getByPlaceholder('Cari objek...');
     this.addObjectButton = page.getByRole('button', { name: 'Tambah objek' });
-    this.objectSingularNameInput = page.getByPlaceholder('Listing', {
+    this.objectSingularNameInput = page.getByPlaceholder('Nama tunggal', {
       exact: true,
     });
-    this.objectPluralNameInput = page.getByPlaceholder('Listings', {
+    this.objectPluralNameInput = page.getByPlaceholder('Nama jamak', {
       exact: true,
     });
     this.objectDescription = page.getByPlaceholder('Tulis deskripsi');
     this.synchronizeLabelAPIToggle = page.getByRole('checkbox').nth(1);
-    this.objectAPISingularNameInput = page.getByPlaceholder('listing', {
+    this.objectAPISingularNameInput = page.getByPlaceholder('namaSingular', {
       exact: true,
     });
-    this.objectAPIPluralNameInput = page.getByPlaceholder('listings', {
+    this.objectAPIPluralNameInput = page.getByPlaceholder('namaPlural', {
       exact: true,
     });
     this.objectMoreOptionsButton = page.getByLabel('Opsi Objek');
@@ -59,7 +59,7 @@ export class DataModelSection {
     this.viewFieldDetailsMoreOptionsButton = page
       .getByTestId('tooltip')
       .getByText('Lihat');
-    this.nameFieldInput = page.getByPlaceholder('Employees');
+    this.nameFieldInput = page.getByPlaceholder('Nama field');
     this.descriptionFieldInput = page.getByPlaceholder('Tulis deskripsi');
     this.deactivateButton = page.getByRole('button', { name: 'Nonaktifkan' });
     this.activateButton = page.getByRole('button', { name: 'Aktifkan' });

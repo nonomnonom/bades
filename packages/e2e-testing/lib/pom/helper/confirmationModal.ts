@@ -5,8 +5,7 @@ export class ConfirmationModal {
   private readonly cancelButton: Locator;
   private readonly confirmButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.input = page.getByTestId('confirmation-modal-input');
     this.cancelButton = page.getByRole('button', { name: 'Batal' });
     this.confirmButton = page.getByTestId('confirmation-modal-confirm-button');

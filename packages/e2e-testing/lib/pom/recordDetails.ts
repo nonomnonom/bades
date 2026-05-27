@@ -18,8 +18,7 @@ export class RecordDetails {
   private readonly calendarTab: Locator;
   private readonly detachRelationButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
   }
 
   async clickCloseRecordButton() {

@@ -73,6 +73,6 @@ export const SURAT_KELUAR_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     label: 'Keterangan',
     name: 'keterangan',
     icon: 'IconNote',
-    description: 'Catatan tambahan tentang surat keluar',
+    description: 'Catatan tambahan tentang surat',
   },
 ];

@@ -7,8 +7,7 @@ export class GeneralSection {
   private readonly customizeDomainButton: Locator;
   private readonly subdomainInput: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.workspaceNameField = page.getByPlaceholder('Desa Sukamaju');
     this.supportSwitch = page.getByRole('checkbox').nth(1);
     this.deleteWorkspaceButton = page.getByRole('button', {
@@ -38,6 +37,6 @@ export class GeneralSection {
   async changeSubdomain(subdomain: string) {
     await this.customizeDomainButton.click();
     await this.subdomainInput.fill(subdomain);
-    await this.page.getByRole('button', { name: 'Save' }).click();
+    await this.page.getByRole('button', { name: 'Simpan' }).click();
   }
 }

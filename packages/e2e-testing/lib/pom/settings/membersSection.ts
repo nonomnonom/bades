@@ -6,8 +6,7 @@ export class MembersSection {
   private readonly inviteMembersButton: Locator;
   private readonly inviteLinkButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.inviteTab = page.getByTestId('tab-invite');
     this.inviteMembersField = page.getByPlaceholder(
       'budi@bades.id, siti@bades.id',

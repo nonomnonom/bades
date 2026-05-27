@@ -6,6 +6,12 @@ type JabatanDataSeed = {
   tipeJabatan: string;
   tugasPokok: string;
   keterangan: string;
+  createdBySource: string;
+  createdByWorkspaceMemberId: string;
+  createdByName: string;
+  updatedBySource: string;
+  updatedByWorkspaceMemberId: string;
+  updatedByName: string;
   position: number;
 };
 
@@ -15,6 +21,12 @@ export const JABATAN_DATA_SEED_COLUMNS: (keyof JabatanDataSeed)[] = [
   'tipeJabatan',
   'tugasPokok',
   'keterangan',
+  'createdBySource',
+  'createdByWorkspaceMemberId',
+  'createdByName',
+  'updatedBySource',
+  'updatedByWorkspaceMemberId',
+  'updatedByName',
   'position',
 ];
 
@@ -34,7 +46,13 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     namaJabatan: 'Drs. H. Abdullah',
     tipeJabatan: 'KEPALA_DESA',
     tugasPokok: 'Memimpin pelaksanaan Pemerintahan Desa',
-    keterangan: 'Kepala Desa任期 2021-2027',
+    keterangan: 'Kepala Desa masa jabatan 2021-2027',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 0,
   },
   {
@@ -43,6 +61,12 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     tipeJabatan: 'SEKRETARIS',
     tugasPokok: 'Melaksanakan urusan ketatausahaan dan umum',
     keterangan: 'Sekretaris Desa',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 1,
   },
   {
@@ -51,6 +75,12 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     tipeJabatan: 'KAUR',
     tugasPokok: 'Melaksanakan urusan keuangan dan perencanaan',
     keterangan: 'Kaur Keuangan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 2,
   },
   {
@@ -59,6 +89,12 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     tipeJabatan: 'KASI',
     tugasPokok: 'Melaksanakan urusan pemerintahan dan pembangunan',
     keterangan: 'Kasi Pemerintahan',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 3,
   },
   {
@@ -66,7 +102,13 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     namaJabatan: 'Ahmad Rivai',
     tipeJabatan: 'KEPALA_DUSUN',
     tugasPokok: 'Membantu Kepala Desa dalam urusan dusun',
-    keterangan: 'Kepala Dinas Utama',
+    keterangan: 'Kepala Dusun Utama',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 4,
   },
 ];

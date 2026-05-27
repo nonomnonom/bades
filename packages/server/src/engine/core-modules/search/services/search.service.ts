@@ -4,7 +4,7 @@ import { isNonEmptyString } from '@sniptt/guards';
 import chunk from 'lodash.chunk';
 import { OBJECTS_WITH_CHANNEL_VISIBILITY_CONSTRAINTS } from 'shared/constants';
 import { FieldMetadataType, FileFolder, ObjectRecord } from 'shared/types';
-import { getLogoUrlFromDomainName, isDefined } from 'shared/utils';
+import { isDefined } from 'shared/utils';
 import { Brackets, type ObjectLiteral } from 'typeorm';
 
 import { type ObjectRecordFilter } from 'src/engine/api/graphql/workspace-query-builder/interfaces/object-record.interface';
@@ -556,11 +556,6 @@ export class SearchService {
     flatObjectMetadata: FlatObjectMetadata,
     flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata>,
   ) {
-    if (flatObjectMetadata.nameSingular === 'keluarga') {
-      return 'domainNamePrimaryLinkUrl';
-    }
-
-    //TODO: Temporary solution before imageIdentifier refactor
     if (flatObjectMetadata.nameSingular === 'penduduk') {
       return 'avatarFile';
     }
@@ -609,14 +604,9 @@ export class SearchService {
     );
 
     if (
-      flatObjectMetadata.nameSingular === 'keluarga' &&
+      flatObjectMetadata.nameSingular === 'penduduk' &&
       this.badesConfigService.get('ALLOW_REQUESTS_TO_FAVICON_SERVICE')
     ) {
-      return getLogoUrlFromDomainName(record.domainNamePrimaryLinkUrl) || '';
-    }
-
-    //TODO: Temporary solution before imageIdentifier refactor
-    if (flatObjectMetadata.nameSingular === 'penduduk') {
       const avatarFileId = (record.avatarFile as FileOutput[])?.[0]?.fileId;
       if (!isDefined(avatarFileId)) {
         return '';
@@ -627,6 +617,8 @@ export class SearchService {
         workspaceId,
       );
     }
+
+    //TODO: Temporary solution before imageIdentifier refactor
 
     if (flatObjectMetadata.nameSingular === 'workspaceMember') {
       const avatarFileId = extractFileIdFromUrl(

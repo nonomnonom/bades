@@ -112,6 +112,42 @@ docker compose exec -T db pg_dumpall -U postgres > backup-$(date +%F).sql
 docker compose exec -T db psql -U postgres < backup-YYYY-MM-DD.sql
 ```
 
+## Recovery workspace kosong — workspace:reseed:sid-standard
+
+Jika sebuah workspace tampil kosong (0 record, objek SID tidak muncul),
+gunakan command ini untuk menjalankan ulang seed SID standar tanpa
+menghapus data yang sudah ada.
+
+**Kapan dipakai:**
+- Workspace baru kosong karena INSERT data silent-fail (mismatch kolom/enum
+  yang sudah di-fix, tapi workspace sudah terlanjur dibuat).
+- Workspace lama yang dibuat sebelum SID standard ditambahkan ke flow init.
+- Pasca-upgrade ketika `seedSidStandardData` belum pernah berjalan untuk
+  workspace tertentu.
+
+**Cara invoke dari container:**
+
+```bash
+# Satu workspace (paling umum untuk recovery)
+docker compose exec server yarn command:prod workspace:reseed:sid-standard \
+  --workspace-id <UUID>
+
+# Semua workspace aktif/suspended sekaligus
+docker compose exec server yarn command:prod workspace:reseed:sid-standard
+
+# Cek dulu tanpa eksekusi (dry run)
+docker compose exec server yarn command:prod workspace:reseed:sid-standard \
+  --workspace-id <UUID> --dry-run
+```
+
+Command ini idempotent: objek yang sudah ada di-skip, record yang sudah ada
+tidak digandakan (`ON CONFLICT DO NOTHING`). Aman dijalankan ulang.
+
+**Urutan langkah yang dijalankan:**
+1. Seed objek + field metadata SID standar (skip yang sudah ada)
+2. Insert sample record contoh ke schema workspace (ON CONFLICT DO NOTHING)
+3. Sembunyikan field non-curated dari tampilan default
+
 ## Troubleshooting
 
 **Container restart loop**: cek `docker compose logs server` — biasanya

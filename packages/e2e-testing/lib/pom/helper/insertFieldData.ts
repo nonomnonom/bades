@@ -26,25 +26,24 @@ export class InsertFieldData {
   private readonly addPhoneButton: Locator;
   private readonly addMailButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.address1Input = page.locator(
-      '//label[contains(., "ADDRESS 1")]/../div[last()]/input',
+      '//label[contains(., "ALAMAT 1")]/../div[last()]/input',
     );
     this.address2Input = page.locator(
-      '//label[contains(., "ADDRESS 2")]/../div[last()]/input',
+      '//label[contains(., "ALAMAT 2")]/../div[last()]/input',
     );
     this.cityInput = page.locator(
-      '//label[contains(., "CITY")]/../div[last()]/input',
+      '//label[contains(., "KOTA")]/../div[last()]/input',
     );
     this.stateInput = page.locator(
-      '//label[contains(., "STATE")]/../div[last()]/input',
+      '//label[contains(., "PROVINSI")]/../div[last()]/input',
     );
     this.postCodeInput = page.locator(
-      '//label[contains(., "POST CODE")]/../div[last()]/input',
+      '//label[contains(., "KODE POS")]/../div[last()]/input',
     );
     this.countrySelect = page.locator(
-      '//span[contains(., "COUNTRY")]/../div[last()]/div',
+      '//span[contains(., "NEGARA")]/../div[last()]/div',
     );
     this.arrayValueInput = page.locator("//input[@placeholder='Masukkan nilai']");
     this.arrayAddValueButton = page.locator(
@@ -54,10 +53,6 @@ export class InsertFieldData {
       '//body/div[last()]/div/div/div[first()]/div/div',
     );
     this.currencyAmountInput = page.locator("//input[@placeholder='Mata uang']");
-    this.monthSelect; // TODO: add once some other attributes are added
-    this.yearSelect;
-    this.previousMonthButton;
-    this.nextMonthButton;
     this.clearDateButton = page.locator(
       "//div[@data-testid='tooltip' and contains(., 'Clear')]",
     );

@@ -6,8 +6,7 @@ export class WebhooksSection {
   private readonly webhookDescription: Locator;
   private readonly deleteButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.createWebhookButton = page.getByRole('link', {
       name: 'Buat Webhook',
     });

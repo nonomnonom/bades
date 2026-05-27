@@ -6,4 +6,5 @@ export const PENDUDUK_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   namePlural: 'daftarPenduduk',
   nameSingular: 'penduduk',
   icon: 'IconUser',
+  description: 'Data warga terdaftar di desa sesuai Permendagri 109/2019',
 };

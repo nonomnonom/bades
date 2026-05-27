@@ -29,8 +29,7 @@ export class LoginPage {
   private readonly copyInviteLink: Locator;
   private readonly finishButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.loginWithGoogleButton = page.getByRole('button', {
       name: 'Continue with Google',
     });
@@ -54,9 +53,9 @@ export class LoginPage {
     this.previewImageButton = page.locator('.css-1qzw107'); // TODO: fix
     this.uploadImageButton = page.getByRole('button', { name: 'Unggah' });
     this.deleteImageButton = page.getByRole('button', { name: 'Hapus' });
-    this.workspaceNameField = page.getByPlaceholder('Desa Sukamaju');
-    this.firstNameField = page.getByPlaceholder('Budi');
-    this.lastNameField = page.getByPlaceholder('Santoso');
+    this.workspaceNameField = page.getByPlaceholder('Nama Desa');
+    this.firstNameField = page.getByPlaceholder('Nama depan');
+    this.lastNameField = page.getByPlaceholder('Nama belakang');
     this.syncEverythingWithGoogleRadio = page.locator(
       'input[value="SHARE_EVERYTHING"]',
     );

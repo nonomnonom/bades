@@ -1,14 +1,14 @@
 import { expect, test } from '../lib/fixtures/screenshot';
 test.describe.serial('Create Kanban View', () => {
-test('Create Industry Select Field', async ({ page }) => {
+test('Create Kategori Select Field', async ({ page }) => {
     await page.getByRole('button', { name: 'Pengaturan' }).click();
-    await page.getByRole('link', { name: 'Data model' }).click();
+    await page.getByRole('link', { name: 'Model data' }).click();
     await page.getByRole('link', { name: 'Program Bantuan' }).click();
-    await expect(page.getByRole('button', { name: 'New Field' })).toBeVisible();
-    await page.getByRole('button', { name: 'New Field' }).click();
+    await expect(page.getByRole('button', { name: 'Field Baru' })).toBeVisible();
+    await page.getByRole('button', { name: 'Field Baru' }).click();
     await page.getByRole('link', { name: 'Select', exact: true }).click();
-    await page.getByRole('textbox', { name: 'Employees' }).click();
-    await page.getByRole('textbox', { name: 'Employees' }).fill('Kategori');
+    await page.getByRole('textbox', { name: 'Nama field' }).click();
+    await page.getByRole('textbox', { name: 'Nama field' }).fill('Kategori');
     await page.getByRole('textbox').nth(1).click();
     await page.getByRole('textbox').nth(1).press('ControlOrMeta+a');
     await page.getByRole('textbox').nth(1).fill('Pangan');

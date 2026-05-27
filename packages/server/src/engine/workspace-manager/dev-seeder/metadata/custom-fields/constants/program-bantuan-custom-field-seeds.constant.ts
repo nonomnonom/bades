@@ -36,10 +36,10 @@ export const PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     description: 'Jumlah penerima bantuan',
   },
   {
-    type: FieldMetadataType.NUMBER,
+    type: FieldMetadataType.CURRENCY,
     label: 'Nilai Per Orang',
     name: 'nilaiPerOrang',
-    description: 'Nilai bantuan per orang',
+    description: 'Nilai bantuan per orang (Rupiah)',
   },
   {
     type: FieldMetadataType.DATE,

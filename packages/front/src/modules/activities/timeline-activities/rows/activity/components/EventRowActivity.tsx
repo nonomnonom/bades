@@ -95,13 +95,28 @@ export const EventRowActivity = ({
 
   const { openRecordInSidePanel } = useOpenRecordInSidePanel();
 
+  const getEventActionLabel = (action: string, object: string) => {
+    const objectLabel =
+      object === 'task' ? 'tugas' : object === 'note' ? 'catatan' : object;
+    switch (action) {
+      case 'added':
+        return `menambahkan ${objectLabel} terkait`;
+      case 'removed':
+        return `menghapus kaitan ${objectLabel} terkait`;
+      case 'updated':
+        return `memperbarui ${objectLabel} terkait`;
+      default:
+        return `${action} ${objectLabel} terkait`;
+    }
+  };
+
   return (
     <StyledEventRow>
       <StyledRowContainer>
         <StyledRow>
           <EventRowItem>{authorFullName}</EventRowItem>
           <EventRowItem variant="action">
-            {t`${eventAction} a related ${eventObject}`}
+            {t`${getEventActionLabel(eventAction, eventObject)}`}
           </EventRowItem>
           <StyledLinkedActivity
             onClick={() =>

@@ -1,3 +1,5 @@
+import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
+
 type SuratKeluarDataSeed = {
   id: string;
   nomorSurat: string;
@@ -7,6 +9,12 @@ type SuratKeluarDataSeed = {
   klasifikasi: string;
   penandatangan: string;
   keterangan: string;
+  createdBySource: string;
+  createdByWorkspaceMemberId: string;
+  createdByName: string;
+  updatedBySource: string;
+  updatedByWorkspaceMemberId: string;
+  updatedByName: string;
   position: number;
 };
 
@@ -19,6 +27,12 @@ export const SURAT_KELUAR_DATA_SEED_COLUMNS: (keyof SuratKeluarDataSeed)[] = [
   'klasifikasi',
   'penandatangan',
   'keterangan',
+  'createdBySource',
+  'createdByWorkspaceMemberId',
+  'createdByName',
+  'updatedBySource',
+  'updatedByWorkspaceMemberId',
+  'updatedByName',
   'position',
 ];
 
@@ -32,6 +46,8 @@ export const SURAT_KELUAR_DATA_SEED_IDS = {
   SK_6: '20202020-a106-4644-867d-e8e1851b3ee8',
 };
 
+const KADES_USER_ID = WORKSPACE_MEMBER_DATA_SEED_IDS.KADES;
+
 export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_1,
@@ -42,6 +58,12 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
     klasifikasi: 'BIASA',
     penandatangan: 'Drs. H. Abdullah',
     keterangan: 'Surat pengantar untuk warga Ahmad Pratama',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 0,
   },
   {
@@ -53,6 +75,12 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
     klasifikasi: 'SEGERA',
     penandatangan: 'Drs. H. Abdullah',
     keterangan: 'Undangan Musdes pembahasan APBDes 2025',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 1,
   },
   {
@@ -64,6 +92,12 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
     klasifikasi: 'BIASA',
     penandatangan: 'Sugiono',
     keterangan: 'Laporan realisasi DD ditandatangani Sekdes',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 2,
   },
   {
@@ -75,6 +109,12 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
     klasifikasi: 'BIASA',
     penandatangan: 'Drs. H. Abdullah',
     keterangan: 'Permohonan bibit padi untuk kelompok tani Dusun Tegal Asri',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 3,
   },
   {
@@ -86,6 +126,12 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
     klasifikasi: 'RAHASIA',
     penandatangan: 'Drs. H. Abdullah',
     keterangan: 'SK internal pengangkatan perangkat desa',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 4,
   },
   {
@@ -97,6 +143,12 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
     klasifikasi: 'BIASA',
     penandatangan: 'Drs. H. Abdullah',
     keterangan: 'SKTM untuk warga Karyono, rujukan RSUD',
+    createdBySource: 'API',
+    createdByWorkspaceMemberId: KADES_USER_ID,
+    createdByName: 'Drs. H. Abdullah',
+    updatedBySource: 'API',
+    updatedByWorkspaceMemberId: KADES_USER_ID,
+    updatedByName: 'Drs. H. Abdullah',
     position: 5,
   },
 ];

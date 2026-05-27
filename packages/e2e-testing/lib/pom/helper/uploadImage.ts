@@ -5,7 +5,7 @@ export class UploadImage {
   private readonly uploadButton: Locator;
   private readonly removeButton: Locator;
 
-  constructor(public readonly page: Page) {
+  constructor(private readonly page: Page) {
     this.imagePreview = page.locator('.css-6eut39'); //TODO: add attribute to make it independent of theme
     this.uploadButton = page.getByRole('button', { name: 'Unggah' });
     this.removeButton = page.getByRole('button', { name: 'Hapus' });

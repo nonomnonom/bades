@@ -81,7 +81,7 @@ export const RecordTableSettingsFieldVisibility = ({
 
   return (
     <StyledFieldListContainer>
-      <StyledSectionLabel>Visible</StyledSectionLabel>
+      <StyledSectionLabel>Terlihat</StyledSectionLabel>
       {visibleFieldItems.length > 0 && (
         <DraggableList
           onDragEnd={handleDragEnd}
@@ -118,7 +118,7 @@ export const RecordTableSettingsFieldVisibility = ({
       )}
       {hiddenFieldItems.length > 0 && (
         <>
-          <StyledSectionLabel>Hidden</StyledSectionLabel>
+          <StyledSectionLabel>Tersembunyi</StyledSectionLabel>
           {hiddenFieldItems.map((fieldItem) => (
             <MenuItemDraggable
               key={fieldItem.viewField.id}

@@ -4,7 +4,7 @@ export class IconSelect {
   private readonly iconSelectButton: Locator;
   private readonly iconSearchInput: Locator;
 
-  constructor(public readonly page: Page) {
+  constructor(private readonly page: Page) {
     this.iconSelectButton = page.getByLabel('Click to select icon (');
     this.iconSearchInput = page.getByPlaceholder('Cari ikon');
   }

@@ -8,6 +8,7 @@ import { SecretEncryptionRotationModule } from 'src/database/commands/secret-enc
 import { GenerateInstanceCommandCommand } from 'src/database/commands/generate-instance-command.command';
 import { InstallPreInstalledAppsCommand } from 'src/database/commands/install-pre-installed-apps.command';
 import { InstanceCommandGenerationService } from 'src/database/commands/instance-command-generation.service';
+import { WorkspaceReseedSidStandardCommand } from 'src/database/commands/workspace-reseed-sid-standard.command';
 import { ListOrphanedWorkspaceEntitiesCommand } from 'src/database/commands/list-and-delete-orphaned-workspace-entities.command';
 import { ConfirmationQuestion } from 'src/database/commands/questions/confirmation.question';
 import { RebuildApplicationDefaultDepsCommand } from 'src/database/commands/rebuild-application-default-deps.command';
@@ -43,6 +44,7 @@ import { DevSeederModule } from 'src/engine/workspace-manager/dev-seeder/dev-see
 import { WorkspaceCleanerModule } from 'src/engine/workspace-manager/workspace-cleaner/workspace-cleaner.module';
 import { WorkspaceManagerModule } from 'src/engine/workspace-manager/workspace-manager.module';
 import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace-migration/workspace-migration.module';
+import { SidStandardSeedModule } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.module';
 import { WorkspaceVersionModule } from 'src/engine/workspace-manager/workspace-version/workspace-version.module';
 import { CalendarEventImportManagerModule } from 'src/modules/calendar/calendar-event-import-manager/calendar-event-import-manager.module';
 import { MessagingImportManagerModule } from 'src/modules/messaging/message-import-manager/messaging-import-manager.module';
@@ -82,6 +84,7 @@ import { AutomatedTriggerModule } from 'src/modules/workflow/workflow-trigger/au
     StaleRegistrationCleanupModule,
     PreInstalledAppsModule,
     WorkspaceIteratorModule,
+    SidStandardSeedModule,
     ApplicationModule,
     WorkspaceCacheModule,
     WorkspaceVersionModule,
@@ -102,6 +105,7 @@ import { AutomatedTriggerModule } from 'src/modules/workflow/workflow-trigger/au
     UpgradeStatusCommand,
     RebuildApplicationDefaultDepsCommand,
     InstallPreInstalledAppsCommand,
+    WorkspaceReseedSidStandardCommand,
   ],
 })
 export class DatabaseCommandModule {}

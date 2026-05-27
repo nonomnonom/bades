@@ -17,8 +17,7 @@ export class LeftMenu {
   private readonly roketTab: Locator;
   private readonly workflowsTab: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.workspaceDropdown = page.getByTestId('workspace-dropdown');
     this.leftMenu = page.getByRole('button').first();
     this.searchSubTab = page.getByText('Cari');

@@ -9,8 +9,7 @@ export class APIsSection {
   private readonly saveButton: Locator;
   private readonly deleteButton: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.createAPIKeyButton = page.getByRole('link', {
       name: 'Buat Kunci API',
     });

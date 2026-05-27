@@ -5,8 +5,7 @@ export class CalendarSection {
   private readonly eventVisibilityMetadataOption: Locator;
   private readonly contactAutoCreation: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.eventVisibilityEverythingOption = page.locator(
       'input[value="SHARE_EVERYTHING"]',
     );

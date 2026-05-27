@@ -36,7 +36,7 @@ export class NewFieldSection {
   private readonly nameFieldInput: Locator;
   private readonly descriptionFieldInput: Locator;
 
-  constructor(public readonly page: Page) {
+  constructor(private readonly page: Page) {
     this.searchTypeFieldInput = page.getByPlaceholder('Cari tipe');
     this.currencyFieldLink = page.getByRole('link', { name: 'Currency' });
     this.currencyDefaultUnitSelect = page.locator(
@@ -90,7 +90,7 @@ export class NewFieldSection {
     this.relationFieldNameInput = page.getByPlaceholder('Nama field');
     this.fullNameFieldLink = page.getByRole('link', { name: 'Nama Lengkap' });
     this.UUIDFieldLink = page.getByRole('link', { name: 'ID Unik' });
-    this.nameFieldInput = page.getByPlaceholder('Employees');
+    this.nameFieldInput = page.getByPlaceholder('Nama field');
     this.descriptionFieldInput = page.getByPlaceholder('Tulis deskripsi');
   }
 

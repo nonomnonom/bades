@@ -6,4 +6,5 @@ export const WILAYAH_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   namePlural: 'daftarWilayah',
   nameSingular: 'wilayah',
   icon: 'IconMapPin',
+  description: 'Unit wilayah administratif desa (Dusun, RW, RT)',
 };

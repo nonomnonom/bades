@@ -6,7 +6,7 @@ export class SecuritySection {
   private readonly passwordToggle: Locator;
   private readonly inviteByLinkToggle: Locator;
 
-  constructor(public readonly page: Page) {
+  constructor(private readonly page: Page) {
     this.googleToggle = page.getByLabel('Google');
     this.microsoftToggle = page.getByLabel('Microsoft');
     this.passwordToggle = page.getByLabel('Kata sandi');

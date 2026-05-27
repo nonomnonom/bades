@@ -10,8 +10,7 @@ export class EmailsSection {
   private readonly excludeNonProfessionalToggle: Locator;
   private readonly excludeGroupToggle: Locator;
 
-  constructor(public readonly page: Page) {
-    this.page = page;
+  constructor(private readonly page: Page) {
     this.visibilityEverythingRadio = page.locator(
       'input[value="SHARE_EVERYTHING"]',
     );

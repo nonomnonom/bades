@@ -27,7 +27,7 @@ test('Sign up with invite link via email', async ({
     await settingsPage.logout();
 
     await Promise.all([
-      expect(page.getByText(/Join .+ team/)).toBeVisible(),
+      expect(page.getByText(/Gabung tim .+/)).toBeVisible(),
 
       page.goto(inviteLink),
     ]);
