@@ -51,7 +51,7 @@ export const BackgroundMockViewBar = () => {
       }
       rightComponent={
         <>
-          <StyledRightAction>Filter</StyledRightAction>
+          <StyledRightAction>Saring</StyledRightAction>
           <StyledRightAction>Urutkan</StyledRightAction>
           <StyledRightAction>Opsi</StyledRightAction>
         </>

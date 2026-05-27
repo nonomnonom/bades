@@ -75,7 +75,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const continueWithEmailButton = await canvas.findByText(
-      'Continue with Email',
+      'Lanjutkan dengan Surel',
       {},
       { timeout: 3000 },
     );

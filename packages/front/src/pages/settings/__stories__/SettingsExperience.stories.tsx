@@ -28,11 +28,11 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findAllByText('Experience', undefined, {
+    await canvas.findAllByText('Pengalaman', undefined, {
       timeout: 3000,
     });
 
-    await canvas.findByText('Formats');
+    await canvas.findByText('Format');
   },
 };
 

@@ -57,7 +57,7 @@ export const Default: Story = {
     modalInstanceId: 'confirmation-modal',
     title: 'Pariatur labore.',
     subtitle: 'Velit dolore aliquip laborum occaecat fugiat.',
-    confirmButtonText: 'Delete',
+    confirmButtonText: 'Hapus',
     onConfirmClick: fn(),
   },
 };

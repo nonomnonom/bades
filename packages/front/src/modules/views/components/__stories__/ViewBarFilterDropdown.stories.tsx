@@ -152,7 +152,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
 
-    const filterButton = await canvas.findByText('Filter');
+    const filterButton = await canvas.findByText('Saring');
 
     await userEvent.click(filterButton);
 
@@ -160,11 +160,11 @@ export const Default: Story = {
 
     await userEvent.click(textFilter);
 
-    const operatorDropdown = await canvas.findByText('Contains');
+    const operatorDropdown = await canvas.findByText('Berisi');
 
     await userEvent.click(operatorDropdown);
 
-    const containsOption = await canvas.findByText("Doesn't contain");
+    const containsOption = await canvas.findByText('Tidak berisi');
 
     await userEvent.click(containsOption);
   },
@@ -174,11 +174,11 @@ export const Date: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
 
-    const filterButton = await canvas.findByText('Filter');
+    const filterButton = await canvas.findByText('Saring');
 
     await userEvent.click(filterButton);
 
-    const dateFilter = await canvas.findByText('Last update');
+    const dateFilter = await canvas.findByText('Pembaruan Terakhir');
 
     await userEvent.click(dateFilter);
   },
@@ -188,7 +188,7 @@ export const Number: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
 
-    const filterButton = await canvas.findByText('Filter');
+    const filterButton = await canvas.findByText('Saring');
 
     await userEvent.click(filterButton);
 
@@ -277,7 +277,7 @@ export const AdvancedFilterCountBadge: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
 
-    const filterButton = await canvas.findByText('Filter');
+    const filterButton = await canvas.findByText('Saring');
 
     await userEvent.click(filterButton);
 

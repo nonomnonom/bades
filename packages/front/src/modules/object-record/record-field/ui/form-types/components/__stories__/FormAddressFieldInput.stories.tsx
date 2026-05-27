@@ -108,7 +108,7 @@ export const Disabled: Story = {
 
     await userEvent.click(countrySelect);
 
-    const searchInputInModal = canvas.queryByPlaceholderText('Search');
+    const searchInputInModal = canvas.queryByPlaceholderText('Cari');
     expect(searchInputInModal).not.toBeInTheDocument();
 
     expect(args.onChange).not.toHaveBeenCalled();

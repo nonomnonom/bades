@@ -170,7 +170,7 @@ export const CanNotSetPrimaryLinkAsPrimaryLink: Story = {
 
     const editOption = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Edit');
+    ).findByText('Sunting');
 
     expect(editOption).toBeVisible();
 

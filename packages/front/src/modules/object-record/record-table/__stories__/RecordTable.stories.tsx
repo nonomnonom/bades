@@ -57,11 +57,11 @@ export const HeaderMenuOpen: Story = {
     const body = within(canvasElement.ownerDocument.body);
     await canvas.findAllByText('Linkedin', {}, { timeout: 3000 });
 
-    const headerMenuButton = await canvas.findByText('Domain Name');
+    const headerMenuButton = await canvas.findByText('Nama');
 
     await userEvent.click(headerMenuButton);
 
-    await body.findByText('Move right');
+    await body.findByText('Geser kanan');
   },
 };
 

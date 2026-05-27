@@ -111,7 +111,7 @@ export const Disabled: Story = {
 
     await userEvent.click(firstChip);
 
-    const searchInputInModal = canvas.queryByPlaceholderText('Search');
+    const searchInputInModal = canvas.queryByPlaceholderText('Cari');
     expect(searchInputInModal).not.toBeInTheDocument();
   },
 };
@@ -131,7 +131,7 @@ export const DisabledWithVariable: Story = {
 
     await userEvent.click(variableChip);
 
-    const searchInputInModal = canvas.queryByPlaceholderText('Search');
+    const searchInputInModal = canvas.queryByPlaceholderText('Cari');
     expect(searchInputInModal).not.toBeInTheDocument();
   },
 };

@@ -44,9 +44,9 @@ export const Default: Story = {
 export const WithBottomButton: Story = {
   args: {
     variant: SnackBarVariant.Error,
-    message: 'An error has occurred',
-    detailedMessage: 'Error during useFindManyRecord...',
-    buttonLabel: 'Open Record',
+    message: 'Terjadi kesalahan',
+    detailedMessage: 'Kesalahan saat mengambil data...',
+    buttonLabel: 'Buka Rekaman',
     buttonOnClick: fn(),
   },
   decorators: [ComponentDecorator],
@@ -58,8 +58,8 @@ export const WithBottomButton: Story = {
 export const SuccessWithButton: Story = {
   args: {
     variant: SnackBarVariant.Success,
-    message: 'Record created successfully',
-    buttonLabel: 'View Record',
+    message: 'Rekaman berhasil dibuat',
+    buttonLabel: 'Lihat Rekaman',
     buttonOnClick: fn(),
   },
   decorators: [ComponentDecorator],
@@ -93,7 +93,7 @@ export const Catalog: CatalogStory<Story, typeof SnackBar> = {
 
 export const CatalogWithButton: CatalogStory<Story, typeof SnackBar> = {
   args: {
-    buttonLabel: 'Open Record',
+    buttonLabel: 'Buka Rekaman',
     buttonOnClick: fn(),
   },
   decorators: [CatalogDecorator],

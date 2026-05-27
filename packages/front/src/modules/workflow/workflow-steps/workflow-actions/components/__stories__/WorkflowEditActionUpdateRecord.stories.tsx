@@ -84,7 +84,7 @@ export const DisabledWithEmptyValues: Story = {
 
     {
       const searchInputInSelectDropdown =
-        canvas.queryByPlaceholderText('Search');
+        canvas.queryByPlaceholderText('Cari');
 
       expect(searchInputInSelectDropdown).not.toBeInTheDocument();
     }
@@ -103,7 +103,7 @@ export const DisabledWithEmptyValues: Story = {
 
     {
       const searchInputInSelectDropdown =
-        canvas.queryByPlaceholderText('Search');
+        canvas.queryByPlaceholderText('Cari');
 
       expect(searchInputInSelectDropdown).not.toBeInTheDocument();
     }
@@ -139,7 +139,7 @@ export const DisabledWithDefaultStaticValues: Story = {
 
     await userEvent.click(objectSelectCurrentValue);
 
-    const searchInputInSelectDropdown = canvas.queryByPlaceholderText('Search');
+    const searchInputInSelectDropdown = canvas.queryByPlaceholderText('Cari');
 
     expect(searchInputInSelectDropdown).not.toBeInTheDocument();
 
@@ -164,7 +164,7 @@ export const DisabledWithDefaultStaticValues: Story = {
 
     {
       const searchInputInSelectDropdown =
-        canvas.queryByPlaceholderText('Search');
+        canvas.queryByPlaceholderText('Cari');
 
       expect(searchInputInSelectDropdown).not.toBeInTheDocument();
     }
@@ -196,7 +196,7 @@ export const DisabledWithDefaultVariableValues: Story = {
 
     {
       const searchInputInSelectDropdown =
-        canvas.queryByPlaceholderText('Search');
+        canvas.queryByPlaceholderText('Cari');
 
       expect(searchInputInSelectDropdown).not.toBeInTheDocument();
     }
@@ -215,7 +215,7 @@ export const DisabledWithDefaultVariableValues: Story = {
 
     {
       const searchInputInSelectDropdown =
-        canvas.queryByPlaceholderText('Search');
+        canvas.queryByPlaceholderText('Cari');
 
       expect(searchInputInSelectDropdown).not.toBeInTheDocument();
     }

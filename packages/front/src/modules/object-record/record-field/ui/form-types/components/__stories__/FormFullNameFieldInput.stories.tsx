@@ -27,9 +27,9 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Name');
-    await canvas.findByText('First Name');
-    await canvas.findByText('Last Name');
+    await canvas.findByText('Nama');
+    await canvas.findByText('Nama Depan');
+    await canvas.findByText('Nama Belakang');
   },
 };
 

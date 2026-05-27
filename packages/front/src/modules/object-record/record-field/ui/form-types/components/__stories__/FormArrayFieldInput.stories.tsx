@@ -44,7 +44,7 @@ export const AddTwoItems: Story = {
 
     const addItemButton = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Add item');
+    ).findByText('Tambah item');
 
     await userEvent.click(addItemButton);
 
@@ -109,7 +109,7 @@ export const EditExistingItem: Story = {
 
     const editSecondItemButton = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Edit');
+    ).findByText('Sunting');
 
     await userEvent.click(editSecondItemButton);
 
@@ -166,7 +166,7 @@ export const DeleteExistingItem: Story = {
 
     const deleteSecondItemButton = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Delete');
+    ).findByText('Hapus');
 
     await userEvent.click(deleteSecondItemButton);
 
@@ -338,7 +338,7 @@ export const DisabledWithVariable: Story = {
 
     await userEvent.click(variableChip);
 
-    const searchInputInModal = canvas.queryByPlaceholderText('Search');
+    const searchInputInModal = canvas.queryByPlaceholderText('Cari');
     expect(searchInputInModal).not.toBeInTheDocument();
   },
 };

@@ -80,7 +80,7 @@ export const DisabledWithEmptyValues: Story = {
 
     {
       const searchInputInSelectDropdown =
-        canvas.queryByPlaceholderText('Search');
+        canvas.queryByPlaceholderText('Cari');
 
       expect(searchInputInSelectDropdown).not.toBeInTheDocument();
     }

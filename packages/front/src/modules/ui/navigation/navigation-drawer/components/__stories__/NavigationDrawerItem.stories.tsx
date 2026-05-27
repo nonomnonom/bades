@@ -18,7 +18,7 @@ const meta: Meta<typeof NavigationDrawerItem> = {
   title: 'UI/Navigation/NavigationDrawer/NavigationDrawerItem',
   component: NavigationDrawerItem,
   args: {
-    label: 'Search',
+    label: 'Cari',
     Icon: IconSearch,
   },
   argTypes: { Icon: { control: false } },
@@ -46,7 +46,7 @@ export const Breadcrumb: Story = {
         <Story
           args={{
             indentationLevel: 1,
-            label: 'Search',
+            label: 'Cari',
             Icon: IconSearch,
           }}
         />

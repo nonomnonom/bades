@@ -112,7 +112,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const nameLabel = await canvas.findByText('Name', {}, { timeout: 10000 });
+    const nameLabel = await canvas.findByText('Nama', {}, { timeout: 10000 });
     const nameInput = within(nameLabel.parentElement!).getByRole('textbox');
 
     await userEvent.type(nameInput, 'New Name');

@@ -48,7 +48,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await expect(await canvas.findByText('And')).toBeVisible();
+    await expect(await canvas.findByText('Dan')).toBeVisible();
   },
 };
 
@@ -60,6 +60,6 @@ export const OrOperator: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await expect(await canvas.findByText('Or')).toBeVisible();
+    await expect(await canvas.findByText('Atau')).toBeVisible();
   },
 };

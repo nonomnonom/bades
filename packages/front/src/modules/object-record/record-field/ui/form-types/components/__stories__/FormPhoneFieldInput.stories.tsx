@@ -156,7 +156,7 @@ export const Disabled: Story = {
 
     await userEvent.click(callingCodeInput);
 
-    const searchInputInModal = canvas.queryByPlaceholderText('Search');
+    const searchInputInModal = canvas.queryByPlaceholderText('Cari');
     expect(searchInputInModal).not.toBeInTheDocument();
 
     const phoneNumberInput =

@@ -36,9 +36,9 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Search');
-    await canvas.findByText('Settings');
-    await canvas.findByText('Opened');
+    await canvas.findByText('Cari');
+    await canvas.findByText('Pengaturan');
+    await canvas.findByText('Dibuka');
     await canvas.findByText('Keluarga');
   },
 };

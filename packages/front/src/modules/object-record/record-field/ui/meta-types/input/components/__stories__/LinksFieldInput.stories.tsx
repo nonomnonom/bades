@@ -296,7 +296,7 @@ export const DeletePrimaryLink: Story = {
 
     const deleteOption = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Delete');
+    ).findByText('Hapus');
     await userEvent.click(deleteOption);
 
     const input = await canvas.findByPlaceholderText('URL');
@@ -335,7 +335,7 @@ export const DeletePrimaryLinkAndUseSecondaryLinkAsTheNewPrimaryLink: Story = {
 
     const deleteOption = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Delete');
+    ).findByText('Hapus');
     await userEvent.click(deleteOption);
 
     const newPrimaryLink = await canvas.findByText('Documentation');
@@ -377,7 +377,7 @@ export const DeleteSecondaryLink: Story = {
 
     const deleteOption = await within(
       canvasElement.ownerDocument.body,
-    ).findByText('Delete');
+    ).findByText('Hapus');
     await userEvent.click(deleteOption);
 
     const primaryLink = await canvas.findByText('Bades.id Website');

@@ -85,7 +85,7 @@ export const WithDelete: Story = {
 
     await expect(handleDeleteMockFunction).toHaveBeenCalledTimes(0);
 
-    const deleteMenuItem = await canvas.findByText('Delete');
+    const deleteMenuItem = await canvas.findByText('Hapus');
 
     await userEvent.click(deleteMenuItem);
 

@@ -5,19 +5,19 @@ import {
 
 export const KEYBOARD_SHORTCUTS_TABLE: Shortcut[] = [
   {
-    label: 'Move right',
+    label: 'Geser kanan',
     type: ShortcutType.Table,
     firstHotKey: '→',
     areSimultaneous: true,
   },
   {
-    label: 'Move left',
+    label: 'Geser kiri',
     type: ShortcutType.Table,
     firstHotKey: '←',
     areSimultaneous: true,
   },
   {
-    label: 'Clear selection',
+    label: 'Bersihkan pilihan',
     type: ShortcutType.Table,
     firstHotKey: 'esc',
     areSimultaneous: true,

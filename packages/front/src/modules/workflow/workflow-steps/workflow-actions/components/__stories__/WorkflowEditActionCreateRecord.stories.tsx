@@ -75,7 +75,7 @@ export const Disabled: Story = {
 
     await userEvent.click(objectSelectCurrentValue);
 
-    const searchInputInSelectDropdown = canvas.queryByPlaceholderText('Search');
+    const searchInputInSelectDropdown = canvas.queryByPlaceholderText('Cari');
 
     expect(searchInputInSelectDropdown).not.toBeInTheDocument();
   },

@@ -98,13 +98,13 @@ const meta: Meta<typeof SidePanelCommandMenuItemDisplayPage> = {
       );
       jotaiStore.set(isSidePanelOpenedState.atom, true);
       jotaiStore.set(sidePanelPageInfoState.atom, {
-        title: 'Command Menu',
+        title: 'Menu Perintah',
         instanceId: SIDE_PANEL_COMPONENT_INSTANCE_ID,
       });
       jotaiStore.set(sidePanelNavigationStackState.atom, [
         {
           page: SidePanelPages.CommandMenuDisplay,
-          pageTitle: 'Command Menu',
+          pageTitle: 'Menu Perintah',
           pageIcon: IconDotsVertical,
           pageId: '1',
         },
@@ -295,13 +295,13 @@ export const SubPageNavigation: Story = {
         SidePanelPages.NavigationMenuAddItem,
       );
       jotaiStore.set(sidePanelPageInfoState.atom, {
-        title: 'Add item',
+        title: 'Tambah item',
         instanceId: SIDE_PANEL_COMPONENT_INSTANCE_ID,
       });
       jotaiStore.set(sidePanelNavigationStackState.atom, [
         {
           page: SidePanelPages.NavigationMenuAddItem,
-          pageTitle: 'Add item',
+          pageTitle: 'Tambah item',
           pageIcon: IconPlus,
           pageId: '1',
         },

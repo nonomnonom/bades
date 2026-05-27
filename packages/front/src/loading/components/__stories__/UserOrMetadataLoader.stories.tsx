@@ -85,12 +85,12 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(canvas.queryByText('Search')).toBeNull();
-    expect(canvas.queryByText('Settings')).toBeNull();
-    expect(canvas.queryByText('Tasks')).toBeNull();
+    expect(canvas.queryByText('Cari')).toBeNull();
+    expect(canvas.queryByText('Pengaturan')).toBeNull();
+    expect(canvas.queryByText('Tugas')).toBeNull();
     expect(canvas.queryByText('Penduduk')).toBeNull();
     expect(canvas.queryByText('Program Bantuan')).toBeNull();
-    expect(canvas.queryByText('Listings')).toBeNull();
-    expect(canvas.queryByText('My Customs')).toBeNull();
+    expect(canvas.queryByText('Daftar')).toBeNull();
+    expect(canvas.queryByText('Kustom Saya')).toBeNull();
   },
 };
