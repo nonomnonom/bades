@@ -6,6 +6,10 @@
 // dibuat. Service ini hanya men-toggle isVisible=false untuk field non-
 // curated lewat raw UPDATE ke core."viewField" — operator tetap bisa
 // menampilkan kembali lewat menu kolom di UI.
+//
+// CATATAN: nama field di sini WAJIB match dengan `name` di custom-field
+// seeds. Field yang sudah di-rename atau dihapus tidak akan match → view
+// default jadi kosong dan tabel tampil tanpa kolom data.
 
 export type SidStandardViewConfig = {
   // nameSingular dari custom object SID (mis. 'penduduk').
@@ -22,8 +26,8 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'penduduk',
     visibleFieldNames: [
+      'name',
       'nik',
-      'namaLengkap',
       'jenisKelamin',
       'tanggalLahir',
       'statusHidup',
@@ -33,15 +37,16 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   },
   {
     objectNameSingular: 'keluarga',
-    visibleFieldNames: ['nomorKk', 'alamat'],
+    visibleFieldNames: ['name', 'nomorKk', 'alamat'],
   },
   {
     objectNameSingular: 'jabatan',
-    visibleFieldNames: ['namaJabatan', 'tipeJabatan'],
+    visibleFieldNames: ['name', 'namaJabatan', 'tipeJabatan'],
   },
   {
     objectNameSingular: 'permohonanSurat',
     visibleFieldNames: [
+      'name',
       'nomorPermohonan',
       'tanggalPermohonan',
       'status',
@@ -52,6 +57,7 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'suratKeluar',
     visibleFieldNames: [
+      'name',
       'arahSurat',
       'nomorSurat',
       'tanggalSurat',
@@ -64,26 +70,35 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'programBantuan',
     visibleFieldNames: [
+      'name',
       'namaProgram',
       'jenisBantuan',
-      'tahunAnggaran',
       'sumberDana',
+      'tanggalMulai',
+      'tanggalSelesai',
       'status',
     ],
   },
   {
     objectNameSingular: 'penerimaBantuan',
-    visibleFieldNames: ['tanggalTerima', 'jumlahDiterima', 'status'],
+    visibleFieldNames: [
+      'name',
+      'namaPenerima',
+      'nik',
+      'tanggalTerima',
+      'statusPenerimaan',
+    ],
   },
   {
     objectNameSingular: 'asetDesa',
     visibleFieldNames: [
+      'name',
       'kodeAset',
       'namaAset',
-      'jenis',
+      'jenisAset',
       'kondisi',
+      'statusPengelolaan',
       'tahunPerolehan',
-      'nilaiPerolehan',
       'lokasi',
     ],
   },

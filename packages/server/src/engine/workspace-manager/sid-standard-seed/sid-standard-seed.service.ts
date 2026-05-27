@@ -5,6 +5,7 @@ import { DataSource } from 'typeorm';
 
 import { isDefined } from 'shared/utils';
 
+import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { SID_STANDARD_DATA_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
@@ -27,6 +28,7 @@ export class SidStandardSeedService {
   constructor(
     private readonly objectMetadataService: ObjectMetadataService,
     private readonly fieldMetadataService: FieldMetadataService,
+    private readonly applicationService: ApplicationService,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
   ) {}
@@ -38,6 +40,15 @@ export class SidStandardSeedService {
   }): Promise<{ createdObjects: number; createdFields: number }> {
     let createdObjects = 0;
     let createdFields = 0;
+
+    // Resolve Bades Standard Application sekali di awal supaya semua objek
+    // SID yang dibuat di-tag sebagai bagian dari aplikasi STANDAR (bukan
+    // custom application workspace). Tanpa ini, objek muncul sebagai
+    // "Kustom" di UI Settings → Objek.
+    const { badesStandardFlatApplication } =
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
+        { workspaceId },
+      );
 
     for (const { object, fields } of SID_STANDARD_OBJECT_SEEDS) {
       const existing = await this.objectMetadataService.findOneWithinWorkspace(
@@ -58,11 +69,12 @@ export class SidStandardSeedService {
         const created = await this.objectMetadataService.createOneObject({
           createObjectInput: object,
           workspaceId,
+          ownerFlatApplication: badesStandardFlatApplication,
         });
         objectMetadataId = created.id;
         createdObjects += 1;
         this.logger.log(
-          `Objek SID '${object.nameSingular}' dibuat di workspace ${workspaceId}`,
+          `Objek SID '${object.nameSingular}' dibuat di workspace ${workspaceId} (standard application)`,
         );
       }
 

@@ -64,6 +64,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     tableName: '_penduduk',
     columns: [
       'id',
+      'name',
       'nik',
       'nomorKk',
       'namaLengkapFirstName',
@@ -83,6 +84,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0001-4000-8000-000000000001',
+        name: 'Budi Santoso',
         nik: '3201010101010001',
         nomorKk: '3201010101010001',
         namaLengkapFirstName: 'Budi',
@@ -100,6 +102,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0001-4000-8000-000000000002',
+        name: 'Siti Aminah',
         nik: '3201010101010002',
         nomorKk: '3201010101010001',
         namaLengkapFirstName: 'Siti',
@@ -117,6 +120,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0001-4000-8000-000000000003',
+        name: 'Andi Santoso',
         nik: '3201010101010003',
         nomorKk: '3201010101010001',
         namaLengkapFirstName: 'Andi',
@@ -136,16 +140,25 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   },
   {
     tableName: '_keluarga',
-    columns: ['id', 'nomorKk', 'alamat', 'position', ...ACTOR_AUDIT_COLUMNS],
+    columns: [
+      'id',
+      'name',
+      'nomorKk',
+      'alamat',
+      'position',
+      ...ACTOR_AUDIT_COLUMNS,
+    ],
     rows: withActorAudit([
       {
         id: '30303030-0002-4000-8000-000000000001',
+        name: 'KK 3201010101010001 - Keluarga Anggrek',
         nomorKk: '3201010101010001',
         alamat: 'Jl. Mawar No. 12, RT 01 / RW 01, Dusun Krajan',
         position: 0,
       },
       {
         id: '30303030-0002-4000-8000-000000000002',
+        name: 'KK 3201010101010004 - Keluarga Melati',
         nomorKk: '3201010101010004',
         alamat: 'Jl. Melati No. 5, RT 01 / RW 01, Dusun Krajan',
         position: 1,
@@ -156,6 +169,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     tableName: '_jabatan',
     columns: [
       'id',
+      'name',
       'namaJabatan',
       'tipeJabatan',
       'tugasPokok',
@@ -165,6 +179,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0003-4000-8000-000000000001',
+        name: 'Kepala Desa',
         namaJabatan: 'Kepala Desa',
         tipeJabatan: 'KEPALA_DESA',
         tugasPokok:
@@ -173,6 +188,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0003-4000-8000-000000000002',
+        name: 'Sekretaris Desa',
         namaJabatan: 'Sekretaris Desa',
         tipeJabatan: 'SEKRETARIS',
         tugasPokok:
@@ -181,6 +197,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0003-4000-8000-000000000003',
+        name: 'Kepala Dusun Krajan',
         namaJabatan: 'Kepala Dusun Krajan',
         tipeJabatan: 'KEPALA_DUSUN',
         tugasPokok:
@@ -226,6 +243,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     tableName: '_suratKeluar',
     columns: [
       'id',
+      'name',
       'arahSurat',
       'asalSurat',
       'nomorSurat',
@@ -240,6 +258,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0005-4000-8000-000000000001',
+        name: '470/001/DS/2025',
         arahSurat: 'KELUAR',
         asalSurat: null,
         nomorSurat: '470/001/DS/2025',
@@ -252,6 +271,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0005-4000-8000-000000000002',
+        name: '470/002/DS/2025',
         arahSurat: 'KELUAR',
         asalSurat: null,
         nomorSurat: '470/002/DS/2025',
@@ -264,6 +284,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0005-4000-8000-000000000003',
+        name: '001/KEC/2025',
         arahSurat: 'MASUK',
         asalSurat: 'Kecamatan Sukamaju',
         nomorSurat: '001/KEC/2025',
@@ -286,6 +307,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     // `nilaiPerOrangCurrencyCode`.
     columns: [
       'id',
+      'name',
       'namaProgram',
       'jenisBantuan',
       'sumberDana',
@@ -301,6 +323,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0006-4000-8000-000000000001',
+        name: 'BLT Dana Desa 2025',
         namaProgram: 'BLT Dana Desa 2025',
         jenisBantuan: 'BLT',
         sumberDana: 'Dana Desa',
@@ -314,6 +337,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0006-4000-8000-000000000002',
+        name: 'Bantuan Sembako Lansia',
         namaProgram: 'Bantuan Sembako Lansia',
         jenisBantuan: 'BPNT',
         sumberDana: 'APBDes',
@@ -334,6 +358,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     // status di Bades adalah `statusPenerimaan`, bukan `status` generik.
     columns: [
       'id',
+      'name',
       'namaPenerima',
       'nik',
       'tanggalTerima',
@@ -346,6 +371,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0007-4000-8000-000000000001',
+        name: 'Budi Santoso - BLT 2025',
         namaPenerima: 'Budi Santoso',
         nik: '3201010101010001',
         tanggalTerima: '2025-01-20',
@@ -356,6 +382,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0007-4000-8000-000000000002',
+        name: 'Siti Aminah - BLT 2025',
         namaPenerima: 'Siti Aminah',
         nik: '3201010101010002',
         tanggalTerima: '2025-02-20',
@@ -376,6 +403,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     // Disewakan / Dilepas).
     columns: [
       'id',
+      'name',
       'kodeAset',
       'namaAset',
       'jenisAset',
@@ -392,6 +420,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0008-4000-8000-000000000001',
+        name: 'Kantor Balai Desa',
         kodeAset: 'AST/2020/001',
         namaAset: 'Kantor Balai Desa',
         jenisAset: 'BANGUNAN',
@@ -406,6 +435,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0008-4000-8000-000000000002',
+        name: 'Motor Operasional Desa',
         kodeAset: 'AST/2022/002',
         namaAset: 'Motor Operasional Desa',
         jenisAset: 'KENDARAAN',
@@ -420,6 +450,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0008-4000-8000-000000000003',
+        name: 'Komputer Sekretariat',
         kodeAset: 'AST/2024/003',
         namaAset: 'Komputer Sekretariat',
         jenisAset: 'PERALATAN',
