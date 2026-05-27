@@ -5,8 +5,8 @@ import { formatAddressObjectAsParticipants } from 'src/modules/messaging/message
 describe('formatAddressObjectAsParticipants', () => {
   it('should format address object as participants', () => {
     const addresses = [
-      { name: 'John Doe', address: 'john.doe @example.com' },
-      { name: 'Jane Smith', address: 'jane.smith@example.com ' },
+      { name: 'Budi Santoso', address: 'budi.santoso @bades.id' },
+      { name: 'Siti Maryam', address: 'siti.maryam@bades.id ' },
     ];
 
     const result = formatAddressObjectAsParticipants(
@@ -17,21 +17,21 @@ describe('formatAddressObjectAsParticipants', () => {
     expect(result).toEqual([
       {
         role: MessageParticipantRole.FROM,
-        handle: 'john.doe@example.com',
-        displayName: 'John Doe',
+        handle: 'budi.santoso@bades.id',
+        displayName: 'Budi Santoso',
       },
       {
         role: MessageParticipantRole.FROM,
-        handle: 'jane.smith@example.com',
-        displayName: 'Jane Smith',
+        handle: 'siti.maryam@bades.id',
+        displayName: 'Siti Maryam',
       },
     ]);
   });
 
   it('should return an empty array if address object handle has no @', () => {
     const addressObject = {
-      name: 'John Doe',
-      address: 'john.doe',
+      name: 'Budi Santoso',
+      address: 'budi.santoso',
     };
 
     const result = formatAddressObjectAsParticipants(
@@ -44,7 +44,7 @@ describe('formatAddressObjectAsParticipants', () => {
 
   it('should return an empty array if address object handle is empty', () => {
     const addressObject = {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       address: '',
     };
 
@@ -58,8 +58,8 @@ describe('formatAddressObjectAsParticipants', () => {
 
   it('should return a lowewrcase handle if the handle is not lowercase', () => {
     const addressObject = {
-      name: 'John Doe',
-      address: 'John.Doe@example.com',
+      name: 'Budi Santoso',
+      address: 'Budi.Santoso@bades.id',
     };
 
     const result = formatAddressObjectAsParticipants(
@@ -70,8 +70,8 @@ describe('formatAddressObjectAsParticipants', () => {
     expect(result).toEqual([
       {
         role: MessageParticipantRole.TO,
-        handle: 'john.doe@example.com',
-        displayName: 'John Doe',
+        handle: 'budi.santoso@bades.id',
+        displayName: 'Budi Santoso',
       },
     ]);
   });

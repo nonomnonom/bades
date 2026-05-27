@@ -7,7 +7,7 @@ import { RegisteredWorkspaceCommand } from 'src/engine/core-modules/upgrade/deco
 import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
 
 // Sinkronkan ulang aplikasi bades-standard pada setiap workspace lama supaya
-// objek CRM warisan Twenty (`company`, `person`, `opportunity`) yang sudah
+// objek CRM warisan (`company`, `person`, `opportunity`) yang sudah
 // di-seed sebelum rebrand SID benar-benar dihapus dari workspace user.
 //
 // Sync service memakai `inferDeletionFromMissingEntities: true` saat build

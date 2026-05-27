@@ -7,7 +7,7 @@ import { groupByOperationFactory } from 'test/integration/graphql/utils/group-by
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 
 // Bades: test order-by pada group-by menggunakan objek `keluarga` (Kartu Keluarga)
-// sebagai pengganti `company` dari CRM warisan Twenty.
+// sebagai pengganti `company` dari CRM warisan.
 // Field mapping:
 //   company.address.addressCity → keluarga.kecamatan (TEXT)
 //   company.employees           → keluarga.jumlahAnggota (NUMBER)

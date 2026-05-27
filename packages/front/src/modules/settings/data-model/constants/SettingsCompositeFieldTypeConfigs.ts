@@ -28,7 +28,6 @@ import {
 } from 'ui/display';
 import { FieldMetadataType } from '~/generated-metadata/graphql';
 
-//TODO : isIncludedInUniqueConstraint refactor - https://github.com/twentyhq/core-team-issues/issues/1097
 
 export type CompositeSubFieldConfig<T> = {
   subFieldName: keyof T;
@@ -124,17 +123,17 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
         primaryEmail: 'tim@bades.id',
         additionalEmails: [
           'tim@bades.id',
-          'timapple@bades.id',
-          'johnappletim@bades.id',
+          'tim.bades@bades.id',
+          'admin.tim@bades.id',
         ],
       },
       {
-        primaryEmail: 'jane@bades.id',
-        additionalEmails: ['jane@bades.id', 'jane.doe@bades.id'],
+        primaryEmail: 'siti@bades.id',
+        additionalEmails: ['siti.kantor@bades.id', 'siti.maryam@bades.id'],
       },
       {
-        primaryEmail: 'john@bades.id',
-        additionalEmails: ['john.doe@bades.id'],
+        primaryEmail: 'budi@bades.id',
+        additionalEmails: ['budi.santoso@bades.id'],
       },
     ],
     category: 'Basic',

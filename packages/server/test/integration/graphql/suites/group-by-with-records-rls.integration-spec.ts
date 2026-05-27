@@ -24,7 +24,7 @@ const FILTER_2020 = {
 };
 
 // Bades: test RLS pada group-by menggunakan objek `keluarga` (Kartu Keluarga)
-// sebagai pengganti `company` dari CRM warisan Twenty. Filter RLS diset pada
+// sebagai pengganti `company` dari CRM warisan. Filter RLS diset pada
 // field `alamat` (TEXT bebas) — `nomorKk` adalah identifier 16-digit numerik
 // per Permendagri 109/2019, jadi tidak cocok untuk CONTAINS predicate.
 describe('group-by with records respects row-level permission predicates', () => {

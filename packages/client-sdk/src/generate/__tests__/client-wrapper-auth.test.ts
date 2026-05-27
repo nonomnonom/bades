@@ -18,7 +18,7 @@ import {
 import { buildClientWrapperSource } from '../client-wrapper';
 
 const twentyClientTemplateSource = readFileSync(
-  join(__dirname, '..', 'twenty-client-template.ts'),
+  join(__dirname, '..', 'bades-client-template.ts'),
   'utf-8',
 );
 
@@ -116,7 +116,7 @@ describe('Generated client wrapper auth behavior', () => {
 
     const wrapperSource = buildClientWrapperSource(twentyClientTemplateSource, {
       apiClientName: 'MetadataApiClient',
-      defaultUrl: '`${process.env.TWENTY_API_URL}/metadata`',
+      defaultUrl: '`${process.env.BADES_API_URL}/metadata`',
       includeUploadFile: true,
     });
 
@@ -140,8 +140,8 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   beforeEach(() => {
-    delete process.env.TWENTY_APP_ACCESS_TOKEN;
-    delete process.env.TWENTY_API_KEY;
+    delete process.env.BADES_APP_ACCESS_TOKEN;
+    delete process.env.BADES_API_KEY;
     delete (globalThis as Record<string, unknown>)
       .frontComponentHostCommunicationApi;
   });
@@ -152,9 +152,9 @@ describe('Generated client wrapper auth behavior', () => {
     }
   });
 
-  it('uses TWENTY_APP_ACCESS_TOKEN before TWENTY_API_KEY', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'application-token';
-    process.env.TWENTY_API_KEY = 'api-key-token';
+  it('uses BADES_APP_ACCESS_TOKEN before BADES_API_KEY', async () => {
+    process.env.BADES_APP_ACCESS_TOKEN = 'application-token';
+    process.env.BADES_API_KEY = 'api-key-token';
 
     const capturedAuthorizationHeaders: string[] = [];
     const fetchMock = vi.fn(
@@ -182,8 +182,8 @@ describe('Generated client wrapper auth behavior', () => {
     expect(capturedAuthorizationHeaders).toEqual(['Bearer application-token']);
   });
 
-  it('falls back to TWENTY_API_KEY when TWENTY_APP_ACCESS_TOKEN is absent', async () => {
-    process.env.TWENTY_API_KEY = 'legacy-api-key-token';
+  it('falls back to BADES_API_KEY when BADES_APP_ACCESS_TOKEN is absent', async () => {
+    process.env.BADES_API_KEY = 'legacy-api-key-token';
 
     const capturedAuthorizationHeaders: string[] = [];
     const fetchMock = vi.fn(
@@ -214,8 +214,8 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   it('refreshes and retries once after auth error when refresh callback is available', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'stale-token';
-    process.env.TWENTY_API_KEY = 'legacy-api-key-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'stale-token';
+    process.env.BADES_API_KEY = 'legacy-api-key-token';
 
     const requestAccessTokenRefresh = vi
       .fn<() => Promise<string>>()
@@ -260,12 +260,12 @@ describe('Generated client wrapper auth behavior', () => {
     expect(queryResult).toEqual({ data: { record: { id: 'record-id' } } });
     expect(requestAccessTokenRefresh).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(process.env.TWENTY_APP_ACCESS_TOKEN).toBe('fresh-token');
-    expect(process.env.TWENTY_API_KEY).toBe('legacy-api-key-token');
+    expect(process.env.BADES_APP_ACCESS_TOKEN).toBe('fresh-token');
+    expect(process.env.BADES_API_KEY).toBe('legacy-api-key-token');
   });
 
   it('deduplicates concurrent token refresh requests', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'stale-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'stale-token';
 
     const requestAccessTokenRefresh = vi
       .fn<() => Promise<string>>()
@@ -319,7 +319,7 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   it('retries uploadFile once after 401 when refresh callback is available', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'stale-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'stale-token';
 
     const requestAccessTokenRefresh = vi
       .fn<() => Promise<string>>()
@@ -377,7 +377,7 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   it('bubbles auth error when refresh callback throws', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'stale-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'stale-token';
 
     const requestAccessTokenRefresh = vi
       .fn<() => Promise<string>>()
@@ -419,7 +419,7 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   it('bubbles auth error when refresh callback returns an empty token', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'stale-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'stale-token';
 
     const requestAccessTokenRefresh = vi
       .fn<() => Promise<string>>()
@@ -451,7 +451,7 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   it('bubbles auth error without retry when refresh callback is unavailable', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'stale-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'stale-token';
 
     const fetchMock = vi.fn(async () => {
       return createJsonResponse({
@@ -473,7 +473,7 @@ describe('Generated client wrapper auth behavior', () => {
   });
 
   it('calls global fetch with globalThis binding when no custom fetch is provided', async () => {
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'application-token';
+    process.env.BADES_APP_ACCESS_TOKEN = 'application-token';
 
     const originalFetch = globalThis.fetch;
     const capturedFetchThisValues: unknown[] = [];

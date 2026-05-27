@@ -31,14 +31,14 @@ describe('getConnection', () => {
   let fetchSpy: MockInstance<typeof fetch>;
 
   beforeEach(() => {
-    process.env.TWENTY_API_URL = 'https://api.test';
-    process.env.TWENTY_APP_ACCESS_TOKEN = 'app-token';
+    process.env.BADES_API_URL = 'https://api.test';
+    process.env.BADES_APP_ACCESS_TOKEN = 'app-token';
     fetchSpy = vi.spyOn(globalThis, 'fetch');
   });
 
   afterEach(() => {
-    delete process.env.TWENTY_API_URL;
-    delete process.env.TWENTY_APP_ACCESS_TOKEN;
+    delete process.env.BADES_API_URL;
+    delete process.env.BADES_APP_ACCESS_TOKEN;
     fetchSpy.mockRestore();
   });
 
@@ -92,7 +92,7 @@ describe('getConnection', () => {
   });
 
   it('throws when the runtime env vars are missing', async () => {
-    delete process.env.TWENTY_API_URL;
+    delete process.env.BADES_API_URL;
 
     await expect(getConnection('any')).rejects.toThrow(
       /requires the app runtime env vars/,

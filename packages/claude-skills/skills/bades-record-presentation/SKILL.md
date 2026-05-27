@@ -1,159 +1,162 @@
 ---
 name: bades-record-presentation
-description: "Retrieve and present Bades.id records as readable summaries or tables, using the connected Bades MCP server to discover fields, fetch relevant data, format dates and values, build record links, and avoid raw API output."
+description: "Ambil dan sajikan data record Bades.id sebagai ringkasan atau tabel yang mudah dibaca, dengan memanfaatkan Bades MCP server untuk menemukan field, mengambil data yang relevan, memformat tanggal dan nilai, membuat tautan record, serta menghindari output API mentah."
 ---
 
-# Bades Record Presentation
+# Penyajian Record Bades
 
-## Overview
+## Ringkasan
 
-Retrieve the Bades records needed to answer the user's question, then present them as a useful answer, not as raw API output. Always translate technical fields, timestamps, IDs, and nested structures into readable summaries that help the user scan, compare, and act.
+Ambil data record Bades yang dibutuhkan untuk menjawab pertanyaan pengguna, lalu sajikan sebagai jawaban yang berguna — bukan output API mentah. Terjemahkan field teknis, timestamp, ID, dan struktur bersarang menjadi ringkasan yang membantu pengguna memindai, membandingkan, dan mengambil tindakan.
 
-## Retrieval Workflow
+## Alur Pengambilan Data
 
-Use the selected connected Bades MCP server when it is available
+Pakai Bades MCP server yang terhubung jika tersedia.
 
 - `get_tool_catalog` → `learn_tools` → `execute_tool`
-- Discover the relevant object, fields, filters, and sort options instead of guessing exact API names.
-- Retrieve only the fields needed for the answer, plus the fields needed for ordering or disambiguation.
-- For "latest", "most recent", or "recent" requests, include the relevant timestamp field used for sorting.
-- If the user asks for a broad list, apply a practical limit and state how many records are shown.
-- If required context is missing and cannot be discovered from the tools, ask one concise clarifying question.
-- If no Bades MCP tools are available, say that no callable Bades MCP server is available in the current thread and ask the user to connect or expose the intended workspace.
+- Temukan objek, field, filter, dan opsi sort yang relevan lewat tool — jangan menebak nama API persis.
+- Ambil hanya field yang dibutuhkan untuk jawaban, plus field untuk ordering atau disambiguasi.
+- Untuk permintaan "terbaru", "terakhir", atau "recent", sertakan field timestamp yang dipakai untuk sorting.
+- Kalau pengguna minta daftar luas, terapkan batas wajar dan sebutkan berapa record yang ditampilkan.
+- Kalau konteks penting hilang dan tidak bisa ditemukan dari tool, ajukan satu pertanyaan klarifikasi singkat.
+- Kalau tidak ada Bades MCP tool yang tersedia, sampaikan bahwa tidak ada Bades MCP server yang bisa dipanggil di thread saat ini, lalu minta pengguna menghubungkan atau membuka workspace yang dimaksud.
 
-## Response Shape
+## Bentuk Respons
 
-Start with the answer or count, then show the records in the clearest compact shape:
+Mulai dengan jawaban atau jumlah, lalu tampilkan record dalam bentuk paling ringkas:
 
-- For one record, use a labeled block.
-- For 2 to 10 comparable records, use a Markdown table.
-- For larger sets, show the most relevant rows first, mention the total, and offer the next useful filter or page only when needed.
-- For nested records, summarize the important nested values instead of dumping JSON.
-- When comparing records across workspaces, prefer one combined table with a Workspace column if it improves scanning. Use separate sections only when each workspace needs different columns.
+- Satu record → blok berlabel.
+- 2 sampai 10 record yang bisa dibandingkan → tabel Markdown.
+- Set yang lebih besar → tampilkan baris paling relevan dulu, sebutkan total, dan tawarkan filter atau halaman berikutnya hanya bila perlu.
+- Record bersarang → ringkas nilai penting di dalamnya, jangan dump JSON.
+- Kalau membandingkan record lintas workspace, lebih baik satu tabel gabungan dengan kolom Workspace bila itu memudahkan baca. Pisahkan jadi beberapa bagian hanya kalau tiap workspace butuh kolom berbeda.
 
-Use English labels and prose. Keep user-provided names, record values, emails, URLs, and proper nouns unchanged.
+Pakai bahasa Indonesia untuk label dan narasi. Pertahankan nama, nilai record, email, URL, dan kata khas yang diberikan pengguna apa adanya.
 
-## Record Links
+## Tautan Record
 
-Link records back to their original Bades context whenever the workspace origin and record identity are known.
+Tautkan record kembali ke konteks Bades aslinya kalau origin workspace dan identitas record diketahui.
 
-- Build record links with the Bades show-page path: `/object/:objectNameSingular/:objectRecordId`.
-- For absolute links, combine the workspace origin with that path, for example `https://example.bades.id/object/person/record-id`.
-- Use `recordReferences` from MCP responses when available to get `objectNameSingular`, `recordId`, and `displayName`.
-- If `recordReferences` is missing, use the record's `id` and the object name from the tool that returned it.
-- Prefer linking the record display name in tables and summaries instead of adding a raw ID column.
-- When showing records from multiple workspaces, generate links with each record's own workspace origin.
-- If the workspace origin is unknown, do not invent a hostname. Add a compact Record column with the object name and record ID, or say that direct links need the workspace URL.
+- Bangun tautan record dengan path show-page Bades: `/object/:objectNameSingular/:objectRecordId`.
+- Untuk tautan absolut, gabungkan origin workspace dengan path itu, misalnya `https://contoh.bades.id/object/penduduk/record-id`.
+- Pakai `recordReferences` dari respons MCP bila tersedia, untuk dapat `objectNameSingular`, `recordId`, dan `displayName`.
+- Kalau `recordReferences` tidak ada, pakai `id` record dan nama objek dari tool yang mengembalikannya.
+- Lebih baik tautkan nama tampilan record di tabel/ringkasan daripada menambahkan kolom ID mentah.
+- Saat menampilkan record dari beberapa workspace, buat tautan dengan origin workspace masing-masing.
+- Kalau origin workspace tidak diketahui, jangan mengarang hostname. Tambahkan kolom Record ringkas berisi nama objek + ID record, atau sampaikan bahwa tautan langsung butuh URL workspace.
 
-## Dates and Times
+## Tanggal dan Waktu
 
-Never expose ISO/RFC3339 timestamps as the main date display.
+Jangan pernah menampilkan timestamp ISO/RFC3339 sebagai tampilan tanggal utama.
 
-- Parse common technical formats such as `2026-05-05T09:43:18.123Z`, `2026-05-05T09:43:18+02:00`, Unix seconds, and Unix milliseconds.
-- Convert instants with `Z` or an explicit offset to the user's timezone when known. If timezone is unknown, keep the source timezone or ask only when it changes the meaning.
-- Preserve date-only values as dates. Do not shift date-only values across timezones.
-- Display absolute dates. Use relative words such as "today", "yesterday", or "last week" only as a supplement when helpful.
-- Include the year unless it is truly redundant in a small same-year table.
-- Show seconds and milliseconds only when they matter for debugging, audit logs, or ordering events with near-identical times.
+- Parse format teknis umum seperti `2026-05-05T09:43:18.123Z`, `2026-05-05T09:43:18+07:00`, Unix detik, dan Unix milidetik.
+- Konversi instant dengan `Z` atau offset eksplisit ke zona waktu pengguna bila diketahui. Kalau zona waktu tidak diketahui, pertahankan zona sumber atau tanya hanya kalau itu mengubah makna.
+- Pertahankan nilai date-only sebagai tanggal. Jangan menggeser nilai date-only lintas zona waktu.
+- Tampilkan tanggal absolut. Pakai kata relatif seperti "hari ini", "kemarin", atau "minggu lalu" hanya sebagai pelengkap bila membantu.
+- Sertakan tahun kecuali benar-benar redundan dalam tabel kecil tahun yang sama.
+- Tampilkan detik dan milidetik hanya kalau memang relevan untuk debugging, audit log, atau urutan event yang berdekatan.
 
-Examples, with user timezone Europe/Paris, UTC+2 in May:
+Contoh, dengan zona waktu pengguna Asia/Jakarta (UTC+7):
 
-- Timestamp: `2026-05-05T09:43:18.123Z` → May 5, 2026, 11:43 AM
-- Date-only value: `2026-05-05` → May 5, 2026
+- Timestamp: `2026-05-05T09:43:18.123Z` → 5 Mei 2026, 16.43
+- Nilai date-only: `2026-05-05` → 5 Mei 2026
 
-If the exact raw timestamp is relevant, put it after the readable value:
+Kalau timestamp mentah relevan, taruh setelah nilai yang mudah dibaca:
 
-- Created: May 5, 2026, 11:43 AM (raw: `2026-05-05T09:43:18.123Z`)
+- Dibuat: 5 Mei 2026, 16.43 (mentah: `2026-05-05T09:43:18.123Z`)
 
-## Field Labels
+## Label Field
 
-Convert raw field names into user-facing labels:
+Ubah nama field mentah jadi label untuk pengguna:
 
-- `createdAt` → Created
-- `updatedAt` → Last updated
-- `deletedAt` → Deleted
-- `createdBy` → Created by
-- `workspaceMemberId` → Workspace member
-- `opportunityStage` → Opportunity stage
+- `createdAt` → Dibuat
+- `updatedAt` → Terakhir diperbarui
+- `deletedAt` → Dihapus
+- `createdBy` → Dibuat oleh
+- `workspaceMemberId` → Anggota workspace
+- `name` → Nama
+- `keluarga` → Keluarga
+- `penduduk` → Penduduk
+- `programBantuan` → Program bantuan
 
-Prefer the label users see in Bades when it is available from metadata. Otherwise, split camelCase, snake_case, and kebab-case into normal words.
+Lebih baik pakai label yang tampil di Bades dari metadata bila tersedia. Kalau tidak, pecah camelCase, snake_case, dan kebab-case jadi kata-kata biasa berbahasa Indonesia.
 
-## Value Formatting
+## Format Nilai
 
-Format values by meaning:
+Format nilai berdasarkan maknanya:
 
-- **Empty or null**: Not set, or omit if the field is irrelevant.
-- **Booleans**: Yes / No.
-- **Money**: include currency and grouping, for example EUR 12,450 or USD 12,450 based on the record currency.
-- **Percentages**: use `%`, round only enough to stay meaningful.
-- **URLs and emails**: make them clickable Markdown links when useful.
-- **IDs and UUIDs**: hide by default unless the user asks for identifiers, deduplication, debugging, or exact references.
-- **Arrays**: show the count and the most important names, not the full serialized array.
+- **Kosong atau null**: Belum diisi, atau hilangkan kalau field memang tidak relevan.
+- **Boolean**: Ya / Tidak.
+- **Uang**: sertakan mata uang dan grouping, misalnya Rp 12.450.000 atau IDR 12.450.000 sesuai mata uang record.
+- **Persentase**: pakai `%`, bulatkan secukupnya supaya tetap bermakna.
+- **URL dan email**: jadikan tautan Markdown yang bisa diklik kalau berguna.
+- **ID dan UUID**: sembunyikan secara default kecuali pengguna minta identifier, deduplikasi, debugging, atau referensi persis.
+- **Array**: tampilkan jumlah dan nama paling penting, jangan serialisasi array penuh.
 
-## Record Ordering
+## Pengurutan Record
 
-When the user asks for "latest", "recent", or "last records":
+Saat pengguna minta "terbaru", "recent", atau "record terakhir":
 
-- State which date field was used when it is not obvious, for example *sorted by Last updated*.
-- Prefer `updatedAt` for "recent activity" and `createdAt` for "newest records" unless the user's wording or object semantics points to another date.
-- Display the chosen date column in readable form.
-- If multiple records share the same date, keep a deterministic secondary order such as name or ID.
+- Sebutkan field tanggal mana yang dipakai kalau tidak jelas, misalnya *diurutkan berdasarkan Terakhir diperbarui*.
+- Lebih baik pakai `updatedAt` untuk "aktivitas terbaru" dan `createdAt` untuk "record terbaru" kecuali pilihan kata pengguna atau semantik objek mengarah ke tanggal lain.
+- Tampilkan kolom tanggal yang dipakai dalam format yang mudah dibaca.
+- Kalau beberapa record punya tanggal sama, pertahankan urutan sekunder deterministik seperti nama atau ID.
 
-## Table Alignment
+## Penataan Tabel
 
-Make tables easy to scan before making them visually decorative.
+Buat tabel mudah dipindai sebelum membuatnya cantik secara visual.
 
-- Use Markdown alignment markers intentionally: text columns left-aligned (`:---`), numeric money/count columns right-aligned (`---:`), and short status columns centered only when that actually improves scanning (`:---:`).
-- Keep record names on a stable left edge. If rows have favicons, use a dedicated narrow Icon column followed by a linked record-name column.
-- If the table is compact and the image is known to be consistently small, it is acceptable to put `![alt](url) [Name](record-url)` in one cell. Do not also add emoji or extra symbols before the name.
-- Keep fixed-format fields such as Created, Updated, Amount, and Source to the right of variable-width fields such as Name, Company, Person, and Domain.
-- Use a consistent date format within a table so rows line up visually, for example *May 5, 2026, 11:43 AM* or *May 5, 11:43*.
-- Prefer natural links over extra link columns: link the record name to Bades, and link the domain or email only when that external destination is useful.
-- Avoid raw ID columns in normal user-facing tables. IDs are long, visually dominant, and destroy alignment unless the user asks for them.
+- Pakai penanda alignment Markdown dengan sengaja: kolom teks rata kiri (`:---`), kolom uang/jumlah rata kanan (`---:`), kolom status pendek di tengah hanya kalau itu memang membantu baca (`:---:`).
+- Pertahankan nama record di sisi kiri yang konsisten. Kalau baris punya favicon, pakai kolom Ikon sempit khusus diikuti kolom nama-record yang ditautkan.
+- Kalau tabel ringkas dan gambar diketahui konsisten kecil, boleh menaruh `![alt](url) [Nama](record-url)` dalam satu sel. Jangan menambahkan emoji atau simbol ekstra sebelum nama.
+- Letakkan field format tetap seperti Dibuat, Diperbarui, Jumlah, Sumber di sebelah kanan field lebar variabel seperti Nama, Keluarga, Penduduk, Domain.
+- Pakai format tanggal konsisten dalam satu tabel supaya baris rapi, misalnya *5 Mei 2026, 16.43* atau *5 Mei, 16.43*.
+- Lebih baik pakai tautan alami daripada kolom tautan ekstra: tautkan nama record ke Bades, tautkan domain atau email hanya kalau tujuan eksternal itu berguna.
+- Hindari kolom ID mentah di tabel user-facing biasa. ID itu panjang, dominan secara visual, dan merusak alignment kecuali pengguna minta.
 
-## Markdown Patterns
+## Pola Markdown
 
-### Compact table
+### Tabel ringkas
 
-Use a compact table for comparable records:
+Pakai tabel ringkas untuk record yang sebanding:
 
 ```markdown
-I found 5 recent opportunities, sorted by last updated date.
+Saya menemukan 5 program bantuan terbaru, diurutkan berdasarkan tanggal terakhir diperbarui.
 
-| Name | Stage | Amount | Last updated |
+| Nama | Tahap | Jumlah | Terakhir diperbarui |
 | :--- | :--- | ---: | :--- |
-| [Acme renewal](https://example.bades.id/object/opportunity/record-id-1) | Negotiation | EUR 12,450 | May 5, 2026, 11:43 AM |
-| [Globex expansion](https://example.bades.id/object/opportunity/record-id-2) | Discovery | EUR 8,000 | May 4, 2026, 4:10 PM |
+| [Bantuan Lansia Desa Sukamaju](https://contoh.bades.id/object/programBantuan/record-id-1) | Verifikasi | Rp 12.450.000 | 5 Mei 2026, 16.43 |
+| [BLT Petani RW 03](https://contoh.bades.id/object/programBantuan/record-id-2) | Pengajuan | Rp 8.000.000 | 4 Mei 2026, 13.10 |
 ```
 
-### Labeled block
+### Blok berlabel
 
-Use a labeled block for one important record:
+Pakai blok berlabel untuk satu record penting:
 
 ```markdown
-**[Acme renewal](https://example.bades.id/object/opportunity/record-id-1)**
+**[Bantuan Lansia Desa Sukamaju](https://contoh.bades.id/object/programBantuan/record-id-1)**
 
-- Stage: Negotiation
-- Amount: EUR 12,450
-- Next action: Not set
-- Last updated: May 5, 2026, 11:43 AM
+- Tahap: Verifikasi
+- Jumlah: Rp 12.450.000
+- Tindak lanjut: Belum diisi
+- Terakhir diperbarui: 5 Mei 2026, 16.43
 ```
 
-## Raw Data Exceptions
+## Pengecualian Data Mentah
 
-Show raw JSON, raw timestamps, internal IDs, or full nested objects only when the user asks for debugging, export, exact API payloads, schema inspection, or reproducible commands. Even then, put a readable summary before the raw block.
+Tampilkan JSON mentah, timestamp mentah, ID internal, atau objek bersarang utuh hanya saat pengguna minta debugging, ekspor, payload API persis, inspeksi schema, atau perintah yang reproducible. Bahkan saat itu, taruh ringkasan yang mudah dibaca sebelum blok mentah.
 
-Example:
+Contoh:
 
-> Acme renewal — Negotiation stage, EUR 12,450, last updated May 5, 2026, 11:43 AM. Full payload below:
+> Bantuan Lansia Desa Sukamaju — tahap Verifikasi, Rp 12.450.000, terakhir diperbarui 5 Mei 2026, 16.43. Payload lengkap di bawah:
 >
 > ```json
 > {
 >   "id": "record-id-1",
->   "name": "Acme renewal",
->   "stage": "NEGOTIATION",
+>   "name": "Bantuan Lansia Desa Sukamaju",
+>   "stage": "VERIFIKASI",
 >   "amountMicros": "12450000000",
->   "currencyCode": "EUR",
+>   "currencyCode": "IDR",
 >   "updatedAt": "2026-05-05T09:43:18.123Z"
 > }
 > ```

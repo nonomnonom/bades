@@ -24,7 +24,7 @@ import { WorkspaceAuthGuard } from 'src/engine/guards/workspace-auth.guard';
 
 // On-demand connection lookup for app logic functions. Authenticated via the
 // application access token (already injected into the function runtime as
-// TWENTY_APP_ACCESS_TOKEN). Apps can only list their own connections.
+// BADES_APP_ACCESS_TOKEN). Apps can only list their own connections.
 @Controller('apps/connections')
 @UseGuards(JwtAuthGuard, WorkspaceAuthGuard, NoPermissionGuard)
 @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))

@@ -160,7 +160,7 @@ export const ArrayWithObjects: Story = {
   args: {
     value: [
       {
-        name: 'John Doe',
+        name: 'Budi Santoso',
         age: 30,
       },
       {
@@ -181,14 +181,14 @@ export const ArrayWithObjects: Story = {
 export const ObjectSimple: Story = {
   args: {
     value: {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       age: 30,
     },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const name = await canvas.findByText('John Doe');
+    const name = await canvas.findByText('Budi Santoso');
     expect(name).toBeVisible();
 
     const age = await canvas.findByText('30');
@@ -213,7 +213,7 @@ export const ObjectNested: Story = {
   args: {
     value: {
       person: {
-        name: 'John Doe',
+        name: 'Budi Santoso',
         address: {
           street: '123 Main St',
           city: 'New York',
@@ -278,7 +278,7 @@ export const NestedElementCanBeCollapsed: Story = {
   args: {
     value: {
       person: {
-        name: 'John Doe',
+        name: 'Budi Santoso',
         age: 12,
       },
       isActive: true,
@@ -307,7 +307,7 @@ export const ExpandingElementExpandsAllItsDescendants: Story = {
   args: {
     value: {
       person: {
-        name: 'John Doe',
+        name: 'Budi Santoso',
         address: {
           street: '123 Main St',
           city: 'New York',
@@ -355,7 +355,7 @@ export const ExpandTwoFirstDepths: Story = {
   args: {
     value: {
       person: {
-        name: 'John Doe',
+        name: 'Budi Santoso',
         address: {
           street: '123 Main St',
           city: 'New York',
@@ -533,7 +533,7 @@ export const LongText: Story = {
 export const BlueHighlighting: Story = {
   args: {
     value: {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       age: 30,
     },
     getNodeHighlighting: () => 'blue',
@@ -549,7 +549,7 @@ export const BlueHighlighting: Story = {
 export const PartialBlueHighlighting: Story = {
   args: {
     value: {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       age: 30,
       address: {
         city: 'Paris',
@@ -569,7 +569,7 @@ export const PartialBlueHighlighting: Story = {
 export const RedHighlighting: Story = {
   args: {
     value: {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       age: 30,
       address: {
         city: 'Paris',
@@ -588,7 +588,7 @@ export const RedHighlighting: Story = {
 export const CopyJsonNodeValue: Story = {
   args: {
     value: {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       age: 30,
     },
     onNodeValueClick: fn(),
@@ -596,12 +596,12 @@ export const CopyJsonNodeValue: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const nameValue = await canvas.findByText('John Doe');
+    const nameValue = await canvas.findByText('Budi Santoso');
 
     await userEvent.click(nameValue);
 
     await waitFor(() => {
-      expect(args.onNodeValueClick).toHaveBeenCalledWith('John Doe');
+      expect(args.onNodeValueClick).toHaveBeenCalledWith('Budi Santoso');
     });
 
     const ageValue = await canvas.findByText('30');

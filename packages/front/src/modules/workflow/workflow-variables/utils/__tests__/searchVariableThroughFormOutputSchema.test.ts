@@ -30,7 +30,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
         isLeaf: true,
         type: FieldMetadataType.EMAILS,
         label: 'Email',
-        value: 'john.doe@example.com',
+        value: 'budi.santoso@bades.id',
         fieldMetadataId: 'penduduk-email-metadata-id',
         isCompositeSubField: false,
       },
@@ -58,7 +58,7 @@ describe('searchVariableThroughFormOutputSchema', () => {
       isLeaf: true,
       type: FieldMetadataType.EMAILS,
       label: 'Contact Email',
-      value: 'contact@acme.com',
+      value: 'kontak@bades.id',
     },
     // Record field (nested record)
     contactPerson: {

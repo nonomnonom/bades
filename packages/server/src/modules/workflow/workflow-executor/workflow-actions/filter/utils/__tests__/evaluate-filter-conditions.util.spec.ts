@@ -97,7 +97,7 @@ describe('evaluateFilterConditions', () => {
       // Enhanced relation filter tests with object id extraction
       it('should extract id from left operand object for relation comparison', () => {
         const uuid1 = '550e8400-e29b-41d4-a716-446655440000';
-        const leftObject = { id: uuid1, name: 'John Doe' };
+        const leftObject = { id: uuid1, name: 'Budi Santoso' };
         const rightValue = uuid1;
 
         const filter = createFilter(
@@ -114,7 +114,7 @@ describe('evaluateFilterConditions', () => {
       it('should extract id from right operand object for relation comparison', () => {
         const uuid1 = '550e8400-e29b-41d4-a716-446655440000';
         const leftValue = uuid1;
-        const rightObject = { id: uuid1, name: 'John Doe' };
+        const rightObject = { id: uuid1, name: 'Budi Santoso' };
 
         const filter = createFilter(
           ViewFilterOperand.IS,
@@ -129,7 +129,7 @@ describe('evaluateFilterConditions', () => {
 
       it('should extract id from both operands when they are objects for relation comparison', () => {
         const uuid1 = '550e8400-e29b-41d4-a716-446655440000';
-        const leftObject = { id: uuid1, name: 'John Doe' };
+        const leftObject = { id: uuid1, name: 'Budi Santoso' };
         const rightObject = { id: uuid1, title: 'Admin' };
 
         const filter = createFilter(
@@ -146,8 +146,8 @@ describe('evaluateFilterConditions', () => {
       it('should return false when extracted ids do not match for relation comparison', () => {
         const uuid1 = '550e8400-e29b-41d4-a716-446655440000';
         const uuid2 = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-        const leftObject = { id: uuid1, name: 'John Doe' };
-        const rightObject = { id: uuid2, name: 'Jane Smith' };
+        const leftObject = { id: uuid1, name: 'Budi Santoso' };
+        const rightObject = { id: uuid2, name: 'Siti Maryam' };
 
         const filter = createFilter(
           ViewFilterOperand.IS,
@@ -163,8 +163,8 @@ describe('evaluateFilterConditions', () => {
       it('should handle IsNot with object id extraction for relation comparison', () => {
         const uuid1 = '550e8400-e29b-41d4-a716-446655440000';
         const uuid2 = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-        const leftObject = { id: uuid1, name: 'John Doe' };
-        const rightObject = { id: uuid2, name: 'Jane Smith' };
+        const leftObject = { id: uuid1, name: 'Budi Santoso' };
+        const rightObject = { id: uuid2, name: 'Siti Maryam' };
 
         const filter = createFilter(
           ViewFilterOperand.IS_NOT,
@@ -178,8 +178,8 @@ describe('evaluateFilterConditions', () => {
       });
 
       it('should handle objects without id property for relation comparison', () => {
-        const leftObject = { name: 'John Doe' };
-        const rightObject = { name: 'John Doe' };
+        const leftObject = { name: 'Budi Santoso' };
+        const rightObject = { name: 'Budi Santoso' };
 
         const filter = createFilter(
           ViewFilterOperand.IS,

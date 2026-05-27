@@ -38,7 +38,7 @@ export const workflowQueryResult = {
             __typename: 'Actor',
             source: 'MANUAL',
             workspaceMemberId: '20202020-0687-4c41-b707-ed1bfca972a7',
-            name: 'Tim Apple',
+            name: 'Budi Santoso',
           },
           runs: {
             __typename: 'WorkflowRunConnection',
@@ -67,10 +67,10 @@ export const workflowQueryResult = {
                         input: {
                           objectName: 'programBantuan',
                           objectRecord: {
-                            name: 'Opportunity – {{trigger.properties.after.name}}',
+                            name: 'Program – {{trigger.properties.after.name}}',
                             amount: {
                               amountMicros: 1000000000,
-                              currencyCode: 'EUR',
+                              currencyCode: 'IDR',
                             },
                           },
                         },
@@ -214,12 +214,12 @@ export const workflowQueryResult = {
                                 city: {
                                   isLeaf: true,
                                   label: 'My City',
-                                  value: 'San Francisco',
+                                  value: 'Desa Sukamaju',
                                 },
                                 state: {
                                   isLeaf: true,
                                   label: 'My State',
-                                  value: 'CA',
+                                  value: 'Jawa Tengah',
                                 },
                                 country: {
                                   isLeaf: true,
@@ -1083,7 +1083,7 @@ export const workflowQueryResult = {
                                   icon: 'IconUserCircle',
                                   name: 'accountOwnerId',
                                   type: 'UUID',
-                                  label: 'Account Owner id (foreign key)',
+                                  label: 'Pengelola Akun id (foreign key)',
                                   options: null,
                                   isActive: true,
                                   isCustom: false,
@@ -1111,7 +1111,7 @@ export const workflowQueryResult = {
                                   icon: 'IconUserCircle',
                                   name: 'accountOwner',
                                   type: 'RELATION',
-                                  label: 'Account Owner',
+                                  label: 'Pengelola Akun',
                                   options: null,
                                   isActive: true,
                                   isCustom: false,

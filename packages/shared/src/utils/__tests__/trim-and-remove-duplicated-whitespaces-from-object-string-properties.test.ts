@@ -13,50 +13,50 @@ describe('trim-and-remove-duplicated-whitespaces-from-object-string-properties',
     {
       title: 'should sanitize single string property',
       context: {
-        input: { name: '  John   Doe  ' },
+        input: { name: '  Budi   Santoso  ' },
         keys: ['name'],
-        expected: { name: 'John Doe' },
+        expected: { name: 'Budi Santoso' },
       },
     },
     {
       title: 'should sanitize multiple string properties',
       context: {
         input: {
-          firstName: '  John  ',
-          lastName: '  Doe  ',
-          email: '  john.doe@example.com  ',
+          firstName: '  Budi  ',
+          lastName: '  Santoso  ',
+          email: '  budi.santoso@bades.id  ',
         },
         keys: ['firstName', 'lastName', 'email'],
         expected: {
           firstName: 'Budi',
-          lastName: 'Doe',
-          email: 'john.doe@example.com',
+          lastName: 'Santoso',
+          email: 'budi.santoso@bades.id',
         },
       },
     },
     {
       title: 'should preserve undefined properties',
       context: {
-        input: { name: '  John   Doe  ' },
+        input: { name: '  Budi   Santoso  ' },
         keys: ['name', 'age'],
-        expected: { name: 'John Doe' },
+        expected: { name: 'Budi Santoso' },
       },
     },
     {
       title: 'should handle null properties',
       context: {
-        input: { name: '  John   Doe  ', description: null },
+        input: { name: '  Budi   Santoso  ', description: null },
         keys: ['name', 'description'],
-        expected: { name: 'John Doe', description: null },
+        expected: { name: 'Budi Santoso', description: null },
       },
     },
     {
       title: 'should not modify non-string properties',
       context: {
-        input: { name: '  John   Doe  ', age: 30, active: true },
+        input: { name: '  Budi   Santoso  ', age: 30, active: true },
         // In real life passing age would raise an TypeScript error
         keys: ['name', 'age', 'active'],
-        expected: { name: 'John Doe', age: 30, active: true },
+        expected: { name: 'Budi Santoso', age: 30, active: true },
       },
     },
     {
@@ -87,18 +87,18 @@ describe('trim-and-remove-duplicated-whitespaces-from-object-string-properties',
       title: 'should trim only provided keys fields',
       context: {
         input: {
-          name: '  John   Doe  ',
+          name: '  Budi   Santoso  ',
           description: ' this      is a test   ',
         },
         keys: ['description'],
-        expected: { name: '  John   Doe  ', description: 'this is a test' },
+        expected: { name: '  Budi   Santoso  ', description: 'this is a test' },
       },
     },
     {
       title: 'should trim only provided keys fields and extract keys',
       context: {
         input: {
-          name: '  John   Doe  ',
+          name: '  Budi   Santoso  ',
           description: ' this      is a test   ',
         },
         keys: ['description'],

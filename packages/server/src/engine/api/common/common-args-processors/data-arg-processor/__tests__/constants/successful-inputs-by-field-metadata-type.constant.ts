@@ -442,14 +442,14 @@ export const successfulInputsByFieldMetadataType: {
       input: {
         actorField: {
           source: 'MANUAL',
-          name: 'John Doe',
+          name: 'Budi Santoso',
           workspaceMemberId: TEST_UUID,
         },
       },
       expectedOutput: {
         actorField: {
           source: 'MANUAL',
-          name: 'John Doe',
+          name: 'Budi Santoso',
           workspaceMemberId: TEST_UUID,
           context: undefined,
         },

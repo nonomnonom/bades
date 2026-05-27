@@ -16,7 +16,7 @@ const meta: Meta = {
     ChipGeneratorsDecorator,
     getFieldDecorator('keluarga', 'createdBy', {
       id: '1',
-      name: 'John Doe',
+      name: 'Budi Santoso',
     }),
     ComponentDecorator,
   ],

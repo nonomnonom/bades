@@ -29,15 +29,15 @@ const ROW_STYLE = {
   alignItems: 'center' as const,
 };
 
-const TwentyUiComponent = () => {
+const BadesUiComponent = () => {
   const [count, setCount] = useState(0);
 
   return (
     <ThemeProvider colorScheme="light">
       <div data-testid="ui-component" style={CARD_STYLE}>
         <H2Title
-          title="Twenty UI"
-          description="The CRM's own component library with theme-aware styling."
+          title="Bades UI"
+          description="Pustaka komponen Bades dengan styling theme-aware."
         />
         <div style={ROW_STYLE}>
           <Tag color="green" text="Badge" variant="solid" />
@@ -79,6 +79,6 @@ const TwentyUiComponent = () => {
 export default defineFrontComponent({
   universalIdentifier: 'test-20ui0-0000-0000-0000-000000000010',
   name: 'ui-component',
-  description: 'A front component using Twenty UI remote components',
-  component: TwentyUiComponent,
+  description: 'A front component using Bades UI remote components',
+  component: BadesUiComponent,
 });

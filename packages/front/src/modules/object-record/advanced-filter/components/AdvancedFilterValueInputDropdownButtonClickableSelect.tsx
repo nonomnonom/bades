@@ -13,7 +13,7 @@ import { useGetRecordFilterDisplayValue } from '@/object-record/record-filter/ho
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
 
-// TODO: factorize this with https://github.com/twentyhq/core-team-issues/issues/752
+// TODO: gabungkan dengan StyledControlContainer di SelectControl
 const StyledControlContainer = styled.div`
   align-items: center;
   background-color: ${themeCssVariables.background.transparent.lighter};

@@ -22,7 +22,7 @@ export function transformUniversalFlatEntityForComparison<
     (flatEntityAccumulator, propertyToCompare) => {
       const currentValue = universalFlatEntity[propertyToCompare];
 
-      // TODO remove once https://github.com/twentyhq/core-team-issues/issues/2227 has been resolved
+      // TODO hapus setelah IndexFieldMetadata dimigrasi ke tabel proper
       if (
         metadataName === 'index' &&
         propertyToCompare === 'universalFlatIndexFieldMetadatas' &&

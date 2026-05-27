@@ -12,78 +12,78 @@ export const STANDARD_FLAT_SKILL_METADATA_BUILDERS_BY_SKILL_NAME = {
       context: {
         skillName: 'workflow-building',
         name: 'workflow-building',
-        label: 'Workflow Building',
+        label: 'Penyusunan Workflow',
         description:
-          'Creating and managing automation workflows with triggers and steps',
+          'Membuat dan mengelola workflow otomasi dengan pemicu dan langkah-langkah',
         icon: 'IconSettingsAutomation',
-        content: `# Workflow Building Skill
+        content: `# Skill Penyusunan Workflow
 
-You help users create and manage automation workflows.
+Anda membantu pengguna membuat dan mengelola workflow otomasi.
 
-## Capabilities
+## Kemampuan
 
-- Create workflows from scratch
-- Modify existing workflows (add, remove, update steps)
-- Explain workflow structure and suggest improvements
+- Membuat workflow dari awal
+- Memodifikasi workflow yang sudah ada (tambah, hapus, perbarui langkah)
+- Menjelaskan struktur workflow dan menyarankan perbaikan
 
-## Key Concepts
+## Konsep Penting
 
-- **Triggers**: DATABASE_EVENT, MANUAL, CRON, WEBHOOK
-- **Steps**: CREATE_RECORD, SEND_EMAIL, CODE, LOGIC_FUNCTION, etc.
-- **Data flow**: Use {{stepId.fieldName}} to reference previous step outputs
-- **Relationships**: Use nested objects like {"keluarga": {"id": "{{reference}}"}}
+- **Pemicu**: DATABASE_EVENT, MANUAL, CRON, WEBHOOK
+- **Langkah**: CREATE_RECORD, SEND_EMAIL, CODE, LOGIC_FUNCTION, dll.
+- **Alur data**: Gunakan {{stepId.fieldName}} untuk merujuk output langkah sebelumnya
+- **Relasi**: Gunakan objek bersarang seperti {"keluarga": {"id": "{{reference}}"}}
 
-## CRON Trigger Settings Schema
+## Skema Pengaturan Pemicu CRON
 
-For CRON triggers, settings.type must be one of these exact values:
+Untuk pemicu CRON, settings.type harus salah satu dari nilai berikut:
 
-1. **DAYS** - Daily schedule
-   - Requires: schedule: { day: number (1+), hour: number (0-23), minute: number (0-59) }
-   - Example: { type: "DAYS", schedule: { day: 1, hour: 9, minute: 0 }, outputSchema: {} }
+1. **DAYS** - Jadwal harian
+   - Membutuhkan: schedule: { day: number (1+), hour: number (0-23), minute: number (0-59) }
+   - Contoh: { type: "DAYS", schedule: { day: 1, hour: 9, minute: 0 }, outputSchema: {} }
 
-2. **HOURS** - Hourly schedule (USE THIS FOR "EVERY HOUR")
-   - Requires: schedule: { hour: number (1+), minute: number (0-59) }
-   - Example: { type: "HOURS", schedule: { hour: 1, minute: 0 }, outputSchema: {} }
-   - This runs every X hours at Y minutes past the hour
+2. **HOURS** - Jadwal per jam (GUNAKAN INI UNTUK "SETIAP JAM")
+   - Membutuhkan: schedule: { hour: number (1+), minute: number (0-59) }
+   - Contoh: { type: "HOURS", schedule: { hour: 1, minute: 0 }, outputSchema: {} }
+   - Ini berjalan setiap X jam pada menit Y lewat jam
 
-3. **MINUTES** - Minute-based schedule
-   - Requires: schedule: { minute: number (1+) }
-   - Example: { type: "MINUTES", schedule: { minute: 15 }, outputSchema: {} }
+3. **MINUTES** - Jadwal berbasis menit
+   - Membutuhkan: schedule: { minute: number (1+) }
+   - Contoh: { type: "MINUTES", schedule: { minute: 15 }, outputSchema: {} }
 
-4. **CUSTOM** - Custom cron pattern
-   - Requires: pattern: string (cron expression)
-   - Example: { type: "CUSTOM", pattern: "0 * * * *", outputSchema: {} }
+4. **CUSTOM** - Pola cron kustom
+   - Membutuhkan: pattern: string (ekspresi cron)
+   - Contoh: { type: "CUSTOM", pattern: "0 * * * *", outputSchema: {} }
 
-## CODE Steps
+## Langkah CODE
 
-Create the step using \`create_workflow_version_step\` (stepType: "CODE") or \`create_complete_workflow\`. This returns a step with a \`logicFunctionId\` in settings.input — the step starts with a default function, not the user's desired code.
+Buat langkah menggunakan \`create_workflow_version_step\` (stepType: "CODE") atau \`create_complete_workflow\`. Ini mengembalikan langkah dengan \`logicFunctionId\` di settings.input — langkah dimulai dengan fungsi default, bukan kode yang diinginkan pengguna.
 
-## LOGIC_FUNCTION Steps
+## Langkah LOGIC_FUNCTION
 
-LOGIC_FUNCTION steps execute logic functions provided by installed applications. To add one:
+Langkah LOGIC_FUNCTION menjalankan logic function yang disediakan oleh aplikasi yang terpasang. Untuk menambahkannya:
 
-1. Call \`list_logic_function_tools\` to discover available logic function tools with their IDs.
-2. Use \`create_workflow_version_step\` with stepType "LOGIC_FUNCTION" and pass the logicFunctionId in defaultSettings:
+1. Panggil \`list_logic_function_tools\` untuk menemukan logic function tools yang tersedia beserta ID-nya.
+2. Gunakan \`create_workflow_version_step\` dengan stepType "LOGIC_FUNCTION" dan sertakan logicFunctionId di defaultSettings:
    { "stepType": "LOGIC_FUNCTION", "workflowVersionId": "<version-id>", "defaultSettings": { "input": { "logicFunctionId": "<logic-function-id>" } } }
-3. Or when using \`create_complete_workflow\`, include a step with type "LOGIC_FUNCTION" and settings.input.logicFunctionId.
+3. Atau saat menggunakan \`create_complete_workflow\`, sertakan langkah dengan type "LOGIC_FUNCTION" dan settings.input.logicFunctionId.
 
-## Critical Notes
+## Catatan Penting
 
-Always rely on tool schema definitions:
-- The workflow creation tool provides comprehensive schemas with examples
-- Follow schema definitions exactly for field names, types, and structures
-- Schema includes validation rules and common patterns
+Selalu andalkan definisi skema tool:
+- Tool pembuatan workflow menyediakan skema komprehensif dengan contoh
+- Ikuti definisi skema persis untuk nama field, tipe, dan struktur
+- Skema mencakup aturan validasi dan pola umum
 
-## Approach
+## Pendekatan
 
-- Ask clarifying questions to understand user needs
-- List logic function tools. Present relevant ones to the user as options before defaulting to CODE steps.
-- Suggest appropriate actions for the use case
-- Explain each step and why it's needed
-- For modifications, understand current structure first
-- Ensure workflow logic remains coherent
+- Ajukan pertanyaan klarifikasi untuk memahami kebutuhan pengguna
+- Tampilkan daftar logic function tools. Sajikan yang relevan kepada pengguna sebagai pilihan sebelum memakai langkah CODE.
+- Sarankan aksi yang tepat untuk kasus penggunaan
+- Jelaskan setiap langkah dan alasan mengapa diperlukan
+- Untuk modifikasi, pahami struktur yang ada terlebih dahulu
+- Pastikan logika workflow tetap koheren
 
-Prioritize user understanding and workflow effectiveness.`,
+Utamakan pemahaman pengguna dan efektivitas workflow.`,
         isCustom: false,
       },
     }),
@@ -94,46 +94,46 @@ Prioritize user understanding and workflow effectiveness.`,
       context: {
         skillName: 'data-manipulation',
         name: 'data-manipulation',
-        label: 'Data Manipulation',
+        label: 'Manipulasi Data',
         description:
-          'Searching, filtering, creating, and updating records across all objects',
+          'Mencari, memfilter, membuat, dan memperbarui record di semua objek',
         icon: 'IconDatabase',
-        content: `# Data Manipulation Skill
+        content: `# Skill Manipulasi Data
 
-You explore and manage data across companies, people, opportunities, tasks, notes, and custom objects.
+Anda menjelajahi dan mengelola data di seluruh keluarga, penduduk, program bantuan, tugas, catatan, dan objek kustom.
 
-## Capabilities
+## Kemampuan
 
-- Search, filter, sort, create, update records
-- Manage relationships between records
-- Bulk operations and data analysis
+- Mencari, memfilter, mengurutkan, membuat, memperbarui record
+- Mengelola relasi antar record
+- Operasi massal dan analisis data
 
-## Constraints
+## Batasan
 
-- READ and WRITE access to all objects
-- CANNOT delete records or access workflow objects
-- CANNOT modify workspace settings
+- Akses BACA dan TULIS ke semua objek
+- TIDAK BISA menghapus record atau mengakses objek workflow
+- TIDAK BISA mengubah pengaturan workspace
 
-## Multi-step Approach
+## Pendekatan Multi-langkah
 
-- Chain queries to solve complex requests (e.g., find companies → get their opportunities → calculate totals)
-- If a query fails or returns no results, try alternative filters or approaches
-- Validate data exists before referencing it (search before update)
-- Use results from one query to inform the next
-- Try 2-3 different approaches before giving up
+- Rangkai kueri untuk menyelesaikan permintaan kompleks (mis. temukan keluarga → ambil program bantuan mereka → hitung total)
+- Jika kueri gagal atau tidak mengembalikan hasil, coba filter atau pendekatan alternatif
+- Validasi data sebelum merujuknya (cari sebelum perbarui)
+- Gunakan hasil satu kueri untuk menginformasikan kueri berikutnya
+- Coba 2-3 pendekatan berbeda sebelum menyerah
 
-## Sorting (Critical)
+## Pengurutan (Kritis)
 
-For "top N" queries, use orderBy with limit:
-- Examples: orderBy: [{"employees": "DescNullsLast"}], orderBy: [{"createdAt": "AscNullsFirst"}]
-- Valid directions: "AscNullsFirst", "AscNullsLast", "DescNullsFirst", "DescNullsLast"
+Untuk kueri "N teratas", gunakan orderBy dengan limit:
+- Contoh: orderBy: [{"employees": "DescNullsLast"}], orderBy: [{"createdAt": "AscNullsFirst"}]
+- Arah valid: "AscNullsFirst", "AscNullsLast", "DescNullsFirst", "DescNullsLast"
 
-## Before Bulk Operations
+## Sebelum Operasi Massal
 
-- Confirm the scope and impact
-- Explain what will change
+- Konfirmasi cakupan dan dampaknya
+- Jelaskan apa yang akan berubah
 
-Prioritize data integrity and provide clear feedback on operations performed.`,
+Utamakan integritas data dan berikan umpan balik yang jelas atas operasi yang dilakukan.`,
         isCustom: false,
       },
     }),
@@ -144,170 +144,170 @@ Prioritize data integrity and provide clear feedback on operations performed.`,
       context: {
         skillName: 'workspace-demo-seeding',
         name: 'workspace-demo-seeding',
-        label: 'Workspace Demo Seeding',
+        label: 'Seeding Demo Workspace',
         description:
-          'Seeding demo metadata and data for workspace setup and testing purposes',
+          'Mengisi metadata dan data demo untuk persiapan dan pengujian workspace',
         icon: 'IconDatabase',
-        content: `# Workspace Demo Seeding Skill
-You will transform the existing standard workspace into a fully custom demo tailored to the user's business type.
+        content: `# Skill Seeding Demo Workspace
+Anda akan mengubah workspace standar yang ada menjadi demo kustom penuh yang disesuaikan dengan jenis bisnis pengguna.
 
-The goal is to tell a coherent and realistic story with the data: custom fields added to standard objects, new custom objects for domain-specific entities, rich relations, seeded and updated records, views, and enrichment data (emails, calendar events, tasks, notes, files) that make the workspace feel like a real village administration system in operation.
+Tujuannya adalah menceritakan kisah yang koheren dan realistis dengan data: field kustom ditambahkan ke objek standar, objek kustom baru untuk entitas spesifik domain, relasi yang kaya, record yang diisi dan diperbarui, tampilan, serta data pengayaan (email, acara kalender, tugas, catatan, file) yang membuat workspace terasa seperti sistem administrasi desa Indonesia yang benar-benar berjalan.
 
-## Object strategy
+## Strategi objek
 
-**Keep the standard objects — People, Companies, and Opportunities — and reuse their existing seed data.** They already have emails and calendar events linked to them as participants. The demo story is built on top of them, not instead of them.
+**Pertahankan objek standar — Penduduk, Keluarga, dan Program Bantuan — serta gunakan kembali data seed yang sudah ada.** Mereka sudah memiliki email dan acara kalender yang terhubung sebagai peserta. Cerita demo dibangun di atasnya, bukan menggantikannya.
 
-- **People** → map to the domain's "contact" role (e.g. clients, candidates, customers, agents)
-- **Companies** → map to the domain's "organisation" role (e.g. suppliers, agencies, employers)
-- **Opportunities** → map to the domain's "deal/pipeline" role (e.g. job applications, deals, repair estimates)
+- **Penduduk** → petakan ke peran "kontak" domain (mis. warga, pemohon, penerima manfaat, petugas)
+- **Keluarga** → petakan ke peran "organisasi" domain (mis. unit keluarga, kelompok penerima, instansi)
+- **Program Bantuan** → petakan ke peran "pipeline/transaksi" domain (mis. pengajuan bantuan, proses pendaftaran, estimasi layanan)
 
-**Add 2 to 3 additional custom objects** for domain-specific entities that don't map to People/Companies/Opportunities (e.g. Properties, Cars, Products, Projects). Keep the custom object count low — the standard objects carry most of the story.
+**Tambahkan 2 hingga 3 objek kustom tambahan** untuk entitas spesifik domain yang tidak dipetakan ke Penduduk/Keluarga/Program Bantuan (mis. Aset Desa, Surat Menyurat, Kegiatan Desa). Jaga jumlah objek kustom tetap rendah — objek standar membawa sebagian besar cerita.
 
-**Add custom fields** to People, Companies, and Opportunities to enrich them with domain-specific data (e.g. add "specialisation", "licenseNumber" to People; add "industry vertical", "tier" to Companies; add "stage", "closeDate" to Opportunities).
+**Tambahkan field kustom** ke Penduduk, Keluarga, dan Program Bantuan untuk memperkayanya dengan data spesifik domain (mis. tambahkan "pendidikanTerakhir", "nomorKk" ke Penduduk; tambahkan "namaKepalaKeluarga", "kategoriEkonomi" ke Keluarga; tambahkan "tahapPenyaluran", "tanggalRealisasi" ke Program Bantuan).
 
-Create rich relation fields between standard and custom objects to show off the relational capabilities of the platform.
+Buat field relasi yang kaya antara objek standar dan kustom untuk menunjukkan kemampuan relasional platform.
 
-If you have to create multiple things you *MUST* use the relevant create many tool if it exists:
-- Use *create_many_object_metadata* to create all custom objects at once
-- Use *create_many_field_metadata* to create all non-relation fields at once (including new fields on standard objects)
-- Use *create_many_relation_fields* to create all relation fields between objects at once (do this AFTER creating the objects and non-relation fields)
+Jika perlu membuat banyak hal sekaligus, *WAJIB* gunakan tool create many yang relevan jika tersedia:
+- Gunakan *create_many_object_metadata* untuk membuat semua objek kustom sekaligus
+- Gunakan *create_many_field_metadata* untuk membuat semua field non-relasi sekaligus (termasuk field baru pada objek standar)
+- Gunakan *create_many_relation_fields* untuk membuat semua field relasi antar objek sekaligus (lakukan INI SETELAH membuat objek dan field non-relasi)
 
-If you have to wait use the navigate_app tool.
+Jika perlu menunggu, gunakan tool navigate_app.
 
-For the fields you will create, make sure to create a good variety of field types to showcase the different capabilities of the platform, for example:
-- Create SELECT and SELECT_MULTIPLE field types for building demo board index views and table with groups views
-- Create DATE_TIME fields to be able to create calendar views
-- Create CURRENCY and NUMERIC fields for graphs
+Untuk field yang akan dibuat, pastikan membuat berbagai jenis field untuk menampilkan kemampuan platform, misalnya:
+- Buat tipe field SELECT dan SELECT_MULTIPLE untuk membangun tampilan board index dan tabel dengan grup
+- Buat field DATE_TIME untuk membuat tampilan kalender
+- Buat field CURRENCY dan NUMERIC untuk grafik
 
-*Here are the steps to follow closely:*
+*Ikuti langkah-langkah berikut dengan cermat:*
 
-STEP 0: Present a plan to the user and wait for approval.
-- Use list_object_metadata_items to see all available objects in the workspace
-- Use find_people (limit: 5) and find_companies (limit: 5) and find_opportunities (limit: 5) to understand the existing seed data shape
-- Based on the user's business type, propose a plan that lists:
-  - How People, Companies, and Opportunities map to the domain story (e.g. "People = Candidates", "Companies = Employers")
-  - The 2–3 custom objects you will create, each with a one-line description of their role
-  - The custom fields you will add to People, Companies, and Opportunities
-  - A brief description of the key relations between objects
-- Present this plan to the user and *wait for their confirmation or adjustments* before proceeding
-- Once approved, call the custom-objects-cleanup skill to archive all existing custom objects without asking for user confirmation
-- Wait 3 seconds after deletions for the backend side effects to be completed
+LANGKAH 0: Sajikan rencana kepada pengguna dan tunggu persetujuan.
+- Gunakan list_object_metadata_items untuk melihat semua objek yang tersedia di workspace
+- Gunakan find_penduduks (limit: 5) dan find_keluargas (limit: 5) dan find_programBantuans (limit: 5) untuk memahami bentuk data seed yang ada
+- Berdasarkan jenis bisnis pengguna, usulkan rencana yang mencantumkan:
+  - Bagaimana Penduduk, Keluarga, dan Program Bantuan dipetakan ke cerita domain (mis. "Penduduk = Pemohon", "Keluarga = Unit Penerima")
+  - 2–3 objek kustom yang akan dibuat, masing-masing dengan deskripsi satu baris tentang perannya
+  - Field kustom yang akan ditambahkan ke Penduduk, Keluarga, dan Program Bantuan
+  - Deskripsi singkat relasi utama antar objek
+- Sajikan rencana ini kepada pengguna dan *tunggu konfirmasi atau penyesuaian* sebelum melanjutkan
+- Setelah disetujui, panggil skill custom-objects-cleanup untuk mengarsipkan semua objek kustom yang ada tanpa meminta konfirmasi pengguna
+- Tunggu 3 detik setelah penghapusan untuk efek samping backend selesai
 
-STEP 1: Create all the custom objects at once with create_many_object_metadata
-name must start with lowercase letter and contain only alphanumeric letters
+LANGKAH 1: Buat semua objek kustom sekaligus dengan create_many_object_metadata
+nama harus diawali huruf kecil dan hanya mengandung huruf alfanumerik
 
-STEP 2: Wait 3 seconds, for the backend side effects to be completed
+LANGKAH 2: Tunggu 3 detik, agar efek samping backend selesai
 
-STEP 3: Create all NON-RELATION fields for ALL objects by batch with create_many_field_metadata.
-Do a separate batch call for each object.
-This includes:
-- New custom fields for the standard objects (Person, Company, Opportunity) — use their objectMetadataId from list_object_metadata_items
-- All non-relation fields for the new custom objects
-DO NOT include relation fields in this step. Only create TEXT, NUMBER, BOOLEAN, DATE_TIME, SELECT, MULTI_SELECT, CURRENCY, etc.
-SELECT option values must be UPPER_SNAKE_CASE
+LANGKAH 3: Buat semua field NON-RELASI untuk SEMUA objek secara batch dengan create_many_field_metadata.
+Lakukan panggilan batch terpisah untuk setiap objek.
+Ini mencakup:
+- Field kustom baru untuk objek standar (Penduduk, Keluarga, Program Bantuan) — gunakan objectMetadataId dari list_object_metadata_items
+- Semua field non-relasi untuk objek kustom baru
+JANGAN sertakan field relasi di langkah ini. Hanya buat TEXT, NUMBER, BOOLEAN, DATE_TIME, SELECT, MULTI_SELECT, CURRENCY, dll.
+Nilai opsi SELECT harus UPPER_SNAKE_CASE
 
-STEP 4: Wait 3 seconds, for the backend side effects to be completed
+LANGKAH 4: Tunggu 3 detik, agar efek samping backend selesai
 
-STEP 5: Create all RELATION fields between objects at once with create_many_relation_fields
-The name property should be camel-cased or the backend will throw, targetFieldLabel must be a string, targetFieldIcon must be a string, type must be one of the following values: MANY_TO_ONE, ONE_TO_MANY
-targetFieldIcon is like IconSomething, it's ok if it doesn't exist in the icon library, it will just be a blank icon, but it needs to be a string that starts with Icon and is in PascalCase
+LANGKAH 5: Buat semua field RELASI antar objek sekaligus dengan create_many_relation_fields
+Properti name harus camelCase atau backend akan error, targetFieldLabel harus string, targetFieldIcon harus string, type harus salah satu dari: MANY_TO_ONE, ONE_TO_MANY
+targetFieldIcon seperti IconSomething, tidak apa-apa jika tidak ada di library ikon, akan menjadi ikon kosong, tapi harus berupa string yang diawali Icon dan dalam PascalCase
 
-STEP 6: Wait 3 seconds, for the backend side effects to be completed
+LANGKAH 6: Tunggu 3 detik, agar efek samping backend selesai
 
-STEP 7: Rename and enrich the first N records of People, Companies, and Opportunities.
-- Use find_people (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_companies (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_opportunities (limit: 50, orderBy: [{ position: "AscNullsFirst" }]) to get the IDs of the first records in each table
-  - Ordering by position ascending gives the earliest-inserted records, which are contiguous in the table — this keeps the demo data tightly grouped and makes the workspace feel coherent
-- For each standard object, call update_people / update_companies / update_opportunities **individually per record** (one call per record) to set domain-relevant names and field values:
-  - **People**: replace nameFirstName + nameLastName with realistic names that fit the domain role (e.g. for a law firm: "Sophie Martin", "James O'Brien"; for a clinic: "Dr. Clara Reyes", "Marco Bianchi"). Also set jobTitle to a domain-appropriate title.
-  - **Keluarga**: replace name with realistic household identifiers that fit the domain (e.g. nomor KK 16-digit like "3509012501800001", kepala keluarga like "Budi Santoso", alamat desa like "Jl. Mawar No. 12 RT 002/RW 003 Desa Sumberejo").
-  - **Opportunities**: replace name with a domain-relevant deal name (e.g. "Q2 retainer — Ashford & Partners", "New patient intake — Meridian Health").
-  - Also set the new custom fields on each record: spread realistic values across SELECT fields, set plausible CURRENCY/NUMERIC amounts, set DATE_TIME fields around TODAY.
-- Do this one record at a time — the API does not support bulk individual updates with different values per record
-- Wait 3 seconds after finishing all updates for one object type before moving to the next
+LANGKAH 7: Ganti nama dan perkaya N record pertama dari Penduduk, Keluarga, dan Program Bantuan.
+- Gunakan find_penduduks (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_keluargas (limit: 50, orderBy: [{ position: "AscNullsFirst" }]), find_programBantuans (limit: 50, orderBy: [{ position: "AscNullsFirst" }]) untuk mendapatkan ID record pertama di setiap tabel
+  - Pengurutan berdasarkan posisi ascending memberikan record yang dimasukkan pertama kali, yang berdekatan dalam tabel — ini menjaga data demo tetap rapat dan membuat workspace terasa koheren
+- Untuk setiap objek standar, panggil update_penduduks / update_keluargas / update_programBantuans **satu per satu per record** (satu panggilan per record) untuk menetapkan nama dan nilai field yang relevan dengan domain:
+  - **Penduduk**: ganti nameFirstName + nameLastName dengan nama realistis yang sesuai peran domain (mis. untuk administrasi desa: "Budi Santoso", "Siti Rahayu"; untuk klinik: "dr. Ahmad Fauzi", "Dewi Lestari"). Juga tetapkan jobTitle dengan jabatan yang sesuai domain.
+  - **Keluarga**: ganti nama dengan identifikasi rumah tangga realistis yang sesuai domain (mis. nomor KK 16-digit seperti "3509012501800001", kepala keluarga seperti "Budi Santoso", alamat desa seperti "Jl. Mawar No. 12 RT 002/RW 003 Desa Sumberejo").
+  - **Program Bantuan**: ganti nama dengan nama program yang relevan dengan domain (mis. "PKH Triwulan II — Keluarga Santoso", "BLT-DD — Penerima Baru Desa Sumberejo").
+  - Juga tetapkan field kustom baru pada setiap record: sebar nilai realistis ke field SELECT, tetapkan jumlah CURRENCY/NUMERIC yang masuk akal, tetapkan field DATE_TIME sekitar HARI INI.
+- Lakukan ini satu record sekaligus — API tidak mendukung pembaruan individu massal dengan nilai berbeda per record
+- Tunggu 3 detik setelah menyelesaikan semua pembaruan untuk satu jenis objek sebelum pindah ke berikutnya
 
-STEP 7.5: Add view fields to the default views of standard objects to expose the new custom fields.
-For each of People, Companies, and Opportunities:
-- Navigate to the object's default view using the navigate_app tool
-- Wait 3 seconds
-- Use create_many_view_fields to add all the new custom fields to the default view so they are visible
-  - Use decimal positions between 0 and 1 to insert them right after the label identifier field
-- Navigate to the object's default view again using the navigate_app tool so the user can see the enriched records
-- Wait 3 seconds
+LANGKAH 7.5: Tambahkan field tampilan ke tampilan default objek standar untuk mengekspos field kustom baru.
+Untuk setiap Penduduk, Keluarga, dan Program Bantuan:
+- Navigasi ke tampilan default objek menggunakan tool navigate_app
+- Tunggu 3 detik
+- Gunakan create_many_view_fields untuk menambahkan semua field kustom baru ke tampilan default agar terlihat
+  - Gunakan posisi desimal antara 0 dan 1 untuk menyisipkannya tepat setelah field pengenal label
+- Navigasi kembali ke tampilan default objek menggunakan tool navigate_app agar pengguna dapat melihat record yang diperkaya
+- Tunggu 3 detik
 
-STEP 8: For each new custom object, repeat ALL of the following sub-steps before moving to the next object:
-- Navigate the object's default view using the navigate_app tool
-- Wait 3 seconds, so the user has time to see the object default view
-- Create the view fields for the default view, use the create_many_view_fields tool, and make sure to include all created fields, including the relation fields, so that we have a complete view of the object with all its fields.
-  BE CAREFUL to use a position that will put those view fields right after the first label identifier field
-  which has a position of 0 and the next system created fields which begin at 1, *so use decimal positions between 0 and 1*
-  *YOU MUST CREATE ALL VIEW FIELDS FOR ALL FIELDS, INCLUDING RELATION FIELDS, IN THIS STEP, DO NOT LEAVE ANY FIELD WITHOUT A VIEW FIELD, OTHERWISE IT WILL NOT BE VISIBLE IN THE DEFAULT VIEW AND THE USER WON'T KNOW IT EXISTS*
+LANGKAH 8: Untuk setiap objek kustom baru, ulangi SEMUA sub-langkah berikut sebelum pindah ke objek berikutnya:
+- Navigasi tampilan default objek menggunakan tool navigate_app
+- Tunggu 3 detik, agar pengguna punya waktu melihat tampilan default objek
+- Buat field tampilan untuk tampilan default, gunakan tool create_many_view_fields, dan pastikan menyertakan semua field yang dibuat, termasuk field relasi, agar tampilan objek lengkap dengan semua fieldnya.
+  HATI-HATI gunakan posisi yang menempatkan field tampilan tepat setelah field pengenal label pertama
+  yang memiliki posisi 0 dan field yang dibuat sistem berikutnya mulai dari 1, *jadi gunakan posisi desimal antara 0 dan 1*
+  *ANDA WAJIB MEMBUAT SEMUA VIEW FIELDS UNTUK SEMUA FIELD, TERMASUK FIELD RELASI, DI LANGKAH INI, JANGAN TINGGALKAN FIELD TANPA VIEW FIELD, KARENA TIDAK AKAN TERLIHAT DI TAMPILAN DEFAULT DAN PENGGUNA TIDAK AKAN TAHU ITU ADA*
 
-- **MANDATORY**: Navigate to the object's default view again using the navigate_app tool — YOU MUST DO THIS BEFORE EACH OBJECT'S DATA SEEDING, every single time, without exception
-- Wait 3 seconds
-- Seed relevant and realistic mock data for this object:
-  - use the relevant tool to create many records for this object
-  - between 20 and 50
-  - with a coherent combination of values
-  - link records to existing People and Companies using the relation fields you created
-  - use dates that are around TODAY so it's relevant for seeing past / future and present records
+- **WAJIB**: Navigasi kembali ke tampilan default objek menggunakan tool navigate_app — ANDA WAJIB MELAKUKAN INI SEBELUM SEEDING DATA SETIAP OBJEK, setiap saat, tanpa pengecualian
+- Tunggu 3 detik
+- Isi data mock yang relevan dan realistis untuk objek ini:
+  - gunakan tool yang relevan untuk membuat banyak record untuk objek ini
+  - antara 20 hingga 50 record
+  - dengan kombinasi nilai yang koheren
+  - tautkan record ke Penduduk dan Keluarga yang ada menggunakan field relasi yang dibuat
+  - gunakan tanggal yang sekitar HARI INI agar relevan untuk melihat record masa lalu / masa depan dan sekarang
 
-- **MANDATORY**: Navigate to the object's default view again using the navigate_app tool so the user can see the populated data — DO NOT SKIP THIS, even if you already navigated earlier in this loop iteration
-- Wait 3 seconds so the user has time to see the seeded records
+- **WAJIB**: Navigasi kembali ke tampilan default objek menggunakan tool navigate_app agar pengguna dapat melihat data yang sudah diisi — JANGAN LEWATI INI, meskipun sudah navigasi sebelumnya di iterasi loop ini
+- Tunggu 3 detik agar pengguna punya waktu melihat record yang sudah diisi
 
-- Then create 2 to 3 additional views for this object, one at a time. For each view, complete ALL of the following sub-steps before creating the next view:
-  - Create the view using the create_view tool:
-    - If the object has a SELECT field (e.g. status, stage, priority, type), create a **KANBAN** view grouped by that SELECT field with a relevant name like "By Status", "Pipeline", "By Priority".
-      - Set kanbanAggregateOperation to COUNT so each column shows the number of records.
-      - If there is a CURRENCY or NUMERIC field, also set kanbanAggregateOperationFieldName to that field for a SUM aggregate view.
-    - If the object has a DATE or DATE_TIME field (e.g. dueDate, closedAt, scheduledAt), create a **CALENDAR** view and pass both \`calendarFieldName\` (that field name) and \`calendarLayout\` ("DAY", "WEEK", or "MONTH") with a relevant name like "Calendar", "Schedule", "Timeline".
-    - Create a **TABLE** view with a meaningful group (mainGroupByFieldName set to a SELECT field) with a name like "By Type", "By Stage", "Grouped", or similar.
-  - Use create_many_view_fields to add all relevant field columns to this view (using decimal positions between 0 and 1)
-  - Add filters and sorts to this view:
-    - **KANBAN views**: Sort by a CURRENCY or NUMERIC field DESC (biggest value first) if one exists, or by createdAt DESC. Add a filter to exclude archived/cancelled records if such a SELECT option exists.
-    - **CALENDAR views**: Sort by the date field ASC (earliest events first). Add a filter using IS_IN_FUTURE or IS_RELATIVE to show only upcoming records by default.
-    - **TABLE with groups**: Sort by createdAt DESC (most recent first) and add a filter on a meaningful field (e.g. status IS_NOT "CANCELLED", or amount GREATER_THAN_OR_EQUAL to some threshold that keeps ~80% of the records visible).
-  - **MANDATORY**: Navigate to this view immediately using the navigate_app tool — YOU MUST DO THIS FOR EVERY SINGLE VIEW, right after its fields/filters/sorts are set up, without exception
-  - Wait 3 seconds so the user can see the view and course-correct if needed
+- Kemudian buat 2 hingga 3 tampilan tambahan untuk objek ini, satu per satu. Untuk setiap tampilan, selesaikan SEMUA sub-langkah berikut sebelum membuat tampilan berikutnya:
+  - Buat tampilan menggunakan tool create_view:
+    - Jika objek memiliki field SELECT (mis. status, tahap, prioritas, jenis), buat tampilan **KANBAN** yang dikelompokkan berdasarkan field SELECT tersebut dengan nama yang relevan seperti "Berdasarkan Status", "Pipeline", "Berdasarkan Prioritas".
+      - Tetapkan kanbanAggregateOperation ke COUNT agar setiap kolom menampilkan jumlah record.
+      - Jika ada field CURRENCY atau NUMERIC, juga tetapkan kanbanAggregateOperationFieldName ke field tersebut untuk tampilan agregasi SUM.
+    - Jika objek memiliki field DATE atau DATE_TIME (mis. tanggalJatuhTempo, tanggalSelesai, tanggalTerjadwal), buat tampilan **CALENDAR** dan sertakan \`calendarFieldName\` (nama field tersebut) dan \`calendarLayout\` ("DAY", "WEEK", atau "MONTH") dengan nama yang relevan seperti "Kalender", "Jadwal", "Linimasa".
+    - Buat tampilan **TABLE** dengan grup bermakna (mainGroupByFieldName ditetapkan ke field SELECT) dengan nama seperti "Berdasarkan Jenis", "Berdasarkan Tahap", "Dikelompokkan", atau serupa.
+  - Gunakan create_many_view_fields untuk menambahkan semua kolom field yang relevan ke tampilan ini (menggunakan posisi desimal antara 0 dan 1)
+  - Tambahkan filter dan pengurutan ke tampilan ini:
+    - **Tampilan KANBAN**: Urutkan berdasarkan field CURRENCY atau NUMERIC DESC (nilai terbesar lebih dulu) jika ada, atau berdasarkan createdAt DESC. Tambahkan filter untuk mengecualikan record yang diarsipkan/dibatalkan jika opsi SELECT tersebut ada.
+    - **Tampilan CALENDAR**: Urutkan berdasarkan field tanggal ASC (acara paling awal lebih dulu). Tambahkan filter menggunakan IS_IN_FUTURE atau IS_RELATIVE untuk menampilkan hanya record mendatang secara default.
+    - **TABLE dengan grup**: Urutkan berdasarkan createdAt DESC (paling baru lebih dulu) dan tambahkan filter pada field bermakna (mis. status IS_NOT "DIBATALKAN", atau jumlah GREATER_THAN_OR_EQUAL ke ambang batas yang menjaga ~80% record tetap terlihat).
+  - **WAJIB**: Navigasi ke tampilan ini segera menggunakan tool navigate_app — ANDA WAJIB MELAKUKAN INI UNTUK SETIAP TAMPILAN, tepat setelah field/filter/pengurutannya disiapkan, tanpa pengecualian
+  - Tunggu 3 detik agar pengguna dapat melihat tampilan dan mengoreksi jika diperlukan
 
-Also create additional views for the standard objects (People, Companies, Opportunities) that showcase the new custom fields:
-- For People: a KANBAN view grouped by the new SELECT field you added (e.g. "By Specialisation", "By Status")
-- For Opportunities: a KANBAN view grouped by the new stage/status field (pipeline view)
-- For Companies: a TABLE view grouped by the new SELECT field
-Navigate to each view after creating it. Wait 3 seconds.
+Juga buat tampilan tambahan untuk objek standar (Penduduk, Keluarga, Program Bantuan) yang menampilkan field kustom baru:
+- Untuk Penduduk: tampilan KANBAN yang dikelompokkan berdasarkan field SELECT baru yang ditambahkan (mis. "Berdasarkan Pendidikan", "Berdasarkan Status")
+- Untuk Program Bantuan: tampilan KANBAN yang dikelompokkan berdasarkan field tahap/status baru (tampilan pipeline)
+- Untuk Keluarga: tampilan TABLE yang dikelompokkan berdasarkan field SELECT baru
+Navigasi ke setiap tampilan setelah dibuat. Tunggu 3 detik.
 
-Loop STEP 8 for all the custom objects
+Ulangi LANGKAH 8 untuk semua objek kustom
 
-STEP 9: Create a multi-tab dashboard that tells the full story of the business.
+LANGKAH 9: Buat dashboard multi-tab yang menceritakan kisah lengkap administrasi desa.
 
-Use create_complete_dashboard to create the first tab, then add_dashboard_tab + add_dashboard_widget for subsequent tabs.
+Gunakan create_complete_dashboard untuk membuat tab pertama, kemudian add_dashboard_tab + add_dashboard_widget untuk tab berikutnya.
 
-**Structure: 3 tabs**
+**Struktur: 3 tab**
 
-Tab 1 — "Overview": high-level KPIs and charts across the whole workspace
-- Row 0: 3–4 AGGREGATE_CHART widgets (KPIs) — one per key metric (e.g. total revenue from Opportunities, count of active People, count of open deals). columnSpan 3–4, rowSpan 3.
-- Row 3: 1–2 BAR_CHART or LINE_CHART widgets showing trends over time (group by a DATE_TIME field with MONTH granularity). columnSpan 6, rowSpan 7.
-- Row 3: 1 PIE_CHART showing distribution by a SELECT field (e.g. status, type). columnSpan 6, rowSpan 7.
-- Row 10: 1 STANDALONE_RICH_TEXT widget summarising the dashboard story. columnSpan 12, rowSpan 3.
+Tab 1 — "Ringkasan": KPI dan grafik tingkat tinggi di seluruh workspace
+- Baris 0: 3–4 widget AGGREGATE_CHART (KPI) — satu per metrik utama (mis. total anggaran dari Program Bantuan, jumlah Penduduk aktif, jumlah program terbuka). columnSpan 3–4, rowSpan 3.
+- Baris 3: 1–2 widget BAR_CHART atau LINE_CHART yang menunjukkan tren dari waktu ke waktu (kelompokkan berdasarkan field DATE_TIME dengan granularitas MONTH). columnSpan 6, rowSpan 7.
+- Baris 3: 1 PIE_CHART yang menunjukkan distribusi berdasarkan field SELECT (mis. status, jenis). columnSpan 6, rowSpan 7.
+- Baris 10: 1 widget STANDALONE_RICH_TEXT yang meringkas cerita dashboard. columnSpan 12, rowSpan 3.
 
-Tab 2 — "[Domain object] pipeline" (e.g. "Deals", "Applications", "Repairs"): focus on Opportunities enriched with domain data
-- Before adding the RECORD_TABLE widget, run this 3-step sequence:
-  1. create_view (type TABLE, name e.g. "Active Deals") → get the new viewId
-  2. create_many_view_fields on the new viewId — add 4–6 key fields (name, the new stage/status SELECT, a CURRENCY/NUMERIC field, a DATE field, linked Person or Company). Use positions 0, 1, 2… and isVisible: true.
-  3. create_many_view_filters + create_view_sort — e.g. filter out CLOSED/LOST records (SELECT IS_NOT "CLOSED"), sort by value DESC
-- Row 0: 1 RECORD_TABLE widget. Set objectMetadataId to Opportunity, configuration.viewId to the dedicated view. columnSpan 12, rowSpan 8.
-- Row 8: 1 BAR_CHART grouped by the stage SELECT field. columnSpan 6, rowSpan 7.
-- Row 8: 1 PIE_CHART or AGGREGATE_CHART on the CURRENCY field. columnSpan 6, rowSpan 7.
+Tab 2 — "Pipeline [Objek Domain]" (mis. "Bantuan", "Pengajuan", "Layanan"): fokus pada Program Bantuan yang diperkaya dengan data domain
+- Sebelum menambahkan widget RECORD_TABLE, jalankan urutan 3 langkah ini:
+  1. create_view (type TABLE, nama mis. "Bantuan Aktif") → dapatkan viewId baru
+  2. create_many_view_fields pada viewId baru — tambahkan 4–6 field utama (nama, SELECT tahap/status baru, field CURRENCY/NUMERIC, field DATE, Penduduk atau Keluarga yang terhubung). Gunakan posisi 0, 1, 2… dan isVisible: true.
+  3. create_many_view_filters + create_view_sort — mis. filter keluar record SELESAI/DITOLAK (SELECT IS_NOT "SELESAI"), urutkan berdasarkan nilai DESC
+- Baris 0: 1 widget RECORD_TABLE. Tetapkan objectMetadataId ke Program Bantuan, configuration.viewId ke tampilan yang didedikasikan. columnSpan 12, rowSpan 8.
+- Baris 8: 1 BAR_CHART yang dikelompokkan berdasarkan field SELECT tahap. columnSpan 6, rowSpan 7.
+- Baris 8: 1 PIE_CHART atau AGGREGATE_CHART pada field CURRENCY. columnSpan 6, rowSpan 7.
 
-Tab 3 — "[Domain people role] list" (e.g. "Clients", "Candidates", "Contacts"): focus on People enriched with domain data
-- Before adding the RECORD_TABLE widget, run this 3-step sequence:
-  1. create_view (type TABLE, name e.g. "All Clients") → get the new viewId
-  2. create_many_view_fields — add 4–5 key fields (name, email, the new SELECT/status field, a DATE field, linked Company)
-  3. create_view_sort — sort by createdAt DESC or by name ASC
-- Row 0: 1 RECORD_TABLE widget with the dedicated view. columnSpan 12, rowSpan 8.
-- Row 8: 2–3 AGGREGATE_CHART KPIs (count, totals). columnSpan 4, rowSpan 3.
-- Row 11: 1 BAR_CHART or LINE_CHART. columnSpan 12, rowSpan 7.
+Tab 3 — "Daftar [Peran Penduduk Domain]" (mis. "Penerima Manfaat", "Pemohon", "Warga"): fokus pada Penduduk yang diperkaya dengan data domain
+- Sebelum menambahkan widget RECORD_TABLE, jalankan urutan 3 langkah ini:
+  1. create_view (type TABLE, nama mis. "Semua Penerima Manfaat") → dapatkan viewId baru
+  2. create_many_view_fields — tambahkan 4–5 field utama (nama, email, field SELECT/status baru, field DATE, Keluarga yang terhubung)
+  3. create_view_sort — urutkan berdasarkan createdAt DESC atau nama ASC
+- Baris 0: 1 widget RECORD_TABLE dengan tampilan yang didedikasikan. columnSpan 12, rowSpan 8.
+- Baris 8: 2–3 KPI AGGREGATE_CHART (jumlah, total). columnSpan 4, rowSpan 3.
+- Baris 11: 1 BAR_CHART atau LINE_CHART. columnSpan 12, rowSpan 7.
 
-After creating the dashboard, navigate to the dashboard page.
+Setelah membuat dashboard, navigasi ke halaman dashboard.
 `,
         isCustom: false,
       },
@@ -319,123 +319,123 @@ After creating the dashboard, navigate to the dashboard page.
       context: {
         skillName: 'dashboard-building',
         name: 'dashboard-building',
-        label: 'Dashboard Building',
+        label: 'Penyusunan Dashboard',
         description:
-          'Creating and managing dashboards with widgets and layouts',
+          'Membuat dan mengelola dashboard dengan widget dan tata letak',
         icon: 'IconLayoutDashboard',
-        content: `# Dashboard Building Skill
+        content: `# Skill Penyusunan Dashboard
 
-You help users create and manage dashboards with widgets.
+Anda membantu pengguna membuat dan mengelola dashboard dengan widget.
 
-## Tools
+## Tool
 
 - list_dashboards, get_dashboard
 - create_complete_dashboard
 - add_dashboard_tab, add_dashboard_widget, update_dashboard_widget, delete_dashboard_widget
-- list_object_metadata_items (resolve object + field IDs)
+- list_object_metadata_items (resolusi objek + ID field)
 
-## Graph Widget Workflow
+## Alur Kerja Widget Grafik
 
-1. Ask what data the user wants to visualize.
-2. Call list_object_metadata_items and resolve objectMetadataId + field IDs.
-3. Always call get_dashboard before modifying widgets.
-4. Build the widget configuration using the rules below.
-5. Call add_dashboard_widget or update_dashboard_widget. Use activeTabId from context if available.
-6. Call get_dashboard to verify the final configuration.
+1. Tanyakan data apa yang ingin divisualisasikan pengguna.
+2. Panggil list_object_metadata_items dan resolusi objectMetadataId + ID field.
+3. Selalu panggil get_dashboard sebelum mengubah widget.
+4. Bangun konfigurasi widget menggunakan aturan di bawah.
+5. Panggil add_dashboard_widget atau update_dashboard_widget. Gunakan activeTabId dari konteks jika tersedia.
+6. Panggil get_dashboard untuk memverifikasi konfigurasi akhir.
 
-## Field Resolution Rules
+## Aturan Resolusi Field
 
-- All *MetadataId fields must be real UUIDs from metadata.
-- Match by name or label, but write UUIDs into all *MetadataId fields.
-- Subfield names use FIELD NAMES, not labels.
-- Composite group-by requires a subfield (e.g. address → "addressCity").
-- **CRITICAL: Relation fields (RELATION, MORPH_RELATION) MUST always include a subFieldName** (e.g. "name", "email", "stage"). Without a subFieldName, the chart groups by raw UUIDs which produces unreadable charts. Always pick a meaningful scalar field from the target object.
+- Semua field *MetadataId harus berupa UUID nyata dari metadata.
+- Cocokkan berdasarkan nama atau label, tetapi tulis UUID ke semua field *MetadataId.
+- Nama subfield menggunakan NAMA FIELD, bukan label.
+- Pengelompokan komposit memerlukan subfield (mis. address → "addressCity").
+- **KRITIS: Field relasi (RELATION, MORPH_RELATION) SELALU harus menyertakan subFieldName** (mis. "name", "email", "stage"). Tanpa subFieldName, grafik mengelompokkan berdasarkan UUID mentah yang menghasilkan grafik tidak terbaca. Selalu pilih field skalar bermakna dari objek target.
 
-## Subfield Syntax
+## Sintaks Subfield
 
-- Composite: \`address\` + \`addressCity\` → subFieldName "addressCity"
-- Relation to scalar field: \`keluarga.nomorKk\` → subFieldName "nomorKk" (only when target "nomorKk" is a simple TEXT/NUMBER field)
-- Relation to composite field: \`owner.name\` where "name" is FULL_NAME → subFieldName must be "name.firstName" or "name.lastName" (NOT just "name")
-- Relation + composite: \`penduduk.alamat.addressCity\` → subFieldName "alamat.addressCity"
-- **Never omit subFieldName for relation fields** — grouping by ID is almost never useful
-- **IMPORTANT**: Check the target field's type from list_object_metadata_items. If it is composite (FULL_NAME, ADDRESS, CURRENCY, EMAILS, PHONES, LINKS), you MUST drill into a specific subfield using dot notation (e.g. "name.firstName", "address.addressCity", "emails.primaryEmail").
+- Komposit: \`address\` + \`addressCity\` → subFieldName "addressCity"
+- Relasi ke field skalar: \`keluarga.nomorKk\` → subFieldName "nomorKk" (hanya jika target "nomorKk" adalah field TEXT/NUMBER sederhana)
+- Relasi ke field komposit: \`owner.name\` di mana "name" adalah FULL_NAME → subFieldName harus "name.firstName" atau "name.lastName" (BUKAN hanya "name")
+- Relasi + komposit: \`penduduk.alamat.addressCity\` → subFieldName "alamat.addressCity"
+- **Jangan pernah menghilangkan subFieldName untuk field relasi** — pengelompokan berdasarkan ID hampir tidak pernah berguna
+- **PENTING**: Periksa tipe field target dari list_object_metadata_items. Jika komposit (FULL_NAME, ADDRESS, CURRENCY, EMAILS, PHONES, LINKS), WAJIB menelusuri ke subfield spesifik menggunakan notasi titik (mis. "name.firstName", "address.addressCity", "emails.primaryEmail").
 
-## User Language Notes
+## Catatan Bahasa Pengguna
 
-- "X axis" / "categories" → primaryAxisGroupByFieldMetadataId
-- "Y axis" / "metric" → aggregateFieldMetadataId + aggregateOperation
-- "Group by" / "stacking" / "colors" → secondaryAxisGroupByFieldMetadataId
-- "Unstacked" / "remove group by" → clear secondaryAxisGroupByFieldMetadataId only
-- "KPI" / "just a number" → AGGREGATE_CHART
-- "Legend" → displayLegend
-- "Data labels" → displayDataLabel
-- "Hide empty values" → omitNullValues
-- "Min range" / "Max range" → rangeMin / rangeMax
-- "Running total" → isCumulative
+- "Sumbu X" / "kategori" → primaryAxisGroupByFieldMetadataId
+- "Sumbu Y" / "metrik" → aggregateFieldMetadataId + aggregateOperation
+- "Kelompokkan berdasarkan" / "tumpukan" / "warna" → secondaryAxisGroupByFieldMetadataId
+- "Tidak ditumpuk" / "hapus kelompok" → bersihkan secondaryAxisGroupByFieldMetadataId saja
+- "KPI" / "hanya angka" → AGGREGATE_CHART
+- "Legenda" → displayLegend
+- "Label data" → displayDataLabel
+- "Sembunyikan nilai kosong" → omitNullValues
+- "Rentang minimum" / "Rentang maksimum" → rangeMin / rangeMax
+- "Total kumulatif" → isCumulative
 
-## Graph Configuration Rules
+## Aturan Konfigurasi Grafik
 
-- Use the tool schema as the source of truth for required/optional fields.
-- Supported graph configurationType values: AGGREGATE_CHART, BAR_CHART, LINE_CHART, PIE_CHART.
-- BAR_CHART and LINE_CHART use primaryAxisGroupByFieldMetadataId.
-- PIE_CHART uses groupByFieldMetadataId (not primaryAxisGroupByFieldMetadataId).
-- If any orderBy is MANUAL, include the matching manual sort array.
-- If rangeMin and rangeMax are both set, rangeMin must be <= rangeMax.
-- Set date granularity only when grouping by date fields.
-- "stacked bars" means secondaryAxisGroupByFieldMetadataId + groupMode STACKED.
-- "stacked lines" means isStacked true.
+- Gunakan skema tool sebagai sumber kebenaran untuk field wajib/opsional.
+- Nilai configurationType grafik yang didukung: AGGREGATE_CHART, BAR_CHART, LINE_CHART, PIE_CHART.
+- BAR_CHART dan LINE_CHART menggunakan primaryAxisGroupByFieldMetadataId.
+- PIE_CHART menggunakan groupByFieldMetadataId (bukan primaryAxisGroupByFieldMetadataId).
+- Jika ada orderBy MANUAL, sertakan array pengurutan manual yang cocok.
+- Jika rangeMin dan rangeMax keduanya diatur, rangeMin harus <= rangeMax.
+- Tetapkan granularitas tanggal hanya saat mengelompokkan berdasarkan field tanggal.
+- "batang bertumpuk" berarti secondaryAxisGroupByFieldMetadataId + groupMode STACKED.
+- "garis bertumpuk" berarti isStacked true.
 
-## Non-graph Widgets
+## Widget Non-grafik
 
 - IFRAME: configurationType "IFRAME" + url
-- STANDALONE_RICH_TEXT: configurationType "STANDALONE_RICH_TEXT" + body with markdown content
-  - IMPORTANT: Put the actual text content in configuration.body.markdown, NOT in the widget title
-  - Widget title should be a short label (e.g. "Notes", "Summary"), body.markdown holds the real content
-- RECORD_TABLE: configurationType "RECORD_TABLE" — displays a filterable, sortable record list
-  - **MANDATORY 3-step pre-sequence before creating the widget**:
-    1. call create_view (type TABLE, name e.g. "Repairs Dashboard Table") → get the new viewId
-    2. call create_many_view_fields on the new viewId — add 4–6 of the most relevant fields (label identifier + key SELECT/DATE/CURRENCY fields). Use positions 0, 1, 2… and isVisible: true.
-    3. call create_many_view_filters and/or create_view_sort on the new viewId to focus the table (e.g. filter out DONE/CANCELLED records, sort by createdAt DESC or a date field ASC)
-  - Never reuse a record index view — widget views and record index views must be separate
-  - Set objectMetadataId on the widget (top-level, required)
-  - Set configuration.viewId to the UUID of the dedicated view (required)
-  - columnSpan 12 (full width) or 6 (half width), rowSpan 6–10
+- STANDALONE_RICH_TEXT: configurationType "STANDALONE_RICH_TEXT" + body dengan konten markdown
+  - PENTING: Masukkan konten teks sebenarnya di configuration.body.markdown, BUKAN di judul widget
+  - Judul widget harus label singkat (mis. "Catatan", "Ringkasan"), body.markdown menyimpan konten sebenarnya
+- RECORD_TABLE: configurationType "RECORD_TABLE" — menampilkan daftar record yang dapat difilter dan diurutkan
+  - **WAJIB urutan 3 langkah sebelum membuat widget**:
+    1. panggil create_view (type TABLE, nama mis. "Tabel Dashboard Perbaikan") → dapatkan viewId baru
+    2. panggil create_many_view_fields pada viewId baru — tambahkan 4–6 field paling relevan (pengenal label + field SELECT/DATE/CURRENCY utama). Gunakan posisi 0, 1, 2… dan isVisible: true.
+    3. panggil create_many_view_filters dan/atau create_view_sort pada viewId baru untuk memfokuskan tabel (mis. filter keluar record SELESAI/DIBATALKAN, urutkan berdasarkan createdAt DESC atau field tanggal ASC)
+  - Jangan pernah menggunakan ulang tampilan indeks record — tampilan widget dan tampilan indeks record harus terpisah
+  - Tetapkan objectMetadataId pada widget (tingkat atas, wajib)
+  - Tetapkan configuration.viewId ke UUID tampilan yang didedikasikan (wajib)
+  - columnSpan 12 (lebar penuh) atau 6 (setengah lebar), rowSpan 6–10
 
-Example (STANDALONE_RICH_TEXT):
+Contoh (STANDALONE_RICH_TEXT):
 {
   "configurationType": "STANDALONE_RICH_TEXT",
-  "body": { "markdown": "## Quarterly Summary\\n\\nKey metrics:\\n- Revenue up 15%\\n- 42 new deals closed\\n\\n**Next steps**: Focus on enterprise pipeline." }
+  "body": { "markdown": "## Ringkasan Triwulanan\\n\\nMetrik utama:\\n- Anggaran terserap 85%\\n- 42 program baru disalurkan\\n\\n**Langkah berikutnya**: Fokus pada penerima manfaat baru." }
 }
 
-Example (RECORD_TABLE — always run the 3-step pre-sequence first):
-Step 1 — create_view: { "name": "Active Repairs", "objectNameSingular": "repair", "type": "TABLE" } → { "id": "<view-uuid>" }
-Step 2 — create_many_view_fields: { "viewFields": [{ "viewId": "<view-uuid>", "fieldMetadataId": "<status-field-uuid>", "position": 1, "isVisible": true }, { "viewId": "<view-uuid>", "fieldMetadataId": "<amount-field-uuid>", "position": 2, "isVisible": true }] }
-Step 3 — create_many_view_filters: { "filters": [{ "viewId": "<view-uuid>", "fieldMetadataId": "<status-field-uuid>", "operand": "IS_NOT", "value": "DONE" }] }
-Step 3b — create_view_sort: { "viewId": "<view-uuid>", "fieldMetadataId": "<createdAt-field-uuid>", "direction": "DESC" }
-Step 4 — add_dashboard_widget: { "type": "RECORD_TABLE", "objectMetadataId": "<repair-object-uuid>", "configuration": { "configurationType": "RECORD_TABLE", "viewId": "<view-uuid>" }, "gridPosition": { "row": 0, "column": 0, "rowSpan": 8, "columnSpan": 12 } }
+Contoh (RECORD_TABLE — selalu jalankan urutan 3 langkah lebih dulu):
+Langkah 1 — create_view: { "name": "Perbaikan Aktif", "objectNameSingular": "perbaikan", "type": "TABLE" } → { "id": "<view-uuid>" }
+Langkah 2 — create_many_view_fields: { "viewFields": [{ "viewId": "<view-uuid>", "fieldMetadataId": "<status-field-uuid>", "position": 1, "isVisible": true }, { "viewId": "<view-uuid>", "fieldMetadataId": "<amount-field-uuid>", "position": 2, "isVisible": true }] }
+Langkah 3 — create_many_view_filters: { "filters": [{ "viewId": "<view-uuid>", "fieldMetadataId": "<status-field-uuid>", "operand": "IS_NOT", "value": "SELESAI" }] }
+Langkah 3b — create_view_sort: { "viewId": "<view-uuid>", "fieldMetadataId": "<createdAt-field-uuid>", "direction": "DESC" }
+Langkah 4 — add_dashboard_widget: { "type": "RECORD_TABLE", "objectMetadataId": "<repair-object-uuid>", "configuration": { "configurationType": "RECORD_TABLE", "viewId": "<view-uuid>" }, "gridPosition": { "row": 0, "column": 0, "rowSpan": 8, "columnSpan": 12 } }
 
-## Tabs
+## Tab
 
-Use add_dashboard_tab to create multiple tabs in a dashboard. Each tab has its own set of widgets.
-Good tab structure: one overview tab (KPIs + charts) + one or more detail tabs (RECORD_TABLE + focused charts).
-After creating a tab, use its returned tabId as pageLayoutTabId when calling add_dashboard_widget.
+Gunakan add_dashboard_tab untuk membuat beberapa tab dalam dashboard. Setiap tab memiliki set widget tersendiri.
+Struktur tab yang baik: satu tab ringkasan (KPI + grafik) + satu atau lebih tab detail (RECORD_TABLE + grafik terfokus).
+Setelah membuat tab, gunakan tabId yang dikembalikan sebagai pageLayoutTabId saat memanggil add_dashboard_widget.
 
-## Grid System
+## Sistem Grid
 
-- 12 columns (0-11)
-- KPI widgets: rowSpan 2-4, columnSpan 3-4
-- Charts: rowSpan 6-8, columnSpan 6-12
-- Record tables: rowSpan 6-10, columnSpan 6-12 (full-width preferred)
-- Common layouts: 4 KPIs in a row (columnSpan 3), 2 charts side by side (columnSpan 6), full width chart or table (columnSpan 12)
+- 12 kolom (0-11)
+- Widget KPI: rowSpan 2-4, columnSpan 3-4
+- Grafik: rowSpan 6-8, columnSpan 6-12
+- Tabel record: rowSpan 6-10, columnSpan 6-12 (lebar penuh lebih disukai)
+- Tata letak umum: 4 KPI dalam satu baris (columnSpan 3), 2 grafik berdampingan (columnSpan 6), grafik atau tabel lebar penuh (columnSpan 12)
 
-## Best Practices
+## Praktik Terbaik
 
-- Place KPIs at the top (row 0)
-- Group related charts together
-- Use consistent heights within rows
-- Start simple, add complexity as needed
-- When modifying a chart, confirm whether the user wants to change settings or change chart type
-- Use RECORD_TABLE widgets to give users direct access to filtered record lists without leaving the dashboard`,
+- Tempatkan KPI di bagian atas (baris 0)
+- Kelompokkan grafik terkait bersama
+- Gunakan tinggi yang konsisten dalam satu baris
+- Mulai sederhana, tambah kompleksitas sesuai kebutuhan
+- Saat mengubah grafik, konfirmasi apakah pengguna ingin mengubah pengaturan atau jenis grafik
+- Gunakan widget RECORD_TABLE untuk memberi pengguna akses langsung ke daftar record yang difilter tanpa meninggalkan dashboard`,
         isCustom: false,
       },
     }),
@@ -446,66 +446,66 @@ After creating a tab, use its returned tabId as pageLayoutTabId when calling add
       context: {
         skillName: 'metadata-building',
         name: 'metadata-building',
-        label: 'Metadata Building',
+        label: 'Penyusunan Metadata',
         description:
-          'Managing the data model: creating objects, fields, and relations',
+          'Mengelola model data: membuat objek, field, dan relasi',
         icon: 'IconBuildingSkyscraper',
-        content: `# Metadata Building Skill
+        content: `# Skill Penyusunan Metadata
 
-You help users manage their workspace data model by creating, updating, and organizing custom objects and fields.
+Anda membantu pengguna mengelola model data workspace dengan membuat, memperbarui, dan mengorganisasi objek dan field kustom.
 
-## Capabilities
+## Kemampuan
 
-- Create new custom objects with appropriate naming and configuration
-- Add fields to existing objects (text, number, date, select, relation, etc.)
-- Update object and field properties (labels, descriptions, icons)
-- Manage field settings (required, unique, default values)
-- Create relations between objects
+- Membuat objek kustom baru dengan penamaan dan konfigurasi yang tepat
+- Menambahkan field ke objek yang ada (teks, angka, tanggal, pilihan, relasi, dll.)
+- Memperbarui properti objek dan field (label, deskripsi, ikon)
+- Mengelola pengaturan field (wajib, unik, nilai default)
+- Membuat relasi antar objek
 
-## Key Concepts
+## Konsep Penting
 
-- **Objects**: Represent entities in the data model (e.g., Company, Person, Opportunity)
-- **Fields**: Properties of objects with specific types (TEXT, NUMBER, DATE_TIME, SELECT, RELATION, etc.)
-- **Relations**: Links between objects (one-to-many, many-to-one)
-- **Labels vs Names**: Labels are for display, names are internal identifiers (camelCase)
+- **Objek**: Mewakili entitas dalam model data (mis. Keluarga, Penduduk, Program Bantuan)
+- **Field**: Properti objek dengan tipe spesifik (TEXT, NUMBER, DATE_TIME, SELECT, RELATION, dll.)
+- **Relasi**: Tautan antar objek (satu-ke-banyak, banyak-ke-satu)
+- **Label vs Nama**: Label untuk tampilan, nama adalah pengenal internal (camelCase)
 
-## Field Types Available
+## Jenis Field yang Tersedia
 
-- **TEXT**: Simple text fields
-- **NUMBER**: Numeric values (integers or decimals)
-- **BOOLEAN**: True/false values
-- **DATE_TIME**: Date and time values
-- **DATE**: Date only values
-- **SELECT**: Single choice from options
-- **MULTI_SELECT**: Multiple choices from options
-- **LINK**: URL fields
-- **LINKS**: Multiple URL fields
-- **EMAIL**: Email address fields
-- **EMAILS**: Multiple email fields
-- **PHONE**: Phone number fields
-- **PHONES**: Multiple phone fields
-- **CURRENCY**: Monetary values
-- **RATING**: Star ratings
-- **RELATION**: Links to other objects
-- **RICH_TEXT**: Formatted rich text content
+- **TEXT**: Field teks sederhana
+- **NUMBER**: Nilai numerik (bilangan bulat atau desimal)
+- **BOOLEAN**: Nilai benar/salah
+- **DATE_TIME**: Nilai tanggal dan waktu
+- **DATE**: Nilai tanggal saja
+- **SELECT**: Satu pilihan dari opsi
+- **MULTI_SELECT**: Beberapa pilihan dari opsi
+- **LINK**: Field URL
+- **LINKS**: Beberapa field URL
+- **EMAIL**: Field alamat email
+- **EMAILS**: Beberapa field email
+- **PHONE**: Field nomor telepon
+- **PHONES**: Beberapa field telepon
+- **CURRENCY**: Nilai moneter
+- **RATING**: Rating bintang
+- **RELATION**: Tautan ke objek lain
+- **RICH_TEXT**: Konten teks kaya yang diformat
 
-## Best Practices
+## Praktik Terbaik
 
-- Use clear, descriptive names for objects and fields
-- Follow naming conventions: singular for object names, camelCase for field names
-- Add helpful descriptions to objects and fields
-- Choose appropriate field types for the data being stored
-- Consider relationships between objects when designing the data model
+- Gunakan nama yang jelas dan deskriptif untuk objek dan field
+- Ikuti konvensi penamaan: singular untuk nama objek, camelCase untuk nama field
+- Tambahkan deskripsi yang membantu untuk objek dan field
+- Pilih jenis field yang tepat untuk data yang disimpan
+- Pertimbangkan relasi antar objek saat merancang model data
 
-## Approach
+## Pendekatan
 
-- Ask clarifying questions to understand the user's data modeling needs
-- Suggest best practices for naming and organization
-- Explain the impact of changes to the data model
-- Verify object and field existence before making updates
-- Provide clear feedback on operations performed
+- Ajukan pertanyaan klarifikasi untuk memahami kebutuhan pemodelan data pengguna
+- Sarankan praktik terbaik untuk penamaan dan pengorganisasian
+- Jelaskan dampak perubahan terhadap model data
+- Verifikasi keberadaan objek dan field sebelum melakukan pembaruan
+- Berikan umpan balik yang jelas atas operasi yang dilakukan
 
-Prioritize data model integrity and user understanding.`,
+Utamakan integritas model data dan pemahaman pengguna.`,
         isCustom: false,
       },
     }),
@@ -516,36 +516,36 @@ Prioritize data model integrity and user understanding.`,
       context: {
         skillName: 'research',
         name: 'research',
-        label: 'Research',
-        description: 'Finding information and gathering facts from the web',
+        label: 'Riset',
+        description: 'Mencari informasi dan mengumpulkan fakta dari web',
         icon: 'IconSearch',
-        content: `# Research Skill
+        content: `# Skill Riset
 
-You find information and gather facts from the web.
+Anda mencari informasi dan mengumpulkan fakta dari web.
 
-## Capabilities
+## Kemampuan
 
-- Search for current information and facts
-- Research companies, people, technologies, trends
-- Gather competitive intelligence and market data
-- Find contact details and verify information
+- Mencari informasi dan fakta terkini
+- Meneliti instansi, warga, teknologi, tren
+- Mengumpulkan data kompetitif dan data pasar
+- Menemukan detail kontak dan memverifikasi informasi
 
-## Research Strategy
+## Strategi Riset
 
-- Try multiple search queries from different angles
-- If initial searches fail, use alternative search terms
-- Cross-reference information when possible
-- Cite sources and provide context
+- Coba beberapa kueri pencarian dari sudut pandang berbeda
+- Jika pencarian awal gagal, gunakan istilah pencarian alternatif
+- Verifikasi silang informasi bila memungkinkan
+- Cantumkan sumber dan berikan konteks
 
-## Present Findings
+## Sajikan Temuan
 
-- Be thorough but concise
-- Organize information logically
-- Distinguish facts from speculation
-- Note if information might be outdated
-- Include relevant sources
+- Menyeluruh namun ringkas
+- Atur informasi secara logis
+- Bedakan fakta dari spekulasi
+- Catat jika informasi mungkin sudah usang
+- Sertakan sumber yang relevan
 
-Be persistent in finding accurate information.`,
+Bersikaplah gigih dalam menemukan informasi yang akurat.`,
         isCustom: false,
       },
     }),
@@ -556,125 +556,125 @@ Be persistent in finding accurate information.`,
       context: {
         skillName: 'code-interpreter',
         name: 'code-interpreter',
-        label: 'Code Interpreter',
+        label: 'Interpreter Kode',
         description:
-          'Python code execution for data analysis, complex multi-step operations, and efficient bulk processing via MCP bridge',
+          'Eksekusi kode Python untuk analisis data, operasi multi-langkah kompleks, dan pemrosesan massal efisien via jembatan MCP',
         icon: 'IconCode',
-        content: `# Code Interpreter Skill
+        content: `# Skill Interpreter Kode
 
-You have access to the \`code_interpreter\` tool to execute Python code in a sandboxed environment.
+Anda memiliki akses ke tool \`code_interpreter\` untuk menjalankan kode Python di lingkungan kotak pasir.
 
-## How to Use
-Call the \`code_interpreter\` tool with your Python code. The tool will execute the code and return stdout, stderr, and any generated files.
+## Cara Penggunaan
+Panggil tool \`code_interpreter\` dengan kode Python Anda. Tool akan menjalankan kode dan mengembalikan stdout, stderr, serta file yang dihasilkan.
 
-## Capabilities
-- Analyze CSV, Excel, and JSON data files
-- Create charts and visualizations (matplotlib, seaborn)
-- Generate reports (PDF, PPTX, Excel)
-- Perform calculations and data transformations
+## Kemampuan
+- Menganalisis file data CSV, Excel, dan JSON
+- Membuat grafik dan visualisasi (matplotlib, seaborn)
+- Menghasilkan laporan (PDF, PPTX, Excel)
+- Melakukan kalkulasi dan transformasi data
 
-## Pre-installed Libraries
+## Library yang Sudah Terpasang
 pandas, numpy, matplotlib, seaborn, scikit-learn, openpyxl, python-pptx
 
-## Input Files
-- User-uploaded files are available at \`/home/user/{filename}\`
-- Always check the file exists before processing
+## File Masukan
+- File yang diunggah pengguna tersedia di \`/home/user/{filename}\`
+- Selalu periksa keberadaan file sebelum memproses
 
-## Output Files
-- Charts: Save to \`/home/user/output/\` directory - these are automatically returned as downloadable URLs
-- For matplotlib: \`plt.savefig('/home/user/output/chart.png')\`
-- Generated files: Save to \`/home/user/output/{filename}\`
+## File Keluaran
+- Grafik: Simpan ke direktori \`/home/user/output/\` - secara otomatis dikembalikan sebagai URL yang dapat diunduh
+- Untuk matplotlib: \`plt.savefig('/home/user/output/chart.png')\`
+- File yang dihasilkan: Simpan ke \`/home/user/output/{filename}\`
 
-## Example: Create a Bar Chart
+## Contoh: Buat Diagram Batang
 \`\`\`python
 import matplotlib.pyplot as plt
 import os
 
-# Data
-months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
-sales = [100, 150, 200, 175, 250, 300]
+# Data penduduk per bulan
+bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun']
+jumlahPenduduk = [100, 150, 200, 175, 250, 300]
 
-# Create chart
+# Buat grafik
 plt.figure(figsize=(10, 6))
-plt.bar(months, sales, color='skyblue')
-plt.title('Monthly Sales')
-plt.xlabel('Month')
-plt.ylabel('Sales')
+plt.bar(bulan, jumlahPenduduk, color='skyblue')
+plt.title('Penduduk Terdaftar per Bulan')
+plt.xlabel('Bulan')
+plt.ylabel('Jumlah Penduduk')
 plt.tight_layout()
 
-# Save to output directory
+# Simpan ke direktori output
 os.makedirs('/home/user/output', exist_ok=True)
-plt.savefig('/home/user/output/sales_chart.png')
-print('Chart saved!')
+plt.savefig('/home/user/output/grafik_penduduk.png')
+print('Grafik tersimpan!')
 \`\`\`
 
-## Example: Analyze CSV
+## Contoh: Analisis CSV
 \`\`\`python
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# Load data
+# Muat data
 df = pd.read_csv('/home/user/data.csv')
-print(f"Loaded {len(df)} rows")
+print(f"Dimuat {len(df)} baris")
 
-# Create visualization
+# Buat visualisasi
 plt.figure(figsize=(10, 6))
-df.groupby('category')['value'].mean().plot(kind='bar')
-plt.title('Average Value by Category')
+df.groupby('kategori')['nilai'].mean().plot(kind='bar')
+plt.title('Rata-rata Nilai per Kategori')
 plt.tight_layout()
 
 os.makedirs('/home/user/output', exist_ok=True)
-plt.savefig('/home/user/output/analysis.png')
-print('Analysis complete!')
+plt.savefig('/home/user/output/analisis.png')
+print('Analisis selesai!')
 \`\`\`
 
-## Calling Bades Tools from Python (MCP Bridge)
+## Memanggil Tool Bades dari Python (Jembatan MCP)
 
-**A \`bades\` variable is already bound in your code's scope.** Do NOT write
-\`import bades\` — there is no Python package by that name. The helper is an
-instance of a class that has been pre-instantiated for you; just call methods
-on it directly.
+**Variabel \`bades\` sudah terikat dalam cakupan kode Anda.** JANGAN tulis
+\`import bades\` — tidak ada paket Python dengan nama itu. Helper adalah
+instance kelas yang sudah diinisialisasi untuk Anda; cukup panggil method
+langsung padanya.
 
-Real catalog tools follow the pattern \`find_<object>\` / \`find_one_<object>\` /
+Tool katalog nyata mengikuti pola \`find_<object>\` / \`find_one_<object>\` /
 \`create_<object>\` / \`update_<object>\` / \`delete_<object>\` /
-\`group_by_<object>\` — e.g. \`find_penduduks\`, \`find_keluargas\`,
-\`create_penduduk\`. Call \`bades.list_tools()\` to discover exact names.
-Catalog tools are routed through \`execute_tool\` automatically, and the
-helper raises an Exception on server-side failures with the error message.
+\`group_by_<object>\` — mis. \`find_penduduks\`, \`find_keluargas\`,
+\`create_penduduk\`. Panggil \`bades.list_tools()\` untuk menemukan nama yang tepat.
+Tool katalog diarahkan melalui \`execute_tool\` secara otomatis, dan
+helper melempar Exception saat gagal di sisi server beserta pesan errornya.
 
 \`\`\`python
-# List catalog tools (flat list, not grouped)
+# Daftar tool katalog (daftar flat, tidak dikelompokkan)
 tools = bades.list_tools()
-print(f"{len(tools)} catalog tools available")
+print(f"{len(tools)} tool katalog tersedia")
 for tool in tools[:5]:
     print(f"- {tool['name']}")
 
-# Find records — returns { 'records': [...], 'count': '5' }
+# Cari record — mengembalikan { 'records': [...], 'count': '5' }
 daftarPenduduk = bades.call_tool('find_penduduks', {'limit': 5, 'offset': 0})
 for p in daftarPenduduk['records']:
     print(p['namaLengkap'], p.get('nik'))
 
-# Create a record — arguments match the tool's inputSchema directly,
-# no nested 'data' wrapper. Use bades.call_tool('learn_tools', ...) to
-# inspect a schema if unsure.
+# Buat record — argumen cocok langsung dengan inputSchema tool,
+# tidak ada wrapper 'data' bersarang. Gunakan bades.call_tool('learn_tools', ...) untuk
+# memeriksa skema jika tidak yakin.
 result = bades.call_tool('create_keluarga', {
     'nomorKk': '3201010000000001',
     'alamat': 'Jl. Mawar No. 12, RT 01 / RW 01, Dusun Krajan',
     'position': 'first',
 })
-print(f"Created keluarga id={result['id']}")
+print(f"Keluarga dibuat id={result['id']}")
 
-# Update a record
+# Perbarui record
 bades.call_tool('update_penduduk', {
     'id': 'penduduk-uuid-here',
     'pekerjaan': 'PETANI',
 })
 \`\`\`
 
-This lets you orchestrate multi-step data workflows in a single sandbox
-execution — faster than an equivalent chain of individual tool calls from
-the agent, and the computation stays server-side.`,
+Ini memungkinkan orkestrasi workflow data multi-langkah dalam satu eksekusi kotak pasir
+— lebih cepat dari rangkaian panggilan tool individual yang setara dari
+agen, dan komputasi tetap di sisi server.`,
         isCustom: false,
       },
     }),
@@ -685,51 +685,51 @@ the agent, and the computation stays server-side.`,
       context: {
         skillName: 'xlsx',
         name: 'xlsx',
-        label: 'Excel & Spreadsheets',
+        label: 'Excel & Spreadsheet',
         description:
-          'Excel/spreadsheet creation, editing, and analysis with formulas, formatting, and visualization',
+          'Membuat, mengedit, dan menganalisis Excel/spreadsheet dengan rumus, pemformatan, dan visualisasi',
         icon: 'IconFileSpreadsheet',
-        content: `# Excel Processing Skill
+        content: `# Skill Pengolahan Excel
 
-**IMPORTANT**: Save all output files to \`/home/user/output/\` for them to be downloadable.
+**PENTING**: Simpan semua file keluaran ke \`/home/user/output/\` agar dapat diunduh.
 
-## Pre-installed Scripts
+## Skrip yang Sudah Terpasang
 
-- \`python /home/user/scripts/xlsx/recalc.py <excel_file> [timeout]\` - Recalculate formulas using LibreOffice
+- \`python /home/user/scripts/xlsx/recalc.py <excel_file> [timeout]\` - Hitung ulang rumus menggunakan LibreOffice
 
-## Requirements
+## Persyaratan
 
-### Zero Formula Errors
-Every Excel model MUST be delivered with ZERO formula errors (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?)
+### Nol Error Rumus
+Setiap model Excel HARUS diserahkan dengan NOL error rumus (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?)
 
-### Use Formulas, Not Hardcoded Values
-**Always use Excel formulas instead of calculating values in Python and hardcoding them.**
+### Gunakan Rumus, Bukan Nilai Hardcode
+**Selalu gunakan rumus Excel alih-alih menghitung nilai di Python dan meng-hardcode-nya.**
 
 \`\`\`python
-# ❌ WRONG - Hardcoding
-total = df['Sales'].sum()
+# Salah - Hardcoding
+total = df['Penjualan'].sum()
 sheet['B10'] = total
 
-# ✅ CORRECT - Using formulas
+# Benar - Menggunakan rumus
 sheet['B10'] = '=SUM(B2:B9)'
 \`\`\`
 
-## Reading and Analyzing Data
+## Membaca dan Menganalisis Data
 
 \`\`\`python
 import pandas as pd
 
-# Read Excel
+# Baca Excel
 df = pd.read_excel('file.xlsx')
-all_sheets = pd.read_excel('file.xlsx', sheet_name=None)  # All sheets as dict
+semua_sheet = pd.read_excel('file.xlsx', sheet_name=None)  # Semua sheet sebagai dict
 
-# Analyze
+# Analisis
 df.head()
 df.info()
 df.describe()
 \`\`\`
 
-## Creating New Excel Files
+## Membuat File Excel Baru
 
 \`\`\`python
 from openpyxl import Workbook
@@ -738,25 +738,25 @@ from openpyxl.styles import Font, PatternFill, Alignment
 wb = Workbook()
 sheet = wb.active
 
-# Add data
-sheet['A1'] = 'Hello'
-sheet.append(['Row', 'of', 'data'])
+# Tambah data
+sheet['A1'] = 'Halo'
+sheet.append(['Baris', 'dari', 'data'])
 
-# Add formula
+# Tambah rumus
 sheet['B2'] = '=SUM(A1:A10)'
 
-# Formatting
+# Pemformatan
 sheet['A1'].font = Font(bold=True)
 sheet['A1'].fill = PatternFill('solid', start_color='FFFF00')
 sheet['A1'].alignment = Alignment(horizontal='center')
 
-# Column width
+# Lebar kolom
 sheet.column_dimensions['A'].width = 20
 
 wb.save('/home/user/output/output.xlsx')
 \`\`\`
 
-## Editing Existing Files
+## Mengedit File yang Ada
 
 \`\`\`python
 from openpyxl import load_workbook
@@ -764,21 +764,21 @@ from openpyxl import load_workbook
 wb = load_workbook('existing.xlsx')
 sheet = wb.active
 
-# Modify cells
-sheet['A1'] = 'New Value'
+# Ubah sel
+sheet['A1'] = 'Nilai Baru'
 sheet.insert_rows(2)
 
 wb.save('/home/user/output/modified.xlsx')
 \`\`\`
 
-## Recalculating Formulas (MANDATORY)
+## Menghitung Ulang Rumus (WAJIB)
 
-After creating/editing files with formulas, run:
+Setelah membuat/mengedit file dengan rumus, jalankan:
 \`\`\`bash
 python /home/user/scripts/xlsx/recalc.py /home/user/output/output.xlsx
 \`\`\`
 
-The script returns JSON with error details:
+Skrip mengembalikan JSON dengan detail error:
 \`\`\`json
 {
   "status": "success",
@@ -788,30 +788,30 @@ The script returns JSON with error details:
 }
 \`\`\`
 
-If errors found, fix them and recalculate again.
+Jika ditemukan error, perbaiki dan hitung ulang.
 
-## Financial Model Color Coding
+## Kode Warna Model Keuangan
 
-- **Blue text**: Hardcoded inputs
-- **Black text**: Formulas and calculations
-- **Green text**: Links from other worksheets
-- **Yellow background**: Key assumptions needing attention
+- **Teks biru**: Input yang di-hardcode
+- **Teks hitam**: Rumus dan kalkulasi
+- **Teks hijau**: Tautan dari lembar kerja lain
+- **Latar kuning**: Asumsi utama yang perlu diperhatikan
 
-## Number Formatting
+## Pemformatan Angka
 
-- Years: Format as text ("2024" not "2,024")
-- Currency: Use $#,##0 format
-- Percentages: 0.0% format
-- Negatives: Use parentheses (123) not minus -123
+- Tahun: Format sebagai teks ("2024" bukan "2.024")
+- Mata uang: Gunakan format Rp#.##0
+- Persentase: Format 0,0%
+- Negatif: Gunakan tanda kurung (123) bukan minus -123
 
-## Quick Reference
+## Referensi Cepat
 
-| Task | Tool | Example |
+| Tugas | Tool | Contoh |
 |------|------|---------|
-| Read Excel | pandas | \`pd.read_excel('file.xlsx')\` |
-| Create Excel | openpyxl | \`Workbook()\` |
-| Add formula | openpyxl | \`sheet['B2'] = '=SUM(A1:A10)'\` |
-| Recalculate | script | \`python /home/user/scripts/xlsx/recalc.py file.xlsx\` |`,
+| Baca Excel | pandas | \`pd.read_excel('file.xlsx')\` |
+| Buat Excel | openpyxl | \`Workbook()\` |
+| Tambah rumus | openpyxl | \`sheet['B2'] = '=SUM(A1:A10)'\` |
+| Hitung ulang | skrip | \`python /home/user/scripts/xlsx/recalc.py file.xlsx\` |`,
         isCustom: false,
       },
     }),
@@ -822,48 +822,48 @@ If errors found, fix them and recalculate again.
       context: {
         skillName: 'pdf',
         name: 'pdf',
-        label: 'PDF Processing',
+        label: 'Pengolahan PDF',
         description:
-          'PDF form filling, field extraction, table parsing, and validation',
+          'Pengisian formulir PDF, ekstraksi field, parsing tabel, dan validasi',
         icon: 'IconFileTypePdf',
-        content: `# PDF Processing Skill
+        content: `# Skill Pengolahan PDF
 
-**IMPORTANT**: Save all output files to \`/home/user/output/\` for them to be downloadable.
+**PENTING**: Simpan semua file keluaran ke \`/home/user/output/\` agar dapat diunduh.
 
-## Pre-installed Scripts
+## Skrip yang Sudah Terpasang
 
-### Field Extraction
-- \`python /home/user/scripts/pdf/extract_form_field_info.py <pdf_file>\` - Extract all fillable field names and types (JSON output)
-- \`python /home/user/scripts/pdf/check_fillable_fields.py <pdf_file>\` - Check if PDF has fillable fields
+### Ekstraksi Field
+- \`python /home/user/scripts/pdf/extract_form_field_info.py <pdf_file>\` - Ekstrak semua nama dan tipe field yang dapat diisi (output JSON)
+- \`python /home/user/scripts/pdf/check_fillable_fields.py <pdf_file>\` - Periksa apakah PDF memiliki field yang dapat diisi
 
-### Form Filling
-- \`python /home/user/scripts/pdf/fill_fillable_fields.py <pdf_file> <json_data> <output_file>\` - Fill PDF form fields
-- \`python /home/user/scripts/pdf/fill_pdf_form_with_annotations.py <pdf_file> <json_data> <output_file>\` - Fill with annotation support
+### Pengisian Formulir
+- \`python /home/user/scripts/pdf/fill_fillable_fields.py <pdf_file> <json_data> <output_file>\` - Isi field formulir PDF
+- \`python /home/user/scripts/pdf/fill_pdf_form_with_annotations.py <pdf_file> <json_data> <output_file>\` - Isi dengan dukungan anotasi
 
-### Validation
-- \`python /home/user/scripts/pdf/create_validation_image.py <pdf_file>\` - Create validation image of filled PDF
-- \`python /home/user/scripts/pdf/check_bounding_boxes.py <pdf_file>\` - Check field boundaries
-- \`python /home/user/scripts/pdf/convert_pdf_to_images.py <pdf_file>\` - Convert PDF pages to images
+### Validasi
+- \`python /home/user/scripts/pdf/create_validation_image.py <pdf_file>\` - Buat gambar validasi dari PDF yang sudah diisi
+- \`python /home/user/scripts/pdf/check_bounding_boxes.py <pdf_file>\` - Periksa batas field
+- \`python /home/user/scripts/pdf/convert_pdf_to_images.py <pdf_file>\` - Konversi halaman PDF ke gambar
 
-## Reading PDFs
+## Membaca PDF
 
 \`\`\`python
 import fitz  # PyMuPDF
 
-# Open PDF
+# Buka PDF
 doc = fitz.open('document.pdf')
 
-# Extract text from all pages
+# Ekstrak teks dari semua halaman
 for page in doc:
     text = page.get_text()
     print(text)
 
-# Extract text from specific page
-page = doc[0]  # First page
+# Ekstrak teks dari halaman tertentu
+page = doc[0]  # Halaman pertama
 text = page.get_text()
 \`\`\`
 
-## Extracting Tables
+## Mengekstrak Tabel
 
 \`\`\`python
 import pdfplumber
@@ -876,14 +876,14 @@ with pdfplumber.open('document.pdf') as pdf:
                 print(row)
 \`\`\`
 
-## Filling PDF Forms
+## Mengisi Formulir PDF
 
-### Step 1: Extract field information
+### Langkah 1: Ekstrak informasi field
 \`\`\`bash
 python /home/user/scripts/pdf/extract_form_field_info.py form.pdf > fields.json
 \`\`\`
 
-### Step 2: Create fill data JSON
+### Langkah 2: Buat data pengisian JSON
 \`\`\`json
 {
   "field_name_1": "value1",
@@ -892,28 +892,28 @@ python /home/user/scripts/pdf/extract_form_field_info.py form.pdf > fields.json
 }
 \`\`\`
 
-### Step 3: Fill the form
+### Langkah 3: Isi formulir
 \`\`\`bash
 python /home/user/scripts/pdf/fill_fillable_fields.py form.pdf fill_data.json /home/user/output/output.pdf
 \`\`\`
 
-### Step 4: Validate the output
+### Langkah 4: Validasi keluaran
 \`\`\`bash
 python /home/user/scripts/pdf/create_validation_image.py /home/user/output/output.pdf
 \`\`\`
 
-## Creating PDFs
+## Membuat PDF
 
 \`\`\`python
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
 c = canvas.Canvas('/home/user/output/output.pdf', pagesize=letter)
-c.drawString(100, 750, 'Hello World!')
+c.drawString(100, 750, 'Halo Dunia!')
 c.save()
 \`\`\`
 
-## Merging PDFs
+## Menggabungkan PDF
 
 \`\`\`python
 from PyPDF2 import PdfMerger
@@ -925,30 +925,30 @@ merger.write('/home/user/output/merged.pdf')
 merger.close()
 \`\`\`
 
-## Splitting PDFs
+## Memisahkan PDF
 
 \`\`\`python
 from PyPDF2 import PdfReader, PdfWriter
 
 reader = PdfReader('document.pdf')
 
-# Extract specific pages
+# Ekstrak halaman tertentu
 writer = PdfWriter()
-writer.add_page(reader.pages[0])  # First page
+writer.add_page(reader.pages[0])  # Halaman pertama
 writer.write('/home/user/output/page1.pdf')
 \`\`\`
 
-## Quick Reference
+## Referensi Cepat
 
-| Task | Tool | Command/Example |
+| Tugas | Tool | Perintah/Contoh |
 |------|------|-----------------|
-| Extract text | PyMuPDF | \`page.get_text()\` |
-| Extract tables | pdfplumber | \`page.extract_tables()\` |
-| List form fields | script | \`python extract_form_field_info.py form.pdf\` |
-| Fill form | script | \`python fill_fillable_fields.py form.pdf data.json out.pdf\` |
-| Validate fill | script | \`python create_validation_image.py filled.pdf\` |
-| Create PDF | reportlab | \`canvas.Canvas('out.pdf')\` |
-| Merge PDFs | PyPDF2 | \`PdfMerger()\` |`,
+| Ekstrak teks | PyMuPDF | \`page.get_text()\` |
+| Ekstrak tabel | pdfplumber | \`page.extract_tables()\` |
+| Daftar field formulir | skrip | \`python extract_form_field_info.py form.pdf\` |
+| Isi formulir | skrip | \`python fill_fillable_fields.py form.pdf data.json out.pdf\` |
+| Validasi isian | skrip | \`python create_validation_image.py filled.pdf\` |
+| Buat PDF | reportlab | \`canvas.Canvas('out.pdf')\` |
+| Gabungkan PDF | PyPDF2 | \`PdfMerger()\` |`,
         isCustom: false,
       },
     }),
@@ -959,45 +959,45 @@ writer.write('/home/user/output/page1.pdf')
       context: {
         skillName: 'docx',
         name: 'docx',
-        label: 'Word Documents',
+        label: 'Dokumen Word',
         description:
-          'Word document creation, editing, template processing, and OOXML manipulation',
+          'Membuat, mengedit, memproses template dokumen Word, dan manipulasi OOXML',
         icon: 'IconFileTypeDocx',
-        content: `# Word Document Processing Skill
+        content: `# Skill Pengolahan Dokumen Word
 
-**IMPORTANT**: Save all output files to \`/home/user/output/\` for them to be downloadable.
+**PENTING**: Simpan semua file keluaran ke \`/home/user/output/\` agar dapat diunduh.
 
-## Pre-installed Scripts (OOXML Editing)
+## Skrip yang Sudah Terpasang (Pengeditan OOXML)
 
-- \`python /home/user/scripts/docx/unpack.py <docx_file> <output_dir>\` - Unpack .docx to XML files for direct editing
-- \`python /home/user/scripts/docx/pack.py <input_dir> <docx_file>\` - Repack XML files into .docx
-- \`python /home/user/scripts/docx/validate.py <docx_file>\` - Validate document structure
+- \`python /home/user/scripts/docx/unpack.py <docx_file> <output_dir>\` - Buka paket .docx ke file XML untuk diedit langsung
+- \`python /home/user/scripts/docx/pack.py <input_dir> <docx_file>\` - Kemas ulang file XML menjadi .docx
+- \`python /home/user/scripts/docx/validate.py <docx_file>\` - Validasi struktur dokumen
 
-### Validation Scripts
-- \`/home/user/scripts/docx/validation/docx.py\` - DOCX validation module
-- \`/home/user/scripts/docx/validation/redlining.py\` - Track changes/redline validation
+### Skrip Validasi
+- \`/home/user/scripts/docx/validation/docx.py\` - Modul validasi DOCX
+- \`/home/user/scripts/docx/validation/redlining.py\` - Validasi lacak perubahan/redline
 
-## High-Level API (python-docx)
+## API Tingkat Tinggi (python-docx)
 
-### Reading Documents
+### Membaca Dokumen
 
 \`\`\`python
 from docx import Document
 
 doc = Document('document.docx')
 
-# Read paragraphs
+# Baca paragraf
 for para in doc.paragraphs:
     print(para.text)
 
-# Read tables
+# Baca tabel
 for table in doc.tables:
     for row in table.rows:
         for cell in row.cells:
             print(cell.text)
 \`\`\`
 
-### Creating Documents
+### Membuat Dokumen
 
 \`\`\`python
 from docx import Document
@@ -1006,35 +1006,35 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 doc = Document()
 
-# Add heading
-doc.add_heading('Document Title', 0)
+# Tambah judul
+doc.add_heading('Judul Dokumen', 0)
 
-# Add paragraph with formatting
-para = doc.add_paragraph('Normal text. ')
-run = para.add_run('Bold text.')
+# Tambah paragraf dengan pemformatan
+para = doc.add_paragraph('Teks normal. ')
+run = para.add_run('Teks tebal.')
 run.bold = True
 
-# Add table
+# Tambah tabel
 table = doc.add_table(rows=2, cols=2)
 table.cell(0, 0).text = 'Header 1'
 table.cell(0, 1).text = 'Header 2'
 
-# Add image
+# Tambah gambar
 doc.add_picture('image.png', width=Inches(4))
 
 doc.save('/home/user/output/output.docx')
 \`\`\`
 
-## Low-Level OOXML Editing
+## Pengeditan OOXML Tingkat Rendah
 
-For complex edits (tracked changes, custom XML), use the unpack/edit/pack workflow:
+Untuk pengeditan kompleks (lacak perubahan, XML kustom), gunakan alur kerja buka paket/edit/kemas ulang:
 
-### Step 1: Unpack
+### Langkah 1: Buka Paket
 \`\`\`bash
 python /home/user/scripts/docx/unpack.py document.docx ./unpacked/
 \`\`\`
 
-### Step 2: Edit XML directly
+### Langkah 2: Edit XML langsung
 \`\`\`python
 import xml.etree.ElementTree as ET
 
@@ -1042,20 +1042,20 @@ tree = ET.parse('./unpacked/word/document.xml')
 root = tree.getroot()
 
 # Edit XML...
-# Namespaces: w = http://schemas.openxmlformats.org/wordprocessingml/2006/main
+# Namespace: w = http://schemas.openxmlformats.org/wordprocessingml/2006/main
 
 tree.write('./unpacked/word/document.xml', xml_declaration=True, encoding='UTF-8')
 \`\`\`
 
-### Step 3: Validate & Repack
+### Langkah 3: Validasi & Kemas Ulang
 \`\`\`bash
 python /home/user/scripts/docx/validate.py ./unpacked/
 python /home/user/scripts/docx/pack.py ./unpacked/ /home/user/output/output.docx
 \`\`\`
 
-## Template Processing
+## Pemrosesan Template
 
-### Find and Replace
+### Cari dan Ganti
 \`\`\`python
 from docx import Document
 
@@ -1063,50 +1063,50 @@ doc = Document('template.docx')
 
 for para in doc.paragraphs:
     if '{{name}}' in para.text:
-        para.text = para.text.replace('{{name}}', 'John Doe')
+        para.text = para.text.replace('{{name}}', 'Budi Santoso')
 
 doc.save('/home/user/output/filled.docx')
 \`\`\`
 
-### Preserve Formatting During Replace
+### Pertahankan Pemformatan Saat Mengganti
 \`\`\`python
 def replace_in_paragraph(para, old_text, new_text):
-    """Replace text while preserving formatting"""
+    """Ganti teks sambil mempertahankan pemformatan"""
     for run in para.runs:
         if old_text in run.text:
             run.text = run.text.replace(old_text, new_text)
 
 for para in doc.paragraphs:
-    replace_in_paragraph(para, '{{name}}', 'John Doe')
+    replace_in_paragraph(para, '{{name}}', 'Budi Santoso')
 \`\`\`
 
-## Working with Styles
+## Bekerja dengan Gaya
 
 \`\`\`python
 from docx.shared import Pt, RGBColor
 
-# Set font
+# Atur font
 run.font.name = 'Arial'
 run.font.size = Pt(12)
 run.font.color.rgb = RGBColor(0, 0, 0)
 
-# Paragraph formatting
+# Pemformatan paragraf
 para.alignment = WD_ALIGN_PARAGRAPH.CENTER
 para.paragraph_format.space_before = Pt(12)
 para.paragraph_format.space_after = Pt(12)
 \`\`\`
 
-## Quick Reference
+## Referensi Cepat
 
-| Task | Tool | Example |
+| Tugas | Tool | Contoh |
 |------|------|---------|
-| Read document | python-docx | \`Document('file.docx')\` |
-| Create document | python-docx | \`Document()\` |
-| Add heading | python-docx | \`doc.add_heading('Title', 0)\` |
-| Add table | python-docx | \`doc.add_table(rows=2, cols=2)\` |
-| Unpack for editing | script | \`python unpack.py doc.docx ./out/\` |
-| Repack | script | \`python pack.py ./out/ doc.docx\` |
-| Validate | script | \`python validate.py doc.docx\` |`,
+| Baca dokumen | python-docx | \`Document('file.docx')\` |
+| Buat dokumen | python-docx | \`Document()\` |
+| Tambah judul | python-docx | \`doc.add_heading('Judul', 0)\` |
+| Tambah tabel | python-docx | \`doc.add_table(rows=2, cols=2)\` |
+| Buka paket untuk diedit | skrip | \`python unpack.py doc.docx ./out/\` |
+| Kemas ulang | skrip | \`python pack.py ./out/ doc.docx\` |
+| Validasi | skrip | \`python validate.py doc.docx\` |`,
         isCustom: false,
       },
     }),
@@ -1117,80 +1117,80 @@ para.paragraph_format.space_after = Pt(12)
       context: {
         skillName: 'view-building',
         name: 'view-building',
-        label: 'View Building',
+        label: 'Penyusunan Tampilan',
         description:
-          'Creating and configuring views (table, board/kanban, calendar) for objects to organize and visualize records',
+          'Membuat dan mengonfigurasi tampilan (tabel, papan/kanban, kalender) untuk objek guna mengorganisasi dan memvisualisasikan record',
         icon: 'IconLayoutBoard',
-        content: `# View Building Skill
+        content: `# Skill Penyusunan Tampilan
 
-You help users create and configure views to organize how they see their records.
+Anda membantu pengguna membuat dan mengonfigurasi tampilan untuk mengorganisasi cara mereka melihat record.
 
-## View Types
+## Jenis Tampilan
 
-- **TABLE**: Standard table/grid view. Works for any object. Default view type.
-- **KANBAN**: Board view grouped by a SELECT field. Best for pipeline/status-based workflows.
-- **CALENDAR**: Calendar view using a DATE or DATE_TIME field. Best for time-based records.
+- **TABLE**: Tampilan tabel/grid standar. Berfungsi untuk objek apa pun. Jenis tampilan default.
+- **KANBAN**: Tampilan papan yang dikelompokkan berdasarkan field SELECT. Terbaik untuk alur kerja berbasis pipeline/status.
+- **CALENDAR**: Tampilan kalender menggunakan field DATE atau DATE_TIME. Terbaik untuk record berbasis waktu.
 
-## Tools
+## Tool
 
-- get_views - List existing views (filter by object name)
-- create_view - Create a new view
-- update_view - Update view name/icon
-- delete_view - Delete a view
-- create_many_view_fields - Add visible columns to a view
-- update_many_view_fields - Update column configuration
-- get_view_fields - List columns in a view
-- list_object_metadata_items - Discover objects and their fields
-- navigate_app - Navigate to a view after creation
+- get_views - Daftar tampilan yang ada (filter berdasarkan nama objek)
+- create_view - Buat tampilan baru
+- update_view - Perbarui nama/ikon tampilan
+- delete_view - Hapus tampilan
+- create_many_view_fields - Tambahkan kolom yang terlihat ke tampilan
+- update_many_view_fields - Perbarui konfigurasi kolom
+- get_view_fields - Daftar kolom dalam tampilan
+- list_object_metadata_items - Temukan objek dan field-nya
+- navigate_app - Navigasi ke tampilan setelah dibuat
 
-## Workflow
+## Alur Kerja
 
-1. **Identify the target object**: If the user didn't specify which object, ask them. Present available objects and explain what each holds:
+1. **Identifikasi objek target**: Jika pengguna tidak menentukan objek, tanyakan. Sajikan objek yang tersedia dan jelaskan isinya:
    - **Keluarga**: Kartu Keluarga (nomor KK, alamat, kepala keluarga)
    - **Penduduk**: Warga sesuai KTP-el (nama, NIK, tanggal lahir, jenis kelamin, agama, alamat, keluarga)
    - **Program Bantuan**: PKH/BLT-DD/BPNT/dst (nama, jenis bantuan, periode, anggaran)
-   - **Task**: Action items (title, status, due date, assignee)
-   - **Note**: Free-form notes (title, body)
-   - Plus any custom objects in the workspace
+   - **Task**: Item tindakan (judul, status, tanggal jatuh tempo, penugasan)
+   - **Note**: Catatan bebas (judul, isi)
+   - Ditambah objek kustom apa pun di workspace
 
-2. **Choose the view type**: Suggest the best type based on the object's data:
-   - TABLE: Good default for any object, great for browsing large datasets
-   - KANBAN: Ideal when objects have a SELECT field representing stages/statuses (e.g., Opportunity → stage, Task → status)
-   - CALENDAR: Ideal when objects have DATE/DATE_TIME fields (e.g., Opportunity → closeDate, Task → dueAt)
+2. **Pilih jenis tampilan**: Sarankan jenis terbaik berdasarkan data objek:
+   - TABLE: Default yang baik untuk objek apa pun, bagus untuk menelusuri dataset besar
+   - KANBAN: Ideal saat objek memiliki field SELECT yang mewakili tahap/status (mis. Program Bantuan → tahap, Task → status)
+   - CALENDAR: Ideal saat objek memiliki field DATE/DATE_TIME (mis. Program Bantuan → tanggalRealisasi, Task → tanggalJatuhTempo)
 
-3. **Create the view**: Use create_view with the right parameters.
-   - For KANBAN: The mainGroupByFieldName is required — ask user which SELECT field to group by, or suggest the most natural one.
-   - For CALENDAR: You must provide both \`calendarFieldName\` (a DATE/DATE_TIME field name) and \`calendarLayout\` ("DAY", "WEEK", or "MONTH") when calling create_view.
-   - For TABLE: No special configuration needed.
+3. **Buat tampilan**: Gunakan create_view dengan parameter yang tepat.
+   - Untuk KANBAN: mainGroupByFieldName wajib — tanyakan pengguna field SELECT mana yang dikelompokkan, atau sarankan yang paling alami.
+   - Untuk CALENDAR: Anda harus menyediakan \`calendarFieldName\` (nama field DATE/DATE_TIME) dan \`calendarLayout\` ("DAY", "WEEK", atau "MONTH") saat memanggil create_view.
+   - Untuk TABLE: Tidak perlu konfigurasi khusus.
 
-4. **Configure view fields**: Use create_many_view_fields to add relevant columns. Choose fields that make sense for the view's purpose. Use decimal positions between 0 and 1 to place them after the label identifier field.
+4. **Konfigurasikan field tampilan**: Gunakan create_many_view_fields untuk menambahkan kolom yang relevan. Pilih field yang masuk akal untuk tujuan tampilan. Gunakan posisi desimal antara 0 dan 1 untuk menempatkannya setelah field pengenal label.
 
-5. **Navigate**: Use navigate_app to show the user their new view.
+5. **Navigasi**: Gunakan navigate_app untuk menampilkan tampilan baru kepada pengguna.
 
-## KANBAN Best Practices
+## Praktik Terbaik KANBAN
 
-- The grouping field must be a SELECT type
-- Common groupings: Opportunity by stage, Task by status
-- Optionally set kanbanAggregateOperation (COUNT, SUM, AVG, MIN, MAX) and kanbanAggregateOperationFieldName for column summaries
-- Example: Sum of amount per stage for Opportunity board
+- Field pengelompokan harus bertipe SELECT
+- Pengelompokan umum: Program Bantuan berdasarkan tahap, Task berdasarkan status
+- Opsional tetapkan kanbanAggregateOperation (COUNT, SUM, AVG, MIN, MAX) dan kanbanAggregateOperationFieldName untuk ringkasan kolom
+- Contoh: Jumlah anggaran per tahap untuk papan Program Bantuan
 
-## CALENDAR Best Practices
+## Praktik Terbaik CALENDAR
 
-- Requires a DATE or DATE_TIME field on the object
-- Best for: Opportunity close dates, Task due dates, any event-based data
+- Memerlukan field DATE atau DATE_TIME pada objek
+- Terbaik untuk: tanggal realisasi Program Bantuan, tanggal jatuh tempo Task, data berbasis acara apa pun
 
-## TABLE with Groups
+## TABLE dengan Grup
 
-- TABLE views can also be grouped by a field using mainGroupByFieldName
-- This creates collapsible sections in the table, organized by the grouping field values
-- Works with SELECT fields for categorical grouping
+- Tampilan TABLE juga dapat dikelompokkan berdasarkan field menggunakan mainGroupByFieldName
+- Ini membuat bagian yang dapat diciutkan dalam tabel, diorganisasi berdasarkan nilai field pengelompokan
+- Berfungsi dengan field SELECT untuk pengelompokan kategorikal
 
-## Approach
+## Pendekatan
 
-- If the user is vague (e.g., "create a board"), ask which object they want to see
-- Suggest the most relevant view type based on the object's fields
-- After creating a view, always configure useful view fields and navigate to it
-- Explain what each view type does so users can make informed choices`,
+- Jika pengguna tidak jelas (mis. "buat papan"), tanyakan objek mana yang ingin dilihat
+- Sarankan jenis tampilan paling relevan berdasarkan field objek
+- Setelah membuat tampilan, selalu konfigurasikan field tampilan yang berguna dan navigasi ke sana
+- Jelaskan apa yang dilakukan setiap jenis tampilan agar pengguna dapat membuat pilihan yang tepat`,
         isCustom: false,
       },
     }),
@@ -1201,26 +1201,26 @@ You help users create and configure views to organize how they see their records
       context: {
         skillName: 'view-filters-and-sorts',
         name: 'view-filters-and-sorts',
-        label: 'View Filters & Sorts',
+        label: 'Filter & Urutan Tampilan',
         description:
-          'Adding filters and sorts to views to focus on relevant records based on user needs',
+          'Menambahkan filter dan pengurutan ke tampilan untuk memfokuskan pada record yang relevan berdasarkan kebutuhan pengguna',
         icon: 'IconFilter',
-        content: `# View Filters & Sorts Skill
+        content: `# Skill Filter & Urutan Tampilan
 
-You help users add filters and sorts to their views so they see the most relevant records.
+Anda membantu pengguna menambahkan filter dan pengurutan ke tampilan mereka agar mereka melihat record paling relevan.
 
-## Tools
+## Tool
 
-- get_views - List existing views to find the one to modify
-- get_view_query_parameters - Check existing filters and sorts on a view
-- list_object_metadata_items - Discover fields and their types to build valid filters
-- create_view_filter / create_many_view_filters - Add filters to a view
-- create_view_sort / create_many_view_sorts - Add sorts to a view
-- navigate_app - Navigate to the view to show results
+- get_views - Daftar tampilan yang ada untuk menemukan yang ingin diubah
+- get_view_query_parameters - Periksa filter dan pengurutan yang ada pada tampilan
+- list_object_metadata_items - Temukan field dan tipe-nya untuk membangun filter yang valid
+- create_view_filter / create_many_view_filters - Tambahkan filter ke tampilan
+- create_view_sort / create_many_view_sorts - Tambahkan pengurutan ke tampilan
+- navigate_app - Navigasi ke tampilan untuk menampilkan hasil
 
-## Filter Operators by Field Type
+## Operator Filter berdasarkan Jenis Field
 
-| Field Type | Available Operators |
+| Jenis Field | Operator yang Tersedia |
 |---|---|
 | TEXT, EMAILS, FULL_NAME, ADDRESS, LINKS, PHONES | CONTAINS, DOES_NOT_CONTAIN, IS_EMPTY, IS_NOT_EMPTY |
 | NUMBER, NUMERIC | IS, IS_NOT, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, IS_EMPTY, IS_NOT_EMPTY |
@@ -1231,90 +1231,90 @@ You help users add filters and sorts to their views so they see the most relevan
 | RELATION | IS, IS_NOT, IS_EMPTY, IS_NOT_EMPTY |
 | BOOLEAN | IS |
 
-## Sort Directions
+## Arah Pengurutan
 
-- ASC: Ascending (A→Z, 0→9, oldest→newest)
-- DESC: Descending (Z→A, 9→0, newest→oldest)
+- ASC: Menaik (A→Z, 0→9, terlama→terbaru)
+- DESC: Menurun (Z→A, 9→0, terbaru→terlama)
 
-## Filter Groups (AND/OR/NOT)
+## Grup Filter (AND/OR/NOT)
 
-Filters can be grouped with logical operators:
-- **AND**: All filters must match (default)
-- **OR**: At least one filter must match
-- **NOT**: Negate the group
-- Groups can be nested for complex conditions like: name CONTAINS "tech" AND (revenue > 1M OR employees > 100)
+Filter dapat dikelompokkan dengan operator logika:
+- **AND**: Semua filter harus cocok (default)
+- **OR**: Setidaknya satu filter harus cocok
+- **NOT**: Negasikan grup
+- Grup dapat disarangkan untuk kondisi kompleks seperti: nama CONTAINS "Santoso" AND (anggaran > 1Jt OR jumlahPenerima > 100)
 
-## Workflow
+## Alur Kerja
 
-1. **Identify the view**: If the user didn't specify a view, ask which view they want to filter/sort. Use get_views to list available views and present them.
+1. **Identifikasi tampilan**: Jika pengguna tidak menentukan tampilan, tanyakan tampilan mana yang ingin difilter/diurutkan. Gunakan get_views untuk mendaftar tampilan yang tersedia dan menyajikannya.
 
-2. **Understand the need**: If the user hasn't described what they want to see, ask them. Give guidance with examples:
-   - "What records do you want to focus on? For example:"
-   - "Show only high-value opportunities (amount > $50K)"
-   - "Show companies in a specific city or industry"
-   - "Show tasks due this week, sorted by priority"
+2. **Pahami kebutuhan**: Jika pengguna belum mendeskripsikan apa yang ingin dilihat, tanyakan. Berikan panduan dengan contoh:
+   - "Record apa yang ingin Anda fokuskan? Misalnya:"
+   - "Tampilkan program bantuan bernilai tinggi (anggaran > Rp 5 juta)"
+   - "Tampilkan keluarga di dusun atau RT tertentu"
+   - "Tampilkan tugas yang jatuh tempo minggu ini, diurutkan berdasarkan prioritas"
    - "Tampilkan penduduk dari keluarga tertentu"
-   - "Show recent records created in the last 30 days"
+   - "Tampilkan record terbaru yang dibuat dalam 30 hari terakhir"
 
-3. **Inspect the view**: Use get_view_query_parameters to see existing filters/sorts and list_object_metadata_items to discover available fields.
+3. **Periksa tampilan**: Gunakan get_view_query_parameters untuk melihat filter/pengurutan yang ada dan list_object_metadata_items untuk menemukan field yang tersedia.
 
-4. **Build filters**: Based on the user's need, determine:
-   - Which field(s) to filter on
-   - Which operator is valid for that field type (see table above)
-   - What value to filter by
-   - Whether to use AND or OR grouping for multiple filters
+4. **Bangun filter**: Berdasarkan kebutuhan pengguna, tentukan:
+   - Field mana yang difilter
+   - Operator mana yang valid untuk jenis field tersebut (lihat tabel di atas)
+   - Nilai apa yang difilter
+   - Apakah menggunakan pengelompokan AND atau OR untuk beberapa filter
 
-5. **Build sorts**: Determine:
-   - Which field to sort by (most relevant to the user's goal)
-   - Direction: ASC or DESC
-   - Multiple sorts can be added (primary, secondary, etc.)
+5. **Bangun pengurutan**: Tentukan:
+   - Field mana yang diurutkan (paling relevan dengan tujuan pengguna)
+   - Arah: ASC atau DESC
+   - Beberapa pengurutan dapat ditambahkan (primer, sekunder, dll.)
 
-6. **Apply and navigate**: Create the filters/sorts on the view and navigate to it.
+6. **Terapkan dan navigasi**: Buat filter/pengurutan pada tampilan dan navigasi ke sana.
 
-## Common Filter Patterns
+## Pola Filter Umum
 
-### By Time
-- Recent records: DATE_TIME field + IS_AFTER + a date value
-- Upcoming deadlines: DATE field + IS_IN_FUTURE
-- Overdue tasks: DATE field + IS_IN_PAST + status IS_NOT "DONE"
-- This week/month: DATE field + IS_RELATIVE
+### Berdasarkan Waktu
+- Record terbaru: field DATE_TIME + IS_AFTER + nilai tanggal
+- Tenggat waktu mendatang: field DATE + IS_IN_FUTURE
+- Tugas terlambat: field DATE + IS_IN_PAST + status IS_NOT "SELESAI"
+- Minggu/bulan ini: field DATE + IS_RELATIVE
 
-### By Status/Stage
-- Open opportunities: stage IS "IN_PROGRESS" or IS_NOT "WON"/"LOST"
-- Active tasks: status IS_NOT "DONE"
+### Berdasarkan Status/Tahap
+- Program bantuan terbuka: tahap IS "DALAM_PROSES" atau IS_NOT "SELESAI"/"DITOLAK"
+- Tugas aktif: status IS_NOT "SELESAI"
 
-### By Relationship
-- Records linked to a keluarga: keluarga relation IS [specific keluarga]
-- Unassigned tasks: assignee IS_EMPTY
-- Orphaned records: relation field IS_EMPTY
+### Berdasarkan Relasi
+- Record yang terhubung ke keluarga: relasi keluarga IS [keluarga tertentu]
+- Tugas yang belum ditugaskan: assignee IS_EMPTY
+- Record tanpa relasi: field relasi IS_EMPTY
 
-### By Value
-- High-value deals: amount GREATER_THAN_OR_EQUAL threshold
-- Large companies: employees GREATER_THAN_OR_EQUAL threshold
+### Berdasarkan Nilai
+- Program bantuan bernilai tinggi: anggaran GREATER_THAN_OR_EQUAL ambang batas
+- Keluarga penerima banyak: jumlahPenerima GREATER_THAN_OR_EQUAL ambang batas
 
-## Common Sort Patterns
+## Pola Pengurutan Umum
 
-- Pipeline view: Sort by amount DESC (biggest deals first)
-- Task management: Sort by dueAt ASC (earliest due first)
-- Recent activity: Sort by updatedAt DESC or createdAt DESC
-- Alphabetical: Sort by name ASC
+- Tampilan pipeline: Urutkan berdasarkan anggaran DESC (nilai terbesar lebih dulu)
+- Manajemen tugas: Urutkan berdasarkan tanggalJatuhTempo ASC (jatuh tempo paling awal lebih dulu)
+- Aktivitas terbaru: Urutkan berdasarkan updatedAt DESC atau createdAt DESC
+- Alfabetis: Urutkan berdasarkan nama ASC
 
-## Composite Fields
+## Field Komposit
 
-Some fields have sub-fields that can be filtered:
-- CURRENCY: Use subFieldName "amountMicros" for the numeric value
-- ADDRESS: Use subFieldName like "addressCity", "addressCountry"
-- FULL_NAME: Use subFieldName like "firstName", "lastName"
-- EMAILS: Use the primary email
-- LINKS: Use the primary link URL
+Beberapa field memiliki sub-field yang dapat difilter:
+- CURRENCY: Gunakan subFieldName "amountMicros" untuk nilai numerik
+- ADDRESS: Gunakan subFieldName seperti "addressCity", "addressCountry"
+- FULL_NAME: Gunakan subFieldName seperti "firstName", "lastName"
+- EMAILS: Gunakan email utama
+- LINKS: Gunakan URL tautan utama
 
-## Approach
+## Pendekatan
 
-- Always check field types before suggesting operators — using an invalid operator for a field type will fail
-- When the user says "show me X", translate that into the appropriate filter logic
-- Suggest sorts that complement the filters (e.g., if filtering overdue tasks, sort by dueAt ASC)
-- Explain what the filters do so users understand the results
-- If complex filtering is needed (AND + OR), explain the logic clearly`,
+- Selalu periksa jenis field sebelum menyarankan operator — menggunakan operator yang tidak valid untuk jenis field akan gagal
+- Saat pengguna berkata "tampilkan saya X", terjemahkan ke logika filter yang tepat
+- Sarankan pengurutan yang melengkapi filter (mis. jika memfilter tugas terlambat, urutkan berdasarkan tanggalJatuhTempo ASC)
+- Jelaskan apa yang dilakukan filter agar pengguna memahami hasilnya
+- Jika diperlukan pemfilteran kompleks (AND + OR), jelaskan logikanya dengan jelas`,
         isCustom: false,
       },
     }),
@@ -1325,44 +1325,44 @@ Some fields have sub-fields that can be filtered:
       context: {
         skillName: 'custom-objects-cleanup',
         name: 'custom-objects-cleanup',
-        label: 'Custom Objects Cleanup',
+        label: 'Pembersihan Objek Kustom',
         description:
-          'Archiving custom objects from a workspace (e.g. dev seed objects like pets, rockets)',
+          'Mengarsipkan objek kustom dari workspace (mis. objek dev seed seperti hewan peliharaan, roket)',
         icon: 'IconArchive',
-        content: `# Custom Objects Cleanup Skill
+        content: `# Skill Pembersihan Objek Kustom
 
-You help users archive custom objects from their workspace, such as objects created by the dev seed (pets, rockets, survey results, etc.) or any other custom objects.
+Anda membantu pengguna mengarsipkan objek kustom dari workspace mereka, seperti objek yang dibuat oleh dev seed (hewan peliharaan, roket, hasil survei, dll.) atau objek kustom apa pun lainnya.
 
-## Tools
+## Tool
 
-- list_object_metadata_items - List all objects in the workspace to identify custom ones
-- update_many_object_metadata - Archive custom objects by setting isActive to false
+- list_object_metadata_items - Daftar semua objek di workspace untuk mengidentifikasi yang kustom
+- update_many_object_metadata - Arsipkan objek kustom dengan menetapkan isActive ke false
 
-## Workflow
+## Alur Kerja
 
-1. **List all objects**: Use list_object_metadata_items to get the full list of objects in the workspace.
+1. **Daftar semua objek**: Gunakan list_object_metadata_items untuk mendapatkan daftar lengkap objek di workspace.
 
-2. **Identify custom objects**: Filter the results to find objects where isCustom is true. These are the objects that were created by users or by the dev seed, as opposed to standard built-in objects (Company, Person, Opportunity, Task, Note, etc.).
+2. **Identifikasi objek kustom**: Filter hasil untuk menemukan objek dengan isCustom bernilai true. Ini adalah objek yang dibuat oleh pengguna atau dev seed, berbeda dari objek standar bawaan (Keluarga, Penduduk, Program Bantuan, Task, Note, dll.).
 
-3. **Present findings**: Tell the user which custom objects were found. If none are found, inform the user that the workspace has no custom objects.
+3. **Sajikan temuan**: Beri tahu pengguna objek kustom mana yang ditemukan. Jika tidak ada, informasikan bahwa workspace tidak memiliki objek kustom.
 
-4. **Confirm before archiving**: List the custom objects you found and ask the user to confirm which ones they want to archive. Present them clearly with their name, label, and description.
+4. **Konfirmasi sebelum mengarsipkan**: Daftar objek kustom yang ditemukan dan minta pengguna mengkonfirmasi mana yang ingin diarsipkan. Sajikan dengan jelas beserta nama, label, dan deskripsinya.
 
-5. **Archive confirmed objects**: Use update_many_object_metadata to set isActive to false on all confirmed objects in a single batch call.
+5. **Arsipkan objek yang dikonfirmasi**: Gunakan update_many_object_metadata untuk menetapkan isActive ke false pada semua objek yang dikonfirmasi dalam satu panggilan batch.
 
-6. **Report results**: After archiving is complete, summarize what was archived.
+6. **Laporkan hasil**: Setelah pengarsipan selesai, ringkas apa yang diarsipkan.
 
-## Important Notes
+## Catatan Penting
 
-- Only objects with isCustom = true can be archived. Standard objects cannot be archived through this skill.
-- Archiving an object hides it from the workspace but does not delete its fields, relations, or records.
-- When called directly by a user, confirm before archiving. When called by another skill (e.g. workspace-demo-seeding), proceed without confirmation.
+- Hanya objek dengan isCustom = true yang dapat diarsipkan. Objek standar tidak dapat diarsipkan melalui skill ini.
+- Mengarsipkan objek menyembunyikannya dari workspace tetapi tidak menghapus field, relasi, atau record-nya.
+- Saat dipanggil langsung oleh pengguna, konfirmasi sebelum mengarsipkan. Saat dipanggil oleh skill lain (mis. workspace-demo-seeding), lanjutkan tanpa konfirmasi.
 
-## Approach
+## Pendekatan
 
-- Be clear about what will be archived and that it is reversible
-- If an object has relations to other objects, mention this before archiving
-- Archive all confirmed objects in a single batch call using update_many_object_metadata`,
+- Jelaskan dengan jelas apa yang akan diarsipkan dan bahwa itu dapat dikembalikan
+- Jika sebuah objek memiliki relasi ke objek lain, sebutkan ini sebelum mengarsipkan
+- Arsipkan semua objek yang dikonfirmasi dalam satu panggilan batch menggunakan update_many_object_metadata`,
         isCustom: false,
       },
     }),
@@ -1375,34 +1375,34 @@ You help users archive custom objects from their workspace, such as objects crea
         name: 'pptx',
         label: 'PowerPoint',
         description:
-          'PowerPoint creation, editing, templates, thumbnails, and slide manipulation',
+          'Membuat, mengedit, memproses template PowerPoint, thumbnail, dan manipulasi slide',
         icon: 'IconPresentation',
-        content: `# PowerPoint Processing Skill
+        content: `# Skill Pengolahan PowerPoint
 
-**IMPORTANT**: Save all output files to \`/home/user/output/\` for them to be downloadable.
+**PENTING**: Simpan semua file keluaran ke \`/home/user/output/\` agar dapat diunduh.
 
-## Pre-installed Scripts
+## Skrip yang Sudah Terpasang
 
-- \`python /home/user/scripts/pptx/thumbnail.py <pptx_file> [output_dir]\` - Generate slide thumbnails
-- \`python /home/user/scripts/pptx/rearrange.py <pptx_file> <slide_order_json> <output_file>\` - Reorder slides
-- \`python /home/user/scripts/pptx/inventory.py <pptx_file>\` - List all slides and their content
-- \`python /home/user/scripts/pptx/replace.py <pptx_file> <replacements_json> <output_file>\` - Find/replace text
+- \`python /home/user/scripts/pptx/thumbnail.py <pptx_file> [output_dir]\` - Hasilkan thumbnail slide
+- \`python /home/user/scripts/pptx/rearrange.py <pptx_file> <slide_order_json> <output_file>\` - Susun ulang slide
+- \`python /home/user/scripts/pptx/inventory.py <pptx_file>\` - Daftar semua slide dan isinya
+- \`python /home/user/scripts/pptx/replace.py <pptx_file> <replacements_json> <output_file>\` - Cari/ganti teks
 
-## Reading Presentations
+## Membaca Presentasi
 
 \`\`\`python
 from pptx import Presentation
 
 prs = Presentation('presentation.pptx')
 
-# Iterate through slides
+# Iterasi melalui slide
 for slide in prs.slides:
     for shape in slide.shapes:
         if shape.has_text_frame:
             print(shape.text)
 \`\`\`
 
-## Creating Presentations
+## Membuat Presentasi
 
 \`\`\`python
 from pptx import Presentation
@@ -1410,37 +1410,37 @@ from pptx.util import Inches, Pt
 
 prs = Presentation()
 
-# Add title slide
-slide_layout = prs.slide_layouts[0]  # Title layout
+# Tambah slide judul
+slide_layout = prs.slide_layouts[0]  # Tata letak judul
 slide = prs.slides.add_slide(slide_layout)
 title = slide.shapes.title
 subtitle = slide.placeholders[1]
 
-title.text = "Presentation Title"
-subtitle.text = "Subtitle goes here"
+title.text = "Judul Presentasi"
+subtitle.text = "Subjudul di sini"
 
-# Add content slide
-slide_layout = prs.slide_layouts[1]  # Title and content
+# Tambah slide konten
+slide_layout = prs.slide_layouts[1]  # Judul dan konten
 slide = prs.slides.add_slide(slide_layout)
 title = slide.shapes.title
 body = slide.placeholders[1]
 
-title.text = "Slide Title"
+title.text = "Judul Slide"
 tf = body.text_frame
-tf.text = "First bullet"
+tf.text = "Poin pertama"
 p = tf.add_paragraph()
-p.text = "Second bullet"
+p.text = "Poin kedua"
 p.level = 1
 
 prs.save('/home/user/output/output.pptx')
 \`\`\`
 
-## Adding Images
+## Menambahkan Gambar
 
 \`\`\`python
 from pptx.util import Inches
 
-slide = prs.slides.add_slide(prs.slide_layouts[6])  # Blank layout
+slide = prs.slides.add_slide(prs.slide_layouts[6])  # Tata letak kosong
 slide.shapes.add_picture(
     'image.png',
     left=Inches(1),
@@ -1449,7 +1449,7 @@ slide.shapes.add_picture(
 )
 \`\`\`
 
-## Adding Tables
+## Menambahkan Tabel
 
 \`\`\`python
 from pptx.util import Inches
@@ -1461,13 +1461,13 @@ table = slide.shapes.add_table(
     width=Inches(8), height=Inches(2)
 ).table
 
-# Set cell values
+# Tetapkan nilai sel
 table.cell(0, 0).text = "Header 1"
 table.cell(0, 1).text = "Header 2"
 table.cell(1, 0).text = "Data 1"
 \`\`\`
 
-## Adding Charts
+## Menambahkan Grafik
 
 \`\`\`python
 from pptx.chart.data import CategoryChartData
@@ -1475,8 +1475,8 @@ from pptx.enum.chart import XL_CHART_TYPE
 from pptx.util import Inches
 
 chart_data = CategoryChartData()
-chart_data.categories = ['East', 'West', 'Midwest']
-chart_data.add_series('Series 1', (19.2, 21.4, 16.7))
+chart_data.categories = ['Dusun A', 'Dusun B', 'Dusun C']
+chart_data.add_series('Penerima Bantuan', (19.2, 21.4, 16.7))
 
 slide = prs.slides.add_slide(prs.slide_layouts[6])
 chart = slide.shapes.add_chart(
@@ -1486,59 +1486,59 @@ chart = slide.shapes.add_chart(
 ).chart
 \`\`\`
 
-## Using Scripts
+## Menggunakan Skrip
 
-### Generate Thumbnails
+### Hasilkan Thumbnail
 \`\`\`bash
 python /home/user/scripts/pptx/thumbnail.py presentation.pptx ./thumbnails/
-# Creates: thumbnails/slide_1.png, slide_2.png, etc.
+# Membuat: thumbnails/slide_1.png, slide_2.png, dll.
 \`\`\`
 
-### Get Slide Inventory
+### Dapatkan Inventaris Slide
 \`\`\`bash
 python /home/user/scripts/pptx/inventory.py presentation.pptx
-# Returns JSON with all slide content and shapes
+# Mengembalikan JSON dengan semua konten dan shape slide
 \`\`\`
 
-### Reorder Slides
+### Susun Ulang Slide
 \`\`\`bash
-# Order: [3, 1, 2] means slide 3 becomes first, slide 1 second, etc.
+# Urutan: [3, 1, 2] berarti slide 3 menjadi pertama, slide 1 kedua, dst.
 python /home/user/scripts/pptx/rearrange.py input.pptx '[3, 1, 2]' output.pptx
 \`\`\`
 
-### Find and Replace Text
+### Cari dan Ganti Teks
 \`\`\`bash
 python /home/user/scripts/pptx/replace.py input.pptx '{"{{keluarga}}": "Keluarga Santoso", "{{date}}": "2024"}' output.pptx
 \`\`\`
 
-## Template Processing Workflow
+## Alur Kerja Pemrosesan Template
 
-1. **Generate thumbnails** to understand slide structure:
+1. **Hasilkan thumbnail** untuk memahami struktur slide:
    \`\`\`bash
    python /home/user/scripts/pptx/thumbnail.py template.pptx ./preview/
    \`\`\`
 
-2. **Get inventory** to find placeholder text:
+2. **Dapatkan inventaris** untuk menemukan teks placeholder:
    \`\`\`bash
    python /home/user/scripts/pptx/inventory.py template.pptx
    \`\`\`
 
-3. **Replace placeholders**:
+3. **Ganti placeholder**:
    \`\`\`bash
-   python /home/user/scripts/pptx/replace.py template.pptx '{"{{title}}": "Q4 Report"}' output.pptx
+   python /home/user/scripts/pptx/replace.py template.pptx '{"{{judul}}": "Laporan Triwulan IV"}' output.pptx
    \`\`\`
 
-## Quick Reference
+## Referensi Cepat
 
-| Task | Tool | Example |
+| Tugas | Tool | Contoh |
 |------|------|---------|
-| Read presentation | python-pptx | \`Presentation('file.pptx')\` |
-| Create presentation | python-pptx | \`Presentation()\` |
-| Add slide | python-pptx | \`prs.slides.add_slide(layout)\` |
-| Generate thumbnails | script | \`python thumbnail.py pres.pptx ./out/\` |
-| Get slide inventory | script | \`python inventory.py pres.pptx\` |
-| Reorder slides | script | \`python rearrange.py pres.pptx '[2,1,3]' out.pptx\` |
-| Find/replace | script | \`python replace.py pres.pptx '{...}' out.pptx\` |`,
+| Baca presentasi | python-pptx | \`Presentation('file.pptx')\` |
+| Buat presentasi | python-pptx | \`Presentation()\` |
+| Tambah slide | python-pptx | \`prs.slides.add_slide(layout)\` |
+| Hasilkan thumbnail | skrip | \`python thumbnail.py pres.pptx ./out/\` |
+| Dapatkan inventaris slide | skrip | \`python inventory.py pres.pptx\` |
+| Susun ulang slide | skrip | \`python rearrange.py pres.pptx '[2,1,3]' out.pptx\` |
+| Cari/ganti | skrip | \`python replace.py pres.pptx '{...}' out.pptx\` |`,
         isCustom: false,
       },
     }),

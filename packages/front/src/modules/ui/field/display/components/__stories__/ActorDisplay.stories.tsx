@@ -9,7 +9,7 @@ const meta: Meta = {
   title: 'UI/Display/ActorDisplay',
   component: ActorDisplay,
   args: {
-    name: 'John Doe',
+    name: 'Budi Santoso',
   },
   decorators: [ComponentWithRouterDecorator],
 };

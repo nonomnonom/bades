@@ -2,18 +2,18 @@ import { splitFullName } from '~/utils/format/spiltFullName';
 
 describe('splitFullName', () => {
   it('should split a full name with two parts', () => {
-    const result = splitFullName('John Doe');
-    expect(result).toEqual(['John', 'Doe']);
+    const result = splitFullName('Budi Santoso');
+    expect(result).toEqual(['Budi', 'Santoso']);
   });
 
   it('should handle names with extra whitespace', () => {
-    const result = splitFullName('  John   Doe  ');
-    expect(result).toEqual(['John', 'Doe']);
+    const result = splitFullName('  Budi   Santoso  ');
+    expect(result).toEqual(['Budi', 'Santoso']);
   });
 
   it('should handle single name', () => {
-    const result = splitFullName('John');
-    expect(result).toEqual(['John', '']);
+    const result = splitFullName('Budi');
+    expect(result).toEqual(['Budi', '']);
   });
 
   it('should handle empty string', () => {
@@ -27,13 +27,13 @@ describe('splitFullName', () => {
   });
 
   it('should handle names with more than two parts', () => {
-    const result = splitFullName('John Michael Doe');
-    expect(result).toEqual(['John', 'Michael']);
+    const result = splitFullName('Budi Eko Santoso');
+    expect(result).toEqual(['Budi', 'Eko']);
   });
 
   it('should handle names with multiple middle names', () => {
-    const result = splitFullName('John Michael Christopher Doe');
-    expect(result).toEqual(['John', 'Michael']);
+    const result = splitFullName('Budi Eko Prasetyo Santoso');
+    expect(result).toEqual(['Budi', 'Eko']);
   });
 
   it('should handle names with hyphenated parts', () => {
@@ -63,18 +63,18 @@ describe('splitFullName', () => {
 
   it('should handle very long names', () => {
     const result = splitFullName(
-      'John Michael Christopher Alexander Doe Smith Johnson',
+      'Budi Eko Prasetyo Agus Santoso Wijaya Kusuma',
     );
-    expect(result).toEqual(['John', 'Michael']);
+    expect(result).toEqual(['Budi', 'Eko']);
   });
 
   it('should handle single character names', () => {
-    const result = splitFullName('J D');
-    expect(result).toEqual(['J', 'D']);
+    const result = splitFullName('B S');
+    expect(result).toEqual(['B', 'S']);
   });
 
   it('should handle names with numbers', () => {
-    const result = splitFullName('John Doe II');
-    expect(result).toEqual(['John', 'Doe']);
+    const result = splitFullName('Budi Santoso II');
+    expect(result).toEqual(['Budi', 'Santoso']);
   });
 });

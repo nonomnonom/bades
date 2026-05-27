@@ -21,7 +21,7 @@ const exampleSourcesBuiltPreactDir = path.resolve(
 
 const rootNodeModules = path.resolve(dirname, '../../../../node_modules');
 
-const twentyUiIndividualIndex = path.resolve(
+const badesUiIndividualIndex = path.resolve(
   dirname,
   '../../../ui/dist/individual/individual-entry.js',
 );
@@ -36,12 +36,12 @@ const sdkFrontComponentIndex = path.resolve(
   '../../../sdk/dist/front-component/index.mjs',
 );
 
-const twentySharedIndividualDir = path.resolve(
+const badesSharedIndividualDir = path.resolve(
   dirname,
   '../../../shared/dist/individual',
 );
 
-const TWENTY_SHARED_SUBMODULES = [
+const BADES_SHARED_SUBMODULES = [
   'ai',
   'application',
   'constants',
@@ -55,10 +55,10 @@ const TWENTY_SHARED_SUBMODULES = [
   'workspace',
 ];
 
-const twentySharedAliases = Object.fromEntries(
-  TWENTY_SHARED_SUBMODULES.map((submodule) => [
+const badesSharedAliases = Object.fromEntries(
+  BADES_SHARED_SUBMODULES.map((submodule) => [
     `shared/${submodule}`,
-    path.join(twentySharedIndividualDir, submodule, 'index.js'),
+    path.join(badesSharedIndividualDir, submodule, 'index.js'),
   ]),
 );
 
@@ -67,8 +67,8 @@ const storyAlias = {
   'react-dom': path.join(rootNodeModules, 'react-dom'),
   'sdk/define': sdkDefineIndex,
   'sdk/front-component': sdkFrontComponentIndex,
-  'sdk/ui': twentyUiIndividualIndex,
-  ...twentySharedAliases,
+  'sdk/ui': badesUiIndividualIndex,
+  ...badesSharedAliases,
 };
 
 const STORY_COMPONENTS = [

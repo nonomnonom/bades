@@ -10,8 +10,8 @@ export type UniversalFlatObjectMetadata = UniversalFlatEntityFrom<
   >,
   'objectMetadata'
 > & {
-  // NOTE: below fields are not reflected on the final UniversalFlatEntity either they should we should define a common source
-  // TODO remove once https://github.com/twentyhq/core-team-issues/issues/2172 has been resolved
+  // NOTE: field berikut belum masuk ke UniversalFlatEntity; harus didefinisikan di sumber yang sama
+  // TODO hapus setelah labelIdentifierFieldMetadataId diselesaikan
   labelIdentifierFieldMetadataUniversalIdentifier: string | null;
   imageIdentifierFieldMetadataUniversalIdentifier: string | null;
 };

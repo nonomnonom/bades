@@ -39,13 +39,13 @@ export const Default: Story = {
 
 export const WithAvatar: Story = {
   args: {
-    label: 'John Doe',
-    to: '/users/john-doe',
+    label: 'Budi Santoso',
+    to: '/penduduk/budi-santoso',
     variant: ChipVariant.Regular,
     leftComponent: (
       <Avatar
-        placeholder="JD"
-        placeholderColorSeed="John Doe"
+        placeholder="BS"
+        placeholderColorSeed="Budi Santoso"
         size="sm"
         type="rounded"
       />
@@ -56,8 +56,8 @@ export const WithAvatar: Story = {
 
 export const WithIcon: Story = {
   args: {
-    label: 'Company',
-    to: '/companies/1',
+    label: 'Keluarga',
+    to: '/keluarga/1',
     variant: ChipVariant.Regular,
     leftComponent: <IconUser size={14} />,
   },
@@ -114,12 +114,12 @@ export const Catalog: CatalogStory<Story, typeof LinkChip> = {
 
 export const WithAvatarCatalog: CatalogStory<Story, typeof LinkChip> = {
   args: {
-    label: 'John Doe',
-    to: '/users/john-doe',
+    label: 'Budi Santoso',
+    to: '/penduduk/budi-santoso',
     leftComponent: (
       <Avatar
-        placeholder="JD"
-        placeholderColorSeed="John Doe"
+        placeholder="BS"
+        placeholderColorSeed="Budi Santoso"
         size="sm"
         type="rounded"
       />

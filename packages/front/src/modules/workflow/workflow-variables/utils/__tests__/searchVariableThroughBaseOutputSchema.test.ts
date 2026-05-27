@@ -36,7 +36,7 @@ describe('searchVariableThroughBaseOutputSchema', () => {
           isLeaf: true,
           type: 'string',
           label: 'Full Name',
-          value: 'John Doe',
+          value: 'Budi Santoso',
         },
         age: {
           isLeaf: true,
@@ -53,7 +53,7 @@ describe('searchVariableThroughBaseOutputSchema', () => {
               isLeaf: true,
               type: 'string',
               label: 'Email Address',
-              value: 'john@example.com',
+              value: 'budi@bades.id',
             },
             isActive: {
               isLeaf: true,

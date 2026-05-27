@@ -32,7 +32,7 @@ type Story = StoryObj<typeof EventCardMessage>;
 export const Default: Story = {
   args: {
     messageId: '1',
-    authorFullName: 'John Doe',
+    authorFullName: 'Budi Santoso',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -62,7 +62,7 @@ export const Default: Story = {
 export const NotShared: Story = {
   args: {
     messageId: '1',
-    authorFullName: 'John Doe',
+    authorFullName: 'Budi Santoso',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

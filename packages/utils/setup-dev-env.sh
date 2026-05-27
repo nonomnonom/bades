@@ -19,7 +19,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-COMPOSE_FILE="$REPO_ROOT/packages/docker/docker-compose.dev.yml"
+COMPOSE_FILE="$REPO_ROOT/docker-compose.yml"
 
 info()  { echo "=> $*"; }
 ok()    { echo "   done: $*"; }
@@ -191,8 +191,8 @@ start_redis() {
 }
 
 if [ "$USE_DOCKER" = true ]; then
-  info "Starting services via Docker Compose..."
-  docker compose -f "$COMPOSE_FILE" up -d
+  info "Starting services via Docker Compose (db + redis saja)..."
+  docker compose -f "$COMPOSE_FILE" up -d db redis
   wait_for_pg
   wait_for_redis
 else

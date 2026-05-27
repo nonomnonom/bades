@@ -11,7 +11,7 @@ const meta: Meta<typeof EventRowMainObjectUpdated> = {
   title: 'Modules/TimelineActivities/Rows/MainObject/EventRowMainObjectUpdated',
   component: EventRowMainObjectUpdated,
   args: {
-    authorFullName: 'John Doe',
+    authorFullName: 'Budi Santoso',
     labelIdentifierValue: 'Mock',
     event: {
       id: '1',

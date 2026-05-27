@@ -5,12 +5,12 @@ export const NavigateAppInputZodSchema = z.discriminatedUnion('type', [
     type: z
       .literal('navigateToView')
       .describe(
-        'Navigate to a specific view by name. ONLY use this type when the user explicitly mentions the word "view" (e.g. "go to the My Companies view", "open view All People"). Do NOT use this for general navigation requests.',
+        'Navigate to a specific view by name. ONLY use this type when the user explicitly mentions the word "view" (e.g. "buka view Keluarga Saya", "open view Semua Penduduk"). Do NOT use this for general navigation requests.',
       ),
     viewName: z
       .string()
       .describe(
-        'The name of the view to navigate to (e.g. "My Companies", "All People")',
+        'The name of the view to navigate to (e.g. "Keluarga Saya", "Semua Penduduk")',
       ),
   }),
   z.object({
@@ -29,7 +29,7 @@ export const NavigateAppInputZodSchema = z.discriminatedUnion('type', [
     type: z
       .literal('navigateToRecord')
       .describe(
-        'Navigate to a specific record page. Use this when the user wants to go to a particular record by name (e.g. "go to the company Acme", "open the person John Doe", "show me the deal Enterprise Plan").',
+        'Navigate to a specific record page. Use this when the user wants to go to a particular record by name (e.g. "buka keluarga Anggrek", "open penduduk Budi Santoso", "tampilkan program Bantuan Lansia").',
       ),
     objectNameSingular: z
       .string()
@@ -39,7 +39,7 @@ export const NavigateAppInputZodSchema = z.discriminatedUnion('type', [
     recordName: z
       .string()
       .describe(
-        'The name or label of the record to navigate to (e.g. "Acme", "John Doe", "Enterprise Plan")',
+        'The name or label of the record to navigate to (e.g. "Keluarga Anggrek", "Budi Santoso", "Bantuan Lansia")',
       ),
   }),
   z.object({

@@ -327,7 +327,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
       booleanField: 'true',
       numberField: '30',
       multiSelectField: '["tag1", "tag2", "tag3"]',
-      'nameField (relationField)': 'John Doe',
+      'nameField (relationField)': 'Budi Santoso',
       selectField: 'option1',
       arrayField: '["item1", "item2", "item3"]',
       jsonField: '{"key": "value", "nested": {"prop": "data"}}',
@@ -347,9 +347,9 @@ describe('buildRecordFromImportedStructuredRow', () => {
       'Kode Pos (addressField)': '10001',
       'Provinsi (addressField)': 'NY',
       'Negara (addressField)': 'USA',
-      'Email Utama (emailField)': 'john.doe@example.com',
+      'Email Utama (emailField)': 'budi.santoso@bades.id',
       'Email Tambahan (emailField)':
-        '["john.doe+work@example.com", "j.doe@keluarga.com"]',
+        '["budi.santoso+kerja@bades.id", "b.santoso@bades.id"]',
       'Nomor Telepon Utama (phoneField)': '+1-555-0123',
       'Kode Negara Telepon Utama (phoneField)': 'US',
       'Kode Panggil Telepon Utama (phoneField)': '+1',
@@ -384,8 +384,8 @@ describe('buildRecordFromImportedStructuredRow', () => {
 
     expect(result).toEqual({
       emailField: {
-        primaryEmail: 'john.doe@example.com',
-        additionalEmails: ['john.doe+work@example.com', 'j.doe@keluarga.com'],
+        primaryEmail: 'budi.santoso@bades.id',
+        additionalEmails: ['budi.santoso+kerja@bades.id', 'b.santoso@bades.id'],
       },
       booleanField: true,
       numberField: 30,
@@ -393,7 +393,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
       relationField: {
         connect: {
           where: {
-            nameField: 'John Doe',
+            nameField: 'Budi Santoso',
           },
         },
       },
@@ -477,7 +477,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
 
   it('should successfully build a record from imported structured row with relation composite subfield', () => {
     const importedStructuredRow: ImportedStructuredRow = {
-      'emailField (relationField)': 'john.doe@example.com',
+      'emailField (relationField)': 'budi.santoso@bades.id',
     };
 
     const spreadsheetImportFields = [
@@ -507,7 +507,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
         connect: {
           where: {
             emailField: {
-              primaryEmail: 'john.doe@example.com',
+              primaryEmail: 'budi.santoso@bades.id',
             },
           },
         },
@@ -521,7 +521,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
 
   it('should lowercase relation email composite subfield', () => {
     const importedStructuredRow: ImportedStructuredRow = {
-      'emailField (relationField)': 'John.Doe@Example.COM',
+      'emailField (relationField)': 'Budi.Santoso@Bades.ID',
     };
 
     const spreadsheetImportFields = [
@@ -551,7 +551,7 @@ describe('buildRecordFromImportedStructuredRow', () => {
         connect: {
           where: {
             emailField: {
-              primaryEmail: 'john.doe@example.com',
+              primaryEmail: 'budi.santoso@bades.id',
             },
           },
         },

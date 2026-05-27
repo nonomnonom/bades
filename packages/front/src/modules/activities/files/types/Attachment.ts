@@ -12,18 +12,14 @@ export type Attachment = {
   /** @deprecated Use `file[0].extension` field instead */
   fileCategory: AttachmentFileCategory;
   file: FieldFilesValue[] | null;
-  companyId?: string | null;
   personId?: string | null;
   taskId?: string | null;
   noteId?: string | null;
-  opportunityId?: string | null;
   dashboardId?: string | null;
   workflowId?: string | null;
-  targetCompanyId?: string | null;
   targetPersonId?: string | null;
   targetTaskId?: string | null;
   targetNoteId?: string | null;
-  targetOpportunityId?: string | null;
   targetDashboardId?: string | null;
   targetWorkflowId?: string | null;
   createdBy?: {

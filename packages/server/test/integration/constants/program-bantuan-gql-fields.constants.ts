@@ -1,5 +1,5 @@
 // GQL fields untuk object SID `programBantuan` di integration test.
-// Menggantikan OPPORTUNITY_GQL_FIELDS yang berasal dari CRM warisan Twenty.
+// Menggantikan OPPORTUNITY_GQL_FIELDS yang berasal dari CRM warisan.
 //
 // Pemetaan semantik:
 //   opportunity.name (TEXT)        → programBantuan.namaProgram (TEXT)

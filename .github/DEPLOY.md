@@ -1,11 +1,18 @@
-# Deploy Bades — Docker
+# Deploy Bades
 
-Stack runtime Bades pakai Docker. Semua artefak di `packages/docker/`.
+Bades dijalankan sebagai satu image Docker yang dipakai oleh dua service
+runtime: `server` (server + frontend) dan `worker` (background jobs,
+command beda). Image resmi di-build oleh workflow `build-image.yaml` dan
+dipublikasikan ke GHCR: `ghcr.io/<owner>/bades`. Tag yang tersedia:
+`latest`, commit SHA pendek, dan tag rilis `vX.Y.Z`.
 
-> Catatan: ini repo privat tim Bades. Panduan ini untuk operator internal.
-> Infrastruktur hosting (cloud provider, VM, dll) belum difinalkan — yang
-> di-dokumentasikan di sini adalah cara menjalankan image production Docker
-> di host manapun.
+Repo ini tidak lagi memaketkan flow deploy ke server tertentu. Operator
+internal memilih platform sendiri (Railway, Render, VPS, dsb) dan
+menjalankan image yang sama lewat Docker Compose atau platform setara.
+
+> Pola deploy (mengikuti Twenty Railway template): satu image, dua service
+> (server + worker) + Postgres + Redis. Cocok untuk platform managed
+> (Railway/Render) maupun host Docker mandiri.
 
 ---
 
@@ -14,84 +21,87 @@ Stack runtime Bades pakai Docker. Semua artefak di `packages/docker/`.
 - Docker Engine 24+ dan Docker Compose plugin v2
 - 4 GB RAM minimum untuk host (server + worker + db + redis)
 
-## Lokal — build image
+## Build image lokal
 
 ```bash
-# Dari root repo
-make -C packages/docker prod-build
+make prod-build
 # atau langsung
-docker build --target bades \
-  -f packages/docker/bades/Dockerfile \
-  --tag bades:latest .
+docker build --target bades -f Dockerfile --tag bades:latest .
 ```
 
-Verifikasi:
+Image yang sama dipakai oleh service `server` dan `worker` di Docker
+Compose — bedanya hanya command (`worker` pakai `yarn worker:prod`).
+
+## Jalankan stack lewat Docker Compose
 
 ```bash
-docker images bades
-```
-
-## Lokal — jalankan stack penuh
-
-```bash
-cd packages/docker
 cp .env.example .env
-# Isi minimal: APP_SECRET, ENCRYPTION_KEY (openssl rand -base64 32)
-# Untuk dev sederhana, biarkan PG_DATABASE_PASSWORD default 'postgres'.
+# Isi minimal:
+#   ENCRYPTION_KEY    (openssl rand -base64 32)
+#   APP_SECRET        (openssl rand -base64 32)
+#   SERVER_URL        (URL publik instance, atau http://localhost:3000)
 
 docker compose up -d
 docker compose ps
+curl http://localhost:3000/healthz   # ekspektasi: {"status":"ok"}
 ```
 
-Health check:
+Service yang jalan: `server`, `worker`, `db` (Postgres 16), `redis`.
+
+### Dev — hanya Postgres + Redis
+
+Untuk kerja dari source, hidupkan service infra saja:
 
 ```bash
-curl http://localhost:3000/healthz
-# Expected: {"status":"ok"}
+docker compose up -d db redis
+yarn start
 ```
 
-Server log:
+## Deploy ke Railway (atau platform serupa)
+
+1. Buat project baru di Railway.
+2. Tambah service Postgres dan Redis dari plugin Railway.
+3. Tambah service aplikasi `server` dari image
+   `ghcr.io/<owner>/bades:latest` (atau build dari Dockerfile repo dengan
+   target `bades`).
+4. Set environment variable mengikuti `.env.example`:
+   - `PG_DATABASE_URL` -> URL Postgres dari plugin Railway
+   - `REDIS_URL` -> URL Redis dari plugin Railway
+   - `SERVER_URL` -> URL publik Railway
+   - `ENCRYPTION_KEY`, `APP_SECRET` -> hasil `openssl rand -base64 32`
+   - `STORAGE_TYPE=local` untuk awal, atau `s3` + kredensial S3
+5. Tambah service `worker` dari **image yang sama**
+   (`ghcr.io/<owner>/bades:latest`), override command jadi
+   `yarn worker:prod`, dan set `DISABLE_DB_MIGRATIONS=true` +
+   `DISABLE_CRON_JOBS_REGISTRATION=true`.
+6. Expose service server di port 3000.
+
+## Update image
 
 ```bash
-docker compose logs -f server
+# Tarik image terbaru di host Docker
+docker compose pull
+docker compose up -d
 ```
 
-## Dev — hanya Postgres + Redis (kerja dari source)
+Untuk pinned version:
 
 ```bash
-docker compose -f packages/docker/docker-compose.dev.yml up -d
-# Lalu di terminal lain
-yarn start  # server + front dari source
+TAG=v1.0.1 docker compose up -d
 ```
 
 ## Database migrate
 
-Saat first run, server di compose otomatis run migrations. Manual override:
+Server menjalankan migrasi otomatis saat startup. Manual override:
 
 ```bash
 docker compose exec server yarn database:migrate
 ```
 
-Reset DB (dev only — destruktif):
+Reset DB (destruktif, dev only):
 
 ```bash
 docker compose exec server yarn database:reset
-```
-
-## Update image
-
-```bash
-# Build versi baru
-make -C packages/docker prod-build TAG=v1.0.1
-
-# Restart container
-TAG=v1.0.1 docker compose up -d --no-deps server worker
-```
-
-## Rollback
-
-```bash
-TAG=v1.0.0 docker compose up -d --no-deps server worker
 ```
 
 ## Backup database
@@ -102,21 +112,6 @@ docker compose exec -T db pg_dumpall -U postgres > backup-$(date +%F).sql
 docker compose exec -T db psql -U postgres < backup-YYYY-MM-DD.sql
 ```
 
-## Production deployment
-
-Setup production di host Docker (VM cloud / bare metal):
-
-1. Clone repo ke host
-2. `cp packages/docker/.env.example packages/docker/.env` dan isi nilai
-   produksi (DB password kuat, ENCRYPTION_KEY random, SERVER_URL domain
-   nyata, dll)
-3. `cd packages/docker && docker compose up -d`
-4. Reverse proxy host (Caddy / Nginx / Traefik) → `http://localhost:3000`
-   untuk HTTPS
-
-Saat infrastruktur final dipilih, tambah dokumentasi provisioning di
-sini.
-
 ## Troubleshooting
 
 **Container restart loop**: cek `docker compose logs server` — biasanya
@@ -124,9 +119,6 @@ sini.
 
 **Healthz 503**: tunggu ~60 detik untuk migrate selesai. Cek log
 migrate: `docker compose logs server | grep migration`.
-
-**Out of memory build**: butuh minimal 6 GB RAM saat yarn install
-(turunkan dengan `DOCKER_BUILDKIT=1` + multistage caching).
 
 **Postgres data hilang setelah `docker compose down -v`**: flag `-v`
 menghapus volumes. Untuk stop tanpa wipe, pakai `docker compose down`

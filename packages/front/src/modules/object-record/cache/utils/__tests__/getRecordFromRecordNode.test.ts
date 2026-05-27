@@ -5,8 +5,8 @@ describe('getRecordFromRecordNode', () => {
     const recordNode = {
       id: '123',
       __typename: 'Penduduk',
-      name: 'John Doe',
-      email: 'john@example.com',
+      name: 'Budi Santoso',
+      email: 'budi@bades.id',
     };
 
     const result = getRecordFromRecordNode({ recordNode });
@@ -41,14 +41,14 @@ describe('getRecordFromRecordNode', () => {
             node: {
               id: '456',
               __typename: 'Penduduk',
-              name: 'John Doe',
+              name: 'Budi Santoso',
             },
           },
           {
             node: {
               id: '789',
               __typename: 'Penduduk',
-              name: 'Jane Smith',
+              name: 'Siti Maryam',
             },
           },
         ],
@@ -64,7 +64,7 @@ describe('getRecordFromRecordNode', () => {
     const recordNode = {
       id: '123',
       __typename: 'Penduduk',
-      name: 'John Doe',
+      name: 'Budi Santoso',
       email: null,
       phone: undefined,
     };

@@ -5,15 +5,15 @@ import { getValueFromPath } from 'src/engine/api/common/common-query-runners/com
 describe('getValueFromPath', () => {
   const baseRecord: Partial<ObjectRecord> = {
     id: 'recordId',
-    name: 'John Doe',
+    name: 'Budi Santoso',
     parent: { child: 'nested-value', empty: '' },
-    emailsField: { primaryEmail: 'john@example.com' },
+    emailsField: { primaryEmail: 'budi.santoso@bades.id' },
   };
 
   it('returns direct field value for single-level path', () => {
     const value = getValueFromPath(baseRecord, 'name');
 
-    expect(value).toBe('John Doe');
+    expect(value).toBe('Budi Santoso');
   });
 
   it('returns nested value for two-level path', () => {

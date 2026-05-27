@@ -23,7 +23,7 @@ const DEFAULT_ACTION = {
         name: 'keluarga',
         type: FieldMetadataType.TEXT,
         label: 'Keluarga',
-        placeholder: 'Select a company',
+        placeholder: 'Pilih keluarga',
         settings: {},
       },
       {
@@ -104,7 +104,7 @@ export const DeleteFields: Story = {
     await userEvent.click(deleteButton);
 
     await waitFor(() => {
-      expect(canvas.queryByText('Company')).not.toBeInTheDocument();
+      expect(canvas.queryByText('Keluarga')).not.toBeInTheDocument();
     });
 
     await waitFor(() => {
@@ -140,7 +140,7 @@ export const OpenFieldSettings: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const companyInput = await canvas.findByText('Select a company');
+    const companyInput = await canvas.findByText('Pilih keluarga');
 
     await userEvent.click(companyInput);
 

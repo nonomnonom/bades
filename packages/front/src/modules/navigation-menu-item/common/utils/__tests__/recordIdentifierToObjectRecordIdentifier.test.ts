@@ -16,7 +16,7 @@ jest.mock('@/object-metadata/utils/getBasePathToShowPage', () => ({
 describe('recordIdentifierToObjectRecordIdentifier', () => {
   const baseRecordIdentifier = {
     id: 'record-123',
-    labelIdentifier: 'John Doe',
+    labelIdentifier: 'Budi Santoso',
     imageIdentifier: 'https://example.com/avatar.jpg',
   };
 
@@ -36,7 +36,7 @@ describe('recordIdentifierToObjectRecordIdentifier', () => {
 
     expect(result).toEqual({
       id: 'record-123',
-      name: 'John Doe',
+      name: 'Budi Santoso',
       avatarUrl: 'https://example.com/avatar.jpg',
       avatarType: 'rounded',
       linkToShowPage: '/object/penduduk/record-123',

@@ -104,7 +104,7 @@ export const SettingsAccountsConnectionForm = ({
             <SettingsTextInput
               instanceId="email-address-connection-form"
               label={t`Alamat Email`}
-              placeholder={t`john.doe@example.com`}
+              placeholder={t`budi.santoso@bades.id`}
               value={field.value}
               onChange={field.onChange}
               error={fieldState.error?.message}
@@ -143,7 +143,7 @@ export const SettingsAccountsConnectionForm = ({
               <SettingsTextInput
                 instanceId="imap-username-connection-form"
                 label={t`Nama Pengguna IMAP (Opsional)`}
-                placeholder={t`john.doe`}
+                placeholder={t`budi.santoso`}
                 type="text"
                 value={field.value || ''}
                 required={false}
@@ -239,7 +239,7 @@ export const SettingsAccountsConnectionForm = ({
               <SettingsTextInput
                 instanceId="smtp-username-connection-form"
                 label={t`Nama Pengguna SMTP`}
-                placeholder={t`john.doe`}
+                placeholder={t`budi.santoso`}
                 type="text"
                 value={field.value || ''}
                 onChange={field.onChange}
@@ -334,7 +334,7 @@ export const SettingsAccountsConnectionForm = ({
               <SettingsTextInput
                 instanceId="caldav-username-connection-form"
                 label={t`Nama Pengguna CalDAV`}
-                placeholder={t`john.doe`}
+                placeholder={t`budi.santoso`}
                 required={false}
                 value={field.value || ''}
                 onChange={field.onChange}

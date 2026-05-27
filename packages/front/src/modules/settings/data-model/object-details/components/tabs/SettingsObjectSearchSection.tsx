@@ -44,8 +44,7 @@ const StyledNameLabel = styled.div`
 
 const INDEXED_FIELDS_GRID_TEMPLATE_COLUMNS = 'minmax(0, 1fr) 100px 148px';
 
-// TODO: This is very DIRTY ; let's migrate searchVector to be proper tables
-// Already tracked here: https://github.com/twentyhq/core-team-issues/issues/1428
+// TODO: migrasi searchVector menjadi tabel proper
 const extractIndexedFields = (
   objectMetadataItem: EnrichedObjectMetadataItem,
 ): IndexedFieldEntry[] => {

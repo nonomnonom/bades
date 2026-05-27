@@ -15,30 +15,30 @@ describe('transformAddressField', () => {
 
   it('should preserve undefined for fields that are not provided', () => {
     const result = transformAddressField({
-      addressStreet1: '123 Main St',
-      addressCity: 'San Francisco',
+      addressStreet1: 'Jl. Sukamaju No. 1',
+      addressCity: 'Desa Sukamaju',
     });
 
     expect(result).toEqual({
-      addressStreet1: '123 Main St',
-      addressCity: 'San Francisco',
+      addressStreet1: 'Jl. Sukamaju No. 1',
+      addressCity: 'Desa Sukamaju',
     });
   });
 
   it('should handle mixed null, undefined, and valid values', () => {
     const result = transformAddressField({
-      addressStreet1: '123 Main St',
+      addressStreet1: 'Jl. Sukamaju No. 1',
       addressStreet2: null,
-      addressCity: 'San Francisco',
-      addressLat: 37.7749,
+      addressCity: 'Desa Sukamaju',
+      addressLat: -7.5755,
       addressLng: null,
     });
 
     expect(result).toEqual({
-      addressStreet1: '123 Main St',
+      addressStreet1: 'Jl. Sukamaju No. 1',
       addressStreet2: null,
-      addressCity: 'San Francisco',
-      addressLat: 37.7749,
+      addressCity: 'Desa Sukamaju',
+      addressLat: -7.5755,
       addressLng: null,
     });
   });

@@ -6,7 +6,7 @@ import { DEFAULT_API_URL_NAME } from 'shared/application';
 
 import { buildClientWrapperSource } from './client-wrapper';
 import { emptyDir, ensureDir } from './fs-utils';
-import twentyClientTemplateSource from './twenty-client-template.ts?raw';
+import twentyClientTemplateSource from './bades-client-template.ts?raw';
 
 const COMMON_SCALAR_TYPES = {
   DateTime: 'string',

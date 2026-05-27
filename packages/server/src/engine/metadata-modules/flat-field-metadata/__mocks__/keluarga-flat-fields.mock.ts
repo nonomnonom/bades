@@ -411,7 +411,7 @@ export const KELUARGA_FLAT_FIELDS_MOCK = {
     objectMetadataId: '7f5c2c7a-bb23-46fb-b59d-9b7a52a8d1cc',
     type: FieldMetadataType.RELATION,
     name: 'accountOwner',
-    label: 'Account Owner',
+    label: 'Pengelola Akun',
     defaultValue: null,
     description:
       'Your team member responsible for managing the company account',

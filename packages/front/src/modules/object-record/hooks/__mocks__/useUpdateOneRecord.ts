@@ -11,7 +11,7 @@ export const query = gql`
 `;
 
 // Catatan: bentuk data di sini mengikuti schema mock metadata aktual
-// (warisan Twenty Person). Saat seed Bades SID lengkap diterapkan, mock ini
+// (warisan CRM Person). Saat seed Bades SID lengkap diterapkan, mock ini
 // akan diregenerasi mengikuti field SID (NIK, KK, namaLengkap, tempatLahir).
 const basePenduduk = {
   __typename: 'Penduduk',

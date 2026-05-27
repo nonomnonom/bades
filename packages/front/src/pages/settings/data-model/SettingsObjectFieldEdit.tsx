@@ -351,7 +351,6 @@ export const SettingsObjectFieldEdit = () => {
               />
             </Section>
             {
-              //patch - awaiting refacto on many to many relations - https://github.com/twentyhq/core-team-issues/issues/186
               fieldMetadataItem.name !== CoreObjectNamePlural.NoteTarget &&
                 fieldMetadataItem.name !== CoreObjectNamePlural.TaskTarget && (
                   <>

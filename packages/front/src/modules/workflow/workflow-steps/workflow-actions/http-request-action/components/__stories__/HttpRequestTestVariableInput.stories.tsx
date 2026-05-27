@@ -154,7 +154,7 @@ export const WithPrefilledValues: Story = {
     await userEvent.type(tokenInput, 'abc123xyz');
 
     const nameInput = inputs[2];
-    await userEvent.type(nameInput, 'John Doe');
+    await userEvent.type(nameInput, 'Budi Santoso');
   },
 };
 

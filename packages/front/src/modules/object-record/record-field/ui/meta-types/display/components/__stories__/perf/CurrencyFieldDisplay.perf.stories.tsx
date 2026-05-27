@@ -31,7 +31,7 @@ export const Millions: Story = {
     getFieldDecorator('keluarga', 'annualRecurringRevenue', {
       __typename: 'Currency',
       amountMicros: 18200000 * 1000000,
-      currencyCode: 'EUR',
+      currencyCode: 'IDR',
     }),
   ],
 };
@@ -41,7 +41,7 @@ export const Billions: Story = {
     getFieldDecorator('keluarga', 'annualRecurringRevenue', {
       __typename: 'Currency',
       amountMicros: 3230000000 * 1000000,
-      currencyCode: 'USD',
+      currencyCode: 'IDR',
     }),
   ],
 };
@@ -51,7 +51,7 @@ export const Bazillions: Story = {
     getFieldDecorator('keluarga', 'annualRecurringRevenue', {
       __typename: 'Currency',
       amountMicros: 1e100,
-      currencyCode: 'USD',
+      currencyCode: 'IDR',
     }),
   ],
 };

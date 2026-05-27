@@ -14,16 +14,16 @@ type Story = StoryObj<typeof AvatarOrIcon>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'JD',
-    placeholderColorSeed: 'John Doe',
+    placeholder: 'BS',
+    placeholderColorSeed: 'Budi Santoso',
   },
 };
 
 export const WithAvatar: Story = {
   args: {
     avatarUrl: 'https://i.pravatar.cc/300',
-    placeholder: 'JD',
-    placeholderColorSeed: 'John Doe',
+    placeholder: 'BS',
+    placeholderColorSeed: 'Budi Santoso',
   },
 };
 
@@ -49,8 +49,8 @@ export const WithInvertedIcon: Story = {
 
 export const Clickable: Story = {
   args: {
-    placeholder: 'JD',
-    placeholderColorSeed: 'John Doe',
+    placeholder: 'BS',
+    placeholderColorSeed: 'Budi Santoso',
     onClick: () => alert('AvatarOrIcon clicked'),
   },
 };

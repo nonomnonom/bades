@@ -74,14 +74,14 @@ RUN if [ -d /app/packages/front/build ]; then \
 
 # ===========================================================================
 # Target: bades-server (server only, no frontend)
-#   docker build --target bades-server -f packages/docker/bades/Dockerfile .
+#   docker build --target bades-server -f Dockerfile .
 # ===========================================================================
 
 FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS bades-server
 
 RUN apk add --no-cache curl jq postgresql-client
 
-COPY ./packages/docker/bades/entrypoint.sh /app/entrypoint.sh
+COPY ./entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 WORKDIR /app/packages/server
 
@@ -121,7 +121,7 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 
 # ===========================================================================
 # Target: bades-server-aws (server only + aws-cli, no frontend)
-#   docker build --target bades-server-aws -f packages/docker/bades/Dockerfile .
+#   docker build --target bades-server-aws -f Dockerfile .
 # ===========================================================================
 
 FROM bades-server AS bades-server-aws
@@ -132,8 +132,30 @@ USER 1000
 
 
 # ===========================================================================
+# Target: bades-front-dev (frontend dengan hot-reload untuk development)
+#   docker build --target bades-front-dev -f Dockerfile .
+# ===========================================================================
+
+FROM front-deps AS bades-front-dev
+
+COPY ./packages/front /app/packages/front
+COPY ./packages/front-component-renderer /app/packages/front-component-renderer
+COPY ./packages/ui /app/packages/ui
+COPY ./packages/shared /app/packages/shared
+COPY ./packages/sdk /app/packages/sdk
+COPY ./packages/client-sdk /app/packages/client-sdk
+
+WORKDIR /app
+
+# Install all dependencies for hot-reload development
+RUN yarn workspaces focus bades front front-component-renderer ui shared sdk client-sdk
+
+CMD ["npx", "nx", "run", "front:start"]
+
+
+# ===========================================================================
 # Target: bades (server + frontend)
-#   docker build --target bades -f packages/docker/bades/Dockerfile .
+#   docker build --target bades -f Dockerfile .
 # ===========================================================================
 
 FROM bades-server AS bades
@@ -145,7 +167,7 @@ LABEL org.opencontainers.image.description="Bades image with backend and fronten
 
 # ===========================================================================
 # Target: bades-aws (server + frontend + aws-cli)
-#   docker build --target bades-aws -f packages/docker/bades/Dockerfile .
+#   docker build --target bades-aws -f Dockerfile .
 # ===========================================================================
 
 FROM bades AS bades-aws

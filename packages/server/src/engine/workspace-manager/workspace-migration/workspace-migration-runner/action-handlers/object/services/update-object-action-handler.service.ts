@@ -55,7 +55,7 @@ export class UpdateObjectActionHandlerService extends WorkspaceMigrationRunnerAc
       universalIdentifier: action.universalIdentifier,
     });
 
-    // TODO remove once https://github.com/twentyhq/core-team-issues/issues/2172 has been resolved
+    // TODO hapus setelah labelIdentifierFieldMetadataId diselesaikan
     const {
       labelIdentifierFieldMetadataUniversalIdentifier,
       imageIdentifierFieldMetadataUniversalIdentifier,

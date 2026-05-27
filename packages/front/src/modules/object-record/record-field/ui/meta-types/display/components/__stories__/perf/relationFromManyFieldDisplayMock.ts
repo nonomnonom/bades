@@ -63,9 +63,9 @@ export const otherPersonMock = {
   entityValue: {
     __typename: 'Penduduk',
     asd: '',
-    city: 'Paris',
+    city: 'Desa Sukamaju',
     jobTitle: '',
-    name: 'John Doe',
+    name: 'Budi Santoso',
     createdAt: '2024-05-01T13:16:29.046Z',
     company: {
       __typename: 'Keluarga',
@@ -96,7 +96,7 @@ export const otherPersonMock = {
       },
     },
     id: 'd3e70589-c449-4e64-8268-065640fdaff0',
-    email: 'john.doe@google.com',
+    email: 'budi.santoso@bades.id',
     phone: '+33744332211',
     linkedinLink: {
       __typename: 'Link',

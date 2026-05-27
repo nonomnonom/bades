@@ -132,8 +132,6 @@ type DocumentViewerProps = {
 // This simple URL-based detection catches the most common cases (localhost, private IPs)
 // where the preview will definitely fail. For edge cases on non-standard private networks,
 // users will see Microsoft's error page but can still download the file.
-//
-// See: https://github.com/twentyhq/twenty/issues/16900
 const isPrivateUrl = (url: string): boolean => {
   try {
     const { hostname } = new URL(url);

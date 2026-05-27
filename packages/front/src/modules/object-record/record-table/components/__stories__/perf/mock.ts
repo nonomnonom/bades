@@ -602,7 +602,7 @@ export const mockPerformance = {
       employees: null,
       accountOwnerId: null,
       address: {
-        addressCity: 'San Francisco',
+        addressCity: 'Desa Sukamaju',
       },
       idealCustomerProfile: false,
       createdAt: '2024-05-01T13:16:29.046Z',
@@ -651,7 +651,7 @@ export const mockPerformance = {
     },
     employees: null,
     accountOwnerId: null,
-    address: { addressCity: 'San Francisco' },
+    address: { addressCity: 'Desa Sukamaju' },
     idealCustomerProfile: false,
     createdAt: '2024-05-01T13:16:29.046Z',
     id: '20202020-ed89-413a-b31a-962986e67bb4',

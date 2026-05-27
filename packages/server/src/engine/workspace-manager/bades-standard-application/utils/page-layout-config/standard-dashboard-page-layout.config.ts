@@ -6,7 +6,7 @@ import {
   type StandardPageLayoutTabConfig,
 } from 'src/engine/workspace-manager/bades-standard-application/utils/page-layout-config/standard-page-layout-config.type';
 
-// Bades: 8 widget CRM warisan Twenty (dealsByCompany, pipelineValueByStage,
+// Bades: 8 widget CRM warisan (dealsByCompany, pipelineValueByStage,
 // revenueTimeline, opportunitiesByOwner, stockMarketIframe dengan iframe
 // star-history, dst) sudah dihapus. Tab default sekarang menampilkan
 // satu widget sambutan ber-bahasa Indonesia agar dashboard tidak terlihat

@@ -1,5 +1,5 @@
 // Intermediate state: fragment ini mencerminkan field aktual yang masih ada di
-// `mock-objects-metadata.ts` (warisan schema Penduduk Twenty). Saat seed Bades
+// `mock-objects-metadata.ts` (warisan schema Penduduk). Saat seed Bades
 // SID lengkap (NIK, KK, nama lengkap, alamat, RT/RW, dst.) sudah selesai, mock
 // metadata akan diregenerasi via `packages/front/scripts/generate-mock-data.ts`
 // dan file ini ikut diperbarui dari field SID resmi.

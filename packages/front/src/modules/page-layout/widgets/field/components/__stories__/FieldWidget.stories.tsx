@@ -134,8 +134,8 @@ const mockPersonRecord: ObjectRecord = {
   },
   emails: {
     __typename: 'Emails',
-    primaryEmail: 'jane.smith@acme.com',
-    additionalEmails: ['jane@personal.com'],
+    primaryEmail: 'siti.santoso@bades.id',
+    additionalEmails: ['siti@personal.id'],
   },
   phones: {
     __typename: 'Phones',
@@ -154,7 +154,7 @@ const mockOpportunityRecord: ObjectRecord = {
   amount: {
     __typename: 'Currency',
     amountMicros: 500000000000,
-    currencyCode: 'USD',
+    currencyCode: 'IDR',
   },
   closeDate: '2025-12-31T00:00:00Z',
 };
@@ -168,7 +168,7 @@ const mockWorkspaceMemberRecord: ObjectRecord = {
     lastName: 'Jaya',
   },
   avatarUrl: '',
-  userEmail: 'sarah.johnson@acme.com',
+  userEmail: 'sari.jaya@bades.id',
   colorScheme: 'Light',
   locale: 'id',
   createdAt: '2024-01-01T00:00:00Z',
@@ -189,7 +189,7 @@ const mockTimelineActivityRecord: ObjectRecord = {
       lastName: 'Jaya',
     },
     avatarUrl: '',
-    userEmail: 'sarah.johnson@acme.com',
+    userEmail: 'sari.jaya@bades.id',
     colorScheme: 'Light',
     locale: 'id',
     createdAt: '2024-01-01T00:00:00Z',
@@ -204,12 +204,12 @@ const mockCompanyRecord: ObjectRecord = {
   id: TEST_RECORD_ID,
   name: 'Keluarga Anggrek',
   address: {
-    addressStreet1: '123 Business St',
+    addressStreet1: 'Jl. Sukamaju No. 1',
     addressStreet2: null,
-    addressCity: 'San Francisco',
-    addressState: 'CA',
-    addressPostcode: '94102',
-    addressCountry: 'United States',
+    addressCity: 'Desa Sukamaju',
+    addressState: 'Jawa Tengah',
+    addressPostcode: '57521',
+    addressCountry: 'Indonesia',
     addressLat: null,
     addressLng: null,
   },
@@ -223,7 +223,7 @@ const mockCompanyRecord: ObjectRecord = {
   annualRecurringRevenue: {
     __typename: 'Currency',
     amountMicros: 5000000000000,
-    currencyCode: 'USD',
+    currencyCode: 'IDR',
   },
   workPolicy: ['ON_SITE', 'HYBRID'],
   people: [
@@ -246,7 +246,7 @@ const mockCompanyRecord: ObjectRecord = {
       lastName: 'Saputra',
     },
     avatarUrl: '',
-    userEmail: 'john.doe@acme.com',
+    userEmail: 'budi.saputra@bades.id',
     colorScheme: 'Light',
     locale: 'id',
     createdAt: '2024-01-01T00:00:00Z',
@@ -515,10 +515,10 @@ export const AddressFieldWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const street = await canvas.findByText(/123 Business St/i);
+    const street = await canvas.findByText(/Jl\. Sukamaju No\. 1/i);
     expect(street).toBeVisible();
 
-    const city = await canvas.findByText(/San Francisco/i);
+    const city = await canvas.findByText(/Desa Sukamaju/i);
     expect(city).toBeVisible();
   },
 };
@@ -722,7 +722,7 @@ export const ManyToOneRelationFieldWidget: Story = {
       id: 'widget-relation-field',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Account Owner',
+      title: 'Pengelola Akun',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -813,7 +813,7 @@ export const ManyToOneRelationFieldWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const accountOwner = await canvas.findByText('John Doe');
+    const accountOwner = await canvas.findByText('Budi Saputra');
     expect(accountOwner).toBeVisible();
   },
 };
@@ -910,7 +910,7 @@ export const OneToManyRelationFieldWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const personChip = await canvas.findByText('Jane Smith');
+    const personChip = await canvas.findByText('Siti Santoso');
     expect(personChip).toBeVisible();
   },
 };
@@ -1597,7 +1597,7 @@ export const ManyToOneRelationCardWidget: Story = {
       id: 'widget-relation-card',
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Account Owner',
+      title: 'Pengelola Akun',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1687,7 +1687,7 @@ export const ManyToOneRelationCardWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const accountOwnerChip = await canvas.findByText('John Doe');
+    const accountOwnerChip = await canvas.findByText('Budi Saputra');
     expect(accountOwnerChip).toBeVisible();
 
     const expandButton = await canvas.findByTestId('expand-button');
@@ -1792,7 +1792,7 @@ export const OneToManyRelationCardWidget: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const personChip = await canvas.findByText('Jane Smith');
+    const personChip = await canvas.findByText('Siti Santoso');
     expect(personChip).toBeVisible();
   },
 };
@@ -2054,7 +2054,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
     const canvas = within(canvasElement);
 
     // Verify initial display - should show first 5 items
-    const firstPerson = await canvas.findByText('Jane Smith 1');
+    const firstPerson = await canvas.findByText('Siti Aminah 1');
     expect(firstPerson).toBeVisible();
 
     const fifthPerson = await canvas.findByText('Carol Miller 5');

@@ -1,5 +1,5 @@
 // GQL fields untuk object SID `penduduk` di integration test.
-// Menggantikan PERSON_GQL_FIELDS yang berasal dari CRM warisan Twenty.
+// Menggantikan PERSON_GQL_FIELDS yang berasal dari CRM warisan.
 //
 // Pemetaan semantik penting:
 //   person.name (FULL_NAME)    → penduduk.namaLengkap (FULL_NAME)

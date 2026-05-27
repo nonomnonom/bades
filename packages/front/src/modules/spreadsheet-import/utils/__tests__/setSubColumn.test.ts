@@ -16,7 +16,7 @@ describe('setSubColumn', () => {
     };
 
     const entry = 'Name1';
-    const value = 'John Doe';
+    const value = 'Budi Santoso';
     const result = setSubColumn(oldColumn, entry, value);
 
     expect(result).toEqual({
@@ -24,7 +24,7 @@ describe('setSubColumn', () => {
       header: 'Name',
       type: SpreadsheetColumnType.matchedSelect,
       matchedOptions: [
-        { entry: 'Name1', value: 'John Doe' },
+        { entry: 'Name1', value: 'Budi Santoso' },
         { entry: 'Name2', value: '' },
       ],
       value: 'John',
@@ -44,7 +44,7 @@ describe('setSubColumn', () => {
     };
 
     const entry = 'Name1';
-    const value = 'John Doe';
+    const value = 'Budi Santoso';
     const result = setSubColumn(oldColumn, entry, value);
 
     expect(result).toEqual({
@@ -52,7 +52,7 @@ describe('setSubColumn', () => {
       header: 'Name',
       type: SpreadsheetColumnType.matchedSelectOptions,
       matchedOptions: [
-        { entry: 'Name1', value: 'John Doe' },
+        { entry: 'Name1', value: 'Budi Santoso' },
         { entry: 'Name2', value: 'Jane' },
       ],
       value: 'John',

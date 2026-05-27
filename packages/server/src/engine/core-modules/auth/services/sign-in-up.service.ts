@@ -499,7 +499,7 @@ export class SignInUpService {
 
     // Bades managed hosting: jangan auto-grant server admin ke user signup
     // publik. Server admin (tim Bades internal) di-seed terpisah via DB.
-    // Pattern Twenty self-hosted (first user = admin) tidak cocok untuk
+    // Pattern self-hosted (first user = admin) tidak cocok untuk
     // multi-tenant managed SaaS.
     const isManagedHosting = this.badesConfigService.get(
       'IS_MANAGED_HOSTING',
@@ -642,7 +642,7 @@ export class SignInUpService {
 
     // Bades managed hosting: jangan auto-grant server admin ke user signup
     // publik. Server admin (tim Bades internal) di-seed terpisah via DB.
-    // Pattern Twenty self-hosted (first user = admin) tidak cocok untuk
+    // Pattern self-hosted (first user = admin) tidak cocok untuk
     // multi-tenant managed SaaS.
     const isManagedHosting = this.badesConfigService.get(
       'IS_MANAGED_HOSTING',

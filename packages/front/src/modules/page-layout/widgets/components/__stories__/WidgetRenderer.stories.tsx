@@ -122,7 +122,7 @@ const mockCompanyRecord: ObjectRecord = {
       lastName: 'Saputra',
     },
     avatarUrl: '',
-    userEmail: 'john.doe@acme.com',
+    userEmail: 'budi.saputra@bades.id',
     colorScheme: 'Light',
     locale: 'id',
     createdAt: '2024-01-01T00:00:00Z',
@@ -259,7 +259,7 @@ export const WithNumberChart: Story = {
       id: WIDGET_ID_NUMBER_CHART,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
-      title: 'Sales Pipeline',
+      title: 'Program Bantuan Desa',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
@@ -1010,7 +1010,7 @@ export const WithManyToOneRelationFieldWidget: Story = {
     docs: {
       description: {
         story:
-          'A MANY_TO_ONE relation field widget in readonly mode displaying the Account Owner relation.',
+          'A MANY_TO_ONE relation field widget in readonly mode displaying the Pengelola Akun relation.',
       },
     },
   },
@@ -1022,7 +1022,7 @@ export const WithManyToOneRelationFieldWidget: Story = {
       id: WIDGET_ID_MANY_TO_ONE_RELATION,
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
-      title: 'Account Owner',
+      title: 'Pengelola Akun',
       objectMetadataId: companyObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',

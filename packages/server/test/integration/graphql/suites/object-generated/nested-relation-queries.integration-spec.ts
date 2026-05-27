@@ -25,7 +25,7 @@ import { type ObjectRecord } from 'shared/types';
 import { ErrorCode } from 'src/engine/core-modules/graphql/utils/graphql-errors.util';
 
 // Bades: penduduk (warga desa) terhubung ke keluarga (Kartu Keluarga) via
-// relasi MANY-TO-ONE. Menggantikan person→company dari CRM warisan Twenty.
+// relasi MANY-TO-ONE. Menggantikan person→company dari CRM warisan.
 const PENDUDUK_GQL_FIELDS_WITH_KELUARGA = `
   id
   tempatLahir

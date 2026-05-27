@@ -43,8 +43,8 @@ const CONFIGURED_ACTION: WorkflowCodeAction = {
     input: {
       logicFunctionId: 'test-function-id',
       logicFunctionInput: {
-        name: 'John Doe',
-        email: 'john@example.com',
+        name: 'Budi Santoso',
+        email: 'budi@bades.id',
         score: 95,
       },
     },

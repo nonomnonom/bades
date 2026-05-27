@@ -32,10 +32,10 @@ describe('extractAndSanitizeObjectStringFields', () => {
       title: 'should handle basic string properties and trim whitespaces',
       context: {
         input: {
-          obj: { name: '  John   Doe  ', age: 30 },
+          obj: { name: '  Budi   Santoso  ', age: 30 },
           keys: ['name', 'age'],
         },
-        expected: { name: 'John Doe', age: 30 },
+        expected: { name: 'Budi Santoso', age: 30 },
       },
     },
     {
@@ -44,16 +44,16 @@ describe('extractAndSanitizeObjectStringFields', () => {
         input: {
           obj: {
             user: {
-              name: '  Jane   Smith  ',
-              contact: { email: '  jane@example.com  ' },
+              name: '  Siti   Maryam  ',
+              contact: { email: '  siti@bades.id  ' },
             },
           },
           keys: ['user'],
         },
         expected: {
           user: {
-            name: 'Jane Smith',
-            contact: { email: 'jane@example.com' },
+            name: 'Siti Maryam',
+            contact: { email: 'siti@bades.id' },
           },
         },
       },
@@ -62,10 +62,10 @@ describe('extractAndSanitizeObjectStringFields', () => {
       title: 'should skip undefined and null values',
       context: {
         input: {
-          obj: { name: '  John  ', age: null, city: undefined },
+          obj: { name: '  Budi  ', age: null, city: undefined },
           keys: ['name', 'age', 'city'],
         },
-        expected: { name: 'John', age: null, city: undefined },
+        expected: { name: 'Budi', age: null, city: undefined },
       },
     },
     {
@@ -82,20 +82,20 @@ describe('extractAndSanitizeObjectStringFields', () => {
       title: 'should handle object with no matching keys',
       context: {
         input: {
-          obj: { name: 'John', age: 30 },
+          obj: { name: 'Budi', age: 30 },
           keys: ['city', 'name'],
         },
-        expected: { name: 'John' },
+        expected: { name: 'Budi' },
       },
     },
     {
       title: 'should handle object with number field',
       context: {
         input: {
-          obj: { name: 'John', age: 30 },
+          obj: { name: 'Budi', age: 30 },
           keys: ['age', 'name'],
         },
-        expected: { name: 'John', age: 30 },
+        expected: { name: 'Budi', age: 30 },
       },
     },
     {
@@ -123,12 +123,12 @@ describe('extractAndSanitizeObjectStringFields', () => {
       context: {
         input: {
           obj: {
-            items: [{ name: '  John   Doe  ' }, { name: '  Jane   Smith  ' }],
+            items: [{ name: '  Budi   Santoso  ' }, { name: '  Siti   Maryam  ' }],
           },
           keys: ['items'],
         },
         expected: {
-          items: [{ name: 'John Doe' }, { name: 'Jane Smith' }],
+          items: [{ name: 'Budi Santoso' }, { name: 'Siti Maryam' }],
         },
       },
     },
@@ -139,8 +139,8 @@ describe('extractAndSanitizeObjectStringFields', () => {
           obj: {
             tags: ['  tag1  ', '  tag2  '],
             user: {
-              name: '  John   Doe  ',
-              contact: { email: '  john@example.com  ' },
+              name: '  Budi   Santoso  ',
+              contact: { email: '  budi@bades.id  ' },
             },
           },
           keys: ['tags', 'user'],
@@ -148,8 +148,8 @@ describe('extractAndSanitizeObjectStringFields', () => {
         expected: {
           tags: ['tag1', 'tag2'],
           user: {
-            name: 'John Doe',
-            contact: { email: 'john@example.com' },
+            name: 'Budi Santoso',
+            contact: { email: 'budi@bades.id' },
           },
         },
       },

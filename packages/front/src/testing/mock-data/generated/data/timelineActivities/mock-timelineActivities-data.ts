@@ -29,7 +29,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a305-41e7-8c72-ba44072a4c58",
         "city": "Mountain View",
-        "name": "Google",
+        "name": "Keluarga Melati",
         "employees": 284571,
         "domainName": "goo.gle"
       }
@@ -37,7 +37,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a305-41e7-8c72-ba44072a4c58",
-      "name": "Google"
+      "name": "Keluarga Melati"
     },
     "targetCompanyId": "20202020-a305-41e7-8c72-ba44072a4c58",
     "targetDashboard": null,
@@ -79,8 +79,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -107,15 +107,15 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a225-4b3d-a89c-7f6c30df998a",
         "city": "Redmond",
-        "name": "Microsoft",
+        "name": "Keluarga Kenanga",
         "employees": 226067,
-        "domainName": "microsoft.com"
+        "domainName": "bades.id"
       }
     },
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a225-4b3d-a89c-7f6c30df998a",
-      "name": "Microsoft"
+      "name": "Keluarga Kenanga"
     },
     "targetCompanyId": "20202020-a225-4b3d-a89c-7f6c30df998a",
     "targetDashboard": null,
@@ -157,8 +157,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -185,7 +185,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a8b0-422c-8fcf-5b7496f94975",
         "city": "Menlo Park",
-        "name": "Meta",
+        "name": "Keluarga Cempaka",
         "employees": 119511,
         "domainName": "metacareers.com"
       }
@@ -193,7 +193,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a8b0-422c-8fcf-5b7496f94975",
-      "name": "Meta"
+      "name": "Keluarga Cempaka"
     },
     "targetCompanyId": "20202020-a8b0-422c-8fcf-5b7496f94975",
     "targetDashboard": null,
@@ -235,8 +235,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -263,7 +263,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-aaf7-41d6-87a9-7add07bebfd8",
         "city": "Houston",
-        "name": "SLB",
+        "name": "Keluarga Dahlia",
         "employees": 113151,
         "domainName": "slb.com"
       }
@@ -271,7 +271,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-aaf7-41d6-87a9-7add07bebfd8",
-      "name": "SLB"
+      "name": "Keluarga Dahlia"
     },
     "targetCompanyId": "20202020-aaf7-41d6-87a9-7add07bebfd8",
     "targetDashboard": null,
@@ -313,8 +313,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -341,15 +341,15 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a19d-422b-9cb2-5f8382a56877",
         "city": "San Jose",
-        "name": "Cisco",
+        "name": "Keluarga Flamboyan",
         "employees": 99625,
-        "domainName": "cisco.com"
+        "domainName": "bades.id"
       }
     },
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a19d-422b-9cb2-5f8382a56877",
-      "name": "Cisco"
+      "name": "Keluarga Flamboyan"
     },
     "targetCompanyId": "20202020-a19d-422b-9cb2-5f8382a56877",
     "targetDashboard": null,
@@ -391,8 +391,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -418,16 +418,16 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "properties": {
       "after": {
         "id": "20202020-a39c-4644-867d-e8e1851b3ee8",
-        "city": "San Francisco",
-        "name": "Uber",
+        "city": "Desa Sukamaju",
+        "name": "Keluarga Anggrek",
         "employees": 90545,
-        "domainName": "uber.com"
+        "domainName": "bades.id"
       }
     },
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a39c-4644-867d-e8e1851b3ee8",
-      "name": "Uber"
+      "name": "Keluarga Anggrek"
     },
     "targetCompanyId": "20202020-a39c-4644-867d-e8e1851b3ee8",
     "targetDashboard": null,
@@ -469,8 +469,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -496,16 +496,16 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "properties": {
       "after": {
         "id": "20202020-a0eb-4c51-aa03-c4cd2423d7cb",
-        "city": "San Francisco",
-        "name": "Salesforce",
+        "city": "Desa Sukamaju",
+        "name": "Keluarga Mawar",
         "employees": 71322,
-        "domainName": "salesforce.com"
+        "domainName": "bades.id"
       }
     },
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a0eb-4c51-aa03-c4cd2423d7cb",
-      "name": "Salesforce"
+      "name": "Keluarga Mawar"
     },
     "targetCompanyId": "20202020-a0eb-4c51-aa03-c4cd2423d7cb",
     "targetDashboard": null,
@@ -547,8 +547,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -575,7 +575,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a9b5-48ec-97c0-dbbfcbe8df1b",
         "city": "Chesterfield",
-        "name": "Amdocs",
+        "name": "Keluarga Bougenville",
         "employees": 35731,
         "domainName": "amdocs.com"
       }
@@ -583,7 +583,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a9b5-48ec-97c0-dbbfcbe8df1b",
-      "name": "Amdocs"
+      "name": "Keluarga Bougenville"
     },
     "targetCompanyId": "20202020-a9b5-48ec-97c0-dbbfcbe8df1b",
     "targetDashboard": null,
@@ -625,8 +625,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -653,15 +653,15 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a89d-44f9-ac9c-25e462460cb0",
         "city": "Palo Alto",
-        "name": "VMware",
+        "name": "Keluarga Teratai",
         "employees": 34759,
-        "domainName": "vmware.com"
+        "domainName": "bades.id"
       }
     },
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a89d-44f9-ac9c-25e462460cb0",
-      "name": "VMware"
+      "name": "Keluarga Teratai"
     },
     "targetCompanyId": "20202020-a89d-44f9-ac9c-25e462460cb0",
     "targetDashboard": null,
@@ -703,8 +703,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"
@@ -731,7 +731,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "after": {
         "id": "20202020-a377-4693-a2d9-89dc9188a1dc",
         "city": "Santa Clara",
-        "name": "GlobalLogic",
+        "name": "Keluarga Sakura",
         "employees": 24461,
         "domainName": "globallogic.com"
       }
@@ -739,7 +739,7 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
     "targetCompany": {
       "__typename": "Company",
       "id": "20202020-a377-4693-a2d9-89dc9188a1dc",
-      "name": "GlobalLogic"
+      "name": "Keluarga Sakura"
     },
     "targetCompanyId": "20202020-a377-4693-a2d9-89dc9188a1dc",
     "targetDashboard": null,
@@ -781,8 +781,8 @@ export const mockedTimelineActivityRecords: ObjectRecord[] =
       "id": "20202020-0687-4c41-b707-ed1bfca972a7",
       "name": {
         "__typename": "FullName",
-        "firstName": "Tim",
-        "lastName": "Apple"
+        "firstName": "Budi",
+        "lastName": "Santoso"
       }
     },
     "workspaceMemberId": "20202020-0687-4c41-b707-ed1bfca972a7"

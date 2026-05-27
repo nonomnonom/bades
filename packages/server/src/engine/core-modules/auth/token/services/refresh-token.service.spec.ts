@@ -84,7 +84,7 @@ describe('RefreshTokenService', () => {
         id: 'some-id',
         firstName: 'Budi',
         lastName: 'Saputra',
-        email: 'john.doe@example.com',
+        email: 'budi.santoso@bades.id',
       } as UserEntity;
 
       jest

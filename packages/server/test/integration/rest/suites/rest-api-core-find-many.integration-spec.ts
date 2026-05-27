@@ -205,7 +205,7 @@ describe('Core REST API Find Many endpoint', () => {
     expect(filteredDaftarPenduduk.length).toBeGreaterThan(0);
   });
 
-  // TODO: Refacto-common - Uncomment setelah https://github.com/twentyhq/core-team-issues/issues/1627 selesai
+  // TODO: Refacto-common - Uncomment setelah filter pada relation field didukung
   //   it('should fail to filter on a relation field name', async () => {
   //     const response = await makeRestAPIRequest({
   //       method: 'get',

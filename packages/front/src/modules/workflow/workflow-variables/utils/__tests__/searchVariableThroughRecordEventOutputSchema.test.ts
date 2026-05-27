@@ -79,7 +79,7 @@ describe('searchVariableThroughRecordEventOutputSchema', () => {
         isLeaf: true,
         type: FieldMetadataType.TEXT,
         label: 'Keluarga Name',
-        value: 'Old Acme Corp',
+        value: 'Keluarga Anggrek Lama',
         fieldMetadataId: 'keluarga-name-metadata-id',
         isCompositeSubField: false,
       },

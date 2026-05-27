@@ -1,9 +1,9 @@
 # bades-claude-skills
 
-Claude skills for working with Bades.id.
+Skill Claude untuk bekerja dengan Bades.id.
 
-Tambahkan skills di bawah `skills/<skill-name>/SKILL.md`.
+Tambahkan skill di bawah `skills/<skill-name>/SKILL.md`.
 
-## Skills
+## Skill yang tersedia
 
-- `bades-record-presentation`: Retrieve and present Bades.id records as readable summaries or tables.
+- `bades-record-presentation` — Ambil dan sajikan record Bades.id sebagai ringkasan atau tabel berbahasa Indonesia.

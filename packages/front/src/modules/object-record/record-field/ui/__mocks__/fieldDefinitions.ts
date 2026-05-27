@@ -17,11 +17,11 @@ export const fieldMetadataId = 'fieldMetadataId';
 
 export const textfieldDefinition: FieldDefinition<FieldTextMetadata> = {
   fieldMetadataId,
-  label: 'User Name',
+  label: 'Nama Pengguna',
   iconName: 'User',
   defaultValue: '',
   type: FieldMetadataType.TEXT,
-  metadata: { placeHolder: 'John Doe', fieldName: 'userName' },
+  metadata: { placeHolder: 'Budi Santoso', fieldName: 'userName' },
 };
 
 const mockedPersonObjectMetadataItem =
@@ -46,13 +46,13 @@ export const relationFieldDefinition = formatFieldMetadataItemAsFieldDefinition(
 
 export const selectFieldDefinition: FieldDefinition<FieldSelectMetadata> = {
   fieldMetadataId,
-  label: 'Account Owner',
+  label: 'Pengelola Akun',
   iconName: 'iconName',
   type: FieldMetadataType.SELECT,
   defaultValue: null,
   metadata: {
     fieldName: 'accountOwner',
-    options: [{ label: 'Elon Musk', color: 'blue', value: 'userId' }],
+    options: [{ label: 'Budi Santoso', color: 'blue', value: 'userId' }],
     isNullable: true,
   },
 };
@@ -65,7 +65,7 @@ export const fullNameFieldDefinition: FieldDefinition<FieldFullNameMetadata> = {
   defaultValue: { firstName: '', lastName: '' },
   metadata: {
     fieldName: 'displayName',
-    placeHolder: 'Mr Miagi',
+    placeHolder: 'Budi Santoso',
   },
 };
 

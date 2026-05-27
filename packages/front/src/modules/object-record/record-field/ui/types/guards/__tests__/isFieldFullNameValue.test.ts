@@ -14,7 +14,7 @@ describe('isFieldFullNameValue', () => {
   });
 
   it('should return false for non-object values', () => {
-    expect(isFieldFullNameValue('John Doe')).toBe(false);
+    expect(isFieldFullNameValue('Budi Santoso')).toBe(false);
     expect(isFieldFullNameValue(null)).toBe(false);
     expect(isFieldFullNameValue(undefined)).toBe(false);
   });

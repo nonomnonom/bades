@@ -2,14 +2,11 @@ name: bades
 
 services:
   server:
-    image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades-server}:${TAG:-latest}
+    image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
-    expose:
-      - "3000"
-    # Catatan: tidak bind port 3000 ke host. Caddy route via service name
-    # `server:3000` di network internal Docker. Ini wajib agar docker-rollout
-    # bisa scale ke 2 instance (zero-downtime swap) tanpa konflik port host.
+    ports:
+      - "${SERVER_PORT:-3000}:3000"
     environment:
       NODE_PORT: 3000
       PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default
@@ -62,7 +59,7 @@ services:
     restart: always
 
   worker:
-    image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades-server}:${TAG:-latest}
+    image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
     command: ["yarn", "worker:prod"]

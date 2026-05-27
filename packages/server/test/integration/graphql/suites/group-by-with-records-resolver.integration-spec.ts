@@ -6,7 +6,7 @@ import { createOneOperationFactory } from 'test/integration/graphql/utils/create
 import { destroyOneOperationFactory } from 'test/integration/graphql/utils/destroy-one-operation-factory.util';
 import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graphql-api-request.util';
 
-// Bades: programBantuan menggantikan opportunity CRM warisan Twenty.
+// Bades: programBantuan menggantikan opportunity CRM warisan.
 // Field mapping:
 //   opportunity.stage (SELECT)        → programBantuan.status (SELECT)
 //   opportunity.amount (CURRENCY)     → programBantuan.totalAnggaran (NUMBER)

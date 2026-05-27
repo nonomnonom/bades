@@ -18,7 +18,7 @@ DOCKER_NETWORK=bades_network
 # =============================================================================
 
 prod-build:
-	@cd ../.. && docker build --target bades -f ./packages/docker/bades/Dockerfile --platform $(PLATFORM) --tag bades:$(TAG) . && cd -
+	@docker build --target bades -f ./Dockerfile --platform $(PLATFORM) --tag bades:$(TAG) .
 
 prod-run:
 	@docker run -d -p 3000:3000 --name bades bades:$(TAG)
@@ -28,7 +28,7 @@ prod-postgres-run:
 
 # =============================================================================
 # Local Development Services
-# Run these from the repository root: make -C packages/docker <target>
+# Run these from the repository root: make <target>
 # =============================================================================
 
 ensure-docker-network:

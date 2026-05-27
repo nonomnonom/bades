@@ -101,13 +101,13 @@ describe('generateCsv', () => {
     const rows = [
       {
         id: '1',
-        name: 'John Doe',
+        name: 'Budi Santoso',
         tags: '["DISTRIBUTOR","IMPLEMENTATION"]',
         skills: '["JavaScript","TypeScript","React"]',
       },
       {
         id: '2',
-        name: 'Jane Smith',
+        name: 'Siti Maryam',
         tags: '["PARTNER"]',
         skills: '["Python","Django"]',
       },
@@ -126,8 +126,8 @@ describe('generateCsv', () => {
     );
 
     expect(csv).toContain('Id,Name,Tags,Skills');
-    expect(csv).toContain('1,John Doe');
-    expect(csv).toContain('2,Jane Smith');
+    expect(csv).toContain('1,Budi Santoso');
+    expect(csv).toContain('2,Siti Maryam');
   });
 
   it('generates csv with empty multi-select and array fields as empty JSON arrays', () => {
@@ -158,7 +158,7 @@ describe('generateCsv', () => {
     const rows = [
       {
         id: '1',
-        name: 'John Doe',
+        name: 'Budi Santoso',
         tags: '[]',
         skills: '[]',
       },
@@ -169,7 +169,7 @@ describe('generateCsv', () => {
     expect(csv).toContain('[]');
 
     expect(csv).toContain('Id,Name,Tags,Skills');
-    expect(csv).toContain('1,John Doe,[],[]');
+    expect(csv).toContain('1,Budi Santoso,[],[]');
   });
 
   describe('CSV Injection Prevention with ZWJ', () => {
@@ -424,8 +424,8 @@ describe('generateCsv', () => {
       const rows = [
         {
           id: '1',
-          name: 'John Doe',
-          email: 'john@example.com',
+          name: 'Budi Santoso',
+          email: 'budi@bades.id',
           description:
             'This is a normal description with = and + symbols in the middle',
         },
@@ -433,8 +433,8 @@ describe('generateCsv', () => {
 
       const csv = generateCsv({ columns, rows });
 
-      expect(csv).toContain('John Doe');
-      expect(csv).toContain('john@example.com');
+      expect(csv).toContain('Budi Santoso');
+      expect(csv).toContain('budi@bades.id');
       expect(csv).toContain(
         'This is a normal description with = and + symbols in the middle',
       );

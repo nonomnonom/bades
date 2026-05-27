@@ -21,5 +21,5 @@ Use this after the builder and runner layers exist.
 - Register runner action handlers.
 - Ensure the entity is included in the relevant metadata module exports.
 - Add resolver/service exposure only where existing patterns require it.
-- Confirm no user-facing labels or defaults reintroduce stale CRM/Twenty
+- Confirm no user-facing labels or defaults reintroduce stale legacy CRM
   wording.

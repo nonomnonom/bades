@@ -126,7 +126,7 @@ export const MuiPreact: Story = createComponentStory('mui-example', {
   play: muiTest,
 });
 
-const twentyUiTest: Story['play'] = async ({ canvasElement }) => {
+const badesUiTest: Story['play'] = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await canvas.findByTestId('ui-component', {}, { timeout: 30000 });
@@ -141,10 +141,10 @@ const twentyUiTest: Story['play'] = async ({ canvasElement }) => {
   expect(await canvas.findByText('Count: 2')).toBeVisible();
 };
 
-export const TwentyUiReact: Story = createComponentStory('ui-example', {
-  play: twentyUiTest,
+export const BadesUiReact: Story = createComponentStory('ui-example', {
+  play: badesUiTest,
 });
-export const TwentyUiPreact: Story = createComponentStory('ui-example', {
+export const BadesUiPreact: Story = createComponentStory('ui-example', {
   runtime: 'preact',
-  play: twentyUiTest,
+  play: badesUiTest,
 });

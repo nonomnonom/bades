@@ -109,8 +109,8 @@ type Story = StoryObj<typeof EmailInputWithContext>;
 export const Default: Story = {
   args: {
     value: {
-      primaryEmail: 'john@example.com',
-      additionalEmails: ['john.doe@example.com'],
+      primaryEmail: 'budi@bades.id',
+      additionalEmails: ['budi.santoso@bades.id'],
     },
   },
   play: async ({ canvasElement }) => {

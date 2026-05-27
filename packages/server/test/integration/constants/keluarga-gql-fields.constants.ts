@@ -1,5 +1,5 @@
 // GQL fields untuk object SID `keluarga` di integration test.
-// Menggantikan COMPANY_GQL_FIELDS yang berasal dari CRM warisan Twenty.
+// Menggantikan COMPANY_GQL_FIELDS yang berasal dari CRM warisan.
 //
 // Pemetaan semantik:
 //   company.name (TEXT)         → keluarga.nomorKk (TEXT identifier utama)

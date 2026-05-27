@@ -3,9 +3,9 @@
 exports[`getRecordFromRecordNode should convert a simple record node 1`] = `
 {
   "__typename": "Penduduk",
-  "email": "john@example.com",
+  "email": "budi@bades.id",
   "id": "123",
-  "name": "John Doe",
+  "name": "Budi Santoso",
 }
 `;
 
@@ -32,12 +32,12 @@ exports[`getRecordFromRecordNode should handle connection fields with edges 1`] 
     {
       "__typename": "Penduduk",
       "id": "456",
-      "name": "John Doe",
+      "name": "Budi Santoso",
     },
     {
       "__typename": "Penduduk",
       "id": "789",
-      "name": "Jane Smith",
+      "name": "Siti Maryam",
     },
   ],
   "id": "123",
@@ -101,7 +101,7 @@ exports[`getRecordFromRecordNode should handle null and undefined values 1`] = `
   "__typename": "Penduduk",
   "email": null,
   "id": "123",
-  "name": "John Doe",
+  "name": "Budi Santoso",
   "phone": undefined,
 }
 `;

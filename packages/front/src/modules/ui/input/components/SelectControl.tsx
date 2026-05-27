@@ -12,7 +12,7 @@ import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
 export type SelectControlTextAccent = 'default' | 'placeholder';
 
-// TODO: factorize this with https://github.com/twentyhq/core-team-issues/issues/752
+// TODO: gabungkan dengan StyledControlContainer di AdvancedFilterValueInputDropdownButtonClickableSelect
 export const StyledControlContainer = styled.div<{
   disabled?: boolean;
   hasIcon: boolean;

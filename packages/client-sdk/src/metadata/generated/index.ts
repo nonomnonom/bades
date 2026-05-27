@@ -82,8 +82,8 @@ export const generateSubscriptionOp: (
 // Ambient type stubs for the genql-generated code this template gets
 // injected into. They enable full typecheck/lint on this file.
 
-const APP_ACCESS_TOKEN_ENV_KEY = 'TWENTY_APP_ACCESS_TOKEN';
-const API_KEY_ENV_KEY = 'TWENTY_API_KEY';
+const APP_ACCESS_TOKEN_ENV_KEY = 'BADES_APP_ACCESS_TOKEN';
+const API_KEY_ENV_KEY = 'BADES_API_KEY';
 
 type MetadataApiClientOptions = ClientOptions;
 
@@ -182,7 +182,7 @@ const hasAuthenticationErrorInGraphqlPayload = (
 };
 
 const defaultOptions: MetadataApiClientOptions = {
-  url: `${process.env.TWENTY_API_URL}/metadata`,
+  url: `${process.env.BADES_API_URL}/metadata`,
   headers: {
     'Content-Type': 'application/json',
   },

@@ -1064,7 +1064,7 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.SERVER_CONFIG,
     description:
-      'Bades managed-hosting mode. Saat true: nonaktifkan auto-grant server admin ke user signup pertama (pattern Twenty self-hosted), sembunyikan surface admin/billing/dev dari workspace user, dan asumsikan tim Bades adalah operator infrastruktur tunggal. Server admin disetel manual via DB seed oleh tim Bades.',
+      'Bades managed-hosting mode. Saat true: nonaktifkan auto-grant server admin ke user signup pertama (pattern self-hosted), sembunyikan surface admin/billing/dev dari workspace user, dan asumsikan tim Bades adalah operator infrastruktur tunggal. Server admin disetel manual via DB seed oleh tim Bades.',
     isEnvOnly: true,
     type: ConfigVariableType.BOOLEAN,
   })

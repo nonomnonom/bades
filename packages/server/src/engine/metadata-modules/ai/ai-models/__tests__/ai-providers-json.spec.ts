@@ -8,7 +8,7 @@ const PROVIDERS = normalizeAiProviders(defaultAiProviders as AiProvidersConfig);
 
 // Bades AI single-model (lihat GOAL.md "Goal AI Satu Model"): hanya satu
 // provider operasional (OpenRouter) dengan satu model (tencent/hy3-preview).
-// Tidak ada katalog multi-provider warisan Twenty.
+// Tidak ada katalog multi-provider warisan.
 const EXPECTED_PROVIDER_NAMES = ['openrouter'];
 
 describe('ai-providers.json integrity', () => {

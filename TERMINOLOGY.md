@@ -27,8 +27,8 @@
 
 ## Seed Data Mapping
 
-| Twenty Seed | Bades Seed |
-|-------------|------------|
+| Legacy CRM Seed | Bades Seed |
+|-----------------|------------|
 | Demo Companies | Data Keluarga-example |
 | Demo People | Data Penduduk-example |
 | Demo Pipeline | Alur Permohonan Surat |
@@ -38,8 +38,8 @@
 
 ## Labels UI Mapping
 
-| Location | Twenty Label | Bades Label |
-|----------|-------------|-------------|
+| Location | Legacy CRM Label | Bades Label |
+|----------|------------------|-------------|
 | Nav Items | Companies / People | Penduduk / Warga |
 | Object Name | Opportunity | Permohonan |
 | Pipeline | Pipeline | Alur Layanan |

@@ -1,9 +1,9 @@
 import { spawn } from 'child_process';
 import path from 'path';
 
-const TWENTY_SERVER_ROOT = path.resolve(__dirname, '..', '..', '..', '..');
+const BADES_SERVER_ROOT = path.resolve(__dirname, '..', '..', '..', '..');
 const COMMAND_JS_PATH = path.join(
-  TWENTY_SERVER_ROOT,
+  BADES_SERVER_ROOT,
   'dist',
   'command',
   'command.js',
@@ -36,7 +36,7 @@ export const runSecretEncryptionRotationCommand = async (
 ): Promise<void> => {
   await new Promise<void>((resolve, reject) => {
     const child = spawn('node', [COMMAND_JS_PATH, ...buildArgs(args)], {
-      cwd: TWENTY_SERVER_ROOT,
+      cwd: BADES_SERVER_ROOT,
       env: { ...process.env, NODE_ENV: 'test' },
       stdio: ['ignore', 'pipe', 'pipe'],
     });

@@ -36,8 +36,8 @@ describe('useUpsertRecordsInStore', () => {
           {
             id: recordId,
             __typename: 'Penduduk',
-            name: 'John Doe',
-            email: 'john@example.com',
+            name: 'Budi Santoso',
+            email: 'budi@bades.id',
           },
         ],
       });
@@ -46,8 +46,8 @@ describe('useUpsertRecordsInStore', () => {
     expect(result.current.recordStore).toEqual({
       id: recordId,
       __typename: 'Penduduk',
-      name: 'John Doe',
-      email: 'john@example.com',
+      name: 'Budi Santoso',
+      email: 'budi@bades.id',
     });
   });
 
@@ -73,8 +73,8 @@ describe('useUpsertRecordsInStore', () => {
           {
             id: recordId,
             __typename: 'Penduduk',
-            name: 'John Doe',
-            email: 'john@example.com',
+            name: 'Budi Santoso',
+            email: 'budi@bades.id',
           },
         ],
       });
@@ -83,8 +83,8 @@ describe('useUpsertRecordsInStore', () => {
     expect(result.current.recordStore).toEqual({
       id: recordId,
       __typename: 'Penduduk',
-      name: 'John Doe',
-      email: 'john@example.com',
+      name: 'Budi Santoso',
+      email: 'budi@bades.id',
     });
 
     act(() => {
@@ -93,7 +93,7 @@ describe('useUpsertRecordsInStore', () => {
           {
             id: recordId,
             __typename: 'Penduduk',
-            name: 'Jane Doe',
+            name: 'Siti Maryam',
             phone: '123-456-7890',
           },
         ],
@@ -107,8 +107,8 @@ describe('useUpsertRecordsInStore', () => {
     expect(result.current.recordStore).toEqual({
       id: recordId,
       __typename: 'Penduduk',
-      name: 'Jane Doe',
-      email: 'john@example.com',
+      name: 'Siti Maryam',
+      email: 'budi@bades.id',
     });
   });
 
@@ -134,8 +134,8 @@ describe('useUpsertRecordsInStore', () => {
           {
             id: recordId,
             __typename: 'Penduduk',
-            name: 'John Doe',
-            email: 'john@example.com',
+            name: 'Budi Santoso',
+            email: 'budi@bades.id',
           },
         ],
       });
@@ -149,7 +149,7 @@ describe('useUpsertRecordsInStore', () => {
           {
             id: recordId,
             __typename: 'Penduduk',
-            name: 'John Doe',
+            name: 'Budi Santoso',
             phone: '123-456-7890',
           },
         ],

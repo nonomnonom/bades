@@ -77,19 +77,17 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 
 ## Deploy via Docker
 
-Stack runtime Bades: `packages/docker/`. Berisi `docker-compose.yml`
-(server + worker + Postgres + Redis), `docker-compose.dev.yml` (Postgres
-
-- Redis only untuk dev lokal), `Makefile`, dan `bades/Dockerfile`.
+Semua artefak Docker tinggal di root repo: `Dockerfile`,
+`docker-compose.yml` (server + worker + Postgres + Redis), `Makefile`,
+`entrypoint.sh`, dan `.env.example`.
 
 ### Lokal — build & run image produksi
 
 ```bash
 # Bangun image
-make -C packages/docker prod-build
+make prod-build
 
 # Run stack lengkap (server + worker + db + redis)
-cd packages/docker
 cp .env.example .env  # isi APP_SECRET, ENCRYPTION_KEY, dll
 docker compose up -d
 
@@ -100,15 +98,22 @@ curl http://localhost:3000/healthz
 ### Lokal — hanya Postgres + Redis (development against source)
 
 ```bash
-docker compose -f packages/docker/docker-compose.dev.yml up -d
+# Hidupkan hanya service db + redis dari compose root
+docker compose up -d db redis
 # lalu jalankan server + front dari source seperti biasa:
 yarn start
 ```
 
 ### Production deploy
 
-Pakai image yang sama (build dari Dockerfile target `bades`) ke host
-Docker apapun. Setup untuk single-server production akan ditambahkan
-saat infrastruktur final dipilih.
+Workflow `.github/workflows/build-image.yaml` build satu image dan push ke
+GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakai oleh service
+`server` (server + frontend) dan service `worker` (override command jadi
+`yarn worker:prod`) — pola identik dengan Twenty Railway template: satu
+image, dua service runtime, plus Postgres + Redis. Cocok untuk platform
+managed (Railway, Render) maupun host Docker mandiri.
+
+Repo ini tidak memaketkan workflow deploy ke server tertentu; operator
+internal memilih platform sendiri.
 
 Panduan operasional internal: [`.github/DEPLOY.md`](./.github/DEPLOY.md).

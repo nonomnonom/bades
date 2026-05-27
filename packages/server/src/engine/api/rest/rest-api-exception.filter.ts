@@ -20,7 +20,7 @@ export class RestApiExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
 
     const statusCode =
-      exception instanceof HttpException ? exception.getStatus() : 400; // should actually default to 500 but we dont have input validation yet and dont want to be flooded with errors from input https://github.com/twentyhq/core-team-issues/issues/1027
+      exception instanceof HttpException ? exception.getStatus() : 400; // TODO default ke 500 setelah validasi input tersedia
 
     return this.httpExceptionHandlerService.handleError(
       exception as Error | HttpException,

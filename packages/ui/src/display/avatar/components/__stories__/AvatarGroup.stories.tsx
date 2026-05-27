@@ -18,11 +18,11 @@ const makeAvatar = (userName: string, props: Partial<AvatarProps> = {}) => (
 );
 
 const getAvatars = (commonProps: Partial<AvatarProps> = {}) => [
-  makeAvatar('Matthew', { avatarUrl: AVATAR_URL_MOCK, ...commonProps }),
-  makeAvatar('Sophie', commonProps),
-  makeAvatar('Jane', commonProps),
-  makeAvatar('Lily', commonProps),
-  makeAvatar('John', commonProps),
+  makeAvatar('Budi', { avatarUrl: AVATAR_URL_MOCK, ...commonProps }),
+  makeAvatar('Siti', commonProps),
+  makeAvatar('Dewi', commonProps),
+  makeAvatar('Lia', commonProps),
+  makeAvatar('Ahmad', commonProps),
 ];
 
 const meta: Meta<

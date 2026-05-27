@@ -172,9 +172,9 @@ export const HttpRequestResponse: Story = {
         employees: 150,
         founded: 2010,
         headquarters: {
-          city: 'San Francisco',
-          state: 'CA',
-          country: 'USA',
+          city: 'Desa Sukamaju',
+          state: 'Jawa Tengah',
+          country: 'Indonesia',
         },
         revenue: '$50M',
         isPublic: false,

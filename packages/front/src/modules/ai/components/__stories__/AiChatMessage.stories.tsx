@@ -113,7 +113,7 @@ const mockSimpleTextResponse: ExtendedUIMessage = {
   parts: [
     {
       type: 'text',
-      text: "Hello! I'm your AI assistant. I can help you with:\n\n- **Data analysis** - Analyze your CRM data and generate insights\n- **Code execution** - Run Python code for complex calculations\n- **Record management** - Create, update, or find records\n\nHow can I assist you today?",
+      text: 'Halo! Saya asisten AI Bades. Saya bisa bantu kamu:\n\n- **Analisis data desa** - Telaah data penduduk, keluarga, dan program bantuan\n- **Eksekusi kode** - Jalankan Python untuk perhitungan administrasi yang rumit\n- **Kelola catatan** - Buat, ubah, atau cari catatan penduduk dan surat\n\nAda yang bisa saya bantu hari ini?',
     },
   ],
   metadata: {

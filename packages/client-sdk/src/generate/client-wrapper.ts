@@ -25,9 +25,9 @@ export const buildClientWrapperSource = (
     '',
   );
 
-  source = source.replace("'__TWENTY_DEFAULT_URL__'", options.defaultUrl);
+  source = source.replace("'__BADES_DEFAULT_URL__'", options.defaultUrl);
 
-  source = source.replace(/TwentyGeneratedClient/g, options.apiClientName);
+  source = source.replace(/BadesGeneratedClient/g, options.apiClientName);
 
   if (!options.includeUploadFile) {
     source = source.replace(

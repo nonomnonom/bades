@@ -16,7 +16,7 @@ describe('filterEmails', () => {
   });
 
   it('Should not filter out if at least one email is from a different domain', () => {
-    const primaryHandle = 'guillim@desa.id';
+    const primaryHandle = 'guillim@bades.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-external',
     );
@@ -27,7 +27,7 @@ describe('filterEmails', () => {
   });
 
   it('Should filter out same domain emails', () => {
-    const primaryHandle = 'guillim@desa.id';
+    const primaryHandle = 'guillim@bades.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-internal',
     );
@@ -41,7 +41,7 @@ describe('filterEmails', () => {
     // Workspace opted into syncing internal emails (e.g. university or
     // shared-domain institution). Same-domain participants must not be
     // dropped — the toggle bypasses filterOutInternals.
-    const primaryHandle = 'guillim@desa.id';
+    const primaryHandle = 'guillim@bades.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-internal',
     );
@@ -59,11 +59,11 @@ describe('filterEmails', () => {
   });
 
   it('Should filter messages with participant from the blocklist', () => {
-    const primaryHandle = 'guillim@desa.id';
+    const primaryHandle = 'guillim@bades.id';
     const messages = messagingGetMessagesServiceGetMessages.filter(
       (message) => message.externalId === 'AA-work-emails-internal',
     );
-    const blocklist = ['to@desa.id'];
+    const blocklist = ['to@bades.id'];
     const filteredMessages = filterEmails(
       primaryHandle,
       [],
@@ -122,8 +122,8 @@ describe('filterEmails', () => {
         participants: [
           {
             role: MessageParticipantRole.FROM,
-            handle: 'john@example.com',
-            displayName: 'John Doe',
+            handle: 'budi@example.com',
+            displayName: 'Budi Santoso',
           },
         ],
         attachments: [],
@@ -192,14 +192,14 @@ describe('filterEmails', () => {
         subject: 'Personal message',
         receivedAt: new Date('2025-01-09T09:54:37.000Z'),
         text: 'Content',
-        headerMessageId: '<john.doe@example.com>',
+        headerMessageId: '<budi.santoso@bades.id>',
         messageThreadExternalId: 'thread-1',
         direction: MessageDirection.INCOMING,
         participants: [
           {
             role: MessageParticipantRole.FROM,
-            handle: 'john.doe@example.com',
-            displayName: 'John Doe',
+            handle: 'budi.santoso@bades.id',
+            displayName: 'Budi Santoso',
           },
         ],
         attachments: [],

@@ -100,13 +100,13 @@ const render: WorkerExports['render'] = async (
   // System variables are set after application variables so they cannot be overridden
   if (isDefined(renderContext.apiUrl)) {
     setWorkerEnv({
-      TWENTY_API_URL: renderContext.apiUrl,
+      BADES_API_URL: renderContext.apiUrl,
     });
   }
 
   if (isDefined(renderContext.applicationAccessToken)) {
     setWorkerEnv({
-      TWENTY_APP_ACCESS_TOKEN: renderContext.applicationAccessToken,
+      BADES_APP_ACCESS_TOKEN: renderContext.applicationAccessToken,
     });
   }
 

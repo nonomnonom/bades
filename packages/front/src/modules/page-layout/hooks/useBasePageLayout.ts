@@ -22,7 +22,7 @@ import { isDefined } from 'shared/utils';
 import { FindOnePageLayoutDocument } from '~/generated-metadata/graphql';
 
 // Bades: Default page layout untuk Company/Person/Opportunity sudah dihapus
-// karena 3 object CRM warisan Twenty tidak ada lagi di STANDARD_OBJECTS.
+// karena 3 object CRM warisan tidak ada lagi di STANDARD_OBJECTS.
 // SID custom object (penduduk/keluarga/dst) memakai DEFAULT_RECORD_PAGE_LAYOUT
 // sebagai fallback generik.
 const getDefaultLayoutById = (layoutId: string): PageLayout => {

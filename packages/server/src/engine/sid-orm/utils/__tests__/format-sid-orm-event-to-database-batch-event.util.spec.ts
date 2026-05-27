@@ -90,22 +90,22 @@ describe('formatTwentyOrmEventToDatabaseBatchEvent', () => {
       const afterEntities = [
         {
           id: 'record-1',
-          name: 'John Doe Updated',
+          name: 'Budi Santoso Updated',
         },
         {
           id: 'record-2',
-          name: 'Jane Doe Updated',
+          name: 'Siti Maryam Updated',
         },
       ];
 
       const beforeEntities = [
         {
           id: 'record-1',
-          name: 'John Doe',
+          name: 'Budi Santoso',
         },
         {
           id: 'record-3',
-          name: 'Bob Smith',
+          name: 'Agus Prasetyo',
         },
       ];
 
@@ -134,22 +134,22 @@ describe('formatTwentyOrmEventToDatabaseBatchEvent', () => {
       const afterEntities = [
         {
           id: 'record-1',
-          name: 'John Doe Updated',
+          name: 'Budi Santoso Updated',
         },
         {
           id: 'record-2',
-          name: 'Jane Doe Updated',
+          name: 'Siti Maryam Updated',
         },
       ];
 
       const beforeEntities = [
         {
           id: 'record-2',
-          name: 'Jane Doe',
+          name: 'Siti Maryam',
         },
         {
           id: 'record-1',
-          name: 'John Doe',
+          name: 'Budi Santoso',
         },
       ];
 
@@ -177,10 +177,10 @@ describe('formatTwentyOrmEventToDatabaseBatchEvent', () => {
       expect(updateEvent1.recordId).toBe('record-1');
       expect(updateEvent2.recordId).toBe('record-2');
 
-      expect(updateEvent1.properties?.before?.name).toBe('John Doe');
-      expect(updateEvent1.properties?.after?.name).toBe('John Doe Updated');
-      expect(updateEvent2.properties?.before?.name).toBe('Jane Doe');
-      expect(updateEvent2.properties?.after?.name).toBe('Jane Doe Updated');
+      expect(updateEvent1.properties?.before?.name).toBe('Budi Santoso');
+      expect(updateEvent1.properties?.after?.name).toBe('Budi Santoso Updated');
+      expect(updateEvent2.properties?.before?.name).toBe('Siti Maryam');
+      expect(updateEvent2.properties?.after?.name).toBe('Siti Maryam Updated');
     });
   });
 });

@@ -14,7 +14,7 @@ const TEMPLATE_PATH = path.resolve(
   '..',
   'src',
   'generate',
-  'twenty-client-template.ts',
+  'bades-client-template.ts',
 );
 
 const introspectSchema = async (url: string): Promise<string> => {
@@ -36,7 +36,7 @@ const introspectSchema = async (url: string): Promise<string> => {
 };
 
 const main = async () => {
-  const serverUrl = process.env.TWENTY_API_URL ?? 'http://localhost:3000';
+  const serverUrl = process.env.BADES_API_URL ?? 'http://localhost:3000';
 
   const schema = await introspectSchema(`${serverUrl}/metadata`);
 

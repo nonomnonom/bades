@@ -70,7 +70,7 @@ describe('filterAndSortNavigationMenuItems', () => {
       targetObjectMetadataId: 'metadata-id',
       targetRecordIdentifier: {
         id: 'record-id',
-        labelIdentifier: 'John Doe',
+        labelIdentifier: 'Budi Santoso',
       },
       position: 2,
     } as NavigationMenuItem;

@@ -1,5 +1,5 @@
 // ID fixture untuk object SID `penduduk` di integration test.
-// Menggantikan test-person-ids.constants.ts yang berasal dari CRM warisan Twenty.
+// Menggantikan test-person-ids.constants.ts yang berasal dari CRM warisan.
 export const TEST_PENDUDUK_1_ID = '777a8457-eb2d-40ac-a707-551b615b6980';
 export const TEST_PENDUDUK_2_ID = '777a8457-eb2d-40ac-a707-551b615b6981';
 export const TEST_PENDUDUK_3_ID = '777a8457-eb2d-40ac-a707-551b615b6982';

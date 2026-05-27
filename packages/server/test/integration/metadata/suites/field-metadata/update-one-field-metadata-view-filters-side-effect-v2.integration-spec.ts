@@ -305,7 +305,7 @@ describe('update-one-field-metadata-view-filters-side-effect-v2', () => {
     );
 
     // Note these test exists only because we do not validate the view filter value on creation/update
-    // Should be removed after https://github.com/twentyhq/core-team-issues/issues/1009 completion
+    // Hapus setelah validasi nilai view filter diaktifkan pada create/update
     const failingTestCases: EachTestingContext<{
       createViewFilterValue: unknown;
     }>[] = [
