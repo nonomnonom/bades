@@ -9,4 +9,6 @@ export const PENDUDUK_CUSTOM_OBJECT_SEED: ObjectMetadataSeed = {
   description: 'Data warga terdaftar di desa sesuai Permendagri 109/2019',
   // namaLengkap (FULL_NAME) adalah representasi utama penduduk
   labelIdentifierFieldName: 'namaLengkap',
+  // foto (LINKS) dipakai sebagai avatar penduduk di search result dan record header
+  imageIdentifierFieldName: 'foto',
 };

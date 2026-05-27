@@ -7,6 +7,7 @@ import { isDefined } from 'shared/utils';
 
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
+import { type UpdateOneObjectInput } from 'src/engine/metadata-modules/object-metadata/dtos/update-object.input';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { SID_STANDARD_DATA_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
 import { SID_STANDARD_VIEW_CONFIGS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-view.constant';
@@ -91,31 +92,181 @@ export class SidStandardSeedService {
           objectMetadataId,
         }));
 
-      if (fieldsToCreate.length === 0) {
-        continue;
+      if (fieldsToCreate.length > 0) {
+        try {
+          await this.fieldMetadataService.createManyFields({
+            createFieldInputs: fieldsToCreate,
+            workspaceId,
+          });
+          createdFields += fieldsToCreate.length;
+          this.logger.log(
+            `${fieldsToCreate.length} field SID ditambahkan ke '${object.nameSingular}' (workspace ${workspaceId})`,
+          );
+
+          // Backfill viewField ke default list view (key = INDEX) untuk
+          // custom fields yang baru ditambah. Engine hanya membuat viewField
+          // berdasarkan fields yang ADA saat createOneObject — custom fields
+          // yang ditambah sesudah itu tidak otomatis masuk ke view default.
+          await this.backfillViewFieldsForNewFields({
+            workspaceId,
+            objectNameSingular: object.nameSingular,
+            fieldNames: fieldsToCreate.map((f) => f.name),
+          });
+        } catch (error) {
+          // Beberapa field yang sudah ada akan throw — log lalu lanjut ke
+          // object berikutnya, jangan rollback object yang sudah berhasil.
+          this.logger.warn(
+            `Gagal seed sebagian field untuk '${object.nameSingular}' di workspace ${workspaceId}: ${
+              error instanceof Error ? error.message : String(error)
+            }`,
+          );
+        }
       }
 
-      try {
-        await this.fieldMetadataService.createManyFields({
-          createFieldInputs: fieldsToCreate,
+      // Set label identifier dan image identifier setelah semua field tersedia.
+      // Dipanggil baik untuk objek baru maupun existing supaya idempotent —
+      // updateOneObject sudah idempotent jika nilai tidak berubah.
+      if (isDefined(object.labelIdentifierFieldName)) {
+        await this.applyLabelIdentifier({
           workspaceId,
+          objectMetadataNameSingular: object.nameSingular,
+          labelIdentifierFieldName: object.labelIdentifierFieldName,
         });
-        createdFields += fieldsToCreate.length;
-        this.logger.log(
-          `${fieldsToCreate.length} field SID ditambahkan ke '${object.nameSingular}' (workspace ${workspaceId})`,
-        );
-      } catch (error) {
-        // Beberapa field yang sudah ada akan throw — log lalu lanjut ke
-        // object berikutnya, jangan rollback object yang sudah berhasil.
-        this.logger.warn(
-          `Gagal seed sebagian field untuk '${object.nameSingular}' di workspace ${workspaceId}: ${
-            error instanceof Error ? error.message : String(error)
-          }`,
-        );
+      }
+
+      if (isDefined(object.imageIdentifierFieldName)) {
+        await this.applyImageIdentifier({
+          workspaceId,
+          objectMetadataNameSingular: object.nameSingular,
+          imageIdentifierFieldName: object.imageIdentifierFieldName,
+        });
       }
     }
 
     return { createdObjects, createdFields };
+  }
+
+  // Set labelIdentifierFieldMetadataId ke field dengan nama yang ditentukan.
+  // Setelah update ini, engine secara otomatis recompute searchVector untuk
+  // object tersebut (via recomputeSearchVectorFieldAfterLabelIdentifierUpdate).
+  private async applyLabelIdentifier({
+    workspaceId,
+    objectMetadataNameSingular,
+    labelIdentifierFieldName,
+  }: {
+    workspaceId: string;
+    objectMetadataNameSingular: string;
+    labelIdentifierFieldName: string;
+  }): Promise<void> {
+    const objectMetadata =
+      await this.objectMetadataService.findOneWithinWorkspace(workspaceId, {
+        where: { nameSingular: objectMetadataNameSingular },
+        relations: ['fields'],
+      });
+
+    if (!isDefined(objectMetadata)) {
+      this.logger.warn(
+        `applyLabelIdentifier: object tidak ditemukan: ${objectMetadataNameSingular}`,
+      );
+
+      return;
+    }
+
+    const targetField = objectMetadata.fields?.find(
+      (f) => f.name === labelIdentifierFieldName,
+    );
+
+    if (!isDefined(targetField)) {
+      this.logger.warn(
+        `applyLabelIdentifier: field tidak ditemukan: ${objectMetadataNameSingular}.${labelIdentifierFieldName}`,
+      );
+
+      return;
+    }
+
+    // Skip jika sudah di-set ke field yang sama
+    if (objectMetadata.labelIdentifierFieldMetadataId === targetField.id) {
+      return;
+    }
+
+    const updateInput: UpdateOneObjectInput = {
+      id: objectMetadata.id,
+      update: { labelIdentifierFieldMetadataId: targetField.id },
+    };
+
+    try {
+      await this.objectMetadataService.updateOneObject({
+        updateObjectInput: updateInput,
+        workspaceId,
+      });
+    } catch (error) {
+      this.logger.warn(
+        `applyLabelIdentifier: gagal update ${objectMetadataNameSingular}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
+  }
+
+  // Set imageIdentifierFieldMetadataId ke field dengan nama yang ditentukan.
+  // Field harus bertipe LINKS atau FILE supaya engine bisa render avatar.
+  private async applyImageIdentifier({
+    workspaceId,
+    objectMetadataNameSingular,
+    imageIdentifierFieldName,
+  }: {
+    workspaceId: string;
+    objectMetadataNameSingular: string;
+    imageIdentifierFieldName: string;
+  }): Promise<void> {
+    const objectMetadata =
+      await this.objectMetadataService.findOneWithinWorkspace(workspaceId, {
+        where: { nameSingular: objectMetadataNameSingular },
+        relations: ['fields'],
+      });
+
+    if (!isDefined(objectMetadata)) {
+      this.logger.warn(
+        `applyImageIdentifier: object tidak ditemukan: ${objectMetadataNameSingular}`,
+      );
+
+      return;
+    }
+
+    const targetField = objectMetadata.fields?.find(
+      (f) => f.name === imageIdentifierFieldName,
+    );
+
+    if (!isDefined(targetField)) {
+      this.logger.warn(
+        `applyImageIdentifier: field tidak ditemukan: ${objectMetadataNameSingular}.${imageIdentifierFieldName}`,
+      );
+
+      return;
+    }
+
+    // Skip jika sudah di-set ke field yang sama
+    if (objectMetadata.imageIdentifierFieldMetadataId === targetField.id) {
+      return;
+    }
+
+    const updateInput: UpdateOneObjectInput = {
+      id: objectMetadata.id,
+      update: { imageIdentifierFieldMetadataId: targetField.id },
+    };
+
+    try {
+      await this.objectMetadataService.updateOneObject({
+        updateObjectInput: updateInput,
+        workspaceId,
+      });
+    } catch (error) {
+      this.logger.warn(
+        `applyImageIdentifier: gagal update ${objectMetadataNameSingular}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
   }
 
   // Tanam sample record minimal ke schema workspace. Idempotent via
@@ -241,5 +392,88 @@ export class SidStandardSeedService {
     }
 
     return { hiddenFields };
+  }
+
+  // Backfill viewField ke default list view (key = INDEX) untuk field yang
+  // baru ditambah setelah object sudah ada. Engine hanya membuat viewField
+  // saat createOneObject — field yang diinsert via createManyFields sesudah
+  // itu tidak punya viewField sama sekali, sehingga kolom tidak muncul di UI.
+  //
+  // Idempotent: INSERT ON CONFLICT DO NOTHING menjaga agar duplikat tidak
+  // terjadi bila method ini dipanggil ulang (misalnya dari reseed command).
+  private async backfillViewFieldsForNewFields({
+    workspaceId,
+    objectNameSingular,
+    fieldNames,
+  }: {
+    workspaceId: string;
+    objectNameSingular: string;
+    fieldNames: string[];
+  }): Promise<void> {
+    if (fieldNames.length === 0) {
+      return;
+    }
+
+    // Satu INSERT … SELECT: untuk setiap field yang belum punya viewField di
+    // default list view (key = INDEX), buat viewField baru dengan isVisible =
+    // true. gen_random_uuid() dari PostgreSQL dipakai untuk id agar tidak
+    // perlu mengimpor library uuid di sini.
+    //
+    // ROW_NUMBER() dalam sub-select memberi posisi relatif dimulai dari
+    // posisi terbesar yang sudah ada + 1 supaya kolom baru muncul di akhir.
+    const sql = `
+      INSERT INTO core."viewField"
+        (id, "fieldMetadataId", "isVisible", size, position,
+         "viewFieldGroupId", "viewId", "createdAt", "updatedAt")
+      SELECT
+        gen_random_uuid(),
+        candidate.fm_id,
+        true,
+        160,
+        COALESCE(
+          (SELECT MAX(vf.position)
+           FROM core."viewField" vf
+           WHERE vf."viewId" = candidate.v_id
+             AND vf."deletedAt" IS NULL),
+          -1
+        ) + ROW_NUMBER() OVER (PARTITION BY candidate.v_id ORDER BY candidate.fm_id),
+        NULL,
+        candidate.v_id,
+        NOW(),
+        NOW()
+      FROM (
+        SELECT v.id AS v_id, fm.id AS fm_id
+        FROM core."view" v
+        JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
+        JOIN core."fieldMetadata" fm ON fm."objectMetadataId" = om.id
+        WHERE om."workspaceId" = $1
+          AND om."nameSingular" = $2
+          AND v."workspaceId" = $1
+          AND v."key" = 'INDEX'
+          AND v."deletedAt" IS NULL
+          AND fm.name = ANY($3::text[])
+          AND fm."deletedAt" IS NULL
+      ) candidate
+      WHERE NOT EXISTS (
+        SELECT 1 FROM core."viewField" existing
+        WHERE existing."fieldMetadataId" = candidate.fm_id
+          AND existing."viewId" = candidate.v_id
+          AND existing."deletedAt" IS NULL
+      )
+    `;
+
+    const result = await this.coreDataSource.query(sql, [
+      workspaceId,
+      objectNameSingular,
+      fieldNames,
+    ]);
+
+    const inserted = Array.isArray(result) && result[1] ? result[1] : 0;
+
+    if (inserted > 0) {
+      this.logger.log(
+        `Backfill ${inserted} viewField ke default view '${objectNameSingular}' (workspace ${workspaceId})`,
+      );
+    }
   }
 }

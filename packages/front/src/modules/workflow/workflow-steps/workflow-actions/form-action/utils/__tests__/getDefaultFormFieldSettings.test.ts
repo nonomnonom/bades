@@ -16,8 +16,8 @@ describe('getDefaultFormFieldSettings', () => {
     expect(result).toEqual({
       id: 'test-uuid-123',
       name: 'text',
-      label: 'Text',
-      placeholder: 'Enter your text',
+      label: 'Teks',
+      placeholder: 'Masukkan teks',
     });
   });
 
@@ -26,7 +26,7 @@ describe('getDefaultFormFieldSettings', () => {
     expect(result).toEqual({
       id: 'test-uuid-123',
       name: 'number',
-      label: 'Number',
+      label: 'Nomor',
       placeholder: '1000',
     });
   });
@@ -36,8 +36,8 @@ describe('getDefaultFormFieldSettings', () => {
     expect(result).toEqual({
       id: 'test-uuid-123',
       name: 'date',
-      label: 'Date',
-      placeholder: 'mm/dd/yyyy',
+      label: 'Tanggal',
+      placeholder: 'dd/mm/yyyy',
     });
   });
 
@@ -46,7 +46,7 @@ describe('getDefaultFormFieldSettings', () => {
     expect(result).toEqual({
       id: 'test-uuid-123',
       name: 'record',
-      label: 'Record',
+      label: 'Rekaman',
       placeholder: 'Pilih Keluarga',
       settings: {
         objectName: 'keluarga',
@@ -59,8 +59,8 @@ describe('getDefaultFormFieldSettings', () => {
     expect(result).toEqual({
       id: 'test-uuid-123',
       name: 'multiSelect',
-      label: 'Multi-Select',
-      placeholder: 'Choose values',
+      label: 'Multi-Pilih',
+      placeholder: 'Pilih beberapa nilai',
       settings: {
         selectType: 'EXISTING_FIELD',
         selectedFieldId: undefined,
@@ -96,22 +96,22 @@ describe('getDefaultFormFieldSettings', () => {
   it('should have correct name, label, and placeholder for each field type', () => {
     const textResult = getDefaultFormFieldSettings(FieldMetadataType.TEXT);
     expect(textResult.name).toBe('text');
-    expect(textResult.label).toBe('Text');
-    expect(textResult.placeholder).toBe('Enter your text');
+    expect(textResult.label).toBe('Teks');
+    expect(textResult.placeholder).toBe('Masukkan teks');
 
     const numberResult = getDefaultFormFieldSettings(FieldMetadataType.NUMBER);
     expect(numberResult.name).toBe('number');
-    expect(numberResult.label).toBe('Number');
+    expect(numberResult.label).toBe('Nomor');
     expect(numberResult.placeholder).toBe('1000');
 
     const dateResult = getDefaultFormFieldSettings(FieldMetadataType.DATE);
     expect(dateResult.name).toBe('date');
-    expect(dateResult.label).toBe('Date');
-    expect(dateResult.placeholder).toBe('mm/dd/yyyy');
+    expect(dateResult.label).toBe('Tanggal');
+    expect(dateResult.placeholder).toBe('dd/mm/yyyy');
 
     const recordResult = getDefaultFormFieldSettings('RECORD');
     expect(recordResult.name).toBe('record');
-    expect(recordResult.label).toBe('Record');
+    expect(recordResult.label).toBe('Rekaman');
     expect(recordResult.placeholder).toBe('Pilih Keluarga');
   });
 

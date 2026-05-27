@@ -9,7 +9,6 @@ import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-m
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
 
 const ID_FIELD = 'id' as const;
-const PERSON_AVATAR_COLUMN = 'avatarFile' as const;
 
 export const getMinimalSelectForRecordIdentifier = ({
   flatObjectMetadata,
@@ -45,9 +44,7 @@ export const getMinimalSelectForRecordIdentifier = ({
     }
   }
 
-  if (flatObjectMetadata.nameSingular === 'penduduk') {
-    selectColumns.push(PERSON_AVATAR_COLUMN);
-  } else if (isDefined(flatObjectMetadata.imageIdentifierFieldMetadataId)) {
+  if (isDefined(flatObjectMetadata.imageIdentifierFieldMetadataId)) {
     const imageField = findFlatEntityByIdInFlatEntityMaps({
       flatEntityMaps: flatFieldMetadataMaps,
       flatEntityId: flatObjectMetadata.imageIdentifierFieldMetadataId,

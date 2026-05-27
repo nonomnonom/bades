@@ -9,7 +9,6 @@ import { Brackets, type ObjectLiteral } from 'typeorm';
 
 import { type ObjectRecordFilter } from 'src/engine/api/graphql/workspace-query-builder/interfaces/object-record.interface';
 
-import { FileOutput } from 'src/engine/api/common/common-args-processors/data-arg-processor/types/file-item.type';
 import { GraphqlQueryParser } from 'src/engine/api/graphql/graphql-query-runner/graphql-query-parsers/graphql-query.parser';
 import {
   decodeCursor,
@@ -556,10 +555,6 @@ export class SearchService {
     flatObjectMetadata: FlatObjectMetadata,
     flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata>,
   ) {
-    if (flatObjectMetadata.nameSingular === 'penduduk') {
-      return 'avatarFile';
-    }
-
     if (flatObjectMetadata.nameSingular === 'workspaceMember') {
       return 'avatarUrl';
     }
@@ -602,21 +597,6 @@ export class SearchService {
       flatObjectMetadata,
       flatFieldMetadataMaps,
     );
-
-    if (
-      flatObjectMetadata.nameSingular === 'penduduk' &&
-      this.badesConfigService.get('ALLOW_REQUESTS_TO_FAVICON_SERVICE')
-    ) {
-      const avatarFileId = (record.avatarFile as FileOutput[])?.[0]?.fileId;
-      if (!isDefined(avatarFileId)) {
-        return '';
-      }
-      return this.getImageUrlWithToken(
-        avatarFileId,
-        FileFolder.FilesField,
-        workspaceId,
-      );
-    }
 
     //TODO: Temporary solution before imageIdentifier refactor
 

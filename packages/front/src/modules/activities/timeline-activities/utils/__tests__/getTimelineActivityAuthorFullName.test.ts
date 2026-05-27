@@ -3,7 +3,7 @@ import { getTimelineActivityAuthorFullName } from '@/activities/timeline-activit
 import { type CurrentWorkspaceMember } from '@/auth/states/currentWorkspaceMemberState';
 
 describe('getTimelineActivityAuthorFullName', () => {
-  it('should return "You" if the current workspace member is the author', () => {
+  it('should return "Anda" if the current workspace member is the author', () => {
     const event = {
       workspaceMember: {
         id: '123',
@@ -22,7 +22,7 @@ describe('getTimelineActivityAuthorFullName', () => {
       currentWorkspaceMember as CurrentWorkspaceMember,
     );
 
-    expect(result).toBe('You');
+    expect(result).toBe('Anda');
   });
 
   it('should return the full name of the workspace member if they are not the current workspace member', () => {

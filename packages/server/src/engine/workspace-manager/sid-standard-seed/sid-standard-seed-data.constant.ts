@@ -1,8 +1,7 @@
-// Bades SID Standard Data Seed — sample record minimal yang ditanam ke
-// setiap workspace baru agar operator desa tidak melihat tabel kosong saat
-// pertama kali masuk. 2-3 record per object, hanya field primitif (TEXT,
-// SELECT, DATE, NUMBER, CURRENCY/LINK terdekomposisi) tanpa relasi FK
-// supaya seed tahan terhadap urutan migrasi workspace.
+// Bades SID Standard Data Seed — sample record yang ditanam ke setiap
+// workspace baru agar operator desa tidak melihat tabel kosong saat pertama
+// kali masuk. ~6-10 record per object utama; wilayah lebih banyak karena
+// hierarki Dusun/RW/RT dibutuhkan agar dropdown relasi masuk akal.
 //
 // IDs memakai prefix namespace `30303030-` agar mudah dibedakan dari record
 // produksi (dan dari `20202020-` yang dipakai dev-seeder workspace dev).
@@ -39,6 +38,9 @@ export type SidStandardDataSeed = {
 };
 
 export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
+  // -----------------------------------------------------------------------
+  // Wilayah — hierarki Dusun → RW → RT
+  // -----------------------------------------------------------------------
   {
     tableName: '_wilayah',
     columns: [
@@ -54,6 +56,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       ...ACTOR_AUDIT_COLUMNS,
     ],
     rows: withActorAudit([
+      // Dusun
       {
         id: '30303030-0000-4000-8000-000000000001',
         name: 'Dusun Krajan',
@@ -67,6 +70,29 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0000-4000-8000-000000000002',
+        name: 'Dusun Mekar Sari',
+        namaWilayah: 'Dusun Mekar Sari',
+        jenisWilayah: 'DUSUN',
+        kode: '002',
+        namaKepalaWilayah: 'Sugiyono',
+        jumlahKk: 35,
+        jumlahPenduduk: 142,
+        position: 1,
+      },
+      {
+        id: '30303030-0000-4000-8000-000000000003',
+        name: 'Dusun Wetan',
+        namaWilayah: 'Dusun Wetan',
+        jenisWilayah: 'DUSUN',
+        kode: '003',
+        namaKepalaWilayah: 'Maryono',
+        jumlahKk: 28,
+        jumlahPenduduk: 115,
+        position: 2,
+      },
+      // RW
+      {
+        id: '30303030-0000-4000-8000-000000000011',
         name: 'RW 01',
         namaWilayah: 'RW 01',
         jenisWilayah: 'RW',
@@ -74,10 +100,33 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         namaKepalaWilayah: 'Suparman',
         jumlahKk: 24,
         jumlahPenduduk: 98,
-        position: 1,
+        position: 3,
       },
       {
-        id: '30303030-0000-4000-8000-000000000003',
+        id: '30303030-0000-4000-8000-000000000012',
+        name: 'RW 02',
+        namaWilayah: 'RW 02',
+        jenisWilayah: 'RW',
+        kode: '002',
+        namaKepalaWilayah: 'Wartono',
+        jumlahKk: 24,
+        jumlahPenduduk: 97,
+        position: 4,
+      },
+      {
+        id: '30303030-0000-4000-8000-000000000013',
+        name: 'RW 03',
+        namaWilayah: 'RW 03',
+        jenisWilayah: 'RW',
+        kode: '003',
+        namaKepalaWilayah: 'Sarimin',
+        jumlahKk: 20,
+        jumlahPenduduk: 82,
+        position: 5,
+      },
+      // RT
+      {
+        id: '30303030-0000-4000-8000-000000000021',
         name: 'RT 01',
         namaWilayah: 'RT 01',
         jenisWilayah: 'RT',
@@ -85,10 +134,47 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         namaKepalaWilayah: 'Warsito',
         jumlahKk: 12,
         jumlahPenduduk: 47,
-        position: 2,
+        position: 6,
+      },
+      {
+        id: '30303030-0000-4000-8000-000000000022',
+        name: 'RT 02',
+        namaWilayah: 'RT 02',
+        jenisWilayah: 'RT',
+        kode: '002',
+        namaKepalaWilayah: 'Sutrisno',
+        jumlahKk: 12,
+        jumlahPenduduk: 51,
+        position: 7,
+      },
+      {
+        id: '30303030-0000-4000-8000-000000000023',
+        name: 'RT 03',
+        namaWilayah: 'RT 03',
+        jenisWilayah: 'RT',
+        kode: '003',
+        namaKepalaWilayah: 'Parno',
+        jumlahKk: 10,
+        jumlahPenduduk: 40,
+        position: 8,
+      },
+      {
+        id: '30303030-0000-4000-8000-000000000024',
+        name: 'RT 04',
+        namaWilayah: 'RT 04',
+        jenisWilayah: 'RT',
+        kode: '004',
+        namaKepalaWilayah: 'Mulyono',
+        jumlahKk: 11,
+        jumlahPenduduk: 45,
+        position: 9,
       },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Penduduk — 10 warga dengan variasi data kependudukan
+  // -----------------------------------------------------------------------
   {
     tableName: '_penduduk',
     columns: [
@@ -237,8 +323,132 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         golonganDarah: 'TIDAK_TAHU',
         position: 4,
       },
+      {
+        id: '30303030-0001-4000-8000-000000000006',
+        name: 'Dewi Lestari',
+        nik: '3201010101010030',
+        nomorKk: '3201010101010020',
+        namaLengkapFirstName: 'Dewi',
+        namaLengkapLastName: 'Lestari',
+        tempatLahir: 'Bogor',
+        tanggalLahir: '1993-04-17',
+        jenisKelamin: 'PEREMPUAN',
+        agama: 'ISLAM',
+        statusPerkawinan: 'KAWIN',
+        pekerjaan: 'GURU',
+        pendidikan: 'S1',
+        kewarganegaraan: 'WNI',
+        statusHidup: 'HIDUP',
+        rt: '001',
+        rw: '001',
+        dusun: 'Krajan',
+        statusHubunganKeluarga: 'ISTRI',
+        tipeWarga: 'TETAP',
+        golonganDarah: 'AB',
+        position: 5,
+      },
+      {
+        id: '30303030-0001-4000-8000-000000000007',
+        name: 'Rudi Hartono',
+        nik: '3201010101010040',
+        nomorKk: '3201010101010040',
+        namaLengkapFirstName: 'Rudi',
+        namaLengkapLastName: 'Hartono',
+        tempatLahir: 'Garut',
+        tanggalLahir: '1975-12-08',
+        jenisKelamin: 'LAKI_LAKI',
+        agama: 'ISLAM',
+        statusPerkawinan: 'KAWIN',
+        pekerjaan: 'BURUH_TANI',
+        pendidikan: 'SD',
+        kewarganegaraan: 'WNI',
+        statusHidup: 'HIDUP',
+        rt: '002',
+        rw: '001',
+        dusun: 'Krajan',
+        statusHubunganKeluarga: 'KEPALA_KELUARGA',
+        tipeWarga: 'TETAP',
+        golonganDarah: 'O',
+        position: 6,
+      },
+      {
+        id: '30303030-0001-4000-8000-000000000008',
+        name: 'Ningsih Rahayu',
+        nik: '3201010101010050',
+        nomorKk: '3201010101010040',
+        namaLengkapFirstName: 'Ningsih',
+        namaLengkapLastName: 'Rahayu',
+        tempatLahir: 'Tasikmalaya',
+        tanggalLahir: '1978-09-25',
+        jenisKelamin: 'PEREMPUAN',
+        agama: 'ISLAM',
+        statusPerkawinan: 'KAWIN',
+        pekerjaan: 'IBU_RUMAH_TANGGA',
+        pendidikan: 'SMP',
+        kewarganegaraan: 'WNI',
+        statusHidup: 'HIDUP',
+        rt: '002',
+        rw: '001',
+        dusun: 'Krajan',
+        statusHubunganKeluarga: 'ISTRI',
+        tipeWarga: 'TETAP',
+        golonganDarah: 'A',
+        position: 7,
+      },
+      {
+        id: '30303030-0001-4000-8000-000000000009',
+        name: 'Ahmad Fauzi',
+        nik: '3201010101010060',
+        nomorKk: '3201010101010060',
+        namaLengkapFirstName: 'Ahmad',
+        namaLengkapLastName: 'Fauzi',
+        tempatLahir: 'Bandung',
+        tanggalLahir: '1988-02-14',
+        jenisKelamin: 'LAKI_LAKI',
+        agama: 'ISLAM',
+        statusPerkawinan: 'BELUM_KAWIN',
+        pekerjaan: 'WIRASWASTA',
+        pendidikan: 'SMA',
+        kewarganegaraan: 'WNI',
+        statusHidup: 'HIDUP',
+        rt: '001',
+        rw: '002',
+        dusun: 'Mekar Sari',
+        statusHubunganKeluarga: 'KEPALA_KELUARGA',
+        tipeWarga: 'TETAP',
+        golonganDarah: 'B',
+        position: 8,
+      },
+      {
+        id: '30303030-0001-4000-8000-000000000010',
+        name: 'Jumilah',
+        nik: '3201010101010070',
+        nomorKk: '3201010101010070',
+        namaLengkapFirstName: 'Jumilah',
+        namaLengkapLastName: null,
+        tempatLahir: 'Bogor',
+        tanggalLahir: '1960-06-01',
+        jenisKelamin: 'PEREMPUAN',
+        agama: 'ISLAM',
+        statusPerkawinan: 'CERAI_MATI',
+        pekerjaan: 'TIDAK_BEKERJA',
+        pendidikan: 'TIDAK_TAMAT_SD',
+        kewarganegaraan: 'WNI',
+        statusHidup: 'HIDUP',
+        rt: '002',
+        rw: '002',
+        dusun: 'Mekar Sari',
+        statusHubunganKeluarga: 'KEPALA_KELUARGA',
+        tipeWarga: 'TETAP',
+        golonganDarah: 'TIDAK_TAHU',
+        position: 9,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Keluarga — 5 KK dengan variasi ekonomi
+  // -----------------------------------------------------------------------
   {
     tableName: '_keluarga',
     columns: [
@@ -259,7 +469,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0002-4000-8000-000000000001',
-        name: 'KK 3201010101010001 - Keluarga Anggrek',
+        name: 'KK 3201010101010001 - Keluarga Santoso',
         nomorKk: '3201010101010001',
         namaKepalaKeluarga: 'Budi Santoso',
         alamat: 'Jl. Mawar No. 12, RT 01 / RW 01, Dusun Krajan',
@@ -273,7 +483,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0002-4000-8000-000000000002',
-        name: 'KK 3201010101010004 - Keluarga Melati',
+        name: 'KK 3201010101010004 - Keluarga Wahyuni',
         nomorKk: '3201010101010004',
         namaKepalaKeluarga: 'Sri Wahyuni',
         alamat: 'Jl. Melati No. 5, RT 01 / RW 01, Dusun Krajan',
@@ -299,8 +509,40 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         sumberListrik: 'PLN',
         position: 2,
       },
+      {
+        id: '30303030-0002-4000-8000-000000000004',
+        name: 'KK 3201010101010040 - Keluarga Hartono',
+        nomorKk: '3201010101010040',
+        namaKepalaKeluarga: 'Rudi Hartono',
+        alamat: 'Jl. Dahlia No. 3, RT 02 / RW 01, Dusun Krajan',
+        rt: '002',
+        rw: '001',
+        jumlahAnggota: 5,
+        klasifikasiKeluarga: 'KS2',
+        sumberAir: 'SUMUR_GALI',
+        sumberListrik: 'PLN',
+        position: 3,
+      },
+      {
+        id: '30303030-0002-4000-8000-000000000005',
+        name: 'KK 3201010101010070 - Keluarga Jumilah',
+        nomorKk: '3201010101010070',
+        namaKepalaKeluarga: 'Jumilah',
+        alamat: 'RT 02 / RW 02, Dusun Mekar Sari',
+        rt: '002',
+        rw: '002',
+        jumlahAnggota: 1,
+        klasifikasiKeluarga: 'KS1',
+        sumberAir: 'MATA_AIR',
+        sumberListrik: 'PLN',
+        position: 4,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Perangkat Desa (jabatan) — 5 jabatan aktif + 1 non-aktif
+  // -----------------------------------------------------------------------
   {
     tableName: '_jabatan',
     columns: [
@@ -333,6 +575,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         tanggalAkhir: '2027-03-01',
         statusAktif: true,
         pendudukId: '30303030-0001-4000-8000-000000000001',
+        wilayahId: null,
         position: 0,
       },
       {
@@ -348,6 +591,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         tanggalAkhir: '2027-03-01',
         statusAktif: true,
         pendudukId: '30303030-0001-4000-8000-000000000005',
+        wilayahId: null,
         position: 1,
       },
       {
@@ -362,15 +606,71 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         tanggalMulai: '2021-04-01',
         tanggalAkhir: '2027-04-01',
         statusAktif: true,
+        pendudukId: null,
         wilayahId: '30303030-0000-4000-8000-000000000001',
         position: 2,
       },
+      {
+        id: '30303030-0003-4000-8000-000000000004',
+        name: 'Kaur Keuangan',
+        namaJabatan: 'Kepala Urusan Keuangan',
+        tipeJabatan: 'KAUR',
+        tugasPokok:
+          'Membantu Sekretaris Desa dalam urusan keuangan dan administrasi keuangan desa.',
+        nomorSk: 'SK/004/DS/2021',
+        tanggalSk: '2021-03-15',
+        tanggalMulai: '2021-03-15',
+        tanggalAkhir: '2027-03-15',
+        statusAktif: true,
+        pendudukId: '30303030-0001-4000-8000-000000000006',
+        wilayahId: null,
+        position: 3,
+      },
+      {
+        id: '30303030-0003-4000-8000-000000000005',
+        name: 'Kaur Perencanaan',
+        namaJabatan: 'Kepala Urusan Perencanaan',
+        tipeJabatan: 'KAUR',
+        tugasPokok:
+          'Membantu Sekretaris Desa dalam urusan perencanaan dan evaluasi pembangunan desa.',
+        nomorSk: 'SK/005/DS/2021',
+        tanggalSk: '2021-03-15',
+        tanggalMulai: '2021-03-15',
+        tanggalAkhir: '2027-03-15',
+        statusAktif: true,
+        pendudukId: '30303030-0001-4000-8000-000000000007',
+        wilayahId: null,
+        position: 4,
+      },
+      {
+        id: '30303030-0003-4000-8000-000000000006',
+        name: 'Kepala Dusun Wetan (non-aktif)',
+        namaJabatan: 'Kepala Dusun Wetan',
+        tipeJabatan: 'KEPALA_DUSUN',
+        tugasPokok:
+          'Membantu Kepala Desa dalam pelaksanaan tugas di wilayah Dusun Wetan.',
+        nomorSk: 'SK/006/DS/2019',
+        tanggalSk: '2019-01-01',
+        tanggalMulai: '2019-01-01',
+        tanggalAkhir: '2021-01-01',
+        statusAktif: false,
+        pendudukId: null,
+        wilayahId: '30303030-0000-4000-8000-000000000003',
+        position: 5,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Layanan / Permohonan Surat — 6 permohonan dengan status berbeda
+  // Catatan: kolom `name` nullable per engine, diisi dengan nomorPermohonan
+  // agar labelIdentifier fallback bekerja di UI list view.
+  // -----------------------------------------------------------------------
   {
     tableName: '_permohonanSurat',
     columns: [
       'id',
+      'name',
       'nomorPermohonan',
       'tanggalPermohonan',
       'status',
@@ -385,6 +685,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
     rows: withActorAudit([
       {
         id: '30303030-0004-4000-8000-000000000001',
+        name: 'LYN/2025/001',
         nomorPermohonan: 'LYN/2025/001',
         tanggalPermohonan: '2025-01-10',
         status: 'SELESAI',
@@ -397,6 +698,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0004-4000-8000-000000000002',
+        name: 'LYN/2025/002',
         nomorPermohonan: 'LYN/2025/002',
         tanggalPermohonan: '2025-02-15',
         status: 'DIPROSES',
@@ -409,6 +711,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       },
       {
         id: '30303030-0004-4000-8000-000000000003',
+        name: 'LYN/2025/003',
         nomorPermohonan: 'LYN/2025/003',
         tanggalPermohonan: '2025-03-20',
         status: 'MENUNGGU',
@@ -419,8 +722,51 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         pendudukId: '30303030-0001-4000-8000-000000000005',
         position: 2,
       },
+      {
+        id: '30303030-0004-4000-8000-000000000004',
+        name: 'LYN/2025/004',
+        nomorPermohonan: 'LYN/2025/004',
+        tanggalPermohonan: '2025-04-05',
+        status: 'SELESAI',
+        jenisLayanan: 'KETERANGAN_USAHA',
+        keperluan: 'Surat Keterangan Usaha untuk pengajuan KUR',
+        catatan: 'Diproses 1 hari kerja',
+        tanggalSelesai: '2025-04-07',
+        pendudukId: '30303030-0001-4000-8000-000000000005',
+        position: 3,
+      },
+      {
+        id: '30303030-0004-4000-8000-000000000005',
+        name: 'LYN/2025/005',
+        nomorPermohonan: 'LYN/2025/005',
+        tanggalPermohonan: '2025-05-10',
+        status: 'MENUNGGU',
+        jenisLayanan: 'SKTM',
+        keperluan: 'SKTM untuk keringanan biaya pengobatan',
+        catatan: null,
+        tanggalSelesai: null,
+        pendudukId: '30303030-0001-4000-8000-000000000004',
+        position: 4,
+      },
+      {
+        id: '30303030-0004-4000-8000-000000000006',
+        name: 'LYN/2025/006',
+        nomorPermohonan: 'LYN/2025/006',
+        tanggalPermohonan: '2025-05-20',
+        status: 'DITOLAK',
+        jenisLayanan: 'SKCK',
+        keperluan: 'Pengantar SKCK untuk keperluan melamar PNS',
+        catatan: 'Berkas tidak lengkap — KTP belum update',
+        tanggalSelesai: null,
+        pendudukId: '30303030-0001-4000-8000-000000000009',
+        position: 5,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Surat — arsip surat masuk dan keluar
+  // -----------------------------------------------------------------------
   {
     tableName: '_suratKeluar',
     columns: [
@@ -477,13 +823,66 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         penandatangan: 'Camat',
         position: 2,
       },
+      {
+        id: '30303030-0005-4000-8000-000000000004',
+        name: '470/003/DS/2025',
+        arahSurat: 'KELUAR',
+        asalSurat: null,
+        nomorSurat: '470/003/DS/2025',
+        tanggalSurat: '2025-03-20',
+        perihal: 'Surat Keterangan Tidak Mampu',
+        tujuan: 'Dinas Sosial Kabupaten',
+        klasifikasi: 'BIASA',
+        penandatangan: 'Kepala Desa',
+        position: 3,
+      },
+      {
+        id: '30303030-0005-4000-8000-000000000005',
+        name: '002/KEC/2025',
+        arahSurat: 'MASUK',
+        asalSurat: 'Kecamatan Sukamaju',
+        nomorSurat: '002/KEC/2025',
+        tanggalSurat: '2025-04-10',
+        perihal: 'Pengumuman Dana Desa Tahap I 2025',
+        tujuan: 'Kepala Desa',
+        klasifikasi: 'PENTING',
+        penandatangan: 'Camat',
+        position: 4,
+      },
+      {
+        id: '30303030-0005-4000-8000-000000000006',
+        name: '470/004/DS/2025',
+        arahSurat: 'KELUAR',
+        asalSurat: null,
+        nomorSurat: '470/004/DS/2025',
+        tanggalSurat: '2025-05-03',
+        perihal: 'Surat Keterangan Domisili',
+        tujuan: 'Bank BRI KCP Kecamatan',
+        klasifikasi: 'BIASA',
+        penandatangan: 'Sekretaris Desa',
+        position: 5,
+      },
+      {
+        id: '30303030-0005-4000-8000-000000000007',
+        name: '001/KADES/2025',
+        arahSurat: 'MASUK',
+        asalSurat: 'Dinas PMD Kabupaten',
+        nomorSurat: '001/KADES/2025',
+        tanggalSurat: '2025-05-15',
+        perihal: 'Undangan Bimtek Laporan Realisasi APBDes',
+        tujuan: 'Kepala Desa',
+        klasifikasi: 'SEGERA',
+        penandatangan: 'Kepala Dinas PMD',
+        position: 6,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Program Bantuan — 4 program aktif dan dalam perencanaan
+  // -----------------------------------------------------------------------
   {
     tableName: '_programBantuan',
-    // Field metadata Bades tidak memiliki `tahunAnggaran` — gunakan
-    // `tanggalMulai`/`tanggalSelesai` untuk rentang program, dan
-    // `jumlahPenerima`/`nilaiPerOrang` untuk indikator kasar.
     // `nilaiPerOrang` adalah composite CURRENCY: didekomposisi jadi
     // `nilaiPerOrangAmountMicros` (BigInt, 1 IDR = 1_000_000 micros) +
     // `nilaiPerOrangCurrencyCode`.
@@ -545,13 +944,30 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         status: 'PELAKSANAAN',
         position: 2,
       },
+      {
+        id: '30303030-0006-4000-8000-000000000004',
+        name: 'RTLH 2025 - Rehab Rumah Tidak Layak Huni',
+        namaProgram: 'RTLH 2025 - Rehab Rumah Tidak Layak Huni',
+        jenisBantuan: 'RTLH',
+        sumberDana: 'Dana Desa',
+        jumlahPenerima: 5,
+        nilaiPerOrangAmountMicros: 17500000000000,
+        nilaiPerOrangCurrencyCode: 'IDR',
+        tanggalMulai: '2025-06-01',
+        tanggalSelesai: '2025-11-30',
+        status: 'PERENCANAAN',
+        position: 3,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Penerima Bantuan — 6 penerima lintas program
+  // -----------------------------------------------------------------------
   {
     tableName: '_penerimaBantuan',
-    // Field `jumlahDiterima` adalah composite CURRENCY: terdekomposisi jadi
-    // `jumlahDiterimaAmountMicros` + `jumlahDiterimaCurrencyCode`. Field
-    // status di Bades adalah `statusPenerimaan`, bukan `status` generik.
+    // `jumlahDiterima` adalah composite CURRENCY: didekomposisi jadi
+    // `jumlahDiterimaAmountMicros` + `jumlahDiterimaCurrencyCode`.
     columns: [
       'id',
       'name',
@@ -614,16 +1030,62 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         pendudukId: '30303030-0001-4000-8000-000000000004',
         position: 2,
       },
+      {
+        id: '30303030-0007-4000-8000-000000000004',
+        name: 'Jumilah - BLT 2025',
+        namaPenerima: 'Jumilah',
+        nik: '3201010101010070',
+        alamat: 'RT 02 / RW 02, Dusun Mekar Sari',
+        tanggalTerima: '2025-01-20',
+        jumlahDiterimaAmountMicros: 300000000000,
+        jumlahDiterimaCurrencyCode: 'IDR',
+        statusPenerimaan: 'TERVERIFIKASI',
+        keterangan: 'Janda, masuk DTKS',
+        programBantuanId: '30303030-0006-4000-8000-000000000001',
+        pendudukId: '30303030-0001-4000-8000-000000000010',
+        position: 3,
+      },
+      {
+        id: '30303030-0007-4000-8000-000000000005',
+        name: 'Rudi Hartono - PKH 2025',
+        namaPenerima: 'Rudi Hartono',
+        nik: '3201010101010040',
+        alamat: 'Jl. Dahlia No. 3, RT 02 / RW 01, Dusun Krajan',
+        tanggalTerima: '2025-02-10',
+        jumlahDiterimaAmountMicros: 750000000000,
+        jumlahDiterimaCurrencyCode: 'IDR',
+        statusPenerimaan: 'TERVERIFIKASI',
+        keterangan: 'Keluarga dengan anak balita dan ibu hamil',
+        programBantuanId: '30303030-0006-4000-8000-000000000003',
+        pendudukId: '30303030-0001-4000-8000-000000000007',
+        position: 4,
+      },
+      {
+        id: '30303030-0007-4000-8000-000000000006',
+        name: 'Rudi Hartono - RTLH 2025',
+        namaPenerima: 'Rudi Hartono',
+        nik: '3201010101010040',
+        alamat: 'Jl. Dahlia No. 3, RT 02 / RW 01, Dusun Krajan',
+        tanggalTerima: null,
+        jumlahDiterimaAmountMicros: 17500000000000,
+        jumlahDiterimaCurrencyCode: 'IDR',
+        statusPenerimaan: 'MENUNGGU',
+        keterangan: 'Atap rumah rusak berat, masuk daftar prioritas',
+        programBantuanId: '30303030-0006-4000-8000-000000000004',
+        pendudukId: '30303030-0001-4000-8000-000000000007',
+        position: 5,
+      },
     ]),
   },
+
+  // -----------------------------------------------------------------------
+  // Aset Desa — 5 aset dengan variasi jenis dan kondisi
+  // -----------------------------------------------------------------------
   {
     tableName: '_asetDesa',
-    // Skema Bades: `jenisAset` (bukan `jenis`), `nilaiAset` CURRENCY
-    // composite (didekomposisi jadi `nilaiAsetAmountMicros` +
-    // `nilaiAsetCurrencyCode`), `kondisi` tetap field SELECT terpisah,
-    // dan `statusPengelolaan` (rename dari `status` generik) sesuai
-    // Permendagri 1/2016 (Aktif Dipakai / Tidak Dipakai / Dipinjamkan /
-    // Disewakan / Dilepas).
+    // `nilaiAset` adalah composite CURRENCY: didekomposisi jadi
+    // `nilaiAsetAmountMicros` + `nilaiAsetCurrencyCode`.
+    // `statusPengelolaan` sesuai Permendagri 1/2016.
     columns: [
       'id',
       'name',
@@ -685,6 +1147,36 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         kondisi: 'BAIK',
         statusPengelolaan: 'AKTIF',
         position: 2,
+      },
+      {
+        id: '30303030-0008-4000-8000-000000000004',
+        name: 'Tanah Kas Desa - Sawah Blok A',
+        kodeAset: 'AST/2015/004',
+        namaAset: 'Tanah Kas Desa - Sawah Blok A',
+        jenisAset: 'TANAH',
+        lokasi: 'Blok A, Dusun Mekar Sari',
+        tahunPerolehan: '2015',
+        asalPerolehan: 'HIBAH',
+        nilaiAsetAmountMicros: 120000000000000,
+        nilaiAsetCurrencyCode: 'IDR',
+        kondisi: 'BAIK',
+        statusPengelolaan: 'DISEWAKAN',
+        position: 3,
+      },
+      {
+        id: '30303030-0008-4000-8000-000000000005',
+        name: 'Gedung Posyandu Krajan',
+        kodeAset: 'AST/2018/005',
+        namaAset: 'Gedung Posyandu Krajan',
+        jenisAset: 'BANGUNAN',
+        lokasi: 'Jl. Melati No. 1, Dusun Krajan',
+        tahunPerolehan: '2018',
+        asalPerolehan: 'BANTUAN_PEMERINTAH',
+        nilaiAsetAmountMicros: 85000000000000,
+        nilaiAsetCurrencyCode: 'IDR',
+        kondisi: 'RUSAK_RINGAN',
+        statusPengelolaan: 'AKTIF',
+        position: 4,
       },
     ]),
   },

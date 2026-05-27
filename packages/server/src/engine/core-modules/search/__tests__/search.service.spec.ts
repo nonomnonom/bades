@@ -111,21 +111,21 @@ describe('SearchService', () => {
   });
 
   describe('getImageIdentifierColumn', () => {
-    it('should return `avatarFile` if the object metadata item is a penduduk', () => {
+    it('should return null if the object metadata item is a penduduk (tidak ada field avatarFile)', () => {
       const imageIdentifierColumn = service.getImageIdentifierColumn(
         mockFlatObjectMetadatas[0],
         mockFlatFieldMetadataMaps,
       );
 
-      expect(imageIdentifierColumn).toEqual('avatarFile');
+      expect(imageIdentifierColumn).toBeNull();
     });
-    it('should return `domainNamePrimaryLinkUrl` column for a keluarga object metadata item', () => {
+    it('should return null for a keluarga object metadata item yang tidak punya imageIdentifierFieldMetadataId', () => {
       const imageIdentifierColumn = service.getImageIdentifierColumn(
         mockFlatObjectMetadatas[1],
         mockFlatFieldMetadataMaps,
       );
 
-      expect(imageIdentifierColumn).toEqual('domainNamePrimaryLinkUrl');
+      expect(imageIdentifierColumn).toBeNull();
     });
 
     it('should return the image identifier column', () => {
