@@ -50,4 +50,43 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     icon: 'IconCalendar',
     description: 'Tanggal permohonan selesai',
   },
+  // Jenis layanan + petugas (modul layanan surat OpenSID)
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Jenis Layanan',
+    name: 'jenisLayanan',
+    icon: 'IconCategory',
+    description: 'Jenis surat atau layanan yang diminta warga',
+    options: [
+      { label: 'Domisili', value: 'DOMISILI', position: 0, color: 'blue' },
+      { label: 'SKTM', value: 'SKTM', position: 1, color: 'green' },
+      {
+        label: 'Pengantar Nikah',
+        value: 'PENGANTAR_NIKAH',
+        position: 2,
+        color: 'pink',
+      },
+      { label: 'SKCK', value: 'SKCK', position: 3, color: 'purple' },
+      {
+        label: 'Kelahiran',
+        value: 'KELAHIRAN',
+        position: 4,
+        color: 'turquoise',
+      },
+      { label: 'Kematian', value: 'KEMATIAN', position: 5, color: 'gray' },
+      { label: 'Pindah', value: 'PINDAH', position: 6, color: 'orange' },
+      { label: 'Datang', value: 'DATANG', position: 7, color: 'yellow' },
+      { label: 'Usaha', value: 'USAHA', position: 8, color: 'sky' },
+      { label: 'Ahli Waris', value: 'AHLI_WARIS', position: 9, color: 'red' },
+      { label: 'Pengaduan', value: 'PENGADUAN', position: 10, color: 'red' },
+      { label: 'Lainnya', value: 'LAINNYA', position: 11, color: 'gray' },
+    ],
+  },
+  {
+    type: FieldMetadataType.UUID,
+    label: 'ID Petugas',
+    name: 'petugasId',
+    icon: 'IconUserCog',
+    description: 'Referensi ke perangkat desa yang memproses permohonan',
+  },
 ];

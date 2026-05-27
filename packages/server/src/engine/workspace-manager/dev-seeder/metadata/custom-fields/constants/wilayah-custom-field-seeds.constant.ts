@@ -38,4 +38,41 @@ export const WILAYAH_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'keterangan',
     description: 'Catatan tambahan tentang wilayah',
   },
+  // Hierarki & agregat wilayah desa (Permendagri 47/2016)
+  {
+    type: FieldMetadataType.UUID,
+    label: 'Wilayah Induk',
+    name: 'wilayahIndukId',
+    description: 'Referensi ke wilayah induk untuk hierarki (RT → RW → Dusun)',
+  },
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'Nama Kepala Wilayah',
+    name: 'namaKepalaWilayah',
+    description: 'Nama ketua/kepala wilayah (Kepala Dusun, Ketua RW/RT)',
+  },
+  {
+    type: FieldMetadataType.NUMBER,
+    label: 'Jumlah KK',
+    name: 'jumlahKk',
+    description: 'Agregat jumlah Kartu Keluarga di wilayah ini',
+  },
+  {
+    type: FieldMetadataType.NUMBER,
+    label: 'Jumlah Penduduk',
+    name: 'jumlahPenduduk',
+    description: 'Agregat jumlah penduduk di wilayah ini',
+  },
+  {
+    type: FieldMetadataType.NUMBER,
+    label: 'Luas (ha)',
+    name: 'luasHektar',
+    description: 'Luas wilayah dalam hektar',
+  },
+  {
+    type: FieldMetadataType.RAW_JSON,
+    label: 'Koordinat',
+    name: 'koordinat',
+    description: 'Koordinat batas wilayah dalam format GeoJSON',
+  },
 ];

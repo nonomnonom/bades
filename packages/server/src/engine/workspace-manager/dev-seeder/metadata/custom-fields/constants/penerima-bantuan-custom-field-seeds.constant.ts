@@ -42,4 +42,35 @@ export const PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'keterangan',
     description: 'Keterangan',
   },
+  // Detail penerimaan + bukti (junction Program Bantuan ↔ Penduduk/Keluarga)
+  {
+    type: FieldMetadataType.DATE,
+    label: 'Tanggal Terima',
+    name: 'tanggalTerima',
+    description: 'Tanggal bantuan diterima',
+  },
+  {
+    type: FieldMetadataType.CURRENCY,
+    label: 'Jumlah Diterima',
+    name: 'jumlahDiterima',
+    description: 'Nominal bantuan yang diterima (Rupiah)',
+  },
+  {
+    type: FieldMetadataType.LINKS,
+    label: 'Bukti Terima',
+    name: 'buktiTerima',
+    description: 'Tautan bukti penerimaan (foto/scan dokumen)',
+  },
+  {
+    type: FieldMetadataType.UUID,
+    label: 'ID Program Bantuan',
+    name: 'programBantuanId',
+    description: 'Referensi ke Program Bantuan terkait',
+  },
+  {
+    type: FieldMetadataType.UUID,
+    label: 'ID Penduduk',
+    name: 'pendudukId',
+    description: 'Referensi ke Penduduk penerima',
+  },
 ];

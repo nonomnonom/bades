@@ -79,4 +79,75 @@ export const KELUARGA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Mampu', value: 'MAMPU', position: 2 },
     ],
   },
+  // Indikator Pendataan Keluarga BPS
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Sumber Air Bersih',
+    name: 'sumberAir',
+    description: 'Sumber air bersih utama keluarga',
+    options: [
+      { label: 'PDAM/Ledeng', value: 'PDAM', position: 0, color: 'blue' },
+      { label: 'Sumur Bor', value: 'SUMUR_BOR', position: 1, color: 'sky' },
+      {
+        label: 'Sumur Gali',
+        value: 'SUMUR_GALI',
+        position: 2,
+        color: 'turquoise',
+      },
+      { label: 'Mata Air', value: 'MATA_AIR', position: 3, color: 'green' },
+      { label: 'Air Hujan', value: 'AIR_HUJAN', position: 4, color: 'gray' },
+      { label: 'Lainnya', value: 'LAINNYA', position: 5, color: 'orange' },
+    ],
+  },
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Sumber Listrik',
+    name: 'sumberListrik',
+    description: 'Sumber penerangan utama keluarga',
+    options: [
+      { label: 'PLN', value: 'PLN', position: 0, color: 'yellow' },
+      { label: 'Non-PLN', value: 'NON_PLN', position: 1, color: 'orange' },
+      {
+        label: 'Tanpa Listrik',
+        value: 'TANPA_LISTRIK',
+        position: 2,
+        color: 'gray',
+      },
+    ],
+  },
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Fasilitas Sanitasi',
+    name: 'sanitasi',
+    description: 'Fasilitas tempat buang air besar utama',
+    options: [
+      { label: 'Sendiri', value: 'SENDIRI', position: 0, color: 'green' },
+      { label: 'Bersama', value: 'BERSAMA', position: 1, color: 'turquoise' },
+      { label: 'Umum (MCK)', value: 'UMUM', position: 2, color: 'blue' },
+      { label: 'Tidak Ada', value: 'TIDAK_ADA', position: 3, color: 'red' },
+    ],
+  },
+  {
+    type: FieldMetadataType.SELECT,
+    label: 'Bahan Bakar Memasak',
+    name: 'bahanBakarMemasak',
+    description: 'Bahan bakar utama untuk memasak',
+    options: [
+      {
+        label: 'Gas Elpiji',
+        value: 'GAS_ELPIJI',
+        position: 0,
+        color: 'orange',
+      },
+      {
+        label: 'Minyak Tanah',
+        value: 'MINYAK_TANAH',
+        position: 1,
+        color: 'yellow',
+      },
+      { label: 'Kayu Bakar', value: 'KAYU_BAKAR', position: 2, color: 'sky' },
+      { label: 'Listrik', value: 'LISTRIK', position: 3, color: 'blue' },
+      { label: 'Lainnya', value: 'LAINNYA', position: 4, color: 'gray' },
+    ],
+  },
 ];

@@ -45,4 +45,47 @@ export const JABATAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'keterangan',
     description: 'Keterangan tambahan',
   },
+  // Detail SK & periode jabatan (UU 6/2014 + Permendagri 67/2017)
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'NIPD',
+    name: 'nipd',
+    description: 'Nomor Induk Perangkat Desa',
+  },
+  {
+    type: FieldMetadataType.TEXT,
+    label: 'Nomor SK',
+    name: 'nomorSk',
+    description: 'Nomor Surat Keputusan pengangkatan jabatan',
+  },
+  {
+    type: FieldMetadataType.DATE,
+    label: 'Tanggal SK',
+    name: 'tanggalSk',
+    description: 'Tanggal terbit SK',
+  },
+  {
+    type: FieldMetadataType.DATE,
+    label: 'Tanggal Mulai Jabatan',
+    name: 'tanggalMulai',
+    description: 'Tanggal mulai menjabat',
+  },
+  {
+    type: FieldMetadataType.DATE,
+    label: 'Tanggal Akhir Jabatan',
+    name: 'tanggalAkhir',
+    description: 'Tanggal akhir masa jabatan',
+  },
+  {
+    type: FieldMetadataType.BOOLEAN,
+    label: 'Status Aktif',
+    name: 'statusAktif',
+    description: 'Apakah jabatan masih aktif diemban',
+  },
+  {
+    type: FieldMetadataType.UUID,
+    label: 'ID Wilayah',
+    name: 'wilayahId',
+    description: 'Referensi ke wilayah (khusus Kepala Dusun / RT / RW)',
+  },
 ];
