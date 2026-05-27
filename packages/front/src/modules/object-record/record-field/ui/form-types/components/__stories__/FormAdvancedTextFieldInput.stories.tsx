@@ -210,7 +210,9 @@ export const WithVariablePicker: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(await canvas.findByText('Kolom dengan Pemilih Variabel')).toBeVisible();
+    expect(
+      await canvas.findByText('Kolom dengan Pemilih Variabel'),
+    ).toBeVisible();
     expect(await canvas.findByRole('textbox')).toBeVisible();
   },
 };

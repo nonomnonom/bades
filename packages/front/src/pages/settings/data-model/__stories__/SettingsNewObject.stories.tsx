@@ -33,9 +33,8 @@ export const WithStandardSelected: Story = {
 
     const listingInput = await canvas.findByPlaceholderText('Nama singular');
     const pluralInput = await canvas.findByPlaceholderText('Nama plural');
-    const descriptionInput = await canvas.findByPlaceholderText(
-      'Tulis deskripsi',
-    );
+    const descriptionInput =
+      await canvas.findByPlaceholderText('Tulis deskripsi');
     const saveButton = await canvas.findByText('Simpan');
     await userEvent.type(listingInput, 'Perusahaan');
     await userEvent.type(pluralInput, ' daftar');

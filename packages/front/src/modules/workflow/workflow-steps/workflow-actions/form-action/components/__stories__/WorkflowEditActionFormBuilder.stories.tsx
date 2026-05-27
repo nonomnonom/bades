@@ -181,7 +181,9 @@ export const EmptyForm: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const messageContainer = await canvas.findByText('Tambahkan kolom ke formulir Anda');
+    const messageContainer = await canvas.findByText(
+      'Tambahkan kolom ke formulir Anda',
+    );
 
     expect(messageContainer).toBeVisible();
 

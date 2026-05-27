@@ -52,7 +52,7 @@ const TextFieldInputWithContext = ({
 
   const instanceId = getRecordFieldInputInstanceId({
     recordId,
-    fieldName: 'Text',
+    fieldName: 'Teks',
     prefix: RECORD_TABLE_CELL_INPUT_ID_PREFIX,
   });
 
@@ -81,13 +81,13 @@ const TextFieldInputWithContext = ({
           recordId,
           fieldDefinition: {
             fieldMetadataId: 'text',
-            label: 'Text',
+            label: 'Teks',
             type: FieldMetadataType.TEXT,
             iconName: 'IconText',
             metadata: {
               fieldName: 'text',
               objectMetadataNameSingular: 'penduduk',
-              placeHolder: 'Enter text',
+              placeHolder: 'Masukkan teks',
             },
           },
           isLabelIdentifier: false,

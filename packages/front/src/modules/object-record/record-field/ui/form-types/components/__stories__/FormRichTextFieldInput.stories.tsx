@@ -99,7 +99,7 @@ export const WithVariable: Story = {
 
 export const WithDeletableVariable: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     defaultValue: {
       blocknote: null,
@@ -146,7 +146,7 @@ export const WithDeletableVariable: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     defaultValue: {
       blocknote: null,
@@ -185,7 +185,7 @@ export const Disabled: Story = {
 
 export const DisabledWithVariable: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     defaultValue: {
       blocknote: null,
       markdown: `test {{${MOCKED_STEP_ID}.name}} test`,
@@ -214,7 +214,7 @@ export const DisabledWithVariable: Story = {
 
 export const HasHistory: Story = {
   args: {
-    label: 'Text',
+    label: 'Teks',
     placeholder: 'Text field...',
     VariablePicker: ({ onVariableSelect }) => {
       return (

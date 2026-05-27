@@ -117,7 +117,9 @@ export const Default: Story = {
 
     await userEvent.type(nameInput, 'New Name');
 
-    const applyButton = await canvas.findByRole('button', { name: /Terapkan/i });
+    const applyButton = await canvas.findByRole('button', {
+      name: /Terapkan/i,
+    });
     expect(applyButton).toBeEnabled();
 
     await userEvent.click(applyButton);

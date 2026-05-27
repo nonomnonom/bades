@@ -18,26 +18,26 @@ type Story = StoryObj<typeof FormSelectFieldInput>;
 
 export const Default: Story = {
   args: {
-    label: 'Work Policy',
+    label: 'Kebijakan Kerja',
     defaultValue: 'WORK_POLICY_1',
     options: [
       {
-        label: 'Work Policy 1',
+        label: 'Kebijakan Kerja 1',
         value: 'WORK_POLICY_1',
         color: 'blue',
       },
       {
-        label: 'Work Policy 2',
+        label: 'Kebijakan Kerja 2',
         value: 'WORK_POLICY_2',
         color: 'green',
       },
       {
-        label: 'Work Policy 3',
+        label: 'Kebijakan Kerja 3',
         value: 'WORK_POLICY_3',
         color: 'red',
       },
       {
-        label: 'Work Policy 4',
+        label: 'Kebijakan Kerja 4',
         value: 'WORK_POLICY_4',
         color: 'yellow',
       },
@@ -46,7 +46,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const selectedOption = await canvas.findByText('Work Policy');
+    const selectedOption = await canvas.findByText('Kebijakan Kerja');
 
     expect(selectedOption).toBeVisible();
   },
@@ -54,7 +54,7 @@ export const Default: Story = {
 
 export const WithVariablePicker: Story = {
   args: {
-    label: 'Work Policy',
+    label: 'Kebijakan Kerja',
     defaultValue: 'WORK_POLICY_1',
     options: [
       {
@@ -76,26 +76,26 @@ export const WithVariablePicker: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Work Policy',
+    label: 'Kebijakan Kerja',
     defaultValue: 'WORK_POLICY_1',
     options: [
       {
-        label: 'Work Policy 1',
+        label: 'Kebijakan Kerja 1',
         value: 'WORK_POLICY_1',
         color: 'blue',
       },
       {
-        label: 'Work Policy 2',
+        label: 'Kebijakan Kerja 2',
         value: 'WORK_POLICY_2',
         color: 'green',
       },
       {
-        label: 'Work Policy 3',
+        label: 'Kebijakan Kerja 3',
         value: 'WORK_POLICY_3',
         color: 'red',
       },
       {
-        label: 'Work Policy 4',
+        label: 'Kebijakan Kerja 4',
         value: 'WORK_POLICY_4',
         color: 'yellow',
       },
@@ -118,26 +118,26 @@ export const Disabled: Story = {
 
 export const DisabledWithVariable: Story = {
   args: {
-    label: 'Created At',
+    label: 'Tanggal Dibuat',
     defaultValue: `{{${MOCKED_STEP_ID}.createdAt}}`,
     options: [
       {
-        label: 'Work Policy 1',
+        label: 'Kebijakan Kerja 1',
         value: 'WORK_POLICY_1',
         color: 'blue',
       },
       {
-        label: 'Work Policy 2',
+        label: 'Kebijakan Kerja 2',
         value: 'WORK_POLICY_2',
         color: 'green',
       },
       {
-        label: 'Work Policy 3',
+        label: 'Kebijakan Kerja 3',
         value: 'WORK_POLICY_3',
         color: 'red',
       },
       {
-        label: 'Work Policy 4',
+        label: 'Kebijakan Kerja 4',
         value: 'WORK_POLICY_4',
         color: 'yellow',
       },
@@ -148,7 +148,7 @@ export const DisabledWithVariable: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const variableChip = await canvas.findByText('Creation date');
+    const variableChip = await canvas.findByText('Tanggal Pembuatan');
     expect(variableChip).toBeVisible();
 
     await userEvent.click(variableChip);

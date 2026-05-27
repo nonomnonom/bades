@@ -52,7 +52,7 @@ const RelationOneToManyFieldInputWithContext = () => {
   const fieldDefinition = useMemo(
     () => ({
       fieldMetadataId: peopleFieldOnCompany.id,
-      label: 'People',
+      label: 'Orang-orang',
       type: FieldMetadataType.RELATION,
       iconName: 'IconLink',
       metadata: {

@@ -124,11 +124,9 @@ export const WithApiScopeOnly: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.findByText(
-      'Hubungkan Internal Tool ke akun Anda',
-      undefined,
-      { timeout: 5000 },
-    );
+    await canvas.findByText('Hubungkan Internal Tool ke akun Anda', undefined, {
+      timeout: 5000,
+    });
   },
 };
 

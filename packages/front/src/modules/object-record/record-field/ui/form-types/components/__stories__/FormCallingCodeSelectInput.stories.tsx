@@ -24,6 +24,6 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await canvas.findByText('Calling Code');
+    await canvas.findByText('Kode Panggilan');
   },
 };

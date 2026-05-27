@@ -91,7 +91,7 @@ const NumberFieldInputWithContext = ({
             type: FieldMetadataType.NUMBER,
             metadata: {
               fieldName: 'number',
-              placeHolder: 'Enter number',
+              placeHolder: 'Masukkan angka',
               objectMetadataNameSingular: 'penduduk',
             },
           },

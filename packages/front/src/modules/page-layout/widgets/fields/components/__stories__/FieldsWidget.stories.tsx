@@ -444,7 +444,8 @@ export const WithDefaultGroups: Story = {
     const generalHeader = await canvas.findByText('Umum');
     expect(generalHeader).toBeVisible();
 
-    const creationDateElements = await canvas.findAllByText('Tanggal Pembuatan');
+    const creationDateElements =
+      await canvas.findAllByText('Tanggal Pembuatan');
     expect(creationDateElements.length).toBeGreaterThan(0);
     expect(creationDateElements[0]).toBeVisible();
   },
@@ -524,7 +525,9 @@ export const Empty: Story = {
     const canvas = within(canvasElement);
 
     await waitFor(() => {
-      expect(canvas.getByText('Tidak ada kolom untuk ditampilkan')).toBeVisible();
+      expect(
+        canvas.getByText('Tidak ada kolom untuk ditampilkan'),
+      ).toBeVisible();
     });
 
     await waitFor(() => {
