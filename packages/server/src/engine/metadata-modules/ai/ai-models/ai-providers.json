@@ -6,7 +6,7 @@
     "baseUrl": "https://openrouter.ai/api/v1",
     "models": [
       {
-        "name": "tencent/hy3-preview",
+        "name": "deepseek/deepseek-v4-flash",
         "label": "Bades AI",
         "modelFamily": "GPT",
         "inputCostPerMillionTokens": 0,

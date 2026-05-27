@@ -1,14 +1,36 @@
 // Bades SID Standard Data Seed — sample record minimal yang ditanam ke
 // setiap workspace baru agar operator desa tidak melihat tabel kosong saat
 // pertama kali masuk. 2-3 record per object, hanya field primitif (TEXT,
-// SELECT, DATE, NUMBER) tanpa relasi FK supaya seed tahan terhadap urutan
-// migrasi workspace.
+// SELECT, DATE, NUMBER, CURRENCY/LINK terdekomposisi) tanpa relasi FK
+// supaya seed tahan terhadap urutan migrasi workspace.
 //
 // IDs memakai prefix namespace `30303030-` agar mudah dibedakan dari record
 // produksi (dan dari `20202020-` yang dipakai dev-seeder workspace dev).
 //
 // Operator desa bebas menghapus record contoh ini — tujuannya hanya untuk
 // memberi onboarding visual, bukan data referensi tetap.
+//
+// CATATAN PENTING: setiap baris WAJIB menyertakan kolom ACTOR composite
+// (`createdByName`, `updatedByName`) karena migration runner Bades meng-set
+// NOT NULL pada keduanya. Helper `withActorAudit()` di bawah menyalin
+// default `'System'` + source `'MANUAL'` ke setiap row supaya tidak terlupa.
+
+const ACTOR_AUDIT_COLUMNS = [
+  'createdBySource',
+  'createdByName',
+  'updatedBySource',
+  'updatedByName',
+];
+
+const ACTOR_AUDIT_DEFAULTS = {
+  createdBySource: 'MANUAL',
+  createdByName: 'System',
+  updatedBySource: 'MANUAL',
+  updatedByName: 'System',
+};
+
+const withActorAudit = <T extends Record<string, unknown>>(rows: T[]): T[] =>
+  rows.map((row) => ({ ...ACTOR_AUDIT_DEFAULTS, ...row }) as T);
 
 export type SidStandardDataSeed = {
   tableName: string;
@@ -19,8 +41,8 @@ export type SidStandardDataSeed = {
 export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   {
     tableName: '_wilayah',
-    columns: ['id', 'name', 'position'],
-    rows: [
+    columns: ['id', 'name', 'position', ...ACTOR_AUDIT_COLUMNS],
+    rows: withActorAudit([
       {
         id: '30303030-0000-4000-8000-000000000001',
         name: 'Dusun Krajan',
@@ -36,7 +58,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         name: 'RT 01',
         position: 2,
       },
-    ],
+    ]),
   },
   {
     tableName: '_penduduk',
@@ -56,8 +78,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       'kewarganegaraan',
       'statusHidup',
       'position',
+      ...ACTOR_AUDIT_COLUMNS,
     ],
-    rows: [
+    rows: withActorAudit([
       {
         id: '30303030-0001-4000-8000-000000000001',
         nik: '3201010101010001',
@@ -109,12 +132,12 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         statusHidup: 'HIDUP',
         position: 2,
       },
-    ],
+    ]),
   },
   {
     tableName: '_keluarga',
-    columns: ['id', 'nomorKk', 'alamat', 'position'],
-    rows: [
+    columns: ['id', 'nomorKk', 'alamat', 'position', ...ACTOR_AUDIT_COLUMNS],
+    rows: withActorAudit([
       {
         id: '30303030-0002-4000-8000-000000000001',
         nomorKk: '3201010101010001',
@@ -127,12 +150,19 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         alamat: 'Jl. Melati No. 5, RT 01 / RW 01, Dusun Krajan',
         position: 1,
       },
-    ],
+    ]),
   },
   {
     tableName: '_jabatan',
-    columns: ['id', 'namaJabatan', 'tipeJabatan', 'tugasPokok', 'position'],
-    rows: [
+    columns: [
+      'id',
+      'namaJabatan',
+      'tipeJabatan',
+      'tugasPokok',
+      'position',
+      ...ACTOR_AUDIT_COLUMNS,
+    ],
+    rows: withActorAudit([
       {
         id: '30303030-0003-4000-8000-000000000001',
         namaJabatan: 'Kepala Desa',
@@ -157,7 +187,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
           'Membantu Kepala Desa dalam pelaksanaan tugas di wilayah Dusun Krajan.',
         position: 2,
       },
-    ],
+    ]),
   },
   {
     tableName: '_permohonanSurat',
@@ -169,8 +199,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       'keperluan',
       'catatan',
       'position',
+      ...ACTOR_AUDIT_COLUMNS,
     ],
-    rows: [
+    rows: withActorAudit([
       {
         id: '30303030-0004-4000-8000-000000000001',
         nomorPermohonan: 'LYN/2025/001',
@@ -189,7 +220,7 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         catatan: 'Menunggu verifikasi data',
         position: 1,
       },
-    ],
+    ]),
   },
   {
     tableName: '_suratKeluar',
@@ -204,8 +235,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
       'klasifikasi',
       'penandatangan',
       'position',
+      ...ACTOR_AUDIT_COLUMNS,
     ],
-    rows: [
+    rows: withActorAudit([
       {
         id: '30303030-0005-4000-8000-000000000001',
         arahSurat: 'KELUAR',
@@ -242,84 +274,119 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         penandatangan: 'Camat',
         position: 2,
       },
-    ],
+    ]),
   },
   {
     tableName: '_programBantuan',
+    // Field metadata Bades tidak memiliki `tahunAnggaran` — gunakan
+    // `tanggalMulai`/`tanggalSelesai` untuk rentang program, dan
+    // `jumlahPenerima`/`nilaiPerOrang` untuk indikator kasar.
     columns: [
       'id',
       'namaProgram',
       'jenisBantuan',
-      'tahunAnggaran',
       'sumberDana',
+      'jumlahPenerima',
+      'nilaiPerOrang',
+      'tanggalMulai',
+      'tanggalSelesai',
       'status',
       'position',
+      ...ACTOR_AUDIT_COLUMNS,
     ],
-    rows: [
+    rows: withActorAudit([
       {
         id: '30303030-0006-4000-8000-000000000001',
         namaProgram: 'BLT Dana Desa 2025',
-        jenisBantuan: 'TUNAI',
-        tahunAnggaran: '2025',
+        jenisBantuan: 'BLT',
         sumberDana: 'Dana Desa',
-        status: 'BERJALAN',
+        jumlahPenerima: 25,
+        nilaiPerOrang: 300000,
+        tanggalMulai: '2025-01-01',
+        tanggalSelesai: '2025-12-31',
+        status: 'PELAKSANAAN',
         position: 0,
       },
       {
         id: '30303030-0006-4000-8000-000000000002',
         namaProgram: 'Bantuan Sembako Lansia',
-        jenisBantuan: 'SEMBAKO',
-        tahunAnggaran: '2025',
+        jenisBantuan: 'BPNT',
         sumberDana: 'APBDes',
+        jumlahPenerima: 15,
+        nilaiPerOrang: 150000,
+        tanggalMulai: '2025-03-01',
+        tanggalSelesai: '2025-06-30',
         status: 'PERENCANAAN',
         position: 1,
       },
-    ],
+    ]),
   },
   {
     tableName: '_penerimaBantuan',
-    columns: ['id', 'tanggalTerima', 'jumlahDiterima', 'status', 'position'],
-    rows: [
+    // Field `jumlahDiterima` adalah composite CURRENCY: terdekomposisi jadi
+    // `jumlahDiterimaAmountMicros` + `jumlahDiterimaCurrencyCode`. Field
+    // status di Bades adalah `statusPenerimaan`, bukan `status` generik.
+    columns: [
+      'id',
+      'namaPenerima',
+      'nik',
+      'tanggalTerima',
+      'jumlahDiterimaAmountMicros',
+      'jumlahDiterimaCurrencyCode',
+      'statusPenerimaan',
+      'position',
+      ...ACTOR_AUDIT_COLUMNS,
+    ],
+    rows: withActorAudit([
       {
         id: '30303030-0007-4000-8000-000000000001',
+        namaPenerima: 'Budi Santoso',
+        nik: '3201010101010001',
         tanggalTerima: '2025-01-20',
-        jumlahDiterima: 300000,
-        status: 'DITERIMA',
+        jumlahDiterimaAmountMicros: 300000000000,
+        jumlahDiterimaCurrencyCode: 'IDR',
+        statusPenerimaan: 'TERVERIFIKASI',
         position: 0,
       },
       {
         id: '30303030-0007-4000-8000-000000000002',
+        namaPenerima: 'Siti Aminah',
+        nik: '3201010101010002',
         tanggalTerima: '2025-02-20',
-        jumlahDiterima: 300000,
-        status: 'DITERIMA',
+        jumlahDiterimaAmountMicros: 300000000000,
+        jumlahDiterimaCurrencyCode: 'IDR',
+        statusPenerimaan: 'TERVERIFIKASI',
         position: 1,
       },
-    ],
+    ]),
   },
   {
     tableName: '_asetDesa',
+    // Skema Bades pakai `jenisAset` (bukan `jenis`) dan `nilaiAset`
+    // (bukan `nilaiPerolehan`). `kondisi` tetap ada sebagai field terpisah.
     columns: [
       'id',
       'kodeAset',
       'namaAset',
-      'jenis',
+      'jenisAset',
       'lokasi',
       'tahunPerolehan',
       'asalPerolehan',
-      'nilaiPerolehan',
+      'nilaiAset',
       'kondisi',
       'position',
+      ...ACTOR_AUDIT_COLUMNS,
     ],
-    rows: [
+    rows: withActorAudit([
       {
         id: '30303030-0008-4000-8000-000000000001',
         kodeAset: 'AST/2020/001',
         namaAset: 'Kantor Balai Desa',
-        jenis: 'BANGUNAN',
+        jenisAset: 'BANGUNAN',
         lokasi: 'Jl. Raya Desa No. 1',
         tahunPerolehan: 2020,
-        asalPerolehan: 'APBDes',
-        nilaiPerolehan: 450000000,
+        asalPerolehan: 'APBDES',
+        nilaiAset: 450000000,
         kondisi: 'BAIK',
         position: 0,
       },
@@ -327,11 +394,11 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         id: '30303030-0008-4000-8000-000000000002',
         kodeAset: 'AST/2022/002',
         namaAset: 'Motor Operasional Desa',
-        jenis: 'KENDARAAN',
+        jenisAset: 'KENDARAAN',
         lokasi: 'Garasi Balai Desa',
         tahunPerolehan: 2022,
-        asalPerolehan: 'Bantuan Pemerintah',
-        nilaiPerolehan: 18000000,
+        asalPerolehan: 'BANTUAN_PEMERINTAH',
+        nilaiAset: 18000000,
         kondisi: 'BAIK',
         position: 1,
       },
@@ -339,14 +406,14 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
         id: '30303030-0008-4000-8000-000000000003',
         kodeAset: 'AST/2024/003',
         namaAset: 'Komputer Sekretariat',
-        jenis: 'PERALATAN',
+        jenisAset: 'PERALATAN',
         lokasi: 'Ruang Sekretaris Desa',
         tahunPerolehan: 2024,
-        asalPerolehan: 'APBDes',
-        nilaiPerolehan: 7500000,
+        asalPerolehan: 'APBDES',
+        nilaiAset: 7500000,
         kondisi: 'BAIK',
         position: 2,
       },
-    ],
+    ]),
   },
 ];

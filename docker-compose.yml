@@ -5,6 +5,9 @@ services:
     image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
+      # Override AI provider config tanpa rebuild image (dev local).
+      # Hapus block ini begitu image GHCR sudah berisi model terbaru.
+      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
     ports:
       - "${SERVER_PORT:-3000}:3000"
     environment:
@@ -23,6 +26,10 @@ services:
       ENCRYPTION_KEY: ${ENCRYPTION_KEY}
       FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY}
       APP_SECRET: ${APP_SECRET:-}
+
+      # AI Bades — OpenRouter sebagai provider tunggal user-facing
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      AI_MODEL_PREFERENCES: ${AI_MODEL_PREFERENCES:-}
       # MESSAGING_PROVIDER_GMAIL_ENABLED: ${MESSAGING_PROVIDER_GMAIL_ENABLED}
       # CALENDAR_PROVIDER_GOOGLE_ENABLED: ${CALENDAR_PROVIDER_GOOGLE_ENABLED}
       # AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}
@@ -62,6 +69,7 @@ services:
     image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
+      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
     command: ["yarn", "worker:prod"]
     environment:
       PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default
@@ -78,6 +86,10 @@ services:
       ENCRYPTION_KEY: ${ENCRYPTION_KEY}
       FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY}
       APP_SECRET: ${APP_SECRET:-}
+
+      # AI Bades — OpenRouter sebagai provider tunggal user-facing
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      AI_MODEL_PREFERENCES: ${AI_MODEL_PREFERENCES:-}
       # MESSAGING_PROVIDER_GMAIL_ENABLED: ${MESSAGING_PROVIDER_GMAIL_ENABLED}
       # CALENDAR_PROVIDER_GOOGLE_ENABLED: ${CALENDAR_PROVIDER_GOOGLE_ENABLED}
       # AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}

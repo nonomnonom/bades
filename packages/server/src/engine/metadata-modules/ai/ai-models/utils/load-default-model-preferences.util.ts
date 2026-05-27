@@ -3,7 +3,7 @@ import { type AiModelPreferences } from 'src/engine/metadata-modules/ai/ai-model
 // Bades memakai satu model operasional tunggal via OpenRouter (lihat GOAL.md
 // "Goal AI Satu Model"). Tidak ada katalog multi-provider yang diekspos ke
 // pengguna; routing/fallback di belakang layar adalah detail internal.
-const BADES_OPERATIONAL_MODEL = 'openrouter/tencent/hy3-preview';
+const BADES_OPERATIONAL_MODEL = 'openrouter/deepseek/deepseek-v4-flash';
 
 export const DEFAULT_MODEL_PREFERENCES: AiModelPreferences = {
   disabledModels: [],
