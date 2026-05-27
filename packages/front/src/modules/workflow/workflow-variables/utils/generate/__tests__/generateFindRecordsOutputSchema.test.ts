@@ -64,7 +64,7 @@ describe('generateFindRecordsOutputSchema', () => {
       expect(result.all).toMatchObject({
         isLeaf: true,
         icon: 'IconListDetails',
-        label: 'All Companies',
+        label: 'Semua Companies',
         type: 'array',
         value: 'Returns an array of records',
       });
@@ -77,7 +77,7 @@ describe('generateFindRecordsOutputSchema', () => {
 
       const result = generateFindRecordsOutputSchema(objectMetadataItem);
 
-      expect(result.all?.label).toBe('All Records');
+      expect(result.all?.label).toBe('Semua Data');
     });
   });
 

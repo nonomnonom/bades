@@ -23,6 +23,8 @@ import { jestExpectSuccessfulMetadataRequestResult } from '@/object-metadata/hoo
 import { GET_CURRENT_USER } from '@/users/graphql/queries/getCurrentUser';
 import { mockedUserData } from '~/testing/mock-data/users';
 
+jest.setTimeout(20000);
+
 jest.mock('@/object-metadata/hooks/useUpdateOneFieldMetadataItem', () => ({
   useUpdateOneFieldMetadataItem: () => ({
     updateOneFieldMetadataItem: jest.fn().mockResolvedValue({

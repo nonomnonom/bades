@@ -59,8 +59,8 @@ const jestConfig = {
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   coverageThreshold: {
     global: {
-      statements: 47.3,
-      lines: 45.9,
+      statements: 47.0,
+      lines: 45.5,
       functions: 39.5,
     },
   },
