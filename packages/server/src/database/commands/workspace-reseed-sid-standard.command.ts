@@ -78,7 +78,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[1/3] Objek: ${objectResult.createdObjects} objek baru, ${objectResult.createdFields} field baru`,
+      `[1/5] Objek: ${objectResult.createdObjects} objek baru, ${objectResult.createdFields} field baru`,
     );
 
     // Langkah 2: data contoh sample record (ON CONFLICT DO NOTHING)
@@ -88,7 +88,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
     });
 
     this.logger.log(
-      `[2/3] Data: ${dataResult.insertedRecords} record disisipkan`,
+      `[2/5] Data: ${dataResult.insertedRecords} record disisipkan`,
     );
 
     // Langkah 3: rapikan view bawaan (sembunyikan field non-curated)
@@ -98,11 +98,33 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[3/3] View: ${viewResult.hiddenFields} field disembunyikan dari tampilan default`,
+      `[3/5] View: ${viewResult.hiddenFields} field disembunyikan dari tampilan default`,
+    );
+
+    // Langkah 4: dashboard contoh
+    const dashboardResult =
+      await this.sidStandardSeedService.seedSidStandardDashboards({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `[4/5] Dashboard: ${dashboardResult.insertedDashboards} dashboard disisipkan`,
+    );
+
+    // Langkah 5: workflow contoh
+    const workflowResult =
+      await this.sidStandardSeedService.seedSidStandardWorkflows({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `[5/5] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
     );
 
     this.logger.log(
-      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${dataResult.insertedRecords} record, ${viewResult.hiddenFields} field tersembunyi`,
+      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${dataResult.insertedRecords} record, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow`,
     );
   }
 }

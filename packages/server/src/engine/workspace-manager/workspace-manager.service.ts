@@ -108,6 +108,28 @@ export class WorkspaceManagerService {
       `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.hiddenFields} field disembunyikan`,
     );
 
+    // Tanam 3 dashboard contoh + 2 workflow contoh agar halaman Dashboard
+    // dan Alur Kerja tidak kosong saat operator desa pertama kali login.
+    const sidDashboardResult =
+      await this.sidStandardSeedService.seedSidStandardDashboards({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `Seed dashboard SID untuk workspace ${workspaceId}: ${sidDashboardResult.insertedDashboards} dashboard`,
+    );
+
+    const sidWorkflowResult =
+      await this.sidStandardSeedService.seedSidStandardWorkflows({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `Seed workflow SID untuk workspace ${workspaceId}: ${sidWorkflowResult.insertedWorkflows} workflow`,
+    );
+
     const dataSourceMetadataCreationEnd = performance.now();
 
     this.logger.log(

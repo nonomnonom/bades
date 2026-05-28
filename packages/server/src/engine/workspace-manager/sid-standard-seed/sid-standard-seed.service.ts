@@ -394,6 +394,227 @@ export class SidStandardSeedService {
     return { hiddenFields };
   }
 
+  // Tanam 3 dashboard contoh ke workspace baru. Dashboard menggunakan
+  // workspaceMember pertama (berdasarkan createdAt ASC) sebagai actor, dan
+  // pageLayoutId di-resolve dari `core."pageLayout"` berdasarkan
+  // universalIdentifier standar (`STANDARD_DASHBOARD_PAGE_LAYOUT_CONFIG`).
+  //
+  // Idempotent: ON CONFLICT (id) DO NOTHING.
+  async seedSidStandardDashboards({
+    workspaceId,
+    schemaName,
+  }: {
+    workspaceId: string;
+    schemaName: string;
+  }): Promise<{ insertedDashboards: number }> {
+    // Resolve workspaceMember pertama sebagai actor audit
+    const memberRows: { id: string; name: string }[] =
+      await this.coreDataSource.query(
+        `SELECT id, name FROM "${schemaName}"."workspaceMember" WHERE "workspaceId" = $1 ORDER BY "createdAt" ASC LIMIT 1`,
+        [workspaceId],
+      );
+
+    const memberId: string | null =
+      memberRows.length > 0 ? memberRows[0].id : null;
+    const memberName: string =
+      memberRows.length > 0 ? (memberRows[0].name ?? 'Sistem') : 'Sistem';
+
+    // Resolve pageLayoutId dari universalIdentifier standard dashboard
+    // `STANDARD_DASHBOARD_PAGE_LAYOUT_CONFIG.universalIdentifier`
+    const standardDashboardUniversalIdentifier =
+      '20202020-d001-4d01-8d01-da5ab0a00001';
+    const pageLayoutRows: { id: string }[] = await this.coreDataSource.query(
+      `SELECT id FROM core."pageLayout" WHERE "workspaceId" = $1 AND "universalIdentifier" = $2 LIMIT 1`,
+      [workspaceId, standardDashboardUniversalIdentifier],
+    );
+    const pageLayoutId: string | null =
+      pageLayoutRows.length > 0 ? pageLayoutRows[0].id : null;
+
+    // 3 dashboard seed — prefix namespace `30303030-0009-...`
+    const dashboards: Array<{
+      id: string;
+      title: string;
+      position: number;
+    }> = [
+      {
+        id: '30303030-0009-4000-8000-000000000001',
+        title: 'Ringkasan Desa',
+        position: 0,
+      },
+      {
+        id: '30303030-0009-4000-8000-000000000002',
+        title: 'Layanan Surat',
+        position: 1,
+      },
+      {
+        id: '30303030-0009-4000-8000-000000000003',
+        title: 'Program Bantuan',
+        position: 2,
+      },
+    ];
+
+    let insertedDashboards = 0;
+
+    for (const dash of dashboards) {
+      try {
+        const sql = `
+          INSERT INTO "${schemaName}"."dashboard"
+            (id, title, "pageLayoutId", "createdBySource", "createdByWorkspaceMemberId",
+             "createdByName", "updatedBySource", "updatedByWorkspaceMemberId",
+             "updatedByName", position)
+          VALUES ($1, $2, $3, 'MANUAL', $4, $5, 'MANUAL', $4, $5, $6)
+          ON CONFLICT (id) DO NOTHING
+        `;
+        const result = await this.coreDataSource.query(sql, [
+          dash.id,
+          dash.title,
+          pageLayoutId,
+          memberId,
+          memberName,
+          dash.position,
+        ]);
+        const affected = Array.isArray(result) ? result.length : 1;
+
+        insertedDashboards += affected;
+        this.logger.log(
+          `Dashboard '${dash.title}' disisipkan ke workspace ${workspaceId}`,
+        );
+      } catch (error) {
+        this.logger.warn(
+          `Gagal seed dashboard '${dash.title}' (workspace ${workspaceId}): ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+        );
+      }
+    }
+
+    return { insertedDashboards };
+  }
+
+  // Tanam 2 workflow contoh dalam status DRAFT ke workspace baru.
+  // Status DRAFT dipilih supaya workflow tidak otomatis aktif dan tidak
+  // memicu event saat signup. Operator desa bisa mengaktifkan secara manual
+  // dari halaman Alur Kerja jika diperlukan.
+  //
+  // Tabel target: `schemaName."workflow"` dan `schemaName."workflowVersion"`.
+  // Idempotent: ON CONFLICT (id) DO NOTHING.
+  async seedSidStandardWorkflows({
+    workspaceId,
+    schemaName,
+  }: {
+    workspaceId: string;
+    schemaName: string;
+  }): Promise<{ insertedWorkflows: number }> {
+    // workflow 1: Notifikasi Surat Selesai
+    const WORKFLOW_SURAT_ID = '30303030-000a-4000-8000-000000000001';
+    const WORKFLOW_SURAT_VERSION_ID = '30303030-000a-4000-8000-000000000011';
+
+    // workflow 2: Cek Status Penerima Bantuan
+    const WORKFLOW_BANTUAN_ID = '30303030-000a-4000-8000-000000000002';
+    const WORKFLOW_BANTUAN_VERSION_ID = '30303030-000a-4000-8000-000000000012';
+
+    const workflowSql = `
+      INSERT INTO "${schemaName}"."workflow"
+        (id, name, "lastPublishedVersionId", statuses, position,
+         "createdBySource", "createdByWorkspaceMemberId", "createdByName",
+         "updatedBySource", "updatedByWorkspaceMemberId", "updatedByName")
+      VALUES
+        ($1, $2, NULL, $3, $4, 'MANUAL', NULL, 'Sistem', 'MANUAL', NULL, 'Sistem'),
+        ($5, $6, NULL, $7, $8, 'MANUAL', NULL, 'Sistem', 'MANUAL', NULL, 'Sistem')
+      ON CONFLICT (id) DO NOTHING
+    `;
+
+    let insertedWorkflows = 0;
+
+    try {
+      await this.coreDataSource.query(workflowSql, [
+        WORKFLOW_SURAT_ID,
+        'Notifikasi Surat Selesai',
+        JSON.stringify(['DRAFT']),
+        0,
+        WORKFLOW_BANTUAN_ID,
+        'Cek Status Penerima Bantuan',
+        JSON.stringify(['DRAFT']),
+        1,
+      ]);
+
+      this.logger.log(
+        `2 workflow contoh disisipkan ke workspace ${workspaceId}`,
+      );
+      insertedWorkflows += 2;
+    } catch (error) {
+      this.logger.warn(
+        `Gagal seed workflow (workspace ${workspaceId}): ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+
+      return { insertedWorkflows };
+    }
+
+    // Seed workflowVersion — satu version per workflow, status DRAFT,
+    // trigger minimal agar UI Alur Kerja tidak menampilkan list kosong.
+    // Steps dikosongkan (null) supaya tidak perlu meresolve objectMetadataId
+    // dari SID custom object yang mungkin belum tersedia saat seed berjalan.
+    const versionSql = `
+      INSERT INTO "${schemaName}"."workflowVersion"
+        (id, name, trigger, steps, status, position, "workflowId")
+      VALUES
+        ($1, $2, $3, NULL, 'DRAFT', $4, $5),
+        ($6, $7, $8, NULL, 'DRAFT', $9, $10)
+      ON CONFLICT (id) DO NOTHING
+    `;
+
+    try {
+      const triggerSurat = JSON.stringify({
+        name: 'Status berubah ke Selesai',
+        type: 'DATABASE_EVENT',
+        settings: {
+          outputSchema: {},
+          icon: 'IconMail',
+          eventName: 'permohonanSurat.updated',
+        },
+        nextStepIds: [],
+      });
+
+      const triggerBantuan = JSON.stringify({
+        name: 'Jalankan manual',
+        type: 'MANUAL',
+        settings: {
+          outputSchema: {},
+          icon: 'IconHandClick',
+          availability: { type: 'GLOBAL' },
+        },
+        nextStepIds: [],
+      });
+
+      await this.coreDataSource.query(versionSql, [
+        WORKFLOW_SURAT_VERSION_ID,
+        'v1',
+        triggerSurat,
+        0,
+        WORKFLOW_SURAT_ID,
+        WORKFLOW_BANTUAN_VERSION_ID,
+        'v1',
+        triggerBantuan,
+        0,
+        WORKFLOW_BANTUAN_ID,
+      ]);
+
+      this.logger.log(
+        `2 workflowVersion DRAFT disisipkan ke workspace ${workspaceId}`,
+      );
+    } catch (error) {
+      this.logger.warn(
+        `Gagal seed workflowVersion (workspace ${workspaceId}): ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
+
+    return { insertedWorkflows };
+  }
+
   // Backfill viewField ke default list view (key = INDEX) untuk field yang
   // baru ditambah setelah object sudah ada. Engine hanya membuat viewField
   // saat createOneObject — field yang diinsert via createManyFields sesudah
