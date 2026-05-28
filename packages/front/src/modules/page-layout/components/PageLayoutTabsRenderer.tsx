@@ -126,7 +126,7 @@ export const PageLayoutTabsRenderer = () => {
     isEditMode: isPageLayoutInEditMode,
   });
 
-  const SYSTEM_OBJECT_TABS = ['Home', 'Timeline', 'Overview', 'Flow'];
+  const SYSTEM_OBJECT_TABS = ['Beranda', 'Linimasa', 'Ringkasan', 'Alur'];
 
   const isUsingDefaultRecordPageLayout =
     currentPageLayout.id === DEFAULT_RECORD_PAGE_LAYOUT_ID;

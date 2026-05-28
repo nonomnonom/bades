@@ -28,7 +28,7 @@ export const getDisplayValueByUrlType = ({
     if (isDefined(matches?.[1])) {
       return `@${matches?.[1]}`;
     } else {
-      return '@twitter';
+      return 'X';
     }
   }
 

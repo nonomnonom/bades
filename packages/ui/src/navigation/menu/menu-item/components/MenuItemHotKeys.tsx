@@ -38,7 +38,7 @@ export type MenuItemHotKeysProps = {
 
 export const MenuItemHotKeys = ({
   hotKeys,
-  joinLabel = 'then',
+  joinLabel = 'lalu',
 }: MenuItemHotKeysProps) => {
   return (
     <StyledCommandText>

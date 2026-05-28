@@ -85,7 +85,7 @@ export const useRecordCalendarQueryDateRangeFilter = (
     value: `${firstDayOfFirstWeekISOString}`,
     operand: RecordFilterOperand.IS_AFTER,
     type: 'DATE_TIME',
-    label: 'After or equal',
+    label: 'Setelah atau sama dengan',
     displayValue: `${firstDayOfFirstWeek.toString()}`,
   };
 

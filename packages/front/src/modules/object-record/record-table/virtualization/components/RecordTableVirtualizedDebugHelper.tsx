@@ -34,7 +34,7 @@ export const RecordTableVirtualizedDebugHelper = () => {
         >
           <span>Virtualize debug helper</span>
           <span style={{ paddingLeft: 12 }}>
-            - Low details activated : {lowDetailsActivated ? 'Yes' : 'No'}
+            - Low details activated : {lowDetailsActivated ? 'Ya' : 'Tidak'}
           </span>
           <span style={{ paddingLeft: 12 }}>
             - Rows / sec threshold to activate low details :
