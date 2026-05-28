@@ -11,7 +11,10 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 
 import { YogaDriver, type YogaDriverConfig } from '@graphql-yoga/nestjs';
+import { MastraModule } from '@mastra/nestjs';
 import { SentryModule } from '@sentry/nestjs/setup';
+
+import { mastra } from 'src/mastra';
 
 import { AdminPanelGraphQLApiModule } from 'src/engine/api/graphql/admin-panel-graphql-api.module';
 import { CoreGraphQLApiModule } from 'src/engine/api/graphql/core-graphql-api.module';
@@ -75,6 +78,15 @@ const MIGRATED_REST_METHODS = [
     I18nModule,
     // Conditional modules
     ...AppModule.getConditionalModules(),
+    // Mastra AI agents — di-mount terakhir + di prefix `/mastra` supaya
+    // catch-all controller (@All('*')) tidak intercept route lain
+    // (graphql, metadata, admin-panel, rest, mcp). Endpoint agent default:
+    //   POST /mastra/agents/<agentId>/generate
+    //   POST /mastra/agents/<agentId>/stream
+    MastraModule.register({
+      mastra,
+      prefix: '/mastra',
+    }),
   ],
 })
 export class AppModule {
