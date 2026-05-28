@@ -5,7 +5,14 @@ import {
   type MessageChannelSyncStatus,
   type MessageFolderImportPolicy,
 } from 'shared/types';
-import { type MessageChannelVisibility } from '~/generated/graphql';
+
+// Enum message visibility — di-remove dari schema GraphQL utama
+// (commit 7f57dae5) tetapi UI message threads masih hidup.
+export enum MessageChannelVisibility {
+  METADATA = 'METADATA',
+  SUBJECT = 'SUBJECT',
+  SHARE_EVERYTHING = 'SHARE_EVERYTHING',
+}
 
 export type MessageChannel = {
   id: string;

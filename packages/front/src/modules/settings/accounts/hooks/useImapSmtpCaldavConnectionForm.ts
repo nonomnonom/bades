@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback, useEffect, useMemo } from 'react';
-import { useForm } from 'react-hook-form';
+import { type Resolver, useForm } from 'react-hook-form';
 
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 
@@ -53,7 +53,7 @@ export const useImapSmtpCaldavConnectionForm = ({
     mode: 'onSubmit',
     resolver: zodResolver(
       isEditing ? connectionImapSmtpCalDavUpdate : connectionImapSmtpCalDav,
-    ),
+    ) as Resolver<ConnectionFormData>,
     defaultValues: {
       handle: '',
       ...DEFAULT_PROTOCOL_VALUES,

@@ -4,8 +4,8 @@
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "allowJs": false,
-    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "strict": true,
     "types": ["vite/client", "node"],
     "paths": {

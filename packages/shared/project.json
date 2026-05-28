@@ -42,8 +42,8 @@
       "options": {
         "cwd": "{projectRoot}",
         "commands": [
-          "npx vite build",
-          "tsgo -p tsconfig.lib.json --declaration --emitDeclarationOnly --noEmit false --outDir dist --rootDir src && npx tsc-alias -p tsconfig.lib.json --outDir dist"
+          "bunx vite build",
+          "bunx tsc -p tsconfig.lib.json --declaration --emitDeclarationOnly --noEmit false --outDir dist --rootDir src && bunx tsc-alias -p tsconfig.lib.json --outDir dist"
         ],
         "parallel": false
       }
@@ -56,7 +56,7 @@
       "outputs": ["{projectRoot}/dist/individual"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "npx vite build -c vite.config.individual.ts"
+        "command": "bunx vite build -c vite.config.individual.ts"
       }
     },
     "generateBarrels": {

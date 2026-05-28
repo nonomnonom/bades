@@ -24,10 +24,8 @@ import { MainButton } from 'ui/input';
 import { ClickToActionLink } from 'ui/navigation';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { useMutation } from '@apollo/client/react';
-import {
-  CalendarChannelVisibility,
-  MessageChannelVisibility,
-} from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 import { SkipSyncEmailOnboardingStepDocument } from '~/generated-metadata/graphql';
 import { lastAuthenticatedMethodState } from '@/auth/states/lastAuthenticatedMethodState';
 import { AuthenticatedMethod } from '@/auth/types/AuthenticatedMethod.enum';

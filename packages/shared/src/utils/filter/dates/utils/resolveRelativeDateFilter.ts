@@ -15,7 +15,7 @@ export const resolveRelativeDateFilter = (
 
   switch (direction) {
     case 'NEXT': {
-      if (!isDefined(amount)) {
+      if (amount == null) {
         throw new Error('Jumlah diperlukan');
       }
 
@@ -68,7 +68,7 @@ export const resolveRelativeDateFilter = (
       };
     }
     case 'PAST': {
-      if (!isDefined(amount)) {
+      if (amount == null) {
         throw new Error('Jumlah diperlukan');
       }
 

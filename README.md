@@ -101,7 +101,7 @@ curl http://localhost:3000/healthz
 # Hidupkan hanya service db + redis dari compose root
 docker compose up -d db redis
 # lalu jalankan server + front dari source seperti biasa:
-yarn start
+bun start
 ```
 
 ### Production deploy
@@ -109,7 +109,7 @@ yarn start
 Workflow `.github/workflows/build-image.yaml` build satu image dan push ke
 GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakai oleh service
 `server` (server + frontend) dan service `worker` (override command jadi
-`yarn worker:prod`). Pola: satu image runtime + Postgres + Redis. Cocok
+`bun run worker:prod`). Pola: satu image runtime + Postgres + Redis. Cocok
 untuk platform managed (Railway, Render) maupun host Docker mandiri.
 
 Repo ini tidak memaketkan workflow deploy ke server tertentu; operator

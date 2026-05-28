@@ -1,0 +1,13 @@
+[install]
+# Cache native binary builds (bcrypt, sharp, swc, esbuild) per platform
+exact = false
+# Pakai hoisted linker untuk meniru perilaku Yarn 4 (node_modules flat di root).
+# Beberapa workspace package tidak mendeklarasikan transitive dep secara eksplisit
+# dan mengandalkan hoisting (mis. shared mengimpor date-fns yang dibawa server).
+linker = "hoisted"
+# Allow lifecycle scripts ONLY for packages listed in trustedDependencies (root package.json).
+# Other packages remain script-less, similar to Yarn's enableScripts: false.
+
+[install.lockfile]
+# Save as text-based bun.lock (reviewable in PRs)
+save = true

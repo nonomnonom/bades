@@ -6,12 +6,11 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npx vite build"
+    "build": "bunx vite build"
   },
   "engines": {
     "node": "^24.5.0",
-    "npm": "please-use-yarn",
-    "yarn": "^4.0.2"
+    "bun": ">=1.2.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.9",

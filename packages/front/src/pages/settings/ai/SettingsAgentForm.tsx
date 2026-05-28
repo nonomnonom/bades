@@ -103,7 +103,7 @@ export const SettingsAgentForm = ({ mode }: { mode: 'create' | 'edit' }) => {
           label: agent.label,
           description: agent.description,
           icon: agent.icon || 'IconRobot',
-          modelId: agent.modelId,
+          modelId: agent.modelId ?? '',
           role: agent.roleId,
           prompt: agent.prompt,
           isCustom: agent.isCustom,

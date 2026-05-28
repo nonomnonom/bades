@@ -5,7 +5,7 @@
   "private": true,
   "main": "./dist/index.js",
   "scripts": {
-    "build": "npx vite build"
+    "build": "bunx vite build"
   },
   "dependencies": {
     "@react-email/components": "^0.5.3",
@@ -35,7 +35,6 @@
   },
   "engines": {
     "node": "^24.5.0",
-    "npm": "please-use-yarn",
-    "yarn": "^4.0.2"
+    "bun": ">=1.2.0"
   }
 }

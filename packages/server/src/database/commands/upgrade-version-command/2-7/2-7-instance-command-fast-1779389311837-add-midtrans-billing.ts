@@ -4,9 +4,7 @@ import { RegisteredInstanceCommand } from 'src/engine/core-modules/upgrade/decor
 import { FastInstanceCommand } from 'src/engine/core-modules/upgrade/interfaces/fast-instance-command.interface';
 
 @RegisteredInstanceCommand('2.7.0', 1779389311837)
-export class AddMidtransBillingFastInstanceCommand
-  implements FastInstanceCommand
-{
+export class AddMidtransBillingFastInstanceCommand implements FastInstanceCommand {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
       'ALTER TABLE "core"."userWorkspace" ALTER COLUMN "locale" SET DEFAULT \'id-ID\'',

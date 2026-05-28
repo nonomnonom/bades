@@ -4,9 +4,8 @@ import { fastDeepEqual } from 'shared/utils';
 import { type BaseWorkspaceEntity } from 'src/engine/sid-orm/base.workspace-entity';
 
 export const objectRecordChangedProperties = <
-  PRecord extends Partial<
-    ObjectRecord | BaseWorkspaceEntity
-  > = Partial<ObjectRecord>,
+  PRecord extends Partial<ObjectRecord | BaseWorkspaceEntity> =
+    Partial<ObjectRecord>,
 >(
   oldRecord: PRecord,
   newRecord: PRecord,

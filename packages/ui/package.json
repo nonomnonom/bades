@@ -67,7 +67,7 @@
     "monaco-editor": ">= 0.25.0 < 1"
   },
   "scripts": {
-    "build": "npx vite build"
+    "build": "bunx vite build"
   },
   "files": [
     "dist",

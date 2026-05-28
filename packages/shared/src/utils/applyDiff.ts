@@ -147,7 +147,9 @@ const setValueAtPath = (
       );
     }
   } else {
-    throw new Error(`Objek atau array diharapkan, diterima ${typeof container}`);
+    throw new Error(
+      `Objek atau array diharapkan, diterima ${typeof container}`,
+    );
   }
 };
 

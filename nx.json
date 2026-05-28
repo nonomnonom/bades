@@ -44,12 +44,12 @@
       "cache": true,
       "options": {
         "cwd": "{projectRoot}",
-        "command": "npx oxlint -c .oxlintrc.json . && (prettier . --check --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata || (echo 'ERROR: Prettier formatting check failed! Fix with: npx nx lint --configuration=fix' && false))"
+        "command": "bunx oxlint -c .oxlintrc.json . && (prettier . --check --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata || (echo 'ERROR: Prettier formatting check failed! Fix with: bunx nx lint --configuration=fix' && false))"
       },
       "configurations": {
         "ci": {},
         "fix": {
-          "command": "npx oxlint --fix -c .oxlintrc.json . && prettier . --write --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata"
+          "command": "bunx oxlint --fix -c .oxlintrc.json . && prettier . --write --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata"
         }
       },
       "dependsOn": ["^build", "oxlint-rules:build"]
@@ -59,12 +59,12 @@
       "cache": false,
       "dependsOn": ["oxlint-rules:build"],
       "options": {
-        "command": "FILES=$(git diff --name-only --diff-filter=d main -- {projectRoot}/ | grep -E '{args.pattern}'); [ -z \"$FILES\" ] && echo 'No changed files.' || (npx oxlint -c {projectRoot}/.oxlintrc.json $FILES && (prettier --check $FILES || (echo 'ERROR: Prettier formatting check failed! Fix with: npx nx lint:diff-with-main --configuration=fix' && false)))",
+        "command": "FILES=$(git diff --name-only --diff-filter=d main -- {projectRoot}/ | grep -E '{args.pattern}'); [ -z \"$FILES\" ] && echo 'No changed files.' || (bunx oxlint -c {projectRoot}/.oxlintrc.json $FILES && (prettier --check $FILES || (echo 'ERROR: Prettier formatting check failed! Fix with: bunx nx lint:diff-with-main --configuration=fix' && false)))",
         "pattern": "\\.(ts|tsx|js|jsx)$"
       },
       "configurations": {
         "fix": {
-          "command": "FILES=$(git diff --name-only --diff-filter=d main -- {projectRoot}/ | grep -E '{args.pattern}'); [ -z \"$FILES\" ] && echo 'No changed files.' || (npx oxlint --fix -c {projectRoot}/.oxlintrc.json $FILES && prettier --write $FILES)"
+          "command": "FILES=$(git diff --name-only --diff-filter=d main -- {projectRoot}/ | grep -E '{args.pattern}'); [ -z \"$FILES\" ] && echo 'No changed files.' || (bunx oxlint --fix -c {projectRoot}/.oxlintrc.json $FILES && prettier --write $FILES)"
         }
       }
     },
@@ -94,11 +94,11 @@
       "cache": true,
       "options": {
         "cwd": "{projectRoot}",
-        "command": "tsgo -p tsconfig.json"
+        "command": "bunx tsc --noEmit -p tsconfig.json"
       },
       "configurations": {
         "watch": {
-          "command": "tsgo -p tsconfig.json --watch"
+          "command": "bunx tsc --noEmit -p tsconfig.json --watch"
         }
       },
       "dependsOn": ["^build"]
@@ -173,7 +173,7 @@
       "dependsOn": ["storybook:build"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "npx http-server {args.staticDir} -a={args.host} --port={args.port} --silent={args.silent}",
+        "command": "bunx http-server {args.staticDir} -a={args.host} --port={args.port} --silent={args.silent}",
         "staticDir": "storybook-static",
         "host": "localhost",
         "port": 6006,
@@ -213,7 +213,7 @@
         "!{projectRoot}/coverage/storybook/coverage-storybook.json"
       ],
       "options": {
-        "command": "npx nyc report --reporter={args.reporter} --reporter=text-summary -t {args.coverageDir} --report-dir {args.coverageDir} --check-coverage={args.checkCoverage} --cwd={projectRoot}",
+        "command": "bunx nyc report --reporter={args.reporter} --reporter=text-summary -t {args.coverageDir} --report-dir {args.coverageDir} --check-coverage={args.checkCoverage} --cwd={projectRoot}",
         "coverageDir": "coverage/storybook",
         "reporter": "lcov",
         "checkCoverage": true

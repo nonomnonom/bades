@@ -43,27 +43,27 @@ const SettingsNewObject = lazy(() =>
 );
 
 const SettingsNewImapSmtpCaldavConnection = lazy(() =>
-  import(
-    '@/settings/accounts/components/SettingsAccountsNewImapSmtpCaldavConnection'
-  ).then((module) => ({
-    default: module.SettingsAccountsNewImapSmtpCaldavConnection,
-  })),
+  import('@/settings/accounts/components/SettingsAccountsNewImapSmtpCaldavConnection').then(
+    (module) => ({
+      default: module.SettingsAccountsNewImapSmtpCaldavConnection,
+    }),
+  ),
 );
 
 const SettingsEditImapSmtpCaldavConnection = lazy(() =>
-  import(
-    '@/settings/accounts/components/SettingsAccountsEditImapSmtpCaldavConnection'
-  ).then((module) => ({
-    default: module.SettingsAccountsEditImapSmtpCaldavConnection,
-  })),
+  import('@/settings/accounts/components/SettingsAccountsEditImapSmtpCaldavConnection').then(
+    (module) => ({
+      default: module.SettingsAccountsEditImapSmtpCaldavConnection,
+    }),
+  ),
 );
 
 const SettingsNewEmailGroupChannel = lazy(() =>
-  import(
-    '@/settings/accounts/components/SettingsAccountsNewEmailGroupChannel'
-  ).then((module) => ({
-    default: module.SettingsAccountsNewEmailGroupChannel,
-  })),
+  import('@/settings/accounts/components/SettingsAccountsNewEmailGroupChannel').then(
+    (module) => ({
+      default: module.SettingsAccountsNewEmailGroupChannel,
+    }),
+  ),
 );
 
 const SettingsObjectDetailPage = lazy(() =>
@@ -97,11 +97,11 @@ const SettingsWorkspace = lazy(() =>
 );
 
 const SettingsWorkspaceEmailGroupChannelDetail = lazy(() =>
-  import(
-    '~/pages/settings/workspace/SettingsWorkspaceEmailGroupChannelDetail'
-  ).then((module) => ({
-    default: module.SettingsWorkspaceEmailGroupChannelDetail,
-  })),
+  import('~/pages/settings/workspace/SettingsWorkspaceEmailGroupChannelDetail').then(
+    (module) => ({
+      default: module.SettingsWorkspaceEmailGroupChannelDetail,
+    }),
+  ),
 );
 
 const SettingsSubdomainPage = lazy(() =>
@@ -153,27 +153,27 @@ const SettingsApplicationDetails = lazy(() =>
 );
 
 const SettingsApplicationConnectionDetail = lazy(() =>
-  import(
-    '~/pages/settings/applications/SettingsApplicationConnectionDetail'
-  ).then((module) => ({
-    default: module.SettingsApplicationConnectionDetail,
-  })),
+  import('~/pages/settings/applications/SettingsApplicationConnectionDetail').then(
+    (module) => ({
+      default: module.SettingsApplicationConnectionDetail,
+    }),
+  ),
 );
 
 const SettingsApplicationFrontComponentDetail = lazy(() =>
-  import(
-    '~/pages/settings/applications/SettingsApplicationFrontComponentDetail'
-  ).then((module) => ({
-    default: module.SettingsApplicationFrontComponentDetail,
-  })),
+  import('~/pages/settings/applications/SettingsApplicationFrontComponentDetail').then(
+    (module) => ({
+      default: module.SettingsApplicationFrontComponentDetail,
+    }),
+  ),
 );
 
 const SettingsApplicationCommandMenuItemDetail = lazy(() =>
-  import(
-    '~/pages/settings/applications/SettingsApplicationCommandMenuItemDetail'
-  ).then((module) => ({
-    default: module.SettingsApplicationCommandMenuItemDetail,
-  })),
+  import('~/pages/settings/applications/SettingsApplicationCommandMenuItemDetail').then(
+    (module) => ({
+      default: module.SettingsApplicationCommandMenuItemDetail,
+    }),
+  ),
 );
 
 const SettingsLayoutViewDetail = lazy(() =>
@@ -191,35 +191,35 @@ const SettingsLayoutPageLayoutDetail = lazy(() =>
 );
 
 const SettingsAdminApplicationRegistrationDetail = lazy(() =>
-  import(
-    '~/pages/settings/admin-panel/SettingsAdminApplicationRegistrationDetail'
-  ).then((module) => ({
-    default: module.SettingsAdminApplicationRegistrationDetail,
-  })),
+  import('~/pages/settings/admin-panel/SettingsAdminApplicationRegistrationDetail').then(
+    (module) => ({
+      default: module.SettingsAdminApplicationRegistrationDetail,
+    }),
+  ),
 );
 
 const SettingsAvailableApplicationDetails = lazy(() =>
-  import(
-    '~/pages/settings/applications/SettingsAvailableApplicationDetails'
-  ).then((module) => ({
-    default: module.SettingsAvailableApplicationDetails,
-  })),
+  import('~/pages/settings/applications/SettingsAvailableApplicationDetails').then(
+    (module) => ({
+      default: module.SettingsAvailableApplicationDetails,
+    }),
+  ),
 );
 
 const SettingsApplicationRegistrationDetails = lazy(() =>
-  import(
-    '~/pages/settings/applications/SettingsApplicationRegistrationDetails'
-  ).then((module) => ({
-    default: module.SettingsApplicationRegistrationDetails,
-  })),
+  import('~/pages/settings/applications/SettingsApplicationRegistrationDetails').then(
+    (module) => ({
+      default: module.SettingsApplicationRegistrationDetails,
+    }),
+  ),
 );
 
 const SettingsApplicationRegistrationConfigVariableDetail = lazy(() =>
-  import(
-    '~/pages/settings/applications/components/SettingsApplicationRegistrationConfigVariableDetail'
-  ).then((module) => ({
-    default: module.SettingsApplicationRegistrationConfigVariableDetail,
-  })),
+  import('~/pages/settings/applications/components/SettingsApplicationRegistrationConfigVariableDetail').then(
+    (module) => ({
+      default: module.SettingsApplicationRegistrationConfigVariableDetail,
+    }),
+  ),
 );
 
 const SettingsAgentForm = lazy(() =>
@@ -275,11 +275,11 @@ const SettingsTwoFactorAuthenticationMethod = lazy(() =>
 );
 
 const SettingsExperience = lazy(() =>
-  import(
-    '~/pages/settings/profile/appearance/components/SettingsExperience'
-  ).then((module) => ({
-    default: module.SettingsExperience,
-  })),
+  import('~/pages/settings/profile/appearance/components/SettingsExperience').then(
+    (module) => ({
+      default: module.SettingsExperience,
+    }),
+  ),
 );
 
 const SettingsAccounts = lazy(() =>
@@ -313,19 +313,19 @@ const SettingsObjects = lazy(() =>
 );
 
 const SettingsObjectNewFieldSelect = lazy(() =>
-  import(
-    '~/pages/settings/data-model/new-field/SettingsObjectNewFieldSelect'
-  ).then((module) => ({
-    default: module.SettingsObjectNewFieldSelect,
-  })),
+  import('~/pages/settings/data-model/new-field/SettingsObjectNewFieldSelect').then(
+    (module) => ({
+      default: module.SettingsObjectNewFieldSelect,
+    }),
+  ),
 );
 
 const SettingsObjectNewFieldConfigure = lazy(() =>
-  import(
-    '~/pages/settings/data-model/new-field/SettingsObjectNewFieldConfigure'
-  ).then((module) => ({
-    default: module.SettingsObjectNewFieldConfigure,
-  })),
+  import('~/pages/settings/data-model/new-field/SettingsObjectNewFieldConfigure').then(
+    (module) => ({
+      default: module.SettingsObjectNewFieldConfigure,
+    }),
+  ),
 );
 const SettingsObjectFieldEdit = lazy(() =>
   import('~/pages/settings/data-model/SettingsObjectFieldEdit').then(
@@ -388,11 +388,11 @@ const SettingsAdmin = lazy(() =>
 );
 
 const SettingsAdminIndicatorHealthStatus = lazy(() =>
-  import(
-    '~/pages/settings/admin-panel/SettingsAdminIndicatorHealthStatus'
-  ).then((module) => ({
-    default: module.SettingsAdminIndicatorHealthStatus,
-  })),
+  import('~/pages/settings/admin-panel/SettingsAdminIndicatorHealthStatus').then(
+    (module) => ({
+      default: module.SettingsAdminIndicatorHealthStatus,
+    }),
+  ),
 );
 
 const SettingsAdminInferredVersion = lazy(() =>
@@ -428,11 +428,11 @@ const SettingsAdminQueueDetail = lazy(() =>
 );
 
 const SettingsAdminConfigVariableDetails = lazy(() =>
-  import(
-    '~/pages/settings/admin-panel/SettingsAdminConfigVariableDetails'
-  ).then((module) => ({
-    default: module.SettingsAdminConfigVariableDetails,
-  })),
+  import('~/pages/settings/admin-panel/SettingsAdminConfigVariableDetails').then(
+    (module) => ({
+      default: module.SettingsAdminConfigVariableDetails,
+    }),
+  ),
 );
 
 const SettingsAdminNewAiProvider = lazy(() =>

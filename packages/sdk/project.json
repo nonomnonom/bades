@@ -14,9 +14,9 @@
       "options": {
         "cwd": "{projectRoot}",
         "commands": [
-          "npx rimraf dist && npx vite build -c vite.config.node.ts && npx vite build -c vite.config.define.ts && npx vite build -c vite.config.billing.ts && npx vite build -c vite.config.front-component.ts && npx vite build -c vite.config.logic-function.ts && npx vite build -c vite.config.utils.ts && npx vite build -c vite.config.browser.ts",
-          "tsgo -p tsconfig.lib.json --declaration --emitDeclarationOnly --noEmit false --outDir dist --rootDir src && npx tsc-alias -p tsconfig.lib.json --outDir dist",
-          "npx rimraf --glob \"dist/sdk\" \"dist/define/**/*.d.ts\" \"dist/define/**/*.d.ts.map\" \"dist/billing/**/*.d.ts\" \"dist/billing/**/*.d.ts.map\" \"dist/front-component/**/*.d.ts\" \"dist/front-component/**/*.d.ts.map\" \"dist/logic-function/**/*.d.ts\" \"dist/logic-function/**/*.d.ts.map\" \"dist/utils/**/*.d.ts\" \"dist/utils/**/*.d.ts.map\" && npx rollup -c rollup.config.sdk-dts.mjs"
+          "bunx rimraf dist && bunx vite build -c vite.config.node.ts && bunx vite build -c vite.config.define.ts && bunx vite build -c vite.config.billing.ts && bunx vite build -c vite.config.front-component.ts && bunx vite build -c vite.config.logic-function.ts && bunx vite build -c vite.config.utils.ts && bunx vite build -c vite.config.browser.ts",
+          "bunx tsc -p tsconfig.lib.json --declaration --emitDeclarationOnly --noEmit false --outDir dist --rootDir src && bunx tsc-alias -p tsconfig.lib.json --outDir dist",
+          "bunx rimraf --glob \"dist/sdk\" \"dist/define/**/*.d.ts\" \"dist/define/**/*.d.ts.map\" \"dist/billing/**/*.d.ts\" \"dist/billing/**/*.d.ts.map\" \"dist/front-component/**/*.d.ts\" \"dist/front-component/**/*.d.ts.map\" \"dist/logic-function/**/*.d.ts\" \"dist/logic-function/**/*.d.ts.map\" \"dist/utils/**/*.d.ts\" \"dist/utils/**/*.d.ts.map\" && bunx rollup -c rollup.config.sdk-dts.mjs"
         ],
         "parallel": false
       }
@@ -26,7 +26,7 @@
       "dependsOn": ["^build"],
       "options": {
         "cwd": "packages/sdk",
-        "command": "npx rimraf dist && npx vite build -c vite.config.node.ts && npx vite build -c vite.config.define.ts && npx vite build -c vite.config.billing.ts && npx vite build -c vite.config.front-component.ts && npx vite build -c vite.config.logic-function.ts && npx vite build -c vite.config.utils.ts && npx vite build -c vite.config.browser.ts && tsgo -p tsconfig.lib.json --declaration --emitDeclarationOnly --noEmit false --outDir dist --rootDir src && npx tsc-alias -p tsconfig.lib.json --outDir dist && npx rimraf --glob \"dist/sdk\" \"dist/define/**/*.d.ts\" \"dist/define/**/*.d.ts.map\" \"dist/billing/**/*.d.ts\" \"dist/billing/**/*.d.ts.map\" \"dist/front-component/**/*.d.ts\" \"dist/front-component/**/*.d.ts.map\" \"dist/logic-function/**/*.d.ts\" \"dist/logic-function/**/*.d.ts.map\" \"dist/utils/**/*.d.ts\" \"dist/utils/**/*.d.ts.map\" && npx rollup -c rollup.config.sdk-dts.mjs && npx vite build -c vite.config.node.ts --watch & npx vite build -c vite.config.define.ts --watch & npx vite build -c vite.config.billing.ts --watch & npx vite build -c vite.config.front-component.ts --watch & npx vite build -c vite.config.logic-function.ts --watch & npx vite build -c vite.config.utils.ts --watch & npx vite build -c vite.config.browser.ts --watch"
+        "command": "bunx rimraf dist && bunx vite build -c vite.config.node.ts && bunx vite build -c vite.config.define.ts && bunx vite build -c vite.config.billing.ts && bunx vite build -c vite.config.front-component.ts && bunx vite build -c vite.config.logic-function.ts && bunx vite build -c vite.config.utils.ts && bunx vite build -c vite.config.browser.ts && bunx tsc -p tsconfig.lib.json --declaration --emitDeclarationOnly --noEmit false --outDir dist --rootDir src && bunx tsc-alias -p tsconfig.lib.json --outDir dist && bunx rimraf --glob \"dist/sdk\" \"dist/define/**/*.d.ts\" \"dist/define/**/*.d.ts.map\" \"dist/billing/**/*.d.ts\" \"dist/billing/**/*.d.ts.map\" \"dist/front-component/**/*.d.ts\" \"dist/front-component/**/*.d.ts.map\" \"dist/logic-function/**/*.d.ts\" \"dist/logic-function/**/*.d.ts.map\" \"dist/utils/**/*.d.ts\" \"dist/utils/**/*.d.ts.map\" && bunx rollup -c rollup.config.sdk-dts.mjs && bunx vite build -c vite.config.node.ts --watch & bunx vite build -c vite.config.define.ts --watch & bunx vite build -c vite.config.billing.ts --watch & bunx vite build -c vite.config.front-component.ts --watch & bunx vite build -c vite.config.logic-function.ts --watch & bunx vite build -c vite.config.utils.ts --watch & bunx vite build -c vite.config.browser.ts --watch"
       }
     },
     "set-local-version": {},
@@ -49,21 +49,21 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/sdk",
-        "command": "npx vitest run --config vitest.unit.config.ts"
+        "command": "bunx vitest run --config vitest.unit.config.ts"
       }
     },
     "test:integration": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/sdk",
-        "command": "npx vitest run --config vitest.integration.config.ts"
+        "command": "bunx vitest run --config vitest.integration.config.ts"
       }
     },
     "test:e2e": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/sdk",
-        "command": "npx wait-on http://localhost:3000/healthz --timeout 600000 --interval 1000 --log && NODE_ENV=test npx vitest run --config ./vitest.e2e.config.ts"
+        "command": "bunx wait-on http://localhost:3000/healthz --timeout 600000 --interval 1000 --log && NODE_ENV=test bunx vitest run --config ./vitest.e2e.config.ts"
       },
       "parallel": false,
       "dependsOn": [
@@ -91,7 +91,7 @@
       ],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "npx vite build -c vite.config.define.ts && npx vite build -c vite.config.front-component.ts && npx vite build -c vite.config.logic-function.ts && npx vite build -c vite.config.utils.ts && npx rollup -c rollup.config.sdk-dts.mjs"
+        "command": "bunx vite build -c vite.config.define.ts && bunx vite build -c vite.config.front-component.ts && bunx vite build -c vite.config.logic-function.ts && bunx vite build -c vite.config.utils.ts && bunx rollup -c rollup.config.sdk-dts.mjs"
       }
     }
   }

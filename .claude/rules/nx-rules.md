@@ -11,24 +11,24 @@ paths:
 
 ```bash
 # Frontend
-npx nx start front
-npx nx build front
-npx nx test front
-npx nx lint front
-npx nx lint:diff-with-main front
+bunx nx start front
+bunx nx build front
+bunx nx test front
+bunx nx lint front
+bunx nx lint:diff-with-main front
 
 # Backend
-npx nx start server
-npx nx run server:worker
-npx nx build server
-npx nx test server
-npx nx run server:test:integration:with-db-reset
-npx nx lint server
-npx nx lint:diff-with-main server
+bunx nx start server
+bunx nx run server:worker
+bunx nx build server
+bunx nx test server
+bunx nx run server:test:integration:with-db-reset
+bunx nx lint server
+bunx nx lint:diff-with-main server
 
 # Shared packages
-npx nx build shared
-npx nx build ui
+bunx nx build shared
+bunx nx build ui
 ```
 
 ## Preferred Workflow

@@ -15,9 +15,7 @@ import {
 } from 'src/modules/blocklist/blocklist-validation-manager/services/blocklist-validation.service';
 
 @WorkspaceQueryHook(`blocklist.createOne`)
-export class BlocklistCreateOnePreQueryHook
-  implements WorkspacePreQueryHookInstance
-{
+export class BlocklistCreateOnePreQueryHook implements WorkspacePreQueryHookInstance {
   constructor(
     private readonly blocklistValidationService: BlocklistValidationService,
   ) {}

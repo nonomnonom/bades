@@ -9,10 +9,8 @@ import { CoreObjectNameSingular } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { Avatar } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
-import {
-  MessageChannelVisibility,
-  type TimelineThread,
-} from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
+import { type TimelineThread } from '~/generated/graphql';
 import { formatToHumanReadableDate } from '~/utils/date-utils';
 
 const StyledHeading = styled.div<{ unread: boolean }>`
@@ -121,8 +119,9 @@ export const EmailThreadPreview = ({ thread }: EmailThreadPreviewProps) => {
             avatarUrl={thread?.firstParticipant?.avatarUrl}
             placeholder={thread.firstParticipant.displayName}
             placeholderColorSeed={
-              thread.firstParticipant.workspaceMemberId ||
-              thread.firstParticipant.personId
+              thread.firstParticipant.workspaceMemberId ??
+              thread.firstParticipant.personId ??
+              undefined
             }
             type="rounded"
           />
@@ -132,8 +131,9 @@ export const EmailThreadPreview = ({ thread }: EmailThreadPreviewProps) => {
                 avatarUrl={thread.lastTwoParticipants[0].avatarUrl}
                 placeholder={thread.lastTwoParticipants[0].displayName}
                 placeholderColorSeed={
-                  thread.lastTwoParticipants[0].workspaceMemberId ||
-                  thread.lastTwoParticipants[0].personId
+                  thread.lastTwoParticipants[0].workspaceMemberId ??
+                  thread.lastTwoParticipants[0].personId ??
+                  undefined
                 }
                 type="rounded"
               />

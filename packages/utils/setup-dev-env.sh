@@ -227,9 +227,9 @@ ok "Databases 'default' and 'test' ready"
 info "Setting up .env files..."
 cd "$REPO_ROOT"
 
-if command -v npx &>/dev/null && [ -d node_modules ]; then
-  npx nx run front:reset:env
-  npx nx run server:reset:env
+if command -v bunx &>/dev/null && [ -d node_modules ]; then
+  bunx nx run front:reset:env
+  bunx nx run server:reset:env
 else
   for pkg in front server; do
     src="packages/$pkg/.env.example"
@@ -245,7 +245,7 @@ fi
 echo ""
 echo "Dev environment ready."
 echo ""
-echo "  yarn start                         # start everything"
-echo "  npx nx start front                 # frontend  -> http://localhost:3001"
-echo "  npx nx start server                # backend   -> http://localhost:3000"
+echo "  bun start                          # start everything"
+echo "  bunx nx start front                 # frontend  -> http://localhost:3001"
+echo "  bunx nx start server                # backend   -> http://localhost:3000"
 echo ""

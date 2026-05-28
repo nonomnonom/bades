@@ -11,13 +11,15 @@ import { H2Title, IconBriefcase, IconUsers } from 'ui/display';
 import { Card, Section } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
 
-import { type MessageChannel } from '@/accounts/types/MessageChannel';
+import {
+  type MessageChannel,
+  type MessageChannelVisibility,
+} from '@/accounts/types/MessageChannel';
 import { SettingsAccountsMessageAutoCreationCard } from '@/settings/accounts/components/SettingsAccountsMessageAutoCreationCard';
 import { SettingsAccountsMessageFolderCard } from '@/settings/accounts/components/SettingsAccountsMessageFolderCard';
 import { SettingsAccountsMessageVisibilityCard } from '@/settings/accounts/components/SettingsAccountsMessageVisibilityCard';
 import { UPDATE_MESSAGE_CHANNEL } from '@/settings/accounts/graphql/mutations/updateMessageChannel';
 import { SettingsOptionCardContentToggle } from '@/settings/components/SettingsOptions/SettingsOptionCardContentToggle';
-import { type MessageChannelVisibility } from '~/generated/graphql';
 
 type SettingsAccountsMessageChannelDetailsProps = {
   messageChannel: Pick<

@@ -65,7 +65,9 @@ class SsrfSafeHttpAgent extends http.Agent {
   ): Duplex {
     validateHost(options.host ?? undefined);
 
-    return attachLookupValidation(super.createConnection(options, callback));
+    return attachLookupValidation(
+      super.createConnection(options, callback) as Duplex,
+    );
   }
 }
 
@@ -76,7 +78,9 @@ class SsrfSafeHttpsAgent extends https.Agent {
   ): Duplex {
     validateHost(options.host ?? undefined);
 
-    return attachLookupValidation(super.createConnection(options, callback));
+    return attachLookupValidation(
+      super.createConnection(options, callback) as Duplex,
+    );
   }
 }
 

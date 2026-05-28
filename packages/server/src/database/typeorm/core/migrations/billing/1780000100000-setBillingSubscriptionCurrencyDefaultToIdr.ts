@@ -16,9 +16,7 @@ import { type MigrationInterface, type QueryRunner } from 'typeorm';
  * - ALTER COLUMN SET DEFAULT aman: tidak mengubah data existing, hanya value
  *   default untuk INSERT baru.
  */
-export class SetBillingSubscriptionCurrencyDefaultToIdr1780000100000
-  implements MigrationInterface
-{
+export class SetBillingSubscriptionCurrencyDefaultToIdr1780000100000 implements MigrationInterface {
   name = 'SetBillingSubscriptionCurrencyDefaultToIdr1780000100000';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

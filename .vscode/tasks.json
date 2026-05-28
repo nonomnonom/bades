@@ -4,7 +4,7 @@
 		{
 			"label": "server - run integration test file",
 			"type": "shell",
-			"command": "npx nx run server:jest -- --config ./jest-integration.config.ts ${relativeFile} --silent=false ${input:watchMode} ${input:updateSnapshot}",
+			"command": "bunx nx run server:jest -- --config ./jest-integration.config.ts ${relativeFile} --silent=false ${input:watchMode} ${input:updateSnapshot}",
 			"options": {
 				"cwd": "${workspaceFolder}/packages/server",
 				"env": {
@@ -26,7 +26,7 @@
 		{
 			"label": "server - run unit test file",
 			"type": "shell",
-			"command": "npx nx run server:jest -- --config ./jest.config.mjs ${relativeFile} --silent=false ${input:watchMode} ${input:updateSnapshot}",
+			"command": "bunx nx run server:jest -- --config ./jest.config.mjs ${relativeFile} --silent=false ${input:watchMode} ${input:updateSnapshot}",
 			"options": {
 				"cwd": "${workspaceFolder}/packages/server",
 				"env": {

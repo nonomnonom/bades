@@ -598,3 +598,93 @@ export const WorkflowStepConnectedAccountHandleDocument = {"kind":"Document","de
 export const SubmitFormStepDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SubmitFormStep"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SubmitFormStepInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"submitFormStep"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<SubmitFormStepMutation, SubmitFormStepMutationVariables>;
 export const TestHttpRequestDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"TestHttpRequest"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"TestHttpRequestInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"testHttpRequest"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"result"}},{"kind":"Field","name":{"kind":"Name","value":"error"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"statusText"}},{"kind":"Field","name":{"kind":"Name","value":"headers"}}]}}]}}]} as unknown as DocumentNode<TestHttpRequestMutation, TestHttpRequestMutationVariables>;
 export const UpdateWorkflowVersionPositionsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateWorkflowVersionPositions"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateWorkflowVersionPositionsInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateWorkflowVersionPositions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<UpdateWorkflowVersionPositionsMutation, UpdateWorkflowVersionPositionsMutationVariables>;
+// =============================================================================
+// STUBS — type metadata di-remove dari schema GraphQL utama (commit 7f57dae5),
+// tetapi UI calendar events + message threads + AI model family masih hidup.
+// Definisi di sini menjaga frontend tetap kompil. Hapus saat fitur tersebut
+// benar-benar dibersihkan dari UI. Catatan: ini harus di-re-add manual setelah
+// `bunx nx run front:graphql:generate` sampai schema/cleanup selesai.
+// =============================================================================
+
+export enum CalendarChannelVisibility {
+  METADATA = 'METADATA',
+  SHARE_EVERYTHING = 'SHARE_EVERYTHING',
+}
+
+export enum MessageChannelVisibility {
+  METADATA = 'METADATA',
+  SUBJECT = 'SUBJECT',
+  SHARE_EVERYTHING = 'SHARE_EVERYTHING',
+}
+
+export type TimelineCalendarEventParticipant = {
+  __typename?: 'TimelineCalendarEventParticipant';
+  personId?: string | null;
+  workspaceMemberId?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  displayName: string;
+  avatarUrl?: string | null;
+  handle: string;
+};
+
+export type TimelineCalendarEvent = {
+  __typename?: 'TimelineCalendarEvent' | 'LinksMetadata' | 'LinkMetadata';
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  startsAt: string;
+  endsAt: string;
+  isFullDay: boolean;
+  isCanceled: boolean;
+  visibility: CalendarChannelVisibility;
+  conferenceSolution: string;
+  conferenceLink: {
+    __typename?: 'LinkMetadata' | 'LinksMetadata';
+    label?: string;
+    url?: string;
+    primaryLinkLabel?: string;
+    primaryLinkUrl?: string;
+    [key: string]: unknown;
+  };
+  participants: TimelineCalendarEventParticipant[];
+  [key: string]: unknown;
+};
+
+type TimelineThreadParticipantStub = {
+  __typename?: 'TimelineThreadParticipant';
+  handle: string;
+  displayName: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  avatarUrl?: string | null;
+  workspaceMemberId?: string | null;
+  personId?: string | null;
+};
+
+export type TimelineThread = {
+  __typename?: 'TimelineThread';
+  id: string;
+  read: boolean;
+  visibility: MessageChannelVisibility;
+  lastMessageReceivedAt: string;
+  lastMessageBody: string;
+  subject: string;
+  numberOfMessagesInThread: number;
+  participantCount: number;
+  firstParticipant: TimelineThreadParticipantStub;
+  lastTwoParticipants: TimelineThreadParticipantStub[];
+  [key: string]: unknown;
+};
+
+export enum ModelFamily {
+  OPENAI = 'OPENAI',
+  ANTHROPIC = 'ANTHROPIC',
+  GOOGLE = 'GOOGLE',
+  MISTRAL = 'MISTRAL',
+  AZURE = 'AZURE',
+  XAI = 'XAI',
+  BEDROCK = 'BEDROCK',
+  OPENAI_COMPATIBLE = 'OPENAI_COMPATIBLE',
+}

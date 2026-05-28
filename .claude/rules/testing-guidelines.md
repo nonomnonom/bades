@@ -34,16 +34,16 @@ paths:
 
 ```bash
 # Frontend unit file
-npx jest packages/front/src/path/to/file.test.tsx --config=packages/front/jest.config.mjs
+bunx jest packages/front/src/path/to/file.test.tsx --config=packages/front/jest.config.mjs
 
 # Backend unit file
-npx jest packages/server/src/path/to/file.spec.ts --config=packages/server/jest.config.mjs
+bunx jest packages/server/src/path/to/file.spec.ts --config=packages/server/jest.config.mjs
 
 # Backend integration file or suite
-cd packages/server && npx jest test/integration/path/to/file.integration-spec.ts --config=./jest-integration.config.ts
+cd packages/server && bunx jest test/integration/path/to/file.integration-spec.ts --config=./jest-integration.config.ts
 
 # Package-level suites
-npx nx test front
-npx nx test server
-npx nx run server:test:integration:with-db-reset
+bunx nx test front
+bunx nx test server
+bunx nx run server:test:integration:with-db-reset
 ```

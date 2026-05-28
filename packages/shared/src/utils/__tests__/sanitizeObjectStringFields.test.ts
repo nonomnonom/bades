@@ -123,7 +123,10 @@ describe('extractAndSanitizeObjectStringFields', () => {
       context: {
         input: {
           obj: {
-            items: [{ name: '  Budi   Santoso  ' }, { name: '  Siti   Maryam  ' }],
+            items: [
+              { name: '  Budi   Santoso  ' },
+              { name: '  Siti   Maryam  ' },
+            ],
           },
           keys: ['items'],
         },

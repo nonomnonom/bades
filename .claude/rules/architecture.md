@@ -4,7 +4,7 @@
 
 - Frontend: React 18, TypeScript, Jotai, Linaria, Vite, Apollo Client
 - Backend: NestJS, TypeORM, PostgreSQL, Redis, GraphQL Yoga
-- Monorepo tooling: Nx + Yarn 4
+- Monorepo tooling: Nx + Bun 1.3+
 - Localization direction: single-language Bahasa Indonesia; sisa Lingui/i18n
   harus diperlakukan sebagai debt legacy jika masih ada di codebase
 

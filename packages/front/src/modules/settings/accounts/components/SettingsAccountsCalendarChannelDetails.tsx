@@ -1,4 +1,7 @@
-import { type CalendarChannel } from '@/accounts/types/CalendarChannel';
+import {
+  type CalendarChannel,
+  type CalendarChannelVisibility,
+} from '@/accounts/types/CalendarChannel';
 import { UPDATE_CALENDAR_CHANNEL } from '@/settings/accounts/graphql/mutations/updateCalendarChannel';
 import { useMutation } from '@apollo/client/react';
 import { SettingsAccountsEventVisibilitySettingsCard } from '@/settings/accounts/components/SettingsAccountsCalendarVisibilitySettingsCard';
@@ -9,7 +12,6 @@ import { Section } from '@react-email/components';
 import { H2Title, IconUserPlus } from 'ui/display';
 import { Card } from 'ui/layout';
 import { themeCssVariables } from 'ui/theme-constants';
-import { type CalendarChannelVisibility } from '~/generated/graphql';
 
 const StyledDetailsContainer = styled.div`
   display: flex;

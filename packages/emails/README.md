@@ -14,7 +14,7 @@ This package contains the email templates used by Bades.id.
 To start the local preview server for email development:
 
 ```bash
-npx nx start bades-emails
+bunx nx start bades-emails
 ```
 
 This will run the development server on port 4001. You can then view your email templates at [http://localhost:4001](http://localhost:4001).
@@ -24,7 +24,7 @@ This will run the development server on port 4001. You can then view your email 
 To build the email templates:
 
 ```bash
-npx nx build bades-emails
+bunx nx build bades-emails
 ```
 
 ## Email Structure

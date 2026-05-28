@@ -14,7 +14,7 @@ import { SubMenuTopBarContainer } from '@/ui/layout/page/components/SubMenuTopBa
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, type Resolver, useForm } from 'react-hook-form';
 import { useParams, useSearchParams } from 'react-router-dom';
 import {
   AppPath,
@@ -65,7 +65,7 @@ export const SettingsObjectNewFieldConfigure = () => {
         ),
         sourceObjectMetadataId: activeObjectMetadataItem?.id,
       }),
-    ),
+    ) as unknown as Resolver<SettingsDataModelNewFieldFormValues>,
     defaultValues: {
       type: fieldType,
       icon:

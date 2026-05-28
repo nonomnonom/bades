@@ -1,10 +1,10 @@
-import React from 'react';
+import { type ReactNode } from 'react';
 import { Text } from '@react-email/components';
 
 import { emailTheme } from 'src/common-style';
 
 type MainTextProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const mainTextStyle = {
@@ -16,5 +16,8 @@ const mainTextStyle = {
 };
 
 export const MainText = ({ children }: MainTextProps) => {
-  return <Text style={mainTextStyle}>{children}</Text>;
+  // Cast: konflik tipe React.ReactNode antara @react-email/components vs root
+  // @types/react karena Bun hoisted linker mereplikasi simbol identik di dua
+  // resolution path. Cast aman karena runtime sama persis.
+  return <Text style={mainTextStyle}>{children as never}</Text>;
 };

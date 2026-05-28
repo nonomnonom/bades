@@ -3,7 +3,7 @@ import { useLingui } from '~/utils/i18n/badesI18n';
 import { useContext } from 'react';
 import { AppTooltip, IconLock, TooltipDelay } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
-import { MessageChannelVisibility } from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 
 const StyledContainer = styled.div<{ isCompact?: boolean }>`
   align-items: center;

@@ -25,13 +25,13 @@ Testing is required before considering a new syncable entity done.
 
 ```bash
 # Single integration suite
-cd packages/server && npx jest test/integration/metadata/suites/my-entity --config=./jest-integration.config.ts
+cd packages/server && bunx jest test/integration/metadata/suites/my-entity --config=./jest-integration.config.ts
 
 # Single integration file
-cd packages/server && npx jest test/integration/metadata/suites/my-entity/failing-my-entity-creation.integration-spec.ts --config=./jest-integration.config.ts
+cd packages/server && bunx jest test/integration/metadata/suites/my-entity/failing-my-entity-creation.integration-spec.ts --config=./jest-integration.config.ts
 
 # Full integration run with DB reset
-npx nx run server:test:integration:with-db-reset
+bunx nx run server:test:integration:with-db-reset
 ```
 
 ## Principles

@@ -1,6 +1,6 @@
 import { msg } from '~/utils/i18n/badesI18n';
 
-import { MessageChannelVisibility } from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 
 type OnboardingEmailVisibilityProps = {
   metadata: 'active' | 'inactive';

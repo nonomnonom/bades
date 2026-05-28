@@ -7,7 +7,7 @@ import {
 } from 'shared/types';
 import { SettingsAccountsMessageChannelDetails } from '@/settings/accounts/components/SettingsAccountsMessageChannelDetails';
 import { ComponentDecorator } from 'ui/testing';
-import { MessageChannelVisibility } from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 import { ObjectMetadataItemsDecorator } from '~/testing/decorators/ObjectMetadataItemsDecorator';
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
 

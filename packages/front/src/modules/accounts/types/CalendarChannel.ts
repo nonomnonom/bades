@@ -3,7 +3,15 @@ import {
   type CalendarChannelSyncStage,
   type CalendarChannelSyncStatus,
 } from 'shared/types';
-import { type CalendarChannelVisibility } from '~/generated/graphql';
+
+// Enum kalender visibility — type metadata di-remove dari schema GraphQL
+// (commit 7f57dae5), tetapi UI calendar settings masih hidup. Definisi lokal
+// untuk menjaga komponen tetap kompil. Hapus saat fitur kalender benar-benar
+// dibersihkan.
+export enum CalendarChannelVisibility {
+  METADATA = 'METADATA',
+  SHARE_EVERYTHING = 'SHARE_EVERYTHING',
+}
 
 export type CalendarChannel = {
   id: string;

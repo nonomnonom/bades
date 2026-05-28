@@ -18,7 +18,7 @@ Gunakan skill `react-doctor` saat:
 - Untuk perubahan aktif, jalankan:
 
 ```bash
-npx react-doctor@latest --verbose --diff
+bunx react-doctor@latest --verbose --diff
 ```
 
 - Jika score turun atau muncul regression yang relevan, perbaiki dulu sebelum
@@ -30,7 +30,7 @@ npx react-doctor@latest --verbose --diff
   penuh:
 
 ```bash
-npx react-doctor@latest --verbose
+bunx react-doctor@latest --verbose
 ```
 
 ## Cara pakai rule ini

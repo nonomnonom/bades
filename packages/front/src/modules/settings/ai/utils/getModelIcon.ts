@@ -4,10 +4,8 @@ import { MODEL_ICON_CONFIG } from '@/settings/admin-panel/ai/constants/ModelIcon
 import { getProviderIcon } from '@/settings/admin-panel/ai/utils/getProviderIcon';
 import { isModelIconKey } from '@/settings/admin-panel/ai/utils/isModelIconKey';
 
-import { type ModelFamily } from '~/generated-metadata/graphql';
-
 export const getModelIcon = (
-  modelFamily: ModelFamily | null | undefined,
+  modelFamily: string | null | undefined,
   providerName?: string | null,
 ): IconComponent => {
   if (modelFamily && isModelIconKey(modelFamily)) {

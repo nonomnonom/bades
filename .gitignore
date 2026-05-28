@@ -20,21 +20,16 @@ packages/*/.claude/
 **/**/node_modules/
 .cache
 
-# yarn is the recommended package manager across the project
+# bun is the package manager across the project
 **/**/.package-lock.json
+**/**/.yarn-lock.json
 
 .nx/installation
 .nx/cache
 .nx/workspace-data
 .nx/nxw.js
 
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+node_modules/.bun/
 .vercel
 .swc
 

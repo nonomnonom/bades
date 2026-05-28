@@ -14,10 +14,10 @@ Reference: `packages/server/docs/UPGRADE_COMMANDS.md`
 ## Key Commands
 
 ```bash
-npx nx run server:database:migrate
-npx nx run server:database:init
-npx nx run server:database:reset
-npx nx run server:database:migrate:generate --name <name> --type <fast|slow>
+bunx nx run server:database:migrate
+bunx nx run server:database:init
+bunx nx run server:database:reset
+bunx nx run server:database:migrate:generate --name <name> --type <fast|slow>
 ```
 
 ## Rules

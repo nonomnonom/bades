@@ -3,7 +3,7 @@ import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/component
 import { SettingsAccountsVisibilityIcon } from '@/settings/accounts/components/SettingsAccountsVisibilityIcon';
 import { styled } from '@linaria/react';
 import { themeCssVariables } from 'ui/theme-constants';
-import { MessageChannelVisibility } from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 
 type OnboardingSyncEmailsSettingsCardProps = {
   onChange: (nextValue: MessageChannelVisibility) => void;

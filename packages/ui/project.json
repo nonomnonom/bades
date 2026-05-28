@@ -65,7 +65,7 @@
       "outputs": ["{projectRoot}/dist/individual"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "npx vite build -c vite.config.individual.ts"
+        "command": "bunx vite build -c vite.config.individual.ts"
       }
     },
     "clean": {

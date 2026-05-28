@@ -11,7 +11,7 @@ import { FIELD_RESTRICTED_ADDITIONAL_PERMISSIONS_REQUIRED } from 'shared/constan
 import { MessageParticipantRole } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { themeCssVariables } from 'ui/theme-constants';
-import { MessageChannelVisibility } from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 
 const StyledThreadMessage = styled.div<{ hideBottomBorder?: boolean }>`
   border-bottom: ${({ hideBottomBorder }) =>

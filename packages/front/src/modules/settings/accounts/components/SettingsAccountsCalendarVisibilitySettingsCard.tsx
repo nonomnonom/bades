@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
 import { SettingsAccountsVisibilityIcon } from '@/settings/accounts/components/SettingsAccountsVisibilityIcon';
 import { msg } from '~/utils/i18n/badesI18n';
-import { CalendarChannelVisibility } from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
 import { themeCssVariables } from 'ui/theme-constants';
 
 type SettingsAccountsEventVisibilitySettingsCardProps = {

@@ -12,8 +12,8 @@
       "options": {
         "cwd": "{projectRoot}",
         "commands": [
-          "npx vite build",
-          "tsgo -p tsconfig.lib.json --declaration --emitDeclarationOnly --outDir dist --rootDir src --composite false && npx tsc-alias -p tsconfig.lib.json --outDir dist"
+          "bunx vite build",
+          "bunx tsc -p tsconfig.lib.json --declaration --emitDeclarationOnly --outDir dist --rootDir src --composite false && bunx tsc-alias -p tsconfig.lib.json --outDir dist"
         ],
         "parallel": false
       },

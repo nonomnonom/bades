@@ -17,7 +17,7 @@ This file tracks what was lost or temporarily disabled during the ESLint to Oxli
 
 | Rule | Violations Fixed | Method |
 |------|-----------------|--------|
-| `bades/sort-css-properties-alphabetically` | 578 | Auto-fix via `npx nx lint front --configuration=fix` |
+| `bades/sort-css-properties-alphabetically` | 578 | Auto-fix via `bunx nx lint front --configuration=fix` |
 
 ## Dropped Plugins (No Oxlint Equivalent)
 

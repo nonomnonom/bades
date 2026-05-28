@@ -7,7 +7,7 @@ services:
       - server-local-data:/app/packages/server/.local-storage
       # Override AI provider config tanpa rebuild image (dev local).
       # Hapus block ini begitu image GHCR sudah berisi model terbaru.
-      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
+      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/src/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
     ports:
       - "${SERVER_PORT:-3000}:3000"
     environment:
@@ -77,8 +77,8 @@ services:
     image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
-      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
-    command: ["yarn", "worker:prod"]
+      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/src/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
+    command: ["node", "dist/src/queue-worker/queue-worker"]
     environment:
       PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default
       SERVER_URL: ${SERVER_URL}

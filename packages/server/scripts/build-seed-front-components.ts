@@ -1,7 +1,7 @@
 // Script to build seed front component .tsx files into .mjs using the same
 // esbuild pipeline as the sdk CLI (Remote DOM + JSX wrapping).
 //
-// Usage: npx tsx scripts/build-seed-front-components.ts
+// Usage: bunx tsx scripts/build-seed-front-components.ts
 
 import * as esbuild from 'esbuild';
 import { join, resolve } from 'path';

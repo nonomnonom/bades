@@ -19,9 +19,9 @@ A CLI and SDK to develop, build, and publish applications that extend [Bades.id]
 The recommended way to start is with [create-bades-app](https://www.npmjs.com/package/create-bades-app):
 
 ```bash
-npx create-bades-app@latest my-bades-app
+bunx create-bades-app@latest my-bades-app
 cd my-bades-app
-yarn bades dev
+bun bades dev
 ```
 
 ## Documentation
@@ -59,8 +59,8 @@ The CLI stores credentials per remote in `~/.bades/config.json`. Run `yarn bades
 ## Troubleshooting
 
 - Auth errors: run `yarn bades remote:add` to re-authenticate.
-- Typings out of date: restart `yarn bades dev` to refresh the client and types.
-- Not seeing changes in dev: make sure dev mode is running (`yarn bades dev`).
+- Typings out of date: restart `bun bades dev` to refresh the client and types.
+- Not seeing changes in dev: make sure dev mode is running (`bun bades dev`).
 
 ## Contributing
 
@@ -69,25 +69,25 @@ The CLI stores credentials per remote in `~/.bades/config.json`. Run `yarn bades
 ```bash
 git clone https://github.com/bades-id/bades.git
 cd bades
-yarn install
+bun install
 ```
 
 ### Development mode
 
 ```bash
-npx nx run bades-sdk:dev
+bunx nx run bades-sdk:dev
 ```
 
 ### Production build
 
 ```bash
-npx nx run bades-sdk:build
+bunx nx run bades-sdk:build
 ```
 
 ### Running the CLI locally
 
 ```bash
-npx nx run bades-sdk:start -- <command>
+bunx nx run bades-sdk:start -- <command>
 ```
 
 ### Resources

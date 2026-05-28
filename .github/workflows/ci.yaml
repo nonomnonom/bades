@@ -24,28 +24,28 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Yarn install
-        uses: ./.github/actions/yarn-install
+      - name: Install dependencies
+        uses: ./.github/actions/bun-install
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Build shared
-        run: npx nx build shared
+        run: bunx nx build shared
 
       - name: Build ui
-        run: npx nx build ui
+        run: bunx nx build ui
 
       - name: Build sdk
-        run: npx nx build sdk
+        run: bunx nx build sdk
 
       - name: Build server
-        run: npx nx build server
+        run: bunx nx build server
 
       - name: Build front
-        run: npx nx build front
+        run: bunx nx build front
 
       - name: Build emails
-        run: npx nx build emails
+        run: bunx nx build emails
 
   lint:
     name: Lint
@@ -54,25 +54,25 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Yarn install
-        uses: ./.github/actions/yarn-install
+      - name: Install dependencies
+        uses: ./.github/actions/bun-install
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Build oxlint-rules plugin
-        run: npx nx build oxlint-rules
+        run: bunx nx build oxlint-rules
 
       - name: Lint server
-        run: npx nx lint server
+        run: bunx nx lint server
 
       - name: Lint front
-        run: npx nx lint front
+        run: bunx nx lint front
 
       - name: Format check server
-        run: npx nx fmt server
+        run: bunx nx fmt server
 
       - name: Format check front
-        run: npx nx fmt front
+        run: bunx nx fmt front
 
   typecheck:
     name: Typecheck
@@ -81,19 +81,19 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Yarn install
-        uses: ./.github/actions/yarn-install
+      - name: Install dependencies
+        uses: ./.github/actions/bun-install
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Typecheck shared
-        run: npx nx typecheck shared
+        run: bunx nx typecheck shared
 
       - name: Typecheck server
-        run: npx nx typecheck server
+        run: bunx nx typecheck server
 
       - name: Typecheck front
-        run: npx nx typecheck front
+        run: bunx nx typecheck front
 
   test:
     name: Unit tests
@@ -113,19 +113,19 @@ jobs:
           sudo locale-gen id_ID.UTF-8
           sudo update-locale LANG=id_ID.UTF-8 LC_ALL=id_ID.UTF-8
 
-      - name: Yarn install
-        uses: ./.github/actions/yarn-install
+      - name: Install dependencies
+        uses: ./.github/actions/bun-install
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Build shared
-        run: npx nx build shared
+        run: bunx nx build shared
 
       - name: Test server (unit)
-        run: npx nx test server
+        run: bunx nx test server
 
       - name: Test front (unit)
-        run: npx nx test front
+        run: bunx nx test front
 
   integration-test:
     name: Integration tests (server)
@@ -169,18 +169,18 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Yarn install
-        uses: ./.github/actions/yarn-install
+      - name: Install dependencies
+        uses: ./.github/actions/bun-install
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Build shared and emails
         run: |
-          npx nx build shared
-          npx nx build emails
+          bunx nx build shared
+          bunx nx build emails
 
       - name: Build server
-        run: npx nx build server
+        run: bunx nx build server
 
       - name: Prepare .env.test for integration tests
         working-directory: packages/server
@@ -206,19 +206,19 @@ jobs:
           # sama persis dengan integration test runtime.
           cp .env.test .env
           cd ../..
-          npx nx run server:database:init
+          bunx nx run server:database:init
 
       - name: Run ClickHouse migrations
-        run: npx nx clickhouse:migrate server
+        run: bunx nx clickhouse:migrate server
 
       - name: Run ClickHouse seeds
-        run: npx nx clickhouse:seed server
+        run: bunx nx clickhouse:seed server
 
       - name: Run integration tests (with DB reset)
         env:
           NODE_ENV: test
           PG_DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
-        run: npx nx run server:test:integration:with-db-reset
+        run: bunx nx run server:test:integration:with-db-reset
 
   e2e-test:
     name: E2E tests (Playwright)
@@ -239,14 +239,14 @@ jobs:
           sudo locale-gen id_ID.UTF-8
           sudo update-locale LANG=id_ID.UTF-8 LC_ALL=id_ID.UTF-8
 
-      - name: Yarn install
-        uses: ./.github/actions/yarn-install
+      - name: Install dependencies
+        uses: ./.github/actions/bun-install
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Playwright browsers
         working-directory: packages/e2e-testing
-        run: npx playwright install --with-deps chromium
+        run: bunx playwright install --with-deps chromium
 
       - name: Prepare e2e .env
         working-directory: packages/e2e-testing
@@ -256,7 +256,7 @@ jobs:
         working-directory: packages/e2e-testing
         env:
           CI: 'true'
-        run: npx playwright test
+        run: bunx playwright test
 
       - name: Upload Playwright report
         if: always()

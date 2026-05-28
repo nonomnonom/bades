@@ -31,7 +31,7 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx serve -s {projectRoot}/build"
+        "command": "bunx serve -s {projectRoot}/build"
       }
     },
     "start": {
@@ -77,11 +77,11 @@
       ],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "npx oxlint --type-aware -c .oxlintrc.json src/ && (prettier src/ --check --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata || (echo 'ERROR: Prettier formatting check failed! Fix with: npx nx lint front --configuration=fix' && false))"
+        "command": "bunx oxlint --type-aware -c .oxlintrc.json src/ && (prettier src/ --check --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata || (echo 'ERROR: Prettier formatting check failed! Fix with: bunx nx lint front --configuration=fix' && false))"
       },
       "configurations": {
         "fix": {
-          "command": "npx oxlint --type-aware --fix -c .oxlintrc.json src/ && prettier src/ --write --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata"
+          "command": "bunx oxlint --type-aware --fix -c .oxlintrc.json src/ && prettier src/ --write --cache --cache-location ../../.cache/prettier/{projectRoot} --cache-strategy metadata"
         }
       }
     },
@@ -90,11 +90,11 @@
       "dependsOn": ["oxlint-rules:build"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "FILES=$(git diff --name-only --relative --diff-filter=d main...HEAD -- src/ | grep -E '\\.(ts|tsx)$'); [ -z \"$FILES\" ] && echo 'No changed files.' || (npx oxlint --type-aware -c .oxlintrc.json $FILES && (prettier --check $FILES || (echo 'ERROR: Prettier formatting check failed! Fix with: npx nx lint:diff-with-main front --configuration=fix' && false)))"
+        "command": "FILES=$(git diff --name-only --relative --diff-filter=d main...HEAD -- src/ | grep -E '\\.(ts|tsx)$'); [ -z \"$FILES\" ] && echo 'No changed files.' || (bunx oxlint --type-aware -c .oxlintrc.json $FILES && (prettier --check $FILES || (echo 'ERROR: Prettier formatting check failed! Fix with: bunx nx lint:diff-with-main front --configuration=fix' && false)))"
       },
       "configurations": {
         "fix": {
-          "command": "FILES=$(git diff --name-only --relative --diff-filter=d main...HEAD -- src/ | grep -E '\\.(ts|tsx)$'); [ -z \"$FILES\" ] && echo 'No changed files.' || (npx oxlint --type-aware --fix -c .oxlintrc.json $FILES && prettier --write $FILES)"
+          "command": "FILES=$(git diff --name-only --relative --diff-filter=d main...HEAD -- src/ | grep -E '\\.(ts|tsx)$'); [ -z \"$FILES\" ] && echo 'No changed files.' || (bunx oxlint --type-aware --fix -c .oxlintrc.json $FILES && prettier --write $FILES)"
         }
       }
     },
@@ -286,7 +286,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "command": "dotenv npx vite-node scripts/generate-mock-data.ts"
+        "command": "dotenv bunx vite-node scripts/generate-mock-data.ts"
       }
     },
     "chromatic": {

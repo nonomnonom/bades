@@ -14,9 +14,7 @@ import { type MigrationInterface, type QueryRunner } from 'typeorm';
  * - billingCustomer: stripeCustomerId tetap ada (nullable) untuk kompatibilitas data lama
  * - hapus tabel billingMeter jika masih ada
  */
-export class RebuildBillingForMidtrans1780000000000
-  implements MigrationInterface
-{
+export class RebuildBillingForMidtrans1780000000000 implements MigrationInterface {
   name = 'RebuildBillingForMidtrans1780000000000';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

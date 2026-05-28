@@ -1,7 +1,7 @@
 import { SettingsAccountsRadioSettingsCard } from '@/settings/accounts/components/SettingsAccountsRadioSettingsCard';
 import { SettingsAccountsVisibilityIcon } from '@/settings/accounts/components/SettingsAccountsVisibilityIcon';
 import { msg } from '~/utils/i18n/badesI18n';
-import { MessageChannelVisibility } from '~/generated/graphql';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 
 type SettingsAccountsMessageVisibilityCardProps = {
   onChange: (nextValue: MessageChannelVisibility) => void;

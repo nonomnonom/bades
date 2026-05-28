@@ -15,7 +15,7 @@ const NAMESPACE_VALUES = Object.values(
 @Command({
   name: 'cache:flush',
   description:
-    'Flush cache Redis (REDIS_URL) for a namespace and pattern. Omit --namespace to flush all namespaces. Run: npx nx run server:command cache:flush',
+    'Flush cache Redis (REDIS_URL) for a namespace and pattern. Omit --namespace to flush all namespaces. Run: bunx nx run server:command cache:flush',
 })
 export class FlushCacheCommand extends CommandRunner {
   private readonly logger = new Logger(FlushCacheCommand.name);

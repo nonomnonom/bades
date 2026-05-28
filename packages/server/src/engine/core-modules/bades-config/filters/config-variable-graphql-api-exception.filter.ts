@@ -13,9 +13,7 @@ import {
 } from 'src/engine/core-modules/bades-config/bades-config.exception';
 
 @Catch(ConfigVariableException)
-export class ConfigVariableGraphqlApiExceptionFilter
-  implements ExceptionFilter
-{
+export class ConfigVariableGraphqlApiExceptionFilter implements ExceptionFilter {
   catch(exception: ConfigVariableException) {
     switch (exception.code) {
       case ConfigVariableExceptionCode.VARIABLE_NOT_FOUND:

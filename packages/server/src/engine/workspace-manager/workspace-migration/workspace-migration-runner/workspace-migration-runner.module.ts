@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { DiscoveryModule } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -18,7 +18,7 @@ import { WorkspaceMigrationRunnerService } from 'src/engine/workspace-manager/wo
 
 @Module({
   imports: [
-    DirectExecutionModule,
+    forwardRef(() => DirectExecutionModule),
     FeatureFlagModule,
     TypeORMModule,
     WorkspaceMetadataVersionModule,

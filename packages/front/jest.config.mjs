@@ -23,7 +23,11 @@ const jestConfig = {
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['./setupTests.ts'],
   testEnvironment: 'jsdom',
-  testEnvironmentOptions: {},
+  // Hindari jsdom memprioritaskan `module`/`browser` exports yang ESM-only
+  // (mis. transliteration) — paksa jest pakai node CJS entries.
+  testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons'],
+  },
 
   transformIgnorePatterns: [
     '/node_modules/(?!(apollo-upload-client|extract-files|is-plain-obj)/.*)',
