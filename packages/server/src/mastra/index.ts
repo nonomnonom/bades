@@ -1,24 +1,37 @@
 import { Mastra } from '@mastra/core/mastra';
 
-import { asistenDesaAgent } from './agents/asisten-desa-agent';
+import { buildAgentRegistry } from './agents';
+import { buildMemory } from './memory';
+import { buildStorage } from './storage';
 
 /**
  * Mastra instance utama Bades.
  *
- * Diregistrasi di [app.module.ts](../app.module.ts) via
- * `MastraModule.register({ mastra })` dari `@mastra/nestjs`. Endpoint
- * agent default mount di `/api/agents/<agentId>/generate` dan
- * `/api/agents/<agentId>/stream`.
+ * Tahap migrasi (lihat `docs/mastra-migration.md`):
+ * - Storage: `@mastra/pg` di schema `mastra`, share DB dengan `core`.
+ * - Memory: working memory aktif per-resource (userWorkspaceId).
+ * - Agents: dibangun dinamis dari `AgentEntity` per workspace. Lihat
+ *   `agents/index.ts` untuk factory.
+ * - Tools: di-port satu per satu dari `tool-provider/` Bades.
+ * - Routes: di-mount via `@mastra/nestjs` (`/mastra/agents/<id>/...`).
  *
- * Catatan migrasi:
- * - Agent legacy Bades di [packages/server/src/engine/metadata-modules/ai/](../engine/metadata-modules/ai/)
- *   masih jalan paralel. Migrasi bertahap per fitur supaya billing,
- *   workspace isolation, dan persist chat thread tetap konsisten
- *   selama transisi.
- * - Model di-route via OpenRouter (env `OPENROUTER_API_KEY`). Format
- *   model Mastra: `openrouter/<provider>/<model>` (lihat
- *   `https://mastra.ai/models/providers/openrouter`).
+ * Workspace isolation di runtime via Mastra `RequestContext` yang di-set
+ * NestJS middleware (`mastra-request-context.middleware.ts`).
+ */
+const storage = buildStorage();
+const memory = buildMemory(storage);
+
+/**
+ * Catatan endpoint:
+ * - Adapter `@mastra/nestjs` route via catch-all controller yang match ke
+ *   SERVER_ROUTES bawaan Mastra (`agents/<id>/generate`,
+ *   `agents/<id>/stream`, dst.). Custom `apiRoutes` (mis. `chatRoute()`
+ *   dari `@mastra/ai-sdk`) **tidak otomatis ter-mount** lewat adapter ini.
+ * - Untuk SSE kompat AI SDK UI di front (`useChat`), nanti expose lewat
+ *   NestJS controller manual yang panggil `handleChatStream()`. Sementara,
+ *   front pakai endpoint native Mastra `/mastra/agents/<id>/stream`.
  */
 export const mastra = new Mastra({
-  agents: { asistenDesaAgent },
+  storage,
+  agents: buildAgentRegistry({ memory }),
 });
