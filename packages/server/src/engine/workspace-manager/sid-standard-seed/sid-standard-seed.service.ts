@@ -407,17 +407,25 @@ export class SidStandardSeedService {
     workspaceId: string;
     schemaName: string;
   }): Promise<{ insertedDashboards: number }> {
-    // Resolve workspaceMember pertama sebagai actor audit
-    const memberRows: { id: string; name: string }[] =
-      await this.coreDataSource.query(
-        `SELECT id, name FROM "${schemaName}"."workspaceMember" WHERE "workspaceId" = $1 ORDER BY "createdAt" ASC LIMIT 1`,
-        [workspaceId],
-      );
+    // Resolve workspaceMember pertama sebagai actor audit.
+    // workspaceMember ada di SCHEMA workspace (BUKAN core), dan nama
+    // adalah composite FULL_NAME (nameFirstName + nameLastName), bukan
+    // kolom `name` flat.
+    const memberRows: {
+      id: string;
+      nameFirstName: string | null;
+      nameLastName: string | null;
+    }[] = await this.coreDataSource.query(
+      `SELECT id, "nameFirstName", "nameLastName" FROM "${schemaName}"."workspaceMember" ORDER BY "createdAt" ASC LIMIT 1`,
+    );
 
     const memberId: string | null =
       memberRows.length > 0 ? memberRows[0].id : null;
     const memberName: string =
-      memberRows.length > 0 ? (memberRows[0].name ?? 'Sistem') : 'Sistem';
+      memberRows.length > 0
+        ? `${memberRows[0].nameFirstName ?? ''} ${memberRows[0].nameLastName ?? ''}`.trim() ||
+          'Sistem'
+        : 'Sistem';
 
     // Resolve pageLayoutId dari universalIdentifier standard dashboard
     // `STANDARD_DASHBOARD_PAGE_LAYOUT_CONFIG.universalIdentifier`
