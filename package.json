@@ -68,7 +68,6 @@
       "packages/emails",
       "packages/ui",
       "packages/utils",
-      "packages/e2e-testing",
       "packages/shared",
       "packages/sdk",
       "packages/front-component-renderer",

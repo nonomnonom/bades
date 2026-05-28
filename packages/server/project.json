@@ -13,9 +13,9 @@
         "commands": [
           "rimraf dist",
           "nest build --path ./tsconfig.build.json",
-          "node -e \"const fs=require('fs'),path=require('path');const s='../client-sdk',d='dist/assets/client-sdk';fs.mkdirSync(d,{recursive:true});fs.copyFileSync(path.join(s,'package.json'),path.join(d,'package.json'));fs.cpSync(path.join(s,'dist'),path.join(d,'dist'),{recursive:true})\"",
-          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/core-modules/application/application-package/constants/seed-dependencies',d='dist/engine/core-modules/application/application-package/constants/seed-dependencies';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\"",
-          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/metadata-modules/front-component/constants/seed-project',d='dist/engine/metadata-modules/front-component/constants/seed-project';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\""
+          "node -e \"const fs=require('fs'),path=require('path');const s='../client-sdk',d='dist/src/assets/client-sdk';fs.mkdirSync(d,{recursive:true});fs.copyFileSync(path.join(s,'package.json'),path.join(d,'package.json'));fs.cpSync(path.join(s,'dist'),path.join(d,'dist'),{recursive:true})\"",
+          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/core-modules/application/application-package/constants/seed-dependencies',d='dist/src/engine/core-modules/application/application-package/constants/seed-dependencies';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\"",
+          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/metadata-modules/front-component/constants/seed-project',d='dist/src/engine/metadata-modules/front-component/constants/seed-project';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\""
         ]
       },
       "dependsOn": ["^build"]
@@ -251,7 +251,7 @@
         "no-seed": {
           "cwd": "packages/server",
           "commands": [
-            "node dist/database/scripts/truncate-db.js",
+            "node dist/src/database/scripts/truncate-db.js",
             "nx database:init",
             "nx command-no-deps -- cache:flush"
           ],
@@ -260,7 +260,7 @@
         "seed": {
           "cwd": "packages/server",
           "commands": [
-            "node dist/database/scripts/truncate-db.js",
+            "node dist/src/database/scripts/truncate-db.js",
             "nx database:init",
             "nx command-no-deps -- cache:flush",
             "nx command-no-deps -- workspace:seed:dev"
