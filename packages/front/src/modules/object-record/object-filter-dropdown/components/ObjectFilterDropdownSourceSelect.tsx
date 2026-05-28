@@ -73,7 +73,7 @@ export const ObjectFilterDropdownSourceSelect = ({
     const selectedCount = selectedItemNames.length;
     const filterDisplayValue =
       selectedItemNames.length > MAX_ITEMS_TO_DISPLAY
-        ? t`${selectedCount} source types`
+        ? t`${selectedCount} jenis sumber`
         : selectedItemNames.join(', ');
 
     const newFilterValue =

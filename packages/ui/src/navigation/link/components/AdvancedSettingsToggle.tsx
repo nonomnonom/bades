@@ -43,7 +43,7 @@ type AdvancedSettingsToggleProps = {
 export const AdvancedSettingsToggle = ({
   isAdvancedModeEnabled,
   setIsAdvancedModeEnabled,
-  label = 'Advanced:',
+  label = 'Tingkat Lanjut:',
 }: AdvancedSettingsToggleProps) => {
   const { theme } = useContext(ThemeContext);
 

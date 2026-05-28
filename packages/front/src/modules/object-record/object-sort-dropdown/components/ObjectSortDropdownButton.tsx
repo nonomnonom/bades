@@ -194,16 +194,16 @@ export const ObjectSortDropdownButton = () => {
                 value: sortDirection,
                 label:
                   sortDirection === ViewSortDirection.ASC
-                    ? 'Ascending'
-                    : 'Descending',
+                    ? 'Menaik'
+                    : 'Menurun',
               }),
             )}
             selectedOption={{
               value: selectedRecordSortDirection,
               label:
                 selectedRecordSortDirection === ViewSortDirection.ASC
-                  ? 'Ascending'
-                  : 'Descending',
+                  ? 'Menaik'
+                  : 'Menurun',
             }}
             onChange={(sortDirection) =>
               handleSortDirectionClick(sortDirection.value as ViewSortDirection)

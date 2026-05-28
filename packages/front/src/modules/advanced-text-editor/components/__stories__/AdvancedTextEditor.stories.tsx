@@ -13,7 +13,7 @@ import { graphqlMocks } from '~/testing/graphqlMocks';
 
 const EditorWrapper = ({
   readonly = false,
-  placeholder = 'Enter text content...',
+  placeholder = 'Masukkan teks...',
   defaultValue = null,
   onUpdate = fn(),
   minHeight = 200,
@@ -95,12 +95,12 @@ export const WithContent: Story = {
           content: [
             {
               type: 'text',
-              text: 'Hello ',
+              text: 'Halo ',
             },
             {
               type: 'text',
               marks: [{ type: 'bold' }],
-              text: 'World',
+              text: 'Dunia',
             },
             {
               type: 'text',
@@ -113,25 +113,25 @@ export const WithContent: Story = {
           content: [
             {
               type: 'text',
-              text: 'This is a sample text with ',
+              text: 'Ini contoh teks dengan ',
             },
             {
               type: 'text',
               marks: [{ type: 'italic' }],
-              text: 'italic',
+              text: 'miring',
             },
             {
               type: 'text',
-              text: ' and ',
+              text: ' dan ',
             },
             {
               type: 'text',
               marks: [{ type: 'underline' }],
-              text: 'underlined',
+              text: 'garis bawah',
             },
             {
               type: 'text',
-              text: ' text.',
+              text: ' teks.',
             },
           ],
         },
@@ -148,30 +148,30 @@ export const WithHeadings: Story = {
         {
           type: 'heading',
           attrs: { level: 1 },
-          content: [{ type: 'text', text: 'Main Title' }],
+          content: [{ type: 'text', text: 'Judul Utama' }],
         },
         {
           type: 'heading',
           attrs: { level: 2 },
-          content: [{ type: 'text', text: 'Subtitle' }],
+          content: [{ type: 'text', text: 'Sub-judul' }],
         },
         {
           type: 'paragraph',
           content: [
             {
               type: 'text',
-              text: 'This is a paragraph with some content.',
+              text: 'Ini paragraf dengan beberapa isi.',
             },
           ],
         },
         {
           type: 'heading',
           attrs: { level: 3 },
-          content: [{ type: 'text', text: 'Smaller Heading' }],
+          content: [{ type: 'text', text: 'Heading Lebih Kecil' }],
         },
         {
           type: 'paragraph',
-          content: [{ type: 'text', text: 'Another paragraph here.' }],
+          content: [{ type: 'text', text: 'Paragraf lain di sini.' }],
         },
       ],
     }),
@@ -186,19 +186,19 @@ export const WithLinks: Story = {
         {
           type: 'paragraph',
           content: [
-            { type: 'text', text: 'Visit our ' },
+            { type: 'text', text: 'Kunjungi ' },
             {
               type: 'text',
               marks: [{ type: 'link', attrs: { href: 'https://bades.id' } }],
-              text: 'website',
+              text: 'situs web',
             },
-            { type: 'text', text: ' for more information.' },
+            { type: 'text', text: ' untuk informasi lebih lanjut.' },
           ],
         },
         {
           type: 'paragraph',
           content: [
-            { type: 'text', text: 'Contact us at ' },
+            { type: 'text', text: 'Hubungi kami di ' },
             {
               type: 'text',
               marks: [
@@ -221,7 +221,7 @@ export const WithVariableTags: Story = {
         {
           type: 'paragraph',
           content: [
-            { type: 'text', text: 'Dear ' },
+            { type: 'text', text: 'Yth. ' },
             {
               type: 'variableTag',
               attrs: { variable: '{{firstName}}' },
@@ -232,12 +232,12 @@ export const WithVariableTags: Story = {
         {
           type: 'paragraph',
           content: [
-            { type: 'text', text: 'Your order ' },
+            { type: 'text', text: 'Pesanan Anda ' },
             {
               type: 'variableTag',
               attrs: { variable: '{{orderNumber}}' },
             },
-            { type: 'text', text: ' has been processed!' },
+            { type: 'text', text: ' telah diproses!' },
           ],
         },
       ],
@@ -257,7 +257,7 @@ export const ReadOnly: Story = {
             {
               type: 'text',
               marks: [{ type: 'bold' }],
-              text: 'Read-only mode',
+              text: 'Mode hanya baca',
             },
           ],
         },
@@ -266,7 +266,7 @@ export const ReadOnly: Story = {
           content: [
             {
               type: 'text',
-              text: 'This editor is in read-only mode and cannot be edited.',
+              text: 'Editor ini dalam mode hanya baca dan tidak dapat diubah.',
             },
           ],
         },
@@ -277,14 +277,14 @@ export const ReadOnly: Story = {
 
 export const Empty: Story = {
   args: {
-    placeholder: 'Start typing your content...',
+    placeholder: 'Mulai ketik konten Anda...',
   },
 };
 
 export const Interactive: Story = {
   args: {
     onUpdate: fn(),
-    placeholder: 'Try typing, formatting text, or uploading images...',
+    placeholder: 'Coba ketik, format teks, atau upload gambar...',
   },
 };
 
@@ -292,7 +292,7 @@ export const CustomSize: Story = {
   args: {
     minHeight: 300,
     maxWidth: 600,
-    placeholder: 'This editor has custom dimensions...',
+    placeholder: 'Editor ini memiliki dimensi khusus...',
   },
 };
 
@@ -304,7 +304,7 @@ export const WithLists: Story = {
         {
           type: 'heading',
           attrs: { level: 2 },
-          content: [{ type: 'text', text: 'Project Requirements' }],
+          content: [{ type: 'text', text: 'Kebutuhan Proyek' }],
         },
         {
           type: 'bulletList',
@@ -315,7 +315,7 @@ export const WithLists: Story = {
                 {
                   type: 'paragraph',
                   content: [
-                    { type: 'text', text: 'User authentication system' },
+                    { type: 'text', text: 'Sistem autentikasi pengguna' },
                   ],
                 },
               ],
@@ -325,7 +325,7 @@ export const WithLists: Story = {
               content: [
                 {
                   type: 'paragraph',
-                  content: [{ type: 'text', text: 'Database integration' }],
+                  content: [{ type: 'text', text: 'Integrasi database' }],
                 },
               ],
             },
@@ -334,7 +334,7 @@ export const WithLists: Story = {
               content: [
                 {
                   type: 'paragraph',
-                  content: [{ type: 'text', text: 'API endpoints' }],
+                  content: [{ type: 'text', text: 'Endpoint API' }],
                 },
               ],
             },
@@ -343,7 +343,7 @@ export const WithLists: Story = {
         {
           type: 'heading',
           attrs: { level: 2 },
-          content: [{ type: 'text', text: 'Implementation Steps' }],
+          content: [{ type: 'text', text: 'Langkah Implementasi' }],
         },
         {
           type: 'orderedList',
@@ -354,7 +354,7 @@ export const WithLists: Story = {
                 {
                   type: 'paragraph',
                   content: [
-                    { type: 'text', text: 'Set up development environment' },
+                    { type: 'text', text: 'Siapkan lingkungan pengembangan' },
                   ],
                 },
               ],
@@ -364,7 +364,7 @@ export const WithLists: Story = {
               content: [
                 {
                   type: 'paragraph',
-                  content: [{ type: 'text', text: 'Create database schema' }],
+                  content: [{ type: 'text', text: 'Buat skema database' }],
                 },
               ],
             },
@@ -373,7 +373,7 @@ export const WithLists: Story = {
               content: [
                 {
                   type: 'paragraph',
-                  content: [{ type: 'text', text: 'Implement authentication' }],
+                  content: [{ type: 'text', text: 'Implementasi autentikasi' }],
                 },
               ],
             },
@@ -382,7 +382,7 @@ export const WithLists: Story = {
               content: [
                 {
                   type: 'paragraph',
-                  content: [{ type: 'text', text: 'Build API endpoints' }],
+                  content: [{ type: 'text', text: 'Bangun endpoint API' }],
                 },
               ],
             },
@@ -403,7 +403,7 @@ export const WithLists: Story = {
 
       const firstItem = listItems[0];
       expect(firstItem).toBeInTheDocument();
-      expect(firstItem).toHaveTextContent(/User authentication system/i);
+      expect(firstItem).toHaveTextContent(/Sistem autentikasi pengguna/i);
     });
 
     await step('Verify ordered list is rendered', async () => {
@@ -418,7 +418,7 @@ export const WithLists: Story = {
       const firstOrderedItem = orderedListItems[0];
       expect(firstOrderedItem).toBeInTheDocument();
       expect(firstOrderedItem).toHaveTextContent(
-        /Set up development environment/i,
+        /Siapkan lingkungan pengembangan/i,
       );
     });
 

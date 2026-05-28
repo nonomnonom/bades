@@ -1566,7 +1566,7 @@ export const mockedStandardObjectMetadataQueryResult: ObjectMetadataItemsQuery =
           "id": "d493b617-19c8-4cbb-a50f-c084e4b9f276",
           "universalIdentifier": "20202020-9549-49dd-b2b2-883999db8938",
           "nameSingular": "programBantuan",
-          "namePlural": "opportunities",
+          "namePlural": "programBantuans",
           "isCustom": false,
           "isRemote": false,
           "isActive": true,

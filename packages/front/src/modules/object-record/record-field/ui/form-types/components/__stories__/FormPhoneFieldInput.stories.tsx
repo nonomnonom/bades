@@ -98,7 +98,7 @@ export const SelectingVariables: Story = {
             onVariableSelect(`{{${MOCKED_STEP_ID}.amount.amountMicros}}`);
           }}
         >
-          Add variable
+          Tambah variabel
         </button>
       );
     },
@@ -116,15 +116,18 @@ export const SelectingVariables: Story = {
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const callingCodeDefaultValue = await canvas.findByText('No calling code');
+    const callingCodeDefaultValue = await canvas.findByText(
+      'Kode panggilan kosong',
+    );
 
     expect(callingCodeDefaultValue).toBeVisible();
 
-    const phoneNumberDefaultValue =
-      await canvas.findByPlaceholderText('Enter phone number');
+    const phoneNumberDefaultValue = await canvas.findByPlaceholderText(
+      'Masukkan nomor telepon',
+    );
     expect(phoneNumberDefaultValue).toHaveDisplayValue('');
 
-    const addVariableButtons = await canvas.findAllByText('Add variable');
+    const addVariableButtons = await canvas.findAllByText('Tambah variabel');
     const phoneNumberVariablePicker = addVariableButtons[1];
 
     await userEvent.click(phoneNumberVariablePicker);
@@ -151,7 +154,7 @@ export const Disabled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const callingCodeInput = await canvas.findByText('No calling code');
+    const callingCodeInput = await canvas.findByText('Kode panggilan kosong');
     expect(callingCodeInput).toBeVisible();
 
     await userEvent.click(callingCodeInput);
@@ -159,8 +162,9 @@ export const Disabled: Story = {
     const searchInputInModal = canvas.queryByPlaceholderText('Cari');
     expect(searchInputInModal).not.toBeInTheDocument();
 
-    const phoneNumberInput =
-      await canvas.findByPlaceholderText('Enter phone number');
+    const phoneNumberInput = await canvas.findByPlaceholderText(
+      'Masukkan nomor telepon',
+    );
     expect(phoneNumberInput).toBeDisabled();
 
     const variablePickers = canvas.queryAllByText('VariablePicker');

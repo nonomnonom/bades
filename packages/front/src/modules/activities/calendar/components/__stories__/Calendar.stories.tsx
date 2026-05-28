@@ -1,72 +1,15 @@
-import { getOperationName } from '~/utils/getOperationName';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
-import { HttpResponse, graphql } from 'msw';
 
 import { CalendarEventsCard } from '@/activities/calendar/components/CalendarEventsCard';
-import { getTimelineCalendarEventsFromKeluargaId } from '@/activities/calendar/graphql/queries/getTimelineCalendarEventsFromKeluargaId';
-import { CoreObjectNameSingular } from 'shared/types';
-import { LayoutRenderingProvider } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { ComponentDecorator } from 'ui/testing';
-import { PageLayoutType } from '~/generated-metadata/graphql';
-import { ObjectMetadataItemsDecorator } from '~/testing/decorators/ObjectMetadataItemsDecorator';
 import { SnackBarDecorator } from '~/testing/decorators/SnackBarDecorator';
-import { graphqlMocks } from '~/testing/graphqlMocks';
-import { mockedTimelineCalendarEvents } from '~/testing/mock-data/timeline-calendar-events';
 
 const meta: Meta<typeof CalendarEventsCard> = {
   title: 'Modules/Activities/Calendar/CalendarEventsCard',
   component: CalendarEventsCard,
-  decorators: [
-    ComponentDecorator,
-    ObjectMetadataItemsDecorator,
-    SnackBarDecorator,
-    (Story) => (
-      <LayoutRenderingProvider
-        value={{
-          targetRecordIdentifier: {
-            id: '1',
-            targetObjectNameSingular: 'company',
-          },
-          layoutType: PageLayoutType.RECORD_PAGE,
-          isInSidePanel: false,
-        }}
-      >
-        <Story />
-      </LayoutRenderingProvider>
-    ),
-  ],
+  decorators: [ComponentDecorator, SnackBarDecorator],
   parameters: {
     container: { width: 728 },
-    msw: {
-      handlers: [
-        ...graphqlMocks.handlers,
-        graphql.query(
-          getOperationName(getTimelineCalendarEventsFromKeluargaId) ?? '',
-          ({ variables }) => {
-            if (variables.page > 1) {
-              return HttpResponse.json({
-                data: {
-                  getTimelineCalendarEventsFromKeluargaId: {
-                    __typename: 'TimelineCalendarEventsWithTotal',
-                    totalNumberOfCalendarEvents: 3,
-                    timelineCalendarEvents: [],
-                  },
-                },
-              });
-            }
-            return HttpResponse.json({
-              data: {
-                getTimelineCalendarEventsFromKeluargaId: {
-                  __typename: 'TimelineCalendarEventsWithTotal',
-                  totalNumberOfCalendarEvents: 3,
-                  timelineCalendarEvents: mockedTimelineCalendarEvents,
-                },
-              },
-            });
-          },
-        ),
-      ],
-    },
   },
 };
 

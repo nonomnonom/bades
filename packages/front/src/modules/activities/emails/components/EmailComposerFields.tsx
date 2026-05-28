@@ -79,7 +79,7 @@ export const EmailComposerFields = ({
         />
         {!composerState.showCcBcc && (
           <StyledCcBccToggle onClick={() => composerState.setShowCcBcc(true)}>
-            {'Cc/Bcc'}
+            {'Cc/Tcc'}
           </StyledCcBccToggle>
         )}
       </StyledToRow>

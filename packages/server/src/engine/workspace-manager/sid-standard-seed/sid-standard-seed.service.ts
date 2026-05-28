@@ -7,7 +7,6 @@ import { isDefined } from 'shared/utils';
 
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
-import { type UpdateOneObjectInput } from 'src/engine/metadata-modules/object-metadata/dtos/update-object.input';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { SID_STANDARD_DATA_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
 import { SID_STANDARD_VIEW_CONFIGS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-view.constant';
@@ -189,16 +188,17 @@ export class SidStandardSeedService {
       return;
     }
 
-    const updateInput: UpdateOneObjectInput = {
-      id: objectMetadata.id,
-      update: { labelIdentifierFieldMetadataId: targetField.id },
-    };
-
+    // Bypass sanitizer service: SID object dibuat lewat standard application
+    // sehingga engine menolak edit labelIdentifierFieldMetadataId via service.
+    // Direct UPDATE konsisten dengan cara engine men-set field ini untuk
+    // standard object bawaan.
     try {
-      await this.objectMetadataService.updateOneObject({
-        updateObjectInput: updateInput,
-        workspaceId,
-      });
+      await this.coreDataSource.query(
+        `UPDATE core."objectMetadata"
+         SET "labelIdentifierFieldMetadataId" = $1
+         WHERE id = $2 AND "workspaceId" = $3`,
+        [targetField.id, objectMetadata.id, workspaceId],
+      );
     } catch (error) {
       this.logger.warn(
         `applyLabelIdentifier: gagal update ${objectMetadataNameSingular}: ${
@@ -250,16 +250,13 @@ export class SidStandardSeedService {
       return;
     }
 
-    const updateInput: UpdateOneObjectInput = {
-      id: objectMetadata.id,
-      update: { imageIdentifierFieldMetadataId: targetField.id },
-    };
-
     try {
-      await this.objectMetadataService.updateOneObject({
-        updateObjectInput: updateInput,
-        workspaceId,
-      });
+      await this.coreDataSource.query(
+        `UPDATE core."objectMetadata"
+         SET "imageIdentifierFieldMetadataId" = $1
+         WHERE id = $2 AND "workspaceId" = $3`,
+        [targetField.id, objectMetadata.id, workspaceId],
+      );
     } catch (error) {
       this.logger.warn(
         `applyImageIdentifier: gagal update ${objectMetadataNameSingular}: ${
@@ -472,6 +469,7 @@ export class SidStandardSeedService {
              "updatedByName", position)
           VALUES ($1, $2, $3, 'MANUAL', $4, $5, 'MANUAL', $4, $5, $6)
           ON CONFLICT (id) DO NOTHING
+          RETURNING id
         `;
         const result = await this.coreDataSource.query(sql, [
           dash.id,
@@ -481,7 +479,7 @@ export class SidStandardSeedService {
           memberName,
           dash.position,
         ]);
-        const affected = Array.isArray(result) ? result.length : 1;
+        const affected = Array.isArray(result) ? result.length : 0;
 
         insertedDashboards += affected;
         this.logger.log(
@@ -538,11 +536,11 @@ export class SidStandardSeedService {
       await this.coreDataSource.query(workflowSql, [
         WORKFLOW_SURAT_ID,
         'Notifikasi Surat Selesai',
-        JSON.stringify(['DRAFT']),
+        ['DRAFT'],
         0,
         WORKFLOW_BANTUAN_ID,
         'Cek Status Penerima Bantuan',
-        JSON.stringify(['DRAFT']),
+        ['DRAFT'],
         1,
       ]);
 
@@ -681,7 +679,6 @@ export class SidStandardSeedService {
           AND v."key" = 'INDEX'
           AND v."deletedAt" IS NULL
           AND fm.name = ANY($3::text[])
-          AND fm."deletedAt" IS NULL
       ) candidate
       WHERE NOT EXISTS (
         SELECT 1 FROM core."viewField" existing

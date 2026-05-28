@@ -91,7 +91,7 @@ print("Grafik berhasil disimpan!")`,
     },
     {
       type: 'text',
-      text: "Saya sudah analisis data penerima bantuan dan membuat grafik tren bulanannya. Berikut temuan utamanya:\n\n- **Total penerima**: 1.019 jiwa selama 6 bulan\n- **Puncak bulan**: Mei dengan 210 penerima\n- **Tren pertumbuhan**: Naik konsisten dengan kenaikan 68% dari Januari ke Mei\n\nGrafik menunjukkan tren naik yang jelas dengan sedikit penurunan di Maret. Mau saya lakukan analisis tambahan?",
+      text: 'Saya sudah analisis data penerima bantuan dan membuat grafik tren bulanannya. Berikut temuan utamanya:\n\n- **Total penerima**: 1.019 jiwa selama 6 bulan\n- **Puncak bulan**: Mei dengan 210 penerima\n- **Tren pertumbuhan**: Naik konsisten dengan kenaikan 68% dari Januari ke Mei\n\nGrafik menunjukkan tren naik yang jelas dengan sedikit penurunan di Maret. Mau saya lakukan analisis tambahan?',
     },
   ],
   metadata: {
@@ -127,7 +127,7 @@ const mockStreamingMessage: ExtendedUIMessage = {
   parts: [
     {
       type: 'text',
-      text: 'Let me look into that for you',
+      text: 'Biar saya periksa dulu',
     },
   ],
   metadata: {
@@ -183,7 +183,7 @@ print(df.head())`,
     },
     {
       type: 'text',
-      text: "I encountered an error while trying to read the file. It looks like the file `missing_file.csv` doesn't exist. Could you please check the file path or upload the file you'd like me to analyze?",
+      text: 'Terjadi error saat mencoba membaca file. Sepertinya file `missing_file.csv` tidak ditemukan. Bisa cek lagi lokasi file-nya atau unggah file yang ingin saya analisis?',
     },
   ],
   metadata: {
@@ -353,7 +353,7 @@ export const ThinkingStepsDoneExpanded: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const summaryButton = await canvas.findByRole('button', {
-      name: /2 steps/i,
+      name: /2 langkah/i,
     });
 
     await userEvent.click(summaryButton);

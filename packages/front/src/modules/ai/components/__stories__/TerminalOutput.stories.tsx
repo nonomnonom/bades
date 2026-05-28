@@ -24,27 +24,27 @@ type Story = StoryObj<typeof TerminalOutput>;
 
 export const StdoutOnly: Story = {
   args: {
-    stdout: `Loading data from database...
-Processing 1,234 records...
-Applying transformations...
-Total revenue: $542,890.00
-Average order value: $127.50
-Export complete!`,
+    stdout: `Memuat data dari database...
+Memproses 1.234 rekaman...
+Menerapkan transformasi...
+Total pendapatan: Rp542.890.000
+Rata-rata nilai pesanan: Rp127.500
+Ekpor selesai!`,
     stderr: '',
     isRunning: false,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(await canvas.findByText(/Total revenue/)).toBeVisible();
+    expect(await canvas.findByText(/Total pendapat an/)).toBeVisible();
     expect(await canvas.findByText('stdout')).toBeVisible();
   },
 };
 
 export const WithStderr: Story = {
   args: {
-    stdout: 'Starting process...\nStep 1 complete.',
+    stdout: 'Memulai proses...\nLangkah 1 selesai.',
     stderr:
-      'Warning: Deprecated function used at line 15\nError: Connection timeout after 30s',
+      'Warning: Deprecated function used at line 15\nError: Waktu tunggu koneksi habis setelah 30 d',
     isRunning: false,
   },
   play: async ({ canvasElement }) => {
@@ -58,7 +58,7 @@ export const WithStderr: Story = {
     await userEvent.click(stderrTab);
 
     // Should now show stderr content
-    expect(await canvas.findByText(/Connection timeout/)).toBeVisible();
+    expect(await canvas.findByText(/Waktu tunggu koneksi habis/)).toBeVisible();
   },
 };
 
@@ -137,8 +137,8 @@ export const MultilineFormatted: Story = {
 ║ West       │ $89,200    │ +5.7%    ║
 ╚════════════════════════════════════╝
 
-Total Revenue: $455,000
-YoY Growth: +10.4%`,
+Total Pendapatan: Rp455.000.000
+YoY Growth: +10,4%`,
     stderr: '',
     isRunning: false,
   },

@@ -6,14 +6,14 @@ import { getOsControlSymbol } from 'ui/utilities';
 
 export const KEYBOARD_SHORTCUTS_GENERAL: Shortcut[] = [
   {
-    label: 'Open search',
+    label: 'Buka pencarian',
     type: ShortcutType.General,
     firstHotKey: getOsControlSymbol(),
     secondHotKey: 'K',
     areSimultaneous: false,
   },
   {
-    label: 'Mark as favourite',
+    label: 'Tandai favorit',
     type: ShortcutType.General,
     firstHotKey: '⇧',
     secondHotKey: 'F',

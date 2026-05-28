@@ -57,7 +57,7 @@ print("Complete!")`,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(await canvas.findByText('Running...')).toBeVisible();
+    expect(await canvas.findByText('Berjalan...')).toBeVisible();
   },
 };
 
@@ -71,9 +71,9 @@ export const Success: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(await canvas.findByText('Completed')).toBeVisible();
+    expect(await canvas.findByText('Selesai')).toBeVisible();
     // Output content is inside a scrollable container
-    expect(await canvas.findByText(/Total Revenue/)).toBeInTheDocument();
+    expect(await canvas.findByText(/Total Pendapatan/)).toBeInTheDocument();
   },
 };
 
@@ -90,7 +90,7 @@ print(df.head())`,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(await canvas.findByText('Failed')).toBeVisible();
+    expect(await canvas.findByText('Gagal')).toBeVisible();
   },
 };
 
@@ -119,7 +119,7 @@ export const WithImageFiles: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     // Text includes file count: "Generated Files (2)"
-    expect(await canvas.findByText(/Generated Files/)).toBeInTheDocument();
+    expect(await canvas.findByText(/File yang Dihasilkan/)).toBeInTheDocument();
     // Filenames may be truncated, check by title attribute
     expect(await canvas.findByTitle('revenue_chart.png')).toBeInTheDocument();
     expect(await canvas.findByTitle('pie_chart.png')).toBeInTheDocument();
@@ -177,7 +177,7 @@ export const CodeSectionExpanded: Story = {
     const canvas = within(canvasElement);
 
     // Click to expand the code section
-    const codeHeader = await canvas.findByText('Code');
+    const codeHeader = await canvas.findByText('Kode');
     await userEvent.click(codeHeader);
 
     // The code editor should now be visible

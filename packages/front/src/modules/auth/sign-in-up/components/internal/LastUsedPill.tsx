@@ -22,13 +22,7 @@ export const LastUsedPill = () => {
 
   return (
     <StyledPillContainer>
-      <Pill
-        label={t({
-          message: 'Terakhir',
-          comment:
-            'Label singkat yang menunjukkan metode masuk yang terakhir digunakan',
-        })}
-      />
+      <Pill label={t`Terakhir`} />
     </StyledPillContainer>
   );
 };

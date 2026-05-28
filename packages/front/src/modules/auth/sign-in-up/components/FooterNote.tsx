@@ -89,7 +89,7 @@ export const FooterNote = () => {
       {shouldOfferBypass && !shouldUseBypass && (
         <>
           <button type="button" onClick={enableBypass}>
-            "Bypass SSO
+            "Lewati SSO
           </button>
           <StyledSeparator>•</StyledSeparator>
         </>

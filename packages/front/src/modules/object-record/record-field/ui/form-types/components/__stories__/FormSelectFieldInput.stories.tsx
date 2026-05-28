@@ -58,7 +58,7 @@ export const WithVariablePicker: Story = {
     defaultValue: 'WORK_POLICY_1',
     options: [
       {
-        label: 'Work Policy 1',
+        label: 'Kebijakan Kerja 1',
         value: 'WORK_POLICY_1',
         color: 'blue',
       },
@@ -106,7 +106,7 @@ export const Disabled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const firstChip = await canvas.findByText('Work Policy 1');
+    const firstChip = await canvas.findByText('Kebijakan Kerja 1');
     expect(firstChip).toBeVisible();
 
     await userEvent.click(firstChip);

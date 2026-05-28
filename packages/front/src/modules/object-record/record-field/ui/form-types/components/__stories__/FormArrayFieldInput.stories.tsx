@@ -19,22 +19,22 @@ type Story = StoryObj<typeof FormArrayFieldInput>;
 
 export const AddTwoItems: Story = {
   args: {
-    label: 'Items',
+    label: 'Item',
     defaultValue: undefined,
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const emptyInput = await canvas.findByPlaceholderText('Enter an item');
+    const emptyInput = await canvas.findByPlaceholderText('Masukkan item');
 
-    await userEvent.type(emptyInput, 'First item{enter}');
+    await userEvent.type(emptyInput, 'Item pertama{enter}');
 
     await waitFor(() => {
-      expect(args.onChange).toHaveBeenCalledWith(['First item']);
+      expect(args.onChange).toHaveBeenCalledWith(['Item pertama']);
     });
 
-    const firstItemChip = await canvas.findByText('First item');
+    const firstItemChip = await canvas.findByText('Item pertama');
 
     expect(firstItemChip).toBeVisible();
 
@@ -56,10 +56,13 @@ export const AddTwoItems: Story = {
       canvasElement.ownerDocument.body,
     ).findByRole('textbox');
 
-    await userEvent.type(newItemInput, 'Second item{enter}');
+    await userEvent.type(newItemInput, 'Item kedua{enter}');
 
     await waitFor(() => {
-      expect(args.onChange).toHaveBeenCalledWith(['First item', 'Second item']);
+      expect(args.onChange).toHaveBeenCalledWith([
+        'Item pertama',
+        'Item kedua',
+      ]);
     });
 
     await waitFor(() => {
@@ -69,7 +72,7 @@ export const AddTwoItems: Story = {
     const secondItemMenuItem = await waitFor(() => {
       const allSecondItems = within(
         canvasElement.ownerDocument.body,
-      ).getAllByText('Second item');
+      ).getAllByText('Item kedua');
 
       expect(allSecondItems).toHaveLength(2);
 
@@ -82,14 +85,14 @@ export const AddTwoItems: Story = {
 
 export const EditExistingItem: Story = {
   args: {
-    label: 'Items',
-    defaultValue: ['First item', 'Second item'],
+    label: 'Item',
+    defaultValue: ['Item pertama', 'Item kedua'],
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const firstItemChip = await canvas.findByText('First item');
+    const firstItemChip = await canvas.findByText('Item pertama');
 
     await userEvent.click(firstItemChip);
 
@@ -117,20 +120,23 @@ export const EditExistingItem: Story = {
       canvasElement.ownerDocument.body,
     ).findByRole('textbox');
 
-    expect(editSecondItemInput).toHaveValue('Second item');
+    expect(editSecondItemInput).toHaveValue('Item kedua');
 
     await userEvent.clear(editSecondItemInput);
-    await userEvent.type(editSecondItemInput, 'Updated second item{enter}');
+    await userEvent.type(
+      editSecondItemInput,
+      'Item kedua yang diperbarui{enter}',
+    );
 
     await waitFor(() => {
       expect(args.onChange).toHaveBeenCalledWith([
-        'First item',
-        'Updated second item',
+        'Item pertama',
+        'Item kedua yang diperbarui',
       ]);
     });
 
     const updatedSecondItemChip = await canvas.findByText(
-      'Updated second item',
+      'Item kedua yang diperbarui',
     );
 
     expect(updatedSecondItemChip).toBeVisible();
@@ -139,14 +145,14 @@ export const EditExistingItem: Story = {
 
 export const DeleteExistingItem: Story = {
   args: {
-    label: 'Items',
-    defaultValue: ['First item', 'Second item'],
+    label: 'Item',
+    defaultValue: ['Item pertama', 'Item kedua'],
     onChange: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const firstItemChip = await canvas.findByText('First item');
+    const firstItemChip = await canvas.findByText('Item pertama');
 
     await userEvent.click(firstItemChip);
 
@@ -171,16 +177,16 @@ export const DeleteExistingItem: Story = {
     await userEvent.click(deleteSecondItemButton);
 
     await waitFor(() => {
-      expect(args.onChange).toHaveBeenCalledWith(['First item']);
+      expect(args.onChange).toHaveBeenCalledWith(['Item pertama']);
     });
 
-    expect(canvas.queryByText('Second item')).not.toBeInTheDocument();
+    expect(canvas.queryByText('Item kedua')).not.toBeInTheDocument();
   },
 };
 
 export const SetVariable: Story = {
   args: {
-    label: 'Items',
+    label: 'Item',
     defaultValue: undefined,
     onChange: fn(),
     VariablePicker: ({ onVariableSelect }) => {
@@ -190,7 +196,7 @@ export const SetVariable: Story = {
             onVariableSelect(`{{${MOCKED_STEP_ID}.name}}`);
           }}
         >
-          Add variable
+          Tambah variabel
         </button>
       );
     },
@@ -216,8 +222,8 @@ export const SetVariable: Story = {
 
 export const ReplaceItemsWithVariable: Story = {
   args: {
-    label: 'Items',
-    defaultValue: ['First item', 'Second item'],
+    label: 'Item',
+    defaultValue: ['Item pertama', 'Item kedua'],
     onChange: fn(),
     VariablePicker: ({ onVariableSelect }) => {
       return (
@@ -226,7 +232,7 @@ export const ReplaceItemsWithVariable: Story = {
             onVariableSelect(`{{${MOCKED_STEP_ID}.name}}`);
           }}
         >
-          Add variable
+          Tambah variabel
         </button>
       );
     },
@@ -252,7 +258,7 @@ export const ReplaceItemsWithVariable: Story = {
 
 export const ReplaceVariableWithItems: Story = {
   args: {
-    label: 'Items',
+    label: 'Item',
     defaultValue: `{{${MOCKED_STEP_ID}.createdAt}}`,
     onChange: fn(),
     VariablePicker: ({ onVariableSelect }) => {
@@ -262,7 +268,7 @@ export const ReplaceVariableWithItems: Story = {
             onVariableSelect(`{{${MOCKED_STEP_ID}.name}}`);
           }}
         >
-          Add variable
+          Tambah variabel
         </button>
       );
     },
@@ -280,15 +286,15 @@ export const ReplaceVariableWithItems: Story = {
       expect(args.onChange).toHaveBeenCalledWith([]);
     });
 
-    const emptyInput = await canvas.findByPlaceholderText('Enter an item');
+    const emptyInput = await canvas.findByPlaceholderText('Masukkan item');
 
-    await userEvent.type(emptyInput, 'First item{enter}');
+    await userEvent.type(emptyInput, 'Item pertama{enter}');
 
     await waitFor(() => {
-      expect(args.onChange).toHaveBeenCalledWith(['First item']);
+      expect(args.onChange).toHaveBeenCalledWith(['Item pertama']);
     });
 
-    const firstItemChip = await canvas.findByText('First item');
+    const firstItemChip = await canvas.findByText('Item pertama');
 
     expect(firstItemChip).toBeVisible();
   },
@@ -309,8 +315,8 @@ export const DisabledEmptyField: Story = {
 
 export const DisabledWithItems: Story = {
   args: {
-    label: 'Items',
-    defaultValue: ['First item', 'Second item'],
+    label: 'Item',
+    defaultValue: ['Item pertama', 'Item kedua'],
     onChange: fn(),
     readonly: true,
   },
@@ -325,7 +331,7 @@ export const DisabledWithItems: Story = {
 
 export const DisabledWithVariable: Story = {
   args: {
-    label: 'Items',
+    label: 'Item',
     defaultValue: `{{${MOCKED_STEP_ID}.createdAt}}`,
     onChange: fn(),
     readonly: true,
@@ -333,7 +339,7 @@ export const DisabledWithVariable: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const variableChip = await canvas.findByText('Creation date');
+    const variableChip = await canvas.findByText('Tanggal pembuatan');
     expect(variableChip).toBeVisible();
 
     await userEvent.click(variableChip);

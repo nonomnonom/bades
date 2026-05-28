@@ -214,7 +214,7 @@ export const DateTimePickerHeader = ({
             <StyledTimeInput
               type="text"
               ref={timeInputRef}
-              placeholder={isHour12 ? 'HH:mm AA' : 'HH:mm'}
+              placeholder={isHour12 ? 'JJ:MM SS' : 'JJ:MM'}
             />
           </StyledTimeInputContainer>
         </StyledTimeInputWrapper>

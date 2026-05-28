@@ -164,7 +164,7 @@ export const ChangesValueToVariable: Story = {
             onVariableSelect(`{{${MOCKED_STEP_ID}.name}}`);
           }}
         >
-          Add variable
+          Tambah variabel
         </button>
       );
     },
