@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 
+import { WorkspaceResolverNameMapCacheModule } from 'src/engine/api/graphql/direct-execution/services/workspace-resolver-name-map-cache.module';
 import { CoreEngineModule } from 'src/engine/core-modules/core-engine.module';
 import { JobsModule } from 'src/engine/core-modules/message-queue/jobs.module';
 import { MessageQueueModule } from 'src/engine/core-modules/message-queue/message-queue.module';
@@ -15,6 +16,12 @@ import { WorkspaceEventEmitterModule } from 'src/engine/workspace-event-emitter/
     JobsModule,
     SidOrmModule,
     GlobalWorkspaceDataSourceModule,
+    // Daftarkan provider @WorkspaceCache('graphQLResolverNameMap') di DI root
+    // worker supaya WorkspaceCacheService.onModuleInit dapat menemukannya via
+    // DiscoveryService. Tanpa ini, worker yang menjalankan workspace-migration
+    // runner (lewat job webhook/cron) gagal invalidate cache resolver name
+    // map setelah commit transaksi.
+    WorkspaceResolverNameMapCacheModule,
   ],
 })
 export class QueueWorkerModule {}
