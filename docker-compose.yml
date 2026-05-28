@@ -31,6 +31,10 @@ services:
       IS_MULTIWORKSPACE_ENABLED: ${IS_MULTIWORKSPACE_ENABLED:-true}
       IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS: ${IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS:-false}
 
+      # URL frontend untuk redirect post-signup ke workspace subdomain
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+      DEFAULT_SUBDOMAIN: ${DEFAULT_SUBDOMAIN:-app}
+
       # AI Bades — OpenRouter sebagai provider tunggal user-facing
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
       AI_MODEL_PREFERENCES: ${AI_MODEL_PREFERENCES:-}
@@ -94,6 +98,10 @@ services:
       # Mode SaaS managed: multi-tenant aktif, signup publik
       IS_MULTIWORKSPACE_ENABLED: ${IS_MULTIWORKSPACE_ENABLED:-true}
       IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS: ${IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS:-false}
+
+      # URL frontend untuk redirect post-signup ke workspace subdomain
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+      DEFAULT_SUBDOMAIN: ${DEFAULT_SUBDOMAIN:-app}
 
       # AI Bades — OpenRouter sebagai provider tunggal user-facing
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
