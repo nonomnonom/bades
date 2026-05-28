@@ -303,11 +303,14 @@ export class SidStandardSeedService {
         placeholderGroups.push(`(${rowPlaceholders.join(', ')})`);
       }
 
-      const sql = `INSERT INTO "${schemaName}"."${tableName}" (${quotedColumns}) VALUES ${placeholderGroups.join(', ')} ON CONFLICT (id) DO NOTHING`;
+      // RETURNING id supaya `result.length` mencerminkan jumlah row yang
+      // benar-benar ter-insert (ON CONFLICT DO NOTHING tidak return row yang
+      // konflik). Tanpa RETURNING, TypeORM mengembalikan array kosong.
+      const sql = `INSERT INTO "${schemaName}"."${tableName}" (${quotedColumns}) VALUES ${placeholderGroups.join(', ')} ON CONFLICT (id) DO NOTHING RETURNING id`;
 
       try {
         const result = await this.coreDataSource.query(sql, params);
-        const affected = Array.isArray(result) ? result.length : rows.length;
+        const affected = Array.isArray(result) ? result.length : 0;
 
         insertedRecords += affected;
         this.logger.log(
@@ -648,12 +651,20 @@ export class SidStandardSeedService {
     //
     // ROW_NUMBER() dalam sub-select memberi posisi relatif dimulai dari
     // posisi terbesar yang sudah ada + 1 supaya kolom baru muncul di akhir.
+    // viewField mewarisi SyncableEntity (workspaceId, universalIdentifier,
+    // applicationId NOT NULL). universalIdentifier diisi UUID baru via
+    // gen_random_uuid(); applicationId diwarisi dari view induk supaya
+    // viewField tetap satu application dengan view yang menampungnya.
     const sql = `
       INSERT INTO core."viewField"
-        (id, "fieldMetadataId", "isVisible", size, position,
+        (id, "workspaceId", "universalIdentifier", "applicationId",
+         "fieldMetadataId", "isVisible", size, position,
          "viewFieldGroupId", "viewId", "createdAt", "updatedAt")
       SELECT
         gen_random_uuid(),
+        $1,
+        gen_random_uuid(),
+        candidate.v_application_id,
         candidate.fm_id,
         true,
         160,
@@ -669,7 +680,7 @@ export class SidStandardSeedService {
         NOW(),
         NOW()
       FROM (
-        SELECT v.id AS v_id, fm.id AS fm_id
+        SELECT v.id AS v_id, v."applicationId" AS v_application_id, fm.id AS fm_id
         FROM core."view" v
         JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
         JOIN core."fieldMetadata" fm ON fm."objectMetadataId" = om.id
@@ -686,6 +697,7 @@ export class SidStandardSeedService {
           AND existing."viewId" = candidate.v_id
           AND existing."deletedAt" IS NULL
       )
+      RETURNING id
     `;
 
     const result = await this.coreDataSource.query(sql, [
@@ -694,7 +706,7 @@ export class SidStandardSeedService {
       fieldNames,
     ]);
 
-    const inserted = Array.isArray(result) && result[1] ? result[1] : 0;
+    const inserted = Array.isArray(result) ? result.length : 0;
 
     if (inserted > 0) {
       this.logger.log(
