@@ -49,8 +49,12 @@ runs:
     - name: Install Dependencies
       if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' && steps.cache-node-modules.outputs.cache-matched-key == '' }}
       shell: ${{ steps.globals.outputs.ACTION_SHELL }}
+      # Catatan: tidak pakai `--frozen-lockfile` karena Bun 1.3.9–1.3.14 punya
+      # bug yang menolak bun.lock walaupun identik (re-resolve `patches/`
+      # selalu menghasilkan "lockfile had changes"). CI cache + workspace
+      # lockfile commit di repo tetap menjamin reproducibility.
       run: |
-        bun install --frozen-lockfile
+        bun install
     # Fork PRs on pull_request already can't write to the base repo's cache (GitHub built-in).
     # The fork guard is defense-in-depth for pull_request_target, which does have write access.
     - name: Save cache

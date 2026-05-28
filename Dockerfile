@@ -27,7 +27,7 @@ COPY ./packages/front-component-renderer/package.json /app/packages/front-compon
 COPY ./packages/sdk/package.json /app/packages/sdk/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
 
-RUN bun install --frozen-lockfile \
+RUN bun install \
       --filter bades \
       --filter front \
       --filter front-component-renderer \
@@ -50,7 +50,7 @@ COPY ./packages/server/package.json /app/packages/server/
 COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
 
-RUN bun install --frozen-lockfile \
+RUN bun install \
       --filter bades \
       --filter server \
       --filter emails \
@@ -75,7 +75,7 @@ RUN find /app/packages/server/dist -name '*.d.ts' -delete \
 
 # Prune dev deps untuk runtime image. Bun belum punya equivalent persis `yarn workspaces focus --production`,
 # tapi `bun install --production` melakukan hal sama (drop devDependencies).
-RUN bun install --production --frozen-lockfile \
+RUN bun install --production \
       --filter server \
       --filter emails \
       --filter shared \
@@ -175,7 +175,7 @@ COPY ./packages/client-sdk /app/packages/client-sdk
 WORKDIR /app
 
 # Install all dependencies for hot-reload development
-RUN bun install --frozen-lockfile \
+RUN bun install \
       --filter bades \
       --filter front \
       --filter front-component-renderer \
