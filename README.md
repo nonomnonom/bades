@@ -109,9 +109,8 @@ yarn start
 Workflow `.github/workflows/build-image.yaml` build satu image dan push ke
 GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakai oleh service
 `server` (server + frontend) dan service `worker` (override command jadi
-`yarn worker:prod`) — pola identik dengan Twenty Railway template: satu
-image, dua service runtime, plus Postgres + Redis. Cocok untuk platform
-managed (Railway, Render) maupun host Docker mandiri.
+`yarn worker:prod`). Pola: satu image runtime + Postgres + Redis. Cocok
+untuk platform managed (Railway, Render) maupun host Docker mandiri.
 
 Repo ini tidak memaketkan workflow deploy ke server tertentu; operator
 internal memilih platform sendiri.

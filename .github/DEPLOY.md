@@ -10,9 +10,8 @@ Repo ini tidak lagi memaketkan flow deploy ke server tertentu. Operator
 internal memilih platform sendiri (Railway, Render, VPS, dsb) dan
 menjalankan image yang sama lewat Docker Compose atau platform setara.
 
-> Pola deploy (mengikuti Twenty Railway template): satu image, dua service
-> (server + worker) + Postgres + Redis. Cocok untuk platform managed
-> (Railway/Render) maupun host Docker mandiri.
+> Pola deploy: satu image, dua service (server + worker) + Postgres + Redis.
+> Cocok untuk platform managed (Railway/Render) maupun host Docker mandiri.
 
 ---
 

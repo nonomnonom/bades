@@ -38,7 +38,7 @@ const mockUserMessage: ExtendedUIMessage = {
   parts: [
     {
       type: 'text',
-      text: 'Can you analyze my sales data and create a chart showing the monthly trends?',
+      text: 'Bisa analisis data penerima bantuan desa per bulan dan buatkan grafik trennya?',
     },
   ],
   metadata: {
@@ -58,31 +58,31 @@ const mockAssistantWithCodeExecution: ExtendedUIMessage = {
         code: `import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load and process sales data
+# Muat dan olah data penerima bantuan desa
 data = {
-    'month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    'sales': [12500, 15200, 14800, 18900, 21000, 19500]
+    'bulan': ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+    'penerima': [125, 152, 148, 189, 210, 195]
 }
 df = pd.DataFrame(data)
 
-# Create the chart
+# Buat grafik
 plt.figure(figsize=(10, 6))
-plt.bar(df['month'], df['sales'], color='steelblue')
-plt.title('Monthly Sales Trends')
-plt.xlabel('Month')
-plt.ylabel('Sales ($)')
-plt.savefig('sales_chart.png', dpi=150)
-print(f"Total sales: $" + str(df['sales'].sum()))
-print("Chart saved successfully!")`,
+plt.bar(df['bulan'], df['penerima'], color='steelblue')
+plt.title('Tren Penerima Bantuan Desa per Bulan')
+plt.xlabel('Bulan')
+plt.ylabel('Jumlah Penerima')
+plt.savefig('grafik_bantuan.png', dpi=150)
+print(f"Total penerima: " + str(df['penerima'].sum()) + " jiwa")
+print("Grafik berhasil disimpan!")`,
         language: 'python',
-        stdout: 'Total sales: $101,900\nChart saved successfully!',
+        stdout: 'Total penerima: 1019 jiwa\nGrafik berhasil disimpan!',
         stderr: '',
         exitCode: 0,
         executionTimeMs: 2340,
         files: [
           {
             fileId: '550e8400-e29b-41d4-a716-446655440005',
-            filename: 'sales_chart.png',
+            filename: 'grafik_bantuan.png',
             url: 'https://picsum.photos/800/480',
             mimeType: 'image/png',
           },
@@ -91,7 +91,7 @@ print("Chart saved successfully!")`,
     },
     {
       type: 'text',
-      text: "I've analyzed your sales data and created a chart showing the monthly trends. Here are the key insights:\n\n- **Total sales**: $101,900 over 6 months\n- **Peak month**: May with $21,000 in sales\n- **Growth trend**: Overall positive trajectory with 68% growth from January to May\n\nThe chart shows a clear upward trend with a slight dip in March. Would you like me to perform any additional analysis?",
+      text: "Saya sudah analisis data penerima bantuan dan membuat grafik tren bulanannya. Berikut temuan utamanya:\n\n- **Total penerima**: 1.019 jiwa selama 6 bulan\n- **Puncak bulan**: Mei dengan 210 penerima\n- **Tren pertumbuhan**: Naik konsisten dengan kenaikan 68% dari Januari ke Mei\n\nGrafik menunjukkan tren naik yang jelas dengan sedikit penurunan di Maret. Mau saya lakukan analisis tambahan?",
     },
   ],
   metadata: {
