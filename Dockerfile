@@ -71,7 +71,7 @@ RUN bunx nx run server:build
 # Clean server build output (type declarations and compiled tests are not needed at runtime;
 # source maps are kept because bades-infra extracts them from the image for Sentry uploads)
 RUN find /app/packages/server/dist -name '*.d.ts' -delete \
- && rm -rf /app/packages/server/dist/packages/server/test
+ && rm -rf /app/packages/server/dist/src/test
 
 # Prune dev deps untuk runtime image. Bun belum punya equivalent persis `yarn workspaces focus --production`,
 # tapi `bun install --production` melakukan hal sama (drop devDependencies).
@@ -184,7 +184,7 @@ RUN bun install --frozen-lockfile \
       --filter sdk \
       --filter client-sdk
 
-CMD ["npx", "nx", "run", "front:start"]
+CMD ["bunx", "nx", "run", "front:start"]
 
 
 # ===========================================================================
@@ -194,7 +194,7 @@ CMD ["npx", "nx", "run", "front:start"]
 
 FROM bades-server AS bades
 
-COPY --chown=1000 --from=bades-front-build /app/packages/front/build /app/packages/server/dist/front
+COPY --chown=1000 --from=bades-front-build /app/packages/front/build /app/packages/server/dist/src/front
 
 LABEL org.opencontainers.image.description="Bades image with backend and frontend."
 

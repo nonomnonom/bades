@@ -29,23 +29,12 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build shared
-        run: bunx nx build shared
-
-      - name: Build ui
-        run: bunx nx build ui
-
-      - name: Build sdk
-        run: bunx nx build sdk
-
-      - name: Build server
-        run: bunx nx build server
-
-      - name: Build front
-        run: bunx nx build front
-
-      - name: Build emails
-        run: bunx nx build emails
+      # Nx menghitung urutan build via dependsOn `^build`; run-many memparalelkan
+      # task yang independen (mis. front + emails) sekaligus.
+      - name: Build all
+        run: >-
+          bunx nx run-many -t build
+          -p shared emails ui sdk server front client-sdk front-component-renderer
 
   lint:
     name: Lint
@@ -59,20 +48,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build oxlint-rules plugin
+      - name: Build oxlint plugin
         run: bunx nx build oxlint-rules
 
-      - name: Lint server
-        run: bunx nx lint server
-
-      - name: Lint front
-        run: bunx nx lint front
-
-      - name: Format check server
-        run: bunx nx fmt server
-
-      - name: Format check front
-        run: bunx nx fmt front
+      - name: Lint + format check
+        run: bunx nx run-many -t lint,fmt -p server front shared
 
   typecheck:
     name: Typecheck
@@ -86,14 +66,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Typecheck shared
-        run: bunx nx typecheck shared
-
-      - name: Typecheck server
-        run: bunx nx typecheck server
-
-      - name: Typecheck front
-        run: bunx nx typecheck front
+      - name: Typecheck
+        run: bunx nx run-many -t typecheck -p server front shared
 
   test:
     name: Unit tests
@@ -118,14 +92,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build shared
-        run: bunx nx build shared
-
-      - name: Test server (unit)
-        run: bunx nx test server
-
-      - name: Test front (unit)
-        run: bunx nx test front
+      - name: Test server + front
+        run: bunx nx run-many -t test -p server front
 
   integration-test:
     name: Integration tests (server)
@@ -133,7 +101,7 @@ jobs:
     timeout-minutes: 45
     services:
       postgres:
-        image: postgres:18
+        image: postgres:16
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -174,26 +142,22 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build shared and emails
-        run: |
-          bunx nx build shared
-          bunx nx build emails
-
-      - name: Build server
+      - name: Build server (+ deps)
         run: bunx nx build server
 
-      - name: Prepare .env.test for integration tests
+      - name: Prepare .env.test
         working-directory: packages/server
         run: |
-          # Tambahkan flag billing dan redirect link netral (Midtrans-first; tidak
-          # ada credential Stripe yang masih dipakai di test path)
+          # Aktifkan billing flag + redirect link netral untuk integration test.
+          # Tidak ada credential Stripe yang masih dipakai di test path.
           echo "" >> .env.test
           echo "IS_BILLING_ENABLED=true" >> .env.test
           echo "BILLING_PLAN_REQUIRED_LINK=http://localhost:3001/billing-redirection" >> .env.test
 
       - name: Create test database
-        run: |
-          PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c 'CREATE DATABASE "test";'
+        run: >-
+          PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres
+          -c 'CREATE DATABASE "test";'
 
       - name: Init schema + run migrations (test DB)
         working-directory: packages/server
@@ -201,22 +165,20 @@ jobs:
           NODE_ENV: test
           PG_DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
         run: |
-          # .env.test sudah punya PG_DATABASE_URL=...test; copy ke .env supaya
+          # .env.test punya PG_DATABASE_URL=...test; copy ke .env supaya
           # subprocess Nx/Nest yang dispawn oleh `database:init` membaca DB yang
           # sama persis dengan integration test runtime.
           cp .env.test .env
           cd ../..
           bunx nx run server:database:init
 
-      - name: Run ClickHouse migrations
-        run: bunx nx clickhouse:migrate server
-
-      - name: Run ClickHouse seeds
-        run: bunx nx clickhouse:seed server
+      - name: ClickHouse migrate + seed
+        run: |
+          bunx nx clickhouse:migrate server
+          bunx nx clickhouse:seed server
 
       - name: Run integration tests (with DB reset)
         env:
           NODE_ENV: test
           PG_DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
         run: bunx nx run server:test:integration:with-db-reset
-
