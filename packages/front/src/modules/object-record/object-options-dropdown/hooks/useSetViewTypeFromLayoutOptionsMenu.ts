@@ -112,6 +112,16 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
           updateCurrentViewParams.mainGroupByFieldMetadataId = null;
           return await updateCurrentView(updateCurrentViewParams);
         }
+        case ViewType.MAP: {
+          if (shouldChangeIcon(currentView.icon, currentView.type)) {
+            updateCurrentViewParams.icon =
+              viewTypeIconMapping(viewType).displayName;
+          }
+          updateCurrentViewParams.mainGroupByFieldMetadataId = null;
+          await updateCurrentView(updateCurrentViewParams);
+          setRecordIndexViewType(viewType);
+          return;
+        }
         case ViewType.TABLE_WIDGET:
         case ViewType.FIELDS_WIDGET: {
           return;
@@ -151,6 +161,12 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
     if (
       oldViewType === ViewType.CALENDAR &&
       oldIcon === viewTypeIconMapping(ViewType.CALENDAR).displayName
+    ) {
+      return true;
+    }
+    if (
+      oldViewType === ViewType.MAP &&
+      oldIcon === viewTypeIconMapping(ViewType.MAP).displayName
     ) {
       return true;
     }

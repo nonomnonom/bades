@@ -108,6 +108,17 @@ export class WorkspaceManagerService {
       `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.hiddenFields} field disembunyikan`,
     );
 
+    // Tanam MAP view untuk object keluarga agar peta keluarga bisa langsung
+    // diakses tanpa perlu membuat view manual di UI.
+    const sidMapViewResult =
+      await this.sidStandardSeedService.seedSidStandardMapViews({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Seed MAP view SID untuk workspace ${workspaceId}: ${sidMapViewResult.createdMapViews} view`,
+    );
+
     // Tanam 3 dashboard contoh + 2 workflow contoh agar halaman Dashboard
     // dan Alur Kerja tidak kosong saat operator desa pertama kali login.
     const sidDashboardResult =

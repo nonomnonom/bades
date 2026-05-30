@@ -4010,5 +4010,23 @@ export const mockedViews: ViewWithRelations[] =
         "deletedAt": null
       }
     ]
+  },
+  {
+    "id": "bd3e4f5a-6c7d-8e9f-0a1b-2c3d4e5f6a7b",
+    "objectMetadataId": "29a80d39-c931-4ed2-8ae7-8eac638f7f95",
+    "type": "MAP",
+    "name": "Peta Keluarga",
+    "icon": "IconMap",
+    "key": null,
+    "isCompact": false,
+    "viewFields": [],
+    "kanbanFieldMetadataId": null,
+    "calendarFieldMetadataId": null,
+    "mainGroupByFieldMetadataId": null,
+    "calendarLayout": null,
+    "position": 0,
+    "createdAt": "2026-04-10T08:55:56.200Z",
+    "updatedAt": "2026-04-10T08:55:56.200Z",
+    "deletedAt": null
   }
 ];

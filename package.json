@@ -82,6 +82,7 @@
     "endOfLine": "lf"
   },
   "dependencies": {
-    "ai": "^6.0.191"
+    "ai": "^6.0.191",
+    "mapbox-gl": "^3.0.0"
   }
 }

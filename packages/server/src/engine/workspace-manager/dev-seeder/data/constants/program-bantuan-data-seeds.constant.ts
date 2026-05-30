@@ -6,7 +6,8 @@ type ProgramBantuanDataSeed = {
   jenisBantuan: string;
   sumberDana: string;
   jumlahPenerima: number;
-  nilaiPerOrang: number;
+  nilaiPerOrangAmountMicros: number;
+  nilaiPerOrangCurrencyCode: string;
   tanggalMulai: string;
   tanggalSelesai: string;
   status: string;
@@ -27,7 +28,8 @@ export const PROGRAM_BANTUAN_DATA_SEED_COLUMNS: (keyof ProgramBantuanDataSeed)[]
     'jenisBantuan',
     'sumberDana',
     'jumlahPenerima',
-    'nilaiPerOrang',
+    'nilaiPerOrangAmountMicros',
+    'nilaiPerOrangCurrencyCode',
     'tanggalMulai',
     'tanggalSelesai',
     'status',
@@ -56,7 +58,8 @@ export const PROGRAM_BANTUAN_DATA_SEEDS: ProgramBantuanDataSeed[] = [
     jenisBantuan: 'BLT',
     sumberDana: 'Dana Desa',
     jumlahPenerima: 25,
-    nilaiPerOrang: 300000,
+    nilaiPerOrangAmountMicros: 300000000000,
+    nilaiPerOrangCurrencyCode: 'IDR',
     tanggalMulai: '2024-01-01',
     tanggalSelesai: '2024-12-31',
     status: 'SELESAI',
@@ -75,7 +78,8 @@ export const PROGRAM_BANTUAN_DATA_SEEDS: ProgramBantuanDataSeed[] = [
     jenisBantuan: 'BPNT',
     sumberDana: 'Kemensos',
     jumlahPenerima: 40,
-    nilaiPerOrang: 200000,
+    nilaiPerOrangAmountMicros: 200000000000,
+    nilaiPerOrangCurrencyCode: 'IDR',
     tanggalMulai: '2024-02-01',
     tanggalSelesai: '2024-11-30',
     status: 'PELAKSANAAN',
@@ -94,7 +98,8 @@ export const PROGRAM_BANTUAN_DATA_SEEDS: ProgramBantuanDataSeed[] = [
     jenisBantuan: 'PKH',
     sumberDana: 'Kemensos',
     jumlahPenerima: 15,
-    nilaiPerOrang: 500000,
+    nilaiPerOrangAmountMicros: 500000000000,
+    nilaiPerOrangCurrencyCode: 'IDR',
     tanggalMulai: '2024-01-01',
     tanggalSelesai: '2024-12-31',
     status: 'PELAKSANAAN',

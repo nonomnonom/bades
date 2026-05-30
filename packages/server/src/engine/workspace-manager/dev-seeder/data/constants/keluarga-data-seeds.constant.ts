@@ -5,7 +5,7 @@ type KeluargaDataSeed = {
   nomorKk: string;
   namaKepalaKeluarga: string;
   tanggalPembuatan: string;
-  alamat: string;
+  alamatAddressStreet1: string;
   rt: string;
   rw: string;
   desa: string;
@@ -25,7 +25,7 @@ export const KELUARGA_DATA_SEED_COLUMNS: (keyof KeluargaDataSeed)[] = [
   'nomorKk',
   'namaKepalaKeluarga',
   'tanggalPembuatan',
-  'alamat',
+  'alamatAddressStreet1',
   'rt',
   'rw',
   'desa',
@@ -55,7 +55,7 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     nomorKk: '3201234567890000',
     namaKepalaKeluarga: 'Ahmad Pratama',
     tanggalPembuatan: '2020-01-15',
-    alamat: 'Jl. Desa Sukamaju No. 1',
+    alamatAddressStreet1: 'Jl. Desa Sukamaju No. 1',
     rt: '001',
     rw: '002',
     desa: 'Sukamaju',
@@ -63,7 +63,7 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     kabupaten: 'Bandung',
     jumlahAnggota: 4,
     kodePos: '40353',
-    klasifikasiKeluarga: 'MENENGAH',
+    klasifikasiKeluarga: 'KS3',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
     createdByName: 'Drs. H. Abdullah',
@@ -74,7 +74,7 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     nomorKk: '3201234567890001',
     namaKepalaKeluarga: 'Budi Santoso',
     tanggalPembuatan: '2020-03-20',
-    alamat: 'Jl. Desa Mekar Sari No. 5',
+    alamatAddressStreet1: 'Jl. Desa Mekar Sari No. 5',
     rt: '003',
     rw: '004',
     desa: 'Mekar Sari',
@@ -82,7 +82,7 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     kabupaten: 'Bandung',
     jumlahAnggota: 3,
     kodePos: '40353',
-    klasifikasiKeluarga: 'MAMPU',
+    klasifikasiKeluarga: 'KS3_PLUS',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
     createdByName: 'Drs. H. Abdullah',
@@ -93,7 +93,7 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     nomorKk: '3201234567890002',
     namaKepalaKeluarga: 'Siti Nurhaliza',
     tanggalPembuatan: '2021-06-10',
-    alamat: 'Jl. Raya Desa No. 10',
+    alamatAddressStreet1: 'Jl. Raya Desa No. 10',
     rt: '002',
     rw: '002',
     desa: 'Sukamaju',
@@ -101,7 +101,7 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     kabupaten: 'Bandung',
     jumlahAnggota: 2,
     kodePos: '40353',
-    klasifikasiKeluarga: 'MISKIN',
+    klasifikasiKeluarga: 'KS1',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
     createdByName: 'Drs. H. Abdullah',

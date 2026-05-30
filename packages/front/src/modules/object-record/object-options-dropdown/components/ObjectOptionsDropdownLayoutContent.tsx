@@ -22,7 +22,7 @@ import { ViewType, viewTypeIconMapping } from '@/views/types/ViewType';
 import { useGetAvailableFieldsForCalendar } from '@/views/view-picker/hooks/useGetAvailableFieldsForCalendar';
 import { useGetAvailableFieldsToGroupRecordsBy } from '@/views/view-picker/hooks/useGetAvailableFieldsToGroupRecordsBy';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import {
   IconBaselineDensitySmall,
@@ -78,6 +78,14 @@ export const ObjectOptionsDropdownLayoutContent = () => {
       )
     : undefined;
 
+  const hasAddressField = useMemo(
+    () =>
+      objectMetadataItem.fields.some(
+        (field) => field.type === 'ADDRESS' && field.isActive,
+      ),
+    [objectMetadataItem.fields],
+  );
+
   const { setAndPersistViewType } = useSetViewTypeFromLayoutOptionsMenu();
   const { availableFieldsForGrouping, navigateToSelectSettings } =
     useGetAvailableFieldsToGroupRecordsBy();
@@ -113,6 +121,15 @@ export const ObjectOptionsDropdownLayoutContent = () => {
     }
   };
 
+  const handleSelectMapViewType = async () => {
+    if (isDefaultView || !hasAddressField) {
+      return;
+    }
+    if (currentView?.type !== ViewType.MAP) {
+      await setAndPersistViewType(ViewType.MAP);
+    }
+  };
+
   const isDefaultView = currentView?.key === 'INDEX';
   const nbsp = '\u00A0';
 
@@ -120,6 +137,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
     ViewType.TABLE,
     ...(isDefaultView ? [] : [ViewType.KANBAN]),
     ...(!isDefaultView ? [ViewType.CALENDAR] : []),
+    ...(!isDefaultView ? [ViewType.MAP] : []),
     ViewOpenRecordIn.SIDE_PANEL,
     ...(currentView?.type === ViewType.KANBAN ? ['Kelompok'] : []),
     ...(currentView?.type === ViewType.CALENDAR
@@ -211,6 +229,41 @@ export const ObjectOptionsDropdownLayoutContent = () => {
                 contextualTextPosition="right"
                 selected={currentView?.type === ViewType.KANBAN}
                 onClick={handleSelectKanbanViewType}
+              />
+            </SelectableListItem>
+            <SelectableListItem
+              itemId={ViewType.MAP}
+              onEnter={() => {
+                if (!isDefaultView && hasAddressField) {
+                  setAndPersistViewType(ViewType.MAP);
+                }
+              }}
+            >
+              <MenuItemSelect
+                LeftIcon={viewTypeIconMapping(ViewType.MAP)}
+                text={t`Peta`}
+                disabled={isDefaultView || !hasAddressField}
+                focused={selectedItemId === ViewType.MAP}
+                contextualText={
+                  isDefaultView ? (
+                    <>
+                      {nbsp}·{nbsp}
+                      <OverflowingTextWithTooltip
+                        text={t`Tidak tersedia untuk tampilan bawaan`}
+                      />
+                    </>
+                  ) : !hasAddressField ? (
+                    <>
+                      {nbsp}·{nbsp}
+                      <OverflowingTextWithTooltip
+                        text={t`Butuh kolom Alamat`}
+                      />
+                    </>
+                  ) : undefined
+                }
+                contextualTextPosition="right"
+                selected={currentView?.type === ViewType.MAP}
+                onClick={handleSelectMapViewType}
               />
             </SelectableListItem>
           </DropdownMenuItemsContainer>

@@ -6,9 +6,11 @@ type AsetDesaDataSeed = {
   jenisAset: string;
   kodeAset: string;
   lokasi: string;
-  nilaiAset: number;
+  nilaiAsetAmountMicros: number;
+  nilaiAsetCurrencyCode: string;
   tahunPerolehan: string;
-  status: string;
+  kondisi: string;
+  statusPengelolaan: string;
   keterangan: string;
   createdBySource: string;
   createdByWorkspaceMemberId: string;
@@ -25,9 +27,11 @@ export const ASET_DESA_DATA_SEED_COLUMNS: (keyof AsetDesaDataSeed)[] = [
   'jenisAset',
   'kodeAset',
   'lokasi',
-  'nilaiAset',
+  'nilaiAsetAmountMicros',
+  'nilaiAsetCurrencyCode',
   'tahunPerolehan',
-  'status',
+  'kondisi',
+  'statusPengelolaan',
   'keterangan',
   'createdBySource',
   'createdByWorkspaceMemberId',
@@ -56,9 +60,11 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     jenisAset: 'TANAH',
     kodeAset: '01.01.01',
     lokasi: 'Jl. Desa Sukamaju No. 1',
-    nilaiAset: 500000000,
+    nilaiAsetAmountMicros: 500000000000000,
+    nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2018',
-    status: 'BAGUS',
+    kondisi: 'BAIK',
+    statusPengelolaan: 'AKTIF',
     keterangan: 'Tanah seluas 500m2 dengan Sertifikat',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -74,9 +80,11 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     jenisAset: 'BANGUNAN',
     kodeAset: '01.01.02',
     lokasi: 'Jl. Desa Sukamaju No. 1',
-    nilaiAset: 350000000,
+    nilaiAsetAmountMicros: 350000000000000,
+    nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2019',
-    status: 'BAGUS',
+    kondisi: 'BAIK',
+    statusPengelolaan: 'AKTIF',
     keterangan: 'Gedung 2 lantai luas 200m2',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -92,9 +100,11 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     jenisAset: 'KENDARAAN',
     kodeAset: '02.01.01',
     lokasi: 'Kantor Desa',
-    nilaiAset: 180000000,
+    nilaiAsetAmountMicros: 180000000000000,
+    nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2020',
-    status: 'BAGUS',
+    kondisi: 'BAIK',
+    statusPengelolaan: 'AKTIF',
     keterangan: 'Kendaraan operasional desa',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -110,9 +120,11 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     jenisAset: 'PERALATAN',
     kodeAset: '03.01.01',
     lokasi: 'Kantor Desa',
-    nilaiAset: 15000000,
+    nilaiAsetAmountMicros: 15000000000000,
+    nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2021',
-    status: 'RUSAK_RINGAN',
+    kondisi: 'RUSAK_RINGAN',
+    statusPengelolaan: 'TIDAK_DIPAKAI',
     keterangan: 'Unit PC untuk administrasi',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
