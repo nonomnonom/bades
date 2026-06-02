@@ -12,7 +12,7 @@ import { makeGraphqlAPIRequest } from 'test/integration/graphql/utils/make-graph
 //   company.address.addressCity → keluarga.kecamatan (TEXT)
 //   company.employees           → keluarga.jumlahAnggota (NUMBER)
 //   company.annualRecurringRevenue.amountMicros → keluarga.klasifikasiKeluarga (SELECT)
-//   companiesGroupBy            → keluargasGroupBy
+//   companiesGroupBy            → daftarKeluargaGroupBy
 //   avgEmployees                → avgJumlahAnggota
 
 describe('group-by resolvers - order by', () => {
@@ -193,7 +193,7 @@ describe('group-by resolvers - order by', () => {
         ]),
       );
 
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -273,7 +273,7 @@ describe('group-by resolvers - order by', () => {
           },
         ]),
       );
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -352,7 +352,7 @@ describe('group-by resolvers - order by', () => {
           },
         ]),
       );
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -430,7 +430,7 @@ describe('group-by resolvers - order by', () => {
           },
         ]),
       );
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -512,7 +512,7 @@ describe('group-by resolvers - order by', () => {
         }),
       );
 
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -544,7 +544,7 @@ describe('group-by resolvers - order by', () => {
         }),
       );
 
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
 
@@ -576,7 +576,7 @@ describe('group-by resolvers - order by', () => {
         }),
       );
 
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -608,7 +608,7 @@ describe('group-by resolvers - order by', () => {
         }),
       );
 
-      const groups = response.body.data.keluargasGroupBy;
+      const groups = response.body.data.daftarKeluargaGroupBy;
 
       expect(groups).toBeDefined();
 

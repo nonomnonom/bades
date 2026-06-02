@@ -368,7 +368,7 @@ describe('basic group-by with records', () => {
           $filter: KeluargaFilterInput
           $limit: Int
         ) {
-          keluargasGroupBy(groupBy: $groupBy, filter: $filter, limit: $limit) {
+          daftarKeluargaGroupBy(groupBy: $groupBy, filter: $filter, limit: $limit) {
             groupByDimensionValues
             __typename
             edges {
@@ -395,7 +395,7 @@ describe('basic group-by with records', () => {
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const groups = response.body.data.keluargasGroupBy;
+    const groups = response.body.data.daftarKeluargaGroupBy;
 
     expect(groups).toHaveLength(1);
 

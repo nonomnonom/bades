@@ -179,7 +179,7 @@ describe('group-by with records respects row-level permission predicates', () =>
             $filter: KeluargaFilterInput
             $limit: Int
           ) {
-            keluargasGroupBy(
+            daftarKeluargaGroupBy(
               groupBy: $groupBy
               filter: $filter
               limit: $limit
@@ -206,7 +206,7 @@ describe('group-by with records respects row-level permission predicates', () =>
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data).toBeDefined();
 
-    const groups = response.body.data.keluargasGroupBy;
+    const groups = response.body.data.daftarKeluargaGroupBy;
 
     const allRecords = groups.flatMap(
       (group: { edges: { node: { nomorKk: string; alamat: string } }[] }) =>

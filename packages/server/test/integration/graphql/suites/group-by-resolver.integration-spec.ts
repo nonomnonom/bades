@@ -44,8 +44,8 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 //   company/daftarKeluarga → keluarga/daftarKeluarga
 //   city (TEXT)      → tempatLahir (TEXT)
 //   companyId        → kartuKeluargaId
-//   peopleGroupBy    → penduduksGroupBy
-//   companiesGroupBy → keluargasGroupBy
+//   peopleGroupBy    → daftarPendudukGroupBy
+//   companiesGroupBy → daftarKeluargaGroupBy
 
 const client = request(`http://localhost:${APP_PORT}`);
 
@@ -116,7 +116,7 @@ describe('group-by resolver (integration)', () => {
         }),
       );
 
-      const groups = response.body.data.penduduksGroupBy;
+      const groups = response.body.data.daftarPendudukGroupBy;
 
       expect(groups).toBeDefined();
       expect(groups).toEqual(
@@ -185,7 +185,7 @@ describe('group-by resolver (integration)', () => {
         }),
       );
 
-      const groups = response.body.data.penduduksGroupBy;
+      const groups = response.body.data.daftarPendudukGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -235,7 +235,7 @@ describe('group-by resolver (integration)', () => {
         }),
       );
 
-      const groups = response.body.data.penduduksGroupBy;
+      const groups = response.body.data.daftarPendudukGroupBy;
 
       expect(groups).toBeDefined();
       expect(groups).toEqual(
@@ -345,7 +345,7 @@ describe('group-by resolver (integration)', () => {
         }),
       );
 
-      const groups = response.body.data.penduduksGroupBy;
+      const groups = response.body.data.daftarPendudukGroupBy;
 
       expect(groups).toBeDefined();
       expect(Array.isArray(groups)).toBe(true);
@@ -434,7 +434,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(groups.length).toBe(4);
@@ -520,7 +520,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(groups.length).toBe(4);
@@ -610,7 +610,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(groups.length).toBe(3);
@@ -723,7 +723,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
@@ -757,7 +757,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
@@ -791,7 +791,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
@@ -938,7 +938,7 @@ describe('group-by resolver (integration)', () => {
         }),
       );
 
-      const groups = response.body.data.penduduksGroupBy;
+      const groups = response.body.data.daftarPendudukGroupBy;
 
       expect(groups).toBeDefined();
       expect(groups).toEqual(
@@ -1008,7 +1008,7 @@ describe('group-by resolver (integration)', () => {
         }),
       );
 
-      const groups = response.body.data.penduduksGroupBy;
+      const groups = response.body.data.daftarPendudukGroupBy;
 
       expect(groups).toBeDefined();
       expect(groups).toEqual(
@@ -1160,7 +1160,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
@@ -1199,7 +1199,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
@@ -1236,7 +1236,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
@@ -1515,7 +1515,7 @@ describe('group-by resolver (integration)', () => {
           }),
         );
 
-        const groups = response.body.data.penduduksGroupBy;
+        const groups = response.body.data.daftarPendudukGroupBy;
 
         expect(groups).toBeDefined();
         expect(Array.isArray(groups)).toBe(true);
