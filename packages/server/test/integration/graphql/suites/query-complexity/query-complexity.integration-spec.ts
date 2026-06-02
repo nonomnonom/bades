@@ -8,13 +8,13 @@ describe('Query Complexity', () => {
   it('should execute a simple query', async () => {
     const gqlFields = generateGqlFields(100);
 
-    const findManyPeopleOperation = findManyOperationFactory({
+    const findManyDaftarPendudukOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: gqlFields,
     });
 
-    const response = await makeGraphqlAPIRequest(findManyPeopleOperation);
+    const response = await makeGraphqlAPIRequest(findManyDaftarPendudukOperation);
 
     expect(response.body.errors).toBeUndefined();
     expect(response.body.data.daftarPenduduk).toBeDefined();
@@ -24,13 +24,13 @@ describe('Query Complexity', () => {
   it('should fail to execute a query with too many fields', async () => {
     const gqlFields = generateGqlFields(2001);
 
-    const findManyPeopleOperation = findManyOperationFactory({
+    const findManyDaftarPendudukOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: gqlFields,
     });
 
-    const response = await makeGraphqlAPIRequest(findManyPeopleOperation);
+    const response = await makeGraphqlAPIRequest(findManyDaftarPendudukOperation);
 
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toMatchSnapshot();

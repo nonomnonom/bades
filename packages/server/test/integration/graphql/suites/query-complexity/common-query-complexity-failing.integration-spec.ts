@@ -23,27 +23,27 @@ describe('Query Complexity - Failing Scenarios', () => {
   });
 
   it('should fail findMany query with two nested one to many relations', async () => {
-    const findManyPeopleOperation = findManyOperationFactory({
+    const findManyDaftarPendudukOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: TWO_NESTED_ONE_TO_MANY_QUERY_GQL_FIELDS,
       first: 200,
     });
 
-    const response = await makeGraphqlAPIRequest(findManyPeopleOperation);
+    const response = await makeGraphqlAPIRequest(findManyDaftarPendudukOperation);
 
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toMatchSnapshot();
   });
 
   it('should fail findMany query with too many relation fields', async () => {
-    const findManyPeopleOperation = findManyOperationFactory({
+    const findManyDaftarPendudukOperation = findManyOperationFactory({
       objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'daftarPenduduk',
       gqlFields: TOO_MANY_RELATION_QUERY_GQL_FIELDS,
     });
 
-    const response = await makeGraphqlAPIRequest(findManyPeopleOperation);
+    const response = await makeGraphqlAPIRequest(findManyDaftarPendudukOperation);
 
     expect(response.body.errors).toBeDefined();
     expect(response.body.errors[0].message).toMatchSnapshot();

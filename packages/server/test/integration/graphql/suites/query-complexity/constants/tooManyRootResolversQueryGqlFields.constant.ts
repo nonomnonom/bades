@@ -51,7 +51,7 @@ export const TOO_MANY_ROOT_RESOLVERS_QUERY_GQL_FIELDS = gql`
         }
       }
     }
-    opportunities {
+    workspaceMembers {
       edges {
         node {
           id
