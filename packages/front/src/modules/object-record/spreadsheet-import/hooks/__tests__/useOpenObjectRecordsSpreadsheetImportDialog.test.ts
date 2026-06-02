@@ -21,6 +21,12 @@ jest.mock('@/object-record/hooks/useBatchCreateManyRecords', () => ({
   }),
 }));
 
+jest.mock('@/object-metadata/hooks/useApolloCoreClient', () => ({
+  useApolloCoreClient: () => ({
+    refetchQueries: jest.fn(),
+  }),
+}));
+
 const mockResult = jest.fn(() => ({
   data: {
     createDaftarKeluarga: [

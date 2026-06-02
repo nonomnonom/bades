@@ -106,6 +106,8 @@ import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permi
     AdminPanelConfigService,
     AdminPanelVersionService,
     MaintenanceModeService,
+    DatabaseHealthIndicator,
+    RedisHealthIndicator,
   ],
 })
 export class AdminPanelModule {}

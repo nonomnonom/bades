@@ -31,6 +31,12 @@ jest.mock('@/side-panel/hooks/useOpenRecordInSidePanel', () => ({
   }),
 }));
 
+jest.mock('@/object-metadata/hooks/useObjectMetadataItems', () => ({
+  useObjectMetadataItems: () => ({
+    objectMetadataItems: [],
+  }),
+}));
+
 const Wrapper = getJestMetadataAndApolloMocksWrapper({
   apolloMocks: [],
 });

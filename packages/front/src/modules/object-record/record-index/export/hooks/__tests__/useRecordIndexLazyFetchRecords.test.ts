@@ -99,7 +99,7 @@ describe('useRecordData', () => {
     it('should handle no records', async () => {
       const callback = jest.fn();
 
-      mockFetchAllRecords.mockReturnValue([]);
+      mockFetchAllRecords.mockResolvedValue([]);
 
       const { result } = renderHook(
         () =>
@@ -127,7 +127,7 @@ describe('useRecordData', () => {
 
     it('should call the callback function with fetched data', async () => {
       const callback = jest.fn();
-      mockFetchAllRecords.mockReturnValue([mockPerson]);
+      mockFetchAllRecords.mockResolvedValue([mockPerson]);
 
       const { result } = renderHook(
         () => {
