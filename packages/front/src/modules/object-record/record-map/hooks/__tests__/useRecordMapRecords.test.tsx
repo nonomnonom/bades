@@ -10,8 +10,7 @@ jest.mock('@/object-record/hooks/useFindManyRecords', () => ({
   useFindManyRecords: jest.fn(),
 }));
 
-const mockUseFindManyRecords =
-  useFindManyRecords as jest.Mock;
+const mockUseFindManyRecords = useFindManyRecords as jest.Mock;
 
 const MOCK_ADDRESS_FIELD_ID = 'field-address-1';
 const MOCK_LABEL_FIELD_ID = 'field-label-1';
@@ -31,21 +30,20 @@ const createObjectMetadataItem = (
     nameSingular: 'keluarga',
     namePlural: 'daftarKeluarga',
     labelIdentifierFieldMetadataId: MOCK_LABEL_FIELD_ID,
-    fields:
-      overrides?.fields ?? [
-        {
-          id: MOCK_LABEL_FIELD_ID,
-          name: 'nomorKartuKeluarga',
-          type: 'TEXT',
-          isActive: true,
-        },
-        {
-          id: MOCK_ADDRESS_FIELD_ID,
-          name: 'address',
-          type: 'ADDRESS',
-          isActive: true,
-        },
-      ],
+    fields: overrides?.fields ?? [
+      {
+        id: MOCK_LABEL_FIELD_ID,
+        name: 'nomorKartuKeluarga',
+        type: 'TEXT',
+        isActive: true,
+      },
+      {
+        id: MOCK_ADDRESS_FIELD_ID,
+        name: 'address',
+        type: 'ADDRESS',
+        isActive: true,
+      },
+    ],
     readableFields: [],
     updatableFields: [],
     indexMetadatas: [],
@@ -55,26 +53,25 @@ const createWrapper =
   (overrides?: {
     objectMetadataItem?: ReturnType<typeof createObjectMetadataItem>;
   }) =>
-  ({ children }: { children: React.ReactNode }) =>
-    (
-      <RecordMapContextProvider
-        value={{
-          viewBarInstanceId: 'test-view-bar',
-          objectNameSingular: 'keluarga',
-          objectMetadataItem:
-            overrides?.objectMetadataItem ?? createObjectMetadataItem(),
-          objectPermissions: {
-            canReadObjectRecords: true,
-            canUpdateObjectRecords: true,
-            canSoftDeleteObjectRecords: true,
-            canDestroyObjectRecords: true,
-            objectMetadataId: 'object-keluarga-1',
-          },
-        }}
-      >
-        {children}
-      </RecordMapContextProvider>
-    );
+  ({ children }: { children: React.ReactNode }) => (
+    <RecordMapContextProvider
+      value={{
+        viewBarInstanceId: 'test-view-bar',
+        objectNameSingular: 'keluarga',
+        objectMetadataItem:
+          overrides?.objectMetadataItem ?? createObjectMetadataItem(),
+        objectPermissions: {
+          canReadObjectRecords: true,
+          canUpdateObjectRecords: true,
+          canSoftDeleteObjectRecords: true,
+          canDestroyObjectRecords: true,
+          objectMetadataId: 'object-keluarga-1',
+        },
+      }}
+    >
+      {children}
+    </RecordMapContextProvider>
+  );
 
 describe('useRecordMapRecords', () => {
   beforeEach(() => {

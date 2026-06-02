@@ -51,7 +51,10 @@ export const useRecordMapRecords = () => {
 
     return records
       .map((record: Record<string, unknown>) => {
-        const addressValue = record[fieldName] as Record<string, unknown> | null;
+        const addressValue = record[fieldName] as Record<
+          string,
+          unknown
+        > | null;
         if (!isDefined(addressValue)) {
           return null;
         }
@@ -63,8 +66,7 @@ export const useRecordMapRecords = () => {
           return null;
         }
 
-        const name =
-          (record[labelIdentifierFieldName] as string) ?? record.id;
+        const name = (record[labelIdentifierFieldName] as string) ?? record.id;
 
         return {
           id: record.id as string,

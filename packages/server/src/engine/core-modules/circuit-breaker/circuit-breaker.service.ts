@@ -117,12 +117,15 @@ export class CircuitBreakerService {
 
       case CircuitState.HALF_OPEN:
         circuit.successes++;
-        const successRate = circuit.successes / (circuit.successes + circuit.failures);
+        const successRate =
+          circuit.successes / (circuit.successes + circuit.failures);
         if (successRate >= options.successThreshold) {
           circuit.state = CircuitState.CLOSED;
           circuit.failures = 0;
           circuit.successes = 0;
-          this.logger.log(`Circuit ${key} CLOSED after ${circuit.successes} successes`);
+          this.logger.log(
+            `Circuit ${key} CLOSED after ${circuit.successes} successes`,
+          );
         }
         break;
 
@@ -149,8 +152,7 @@ export class CircuitBreakerService {
         circuit.failures++;
         if (circuit.failures >= options.failureThreshold) {
           circuit.state = CircuitState.OPEN;
-          circuit.nextAttemptTime =
-            Date.now() + options.recoveryTimeout;
+          circuit.nextAttemptTime = Date.now() + options.recoveryTimeout;
           this.logger.warn(
             `Circuit ${key} OPENED after ${circuit.failures} failures`,
           );

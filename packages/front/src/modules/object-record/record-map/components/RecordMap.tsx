@@ -58,12 +58,12 @@ const StyledLoadingSpinner = styled.div`
       transform: rotate(360deg);
     }
   }
+  animation: spin 0.8s linear infinite;
   border: 3px solid ${themeCssVariables.color.blue}20;
-  border-top-color: ${themeCssVariables.color.blue};
   border-radius: 50%;
+  border-top-color: ${themeCssVariables.color.blue};
   height: 28px;
   width: 28px;
-  animation: spin 0.8s linear infinite;
 `;
 
 const StyledLoadingText = styled.span`
@@ -80,7 +80,7 @@ const STORAGE_KEY_PREFIX = 'bades-map-center-';
 const getStorageKey = (objectNameSingular: string) =>
   `${STORAGE_KEY_PREFIX}${objectNameSingular}`;
 
-const DEFAULT_MAP_STORAGE = {
+const _DEFAULT_MAP_STORAGE = {
   center: DEFAULT_CENTER,
   zoom: DEFAULT_ZOOM,
 };
@@ -236,8 +236,8 @@ export const RecordMap = () => {
       <StyledEmptyState>
         <StyledEmptyTitle>Tidak ada token Mapbox</StyledEmptyTitle>
         <StyledEmptyDescription>
-          Atur <code>REACT_APP_MAPBOX_ACCESS_TOKEN</code> di environment variable
-          untuk mengaktifkan tampilan peta.
+          Atur <code>REACT_APP_MAPBOX_ACCESS_TOKEN</code> di environment
+          variable untuk mengaktifkan tampilan peta.
         </StyledEmptyDescription>
       </StyledEmptyState>
     );
@@ -248,8 +248,8 @@ export const RecordMap = () => {
       <StyledEmptyState>
         <StyledEmptyTitle>Tidak ada kolom alamat</StyledEmptyTitle>
         <StyledEmptyDescription>
-          Object ini belum memiliki kolom bertipe Alamat. Tambahkan field
-          Alamat untuk melihat data di peta.
+          Object ini belum memiliki kolom bertipe Alamat. Tambahkan field Alamat
+          untuk melihat data di peta.
         </StyledEmptyDescription>
       </StyledEmptyState>
     );

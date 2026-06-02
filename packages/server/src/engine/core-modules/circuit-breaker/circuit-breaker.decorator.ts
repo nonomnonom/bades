@@ -17,12 +17,14 @@ import type { CircuitBreakerOptions } from 'src/engine/core-modules/circuit-brea
  * }
  * ```
  */
-export const CircuitBreaker = (options: {
-  key?: string;
-  failureThreshold?: number;
-  recoveryTimeout?: number;
-  successThreshold?: number;
-} = {}): MethodDecorator => {
+export const CircuitBreaker = (
+  options: {
+    key?: string;
+    failureThreshold?: number;
+    recoveryTimeout?: number;
+    successThreshold?: number;
+  } = {},
+): MethodDecorator => {
   return (
     target: object,
     propertyKey: string | symbol,

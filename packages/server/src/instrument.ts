@@ -118,7 +118,9 @@ if (otlpTraceEndpoint) {
   const tracerProvider = new NodeTracerProvider();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (tracerProvider as any).addSpanProcessor(new SimpleSpanProcessor(traceExporter));
+  (tracerProvider as any).addSpanProcessor(
+    new SimpleSpanProcessor(traceExporter),
+  );
   tracerProvider.register();
 
   otelTrace.setGlobalTracerProvider(tracerProvider);

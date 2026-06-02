@@ -46,54 +46,54 @@ export const AppRouterProviders = () => {
     <NetworkStatusProvider banner={<NetworkStatusBanner />}>
       <ApolloProvider>
         <BaseThemeProvider>
-        <ClientConfigProviderEffect />
-        <UserMetadataProviderInitialEffect />
-        <MinimalMetadataLoadEffect />
-        <IsMinimalMetadataReadyEffect />
-        <WorkspaceProviderEffect />
-        <ClientConfigProvider>
-          <CaptchaProvider>
-            <MinimalMetadataGater>
-              <AuthProvider>
-                <ApolloCoreProvider>
-                  <ApolloAdminProvider>
-                    <SSEProvider>
-                      <PreComputedChipGeneratorsProvider>
-                        <UserThemeProviderEffect />
-                        <SnackBarProvider>
-                          <ErrorMessageEffect />
-                          <AgentChatProvider>
-                            <DialogComponentInstanceContext.Provider
-                              value={{ instanceId: 'dialog-manager' }}
-                            >
-                              <DialogManager>
-                                <StrictMode>
-                                  <PromiseRejectionEffect />
-                                  <GotoHotkeysEffectsProvider />
-                                  <PageTitle title={pageTitle} />
-                                  <PageFavicon />
-                                  <Outlet />
-                                  <GlobalFilePreviewModal />
-                                  <CommandMenuConfirmationModalManager />
-                                  <CommandRunner />
-                                </StrictMode>
-                              </DialogManager>
-                            </DialogComponentInstanceContext.Provider>
-                          </AgentChatProvider>
-                        </SnackBarProvider>
-                        <MainContextStoreProvider />
-                        <SupportChatEffect />
-                        <PageChangeEffect />
-                        <SignOutOnOtherTabSignOutEffect />
-                      </PreComputedChipGeneratorsProvider>
-                    </SSEProvider>
-                  </ApolloAdminProvider>
-                </ApolloCoreProvider>
-              </AuthProvider>
-            </MinimalMetadataGater>
-          </CaptchaProvider>
-        </ClientConfigProvider>
-      </BaseThemeProvider>
+          <ClientConfigProviderEffect />
+          <UserMetadataProviderInitialEffect />
+          <MinimalMetadataLoadEffect />
+          <IsMinimalMetadataReadyEffect />
+          <WorkspaceProviderEffect />
+          <ClientConfigProvider>
+            <CaptchaProvider>
+              <MinimalMetadataGater>
+                <AuthProvider>
+                  <ApolloCoreProvider>
+                    <ApolloAdminProvider>
+                      <SSEProvider>
+                        <PreComputedChipGeneratorsProvider>
+                          <UserThemeProviderEffect />
+                          <SnackBarProvider>
+                            <ErrorMessageEffect />
+                            <AgentChatProvider>
+                              <DialogComponentInstanceContext.Provider
+                                value={{ instanceId: 'dialog-manager' }}
+                              >
+                                <DialogManager>
+                                  <StrictMode>
+                                    <PromiseRejectionEffect />
+                                    <GotoHotkeysEffectsProvider />
+                                    <PageTitle title={pageTitle} />
+                                    <PageFavicon />
+                                    <Outlet />
+                                    <GlobalFilePreviewModal />
+                                    <CommandMenuConfirmationModalManager />
+                                    <CommandRunner />
+                                  </StrictMode>
+                                </DialogManager>
+                              </DialogComponentInstanceContext.Provider>
+                            </AgentChatProvider>
+                          </SnackBarProvider>
+                          <MainContextStoreProvider />
+                          <SupportChatEffect />
+                          <PageChangeEffect />
+                          <SignOutOnOtherTabSignOutEffect />
+                        </PreComputedChipGeneratorsProvider>
+                      </SSEProvider>
+                    </ApolloAdminProvider>
+                  </ApolloCoreProvider>
+                </AuthProvider>
+              </MinimalMetadataGater>
+            </CaptchaProvider>
+          </ClientConfigProvider>
+        </BaseThemeProvider>
       </ApolloProvider>
     </NetworkStatusProvider>
   );
