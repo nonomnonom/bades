@@ -30,4 +30,7 @@ async function bootstrap() {
     throw err;
   }
 }
-void bootstrap();
+bootstrap().catch((err) => {
+  console.error('Fatal: queue-worker bootstrap failed', err);
+  process.exit(1);
+});

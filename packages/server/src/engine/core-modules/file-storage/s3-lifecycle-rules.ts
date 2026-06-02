@@ -9,6 +9,8 @@
  * This file documents the intended lifecycle rules.
  */
 
+import type { S3Client } from '@aws-sdk/client-s3';
+
 export interface S3LifecycleRule {
   /** Unique identifier for the rule */
   ID: string;
@@ -66,7 +68,6 @@ export const DEFAULT_S3_LIFECYCLE_RULES: S3LifecycleRule[] = [
  *
  * Atau via SDK dengan GetBucketLifecycleConfiguration/GetBucketLifecycleConfigurationCommand
  */
-import type { S3Client } from '@aws-sdk/client-s3';
 
 export const applyLifecycleRules = async (
   _s3Client: S3Client,

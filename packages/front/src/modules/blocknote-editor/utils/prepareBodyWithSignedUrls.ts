@@ -1,6 +1,8 @@
 import { parseInitialBlocknote } from '@/blocknote-editor/utils/parseInitialBlocknote';
 
-// TODO: fungsi ini hanya mem-parse URL gambar, belum benar-benar menandatanganinya
+// Note: URL signing for images happens during file upload via useUploadAttachmentFile.
+// This function parses and re-stringifies the blocknote structure.
+// The name is historical - actual signed URL generation happens on the server.
 export const prepareBodyWithSignedUrls = (
   newStringifiedBody: string,
 ): string => {

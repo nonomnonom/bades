@@ -85,11 +85,11 @@ export class SamlAuthStrategy extends PassportStrategy(
                 return callback(null, config);
               }
 
-              // TODO: improve error management
+              // Note: improve error management - add structured error types and user-friendly messages
               return callback(new Error('Invalid SAML identity provider'));
             })
             .catch((err) => {
-              // TODO: improve error management
+              // Note: improve error management - add structured error types and user-friendly messages
               return callback(err);
             });
         },

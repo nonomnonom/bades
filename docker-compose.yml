@@ -14,9 +14,9 @@ services:
     environment:
       NODE_ENV: production
       NODE_PORT: 3000
-      PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default
+      PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default?sslmode=require
       SERVER_URL: ${SERVER_URL}
-      REDIS_URL: redis://:${REDIS_PASSWORD:-}@redis:6379
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
       DISABLE_DB_MIGRATIONS: ${DISABLE_DB_MIGRATIONS}
       DISABLE_CRON_JOBS_REGISTRATION: ${DISABLE_CRON_JOBS_REGISTRATION}
 
@@ -83,10 +83,10 @@ services:
     command: ["node", "dist/src/queue-worker/queue-worker"]
     environment:
       NODE_ENV: production
-      PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default
+      PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default?sslmode=require
       SERVER_URL: ${SERVER_URL}
-      REDIS_URL: redis://:${REDIS_PASSWORD:-}@redis:6379
-      REDIS_QUEUE_URL: redis://:${REDIS_PASSWORD:-}@redis:6379
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      REDIS_QUEUE_URL: redis://:${REDIS_PASSWORD}@redis:6379
       DISABLE_DB_MIGRATIONS: "true" # it already runs on the server
       DISABLE_CRON_JOBS_REGISTRATION: "true" # it already runs on the server
 
@@ -134,7 +134,7 @@ services:
           memory: 512M
 
   db:
-    image: postgres:16
+    image: postgres:16.4-alpine
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
@@ -157,11 +157,11 @@ services:
           memory: 1G
 
   redis:
-    image: redis
+    image: redis:7.4-alpine
     restart: always
-    command: ["--requirepass", "${REDIS_PASSWORD:-}", "--maxmemory-policy", "noeviction"]
+    command: ["--requirepass", "${REDIS_PASSWORD}", "--maxmemory-policy", "noeviction"]
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-}", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
       interval: 5s
       timeout: 5s
       retries: 10

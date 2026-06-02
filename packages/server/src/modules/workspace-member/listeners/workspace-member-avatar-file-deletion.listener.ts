@@ -52,19 +52,18 @@ export class WorkspaceMemberAvatarFileDeletionListener {
     fileIds: string[],
     workspaceId: string,
   ): Promise<void> {
-    for (const fileId of fileIds) {
-      try {
-        await this.fileCorePictureService.deleteCorePicture({
-          workspaceId,
-          fileId,
-        });
-      } catch (error) {
-        if (error instanceof EntityNotFoundError) {
-          continue;
-        }
-        throw error;
-      }
-    }
+    await Promise.allSettled(
+      fileIds.map((fileId) =>
+        this.fileCorePictureService
+          .deleteCorePicture({ workspaceId, fileId })
+          .catch((error) => {
+            if (error instanceof EntityNotFoundError) {
+              return;
+            }
+            throw error;
+          }),
+      ),
+    );
   }
 
   private getFileIdsToDeleteFromUpdateEvent(
