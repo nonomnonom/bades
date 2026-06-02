@@ -91,6 +91,10 @@ const jestConfig = {
   maxWorkers: 3,
   workerIdleMemoryLimit: '512MB',
   errorOnDeprecated: true,
+  // Default 5000ms terlalu ketat untuk hook yang menunggu mock/async state.
+  // CI lebih lambat dari lokal, jadi test yang lulus di ~2.8s lokal bisa
+  // melewati 5s di runner. Naikkan ke 30s agar timeout tidak flake.
+  testTimeout: 30000,
 };
 
 export default jestConfig;
