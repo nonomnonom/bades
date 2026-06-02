@@ -1,7 +1,8 @@
 import process from 'process';
 
-import { metrics as otelMetrics } from '@opentelemetry/api';
+import { metrics as otelMetrics, trace as otelTrace } from '@opentelemetry/api';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { PrometheusExporter } from '@opentelemetry/exporter-prometheus';
 import {
   AggregationTemporality,
@@ -9,6 +10,8 @@ import {
   MeterProvider,
   PeriodicExportingMetricReader,
 } from '@opentelemetry/sdk-metrics';
+import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
+import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import * as Sentry from '@sentry/node';
 import { nodeProfilingIntegration } from '@sentry/profiling-node';
 
@@ -103,3 +106,20 @@ const meterProvider = new MeterProvider({
 });
 
 otelMetrics.setGlobalMeterProvider(meterProvider);
+
+// Tracing setup
+const otlpTraceEndpoint = process.env.OTLP_COLLECTOR_TRACES_ENDPOINT_URL;
+
+if (otlpTraceEndpoint) {
+  const traceExporter = new OTLPTraceExporter({
+    url: otlpTraceEndpoint,
+  });
+
+  const tracerProvider = new NodeTracerProvider();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (tracerProvider as any).addSpanProcessor(new SimpleSpanProcessor(traceExporter));
+  tracerProvider.register();
+
+  otelTrace.setGlobalTracerProvider(tracerProvider);
+}

@@ -3,6 +3,8 @@ import { ApolloProvider } from '@/apollo/components/ApolloProvider';
 import { CommandMenuConfirmationModalManager } from '@/command-menu-item/confirmation-modal/components/CommandMenuConfirmationModalManager';
 import { MinimalMetadataGater } from '@/metadata-store/components/MinimalMetadataGater';
 import { IsMinimalMetadataReadyEffect } from '@/metadata-store/effect-components/IsMinimalMetadataReadyEffect';
+import { NetworkStatusProvider } from '@/network-status/components/NetworkStatusProvider';
+import { NetworkStatusBanner } from '@/network-status/components/NetworkStatusBanner';
 
 import { GotoHotkeysEffectsProvider } from '@/app/effect-components/GotoHotkeysEffectsProvider';
 import { PageChangeEffect } from '@/app/effect-components/PageChangeEffect';
@@ -41,8 +43,9 @@ export const AppRouterProviders = () => {
   const pageTitle = getPageTitleFromPath(pathname);
 
   return (
-    <ApolloProvider>
-      <BaseThemeProvider>
+    <NetworkStatusProvider banner={<NetworkStatusBanner />}>
+      <ApolloProvider>
+        <BaseThemeProvider>
         <ClientConfigProviderEffect />
         <UserMetadataProviderInitialEffect />
         <MinimalMetadataLoadEffect />
@@ -91,6 +94,7 @@ export const AppRouterProviders = () => {
           </CaptchaProvider>
         </ClientConfigProvider>
       </BaseThemeProvider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </NetworkStatusProvider>
   );
 };

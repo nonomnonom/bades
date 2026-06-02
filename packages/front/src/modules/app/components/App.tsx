@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { AppRouter } from '@/app/components/AppRouter';
 import { ApolloDevLogEffect } from '@/debug/components/ApolloDevLogEffect';
 import { AppErrorBoundary } from '@/error-handler/components/AppErrorBoundary';
@@ -5,6 +7,7 @@ import { AppRootErrorFallback } from '@/error-handler/components/AppRootErrorFal
 import { ExceptionHandlerProvider } from '@/error-handler/components/ExceptionHandlerProvider';
 import { SnackBarComponentInstanceContext } from '@/ui/feedback/snack-bar-manager/contexts/SnackBarComponentInstanceContext';
 import { ClickOutsideListenerContext } from '@/ui/utilities/pointer-event/contexts/ClickOutsideListenerContext';
+import { Loader } from 'ui/feedback';
 import { i18n, I18nProvider } from '~/utils/i18n/badesI18n';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { Provider as JotaiProvider } from 'jotai';
@@ -13,6 +16,20 @@ import { IconsProvider } from 'ui/display';
 import { initialI18nActivate } from '~/utils/i18n/initialI18nActivate';
 
 initialI18nActivate();
+
+const AppLoadingFallback = () => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      width: '100vw',
+    }}
+  >
+    <Loader />
+  </div>
+);
 
 export const App = () => {
   return (
@@ -32,7 +49,9 @@ export const App = () => {
                   <ClickOutsideListenerContext.Provider
                     value={{ excludedClickOutsideId: undefined }}
                   >
-                    <AppRouter />
+                    <Suspense fallback={<AppLoadingFallback />}>
+                      <AppRouter />
+                    </Suspense>
                   </ClickOutsideListenerContext.Provider>
                 </HelmetProvider>
               </ExceptionHandlerProvider>

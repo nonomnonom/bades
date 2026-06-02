@@ -37,6 +37,22 @@ setup_and_migrate_db() {
     echo "Successfully migrated DB!"
 }
 
+setup_and_migrate_clickhouse() {
+    if [ -z "${CLICKHOUSE_URL}" ]; then
+        echo "ClickHouse URL not configured, skipping ClickHouse migrations..."
+        return
+    fi
+
+    if [ "${DISABLE_DB_MIGRATIONS}" = "true" ]; then
+        echo "Database migrations disabled, skipping ClickHouse migrations..."
+        return
+    fi
+
+    echo "Running ClickHouse migrations..."
+    node ${SERVER_DIR}/dist/src/database/clickHouse/migrations/run-migrations.js
+    echo "ClickHouse migrations complete."
+}
+
 register_background_jobs() {
     if [ "${DISABLE_CRON_JOBS_REGISTRATION}" = "true" ]; then
         echo "Cron job registration is disabled, skipping..."
@@ -52,6 +68,7 @@ register_background_jobs() {
 }
 
 setup_and_migrate_db
+setup_and_migrate_clickhouse
 register_background_jobs
 
 # Continue with the original Docker command

@@ -1,0 +1,63 @@
+name: Database Migration Rollback
+
+# Manual workflow to rollback database migrations.
+# Use this when a migration causes issues and needs to be reverted.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_version:
+        description: 'Target migration version to rollback to (e.g., "1708535112230")'
+        required: true
+        type: string
+      reason:
+        description: 'Reason for rollback'
+        required: false
+        type: string
+        default: 'Manual rollback via GitHub Actions'
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  rollback:
+    name: Rollback migrations
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build server
+        run: bunx nx build server
+
+      - name: Run rollback
+        working-directory: packages/server
+        env:
+          NODE_ENV: production
+          PG_DATABASE_URL: ${{ secrets.PG_DATABASE_URL }}
+        run: |
+          echo "Rolling back to version: ${{ inputs.target_version }}"
+          echo "Reason: ${{ inputs.reason }}"
+          bunx nx command-no-deps -- migration:rollback --version=${{ inputs.target_version }}
+
+      - name: Create rollback summary
+        run: |
+          echo "## Rollback Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Target Version:** \`${{ inputs.target_version }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Reason:** ${{ inputs.reason }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Initiated by:** @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Time:** ${{ github.event.head_commit.timestamp }}" >> $GITHUB_STEP_SUMMARY

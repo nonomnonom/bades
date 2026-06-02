@@ -24,8 +24,11 @@ export class RedisClientService implements OnModuleDestroy {
         throw new Error('REDIS_QUEUE_URL atau REDIS_URL harus ditentukan');
       }
 
+      const redisPassword = this.badesConfigService.get('REDIS_PASSWORD');
+
       this.redisQueueClient = new IORedis(redisQueueUrl, {
         maxRetriesPerRequest: null,
+        password: redisPassword ?? undefined,
       });
     }
 
@@ -40,8 +43,11 @@ export class RedisClientService implements OnModuleDestroy {
         throw new Error('REDIS_URL harus ditentukan');
       }
 
+      const redisPassword = this.badesConfigService.get('REDIS_PASSWORD');
+
       this.redisClient = new IORedis(redisUrl, {
         maxRetriesPerRequest: null,
+        password: redisPassword ?? undefined,
       });
     }
 

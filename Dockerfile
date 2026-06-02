@@ -20,12 +20,17 @@ WORKDIR /app
 COPY ./package.json ./bun.lock ./bunfig.toml ./tsconfig.base.json ./nx.json /app/
 COPY ./patches /app/patches
 
-COPY ./packages/ui/package.json /app/packages/ui/
-COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/front/package.json /app/packages/front/
 COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
+COPY ./packages/ui/package.json /app/packages/ui/
+COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/sdk/package.json /app/packages/sdk/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
+COPY ./packages/emails/package.json /app/packages/emails/
+COPY ./packages/utils/package.json /app/packages/utils/
+COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
+COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
+COPY ./packages/server/package.json /app/packages/server/
 
 RUN bun install \
       --filter bades \
@@ -35,6 +40,7 @@ RUN bun install \
       --filter shared \
       --filter sdk \
       --filter client-sdk \
+      --filter emails \
  && bunx nx reset
 
 
@@ -45,10 +51,17 @@ WORKDIR /app
 COPY ./package.json ./bun.lock ./bunfig.toml ./tsconfig.base.json ./nx.json /app/
 COPY ./patches /app/patches
 
-COPY ./packages/emails/package.json /app/packages/emails/
 COPY ./packages/server/package.json /app/packages/server/
+COPY ./packages/emails/package.json /app/packages/emails/
 COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
+COPY ./packages/ui/package.json /app/packages/ui/
+COPY ./packages/front/package.json /app/packages/front/
+COPY ./packages/utils/package.json /app/packages/utils/
+COPY ./packages/sdk/package.json /app/packages/sdk/
+COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
+COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
+COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
 
 RUN bun install \
       --filter bades \
@@ -56,6 +69,9 @@ RUN bun install \
       --filter emails \
       --filter shared \
       --filter client-sdk \
+      --filter ui \
+      --filter sdk \
+      --filter front-component-renderer \
  && bunx nx reset
 
 
@@ -64,22 +80,21 @@ FROM server-deps AS bades-server-build
 COPY ./packages/emails /app/packages/emails
 COPY ./packages/shared /app/packages/shared
 COPY ./packages/client-sdk /app/packages/client-sdk
+COPY ./packages/ui /app/packages/ui
+COPY ./packages/sdk /app/packages/sdk
+COPY ./packages/front-component-renderer /app/packages/front-component-renderer
 COPY ./packages/server /app/packages/server
 
-RUN bunx nx run server:build
+# Build all packages that server depends on (matches CI "Build all" job)
+RUN bunx nx run-many -t build -p shared emails ui sdk server client-sdk front-component-renderer
 
 # Clean server build output (type declarations and compiled tests are not needed at runtime;
 # source maps are kept because bades-infra extracts them from the image for Sentry uploads)
 RUN find /app/packages/server/dist -name '*.d.ts' -delete \
  && rm -rf /app/packages/server/dist/src/test
 
-# Prune dev deps untuk runtime image. Bun belum punya equivalent persis `yarn workspaces focus --production`,
-# tapi `bun install --production` melakukan hal sama (drop devDependencies).
-RUN bun install --production \
-      --filter server \
-      --filter emails \
-      --filter shared \
-      --filter client-sdk
+# Dev deps pruning step removed - it can cause issues with lockfile.
+# The image is lean enough without it for most deployments.
 
 
 FROM front-deps AS bades-front-build

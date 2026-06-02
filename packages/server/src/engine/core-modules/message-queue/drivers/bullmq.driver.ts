@@ -47,6 +47,10 @@ export class BullMQDriver
     MessageQueue,
     Worker
   >;
+  private deadLetterQueueMap: Record<MessageQueue, Queue> = {} as Record<
+    MessageQueue,
+    Queue
+  >;
 
   constructor(
     private options: BullMQDriverOptions,
@@ -80,14 +84,21 @@ export class BullMQDriver
 
   register(queueName: MessageQueue): void {
     this.queueMap[queueName] = new Queue(queueName, this.options);
+    // Register corresponding Dead Letter Queue
+    this.deadLetterQueueMap[queueName] = new Queue(
+      `${queueName}-dlq`,
+      this.options,
+    );
   }
 
   async onModuleDestroy() {
     const workers = Object.values(this.workerMap);
     const queues = Object.values(this.queueMap);
+    const dlQueues = Object.values(this.deadLetterQueueMap);
 
     await Promise.all([
       ...queues.map((q) => q.close()),
+      ...dlQueues.map((q) => q.close()),
       ...workers.map((w) => w.close()),
     ]);
   }
@@ -157,6 +168,25 @@ export class BullMQDriver
         },
         shouldStoreInCache: false,
       });
+
+      // Move to Dead Letter Queue after max attempts
+      if (job.attemptsMade >= (job.opts.attempts ?? 1)) {
+        this.logger.error(
+          `Job ${job.id} with name ${job.name} moved to DLQ after ${job.attemptsMade} attempts`,
+        );
+        void this.deadLetterQueueMap[queueName].add(job.name, job.data, {
+          ...job.opts,
+          attempts: undefined, // Don't retry in DLQ
+          removeOnComplete: {
+            age: QUEUE_RETENTION.completedMaxAge,
+            count: QUEUE_RETENTION.completedMaxCount,
+          },
+          removeOnFail: {
+            age: QUEUE_RETENTION.failedMaxAge,
+            count: QUEUE_RETENTION.failedMaxCount,
+          },
+        });
+      }
     });
   }
 
@@ -246,6 +276,10 @@ export class BullMQDriver
       jobId: options?.id ? `${options.id}-${v4()}` : undefined, // We add V4() to id to make sure ids are uniques so we can add a waiting job when a job related with the same option.id is running
       priority: options?.priority ?? MESSAGE_QUEUE_PRIORITY[queueName],
       attempts: 1 + (options?.retryLimit || 0),
+      backoff: {
+        type: 'exponential',
+        delay: 1000, // Start with 1 second, doubles each retry
+      },
       removeOnComplete: {
         age: QUEUE_RETENTION.completedMaxAge,
         count: QUEUE_RETENTION.completedMaxCount,

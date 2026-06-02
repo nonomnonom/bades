@@ -1,5 +1,3 @@
-import { Logger } from '@nestjs/common';
-
 import fs from 'fs';
 import { readdir, readFile } from 'fs/promises';
 import { dirname, join } from 'path';
@@ -23,6 +21,7 @@ import {
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { isDefined } from 'shared/utils';
 
+import { applyLifecycleRules } from 'src/engine/core-modules/file-storage/s3-lifecycle-rules';
 import { type StorageDriver } from 'src/engine/core-modules/file-storage/drivers/interfaces/storage-driver.interface';
 import {
   FileStorageException,
@@ -41,7 +40,6 @@ export class S3Driver implements StorageDriver {
   private s3Client: S3;
   private presignClient: S3 | undefined;
   private bucketName: string;
-  private readonly logger = new Logger(S3Driver.name);
 
   constructor(options: S3DriverOptions) {
     const {
@@ -422,10 +420,15 @@ export class S3Driver implements StorageDriver {
     });
 
     if (exist) {
+      // Apply lifecycle rules to existing bucket
+      await applyLifecycleRules(this.s3Client, args.Bucket!);
       return;
     }
 
-    return this.s3Client.createBucket(args);
+    await this.s3Client.createBucket(args);
+
+    // Apply lifecycle rules to new bucket
+    await applyLifecycleRules(this.s3Client, args.Bucket!);
   }
 
   private async fetchS3FolderContents(folderPath: string) {
