@@ -1,10 +1,10 @@
 import { styled } from '@linaria/react';
-import { theme } from 'ui';
+import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledBanner = styled.div`
-  background-color: ${theme.color.amber};
+  background-color: ${themeCssVariables.color.amber};
   bottom: 0;
-  color: ${theme.color.gray12};
+  color: ${themeCssVariables.color.gray12};
   font-size: 14px;
   font-weight: 500;
   left: 0;
