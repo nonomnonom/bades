@@ -6,6 +6,8 @@ type PenerimaBantuanDataSeed = {
   namaPenerima: string;
   nik: string;
   alamatAddressStreet1: string;
+  alamatAddressLat: number;
+  alamatAddressLng: number;
   statusPenerimaan: string;
   jumlahDiterimaAmountMicros: number;
   jumlahDiterimaCurrencyCode: string;
@@ -28,6 +30,8 @@ export const PENERIMA_BANTUAN_DATA_SEED_COLUMNS: (keyof PenerimaBantuanDataSeed)
     'namaPenerima',
     'nik',
     'alamatAddressStreet1',
+    'alamatAddressLat',
+    'alamatAddressLng',
     'statusPenerimaan',
     'jumlahDiterimaAmountMicros',
     'jumlahDiterimaCurrencyCode',
@@ -58,6 +62,9 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     namaPenerima: 'Siti Nurhaliza',
     nik: '3201234567890002',
     alamatAddressStreet1: 'Jl. Desa Sukamaju No. 1',
+    // Koordinat diselaraskan dengan keluarga KK_3 agar marker overlap.
+    alamatAddressLat: -7.4120,
+    alamatAddressLng: 110.6120,
     statusPenerimaan: 'TERVERIFIKASI',
     jumlahDiterimaAmountMicros: 300000000000,
     jumlahDiterimaCurrencyCode: 'IDR',
@@ -78,6 +85,8 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     namaPenerima: 'Dewi Kusuma',
     nik: '3201234567890005',
     alamatAddressStreet1: 'Jl. Raya Desa No. 10',
+    alamatAddressLat: -7.4125,
+    alamatAddressLng: 110.6125,
     statusPenerimaan: 'TERVERIFIKASI',
     jumlahDiterimaAmountMicros: 200000000000,
     jumlahDiterimaCurrencyCode: 'IDR',
@@ -98,6 +107,9 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     namaPenerima: 'Juhairiah',
     nik: '3201234567890010',
     alamatAddressStreet1: 'Jl. Desa Mekar Sari No. 8',
+    // Koordinat diselaraskan dengan keluarga KK_2 (Mekar Sari).
+    alamatAddressLat: -7.4195,
+    alamatAddressLng: 110.6195,
     statusPenerimaan: 'MENUNGGU',
     jumlahDiterimaAmountMicros: 500000000000,
     jumlahDiterimaCurrencyCode: 'IDR',

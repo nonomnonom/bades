@@ -394,9 +394,10 @@ export class SidStandardSeedService {
     return { hiddenFields };
   }
 
-  // Tanam MAP view untuk object keluarga ke workspace baru.
-  // Setiap workspace baru otomatis mendapat view peta keluarga yang
-  // menampilkan alamat/koordinat keluarga sebagai marker.
+  // Tanam MAP view untuk object SID yang punya field ADDRESS ke workspace
+  // baru. Setiap workspace baru otomatis mendapat view peta untuk objek
+  // keluarga dan penerima-bantuan sehingga operator desa bisa langsung
+  // memvisualisasikan data di peta tanpa setup manual.
   //
   // Idempotent: ON CONFLICT (id) DO NOTHING — aman dipanggil ulang.
   async seedSidStandardMapViews({
@@ -411,67 +412,107 @@ export class SidStandardSeedService {
         },
       );
 
-    // Resolve objectMetadataId untuk keluarga
-    const objectRows: { id: string }[] = await this.coreDataSource.query(
-      `SELECT id FROM core."objectMetadata" WHERE "workspaceId" = $1 AND "nameSingular" = 'keluarga' LIMIT 1`,
-      [workspaceId],
-    );
-
-    const keluargaObjectMetadataId =
-      objectRows.length > 0 ? objectRows[0].id : null;
-
-    if (!keluargaObjectMetadataId) {
-      this.logger.warn(
-        `Object 'keluarga' belum ada di workspace ${workspaceId} — skip seed MAP view`,
-      );
-
-      return { createdMapViews: 0 };
-    }
-
-    // MAP view seed
-    const MAP_VIEW_ID = '30303030-000b-4000-8000-000000000001';
-    const MAP_VIEW_UNIVERSAL_IDENTIFIER =
-      '30303030-000b-4000-8000-000000000002';
-
-    const sql = `
-      INSERT INTO core."view"
-        (id, "workspaceId", "universalIdentifier", "applicationId",
-         name, "objectMetadataId", type, icon,
-         position, "isCompact", "isCustom",
-         "openRecordIn", "shouldHideEmptyGroups", visibility,
-         "createdAt", "updatedAt")
-      VALUES
-        ($1, $2, $3, $4,
-         'Peta Keluarga', $5, 'MAP', 'IconMap',
-         1, false, false,
-         'SIDE_PANEL', false, 'WORKSPACE',
-         NOW(), NOW())
-      ON CONFLICT (id) DO NOTHING
-      RETURNING id
-    `;
+    // Daftar view MAP yang akan di-seed per workspace. ID dan
+    // universalIdentifier di-namespace dengan prefix:
+    //   `30303030-000b` (keluarga)
+    //   `30303030-000c` (penerima-bantuan)
+    //   `30303030-000d` (penduduk)
+    //   `30303030-000e` (aset-desa)
+    // untuk konsistensi dengan seed dashboard & workflow.
+    //
+    // Penduduk dan Aset Desa ditambahkan karena keduanya memiliki field
+    // ADDRESS composite dengan data koordinat yang sudah di-seed.
+    const MAP_VIEW_DEFINITIONS: ReadonlyArray<{
+      objectNameSingular: string;
+      viewName: string;
+      viewId: string;
+      viewUniversalIdentifier: string;
+    }> = [
+      {
+        objectNameSingular: 'keluarga',
+        viewName: 'Peta Keluarga',
+        viewId: '30303030-000b-4000-8000-000000000001',
+        viewUniversalIdentifier: '30303030-000b-4000-8000-000000000002',
+      },
+      {
+        objectNameSingular: 'penerima-bantuan',
+        viewName: 'Peta Penerima Bantuan',
+        viewId: '30303030-000c-4000-8000-000000000001',
+        viewUniversalIdentifier: '30303030-000c-4000-8000-000000000002',
+      },
+      {
+        objectNameSingular: 'penduduk',
+        viewName: 'Peta Penduduk',
+        viewId: '30303030-000d-4000-8000-000000000001',
+        viewUniversalIdentifier: '30303030-000d-4000-8000-000000000002',
+      },
+      {
+        objectNameSingular: 'aset-desa',
+        viewName: 'Peta Aset Desa',
+        viewId: '30303030-000e-4000-8000-000000000001',
+        viewUniversalIdentifier: '30303030-000e-4000-8000-000000000002',
+      },
+    ];
 
     let createdMapViews = 0;
 
-    try {
-      const result = await this.coreDataSource.query(sql, [
-        MAP_VIEW_ID,
-        workspaceId,
-        MAP_VIEW_UNIVERSAL_IDENTIFIER,
-        workspaceCustomFlatApplication.id,
-        keluargaObjectMetadataId,
-      ]);
-      const affected = Array.isArray(result) ? result.length : 0;
+    for (const def of MAP_VIEW_DEFINITIONS) {
+      // Resolve objectMetadataId untuk object target. Skip dengan warning
+      // bila object belum ada di workspace (mis. seed object gagal).
+      const objectRows: { id: string }[] = await this.coreDataSource.query(
+        `SELECT id FROM core."objectMetadata" WHERE "workspaceId" = $1 AND "nameSingular" = $2 LIMIT 1`,
+        [workspaceId, def.objectNameSingular],
+      );
 
-      createdMapViews += affected;
-      this.logger.log(
-        `MAP view 'Peta Keluarga' disisipkan ke workspace ${workspaceId}`,
-      );
-    } catch (error) {
-      this.logger.warn(
-        `Gagal seed MAP view 'keluarga' (workspace ${workspaceId}): ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
+      const objectMetadataId =
+        objectRows.length > 0 ? objectRows[0].id : null;
+
+      if (!objectMetadataId) {
+        this.logger.warn(
+          `Object '${def.objectNameSingular}' belum ada di workspace ${workspaceId} — skip seed MAP view '${def.viewName}'`,
+        );
+        continue;
+      }
+
+      const sql = `
+        INSERT INTO core."view"
+          (id, "workspaceId", "universalIdentifier", "applicationId",
+           name, "objectMetadataId", type, icon,
+           position, "isCompact", "isCustom",
+           "openRecordIn", "shouldHideEmptyGroups", visibility,
+           "createdAt", "updatedAt")
+        VALUES
+          ($1, $2, $3, $4,
+           $5, $6, 'MAP', 'IconMap',
+           1, false, false,
+           'SIDE_PANEL', false, 'WORKSPACE',
+           NOW(), NOW())
+        ON CONFLICT (id) DO NOTHING
+        RETURNING id
+      `;
+
+      try {
+        const result = await this.coreDataSource.query(sql, [
+          def.viewId,
+          workspaceId,
+          def.viewUniversalIdentifier,
+          workspaceCustomFlatApplication.id,
+          def.viewName,
+          objectMetadataId,
+        ]);
+        const affected = Array.isArray(result) ? result.length : 0;
+
+        createdMapViews += affected;
+        this.logger.log(
+          `MAP view '${def.viewName}' disisipkan ke workspace ${workspaceId}`,
+        );
+      } catch (error) {
+        this.logger.warn(
+          `Gagal seed MAP view '${def.viewName}' (workspace ${workspaceId}): ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+        );
+      }
     }
 
     return { createdMapViews };

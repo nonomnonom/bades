@@ -6,6 +6,8 @@ type KeluargaDataSeed = {
   namaKepalaKeluarga: string;
   tanggalPembuatan: string;
   alamatAddressStreet1: string;
+  alamatAddressLat: number;
+  alamatAddressLng: number;
   rt: string;
   rw: string;
   desa: string;
@@ -26,6 +28,8 @@ export const KELUARGA_DATA_SEED_COLUMNS: (keyof KeluargaDataSeed)[] = [
   'namaKepalaKeluarga',
   'tanggalPembuatan',
   'alamatAddressStreet1',
+  'alamatAddressLat',
+  'alamatAddressLng',
   'rt',
   'rw',
   'desa',
@@ -56,6 +60,10 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     namaKepalaKeluarga: 'Ahmad Pratama',
     tanggalPembuatan: '2020-01-15',
     alamatAddressStreet1: 'Jl. Desa Sukamaju No. 1',
+    // Koordinat dummy desa Sukamaju (Jawa Tengah); variasi ±0.001 antar KK
+    // agar marker peta tidak bertumpuk saat preview.
+    alamatAddressLat: -7.4105,
+    alamatAddressLng: 110.6105,
     rt: '001',
     rw: '002',
     desa: 'Sukamaju',
@@ -75,6 +83,8 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     namaKepalaKeluarga: 'Budi Santoso',
     tanggalPembuatan: '2020-03-20',
     alamatAddressStreet1: 'Jl. Desa Mekar Sari No. 5',
+    alamatAddressLat: -7.4195,
+    alamatAddressLng: 110.6195,
     rt: '003',
     rw: '004',
     desa: 'Mekar Sari',
@@ -94,6 +104,8 @@ export const KELUARGA_DATA_SEEDS: KeluargaDataSeed[] = [
     namaKepalaKeluarga: 'Siti Nurhaliza',
     tanggalPembuatan: '2021-06-10',
     alamatAddressStreet1: 'Jl. Raya Desa No. 10',
+    alamatAddressLat: -7.4120,
+    alamatAddressLng: 110.6120,
     rt: '002',
     rw: '002',
     desa: 'Sukamaju',

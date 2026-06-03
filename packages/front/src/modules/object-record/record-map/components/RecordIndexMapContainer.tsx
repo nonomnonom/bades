@@ -2,6 +2,7 @@ import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadata
 import { RecordComponentInstanceContextsWrapper } from '@/object-record/components/RecordComponentInstanceContextsWrapper';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
 import { RecordMap } from '@/object-record/record-map/components/RecordMap';
+import { RecordMapAddressFieldPicker } from '@/object-record/record-map/components/RecordMapAddressFieldPicker';
 import { RecordMapContextProvider } from '@/object-record/record-map/contexts/RecordMapContext';
 
 import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
@@ -31,6 +32,12 @@ export const RecordIndexMapContainer = ({
     return null;
   }
 
+  // Daftar field ADDRESS aktif pada object. Dipakai untuk render picker
+  // sehingga user bisa override field alamat yang dipakai MAP view.
+  const addressFields = objectMetadataItem.fields.filter(
+    (field) => field.type === 'ADDRESS' && field.isActive,
+  );
+
   return (
     <RecordComponentInstanceContextsWrapper
       componentInstanceId={`record-map-${objectNameSingular}`}
@@ -43,6 +50,9 @@ export const RecordIndexMapContainer = ({
           objectPermissions,
         }}
       >
+        {addressFields.length > 1 && (
+          <RecordMapAddressFieldPicker addressFields={addressFields} />
+        )}
         <RecordMap />
       </RecordMapContextProvider>
     </RecordComponentInstanceContextsWrapper>

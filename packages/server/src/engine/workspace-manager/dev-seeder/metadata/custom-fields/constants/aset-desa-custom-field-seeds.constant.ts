@@ -35,10 +35,11 @@ export const ASET_DESA_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     isUnique: true,
   },
   {
-    type: FieldMetadataType.TEXT,
+    type: FieldMetadataType.ADDRESS,
     label: 'Lokasi',
     name: 'lokasi',
-    description: 'Lokasi aset',
+    description:
+      'Lokasi aset (komposit ADDRESS: jalan, kota, provinsi, kode pos, negara, latitude, longitude)',
   },
   {
     type: FieldMetadataType.CURRENCY,

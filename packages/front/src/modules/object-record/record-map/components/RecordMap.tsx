@@ -1,10 +1,11 @@
 import { styled } from '@linaria/react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 
-import { useRecordMapRecords } from '@/object-record/record-map/hooks/useRecordMapRecords';
+import { type MapMarkerRecord, useRecordMapRecords } from '@/object-record/record-map/hooks/useRecordMapRecords';
+import { getMapboxAccessToken } from '@/object-record/record-map/utils/getMapboxAccessToken';
 
 const StyledMapContainer = styled.div`
   height: 100%;
@@ -71,28 +72,161 @@ const StyledLoadingText = styled.span`
   font-size: 13px;
 `;
 
-const MAPBOX_TOKEN = import.meta.env.REACT_APP_MAPBOX_ACCESS_TOKEN ?? '';
-
-const DEFAULT_CENTER: [number, number] = [106.8456, -6.2088]; // Jakarta
-const DEFAULT_ZOOM = 10;
+// Pusat desa Sukamaju (Jawa Tengah) sebagai default center agar marker
+// pertama kali buka tidak zoom ke Jakarta yang menyesatkan. Backend MAP
+// view biasanya punya record alamat di sekitar koordinat ini.
+const DEFAULT_CENTER: [number, number] = [110.6100, -7.4100];
+const DEFAULT_ZOOM = 13;
 const STORAGE_KEY_PREFIX = 'bades-map-center-';
+
+// Konstanta tuning UX — gampang di-adjust tanpa mengutak-atik JSX.
+const MAP_PADDING_FOR_BOUNDS = 60;
+const MAP_MAX_ZOOM_AFTER_FIT = 15;
+const MAP_SINGLE_MARKER_ZOOM = 14;
+const MAP_POPUP_OFFSET = 25;
+
+// Konstanta clustering — threshold zoom untuk cluster break, radius
+// interaksi cluster dalam pixel.
+const CLUSTER_MAX_ZOOM = 14;
+const CLUSTER_RADIUS = 50;
+const CLUSTER_COLOR = themeCssVariables.color.blue;
+
+// Nama layer Mapbox yang digunakan untuk clustering.
+const SOURCE_ID = 'record-map-records';
+const LAYER_CLUSTER_CIRCLE = 'record-map-cluster-circle';
+const LAYER_CLUSTER_COUNT = 'record-map-cluster-count';
+const LAYER_UNCLUSTERED_POINT = 'record-map-unclustered-point';
+
+// Styles untuk legenda peta — informasi warna kategori untuk perangkat desa
+const StyledLegend = styled.div`
+  background: ${themeCssVariables.font.color.inverted};
+  border-radius: ${themeCssVariables.border.radius.md};
+  bottom: ${themeCssVariables.spacing[8]};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  left: ${themeCssVariables.spacing[2]};
+  max-height: 200px;
+  overflow-y: auto;
+  padding: ${themeCssVariables.spacing[2]} ${themeCssVariables.spacing[3]};
+  position: absolute;
+  z-index: 2;
+`;
+
+const StyledLegendTitle = styled.div`
+  color: ${themeCssVariables.font.color.primary};
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: ${themeCssVariables.spacing[1]};
+  text-transform: uppercase;
+`;
+
+const StyledLegendItem = styled.div`
+  align-items: center;
+  display: flex;
+  gap: ${themeCssVariables.spacing[1]};
+  padding: 2px 0;
+`;
+
+const StyledLegendColor = styled.div<{ $color: string }>`
+  background: ${({ $color }) => $color};
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  height: 10px;
+  width: 10px;
+`;
+
+const StyledLegendLabel = styled.span`
+  color: ${themeCssVariables.font.color.secondary};
+  font-size: 11px;
+  line-height: 1.3;
+`;
 
 const getStorageKey = (objectNameSingular: string) =>
   `${STORAGE_KEY_PREFIX}${objectNameSingular}`;
 
-const _DEFAULT_MAP_STORAGE = {
-  center: DEFAULT_CENTER,
-  zoom: DEFAULT_ZOOM,
+// Ambil daftar kategori unik dari marker yang ada, beserta warnanya.
+// Digunakan oleh komponen legenda untuk menampilkan keterangan warna.
+const getLegendItems = (
+  markers: MapMarkerRecord[],
+  colors: Record<string, string>,
+  defaultColor: string,
+): { label: string; color: string }[] => {
+  const seen = new Set<string>();
+  const items: { label: string; color: string }[] = [];
+
+  for (const marker of markers) {
+    if (!marker.category || seen.has(marker.category)) continue;
+    seen.add(marker.category);
+    items.push({
+      label: marker.category.replace(/_/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()),
+      color: colors[marker.category] ?? defaultColor,
+    });
+  }
+
+  return items;
 };
 
 export const RecordMap = () => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [mapInstance, setMapInstance] = useState<mapboxgl.Map | null>(null);
   const [isMapReady, setIsMapReady] = useState(false);
-  const [hasToken] = useState(() => MAPBOX_TOKEN.length > 0);
+  // Baca token saat render supaya test jsdom yang mock module
+  // `getMapboxAccessToken` tidak crash.
+  const [hasToken] = useState(() => getMapboxAccessToken().length > 0);
 
-  const { mapMarkers, loading, addressFieldMetadataItem, objectNameSingular } =
-    useRecordMapRecords();
+  const {
+    mapMarkers,
+    loading,
+    addressFieldMetadataItem,
+    categoryFieldMetadataItem,
+    objectNameSingular,
+  } = useRecordMapRecords();
+
+  // Warna marker berdasarkan kategori — palet warna untuk perangkat desa
+  // menggunakan warna yang mudah dibedakan dan aksesibel (colorblind-friendly).
+  // Setiap object SID punya field SELECT berbeda (klasifikasiKeluarga,
+  // statusPenerimaan, status, jenisLayanan, dll).
+  const CATEGORY_COLORS: Record<string, string> = {
+    // Klasifikasi Keluarga (KS1-4)
+    'KS1': '#4CAF50',
+    'KS2': '#FF9800',
+    'KS3': '#2196F3',
+    'KS4': '#9C27B0',
+    // Status — dipakai oleh penerimaan, bantuan, permohonan surat
+    'TERVERIFIKASI': '#4CAF50',
+    'MENUNGGU': '#FF9800',
+    'DITOLAK': '#F44336',
+    'SELESAI': '#4CAF50',
+    'DIPROSES': '#2196F3',
+    // Status Program Bantuan
+    'PELAKSANAAN': '#4CAF50',
+    'PERENCANAAN': '#2196F3',
+    // Jenis Wilayah
+    'DUSUN': '#4CAF50',
+    'RW': '#2196F3',
+    'RT': '#FF9800',
+    // Kondisi Aset
+    'BAIK': '#4CAF50',
+    'RUSAK_RINGAN': '#FF9800',
+    'RUSAK_BERAT': '#F44336',
+    // Umum
+    'AKTIF': '#4CAF50',
+    'TIDAK_AKTIF': '#9E9E9E',
+  };
+
+  // Warna default untuk kategori yang tidak dikenal
+  const DEFAULT_MARKER_COLOR = themeCssVariables.color.blue;
+
+  // Konversi marker ke GeoJSON FeatureCollection untuk Mapbox source.
+  // properties.category dipakai untuk data-driven styling warna marker.
+  const geoJsonData = useMemo((): GeoJSON.FeatureCollection => ({
+    type: 'FeatureCollection',
+    features: mapMarkers.map(({ id, name, lat, lng, category }) => ({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [lng, lat] },
+      properties: { id, name, category: category ?? '' },
+    })),
+  }), [mapMarkers]);
 
   const getStoredCenter = useCallback((): [number, number] => {
     if (!objectNameSingular) return DEFAULT_CENTER;
@@ -140,14 +274,17 @@ export const RecordMap = () => {
   useEffect(() => {
     if (!hasToken || !mapContainerRef.current) return;
 
-    mapboxgl.accessToken = MAPBOX_TOKEN;
+    mapboxgl.accessToken = getMapboxAccessToken();
 
     const storedCenter = getStoredCenter();
 
+    // Gunakan light-v11 sebagai base style: minimalis, latar putih bersih,
+    // optimal untuk overlay data marker. Tidak menggunakan outdoors-v12
+    // karena warna hijaunya mengganggu visibility marker biru.
     const map = new mapboxgl.Map({
       center: storedCenter,
       container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/outdoors-v12',
+      style: 'mapbox://styles/mapbox/light-v11',
       zoom: DEFAULT_ZOOM,
     });
 
@@ -171,65 +308,222 @@ export const RecordMap = () => {
     };
   }, [hasToken, getStoredCenter, storeCurrentCenter]);
 
-  // Update markers when records or map state change
+  // Update clustered markers via GeoJSON source + layer, bukan DOM marker.
+  // Clustering dari Mapbox GL JS mengelompokkan marker yang berdekatan
+  // secara otomatis, sehingga performa tetap baik meskipun ada ribuan
+  // titik data (seperti dataset penduduk atau riwayat penerima bantuan).
+  useEffect(() => {
+    const map = mapInstance;
+    if (!map || !isMapReady) return;
+    if (geoJsonData.features.length === 0) return;
+
+    // Hapus source & layer lama sebelum rebuild.
+    // `removeLayer` harus dipanggil sebelum `removeSource`.
+    const removeLayersAndSource = () => {
+      [LAYER_CLUSTER_CIRCLE, LAYER_CLUSTER_COUNT, LAYER_UNCLUSTERED_POINT]
+        .filter((id) => map.getLayer(id))
+        .forEach((id) => map.removeLayer(id));
+      if (map.getSource(SOURCE_ID)) {
+        map.removeSource(SOURCE_ID);
+      }
+    };
+
+    removeLayersAndSource();
+
+    map.addSource(SOURCE_ID, {
+      type: 'geojson',
+      data: geoJsonData,
+      cluster: true,
+      clusterMaxZoom: CLUSTER_MAX_ZOOM,
+      clusterRadius: CLUSTER_RADIUS,
+    });
+
+    // Layer lingkaran cluster — ukuran proporsional berdasarkan jumlah titik.
+    map.addLayer({
+      id: LAYER_CLUSTER_CIRCLE,
+      type: 'circle',
+      source: SOURCE_ID,
+      filter: ['has', 'point_count'],
+      paint: {
+        'circle-color': CLUSTER_COLOR,
+        'circle-opacity': 0.3,
+        'circle-radius': [
+          'step',
+          ['get', 'point_count'],
+          20,  // default radius untuk cluster kecil
+          10, 30,  // >= 10 titik → radius 30
+          50, 40,  // >= 50 titik → radius 40
+        ],
+        'circle-stroke-color': CLUSTER_COLOR,
+        'circle-stroke-width': 2,
+        'circle-stroke-opacity': 0.6,
+      },
+    });
+
+    // Layer teks jumlah titik di tengah cluster.
+    map.addLayer({
+      id: LAYER_CLUSTER_COUNT,
+      type: 'symbol',
+      source: SOURCE_ID,
+      filter: ['has', 'point_count'],
+      layout: {
+        'text-field': ['get', 'point_count_abbreviated'],
+        'text-font': ['DIN Pro Medium', 'Arial Unicode MS Bold'],
+        'text-size': 12,
+      },
+      paint: {
+        'text-color': '#ffffff',
+      },
+    });
+
+    // Layer titik individu (tidak ter-cluster) dengan data-driven styling.
+    // Warna marker ditentukan oleh properti `category` di GeoJSON:
+    //   - Jika category dikenal → pakai warna dari CATEGORY_COLORS
+    //   - Jika category tidak dikenal atau kosong → pakai warna default biru
+    // Ini memungkinkan operator desa melihat sekilas sebaran data berdasarkan
+    // klasifikasi (KS1/KS2/KS3), status penerimaan, kondisi aset, dll.
+    map.addLayer({
+      id: LAYER_UNCLUSTERED_POINT,
+      type: 'circle',
+      source: SOURCE_ID,
+      filter: ['!', ['has', 'point_count']],
+      paint: {
+        'circle-color': [
+          'case',
+          ['has', 'category'],
+          [
+            'match',
+            ['get', 'category'],
+            'KS1', CATEGORY_COLORS['KS1'],
+            'KS2', CATEGORY_COLORS['KS2'],
+            'KS3', CATEGORY_COLORS['KS3'],
+            'KS4', CATEGORY_COLORS['KS4'],
+            'TERVERIFIKASI', CATEGORY_COLORS['TERVERIFIKASI'],
+            'MENUNGGU', CATEGORY_COLORS['MENUNGGU'],
+            'DITOLAK', CATEGORY_COLORS['DITOLAK'],
+            'SELESAI', CATEGORY_COLORS['SELESAI'],
+            'DIPROSES', CATEGORY_COLORS['DIPROSES'],
+            'PELAKSANAAN', CATEGORY_COLORS['PELAKSANAAN'],
+            'PERENCANAAN', CATEGORY_COLORS['PERENCANAAN'],
+            'DUSUN', CATEGORY_COLORS['DUSUN'],
+            'RW', CATEGORY_COLORS['RW'],
+            'RT', CATEGORY_COLORS['RT'],
+            'BAIK', CATEGORY_COLORS['BAIK'],
+            'RUSAK_RINGAN', CATEGORY_COLORS['RUSAK_RINGAN'],
+            'RUSAK_BERAT', CATEGORY_COLORS['RUSAK_BERAT'],
+            'AKTIF', CATEGORY_COLORS['AKTIF'],
+            'TIDAK_AKTIF', CATEGORY_COLORS['TIDAK_AKTIF'],
+            // fallback: warna default untuk kategori yang tidak dikenal
+            DEFAULT_MARKER_COLOR
+          ],
+          DEFAULT_MARKER_COLOR,
+        ],
+        'circle-radius': 7,
+        'circle-stroke-color': '#ffffff',
+        'circle-stroke-width': 2,
+        'circle-opacity': 0.9,
+      },
+    });
+
+    // Fit bounds setelah data dimuat (hanya sekali).
+    const bounds = new mapboxgl.LngLatBounds();
+    geoJsonData.features.forEach((feature) => {
+      const coords = (feature.geometry as GeoJSON.Point).coordinates;
+      bounds.extend(coords as [number, number]);
+    });
+
+    if (geoJsonData.features.length > 1) {
+      map.fitBounds(bounds, {
+        padding: MAP_PADDING_FOR_BOUNDS,
+        maxZoom: MAP_MAX_ZOOM_AFTER_FIT,
+      });
+    } else if (geoJsonData.features.length === 1) {
+      const coords = (
+        geoJsonData.features[0].geometry as GeoJSON.Point
+      ).coordinates;
+      map.flyTo({
+        center: coords as [number, number],
+        zoom: MAP_SINGLE_MARKER_ZOOM,
+      });
+    }
+
+    return () => {
+      removeLayersAndSource();
+    };
+  }, [geoJsonData, mapInstance, isMapReady]);
+
+  // Handler klik: cluster → zoom in, titik individual → popup.
   useEffect(() => {
     const map = mapInstance;
     if (!map || !isMapReady) return;
 
-    const markers: mapboxgl.Marker[] = [];
-
-    if (mapMarkers.length === 0) {
-      return;
-    }
-
-    const bounds = new mapboxgl.LngLatBounds();
-
-    mapMarkers.forEach(({ name, lat, lng }) => {
-      const el = document.createElement('div');
-      el.className = 'record-map-marker';
-      el.style.cssText = [
-        `background: ${themeCssVariables.color.blue}`,
-        `border: 2px solid ${themeCssVariables.font.color.inverted}`,
-        'border-radius: 50%',
-        'cursor: pointer',
-        'height: 14px',
-        'width: 14px',
-        `box-shadow: 0 2px 4px ${themeCssVariables.color.blue}80`,
-        'transition: transform 0.2s',
-      ].join(';');
-      el.title = name;
-
-      el.addEventListener('mouseenter', () => {
-        el.style.transform = 'scale(1.5)';
+    const handleClusterClick = (e: mapboxgl.MapMouseEvent) => {
+      const features = map.queryRenderedFeatures(e.point, {
+        layers: [LAYER_CLUSTER_CIRCLE],
       });
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'scale(1)';
+      if (!features.length) return;
+      const clusterId = features[0].properties?.cluster_id;
+      const source = map.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource;
+      source.getClusterExpansionZoom(clusterId, (err, zoom) => {
+        if (err || zoom === undefined || zoom === null) return;
+        const geometry = features[0].geometry as GeoJSON.Point;
+        map.easeTo({
+          center: geometry.coordinates as [number, number],
+          zoom: zoom + 1,
+        });
       });
+    };
 
-      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-        `<div style="font-size:13px;font-weight:600;padding:4px 0;">${name}</div>`,
-      );
+    const handlePointClick = (e: mapboxgl.MapMouseEvent) => {
+      const features = map.queryRenderedFeatures(e.point, {
+        layers: [LAYER_UNCLUSTERED_POINT],
+      });
+      if (!features.length) return;
+      const props = features[0].properties;
+      const name = props?.name as string;
+      const category = props?.category as string | undefined;
+      const geometry = features[0].geometry as GeoJSON.Point;
 
-      const marker = new mapboxgl.Marker({ element: el })
-        .setLngLat([lng, lat])
-        .setPopup(popup)
+      // Popup dengan nama record dan kategori (jika ada).
+      // Format label kategori dibersihkan dari underscore dan kapitalisasi.
+      const categoryHtml = category
+        ? `<div style="font-size:11px;color:#666;margin-top:2px;">${category.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}</div>`
+        : '';
+
+      new mapboxgl.Popup({ offset: MAP_POPUP_OFFSET })
+        .setLngLat(geometry.coordinates as [number, number])
+        .setHTML(
+          `<div style="padding:2px 0;">
+            <div style="font-size:13px;font-weight:600;">${name}</div>
+            ${categoryHtml}
+          </div>`,
+        )
         .addTo(map);
+    };
 
-      markers.push(marker);
-      bounds.extend([lng, lat]);
-    });
+    const handleMouseEnter = () => {
+      map.getCanvas().style.cursor = 'pointer';
+    };
+    const handleMouseLeave = () => {
+      map.getCanvas().style.cursor = '';
+    };
 
-    // Fit map to show all markers
-    if (mapMarkers.length > 1) {
-      map.fitBounds(bounds, { padding: 60, maxZoom: 15 });
-    } else if (mapMarkers.length === 1) {
-      map.flyTo({ center: [mapMarkers[0].lng, mapMarkers[0].lat], zoom: 14 });
-    }
+    map.on('click', LAYER_CLUSTER_CIRCLE, handleClusterClick);
+    map.on('click', LAYER_UNCLUSTERED_POINT, handlePointClick);
+    map.on('mouseenter', LAYER_CLUSTER_CIRCLE, handleMouseEnter);
+    map.on('mouseleave', LAYER_CLUSTER_CIRCLE, handleMouseLeave);
+    map.on('mouseenter', LAYER_UNCLUSTERED_POINT, handleMouseEnter);
+    map.on('mouseleave', LAYER_UNCLUSTERED_POINT, handleMouseLeave);
 
     return () => {
-      markers.forEach((marker) => marker.remove());
+      map.off('click', LAYER_CLUSTER_CIRCLE, handleClusterClick);
+      map.off('click', LAYER_UNCLUSTERED_POINT, handlePointClick);
+      map.off('mouseenter', LAYER_CLUSTER_CIRCLE, handleMouseEnter);
+      map.off('mouseleave', LAYER_CLUSTER_CIRCLE, handleMouseLeave);
+      map.off('mouseenter', LAYER_UNCLUSTERED_POINT, handleMouseEnter);
+      map.off('mouseleave', LAYER_UNCLUSTERED_POINT, handleMouseLeave);
     };
-  }, [mapMarkers, mapInstance, isMapReady]);
+  }, [mapInstance, isMapReady]);
 
   if (!hasToken) {
     return (
@@ -267,6 +561,12 @@ export const RecordMap = () => {
     );
   }
 
+  // Kumpulkan item legenda dari marker yang memiliki kategori
+  const legendItems = useMemo(
+    () => getLegendItems(mapMarkers, CATEGORY_COLORS, DEFAULT_MARKER_COLOR),
+    [mapMarkers],
+  );
+
   return (
     <StyledMapContainer>
       <div ref={mapContainerRef} style={{ height: '100%', width: '100%' }} />
@@ -275,6 +575,19 @@ export const RecordMap = () => {
           <StyledLoadingSpinner />
           <StyledLoadingText>Memuat peta...</StyledLoadingText>
         </StyledLoadingOverlay>
+      )}
+      {mapMarkers.length > 0 && legendItems.length > 0 && (
+        <StyledLegend>
+          <StyledLegendTitle>
+            {categoryFieldMetadataItem?.label ?? 'Kategori'}
+          </StyledLegendTitle>
+          {legendItems.map((item) => (
+            <StyledLegendItem key={item.label}>
+              <StyledLegendColor $color={item.color} />
+              <StyledLegendLabel>{item.label}</StyledLegendLabel>
+            </StyledLegendItem>
+          ))}
+        </StyledLegend>
       )}
     </StyledMapContainer>
   );

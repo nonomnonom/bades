@@ -878,6 +878,7 @@ enum ViewType {
   TABLE
   KANBAN
   CALENDAR
+  MAP
   FIELDS_WIDGET
   TABLE_WIDGET
 }

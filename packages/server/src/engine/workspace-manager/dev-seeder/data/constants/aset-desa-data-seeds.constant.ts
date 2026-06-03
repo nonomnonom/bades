@@ -5,7 +5,11 @@ type AsetDesaDataSeed = {
   namaAset: string;
   jenisAset: string;
   kodeAset: string;
-  lokasi: string;
+  // `lokasi` sekarang bertipe ADDRESS composite — didekomposisi jadi sub-field
+  // `lokasiAddressStreet1`, `lokasiAddressCity`, `lokasiAddressLat`, dst.
+  lokasiAddressStreet1: string;
+  lokasiAddressLat: number;
+  lokasiAddressLng: number;
   nilaiAsetAmountMicros: number;
   nilaiAsetCurrencyCode: string;
   tahunPerolehan: string;
@@ -26,7 +30,9 @@ export const ASET_DESA_DATA_SEED_COLUMNS: (keyof AsetDesaDataSeed)[] = [
   'namaAset',
   'jenisAset',
   'kodeAset',
-  'lokasi',
+  'lokasiAddressStreet1',
+  'lokasiAddressLat',
+  'lokasiAddressLng',
   'nilaiAsetAmountMicros',
   'nilaiAsetCurrencyCode',
   'tahunPerolehan',
@@ -59,7 +65,10 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     namaAset: 'Tanah Kantor Desa',
     jenisAset: 'TANAH',
     kodeAset: '01.01.01',
-    lokasi: 'Jl. Desa Sukamaju No. 1',
+    lokasiAddressStreet1: 'Jl. Desa Sukamaju No. 1',
+    // Koordinat dummy pusat desa Sukamaju, Jawa Tengah.
+    lokasiAddressLat: -7.4100,
+    lokasiAddressLng: 110.6100,
     nilaiAsetAmountMicros: 500000000000000,
     nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2018',
@@ -79,7 +88,9 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     namaAset: 'Gedung Kantor Desa',
     jenisAset: 'BANGUNAN',
     kodeAset: '01.01.02',
-    lokasi: 'Jl. Desa Sukamaju No. 1',
+    lokasiAddressStreet1: 'Jl. Desa Sukamaju No. 1',
+    lokasiAddressLat: -7.4101,
+    lokasiAddressLng: 110.6101,
     nilaiAsetAmountMicros: 350000000000000,
     nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2019',
@@ -99,7 +110,9 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     namaAset: 'Toyota Avanza',
     jenisAset: 'KENDARAAN',
     kodeAset: '02.01.01',
-    lokasi: 'Kantor Desa',
+    lokasiAddressStreet1: 'Kantor Desa',
+    lokasiAddressLat: -7.4102,
+    lokasiAddressLng: 110.6102,
     nilaiAsetAmountMicros: 180000000000000,
     nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2020',
@@ -119,7 +132,9 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     namaAset: 'Komputer PC',
     jenisAset: 'PERALATAN',
     kodeAset: '03.01.01',
-    lokasi: 'Kantor Desa',
+    lokasiAddressStreet1: 'Kantor Desa',
+    lokasiAddressLat: -7.4103,
+    lokasiAddressLng: 110.6103,
     nilaiAsetAmountMicros: 15000000000000,
     nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2021',

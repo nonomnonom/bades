@@ -56,7 +56,12 @@ const CreateViewInputSchema = z.object({
     .default('IconList')
     .describe('Icon identifier (e.g., "IconList", "IconCheckbox")'),
   type: z
-    .enum([ViewType.TABLE, ViewType.KANBAN, ViewType.CALENDAR])
+    .enum([
+      ViewType.TABLE,
+      ViewType.KANBAN,
+      ViewType.CALENDAR,
+      ViewType.MAP,
+    ])
     .optional()
     .default(ViewType.TABLE)
     .describe('View type'),
@@ -96,6 +101,12 @@ const CreateViewInputSchema = z.object({
     .optional()
     .describe(
       'Date field name to use for the calendar (required for CALENDAR views, must be a DATE or DATE_TIME field, e.g., "createdAt", "dueAt")',
+    ),
+  mapFieldName: z
+    .string()
+    .optional()
+    .describe(
+      'Address field name to use for map markers (optional for MAP views; the first active ADDRESS field on the object is used when omitted). Currently informational only — the MAP view resolves the field at render time from the object metadata.',
     ),
   fieldNames: z
     .array(z.string())
@@ -332,6 +343,7 @@ export class ViewToolsFactory {
           kanbanAggregateOperationFieldName?: string;
           calendarLayout?: ViewCalendarLayout;
           calendarFieldName?: string;
+          mapFieldName?: string;
           fieldNames?: string[];
         }) => {
           try {
@@ -359,6 +371,31 @@ export class ViewToolsFactory {
               if (!parameters.calendarLayout) {
                 throw new Error(
                   'CALENDAR views require calendarLayout. Provide one of: "DAY", "WEEK", "MONTH".',
+                );
+              }
+            }
+
+            if (parameters.type === ViewType.MAP) {
+              const { flatFieldMetadataMaps } =
+                await this.flatEntityMapsCacheService.getOrRecomputeManyOrAllFlatEntityMaps(
+                  {
+                    workspaceId,
+                    flatMapsKeys: ['flatFieldMetadataMaps'],
+                  },
+                );
+
+              const hasAnyAddressField = Object.values(
+                flatFieldMetadataMaps.byUniversalIdentifier,
+              ).some(
+                (field) =>
+                  field?.objectMetadataId === objectMetadataId &&
+                  field?.type === FieldMetadataType.ADDRESS &&
+                  field?.isActive,
+              );
+
+              if (!hasAnyAddressField) {
+                throw new Error(
+                  `MAP views require the object to have at least one active ADDRESS field. Object "${parameters.objectNameSingular}" has none.`,
                 );
               }
             }
