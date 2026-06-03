@@ -61,7 +61,8 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_1,
     namaJabatan: 'Kepala Desa',
     tipeJabatan: 'KEPALA_DESA',
-    tugasPokok: 'Memimpin penyelenggaraan pemerintahan desa, pembangunan, dan pelayanan masyarakat.',
+    tugasPokok:
+      'Memimpin penyelenggaraan pemerintahan desa, pembangunan, dan pelayanan masyarakat.',
     nomorSk: 'SK/001/DS/2021',
     tanggalSk: '2021-03-01',
     tanggalMulai: '2021-03-01',
@@ -103,7 +104,8 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_3,
     namaJabatan: 'Kepala Urusan Keuangan',
     tipeJabatan: 'KAUR',
-    tugasPokok: 'Membantu Sekretaris Desa dalam urusan keuangan dan administrasi keuangan desa.',
+    tugasPokok:
+      'Membantu Sekretaris Desa dalam urusan keuangan dan administrasi keuangan desa.',
     nomorSk: 'SK/003/DS/2021',
     tanggalSk: '2021-03-15',
     tanggalMulai: '2021-03-15',
@@ -124,7 +126,8 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_4,
     namaJabatan: 'Kepala Seksi Pemerintahan',
     tipeJabatan: 'KASI',
-    tugasPokok: 'Membantu Sekretaris Desa dalam urusan pemerintahan dan pelayanan masyarakat.',
+    tugasPokok:
+      'Membantu Sekretaris Desa dalam urusan pemerintahan dan pelayanan masyarakat.',
     nomorSk: 'SK/004/DS/2021',
     tanggalSk: '2021-03-15',
     tanggalMulai: '2021-03-15',
@@ -145,7 +148,8 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_5,
     namaJabatan: 'Kepala Dusun Krajan',
     tipeJabatan: 'KEPALA_DUSUN',
-    tugasPokok: 'Membantu Kepala Desa dalam pelaksanaan tugas di wilayah Dusun Krajan.',
+    tugasPokok:
+      'Membantu Kepala Desa dalam pelaksanaan tugas di wilayah Dusun Krajan.',
     nomorSk: 'SK/005/DS/2021',
     tanggalSk: '2021-04-01',
     tanggalMulai: '2021-04-01',
