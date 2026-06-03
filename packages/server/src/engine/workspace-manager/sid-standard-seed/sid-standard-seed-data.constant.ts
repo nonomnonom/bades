@@ -14,12 +14,16 @@
 // NOT NULL pada keduanya. Helper `withActorAudit()` di bawah menyalin
 // default `'System'` + source `'MANUAL'` ke setiap row supaya tidak terlupa.
 
-const ACTOR_AUDIT_COLUMNS = [
-  'createdBySource',
-  'createdByName',
-  'updatedBySource',
-  'updatedByName',
-];
+import { ASET_DESA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/aset-desa-custom-field-seeds.constant';
+import { JABATAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/jabatan-custom-field-seeds.constant';
+import { KELUARGA_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/keluarga-custom-field-seeds.constant';
+import { PENDUDUK_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penduduk-custom-field-seeds.constant';
+import { PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/penerima-bantuan-custom-field-seeds.constant';
+import { PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/permohonan-surat-custom-field-seeds.constant';
+import { PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/program-bantuan-custom-field-seeds.constant';
+import { SURAT_KELUAR_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/surat-keluar-custom-field-seeds.constant';
+import { WILAYAH_CUSTOM_FIELD_SEEDS } from 'src/engine/workspace-manager/dev-seeder/metadata/custom-fields/constants/wilayah-custom-field-seeds.constant';
+import { buildSidStandardSeedColumns } from 'src/engine/workspace-manager/sid-standard-seed/utils/build-seed-pg-columns.util';
 
 const ACTOR_AUDIT_DEFAULTS = {
   createdBySource: 'MANUAL',
@@ -43,20 +47,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_wilayah',
-    columns: [
-      'id',
-      'name',
-      'namaWilayah',
-      'jenisWilayah',
-      'kode',
-      'namaKepalaWilayah',
-      'jumlahKk',
-      'jumlahPenduduk',
-      'keterangan',
-      'luasHektar',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: WILAYAH_CUSTOM_FIELD_SEEDS,
+    }),
     rows: withActorAudit([
       // Dusun
       {
@@ -199,45 +192,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_penduduk',
-    // `namaLengkap` adalah composite FULL_NAME (firstName + lastName).
-    // `alamat` adalah composite ADDRESS: didekomposisi jadi `alamatAddress*`.
-    columns: [
-      'id',
-      'name',
-      'nik',
-      'nomorKk',
-      'namaLengkapFirstName',
-      'namaLengkapLastName',
-      'tempatLahir',
-      'tanggalLahir',
-      'jenisKelamin',
-      'agama',
-      'statusPerkawinan',
-      'pekerjaan',
-      'pendidikan',
-      'kewarganegaraan',
-      'statusHidup',
-      'nikAyah',
-      'nikIbu',
-      'noHpPrimaryPhoneNumber',
-      'noHpPrimaryPhoneCountryCode',
-      'emailPrimaryEmail',
-      'alamatAddressStreet1',
-      'alamatAddressCity',
-      'alamatAddressState',
-      'alamatAddressPostcode',
-      'alamatAddressCountry',
-      'alamatAddressLat',
-      'alamatAddressLng',
-      'rt',
-      'rw',
-      'dusun',
-      'statusHubunganKeluarga',
-      'tipeWarga',
-      'golonganDarah',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: PENDUDUK_CUSTOM_FIELD_SEEDS,
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0001-4000-8000-000000000001',
@@ -610,38 +567,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_keluarga',
-    columns: [
-      'id',
-      'name',
-      'nomorKk',
-      'namaKepalaKeluarga',
-      'tanggalPembuatan',
-      'alamatAddressStreet1',
-      'alamatAddressCity',
-      'alamatAddressState',
-      'alamatAddressPostcode',
-      'alamatAddressCountry',
-      'alamatAddressLat',
-      'alamatAddressLng',
-      'rt',
-      'rw',
-      'desa',
-      'kecamatan',
-      'kabupaten',
-      'jumlahAnggota',
-      'kodePos',
-      'klasifikasiKeluarga',
-      'jenisRumah',
-      'statusKepemilikanRumah',
-      'pendapatanBulananAmountMicros',
-      'pendapatanBulananCurrencyCode',
-      'sumberAir',
-      'sumberListrik',
-      'sanitasi',
-      'bahanBakarMemasak',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: KELUARGA_CUSTOM_FIELD_SEEDS,
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0002-4000-8000-000000000001',
@@ -808,24 +736,10 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_jabatan',
-    columns: [
-      'id',
-      'name',
-      'namaJabatan',
-      'tipeJabatan',
-      'tugasPokok',
-      'keterangan',
-      'nipd',
-      'nomorSk',
-      'tanggalSk',
-      'tanggalMulai',
-      'tanggalAkhir',
-      'statusAktif',
-      'pendudukId',
-      'wilayahId',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: JABATAN_CUSTOM_FIELD_SEEDS,
+      extraColumns: ['pendudukId', 'wilayahId'],
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0003-4000-8000-000000000001',
@@ -945,20 +859,10 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_permohonanSurat',
-    columns: [
-      'id',
-      'name',
-      'nomorPermohonan',
-      'tanggalPermohonan',
-      'status',
-      'jenisLayanan',
-      'keperluan',
-      'catatan',
-      'tanggalSelesai',
-      'pendudukId',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS,
+      extraColumns: ['pendudukId'],
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0004-4000-8000-000000000001',
@@ -1046,21 +950,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_suratKeluar',
-    columns: [
-      'id',
-      'name',
-      'arahSurat',
-      'asalSurat',
-      'nomorSurat',
-      'tanggalSurat',
-      'perihal',
-      'tujuan',
-      'klasifikasi',
-      'penandatangan',
-      'keterangan',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: SURAT_KELUAR_CUSTOM_FIELD_SEEDS,
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0005-4000-8000-000000000001',
@@ -1168,27 +1060,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_programBantuan',
-    // `nilaiPerOrang` adalah composite CURRENCY: didekomposisi jadi
-    // `nilaiPerOrangAmountMicros` (BigInt, 1 IDR = 1_000_000 micros) +
-    // `nilaiPerOrangCurrencyCode`.
-    columns: [
-      'id',
-      'name',
-      'namaProgram',
-      'jenisBantuan',
-      'sumberDana',
-      'jumlahPenerima',
-      'nilaiPerOrangAmountMicros',
-      'nilaiPerOrangCurrencyCode',
-      'tanggalMulai',
-      'tanggalSelesai',
-      'status',
-      'totalAnggaranAmountMicros',
-      'totalAnggaranCurrencyCode',
-      'keterangan',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: PROGRAM_BANTUAN_CUSTOM_FIELD_SEEDS,
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0006-4000-8000-000000000001',
@@ -1266,31 +1140,10 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_penerimaBantuan',
-    // `jumlahDiterima` adalah composite CURRENCY: didekomposisi jadi
-    // `jumlahDiterimaAmountMicros` + `jumlahDiterimaCurrencyCode`.
-    // `alamat` adalah composite ADDRESS: didekomposisi jadi `alamatAddress*`.
-    columns: [
-      'id',
-      'name',
-      'namaPenerima',
-      'nik',
-      'alamatAddressStreet1',
-      'alamatAddressCity',
-      'alamatAddressState',
-      'alamatAddressPostcode',
-      'alamatAddressCountry',
-      'alamatAddressLat',
-      'alamatAddressLng',
-      'tanggalTerima',
-      'jumlahDiterimaAmountMicros',
-      'jumlahDiterimaCurrencyCode',
-      'statusPenerimaan',
-      'keterangan',
-      'programBantuanId',
-      'pendudukId',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS,
+      extraColumns: ['programBantuanId', 'pendudukId'],
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0007-4000-8000-000000000001',
@@ -1428,36 +1281,9 @@ export const SID_STANDARD_DATA_SEEDS: SidStandardDataSeed[] = [
   // -----------------------------------------------------------------------
   {
     tableName: '_asetDesa',
-    // `nilaiAset` adalah composite CURRENCY: didekomposisi jadi
-    // `nilaiAsetAmountMicros` + `nilaiAsetCurrencyCode`.
-    // `lokasi` adalah composite ADDRESS (sejak upgrade TEXT→ADDRESS): jalan,
-    // kota, provinsi, kode pos, negara, lat, lng.
-    // `statusPengelolaan` sesuai Permendagri 1/2016.
-    columns: [
-      'id',
-      'name',
-      'kodeAset',
-      'namaAset',
-      'jenisAset',
-      'lokasiAddressStreet1',
-      'lokasiAddressCity',
-      'lokasiAddressState',
-      'lokasiAddressPostcode',
-      'lokasiAddressCountry',
-      'lokasiAddressLat',
-      'lokasiAddressLng',
-      'tahunPerolehan',
-      'asalPerolehan',
-      'nilaiAsetAmountMicros',
-      'nilaiAsetCurrencyCode',
-      'kondisi',
-      'statusPengelolaan',
-      'keterangan',
-      'penanggungJawab',
-      'kategoriAset',
-      'position',
-      ...ACTOR_AUDIT_COLUMNS,
-    ],
+    columns: buildSidStandardSeedColumns({
+      fieldSeeds: ASET_DESA_CUSTOM_FIELD_SEEDS,
+    }),
     rows: withActorAudit([
       {
         id: '30303030-0008-4000-8000-000000000001',

@@ -1,13 +1,13 @@
 import { isNonEmptyString } from '@sniptt/guards';
+import { FieldMetadataType, FileFolder } from 'shared/types';
 import { isDefined } from 'shared/utils';
 
-import { FileOutput } from 'src/engine/api/common/common-args-processors/data-arg-processor/types/file-item.type';
 import { extractFileIdFromUrl } from 'src/engine/core-modules/file/files-field/utils/extract-file-id-from-url.util';
+import { getImageIdentifierPrimaryColumnFromFlatFieldMetadata } from 'src/engine/metadata-modules/field-metadata/utils/get-image-identifier-columns.util';
 import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { findFlatEntityByIdInFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-id-in-flat-entity-maps.util';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
-import { FileFolder } from 'shared/types';
 
 type GetRecordImageIdentifierOptions = {
   record: Record<string, unknown>;
@@ -25,14 +25,6 @@ export const getRecordImageIdentifier = async ({
   flatFieldMetadataMaps,
   signUrl,
 }: GetRecordImageIdentifierOptions): Promise<string | null> => {
-  if (signUrl && flatObjectMetadata.nameSingular === 'penduduk') {
-    const avatarFileId = (record.avatarFile as FileOutput[])?.[0]?.fileId;
-    if (!isDefined(avatarFileId)) {
-      return null;
-    }
-    return signUrl(avatarFileId, FileFolder.FilesField);
-  }
-
   if (
     signUrl &&
     flatObjectMetadata.nameSingular === 'workspaceMember' &&
@@ -61,7 +53,14 @@ export const getRecordImageIdentifier = async ({
     return null;
   }
 
-  const imageValue = record[imageIdentifierField.name];
+  const imagePrimaryColumn =
+    getImageIdentifierPrimaryColumnFromFlatFieldMetadata(imageIdentifierField);
+
+  if (!isDefined(imagePrimaryColumn)) {
+    return null;
+  }
+
+  const imageValue = record[imagePrimaryColumn];
 
   if (!isDefined(imageValue)) {
     return null;
@@ -73,7 +72,17 @@ export const getRecordImageIdentifier = async ({
     return null;
   }
 
-  if (signUrl && flatObjectMetadata.nameSingular === 'workspaceMember') {
+  if (signUrl && imageIdentifierField.type === FieldMetadataType.LINKS) {
+    const fileId = extractFileIdFromUrl(rawImageValue, FileFolder.FilesField);
+
+    if (!isDefined(fileId)) {
+      return rawImageValue;
+    }
+
+    return signUrl(fileId, FileFolder.FilesField);
+  }
+
+  if (signUrl) {
     return signUrl(rawImageValue, FileFolder.FilesField);
   }
 

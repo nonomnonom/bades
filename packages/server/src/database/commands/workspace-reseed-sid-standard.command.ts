@@ -1,13 +1,20 @@
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { Command } from 'nest-commander';
+import { Command, Option } from 'nest-commander';
 import { Repository } from 'typeorm';
 
 import { ActiveOrSuspendedWorkspaceCommandRunner } from 'src/database/commands/command-runners/active-or-suspended-workspace.command-runner';
 import { WorkspaceIteratorService } from 'src/database/commands/command-runners/workspace-iterator.service';
-import { type RunOnWorkspaceArgs } from 'src/database/commands/command-runners/workspace.command-runner';
+import {
+  type RunOnWorkspaceArgs,
+  type WorkspaceCommandOptions,
+} from 'src/database/commands/command-runners/workspace.command-runner';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.service';
+
+type WorkspaceReseedSidStandardOptions = WorkspaceCommandOptions & {
+  refreshData?: boolean;
+};
 
 // Jalankan ulang seed SID standar ke workspace yang sudah ada namun kosong.
 //
@@ -19,14 +26,15 @@ import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standar
 //   3. Recovery pasca-upgrade ketika `seedSidStandardData` belum berjalan.
 //
 // Idempotent: `seedSidStandardObjects` skip objek yang sudah ada;
-// `seedSidStandardData` pakai `ON CONFLICT (id) DO NOTHING`;
+// `seedSidStandardData` pakai `ON CONFLICT (id) DO NOTHING` (kecuali
+// `--refresh-data` yang hapus sample row lalu insert ulang);
 // `seedSidStandardViewFields` pakai UPDATE yang aman diulang.
 @Command({
   name: 'workspace:reseed:sid-standard',
   description:
-    'Jalankan ulang seed SID standar (objek, data contoh, view) ke workspace yang kosong atau perlu recovery',
+    'Jalankan ulang seed SID standar (objek, relasi, data contoh, view) ke workspace yang kosong atau perlu recovery',
 })
-export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspaceCommandRunner {
+export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspaceCommandRunner<WorkspaceReseedSidStandardOptions> {
   constructor(
     protected readonly workspaceIteratorService: WorkspaceIteratorService,
     private readonly sidStandardSeedService: SidStandardSeedService,
@@ -36,22 +44,31 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
     super(workspaceIteratorService);
   }
 
+  @Option({
+    flags: '--refresh-data',
+    description:
+      'Hapus sample record SID (namespace 30303030-*) lalu insert ulang. Tanpa flag ini, row yang sudah ada tidak ditimpa.',
+  })
+  parseRefreshData(): boolean {
+    return true;
+  }
+
   override async runOnWorkspace({
     workspaceId,
     options,
   }: RunOnWorkspaceArgs): Promise<void> {
     const isDryRun = options.dryRun ?? false;
+    const refreshData =
+      (options as WorkspaceReseedSidStandardOptions).refreshData ?? false;
 
     if (isDryRun) {
       this.logger.log(
-        `[DRY RUN] Akan re-seed SID standard ke workspace ${workspaceId}`,
+        `[DRY RUN] Akan re-seed SID standard ke workspace ${workspaceId}${refreshData ? ' (refresh-data)' : ''}`,
       );
 
       return;
     }
 
-    // Ambil schemaName dari workspace entity; dibutuhkan oleh seedSidStandardData
-    // untuk INSERT raw ke schema workspace yang benar.
     const workspace = await this.workspaceRepository.findOne({
       select: ['id', 'databaseSchema'],
       where: { id: workspaceId },
@@ -71,37 +88,60 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       `Mulai re-seed SID standard untuk workspace ${workspaceId} (schema: ${schemaName})`,
     );
 
-    // Langkah 1: objek + field metadata (idempotent, skip yang sudah ada)
     const objectResult =
       await this.sidStandardSeedService.seedSidStandardObjects({
         workspaceId,
       });
 
     this.logger.log(
-      `[1/5] Objek: ${objectResult.createdObjects} objek baru, ${objectResult.createdFields} field baru`,
+      `[1/6] Objek: ${objectResult.createdObjects} objek baru, ${objectResult.createdFields} field baru`,
     );
 
-    // Langkah 2: data contoh sample record (ON CONFLICT DO NOTHING)
-    const dataResult = await this.sidStandardSeedService.seedSidStandardData({
-      workspaceId,
-      schemaName,
-    });
+    const relationResult =
+      await this.sidStandardSeedService.seedSidStandardRelations({
+        workspaceId,
+      });
 
     this.logger.log(
-      `[2/5] Data: ${dataResult.insertedRecords} record disisipkan`,
+      `[2/6] Relasi: ${relationResult.createdRelations} relation baru`,
     );
 
-    // Langkah 3: rapikan view bawaan (sembunyikan field non-curated)
+    let insertedRecords: number;
+
+    if (refreshData) {
+      const refreshResult =
+        await this.sidStandardSeedService.refreshSidStandardData({
+          workspaceId,
+          schemaName,
+        });
+
+      insertedRecords = refreshResult.insertedRecords;
+
+      this.logger.log(
+        `[3/6] Data: ${refreshResult.deletedRecords} dihapus, ${refreshResult.insertedRecords} disisipkan`,
+      );
+    } else {
+      const seedResult = await this.sidStandardSeedService.seedSidStandardData({
+        workspaceId,
+        schemaName,
+      });
+
+      insertedRecords = seedResult.insertedRecords;
+
+      this.logger.log(
+        `[3/6] Data: ${seedResult.insertedRecords} record disisipkan`,
+      );
+    }
+
     const viewResult =
       await this.sidStandardSeedService.seedSidStandardViewFields({
         workspaceId,
       });
 
     this.logger.log(
-      `[3/5] View: ${viewResult.hiddenFields} field disembunyikan dari tampilan default`,
+      `[4/6] View: ${viewResult.hiddenFields} field disembunyikan dari tampilan default`,
     );
 
-    // Langkah 4: dashboard contoh
     const dashboardResult =
       await this.sidStandardSeedService.seedSidStandardDashboards({
         workspaceId,
@@ -109,10 +149,9 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[4/5] Dashboard: ${dashboardResult.insertedDashboards} dashboard disisipkan`,
+      `[5/6] Dashboard: ${dashboardResult.insertedDashboards} dashboard disisipkan`,
     );
 
-    // Langkah 5: workflow contoh
     const workflowResult =
       await this.sidStandardSeedService.seedSidStandardWorkflows({
         workspaceId,
@@ -120,11 +159,11 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[5/5] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
+      `[6/6] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
     );
 
     this.logger.log(
-      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${dataResult.insertedRecords} record, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow`,
+      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow`,
     );
   }
 }

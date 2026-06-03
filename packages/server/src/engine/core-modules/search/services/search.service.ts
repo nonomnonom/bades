@@ -33,6 +33,10 @@ import { formatSearchTerms } from 'src/engine/core-modules/search/utils/format-s
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { type FlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/types/flat-entity-maps.type';
 import { findFlatEntityByIdInFlatEntityMaps } from 'src/engine/metadata-modules/flat-entity/utils/find-flat-entity-by-id-in-flat-entity-maps.util';
+import {
+  getImageIdentifierColumns,
+  getImageIdentifierPrimaryColumn,
+} from 'src/engine/metadata-modules/field-metadata/utils/get-image-identifier-columns.util';
 import { type FlatFieldMetadata } from 'src/engine/metadata-modules/flat-field-metadata/types/flat-field-metadata.type';
 import { type FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-metadata/types/flat-object-metadata.type';
 import { SEARCH_VECTOR_FIELD } from 'src/engine/metadata-modules/search-field-metadata/constants/search-vector-field.constants';
@@ -275,10 +279,10 @@ export class SearchService {
 
     queryParser.applyDeletedAtToBuilder(queryBuilder, filter);
 
-    const imageIdentifierField = this.getImageIdentifierColumn(
+    const imageIdentifierColumns = getImageIdentifierColumns({
       flatObjectMetadata,
       flatFieldMetadataMaps,
-    );
+    });
 
     const fieldsToSelect = [
       'id',
@@ -286,7 +290,7 @@ export class SearchService {
         flatObjectMetadata,
         flatFieldMetadataMaps,
       ),
-      ...(imageIdentifierField ? [imageIdentifierField] : []),
+      ...imageIdentifierColumns,
     ].map((field) => `"${field}"`);
 
     const tsRankCDExpr = `ts_rank_cd("${SEARCH_VECTOR_FIELD.name}", to_tsquery('simple', public.unaccent_immutable(:searchTerms)))`;
@@ -397,10 +401,10 @@ export class SearchService {
 
           queryParser.applyDeletedAtToBuilder(queryBuilder, filter);
 
-          const imageIdentifierField = this.getImageIdentifierColumn(
+          const imageIdentifierColumns = getImageIdentifierColumns({
             flatObjectMetadata,
             flatFieldMetadataMaps,
-          );
+          });
 
           const fieldsToSelect = [
             'id',
@@ -408,7 +412,7 @@ export class SearchService {
               flatObjectMetadata,
               flatFieldMetadataMaps,
             ),
-            ...(imageIdentifierField ? [imageIdentifierField] : []),
+            ...imageIdentifierColumns,
           ].map((field) => `"${field}"`);
 
           queryBuilder.select(fieldsToSelect);
@@ -551,28 +555,14 @@ export class SearchService {
     return labelIdentifierFields.map((field) => record[field]).join(' ');
   }
 
-  getImageIdentifierColumn(
+  getImageIdentifierColumns(
     flatObjectMetadata: FlatObjectMetadata,
     flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata>,
-  ) {
-    if (flatObjectMetadata.nameSingular === 'workspaceMember') {
-      return 'avatarUrl';
-    }
-
-    if (!flatObjectMetadata.imageIdentifierFieldMetadataId) {
-      return null;
-    }
-
-    const imageIdentifierField = findFlatEntityByIdInFlatEntityMaps({
-      flatEntityId: flatObjectMetadata.imageIdentifierFieldMetadataId,
-      flatEntityMaps: flatFieldMetadataMaps,
+  ): string[] {
+    return getImageIdentifierColumns({
+      flatObjectMetadata,
+      flatFieldMetadataMaps,
     });
-
-    if (!isDefined(imageIdentifierField)) {
-      return null;
-    }
-
-    return imageIdentifierField.name;
   }
 
   private async getImageUrlWithToken(
@@ -593,16 +583,24 @@ export class SearchService {
     flatFieldMetadataMaps: FlatEntityMaps<FlatFieldMetadata>,
     workspaceId: string,
   ): Promise<string> {
-    const imageIdentifierField = this.getImageIdentifierColumn(
+    const imagePrimaryColumn = getImageIdentifierPrimaryColumn({
       flatObjectMetadata,
       flatFieldMetadataMaps,
-    );
+    });
 
-    //TODO: Temporary solution before imageIdentifier refactor
+    if (!isDefined(imagePrimaryColumn)) {
+      return '';
+    }
+
+    const rawImageValue = record[imagePrimaryColumn];
+
+    if (!isNonEmptyString(rawImageValue)) {
+      return '';
+    }
 
     if (flatObjectMetadata.nameSingular === 'workspaceMember') {
       const avatarFileId = extractFileIdFromUrl(
-        record.avatarUrl,
+        rawImageValue,
         FileFolder.CorePicture,
       );
       if (!isDefined(avatarFileId)) {
@@ -615,14 +613,31 @@ export class SearchService {
       );
     }
 
-    return imageIdentifierField &&
-      isNonEmptyString(record[imageIdentifierField])
-      ? this.getImageUrlWithToken(
-          record[imageIdentifierField],
-          FileFolder.FilesField,
-          workspaceId,
-        )
-      : '';
+    const imageIdentifierField = isDefined(
+      flatObjectMetadata.imageIdentifierFieldMetadataId,
+    )
+      ? findFlatEntityByIdInFlatEntityMaps({
+          flatEntityId: flatObjectMetadata.imageIdentifierFieldMetadataId,
+          flatEntityMaps: flatFieldMetadataMaps,
+        })
+      : undefined;
+
+    if (imageIdentifierField?.type === FieldMetadataType.LINKS) {
+      const fileId = extractFileIdFromUrl(
+        rawImageValue,
+        FileFolder.FilesField,
+      );
+      if (!isDefined(fileId)) {
+        return rawImageValue;
+      }
+      return this.getImageUrlWithToken(fileId, FileFolder.FilesField, workspaceId);
+    }
+
+    return this.getImageUrlWithToken(
+      rawImageValue,
+      FileFolder.FilesField,
+      workspaceId,
+    );
   }
 
   computeEdges({

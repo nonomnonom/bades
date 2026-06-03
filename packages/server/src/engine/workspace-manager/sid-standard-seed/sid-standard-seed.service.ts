@@ -397,7 +397,7 @@ export class SidStandardSeedService {
           `Seed ${affected} record contoh ke '${schemaName}.${tableName}' (workspace ${workspaceId})`,
         );
       } catch (error) {
-        this.logger.warn(
+        this.logger.error(
           `Gagal seed data contoh ke '${schemaName}.${tableName}' (workspace ${workspaceId}): ${
             error instanceof Error ? error.message : String(error)
           }`,
@@ -406,6 +406,78 @@ export class SidStandardSeedService {
     }
 
     return { insertedRecords };
+  }
+
+  // Hapus sample record SID standar lalu insert ulang. Dipakai untuk recovery
+  // workspace yang masih punya data seed lama/salah setelah perbaikan kolom.
+  //
+  // Urutan DELETE: anak dulu (FK ke penduduk/program) baru induk.
+  async refreshSidStandardData({
+    workspaceId,
+    schemaName,
+  }: {
+    workspaceId: string;
+    schemaName: string;
+  }): Promise<{ deletedRecords: number; insertedRecords: number }> {
+    const deleteTableOrder = [
+      '_penerimaBantuan',
+      '_permohonanSurat',
+      '_jabatan',
+      '_penduduk',
+      '_keluarga',
+      '_suratKeluar',
+      '_programBantuan',
+      '_asetDesa',
+      '_wilayah',
+    ] as const;
+
+    let deletedRecords = 0;
+
+    for (const tableName of deleteTableOrder) {
+      const seedConfig = SID_STANDARD_DATA_SEEDS.find(
+        (seed) => seed.tableName === tableName,
+      );
+
+      if (!isDefined(seedConfig) || seedConfig.rows.length === 0) {
+        continue;
+      }
+
+      const seedIds = seedConfig.rows
+        .map((row) => row.id)
+        .filter((id): id is string => typeof id === 'string');
+
+      if (seedIds.length === 0) {
+        continue;
+      }
+
+      try {
+        const result = await this.coreDataSource.query(
+          `DELETE FROM "${schemaName}"."${tableName}" WHERE id = ANY($1::uuid[]) RETURNING id`,
+          [seedIds],
+        );
+        const affected = Array.isArray(result) ? result.length : 0;
+
+        deletedRecords += affected;
+        if (affected > 0) {
+          this.logger.log(
+            `Refresh: hapus ${affected} record sample dari '${schemaName}.${tableName}' (workspace ${workspaceId})`,
+          );
+        }
+      } catch (error) {
+        this.logger.error(
+          `Gagal hapus sample data dari '${schemaName}.${tableName}' (workspace ${workspaceId}): ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+        );
+      }
+    }
+
+    const { insertedRecords } = await this.seedSidStandardData({
+      workspaceId,
+      schemaName,
+    });
+
+    return { deletedRecords, insertedRecords };
   }
 
   // Sembunyikan field non-curated dari view default tiap object SID via raw

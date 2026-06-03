@@ -1,5 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 
+import { FieldMetadataType } from 'shared/types';
+
 import { encodeCursorData } from 'src/engine/api/graphql/graphql-query-runner/utils/cursors.util';
 import {
   mockFlatFieldMetadataMaps,
@@ -110,31 +112,70 @@ describe('SearchService', () => {
     });
   });
 
-  describe('getImageIdentifierColumn', () => {
-    it('should return null if the object metadata item is a penduduk (tidak ada field avatarFile)', () => {
-      const imageIdentifierColumn = service.getImageIdentifierColumn(
+  describe('getImageIdentifierColumns', () => {
+    it('should return empty array if the object metadata item is a penduduk without imageIdentifier', () => {
+      const imageIdentifierColumns = service.getImageIdentifierColumns(
         mockFlatObjectMetadatas[0],
         mockFlatFieldMetadataMaps,
       );
 
-      expect(imageIdentifierColumn).toBeNull();
+      expect(imageIdentifierColumns).toEqual([]);
     });
-    it('should return null for a keluarga object metadata item yang tidak punya imageIdentifierFieldMetadataId', () => {
-      const imageIdentifierColumn = service.getImageIdentifierColumn(
+    it('should return empty array for a keluarga object metadata item yang tidak punya imageIdentifierFieldMetadataId', () => {
+      const imageIdentifierColumns = service.getImageIdentifierColumns(
         mockFlatObjectMetadatas[1],
         mockFlatFieldMetadataMaps,
       );
 
-      expect(imageIdentifierColumn).toBeNull();
+      expect(imageIdentifierColumns).toEqual([]);
     });
 
-    it('should return the image identifier column', () => {
-      const imageIdentifierColumn = service.getImageIdentifierColumn(
+    it('should return the image identifier column for a plain TEXT field', () => {
+      const imageIdentifierColumns = service.getImageIdentifierColumns(
         mockFlatObjectMetadatas[2],
         mockFlatFieldMetadataMaps,
       );
 
-      expect(imageIdentifierColumn).toEqual('imageIdentifierFieldName');
+      expect(imageIdentifierColumns).toEqual(['imageIdentifierFieldName']);
+    });
+
+    it('should return decomposed LINKS columns for foto image identifier', () => {
+      const fotoFieldId = 'penduduk-foto-field-id';
+      const pendudukWithFoto = {
+        ...mockFlatObjectMetadatas[0],
+        imageIdentifierFieldMetadataId: fotoFieldId,
+        fieldIds: [...mockFlatObjectMetadatas[0].fieldIds, fotoFieldId],
+      };
+      const fieldMapsWithFoto: typeof mockFlatFieldMetadataMaps = {
+        ...mockFlatFieldMetadataMaps,
+        byUniversalIdentifier: {
+          ...mockFlatFieldMetadataMaps.byUniversalIdentifier,
+          'penduduk-foto-field-universal-id': {
+            ...(mockFlatFieldMetadataMaps.byUniversalIdentifier[
+              'person-name-field-universal-id'
+            ] as (typeof mockFlatFieldMetadataMaps.byUniversalIdentifier)[string]),
+            id: fotoFieldId,
+            name: 'foto',
+            type: FieldMetadataType.LINKS,
+            universalIdentifier: 'penduduk-foto-field-universal-id',
+          },
+        },
+        universalIdentifierById: {
+          ...mockFlatFieldMetadataMaps.universalIdentifierById,
+          [fotoFieldId]: 'penduduk-foto-field-universal-id',
+        },
+      };
+
+      const imageIdentifierColumns = service.getImageIdentifierColumns(
+        pendudukWithFoto,
+        fieldMapsWithFoto,
+      );
+
+      expect(imageIdentifierColumns).toEqual([
+        'fotoPrimaryLinkLabel',
+        'fotoPrimaryLinkUrl',
+        'fotoSecondaryLinks',
+      ]);
     });
   });
 

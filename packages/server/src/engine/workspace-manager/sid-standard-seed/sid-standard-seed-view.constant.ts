@@ -26,18 +26,19 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'penduduk',
     visibleFieldNames: [
-      'name',
+      'namaLengkap',
       'nik',
+      'nomorKk',
       'jenisKelamin',
       'tanggalLahir',
-      'statusHidup',
-      'agama',
       'statusPerkawinan',
+      'agama',
+      'statusHidup',
     ],
   },
   {
     objectNameSingular: 'keluarga',
-    visibleFieldNames: ['name', 'nomorKk', 'alamat'],
+    visibleFieldNames: ['nomorKk', 'namaKepalaKeluarga', 'alamat'],
   },
   {
     objectNameSingular: 'jabatan',

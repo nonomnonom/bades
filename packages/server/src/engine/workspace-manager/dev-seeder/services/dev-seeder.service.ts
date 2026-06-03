@@ -190,6 +190,35 @@ export class DevSeederService {
       `Seed data SID untuk workspace ${workspaceId}: ${sidDataResult.insertedRecords} record`,
     );
 
+    const sidViewResult =
+      await this.sidStandardSeedService.seedSidStandardViewFields({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.hiddenFields} field disembunyikan`,
+    );
+
+    const sidDashboardResult =
+      await this.sidStandardSeedService.seedSidStandardDashboards({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `Seed dashboard SID untuk workspace ${workspaceId}: ${sidDashboardResult.insertedDashboards} dashboard`,
+    );
+
+    const sidWorkflowResult =
+      await this.sidStandardSeedService.seedSidStandardWorkflows({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `Seed workflow SID untuk workspace ${workspaceId}: ${sidWorkflowResult.insertedWorkflows} workflow`,
+    );
+
     // Seed non-SID data: workspaceMember, dashboard, workflows, attachments
     await this.devSeederDataService.seed({
       schemaName,
