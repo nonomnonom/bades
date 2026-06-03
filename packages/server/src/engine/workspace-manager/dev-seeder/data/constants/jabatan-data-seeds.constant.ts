@@ -1,10 +1,19 @@
 import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
+import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
+import { WILAYAH_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/wilayah-data-seeds.constant';
 
 type JabatanDataSeed = {
   id: string;
   namaJabatan: string;
   tipeJabatan: string;
   tugasPokok: string;
+  nomorSk: string;
+  tanggalSk: string;
+  tanggalMulai: string;
+  tanggalAkhir: string | null;
+  statusAktif: boolean;
+  pendudukId: string | null;
+  wilayahId: string | null;
   keterangan: string;
   createdBySource: string;
   createdByWorkspaceMemberId: string;
@@ -20,6 +29,13 @@ export const JABATAN_DATA_SEED_COLUMNS: (keyof JabatanDataSeed)[] = [
   'namaJabatan',
   'tipeJabatan',
   'tugasPokok',
+  'nomorSk',
+  'tanggalSk',
+  'tanggalMulai',
+  'tanggalAkhir',
+  'statusAktif',
+  'pendudukId',
+  'wilayahId',
   'keterangan',
   'createdBySource',
   'createdByWorkspaceMemberId',
@@ -45,7 +61,14 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_1,
     namaJabatan: 'Kepala Desa',
     tipeJabatan: 'KEPALA_DESA',
-    tugasPokok: 'Memimpin pelaksanaan Pemerintahan Desa',
+    tugasPokok: 'Memimpin penyelenggaraan pemerintahan desa, pembangunan, dan pelayanan masyarakat.',
+    nomorSk: 'SK/001/DS/2021',
+    tanggalSk: '2021-03-01',
+    tanggalMulai: '2021-03-01',
+    tanggalAkhir: '2027-03-01',
+    statusAktif: true,
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_1,
+    wilayahId: null,
     keterangan: 'Kepala Desa Sukamaju, masa jabatan 2021-2027',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -59,7 +82,14 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_2,
     namaJabatan: 'Sekretaris Desa',
     tipeJabatan: 'SEKRETARIS',
-    tugasPokok: 'Melaksanakan urusan ketatausahaan dan umum',
+    tugasPokok: 'Membantu Kepala Desa dalam bidang administrasi pemerintahan.',
+    nomorSk: 'SK/002/DS/2021',
+    tanggalSk: '2021-03-01',
+    tanggalMulai: '2021-03-01',
+    tanggalAkhir: '2027-03-01',
+    statusAktif: true,
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_5,
+    wilayahId: null,
     keterangan: 'Sekretaris Desa Sukamaju',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -73,7 +103,14 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_3,
     namaJabatan: 'Kepala Urusan Keuangan',
     tipeJabatan: 'KAUR',
-    tugasPokok: 'Melaksanakan urusan keuangan dan perencanaan',
+    tugasPokok: 'Membantu Sekretaris Desa dalam urusan keuangan dan administrasi keuangan desa.',
+    nomorSk: 'SK/003/DS/2021',
+    tanggalSk: '2021-03-15',
+    tanggalMulai: '2021-03-15',
+    tanggalAkhir: '2027-03-15',
+    statusAktif: true,
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_6,
+    wilayahId: null,
     keterangan: 'Kaur Keuangan Desa Sukamaju',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -87,7 +124,14 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_4,
     namaJabatan: 'Kepala Seksi Pemerintahan',
     tipeJabatan: 'KASI',
-    tugasPokok: 'Melaksanakan urusan pemerintahan dan pembangunan',
+    tugasPokok: 'Membantu Sekretaris Desa dalam urusan pemerintahan dan pelayanan masyarakat.',
+    nomorSk: 'SK/004/DS/2021',
+    tanggalSk: '2021-03-15',
+    tanggalMulai: '2021-03-15',
+    tanggalAkhir: '2027-03-15',
+    statusAktif: true,
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_8,
+    wilayahId: null,
     keterangan: 'Kasi Pemerintahan Desa Sukamaju',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
@@ -101,7 +145,14 @@ export const JABATAN_DATA_SEEDS: JabatanDataSeed[] = [
     id: JABATAN_DATA_SEED_IDS.JBT_5,
     namaJabatan: 'Kepala Dusun Krajan',
     tipeJabatan: 'KEPALA_DUSUN',
-    tugasPokok: 'Membantu Kepala Desa dalam urusan dusun Kragan',
+    tugasPokok: 'Membantu Kepala Desa dalam pelaksanaan tugas di wilayah Dusun Krajan.',
+    nomorSk: 'SK/005/DS/2021',
+    tanggalSk: '2021-04-01',
+    tanggalMulai: '2021-04-01',
+    tanggalAkhir: '2027-04-01',
+    statusAktif: true,
+    pendudukId: null,
+    wilayahId: WILAYAH_DATA_SEED_IDS.DUSUN_1,
     keterangan: 'Kepala Dusun Krajan',
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
