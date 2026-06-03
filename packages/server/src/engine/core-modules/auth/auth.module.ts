@@ -83,6 +83,7 @@ import { JwtAuthStrategy } from './strategies/jwt.auth.strategy';
   imports: [
     JwtModule,
     WorkspaceDomainsModule,
+    PermissionsModule,
     TokenModule,
     UserModule,
     TypeOrmModule.forFeature([
@@ -112,7 +113,6 @@ import { JwtAuthStrategy } from './strategies/jwt.auth.strategy';
     EmailVerificationModule,
     GuardRedirectModule,
     MetricsModule,
-    PermissionsModule,
     TwoFactorAuthenticationModule,
     ApiKeyModule,
     AuditModule,

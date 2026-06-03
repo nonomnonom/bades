@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ApiKeyEntity } from 'src/engine/core-modules/api-key/api-key.entity';
@@ -13,7 +13,7 @@ import { JwtModule } from 'src/engine/core-modules/jwt/jwt.module';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permissions.module';
 import { RoleTargetEntity } from 'src/engine/metadata-modules/role-target/role-target.entity';
-import { RoleTargetModule } from 'src/engine/metadata-modules/role-target/role-target.module';
+
 import { RoleEntity } from 'src/engine/metadata-modules/role/role.entity';
 import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/workspace-cache-storage.module';
 import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache.module';
@@ -32,9 +32,12 @@ import { ApiKeyController } from './controllers/api-key.controller';
     WorkspaceCacheModule,
     WorkspaceCacheStorageModule,
     FeatureFlagModule,
-    RoleTargetModule,
     TokenModule,
-    PermissionsModule,
+    // forwardRef untuk break circular dependency dengan permissions.module:
+    // permissions.module meng-import ApiKeyRoleService dari direktori yang
+    // sama (api-key/), yang membuat Node.js melihat partial module saat
+    // class declaration dieksekusi. forwardRef menunda DI resolution.
+    forwardRef(() => PermissionsModule),
   ],
   providers: [
     ApiKeyService,

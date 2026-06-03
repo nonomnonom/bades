@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ApplicationModule } from 'src/engine/core-modules/application/application.module';
@@ -10,6 +10,7 @@ import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace
 
 import { RoleTargetService } from './services/role-target.service';
 
+@Global()
 @Module({
   imports: [
     WorkspaceManyOrAllFlatEntityMapsCacheModule,

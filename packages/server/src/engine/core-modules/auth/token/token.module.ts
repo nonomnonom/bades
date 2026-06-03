@@ -16,7 +16,6 @@ import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { CoreEntityCacheModule } from 'src/engine/core-entity-cache/core-entity-cache.module';
-import { PermissionsModule } from 'src/engine/metadata-modules/permissions/permissions.module';
 import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache.module';
 
 @Module({
@@ -30,7 +29,6 @@ import { WorkspaceCacheModule } from 'src/engine/workspace-cache/workspace-cache
       ApplicationEntity,
     ]),
     TypeORMModule,
-    PermissionsModule,
     WorkspaceCacheModule,
     CoreEntityCacheModule,
   ],
