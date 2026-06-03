@@ -435,7 +435,7 @@ export class SidStandardSeedService {
         viewUniversalIdentifier: '30303030-000b-4000-8000-000000000002',
       },
       {
-        objectNameSingular: 'penerima-bantuan',
+        objectNameSingular: 'penerimaBantuan',
         viewName: 'Peta Penerima Bantuan',
         viewId: '30303030-000c-4000-8000-000000000001',
         viewUniversalIdentifier: '30303030-000c-4000-8000-000000000002',
@@ -447,7 +447,7 @@ export class SidStandardSeedService {
         viewUniversalIdentifier: '30303030-000d-4000-8000-000000000002',
       },
       {
-        objectNameSingular: 'aset-desa',
+        objectNameSingular: 'asetDesa',
         viewName: 'Peta Aset Desa',
         viewId: '30303030-000e-4000-8000-000000000001',
         viewUniversalIdentifier: '30303030-000e-4000-8000-000000000002',

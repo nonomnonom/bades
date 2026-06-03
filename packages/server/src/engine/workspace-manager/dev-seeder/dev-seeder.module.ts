@@ -27,6 +27,7 @@ import { DevSeederMetadataService } from 'src/engine/workspace-manager/dev-seede
 import { DevSeederService } from 'src/engine/workspace-manager/dev-seeder/services/dev-seeder.service';
 import { StandardObjectsPrefillModule } from 'src/engine/workspace-manager/standard-objects-prefill-data/standard-objects-prefill.module';
 import { BadesStandardApplicationModule } from 'src/engine/workspace-manager/bades-standard-application/bades-standard-application.module';
+import { SidStandardSeedModule } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.module';
 import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace-migration/workspace-migration.module';
 
 @Module({
@@ -51,6 +52,7 @@ import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace
     WorkspaceCacheModule,
     WorkspaceMigrationModule,
     BadesStandardApplicationModule,
+    SidStandardSeedModule,
     SdkClientModule,
     UpgradeModule,
   ],

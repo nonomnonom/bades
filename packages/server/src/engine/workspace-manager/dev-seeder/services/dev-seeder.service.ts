@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 
 import { DataSource, Repository } from 'typeorm';
@@ -39,10 +39,13 @@ import { DevSeederMetadataService } from 'src/engine/workspace-manager/dev-seede
 import { PrefillFrontComponentService } from 'src/engine/workspace-manager/standard-objects-prefill-data/services/prefill-front-component.service';
 import { getSeedFrontComponentDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-definitions.util';
 import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
+import { SidStandardSeedService } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.service';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
 @Injectable()
 export class DevSeederService {
+  private readonly logger = new Logger(DevSeederService.name);
+
   constructor(
     private readonly workspaceCacheStorageService: WorkspaceCacheStorageService,
     private readonly badesConfigService: BadesConfigService,
@@ -59,6 +62,7 @@ export class DevSeederService {
     private readonly upgradeSequenceReaderService: UpgradeSequenceReaderService,
     private readonly workspaceMigrationValidateBuildAndRunService: WorkspaceMigrationValidateBuildAndRunService,
     private readonly prefillFrontComponentService: PrefillFrontComponentService,
+    private readonly sidStandardSeedService: SidStandardSeedService,
     @InjectDataSource()
     private readonly coreDataSource: DataSource,
     @InjectRepository(WorkspaceEntity)
@@ -173,6 +177,18 @@ export class DevSeederService {
       featureFlags: featureFlagsMap,
       light,
     });
+
+    // Tanam MAP view untuk object SID yang punya field ADDRESS
+    // (penduduk, keluarga, penerimaBantuan, asetDesa) supaya dev
+    // workspace juga mendapat view peta seperti workspace baru.
+    const sidMapViewResult =
+      await this.sidStandardSeedService.seedSidStandardMapViews({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Seed MAP view SID untuk workspace ${workspaceId}: ${sidMapViewResult.createdMapViews} view`,
+    );
 
     await this.workspaceCacheStorageService.flush(workspaceId, undefined);
   }
