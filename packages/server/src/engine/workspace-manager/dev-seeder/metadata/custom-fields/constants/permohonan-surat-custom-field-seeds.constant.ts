@@ -83,18 +83,5 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Lainnya', value: 'LAINNYA', position: 11, color: 'gray' },
     ],
   },
-  {
-    type: FieldMetadataType.UUID,
-    label: 'ID Petugas',
-    name: 'petugasId',
-    icon: 'IconUserCog',
-    description: 'Referensi ke perangkat desa yang memproses permohonan',
-  },
-  {
-    type: FieldMetadataType.UUID,
-    label: 'ID Penduduk Pemohon',
-    name: 'pendudukId',
-    icon: 'IconUser',
-    description: 'Referensi ke penduduk yang mengajukan permohonan',
-  },
+
 ];

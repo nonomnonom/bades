@@ -61,16 +61,5 @@ export const PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'buktiTerima',
     description: 'Tautan bukti penerimaan (foto/scan dokumen)',
   },
-  {
-    type: FieldMetadataType.UUID,
-    label: 'ID Program Bantuan',
-    name: 'programBantuanId',
-    description: 'Referensi ke Program Bantuan terkait',
-  },
-  {
-    type: FieldMetadataType.UUID,
-    label: 'ID Penduduk',
-    name: 'pendudukId',
-    description: 'Referensi ke Penduduk penerima',
-  },
+
 ];

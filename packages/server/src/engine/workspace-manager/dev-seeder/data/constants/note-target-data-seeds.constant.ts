@@ -1,5 +1,5 @@
 import { NOTE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/note-data-seeds.constant';
-import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
+import { SID_STANDARD_PENDUDUK_IDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
 
 // Kolom `targetPendudukId` dibuat otomatis oleh engine saat custom object
 // `penduduk` diregistrasi. Engine memanggil
@@ -34,7 +34,7 @@ const GENERATE_NOTE_TARGET_IDS = (): Record<string, string> => {
 
 const NOTE_TARGET_DATA_SEED_IDS = GENERATE_NOTE_TARGET_IDS();
 
-const PENDUDUK_ID_LIST = Object.values(PENDUDUK_DATA_SEED_IDS);
+const PENDUDUK_ID_LIST = SID_STANDARD_PENDUDUK_IDS;
 
 const GENERATE_NOTE_TARGET_SEEDS = (): NoteTargetDataSeed[] => {
   const NOTE_TARGET_SEEDS: NoteTargetDataSeed[] = [];

@@ -171,6 +171,20 @@ export class DevSeederService {
         this.workspaceMigrationValidateBuildAndRunService,
     });
 
+    // Seed data SID standard — single source of truth dari SidStandardSeed.
+    // Idempotent (ON CONFLICT DO NOTHING), aman dipanggil setelah metadata
+    // seeding dan workspace migration runner selesai buat tabel fisik.
+    const sidDataResult =
+      await this.sidStandardSeedService.seedSidStandardData({
+        workspaceId,
+        schemaName,
+      });
+
+    this.logger.log(
+      `Seed data SID untuk workspace ${workspaceId}: ${sidDataResult.insertedRecords} record`,
+    );
+
+    // Seed non-SID data: workspaceMember, dashboard, workflows, attachments
     await this.devSeederDataService.seed({
       schemaName,
       workspaceId,

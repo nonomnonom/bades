@@ -1,7 +1,7 @@
 import { MessageParticipantRole } from 'shared/types';
 
 import { MESSAGE_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/message-data-seeds.constant';
-import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
+import { SID_STANDARD_PENDUDUK_IDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
 import {
   WORKSPACE_MEMBER_DATA_SEED_IDS,
   getWorkspaceMemberDataSeeds,
@@ -282,7 +282,7 @@ const GENERATE_MESSAGE_PARTICIPANT_SEEDS = (
     (key) => MESSAGE_DATA_SEED_IDS[key as keyof typeof MESSAGE_DATA_SEED_IDS],
   );
 
-  const PERSON_IDS = Object.values(PENDUDUK_DATA_SEED_IDS);
+  const PERSON_IDS = SID_STANDARD_PENDUDUK_IDS;
   const WORKSPACE_MEMBER_IDS = getWorkspaceMemberDataSeeds(workspaceId).map(
     (member) => member.id,
   );

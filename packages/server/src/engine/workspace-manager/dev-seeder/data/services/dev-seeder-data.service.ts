@@ -15,52 +15,10 @@ import { FlatObjectMetadata } from 'src/engine/metadata-modules/flat-object-meta
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
 import { type WorkspaceEntityManager } from 'src/engine/sid-orm/entity-manager/workspace-entity-manager';
 import { computeTableName } from 'src/engine/utils/compute-table-name.util';
-// Seed SID-native: hanya 9 object inti sesuai GOAL.md (Penduduk, Keluarga,
-// Wilayah, Layanan/Permohonan Surat, Surat, Perangkat Desa/Jabatan, Program
-// Bantuan, Penerima Bantuan, Aset Desa). Data seed warisan untuk Rumah
-// Tangga, Periode Jabatan, Lembaga Desa, Jenis Surat, Surat Masuk, seluruh
-// domain Keuangan APBDes, Posyandu, Bidang Tanah, UMKM, dan Kegiatan Desa
-// sengaja dilepas dari dev seed agar workspace contoh tetap ringan.
 import {
   DASHBOARD_DATA_SEED_COLUMNS,
   getDashboardDataSeeds,
 } from 'src/engine/workspace-manager/dev-seeder/data/constants/dashboard-data-seeds.constant';
-import {
-  ASET_DESA_DATA_SEED_COLUMNS,
-  ASET_DESA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/aset-desa-data-seeds.constant';
-import {
-  JABATAN_DATA_SEED_COLUMNS,
-  JABATAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/jabatan-data-seeds.constant';
-import {
-  KELUARGA_DATA_SEED_COLUMNS,
-  KELUARGA_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/keluarga-data-seeds.constant';
-import {
-  PENDUDUK_DATA_SEED_COLUMNS,
-  PENDUDUK_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
-import {
-  PENERIMA_BANTUAN_DATA_SEED_COLUMNS,
-  PENERIMA_BANTUAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/penerima-bantuan-data-seeds.constant';
-import {
-  PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
-  PERMOHONAN_SURAT_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/permohonan-surat-data-seeds.constant';
-import {
-  PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
-  PROGRAM_BANTUAN_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/program-bantuan-data-seeds.constant';
-import {
-  SURAT_KELUAR_DATA_SEED_COLUMNS,
-  SURAT_KELUAR_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/surat-keluar-data-seeds.constant';
-import {
-  WILAYAH_DATA_SEED_COLUMNS,
-  WILAYAH_DATA_SEEDS,
-} from 'src/engine/workspace-manager/dev-seeder/data/constants/wilayah-data-seeds.constant';
 import {
   getWorkspaceMemberDataSeeds,
   WORKSPACE_MEMBER_DATA_SEED_COLUMNS,
@@ -105,60 +63,7 @@ const getRecordSeedsBatches = (
     },
   ];
 
-  // Batch 3: SID anchor entities (Wilayah, Penduduk, Keluarga, Jabatan)
-  const batch3: RecordSeedConfig[] = [
-    {
-      tableName: '_wilayah',
-      pgColumns: WILAYAH_DATA_SEED_COLUMNS,
-      recordSeeds: WILAYAH_DATA_SEEDS,
-    },
-    {
-      tableName: '_penduduk',
-      pgColumns: PENDUDUK_DATA_SEED_COLUMNS,
-      recordSeeds: PENDUDUK_DATA_SEEDS,
-    },
-    {
-      tableName: '_keluarga',
-      pgColumns: KELUARGA_DATA_SEED_COLUMNS,
-      recordSeeds: KELUARGA_DATA_SEEDS,
-    },
-    {
-      tableName: '_jabatan',
-      pgColumns: JABATAN_DATA_SEED_COLUMNS,
-      recordSeeds: JABATAN_DATA_SEEDS,
-    },
-  ];
-
-  // Batch 4: SID dependents (Layanan, Surat, Program Bantuan + penerima, Aset)
-  const batch4: RecordSeedConfig[] = [
-    {
-      tableName: '_permohonanSurat',
-      pgColumns: PERMOHONAN_SURAT_DATA_SEED_COLUMNS,
-      recordSeeds: PERMOHONAN_SURAT_DATA_SEEDS,
-    },
-    {
-      tableName: '_suratKeluar',
-      pgColumns: SURAT_KELUAR_DATA_SEED_COLUMNS,
-      recordSeeds: SURAT_KELUAR_DATA_SEEDS,
-    },
-    {
-      tableName: '_programBantuan',
-      pgColumns: PROGRAM_BANTUAN_DATA_SEED_COLUMNS,
-      recordSeeds: PROGRAM_BANTUAN_DATA_SEEDS,
-    },
-    {
-      tableName: '_penerimaBantuan',
-      pgColumns: PENERIMA_BANTUAN_DATA_SEED_COLUMNS,
-      recordSeeds: PENERIMA_BANTUAN_DATA_SEEDS,
-    },
-    {
-      tableName: '_asetDesa',
-      pgColumns: ASET_DESA_DATA_SEED_COLUMNS,
-      recordSeeds: ASET_DESA_DATA_SEEDS,
-    },
-  ];
-
-  return [batch1, batch2, batch3, batch4];
+  return [batch1, batch2];
 };
 
 @Injectable()
