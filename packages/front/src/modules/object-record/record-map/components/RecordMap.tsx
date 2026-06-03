@@ -397,15 +397,7 @@ export const RecordMap = () => {
         paint: {
           'circle-color': CLUSTER_COLOR,
           'circle-opacity': 0.3,
-          'circle-radius': [
-            'step',
-            ['get', 'point_count'],
-            20,
-            10,
-            30,
-            50,
-            40,
-          ],
+          'circle-radius': ['step', ['get', 'point_count'], 20, 10, 30, 50, 40],
           'circle-stroke-color': CLUSTER_COLOR,
           'circle-stroke-width': 2,
           'circle-stroke-opacity': 0.6,
@@ -454,7 +446,8 @@ export const RecordMap = () => {
 
       // Fit bounds ke data yang baru dimuat.
       // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const LngLatBounds = mapboxgl.LngLatBounds as typeof mapboxgl.LngLatBounds;
+      const LngLatBounds =
+        mapboxgl.LngLatBounds as typeof mapboxgl.LngLatBounds;
       const bounds = new LngLatBounds();
       geoJsonData.features.forEach((feature) => {
         const coords = (feature.geometry as GeoJSON.Point).coordinates;

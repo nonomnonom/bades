@@ -98,7 +98,11 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
       const mapboxgl = await loadMapboxGl();
       if (cancelled) return;
 
-      mapboxgl.accessToken = accessToken;
+      // Dynamic import via `loadMapboxGl` mengembalikan default export
+      // yang tipenya tidak mencakup properti static `accessToken`.
+      // Cast aman karena di runtime mapbox-gl namespace punya properti ini.
+      (mapboxgl as unknown as { accessToken: string }).accessToken =
+        accessToken;
 
       // Warn dev kalau token terlihat salah (sk.* atau tidak ber-prefix pk.*).
       // Hanya jalan sekali per hook mount; tidak mengganggu production.
@@ -168,7 +172,15 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
     // konfigurasi map. Callback di-pass via ref agar perubahan callback
     // tidak memicu re-init.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerRef, accessToken, style, moveEndThrottleMs, center[0], center[1], zoom]);
+  }, [
+    containerRef,
+    accessToken,
+    style,
+    moveEndThrottleMs,
+    center[0],
+    center[1],
+    zoom,
+  ]);
 
   return { map: mapRef.current, isReady };
 };

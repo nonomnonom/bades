@@ -34,7 +34,7 @@ export type MapboxSourceOptions<TData> = {
 //       map.addLayer({ id: 'clusters', type: 'circle', ... });
 //     },
 //   });
-export const useMapboxSource = <TData,>(
+export const useMapboxSource = <TData>(
   options: MapboxSourceOptions<TData>,
 ): void => {
   const {
@@ -101,7 +101,9 @@ export const useMapboxSource = <TData,>(
   useEffect(() => {
     if (!map || !isReady) return;
     if (!isSourceAddedRef.current) return;
-    const source = map.getSource(sourceId) as mapboxgl.GeoJSONSource | undefined;
+    const source = map.getSource(sourceId) as
+      | mapboxgl.GeoJSONSource
+      | undefined;
     source?.setData(data as GeoJSON.FeatureCollection | string);
   }, [map, isReady, sourceId, data]);
 };

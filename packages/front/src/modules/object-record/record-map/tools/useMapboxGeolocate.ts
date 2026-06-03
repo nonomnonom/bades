@@ -90,7 +90,14 @@ export const useMapboxGeolocate = (
       cancelled = true;
       cleanupRef.current?.();
     };
-  }, [map, position, trackUserLocation, showAccuracyCircle, onSuccess, onError]);
+  }, [
+    map,
+    position,
+    trackUserLocation,
+    showAccuracyCircle,
+    onSuccess,
+    onError,
+  ]);
 
   const triggerGeolocate = () => {
     controlRef.current?.trigger();

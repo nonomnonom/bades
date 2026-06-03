@@ -83,5 +83,4 @@ export const JABATAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'statusAktif',
     description: 'Apakah jabatan masih aktif diemban',
   },
-
 ];

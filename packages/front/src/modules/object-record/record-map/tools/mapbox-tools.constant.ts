@@ -4,10 +4,7 @@
 //   import { useMapboxMap, useMapboxPopup } from '@/object-record/record-map/tools';
 //
 export { useMapboxMap } from './useMapboxMap';
-export type {
-  MapboxMapHandle,
-  UseMapboxMapOptions,
-} from './useMapboxMap';
+export type { MapboxMapHandle, UseMapboxMapOptions } from './useMapboxMap';
 
 export { useMapboxPopup } from './useMapboxPopup';
 export type {

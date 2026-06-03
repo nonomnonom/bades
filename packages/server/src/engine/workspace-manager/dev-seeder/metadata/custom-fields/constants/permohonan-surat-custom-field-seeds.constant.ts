@@ -83,5 +83,4 @@ export const PERMOHONAN_SURAT_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
       { label: 'Lainnya', value: 'LAINNYA', position: 11, color: 'gray' },
     ],
   },
-
 ];

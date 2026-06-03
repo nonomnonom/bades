@@ -35,7 +35,6 @@ import { seedUserWorkspaces } from 'src/engine/workspace-manager/dev-seeder/core
 import { seedUsers } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-users.util';
 import { createWorkspace } from 'src/engine/workspace-manager/dev-seeder/core/utils/seed-workspace.util';
 import { DevSeederDataService } from 'src/engine/workspace-manager/dev-seeder/data/services/dev-seeder-data.service';
-import { DevSeederMetadataService } from 'src/engine/workspace-manager/dev-seeder/metadata/services/dev-seeder-metadata.service';
 import { PrefillFrontComponentService } from 'src/engine/workspace-manager/standard-objects-prefill-data/services/prefill-front-component.service';
 import { getSeedFrontComponentDefinitions } from 'src/engine/workspace-manager/standard-objects-prefill-data/utils/prefill-front-component-definitions.util';
 import { BadesStandardApplicationService } from 'src/engine/workspace-manager/bades-standard-application/services/bades-standard-application.service';
@@ -51,7 +50,6 @@ export class DevSeederService {
     private readonly badesConfigService: BadesConfigService,
     private readonly workspaceDataSourceService: WorkspaceDataSourceService,
     private readonly badesStandardApplicationService: BadesStandardApplicationService,
-    private readonly devSeederMetadataService: DevSeederMetadataService,
     private readonly devSeederPermissionsService: DevSeederPermissionsService,
     private readonly devSeederDataService: DevSeederDataService,
     private readonly applicationService: ApplicationService,
@@ -127,10 +125,16 @@ export class DevSeederService {
         badesStandardFlatApplication.universalIdentifier,
     });
 
-    await this.devSeederMetadataService.seed({
-      workspaceId,
-      light,
-    });
+    // Seed metadata SID standar — single source of truth dari SidStandardSeed.
+    // Idempotent: skip object/field yang sudah ada.
+    const sidObjectResult =
+      await this.sidStandardSeedService.seedSidStandardObjects({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Seed SID object untuk workspace ${workspaceId}: ${sidObjectResult.createdObjects} objek, ${sidObjectResult.createdFields} field`,
+    );
 
     await this.sdkClientGenerationService.generateSdkClientForApplication({
       workspaceId,
@@ -175,11 +179,12 @@ export class DevSeederService {
     // Seed data SID standard — single source of truth dari SidStandardSeed.
     // Idempotent (ON CONFLICT DO NOTHING), aman dipanggil setelah metadata
     // seeding dan workspace migration runner selesai buat tabel fisik.
-    const sidDataResult =
-      await this.sidStandardSeedService.seedSidStandardData({
+    const sidDataResult = await this.sidStandardSeedService.seedSidStandardData(
+      {
         workspaceId,
         schemaName,
-      });
+      },
+    );
 
     this.logger.log(
       `Seed data SID untuk workspace ${workspaceId}: ${sidDataResult.insertedRecords} record`,

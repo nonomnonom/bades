@@ -61,5 +61,4 @@ export const PENERIMA_BANTUAN_CUSTOM_FIELD_SEEDS: FieldMetadataSeed[] = [
     name: 'buktiTerima',
     description: 'Tautan bukti penerimaan (foto/scan dokumen)',
   },
-
 ];
