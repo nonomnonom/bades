@@ -16,7 +16,6 @@ import 'ui/theme-light.css';
 import 'ui/theme-dark.css';
 import { ThemeProvider } from 'ui/theme-constants';
 import { mockedUserJWT } from '~/testing/mock-data/jwt';
-// oxlint-disable-next-line no-restricted-imports
 import { ClickOutsideListenerContext } from '../src/modules/ui/utilities/pointer-event/contexts/ClickOutsideListenerContext';
 
 initialize({
