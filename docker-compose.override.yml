@@ -1,0 +1,16 @@
+# Local development override for docker-compose.
+# Disable SSL on Postgres connection karena DB container di compose stack
+# tidak mengaktifkan SSL. File ini otomatis di-merge dengan docker-compose.yml
+# saat `docker compose up` jalan.
+#
+# Production deployment tetap pakai sslmode=require (sesuai docker-compose.yml
+# utama) — file ini HANYA untuk local.
+
+services:
+  server:
+    environment:
+      PG_DATABASE_URL: postgres://postgres:postgres@db:5432/default?sslmode=disable
+
+  worker:
+    environment:
+      PG_DATABASE_URL: postgres://postgres:postgres@db:5432/default?sslmode=disable
