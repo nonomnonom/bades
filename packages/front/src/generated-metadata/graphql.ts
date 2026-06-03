@@ -4051,8 +4051,8 @@ export type Query = {
   barChartData: BarChartData;
   billingPortalSession: BillingSession;
   chatMessages: Array<AgentMessage>;
-  chatStreamCatchupChunks: ChatStreamCatchupChunks;
-  chatThread: AgentChatThread;
+  chatStreamCatchupChunks?: Maybe<ChatStreamCatchupChunks>;
+  chatThread?: Maybe<AgentChatThread>;
   chatThreads: Array<AgentChatThread>;
   checkUserExists: CheckUserExist;
   checkWorkspaceInviteHashIsValid: WorkspaceInviteHashValid;
@@ -6163,7 +6163,7 @@ export type GetChatMessagesQueryVariables = Exact<{
 }>;
 
 
-export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'AgentMessage', id: string, threadId: string, turnId?: string | null, role: string, status: string, createdAt: string, parts: Array<{ __typename?: 'AgentMessagePart', id: string, messageId: string, orderIndex: number, type: string, textContent?: string | null, reasoningContent?: string | null, toolName?: string | null, toolCallId?: string | null, toolInput?: any | null, toolOutput?: any | null, state?: string | null, providerExecuted?: boolean | null, errorMessage?: string | null, errorDetails?: any | null, sourceUrlSourceId?: string | null, sourceUrlUrl?: string | null, sourceUrlTitle?: string | null, sourceDocumentSourceId?: string | null, sourceDocumentMediaType?: string | null, sourceDocumentTitle?: string | null, sourceDocumentFilename?: string | null, fileMediaType?: string | null, fileFilename?: string | null, fileUrl?: string | null, fileId?: string | null, providerMetadata?: any | null, createdAt: string }> }>, chatStreamCatchupChunks: { __typename?: 'ChatStreamCatchupChunks', chunks: Array<any>, maxSeq: number } };
+export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'AgentMessage', id: string, threadId: string, turnId?: string | null, role: string, status: string, createdAt: string, parts: Array<{ __typename?: 'AgentMessagePart', id: string, messageId: string, orderIndex: number, type: string, textContent?: string | null, reasoningContent?: string | null, toolName?: string | null, toolCallId?: string | null, toolInput?: any | null, toolOutput?: any | null, state?: string | null, providerExecuted?: boolean | null, errorMessage?: string | null, errorDetails?: any | null, sourceUrlSourceId?: string | null, sourceUrlUrl?: string | null, sourceUrlTitle?: string | null, sourceDocumentSourceId?: string | null, sourceDocumentMediaType?: string | null, sourceDocumentTitle?: string | null, sourceDocumentFilename?: string | null, fileMediaType?: string | null, fileFilename?: string | null, fileUrl?: string | null, fileId?: string | null, providerMetadata?: any | null, createdAt: string }> }>, chatStreamCatchupChunks?: { __typename?: 'ChatStreamCatchupChunks', chunks: Array<any>, maxSeq: number } | null };
 
 export type GetChatThreadsQueryVariables = Exact<{ [key: string]: never; }>;
 
