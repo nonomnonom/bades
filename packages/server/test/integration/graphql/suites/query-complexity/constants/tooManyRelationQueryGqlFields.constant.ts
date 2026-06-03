@@ -5,36 +5,15 @@ export const TOO_MANY_RELATION_QUERY_GQL_FIELDS = `
     avatarUrl
     intro
     searchVector
-    pointOfContactForOpportunities {
-      edges {
-        node {
-          id
-          company {
-            id
-          }
-        }
-      }
+    keluarga {
+      id
+      name
     }
     noteTargets {
       edges {
         node {
           id
-          targetCompany {
-            id
-          }
           note {
-            id
-          }
-          targetPerson {
-            id
-            company {
-              id
-            }
-          }
-          targetCompany {
-            id
-          }
-          targetOpportunity {
             id
           }
         }
@@ -44,34 +23,6 @@ export const TOO_MANY_RELATION_QUERY_GQL_FIELDS = `
       edges {
         node {
           id
-          targetCompany {
-            id
-          }
-          targetPerson {
-            id
-            company {
-              id
-            }
-          }
-          targetCompany {
-            id
-          }
-          targetOpportunity {
-            id
-          }
-        }
-      }
-    }
-    company {
-      id
-      daftarPenduduk {
-        edges {
-          node {
-            id
-            company {
-              id
-            }
-          }
         }
       }
     }
@@ -79,12 +30,27 @@ export const TOO_MANY_RELATION_QUERY_GQL_FIELDS = `
       edges {
         node {
           id
-          person {
-            id
-            company {
-              id
-            }
-          }
+        }
+      }
+    }
+    messageParticipants {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+    calendarEventParticipants {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+    timelineActivities {
+      edges {
+        node {
+          id
         }
       }
     }

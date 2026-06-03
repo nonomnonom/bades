@@ -54,7 +54,7 @@ describe('Query Complexity - Failing Scenarios', () => {
       objectMetadataSingularName: 'penduduk',
       objectMetadataPluralName: 'daftarPenduduk',
       groupBy: [{ city: true }],
-      gqlFields: `edges { node { id company { id } } }`,
+      gqlFields: `edges { node { id keluarga { id } } }`,
       limit: 11,
     });
 
