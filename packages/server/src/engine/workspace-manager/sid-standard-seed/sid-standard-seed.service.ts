@@ -8,9 +8,14 @@ import { isDefined } from 'shared/utils';
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
+import { FieldMetadataType, RelationType } from 'shared/types';
+
 import { SID_STANDARD_DATA_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
 import { SID_STANDARD_VIEW_CONFIGS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-view.constant';
-import { SID_STANDARD_OBJECT_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.config';
+import {
+  SID_STANDARD_OBJECT_SEEDS,
+  SID_STANDARD_RELATIONS,
+} from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.config';
 
 // Seed 9 objek SID standar Bades (Penduduk, Keluarga, Wilayah, Layanan,
 // Surat, Perangkat Desa, Program Bantuan, Penerima Bantuan, Aset Desa) +
@@ -143,6 +148,81 @@ export class SidStandardSeedService {
     }
 
     return { createdObjects, createdFields };
+  }
+
+  // Tanam RELATION fields antar object SID standar.
+  // Setiap relasi MANY_TO_ONE membuat FK column `{fieldName}Id` di tabel
+  // source object (mis. `_jabatan."pendudukId"`) dan reverse ONE_TO_MANY
+  // field di target object.
+  //
+  // Idempotent: field dengan nama yang sama akan di-skip oleh `createManyFields`
+  // (via unique constraint). Aman dipanggil ulang.
+  //
+  // Catatan: method ini HARUS dipanggil setelah `seedSidStandardObjects`
+  // (agar semua object exist) dan SEBELUM `seedSidStandardData` (agar kolom
+  // FK `pendudukId`, `wilayahId`, `programBantuanId` sudah ada di tabel
+  // fisik sebelum INSERT data berjalan).
+  async seedSidStandardRelations({
+    workspaceId,
+  }: {
+    workspaceId: string;
+  }): Promise<{ createdRelations: number }> {
+    const objectMetadataItems =
+      await this.objectMetadataService.findManyWithinWorkspace(workspaceId);
+
+    const objectIdByNameSingular: Record<string, string> = {};
+    for (const item of objectMetadataItems) {
+      objectIdByNameSingular[item.nameSingular] = item.id;
+    }
+
+    let createdRelations = 0;
+
+    for (const rel of SID_STANDARD_RELATIONS) {
+      const sourceObjectId =
+        objectIdByNameSingular[rel.sourceObjectNameSingular];
+      const targetObjectId =
+        objectIdByNameSingular[rel.targetObjectNameSingular];
+
+      if (!sourceObjectId || !targetObjectId) {
+        this.logger.warn(
+          `SKIP relation ${rel.sourceObjectNameSingular}.${rel.fieldName}: source atau target object tidak ditemukan (workspace ${workspaceId})`,
+        );
+        continue;
+      }
+
+      try {
+        await this.fieldMetadataService.createManyFields({
+          createFieldInputs: [
+            {
+              type: FieldMetadataType.RELATION,
+              name: rel.fieldName,
+              label: rel.fieldLabel,
+              icon: rel.fieldIcon,
+              objectMetadataId: sourceObjectId,
+              relationCreationPayload: {
+                type: RelationType.MANY_TO_ONE,
+                targetFieldLabel: rel.targetFieldLabel,
+                targetFieldIcon: rel.targetFieldIcon,
+                targetObjectMetadataId: targetObjectId,
+              },
+            },
+          ],
+          workspaceId,
+        });
+        createdRelations += 1;
+        this.logger.log(
+          `RELATION ${rel.sourceObjectNameSingular}.${rel.fieldName} → ${rel.targetObjectNameSingular} ditanam (workspace ${workspaceId})`,
+        );
+      } catch (error) {
+        this.logger.warn(
+          `Gagal tanam RELATION ${rel.sourceObjectNameSingular}.${rel.fieldName}: ${
+            error instanceof Error ? error.message : String(error)
+          } (workspace ${workspaceId})`,
+        );
+      }
+    }
+
+    return { createdRelations };
   }
 
   // Set labelIdentifierFieldMetadataId ke field dengan nama yang ditentukan.

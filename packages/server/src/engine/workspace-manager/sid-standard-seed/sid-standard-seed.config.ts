@@ -1,3 +1,5 @@
+import { FieldMetadataType, RelationType } from 'shared/types';
+
 import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
 import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
 
@@ -49,6 +51,101 @@ export type SidStandardObjectSeed = {
 // via field `arah_surat`) dan JABATAN di-seed sebagai object `Perangkat
 // Desa`. Reshape label/field final mengikuti spek GOAL.md masih dalam
 // proses migrasi bertahap dari struktur warisan dev-seeder.
+
+// Relasi MANY_TO_ONE antar object SID standar.
+// Setiap relasi membuat FK column `{fieldName}Id` di source object table
+// dan reverse field (ONE_TO_MANY) di target object.
+//
+// (01) Jabatan.penduduk      → Penduduk       — column `pendudukId`
+// (02) Jabatan.wilayah       → Wilayah        — column `wilayahId`
+// (03) PermohonanSurat.penduduk → Penduduk    — column `pendudukId`
+// (04) PermohonanSurat.petugas → Penduduk     — column `petugasId`
+// (05) PenerimaBantuan.programBantuan → ProgramBantuan — column `programBantuanId`
+// (06) PenerimaBantuan.penduduk → Penduduk    — column `pendudukId`
+// (07) Penduduk.kartuKeluarga    → Keluarga   — column `kartuKeluargaId`
+export type SidStandardRelationSeed = {
+  sourceObjectNameSingular: string;
+  fieldName: string;
+  fieldLabel: string;
+  fieldIcon: string;
+  targetObjectNameSingular: string;
+  targetFieldLabel: string;
+  targetFieldIcon: string;
+};
+
+export const SID_STANDARD_RELATIONS: SidStandardRelationSeed[] = [
+  // Jabatan → Penduduk (pemegang jabatan)
+  {
+    sourceObjectNameSingular: 'jabatan',
+    fieldName: 'penduduk',
+    fieldLabel: 'Pemegang Jabatan',
+    fieldIcon: 'IconUser',
+    targetObjectNameSingular: 'penduduk',
+    targetFieldLabel: 'Jabatan',
+    targetFieldIcon: 'IconIdBadge',
+  },
+  // Jabatan → Wilayah (wilayah binaan, khusus Kadus/RT/RW)
+  {
+    sourceObjectNameSingular: 'jabatan',
+    fieldName: 'wilayah',
+    fieldLabel: 'Wilayah',
+    fieldIcon: 'IconMapPin',
+    targetObjectNameSingular: 'wilayah',
+    targetFieldLabel: 'Jabatan Wilayah',
+    targetFieldIcon: 'IconIdBadge',
+  },
+  // PermohonanSurat → Penduduk (pemohon)
+  {
+    sourceObjectNameSingular: 'permohonanSurat',
+    fieldName: 'penduduk',
+    fieldLabel: 'Pemohon',
+    fieldIcon: 'IconUser',
+    targetObjectNameSingular: 'penduduk',
+    targetFieldLabel: 'Permohonan',
+    targetFieldIcon: 'IconClipboardList',
+  },
+  // PermohonanSurat → Penduduk (petugas pemroses)
+  {
+    sourceObjectNameSingular: 'permohonanSurat',
+    fieldName: 'petugas',
+    fieldLabel: 'Petugas',
+    fieldIcon: 'IconUserCog',
+    targetObjectNameSingular: 'penduduk',
+    targetFieldLabel: 'Diproses Oleh',
+    targetFieldIcon: 'IconClipboardList',
+  },
+  // PenerimaBantuan → ProgramBantuan
+  {
+    sourceObjectNameSingular: 'penerimaBantuan',
+    fieldName: 'programBantuan',
+    fieldLabel: 'Program Bantuan',
+    fieldIcon: 'IconGift',
+    targetObjectNameSingular: 'programBantuan',
+    targetFieldLabel: 'Penerima Bantuan',
+    targetFieldIcon: 'IconHandHeart',
+  },
+  // PenerimaBantuan → Penduduk
+  {
+    sourceObjectNameSingular: 'penerimaBantuan',
+    fieldName: 'penduduk',
+    fieldLabel: 'Penduduk',
+    fieldIcon: 'IconUser',
+    targetObjectNameSingular: 'penduduk',
+    targetFieldLabel: 'Bantuan Diterima',
+    targetFieldIcon: 'IconHandHeart',
+  },
+  // Penduduk → Keluarga (kartu keluarga tempat warga terdaftar)
+  {
+    sourceObjectNameSingular: 'penduduk',
+    fieldName: 'kartuKeluarga',
+    fieldLabel: 'Kartu Keluarga',
+    fieldIcon: 'IconHome',
+    targetObjectNameSingular: 'keluarga',
+    targetFieldLabel: 'Anggota Keluarga',
+    targetFieldIcon: 'IconUsers',
+  },
+];
+
 export const SID_STANDARD_OBJECT_SEEDS: SidStandardObjectSeed[] = [
   // 1. Demografi & Wilayah
   { object: WILAYAH_CUSTOM_OBJECT_SEED, fields: WILAYAH_CUSTOM_FIELD_SEEDS },
