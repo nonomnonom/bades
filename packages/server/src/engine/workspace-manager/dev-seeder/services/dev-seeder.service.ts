@@ -139,9 +139,10 @@ export class DevSeederService {
         workspaceCustomFlatApplication.universalIdentifier,
     });
 
-    await this.devSeederMetadataService.seedRelations({
+    // Tanam RELATION fields SID standar — single source of truth dari
+    // SID_STANDARD_RELATIONS, bukan dari DevSeederMetadataService.
+    await this.sidStandardSeedService.seedSidStandardRelations({
       workspaceId,
-      light,
     });
 
     await this.devSeederPermissionsService.initPermissions({

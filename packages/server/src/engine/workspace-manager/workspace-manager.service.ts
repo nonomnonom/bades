@@ -83,9 +83,24 @@ export class WorkspaceManagerService {
       `Seed SID standard untuk workspace ${workspaceId}: ${sidSeedResult.createdObjects} objek, ${sidSeedResult.createdFields} field`,
     );
 
-    // Setelah metadata + table fisik dibuat oleh workspace migration runner
-    // (terpicu di dalam createManyFields), tanam sample record contoh agar
-    // operator desa tidak melihat tabel kosong saat pertama kali login.
+    // Tanam RELATION fields antar object SID standar.
+    // Wajib dijalankan SETELAH seedSidStandardObjects (agar semua object
+    // exist) dan SEBELUM seedSidStandardData (agar FK columns seperti
+    // pendudukId, wilayahId, programBantuanId sudah ada di tabel fisik
+    // sebelum INSERT data seed berjalan). Idempotent — field dengan nama
+    // yang sama akan di-skip oleh createManyFields.
+    const sidRelationResult =
+      await this.sidStandardSeedService.seedSidStandardRelations({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Seed relation SID untuk workspace ${workspaceId}: ${sidRelationResult.createdRelations} relation`,
+    );
+
+    // Setelah metadata + table fisik + relasi FK dibuat, tanam sample
+    // record contoh agar operator desa tidak melihat tabel kosong saat
+    // pertama kali login.
     const sidDataResult = await this.sidStandardSeedService.seedSidStandardData(
       {
         workspaceId,
