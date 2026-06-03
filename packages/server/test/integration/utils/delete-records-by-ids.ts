@@ -1,4 +1,4 @@
-const TEST_SCHEMA_NAME = 'workspace_1wgvd1injqtife6y4rvfbu3h5';
+const TEST_SCHEMA_NAME = 'workspace_202020201c254d02bf256aeccf7ea419';
 
 export const deleteRecordsByIds = async (
   objectNameSingular: string,
