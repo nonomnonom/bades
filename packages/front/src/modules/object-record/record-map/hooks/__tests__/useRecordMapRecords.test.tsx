@@ -191,7 +191,7 @@ describe('useRecordMapRecords', () => {
     expect(result.current.mapMarkers).toEqual([]);
   });
 
-  it('should filter out coordinates outside valid WGS84 range', () => {
+  it('should filter out coordinates outside valid WGS84 range and Null Island', () => {
     mockUseFindManyRecords.mockReturnValue({
       records: [
         {
@@ -217,10 +217,11 @@ describe('useRecordMapRecords', () => {
       wrapper: createWrapper(),
     });
 
-    expect(result.current.mapMarkers).toHaveLength(2);
+    // Null Island (0,0) dan out-of-range (999,999) di-skip.
+    // Hanya record-valid yang lolos.
+    expect(result.current.mapMarkers).toHaveLength(1);
     expect(result.current.mapMarkers.map((m) => m.id)).toEqual([
       'record-valid',
-      'record-zero',
     ]);
   });
 

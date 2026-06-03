@@ -22,6 +22,17 @@ export type MapMarkerRecord = {
   category: string | null;
 };
 
+// Default: skip record dengan koordinat persis (0, 0) — disebut "Null
+// Island" di tengah Samudra Atlantik. Hampir selalu placeholder error
+// atau seed yang belum diisi, bukan alamat valid. Beberapa desa sangat
+// langka berada di Greenwich (lng=0), dan itu pun biasanya tidak di
+// Indonesia. Set ke `false` jika deployment Bades dipakai di area
+// Greenwich (tidak umum untuk SID Indonesia).
+const SKIP_NULL_ISLAND = true;
+
+const isNullIsland = (lat: number, lng: number): boolean =>
+  lat === 0 && lng === 0;
+
 // Lat/lng harus berupa finite number dalam range WGS84. Filter out baris
 // yang punya koordinat out-of-range (mis. seed dengan placeholder 0,0 atau
 // data corrupt dari import) supaya tidak ada marker nyasar di tengah laut.
@@ -38,6 +49,9 @@ const isValidCoordinate = (
     return null;
   }
   if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+    return null;
+  }
+  if (SKIP_NULL_ISLAND && isNullIsland(lat, lng)) {
     return null;
   }
 
