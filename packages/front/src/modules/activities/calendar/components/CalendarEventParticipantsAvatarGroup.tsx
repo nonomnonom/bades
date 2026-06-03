@@ -2,7 +2,7 @@ import { type CalendarEventParticipant } from '@/activities/calendar/types/Calen
 import { isTimelineCalendarEventParticipant } from '@/activities/calendar/types/guards/IsTimelineCalendarEventParticipant';
 import { isDefined } from 'shared/utils';
 import { Avatar, AvatarGroup } from 'ui/display';
-import { type TimelineCalendarEventParticipant } from '~/generated/graphql';
+import { type TimelineCalendarEventParticipant } from '@/activities/calendar/types/TimelineCalendarEvent';
 
 type CalendarEventParticipantsAvatarGroupProps = {
   participants: CalendarEventParticipant[] | TimelineCalendarEventParticipant[];

@@ -1,13 +1,16 @@
 import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
+import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 
 type PermohonanSuratDataSeed = {
   id: string;
   nomorPermohonan: string;
   tanggalPermohonan: string;
   status: string;
+  jenisLayanan: string;
   keperluan: string;
   catatan: string;
   tanggalSelesai: string | null;
+  pendudukId: string;
   createdBySource: string;
   createdByWorkspaceMemberId: string;
   createdByName: string;
@@ -23,9 +26,11 @@ export const PERMOHONAN_SURAT_DATA_SEED_COLUMNS: (keyof PermohonanSuratDataSeed)
     'nomorPermohonan',
     'tanggalPermohonan',
     'status',
+    'jenisLayanan',
     'keperluan',
     'catatan',
     'tanggalSelesai',
+    'pendudukId',
     'createdBySource',
     'createdByWorkspaceMemberId',
     'createdByName',
@@ -50,9 +55,11 @@ export const PERMOHONAN_SURAT_DATA_SEEDS: PermohonanSuratDataSeed[] = [
     nomorPermohonan: 'SURAT/2024/001',
     tanggalPermohonan: '2024-01-15',
     status: 'SELESAI',
+    jenisLayanan: 'DOMISILI',
     keperluan: 'Administrasi sekolah anak',
     catatan: 'Surat selesai dibuat',
     tanggalSelesai: '2024-01-17',
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_1,
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
     createdByName: 'Drs. H. Abdullah',
@@ -66,9 +73,11 @@ export const PERMOHONAN_SURAT_DATA_SEEDS: PermohonanSuratDataSeed[] = [
     nomorPermohonan: 'SURAT/2024/002',
     tanggalPermohonan: '2024-02-20',
     status: 'DIPROSES',
+    jenisLayanan: 'SKTM',
     keperluan: 'Berkas administratif BLT',
     catatan: 'Menunggu verifikasi data',
     tanggalSelesai: null,
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_4,
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
     createdByName: 'Drs. H. Abdullah',
@@ -82,9 +91,11 @@ export const PERMOHONAN_SURAT_DATA_SEEDS: PermohonanSuratDataSeed[] = [
     nomorPermohonan: 'SURAT/2024/003',
     tanggalPermohonan: '2024-03-10',
     status: 'MENUNGGU',
+    jenisLayanan: 'PENGANTAR_NIKAH',
     keperluan: 'Izin pesta pernikahan',
     catatan: '',
     tanggalSelesai: null,
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_6,
     createdBySource: 'API',
     createdByWorkspaceMemberId: KADES_USER_ID,
     createdByName: 'Drs. H. Abdullah',

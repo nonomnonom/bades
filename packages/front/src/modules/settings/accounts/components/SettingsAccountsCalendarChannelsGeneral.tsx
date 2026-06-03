@@ -9,10 +9,8 @@ import { addMinutes, endOfDay, min, startOfDay } from 'date-fns';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { H2Title } from 'ui/display';
 import { themeCssVariables } from 'ui/theme-constants';
-import {
-  CalendarChannelVisibility,
-  type TimelineCalendarEvent,
-} from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { type TimelineCalendarEvent } from '@/activities/calendar/types/TimelineCalendarEvent';
 
 const StyledGeneralContainer = styled.div`
   display: flex;

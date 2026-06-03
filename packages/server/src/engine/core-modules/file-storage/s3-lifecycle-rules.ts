@@ -75,5 +75,5 @@ export const applyLifecycleRules = async (
 ): Promise<void> => {
   // Lifecycle rules application would go here when needed
   // Currently documented for manual AWS Console setup
-  console.log('S3 lifecycle rules: configure via AWS Console or AWS CLI');
+  // S3 lifecycle rules: configure via AWS Console or AWS CLI
 };

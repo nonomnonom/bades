@@ -26,8 +26,6 @@ const StyledPickerLabel = styled.span`
   font-size: ${themeCssVariables.font.size.sm};
 `;
 
-
-
 const StyledPickerButton = styled.button`
   background: transparent;
   border: 1px solid ${themeCssVariables.border.color.medium};

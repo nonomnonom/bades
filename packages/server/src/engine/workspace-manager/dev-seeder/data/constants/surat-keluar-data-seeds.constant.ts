@@ -2,6 +2,8 @@ import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev
 
 type SuratKeluarDataSeed = {
   id: string;
+  arahSurat: string;
+  asalSurat: string | null;
   nomorSurat: string;
   tanggalSurat: string;
   perihal: string;
@@ -20,6 +22,8 @@ type SuratKeluarDataSeed = {
 
 export const SURAT_KELUAR_DATA_SEED_COLUMNS: (keyof SuratKeluarDataSeed)[] = [
   'id',
+  'arahSurat',
+  'asalSurat',
   'nomorSurat',
   'tanggalSurat',
   'perihal',
@@ -51,6 +55,8 @@ const KADES_USER_ID = WORKSPACE_MEMBER_DATA_SEED_IDS.KADES;
 export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_1,
+    arahSurat: 'KELUAR',
+    asalSurat: null,
     nomorSurat: '470/001/SK/2025',
     tanggalSurat: '2025-01-12',
     perihal: 'Pengantar Surat Keterangan Domisili',
@@ -68,6 +74,8 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   },
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_2,
+    arahSurat: 'KELUAR',
+    asalSurat: null,
     nomorSurat: '141/002/SK/2025',
     tanggalSurat: '2025-01-20',
     perihal: 'Undangan Musyawarah Desa',
@@ -85,6 +93,8 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   },
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_3,
+    arahSurat: 'KELUAR',
+    asalSurat: null,
     nomorSurat: '900/003/SK/2025',
     tanggalSurat: '2025-02-05',
     perihal: 'Laporan Realisasi Dana Desa Triwulan IV 2024',
@@ -102,6 +112,8 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   },
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_4,
+    arahSurat: 'KELUAR',
+    asalSurat: null,
     nomorSurat: '331/004/SK/2025',
     tanggalSurat: '2025-02-18',
     perihal: 'Permohonan Bantuan Bibit Pertanian',
@@ -119,6 +131,8 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   },
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_5,
+    arahSurat: 'KELUAR',
+    asalSurat: null,
     nomorSurat: '005/005/SK/2025',
     tanggalSurat: '2025-03-01',
     perihal: 'Surat Keputusan Pengangkatan Kasi Pelayanan',
@@ -136,6 +150,8 @@ export const SURAT_KELUAR_DATA_SEEDS: SuratKeluarDataSeed[] = [
   },
   {
     id: SURAT_KELUAR_DATA_SEED_IDS.SK_6,
+    arahSurat: 'KELUAR',
+    asalSurat: null,
     nomorSurat: '470/006/SK/2025',
     tanggalSurat: '2025-03-15',
     perihal: 'Surat Keterangan Tidak Mampu',

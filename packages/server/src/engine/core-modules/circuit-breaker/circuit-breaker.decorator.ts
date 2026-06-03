@@ -1,5 +1,3 @@
-import type { CircuitBreakerOptions } from 'src/engine/core-modules/circuit-breaker/circuit-breaker.service';
-
 /**
  * Decorator to mark a method as circuit breaker protected.
  * Requires CircuitBreakerService to be injected in the class.
@@ -18,7 +16,7 @@ import type { CircuitBreakerOptions } from 'src/engine/core-modules/circuit-brea
  * ```
  */
 export const CircuitBreaker = (
-  options: {
+  _options: {
     key?: string;
     failureThreshold?: number;
     recoveryTimeout?: number;
@@ -31,8 +29,6 @@ export const CircuitBreaker = (
     descriptor: PropertyDescriptor,
   ) => {
     const originalMethod = descriptor.value;
-    const circuitKey =
-      options.key ?? `${target.constructor.name}/${String(propertyKey)}`;
 
     descriptor.value = async function (...args: unknown[]) {
       // Note: CircuitBreakerService injection would need to be handled by NestJS DI

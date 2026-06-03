@@ -73,8 +73,6 @@ export class CircuitBreakerService {
       return true;
     }
 
-    const options = this.getCircuitBreaker(key);
-
     switch (circuit.state) {
       case CircuitState.CLOSED:
         return true;
@@ -103,11 +101,12 @@ export class CircuitBreakerService {
    */
   recordSuccess(key: string): void {
     const circuit = this.circuits.get(key);
-    const options = this.getCircuitBreaker(key);
 
     if (!circuit) {
       return;
     }
+
+    const options = this.getCircuitBreaker(key);
 
     switch (circuit.state) {
       case CircuitState.CLOSED:
@@ -139,11 +138,11 @@ export class CircuitBreakerService {
    */
   recordFailure(key: string): void {
     const circuit = this.circuits.get(key);
-    const options = this.getCircuitBreaker(key);
-
     if (!circuit) {
       return;
     }
+
+    const options = this.getCircuitBreaker(key);
 
     circuit.lastFailureTime = Date.now();
 

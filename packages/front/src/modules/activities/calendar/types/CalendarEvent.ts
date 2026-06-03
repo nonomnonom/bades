@@ -1,5 +1,5 @@
 import { type CalendarEventParticipant } from '@/activities/calendar/types/CalendarEventParticipant';
-import { type CalendarChannelVisibility } from '~/generated/graphql';
+import { type CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
 
 // TODO: use backend CalendarEvent type when ready
 export type CalendarEvent = {

@@ -10,7 +10,7 @@ import { isDefined } from 'shared/utils';
 import { Avatar } from 'ui/display';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
-import { type TimelineThread } from '~/generated/graphql';
+import { type TimelineThread } from '@/activities/emails/types/TimelineThread';
 import { formatToHumanReadableDate } from '~/utils/date-utils';
 
 const StyledHeading = styled.div<{ unread: boolean }>`

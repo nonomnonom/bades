@@ -1,8 +1,6 @@
 import { useMutation } from '@apollo/client/react';
-import {
-  type MessageChannelVisibility,
-  type CalendarChannelVisibility,
-} from '~/generated/graphql';
+import { type CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { type MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 import { useCallback } from 'react';
 import { type AppPath, ConnectedAccountProvider } from 'shared/types';
 

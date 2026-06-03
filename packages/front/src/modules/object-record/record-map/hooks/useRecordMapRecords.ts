@@ -60,20 +60,23 @@ export const useRecordMapRecords = () => {
     }
     return objectMetadataItem.fields.find(
       (field) => field.type === 'ADDRESS' && field.isActive,
-    );  }, [objectMetadataItem.fields, recordMapFieldMetadataId]);
+    );
+  }, [objectMetadataItem.fields, recordMapFieldMetadataId]);
 
   // Cari field SELECT/OPTION pertama pada object sebagai sumber kategori
   // untuk data-driven styling marker. Contoh: `klasifikasiKeluarga` pada
   // object keluarga, `statusPenerimaan` pada penerima-bantuan. Fallback
   // ke null jika tidak ada — marker akan pakai warna default.
   const categoryFieldMetadataItem = useMemo(() => {
-    return objectMetadataItem.fields.find(
-      (field) =>
-        field.type === 'SELECT' &&
-        field.isActive &&
-        field.name !== 'id' &&
-        field.name !== 'position',
-    ) ?? null;
+    return (
+      objectMetadataItem.fields.find(
+        (field) =>
+          field.type === 'SELECT' &&
+          field.isActive &&
+          field.name !== 'id' &&
+          field.name !== 'position',
+      ) ?? null
+    );
   }, [objectMetadataItem.fields]);
 
   const { records, loading } = useFindManyRecords({
@@ -123,7 +126,7 @@ export const useRecordMapRecords = () => {
         // diambil dari field SELECT (mis. 'KS1', 'TERVERIFIKASI', dll.)
         const category =
           categoryFieldName !== null
-            ? (record[categoryFieldName] as string | null) ?? null
+            ? ((record[categoryFieldName] as string | null) ?? null)
             : null;
 
         return {
@@ -135,7 +138,12 @@ export const useRecordMapRecords = () => {
         } satisfies MapMarkerRecord;
       })
       .filter(isDefined);
-  }, [records, addressFieldMetadataItem, labelIdentifierFieldName, categoryFieldMetadataItem]);
+  }, [
+    records,
+    addressFieldMetadataItem,
+    labelIdentifierFieldName,
+    categoryFieldMetadataItem,
+  ]);
 
   return {
     mapMarkers,

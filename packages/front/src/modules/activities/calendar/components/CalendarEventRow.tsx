@@ -2,10 +2,8 @@ import { styled } from '@linaria/react';
 import { t } from '~/utils/i18n/badesI18n';
 import { format } from 'date-fns';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import {
-  CalendarChannelVisibility,
-  type TimelineCalendarEvent,
-} from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { type TimelineCalendarEvent } from '@/activities/calendar/types/TimelineCalendarEvent';
 
 import { CalendarEventNotSharedContent } from '@/activities/calendar/components/CalendarEventNotSharedContent';
 import { CalendarEventParticipantsAvatarGroup } from '@/activities/calendar/components/CalendarEventParticipantsAvatarGroup';

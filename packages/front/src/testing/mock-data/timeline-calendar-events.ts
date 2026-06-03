@@ -1,7 +1,5 @@
-import {
-  CalendarChannelVisibility,
-  type TimelineCalendarEvent,
-} from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { type TimelineCalendarEvent } from '@/activities/calendar/types/TimelineCalendarEvent';
 
 export const mockedTimelineCalendarEvents: TimelineCalendarEvent[] = [
   {

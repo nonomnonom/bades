@@ -56,12 +56,7 @@ const CreateViewInputSchema = z.object({
     .default('IconList')
     .describe('Icon identifier (e.g., "IconList", "IconCheckbox")'),
   type: z
-    .enum([
-      ViewType.TABLE,
-      ViewType.KANBAN,
-      ViewType.CALENDAR,
-      ViewType.MAP,
-    ])
+    .enum([ViewType.TABLE, ViewType.KANBAN, ViewType.CALENDAR, ViewType.MAP])
     .optional()
     .default(ViewType.TABLE)
     .describe('View type'),

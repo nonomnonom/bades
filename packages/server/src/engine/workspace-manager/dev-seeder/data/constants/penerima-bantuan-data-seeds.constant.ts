@@ -1,5 +1,6 @@
 import { WORKSPACE_MEMBER_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/workspace-member-data-seeds.constant';
 import { PROGRAM_BANTUAN_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/program-bantuan-data-seeds.constant';
+import { PENDUDUK_DATA_SEED_IDS } from 'src/engine/workspace-manager/dev-seeder/data/constants/penduduk-data-seeds.constant';
 
 type PenerimaBantuanDataSeed = {
   id: string;
@@ -63,13 +64,13 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     nik: '3201234567890002',
     alamatAddressStreet1: 'Jl. Desa Sukamaju No. 1',
     // Koordinat diselaraskan dengan keluarga KK_3 agar marker overlap.
-    alamatAddressLat: -7.4120,
-    alamatAddressLng: 110.6120,
+    alamatAddressLat: -7.412,
+    alamatAddressLng: 110.612,
     statusPenerimaan: 'TERVERIFIKASI',
     jumlahDiterimaAmountMicros: 300000000000,
     jumlahDiterimaCurrencyCode: 'IDR',
     programBantuanId: PROGRAM_BANTUAN_DATA_SEED_IDS.PROG_1,
-    pendudukId: '20202020-0001-4000-8000-000000000003',
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_2,
     tanggalTerima: '2024-01-15',
     keterangan: 'Penerima BLT DD',
     createdBySource: 'API',
@@ -91,7 +92,7 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
     jumlahDiterimaAmountMicros: 200000000000,
     jumlahDiterimaCurrencyCode: 'IDR',
     programBantuanId: PROGRAM_BANTUAN_DATA_SEED_IDS.PROG_2,
-    pendudukId: '20202020-0001-4000-8000-000000000005',
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_5,
     tanggalTerima: '2024-02-10',
     keterangan: 'Penerima BPNT',
     createdBySource: 'API',
@@ -104,17 +105,17 @@ export const PENERIMA_BANTUAN_DATA_SEEDS: PenerimaBantuanDataSeed[] = [
   },
   {
     id: PENERIMA_BANTUAN_DATA_SEED_IDS.PENERIMA_3,
-    namaPenerima: 'Juhairiah',
+    namaPenerima: 'Irfan Maulana',
     nik: '3201234567890010',
-    alamatAddressStreet1: 'Jl. Desa Mekar Sari No. 8',
-    // Koordinat diselaraskan dengan keluarga KK_2 (Mekar Sari).
+    alamatAddressStreet1: 'Kost Putra Jl. Mawar No. 2',
+    // Koordinat diselaraskan dengan dusun Mekar Sari.
     alamatAddressLat: -7.4195,
     alamatAddressLng: 110.6195,
     statusPenerimaan: 'MENUNGGU',
     jumlahDiterimaAmountMicros: 500000000000,
     jumlahDiterimaCurrencyCode: 'IDR',
     programBantuanId: PROGRAM_BANTUAN_DATA_SEED_IDS.PROG_3,
-    pendudukId: '20202020-0001-4000-8000-000000000010',
+    pendudukId: PENDUDUK_DATA_SEED_IDS.ID_10,
     tanggalTerima: '2024-03-01',
     keterangan: 'Pendaftar baru PKH',
     createdBySource: 'API',

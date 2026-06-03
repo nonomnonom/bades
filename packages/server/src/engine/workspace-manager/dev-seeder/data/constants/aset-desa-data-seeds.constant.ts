@@ -67,8 +67,8 @@ export const ASET_DESA_DATA_SEEDS: AsetDesaDataSeed[] = [
     kodeAset: '01.01.01',
     lokasiAddressStreet1: 'Jl. Desa Sukamaju No. 1',
     // Koordinat dummy pusat desa Sukamaju, Jawa Tengah.
-    lokasiAddressLat: -7.4100,
-    lokasiAddressLng: 110.6100,
+    lokasiAddressLat: -7.41,
+    lokasiAddressLng: 110.61,
     nilaiAsetAmountMicros: 500000000000000,
     nilaiAsetCurrencyCode: 'IDR',
     tahunPerolehan: '2018',

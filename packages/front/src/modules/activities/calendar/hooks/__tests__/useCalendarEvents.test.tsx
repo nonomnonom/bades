@@ -1,10 +1,8 @@
 import { renderHook } from '@testing-library/react';
 
 import { useCalendarEvents } from '@/activities/calendar/hooks/useCalendarEvents';
-import {
-  CalendarChannelVisibility,
-  type TimelineCalendarEvent,
-} from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { type TimelineCalendarEvent } from '@/activities/calendar/types/TimelineCalendarEvent';
 
 const calendarEvents: TimelineCalendarEvent[] = [
   {

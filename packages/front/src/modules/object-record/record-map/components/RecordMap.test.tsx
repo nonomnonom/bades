@@ -49,9 +49,7 @@ const defaultFields: MockField[] = [
   },
 ];
 
-const createObjectMetadataItem = (
-  overrides: ObjectMetadataOverrides = {},
-) =>
+const createObjectMetadataItem = (overrides: ObjectMetadataOverrides = {}) =>
   ({
     id: 'object-keluarga-1',
     nameSingular: 'keluarga',

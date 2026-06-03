@@ -1,7 +1,5 @@
-import {
-  MessageChannelVisibility,
-  CalendarChannelVisibility,
-} from '~/generated/graphql';
+import { CalendarChannelVisibility } from '@/accounts/types/CalendarChannel';
+import { MessageChannelVisibility } from '@/accounts/types/MessageChannel';
 import { act, renderHook } from '@testing-library/react';
 
 import { ConnectedAccountProvider, SettingsPath } from 'shared/types';

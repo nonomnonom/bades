@@ -6,7 +6,7 @@ import { CalendarEventRow } from '@/activities/calendar/components/CalendarEvent
 import { getCalendarEventStartDate } from '@/activities/calendar/utils/getCalendarEventStartDate';
 import { CardContent } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
-import { type TimelineCalendarEvent } from '~/generated/graphql';
+import { type TimelineCalendarEvent } from '@/activities/calendar/types/TimelineCalendarEvent';
 
 type CalendarDayCardContentProps = {
   calendarEvents: TimelineCalendarEvent[];

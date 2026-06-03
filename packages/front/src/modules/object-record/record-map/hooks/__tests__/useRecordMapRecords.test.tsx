@@ -244,10 +244,7 @@ describe('useRecordMapRecords', () => {
     });
 
     // Override ke field ADDRESS kedua.
-    jotaiStore.set(
-      recordMapFieldMetadataIdState.atom,
-      secondAddressFieldId,
-    );
+    jotaiStore.set(recordMapFieldMetadataIdState.atom, secondAddressFieldId);
 
     const { result } = renderHook(() => useRecordMapRecords(), {
       wrapper: createWrapper({

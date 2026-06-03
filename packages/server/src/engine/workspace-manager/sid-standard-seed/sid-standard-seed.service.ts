@@ -464,8 +464,7 @@ export class SidStandardSeedService {
         [workspaceId, def.objectNameSingular],
       );
 
-      const objectMetadataId =
-        objectRows.length > 0 ? objectRows[0].id : null;
+      const objectMetadataId = objectRows.length > 0 ? objectRows[0].id : null;
 
       if (!objectMetadataId) {
         this.logger.warn(
