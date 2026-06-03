@@ -5,7 +5,7 @@ export class AddMapViewType1774000000001 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `ALTER TYPE "core"."view_type_enum" ADD VALUE IF NOT EXISTS 'MAP' AFTER 'TABLE_WIDGET'`,
+      `ALTER TYPE "core"."view_type_enum" ADD VALUE IF NOT EXISTS 'MAP' AFTER 'FIELDS_WIDGET'`,
     );
   }
 
@@ -19,7 +19,7 @@ export class AddMapViewType1774000000001 implements MigrationInterface {
 
     // Enum baru TANPA 'MAP' untuk mengembalikan ke kondisi pra-up().
     await queryRunner.query(
-      `CREATE TYPE "core"."view_type_enum_old" AS ENUM('TABLE', 'KANBAN', 'CALENDAR', 'FIELDS_WIDGET', 'TABLE_WIDGET')`,
+      `CREATE TYPE "core"."view_type_enum_old" AS ENUM('TABLE', 'KANBAN', 'CALENDAR', 'FIELDS_WIDGET')`,
     );
     await queryRunner.query(
       `ALTER TABLE "core"."view" ALTER COLUMN "type" DROP DEFAULT`,

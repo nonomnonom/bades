@@ -65,12 +65,16 @@ export class AgentChatResolver {
     return this.agentChatService.getThreadsForUser(userWorkspaceId);
   }
 
-  @Query(() => AgentChatThreadDTO)
+  @Query(() => AgentChatThreadDTO, { nullable: true })
   async chatThread(
     @Args('id', { type: () => UUIDScalarType }) id: string,
     @AuthUserWorkspaceId() userWorkspaceId: string,
   ) {
-    return this.agentChatService.getThreadById(id, userWorkspaceId);
+    const thread = await this.threadRepository.findOne({
+      where: { id, userWorkspaceId },
+    });
+
+    return thread ?? null;
   }
 
   @Query(() => [AgentMessageDTO])
@@ -84,12 +88,18 @@ export class AgentChatResolver {
     );
   }
 
-  @Query(() => ChatStreamCatchupChunksDTO)
+  @Query(() => ChatStreamCatchupChunksDTO, { nullable: true })
   async chatStreamCatchupChunks(
     @Args('threadId', { type: () => UUIDScalarType }) threadId: string,
     @AuthUserWorkspaceId() userWorkspaceId: string,
   ) {
-    await this.agentChatService.getThreadById(threadId, userWorkspaceId);
+    const thread = await this.threadRepository.findOne({
+      where: { id: threadId, userWorkspaceId },
+    });
+
+    if (!isDefined(thread)) {
+      return null;
+    }
 
     return this.eventPublisherService.getAccumulatedChunks(threadId);
   }
