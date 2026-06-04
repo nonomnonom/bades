@@ -139,7 +139,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[4/6] View: ${viewResult.hiddenFields} field disembunyikan dari tampilan default`,
+      `[4/6] View: ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi`,
     );
 
     const dashboardResult =
@@ -163,7 +163,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
     );
 
     this.logger.log(
-      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow`,
+      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow`,
     );
   }
 }

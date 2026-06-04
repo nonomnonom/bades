@@ -120,7 +120,7 @@ export class WorkspaceManagerService {
       });
 
     this.logger.log(
-      `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.hiddenFields} field disembunyikan`,
+      `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.visibleFields} field visible, ${sidViewResult.hiddenFields} field tersembunyi`,
     );
 
     // Tanam MAP view untuk object keluarga agar peta keluarga bisa langsung

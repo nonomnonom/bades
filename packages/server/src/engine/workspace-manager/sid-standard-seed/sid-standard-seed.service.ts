@@ -480,70 +480,93 @@ export class SidStandardSeedService {
     return { deletedRecords, insertedRecords };
   }
 
-  // Sembunyikan field non-curated dari view default tiap object SID via raw
-  // UPDATE ke `core.viewField`. Engine sudah auto-create default view dengan
-  // SEMUA field visible saat object dibuat; tujuan method ini hanya
-  // memendekkan daftar kolom awal supaya operator desa tidak kewalahan.
+  // Selaraskan visible field di view default tiap object SID via raw UPDATE
+  // ke `core.viewField`. Engine sudah auto-create default view dengan SEMUA
+  // field visible saat object dibuat; method ini menormalisasi: field di
+  // whitelist `visibleFieldNames` dipaksa visible, sisanya disembunyikan.
+  //
+  // Idempotent — aman dijalankan berkali-kali. Kalau dulu hanya SET false
+  // dilakukan, field whitelist yang terlanjur false (mis. dari iterasi
+  // sebelumnya) tidak akan pernah balik visible. Versi ini meng-toggle keduanya
+  // dalam satu UPDATE pakai CASE supaya state akhir selalu match constant.
   //
   // Workspace baru = belum ada user yang melihat view, jadi raw UPDATE aman
-  // tanpa invalidate cache. Operator bisa menampilkan kembali field yang
-  // disembunyikan lewat menu kolom di UI.
+  // tanpa invalidate cache. Operator tetap bisa toggle manual lewat menu
+  // kolom di UI setelah reseed selesai.
   async seedSidStandardViewFields({
     workspaceId,
   }: {
     workspaceId: string;
-  }): Promise<{ hiddenFields: number }> {
+  }): Promise<{ hiddenFields: number; visibleFields: number }> {
     let hiddenFields = 0;
+    let visibleFields = 0;
 
     for (const {
       objectNameSingular,
       visibleFieldNames,
     } of SID_STANDARD_VIEW_CONFIGS) {
       try {
+        // Single UPDATE: field whitelist → true, sisanya → false.
+        // RETURNING dipakai untuk hitung perubahan per arah.
         const sql = `
-          UPDATE core."viewField"
-          SET "isVisible" = false
-          WHERE "workspaceId" = $1
-            AND "viewId" IN (
-              SELECT v.id
-              FROM core."view" v
-              JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
-              WHERE om."workspaceId" = $1
-                AND om."nameSingular" = $2
+          WITH updated AS (
+            UPDATE core."viewField" vf
+            SET "isVisible" = CASE
+              WHEN vf."fieldMetadataId" IN (
+                SELECT fm.id
+                FROM core."fieldMetadata" fm
+                JOIN core."objectMetadata" om ON om.id = fm."objectMetadataId"
+                WHERE om."workspaceId" = $1
+                  AND om."nameSingular" = $2
+                  AND fm.name = ANY($3::text[])
+              ) THEN true
+              ELSE false
+            END
+            WHERE vf."workspaceId" = $1
+              AND vf."viewId" IN (
+                SELECT v.id
+                FROM core."view" v
+                JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
+                WHERE om."workspaceId" = $1
+                  AND om."nameSingular" = $2
             )
-            AND "fieldMetadataId" NOT IN (
-              SELECT fm.id
-              FROM core."fieldMetadata" fm
-              JOIN core."objectMetadata" om ON om.id = fm."objectMetadataId"
-              WHERE om."workspaceId" = $1
-                AND om."nameSingular" = $2
-                AND fm.name = ANY($3::text[])
-            )
+            RETURNING vf."isVisible"
+          )
+          SELECT
+            SUM(CASE WHEN "isVisible" THEN 1 ELSE 0 END)::int AS visible_count,
+            SUM(CASE WHEN "isVisible" THEN 0 ELSE 1 END)::int AS hidden_count
+          FROM updated;
         `;
         const result = await this.coreDataSource.query(sql, [
           workspaceId,
           objectNameSingular,
           visibleFieldNames,
         ]);
-        // result[1] = jumlah row terpengaruh (TypeORM raw result format).
-        const affected = Array.isArray(result) && result[1] ? result[1] : 0;
+        const row =
+          Array.isArray(result) && result.length > 0 ? result[0] : undefined;
+        const visibleCount =
+          row && typeof row.visible_count === 'number' ? row.visible_count : 0;
+        const hiddenCount =
+          row && typeof row.hidden_count === 'number' ? row.hidden_count : 0;
 
-        hiddenFields += affected;
-        if (affected > 0) {
+        hiddenFields += hiddenCount;
+        visibleFields += visibleCount;
+
+        if (visibleCount > 0 || hiddenCount > 0) {
           this.logger.log(
-            `View bawaan '${objectNameSingular}': sembunyikan ${affected} field non-curated (workspace ${workspaceId})`,
+            `View bawaan '${objectNameSingular}': ${visibleCount} field visible, ${hiddenCount} field tersembunyi (workspace ${workspaceId})`,
           );
         }
       } catch (error) {
         this.logger.warn(
-          `Gagal sembunyikan field view bawaan '${objectNameSingular}' (workspace ${workspaceId}): ${
+          `Gagal selaraskan view bawaan '${objectNameSingular}' (workspace ${workspaceId}): ${
             error instanceof Error ? error.message : String(error)
           }`,
         );
       }
     }
 
-    return { hiddenFields };
+    return { hiddenFields, visibleFields };
   }
 
   // Tanam MAP view untuk object SID yang punya field ADDRESS ke workspace

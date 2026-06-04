@@ -196,7 +196,7 @@ export class DevSeederService {
       });
 
     this.logger.log(
-      `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.hiddenFields} field disembunyikan`,
+      `Rapikan view bawaan SID untuk workspace ${workspaceId}: ${sidViewResult.visibleFields} field visible, ${sidViewResult.hiddenFields} field tersembunyi`,
     );
 
     const sidDashboardResult =
