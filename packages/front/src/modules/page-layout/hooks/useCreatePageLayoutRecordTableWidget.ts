@@ -1,5 +1,6 @@
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { WIDGET_SIZES } from '@/page-layout/constants/WidgetSizes';
+import { useCreatePageLayoutTab } from '@/page-layout/hooks/useCreatePageLayoutTab';
 import { PageLayoutComponentInstanceContext } from '@/page-layout/states/contexts/PageLayoutComponentInstanceContext';
 import { pageLayoutCurrentLayoutsComponentState } from '@/page-layout/states/pageLayoutCurrentLayoutsComponentState';
 import { pageLayoutDraftComponentState } from '@/page-layout/states/pageLayoutDraftComponentState';
@@ -8,30 +9,31 @@ import { type PageLayoutWidget } from '@/page-layout/types/PageLayoutWidget';
 import { addWidgetToTab } from '@/page-layout/utils/addWidgetToTab';
 import { createDefaultRecordTableWidget } from '@/page-layout/utils/createDefaultRecordTableWidget';
 import { getDefaultWidgetPosition } from '@/page-layout/utils/getDefaultWidgetPosition';
-import { getTabListInstanceIdFromPageLayoutId } from '@/page-layout/utils/getTabListInstanceIdFromPageLayoutId';
 import { getUpdatedTabLayouts } from '@/page-layout/utils/getUpdatedTabLayouts';
-import { activeTabIdComponentState } from '@/ui/layout/tab-list/states/activeTabIdComponentState';
+import { resolveActiveTabIdForPageLayoutWidgetCreation } from '@/page-layout/utils/resolveActiveTabIdForPageLayoutWidgetCreation';
 import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateCallbackState';
-import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
-import { isDefined } from 'shared/utils';
 import { v4 as uuidv4 } from 'uuid';
 import { WidgetType } from '~/generated-metadata/graphql';
 
-export const useCreatePageLayoutRecordTableWidget = (
-  pageLayoutIdFromProps?: string,
-) => {
+export const useCreatePageLayoutRecordTableWidget = ({
+  pageLayoutId: pageLayoutIdFromProps,
+  tabListInstanceId,
+}: {
+  pageLayoutId: string;
+  tabListInstanceId: string;
+}) => {
   const pageLayoutId = useAvailableComponentInstanceIdOrThrow(
     PageLayoutComponentInstanceContext,
     pageLayoutIdFromProps,
   );
 
-  const activeTabId = useAtomComponentStateValue(
-    activeTabIdComponentState,
-    getTabListInstanceIdFromPageLayoutId(pageLayoutId),
-  );
+  const { createPageLayoutTab } = useCreatePageLayoutTab({
+    pageLayoutId,
+    tabListInstanceId,
+  });
 
   const pageLayoutCurrentLayoutsState = useAtomComponentStateCallbackState(
     pageLayoutCurrentLayoutsComponentState,
@@ -54,14 +56,15 @@ export const useCreatePageLayoutRecordTableWidget = (
     (
       objectMetadata?: Pick<EnrichedObjectMetadataItem, 'id' | 'labelPlural'>,
     ): PageLayoutWidget => {
+      const activeTabId =
+        resolveActiveTabIdForPageLayoutWidgetCreation({
+          store,
+          tabListInstanceId,
+          pageLayoutDraftState,
+        }) ?? createPageLayoutTab();
+
       const allTabLayouts = store.get(pageLayoutCurrentLayoutsState);
       const pageLayoutDraggedArea = store.get(pageLayoutDraggedAreaState);
-
-      if (!isDefined(activeTabId)) {
-        throw new Error(
-          'A tab must be selected to create a new record table widget',
-        );
-      }
 
       const widgetId = uuidv4();
       const recordTableSize = WIDGET_SIZES[WidgetType.RECORD_TABLE]!;
@@ -114,7 +117,8 @@ export const useCreatePageLayoutRecordTableWidget = (
       return newWidget;
     },
     [
-      activeTabId,
+      tabListInstanceId,
+      createPageLayoutTab,
       pageLayoutCurrentLayoutsState,
       pageLayoutDraftState,
       pageLayoutDraggedAreaState,
