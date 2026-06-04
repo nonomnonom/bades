@@ -7,7 +7,7 @@ import { type ChartConfiguration } from '@/side-panel/pages/page-layout/types/Ch
 import { buildChartGroupByFieldConfigUpdate } from '@/side-panel/pages/page-layout/utils/buildChartGroupByFieldConfigUpdate';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
-import { isHiddenSystemField } from '@/object-metadata/utils/isHiddenSystemField';
+import { isGraphWidgetGroupByField } from '@/page-layout/widgets/graph/utils/graphWidgetChartFieldFilters';
 import { isCompositeFieldType } from '@/object-record/object-filter-dropdown/utils/isCompositeFieldType';
 import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
@@ -25,7 +25,6 @@ import { useMemo, useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { useIcons } from 'ui/display';
 import { MenuItemSelect } from 'ui/navigation';
-import { RelationType } from '~/generated-metadata/graphql';
 import { filterBySearchQuery } from '~/utils/filterBySearchQuery';
 
 type ChartGroupByFieldSelectionDropdownContentBaseProps<
@@ -83,15 +82,7 @@ export const ChartGroupByFieldSelectionDropdownContentBase = <
         items: sourceObjectMetadataItem?.fields || [],
         searchQuery,
         getSearchableValues: (item) => [item.label, item.name],
-      }).filter((field) => {
-        if (isHiddenSystemField(field)) {
-          return false;
-        }
-        if (isFieldRelation(field)) {
-          return field.relation?.type === RelationType.MANY_TO_ONE;
-        }
-        return true;
-      }),
+      }).filter(isGraphWidgetGroupByField),
     [sourceObjectMetadataItem?.fields, searchQuery],
   );
 

@@ -3,8 +3,7 @@ import { usePageLayoutIdFromContextStore } from '@/side-panel/pages/page-layout/
 import { useWidgetInEditMode } from '@/side-panel/pages/page-layout/hooks/useWidgetInEditMode';
 import { isWidgetConfigurationOfType } from '@/side-panel/pages/page-layout/utils/isWidgetConfigurationOfType';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
-import { isHiddenSystemField } from '@/object-metadata/utils/isHiddenSystemField';
-import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
+import { isGraphWidgetAggregateField } from '@/page-layout/widgets/graph/utils/graphWidgetChartFieldFilters';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
@@ -69,8 +68,7 @@ export const ChartFieldSelectionForAggregateOperationDropdownContent = () => {
     items: sourceObjectMetadataItem?.fields || [],
     searchQuery,
     getSearchableValues: (item) => [item.label, item.name],
-    // TODO: remove the relation filter once group by is supported for relation fields
-  }).filter((field) => !isFieldRelation(field) && !isHiddenSystemField(field));
+  }).filter(isGraphWidgetAggregateField);
 
   const { getIcon } = useIcons();
 

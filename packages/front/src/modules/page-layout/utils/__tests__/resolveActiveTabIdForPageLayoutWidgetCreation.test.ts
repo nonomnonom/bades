@@ -61,7 +61,7 @@ describe('resolveActiveTabIdForPageLayoutWidgetCreation', () => {
     ).toBe('tab-fallback');
   });
 
-  it('should throw when no tab is available', () => {
+  it('should return null when no tab is available', () => {
     const store = createStore();
     const tabListInstanceId = 'page-layout-1-tab-list';
     const pageLayoutDraftState = pageLayoutDraftComponentState.atomFamily({
@@ -77,12 +77,12 @@ describe('resolveActiveTabIdForPageLayoutWidgetCreation', () => {
       defaultTabToFocusOnMobileAndSidePanelId: null,
     });
 
-    expect(() =>
+    expect(
       resolveActiveTabIdForPageLayoutWidgetCreation({
         store,
         tabListInstanceId,
         pageLayoutDraftState,
       }),
-    ).toThrow('Tab harus dipilih untuk membuat widget baru');
+    ).toBeNull();
   });
 });

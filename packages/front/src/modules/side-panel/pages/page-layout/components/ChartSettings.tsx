@@ -20,7 +20,6 @@ import { styled } from '@linaria/react';
 import { isNonEmptyString } from '@sniptt/guards';
 import { isFieldMetadataDateKind } from 'shared/utils';
 
-import { CHART_CONFIGURATION_SETTING_IDS } from '@/side-panel/pages/page-layout/types/ChartConfigurationSettingIds';
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
 import { getCurrentGraphTypeFromConfig } from '@/side-panel/pages/page-layout/utils/getCurrentGraphTypeFromConfig';
 import { isChartWidget } from '@/side-panel/pages/page-layout/utils/isChartWidget';
@@ -46,10 +45,12 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
   }
 
   const configuration = widget.configuration;
-  const hasChartDataSource = isNonEmptyString(widget.objectMetadataId);
+  const objectMetadataId = isNonEmptyString(widget.objectMetadataId)
+    ? widget.objectMetadataId
+    : null;
 
   const { getChartSettingsValues } = useChartSettingsValues({
-    objectMetadataId: widget.objectMetadataId,
+    objectMetadataId: objectMetadataId ?? '',
     configuration,
   });
 
@@ -89,8 +90,35 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
 
   const chartSettings = GRAPH_TYPE_INFORMATION[currentGraphType].settings;
 
+  const bannerTargetHeading =
+    currentGraphType === GraphType.PIE
+      ? CHART_SETTINGS_HEADINGS.DATA
+      : CHART_SETTINGS_HEADINGS.X_AXIS;
+
+  if (!objectMetadataId) {
+    return (
+      <StyledSidePanelContainer>
+        <SidePanelList
+          selectableItemIds={[CHART_CONFIGURATION_SETTING_IDS.SOURCE]}
+        >
+          <ChartTypeSelectionSection
+            currentGraphType={currentGraphType}
+            setCurrentGraphType={handleGraphTypeChange}
+          />
+          <SidePanelGroup heading={CHART_SETTINGS_HEADINGS.DATA}>
+            <ChartSettingItem
+              item={CHART_DATA_SOURCE_SETTING}
+              objectMetadataId=""
+              configuration={configuration}
+            />
+          </SidePanelGroup>
+        </SidePanelList>
+      </StyledSidePanelContainer>
+    );
+  }
+
   const objectMetadataItem = objectMetadataItems.find(
-    (item) => item.id === widget.objectMetadataId,
+    (item) => item.id === objectMetadataId,
   );
 
   const visibleItemIds = chartSettings.flatMap((group) =>
@@ -99,7 +127,7 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
         (item) =>
           !shouldHideChartSetting(
             item,
-            widget.objectMetadataId,
+            objectMetadataId,
             isGroupByEnabled as boolean,
             configuration,
             objectMetadataItem,
@@ -136,33 +164,6 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
       ? configuration.dateGranularity
       : null;
 
-  const bannerTargetHeading =
-    currentGraphType === GraphType.PIE
-      ? CHART_SETTINGS_HEADINGS.DATA
-      : CHART_SETTINGS_HEADINGS.X_AXIS;
-
-  if (!hasChartDataSource) {
-    return (
-      <StyledSidePanelContainer>
-        <SidePanelList
-          selectableItemIds={[CHART_CONFIGURATION_SETTING_IDS.SOURCE]}
-        >
-          <ChartTypeSelectionSection
-            currentGraphType={currentGraphType}
-            setCurrentGraphType={handleGraphTypeChange}
-          />
-          <SidePanelGroup heading={CHART_SETTINGS_HEADINGS.DATA}>
-            <ChartSettingItem
-              item={CHART_DATA_SOURCE_SETTING}
-              objectMetadataId=""
-              configuration={configuration}
-            />
-          </SidePanelGroup>
-        </SidePanelList>
-      </StyledSidePanelContainer>
-    );
-  }
-
   return (
     <StyledSidePanelContainer>
       <SidePanelList selectableItemIds={visibleItemIds}>
@@ -175,7 +176,7 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
             (item) =>
               !shouldHideChartSetting(
                 item,
-                widget.objectMetadataId,
+                objectMetadataId,
                 isGroupByEnabled as boolean,
                 configuration,
                 objectMetadataItem,
@@ -198,7 +199,7 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
                 <ChartSettingItem
                   key={item.id}
                   item={item}
-                  objectMetadataId={widget.objectMetadataId}
+                  objectMetadataId={objectMetadataId}
                   configuration={configuration}
                 />
               ))}

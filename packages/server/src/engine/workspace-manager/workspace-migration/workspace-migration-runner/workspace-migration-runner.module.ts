@@ -21,10 +21,10 @@ import { WorkspaceMigrationRunnerService } from 'src/engine/workspace-manager/wo
     // WorkspaceMigrationModule → WorkspaceMigrationRunnerModule → DirectExecutionModule →
     // GraphqlQueryRunnerModule → ViewModule → ViewPermissionsModule → WorkspaceMigrationModule.
     // Tanpa ini, worker crash dengan "Cannot access 'WorkspaceMigrationModule' before initialization".
-    forwardRef(() =>
-      require(
-        '../../../api/graphql/direct-execution/direct-execution.module',
-      ).DirectExecutionModule,
+    forwardRef(
+      () =>
+        require('../../../api/graphql/direct-execution/direct-execution.module')
+          .DirectExecutionModule,
     ),
     FeatureFlagModule,
     TypeORMModule,

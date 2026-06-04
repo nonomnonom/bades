@@ -6,6 +6,7 @@ import { useCreatePageLayoutGraphWidget } from '@/page-layout/hooks/useCreatePag
 import { useCreatePageLayoutIframeWidget } from '@/page-layout/hooks/useCreatePageLayoutIframeWidget';
 import { useCreatePageLayoutRecordTableWidget } from '@/page-layout/hooks/useCreatePageLayoutRecordTableWidget';
 import { buildDefaultGraphWidgetFieldSelection } from '@/page-layout/utils/buildDefaultGraphWidgetFieldSelection';
+import { getPreferredDashboardObjectMetadataItem } from '@/page-layout/utils/getPreferredDashboardObjectMetadataItem';
 import { useCreatePageLayoutStandaloneRichTextWidget } from '@/page-layout/hooks/useCreatePageLayoutStandaloneRichTextWidget';
 import { useRemovePageLayoutWidgetAndPreservePosition } from '@/page-layout/hooks/useRemovePageLayoutWidgetAndPreservePosition';
 import { pageLayoutDraftComponentState } from '@/page-layout/states/pageLayoutDraftComponentState';
@@ -88,13 +89,8 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
     useAddDraftViewForRecordTableWidget(pageLayoutId);
   const { readableObjectMetadataItems } = useReadableObjectMetadataItems();
 
-  const firstAvailableObjectMetadataItem =
-    readableObjectMetadataItems.find(
-      (objectMetadataItem) => objectMetadataItem.nameSingular === 'penduduk',
-    ) ||
-    [...readableObjectMetadataItems].sort((first, second) =>
-      first.labelPlural.localeCompare(second.labelPlural),
-    )[0];
+  const preferredDashboardObjectMetadataItem =
+    getPreferredDashboardObjectMetadataItem(readableObjectMetadataItems);
 
   const { data: frontComponentsData } = useQuery<{
     frontComponents: FrontComponent[];
@@ -122,7 +118,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
     : undefined;
 
   const handleNavigateToGraphTypeSelect = () => {
-    if (!isDefined(firstAvailableObjectMetadataItem)) {
+    if (!isDefined(preferredDashboardObjectMetadataItem)) {
       return;
     }
 
@@ -138,7 +134,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
 
       const newWidget = createPageLayoutGraphWidget({
         fieldSelection: buildDefaultGraphWidgetFieldSelection(
-          firstAvailableObjectMetadataItem,
+          preferredDashboardObjectMetadataItem,
         ),
       });
       setPageLayoutEditingWidgetId(newWidget.id);
@@ -196,7 +192,7 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
   };
 
   const handleNavigateToRecordTableSettings = () => {
-    if (!isDefined(firstAvailableObjectMetadataItem)) {
+    if (!isDefined(preferredDashboardObjectMetadataItem)) {
       return;
     }
 
@@ -211,14 +207,14 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
       }
 
       const newRecordTableWidget = createPageLayoutRecordTableWidget(
-        firstAvailableObjectMetadataItem,
+        preferredDashboardObjectMetadataItem,
       );
 
       setPageLayoutEditingWidgetId(newRecordTableWidget.id);
 
       addDraftViewForRecordTableWidget(
         newRecordTableWidget.id,
-        firstAvailableObjectMetadataItem,
+        preferredDashboardObjectMetadataItem,
       );
     }
 

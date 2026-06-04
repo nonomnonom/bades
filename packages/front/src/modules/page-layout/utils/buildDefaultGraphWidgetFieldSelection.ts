@@ -1,28 +1,10 @@
-import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
-import { isHiddenSystemField } from '@/object-metadata/utils/isHiddenSystemField';
-import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { type GraphWidgetFieldSelection } from '@/page-layout/types/GraphWidgetFieldSelection';
-import { FieldMetadataType, RelationType } from '~/generated-metadata/graphql';
-
-const isActiveField = (field: FieldMetadataItem) => field.isActive !== false;
-
-const isAggregateChartField = (field: FieldMetadataItem) =>
-  isActiveField(field) &&
-  !isFieldRelation(field) &&
-  !isHiddenSystemField(field);
-
-const isGroupByChartField = (field: FieldMetadataItem) => {
-  if (!isActiveField(field) || isHiddenSystemField(field)) {
-    return false;
-  }
-
-  if (isFieldRelation(field)) {
-    return field.relation?.type === RelationType.MANY_TO_ONE;
-  }
-
-  return true;
-};
+import {
+  isGraphWidgetAggregateField,
+  isGraphWidgetGroupByField,
+} from '@/page-layout/widgets/graph/utils/graphWidgetChartFieldFilters';
+import { FieldMetadataType } from '~/generated-metadata/graphql';
 
 export const buildDefaultGraphWidgetFieldSelection = (
   objectMetadataItem: EnrichedObjectMetadataItem,
@@ -32,16 +14,17 @@ export const buildDefaultGraphWidgetFieldSelection = (
   const aggregateField =
     fields.find(
       (field) =>
-        isAggregateChartField(field) && field.type === FieldMetadataType.NUMBER,
-    ) ?? fields.find(isAggregateChartField);
+        isGraphWidgetAggregateField(field) &&
+        field.type === FieldMetadataType.NUMBER,
+    ) ?? fields.find(isGraphWidgetAggregateField);
 
   const groupByField =
     fields.find(
       (field) =>
-        isGroupByChartField(field) &&
+        isGraphWidgetGroupByField(field) &&
         (field.type === FieldMetadataType.SELECT ||
           field.type === FieldMetadataType.MULTI_SELECT),
-    ) ?? fields.find(isGroupByChartField);
+    ) ?? fields.find(isGraphWidgetGroupByField);
 
   return {
     objectMetadataId: objectMetadataItem.id,
