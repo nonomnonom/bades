@@ -178,6 +178,7 @@ export type {
   BarChartConfiguration,
   LineChartConfiguration,
   ViewConfiguration,
+  RecordTableWidgetDisplayViewType,
   RecordTableConfiguration,
   FieldConfiguration,
   FieldsConfiguration,

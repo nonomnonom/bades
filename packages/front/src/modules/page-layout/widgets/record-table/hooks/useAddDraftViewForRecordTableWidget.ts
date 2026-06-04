@@ -76,6 +76,7 @@ export const useAddDraftViewForRecordTableWidget = (pageLayoutId: string) => {
           viewFilters: [],
           viewFilterGroups: [],
           viewSorts: [],
+          displayViewType: ViewType.TABLE,
         },
       }));
 

@@ -1,6 +1,6 @@
 import { isWidgetConfigurationOfType } from '@/side-panel/pages/page-layout/utils/isWidgetConfigurationOfType';
 import { type FieldConfiguration } from '@/page-layout/types/FieldConfiguration';
-import { isDefined } from 'shared/utils';
+import { isNonEmptyString } from '@sniptt/guards';
 import {
   type FieldsConfiguration,
   type WidgetConfiguration,
@@ -14,15 +14,15 @@ export const hasMinimalRequiredConfigForGraph = (
     isWidgetConfigurationOfType(configuration, 'LineChartConfiguration')
   ) {
     return (
-      isDefined(configuration.aggregateFieldMetadataId) &&
-      isDefined(configuration.primaryAxisGroupByFieldMetadataId)
+      isNonEmptyString(configuration.aggregateFieldMetadataId) &&
+      isNonEmptyString(configuration.primaryAxisGroupByFieldMetadataId)
     );
   }
 
   if (isWidgetConfigurationOfType(configuration, 'PieChartConfiguration')) {
     return (
-      isDefined(configuration.aggregateFieldMetadataId) &&
-      isDefined(configuration.groupByFieldMetadataId)
+      isNonEmptyString(configuration.aggregateFieldMetadataId) &&
+      isNonEmptyString(configuration.groupByFieldMetadataId)
     );
   }
 
@@ -30,7 +30,7 @@ export const hasMinimalRequiredConfigForGraph = (
     isWidgetConfigurationOfType(configuration, 'AggregateChartConfiguration') ||
     isWidgetConfigurationOfType(configuration, 'GaugeChartConfiguration')
   ) {
-    return isDefined(configuration.aggregateFieldMetadataId);
+    return isNonEmptyString(configuration.aggregateFieldMetadataId);
   }
 
   return false;

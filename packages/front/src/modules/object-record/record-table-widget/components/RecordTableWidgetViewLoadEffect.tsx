@@ -3,6 +3,7 @@ import { useLoadRecordIndexStates } from '@/object-record/record-index/hooks/use
 import { lastLoadedRecordTableWidgetViewIdComponentState } from '@/object-record/record-table-widget/states/lastLoadedRecordTableWidgetViewIdComponentState';
 import { computeRecordTableWidgetViewLoadContentSignature } from '@/object-record/record-table-widget/utils/computeRecordTableWidgetViewLoadContentSignature';
 import { useIsPageLayoutInEditMode } from '@/page-layout/hooks/useIsPageLayoutInEditMode';
+import { getRecordTableWidgetDisplayViewType } from '@/page-layout/utils/getRecordTableWidgetDisplayViewType';
 import { recordTableWidgetViewDraftByWidgetIdComponentFamilySelector } from '@/page-layout/states/selectors/recordTableWidgetViewDraftByWidgetIdComponentFamilySelector';
 import { constructViewFromRecordTableWidgetViewSnapshot } from '@/page-layout/widgets/record-table/utils/constructViewFromRecordTableWidgetViewSnapshot';
 import { useAtomComponentFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilySelectorValue';
@@ -11,17 +12,20 @@ import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/use
 import { viewFromViewIdFamilySelector } from '@/views/states/selectors/viewFromViewIdFamilySelector';
 import { useEffect } from 'react';
 import { isDefined } from 'shared/utils';
+import { type PageLayoutWidget } from '~/generated-metadata/graphql';
 
 type RecordTableWidgetViewLoadEffectProps = {
   viewId: string;
   widgetId: string;
   objectMetadataItem: EnrichedObjectMetadataItem;
+  widget?: PageLayoutWidget;
 };
 
 export const RecordTableWidgetViewLoadEffect = ({
   viewId,
   widgetId,
   objectMetadataItem,
+  widget,
 }: RecordTableWidgetViewLoadEffectProps) => {
   const { loadRecordIndexStates } = useLoadRecordIndexStates();
 
@@ -49,6 +53,11 @@ export const RecordTableWidgetViewLoadEffect = ({
 
   const currentView = viewFromDraft ?? viewFromSelector;
 
+  const displayViewType = getRecordTableWidgetDisplayViewType({
+    widget,
+    draftSnapshot,
+  });
+
   const viewHasFields =
     isDefined(currentView) && currentView.viewFields.length > 0;
 
@@ -69,18 +78,27 @@ export const RecordTableWidgetViewLoadEffect = ({
       objectMetadataItem.updatedAt ===
         lastLoadedRecordTableWidgetViewId?.objectMetadataItemUpdatedAt &&
       contentSignature ===
-        lastLoadedRecordTableWidgetViewId?.loadedViewContentSignature;
+        lastLoadedRecordTableWidgetViewId?.loadedViewContentSignature &&
+      displayViewType ===
+        lastLoadedRecordTableWidgetViewId?.loadedDisplayViewType;
 
     if (lastLoadedMatches) {
       return;
     }
 
-    loadRecordIndexStates(currentView, objectMetadataItem);
+    loadRecordIndexStates(
+      {
+        ...currentView,
+        type: displayViewType,
+      },
+      objectMetadataItem,
+    );
 
     setLastLoadedRecordTableWidgetViewId({
       viewId,
       objectMetadataItemUpdatedAt: objectMetadataItem.updatedAt,
       loadedViewContentSignature: contentSignature,
+      loadedDisplayViewType: displayViewType,
     });
   }, [
     viewId,
@@ -90,6 +108,7 @@ export const RecordTableWidgetViewLoadEffect = ({
     viewHasFields,
     objectMetadataItem,
     loadRecordIndexStates,
+    displayViewType,
   ]);
 
   return null;

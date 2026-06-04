@@ -5,6 +5,7 @@ import { ChartSettingItem } from '@/side-panel/pages/page-layout/components/char
 import { ChartLimitInfoBanner } from '@/side-panel/pages/page-layout/components/ChartLimitInfoBanner';
 import { ChartTypeSelectionSection } from '@/side-panel/pages/page-layout/components/ChartTypeSelectionSection';
 import { CHART_SETTINGS_HEADINGS } from '@/side-panel/pages/page-layout/constants/ChartSettingsHeadings';
+import { CHART_DATA_SOURCE_SETTING } from '@/side-panel/pages/page-layout/constants/settings/ChartDataSourceSetting';
 import { GRAPH_TYPE_INFORMATION } from '@/side-panel/pages/page-layout/constants/GraphTypeInformation';
 import { useChartSettingsValues } from '@/side-panel/pages/page-layout/hooks/useChartSettingsValues';
 import { usePageLayoutIdFromContextStore } from '@/side-panel/pages/page-layout/hooks/usePageLayoutIdFromContextStore';
@@ -16,11 +17,13 @@ import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadat
 import { hasWidgetTooManyGroupsComponentState } from '@/page-layout/widgets/graph/states/hasWidgetTooManyGroupsComponentState';
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { styled } from '@linaria/react';
+import { isNonEmptyString } from '@sniptt/guards';
 import { isFieldMetadataDateKind } from 'shared/utils';
 
+import { CHART_CONFIGURATION_SETTING_IDS } from '@/side-panel/pages/page-layout/types/ChartConfigurationSettingIds';
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
-import { assertChartWidgetOrThrow } from '@/side-panel/pages/page-layout/utils/assertChartWidgetOrThrow';
 import { getCurrentGraphTypeFromConfig } from '@/side-panel/pages/page-layout/utils/getCurrentGraphTypeFromConfig';
+import { isChartWidget } from '@/side-panel/pages/page-layout/utils/isChartWidget';
 import { isWidgetConfigurationOfType } from '@/side-panel/pages/page-layout/utils/isWidgetConfigurationOfType';
 import { type PageLayoutWidget } from '@/page-layout/types/PageLayoutWidget';
 
@@ -38,9 +41,12 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
     useUpdateCurrentWidgetConfig(pageLayoutId);
   const { objectMetadataItems } = useObjectMetadataItems();
 
-  assertChartWidgetOrThrow(widget);
+  if (!isChartWidget(widget) || !widget.configuration) {
+    return null;
+  }
 
   const configuration = widget.configuration;
+  const hasChartDataSource = isNonEmptyString(widget.objectMetadataId);
 
   const { getChartSettingsValues } = useChartSettingsValues({
     objectMetadataId: widget.objectMetadataId,
@@ -134,6 +140,28 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
     currentGraphType === GraphType.PIE
       ? CHART_SETTINGS_HEADINGS.DATA
       : CHART_SETTINGS_HEADINGS.X_AXIS;
+
+  if (!hasChartDataSource) {
+    return (
+      <StyledSidePanelContainer>
+        <SidePanelList
+          selectableItemIds={[CHART_CONFIGURATION_SETTING_IDS.SOURCE]}
+        >
+          <ChartTypeSelectionSection
+            currentGraphType={currentGraphType}
+            setCurrentGraphType={handleGraphTypeChange}
+          />
+          <SidePanelGroup heading={CHART_SETTINGS_HEADINGS.DATA}>
+            <ChartSettingItem
+              item={CHART_DATA_SOURCE_SETTING}
+              objectMetadataId=""
+              configuration={configuration}
+            />
+          </SidePanelGroup>
+        </SidePanelList>
+      </StyledSidePanelContainer>
+    );
+  }
 
   return (
     <StyledSidePanelContainer>

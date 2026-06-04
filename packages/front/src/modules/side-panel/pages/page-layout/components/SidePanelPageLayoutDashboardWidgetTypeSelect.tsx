@@ -5,11 +5,8 @@ import { useCreatePageLayoutFrontComponentWidget } from '@/page-layout/hooks/use
 import { useCreatePageLayoutGraphWidget } from '@/page-layout/hooks/useCreatePageLayoutGraphWidget';
 import { useCreatePageLayoutIframeWidget } from '@/page-layout/hooks/useCreatePageLayoutIframeWidget';
 import { useCreatePageLayoutRecordTableWidget } from '@/page-layout/hooks/useCreatePageLayoutRecordTableWidget';
+import { buildDefaultGraphWidgetFieldSelection } from '@/page-layout/utils/buildDefaultGraphWidgetFieldSelection';
 import { useCreatePageLayoutStandaloneRichTextWidget } from '@/page-layout/hooks/useCreatePageLayoutStandaloneRichTextWidget';
-// Bades: hook useOpportunityDefaultChartConfig sudah dihapus karena
-// object Opportunity CRM warisan tidak ada lagi di STANDARD_OBJECTS.
-// Chart widget baru tidak lagi auto-isi field selection; user pilih object
-// + field manual via SidePanelPages.DashboardChartSettings.
 import { useRemovePageLayoutWidgetAndPreservePosition } from '@/page-layout/hooks/useRemovePageLayoutWidgetAndPreservePosition';
 import { pageLayoutDraftComponentState } from '@/page-layout/states/pageLayoutDraftComponentState';
 import { pageLayoutEditingWidgetIdComponentState } from '@/page-layout/states/pageLayoutEditingWidgetIdComponentState';
@@ -79,7 +76,10 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
     });
 
   const { createPageLayoutRecordTableWidget } =
-    useCreatePageLayoutRecordTableWidget(pageLayoutId);
+    useCreatePageLayoutRecordTableWidget({
+      pageLayoutId,
+      tabListInstanceId,
+    });
 
   const { removePageLayoutWidgetAndPreservePosition } =
     useRemovePageLayoutWidgetAndPreservePosition(pageLayoutId);
@@ -122,6 +122,10 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
     : undefined;
 
   const handleNavigateToGraphTypeSelect = () => {
+    if (!isDefined(firstAvailableObjectMetadataItem)) {
+      return;
+    }
+
     if (
       isExistingWidgetMissingOrDifferentType(
         existingWidget?.type,
@@ -133,7 +137,9 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
       }
 
       const newWidget = createPageLayoutGraphWidget({
-        fieldSelection: undefined,
+        fieldSelection: buildDefaultGraphWidgetFieldSelection(
+          firstAvailableObjectMetadataItem,
+        ),
       });
       setPageLayoutEditingWidgetId(newWidget.id);
     }
@@ -190,6 +196,10 @@ export const SidePanelPageLayoutDashboardWidgetTypeSelect = () => {
   };
 
   const handleNavigateToRecordTableSettings = () => {
+    if (!isDefined(firstAvailableObjectMetadataItem)) {
+      return;
+    }
+
     if (
       isExistingWidgetMissingOrDifferentType(
         existingWidget?.type,

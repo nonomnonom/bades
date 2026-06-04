@@ -3,6 +3,7 @@ import { type FlatViewField } from '@/metadata-store/types/FlatViewField';
 import { type FlatViewFilter } from '@/metadata-store/types/FlatViewFilter';
 import { type FlatViewFilterGroup } from '@/metadata-store/types/FlatViewFilterGroup';
 import { type FlatViewSort } from '@/metadata-store/types/FlatViewSort';
+import { type ViewType } from '@/views/types/ViewType';
 
 export type RecordTableWidgetDraftViewField = Omit<FlatViewField, 'id'> & {
   id?: string;
@@ -15,4 +16,5 @@ export type RecordTableWidgetViewSnapshot = {
   viewFilters: FlatViewFilter[];
   viewFilterGroups: FlatViewFilterGroup[];
   viewSorts: FlatViewSort[];
+  displayViewType?: ViewType.TABLE | ViewType.MAP;
 };

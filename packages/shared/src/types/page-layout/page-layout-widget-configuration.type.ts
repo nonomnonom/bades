@@ -91,9 +91,12 @@ export type ViewConfiguration = {
   configurationType: 'VIEW';
 };
 
+export type RecordTableWidgetDisplayViewType = 'TABLE' | 'MAP';
+
 export type RecordTableConfiguration = {
   configurationType: 'RECORD_TABLE';
   viewId?: string;
+  displayViewType?: RecordTableWidgetDisplayViewType;
 };
 
 export type FieldConfiguration = {

@@ -59,6 +59,10 @@ export const usePageLayoutIdFromContextStore = () => {
           targetObjectNameSingular: objectMetadataItem.nameSingular,
         });
 
+  if (isDashboardContext && !isDefined(pageLayoutId)) {
+    throw new Error('Dashboard belum memiliki tata letak');
+  }
+
   return {
     pageLayoutId,
     recordId,

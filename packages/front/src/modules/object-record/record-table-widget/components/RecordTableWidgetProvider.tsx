@@ -12,17 +12,20 @@ import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewCompon
 import { type PropsWithChildren, useCallback } from 'react';
 import { AppPath } from 'shared/types';
 import { getAppPath } from 'shared/utils';
+import { type PageLayoutWidget } from '~/generated-metadata/graphql';
 
 type RecordTableWidgetProviderProps = PropsWithChildren<{
   objectNameSingular: string;
   viewId: string;
   widgetId: string;
+  widget?: PageLayoutWidget;
 }>;
 
 export const RecordTableWidgetProvider = ({
   objectNameSingular,
   viewId,
   widgetId,
+  widget,
   children,
 }: RecordTableWidgetProviderProps) => {
   const { objectMetadataItem } = useObjectMetadataItem({
@@ -100,6 +103,7 @@ export const RecordTableWidgetProvider = ({
               viewId={viewId}
               widgetId={widgetId}
               objectMetadataItem={objectMetadataItem}
+              widget={widget}
             />
             {children}
           </RecordComponentInstanceContextsWrapper>

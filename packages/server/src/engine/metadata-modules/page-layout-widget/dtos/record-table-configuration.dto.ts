@@ -16,4 +16,9 @@ export class RecordTableConfigurationDTO implements RecordTableConfiguration {
   @IsOptional()
   @IsUUID()
   viewId?: string;
+
+  @Field(() => String, { nullable: true })
+  @IsOptional()
+  @IsIn(['TABLE', 'MAP'])
+  displayViewType?: 'TABLE' | 'MAP';
 }

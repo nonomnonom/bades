@@ -1,8 +1,10 @@
+import { getRecordTableWidgetDisplayViewType } from '@/page-layout/utils/getRecordTableWidgetDisplayViewType';
 import { recordTableWidgetViewDraftComponentState } from '@/page-layout/states/recordTableWidgetViewDraftComponentState';
 import { constructViewFromRecordTableWidgetViewSnapshot } from '@/page-layout/widgets/record-table/utils/constructViewFromRecordTableWidgetViewSnapshot';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { useViewById } from '@/views/hooks/useViewById';
 import { type View } from '@/views/types/View';
+import { type ViewType } from '@/views/types/ViewType';
 import { isDefined } from 'shared/utils';
 
 type UseRecordTableWidgetViewForDisplayParams = {
@@ -17,6 +19,7 @@ export const useRecordTableWidgetViewForDisplay = ({
   pageLayoutId,
 }: UseRecordTableWidgetViewForDisplayParams): {
   view: View | undefined;
+  displayViewType: ViewType.TABLE | ViewType.MAP;
 } => {
   const { view } = useViewById(viewId);
 
@@ -31,5 +34,9 @@ export const useRecordTableWidgetViewForDisplay = ({
     ? constructViewFromRecordTableWidgetViewSnapshot(draftSnapshot)
     : undefined;
 
-  return { view: viewFromDraft ?? view };
+  const displayViewType = getRecordTableWidgetDisplayViewType({
+    draftSnapshot,
+  });
+
+  return { view: viewFromDraft ?? view, displayViewType };
 };
