@@ -4,7 +4,6 @@ import { Table } from '@/ui/layout/table/components/Table';
 import { styled } from '@linaria/react';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
-import { t } from '~/utils/i18n/badesI18n';
 import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { IconChevronRight, OverflowingTextWithTooltip } from 'ui/display';
 import { useContext } from 'react';
@@ -31,11 +30,11 @@ export const ConfigVariableTable = ({
 
   return (
     <Table>
-      <TableRow gridAutoColumns={GRID_AUTO_COLUMNS}>
-        <TableHeader>{t`Nama`}</TableHeader>
-        <TableHeader align="right">{t`Deskripsi`}</TableHeader>
-        <TableHeader align="right">{t`Nilai`}</TableHeader>
-        <TableHeader align="right"></TableHeader>
+       <TableRow gridAutoColumns={GRID_AUTO_COLUMNS}>
+         <TableHeader>Nama</TableHeader>
+         <TableHeader align="right">Deskripsi</TableHeader>
+         <TableHeader align="right">Nilai</TableHeader>
+         <TableHeader align="right"></TableHeader>
       </TableRow>
       <StyledTableBodyContainer>
         <TableBody>

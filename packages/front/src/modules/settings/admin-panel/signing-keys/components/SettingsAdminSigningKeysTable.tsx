@@ -45,10 +45,10 @@ const getStatusTag = (
   }
 
   if (signingKey.isCurrent === true) {
-    return { text: t`Aktif Sekarang`, color: 'green' };
+    return { text: "Aktif Sekarang", color: 'green' };
   }
 
-  return { text: t`Aktif`, color: 'gray' };
+  return { text: "Aktif", color: 'gray' };
 };
 
 export const SettingsAdminSigningKeysTable = () => {
