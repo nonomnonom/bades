@@ -55,7 +55,7 @@
         "{projectRoot}/src/**/*/index.ts",
         "{projectRoot}/package.json"
       ],
-      "options": { "command": "tsx {projectRoot}/scripts/generateBarrels.ts" }
+      "options": { "command": "bun {projectRoot}/scripts/generateBarrels.ts" }
     },
     "build:individual": {
       "executor": "nx:run-commands",
