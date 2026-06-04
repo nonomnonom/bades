@@ -105,6 +105,8 @@ COPY ./packages/ui /app/packages/ui
 COPY ./packages/shared /app/packages/shared
 COPY ./packages/sdk /app/packages/sdk
 COPY ./packages/client-sdk /app/packages/client-sdk
+ARG REACT_APP_MAPBOX_ACCESS_TOKEN
+ENV REACT_APP_MAPBOX_ACCESS_TOKEN=${REACT_APP_MAPBOX_ACCESS_TOKEN}
 # To skip the memory-intensive frontend build, pre-build on the host:
 #   bunx nx build front
 # The check below will use packages/front/build/ if it already exists.
