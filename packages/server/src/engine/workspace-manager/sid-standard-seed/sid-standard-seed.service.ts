@@ -158,6 +158,12 @@ export class SidStandardSeedService {
   // Idempotent: field dengan nama yang sama akan di-skip oleh `createManyFields`
   // (via unique constraint). Aman dipanggil ulang.
   //
+  // Return: `createdRelations` = jumlah relasi yang berhasil dibuat;
+  // `failedRelations` = jumlah relasi yang gagal (source/target tidak
+  // ditemukan, atau error dari createManyFields). Caller WAJIB periksa
+  // `failedRelations > 0` sebelum menjalankan `seedSidStandardData` karena
+  // FK column yang gagal tidak akan ada di tabel fisik.
+  //
   // Catatan: method ini HARUS dipanggil setelah `seedSidStandardObjects`
   // (agar semua object exist) dan SEBELUM `seedSidStandardData` (agar kolom
   // FK `pendudukId`, `wilayahId`, `programBantuanId` sudah ada di tabel
@@ -166,7 +172,7 @@ export class SidStandardSeedService {
     workspaceId,
   }: {
     workspaceId: string;
-  }): Promise<{ createdRelations: number }> {
+  }): Promise<{ createdRelations: number; failedRelations: number }> {
     const objectMetadataItems =
       await this.objectMetadataService.findManyWithinWorkspace(workspaceId);
 
@@ -176,6 +182,7 @@ export class SidStandardSeedService {
     }
 
     let createdRelations = 0;
+    const failedRelations: string[] = [];
 
     for (const rel of SID_STANDARD_RELATIONS) {
       const sourceObjectId =
@@ -184,9 +191,9 @@ export class SidStandardSeedService {
         objectIdByNameSingular[rel.targetObjectNameSingular];
 
       if (!sourceObjectId || !targetObjectId) {
-        this.logger.warn(
-          `SKIP relation ${rel.sourceObjectNameSingular}.${rel.fieldName}: source atau target object tidak ditemukan (workspace ${workspaceId})`,
-        );
+        const skipMsg = `SKIP relation ${rel.sourceObjectNameSingular}.${rel.fieldName}: source atau target object tidak ditemukan (workspace ${workspaceId})`;
+        this.logger.warn(skipMsg);
+        failedRelations.push(skipMsg);
         continue;
       }
 
@@ -214,15 +221,19 @@ export class SidStandardSeedService {
           `RELATION ${rel.sourceObjectNameSingular}.${rel.fieldName} → ${rel.targetObjectNameSingular} ditanam (workspace ${workspaceId})`,
         );
       } catch (error) {
-        this.logger.warn(
-          `Gagal tanam RELATION ${rel.sourceObjectNameSingular}.${rel.fieldName}: ${
-            error instanceof Error ? error.message : String(error)
-          } (workspace ${workspaceId})`,
-        );
+        const failMsg = `Gagal tanam RELATION ${rel.sourceObjectNameSingular}.${rel.fieldName}: ${error instanceof Error ? error.message : String(error)}`;
+        this.logger.warn(`${failMsg} (workspace ${workspaceId})`);
+        failedRelations.push(failMsg);
       }
     }
 
-    return { createdRelations };
+    if (failedRelations.length > 0) {
+      this.logger.error(
+        `${failedRelations.length} relasi SID GAGAL ditanam untuk workspace ${workspaceId} — data seed yang bergantung pada FK column ini akan gagal. Detail: ${failedRelations.join('; ')}`,
+      );
+    }
+
+    return { createdRelations, failedRelations: failedRelations.length };
   }
 
   // Set labelIdentifierFieldMetadataId ke field dengan nama yang ditentukan.
@@ -526,9 +537,9 @@ export class SidStandardSeedService {
               AND vf."viewId" IN (
                 SELECT v.id
                 FROM core."view" v
-                JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
-                WHERE om."workspaceId" = $1
-                  AND om."nameSingular" = $2
+                JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"            WHERE om."workspaceId" = $1
+              AND om."nameSingular" = $2
+              AND v."key" = 'INDEX'
             )
             RETURNING vf."isVisible"
           )

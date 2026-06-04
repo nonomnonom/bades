@@ -87,49 +87,49 @@ export const SettingsAdminApps = () => {
 
   return (
     <Section>
-       <H2Title
-         title="Semua Registrasi Aplikasi"
-         description="Semua registrasi aplikasi di seluruh platform, termasuk aplikasi yang tidak terhubung"
-       />
-       <SearchInput
-         placeholder="Cari registrasi..."
-         value={searchQuery}
-         onChange={setSearchQuery}
-         filterDropdown={(filterButton: ReactNode) => (
-           <Dropdown
-             dropdownId="settings-admin-apps-filter-dropdown"
-             dropdownPlacement="bottom-end"
-             dropdownOffset={{ x: 0, y: 8 }}
-             clickableComponent={filterButton}
-             dropdownComponents={
-               <DropdownContent>
-                 <DropdownMenuItemsContainer>
-                   <MenuItemToggle
-                     LeftIcon={IconPinned}
-                     onToggleChange={() =>
-                       setShowPreInstalledOnly(!showPreInstalledOnly)
-                     }
-                     toggled={showPreInstalledOnly}
-                     text="Pra-terpasang saja"
-                     toggleSize="small"
-                   />
-                 </DropdownMenuItemsContainer>
-               </DropdownContent>
-             }
-           />
-         )}
-       />
+      <H2Title
+        title="Semua Registrasi Aplikasi"
+        description="Semua registrasi aplikasi di seluruh platform, termasuk aplikasi yang tidak terhubung"
+      />
+      <SearchInput
+        placeholder="Cari registrasi..."
+        value={searchQuery}
+        onChange={setSearchQuery}
+        filterDropdown={(filterButton: ReactNode) => (
+          <Dropdown
+            dropdownId="settings-admin-apps-filter-dropdown"
+            dropdownPlacement="bottom-end"
+            dropdownOffset={{ x: 0, y: 8 }}
+            clickableComponent={filterButton}
+            dropdownComponents={
+              <DropdownContent>
+                <DropdownMenuItemsContainer>
+                  <MenuItemToggle
+                    LeftIcon={IconPinned}
+                    onToggleChange={() =>
+                      setShowPreInstalledOnly(!showPreInstalledOnly)
+                    }
+                    toggled={showPreInstalledOnly}
+                    text="Pra-terpasang saja"
+                    toggleSize="small"
+                  />
+                </DropdownMenuItemsContainer>
+              </DropdownContent>
+            }
+          />
+        )}
+      />
       <StyledTableContainer>
         <Table>
-           <TableRow
-             gridAutoColumns={TABLE_GRID}
-             mobileGridAutoColumns={TABLE_GRID_MOBILE}
-           >
-             <TableHeader>Nama</TableHeader>
-             <TableHeader align="right">Sumber</TableHeader>
-             <TableHeader align="right">Terdaftar</TableHeader>
-             <TableHeader align="right">Dikonfigurasi</TableHeader>
-             <TableHeader></TableHeader>
+          <TableRow
+            gridAutoColumns={TABLE_GRID}
+            mobileGridAutoColumns={TABLE_GRID_MOBILE}
+          >
+            <TableHeader>Nama</TableHeader>
+            <TableHeader align="right">Sumber</TableHeader>
+            <TableHeader align="right">Terdaftar</TableHeader>
+            <TableHeader align="right">Dikonfigurasi</TableHeader>
+            <TableHeader></TableHeader>
           </TableRow>
           <TableBody>
             {filtered.map((registration) => (
@@ -186,15 +186,15 @@ const SettingsAdminAppsTableRow = ({
       <TableCell overflow="hidden" align="right">
         {getFormattedSource(registration)}
       </TableCell>
-       <TableCell align="right">
-         {registration.isListed ? "Ya" : "Tidak"}
-       </TableCell>
-       <TableCell align="right">
-         <Tag
-           color={registration.isConfigured ? 'green' : 'red'}
-           text={registration.isConfigured ? "Ya" : "Tidak"}
-         />
-       </TableCell>
+      <TableCell align="right">
+        {registration.isListed ? 'Ya' : 'Tidak'}
+      </TableCell>
+      <TableCell align="right">
+        <Tag
+          color={registration.isConfigured ? 'green' : 'red'}
+          text={registration.isConfigured ? 'Ya' : 'Tidak'}
+        />
+      </TableCell>
       <TableCell align="right">
         <IconChevronRight
           size={theme.icon.size.md}

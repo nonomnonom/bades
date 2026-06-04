@@ -2,52 +2,52 @@
   "folders": [
     {
       "name": "ROOT",
-      "path": "../"
+      "path": "../",
     },
     {
       "name": "packages/front",
-      "path": "../packages/front"
+      "path": "../packages/front",
     },
     {
       "name": "packages/server",
-      "path": "../packages/server"
+      "path": "../packages/server",
     },
     {
       "name": "packages/ui",
-      "path": "../packages/ui"
+      "path": "../packages/ui",
     },
     {
       "name": "packages/emails",
-      "path": "../packages/emails"
+      "path": "../packages/emails",
     },
     {
       "name": "packages/shared",
-      "path": "../packages/shared"
+      "path": "../packages/shared",
     },
     {
       "name": "packages/utils",
-      "path": "../packages/utils"
+      "path": "../packages/utils",
     },
     {
       "name": "packages/oxlint-rules",
-      "path": "../packages/oxlint-rules"
+      "path": "../packages/oxlint-rules",
     },
     {
       "name": "packages/claude-skills",
-      "path": "../packages/claude-skills"
+      "path": "../packages/claude-skills",
     },
     {
       "name": "packages/client-sdk",
-      "path": "../packages/client-sdk"
+      "path": "../packages/client-sdk",
     },
     {
       "name": "packages/front-component-renderer",
-      "path": "../packages/front-component-renderer"
+      "path": "../packages/front-component-renderer",
     },
     {
       "name": "packages/sdk",
-      "path": "../packages/sdk"
-    }
+      "path": "../packages/sdk",
+    },
   ],
   "settings": {
     "editor.formatOnSave": false,
@@ -60,8 +60,8 @@
       "editor.codeActionsOnSave": {
         "source.fixAll.oxc": "explicit",
         "source.addMissingImports": "always",
-        "source.organizeImports": "always"
-      }
+        "source.organizeImports": "always",
+      },
     },
     "[javascript]": {
       "editor.formatOnSave": true,
@@ -69,8 +69,8 @@
       "editor.codeActionsOnSave": {
         "source.fixAll.oxc": "explicit",
         "source.addMissingImports": "always",
-        "source.organizeImports": "always"
-      }
+        "source.organizeImports": "always",
+      },
     },
     "[typescriptreact]": {
       "editor.formatOnSave": true,
@@ -78,11 +78,11 @@
       "editor.codeActionsOnSave": {
         "source.fixAll.oxc": "explicit",
         "source.addMissingImports": "always",
-        "source.organizeImports": "always"
-      }
+        "source.organizeImports": "always",
+      },
     },
     "[json]": {
-      "editor.formatOnSave": true
+      "editor.formatOnSave": true,
     },
     "javascript.format.enable": false,
     "typescript.format.enable": false,
@@ -92,29 +92,24 @@
       "!typescript",
       "!typescriptreact",
       "md",
-      "mdx"
+      "mdx",
     ],
-    "cSpell.words": [
-      "badesid"
-    ],
+    "cSpell.words": ["badesid"],
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "search.exclude": {
-      "**/.yarn": true
+      "**/.yarn": true,
     },
     "files.exclude": {
-      "packages/": true
+      "packages/": true,
     },
     "oxc.lint.enable": true,
     "jest.runMode": "on-demand",
-    "jest.disabledWorkspaceFolders": [
-      "ROOT",
-      "packages/utils"
-    ],
+    "jest.disabledWorkspaceFolders": ["ROOT", "packages/utils"],
     "files.associations": {
-      ".cursorrules": "markdown"
+      ".cursorrules": "markdown",
     },
     "jestrunner.codeLensSelector": "**/*.{test,spec,integration-spec}.{js,jsx,ts,tsx}",
     "typescript.tsdk": "node_modules/typescript/lib",
-    "typescript.experimental.useTsgo": false
-  }
+    "typescript.experimental.useTsgo": false,
+  },
 }

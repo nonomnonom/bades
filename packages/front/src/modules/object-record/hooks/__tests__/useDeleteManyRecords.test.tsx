@@ -62,7 +62,8 @@ describe('useDeleteManyRecords', () => {
         objectPermissionsByObjectMetadataId: {},
       });
       expect(cachedRecord).not.toBeNull();
-      if (cachedRecord === null) throw new Error('Seharusnya tidak pernah terjadi');
+      if (cachedRecord === null)
+        throw new Error('Seharusnya tidak pernah terjadi');
       // TODO find a way to reverse assertion or be more strict
       expect(expectedRecord).toMatchObject(cachedRecord);
     });

@@ -30,11 +30,11 @@ export const ConfigVariableTable = ({
 
   return (
     <Table>
-       <TableRow gridAutoColumns={GRID_AUTO_COLUMNS}>
-         <TableHeader>Nama</TableHeader>
-         <TableHeader align="right">Deskripsi</TableHeader>
-         <TableHeader align="right">Nilai</TableHeader>
-         <TableHeader align="right"></TableHeader>
+      <TableRow gridAutoColumns={GRID_AUTO_COLUMNS}>
+        <TableHeader>Nama</TableHeader>
+        <TableHeader align="right">Deskripsi</TableHeader>
+        <TableHeader align="right">Nilai</TableHeader>
+        <TableHeader align="right"></TableHeader>
       </TableRow>
       <StyledTableBodyContainer>
         <TableBody>

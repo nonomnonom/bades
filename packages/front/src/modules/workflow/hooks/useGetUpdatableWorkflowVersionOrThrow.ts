@@ -15,7 +15,9 @@ export const useGetUpdatableWorkflowVersionOrThrow = (instanceId?: string) => {
 
   const getUpdatableWorkflowVersion = async (): Promise<string> => {
     if (!isDefined(workflowVisualizerWorkflowId) || !isDefined(workflow)) {
-      throw new Error('Gagal mendapatkan versi alur kerja yang dapat diperbarui');
+      throw new Error(
+        'Gagal mendapatkan versi alur kerja yang dapat diperbarui',
+      );
     }
 
     if (workflow.currentVersion.status === 'DRAFT') {

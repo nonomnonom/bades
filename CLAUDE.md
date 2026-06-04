@@ -54,11 +54,13 @@ bunx nx run front:graphql:generate --configuration=metadata
 ## Architecture
 
 ### Stack
+
 - Frontend: React 18, TypeScript, Jotai, Linaria, Vite, Apollo Client
 - Backend: NestJS, TypeORM, PostgreSQL, Redis, GraphQL Yoga
 - Monorepo: Nx workspace with Bun 1.3+
 
 ### Core Packages
+
 ```
 packages/
 - front          # Main product UI
@@ -69,13 +71,12 @@ packages/
 - utils          # Repo utilities and scripts
 - sdk            # Bades SDK
 - client-sdk     # Client SDK
-- e2e-testing    # E2E tests
 - front-component-renderer
 - oxlint-rules   # Custom lint rules
-- docker         # Docker artifacts (Dockerfile, docker-compose.yml, Makefile)
 ```
 
 ### Frontend Layout (`packages/front/src/`)
+
 ```
 modules/      # Product features and workflows
 pages/        # Route-level pages
@@ -85,6 +86,7 @@ utils/        # Shared frontend helpers
 ```
 
 ### Backend Layout (`packages/server/src/`)
+
 ```
 engine/       # Core platform, metadata, workspace migration
 modules/      # Feature modules outside the engine tree
@@ -96,18 +98,21 @@ command/      # Command entrypoints
 ## Code Conventions
 
 ### TypeScript
+
 - Prefer `type` over `interface` unless extending third-party interfaces
 - Avoid `any`
 - Use string unions over enums unless GraphQL or platform APIs require enums
 - Use strict TypeScript; be explicit about types in public APIs
 
 ### React Components
+
 - Functional components only, named exports only
 - Use `createAtomState`, `createAtomSelector`, `createAtomFamilyState` from `@/ui/utilities/state/jotai/utils/` for Jotai state
 - Styling: Linaria (`@linaria/react`, `@linaria/core`), not styled-components
 - Props suffix: `*Props`
 
 ### Naming
+
 - Directories: `kebab-case`
 - React components, providers, stories: `PascalCase.tsx`
 - Hooks: `camelCase` with `use*` prefix
@@ -115,6 +120,7 @@ command/      # Command entrypoints
 - Test files: `*.test.ts(x)` (frontend), `*.spec.ts` (backend), `*.integration-spec.ts` (integration)
 
 ### Imports
+
 - Frontend: `@/` aliases for app-local imports
 - Server: `src/` aliases
 - Cross-package: `shared/metadata`, `shared/utils`, `ui`
@@ -122,6 +128,7 @@ command/      # Command entrypoints
 ## Database & Migrations
 
 Server uses upgrade commands instead of relying only on TypeORM migrations:
+
 - `fast` type: schema-first changes
 - `slow` type: heavier or staged data backfills
 - Workspace commands for logic that iterates across workspaces

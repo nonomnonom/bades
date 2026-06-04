@@ -7,7 +7,9 @@ export const useSidePanelWorkflowIdOrThrow = () => {
     sidePanelWorkflowIdComponentState,
   );
   if (!isDefined(sidePanelWorkflowId)) {
-    throw new Error('sidePanelWorkflowIdComponentState seharusnya sudah ditentukan');
+    throw new Error(
+      'sidePanelWorkflowIdComponentState seharusnya sudah ditentukan',
+    );
   }
 
   return sidePanelWorkflowId;

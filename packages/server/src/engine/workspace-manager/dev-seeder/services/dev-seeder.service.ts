@@ -145,9 +145,14 @@ export class DevSeederService {
 
     // Tanam RELATION fields SID standar — single source of truth dari
     // SID_STANDARD_RELATIONS, bukan dari DevSeederMetadataService.
-    await this.sidStandardSeedService.seedSidStandardRelations({
-      workspaceId,
-    });
+    const sidRelationResult =
+      await this.sidStandardSeedService.seedSidStandardRelations({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `Seed relation SID untuk workspace ${workspaceId}: ${sidRelationResult.createdRelations} relation, ${sidRelationResult.failedRelations} gagal`,
+    );
 
     await this.devSeederPermissionsService.initPermissions({
       workspaceId,

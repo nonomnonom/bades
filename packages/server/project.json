@@ -196,9 +196,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/server",
-        "commands": [
-          "tsx ./test/integration/graphql/codegen/index.ts"
-        ],
+        "commands": ["tsx ./test/integration/graphql/codegen/index.ts"],
         "parallel": false
       }
     },

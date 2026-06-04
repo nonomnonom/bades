@@ -191,4 +191,38 @@ describe('AiModelRegistryService', () => {
     expect(result).toBeDefined();
     expect(result.modelId).toBe('fallback-model');
   });
+
+  it('should resolve tencent/hy3-preview as the single available model for Bades AI', () => {
+    // Bades AI single-model: openrouter (openai-compatible) adalah satu-satunya
+    // provider operasional dengan model `tencent/hy3-preview` (slug persis
+    // seperti di dokumentasi OpenRouter — lihat `ai-providers.json` +
+    // `ai-providers-json.spec.ts`).
+    jest.spyOn(service, 'getAvailableModels').mockReturnValue([
+      {
+        modelId: 'openrouter/tencent/hy3-preview',
+        sdkPackage: '@ai-sdk/openai-compatible',
+        providerName: 'openrouter',
+        model: {} as any,
+      },
+    ]);
+
+    jest.spyOn(service, 'getModel').mockReturnValue({
+      modelId: 'openrouter/tencent/hy3-preview',
+      sdkPackage: '@ai-sdk/openai-compatible',
+      providerName: 'openrouter',
+      model: {} as any,
+    });
+
+    const smartResult = service.getEffectiveModelConfig(
+      AUTO_SELECT_SMART_MODEL_ID,
+    );
+
+    expect(smartResult).toBeDefined();
+    expect(smartResult.modelId).toBe('openrouter/tencent/hy3-preview');
+    expect(smartResult.sdkPackage).toBe('@ai-sdk/openai-compatible');
+
+    const fastResult = service.getDefaultSpeedModel();
+
+    expect(fastResult.modelId).toBe('openrouter/tencent/hy3-preview');
+  });
 });

@@ -57,7 +57,9 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
       switch (viewType) {
         case ViewType.KANBAN: {
           if (availableFieldsForGrouping.length === 0) {
-            throw new Error('Tidak ada field untuk kanban - seharusnya tidak terjadi');
+            throw new Error(
+              'Tidak ada field untuk kanban - seharusnya tidak terjadi',
+            );
           }
 
           const mainGroupByFieldMetadataId = availableFieldsForGrouping[0].id;

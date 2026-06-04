@@ -103,7 +103,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[2/6] Relasi: ${relationResult.createdRelations} relation baru`,
+      `[2/6] Relasi: ${relationResult.createdRelations} relation baru, ${relationResult.failedRelations} gagal`,
     );
 
     let insertedRecords: number;

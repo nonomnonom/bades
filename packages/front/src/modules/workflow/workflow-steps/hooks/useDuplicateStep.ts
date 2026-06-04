@@ -41,7 +41,7 @@ export const useDuplicateStep = () => {
       const createdStepDiff = stepsDiff?.find((diff) => diff.type === 'CREATE');
 
       if (!isDefined(createdStepDiff)) {
-        throw new Error("Tidak dapat menggandakan langkah");
+        throw new Error('Tidak dapat menggandakan langkah');
       }
 
       setWorkflowSelectedNode(createdStepDiff.value.id);

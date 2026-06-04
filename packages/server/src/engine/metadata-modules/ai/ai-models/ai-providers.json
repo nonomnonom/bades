@@ -6,15 +6,17 @@
     "baseUrl": "https://openrouter.ai/api/v1",
     "models": [
       {
-        "name": "deepseek/deepseek-v4-flash",
-        "label": "Bades AI",
+        "name": "tencent/hy3-preview",
+        "label": "Bades AI (Tencent Hy3 Preview)",
+        "description": "Tencent Hy3 preview — 295B MoE, 21B aktif, 256K context. Single model operasional Bades.",
         "modelFamily": "GPT",
         "inputCostPerMillionTokens": 0,
         "outputCostPerMillionTokens": 0,
         "cachedInputCostPerMillionTokens": 0,
-        "contextWindowTokens": 128000,
+        "contextWindowTokens": 256000,
         "maxOutputTokens": 32000,
-        "modalities": []
+        "modalities": [],
+        "supportsReasoning": true
       }
     ]
   }

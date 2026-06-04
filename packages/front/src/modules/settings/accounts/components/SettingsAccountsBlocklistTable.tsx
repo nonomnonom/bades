@@ -29,13 +29,13 @@ export const SettingsAccountsBlocklistTable = ({
       {blocklist.length > 0 && (
         <StyledTableContainer>
           <Table>
-             <TableRow
-               gridAutoColumns="200px 1fr 20px"
-               mobileGridAutoColumns="120px 1fr 20px"
-             >
-               <TableHeader>Email/Domain</TableHeader>
-               <TableHeader>Ditambahkan ke daftar blokir</TableHeader>
-               <TableHeader></TableHeader>
+            <TableRow
+              gridAutoColumns="200px 1fr 20px"
+              mobileGridAutoColumns="120px 1fr 20px"
+            >
+              <TableHeader>Email/Domain</TableHeader>
+              <TableHeader>Ditambahkan ke daftar blokir</TableHeader>
+              <TableHeader></TableHeader>
             </TableRow>
             <StyledTableBodyContainer>
               <TableBody>

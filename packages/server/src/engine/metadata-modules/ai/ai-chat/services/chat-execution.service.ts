@@ -160,6 +160,10 @@ export class ChatExecutionService {
       registeredModel.modelId,
     );
 
+    this.logger.log(
+      `Starting chat execution model=${registeredModel.modelId} workspace=${workspace.id} messages=${messages.length}`,
+    );
+
     const nativeModelTools = this.nativeToolBinder.bind(registeredModel, {
       webSearchEnabled: true,
     });

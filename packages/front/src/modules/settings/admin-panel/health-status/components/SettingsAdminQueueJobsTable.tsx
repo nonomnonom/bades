@@ -82,15 +82,15 @@ export const SettingsAdminQueueJobsTable = ({
   const [selectedJobIds, setSelectedJobIds] = useState<Set<string>>(new Set());
   const { openModal } = useModal();
 
-   const jobStateOptions: { value: JobState; label: string }[] = [
-     { value: JobState.COMPLETED, label: "Selesai" },
-     { value: JobState.FAILED, label: "Gagal" },
-     { value: JobState.ACTIVE, label: "Aktif" },
-     { value: JobState.WAITING, label: "Menunggu" },
-     { value: JobState.DELAYED, label: "Ditunda" },
-     { value: JobState.PRIORITIZED, label: "Diprioritaskan" },
-     { value: JobState.WAITING_CHILDREN, label: "Menunggu Anak" },
-   ];
+  const jobStateOptions: { value: JobState; label: string }[] = [
+    { value: JobState.COMPLETED, label: 'Selesai' },
+    { value: JobState.FAILED, label: 'Gagal' },
+    { value: JobState.ACTIVE, label: 'Aktif' },
+    { value: JobState.WAITING, label: 'Menunggu' },
+    { value: JobState.DELAYED, label: 'Ditunda' },
+    { value: JobState.PRIORITIZED, label: 'Diprioritaskan' },
+    { value: JobState.WAITING_CHILDREN, label: 'Menunggu Anak' },
+  ];
 
   const offset = page * LIMIT;
 
@@ -219,26 +219,26 @@ export const SettingsAdminQueueJobsTable = ({
         />
         <StyledButtonGroup>
           {selectedCount > 0 && (
-           <Button
-             Icon={IconTrash}
-             title={`Hapus ${selectedCount} Pekerjaan`}
-             onClick={handleDeleteSelected}
-             disabled={isDeleting || loading}
-             size="small"
-             variant="secondary"
-             accent="danger"
-           />
+            <Button
+              Icon={IconTrash}
+              title={`Hapus ${selectedCount} Pekerjaan`}
+              onClick={handleDeleteSelected}
+              disabled={isDeleting || loading}
+              size="small"
+              variant="secondary"
+              accent="danger"
+            />
           )}
-           {allSelectedAreFailed && (
-             <Button
-               Icon={IconRefresh}
-               title={`Coba Ulang ${selectedCount} Pekerjaan`}
-               onClick={handleRetrySelected}
-               disabled={isRetrying || loading}
-               size="small"
-               variant="secondary"
-             />
-           )}
+          {allSelectedAreFailed && (
+            <Button
+              Icon={IconRefresh}
+              title={`Coba Ulang ${selectedCount} Pekerjaan`}
+              onClick={handleRetrySelected}
+              disabled={isRetrying || loading}
+              size="small"
+              variant="secondary"
+            />
+          )}
           {failedJobs.length > 0 && selectedCount === 0 && (
             <Button
               Icon={IconRefresh}
@@ -252,11 +252,15 @@ export const SettingsAdminQueueJobsTable = ({
         </StyledButtonGroup>
       </StyledControlsContainer>
 
-       {loading && jobs.length === 0 ? (
-         <SettingsEmptyPlaceholder>{"Memuat pekerjaan..."}</SettingsEmptyPlaceholder>
-       ) : jobs.length === 0 ? (
-         <SettingsEmptyPlaceholder>{"Tidak ada pekerjaan"}</SettingsEmptyPlaceholder>
-       ) : (
+      {loading && jobs.length === 0 ? (
+        <SettingsEmptyPlaceholder>
+          {'Memuat pekerjaan...'}
+        </SettingsEmptyPlaceholder>
+      ) : jobs.length === 0 ? (
+        <SettingsEmptyPlaceholder>
+          {'Tidak ada pekerjaan'}
+        </SettingsEmptyPlaceholder>
+      ) : (
         <>
           <Table>
             <TableRow gridAutoColumns="32px 2fr 1fr 2fr 32px">
@@ -272,9 +276,9 @@ export const SettingsAdminQueueJobsTable = ({
                   />
                 )}
               </TableHeader>
-             <TableHeader>Nama Pekerjaan</TableHeader>
-             <TableHeader>Status</TableHeader>
-             <TableHeader align="right">Waktu</TableHeader>
+              <TableHeader>Nama Pekerjaan</TableHeader>
+              <TableHeader>Status</TableHeader>
+              <TableHeader align="right">Waktu</TableHeader>
               <TableHeader></TableHeader>
             </TableRow>
             <TableBody>

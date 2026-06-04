@@ -47,21 +47,21 @@ bunx nx build front
 
 ### 1.3 Build Optimization Strategies
 
-| Strategy | Description |
-|----------|-------------|
-| **Topological Sort** | `dependsOn: ["^build"]` memastikan dependencies build duluan |
-| **Nx Cache** | Build artifacts di-cache per project |
-| **Production Input** | Build tidak recalculate saat test/storybook files berubah |
+| Strategy                | Description                                                     |
+| ----------------------- | --------------------------------------------------------------- |
+| **Topological Sort**    | `dependsOn: ["^build"]` memastikan dependencies build duluan    |
+| **Nx Cache**            | Build artifacts di-cache per project                            |
+| **Production Input**    | Build tidak recalculate saat test/storybook files berubah       |
 | **Memory Optimization** | `NODE_OPTIONS="--max-old-space-size=8192"` untuk frontend build |
 
 ### 1.4 Build Artifacts
 
-| Package | Output Location | Special Handling |
-|---------|----------------|-----------------|
+| Package  | Output Location         | Special Handling                                 |
+| -------- | ----------------------- | ------------------------------------------------ |
 | `server` | `packages/server/dist/` | Copy client-sdk, seed-dependencies, seed-project |
-| `front` | `packages/front/build/` | Pre-built support dari host |
-| `shared` | `packages/shared/dist/` | 40+ sub-entry points via barrel generation |
-| `ui` | `packages/ui/dist/` | 20+ sub-entry points via barrel generation |
+| `front`  | `packages/front/build/` | Pre-built support dari host                      |
+| `shared` | `packages/shared/dist/` | 40+ sub-entry points via barrel generation       |
+| `ui`     | `packages/ui/dist/`     | 20+ sub-entry points via barrel generation       |
 
 ---
 
@@ -105,13 +105,13 @@ bunx nx build front
 
 ### 2.2 Build Targets
 
-| Target | Use Case | Size | Includes |
-|--------|----------|------|----------|
-| `bades-server` | API-only deployment | Small | NestJS backend |
-| `bades-server-aws` | AWS-integrated deployment | Medium | + AWS CLI |
-| `bades-front-dev` | Local development | Large | Hot-reload enabled |
-| `bades` | **Standard production** | Medium | Server + Frontend |
-| `bades-aws` | Full AWS deployment | Large | + AWS CLI |
+| Target             | Use Case                  | Size   | Includes           |
+| ------------------ | ------------------------- | ------ | ------------------ |
+| `bades-server`     | API-only deployment       | Small  | NestJS backend     |
+| `bades-server-aws` | AWS-integrated deployment | Medium | + AWS CLI          |
+| `bades-front-dev`  | Local development         | Large  | Hot-reload enabled |
+| `bades`            | **Standard production**   | Medium | Server + Frontend  |
+| `bades-aws`        | Full AWS deployment       | Large  | + AWS CLI          |
 
 ### 2.3 Docker Compose Services
 
@@ -139,16 +139,16 @@ bunx nx build front
 
 ### 2.4 Environment Variables
 
-| Category | Variables |
-|----------|-----------|
-| **Database** | `PG_DATABASE_URL` |
-| **Redis** | `REDIS_URL` |
-| **Server** | `NODE_PORT`, `SERVER_URL` |
-| **Storage** | `STORAGE_TYPE`, `STORAGE_S3_*` |
-| **Encryption** | `ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY` |
-| **AI** | `OPENROUTER_API_KEY`, `AI_MODEL_PREFERENCES` |
+| Category         | Variables                                                                     |
+| ---------------- | ----------------------------------------------------------------------------- |
+| **Database**     | `PG_DATABASE_URL`                                                             |
+| **Redis**        | `REDIS_URL`                                                                   |
+| **Server**       | `NODE_PORT`, `SERVER_URL`                                                     |
+| **Storage**      | `STORAGE_TYPE`, `STORAGE_S3_*`                                                |
+| **Encryption**   | `ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`                                   |
+| **AI**           | `OPENROUTER_API_KEY`, `AI_MODEL_PREFERENCES`                                  |
 | **Multi-tenant** | `IS_MULTIWORKSPACE_ENABLED`, `IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS` |
-| **Frontend** | `FRONTEND_URL`, `DEFAULT_SUBDOMAIN` |
+| **Frontend**     | `FRONTEND_URL`, `DEFAULT_SUBDOMAIN`                                           |
 
 ### 2.5 Security Hardening
 
@@ -221,18 +221,19 @@ packages/
 ```
 
 **Benefits:**
+
 - Build cache tidak invalid saat test files berubah
 - Storybook changes tidak trigger rebuild
 - Mock files bukan validasi build
 
 ### 3.4 Cache Locations
 
-| Cache Type | Location |
-|------------|----------|
-| Build | `{projectRoot}/dist` |
-| Jest | `../../.cache/jest/{projectRoot}` |
-| Prettier | `../../.cache/prettier/{projectRoot}` |
-| oxlint | `oxlint-rules:build` output |
+| Cache Type | Location                              |
+| ---------- | ------------------------------------- |
+| Build      | `{projectRoot}/dist`                  |
+| Jest       | `../../.cache/jest/{projectRoot}`     |
+| Prettier   | `../../.cache/prettier/{projectRoot}` |
+| oxlint     | `oxlint-rules:build` output           |
 
 ---
 
@@ -284,13 +285,13 @@ packages/
 
 ### 4.2 Quality Gates
 
-| Gate | Tool | Timeout | Description |
-|------|------|---------|-------------|
-| 1 | **Build** | 20m | Compile semua packages |
-| 2 | **Lint** | 15m | oxlint + prettier check |
-| 3 | **Typecheck** | 15m | TypeScript strict mode |
-| 4 | **Unit Tests** | 20m | Jest dengan coverage |
-| 5 | **Integration** | 45m | Full stack + DB reset |
+| Gate | Tool            | Timeout | Description             |
+| ---- | --------------- | ------- | ----------------------- |
+| 1    | **Build**       | 20m     | Compile semua packages  |
+| 2    | **Lint**        | 15m     | oxlint + prettier check |
+| 3    | **Typecheck**   | 15m     | TypeScript strict mode  |
+| 4    | **Unit Tests**  | 20m     | Jest dengan coverage    |
+| 5    | **Integration** | 45m     | Full stack + DB reset   |
 
 ### 4.3 Docker Image Build
 
@@ -307,20 +308,20 @@ docker build --target bades -f Dockerfile -t my-registry/bades:custom-tag .
 
 ### 4.4 GitHub Actions Cache
 
-| Cache Type | Backend | Mode |
-|------------|---------|------|
-| Docker layers | `type=gha` | `mode=max` (semua layers) |
-| Nx build | GitHub Actions cache | Per project |
-| Jest | Directory cache | Per project |
-| Prettier | File cache | Metadata-based |
+| Cache Type    | Backend              | Mode                      |
+| ------------- | -------------------- | ------------------------- |
+| Docker layers | `type=gha`           | `mode=max` (semua layers) |
+| Nx build      | GitHub Actions cache | Per project               |
+| Jest          | Directory cache      | Per project               |
+| Prettier      | File cache           | Metadata-based            |
 
 ### 4.5 Image Tags
 
-| Trigger | Tag | Example |
-|---------|-----|---------|
-| Default branch | `latest` | `ghcr.io/nonomnonom/bades:latest` |
-| Tag push | `v*.*.*` | `ghcr.io/nonomnonom/bades:v1.2.3` |
-| Commit SHA | `sha-{short}` | `ghcr.io/nonomnonom/bades:sha-abc1234` |
+| Trigger        | Tag           | Example                                |
+| -------------- | ------------- | -------------------------------------- |
+| Default branch | `latest`      | `ghcr.io/nonomnonom/bades:latest`      |
+| Tag push       | `v*.*.*`      | `ghcr.io/nonomnonom/bades:v1.2.3`      |
+| Commit SHA     | `sha-{short}` | `ghcr.io/nonomnonom/bades:sha-abc1234` |
 
 ---
 
@@ -337,8 +338,8 @@ cd bades
 bun install
 
 # 3. Setup environment
-bunx nx reset:env server
-bunx nx reset:env front
+# Salin .env.example ke .env dan isi variabel yang diperlukan
+cp packages/server/.env.example packages/server/.env
 
 # 4. Start development
 bun start              # Start semua (frontend + backend + worker)
@@ -527,7 +528,7 @@ Nx `dependsOn: ["^build"]` secara otomatis menghitung urutan ini.
 
 - oxlint adalah custom lint plugin yang di-build sebagai Nx plugin
 - Tidak di-import sebagai library biasa
--butuh build terlebih dahulu sebelum lint job bisa run
+  -butuh build terlebih dahulu sebelum lint job bisa run
 
 ### 7.5 Mengapa ClickHouse?
 
@@ -604,14 +605,14 @@ DEFAULT_SUBDOMAIN=app
 
 ### 8.3 Ports
 
-| Service | Port | Description |
-|---------|------|-------------|
-| server | 3000 | Main API server |
-| postgres | 5432 | PostgreSQL database |
-| redis | 6379 | Redis cache |
+| Service    | Port       | Description                |
+| ---------- | ---------- | -------------------------- |
+| server     | 3000       | Main API server            |
+| postgres   | 5432       | PostgreSQL database        |
+| redis      | 6379       | Redis cache                |
 | clickhouse | 8123, 9000 | ClickHouse (HTTP + Native) |
-| storybook | 6006, 6007 | Storybook instances |
+| storybook  | 6006, 6007 | Storybook instances        |
 
 ---
 
-*Dokumentasi ini di-generate secara otomatis dari analisis codebase. Untuk update terbaru,jalankan ulang analisis dengan team agent.*
+_Dokumentasi ini di-generate secara otomatis dari analisis codebase. Untuk update terbaru,jalankan ulang analisis dengan team agent._

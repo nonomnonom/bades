@@ -71,16 +71,14 @@ export const SettingsDnsRecordsTable = ({
     <Table>
       <StyledTableRowContainer>
         <TableRow gridAutoColumns={gridAutoColumns}>
-           <TableHeader align="center">Tipe</TableHeader>
-           <TableHeader align="center">Kunci</TableHeader>
-           <TableHeader align="center">Nilai</TableHeader>
-           {hasPriorityRecords && (
-             <TableHeader align="center">Prioritas</TableHeader>
-           )}
-           {hasTtlRecords && <TableHeader align="center">'TTL'</TableHeader>}
-           {hasStatusRecords && (
-             <TableHeader align="center">Status</TableHeader>
-           )}
+          <TableHeader align="center">Tipe</TableHeader>
+          <TableHeader align="center">Kunci</TableHeader>
+          <TableHeader align="center">Nilai</TableHeader>
+          {hasPriorityRecords && (
+            <TableHeader align="center">Prioritas</TableHeader>
+          )}
+          {hasTtlRecords && <TableHeader align="center">'TTL'</TableHeader>}
+          {hasStatusRecords && <TableHeader align="center">Status</TableHeader>}
         </TableRow>
       </StyledTableRowContainer>
 

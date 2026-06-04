@@ -50,12 +50,18 @@ export class StreamAgentChatJob {
 
   @Process(STREAM_AGENT_CHAT_JOB_NAME)
   async handle(data: StreamAgentChatJobData): Promise<void> {
+    this.logger.log(
+      `Stream job start threadId=${data.threadId} streamId=${data.streamId} workspaceId=${data.workspaceId} modelId=${data.modelId ?? 'default'} messages=${data.messages.length}`,
+    );
+
     const workspace = await this.workspaceRepository.findOne({
       where: { id: data.workspaceId },
     });
 
     if (!workspace) {
-      this.logger.error(`Workspace ${data.workspaceId} not found`);
+      this.logger.error(
+        `Workspace ${data.workspaceId} not found (threadId=${data.threadId} streamId=${data.streamId})`,
+      );
       await this.eventPublisherService.publish({
         threadId: data.threadId,
         workspaceId: data.workspaceId,
@@ -80,7 +86,10 @@ export class StreamAgentChatJob {
       await this.executeStream(data, workspace, abortController.signal);
     } catch (error) {
       this.logger.error(
-        `Stream ${data.streamId} failed: ${error instanceof Error ? error.message : String(error)}`,
+        `Stream ${data.streamId} failed threadId=${data.threadId} workspaceId=${data.workspaceId} modelId=${data.modelId ?? 'default'}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+        error instanceof Error ? error.stack : undefined,
       );
       await this.eventPublisherService
         .publish({

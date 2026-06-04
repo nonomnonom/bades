@@ -146,19 +146,27 @@ describe('SearchService', () => {
         imageIdentifierFieldMetadataId: fotoFieldId,
         fieldIds: [...mockFlatObjectMetadatas[0].fieldIds, fotoFieldId],
       };
+      const baseFotoField = mockFlatFieldMetadataMaps.byUniversalIdentifier[
+        'person-name-field-universal-id'
+      ] as (typeof mockFlatFieldMetadataMaps.byUniversalIdentifier)[string];
+
       const fieldMapsWithFoto: typeof mockFlatFieldMetadataMaps = {
         ...mockFlatFieldMetadataMaps,
         byUniversalIdentifier: {
           ...mockFlatFieldMetadataMaps.byUniversalIdentifier,
           'penduduk-foto-field-universal-id': {
-            ...(mockFlatFieldMetadataMaps.byUniversalIdentifier[
-              'person-name-field-universal-id'
-            ] as (typeof mockFlatFieldMetadataMaps.byUniversalIdentifier)[string]),
+            ...baseFotoField,
             id: fotoFieldId,
             name: 'foto',
             type: FieldMetadataType.LINKS,
             universalIdentifier: 'penduduk-foto-field-universal-id',
-          },
+            // `description` dan `label` dideklarasikan opsional di tipe partial
+            // mock, tetapi `FlatFieldMetadata` mengharuskannya eksplisit
+            // (non-undefined). Pemeran ke `typeof baseFotoField` di bawah
+            // memastikan nullability sesuai dengan tipe field metadata.
+            description: baseFotoField!.description ?? null,
+            label: baseFotoField!.label ?? 'Foto',
+          } as (typeof mockFlatFieldMetadataMaps.byUniversalIdentifier)[string],
         },
         universalIdentifierById: {
           ...mockFlatFieldMetadataMaps.universalIdentifierById,

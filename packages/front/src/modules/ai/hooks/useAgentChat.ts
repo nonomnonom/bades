@@ -203,6 +203,15 @@ export const useAgentChat = (
           : new Error('An unexpected error occurred'),
       );
 
+      if (CombinedGraphQLErrors.is(error)) {
+        enqueueErrorSnackBar({ apolloError: error });
+      } else {
+        enqueueErrorSnackBar({
+          message:
+            error instanceof Error ? error.message : 'Gagal mengirim pesan AI',
+        });
+      }
+
       dispatchBrowserEvent(AGENT_CHAT_RESTORE_EDITOR_CONTENT_EVENT_NAME, {
         content: contentToSend,
       });

@@ -88,7 +88,7 @@ Semua artefak Docker tinggal di root repo: `Dockerfile`,
 make prod-build
 
 # Run stack lengkap (server + worker + db + redis)
-cp .env.example .env  # isi APP_SECRET, ENCRYPTION_KEY, dll
+cp packages/server/.env.example packages/server/.env  # isi APP_SECRET, ENCRYPTION_KEY, dll
 docker compose up -d
 
 # Cek health
@@ -107,9 +107,8 @@ bun start
 ### Production deploy
 
 Workflow `.github/workflows/build-image.yaml` build satu image dan push ke
-GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakai oleh service
-`server` (server + frontend) dan service `worker` (override command jadi
-`bun run worker:prod`). Pola: satu image runtime + Postgres + Redis. Cocok
+GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakaioleh service `server` (server + frontend) dan service `worker` (override command jadi
+`node dist/src/queue-worker/queue-worker`). Pola: satu image runtime + Postgres + Redis. Cocok
 untuk platform managed (Railway, Render) maupun host Docker mandiri.
 
 Repo ini tidak memaketkan workflow deploy ke server tertentu; operator

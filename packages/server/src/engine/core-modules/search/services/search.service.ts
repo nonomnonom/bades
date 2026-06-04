@@ -623,14 +623,15 @@ export class SearchService {
       : undefined;
 
     if (imageIdentifierField?.type === FieldMetadataType.LINKS) {
-      const fileId = extractFileIdFromUrl(
-        rawImageValue,
-        FileFolder.FilesField,
-      );
+      const fileId = extractFileIdFromUrl(rawImageValue, FileFolder.FilesField);
       if (!isDefined(fileId)) {
         return rawImageValue;
       }
-      return this.getImageUrlWithToken(fileId, FileFolder.FilesField, workspaceId);
+      return this.getImageUrlWithToken(
+        fileId,
+        FileFolder.FilesField,
+        workspaceId,
+      );
     }
 
     return this.getImageUrlWithToken(

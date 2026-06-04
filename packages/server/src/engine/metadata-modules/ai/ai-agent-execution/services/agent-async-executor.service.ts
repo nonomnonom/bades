@@ -153,6 +153,17 @@ export class AgentAsyncExecutorService {
         this.aiModelRegistryService.validateModelAvailability(agent.modelId);
       }
 
+      // Workflow agent path belum punya guard "no model available" di layer
+      // resolver (lihat AgentChatResolver.sendChatMessage). Lempar eksplisit
+      // di sini agar workflow tidak diam-diam hang ketika provider tidak
+      // dikonfigurasi.
+      if (this.aiModelRegistryService.getAvailableModels().length === 0) {
+        throw new AiException(
+          'No AI models are available. Configure at least one AI provider.',
+          AiExceptionCode.API_KEY_NOT_CONFIGURED,
+        );
+      }
+
       const registeredModel =
         await this.aiModelRegistryService.resolveModelForAgent(agent);
 
@@ -212,7 +223,9 @@ export class AgentAsyncExecutorService {
         );
       }
 
-      this.logger.log(`Generated ${Object.keys(tools).length} tools for agent`);
+      this.logger.log(
+        `Executing agent model=${registeredModel.modelId} workspaceId=${workspaceId} agentId=${agent?.id ?? 'null'} tools=${Object.keys(tools).length}`,
+      );
 
       let hasNoMoreAvailableCredits = false;
 
