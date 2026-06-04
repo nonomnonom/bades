@@ -151,6 +151,17 @@ export class WorkflowCronTriggerCronJob {
     try {
       const schemaName = getWorkspaceSchemaName(workspaceId);
 
+      const workflowAutomatedTriggerTableExists =
+        await this.doesWorkflowAutomatedTriggerTableExist(schemaName);
+
+      if (!workflowAutomatedTriggerTableExists) {
+        this.logger.warn(
+          `Workspace ${workspaceId}: tabel workflowAutomatedTrigger belum ada, skip scan cron trigger`,
+        );
+
+        return [];
+      }
+
       const workflowAutomatedCronTriggers = await this.coreDataSource.query(
         `SELECT * FROM ${schemaName}."workflowAutomatedTrigger" WHERE type = '${AutomatedTriggerType.CRON}'`,
       );
@@ -209,5 +220,19 @@ export class WorkflowCronTriggerCronJob {
 
       return [];
     }
+  }
+
+  private async doesWorkflowAutomatedTriggerTableExist(
+    schemaName: string,
+  ): Promise<boolean> {
+    const result = await this.coreDataSource.query<Array<{ exists: boolean }>>(
+      `SELECT EXISTS (
+        SELECT 1 FROM information_schema.tables
+        WHERE table_schema = $1 AND table_name = 'workflowAutomatedTrigger'
+      ) as "exists"`,
+      [schemaName],
+    );
+
+    return result[0]?.exists === true;
   }
 }

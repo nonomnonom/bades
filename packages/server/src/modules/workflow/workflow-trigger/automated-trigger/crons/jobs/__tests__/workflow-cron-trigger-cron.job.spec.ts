@@ -167,12 +167,18 @@ describe('WorkflowCronTriggerCronJob', () => {
         { id: WORKSPACE_2 },
         { id: WORKSPACE_3 },
       ]);
-      mockCoreDataSource.query.mockResolvedValue([]);
+      mockCoreDataSource.query
+        .mockResolvedValueOnce([{ exists: true }])
+        .mockResolvedValueOnce([])
+        .mockResolvedValueOnce([{ exists: true }])
+        .mockResolvedValueOnce([])
+        .mockResolvedValueOnce([{ exists: true }])
+        .mockResolvedValueOnce([]);
 
       await job.handle();
 
       expect(mockWorkspaceRepository.find).toHaveBeenCalled();
-      expect(mockCoreDataSource.query).toHaveBeenCalledTimes(3);
+      expect(mockCoreDataSource.query).toHaveBeenCalledTimes(6);
     });
 
     it('should write each trigger to cache immediately and set TTL', async () => {
@@ -184,6 +190,7 @@ describe('WorkflowCronTriggerCronJob', () => {
       ]);
 
       mockCoreDataSource.query
+        .mockResolvedValueOnce([{ exists: true }])
         .mockResolvedValueOnce([
           {
             id: 'trigger-1',
@@ -191,7 +198,9 @@ describe('WorkflowCronTriggerCronJob', () => {
             settings: { pattern: '* * * * *' },
           },
         ])
+        .mockResolvedValueOnce([{ exists: true }])
         .mockResolvedValueOnce([])
+        .mockResolvedValueOnce([{ exists: true }])
         .mockResolvedValueOnce([
           {
             id: 'trigger-2',
@@ -230,12 +239,28 @@ describe('WorkflowCronTriggerCronJob', () => {
     it('should not write to cache when no workspaces have cron triggers', async () => {
       mockCacheStorageService.hashGetValues.mockResolvedValue([]);
       mockWorkspaceRepository.find.mockResolvedValue([{ id: WORKSPACE_1 }]);
-      mockCoreDataSource.query.mockResolvedValue([]);
+      mockCoreDataSource.query
+        .mockResolvedValueOnce([{ exists: true }])
+        .mockResolvedValueOnce([]);
 
       await job.handle();
 
       expect(mockCacheStorageService.hashSet).not.toHaveBeenCalled();
       expect(mockCacheStorageService.expire).not.toHaveBeenCalled();
+    });
+
+    it('should skip workspaces without workflowAutomatedTrigger table', async () => {
+      mockCacheStorageService.hashGetValues.mockResolvedValue([]);
+      mockWorkspaceRepository.find.mockResolvedValue([{ id: WORKSPACE_1 }]);
+      mockCoreDataSource.query.mockResolvedValueOnce([{ exists: false }]);
+
+      await job.handle();
+
+      expect(mockCoreDataSource.query).toHaveBeenCalledTimes(1);
+      expect(mockMessageQueueService.add).not.toHaveBeenCalled();
+      expect(
+        mockExceptionHandlerService.captureExceptions,
+      ).not.toHaveBeenCalled();
     });
   });
 
@@ -273,7 +298,9 @@ describe('WorkflowCronTriggerCronJob', () => {
         { id: WORKSPACE_2 },
       ]);
       mockCoreDataSource.query
+        .mockResolvedValueOnce([{ exists: true }])
         .mockRejectedValueOnce(new Error('Schema not found'))
+        .mockResolvedValueOnce([{ exists: true }])
         .mockResolvedValueOnce([
           {
             id: 'trigger-1',
