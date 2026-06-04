@@ -241,11 +241,12 @@ export class AgentChatService {
       },
     });
 
+    // Kembalikan array kosong jika thread tidak ditemukan — konsisten
+    // dengan resolver chatThread (singular) yang return null.
+    // Tanpa ini, frontend yang query chatMessages dengan stale threadId
+    // (mis. setelah restart server) akan mendapat ERROR log dan snackbar.
     if (!thread) {
-      throw new AiException(
-        'Thread not found',
-        AiExceptionCode.THREAD_NOT_FOUND,
-      );
+      return [];
     }
 
     return this.messageRepository.find({
