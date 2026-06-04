@@ -76,7 +76,7 @@ export const RecordTableHeaderFirstScrollableCell = () => {
 
   const isResizingAnyColumn = isDefined(resizedFieldMetadataId);
 
-  if (!recordField) {
+  if (!isDefined(recordField)) {
     return <></>;
   }
 

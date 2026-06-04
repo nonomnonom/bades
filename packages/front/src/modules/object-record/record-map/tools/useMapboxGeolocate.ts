@@ -41,6 +41,7 @@ export const useMapboxGeolocate = (
     onError,
   } = options;
 
+  // oxlint-disable-next-line bades/no-state-useref
   const controlRef = useRef<mapboxgl.GeolocateControl | null>(null);
 
   useEffect(() => {

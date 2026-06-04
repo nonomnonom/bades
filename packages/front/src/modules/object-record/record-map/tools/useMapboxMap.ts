@@ -67,14 +67,20 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
   } = options;
 
   // Pakai ref untuk map instance — map object tidak perlu trigger re-render.
+  // oxlint-disable-next-line bades/no-state-useref
   const mapRef = useRef<mapboxgl.Map | null>(null);
   // Simpan callback refs agar effect init tidak perlu re-run ketika
   // callback berubah identitas. Mengikuti pattern `useEffectEvent` agar
   // callback bisa di-pass inline tanpa menambah dep.
+  // oxlint-disable-next-line bades/no-state-useref
   const onLoadRef = useRef(onLoad);
+  // oxlint-disable-next-line bades/no-state-useref
   const onErrorRef = useRef(onError);
+  // oxlint-disable-next-line bades/no-state-useref
   const onMoveEndRef = useRef(onMoveEnd);
+  // oxlint-disable-next-line bades/no-state-useref
   const onBeforeUnmountRef = useRef(onBeforeUnmount);
+  // oxlint-disable-next-line bades/no-state-useref
   const moveEndTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // State `isReady` adalah pengecualian — dipakai untuk render conditional.

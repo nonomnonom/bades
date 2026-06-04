@@ -49,11 +49,13 @@ export const useMapboxSource = <TData>(
   } = options;
 
   // Pakai ref untuk callback agar update data tidak trigger re-add source.
+  // oxlint-disable-next-line bades/no-state-useref
   const onSourceReadyRef = useRef(onSourceReady);
   onSourceReadyRef.current = onSourceReady;
 
   // Track apakah source sudah pernah di-add (sehingga kita tahu apakah
   // perlu addSource atau cukup setData).
+  // oxlint-disable-next-line bades/no-state-useref
   const isSourceAddedRef = useRef(false);
 
   // Tambah source dan layer sekali saat map ready.
@@ -80,8 +82,9 @@ export const useMapboxSource = <TData>(
     return () => {
       // Hapus dependent layers dulu (Mapbox butuh urutan ini), baru source.
       const style = map.getStyle();
-      if (style?.layers) {
-        for (const layer of style.layers) {
+      const layers = style?.layers;
+      if (layers !== undefined) {
+        for (const layer of layers) {
           if ('source' in layer && layer.source === sourceId) {
             if (map.getLayer(layer.id)) {
               map.removeLayer(layer.id);

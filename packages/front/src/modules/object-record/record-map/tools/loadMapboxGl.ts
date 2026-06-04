@@ -1,3 +1,5 @@
+import type mapboxgl from 'mapbox-gl';
+
 // Lazy loader untuk mapbox-gl.
 //
 // Memuat mapbox-gl via dynamic `import()` agar chunk ~250KB tidak
@@ -15,7 +17,7 @@
 //   const mapboxgl = await loadMapboxGl();
 //   const map = new mapboxgl.Map({ ... });
 //
-export type MapboxGlNamespace = typeof import('mapbox-gl');
+export type MapboxGlNamespace = typeof mapboxgl;
 
 let cachedPromise: Promise<MapboxGlNamespace> | null = null;
 

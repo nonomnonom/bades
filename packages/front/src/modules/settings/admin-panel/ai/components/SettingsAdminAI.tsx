@@ -64,17 +64,17 @@ const StyledModelMeta = styled.div`
 
 const StyledStatusBadge = styled.span<{ isAvailable: boolean }>`
   align-items: center;
-  border-radius: 999px;
-  display: inline-flex;
-  font-size: ${themeCssVariables.font.size.xs};
-  font-weight: ${themeCssVariables.font.weight.medium};
-  padding: ${themeCssVariables.spacing[1]} ${themeCssVariables.spacing[2]};
   background-color: ${({ isAvailable }) =>
     isAvailable
       ? themeCssVariables.color.green10
       : themeCssVariables.color.red10};
+  border-radius: 999px;
   color: ${({ isAvailable }) =>
     isAvailable ? themeCssVariables.color.green : themeCssVariables.color.red};
+  display: inline-flex;
+  font-size: ${themeCssVariables.font.size.xs};
+  font-weight: ${themeCssVariables.font.weight.medium};
+  padding: ${themeCssVariables.spacing[1]} ${themeCssVariables.spacing[2]};
 `;
 
 export const SettingsAdminAI = () => {
@@ -138,7 +138,7 @@ export const SettingsAdminAI = () => {
               konteks 256K · max output 32K
             </StyledModelMeta>
           </StyledModelInfoBlock>
-          {singleModel && (
+          {singleModel !== undefined && (
             <StyledStatusBadge isAvailable={singleModel.isAvailable}>
               {singleModel.isAvailable
                 ? singleModel.isAdminEnabled

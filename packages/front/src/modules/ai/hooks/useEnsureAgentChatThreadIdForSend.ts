@@ -49,8 +49,11 @@ export const useEnsureAgentChatThreadIdForSend = (
     try {
       const result = await createChatThread();
       return result?.data?.createChatThread?.id ?? null;
-    } catch {
-      return null;
+    } catch (error) {
+      // Re-throw agar caller (useAgentChat) bisa menampilkan pesan error
+      // spesifik dari Apollo (mis. permission denied, network error) alih-
+      // alih hanya menampilkan pesan generik "gagal membuat thread".
+      throw error;
     } finally {
       setIsCreatingChatThread(false);
     }

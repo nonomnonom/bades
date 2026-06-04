@@ -29,6 +29,7 @@ COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
 COPY ./packages/emails/package.json /app/packages/emails/
 COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
 COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
+COPY ./packages/utils/package.json /app/packages/utils/
 COPY ./packages/server/package.json /app/packages/server/
 
 RUN bun install \
@@ -60,6 +61,7 @@ COPY ./packages/sdk/package.json /app/packages/sdk/
 COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
 COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
 COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
+COPY ./packages/utils/package.json /app/packages/utils/
 
 RUN bun install \
       --filter bades \

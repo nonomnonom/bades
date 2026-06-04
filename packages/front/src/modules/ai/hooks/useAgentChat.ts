@@ -77,9 +77,38 @@ export const useAgentChat = (
 
     const agentChatUploadedFiles = store.get(agentChatUploadedFilesState.atom);
 
-    const threadId = await ensureThreadIdForSend();
+    let threadId: string | null = null;
+
+    try {
+      threadId = await ensureThreadIdForSend();
+    } catch (error) {
+      // Pastikan input tidak hilang saat pembuatan thread gagal.
+      // Pesan error spesifik dari Apollo (mis. permission denied,
+      // network error) ditampilkan via snackbar.
+      if (CombinedGraphQLErrors.is(error)) {
+        enqueueErrorSnackBar({ apolloError: error });
+      } else {
+        enqueueErrorSnackBar({
+          message:
+            error instanceof Error
+              ? error.message
+              : 'Gagal membuat thread chat AI',
+        });
+      }
+
+      return;
+    }
 
     if (!isDefined(threadId)) {
+      // threadId null bisa terjadi jika createChatThread berhasil tapi
+      // response shape tidak memiliki field id (edge case). Tampilkan
+      // pesan generik untuk kasus ini — error spesifik dari Apollo
+      // sudah ditangkap di catch block di bawah.
+      enqueueErrorSnackBar({
+        message:
+          'Gagal membuat thread chat AI. Periksa koneksi dan izin akses AI.',
+      });
+
       return;
     }
 

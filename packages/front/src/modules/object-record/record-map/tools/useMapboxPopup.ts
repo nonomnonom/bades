@@ -1,3 +1,4 @@
+import type mapboxgl from 'mapbox-gl';
 import { useCallback, useEffect, useRef } from 'react';
 
 import { loadMapboxGl } from './loadMapboxGl';
@@ -32,8 +33,10 @@ export const useMapboxPopup = (
   options: UseMapboxPopupOptions,
 ): UseMapboxPopupResult => {
   const { map, offset = 25, closeOnClick = true } = options;
+  // oxlint-disable-next-line bades/no-state-useref
   const popupRef = useRef<mapboxgl.Popup | null>(null);
-  const mapboxglRef = useRef<typeof import('mapbox-gl') | null>(null);
+  // oxlint-disable-next-line bades/no-state-useref
+  const mapboxglRef = useRef<typeof mapboxgl | null>(null);
 
   // Preload mapbox-gl saat map ready agar showPopup() synchronous.
   useEffect(() => {

@@ -1,3 +1,4 @@
+import type mapboxgl from 'mapbox-gl';
 import { styled } from '@linaria/react';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
@@ -15,7 +16,6 @@ import {
 import {
   getMapboxAccessToken,
   hasValidMapboxAccessToken,
-  warnIfMapboxTokenLooksInvalid,
 } from '@/object-record/record-map/utils/getMapboxAccessToken';
 
 const StyledMapContainer = styled.div`
@@ -104,6 +104,7 @@ const MOVE_END_THROTTLE_MS = 500;
 const CLUSTER_MAX_ZOOM = 14;
 const CLUSTER_RADIUS = 50;
 const CLUSTER_COLOR = themeCssVariables.color.blue;
+const CLUSTER_TEXT_COLOR = themeCssVariables.font.color.inverted;
 
 // Nama layer Mapbox yang digunakan untuk clustering.
 const SOURCE_ID = 'record-map-records';
@@ -370,8 +371,11 @@ export const RecordMap = () => {
     moveEndThrottleMs: MOVE_END_THROTTLE_MS,
     onLoad: (mapInstance) => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const mapboxgl = require('mapbox-gl') as typeof import('mapbox-gl');
-      mapInstance.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+      const mapboxglModule = require('mapbox-gl') as typeof mapboxgl;
+      mapInstance.addControl(
+        new mapboxglModule.NavigationControl(),
+        'bottom-right',
+      );
     },
     onMoveEnd: storeCurrentCenter,
   });
@@ -385,9 +389,6 @@ export const RecordMap = () => {
     clusterMaxZoom: CLUSTER_MAX_ZOOM,
     clusterRadius: CLUSTER_RADIUS,
     onSourceReady: (mapInstance) => {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const mapboxgl = require('mapbox-gl') as typeof import('mapbox-gl');
-
       // Layer lingkaran cluster — ukuran proporsional berdasarkan jumlah titik.
       mapInstance.addLayer({
         id: LAYER_CLUSTER_CIRCLE,
@@ -416,7 +417,7 @@ export const RecordMap = () => {
           'text-size': 12,
         },
         paint: {
-          'text-color': '#ffffff',
+          'text-color': CLUSTER_TEXT_COLOR,
           'text-halo-color': CLUSTER_COLOR,
           'text-halo-width': 1,
         },
@@ -446,8 +447,8 @@ export const RecordMap = () => {
 
       // Fit bounds ke data yang baru dimuat.
       // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const LngLatBounds =
-        mapboxgl.LngLatBounds as typeof mapboxgl.LngLatBounds;
+      const mapboxglModule = require('mapbox-gl') as typeof mapboxgl;
+      const LngLatBounds = mapboxglModule.LngLatBounds;
       const bounds = new LngLatBounds();
       geoJsonData.features.forEach((feature) => {
         const coords = (feature.geometry as GeoJSON.Point).coordinates;

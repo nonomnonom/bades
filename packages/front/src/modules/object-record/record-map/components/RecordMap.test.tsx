@@ -7,7 +7,6 @@ import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states
 import {
   getMapboxAccessToken,
   hasValidMapboxAccessToken,
-  warnIfMapboxTokenLooksInvalid,
 } from '@/object-record/record-map/utils/getMapboxAccessToken';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 
@@ -20,14 +19,11 @@ jest.mock('mapbox-gl');
 jest.mock('@/object-record/record-map/utils/getMapboxAccessToken', () => ({
   getMapboxAccessToken: jest.fn(),
   hasValidMapboxAccessToken: jest.fn(),
-  warnIfMapboxTokenLooksInvalid: jest.fn(),
 }));
 
 const mockUseFindManyRecords = useFindManyRecords as jest.Mock;
 const mockGetMapboxAccessToken = getMapboxAccessToken as jest.Mock;
 const mockHasValidMapboxAccessToken = hasValidMapboxAccessToken as jest.Mock;
-const mockWarnIfMapboxTokenLooksInvalid =
-  warnIfMapboxTokenLooksInvalid as jest.Mock;
 
 const MOCK_LABEL_FIELD_ID = 'field-label-1';
 const MOCK_ADDRESS_FIELD_ID = 'field-address-1';
