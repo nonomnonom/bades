@@ -24,6 +24,11 @@ packages/*/.claude/
 **/**/.package-lock.json
 **/**/.yarn-lock.json
 
+# Nx graph artifacts
+graph.html
+graph.json
+static/
+
 .nx/installation
 .nx/cache
 .nx/workspace-data

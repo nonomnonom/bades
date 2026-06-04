@@ -49,20 +49,6 @@
         "open": true
       }
     },
-    "reset:env": {
-      "executor": "nx:run-commands",
-      "inputs": [
-        "{projectRoot}/.env.example"
-      ],
-      "outputs": [
-        "{projectRoot}/.env"
-      ],
-      "cache": true,
-      "options": {
-        "cwd": "{projectRoot}",
-        "command": "cp .env.example .env"
-      }
-    },
     "typecheck": {},
     "lint": {
       "executor": "nx:run-commands",

@@ -82,26 +82,6 @@
         "command": "rimraf dist && nest start --watch --debug"
       }
     },
-    "reset:env": {
-      "executor": "nx:run-commands",
-      "inputs": ["{projectRoot}/.env.example"],
-      "outputs": ["{projectRoot}/.env"],
-      "cache": true,
-      "options": {
-        "cwd": "{projectRoot}",
-        "command": "cp .env.example .env"
-      }
-    },
-    "reset:env:e2e-testing-server": {
-      "executor": "nx:run-commands",
-      "inputs": ["{projectRoot}/.env.e2e-testing-server"],
-      "outputs": ["{projectRoot}/.env"],
-      "cache": true,
-      "options": {
-        "cwd": "{projectRoot}",
-        "command": "cp .env.e2e-testing-server .env"
-      }
-    },
     "command": {
       "executor": "nx:run-commands",
       "dependsOn": ["build"],
@@ -123,28 +103,6 @@
       "options": {
         "cwd": "packages/server",
         "command": "nest start --watch --entryFile queue-worker/queue-worker"
-      }
-    },
-    "ts-node": {
-      "executor": "nx:run-commands",
-      "dependsOn": ["^build"],
-      "options": {
-        "cwd": "packages/server",
-        "command": "ts-node"
-      }
-    },
-    "ts-node-no-deps": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/server",
-        "command": "ts-node"
-      }
-    },
-    "ts-node-no-deps-transpile-only": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/server",
-        "command": "ts-node --transpile-only"
       }
     },
     "fmt": {
@@ -195,7 +153,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/server",
-        "command": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register ../../node_modules/.bin/jest --runInBand"
+        "command": "node --inspect-brk --import tsx/esm ../../node_modules/.bin/jest --runInBand"
       }
     },
     "jest": {
@@ -239,7 +197,7 @@
       "options": {
         "cwd": "packages/server",
         "commands": [
-          "nx ts-node-no-deps -- ./test/integration/graphql/codegen/index.ts"
+          "tsx ./test/integration/graphql/codegen/index.ts"
         ],
         "parallel": false
       }
@@ -274,14 +232,14 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/server",
-        "command": "nx ts-node-no-deps-transpile-only -- src/database/clickHouse/migrations/run-migrations.ts"
+        "command": "tsx src/database/clickHouse/migrations/run-migrations.ts"
       }
     },
     "clickhouse:seed": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/server",
-        "command": "nx ts-node-no-deps-transpile-only -- src/database/clickHouse/seeds/run-seeds.ts"
+        "command": "tsx src/database/clickHouse/seeds/run-seeds.ts"
       }
     },
     "version:bump": {

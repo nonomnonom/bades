@@ -27,7 +27,6 @@ COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/sdk/package.json /app/packages/sdk/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
 COPY ./packages/emails/package.json /app/packages/emails/
-COPY ./packages/utils/package.json /app/packages/utils/
 COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
 COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
 COPY ./packages/server/package.json /app/packages/server/
@@ -57,7 +56,6 @@ COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
 COPY ./packages/ui/package.json /app/packages/ui/
 COPY ./packages/front/package.json /app/packages/front/
-COPY ./packages/utils/package.json /app/packages/utils/
 COPY ./packages/sdk/package.json /app/packages/sdk/
 COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
 COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/

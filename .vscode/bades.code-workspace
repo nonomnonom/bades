@@ -33,10 +33,6 @@
       "path": "../packages/oxlint-rules"
     },
     {
-      "name": "packages/e2e-testing",
-      "path": "../packages/e2e-testing"
-    },
-    {
       "name": "packages/claude-skills",
       "path": "../packages/claude-skills"
     },
@@ -55,13 +51,16 @@
   ],
   "settings": {
     "editor.formatOnSave": false,
-    "files.eol": "auto",
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
     "[typescript]": {
       "editor.formatOnSave": true,
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.codeActionsOnSave": {
         "source.fixAll.oxc": "explicit",
-        "source.addMissingImports": "always"
+        "source.addMissingImports": "always",
+        "source.organizeImports": "always"
       }
     },
     "[javascript]": {
@@ -69,7 +68,8 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.codeActionsOnSave": {
         "source.fixAll.oxc": "explicit",
-        "source.addMissingImports": "always"
+        "source.addMissingImports": "always",
+        "source.organizeImports": "always"
       }
     },
     "[typescriptreact]": {
@@ -77,7 +77,8 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.codeActionsOnSave": {
         "source.fixAll.oxc": "explicit",
-        "source.addMissingImports": "always"
+        "source.addMissingImports": "always",
+        "source.organizeImports": "always"
       }
     },
     "[json]": {
@@ -97,12 +98,6 @@
       "badesid"
     ],
     "typescript.preferences.importModuleSpecifier": "non-relative",
-    "[javascript][typescript][typescriptreact]": {
-      "editor.codeActionsOnSave": {
-        "source.fixAll.oxc": "explicit",
-        "source.addMissingImports": "always"
-      }
-    },
     "search.exclude": {
       "**/.yarn": true
     },
@@ -113,8 +108,13 @@
     "jest.runMode": "on-demand",
     "jest.disabledWorkspaceFolders": [
       "ROOT",
-      "packages/utils",
-      "packages/postgres"
-    ]
+      "packages/utils"
+    ],
+    "files.associations": {
+      ".cursorrules": "markdown"
+    },
+    "jestrunner.codeLensSelector": "**/*.{test,spec,integration-spec}.{js,jsx,ts,tsx}",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.experimental.useTsgo": false
   }
 }

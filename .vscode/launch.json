@@ -43,17 +43,7 @@
       "console": "internalConsole",
       "cwd": "${workspaceFolder}/packages/server/"
     },
-    {
-      "name": "Playwright Test current file",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["nx", "test", "e2e-testing", "${file}"],
-      "console": "integratedTerminal",
-      "cwd": "${workspaceFolder}",
-      "internalConsoleOptions": "neverOpen",
-      "envFile": "${workspaceFolder}/packages/e2e-testing/.env"
-    },
+
     {
       "type": "node",
       "request": "launch",
