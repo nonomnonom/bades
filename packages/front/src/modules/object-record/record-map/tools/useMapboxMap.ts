@@ -66,6 +66,9 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
     onBeforeUnmount,
   } = options;
 
+  const centerLng = center[0];
+  const centerLat = center[1];
+
   // Pakai ref untuk map instance — map object tidak perlu trigger re-render.
   // oxlint-disable-next-line bades/no-state-useref
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -183,8 +186,8 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
     accessToken,
     style,
     moveEndThrottleMs,
-    center[0],
-    center[1],
+    centerLng,
+    centerLat,
     zoom,
   ]);
 

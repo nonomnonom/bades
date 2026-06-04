@@ -44,7 +44,6 @@
     "typeorm@0.3.20": "patches/typeorm+0.3.20.patch"
   },
   "trustedDependencies": [
-    "bcrypt",
     "@swc/core",
     "esbuild",
     "sharp",

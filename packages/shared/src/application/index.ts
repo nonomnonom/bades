@@ -28,19 +28,19 @@ export { NODE_ESM_CJS_BANNER } from './constants/NodeEsmCjsBanner';
 export { OUTPUT_DIR } from './constants/OutputDirectory';
 export { SyncableEntity } from './enums/syncable-entities.enum';
 export type {
+  FieldManifest,
   RegularFieldManifest,
   RelationFieldManifest,
-  FieldManifest,
 } from './fieldManifestType';
 export type {
   CommandMenuItemManifest,
   FrontComponentManifest,
 } from './frontComponentManifestType';
 export type {
-  LogicFunctionManifest,
   CronTriggerSettings,
   DatabaseEventTriggerSettings,
   HttpRouteTriggerSettings,
+  LogicFunctionManifest,
 } from './logicFunctionManifestType';
 export type { Manifest } from './manifestType';
 export type { NavigationMenuItemManifest } from './navigationMenuItemManifestType';
@@ -49,15 +49,15 @@ export type { OAuthProviderTokenRequestContentType } from './oauthProviderTokenR
 export type { ObjectFieldManifest } from './objectFieldManifest.type';
 export type { ObjectManifest } from './objectManifestType';
 export type {
-  PageLayoutWidgetManifest,
-  PageLayoutTabManifest,
   PageLayoutManifest,
+  PageLayoutTabManifest,
+  PageLayoutWidgetManifest,
 } from './pageLayoutManifestType';
 export type { PostInstallLogicFunctionApplicationManifest } from './postInstallLogicFunctionApplicationType';
 export type { PreInstallLogicFunctionApplicationManifest } from './preInstallLogicFunctionApplicationType';
 export type {
-  ObjectPermissionManifest,
   FieldPermissionManifest,
+  ObjectPermissionManifest,
   PermissionFlagManifest,
   RoleManifest,
 } from './roleManifestType';
@@ -67,13 +67,13 @@ export type { StoredOAuthConnectionProviderConfig } from './storedOAuthConnectio
 export type { SyncableEntityOptions } from './syncableEntityOptionsType';
 export type { ToolTriggerSettings } from './toolTriggerSettingsType';
 export type {
-  ViewManifestFilterValue,
-  ViewFieldManifest,
-  ViewFilterManifest,
-  ViewFilterGroupManifest,
-  ViewGroupManifest,
   ViewFieldGroupManifest,
-  ViewSortManifest,
+  ViewFieldManifest,
+  ViewFilterGroupManifest,
+  ViewFilterManifest,
+  ViewGroupManifest,
   ViewManifest,
+  ViewManifestFilterValue,
+  ViewSortManifest,
 } from './viewManifestType';
 export type { WorkflowActionTriggerSettings } from './workflowActionTriggerSettingsType';

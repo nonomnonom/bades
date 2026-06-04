@@ -46,8 +46,8 @@ export { evalFromContext } from './evalFromContext';
 export { extractAndSanitizeObjectStringFields } from './extractAndSanitizeObjectStringFields';
 export { computeMorphRelationGqlFieldName } from './fieldMetadata/compute-morph-relation-gql-field-name';
 export {
-  computeRelationGqlFieldJoinColumnName,
   computeMorphRelationGqlFieldJoinColumnName,
+  computeRelationGqlFieldJoinColumnName,
 } from './fieldMetadata/compute-relation-gql-field-join-column-name';
 export { isFieldMetadataArrayKind } from './fieldMetadata/isFieldMetadataArrayKind';
 export { isFieldMetadataDateKind } from './fieldMetadata/isFieldMetadataDateKind';
@@ -137,23 +137,23 @@ export { isMatchingUUIDFilter } from './filter/utils/isMatchingUUIDFilter';
 export { arrayOfStringsOrVariablesSchema } from './filter/utils/validation-schemas/arrayOfStringsOrVariablesSchema';
 export { arrayOfUuidOrVariableSchema } from './filter/utils/validation-schemas/arrayOfUuidsOrVariablesSchema';
 export {
-  relationFilterValueSchemaObject,
   jsonRelationFilterValueSchema,
+  relationFilterValueSchemaObject,
 } from './filter/utils/validation-schemas/jsonRelationFilterValueSchema';
 export { formatToShortNumber } from './format/formatToShortNumber';
 export { fromArrayToUniqueKeyRecord } from './from-array-to-unique-key-record.util';
 export { fromArrayToValuesByKeyRecord } from './fromArrayToValuesByKeyRecord.util';
 export { getURLSafely } from './getURLSafely';
 export {
-  getNodeTypename,
   getConnectionTypename,
   getEdgeTypename,
   getGroupByConnectionTypename,
+  getNodeTypename,
 } from './graphql/graphql-get-typename.util';
 export { getImageAbsoluteURI } from './image/getImageAbsoluteURI';
 export {
-  sanitizeURL,
   getLogoUrlFromDomainName,
+  sanitizeURL,
 } from './image/getLogoUrlFromDomainName';
 export { getUniqueConstraintsFields } from './indexMetadata/getUniqueConstraintsFields';
 export { isAutoSelectModelId } from './isAutoSelectModelId';
@@ -177,15 +177,15 @@ export { pascalToKebab } from './strings/pascalToKebab';
 export { stringifySafely } from './strings/stringifySafely';
 export { uncapitalize } from './strings/uncapitalize';
 export type {
-  TipTapMarkType,
-  TipTapNodeType,
   LinkMarkAttributes,
   TipTapMark,
+  TipTapMarkType,
+  TipTapNodeType,
 } from './tiptap/tiptap-marks';
 export {
   TIPTAP_MARK_TYPES,
-  TIPTAP_NODE_TYPES,
   TIPTAP_MARKS_RENDER_ORDER,
+  TIPTAP_NODE_TYPES,
 } from './tiptap/tiptap-marks';
 export type { StringPropertyKeys } from './trim-and-remove-duplicated-whitespaces-from-object-string-properties';
 export { trimAndRemoveDuplicatedWhitespacesFromObjectStringProperties } from './trim-and-remove-duplicated-whitespaces-from-object-string-properties';

@@ -72,6 +72,13 @@ const getSubDirectoryPaths = (directoryPath: string): string[] => {
   }).sort((a, b) => a.localeCompare(b));
 };
 
+const sortDeclarationOccurrences = (
+  declarations: DeclarationOccurrence[],
+): DeclarationOccurrence[] =>
+  [...declarations].sort((first, second) =>
+    first.name.localeCompare(second.name),
+  );
+
 const partitionFileExportsByType = (declarations: DeclarationOccurrence[]) => {
   return declarations.reduce<{
     typeAndInterfaceDeclarations: DeclarationOccurrence[];
@@ -108,6 +115,11 @@ const generateModuleIndexFiles = (exportByBarrel: ExportByBarrel[]) => {
         .map(({ exports, file }) => {
           const { otherDeclarations, typeAndInterfaceDeclarations } =
             partitionFileExportsByType(exports);
+          const sortedTypeDeclarations = sortDeclarationOccurrences(
+            typeAndInterfaceDeclarations,
+          );
+          const sortedOtherDeclarations =
+            sortDeclarationOccurrences(otherDeclarations);
 
           const fileWithoutExtension = path.parse(file).name;
           const pathToImport = slash(
@@ -121,12 +133,12 @@ const generateModuleIndexFiles = (exportByBarrel: ExportByBarrel[]) => {
           ) => declarations.map(({ name }) => name).join(', ');
 
           const typeExport =
-            typeAndInterfaceDeclarations.length > 0
-              ? `export type { ${mapDeclarationNameAndJoin(typeAndInterfaceDeclarations)} } from "./${pathToImport}"`
+            sortedTypeDeclarations.length > 0
+              ? `export type { ${mapDeclarationNameAndJoin(sortedTypeDeclarations)} } from "./${pathToImport}"`
               : '';
           const othersExport =
-            otherDeclarations.length > 0
-              ? `export { ${mapDeclarationNameAndJoin(otherDeclarations)} } from "./${pathToImport}"`
+            sortedOtherDeclarations.length > 0
+              ? `export { ${mapDeclarationNameAndJoin(sortedOtherDeclarations)} } from "./${pathToImport}"`
               : '';
 
           return [typeExport, othersExport]
