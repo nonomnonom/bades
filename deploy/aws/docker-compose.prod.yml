@@ -1,0 +1,48 @@
+# Override produksi untuk deploy all-in-one di EC2 (Postgres + Redis + server + worker).
+# Pakai bersama docker-compose.yml di root repo:
+#   docker compose -f docker-compose.yml -f deploy/aws/docker-compose.prod.yml up -d
+
+name: bades
+
+services:
+  server:
+    volumes: !reset
+      - server-local-data:/app/packages/server/.local-storage
+    environment:
+      PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/${PG_DATABASE_NAME:-default}?sslmode=disable
+
+  worker:
+    volumes: !reset
+      - server-local-data:/app/packages/server/.local-storage
+    environment:
+      PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/${PG_DATABASE_NAME:-default}?sslmode=disable
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 768M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+  db:
+    ports: !reset []
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1536M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  redis:
+    ports: !reset []
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
