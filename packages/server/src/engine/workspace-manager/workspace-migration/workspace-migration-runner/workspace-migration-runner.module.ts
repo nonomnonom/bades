@@ -2,7 +2,6 @@ import { forwardRef, Module } from '@nestjs/common';
 import { DiscoveryModule } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { DirectExecutionModule } from 'src/engine/api/graphql/direct-execution/direct-execution.module';
 import { WorkspaceIteratorModule } from 'src/database/commands/command-runners/workspace-iterator.module';
 import { TypeORMModule } from 'src/database/typeorm/typeorm.module';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
@@ -18,7 +17,15 @@ import { WorkspaceMigrationRunnerService } from 'src/engine/workspace-manager/wo
 
 @Module({
   imports: [
-    forwardRef(() => DirectExecutionModule),
+    // Gunakan require() lazy (bukan static import) untuk memutus circular dependency JS-level:
+    // WorkspaceMigrationModule → WorkspaceMigrationRunnerModule → DirectExecutionModule →
+    // GraphqlQueryRunnerModule → ViewModule → ViewPermissionsModule → WorkspaceMigrationModule.
+    // Tanpa ini, worker crash dengan "Cannot access 'WorkspaceMigrationModule' before initialization".
+    forwardRef(() =>
+      require(
+        '../../../api/graphql/direct-execution/direct-execution.module',
+      ).DirectExecutionModule,
+    ),
     FeatureFlagModule,
     TypeORMModule,
     WorkspaceMetadataVersionModule,
