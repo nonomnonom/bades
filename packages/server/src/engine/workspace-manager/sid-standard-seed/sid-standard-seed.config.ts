@@ -1,5 +1,3 @@
-import { FieldMetadataType, RelationType } from 'shared/types';
-
 import { type FieldMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/field-metadata-seed.type';
 import { type ObjectMetadataSeed } from 'src/engine/workspace-manager/dev-seeder/metadata/types/object-metadata-seed.type';
 
