@@ -66,7 +66,7 @@ export const useCreateOneFieldMetadataItem = () => {
           operationType: CrudOperationType.CREATE,
         });
       } else {
-        enqueueErrorSnackBar({ message: 'An error occurred.' });
+        enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
       }
 
       return {

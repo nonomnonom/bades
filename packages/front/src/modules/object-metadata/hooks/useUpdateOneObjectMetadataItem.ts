@@ -78,7 +78,7 @@ export const useUpdateOneObjectMetadataItem = () => {
           operationType: CrudOperationType.UPDATE,
         });
       } else {
-        enqueueErrorSnackBar({ message: 'An error occurred.' });
+        enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
       }
 
       return {

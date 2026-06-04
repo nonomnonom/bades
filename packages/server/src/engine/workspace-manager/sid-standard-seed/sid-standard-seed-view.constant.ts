@@ -10,6 +10,10 @@
 // CATATAN: nama field di sini WAJIB match dengan `name` di custom-field
 // seeds. Field yang sudah di-rename atau dihapus tidak akan match → view
 // default jadi kosong dan tabel tampil tanpa kolom data.
+//
+// Jangan sertakan field sistem `name` bila labelIdentifier sudah field
+// custom (namaAset, namaProgram, dll.) — kolom `name` duplikat memicu
+// header tabel menampilkan dua kolom "Name" sebelum perbaikan UI.
 
 export type SidStandardViewConfig = {
   // nameSingular dari custom object SID (mis. 'penduduk').
@@ -21,7 +25,7 @@ export type SidStandardViewConfig = {
 export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'wilayah',
-    visibleFieldNames: ['name'],
+    visibleFieldNames: ['namaWilayah', 'jenisWilayah', 'kode', 'luasHektar'],
   },
   {
     objectNameSingular: 'penduduk',
@@ -42,12 +46,16 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   },
   {
     objectNameSingular: 'jabatan',
-    visibleFieldNames: ['name', 'namaJabatan', 'tipeJabatan'],
+    visibleFieldNames: [
+      'namaJabatan',
+      'tipeJabatan',
+      'tanggalMulai',
+      'statusAktif',
+    ],
   },
   {
     objectNameSingular: 'permohonanSurat',
     visibleFieldNames: [
-      'name',
       'nomorPermohonan',
       'tanggalPermohonan',
       'status',
@@ -58,9 +66,8 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'suratKeluar',
     visibleFieldNames: [
-      'name',
-      'arahSurat',
       'nomorSurat',
+      'arahSurat',
       'tanggalSurat',
       'perihal',
       'tujuan',
@@ -71,10 +78,10 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'programBantuan',
     visibleFieldNames: [
-      'name',
       'namaProgram',
       'jenisBantuan',
       'sumberDana',
+      'jumlahPenerima',
       'tanggalMulai',
       'tanggalSelesai',
       'status',
@@ -83,23 +90,23 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
   {
     objectNameSingular: 'penerimaBantuan',
     visibleFieldNames: [
-      'name',
       'namaPenerima',
-      'nik',
       'tanggalTerima',
+      'jumlahDiterima',
       'statusPenerimaan',
+      'alamat',
     ],
   },
   {
     objectNameSingular: 'asetDesa',
     visibleFieldNames: [
-      'name',
-      'kodeAset',
       'namaAset',
+      'kodeAset',
       'jenisAset',
       'kondisi',
       'statusPengelolaan',
       'tahunPerolehan',
+      'nilaiAset',
       'lokasi',
     ],
   },

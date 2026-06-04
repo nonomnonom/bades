@@ -17,9 +17,9 @@ const {
   DEFAULT_JSON_BODY_PLACEHOLDER:
     '{\n  "key": "value"\n "another_key": "{{workflow.variable}}" \n}',
   JSON_RESPONSE_PLACEHOLDER:
-    '{\n  Paste expected call response here to use its keys later in the workflow \n}',
+    '{\n  Tempel hasil respons panggilan yang diharapkan di sini untuk menggunakan kuncinya di alur kerja \n}',
   DEFAULT_HTTP_REQUEST_OUTPUT_VALUE: {
-    data: 'Configure your request above, then press "Test"',
+    data: 'Atur permintaan Anda di atas, lalu tekan "Tes"',
     status: undefined,
     statusText: undefined,
     headers: {},

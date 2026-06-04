@@ -66,7 +66,7 @@ export const usePersistLogicFunction = () => {
             operationType: CrudOperationType.CREATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {
@@ -102,7 +102,7 @@ export const usePersistLogicFunction = () => {
             operationType: CrudOperationType.UPDATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {
@@ -146,7 +146,7 @@ export const usePersistLogicFunction = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {

@@ -9,47 +9,47 @@ export const getWorkflowRunStatusTagProps = ({
   if (workflowRunStatus === 'NOT_STARTED') {
     return {
       color: 'gray',
-      text: 'Not started',
+      text: 'Belum dimulai',
     };
   }
 
   if (workflowRunStatus === 'RUNNING') {
     return {
       color: 'yellow',
-      text: 'Running',
+      text: 'Berjalan',
     };
   }
 
   if (workflowRunStatus === 'COMPLETED') {
     return {
       color: 'green',
-      text: 'Completed',
+      text: 'Selesai',
     };
   }
 
   if (workflowRunStatus === 'ENQUEUED') {
     return {
       color: 'blue',
-      text: 'Enqueued',
+      text: 'Terantri',
     };
   }
 
   if (workflowRunStatus === 'STOPPING') {
     return {
       color: 'orange',
-      text: 'Stopping',
+      text: 'Menghentikan',
     };
   }
 
   if (workflowRunStatus === 'STOPPED') {
     return {
       color: 'gray',
-      text: 'Stopped',
+      text: 'Berhenti',
     };
   }
 
   return {
     color: 'red',
-    text: 'Failed',
+    text: 'Gagal',
   };
 };

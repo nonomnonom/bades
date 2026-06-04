@@ -72,7 +72,7 @@ export const usePerformViewAPIPersist = () => {
             operationType: CrudOperationType.CREATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {
@@ -111,7 +111,7 @@ export const usePerformViewAPIPersist = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {

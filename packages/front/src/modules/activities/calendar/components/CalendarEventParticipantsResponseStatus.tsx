@@ -3,6 +3,14 @@ import groupBy from 'lodash.groupby';
 import { CalendarEventParticipantsResponseStatusField } from '@/activities/calendar/components/CalendarEventParticipantsResponseStatusField';
 import { type CalendarEventParticipant } from '@/activities/calendar/types/CalendarEventParticipant';
 
+type CalendarResponseStatus = 'Ya' | 'Mungkin' | 'Tidak';
+
+const RESPONSE_STATUS_ORDER: CalendarResponseStatus[] = [
+  'Ya',
+  'Mungkin',
+  'Tidak',
+];
+
 export const CalendarEventParticipantsResponseStatus = ({
   participants,
 }: {
@@ -11,26 +19,20 @@ export const CalendarEventParticipantsResponseStatus = ({
   const groupedParticipants = groupBy(participants, (participant) => {
     switch (participant.responseStatus) {
       case 'ACCEPTED':
-        return 'Yes';
+        return 'Ya';
       case 'DECLINED':
-        return 'No';
+        return 'Tidak';
       case 'NEEDS_ACTION':
       case 'TENTATIVE':
-        return 'Maybe';
+        return 'Mungkin';
       default:
         return '';
     }
   });
 
-  const responseStatusOrder: Array<'Yes' | 'Maybe' | 'No'> = [
-    'Yes',
-    'Maybe',
-    'No',
-  ];
-
   return (
     <>
-      {responseStatusOrder.map((responseStatus) => (
+      {RESPONSE_STATUS_ORDER.map((responseStatus) => (
         <CalendarEventParticipantsResponseStatusField
           key={responseStatus}
           responseStatus={responseStatus}

@@ -3,23 +3,22 @@ import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApo
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
-import { Table } from '@/ui/layout/table/components/Table';
-import { TableBody } from '@/ui/layout/table/components/TableBody';
-import { TableCell } from '@/ui/layout/table/components/TableCell';
-import { TableHeader } from '@/ui/layout/table/components/TableHeader';
-import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { useQuery } from '@apollo/client/react';
-import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-import { type ReactNode, useContext, useState } from 'react';
-import { assertUnreachable, getSettingsPath } from 'shared/utils';
-import { SettingsPath } from 'shared/types';
-import { H2Title, IconChevronRight, IconPinned } from 'ui/display';
-import { SearchInput } from 'ui/input';
-import { Section } from 'ui/layout';
-import { MenuItemToggle } from 'ui/navigation';
-import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
-import { Tag } from 'ui/components';
+import { Table } = '@/ui/layout/table/components/Table';
+import { TableBody } = '@/ui/layout/table/components/TableBody';
+import { TableCell } = '@/ui/layout/table/components/TableCell';
+import { TableHeader } = '@/ui/layout/table/components/TableHeader';
+import { TableRow } = '@/ui/layout/table/components/TableRow';
+import { useQuery } = '@apollo/client/react';
+import { styled } = '@linaria/react';
+import { type ReactNode, useContext, useState } = 'react';
+import { assertUnreachable, getSettingsPath } = 'shared/utils';
+import { SettingsPath } = 'shared/types';
+import { H2Title, IconChevronRight, IconPinned } = 'ui/display';
+import { SearchInput } = 'ui/input';
+import { Section } = 'ui/layout';
+import { MenuItemToggle } = 'ui/navigation';
+import { ThemeContext, themeCssVariables } = 'ui/theme-constants';
+import { Tag } = 'ui/components';
 import {
   type ApplicationRegistrationFragmentFragment,
   ApplicationRegistrationSourceType,
@@ -88,49 +87,49 @@ export const SettingsAdminApps = () => {
 
   return (
     <Section>
-      <H2Title
-        title={t`Semua Registrasi Aplikasi`}
-        description={t`Semua registrasi aplikasi di seluruh platform, termasuk aplikasi yang tidak terhubung`}
-      />
-      <SearchInput
-        placeholder={t`Cari registrasi...`}
-        value={searchQuery}
-        onChange={setSearchQuery}
-        filterDropdown={(filterButton: ReactNode) => (
-          <Dropdown
-            dropdownId="settings-admin-apps-filter-dropdown"
-            dropdownPlacement="bottom-end"
-            dropdownOffset={{ x: 0, y: 8 }}
-            clickableComponent={filterButton}
-            dropdownComponents={
-              <DropdownContent>
-                <DropdownMenuItemsContainer>
-                  <MenuItemToggle
-                    LeftIcon={IconPinned}
-                    onToggleChange={() =>
-                      setShowPreInstalledOnly(!showPreInstalledOnly)
-                    }
-                    toggled={showPreInstalledOnly}
-                    text={t`Pra-terpasang saja`}
-                    toggleSize="small"
-                  />
-                </DropdownMenuItemsContainer>
-              </DropdownContent>
-            }
-          />
-        )}
-      />
+       <H2Title
+         title="Semua Registrasi Aplikasi"
+         description="Semua registrasi aplikasi di seluruh platform, termasuk aplikasi yang tidak terhubung"
+       />
+       <SearchInput
+         placeholder="Cari registrasi..."
+         value={searchQuery}
+         onChange={setSearchQuery}
+         filterDropdown={(filterButton: ReactNode) => (
+           <Dropdown
+             dropdownId="settings-admin-apps-filter-dropdown"
+             dropdownPlacement="bottom-end"
+             dropdownOffset={{ x: 0, y: 8 }}
+             clickableComponent={filterButton}
+             dropdownComponents={
+               <DropdownContent>
+                 <DropdownMenuItemsContainer>
+                   <MenuItemToggle
+                     LeftIcon={IconPinned}
+                     onToggleChange={() =>
+                       setShowPreInstalledOnly(!showPreInstalledOnly)
+                     }
+                     toggled={showPreInstalledOnly}
+                     text="Pra-terpasang saja"
+                     toggleSize="small"
+                   />
+                 </DropdownMenuItemsContainer>
+               </DropdownContent>
+             }
+           />
+         )}
+       />
       <StyledTableContainer>
         <Table>
-          <TableRow
-            gridAutoColumns={TABLE_GRID}
-            mobileGridAutoColumns={TABLE_GRID_MOBILE}
-          >
-            <TableHeader>{t`Nama`}</TableHeader>
-            <TableHeader align="right">{t`Sumber`}</TableHeader>
-            <TableHeader align="right">{t`Terdaftar`}</TableHeader>
-            <TableHeader align="right">{t`Dikonfigurasi`}</TableHeader>
-            <TableHeader></TableHeader>
+           <TableRow
+             gridAutoColumns={TABLE_GRID}
+             mobileGridAutoColumns={TABLE_GRID_MOBILE}
+           >
+             <TableHeader>Nama</TableHeader>
+             <TableHeader align="right">Sumber</TableHeader>
+             <TableHeader align="right">Terdaftar</TableHeader>
+             <TableHeader align="right">Dikonfigurasi</TableHeader>
+             <TableHeader></TableHeader>
           </TableRow>
           <TableBody>
             {filtered.map((registration) => (
@@ -187,15 +186,15 @@ const SettingsAdminAppsTableRow = ({
       <TableCell overflow="hidden" align="right">
         {getFormattedSource(registration)}
       </TableCell>
-      <TableCell align="right">
-        {registration.isListed ? t`Ya` : t`Tidak`}
-      </TableCell>
-      <TableCell align="right">
-        <Tag
-          color={registration.isConfigured ? 'green' : 'red'}
-          text={registration.isConfigured ? t`Ya` : t`Tidak`}
-        />
-      </TableCell>
+       <TableCell align="right">
+         {registration.isListed ? "Ya" : "Tidak"}
+       </TableCell>
+       <TableCell align="right">
+         <Tag
+           color={registration.isConfigured ? 'green' : 'red'}
+           text={registration.isConfigured ? "Ya" : "Tidak"}
+         />
+       </TableCell>
       <TableCell align="right">
         <IconChevronRight
           size={theme.icon.size.md}

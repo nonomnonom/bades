@@ -33,7 +33,7 @@ export const getWrongExportedFunctionMarkers = (value: string) => {
       const endColumn = invalidMatch[0].length + coordinates.column;
       markers.push({
         severity: 8, //MarkerSeverity.Error,
-        message: 'Exported arrow function should be named "main"',
+        message: 'Fungsi arrow yang diekspor harus diberi nama "main"',
         code: 'export const main',
         startLineNumber: coordinates.line,
         startColumn: coordinates.column,
@@ -46,7 +46,7 @@ export const getWrongExportedFunctionMarkers = (value: string) => {
   if (!exportMatch) {
     markers.push({
       severity: 8, //MarkerSeverity.Error,
-      message: 'An exported "main" arrow function is required.',
+      message: 'Fungsi arrow "main" yang diekspor wajib ada.',
       code: 'export const main',
       startLineNumber: 1,
       startColumn: 1,

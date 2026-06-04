@@ -6,7 +6,6 @@ import { frontComponentApplicationTokenPairComponentState } from '@/front-compon
 import { getFrontComponentUrl } from '@/front-components/utils/getFrontComponentUrl';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useSetAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useSetAtomComponentState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useCallback, useContext, useEffect } from 'react';
 import { FrontComponentRenderer as SharedFrontComponentRenderer } from 'front-component-renderer';
 import { isDefined } from 'shared/utils';
@@ -50,7 +49,7 @@ export const FrontComponentRenderer = ({
       const errorMessage = error.message;
 
       enqueueErrorSnackBar({
-        message: t`Failed to load front component: ${errorMessage}`,
+        message: `Gagal memuat komponen front: ${errorMessage}`,
       });
     },
     [enqueueErrorSnackBar],

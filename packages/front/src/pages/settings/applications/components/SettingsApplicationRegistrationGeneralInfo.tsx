@@ -1,4 +1,4 @@
-import { Trans, useLingui } from '~/utils/i18n/badesI18n';
+import { useLingui } from '~/utils/i18n/badesI18n';
 import {
   H2Title,
   IconBox,
@@ -138,16 +138,16 @@ export const SettingsApplicationRegistrationGeneralInfo = ({
             tarballUrlData?.applicationRegistrationTarballUrl,
           ) ? (
             <StyledSourceRow>
-              <span>Tarball</span>
+              <span>Paket Tar</span>
               <StyledDownloadLink
                 href={tarballUrlData.applicationRegistrationTarballUrl}
                 download
               >
-                <Trans>Unduh</Trans>
+                Unduh
               </StyledDownloadLink>
             </StyledSourceRow>
           ) : (
-            'Tarball'
+            'Paket Tar'
           ),
         });
         break;

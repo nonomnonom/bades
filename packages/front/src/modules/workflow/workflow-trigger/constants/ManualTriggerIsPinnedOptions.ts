@@ -6,12 +6,12 @@ export const MANUAL_TRIGGER_IS_PINNED_OPTIONS: Array<{
   Icon: IconComponent;
 }> = [
   {
-    label: 'Not Pinned',
+    label: 'Tidak Disematkan',
     value: false,
     Icon: IconPinnedOff,
   },
   {
-    label: 'Pinned',
+    label: 'Disematkan',
     value: true,
     Icon: IconPinned,
   },

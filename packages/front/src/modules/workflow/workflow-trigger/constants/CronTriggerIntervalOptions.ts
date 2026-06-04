@@ -13,22 +13,22 @@ export const CRON_TRIGGER_INTERVAL_OPTIONS: Array<{
   Icon: IconComponent;
 }> = [
   {
-    label: 'Days',
+    label: 'Hari',
     value: 'DAYS',
     Icon: IconBrandDaysCounter,
   },
   {
-    label: 'Hours',
+    label: 'Jam',
     value: 'HOURS',
     Icon: IconHours24,
   },
   {
-    label: 'Minutes',
+    label: 'Menit',
     value: 'MINUTES',
     Icon: IconTimeDuration60,
   },
   {
-    label: 'Cron (Custom)',
+    label: 'Cron (Kustom)',
     value: 'CUSTOM',
     Icon: IconClockPlay,
   },

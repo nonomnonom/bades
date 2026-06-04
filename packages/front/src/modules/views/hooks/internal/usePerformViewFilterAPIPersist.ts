@@ -61,7 +61,7 @@ export const usePerformViewFilterAPIPersist = () => {
             operationType: CrudOperationType.CREATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {
@@ -108,7 +108,7 @@ export const usePerformViewFilterAPIPersist = () => {
             operationType: CrudOperationType.UPDATE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {
@@ -155,7 +155,7 @@ export const usePerformViewFilterAPIPersist = () => {
             operationType: CrudOperationType.DELETE,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {
@@ -202,7 +202,7 @@ export const usePerformViewFilterAPIPersist = () => {
             operationType: CrudOperationType.DESTROY,
           });
         } else {
-          enqueueErrorSnackBar({ message: 'An error occurred.' });
+          enqueueErrorSnackBar({ message: 'Terjadi kesalahan.' });
         }
 
         return {

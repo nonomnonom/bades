@@ -19,13 +19,13 @@ export const getWebhookTriggerDefaultSettings = (
             icon: 'IconVariable',
             type: 'string',
             label: 'message',
-            value: 'Workflow was started',
+            value: 'Alur kerja telah dimulai',
             isLeaf: true,
           },
         },
         httpMethod: webhookHttpMethods,
         expectedBody: {
-          message: 'Workflow was started',
+          message: 'Alur kerja telah dimulai',
         },
         authentication: null,
       };

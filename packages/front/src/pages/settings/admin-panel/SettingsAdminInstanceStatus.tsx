@@ -146,14 +146,14 @@ export const SettingsAdminInstanceStatus = () => {
                   ? instanceLatestCommand.status === 'completed'
                     ? t`Selesai`
                     : t`Gagal`
-                  : t`N/A`,
+                  : 'Tidak Tersedia',
               },
               {
                 Icon: IconCalendar,
                 label: t`Terakhir diperbarui`,
                 value: isNonEmptyString(formattedInstanceLastUpdated)
                   ? formattedInstanceLastUpdated
-                  : 'N/A',
+                  : 'Tidak Tersedia',
               },
               ...(instanceLatestCommand?.errorMessage
                 ? [

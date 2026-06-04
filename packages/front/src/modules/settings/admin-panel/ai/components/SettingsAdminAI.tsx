@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
 import { Tag } from 'ui/components';
@@ -142,10 +141,10 @@ export const SettingsAdminAI = () => {
         refetchQueries: [{ query: GET_ADMIN_AI_MODELS }],
       });
       await refetchClientConfig();
-    } catch {
-      enqueueErrorSnackBar({
-        message: t`Gagal memperbarui rekomendasi model`,
-      });
+     } catch {
+       enqueueErrorSnackBar({
+         message: "Gagal memperbarui rekomendasi model",
+       });
     }
   };
 
@@ -172,10 +171,10 @@ export const SettingsAdminAI = () => {
         refetchQueries: [{ query: GET_ADMIN_AI_MODELS }],
       });
       await refetchClientConfig();
-    } catch {
-      enqueueErrorSnackBar({
-        message: t`Gagal memperbarui model default`,
-      });
+     } catch {
+       enqueueErrorSnackBar({
+         message: "Gagal memperbarui model default",
+       });
     }
   };
 
@@ -183,8 +182,8 @@ export const SettingsAdminAI = () => {
     <>
       <Section>
         <H2Title
-          title={t`Penyedia`}
-          description={t`Penyedia bawaan yang diaktifkan dengan API key. Klik untuk mengelola model.`}
+           title="Penyedia"
+           description="Penyedia bawaan yang diaktifkan dengan API key. Klik untuk mengelola model."
         />
 
         <SettingsAdminAiProviderListCard
@@ -195,8 +194,8 @@ export const SettingsAdminAI = () => {
 
       <Section>
         <H2Title
-          title={t`Penyedia Kustom`}
-          description={t`Tambahkan endpoint kustom, gateway privat, atau region tambahan.`}
+          title="Penyedia Kustom"
+           description="Tambahkan endpoint kustom, gateway privat, atau region tambahan."
           adornment={
             <Tag
               text={t`Perusahaan`}
@@ -326,8 +325,8 @@ export const SettingsAdminAI = () => {
           usageByWorkspace.length > 0 ? (
             <Table>
               <TableRow gridTemplateColumns={USAGE_TABLE_GRID_TEMPLATE_COLUMNS}>
-                <TableHeader>{t`Ruang Kerja`}</TableHeader>
-                <TableHeader align="right">{t`Penggunaan`}</TableHeader>
+               <TableHeader>Ruang Kerja</TableHeader>
+               <TableHeader align="right">Penggunaan</TableHeader>
               </TableRow>
               {usageByWorkspace.map((item) => (
                 <TableRow

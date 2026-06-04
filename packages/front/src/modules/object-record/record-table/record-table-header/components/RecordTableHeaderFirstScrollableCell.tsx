@@ -1,7 +1,5 @@
-import { type RecordField } from '@/object-record/record-field/types/RecordField';
-import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
-import { TABLE_Z_INDEX } from '@/object-record/record-table/constants/TableZIndex';
 import { useRecordTableContextOrThrow } from '@/object-record/record-table/contexts/RecordTableContext';
+import { TABLE_Z_INDEX } from '@/object-record/record-table/constants/TableZIndex';
 import { RecordTableColumnHead } from '@/object-record/record-table/record-table-header/components/RecordTableColumnHead';
 import { RecordTableColumnHeadWithDropdown } from '@/object-record/record-table/record-table-header/components/RecordTableColumnHeadWithDropdown';
 import { RecordTableHeaderResizeHandler } from '@/object-record/record-table/record-table-header/components/RecordTableHeaderResizeHandler';
@@ -21,7 +19,7 @@ import { useAtomComponentFamilyStateValue } from '@/ui/utilities/state/jotai/hoo
 import { useAtomComponentSelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentSelectorValue';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
 import { cx } from '@linaria/core';
-import { filterOutByProperty, isDefined } from 'shared/utils';
+import { isDefined } from 'shared/utils';
 
 export const RecordTableHeaderFirstScrollableCell = () => {
   const { objectMetadataItem, visibleRecordFields } =
@@ -45,14 +43,11 @@ export const RecordTableHeaderFirstScrollableCell = () => {
     0,
   );
 
-  const { labelIdentifierFieldMetadataItem } = useRecordIndexContextOrThrow();
-
-  const recordField = visibleRecordFields.filter(
-    filterOutByProperty(
-      'fieldMetadataItemId',
-      labelIdentifierFieldMetadataItem?.id,
-    ),
-  )[0] as RecordField | undefined;
+  // Kolom kedua harus selaras dengan body (`visibleRecordFields[1]`).
+  // Sebelumnya kolom ini mengambil field visible pertama selain label
+  // identifier — sering kembali ke `name` (pos 0) sehingga header punya
+  // dua kolom "Name" dan semua data bergeser.
+  const recordField = visibleRecordFields[1];
 
   const isRecordTableRowFocusActive = useAtomComponentStateValue(
     isRecordTableRowFocusActiveComponentState,

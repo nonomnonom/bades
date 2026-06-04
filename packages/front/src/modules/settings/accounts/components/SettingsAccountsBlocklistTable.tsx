@@ -5,7 +5,6 @@ import { TableBody } from '@/ui/layout/table/components/TableBody';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
 import { themeCssVariables } from 'ui/theme-constants';
 
 type SettingsAccountsBlocklistTableProps = {
@@ -30,13 +29,13 @@ export const SettingsAccountsBlocklistTable = ({
       {blocklist.length > 0 && (
         <StyledTableContainer>
           <Table>
-            <TableRow
-              gridAutoColumns="200px 1fr 20px"
-              mobileGridAutoColumns="120px 1fr 20px"
-            >
-              <TableHeader>{t`Email/Domain`}</TableHeader>
-              <TableHeader>{t`Ditambahkan ke daftar blokir`}</TableHeader>
-              <TableHeader></TableHeader>
+             <TableRow
+               gridAutoColumns="200px 1fr 20px"
+               mobileGridAutoColumns="120px 1fr 20px"
+             >
+               <TableHeader>Email/Domain</TableHeader>
+               <TableHeader>Ditambahkan ke daftar blokir</TableHeader>
+               <TableHeader></TableHeader>
             </TableRow>
             <StyledTableBodyContainer>
               <TableBody>

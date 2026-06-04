@@ -4,32 +4,31 @@ import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSec
 import { SettingsAdminVersionContainer } from '@/settings/admin-panel/components/SettingsAdminVersionContainer';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { Table } from '@/ui/layout/table/components/Table';
-import { TableBody } from '@/ui/layout/table/components/TableBody';
-import { TableCell } from '@/ui/layout/table/components/TableCell';
-import { TableHeader } from '@/ui/layout/table/components/TableHeader';
-import { TableRow } from '@/ui/layout/table/components/TableRow';
-import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useQuery } from '@apollo/client/react';
-import { styled } from '@linaria/react';
-import { t } from '~/utils/i18n/badesI18n';
-import { useContext, useState } from 'react';
-import { useDebounce } from 'use-debounce';
-import { SettingsPath } from 'shared/types';
-import { getSettingsPath } from 'shared/utils';
+import { TableBody } = '@/ui/layout/table/components/TableBody';
+import { TableCell } = '@/ui/layout/table/components/TableCell';
+import { TableHeader } = '@/ui/layout/table/components/TableHeader';
+import { TableRow } = '@/ui/layout/table/components/TableRow';
+import { useAtomStateValue } = '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { useQuery } = '@apollo/client/react';
+import { styled } = '@linaria/react';
+import { useContext, useState } = 'react';
+import { useDebounce } = 'use-debounce';
+import { SettingsPath } = 'shared/types';
+import { getSettingsPath } = 'shared/utils';
 
-import { currentUserState } from '@/auth/states/currentUserState';
+import { currentUserState } = '@/auth/states/currentUserState';
 import {
   Avatar,
   H2Title,
   IconChevronRight,
   OverflowingTextWithTooltip,
-} from 'ui/display';
-import { Section } from 'ui/layout';
-import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
+} = 'ui/display';
+import { Section } = 'ui/layout';
+import { ThemeContext, themeCssVariables } = 'ui/theme-constants';
 import {
   AdminPanelRecentUsersDocument,
   AdminPanelTopWorkspacesDocument,
-} from '~/generated-admin/graphql';
+} = '~/generated-admin/graphql';
 
 const StyledEmptyState = styled.div`
   color: ${themeCssVariables.font.color.tertiary};

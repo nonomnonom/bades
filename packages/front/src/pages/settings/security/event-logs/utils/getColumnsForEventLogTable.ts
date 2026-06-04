@@ -8,46 +8,46 @@ export type ColumnConfig = {
 };
 
 const DEFAULT_COLUMNS: ColumnConfig[] = [
-  { id: 'event', label: 'Event', minWidth: 100, defaultWidth: 200 },
+  { id: 'event', label: 'Peristiwa', minWidth: 100, defaultWidth: 200 },
   {
     id: 'timestamp',
-    label: 'Timestamp',
+    label: 'Stempel waktu',
     minWidth: 100,
     defaultWidth: 150,
   },
   { id: 'userId', label: 'Pengguna', minWidth: 100, defaultWidth: 150 },
   {
     id: 'properties',
-    label: 'Properties',
+    label: 'Properti',
     minWidth: 200,
     defaultWidth: 400,
   },
 ];
 
 const OBJECT_EVENT_COLUMNS: ColumnConfig[] = [
-  { id: 'event', label: 'Event', minWidth: 100, defaultWidth: 180 },
+  { id: 'event', label: 'Peristiwa', minWidth: 100, defaultWidth: 180 },
   {
     id: 'timestamp',
-    label: 'Timestamp',
+    label: 'Stempel waktu',
     minWidth: 100,
     defaultWidth: 130,
   },
   { id: 'userId', label: 'Pengguna', minWidth: 100, defaultWidth: 130 },
   {
     id: 'recordId',
-    label: 'Record ID',
+    label: 'ID Rekaman',
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'objectMetadataId',
-    label: 'Object ID',
+    label: 'ID Objek',
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'properties',
-    label: 'Properties',
+    label: 'Properti',
     minWidth: 150,
     defaultWidth: 300,
   },
@@ -56,13 +56,13 @@ const OBJECT_EVENT_COLUMNS: ColumnConfig[] = [
 const USAGE_EVENT_COLUMNS: ColumnConfig[] = [
   {
     id: 'event',
-    label: 'Resource Type',
+    label: 'Tipe Sumber Daya',
     minWidth: 100,
     defaultWidth: 130,
   },
   {
     id: 'timestamp',
-    label: 'Timestamp',
+    label: 'Stempel waktu',
     minWidth: 100,
     defaultWidth: 140,
   },
@@ -84,7 +84,7 @@ const APPLICATION_LOG_COLUMNS: ColumnConfig[] = [
   },
   {
     id: 'timestamp',
-    label: 'Timestamp',
+    label: 'Stempel waktu',
     minWidth: 100,
     defaultWidth: 140,
   },
@@ -97,7 +97,7 @@ const APPLICATION_LOG_COLUMNS: ColumnConfig[] = [
   },
   {
     id: 'executionId',
-    label: 'Execution ID',
+    label: 'ID Eksekusi',
     minWidth: 100,
     defaultWidth: 140,
   },

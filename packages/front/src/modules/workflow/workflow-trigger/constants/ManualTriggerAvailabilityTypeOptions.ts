@@ -16,12 +16,12 @@ export const MANUAL_TRIGGER_AVAILABILITY_TYPE_OPTIONS: Array<{
     Icon: IconCheckbox,
   },
   {
-    label: 'Single',
+    label: 'Tunggal',
     value: 'SINGLE_RECORD',
     Icon: IconId,
   },
   {
-    label: 'Bulk',
+    label: 'Massal',
     value: 'BULK_RECORDS',
     Icon: IconListDetails,
   },

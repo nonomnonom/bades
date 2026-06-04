@@ -91,7 +91,7 @@ export const LinksFieldInput = () => {
       onEscape={handleEscape}
       onEnter={handleEnter}
       onClickOutside={handleClickOutside}
-      placeholder="URL"
+      placeholder="Tautan"
       fieldMetadataType={FieldMetadataType.LINKS}
       validateInput={(input) => ({
         isValid: absoluteUrlSchema.safeParse(input).success,

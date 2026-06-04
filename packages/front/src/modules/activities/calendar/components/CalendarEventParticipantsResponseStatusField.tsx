@@ -61,15 +61,15 @@ export const CalendarEventParticipantsResponseStatusField = ({
   responseStatus,
   participants,
 }: {
-  responseStatus: 'Yes' | 'Maybe' | 'No';
+  responseStatus: 'Ya' | 'Mungkin' | 'Tidak';
   participants: CalendarEventParticipant[];
 }) => {
   const { theme } = useContext(ThemeContext);
 
   const Icon = {
-    Yes: <IconCheck stroke={theme.icon.stroke.sm} />,
-    Maybe: <IconQuestionMark stroke={theme.icon.stroke.sm} />,
-    No: <IconX stroke={theme.icon.stroke.sm} />,
+    Ya: <IconCheck stroke={theme.icon.stroke.sm} />,
+    Mungkin: <IconQuestionMark stroke={theme.icon.stroke.sm} />,
+    Tidak: <IconX stroke={theme.icon.stroke.sm} />,
   }[responseStatus];
 
   // Tampilkan participant non-workspaceMember (eksternal) lebih dulu.

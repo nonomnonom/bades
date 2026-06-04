@@ -7,12 +7,12 @@ export const WEBHOOK_TRIGGER_AUTHENTICATION_OPTIONS: Array<{
   Icon: IconComponent;
 }> = [
   {
-    label: 'None',
+    label: 'Tidak ada',
     value: null,
     Icon: IconLockOpen,
   },
   {
-    label: 'API key',
+    label: 'Kunci API',
     value: 'API_KEY',
     Icon: IconFlag,
   },
