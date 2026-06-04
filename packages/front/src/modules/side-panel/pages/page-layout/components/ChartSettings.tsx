@@ -18,7 +18,7 @@ import { hasWidgetTooManyGroupsComponentState } from '@/page-layout/widgets/grap
 import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { styled } from '@linaria/react';
 import { isNonEmptyString } from '@sniptt/guards';
-import { isFieldMetadataDateKind } from 'shared/utils';
+import { isDefined, isFieldMetadataDateKind } from 'shared/utils';
 
 import { GraphType } from '@/side-panel/pages/page-layout/types/GraphType';
 import { getCurrentGraphTypeFromConfig } from '@/side-panel/pages/page-layout/utils/getCurrentGraphTypeFromConfig';
@@ -40,11 +40,8 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
     useUpdateCurrentWidgetConfig(pageLayoutId);
   const { objectMetadataItems } = useObjectMetadataItems();
 
-  if (!isChartWidget(widget) || !widget.configuration) {
-    return null;
-  }
-
-  const configuration = widget.configuration;
+  const isValidChartWidget = isChartWidget(widget);
+  const configuration = isValidChartWidget ? widget.configuration : undefined;
   const objectMetadataId = isNonEmptyString(widget.objectMetadataId)
     ? widget.objectMetadataId
     : null;
@@ -60,11 +57,16 @@ export const ChartSettings = ({ widget }: { widget: PageLayoutWidget }) => {
       widget,
     });
 
+  const [hasWidgetTooManyGroups, setHasWidgetTooManyGroups] =
+    useAtomComponentState(hasWidgetTooManyGroupsComponentState);
+
+  if (!isValidChartWidget || !isDefined(configuration)) {
+    return null;
+  }
+
   const isGroupByEnabled = getChartSettingsValues(
     CHART_CONFIGURATION_SETTING_IDS.GROUP_BY,
   );
-  const [hasWidgetTooManyGroups, setHasWidgetTooManyGroups] =
-    useAtomComponentState(hasWidgetTooManyGroupsComponentState);
 
   const handleGraphTypeChange = (graphType: GraphType) => {
     const configToUpdate = getConfigToUpdateAfterGraphTypeChange(graphType);
