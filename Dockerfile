@@ -2,7 +2,7 @@
 # Dependency stages
 # ===========================================================================
 
-FROM oven/bun:1.3.9-alpine@sha256:3d8e9c1b1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d AS bun-base
+FROM oven/bun:1.3.9-alpine AS bun-base
 
 # Bun sudah include runtime + package manager. Node.js tidak diperlukan lagi.
 RUN apk add --no-cache curl bash libstdc++ \
@@ -109,7 +109,7 @@ ENV REACT_APP_MAPBOX_ACCESS_TOKEN=${REACT_APP_MAPBOX_ACCESS_TOKEN}
 RUN if [ -d /app/packages/front/build ]; then \
       echo "Using pre-built frontend from host"; \
     else \
-      NODE_OPTIONS="--max-old-space-size=8192" bunx nx build front; \
+      bunx nx build front; \
     fi
 
 
@@ -118,7 +118,7 @@ RUN if [ -d /app/packages/front/build ]; then \
 #   docker build --target bades-server -f Dockerfile .
 # ===========================================================================
 
-FROM oven/bun:1.3.9-alpine@sha256:3d8e9c1b1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d AS bades-server
+FROM oven/bun:1.3.9-alpine AS bades-server
 
 RUN apk add --no-cache curl jq postgresql-client
 

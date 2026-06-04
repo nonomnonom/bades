@@ -1,8 +1,13 @@
 import { gql } from '@apollo/client';
 import { type Operation } from '@apollo/client/core';
 import { StreamingRestLink } from '@/apollo/utils/streamingRestLink';
+import {
+  getGlobalFetchMock,
+  mockGlobalFetch,
+  partialFetchResponse,
+} from '~/testing/utils/mockGlobalFetch';
 
-global.fetch = jest.fn();
+mockGlobalFetch();
 describe('StreamingRestLink', () => {
   let streamingLink: StreamingRestLink;
   let mockForward: jest.MockedFunction<(operation: Operation) => any>;
@@ -12,7 +17,7 @@ describe('StreamingRestLink', () => {
       uri: 'https://api.example.com',
     });
     mockForward = jest.fn();
-    (global.fetch as jest.Mock).mockClear();
+    getGlobalFetchMock().mockClear();
   });
 
   describe('request', () => {
@@ -52,16 +57,17 @@ describe('StreamingRestLink', () => {
         setContext: jest.fn(),
       } as unknown as Operation;
 
-      const mockResponse = {
-        ok: true,
-        body: {
-          getReader: () => ({
-            read: jest.fn().mockResolvedValue({ done: true }),
-            releaseLock: jest.fn(),
-          }),
-        },
-      };
-      (global.fetch as jest.Mock).mockResolvedValue(mockResponse);
+      getGlobalFetchMock().mockResolvedValue(
+        partialFetchResponse({
+          ok: true,
+          body: {
+            getReader: () => ({
+              read: jest.fn().mockResolvedValue({ done: true }),
+              releaseLock: jest.fn(),
+            }),
+          } as unknown as ReadableStream,
+        }),
+      );
 
       const observable = streamingLink.request(operation, mockForward);
       const observer = {
@@ -97,7 +103,7 @@ describe('StreamingRestLink', () => {
         getContext: () => ({}),
       } as unknown as Operation;
 
-      (global.fetch as jest.Mock).mockRejectedValue(new Error('Network error'));
+      getGlobalFetchMock().mockRejectedValue(new Error('Network error'));
 
       const observable = streamingLink.request(operation, mockForward);
       const observer = {
@@ -124,8 +130,9 @@ describe('StreamingRestLink', () => {
         getContext: () => ({}),
       } as unknown as Operation;
 
-      const mockResponse = { ok: false, status: 404 };
-      (global.fetch as jest.Mock).mockResolvedValue(mockResponse);
+      getGlobalFetchMock().mockResolvedValue(
+        partialFetchResponse({ ok: false, status: 404 }),
+      );
 
       const observable = streamingLink.request(operation, mockForward);
       const observer = {

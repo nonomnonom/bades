@@ -2,6 +2,11 @@ import DigestFetch from 'digest-fetch';
 import { getBasicAuthHeaders } from 'tsdav';
 import { isDefined } from 'shared/utils';
 
+import {
+  asFetchWithPreconnect,
+  type FetchWithPreconnect,
+} from 'src/utils/fetch/asFetchWithPreconnect';
+
 /**
  * Decorates a base fetch with HTTP Basic + Digest authentication.
  *
@@ -11,10 +16,8 @@ import { isDefined } from 'shared/utils';
 export const createBasicDigestAuthFetch = (
   username: string,
   password: string,
-  baseFetch: typeof globalThis.fetch & {
-    preconnect?: (url: string) => Promise<void>;
-  } = globalThis.fetch,
-): typeof globalThis.fetch => {
+  baseFetch: FetchWithPreconnect = globalThis.fetch,
+): FetchWithPreconnect => {
   const digestClient = new DigestFetch(username, password);
 
   digestClient.getClient = async () => baseFetch;
@@ -24,7 +27,7 @@ export const createBasicDigestAuthFetch = (
     password,
   });
 
-  return async (input, init) => {
+  return asFetchWithPreconnect(async (input, init) => {
     const headers = new Headers(init?.headers);
 
     if (!headers.has('Authorization') && isDefined(basicAuthorization)) {
@@ -35,5 +38,5 @@ export const createBasicDigestAuthFetch = (
       ...init,
       headers,
     }) as Promise<Response>;
-  };
+  }, baseFetch.preconnect?.bind(baseFetch));
 };

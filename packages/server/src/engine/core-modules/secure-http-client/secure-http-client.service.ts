@@ -6,6 +6,8 @@ import { isDefined } from 'shared/utils';
 
 import { buildAxiosFetch } from '@lifeomic/axios-fetch';
 
+import { asFetchWithPreconnect } from 'src/utils/fetch/asFetchWithPreconnect';
+
 import { createSsrfSafeAgent } from 'src/engine/core-modules/secure-http-client/utils/create-ssrf-safe-agent.util';
 import { resolveAndValidateHostname } from 'src/engine/core-modules/secure-http-client/utils/resolve-and-validate-hostname.util';
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
@@ -108,7 +110,12 @@ export class SecureHttpClientService {
       return globalThis.fetch;
     }
 
-    return buildAxiosFetch(this.getHttpClient()) as typeof globalThis.fetch;
+    return asFetchWithPreconnect(
+      buildAxiosFetch(this.getHttpClient()) as (
+        input: RequestInfo | URL,
+        init?: RequestInit,
+      ) => Promise<Response>,
+    );
   }
 
   async getValidatedHost(hostnameOrUrl: string): Promise<string> {

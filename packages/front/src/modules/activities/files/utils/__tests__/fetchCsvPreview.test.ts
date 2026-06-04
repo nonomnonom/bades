@@ -1,7 +1,8 @@
 import { fetchCsvPreview } from '@/activities/files/utils/fetchCsvPreview';
+import { mockGlobalFetch } from '~/testing/utils/mockGlobalFetch';
 
 const mockFetch = (text: string) => {
-  global.fetch = jest.fn(() =>
+  mockGlobalFetch(() =>
     Promise.resolve({
       text: () => Promise.resolve(text),
     } as unknown as Response),
