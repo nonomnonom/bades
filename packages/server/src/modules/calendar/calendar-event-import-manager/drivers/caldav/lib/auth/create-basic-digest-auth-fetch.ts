@@ -11,7 +11,9 @@ import { isDefined } from 'shared/utils';
 export const createBasicDigestAuthFetch = (
   username: string,
   password: string,
-  baseFetch: typeof globalThis.fetch & { preconnect?: (url: string) => Promise<void> } = globalThis.fetch,
+  baseFetch: typeof globalThis.fetch & {
+    preconnect?: (url: string) => Promise<void>;
+  } = globalThis.fetch,
 ): typeof globalThis.fetch => {
   const digestClient = new DigestFetch(username, password);
 

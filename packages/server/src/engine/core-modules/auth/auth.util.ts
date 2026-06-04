@@ -5,7 +5,10 @@ import {
   randomBytes,
 } from 'crypto';
 
-import { hashPassword, verifyPassword } from 'src/engine/core-modules/auth/password.util';
+import {
+  hashPassword,
+  verifyPassword,
+} from 'src/engine/core-modules/auth/password.util';
 
 export { hashPassword };
 export const PASSWORD_REGEX = /^.{8,50}$/;

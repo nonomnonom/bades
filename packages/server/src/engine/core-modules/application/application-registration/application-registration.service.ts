@@ -3,7 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto from 'crypto';
 
-import { hashPassword, verifyPassword } from 'src/engine/core-modules/auth/password.util';
+import {
+  hashPassword,
+  verifyPassword,
+} from 'src/engine/core-modules/auth/password.util';
 import { type Manifest } from 'shared/application';
 import { isDefined } from 'shared/utils';
 import { type Repository } from 'typeorm';

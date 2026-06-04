@@ -2,12 +2,17 @@
  * Password hashing utility — Bun.password di production, bcrypt fallback di Node.js/test.
  */
 
-declare const Bun: {
-  password: {
-    hash: (password: string, options?: { algorithm: string; cost: number }) => Promise<string>;
-    verify: (password: string, hash: string) => Promise<boolean>;
-  };
-} | undefined;
+declare const Bun:
+  | {
+      password: {
+        hash: (
+          password: string,
+          options?: { algorithm: string; cost: number },
+        ) => Promise<string>;
+        verify: (password: string, hash: string) => Promise<boolean>;
+      };
+    }
+  | undefined;
 
 type BcryptModule = typeof import('bcrypt');
 
