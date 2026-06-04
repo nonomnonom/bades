@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "module": "esnext",
-    "types": ["node"]
+    "types": ["bun"]
   },
   "include": ["**/*.ts"]
 }

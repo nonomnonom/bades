@@ -5,12 +5,13 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
+    "moduleDetection": "force",
     "strictNullChecks": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
     "strictBindCallApply": false,
     "noEmit": true,
-    "types": ["jest", "node"],
+    "types": ["bun", "jest"],
     "paths": {
       "@/*": ["./src/*"]
     }

@@ -24,7 +24,7 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "resolveJsonModule": true,
-    "types": ["jest", "node"],
+    "types": ["node", "jest"],
     "paths": {
       "src/*": ["./src/*"],
       "test/*": ["./test/*"]

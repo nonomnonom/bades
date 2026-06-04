@@ -8,8 +8,9 @@
     "strict": true,
     "moduleResolution": "bundler",
     "esModuleInterop": true,
+    "moduleDetection": "force",
     "noEmit": true,
-    "types": ["node", "jest"],
+    "types": ["bun", "jest"],
     "outDir": "../../.cache/tsc",
     "paths": {
       "@ui/*": ["./src/*"],
