@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import crypto from 'crypto';
 
-import * as bcrypt from 'bcrypt';
+import { hashPassword, verifyPassword } from 'src/engine/core-modules/auth/password.util';
 import { type Manifest } from 'shared/application';
 import { isDefined } from 'shared/utils';
 import { type Repository } from 'typeorm';
@@ -257,7 +257,7 @@ export class ApplicationRegistrationService {
       return false;
     }
 
-    return bcrypt.compare(clientSecret, registration.oAuthClientSecretHash);
+    return verifyPassword(clientSecret, registration.oAuthClientSecretHash);
   }
 
   async upsertFromCatalog(
@@ -440,7 +440,7 @@ export class ApplicationRegistrationService {
     clientSecretHash: string;
   }> {
     const clientSecret = crypto.randomBytes(32).toString('hex');
-    const clientSecretHash = await bcrypt.hash(
+    const clientSecretHash = await hashPassword(
       clientSecret,
       BCRYPT_SALT_ROUNDS,
     );

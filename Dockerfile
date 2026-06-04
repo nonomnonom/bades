@@ -2,14 +2,10 @@
 # Dependency stages
 # ===========================================================================
 
-FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS bun-base
+FROM oven/bun:1.3.9-alpine@sha256:3d8e9c1b1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d AS bun-base
 
-# Install Bun on top of Node 24 alpine. Node tetap runtime untuk `node dist/src/main`,
-# Bun hanya menggantikan package manager (lebih cepat dari Yarn 4).
-RUN apk add --no-cache curl bash libstdc++ unzip \
- && curl -fsSL https://bun.sh/install | bash -s "bun-v1.3.9" \
- && ln -s /root/.bun/bin/bun /usr/local/bin/bun \
- && ln -s /root/.bun/bin/bun /usr/local/bin/bunx \
+# Bun sudah include runtime + package manager. Node.js tidak diperlukan lagi.
+RUN apk add --no-cache curl bash libstdc++ \
  && bun --version
 
 
@@ -122,7 +118,7 @@ RUN if [ -d /app/packages/front/build ]; then \
 #   docker build --target bades-server -f Dockerfile .
 # ===========================================================================
 
-FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS bades-server
+FROM oven/bun:1.3.9-alpine@sha256:3d8e9c1b1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d AS bades-server
 
 RUN apk add --no-cache curl jq postgresql-client
 
@@ -159,7 +155,7 @@ RUN mkdir -p /app/.local-storage /app/packages/server/.local-storage && \
 
 USER 1000
 
-CMD ["node", "dist/src/main"]
+CMD ["bun", "dist/src/main"]
 ENTRYPOINT ["/app/entrypoint.sh"]
 
 

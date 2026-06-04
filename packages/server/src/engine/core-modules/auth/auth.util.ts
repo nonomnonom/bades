@@ -5,19 +5,12 @@ import {
   randomBytes,
 } from 'crypto';
 
-import * as bcrypt from 'bcrypt';
+import { hashPassword, verifyPassword } from 'src/engine/core-modules/auth/password.util';
 
+export { hashPassword };
 export const PASSWORD_REGEX = /^.{8,50}$/;
 
-const saltRounds = 10;
-
-export const hashPassword = async (password: string) => {
-  return await bcrypt.hash(password, saltRounds);
-};
-
-export const compareHash = async (password: string, passwordHash: string) => {
-  return bcrypt.compare(password, passwordHash);
-};
+export const compareHash = verifyPassword;
 
 export const encryptText = (textToEncrypt: string, key: string): string => {
   const keyHash = createHash('sha512')

@@ -360,9 +360,6 @@ describe('AuthService', () => {
       } as unknown as Promise<UserEntity>);
 
     (bcrypt.compare as jest.Mock).mockReturnValueOnce(true);
-    jest
-      .spyOn(userWorkspaceService, 'checkUserWorkspaceExists')
-      .mockReturnValueOnce(null as any);
 
     const getOneWorkspaceInvitationSpy = jest
       .spyOn(workspaceInvitationService, 'getOneWorkspaceInvitation')
