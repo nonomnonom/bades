@@ -1,8 +1,7 @@
 /*
- * _____                    _
- *|_   _|_      _____ _ __ | |_ _   _
- *  | | \ \ /\ / / _ \ '_ \| __| | | | Auto-generated file
- *  | |  \ V  V /  __/ | | | |_| |_| | Any edits to this will be overridden
- *  |_|   \_/\_/ \___|_| |_|\__|\__, |
- *                              |___/
+ * ____            _
+ *| __ )  __ _  __| | ___  ___
+ *|  _ \ / _` |/ _` |/ _ \/ __|   Auto-generated file
+ *| |_) | (_| | (_| |  __/\__ \   Any edits to this will be overridden
+ *|____/ \__,_|\__,_|\___||___/
  */
