@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ApplicationModule } from 'src/engine/core-modules/application/application.module';
@@ -56,7 +56,7 @@ import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/
     PermissionsModule,
     WorkspaceCacheStorageModule,
     WorkspaceManyOrAllFlatEntityMapsCacheModule,
-    WorkspaceMigrationModule,
+    forwardRef(() => WorkspaceMigrationModule),
   ],
   providers: [
     ViewService,
