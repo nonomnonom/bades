@@ -69,7 +69,7 @@ export const ViewBarFilterDropdownAdvancedFilterButton = () => {
   const objectMetadataId = currentView?.objectMetadataId;
 
   if (!objectMetadataId) {
-    throw new Error('Object metadata id is missing from current view');
+    throw new Error('ID metadata objek tidak ada di tampilan saat ini');
   }
 
   const { objectMetadataItem } = useObjectMetadataItemById({
@@ -95,7 +95,7 @@ export const ViewBarFilterDropdownAdvancedFilterButton = () => {
 
   const handleClick = () => {
     if (!isDefined(currentView)) {
-      throw new Error('Missing current view id');
+      throw new Error('ID tampilan saat ini tidak ada');
     }
 
     const alreadyHasAdvancedFilterGroup = currentRecordFilterGroups.length > 0;
@@ -117,7 +117,7 @@ export const ViewBarFilterDropdownAdvancedFilterButton = () => {
         ) ?? availableFieldMetadataItemsForFilter[0];
 
       if (!isDefined(defaultFieldMetadataItem)) {
-        throw new Error('Missing default filter definition');
+        throw new Error('Definisi filter default tidak ada');
       }
 
       const { newRecordFilter } = createEmptyRecordFilterFromFieldMetadataItem(

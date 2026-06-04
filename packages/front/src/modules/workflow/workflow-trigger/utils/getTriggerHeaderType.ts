@@ -19,7 +19,7 @@ export const getTriggerHeaderType = (trigger: WorkflowTrigger) => {
       return `Trigger · ${defaultLabel}`;
     }
     default: {
-      assertUnreachable(trigger, 'Unknown trigger type');
+      assertUnreachable(trigger, 'Tipe trigger tidak dikenal');
     }
   }
 };

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 
+import { t } from '~/utils/i18n/badesI18n';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';
@@ -198,7 +199,7 @@ export const SettingsAdminAI = () => {
            description="Tambahkan endpoint kustom, gateway privat, atau region tambahan."
           adornment={
             <Tag
-              text={t`Perusahaan`}
+              text={`Perusahaan`}
               color="transparent"
               Icon={IconLock}
               variant="border"
@@ -215,15 +216,15 @@ export const SettingsAdminAI = () => {
       {availableModelOptions.length > 0 && (
         <Section>
           <H2Title
-            title={t`Model Default`}
-            description={t`Konfigurasikan model AI default untuk semua ruang kerja`}
+            title={`Model Default`}
+            description={`Konfigurasikan model AI default untuk semua ruang kerja`}
           />
 
           <Card rounded>
             <SettingsOptionCardContentSelect
               Icon={IconRobot}
-              title={t`Model Cerdas`}
-              description={t`Model default untuk obrolan dan penalaran kompleks`}
+              title={`Model Cerdas`}
+              description={`Model default untuk obrolan dan penalaran kompleks`}
             >
               <Select
                 dropdownId="admin-smart-model-select"
@@ -238,8 +239,8 @@ export const SettingsAdminAI = () => {
             </SettingsOptionCardContentSelect>
             <SettingsOptionCardContentSelect
               Icon={IconBolt}
-              title={t`Model Cepat`}
-              description={t`Model default untuk tugas ringan`}
+              title={`Model Cepat`}
+              description={`Model default untuk tugas ringan`}
             >
               <Select
                 dropdownId="admin-fast-model-select"
@@ -259,8 +260,8 @@ export const SettingsAdminAI = () => {
       {enabledModels.length > 0 && (
         <Section>
           <H2Title
-            title={t`Model yang Direkomendasikan`}
-            description={t`Pilih model yang tampil sebagai rekomendasi dalam pemilih model operasional`}
+            title={`Model yang Direkomendasikan`}
+            description={`Pilih model yang tampil sebagai rekomendasi dalam pemilih model operasional`}
           />
 
           <SettingsAiModelsTable
@@ -285,7 +286,7 @@ export const SettingsAdminAI = () => {
                 });
               } catch {
                 enqueueErrorSnackBar({
-                  message: t`Gagal memperbarui rekomendasi model`,
+                  message: `Gagal memperbarui rekomendasi model`,
                 });
               } finally {
                 await refetchModels();
@@ -299,8 +300,8 @@ export const SettingsAdminAI = () => {
 
       <Section>
         <H2Title
-          title={t`Penggunaan AI per Ruang Kerja`}
-          description={t`Konsumsi AI di semua ruang kerja.`}
+          title={`Penggunaan AI per Ruang Kerja`}
+          description={`Konsumsi AI di semua ruang kerja.`}
           adornment={
             hasEnterpriseAccess ? (
               <Select
@@ -313,7 +314,7 @@ export const SettingsAdminAI = () => {
               />
             ) : (
               <Tag
-                text={t`Perusahaan`}
+                text={`Perusahaan`}
                 color="transparent"
                 Icon={IconLock}
                 variant="border"
@@ -352,16 +353,16 @@ export const SettingsAdminAI = () => {
                   color={themeCssVariables.font.color.tertiary}
                   align="center"
                 >
-                  {t`Belum ada data penggunaan AI.`}
+                  {`Belum ada data penggunaan AI.`}
                 </TableCell>
               </TableRow>
             </Card>
           )
         ) : (
           <SettingsEnterpriseFeatureGateCard
-            title={t`Fitur Enterprise`}
-            description={t`Analitik penggunaan AI di semua ruang kerja tersedia dengan kunci Enterprise.`}
-            buttonTitle={t`Aktifkan`}
+            title={`Fitur Enterprise`}
+            description={`Analitik penggunaan AI di semua ruang kerja tersedia dengan kunci Enterprise.`}
+            buttonTitle={`Aktifkan`}
           />
         )}
       </Section>

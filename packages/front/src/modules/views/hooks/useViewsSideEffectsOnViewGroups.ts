@@ -23,7 +23,7 @@ const useViewsSideEffectsOnViewGroups = () => {
     );
 
     if (!isDefined(objectMetadataItem)) {
-      throw new Error('Object metadata item not found');
+      throw new Error('Item metadata objek tidak ditemukan');
     }
 
     let viewGroupsToCreate: ViewGroup[] = [];

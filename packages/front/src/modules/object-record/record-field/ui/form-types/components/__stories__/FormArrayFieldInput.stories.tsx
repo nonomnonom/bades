@@ -102,7 +102,7 @@ export const EditExistingItem: Story = {
       );
 
       if (!isDefined(button)) {
-        throw new Error('Button not found');
+        throw new Error('Tombol tidak ditemukan');
       }
 
       return button;
@@ -162,7 +162,7 @@ export const DeleteExistingItem: Story = {
       );
 
       if (!isDefined(button)) {
-        throw new Error('Button not found');
+        throw new Error('Tombol tidak ditemukan');
       }
 
       return button;

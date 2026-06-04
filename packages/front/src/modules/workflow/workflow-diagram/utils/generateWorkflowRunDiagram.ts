@@ -101,7 +101,7 @@ export const generateWorkflowRunDiagram = ({
     );
 
     if (!isDefined(parentNode)) {
-      throw new Error('Expected the edge to have a parent node');
+      throw new Error('Edge seharusnya memiliki parent node');
     }
 
     const stepInfo = stepInfos?.[parentNode.id];

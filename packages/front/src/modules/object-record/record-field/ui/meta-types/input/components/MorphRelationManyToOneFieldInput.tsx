@@ -51,7 +51,7 @@ export const MorphRelationManyToOneFieldInput = () => {
     );
 
     if (!isDefined(targetObjectMetadataItem)) {
-      throw new Error('TargetObjectMetadataItem is required');
+      throw new Error('TargetObjectMetadataItem wajib diisi');
     }
 
     await persistMorphManyToOne({

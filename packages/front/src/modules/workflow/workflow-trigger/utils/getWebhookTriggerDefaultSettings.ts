@@ -30,5 +30,5 @@ export const getWebhookTriggerDefaultSettings = (
         authentication: null,
       };
   }
-  return assertUnreachable(webhookHttpMethods, 'Invalid webhook http method');
+  return assertUnreachable(webhookHttpMethods, 'Metode HTTP webhook tidak valid');
 };

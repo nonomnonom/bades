@@ -147,7 +147,7 @@ export const useSaveCurrentViewGroups = () => {
         .filter(isDefined);
 
       if (!isDefined(view.mainGroupByFieldMetadataId)) {
-        throw new Error('mainGroupByFieldMetadataId is required');
+        throw new Error('mainGroupByFieldMetadataId wajib diisi');
       }
 
       await performViewGroupAPIUpdate({ inputs: viewGroupInputsToUpdate });

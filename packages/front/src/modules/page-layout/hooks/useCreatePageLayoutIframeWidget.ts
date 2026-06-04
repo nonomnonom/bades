@@ -59,7 +59,7 @@ export const useCreatePageLayoutIframeWidget = ({
       const pageLayoutDraggedArea = store.get(pageLayoutDraggedAreaState);
 
       if (!isDefined(activeTabId)) {
-        throw new Error('A tab must be selected to create a new iframe widget');
+        throw new Error('Tab harus dipilih untuk membuat widget iframe baru');
       }
 
       const widgetId = uuidv4();

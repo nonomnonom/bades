@@ -137,7 +137,7 @@ describe('useLazyFetchAllRecords', () => {
     (item) => item.nameSingular === objectNameSingular,
   );
   if (!objectMetadataItem) {
-    throw new Error('Object metadata item not found');
+    throw new Error('Item metadata objek tidak ditemukan');
   }
 
   // Skip: mock fragment tidak match output mapObjectMetadataToGraphQLQuery

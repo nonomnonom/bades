@@ -8,7 +8,7 @@ export const findAnchorBarInSlice = ({
   isVerticalLayout: boolean;
 }): BarPosition => {
   if (bars.length === 0) {
-    throw new Error('Cannot find anchor bar in empty slice');
+    throw new Error('Tidak dapat menemukan anchor bar di slice kosong');
   }
 
   return bars.reduce((anchor, bar) => {

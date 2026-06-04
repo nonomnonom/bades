@@ -8,7 +8,7 @@ export const usePlans = () => {
   const isPlansLoaded = isDefined(data?.listPlans);
 
   const listPlans = () => {
-    if (!data) throw new Error('plans is undefined');
+    if (!data) throw new Error('plans tidak terdefinisi');
     return data.listPlans;
   };
 

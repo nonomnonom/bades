@@ -74,7 +74,7 @@ export const useRecordGroupActions = ({
     setNavigationMemorizedUrl(location.pathname + location.search);
 
     if (!isDefined(recordIndexGroupFieldMetadataItem)) {
-      throw new Error('recordGroupFieldMetadata is not a non-empty string');
+      throw new Error('recordGroupFieldMetadata bukan string non-kosong');
     }
 
     navigate(SettingsPath.ObjectFieldEdit, {

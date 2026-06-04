@@ -55,7 +55,7 @@ export const ChartColorSelectionDropdownContent = () => {
       'IframeConfiguration',
     )
   ) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   const configuration = widgetInEditMode.configuration as ChartConfiguration;

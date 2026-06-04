@@ -20,7 +20,7 @@ describe('getRecordNodeFromRecord', () => {
     );
 
     if (!objectMetadataItem) {
-      throw new Error('Object metadata item not found');
+      throw new Error('Item metadata objek tidak ditemukan');
     }
 
     const keluarga = mockedKeluargaRecords[0];
@@ -72,7 +72,7 @@ describe('getRecordNodeFromRecord', () => {
     );
 
     if (!objectMetadataItem) {
-      throw new Error('Object metadata item not found');
+      throw new Error('Item metadata objek tidak ditemukan');
     }
 
     const keluarga = mockedKeluargaRecords[0];

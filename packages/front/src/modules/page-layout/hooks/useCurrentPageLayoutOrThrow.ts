@@ -5,7 +5,7 @@ export const useCurrentPageLayoutOrThrow = () => {
   const { currentPageLayout } = useCurrentPageLayout();
 
   if (!isDefined(currentPageLayout)) {
-    throw new Error('No current page layout found');
+    throw new Error('Tata letak halaman saat ini tidak ditemukan');
   }
 
   return { currentPageLayout };

@@ -67,7 +67,7 @@ describe('useUpdateManyRecords', () => {
         objectPermissionsByObjectMetadataId: {},
       });
       expect(cachedRecord).not.toBeNull();
-      if (cachedRecord === null) throw new Error('Should never occur');
+      if (cachedRecord === null) throw new Error('Seharusnya tidak pernah terjadi');
       expect(expectedRecord).toMatchObject(cachedRecord);
     });
   };

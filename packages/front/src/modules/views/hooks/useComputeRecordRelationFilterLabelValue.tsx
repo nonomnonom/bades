@@ -32,7 +32,7 @@ export const useComputeRecordRelationFilterLabelValue = ({
   const { getRecordFilterChipLabelValue } = useGetRecordFilterChipLabelValue();
 
   if (!isDefined(recordFilter.fieldMetadataId)) {
-    throw new Error('fieldMetadataItemUsedInFilterDropdown is not defined');
+    throw new Error('fieldMetadataItemUsedInFilterDropdown belum ditentukan');
   }
 
   const { fieldMetadataItem } = getFieldMetadataItemByIdOrThrow({
@@ -46,7 +46,7 @@ export const useComputeRecordRelationFilterLabelValue = ({
     });
 
   if (!isDefined(relationObjectMetadataNameSingular)) {
-    throw new Error('relationObjectMetadataNameSingular is not defined');
+    throw new Error('relationObjectMetadataNameSingular belum ditentukan');
   }
 
   const relationObjectMetadataItem = objectMetadataItems.find(
@@ -55,7 +55,7 @@ export const useComputeRecordRelationFilterLabelValue = ({
   );
 
   if (!isDefined(relationObjectMetadataItem)) {
-    throw new Error('relationObjectMetadataItem is not defined');
+    throw new Error('relationObjectMetadataItem belum ditentukan');
   }
 
   const relationObjectLabelPlural = relationObjectMetadataItem.labelPlural;

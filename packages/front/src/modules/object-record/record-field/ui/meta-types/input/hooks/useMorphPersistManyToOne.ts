@@ -61,7 +61,7 @@ export const useMorphPersistManyToOne = ({
         isDefined(targetObjectMetadataNameSingular) &&
         !isDefined(targetObjectMetadataItem)
       ) {
-        throw new Error('Object metadata item not found');
+        throw new Error('Item metadata objek tidak ditemukan');
       }
 
       const currentValue = store.get(

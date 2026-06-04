@@ -69,7 +69,7 @@ export const useProcessTableWithGroupRecordDrop = () => {
       );
 
       if (!isDefined(destinationRecordGroup)) {
-        throw new Error('Record group is not defined');
+        throw new Error('Grup rekaman belum ditentukan');
       }
 
       const fieldMetadata = objectMetadataItem.fields.find(
@@ -77,7 +77,7 @@ export const useProcessTableWithGroupRecordDrop = () => {
       );
 
       if (!isDefined(fieldMetadata)) {
-        throw new Error('Field metadata is not defined');
+        throw new Error('Metadata field belum ditentukan');
       }
 
       const existingOriginalDragSelection = store.get(originalDragSelection);

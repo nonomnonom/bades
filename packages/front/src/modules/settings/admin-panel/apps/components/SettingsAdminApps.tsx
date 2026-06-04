@@ -3,22 +3,22 @@ import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApo
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
-import { Table } = '@/ui/layout/table/components/Table';
-import { TableBody } = '@/ui/layout/table/components/TableBody';
-import { TableCell } = '@/ui/layout/table/components/TableCell';
-import { TableHeader } = '@/ui/layout/table/components/TableHeader';
-import { TableRow } = '@/ui/layout/table/components/TableRow';
-import { useQuery } = '@apollo/client/react';
-import { styled } = '@linaria/react';
-import { type ReactNode, useContext, useState } = 'react';
-import { assertUnreachable, getSettingsPath } = 'shared/utils';
-import { SettingsPath } = 'shared/types';
-import { H2Title, IconChevronRight, IconPinned } = 'ui/display';
-import { SearchInput } = 'ui/input';
-import { Section } = 'ui/layout';
-import { MenuItemToggle } = 'ui/navigation';
-import { ThemeContext, themeCssVariables } = 'ui/theme-constants';
-import { Tag } = 'ui/components';
+import { Table } from '@/ui/layout/table/components/Table';
+import { TableBody } from '@/ui/layout/table/components/TableBody';
+import { TableCell } from '@/ui/layout/table/components/TableCell';
+import { TableHeader } from '@/ui/layout/table/components/TableHeader';
+import { TableRow } from '@/ui/layout/table/components/TableRow';
+import { useQuery } from '@apollo/client/react';
+import { styled } from '@linaria/react';
+import { type ReactNode, useContext, useState } from 'react';
+import { assertUnreachable, getSettingsPath } from 'shared/utils';
+import { SettingsPath } from 'shared/types';
+import { H2Title, IconChevronRight, IconPinned } from 'ui/display';
+import { SearchInput } from 'ui/input';
+import { Section } from 'ui/layout';
+import { MenuItemToggle } from 'ui/navigation';
+import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
+import { Tag } from 'ui/components';
 import {
   type ApplicationRegistrationFragmentFragment,
   ApplicationRegistrationSourceType,

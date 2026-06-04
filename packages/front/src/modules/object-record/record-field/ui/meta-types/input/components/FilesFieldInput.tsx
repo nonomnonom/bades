@@ -175,7 +175,7 @@ export const FilesFieldInput = () => {
           label: _input.trim(),
         };
       }
-      throw new Error('Cannot create file from text input');
+      throw new Error('Tidak dapat membuat berkas dari input teks');
     },
     [files],
   );

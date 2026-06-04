@@ -217,7 +217,7 @@ const addNewAddressToMetadataItems = (
         (field) => field.type === FieldMetadataType.ADDRESS,
       );
       if (!addressField) {
-        throw new Error('Address field not found');
+        throw new Error('Field alamat tidak ditemukan');
       }
       const newField = {
         ...addressField,

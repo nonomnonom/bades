@@ -1,34 +1,35 @@
 import { canManageFeatureFlagsState } from '@/client-config/states/canManageFeatureFlagsState';
+import { t } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { SettingsAdminVersionContainer } from '@/settings/admin-panel/components/SettingsAdminVersionContainer';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { Table } from '@/ui/layout/table/components/Table';
-import { TableBody } = '@/ui/layout/table/components/TableBody';
-import { TableCell } = '@/ui/layout/table/components/TableCell';
-import { TableHeader } = '@/ui/layout/table/components/TableHeader';
-import { TableRow } = '@/ui/layout/table/components/TableRow';
-import { useAtomStateValue } = '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
-import { useQuery } = '@apollo/client/react';
-import { styled } = '@linaria/react';
-import { useContext, useState } = 'react';
-import { useDebounce } = 'use-debounce';
-import { SettingsPath } = 'shared/types';
-import { getSettingsPath } = 'shared/utils';
+import { TableBody } from '@/ui/layout/table/components/TableBody';
+import { TableCell } from '@/ui/layout/table/components/TableCell';
+import { TableHeader } from '@/ui/layout/table/components/TableHeader';
+import { TableRow } from '@/ui/layout/table/components/TableRow';
+import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { useQuery } from '@apollo/client/react';
+import { styled } from '@linaria/react';
+import { useContext, useState } from 'react';
+import { useDebounce } from 'use-debounce';
+import { SettingsPath } from 'shared/types';
+import { getSettingsPath } from 'shared/utils';
 
-import { currentUserState } = '@/auth/states/currentUserState';
+import { currentUserState } from '@/auth/states/currentUserState';
 import {
   Avatar,
   H2Title,
   IconChevronRight,
   OverflowingTextWithTooltip,
-} = 'ui/display';
-import { Section } = 'ui/layout';
-import { ThemeContext, themeCssVariables } = 'ui/theme-constants';
+} from 'ui/display';
+import { Section } from 'ui/layout';
+import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 import {
   AdminPanelRecentUsersDocument,
   AdminPanelTopWorkspacesDocument,
-} = '~/generated-admin/graphql';
+} from '~/generated-admin/graphql';
 
 const StyledEmptyState = styled.div`
   color: ${themeCssVariables.font.color.tertiary};
@@ -77,7 +78,7 @@ export const SettingsAdminGeneral = () => {
     <>
       {canAccessFullAdminPanel && (
         <Section>
-          <H2Title title={t`Tentang`} description={t`Versi aplikasi`} />
+          <H2Title title={`Tentang`} description={`Versi aplikasi`} />
           <SettingsAdminVersionContainer />
         </Section>
       )}
@@ -86,25 +87,25 @@ export const SettingsAdminGeneral = () => {
         <>
           <Section>
             <H2Title
-              title={t`Pengguna Terbaru`}
+              title={`Pengguna Terbaru`}
               description={
                 canManageFeatureFlags
-                  ? t`10 pengguna terakhir yang dibuat. Klik untuk mengelola feature flag atau impersonasi.`
-                  : t`10 pengguna terakhir yang dibuat. Klik untuk impersonasi.`
+                  ? `10 pengguna terakhir yang dibuat. Klik untuk mengelola feature flag atau impersonasi.`
+                  : `10 pengguna terakhir yang dibuat. Klik untuk impersonasi.`
               }
             />
             <SettingsTextInput
               instanceId="admin-panel-user-search"
               value={userSearchTerm}
               onChange={setUserSearchTerm}
-              placeholder={t`Cari berdasarkan nama, email, atau ID pengguna...`}
+              placeholder={`Cari berdasarkan nama, email, atau ID pengguna...`}
               fullWidth
             />
             {isLoadingUsers ? (
               <SettingsSectionSkeletonLoader />
             ) : recentUsers.length === 0 ? (
               <StyledEmptyState>
-                {t`Tidak ada pengguna yang cocok dengan kriteria pencarian Anda.`}
+                {`Tidak ada pengguna yang cocok dengan kriteria pencarian Anda.`}
               </StyledEmptyState>
             ) : (
               <Table>
@@ -112,9 +113,9 @@ export const SettingsAdminGeneral = () => {
                   <TableRow
                     gridTemplateColumns={RECENT_USERS_GRID_TEMPLATE_COLUMNS}
                   >
-                    <TableHeader>{t`Nama`}</TableHeader>
-                    <TableHeader>{t`Email`}</TableHeader>
-                    <TableHeader>{t`Ruang Kerja`}</TableHeader>
+                    <TableHeader>{`Nama`}</TableHeader>
+                    <TableHeader>{`Email`}</TableHeader>
+                    <TableHeader>{`Ruang Kerja`}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   {recentUsers.map((user) => (
@@ -184,21 +185,21 @@ export const SettingsAdminGeneral = () => {
 
           <Section>
             <H2Title
-              title={t`Ruang Kerja Teratas`}
-              description={t`10 ruang kerja teratas berdasarkan jumlah pengguna`}
+              title={`Ruang Kerja Teratas`}
+              description={`10 ruang kerja teratas berdasarkan jumlah pengguna`}
             />
             <SettingsTextInput
               instanceId="admin-panel-workspace-search"
               value={workspaceSearchTerm}
               onChange={setWorkspaceSearchTerm}
-              placeholder={t`Cari berdasarkan nama, subdomain, atau ID ruang kerja...`}
+              placeholder={`Cari berdasarkan nama, subdomain, atau ID ruang kerja...`}
               fullWidth
             />
             {isLoadingWorkspaces ? (
               <SettingsSectionSkeletonLoader />
             ) : topWorkspaces.length === 0 ? (
               <StyledEmptyState>
-                {t`Tidak ada ruang kerja yang cocok dengan kriteria pencarian Anda.`}
+                {`Tidak ada ruang kerja yang cocok dengan kriteria pencarian Anda.`}
               </StyledEmptyState>
             ) : (
               <Table>
@@ -206,8 +207,8 @@ export const SettingsAdminGeneral = () => {
                   <TableRow
                     gridTemplateColumns={TOP_WORKSPACES_GRID_TEMPLATE_COLUMNS}
                   >
-                    <TableHeader>{t`Ruang Kerja`}</TableHeader>
-                    <TableHeader align="right">{t`Pengguna`}</TableHeader>
+                    <TableHeader>{`Ruang Kerja`}</TableHeader>
+                    <TableHeader align="right">{`Pengguna`}</TableHeader>
                     <TableHeader />
                   </TableRow>
                   {topWorkspaces.map((workspace) => (

@@ -103,7 +103,7 @@ export const SpreadsheetImportStepper = ({
       );
     case SpreadsheetImportStepType.validateData:
       if (!uploadedFile) {
-        throw new Error('File not found');
+        throw new Error('Berkas tidak ditemukan');
       }
       return (
         <ValidationStep

@@ -72,7 +72,7 @@ export const WithVariable: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.click(editor);
@@ -166,7 +166,7 @@ export const Disabled: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     const variablePicker = canvas.queryByText('VariablePicker');
@@ -241,7 +241,7 @@ export const HasHistory: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     const addVariableButton = await canvas.findByRole('button', {

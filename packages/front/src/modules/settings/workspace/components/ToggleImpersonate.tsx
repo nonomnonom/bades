@@ -21,7 +21,7 @@ export const ToggleImpersonate = () => {
   const handleChange = async (value: boolean) => {
     try {
       if (!currentWorkspace?.id) {
-        throw new Error('User is not logged in');
+        throw new Error('Pengguna belum masuk');
       }
       await updateWorkspace({
         variables: {

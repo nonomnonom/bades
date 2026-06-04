@@ -12,7 +12,7 @@ export const useApolloAdminClient = () => {
   }
 
   if (!apolloAdminClient) {
-    throw new Error('ApolloAdminClient not found');
+    throw new Error('ApolloAdminClient tidak ditemukan');
   }
 
   return apolloAdminClient;

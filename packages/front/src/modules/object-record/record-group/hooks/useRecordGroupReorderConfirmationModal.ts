@@ -70,7 +70,7 @@ export const useRecordGroupReorderConfirmationModal = ({
 
   const handleConfirmClick = () => {
     if (!pendingDragEndHandlerParams) {
-      throw new Error('pendingDragEndReorder is not set');
+      throw new Error('pendingDragEndReorder belum diatur');
     }
 
     setRecordIndexRecordGroupSort(RecordGroupSort.Manual);

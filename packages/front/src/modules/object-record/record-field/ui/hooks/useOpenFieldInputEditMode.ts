@@ -175,7 +175,7 @@ export const useOpenFieldInputEditMode = () => {
 
       if (isFieldMorphRelationOneToMany(fieldDefinition)) {
         if (!isFieldMorphRelation(fieldDefinition)) {
-          throw new Error('Field is not a morph relation one to many');
+          throw new Error('Field bukan relasi morph one to many');
         }
 
         openMorphRelationOneToManyFieldInput({

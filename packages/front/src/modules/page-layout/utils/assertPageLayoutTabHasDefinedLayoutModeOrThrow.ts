@@ -10,6 +10,6 @@ type AssertPageLayoutTabHasDefinedLayoutModeOrThrow = (
 export const assertPageLayoutTabHasDefinedLayoutModeOrThrow: AssertPageLayoutTabHasDefinedLayoutModeOrThrow =
   (tab) => {
     if (!isNonEmptyString(tab?.layoutMode)) {
-      throw new Error('Tab layout mode is not defined');
+      throw new Error('Mode tata letak tab belum ditentukan');
     }
   };

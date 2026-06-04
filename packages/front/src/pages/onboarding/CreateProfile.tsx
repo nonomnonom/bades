@@ -94,10 +94,10 @@ export const CreateProfile = () => {
     async (data) => {
       try {
         if (!currentWorkspaceMember?.id) {
-          throw new Error('User is not logged in');
+          throw new Error('Pengguna belum masuk');
         }
         if (!data.firstName || !data.lastName) {
-          throw new Error('First name or last name is missing');
+          throw new Error('Nama depan atau nama belakang belum diisi');
         }
 
         await updateWorkspaceMemberSettings({

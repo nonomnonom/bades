@@ -15,7 +15,7 @@ export const ReactSpreadsheetImportContextProvider = ({
   values,
 }: ReactSpreadsheetImportContextProviderProps) => {
   if (isUndefinedOrNull(values.spreadsheetImportFields)) {
-    throw new Error('Fields must be provided to spreadsheet-import');
+    throw new Error('Field harus diberikan ke spreadsheet-import');
   }
 
   return <RsiContext.Provider value={values}>{children}</RsiContext.Provider>;

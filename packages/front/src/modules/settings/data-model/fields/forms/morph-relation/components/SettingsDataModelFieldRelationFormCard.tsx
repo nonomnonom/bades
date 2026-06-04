@@ -48,7 +48,7 @@ export const SettingsDataModelFieldRelationFormCard = ({
   );
 
   if (!sourceObjectMetadataItem) {
-    throw new Error('Object not found.');
+    throw new Error('Objek tidak ditemukan.');
   }
 
   const relationObjectMetadataIds: string[] = watch(

@@ -22,7 +22,7 @@ export const usePageLayoutIdFromContextStore = () => {
   );
 
   if (!isDefined(contextStoreCurrentObjectMetadataItemId)) {
-    throw new Error('Object metadata ID is not defined');
+    throw new Error('ID metadata objek belum ditentukan');
   }
 
   const { objectMetadataItem } = useObjectMetadataItemById({
@@ -35,7 +35,7 @@ export const usePageLayoutIdFromContextStore = () => {
       contextStoreTargetedRecordsRule.selectedRecordIds.length === 1
     )
   ) {
-    throw new Error('Only one record should be selected');
+    throw new Error('Hanya satu rekaman yang boleh dipilih');
   }
 
   const recordId: string = contextStoreTargetedRecordsRule.selectedRecordIds[0];

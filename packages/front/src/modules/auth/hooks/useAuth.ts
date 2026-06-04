@@ -578,7 +578,7 @@ export const useAuth = () => {
       }
 
       if (!getAuthTokensFromOtpResult.data?.getAuthTokensFromOTP) {
-        throw new Error('No getAuthTokensFromOTP result');
+        throw new Error('Hasil getAuthTokensFromOTP tidak ada');
       }
 
       await handleLoadWorkspaceAfterAuthentication(

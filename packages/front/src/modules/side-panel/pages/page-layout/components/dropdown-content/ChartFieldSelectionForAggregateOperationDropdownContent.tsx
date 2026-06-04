@@ -43,7 +43,7 @@ export const ChartFieldSelectionForAggregateOperationDropdownContent = () => {
   );
 
   if (!isBarOrLineChart && !isAggregateChart && !isPieChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   const currentFieldMetadataId = configuration.aggregateFieldMetadataId;

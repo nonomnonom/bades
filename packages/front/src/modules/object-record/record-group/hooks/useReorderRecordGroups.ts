@@ -87,7 +87,7 @@ export const useReorderRecordGroups = ({
       }, []);
 
       if (!isDefined(recordIndexGroupFieldMetadataItem?.id)) {
-        throw new Error('mainGroupByFieldMetadataId is required');
+        throw new Error('mainGroupByFieldMetadataId wajib diisi');
       }
 
       setRecordGroups({

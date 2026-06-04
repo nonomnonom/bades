@@ -25,7 +25,7 @@ export const ChartAxisNameSelectionDropdownContent = () => {
     isWidgetConfigurationOfType(configuration, 'LineChartConfiguration');
 
   if (!isBarOrLineChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   const currentAxisNameDisplay = configuration.axisNameDisplay;

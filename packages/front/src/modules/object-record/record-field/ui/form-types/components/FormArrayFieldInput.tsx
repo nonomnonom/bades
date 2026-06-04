@@ -176,7 +176,7 @@ export const FormArrayFieldInput = ({
 
   const handleDeleteItem = (index: number) => {
     if (draftValue.type !== 'static') {
-      throw new Error('Cannot delete item when value is a variable.');
+      throw new Error('Tidak dapat menghapus item ketika nilai adalah variabel.');
     }
 
     const updatedItems = toSpliced(draftValue.value, index, 1);
@@ -229,7 +229,7 @@ export const FormArrayFieldInput = ({
 
   const handleNewItemInputSubmit = () => {
     if (draftValue.type !== 'static') {
-      throw new Error('Cannot submit input when value is a variable.');
+      throw new Error('Tidak dapat mengirim input ketika nilai adalah variabel.');
     }
 
     const sanitizedInput = inputValue.trim();

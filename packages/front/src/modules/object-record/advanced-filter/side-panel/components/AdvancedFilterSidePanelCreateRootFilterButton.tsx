@@ -67,7 +67,7 @@ export const AdvancedFilterSidePanelCreateRootFilterButton = ({
       upsertRecordFilterGroup(newRecordFilterGroup);
 
       if (!isDefined(defaultFieldMetadataItem)) {
-        throw new Error('Missing default filter definition');
+        throw new Error('Definisi filter default tidak ada');
       }
 
       const { newRecordFilter } = createEmptyRecordFilterFromFieldMetadataItem(

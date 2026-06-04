@@ -1,3 +1,4 @@
+import { t } from '~/utils/i18n/badesI18n';
 import { FieldContext } from '@/object-record/record-field/ui/contexts/FieldContext';
 import { useFullNameFieldDisplay } from '@/object-record/record-field/ui/meta-types/hooks/useFullNameFieldDisplay';
 import { useRecordTitleCell } from '@/object-record/record-title-cell/hooks/useRecordTitleCell';
@@ -82,7 +83,7 @@ export const RecordTitleFullNameFieldDisplay = ({
       }}
     >
       {!content ? (
-        <StyledEmptyText>t`Tanpa judul`</StyledEmptyText>
+        <StyledEmptyText>`Tanpa judul`</StyledEmptyText>
       ) : (
         <OverflowingTextWithTooltip
           text={isNonEmptyString(content) ? content : fieldDefinition.label}

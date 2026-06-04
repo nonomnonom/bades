@@ -42,7 +42,7 @@ export const useMergeRecordsActions = ({
       });
 
       if (!mergedRecord) {
-        throw new Error('Failed to merge records');
+        throw new Error('Gagal menggabungkan rekaman');
       }
 
       const recordCount = selectedRecords.length;

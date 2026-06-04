@@ -53,7 +53,7 @@ export const ChartAggregateOperationSelectionDropdownContent = ({
   );
 
   if (!isBarOrLineChart && !isAggregateChart && !isPieChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   const sourceObjectMetadataItem = objectMetadataItems.find(

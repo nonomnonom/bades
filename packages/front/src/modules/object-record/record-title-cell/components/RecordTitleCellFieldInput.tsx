@@ -18,7 +18,7 @@ export const RecordTitleCellFieldInput = ({
   const { fieldDefinition } = useContext(FieldContext);
 
   if (!isFieldText(fieldDefinition) && !isFieldFullName(fieldDefinition)) {
-    throw new Error('Field definition is not a text or full name field');
+    throw new Error('Definisi field bukan field teks atau nama lengkap');
   }
 
   return (

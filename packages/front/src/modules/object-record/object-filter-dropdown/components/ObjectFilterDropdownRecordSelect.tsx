@@ -76,7 +76,7 @@ export const ObjectFilterDropdownRecordSelect = ({
     .parse(objectFilterDropdownFilterValue);
 
   if (!isDefined(fieldMetadataItemUsedInFilterDropdown)) {
-    throw new Error('fieldMetadataItemUsedInFilterDropdown is not defined');
+    throw new Error('fieldMetadataItemUsedInFilterDropdown belum ditentukan');
   }
 
   const objectNameSingular = getRelationObjectMetadataNameSingular({
@@ -84,7 +84,7 @@ export const ObjectFilterDropdownRecordSelect = ({
   });
 
   if (!isDefined(objectNameSingular)) {
-    throw new Error('relationObjectMetadataNameSingular is not defined');
+    throw new Error('relationObjectMetadataNameSingular belum ditentukan');
   }
 
   const { objectMetadataItem } = useObjectMetadataItem({
@@ -94,7 +94,7 @@ export const ObjectFilterDropdownRecordSelect = ({
   const objectLabelPlural = objectMetadataItem?.labelPlural;
 
   if (!isDefined(objectNameSingular)) {
-    throw new Error('objectNameSingular is not defined');
+    throw new Error('objectNameSingular belum ditentukan');
   }
 
   const firstSimpleRecordFilterForFieldMetadataItemUsedInDropdown =

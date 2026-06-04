@@ -22,7 +22,7 @@ export const getTestPayloadFromTrigger = (
       );
     }
     default: {
-      return assertUnreachable(trigger, 'Unknown trigger type');
+      return assertUnreachable(trigger, 'Tipe trigger tidak dikenal');
     }
   }
 };

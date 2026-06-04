@@ -50,7 +50,7 @@ const setup = (
   );
 
   if (result.current === null || result.current === undefined)
-    throw new Error('Editor not created');
+    throw new Error('Editor tidak dibuat');
   return { editor: result.current, unmount };
 };
 

@@ -54,25 +54,25 @@ export const parseSAMLMetadataFromXMLFile = (
     }
 
     const entityDescriptor = getByPrefixAndKey(xmlDoc, 'EntityDescriptor');
-    if (!entityDescriptor) throw new Error('No EntityDescriptor found');
+    if (!entityDescriptor) throw new Error('EntityDescriptor tidak ditemukan');
 
     const IDPSSODescriptor = getByPrefixAndKey(xmlDoc, 'IDPSSODescriptor');
-    if (!IDPSSODescriptor) throw new Error('No IDPSSODescriptor found');
+    if (!IDPSSODescriptor) throw new Error('IDPSSODescriptor tidak ditemukan');
 
     const keyDescriptors = getByPrefixAndKey(IDPSSODescriptor, 'KeyDescriptor');
-    if (!keyDescriptors) throw new Error('No KeyDescriptor found');
+    if (!keyDescriptors) throw new Error('KeyDescriptor tidak ditemukan');
 
     const keyInfo = getByPrefixAndKey(keyDescriptors, 'KeyInfo');
-    if (!keyInfo) throw new Error('No KeyInfo found');
+    if (!keyInfo) throw new Error('KeyInfo tidak ditemukan');
 
     const x509Data = getByPrefixAndKey(keyInfo, 'X509Data');
-    if (!x509Data) throw new Error('No X509Data found');
+    if (!x509Data) throw new Error('X509Data tidak ditemukan');
 
     const x509Certificate = getByPrefixAndKey(
       x509Data,
       'X509Certificate',
     )?.textContent?.trim();
-    if (!x509Certificate) throw new Error('No X509Certificate found');
+    if (!x509Certificate) throw new Error('X509Certificate tidak ditemukan');
 
     const singleSignOnServices = getAllByPrefixAndKey(
       IDPSSODescriptor,

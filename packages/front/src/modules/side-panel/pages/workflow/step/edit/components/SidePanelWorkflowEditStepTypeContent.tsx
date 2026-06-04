@@ -49,7 +49,7 @@ export const SidePanelWorkflowEditStepTypeContent = () => {
     );
 
     if (!isDefined(existingStep)) {
-      throw new Error('Step not found');
+      throw new Error('Langkah tidak ditemukan');
     }
 
     const stepUpdate = {

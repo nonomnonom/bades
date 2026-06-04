@@ -44,7 +44,7 @@ export const NameFields = ({ autoSave = true }: NameFieldsProps) => {
   const debouncedUpdate = useDebouncedCallback(async () => {
     try {
       if (!currentWorkspaceMember?.id) {
-        throw new Error('User is not logged in');
+        throw new Error('Pengguna belum masuk');
       }
 
       if (autoSave) {

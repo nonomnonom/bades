@@ -150,7 +150,7 @@ export const useCreateViewFromCurrentView = (viewBarComponentId?: string) => {
       const newViewId = result.response.data?.createView.id;
 
       if (isUndefinedOrNull(newViewId)) {
-        throw new Error('Failed to create view');
+        throw new Error('Gagal membuat tampilan');
       }
 
       const fieldResult = await performViewFieldAPICreate({

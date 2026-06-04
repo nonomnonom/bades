@@ -61,7 +61,7 @@ export const AdvancedFilterAddFilterRuleSelect = ({
       getDefaultFieldMetadataItemForFilter(objectMetadataItem);
 
     if (!isDefined(defaultFieldMetadataItemForFilter)) {
-      throw new Error('Missing default field metadata item for filter');
+      throw new Error('Item metadata field default untuk filter tidak ada');
     }
 
     closeDropdown(dropdownId);
@@ -100,11 +100,11 @@ export const AdvancedFilterAddFilterRuleSelect = ({
     closeDropdown(dropdownId);
 
     if (!isDefined(defaultFieldMetadataItemForFilter)) {
-      throw new Error('Missing default field metadata item for filter');
+      throw new Error('Item metadata field default untuk filter tidak ada');
     }
 
     if (!isDefined(currentView)) {
-      throw new Error('Missing view');
+      throw new Error('Tampilan tidak ada');
     }
 
     const newRecordFilterGroupId = v4();

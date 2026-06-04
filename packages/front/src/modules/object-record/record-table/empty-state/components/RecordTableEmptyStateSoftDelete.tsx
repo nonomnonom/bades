@@ -36,7 +36,7 @@ export const RecordTableEmptyStateSoftDelete = () => {
     );
 
     if (!isDefined(deletedFilter)) {
-      throw new Error('Deleted filter not found');
+      throw new Error('Filter terhapus tidak ditemukan');
     }
 
     removeRecordFilter({ recordFilterId: deletedFilter.id });

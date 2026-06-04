@@ -42,11 +42,11 @@ export const ChartSortByGroupByFieldDropdownContent = () => {
     isWidgetConfigurationOfType(configuration, 'LineChartConfiguration');
 
   if (!isBarOrLineChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   if (!isDefined(widgetInEditMode?.objectMetadataId)) {
-    throw new Error('No data source in chart');
+    throw new Error('Tidak ada sumber data di grafik');
   }
 
   const dropdownId = useAvailableComponentInstanceIdOrThrow(

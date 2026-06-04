@@ -165,5 +165,5 @@ export const CommandMenuItemRenderer = ({
     );
   }
 
-  return assertUnreachable(displayType, 'Unsupported display type');
+  return assertUnreachable(displayType, 'Tipe tampilan tidak didukung');
 };

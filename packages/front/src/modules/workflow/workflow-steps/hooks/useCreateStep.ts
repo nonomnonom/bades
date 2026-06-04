@@ -82,7 +82,7 @@ export const useCreateStep = () => {
       ) as Nullable<DifferenceChange>;
 
       if (!isDefined(createdFirstStepDiff) && !isDefined(addedStepDiff)) {
-        throw new Error("Couldn't create step");
+        throw new Error("Tidak dapat membuat langkah");
       }
 
       if (shouldSelectNode) {

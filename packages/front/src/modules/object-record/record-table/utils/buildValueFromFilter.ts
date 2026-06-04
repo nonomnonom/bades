@@ -464,7 +464,7 @@ const buildCompositeValueFromFilter = ({
   });
 
   if (!operands.some((operand) => operand === filter.operand)) {
-    throw new Error('Operand not supported for this sub field type');
+    throw new Error('Operand tidak didukung untuk tipe sub-field ini');
   }
 
   const subFieldValue = computeValueFromSubFieldType({
@@ -521,7 +521,7 @@ export const buildValueFromFilter = ({
 
   const operands = FILTER_OPERANDS_MAP[filter.type];
   if (!operands.some((operand) => operand === filter.operand)) {
-    throw new Error('Operand not supported for this field type');
+    throw new Error('Operand tidak didukung untuk tipe field ini');
   }
 
   const handler = VALUE_HANDLER_REGISTRY[filter.type as FieldMetadataType];

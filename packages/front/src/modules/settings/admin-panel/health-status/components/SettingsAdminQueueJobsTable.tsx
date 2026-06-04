@@ -1,4 +1,5 @@
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
+import { t } from '~/utils/i18n/badesI18n';
 import { SettingsAdminDeleteJobsConfirmationModal } from '@/settings/admin-panel/health-status/components/SettingsAdminDeleteJobsConfirmationModal';
 import { SettingsAdminJobDetailsExpandable } from '@/settings/admin-panel/health-status/components/SettingsAdminJobDetailsExpandable';
 import { SettingsAdminJobStateBadge } from '@/settings/admin-panel/health-status/components/SettingsAdminJobStateBadge';
@@ -15,7 +16,7 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { styled } from '@linaria/react';
-import { plural, t } from '~/utils/i18n/badesI18n';
+
 import { useState } from 'react';
 import { IconRefresh, IconTrash } from 'ui/display';
 import { Button, Checkbox } from 'ui/input';
@@ -82,15 +83,15 @@ export const SettingsAdminQueueJobsTable = ({
   const [selectedJobIds, setSelectedJobIds] = useState<Set<string>>(new Set());
   const { openModal } = useModal();
 
-  const jobStateOptions: { value: JobState; label: string }[] = [
-    { value: JobState.COMPLETED, label: t`Selesai` },
-    { value: JobState.FAILED, label: t`Gagal` },
-    { value: JobState.ACTIVE, label: t`Aktif` },
-    { value: JobState.WAITING, label: t`Menunggu` },
-    { value: JobState.DELAYED, label: t`Ditunda` },
-    { value: JobState.PRIORITIZED, label: t`Diprioritaskan` },
-    { value: JobState.WAITING_CHILDREN, label: t`Menunggu Anak` },
-  ];
+   const jobStateOptions: { value: JobState; label: string }[] = [
+     { value: JobState.COMPLETED, label: "Selesai" },
+     { value: JobState.FAILED, label: "Gagal" },
+     { value: JobState.ACTIVE, label: "Aktif" },
+     { value: JobState.WAITING, label: "Menunggu" },
+     { value: JobState.DELAYED, label: "Ditunda" },
+     { value: JobState.PRIORITIZED, label: "Diprioritaskan" },
+     { value: JobState.WAITING_CHILDREN, label: "Menunggu Anak" },
+   ];
 
   const offset = page * LIMIT;
 
@@ -219,36 +220,30 @@ export const SettingsAdminQueueJobsTable = ({
         />
         <StyledButtonGroup>
           {selectedCount > 0 && (
-            <Button
-              Icon={IconTrash}
-              title={plural(selectedCount, {
-                one: `Hapus ${selectedCount} Pekerjaan`,
-                other: `Hapus ${selectedCount} Pekerjaan`,
-              })}
-              onClick={handleDeleteSelected}
-              disabled={isDeleting || loading}
-              size="small"
-              variant="secondary"
-              accent="danger"
-            />
+           <Button
+             Icon={IconTrash}
+             title={`Hapus ${selectedCount} Pekerjaan`}
+             onClick={handleDeleteSelected}
+             disabled={isDeleting || loading}
+             size="small"
+             variant="secondary"
+             accent="danger"
+           />
           )}
-          {allSelectedAreFailed && (
-            <Button
-              Icon={IconRefresh}
-              title={plural(selectedCount, {
-                one: `Coba Ulang ${selectedCount} Pekerjaan`,
-                other: `Coba Ulang ${selectedCount} Pekerjaan`,
-              })}
-              onClick={handleRetrySelected}
-              disabled={isRetrying || loading}
-              size="small"
-              variant="secondary"
-            />
-          )}
+           {allSelectedAreFailed && (
+             <Button
+               Icon={IconRefresh}
+               title={`Coba Ulang ${selectedCount} Pekerjaan`}
+               onClick={handleRetrySelected}
+               disabled={isRetrying || loading}
+               size="small"
+               variant="secondary"
+             />
+           )}
           {failedJobs.length > 0 && selectedCount === 0 && (
             <Button
               Icon={IconRefresh}
-              title={t`Coba Ulang Semua yang Gagal`}
+              title={`Coba Ulang Semua yang Gagal`}
               onClick={handleRetrySelected}
               disabled={isRetrying || loading}
               size="small"
@@ -258,11 +253,11 @@ export const SettingsAdminQueueJobsTable = ({
         </StyledButtonGroup>
       </StyledControlsContainer>
 
-      {loading && jobs.length === 0 ? (
-        <SettingsEmptyPlaceholder>{t`Memuat pekerjaan...`}</SettingsEmptyPlaceholder>
-      ) : jobs.length === 0 ? (
-        <SettingsEmptyPlaceholder>{t`Tidak ada pekerjaan`}</SettingsEmptyPlaceholder>
-      ) : (
+       {loading && jobs.length === 0 ? (
+         <SettingsEmptyPlaceholder>{"Memuat pekerjaan..."}</SettingsEmptyPlaceholder>
+       ) : jobs.length === 0 ? (
+         <SettingsEmptyPlaceholder>{"Tidak ada pekerjaan"}</SettingsEmptyPlaceholder>
+       ) : (
         <>
           <Table>
             <TableRow gridAutoColumns="32px 2fr 1fr 2fr 32px">
@@ -278,9 +273,9 @@ export const SettingsAdminQueueJobsTable = ({
                   />
                 )}
               </TableHeader>
-              <TableHeader>{t`Nama Pekerjaan`}</TableHeader>
-              <TableHeader>{t`Status`}</TableHeader>
-              <TableHeader align="right">{t`Waktu`}</TableHeader>
+             <TableHeader>Nama Pekerjaan</TableHeader>
+             <TableHeader>Status</TableHeader>
+             <TableHeader align="right">Waktu</TableHeader>
               <TableHeader></TableHeader>
             </TableRow>
             <TableBody>
@@ -359,18 +354,18 @@ export const SettingsAdminQueueJobsTable = ({
 
           <StyledPaginationContainer>
             <Button
-              title={t`Sebelumnya`}
+              title={`Sebelumnya`}
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0 || loading}
               size="small"
               variant="secondary"
             />
             <div>
-              {t`Halaman`} {page + 1} {totalCount > 0 ? t`dari` : ''}{' '}
+              {`Halaman`} {page + 1} {totalCount > 0 ? `dari` : ''}{' '}
               {totalCount > 0 ? Math.max(1, Math.ceil(totalCount / LIMIT)) : ''}
             </div>
             <Button
-              title={t`Berikutnya`}
+              title={`Berikutnya`}
               onClick={() => setPage((p) => p + 1)}
               disabled={!hasMore || loading}
               size="small"

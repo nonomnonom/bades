@@ -33,7 +33,7 @@ export const useClearField = () => {
     );
 
     if (!foundObjectMetadataItem || !foundFieldMetadataItem) {
-      throw new Error('Field metadata item cannot be found');
+      throw new Error('Item metadata field tidak dapat ditemukan');
     }
 
     const isRelation =

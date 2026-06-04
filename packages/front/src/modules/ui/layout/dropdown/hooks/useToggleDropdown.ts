@@ -30,7 +30,7 @@ export const useToggleDropdown = () => {
         dropdownComponentInstanceIdFromContext;
 
       if (!isDefined(dropdownComponentInstanceId)) {
-        throw new Error('Dropdown component instance ID is not defined');
+        throw new Error('ID instans komponen dropdown belum ditentukan');
       }
 
       const isDropdownOpen = store.get(

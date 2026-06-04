@@ -117,7 +117,7 @@ export const useRunWorkflowVersion = () => {
     });
 
     if (!isDefined(recordNodeCreatedInCache)) {
-      throw new Error('The record should have been created in cache');
+      throw new Error('Rekaman seharusnya sudah dibuat di cache');
     }
 
     upsertFindOneRecordQueryInCache({

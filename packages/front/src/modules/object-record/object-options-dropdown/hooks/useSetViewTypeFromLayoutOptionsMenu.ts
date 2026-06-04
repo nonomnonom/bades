@@ -40,7 +40,7 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
       const existingViews = store.get(viewsSelector.atom);
 
       if (!isDefined(currentViewId)) {
-        throw new Error('No view id found');
+        throw new Error('ID tampilan tidak ditemukan');
       }
 
       const currentView = existingViews.find(
@@ -48,7 +48,7 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
       );
 
       if (!isDefined(currentView)) {
-        throw new Error('No current view found');
+        throw new Error('Tampilan saat ini tidak ditemukan');
       }
 
       const updateCurrentViewParams: Partial<GraphQLView> = {};
@@ -57,7 +57,7 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
       switch (viewType) {
         case ViewType.KANBAN: {
           if (availableFieldsForGrouping.length === 0) {
-            throw new Error('No fields for kanban - should not happen');
+            throw new Error('Tidak ada field untuk kanban - seharusnya tidak terjadi');
           }
 
           const mainGroupByFieldMetadataId = availableFieldsForGrouping[0].id;
@@ -85,7 +85,7 @@ export const useSetViewTypeFromLayoutOptionsMenu = () => {
         }
         case ViewType.CALENDAR: {
           if (availableFieldsForCalendar.length === 0) {
-            throw new Error('No date fields for calendar');
+            throw new Error('Tidak ada field tanggal untuk kalender');
           }
 
           const calendarFieldMetadataId = availableFieldsForCalendar[0].id;

@@ -81,7 +81,7 @@ export const ChartDateGranularitySelectionDropdownContent = ({
   const configuration = widgetInEditMode?.configuration;
 
   if (!isChartConfiguration(configuration)) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   const isPieChart = isWidgetConfigurationOfType(
@@ -93,11 +93,11 @@ export const ChartDateGranularitySelectionDropdownContent = ({
     isWidgetConfigurationOfType(configuration, 'LineChartConfiguration');
 
   if (!isDefined(axis) && !isPieChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   if (isDefined(axis) && !isBarOrLineChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   const currentDateGranularity = getCurrentDateGranularity({

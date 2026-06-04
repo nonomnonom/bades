@@ -133,7 +133,7 @@ export const Submit: Story = {
     const firstStar = input.firstElementChild;
 
     if (!firstStar) {
-      throw new Error('First star element not found');
+      throw new Error('Elemen bintang pertama tidak ditemukan');
     }
 
     await userEvent.click(firstStar);

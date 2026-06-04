@@ -57,7 +57,7 @@ export const useLoadCurrentUser = () => {
     const user = currentUserResult.data?.currentUser;
 
     if (!isDefined(user)) {
-      throw new Error('No current user result');
+      throw new Error('Hasil pengguna saat ini tidak ada');
     }
 
     let workspaceMember = null;

@@ -118,7 +118,7 @@ export const useRecordLevelPermissionFilterActions = ({
     const defaultFieldMetadataItemForRLS = getDefaultFieldMetadataItemForRLS();
 
     if (!isDefined(defaultFieldMetadataItemForRLS)) {
-      throw new Error('Missing default filter definition');
+      throw new Error('Definisi filter default tidak ada');
     }
 
     const { newRecordFilter } = createEmptyRecordFilterFromFieldMetadataItem(
@@ -135,7 +135,7 @@ export const useRecordLevelPermissionFilterActions = ({
     const defaultFieldMetadataItemForRLS = getDefaultFieldMetadataItemForRLS();
 
     if (!isDefined(defaultFieldMetadataItemForRLS)) {
-      throw new Error('Missing default field metadata item for filter');
+      throw new Error('Item metadata field default untuk filter tidak ada');
     }
 
     const filterType = getFilterTypeFromFieldType(

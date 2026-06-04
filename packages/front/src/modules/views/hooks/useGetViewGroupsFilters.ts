@@ -11,7 +11,7 @@ export const useGetViewGroupsFilters = (): RecordFilter[] => {
       .filter((recordGroup) => !recordGroup.isVisible)
       .map((recordGroup) => {
         if (!isDefined(currentView.mainGroupByFieldMetadataId)) {
-          throw new Error('mainGroupByFieldMetadataId is required');
+          throw new Error('mainGroupByFieldMetadataId wajib diisi');
         }
 
         return {

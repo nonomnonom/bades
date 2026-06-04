@@ -8,7 +8,7 @@ export const useWorkflowVersionIdOrThrow = () => {
   );
 
   if (!isDefined(workflowVisualizerWorkflowVersionId)) {
-    throw new Error('Expected the workflow version ID to be defined');
+    throw new Error('ID versi alur kerja seharusnya sudah ditentukan');
   }
 
   return workflowVisualizerWorkflowVersionId;

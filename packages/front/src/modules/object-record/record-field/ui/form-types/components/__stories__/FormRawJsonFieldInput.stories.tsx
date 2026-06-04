@@ -57,7 +57,7 @@ export const Readonly: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.type(editor, '{{ "a": {{ "b" :  "d" } }');
@@ -88,7 +88,7 @@ export const SaveValidJson: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.type(editor, '{{ "a": {{ "b" :  "d" } }');
@@ -112,7 +112,7 @@ export const SaveValidMultilineJson: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.type(
@@ -161,7 +161,7 @@ export const DoesNotIgnoreInvalidJson: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.type(editor, 'lol');
@@ -216,7 +216,7 @@ export const InsertVariableInTheMiddleOnTextInput: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     const addVariableButton = await canvas.findByRole('button', {
@@ -265,7 +265,7 @@ export const CanUseVariableAsObjectProperty: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     const addVariableButton = await canvas.findByRole('button', {
@@ -300,7 +300,7 @@ export const ClearField: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await Promise.all([
@@ -330,7 +330,7 @@ export const DoesNotBreakWhenUserInsertsNewlineInJsonString: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.type(editor, '"a{Enter}b"');
@@ -354,7 +354,7 @@ export const AcceptsJsonEncodedNewline: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     await userEvent.type(editor, '"a\\nb"');
@@ -393,7 +393,7 @@ export const HasHistory: Story = {
     });
 
     if (!editor) {
-      throw new Error('Editor element not found');
+      throw new Error('Elemen editor tidak ditemukan');
     }
 
     const addVariableButton = await canvas.findByRole('button', {

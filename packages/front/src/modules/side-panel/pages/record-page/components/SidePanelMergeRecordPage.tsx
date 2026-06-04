@@ -21,7 +21,7 @@ export const SidePanelMergeRecordPage = () => {
   );
 
   if (!sidePanelPageInstanceId) {
-    throw new Error('Command menu page instance id is not defined');
+    throw new Error('ID instans halaman menu perintah belum ditentukan');
   }
 
   return (

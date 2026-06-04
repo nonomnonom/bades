@@ -33,7 +33,7 @@ export const useRecordShowPagePagination = (
   const objectRecordId = propsObjectRecordId || paramObjectRecordId;
 
   if (!objectNameSingular || !objectRecordId) {
-    throw new Error('Object name or Record id is not defined');
+    throw new Error('Nama objek atau ID rekaman belum ditentukan');
   }
 
   const { objectMetadataItem } = useObjectMetadataItem({ objectNameSingular });

@@ -32,7 +32,7 @@ export const useGraphWidgetQueryCommon = ({
   );
 
   if (!isDefined(aggregateField)) {
-    throw new Error('Aggregate field not found');
+    throw new Error('Field agregat tidak ditemukan');
   }
 
   const { filterValueDependencies } = useFilterValueDependencies();

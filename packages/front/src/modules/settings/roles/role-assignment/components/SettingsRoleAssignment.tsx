@@ -121,7 +121,7 @@ export const SettingsRoleAssignment = ({
           );
 
           if (!member) {
-            throw new Error('Workspace member not found');
+            throw new Error('Anggota workspace tidak ditemukan');
           }
 
           updateWorkspaceMemberRoleDraftState({
@@ -140,7 +140,7 @@ export const SettingsRoleAssignment = ({
           );
 
           if (!agent) {
-            throw new Error('Agent not found');
+            throw new Error('Agen tidak ditemukan');
           }
 
           updateAgentRoleDraftState({
@@ -154,7 +154,7 @@ export const SettingsRoleAssignment = ({
           );
 
           if (!apiKeyData) {
-            throw new Error('API key not found');
+            throw new Error('Kunci API tidak ditemukan');
           }
 
           updateApiKeyRoleDraftState({

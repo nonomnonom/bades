@@ -41,7 +41,7 @@ export const processGroupDrop = ({
   );
 
   if (!isDefined(recordGroup)) {
-    throw new Error('Record group is not defined');
+    throw new Error('Grup rekaman belum ditentukan');
   }
 
   const destinationRecordIds = store.get(

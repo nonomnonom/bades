@@ -118,7 +118,7 @@ export const WorkflowRunDiagramStepNode = ({
 
   const handleClick = () => {
     if (!isDefined(workflowVisualizerWorkflowId)) {
-      throw new Error('Workflow ID must be defined');
+      throw new Error('ID alur kerja wajib ditentukan');
     }
 
     if (!isInSidePanel) {

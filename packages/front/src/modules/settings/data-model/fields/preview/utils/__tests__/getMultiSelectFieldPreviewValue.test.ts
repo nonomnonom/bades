@@ -20,7 +20,7 @@ describe('getMultiSelectFieldPreviewValue', () => {
     );
 
     if (!fieldMetadataItem) {
-      throw new Error('Field not found');
+      throw new Error('Field tidak ditemukan');
     }
 
     // When

@@ -31,7 +31,7 @@ export const usePerformViewFilterGroupAPIPersist = () => {
       });
 
       if (!result.data) {
-        throw new Error('Failed to create view filter group');
+        throw new Error('Gagal membuat grup filter tampilan');
       }
 
       return { newRecordId: result.data.createViewFilterGroup.id };
@@ -70,7 +70,7 @@ export const usePerformViewFilterGroupAPIPersist = () => {
       const newRecordIds = viewFilterGroupsToCreate.map((viewFilterGroup) => {
         const newId = oldToNewId.get(viewFilterGroup.id);
         if (!newId) {
-          throw new Error('Failed to create view filter group');
+          throw new Error('Gagal membuat grup filter tampilan');
         }
         return newId;
       });

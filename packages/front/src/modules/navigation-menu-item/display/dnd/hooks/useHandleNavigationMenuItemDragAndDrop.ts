@@ -154,7 +154,7 @@ export const useHandleNavigationMenuItemDragAndDrop = (
 
     if (destination.droppableId.startsWith(config.folderHeaderPrefix)) {
       if (destinationFolderId === null) {
-        throw new Error('Invalid folder header ID');
+        throw new Error('ID header folder tidak valid');
       }
 
       const folderList = getSortedItems().filter((item) =>

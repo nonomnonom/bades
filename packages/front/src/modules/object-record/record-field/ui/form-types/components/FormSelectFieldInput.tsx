@@ -80,7 +80,7 @@ export const FormSelectFieldInput = ({
 
   const onCancel = () => {
     if (draftValue.type !== 'static') {
-      throw new Error('Can only be called when editing a static value');
+      throw new Error('Hanya bisa dipanggil saat mengedit nilai statis');
     }
 
     setDraftValue({

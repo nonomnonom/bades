@@ -62,11 +62,11 @@ export const ChartSortBySelectionDropdownContent = () => {
   );
 
   if (!isBarChart && !isLineChart && !isPieChart) {
-    throw new Error('Invalid configuration type');
+    throw new Error('Tipe konfigurasi tidak valid');
   }
 
   if (!isDefined(widgetInEditMode?.objectMetadataId)) {
-    throw new Error('No data source in chart');
+    throw new Error('Tidak ada sumber data di grafik');
   }
 
   const { getXSortOptionLabel } = useGraphXSortOptionLabels({

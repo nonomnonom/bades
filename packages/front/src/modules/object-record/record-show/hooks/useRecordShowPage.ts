@@ -16,7 +16,7 @@ export const useRecordShowPage = (
   const objectRecordId = propsObjectRecordId ?? paramObjectRecordId;
 
   if (!isDefined(objectNameSingular) || !isDefined(objectRecordId)) {
-    throw new Error('Object name or Record id is not defined');
+    throw new Error('Nama objek atau ID rekaman belum ditentukan');
   }
 
   const { objectMetadataItem } = useObjectMetadataItem({ objectNameSingular });

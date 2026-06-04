@@ -21,7 +21,7 @@ export const useMorphRelationFromManyFieldDisplay = () => {
   );
 
   if (!isDefined(chipGeneratorPerObjectPerField)) {
-    throw new Error('Chip generator per object per field is not defined');
+    throw new Error('Generator chip per objek per field belum ditentukan');
   }
 
   assertFieldMetadata(
@@ -48,7 +48,7 @@ export const useMorphRelationFromManyFieldDisplay = () => {
     !isDefined(fieldDefinition.metadata.objectMetadataNameSingular) ||
     !isNonEmptyString(fieldDefinition.metadata.objectMetadataNameSingular)
   ) {
-    throw new Error('Object metadata name singular is not a non-empty string');
+    throw new Error('Object metadata name singular bukan string non-kosong');
   }
 
   return {

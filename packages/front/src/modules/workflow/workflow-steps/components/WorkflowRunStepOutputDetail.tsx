@@ -36,7 +36,7 @@ export const WorkflowRunStepOutputDetail = ({ stepId }: { stepId: string }) => {
     steps: workflowRun.state.flow.steps,
   });
   if (!isDefined(stepDefinition?.definition)) {
-    throw new Error('The step is expected to be properly shaped.');
+    throw new Error('Langkah seharusnya dibentuk dengan benar.');
   }
 
   const setRedHighlightingForEveryNode: GetJsonNodeHighlighting = (keyPath) => {

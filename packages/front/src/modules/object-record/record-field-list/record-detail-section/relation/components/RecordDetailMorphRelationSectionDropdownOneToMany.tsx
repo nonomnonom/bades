@@ -137,7 +137,7 @@ export const RecordDetailMorphRelationSectionDropdownOneToMany = ({
             record.objectNameSingular,
         )?.targetObjectMetadata.id;
         if (!objectMetadataId) {
-          throw new Error('ObjectMetadataId is required');
+          throw new Error('ObjectMetadataId wajib diisi');
         }
         return {
           recordId: record.value.id,

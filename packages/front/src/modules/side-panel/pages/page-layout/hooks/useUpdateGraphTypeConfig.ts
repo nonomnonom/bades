@@ -54,7 +54,7 @@ export const useGetConfigToUpdateAfterGraphTypeChange = ({
       const currentlyEditingWidgetId = store.get(currentlyEditingWidgetIdState);
 
       if (!isDefined(currentlyEditingWidgetId)) {
-        throw new Error('No widget is currently being edited');
+        throw new Error('Tidak ada widget yang sedang diedit');
       }
 
       const draftPageLayout = store.get(pageLayoutDraftState);
@@ -67,13 +67,13 @@ export const useGetConfigToUpdateAfterGraphTypeChange = ({
         !isDefined(widgetInDraft) ||
         !isDefined(widgetInDraft.configuration)
       ) {
-        throw new Error('Widget configuration not found in draft state');
+        throw new Error('Konfigurasi widget tidak ditemukan di state draf');
       }
 
       const currentConfiguration = widgetInDraft.configuration;
 
       if (!isWidgetConfigurationOfTypeGraph(currentConfiguration)) {
-        throw new Error('Widget configuration is not a chart configuration');
+        throw new Error('Konfigurasi widget bukan konfigurasi grafik');
       }
 
       const newConfigurationType = getConfigurationTypeFromGraphType(graphType);

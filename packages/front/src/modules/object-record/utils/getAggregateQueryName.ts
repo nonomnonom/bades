@@ -3,7 +3,7 @@ export const getAggregateQueryName = (
   objectMetadataNamePlural: string,
 ): string => {
   if (!isDefined(objectMetadataNamePlural)) {
-    throw new Error('objectMetadataNamePlural is required');
+    throw new Error('objectMetadataNamePlural wajib diisi');
   }
   return `Aggregate${capitalize(objectMetadataNamePlural)}`;
 };

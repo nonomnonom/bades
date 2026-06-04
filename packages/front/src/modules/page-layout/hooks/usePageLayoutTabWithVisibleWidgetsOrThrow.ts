@@ -18,13 +18,13 @@ export const usePageLayoutTabWithVisibleWidgetsOrThrow = (
   const isPageLayoutInEditMode = useIsPageLayoutInEditMode();
 
   if (!isDefined(currentPageLayout)) {
-    throw new Error('currentPageLayout is not defined');
+    throw new Error('currentPageLayout belum ditentukan');
   }
 
   const tab = currentPageLayout.tabs.find((t) => t.id === tabId);
 
   if (!isDefined(tab)) {
-    throw new Error('Tab not found');
+    throw new Error('Tab tidak ditemukan');
   }
 
   const activeWidgets = tab.widgets.filter((widget) => widget.isActive);

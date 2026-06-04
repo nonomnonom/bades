@@ -61,7 +61,7 @@ export const useRecordOneToManyFieldAttachTargetRecord = () => {
     });
 
     if (!cachedTargetRecord) {
-      throw new Error('Could not find cached related record');
+      throw new Error('Tidak dapat menemukan rekaman terkait di cache');
     }
 
     const previousRecordId = cachedTargetRecord?.[`${targetGQLFieldName}Id`];

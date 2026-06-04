@@ -20,7 +20,7 @@ export const RecordTitleCellFieldDisplay = ({
     !isFieldFullName(fieldDefinition) &&
     !isFieldUuid(fieldDefinition)
   ) {
-    throw new Error('Field definition is not a text, full name, or UUID field');
+    throw new Error('Definisi field bukan field teks, nama lengkap, atau UUID');
   }
 
   return (

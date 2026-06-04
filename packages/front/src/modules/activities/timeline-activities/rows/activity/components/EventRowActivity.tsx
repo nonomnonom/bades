@@ -67,7 +67,7 @@ export const EventRowActivity = ({
   const eventObject = eventLinkedObject.replace('linked-', '');
 
   if (!isTimelineActivityWithLinkedRecord(event)) {
-    throw new Error('Could not find linked record id for event');
+    throw new Error('Tidak dapat menemukan ID rekaman terkait untuk peristiwa');
   }
 
   const getActivityFromCache = useGetRecordFromCache({

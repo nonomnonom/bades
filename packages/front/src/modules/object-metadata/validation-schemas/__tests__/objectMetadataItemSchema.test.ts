@@ -25,7 +25,7 @@ describe('objectMetadataItemSchema', () => {
       );
     expect(validObjectMetadataItem).not.toBeUndefined();
     if (validObjectMetadataItem === undefined)
-      throw new Error('Should never occur');
+      throw new Error('Seharusnya tidak pernah terjadi');
 
     // When
     const result = objectMetadataItemSchema.safeParse({

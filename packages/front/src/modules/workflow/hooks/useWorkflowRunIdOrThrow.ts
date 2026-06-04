@@ -8,7 +8,7 @@ export const useWorkflowRunIdOrThrow = () => {
   );
 
   if (!isDefined(workflowVisualizerWorkflowRunId)) {
-    throw new Error('Expected the workflow run ID to be defined');
+    throw new Error('ID eksekusi alur kerja seharusnya sudah ditentukan');
   }
 
   return workflowVisualizerWorkflowRunId;

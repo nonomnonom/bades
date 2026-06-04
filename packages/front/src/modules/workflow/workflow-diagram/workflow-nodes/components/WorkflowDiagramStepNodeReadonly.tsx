@@ -62,7 +62,7 @@ export const WorkflowDiagramStepNodeReadonly = ({
       !isDefined(workflowVisualizerWorkflowId) ||
       !isDefined(workflowVisualizerWorkflowVersionId)
     ) {
-      throw new Error('Workflow ID and Version ID must be defined');
+      throw new Error('ID alur kerja dan ID versi wajib ditentukan');
     }
 
     if (!isInSidePanel) {

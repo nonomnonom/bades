@@ -6,7 +6,7 @@ export const useFlowOrThrow = () => {
   const flow = useAtomComponentStateValue(flowComponentState);
 
   if (!isDefined(flow)) {
-    throw new Error('Expected the flow to be defined');
+    throw new Error('Flow seharusnya sudah ditentukan');
   }
 
   return flow;

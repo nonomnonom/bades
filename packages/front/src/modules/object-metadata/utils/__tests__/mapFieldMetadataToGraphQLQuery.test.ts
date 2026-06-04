@@ -7,7 +7,7 @@ const personObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
 );
 
 if (!personObjectMetadataItem) {
-  throw new Error('Object metadata not found');
+  throw new Error('Metadata objek tidak ditemukan');
 }
 
 describe('mapFieldMetadataToGraphQLQuery', () => {

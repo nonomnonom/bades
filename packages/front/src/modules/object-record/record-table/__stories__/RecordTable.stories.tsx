@@ -84,7 +84,7 @@ export const ScrolledLeft: Story = {
     );
 
     if (!scrollWrapper) {
-      throw new Error('Scroll wrapper not found');
+      throw new Error('Scroll wrapper tidak ditemukan');
     }
 
     await sleep(1000);
@@ -118,7 +118,7 @@ export const ScrolledBottom: Story = {
     );
 
     if (!scrollWrapper) {
-      throw new Error('Scroll wrapper not found');
+      throw new Error('Scroll wrapper tidak ditemukan');
     }
 
     await sleep(1000);

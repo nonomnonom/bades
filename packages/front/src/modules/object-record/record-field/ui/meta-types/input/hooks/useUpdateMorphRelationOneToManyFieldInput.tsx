@@ -19,7 +19,7 @@ export const useUpdateMorphRelationOneToManyFieldInput = () => {
   );
 
   if (!fieldDefinition.metadata.objectMetadataNameSingular) {
-    throw new Error('ObjectMetadataNameSingular is required');
+    throw new Error('ObjectMetadataNameSingular wajib diisi');
   }
 
   const { recordOneToManyFieldDetachTargetRecord } =
@@ -36,7 +36,7 @@ export const useUpdateMorphRelationOneToManyFieldInput = () => {
       >,
     ) => {
       if (!fieldDefinition.metadata.objectMetadataNameSingular) {
-        throw new Error('ObjectMetadataNameSingular is required');
+        throw new Error('ObjectMetadataNameSingular wajib diisi');
       }
 
       const targetMorphRelation = fieldDefinition.metadata.morphRelations.find(
@@ -45,7 +45,7 @@ export const useUpdateMorphRelationOneToManyFieldInput = () => {
       );
 
       if (!isDefined(targetMorphRelation)) {
-        throw new Error('TargetMorphRelation is required');
+        throw new Error('TargetMorphRelation wajib diisi');
       }
 
       if (morphItem.isSelected) {

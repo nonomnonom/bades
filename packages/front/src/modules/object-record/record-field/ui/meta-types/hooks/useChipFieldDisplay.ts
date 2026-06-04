@@ -38,7 +38,7 @@ export const useChipFieldDisplay = () => {
   );
 
   if (!isDefined(chipGeneratorPerObjectPerField)) {
-    throw new Error('Chip generator per object per field is not defined');
+    throw new Error('Generator chip per objek per field belum ditentukan');
   }
 
   const objectNameSingular =
@@ -53,7 +53,7 @@ export const useChipFieldDisplay = () => {
   const recordStore = useAtomFamilyStateValue(recordStoreFamilyState, recordId);
 
   if (!isNonEmptyString(objectNameSingular)) {
-    throw new Error('Object metadata name singular is not a non-empty string');
+    throw new Error('Object metadata name singular bukan string non-kosong');
   }
 
   return {

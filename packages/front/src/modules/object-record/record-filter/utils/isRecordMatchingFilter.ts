@@ -163,14 +163,14 @@ export const isRecordMatchingFilter = ({
       });
     }
 
-    throw new Error('Unexpected value for "or" filter : ' + filterValue);
+    throw new Error('Nilai tidak terduga untuk filter "or": ' + filterValue);
   }
 
   if (isNotFilter(filter)) {
     const filterValue = filter.not;
 
     if (!isDefined(filterValue)) {
-      throw new Error('Unexpected value for "not" filter : ' + filterValue);
+      throw new Error('Nilai tidak terduga untuk filter "not": ' + filterValue);
     }
 
     return (

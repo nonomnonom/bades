@@ -40,6 +40,6 @@ export const WorkflowFormFieldSettingsByType = ({
         />
       );
     default:
-      return assertUnreachable(field.type, 'Unknown form field type');
+      return assertUnreachable(field.type, 'Tipe field formulir tidak dikenal');
   }
 };

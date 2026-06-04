@@ -32,7 +32,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       );
 
       if (!fieldMetadataItem) {
-        throw new Error('Field not found');
+        throw new Error('Field tidak ditemukan');
       }
 
       // When
@@ -58,7 +58,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       );
 
       if (!fieldMetadataItem) {
-        throw new Error('Field not found');
+        throw new Error('Field tidak ditemukan');
       }
 
       // When
@@ -81,7 +81,7 @@ describe('getFieldPreviewValueFromRecord', () => {
       );
 
       if (!fieldMetadataItem) {
-        throw new Error('Field not found');
+        throw new Error('Field tidak ditemukan');
       }
 
       // When

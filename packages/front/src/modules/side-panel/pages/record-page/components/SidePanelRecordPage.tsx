@@ -35,11 +35,11 @@ export const SidePanelRecordPage = () => {
   );
 
   if (!viewableRecordNameSingular) {
-    throw new Error('Object name is not defined');
+    throw new Error('Nama objek belum ditentukan');
   }
 
   if (!viewableRecordId) {
-    throw new Error('Record id is not defined');
+    throw new Error('ID rekaman belum ditentukan');
   }
 
   const { objectNameSingular, objectRecordId } = useRecordShowPage(
@@ -60,7 +60,7 @@ export const SidePanelRecordPage = () => {
   )?.instanceId;
 
   if (!sidePanelPageInstanceId) {
-    throw new Error('Command menu page instance id is not defined');
+    throw new Error('ID instans halaman menu perintah belum ditentukan');
   }
 
   return (

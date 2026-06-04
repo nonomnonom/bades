@@ -68,7 +68,7 @@ export const useCreatePageLayoutGraphWidget = ({
       );
 
       if (!isDefined(activeTabId)) {
-        throw new Error('A tab must be selected to create a new graph widget');
+        throw new Error('Tab harus dipilih untuk membuat widget grafik baru');
       }
 
       const pageLayoutDraft = store.get(pageLayoutDraftState);
