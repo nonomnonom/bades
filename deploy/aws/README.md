@@ -5,6 +5,7 @@ Panduan singkat untuk menjalankan stack lengkap (server + worker + Postgres + Re
 ## Prasyarat
 
 - EC2 Amazon Linux 2023, min. 4 GB RAM (mis. `c7i-flex.large`)
+- **Disk root min. 30 GB** — image Bades ~2 GB; pull/update butuh ruang ekstra (8 GB default AWS sering penuh)
 - Security group: port **22**, **3000** (dan **80/443** jika pakai reverse proxy)
 - Key pair SSH (`bades-ec2`)
 - Image GHCR: `ghcr.io/nonomnonom/bades:latest`
