@@ -1,5 +1,4 @@
 import { canManageFeatureFlagsState } from '@/client-config/states/canManageFeatureFlagsState';
-import { t } from '~/utils/i18n/badesI18n';
 import { useApolloAdminClient } from '@/settings/admin-panel/apollo/hooks/useApolloAdminClient';
 import { SettingsSectionSkeletonLoader } from '@/settings/components/SettingsSectionSkeletonLoader';
 import { SettingsAdminVersionContainer } from '@/settings/admin-panel/components/SettingsAdminVersionContainer';

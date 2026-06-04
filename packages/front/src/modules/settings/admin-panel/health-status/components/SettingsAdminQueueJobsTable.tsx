@@ -1,5 +1,4 @@
 import { SettingsEmptyPlaceholder } from '@/settings/components/SettingsEmptyPlaceholder';
-import { t } from '~/utils/i18n/badesI18n';
 import { SettingsAdminDeleteJobsConfirmationModal } from '@/settings/admin-panel/health-status/components/SettingsAdminDeleteJobsConfirmationModal';
 import { SettingsAdminJobDetailsExpandable } from '@/settings/admin-panel/health-status/components/SettingsAdminJobDetailsExpandable';
 import { SettingsAdminJobStateBadge } from '@/settings/admin-panel/health-status/components/SettingsAdminJobStateBadge';

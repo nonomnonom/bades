@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 
-import { t } from '~/utils/i18n/badesI18n';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { SettingsPath } from 'shared/types';
 import { getSettingsPath } from 'shared/utils';

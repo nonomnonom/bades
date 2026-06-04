@@ -9,7 +9,7 @@ import { TableCell } from '@/ui/layout/table/components/TableCell';
 import { TableHeader } from '@/ui/layout/table/components/TableHeader';
 import { TableRow } from '@/ui/layout/table/components/TableRow';
 import { useQuery } from '@apollo/client/react';
-import { t } from '~/utils/i18n/badesI18n';
+
 import { useState } from 'react';
 import { isDefined } from 'shared/utils';
 import { Tag, type TagColor } from 'ui/components';
@@ -41,7 +41,7 @@ const getStatusTag = (
   signingKey: Pick<SigningKeyDto, 'isCurrent' | 'revokedAt'>,
 ): { text: string; color: TagColor } => {
   if (isDefined(signingKey.revokedAt)) {
-    return { text: t`Dicabut`, color: 'red' };
+    return { text: "Dicabut", color: 'red' };
   }
 
   if (signingKey.isCurrent === true) {
