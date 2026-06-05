@@ -16,6 +16,24 @@ const hasErrorCode = (
   return 'code' in error && isDefined(error.code);
 };
 
+const VITE_STALE_CHUNK_RELOAD_AT_KEY = 'bades:vite-stale-chunk-reload-at';
+const VITE_STALE_CHUNK_RELOAD_COOLDOWN_MS = 30_000;
+
+const shouldReloadForViteStaleChunkError = (): boolean => {
+  const lastReloadAt = sessionStorage.getItem(VITE_STALE_CHUNK_RELOAD_AT_KEY);
+  const now = Date.now();
+
+  if (
+    isDefined(lastReloadAt) &&
+    now - Number(lastReloadAt) < VITE_STALE_CHUNK_RELOAD_COOLDOWN_MS
+  ) {
+    return false;
+  }
+
+  sessionStorage.setItem(VITE_STALE_CHUNK_RELOAD_AT_KEY, String(now));
+  return true;
+};
+
 export const AppErrorBoundary = ({
   children,
   FallbackComponent,
@@ -40,7 +58,10 @@ export const AppErrorBoundary = ({
     const isViteStaleChunkLazyLoadingError =
       checkIfItsAViteStaleChunkLazyLoadingError(error);
 
-    if (isViteStaleChunkLazyLoadingError) {
+    if (
+      isViteStaleChunkLazyLoadingError &&
+      shouldReloadForViteStaleChunkError()
+    ) {
       window.location.reload();
     }
   };

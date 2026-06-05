@@ -8,6 +8,11 @@
 # Apex + wildcard subdomain workspace (multi-tenant): sukamaju.bades.id, app.bades.id, dst.
 bades.id, *.bades.id, www.bades.id {
 	encode zstd gzip
+
+	# Hindari browser/Cloudflare cache index.html lama setelah redeploy.
+	@html header Content-Type text/html*
+	header @html Cache-Control "no-cache, no-store, must-revalidate"
+
 	reverse_proxy server:3000 {
 		header_up X-Real-IP {remote_host}
 		header_up X-Forwarded-For {remote_host}

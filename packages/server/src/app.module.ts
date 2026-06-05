@@ -95,6 +95,22 @@ export class AppModule {
       modules.push(
         ServeStaticModule.forRoot({
           rootPath: frontPath,
+          // Hindari SPA fallback ke index.html untuk asset statis yang hilang
+          // (mis. chunk Vite lama setelah redeploy) — mencegah reload loop di browser.
+          exclude: [
+            '/assets/(.*)',
+            '/(.*).(js|css|mjs|map|woff2|woff|ttf|eot|gif|ico|png|svg|jpg|jpeg|webp)',
+          ],
+          serveStaticOptions: {
+            setHeaders: (res, filePath) => {
+              if (filePath.endsWith('index.html')) {
+                res.setHeader(
+                  'Cache-Control',
+                  'no-cache, no-store, must-revalidate',
+                );
+              }
+            },
+          },
         }),
       );
     }
