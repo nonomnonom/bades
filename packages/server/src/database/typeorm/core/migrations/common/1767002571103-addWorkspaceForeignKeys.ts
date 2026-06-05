@@ -2,7 +2,9 @@ import { type MigrationInterface, type QueryRunner } from 'typeorm';
 
 import { addWorkspaceForeignKeysQueries } from 'src/database/typeorm/core/migrations/utils/1767002571103-addWorkspaceForeignKeys.util';
 
-export class AddWorkspaceForeignKeys1767002571103 implements MigrationInterface {
+export class AddWorkspaceForeignKeys1767002571103
+  implements MigrationInterface
+{
   name = 'AddWorkspaceForeignKeys1767002571103';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

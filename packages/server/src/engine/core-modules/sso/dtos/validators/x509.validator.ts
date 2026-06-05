@@ -10,7 +10,9 @@ import {
 } from 'class-validator';
 
 @ValidatorConstraint({ async: false })
-export class IsX509CertificateConstraint implements ValidatorConstraintInterface {
+export class IsX509CertificateConstraint
+  implements ValidatorConstraintInterface
+{
   // oxlint-disable-next-line @typescripttypescript/no-explicit-any
   validate(value: any) {
     if (typeof value !== 'string') {

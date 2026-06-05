@@ -1,6 +1,8 @@
 import { type MigrationInterface, type QueryRunner } from 'typeorm';
 
-export class SetServerlessFunctionIdInTriggersNonNullable1759417994272 implements MigrationInterface {
+export class SetServerlessFunctionIdInTriggersNonNullable1759417994272
+  implements MigrationInterface
+{
   name = 'SetServerlessFunctionIdInTriggersNonNullable1759417994272';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

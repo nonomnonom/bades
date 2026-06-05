@@ -446,7 +446,7 @@ export const RecordMap = () => {
       const mapboxglModule = require('mapbox-gl') as typeof mapboxgl;
       const LngLatBounds = mapboxglModule.LngLatBounds;
       const bounds = new LngLatBounds();
-      geoJsonData.features.forEach((feature) => {
+      geoJsonData.features.forEach((feature: GeoJSON.Feature) => {
         const coords = (feature.geometry as GeoJSON.Point).coordinates;
         bounds.extend(coords as [number, number]);
       });
@@ -488,14 +488,17 @@ export const RecordMap = () => {
           | mapboxgl.GeoJSONSource
           | undefined;
         if (!source) return;
-        source.getClusterExpansionZoom(clusterId, (err, zoom) => {
-          if (err || zoom === undefined || zoom === null) return;
-          const geometry = features[0].geometry as GeoJSON.Point;
-          mapInstance.easeTo({
-            center: geometry.coordinates as [number, number],
-            zoom: zoom + 1,
-          });
-        });
+        source.getClusterExpansionZoom(
+          clusterId,
+          (err: Error | null | undefined, zoom: number | null | undefined) => {
+            if (err || zoom === undefined || zoom === null) return;
+            const geometry = features[0].geometry as GeoJSON.Point;
+            mapInstance.easeTo({
+              center: geometry.coordinates as [number, number],
+              zoom: zoom + 1,
+            });
+          },
+        );
       };
 
       const handlePointClick = (e: mapboxgl.MapMouseEvent) => {

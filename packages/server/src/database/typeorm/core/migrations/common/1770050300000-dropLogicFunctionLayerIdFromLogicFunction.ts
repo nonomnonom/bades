@@ -1,6 +1,8 @@
 import { type MigrationInterface, type QueryRunner } from 'typeorm';
 
-export class DropLogicFunctionLayerIdFromLogicFunction1770050300000 implements MigrationInterface {
+export class DropLogicFunctionLayerIdFromLogicFunction1770050300000
+  implements MigrationInterface
+{
   name = 'DropLogicFunctionLayerIdFromLogicFunction1770050300000';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

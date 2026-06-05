@@ -1,6 +1,8 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class AddWorkspaceIdToUpgradeMigration1775553825848 implements MigrationInterface {
+export class AddWorkspaceIdToUpgradeMigration1775553825848
+  implements MigrationInterface
+{
   name = 'AddWorkspaceIdToUpgradeMigration1775553825848';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

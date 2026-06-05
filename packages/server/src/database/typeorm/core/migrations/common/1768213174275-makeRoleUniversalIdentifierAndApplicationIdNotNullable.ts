@@ -2,7 +2,9 @@ import { type MigrationInterface, type QueryRunner } from 'typeorm';
 
 import { makeRoleUniversalIdentifierAndApplicationIdNotNullableQueries } from 'src/database/typeorm/core/migrations/utils/1768213174275-makeRoleUniversalIdentifierAndApplicationIdNotNullable.util';
 
-export class MakeRoleUniversalIdentifierAndApplicationIdNotNullable1768213174275 implements MigrationInterface {
+export class MakeRoleUniversalIdentifierAndApplicationIdNotNullable1768213174275
+  implements MigrationInterface
+{
   name = 'MakeRoleUniversalIdentifierAndApplicationIdNotNullable1768213174275';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

@@ -1,6 +1,8 @@
 import { type MigrationInterface, type QueryRunner } from 'typeorm';
 
-export class UpdatePageLayoutForRecordPageLayout1769679579382 implements MigrationInterface {
+export class UpdatePageLayoutForRecordPageLayout1769679579382
+  implements MigrationInterface
+{
   name = 'UpdatePageLayoutForRecordPageLayout1769679579382';
 
   public async up(queryRunner: QueryRunner): Promise<void> {

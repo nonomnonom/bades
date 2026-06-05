@@ -7,7 +7,9 @@ import { type WorkflowWorkspaceEntity } from 'src/modules/workflow/common/standa
 import { assertWorkflowStatusesNotSetOrEmpty } from 'src/modules/workflow/common/utils/assert-workflow-statuses-not-set-or-empty';
 
 @WorkspaceQueryHook(`workflow.createOne`)
-export class WorkflowCreateOnePreQueryHook implements WorkspacePreQueryHookInstance {
+export class WorkflowCreateOnePreQueryHook
+  implements WorkspacePreQueryHookInstance
+{
   async execute(
     _authContext: WorkspaceAuthContext,
     _objectName: string,

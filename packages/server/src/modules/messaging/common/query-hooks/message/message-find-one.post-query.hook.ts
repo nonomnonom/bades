@@ -14,7 +14,9 @@ import { isApplicationAuthContext } from 'src/engine/core-modules/auth/guards/is
   key: `message.findOne`,
   type: WorkspaceQueryHookType.POST_HOOK,
 })
-export class MessageFindOnePostQueryHook implements WorkspacePostQueryHookInstance {
+export class MessageFindOnePostQueryHook
+  implements WorkspacePostQueryHookInstance
+{
   constructor(
     private readonly applyMessagesVisibilityRestrictionsService: ApplyMessagesVisibilityRestrictionsService,
   ) {}

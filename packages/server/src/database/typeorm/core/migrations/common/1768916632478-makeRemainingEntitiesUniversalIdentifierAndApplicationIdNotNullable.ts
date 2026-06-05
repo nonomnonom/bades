@@ -2,7 +2,9 @@ import { type MigrationInterface, type QueryRunner } from 'typeorm';
 
 import { makeRemainingEntitiesUniversalIdentifierAndApplicationIdNotNullableQueries } from 'src/database/typeorm/core/migrations/utils/1768916632478-makeRemainingEntitiesUniversalIdentifierAndApplicationIdNotNullable.util';
 
-export class MakeRemainingEntitiesUniversalIdentifierAndApplicationIdNotNullable1768916632478 implements MigrationInterface {
+export class MakeRemainingEntitiesUniversalIdentifierAndApplicationIdNotNullable1768916632478
+  implements MigrationInterface
+{
   name =
     'MakeRemainingEntitiesUniversalIdentifierAndApplicationIdNotNullable1768916632478';
 

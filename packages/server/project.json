@@ -182,11 +182,11 @@
       "dependsOn": ["oxlint-rules:build"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "FILES=$(git diff --name-only --relative --diff-filter=d main...HEAD -- src/ | grep -E '\\.(ts|tsx)$'); [ -z \"$FILES\" ] && echo 'No changed files.' || (npx oxlint --type-aware -c .oxlintrc.json $FILES && (prettier --check $FILES || (echo 'ERROR: Prettier formatting check failed! Fix with: npx nx lint:diff-with-main server --configuration=fix' && false)))"
+        "command": "node ../utils/lint-diff-with-main.mjs"
       },
       "configurations": {
         "fix": {
-          "command": "FILES=$(git diff --name-only --relative --diff-filter=d main...HEAD -- src/ | grep -E '\\.(ts|tsx)$'); [ -z \"$FILES\" ] && echo 'No changed files.' || (npx oxlint --type-aware --fix -c .oxlintrc.json $FILES && prettier --write $FILES)"
+          "command": "node ../utils/lint-diff-with-main.mjs --fix"
         }
       }
     },
