@@ -1,4 +1,4 @@
-import { getSharedAuthCookieAttributes } from '@/auth/utils/shared-auth-cookie.util';
+import { getSharedAuthCookieAttributes } from '@/auth/utils/sharedAuthCookie.util';
 import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWorkspaceEnabledState';
 import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { lastAuthenticatedWorkspaceDomainState } from '@/domain-manager/states/lastAuthenticatedWorkspaceDomainState';
