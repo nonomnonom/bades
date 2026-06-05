@@ -13,7 +13,7 @@ import { tokenPairState } from '@/auth/states/tokenPairState';
 import {
   clearTokenPairCookie,
   withSharedAuthCookieAttributes,
-} from '@/auth/utils/sharedAuthCookie.util';
+} from '@/auth/utils/sharedAuthCookieUtil';
 import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWorkspaceEnabledState';
 import { appVersionState } from '@/client-config/states/appVersionState';

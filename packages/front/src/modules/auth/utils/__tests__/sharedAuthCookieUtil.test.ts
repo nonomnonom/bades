@@ -1,7 +1,7 @@
 import {
   getSharedAuthCookieAttributes,
   isLocalDevelopmentFrontDomain,
-} from '@/auth/utils/sharedAuthCookie.util';
+} from '@/auth/utils/sharedAuthCookieUtil';
 
 describe('isLocalDevelopmentFrontDomain', () => {
   it('mengenali localhost dan subdomain .localhost', () => {

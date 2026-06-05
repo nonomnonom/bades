@@ -23,7 +23,7 @@ import { clearSessionLocalStorageKeys } from '@/auth/utils/clearSessionLocalStor
 import {
   clearTokenPairCookie,
   withSharedAuthCookieAttributes,
-} from '@/auth/utils/sharedAuthCookie.util';
+} from '@/auth/utils/sharedAuthCookieUtil';
 import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { broadcastSignOutToOtherTabs } from '@/auth/utils/crossTabSignOut';
 import { isValidReturnToPath } from '@/auth/utils/isValidReturnToPath';
