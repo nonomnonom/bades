@@ -38,7 +38,7 @@ services:
       # AI Bades — OpenRouter sebagai provider tunggal user-facing
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
       AI_MODEL_PREFERENCES: ${AI_MODEL_PREFERENCES:-}
-      # MESSAGING_PROVIDER_GMAIL_ENABLED: ${MESSAGING_PROVIDER_GMAIL_ENABLED}
+      MAPBOX_ACCESS_TOKEN: ${MAPBOX_ACCESS_TOKEN:-}
       # CALENDAR_PROVIDER_GOOGLE_ENABLED: ${CALENDAR_PROVIDER_GOOGLE_ENABLED}
       # AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}
       # AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET}
@@ -78,7 +78,7 @@ services:
     volumes:
       - server-local-data:/app/packages/server/.local-storage
       - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
-    command: ["yarn", "worker:prod"]
+    command: ["node", "dist/queue-worker/queue-worker"]
     environment:
       PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/default
       SERVER_URL: ${SERVER_URL}
@@ -106,7 +106,7 @@ services:
       # AI Bades — OpenRouter sebagai provider tunggal user-facing
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
       AI_MODEL_PREFERENCES: ${AI_MODEL_PREFERENCES:-}
-      # MESSAGING_PROVIDER_GMAIL_ENABLED: ${MESSAGING_PROVIDER_GMAIL_ENABLED}
+      MAPBOX_ACCESS_TOKEN: ${MAPBOX_ACCESS_TOKEN:-}
       # CALENDAR_PROVIDER_GOOGLE_ENABLED: ${CALENDAR_PROVIDER_GOOGLE_ENABLED}
       # AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}
       # AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET}
