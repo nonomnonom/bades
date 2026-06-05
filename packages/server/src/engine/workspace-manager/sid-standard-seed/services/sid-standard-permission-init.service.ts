@@ -116,25 +116,12 @@ export class SidStandardPermissionInitService {
       roleId: adminRole.id,
     });
 
-    // 4. Upsert ObjectPermission untuk admin role di 9 SID objects (full CRUD).
-    // Idempotent: kalau ObjectPermissionService sudah handle konsistensi
-    // (validate read-before-write), dan workspaceMigrationValidateBuildAndRunService
-    // skip kalau tidak ada diff.
-    await this.objectPermissionService.upsertObjectPermissions({
-      workspaceId,
-      input: {
-        roleId: adminRole.id,
-        objectPermissions: sidObjects.map((obj) => ({
-          objectMetadataId: obj.id,
-          canReadObjectRecords: true,
-          canUpdateObjectRecords: true,
-          canSoftDeleteObjectRecords: true,
-          canDestroyObjectRecords: true,
-        })),
-      },
-    });
+    // Admin role Bades standard sudah punya canRead/Update/SoftDelete/Destroy
+    // AllObjectRecords di role-level flag dan isEditable=false — tidak boleh
+    // di-upsert lewat ObjectPermissionService (ROLE_NOT_EDITABLE). Sama seperti
+    // DevSeederPermissionsService yang hanya assign role tanpa row per-objek.
 
-    // 5. Create member role via existing service. createMemberRole sudah
+    // 4. Create member role via existing service. createMemberRole sudah
     // set `canReadAllObjectRecords: true, canUpdateAllObjectRecords: true,
     // canSoftDeleteAllObjectRecords: true, canDestroyAllObjectRecords: true`
     // di role-level flag (lihat role.service.ts:355-380). Upsert
@@ -145,7 +132,7 @@ export class SidStandardPermissionInitService {
       ownerFlatApplication: workspaceCustomFlatApplication,
     });
 
-    // 6. Upsert ObjectPermission untuk member role di 9 SID objects (full CRUD).
+    // 5. Upsert ObjectPermission untuk member role di 9 SID objects (full CRUD).
     await this.objectPermissionService.upsertObjectPermissions({
       workspaceId,
       input: {
@@ -160,7 +147,7 @@ export class SidStandardPermissionInitService {
       },
     });
 
-    // 7. Set `defaultRoleId` + `activationStatus: ACTIVE` di workspace.
+    // 6. Set `defaultRoleId` + `activationStatus: ACTIVE` di workspace.
     // Sebelumnya `setupDefaultRoles` di `WorkspaceManagerService` TIDAK set
     // activationStatus — dianggap diurus di tempat lain (workspace.service.ts
     // activateAndInitializeUpgradeState). Disini kita set eksplisit sebagai

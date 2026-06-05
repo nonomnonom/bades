@@ -212,7 +212,7 @@ describe('SidStandardPermissionInitService', () => {
       });
     });
 
-    it('should upsert ObjectPermission for admin role on all 9 SID objects with full CRUD', async () => {
+    it('should not upsert ObjectPermission for admin role (system role is not editable)', async () => {
       roleRepository.findOne.mockResolvedValue({
         id: adminRoleId,
         workspaceId,
@@ -236,23 +236,10 @@ describe('SidStandardPermissionInitService', () => {
         workspaceCustomFlatApplication,
       });
 
-      // Harus dipanggil 2x: satu untuk admin, satu untuk member
-      expect(
-        objectPermissionService.upsertObjectPermissions,
-      ).toHaveBeenCalledTimes(2);
-
-      // Panggilan pertama harus untuk admin role
-      const adminCall =
-        objectPermissionService.upsertObjectPermissions.mock.calls[0][0];
-      expect(adminCall.workspaceId).toBe(workspaceId);
-      expect(adminCall.input.roleId).toBe(adminRoleId);
-      expect(adminCall.input.objectPermissions).toHaveLength(9);
-      adminCall.input.objectPermissions.forEach((perm: any) => {
-        expect(perm.canReadObjectRecords).toBe(true);
-        expect(perm.canUpdateObjectRecords).toBe(true);
-        expect(perm.canSoftDeleteObjectRecords).toBe(true);
-        expect(perm.canDestroyObjectRecords).toBe(true);
-      });
+      const upsertCalls =
+        objectPermissionService.upsertObjectPermissions.mock.calls;
+      expect(upsertCalls.every((call) => call[0].input.roleId !== adminRoleId))
+        .toBe(true);
     });
 
     it('should create member role via RoleService.createMemberRole', async () => {
@@ -309,9 +296,12 @@ describe('SidStandardPermissionInitService', () => {
         workspaceCustomFlatApplication,
       });
 
-      // Panggilan kedua harus untuk member role
+      expect(
+        objectPermissionService.upsertObjectPermissions,
+      ).toHaveBeenCalledTimes(1);
+
       const memberCall =
-        objectPermissionService.upsertObjectPermissions.mock.calls[1][0];
+        objectPermissionService.upsertObjectPermissions.mock.calls[0][0];
       expect(memberCall.workspaceId).toBe(workspaceId);
       expect(memberCall.input.roleId).toBe(memberRoleId);
       expect(memberCall.input.objectPermissions).toHaveLength(9);
