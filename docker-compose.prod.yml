@@ -93,7 +93,7 @@ services:
     restart: always
 
   redis:
-    image: redis:7-alpine
+    image: redis:7-bookworm
     networks:
       - bades-net
     restart: always
@@ -105,7 +105,10 @@ services:
       retries: 10
 
   caddy:
-    image: caddybuilds/caddy-cloudflare:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.caddy
+    image: bades-caddy-cloudflare:bookworm
     networks:
       - bades-net
     ports:
@@ -114,8 +117,6 @@ services:
       - "443:443/udp"
     environment:
       CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN}
-      SERVER_HOSTNAME: ${SERVER_HOSTNAME:-app.bades.id}
-      ACME_EMAIL: ${ACME_EMAIL:-admin@bades.id}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy-data:/data
