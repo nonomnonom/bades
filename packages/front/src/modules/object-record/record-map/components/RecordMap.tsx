@@ -14,6 +14,13 @@ import {
   useMapboxSource,
 } from '@/object-record/record-map/tools/mapbox-tools.constant';
 import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapboxAccessToken';
+import { loadMapboxGl } from '@/object-record/record-map/tools/loadMapboxGl';
+import {
+  MAPBOX_CATEGORY_COLORS,
+  MAPBOX_CLUSTER_COLOR,
+  MAPBOX_CLUSTER_TEXT_COLOR,
+  MAPBOX_DEFAULT_MARKER_COLOR,
+} from '@/object-record/record-map/constants/recordMapMapboxColors.constant';
 
 const StyledMapContainer = styled.div`
   height: 100%;
@@ -100,8 +107,8 @@ const MOVE_END_THROTTLE_MS = 500;
 // interaksi cluster dalam pixel.
 const CLUSTER_MAX_ZOOM = 14;
 const CLUSTER_RADIUS = 50;
-const CLUSTER_COLOR = themeCssVariables.color.blue;
-const CLUSTER_TEXT_COLOR = themeCssVariables.font.color.inverted;
+const CLUSTER_COLOR = MAPBOX_CLUSTER_COLOR;
+const CLUSTER_TEXT_COLOR = MAPBOX_CLUSTER_TEXT_COLOR;
 
 // Nama layer Mapbox yang digunakan untuk clustering.
 const SOURCE_ID = 'record-map-records';
@@ -109,40 +116,10 @@ const LAYER_CLUSTER_CIRCLE = 'record-map-cluster-circle';
 const LAYER_CLUSTER_COUNT = 'record-map-cluster-count';
 const LAYER_UNCLUSTERED_POINT = 'record-map-unclustered-point';
 
-// Warna marker berdasarkan kategori — palet warna untuk perangkat desa
-// menggunakan warna yang mudah dibedakan dan aksesibel (colorblind-friendly).
-// Setiap object SID punya field SELECT berbeda (klasifikasiKeluarga,
-// statusPenerimaan, status, jenisLayanan, dll).
-const CATEGORY_COLORS: Record<string, string> = {
-  // Klasifikasi Keluarga (KS1-4)
-  KS1: themeCssVariables.color.green,
-  KS2: themeCssVariables.color.orange,
-  KS3: themeCssVariables.color.blue,
-  KS4: themeCssVariables.color.purple,
-  // Status — dipakai oleh penerimaan, bantuan, permohonan surat
-  TERVERIFIKASI: themeCssVariables.color.green,
-  MENUNGGU: themeCssVariables.color.orange,
-  DITOLAK: themeCssVariables.color.red,
-  SELESAI: themeCssVariables.color.green,
-  DIPROSES: themeCssVariables.color.blue,
-  // Status Program Bantuan
-  PELAKSANAAN: themeCssVariables.color.green,
-  PERENCANAAN: themeCssVariables.color.blue,
-  // Jenis Wilayah
-  DUSUN: themeCssVariables.color.green,
-  RW: themeCssVariables.color.blue,
-  RT: themeCssVariables.color.orange,
-  // Kondisi Aset
-  BAIK: themeCssVariables.color.green,
-  RUSAK_RINGAN: themeCssVariables.color.orange,
-  RUSAK_BERAT: themeCssVariables.color.red,
-  // Umum
-  AKTIF: themeCssVariables.color.green,
-  TIDAK_AKTIF: themeCssVariables.color.gray,
-};
+const CATEGORY_COLORS = MAPBOX_CATEGORY_COLORS;
 
 // Warna default untuk kategori yang tidak dikenal
-const DEFAULT_MARKER_COLOR = themeCssVariables.color.blue;
+const DEFAULT_MARKER_COLOR = MAPBOX_DEFAULT_MARKER_COLOR;
 
 // Bangun Mapbox `match` expression untuk warna marker dari CATEGORY_COLORS.
 // Single source of truth: tambah/ubah kategori hanya di satu tempat
@@ -292,7 +269,7 @@ export const RecordMap = () => {
     const query = searchQuery.trim().toLowerCase();
     if (query.length === 0) return mapMarkers;
     return mapMarkers.filter((marker) =>
-      marker.name.toLowerCase().includes(query),
+      String(marker.name).toLowerCase().includes(query),
     );
   }, [mapMarkers, searchQuery]);
 
@@ -366,12 +343,12 @@ export const RecordMap = () => {
     zoom: DEFAULT_ZOOM,
     moveEndThrottleMs: MOVE_END_THROTTLE_MS,
     onLoad: (mapInstance) => {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const mapboxglModule = require('mapbox-gl') as typeof mapboxgl;
-      mapInstance.addControl(
-        new mapboxglModule.NavigationControl(),
-        'bottom-right',
-      );
+      void loadMapboxGl().then((mapboxglModule) => {
+        mapInstance.addControl(
+          new mapboxglModule.NavigationControl(),
+          'bottom-right',
+        );
+      });
     },
     onMoveEnd: storeCurrentCenter,
   });
@@ -442,28 +419,27 @@ export const RecordMap = () => {
       });
 
       // Fit bounds ke data yang baru dimuat.
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const mapboxglModule = require('mapbox-gl') as typeof mapboxgl;
-      const LngLatBounds = mapboxglModule.LngLatBounds;
-      const bounds = new LngLatBounds();
-      geoJsonData.features.forEach((feature: GeoJSON.Feature) => {
-        const coords = (feature.geometry as GeoJSON.Point).coordinates;
-        bounds.extend(coords as [number, number]);
-      });
+      void loadMapboxGl().then((mapboxglModule) => {
+        const bounds = new mapboxglModule.LngLatBounds();
+        geoJsonData.features.forEach((feature: GeoJSON.Feature) => {
+          const coords = (feature.geometry as GeoJSON.Point).coordinates;
+          bounds.extend(coords as [number, number]);
+        });
 
-      if (geoJsonData.features.length > 1) {
-        mapInstance.fitBounds(bounds, {
-          padding: MAP_PADDING_FOR_BOUNDS,
-          maxZoom: MAP_MAX_ZOOM_AFTER_FIT,
-        });
-      } else if (geoJsonData.features.length === 1) {
-        const coords = (geoJsonData.features[0].geometry as GeoJSON.Point)
-          .coordinates;
-        mapInstance.flyTo({
-          center: coords as [number, number],
-          zoom: MAP_SINGLE_MARKER_ZOOM,
-        });
-      }
+        if (geoJsonData.features.length > 1) {
+          mapInstance.fitBounds(bounds, {
+            padding: MAP_PADDING_FOR_BOUNDS,
+            maxZoom: MAP_MAX_ZOOM_AFTER_FIT,
+          });
+        } else if (geoJsonData.features.length === 1) {
+          const coords = (geoJsonData.features[0].geometry as GeoJSON.Point)
+            .coordinates;
+          mapInstance.flyTo({
+            center: coords as [number, number],
+            zoom: MAP_SINGLE_MARKER_ZOOM,
+          });
+        }
+      });
 
       // Pasang click handler: cluster → zoom in, titik → popup.
       attachClickHandlers(mapInstance);

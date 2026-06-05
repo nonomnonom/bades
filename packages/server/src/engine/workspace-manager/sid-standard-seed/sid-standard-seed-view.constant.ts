@@ -38,6 +38,7 @@ export const SID_STANDARD_VIEW_CONFIGS: SidStandardViewConfig[] = [
       'statusPerkawinan',
       'agama',
       'statusHidup',
+      'alamat',
     ],
   },
   {

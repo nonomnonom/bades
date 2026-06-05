@@ -34,17 +34,23 @@ describe('formatAddressDisplay', () => {
 
   it('should format address with all fields when subFields is null', () => {
     const result = formatAddressDisplay(mockAddressValue, null);
-    expect(result).toBe('123 Main St,Apt 4B,New York,NY,10001,United States');
+    expect(result).toBe(
+      '123 Main St,Apt 4B,New York,NY,10001,United States,40.7128,-74.006',
+    );
   });
 
   it('should format address with all fields when subFields is undefined', () => {
     const result = formatAddressDisplay(mockAddressValue, undefined);
-    expect(result).toBe('123 Main St,Apt 4B,New York,NY,10001,United States');
+    expect(result).toBe(
+      '123 Main St,Apt 4B,New York,NY,10001,United States,40.7128,-74.006',
+    );
   });
 
   it('should format address with all fields when subFields is empty array', () => {
     const result = formatAddressDisplay(mockAddressValue, []);
-    expect(result).toBe('123 Main St,Apt 4B,New York,NY,10001,United States');
+    expect(result).toBe(
+      '123 Main St,Apt 4B,New York,NY,10001,United States,40.7128,-74.006',
+    );
   });
 
   it('should handle address with some empty fields', () => {

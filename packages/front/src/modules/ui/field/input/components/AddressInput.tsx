@@ -23,6 +23,7 @@ import { type AllowedAddressSubField } from 'shared/types';
 import { useAddressAutocomplete } from '@/ui/field/input/hooks/useAddressAutocomplete';
 import { useCountryUtils } from '@/ui/field/input/hooks/useCountryUtils';
 import { useFocusManagement } from '@/ui/field/input/hooks/useFocusManagement';
+import { canBeCastAsNumberOrNull } from '~/utils/cast-as-number-or-null';
 
 const StyledAddressContainer = styled.div`
   padding: 4px 8px;
@@ -95,6 +96,8 @@ export const AddressInput = ({
   const addressCityInputRef = useRef<HTMLInputElement>(null);
   const addressStateInputRef = useRef<HTMLInputElement>(null);
   const addressPostcodeInputRef = useRef<HTMLInputElement>(null);
+  const addressLatInputRef = useRef<HTMLInputElement>(null);
+  const addressLngInputRef = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const inputRefs = useMemo(
@@ -104,6 +107,8 @@ export const AddressInput = ({
       addressCity: addressCityInputRef,
       addressState: addressStateInputRef,
       addressPostcode: addressPostcodeInputRef,
+      addressLat: addressLatInputRef,
+      addressLng: addressLngInputRef,
     }),
     [],
   );
@@ -129,6 +134,30 @@ export const AddressInput = ({
       return true;
     },
     [subFields],
+  );
+
+  const getCoordinateChangeHandler = useCallback(
+    (field: 'addressLat' | 'addressLng') => (rawValue: string) => {
+      if (isDefined(subFields) && !subFields.includes(field)) {
+        return;
+      }
+
+      const parsedValue =
+        rawValue.trim() === ''
+          ? null
+          : canBeCastAsNumberOrNull(rawValue)
+            ? Number(rawValue)
+            : internalValue[field];
+
+      const updatedAddress = {
+        ...internalValue,
+        [field]: parsedValue,
+      };
+
+      setInternalValue(updatedAddress);
+      onChange?.(updatedAddress);
+    },
+    [internalValue, onChange, subFields],
   );
 
   const { getFocusHandler, handleTab, handleShiftTab } = useFocusManagement(
@@ -379,6 +408,38 @@ export const AddressInput = ({
             label={t`Negara`}
             onChange={getChangeHandler('addressCountry')}
             selectedCountryName={internalValue.addressCountry ?? ''}
+          />
+        )}
+      </StyledHalfRowContainer>
+      <StyledHalfRowContainer>
+        {isFieldInputInSubFieldsAddress('addressLat') && (
+          <TextInput
+            value={
+              internalValue.addressLat === null ||
+              internalValue.addressLat === undefined
+                ? ''
+                : String(internalValue.addressLat)
+            }
+            ref={inputRefs.addressLat}
+            label={t`Lintang (Lat)`}
+            fullWidth
+            onChange={getCoordinateChangeHandler('addressLat')}
+            onFocus={getFocusHandler('addressLat')}
+          />
+        )}
+        {isFieldInputInSubFieldsAddress('addressLng') && (
+          <TextInput
+            value={
+              internalValue.addressLng === null ||
+              internalValue.addressLng === undefined
+                ? ''
+                : String(internalValue.addressLng)
+            }
+            ref={inputRefs.addressLng}
+            label={t`Bujur (Lng)`}
+            fullWidth
+            onChange={getCoordinateChangeHandler('addressLng')}
+            onFocus={getFocusHandler('addressLng')}
           />
         )}
       </StyledHalfRowContainer>

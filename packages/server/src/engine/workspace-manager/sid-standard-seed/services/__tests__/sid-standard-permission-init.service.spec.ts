@@ -238,8 +238,9 @@ describe('SidStandardPermissionInitService', () => {
 
       const upsertCalls =
         objectPermissionService.upsertObjectPermissions.mock.calls;
-      expect(upsertCalls.every((call) => call[0].input.roleId !== adminRoleId))
-        .toBe(true);
+      expect(
+        upsertCalls.every((call) => call[0].input.roleId !== adminRoleId),
+      ).toBe(true);
     });
 
     it('should create member role via RoleService.createMemberRole', async () => {

@@ -1,10 +1,13 @@
 import { getLabelIdentifierFieldMetadataItem } from '@/object-metadata/utils/getLabelIdentifierFieldMetadataItem';
+import { getLabelIdentifierFieldValue } from '@/object-metadata/utils/getLabelIdentifierFieldValue';
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
+import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { useRecordMapContextOrThrow } from '@/object-record/record-map/contexts/RecordMapContext';
 import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states/recordMapFieldMetadataIdState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
+import { canBeCastAsNumberOrNull } from '~/utils/cast-as-number-or-null';
 
 // Limit jumlah record yang di-fetch untuk MAP view. Dataset desa rata-rata
 // memiliki 100-500 KK dan 500-2000 penduduk. Limit 3000 cukup untuk
@@ -38,24 +41,45 @@ const isNullIsland = (lat: number, lng: number): boolean =>
 // data corrupt dari import) supaya tidak ada marker nyasar di tengah laut.
 // Return sebagai tuple ketik `number | number` (atau false) supaya caller
 // tidak perlu type-cast manual.
+const coerceCoordinate = (value: unknown): number | null => {
+  if (!canBeCastAsNumberOrNull(value as string | number | null | undefined)) {
+    return null;
+  }
+
+  if (value === null || value === undefined || value === '') {
+    return null;
+  }
+
+  return typeof value === 'number' ? value : Number(value);
+};
+
 const isValidCoordinate = (
   lat: unknown,
   lng: unknown,
 ): { lat: number; lng: number } | null => {
-  if (typeof lat !== 'number' || typeof lng !== 'number') {
-    return null;
-  }
-  if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
-    return null;
-  }
-  if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
-    return null;
-  }
-  if (SKIP_NULL_ISLAND && isNullIsland(lat, lng)) {
+  const parsedLat = coerceCoordinate(lat);
+  const parsedLng = coerceCoordinate(lng);
+
+  if (parsedLat === null || parsedLng === null) {
     return null;
   }
 
-  return { lat, lng };
+  if (!Number.isFinite(parsedLat) || !Number.isFinite(parsedLng)) {
+    return null;
+  }
+  if (
+    parsedLat < -90 ||
+    parsedLat > 90 ||
+    parsedLng < -180 ||
+    parsedLng > 180
+  ) {
+    return null;
+  }
+  if (SKIP_NULL_ISLAND && isNullIsland(parsedLat, parsedLng)) {
+    return null;
+  }
+
+  return { lat: parsedLat, lng: parsedLng };
 };
 
 export const useRecordMapRecords = () => {
@@ -102,10 +126,10 @@ export const useRecordMapRecords = () => {
     limit: MAP_RECORD_LIMIT,
   });
 
-  const labelIdentifierFieldName = useMemo(() => {
-    const labelField = getLabelIdentifierFieldMetadataItem(objectMetadataItem);
-    return labelField?.name ?? 'id';
-  }, [objectMetadataItem]);
+  const labelIdentifierFieldMetadataItem = useMemo(
+    () => getLabelIdentifierFieldMetadataItem(objectMetadataItem),
+    [objectMetadataItem],
+  );
 
   const mapMarkers: MapMarkerRecord[] = useMemo(() => {
     if (!isDefined(addressFieldMetadataItem)) {
@@ -134,7 +158,11 @@ export const useRecordMapRecords = () => {
           return null;
         }
 
-        const name = (record[labelIdentifierFieldName] as string) ?? record.id;
+        const name =
+          getLabelIdentifierFieldValue(
+            record as ObjectRecord,
+            labelIdentifierFieldMetadataItem,
+          ).trim() || String(record.id);
 
         // Baca nilai kategori untuk data-driven styling. Category value
         // diambil dari field SELECT (mis. 'KS1', 'TERVERIFIKASI', dll.)
@@ -155,7 +183,7 @@ export const useRecordMapRecords = () => {
   }, [
     records,
     addressFieldMetadataItem,
-    labelIdentifierFieldName,
+    labelIdentifierFieldMetadataItem,
     categoryFieldMetadataItem,
   ]);
 

@@ -225,6 +225,66 @@ describe('useRecordMapRecords', () => {
     ]);
   });
 
+  it('should accept string coordinates from GraphQL BigFloat', () => {
+    mockUseFindManyRecords.mockReturnValue({
+      records: [
+        {
+          id: 'record-string-coords',
+          nomorKartuKeluarga: 'KK-STR',
+          address: { addressLat: '-7.41', addressLng: '110.61' },
+        },
+      ],
+      loading: false,
+    });
+
+    const { result } = renderHook(() => useRecordMapRecords(), {
+      wrapper: createWrapper(),
+    });
+
+    expect(result.current.mapMarkers).toHaveLength(1);
+    expect(result.current.mapMarkers[0]).toMatchObject({
+      id: 'record-string-coords',
+      lat: -7.41,
+      lng: 110.61,
+    });
+  });
+
+  it('should format FULL_NAME label identifier sebagai string nama', () => {
+    mockUseFindManyRecords.mockReturnValue({
+      records: [
+        {
+          id: 'record-penduduk-1',
+          namaLengkap: { firstName: 'Budi', lastName: 'Santoso' },
+          alamat: { addressLat: -7.41, addressLng: 110.61 },
+        },
+      ],
+      loading: false,
+    });
+
+    const { result } = renderHook(() => useRecordMapRecords(), {
+      wrapper: createWrapper({
+        objectMetadataItem: createObjectMetadataItem({
+          fields: [
+            {
+              id: MOCK_LABEL_FIELD_ID,
+              name: 'namaLengkap',
+              type: 'FULL_NAME',
+              isActive: true,
+            },
+            {
+              id: MOCK_ADDRESS_FIELD_ID,
+              name: 'alamat',
+              type: 'ADDRESS',
+              isActive: true,
+            },
+          ],
+        }),
+      }),
+    });
+
+    expect(result.current.mapMarkers[0]?.name).toBe('Budi Santoso');
+  });
+
   it('should respect recordMapFieldMetadataIdState override', () => {
     const secondAddressFieldId = 'field-address-2';
     const secondAddressFieldName = 'alamatKantor';

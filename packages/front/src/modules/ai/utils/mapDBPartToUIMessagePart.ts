@@ -58,9 +58,22 @@ export const mapDBPartToUIMessagePart = (
           state: part.state!,
         },
       };
+    case 'dynamic-tool':
+      return {
+        type: 'dynamic-tool',
+        toolName: part.toolName ?? '',
+        toolCallId: part.toolCallId!,
+        input: part.toolInput ?? {},
+        output: part.toolOutput,
+        errorText: part.errorMessage!,
+        state: part.state,
+        ...(part.providerExecuted != null && {
+          providerExecuted: part.providerExecuted,
+        }),
+      } as ExtendedUIMessagePart;
     default:
       {
-        if (part.type.includes('tool-') === true) {
+        if (part.type.startsWith('tool-') === true) {
           return {
             type: part.type as `tool-${string}`,
             toolCallId: part.toolCallId!,

@@ -7,4 +7,6 @@ export const DEFAULT_VISIBLE_ADDRESS_SUBFIELDS = [
   'addressState',
   'addressPostcode',
   'addressCountry',
+  'addressLat',
+  'addressLng',
 ] as const satisfies readonly AllowedAddressSubField[];

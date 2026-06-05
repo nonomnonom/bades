@@ -28,6 +28,33 @@ describe('mapUIMessagePartsToDBParts', () => {
     });
   });
 
+  it('menangani DynamicToolUIPart dengan type dynamic-tool', () => {
+    const parts = mapUIMessagePartsToDBParts(
+      [
+        {
+          type: 'dynamic-tool',
+          toolName: 'cari_data',
+          toolCallId: 'call-dynamic-1',
+          state: 'output-available',
+          input: { query: 'test' },
+          output: { result: 'ok' },
+        },
+      ],
+      messageId,
+      workspaceId,
+    );
+
+    expect(parts).toHaveLength(1);
+    expect(parts[0]).toMatchObject({
+      messageId,
+      workspaceId,
+      type: 'dynamic-tool',
+      toolCallId: 'call-dynamic-1',
+      toolInput: { query: 'test' },
+      toolOutput: { result: 'ok' },
+    });
+  });
+
   it('mengabaikan part transient tanpa menghasilkan baris kosong', () => {
     const parts = mapUIMessagePartsToDBParts(
       [

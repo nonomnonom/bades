@@ -5,7 +5,10 @@ import { isDefined } from 'shared/utils';
 import { type AgentMessagePartEntity } from 'src/engine/metadata-modules/ai/ai-agent-execution/entities/agent-message-part.entity';
 
 const isToolPart = (part: ExtendedUIMessagePart): part is ToolUIPart => {
-  return part.type.includes('tool-') && 'toolCallId' in part;
+  return (
+    (part.type === 'dynamic-tool' || part.type.startsWith('tool-')) &&
+    'toolCallId' in part
+  );
 };
 
 const mapToolPartToDBPart = (

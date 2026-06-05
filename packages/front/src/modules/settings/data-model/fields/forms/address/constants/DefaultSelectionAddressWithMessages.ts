@@ -14,5 +14,7 @@ export const DEFAULT_SELECTION_ADDRESS_WITH_MESSAGES: {
     addressState: msg`Provinsi`,
     addressPostcode: msg`Kode Pos`,
     addressCountry: msg`Negara`,
+    addressLat: msg`Lintang (Lat)`,
+    addressLng: msg`Bujur (Lng)`,
   }[value],
 }));

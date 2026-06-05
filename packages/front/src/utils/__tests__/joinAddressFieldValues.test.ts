@@ -87,13 +87,12 @@ describe('joinAddressFieldValues', () => {
     expect(result).toBe('');
   });
 
-  it('should handle numeric values correctly', () => {
+  it('should format coordinate sub-fields as numbers', () => {
     const result = joinAddressFieldValues(mockAddressValue, [
       'addressLat',
       'addressLng',
     ]);
-    // Note: isNonEmptyString from @sniptt/guards only accepts strings, so numeric values are filtered out
-    expect(result).toBe('');
+    expect(result).toBe('40.7128,-74.006');
   });
 
   it('should handle mixed null and valid values', () => {

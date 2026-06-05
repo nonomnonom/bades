@@ -53,10 +53,14 @@ export const mapDBPartToUIMessagePart = (
     case 'data-routing-status':
       return null;
     default: {
-      if (part.type.includes('tool-') && part.toolCallId) {
+      if (
+        (part.type === 'dynamic-tool' || part.type.startsWith('tool-')) &&
+        part.toolCallId
+      ) {
         return {
           type: part.type,
           toolCallId: part.toolCallId,
+          toolName: part.toolName ?? '',
           input: part.toolInput ?? {},
           output: part.toolOutput,
           errorText: part.errorMessage ?? '',

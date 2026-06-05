@@ -1,5 +1,7 @@
 import { type RefObject, useEffect, useRef, useState } from 'react';
 
+import { warnIfMapboxTokenLooksInvalid } from '@/object-record/record-map/utils/getMapboxAccessToken';
+
 import { loadMapboxGl } from './loadMapboxGl';
 
 // Reuse popup instance untuk hemat alokasi memory per interaksi.
@@ -115,11 +117,6 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
 
       // Warn dev kalau token terlihat salah (sk.* atau tidak ber-prefix pk.*).
       // Hanya jalan sekali per hook mount; tidak mengganggu production.
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const { warnIfMapboxTokenLooksInvalid } =
-        require('@/object-record/record-map/utils/getMapboxAccessToken') as {
-          warnIfMapboxTokenLooksInvalid: (token: string) => void;
-        };
       warnIfMapboxTokenLooksInvalid(accessToken);
 
       const map = new mapboxgl.Map({
