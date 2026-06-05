@@ -14,5 +14,8 @@
       }
     }
   },
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  },
   "language": "indonesian"
 }
