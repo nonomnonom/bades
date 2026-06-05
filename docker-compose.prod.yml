@@ -57,6 +57,8 @@ x-bades-app-env: &bades-app-env
 services:
   server:
     image: ${BADES_IMAGE}
+    networks:
+      - bades-net
     expose:
       - "3000"
     environment:
@@ -76,6 +78,8 @@ services:
 
   worker:
     image: ${BADES_IMAGE}
+    networks:
+      - bades-net
     command: ["node", "dist/queue-worker/queue-worker"]
     environment:
       <<: *bades-app-env
@@ -90,6 +94,8 @@ services:
 
   redis:
     image: redis:7-alpine
+    networks:
+      - bades-net
     restart: always
     command: ["--maxmemory-policy", "noeviction"]
     healthcheck:
@@ -100,6 +106,8 @@ services:
 
   caddy:
     image: caddybuilds/caddy-cloudflare:latest
+    networks:
+      - bades-net
     ports:
       - "80:80"
       - "443:443"
@@ -125,3 +133,7 @@ services:
 volumes:
   caddy-data:
   caddy-config:
+
+networks:
+  bades-net:
+    driver: bridge
