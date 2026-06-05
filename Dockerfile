@@ -2,7 +2,7 @@
 # Dependency stages
 # ===========================================================================
 
-FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS front-deps
+FROM node:24.15.0-bookworm-slim AS front-deps
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
 RUN yarn workspaces focus bades front front-component-renderer ui shared sdk client-sdk && yarn cache clean && npx nx reset
 
 
-FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS server-deps
+FROM node:24.15.0-bookworm-slim AS server-deps
 
 WORKDIR /app
 
@@ -77,9 +77,9 @@ RUN if [ -d /app/packages/front/build ]; then \
 #   docker build --target bades-server -f Dockerfile .
 # ===========================================================================
 
-FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS bades-server
+FROM node:24.15.0-bookworm-slim AS bades-server
 
-RUN apk add --no-cache curl jq postgresql-client
+RUN apt-get update && apt-get install -y --no-install-recommends curl jq postgresql-client && rm -rf /var/lib/apt/lists/*
 
 COPY ./entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
@@ -127,7 +127,7 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 FROM bades-server AS bades-server-aws
 
 USER root
-RUN apk add --no-cache aws-cli
+RUN apt-get update && apt-get install -y --no-install-recommends awscli && rm -rf /var/lib/apt/lists/*
 USER 1000
 
 
@@ -173,5 +173,5 @@ LABEL org.opencontainers.image.description="Bades image with backend and fronten
 FROM bades AS bades-aws
 
 USER root
-RUN apk add --no-cache aws-cli
+RUN apt-get update && apt-get install -y --no-install-recommends awscli && rm -rf /var/lib/apt/lists/*
 USER 1000
