@@ -178,7 +178,9 @@ const writeInPackageJson = async (update: JsonUpdate) => {
   });
 };
 
-const updateNxProjectConfigurationBuildOutputs = async (outputs: JsonUpdate) => {
+const updateNxProjectConfigurationBuildOutputs = async (
+  outputs: JsonUpdate,
+) => {
   const rawJsonFile = fs.readFileSync(NX_PROJECT_CONFIGURATION_PATH, 'utf-8');
   const initialJsonFile = JSON.parse(rawJsonFile);
 
