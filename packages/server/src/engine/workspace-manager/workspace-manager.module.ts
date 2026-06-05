@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ApplicationModule } from 'src/engine/core-modules/application/application.module';
 import { FeatureFlagModule } from 'src/engine/core-modules/feature-flag/feature-flag.module';
-import { UserWorkspaceEntity } from 'src/engine/core-modules/user-workspace/user-workspace.entity';
 import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { AiAgentModule } from 'src/engine/metadata-modules/ai/ai-agent/ai-agent.module';
 import { FieldMetadataEntity } from 'src/engine/metadata-modules/field-metadata/field-metadata.entity';
@@ -34,10 +33,18 @@ import { WorkspaceManagerService } from './workspace-manager.service';
     PermissionsModule,
     AiAgentModule,
     BadesStandardApplicationModule,
+    // SidStandardSeedModule sekarang mengekspor SidStandardPermissionInitService
+    // yang dipakai oleh WorkspaceManagerService.init() untuk inisialisasi
+    // permission SID standard (admin + member role + ObjectPermission untuk
+    // 9 object SID + activationStatus: ACTIVE).
     SidStandardSeedModule,
     WorkspaceManyOrAllFlatEntityMapsCacheModule,
     WorkspaceCacheStorageModule,
-    TypeOrmModule.forFeature([UserWorkspaceEntity, WorkspaceEntity]),
+    // Repository untuk WorkspaceEntity dipakai di init() (simpan schemaName
+    // segera setelah schema dibuat) dan sebelumnya juga untuk activationStatus
+    // (logika activationStatus sekarang pindah ke SidStandardPermissionInitService
+    // tapi repository tetap dipakai).
+    TypeOrmModule.forFeature([WorkspaceEntity]),
     RoleModule,
     UserRoleModule,
     ApplicationModule,

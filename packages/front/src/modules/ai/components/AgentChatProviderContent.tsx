@@ -4,6 +4,7 @@ import { AgentChatSessionStartTimeEffect } from '@/ai/components/AgentChatSessio
 
 import { AgentChatStreamingAutoScrollEffect } from '@/ai/components/AgentChatStreamingAutoScrollEffect';
 import { AgentChatStreamingPartsDiffSyncEffect } from '@/ai/components/AgentChatStreamingPartsDiffSyncEffect';
+import { AgentChatStaleThreadRecoveryEffect } from '@/ai/components/AgentChatStaleThreadRecoveryEffect';
 import { AgentChatThreadInitializationEffect } from '@/ai/components/AgentChatThreadInitializationEffect';
 import { AgentChatComponentInstanceContext } from '@/ai/contexts/AgentChatComponentInstanceContext';
 import { Suspense } from 'react';
@@ -19,6 +20,7 @@ export const AgentChatProviderContent = ({
         value={{ instanceId: 'agentChatComponentInstance' }}
       >
         <AgentChatThreadInitializationEffect />
+        <AgentChatStaleThreadRecoveryEffect />
         <AgentChatMessagesFetchEffect />
         <AgentChatStreamSubscriptionEffect />
         <AgentChatStreamingPartsDiffSyncEffect />

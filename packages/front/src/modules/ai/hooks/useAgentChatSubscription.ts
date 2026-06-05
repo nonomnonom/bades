@@ -19,6 +19,8 @@ import { agentChatIsStreamingComponentFamilyState } from '@/ai/states/agentChatI
 import { agentChatMessagesComponentFamilyState } from '@/ai/states/agentChatMessagesComponentFamilyState';
 import { agentChatUsageComponentFamilyState } from '@/ai/states/agentChatUsageComponentFamilyState';
 import { currentAiChatThreadTitleComponentFamilyState } from '@/ai/states/currentAiChatThreadTitleComponentFamilyState';
+import { AGENT_CHAT_NEW_THREAD_DRAFT_KEY } from '@/ai/states/agentChatDraftsByThreadIdState';
+import { currentAiChatThreadState } from '@/ai/states/currentAiChatThreadState';
 import { AiChatErrorCode } from '@/ai/utils/aiChatErrorCode';
 import { dispatchBrowserEvent } from '@/browser-event/utils/dispatchBrowserEvent';
 import { sseClientState } from '@/sse-db-event/states/sseClientState';
@@ -346,8 +348,21 @@ export const useAgentChatSubscription = (threadId: string | null) => {
             );
           }
         },
-        error: () => {
-          // graphql-sse handles reconnection automatically
+        error: (subscriptionError) => {
+          const errorMessage =
+            subscriptionError instanceof Error
+              ? subscriptionError.message
+              : String(subscriptionError);
+          const isThreadNotFound =
+            errorMessage.includes('THREAD_NOT_FOUND') ||
+            errorMessage.toLowerCase().includes('thread not found');
+
+          if (isThreadNotFound) {
+            store.set(
+              currentAiChatThreadState.atom,
+              AGENT_CHAT_NEW_THREAD_DRAFT_KEY,
+            );
+          }
         },
         complete: () => {
           if (!disposed) {

@@ -8,6 +8,7 @@ import { SecretEncryptionRotationModule } from 'src/database/commands/secret-enc
 import { GenerateInstanceCommandCommand } from 'src/database/commands/generate-instance-command.command';
 import { InstallPreInstalledAppsCommand } from 'src/database/commands/install-pre-installed-apps.command';
 import { InstanceCommandGenerationService } from 'src/database/commands/instance-command-generation.service';
+import { WorkspaceBackfillAddressCoordinatesCommand } from 'src/database/commands/workspace-backfill-address-coordinates.command';
 import { WorkspaceReseedSidStandardCommand } from 'src/database/commands/workspace-reseed-sid-standard.command';
 import { ListOrphanedWorkspaceEntitiesCommand } from 'src/database/commands/list-and-delete-orphaned-workspace-entities.command';
 import { ConfirmationQuestion } from 'src/database/commands/questions/confirmation.question';
@@ -49,6 +50,7 @@ import { WorkspaceVersionModule } from 'src/engine/workspace-manager/workspace-v
 import { CalendarEventImportManagerModule } from 'src/modules/calendar/calendar-event-import-manager/calendar-event-import-manager.module';
 import { MessagingImportManagerModule } from 'src/modules/messaging/message-import-manager/messaging-import-manager.module';
 import { WorkflowRunQueueModule } from 'src/modules/workflow/workflow-runner/workflow-run-queue/workflow-run-queue.module';
+import { GeoMapModule } from 'src/engine/core-modules/geo-map/geo-map-module';
 import { AutomatedTriggerModule } from 'src/modules/workflow/workflow-trigger/automated-trigger/automated-trigger.module';
 
 @Module({
@@ -90,6 +92,7 @@ import { AutomatedTriggerModule } from 'src/modules/workflow/workflow-trigger/au
     WorkspaceVersionModule,
     UpgradeModule,
     SecretEncryptionRotationModule,
+    GeoMapModule,
   ],
   providers: [
     DataSeedWorkspaceCommand,
@@ -106,6 +109,7 @@ import { AutomatedTriggerModule } from 'src/modules/workflow/workflow-trigger/au
     RebuildApplicationDefaultDepsCommand,
     InstallPreInstalledAppsCommand,
     WorkspaceReseedSidStandardCommand,
+    WorkspaceBackfillAddressCoordinatesCommand,
   ],
 })
 export class DatabaseCommandModule {}

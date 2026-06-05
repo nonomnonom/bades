@@ -4,12 +4,13 @@ import { type Editor } from '@tiptap/react';
 import { LightButton } from 'ui/input';
 import { themeCssVariables } from 'ui/theme-constants';
 
-import {
-  DEFAULT_SUGGESTED_PROMPTS,
-  type SuggestedPrompt,
-} from '@/ai/components/suggested-prompts/default-suggested-prompts';
+import { generateSuggestedPrompts } from '@/ai/components/suggested-prompts/generate-suggested-prompts.util';
+import { type SuggestedPrompt } from '@/ai/components/suggested-prompts/default-suggested-prompts';
 import { agentChatInputState } from '@/ai/states/agentChatInputState';
+import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
+import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { useMemo } from 'react';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -44,10 +45,15 @@ export const AiChatSuggestedPrompts = ({
 }: AiChatSuggestedPromptsProps) => {
   const { t: resolveMessage } = useLingui();
   const setAgentChatInput = useSetAtomState(agentChatInputState);
+  const objectMetadataItems = useAtomStateValue(objectMetadataItemsSelector);
+  const suggestedPrompts = useMemo(
+    () => generateSuggestedPrompts({ objectMetadataItems }),
+    [objectMetadataItems],
+  );
 
   const handleClick = (prompt: SuggestedPrompt) => {
     const picked = pickRandom(prompt.prefillPrompts);
-    const text = resolveMessage(picked);
+    const text = typeof picked === 'string' ? picked : resolveMessage(picked);
 
     setAgentChatInput(text);
     editor?.commands.setContent({
@@ -60,11 +66,15 @@ export const AiChatSuggestedPrompts = ({
   return (
     <StyledContainer>
       <StyledTitle>{t`Apa yang bisa saya bantu?`}</StyledTitle>
-      {DEFAULT_SUGGESTED_PROMPTS.map((prompt) => (
+      {suggestedPrompts.map((prompt) => (
         <StyledSuggestedPromptButtonContainer key={prompt.id}>
           <LightButton
             Icon={prompt.Icon}
-            title={resolveMessage(prompt.label)}
+            title={
+              typeof prompt.label === 'string'
+                ? prompt.label
+                : resolveMessage(prompt.label)
+            }
             accent="secondary"
             onClick={() => handleClick(prompt)}
           />

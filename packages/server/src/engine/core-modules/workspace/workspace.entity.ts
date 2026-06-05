@@ -311,6 +311,10 @@ export class WorkspaceEntity {
   @Column({ type: 'text', nullable: true })
   aiAdditionalInstructions: string | null;
 
+  @Field()
+  @Column({ type: 'varchar', default: 'destructive' })
+  aiWriteConfirmationMode: string;
+
   @Column({ nullable: false, type: 'uuid' })
   workspaceCustomApplicationId: string;
 

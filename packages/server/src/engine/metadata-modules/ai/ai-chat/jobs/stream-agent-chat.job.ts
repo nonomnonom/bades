@@ -7,6 +7,7 @@ import type {
   ExtendedUIMessage,
   ExtendedUIMessagePart,
 } from 'shared/ai';
+import { isDefined } from 'shared/utils';
 import { Repository } from 'typeorm';
 
 import { Process } from 'src/engine/core-modules/message-queue/decorators/process.decorator';
@@ -50,6 +51,9 @@ export class StreamAgentChatJob {
 
   @Process(STREAM_AGENT_CHAT_JOB_NAME)
   async handle(data: StreamAgentChatJobData): Promise<void> {
+    const startedAt = Date.now();
+    let outcome: 'success' | 'error' | 'aborted' = 'success';
+
     this.logger.log(
       `Stream job start threadId=${data.threadId} streamId=${data.streamId} workspaceId=${data.workspaceId} modelId=${data.modelId ?? 'default'} messages=${data.messages.length}`,
     );
@@ -85,8 +89,9 @@ export class StreamAgentChatJob {
     try {
       await this.executeStream(data, workspace, abortController.signal);
     } catch (error) {
+      outcome = abortController.signal.aborted ? 'aborted' : 'error';
       this.logger.error(
-        `Stream ${data.streamId} failed threadId=${data.threadId} workspaceId=${data.workspaceId} modelId=${data.modelId ?? 'default'}: ${
+        `Stream job failed outcome=${outcome} durationMs=${Date.now() - startedAt} streamId=${data.streamId} threadId=${data.threadId} workspaceId=${data.workspaceId} modelId=${data.modelId ?? 'default'}: ${
           error instanceof Error ? error.message : String(error)
         }`,
         error instanceof Error ? error.stack : undefined,
@@ -107,6 +112,12 @@ export class StreamAgentChatJob {
         .catch(() => {});
       throw error;
     } finally {
+      if (outcome === 'success') {
+        this.logger.log(
+          `Stream job completed outcome=success durationMs=${Date.now() - startedAt} streamId=${data.streamId} threadId=${data.threadId} workspaceId=${data.workspaceId}`,
+        );
+      }
+
       await this.cancelSubscriberService.unsubscribe(cancelChannel);
       await this.threadRepository
         .createQueryBuilder()
@@ -202,6 +213,7 @@ export class StreamAgentChatJob {
       let lastStepConversationSize = 0;
       let totalCacheCreationTokens = 0;
       let streamError: unknown;
+      let persistedMessageId: string | null = null;
       let checkHasNoMoreAvailableCredits: () => boolean = () => false;
 
       // onFinish fires before the uiStream is fully drained. We use this
@@ -286,7 +298,7 @@ export class StreamAgentChatJob {
               },
               onFinish: async ({ responseMessage }) => {
                 try {
-                  await this.handleStreamFinish({
+                  persistedMessageId = await this.handleStreamFinish({
                     responseMessage,
                     threadId: data.threadId,
                     workspaceId: data.workspaceId,
@@ -335,12 +347,17 @@ export class StreamAgentChatJob {
               event: { type: 'credits-exhausted' },
             });
             resolve();
-          } else {
+          } else if (isDefined(persistedMessageId)) {
             await this.eventPublisherService.publish({
               threadId: data.threadId,
               workspaceId: data.workspaceId,
-              event: { type: 'message-persisted', messageId: data.threadId },
+              event: {
+                type: 'message-persisted',
+                messageId: persistedMessageId,
+              },
             });
+            resolve();
+          } else {
             resolve();
           }
         } catch (error) {
@@ -466,9 +483,9 @@ export class StreamAgentChatJob {
     totalCacheCreationTokens: number;
     modelConfig: AiModelConfig;
     userMessagePromise: Promise<{ turnId: string | null }>;
-  }): Promise<void> {
+  }): Promise<string | null> {
     if (responseMessage.parts.length === 0) {
-      return;
+      return null;
     }
 
     const threadStatus = await this.threadRepository.findOne({
@@ -477,12 +494,12 @@ export class StreamAgentChatJob {
     });
 
     if (!threadStatus || threadStatus.deletedAt) {
-      return;
+      return null;
     }
 
     const userMessage = await userMessagePromise;
 
-    await this.agentChatService.addMessage({
+    const savedMessage = await this.agentChatService.addMessage({
       threadId,
       uiMessage: responseMessage,
       turnId: userMessage.turnId ?? undefined,
@@ -509,5 +526,7 @@ export class StreamAgentChatJob {
       threadId,
       userWorkspaceId,
     });
+
+    return savedMessage.id;
   }
 }

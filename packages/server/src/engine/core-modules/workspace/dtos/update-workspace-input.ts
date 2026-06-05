@@ -122,6 +122,11 @@ export class UpdateWorkspaceInput {
   @IsOptional()
   aiAdditionalInstructions?: string;
 
+  @Field({ nullable: true })
+  @IsString()
+  @IsOptional()
+  aiWriteConfirmationMode?: string;
+
   @Field(() => [String], { nullable: true })
   @IsArray()
   @IsString({ each: true })

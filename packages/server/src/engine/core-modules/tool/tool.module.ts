@@ -13,6 +13,7 @@ import { EmailComposerService } from 'src/engine/core-modules/tool/tools/email-t
 import { SendEmailTool } from 'src/engine/core-modules/tool/tools/email-tool/send-email-tool';
 import { HttpTool } from 'src/engine/core-modules/tool/tools/http-tool/http-tool';
 import { NavigateAppTool } from 'src/engine/core-modules/tool/tools/navigate-tool/navigate-app-tool';
+import { ExaWebSearchTool } from 'src/engine/core-modules/tool/tools/exa-web-search-tool/exa-web-search-tool';
 import { SearchHelpCenterTool } from 'src/engine/core-modules/tool/tools/search-help-center-tool/search-help-center-tool';
 import { WorkspaceManyOrAllFlatEntityMapsCacheModule } from 'src/engine/metadata-modules/flat-entity/services/workspace-many-or-all-flat-entity-maps-cache.module';
 import { ConnectedAccountEntity } from 'src/engine/metadata-modules/connected-account/entities/connected-account.entity';
@@ -43,6 +44,7 @@ import { MessagingSendManagerModule } from 'src/modules/messaging/message-outbou
     DraftEmailTool,
     EmailComposerService,
     SearchHelpCenterTool,
+    ExaWebSearchTool,
     CodeInterpreterTool,
     NavigateAppTool,
   ],
@@ -52,6 +54,7 @@ import { MessagingSendManagerModule } from 'src/modules/messaging/message-outbou
     DraftEmailTool,
     EmailComposerService,
     SearchHelpCenterTool,
+    ExaWebSearchTool,
     CodeInterpreterTool,
     NavigateAppTool,
   ],

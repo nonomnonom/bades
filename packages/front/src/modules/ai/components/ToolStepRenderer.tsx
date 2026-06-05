@@ -6,6 +6,7 @@ import { JsonTree } from 'ui/json-visualizer';
 import { AnimatedExpandableContainer } from 'ui/layout';
 import { ThemeContext, themeCssVariables } from 'ui/theme-constants';
 
+import { AiChatWriteConfirmationActions } from '@/ai/components/AiChatWriteConfirmationActions';
 import { CodeExecutionDisplay } from '@/ai/components/CodeExecutionDisplay';
 import { ShimmeringText } from '@/ai/components/ShimmeringText';
 import {
@@ -147,7 +148,6 @@ export const ToolStepRenderer = ({
     resolveToolInput(input, rawToolName);
 
   const hasError = isDefined(errorText);
-  const isExpandable = isDefined(output) || hasError;
   const ToolIcon = getToolIcon(toolName);
 
   const outputObj =
@@ -158,6 +158,18 @@ export const ToolStepRenderer = ({
     typeof outputObj?.message === 'string' ? outputObj.message : null;
   const toolError =
     typeof outputObj?.error === 'string' ? outputObj.error : null;
+  const pendingConfirmation =
+    typeof outputObj?.pendingConfirmation === 'object' &&
+    outputObj.pendingConfirmation !== null
+      ? (outputObj.pendingConfirmation as {
+          toolName: string;
+          arguments: Record<string, unknown>;
+          operation: string;
+          objectNameSingular: string;
+        })
+      : null;
+  const isExpandable =
+    isDefined(output) || hasError || isDefined(pendingConfirmation);
 
   if (toolName === 'code_interpreter') {
     const codeInput = toolInput as { code?: string } | undefined;
@@ -251,7 +263,11 @@ export const ToolStepRenderer = ({
       {isExpandable && (
         <AnimatedExpandableContainer isExpanded={isExpanded} mode="fit-content">
           <StyledContentContainer>
-            {hasError ? (
+            {pendingConfirmation ? (
+              <AiChatWriteConfirmationActions
+                pendingConfirmation={pendingConfirmation}
+              />
+            ) : hasError ? (
               errorText
             ) : (
               <>

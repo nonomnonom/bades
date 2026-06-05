@@ -21,9 +21,17 @@ import {
 } from 'src/engine/core-modules/tool/utils/wrap-tool-for-execution.util';
 import { type RolePermissionConfig } from 'src/engine/sid-orm/types/role-permission-config';
 
+type ToolInfoCacheEntry = {
+  expiresAt: number;
+  value: Array<{ name: string; description?: string; inputSchema?: object }>;
+};
+
+const TOOL_INFO_CACHE_TTL_MS = 30 * 60 * 1000;
+
 @Injectable()
 export class ToolRegistryService {
   private readonly logger = new Logger(ToolRegistryService.name);
+  private readonly toolInfoCache = new Map<string, ToolInfoCacheEntry>();
 
   constructor(
     @Inject(TOOL_PROVIDERS)
@@ -51,10 +59,39 @@ export class ToolRegistryService {
   }
 
   // On-demand schema generation for specific tools
+  private buildToolInfoCacheKey(
+    workspaceId: string,
+    roleId: string,
+    toolNames: string[],
+  ): string {
+    return `${workspaceId}:${roleId}:${[...toolNames].sort().join(',')}`;
+  }
+
   async resolveSchemas(
     toolNames: string[],
     context: ToolProviderContext,
   ): Promise<Map<string, object>> {
+    const cacheKey = this.buildToolInfoCacheKey(
+      context.workspaceId,
+      context.roleId,
+      toolNames,
+    );
+    const cached = this.toolInfoCache.get(`schemas:${cacheKey}`);
+
+    if (cached && cached.expiresAt > Date.now()) {
+      const schemaMap = new Map<string, object>();
+
+      for (const entry of cached.value) {
+        if (entry.inputSchema) {
+          schemaMap.set(entry.name, entry.inputSchema);
+        }
+      }
+
+      if (schemaMap.size > 0) {
+        return schemaMap;
+      }
+    }
+
     const index = await this.getCatalog(context);
     const nameSet = new Set(toolNames);
     const matchingEntries = index.filter((entry) => nameSet.has(entry.name));
@@ -96,6 +133,14 @@ export class ToolRegistryService {
         }
       }
     }
+
+    this.toolInfoCache.set(`schemas:${cacheKey}`, {
+      expiresAt: Date.now() + TOOL_INFO_CACHE_TTL_MS,
+      value: [...schemas.entries()].map(([name, inputSchema]) => ({
+        name,
+        inputSchema,
+      })),
+    });
 
     return schemas;
   }
@@ -202,6 +247,17 @@ export class ToolRegistryService {
     Array<{ name: string; description?: string; inputSchema?: object }>
   > {
     const fullContext = this.buildContextFromToolContext(context);
+    const aspectsKey = aspects.sort().join('+');
+    const cacheKey = `${this.buildToolInfoCacheKey(
+      fullContext.workspaceId,
+      fullContext.roleId,
+      names,
+    )}:${aspectsKey}`;
+    const cached = this.toolInfoCache.get(cacheKey);
+
+    if (cached && cached.expiresAt > Date.now()) {
+      return cached.value;
+    }
 
     const index = await this.getCatalog(fullContext);
     const nameSet = new Set(names);
@@ -213,7 +269,7 @@ export class ToolRegistryService {
       schemas = await this.resolveSchemas(names, fullContext);
     }
 
-    return matchingEntries.map((entry) => {
+    const result = matchingEntries.map((entry) => {
       const info: {
         name: string;
         description?: string;
@@ -230,6 +286,13 @@ export class ToolRegistryService {
 
       return info;
     });
+
+    this.toolInfoCache.set(cacheKey, {
+      expiresAt: Date.now() + TOOL_INFO_CACHE_TTL_MS,
+      value: result,
+    });
+
+    return result;
   }
 
   async resolveAndExecute(

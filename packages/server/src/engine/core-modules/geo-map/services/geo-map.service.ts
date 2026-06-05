@@ -5,27 +5,31 @@ import { isDefined } from 'shared/utils';
 
 import { type GeoMapAddressFields } from 'src/engine/core-modules/geo-map/types/geo-map-address-fields.type';
 import { type GeoMapAutocompleteSanitizedResult } from 'src/engine/core-modules/geo-map/types/geo-map-autocomplete-sanitized-result.type';
-import { sanitizeAutocompleteResults } from 'src/engine/core-modules/geo-map/utils/sanitize-autocomplete-results.util';
-import { sanitizePlaceDetailsResults } from 'src/engine/core-modules/geo-map/utils/sanitize-place-details-results.util';
+import {
+  type GeoMapMapboxForwardResponse,
+  type GeoMapMapboxRetrieveResponse,
+  type GeoMapMapboxSuggestResponse,
+} from 'src/engine/core-modules/geo-map/types/geo-map-mapbox-suggest.type';
+import { sanitizeMapboxFeatureResults } from 'src/engine/core-modules/geo-map/utils/sanitize-mapbox-feature-results.util';
+import { sanitizeMapboxSuggestResults } from 'src/engine/core-modules/geo-map/utils/sanitize-mapbox-suggest-results.util';
 import { SecureHttpClientService } from 'src/engine/core-modules/secure-http-client/secure-http-client.service';
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 
+const MAPBOX_SEARCH_BOX_BASE_URL = 'https://api.mapbox.com/search/searchbox/v1';
+
 @Injectable()
 export class GeoMapService {
-  private apiMapKey: string | undefined;
+  private mapboxAccessToken: string | undefined;
+
   constructor(
     private readonly badesConfigService: BadesConfigService,
     private readonly secureHttpClientService: SecureHttpClientService,
   ) {
-    if (
-      !this.badesConfigService.get(
-        'IS_MAPS_AND_ADDRESS_AUTOCOMPLETE_ENABLED',
-      ) ||
-      !this.badesConfigService.get('GOOGLE_MAP_API_KEY')
-    ) {
-      return;
-    }
-    this.apiMapKey = this.badesConfigService.get('GOOGLE_MAP_API_KEY');
+    this.mapboxAccessToken = this.badesConfigService.get('MAPBOX_ACCESS_TOKEN');
+  }
+
+  public isGeocodingEnabled(): boolean {
+    return isNonEmptyString(this.mapboxAccessToken);
   }
 
   public async getAutoCompleteAddress(
@@ -34,46 +38,81 @@ export class GeoMapService {
     country?: string,
     isFieldCity?: boolean,
   ): Promise<GeoMapAutocompleteSanitizedResult[] | undefined> {
-    if (!isNonEmptyString(address?.trim())) {
+    if (!this.isGeocodingEnabled() || !isNonEmptyString(address?.trim())) {
       return [];
     }
 
-    let url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(address)}&sessiontoken=${token}&key=${this.apiMapKey}`;
+    const params = new URLSearchParams({
+      q: address.trim(),
+      session_token: token,
+      access_token: this.mapboxAccessToken!,
+      language: 'id',
+      limit: '5',
+    });
 
     if (isNonEmptyString(country)) {
-      url += `&components=country:${country}`;
+      params.set('country', country.toUpperCase());
     }
+
     if (isDefined(isFieldCity) && isFieldCity === true) {
-      url += `&types=(cities)`;
+      params.set('types', 'place,city,locality');
     }
+
     const httpClient = this.secureHttpClientService.getHttpClient();
+    const result = await httpClient.get<GeoMapMapboxSuggestResponse>(
+      `${MAPBOX_SEARCH_BOX_BASE_URL}/suggest?${params.toString()}`,
+    );
 
-    const result = await httpClient.get(url);
-
-    if (result.data.status === 'OK') {
-      return sanitizeAutocompleteResults(result.data.predictions);
-    }
-
-    return [];
+    return sanitizeMapboxSuggestResults(result.data.suggestions ?? []);
   }
 
   public async getAddressDetails(
     placeId: string,
     token: string,
   ): Promise<GeoMapAddressFields | undefined> {
-    const httpClient = this.secureHttpClientService.getHttpClient();
-
-    const result = await httpClient.get(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&sessiontoken=${token}&fields=address_components%2Cgeometry&key=${this.apiMapKey}`,
-    );
-
-    if (result.data.status === 'OK') {
-      return sanitizePlaceDetailsResults({
-        addressComponents: result.data.result?.address_components,
-        location: result.data.result?.geometry?.location,
-      });
+    if (!this.isGeocodingEnabled() || !isNonEmptyString(placeId)) {
+      return {};
     }
 
-    return {};
+    const params = new URLSearchParams({
+      session_token: token,
+      access_token: this.mapboxAccessToken!,
+    });
+
+    const httpClient = this.secureHttpClientService.getHttpClient();
+    const encodedPlaceId = encodeURIComponent(placeId);
+    const result = await httpClient.get<GeoMapMapboxRetrieveResponse>(
+      `${MAPBOX_SEARCH_BOX_BASE_URL}/retrieve/${encodedPlaceId}?${params.toString()}`,
+    );
+
+    return sanitizeMapboxFeatureResults(result.data.features?.[0]);
+  }
+
+  // Forward geocode untuk backfill koordinat dari teks alamat (tanpa session).
+  public async geocodeAddressFromText(
+    address: string,
+    country?: string,
+  ): Promise<GeoMapAddressFields | undefined> {
+    if (!this.isGeocodingEnabled() || !isNonEmptyString(address?.trim())) {
+      return undefined;
+    }
+
+    const params = new URLSearchParams({
+      q: address.trim(),
+      access_token: this.mapboxAccessToken!,
+      language: 'id',
+      limit: '1',
+    });
+
+    if (isNonEmptyString(country)) {
+      params.set('country', country.toUpperCase());
+    }
+
+    const httpClient = this.secureHttpClientService.getHttpClient();
+    const result = await httpClient.get<GeoMapMapboxForwardResponse>(
+      `${MAPBOX_SEARCH_BOX_BASE_URL}/forward?${params.toString()}`,
+    );
+
+    return sanitizeMapboxFeatureResults(result.data.features?.[0]);
   }
 }

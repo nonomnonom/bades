@@ -8,7 +8,9 @@ import { Repository } from 'typeorm';
 import { type ObjectRecordGroupBy } from 'src/engine/api/graphql/workspace-query-builder/interfaces/object-record.interface';
 
 import { type FlatWorkspace } from 'src/engine/core-modules/workspace/types/flat-workspace.type';
+import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { fromUserEntityToFlat } from 'src/engine/core-modules/user/utils/from-user-entity-to-flat.util';
+import { AiWriteConfirmationMode } from 'src/engine/metadata-modules/ai/ai-chat/enums/ai-write-confirmation-mode.enum';
 import { type ToolProviderContext } from 'src/engine/core-modules/tool-provider/interfaces/tool-provider-context.type';
 
 import {
@@ -53,6 +55,8 @@ export class ToolExecutorService {
     private readonly workspaceCacheService: WorkspaceCacheService,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
+    @InjectRepository(WorkspaceEntity)
+    private readonly workspaceRepository: Repository<WorkspaceEntity>,
   ) {}
 
   async dispatch(
@@ -60,15 +64,26 @@ export class ToolExecutorService {
     args: Record<string, unknown> | undefined,
     context: ToolProviderContext,
   ): Promise<ToolOutput> {
-    const safeArgs = args ?? {};
+    const safeArgs = { ...(args ?? {}) };
 
     switch (descriptor.executionRef.kind) {
-      case 'database_crud':
+      case 'database_crud': {
+        const confirmationResult = await this.maybeRequireWriteConfirmation(
+          descriptor,
+          safeArgs,
+          context,
+        );
+
+        if (confirmationResult) {
+          return confirmationResult;
+        }
+
         return this.dispatchDatabaseCrud(
           descriptor.executionRef,
           safeArgs,
           context,
         );
+      }
       case 'static':
         return this.dispatchStaticTool(descriptor, safeArgs, context);
       case 'logic_function':
@@ -80,11 +95,75 @@ export class ToolExecutorService {
     }
   }
 
+  private async maybeRequireWriteConfirmation(
+    descriptor: ToolIndexEntry | ToolDescriptor,
+    args: Record<string, unknown>,
+    context: ToolProviderContext,
+  ): Promise<ToolOutput | null> {
+    if (descriptor.executionRef.kind !== 'database_crud') {
+      return null;
+    }
+
+    if (args.__confirmed === true) {
+      delete args.__confirmed;
+      return null;
+    }
+
+    const writeOperations = new Set([
+      'create',
+      'create_many',
+      'update',
+      'update_many',
+      'delete',
+    ]);
+    const destructiveOperations = new Set(['delete', 'update_many']);
+
+    if (!writeOperations.has(descriptor.executionRef.operation)) {
+      return null;
+    }
+
+    const workspace = await this.workspaceRepository.findOne({
+      where: { id: context.workspaceId },
+      select: ['id', 'aiWriteConfirmationMode'],
+    });
+
+    const confirmationMode =
+      workspace?.aiWriteConfirmationMode ?? AiWriteConfirmationMode.DESTRUCTIVE;
+
+    if (confirmationMode === AiWriteConfirmationMode.OFF) {
+      return null;
+    }
+
+    if (
+      confirmationMode === AiWriteConfirmationMode.DESTRUCTIVE &&
+      !destructiveOperations.has(descriptor.executionRef.operation)
+    ) {
+      return null;
+    }
+
+    const { __confirmed: _confirmed, ...confirmationArgs } = args;
+
+    return {
+      success: false,
+      message:
+        'Konfirmasi diperlukan sebelum menulis data. Minta pengguna menyetujui operasi ini.',
+      error: 'PENDING_CONFIRMATION',
+      pendingConfirmation: {
+        toolName: descriptor.name,
+        arguments: confirmationArgs,
+        operation: descriptor.executionRef.operation,
+        objectNameSingular: descriptor.executionRef.objectNameSingular,
+      },
+    };
+  }
+
   private async dispatchDatabaseCrud(
     ref: Extract<ToolExecutionRef, { kind: 'database_crud' }>,
     args: Record<string, unknown>,
     context: ToolProviderContext,
   ): Promise<ToolOutput> {
+    delete args.__confirmed;
+
     const authContext =
       context.authContext ?? (await this.buildAuthContext(context));
 

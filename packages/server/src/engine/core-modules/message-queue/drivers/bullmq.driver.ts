@@ -172,7 +172,7 @@ export class BullMQDriver
       // Move to Dead Letter Queue after max attempts
       if (job.attemptsMade >= (job.opts.attempts ?? 1)) {
         this.logger.error(
-          `Job ${job.id} with name ${job.name} moved to DLQ after ${job.attemptsMade} attempts`,
+          `Job moved to DLQ queue=${queueName} jobId=${job.id} jobName=${job.name} attempts=${job.attemptsMade} outcome=dlq threadId=${(job.data as { threadId?: string })?.threadId ?? 'n/a'} workspaceId=${(job.data as { workspaceId?: string })?.workspaceId ?? 'n/a'} streamId=${(job.data as { streamId?: string })?.streamId ?? 'n/a'} error=${error.message}`,
         );
         void this.deadLetterQueueMap[queueName].add(job.name, job.data, {
           ...job.opts,

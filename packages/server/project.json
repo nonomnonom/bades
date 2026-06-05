@@ -15,7 +15,8 @@
           "nest build --path ./tsconfig.build.json",
           "node -e \"const fs=require('fs'),path=require('path');const s='../client-sdk',d='dist/assets/client-sdk';fs.mkdirSync(d,{recursive:true});fs.copyFileSync(path.join(s,'package.json'),path.join(d,'package.json'));fs.cpSync(path.join(s,'dist'),path.join(d,'dist'),{recursive:true})\"",
           "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/core-modules/application/application-package/constants/seed-dependencies',d='dist/assets/engine/core-modules/application/application-package/constants/seed-dependencies';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\"",
-          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/metadata-modules/front-component/constants/seed-project',d='dist/assets/engine/metadata-modules/front-component/constants/seed-project';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\""
+          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/metadata-modules/front-component/constants/seed-project',d='dist/assets/engine/metadata-modules/front-component/constants/seed-project';fs.mkdirSync(d,{recursive:true});fs.cpSync(s,d,{recursive:true})\"",
+          "node -e \"const fs=require('fs'),path=require('path');const s='src/engine/metadata-modules/ai/ai-models/ai-providers.json',d='dist/engine/metadata-modules/ai/ai-models/ai-providers.json';fs.mkdirSync(path.dirname(d),{recursive:true});fs.copyFileSync(s,d)\""
         ]
       },
       "dependsOn": ["^build"]

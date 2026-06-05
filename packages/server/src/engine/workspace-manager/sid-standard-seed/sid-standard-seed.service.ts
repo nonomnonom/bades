@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
 
 import { DataSource } from 'typeorm';
+import { v5 as uuidv5 } from 'uuid';
 
 import { isDefined } from 'shared/utils';
 
@@ -16,6 +17,25 @@ import {
   SID_STANDARD_OBJECT_SEEDS,
   SID_STANDARD_RELATIONS,
 } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.config';
+
+const SID_STANDARD_MAP_VIEW_NAMESPACE = '30303030-000a-4000-8000-000000000000';
+
+const resolveSidStandardMapViewIds = ({
+  workspaceId,
+  mapViewKey,
+}: {
+  workspaceId: string;
+  mapViewKey: string;
+}): { viewId: string; viewUniversalIdentifier: string } => ({
+  viewId: uuidv5(
+    `${workspaceId}:sid-standard-map-view:${mapViewKey}:id`,
+    SID_STANDARD_MAP_VIEW_NAMESPACE,
+  ),
+  viewUniversalIdentifier: uuidv5(
+    `${workspaceId}:sid-standard-map-view:${mapViewKey}:universal`,
+    SID_STANDARD_MAP_VIEW_NAMESPACE,
+  ),
+});
 
 // Seed 9 objek SID standar Bades (Penduduk, Keluarga, Wilayah, Layanan,
 // Surat, Perangkat Desa, Program Bantuan, Penerima Bantuan, Aset Desa) +
@@ -577,7 +597,139 @@ export class SidStandardSeedService {
       }
     }
 
+    await this.repositionLabelIdentifierViewFieldsInWorkspace({ workspaceId });
+
     return { hiddenFields, visibleFields };
+  }
+
+  // Label identifier view field wajib punya position terendah di setiap view
+  // (validasi engine). Seed SID sering mengubah labelIdentifier tanpa
+  // recompute position — method ini menormalkan seluruh workspace.
+  private async repositionLabelIdentifierViewFieldsInWorkspace({
+    workspaceId,
+  }: {
+    workspaceId: string;
+  }): Promise<void> {
+    await this.coreDataSource.query(
+      `
+        UPDATE core."viewField" vf_label
+        SET position = sub.target_position, "updatedAt" = NOW()
+        FROM (
+          SELECT
+            v.id AS view_id,
+            om."labelIdentifierFieldMetadataId" AS label_field_id,
+            CASE
+              WHEN MIN(vf.position) FILTER (
+                WHERE vf."fieldMetadataId" <> om."labelIdentifierFieldMetadataId"
+              ) IS NULL THEN 0
+              ELSE MIN(vf.position) FILTER (
+                WHERE vf."fieldMetadataId" <> om."labelIdentifierFieldMetadataId"
+              ) - 1
+            END AS target_position
+          FROM core.view v
+          JOIN core."objectMetadata" om ON om.id = v."objectMetadataId"
+          JOIN core."viewField" vf ON vf."viewId" = v.id AND vf."deletedAt" IS NULL
+          WHERE v."workspaceId" = $1
+            AND v.type <> 'FIELDS_WIDGET'
+            AND om."labelIdentifierFieldMetadataId" IS NOT NULL
+          GROUP BY v.id, om."labelIdentifierFieldMetadataId"
+        ) sub
+        WHERE vf_label."viewId" = sub.view_id
+          AND vf_label."fieldMetadataId" = sub.label_field_id
+          AND vf_label."deletedAt" IS NULL
+          AND vf_label.position <> sub.target_position
+      `,
+      [workspaceId],
+    );
+  }
+
+  // MAP view butuh viewField minimal (label identifier + ADDRESS) supaya
+  // validasi metadata tidak gagal saat view dibuka.
+  private async ensureMapViewFieldsForMapView({
+    workspaceId,
+    viewId,
+    applicationId,
+    objectMetadataId,
+  }: {
+    workspaceId: string;
+    viewId: string;
+    applicationId: string;
+    objectMetadataId: string;
+  }): Promise<void> {
+    const fieldRows: {
+      label_field_id: string | null;
+      address_field_id: string | null;
+    }[] = await this.coreDataSource.query(
+      `
+        SELECT
+          om."labelIdentifierFieldMetadataId" AS label_field_id,
+          (
+            SELECT fm.id
+            FROM core."fieldMetadata" fm
+            WHERE fm."objectMetadataId" = om.id
+              AND fm.type = $3
+            ORDER BY fm."createdAt" ASC
+            LIMIT 1
+          ) AS address_field_id
+        FROM core."objectMetadata" om
+        WHERE om.id = $1
+          AND om."workspaceId" = $2
+        LIMIT 1
+      `,
+      [objectMetadataId, workspaceId, FieldMetadataType.ADDRESS],
+    );
+
+    const labelFieldId = fieldRows[0]?.label_field_id;
+    const addressFieldId = fieldRows[0]?.address_field_id;
+
+    const fieldsToSeed: Array<{ fieldMetadataId: string; position: number }> =
+      [];
+
+    if (isDefined(labelFieldId)) {
+      fieldsToSeed.push({ fieldMetadataId: labelFieldId, position: 0 });
+    }
+
+    if (isDefined(addressFieldId)) {
+      fieldsToSeed.push({ fieldMetadataId: addressFieldId, position: 1 });
+    }
+
+    for (const fieldToSeed of fieldsToSeed) {
+      await this.coreDataSource.query(
+        `
+          INSERT INTO core."viewField"
+            (id, "workspaceId", "universalIdentifier", "applicationId",
+             "fieldMetadataId", "isVisible", size, position,
+             "viewFieldGroupId", "viewId", "createdAt", "updatedAt")
+          SELECT
+            gen_random_uuid(),
+            $1,
+            gen_random_uuid(),
+            $2,
+            $3,
+            true,
+            160,
+            $4,
+            NULL,
+            $5,
+            NOW(),
+            NOW()
+          WHERE NOT EXISTS (
+            SELECT 1
+            FROM core."viewField" existing
+            WHERE existing."viewId" = $5
+              AND existing."fieldMetadataId" = $3
+              AND existing."deletedAt" IS NULL
+          )
+        `,
+        [
+          workspaceId,
+          applicationId,
+          fieldToSeed.fieldMetadataId,
+          fieldToSeed.position,
+          viewId,
+        ],
+      );
+    }
   }
 
   // Tanam MAP view untuk object SID yang punya field ADDRESS ke workspace
@@ -598,45 +750,33 @@ export class SidStandardSeedService {
         },
       );
 
-    // Daftar view MAP yang akan di-seed per workspace. ID dan
-    // universalIdentifier di-namespace dengan prefix:
-    //   `30303030-000b` (keluarga)
-    //   `30303030-000c` (penerima-bantuan)
-    //   `30303030-000d` (penduduk)
-    //   `30303030-000e` (aset-desa)
-    // untuk konsistensi dengan seed dashboard & workflow.
-    //
-    // Penduduk dan Aset Desa ditambahkan karena keduanya memiliki field
-    // ADDRESS composite dengan data koordinat yang sudah di-seed.
+    // ID view dihasilkan deterministik per workspace (uuid v5) agar tidak
+    // bentrok antar workspace — PK global `core.view.id` tidak boleh reuse
+    // UUID statis lintas tenant.
     const MAP_VIEW_DEFINITIONS: ReadonlyArray<{
       objectNameSingular: string;
       viewName: string;
-      viewId: string;
-      viewUniversalIdentifier: string;
+      mapViewKey: string;
     }> = [
       {
         objectNameSingular: 'keluarga',
         viewName: 'Peta Keluarga',
-        viewId: '30303030-000b-4000-8000-000000000001',
-        viewUniversalIdentifier: '30303030-000b-4000-8000-000000000002',
+        mapViewKey: 'keluarga',
       },
       {
         objectNameSingular: 'penerimaBantuan',
         viewName: 'Peta Penerima Bantuan',
-        viewId: '30303030-000c-4000-8000-000000000001',
-        viewUniversalIdentifier: '30303030-000c-4000-8000-000000000002',
+        mapViewKey: 'penerima-bantuan',
       },
       {
         objectNameSingular: 'penduduk',
         viewName: 'Peta Penduduk',
-        viewId: '30303030-000d-4000-8000-000000000001',
-        viewUniversalIdentifier: '30303030-000d-4000-8000-000000000002',
+        mapViewKey: 'penduduk',
       },
       {
         objectNameSingular: 'asetDesa',
         viewName: 'Peta Aset Desa',
-        viewId: '30303030-000e-4000-8000-000000000001',
-        viewUniversalIdentifier: '30303030-000e-4000-8000-000000000002',
+        mapViewKey: 'aset-desa',
       },
     ];
 
@@ -659,6 +799,37 @@ export class SidStandardSeedService {
         continue;
       }
 
+      const existingViewRows: { id: string }[] =
+        await this.coreDataSource.query(
+          `
+          SELECT id FROM core."view"
+          WHERE "workspaceId" = $1
+            AND "objectMetadataId" = $2
+            AND name = $3
+            AND type = 'MAP'
+          LIMIT 1
+        `,
+          [workspaceId, objectMetadataId, def.viewName],
+        );
+
+      const { viewId, viewUniversalIdentifier } = resolveSidStandardMapViewIds({
+        workspaceId,
+        mapViewKey: def.mapViewKey,
+      });
+
+      const resolvedViewId =
+        existingViewRows.length > 0 ? existingViewRows[0].id : viewId;
+
+      if (existingViewRows.length > 0) {
+        await this.ensureMapViewFieldsForMapView({
+          workspaceId,
+          viewId: resolvedViewId,
+          applicationId: workspaceCustomFlatApplication.id,
+          objectMetadataId,
+        });
+        continue;
+      }
+
       const sql = `
         INSERT INTO core."view"
           (id, "workspaceId", "universalIdentifier", "applicationId",
@@ -678,9 +849,9 @@ export class SidStandardSeedService {
 
       try {
         const result = await this.coreDataSource.query(sql, [
-          def.viewId,
+          viewId,
           workspaceId,
-          def.viewUniversalIdentifier,
+          viewUniversalIdentifier,
           workspaceCustomFlatApplication.id,
           def.viewName,
           objectMetadataId,
@@ -688,9 +859,19 @@ export class SidStandardSeedService {
         const affected = Array.isArray(result) ? result.length : 0;
 
         createdMapViews += affected;
-        this.logger.log(
-          `MAP view '${def.viewName}' disisipkan ke workspace ${workspaceId}`,
-        );
+
+        if (affected > 0) {
+          this.logger.log(
+            `MAP view '${def.viewName}' disisipkan ke workspace ${workspaceId}`,
+          );
+        }
+
+        await this.ensureMapViewFieldsForMapView({
+          workspaceId,
+          viewId: resolvedViewId,
+          applicationId: workspaceCustomFlatApplication.id,
+          objectMetadataId,
+        });
       } catch (error) {
         this.logger.warn(
           `Gagal seed MAP view '${def.viewName}' (workspace ${workspaceId}): ${
@@ -699,6 +880,8 @@ export class SidStandardSeedService {
         );
       }
     }
+
+    await this.repositionLabelIdentifierViewFieldsInWorkspace({ workspaceId });
 
     return { createdMapViews };
   }

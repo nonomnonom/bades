@@ -93,6 +93,7 @@ export class WorkspaceService extends TypeOrmQueryService<WorkspaceEntity> {
     fastModel: PermissionFlagType.WORKSPACE,
     smartModel: PermissionFlagType.WORKSPACE,
     aiAdditionalInstructions: PermissionFlagType.WORKSPACE,
+    aiWriteConfirmationMode: PermissionFlagType.WORKSPACE,
     isInternalMessagesImportEnabled: PermissionFlagType.WORKSPACE,
   };
 

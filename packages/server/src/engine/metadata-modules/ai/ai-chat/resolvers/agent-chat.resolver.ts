@@ -34,8 +34,13 @@ import { SendChatMessageResultDTO } from 'src/engine/metadata-modules/ai/ai-chat
 import { AgentChatThreadEntity } from 'src/engine/metadata-modules/ai/ai-chat/entities/agent-chat-thread.entity';
 import { AgentChatEventPublisherService } from 'src/engine/metadata-modules/ai/ai-chat/services/agent-chat-event-publisher.service';
 import { AgentChatStreamingService } from 'src/engine/metadata-modules/ai/ai-chat/services/agent-chat-streaming.service';
+import { AgentTurnMetricsDTO } from 'src/engine/metadata-modules/ai/ai-chat/dtos/agent-turn-metrics.dto';
 import { AgentChatService } from 'src/engine/metadata-modules/ai/ai-chat/services/agent-chat.service';
+import { AgentTurnMetricsService } from 'src/engine/metadata-modules/ai/ai-chat/services/agent-turn-metrics.service';
 import { SystemPromptBuilderService } from 'src/engine/metadata-modules/ai/ai-chat/services/system-prompt-builder.service';
+import { ToolRegistryService } from 'src/engine/core-modules/tool-provider/services/tool-registry.service';
+import { AgentActorContextService } from 'src/engine/metadata-modules/ai/ai-agent-execution/services/agent-actor-context.service';
+import { type ToolOutput } from 'src/engine/core-modules/tool/types/tool-output.type';
 import { getCancelChannel } from 'src/engine/metadata-modules/ai/ai-chat/utils/get-cancel-channel.util';
 import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
 import {
@@ -56,6 +61,9 @@ export class AgentChatResolver {
     private readonly billingUsageService: BillingUsageService,
     private readonly aiModelRegistryService: AiModelRegistryService,
     private readonly redisClientService: RedisClientService,
+    private readonly agentTurnMetricsService: AgentTurnMetricsService,
+    private readonly toolRegistryService: ToolRegistryService,
+    private readonly agentActorContextService: AgentActorContextService,
     @InjectRepository(AgentChatThreadEntity)
     private readonly threadRepository: Repository<AgentChatThreadEntity>,
   ) {}
@@ -331,6 +339,47 @@ export class AgentChatResolver {
     }
 
     return deleted;
+  }
+
+  @Query(() => AgentTurnMetricsDTO)
+  async agentTurnMetrics(
+    @AuthWorkspace() workspace: WorkspaceEntity,
+    @Args('days', { type: () => Float, nullable: true }) days?: number,
+  ): Promise<AgentTurnMetricsDTO> {
+    const lookbackDays = days ?? 7;
+    const since = new Date(Date.now() - lookbackDays * 24 * 60 * 60 * 1000);
+
+    return this.agentTurnMetricsService.getWorkspaceSummary(
+      workspace.id,
+      since,
+    );
+  }
+
+  @Mutation(() => GraphQLJSON)
+  async confirmAiWriteTool(
+    @Args('toolName') toolName: string,
+    @Args('arguments', { type: () => GraphQLJSON })
+    toolArguments: Record<string, unknown>,
+    @AuthUserWorkspaceId() userWorkspaceId: string,
+    @AuthWorkspace() workspace: WorkspaceEntity,
+  ): Promise<ToolOutput> {
+    const { roleId, userId } =
+      await this.agentActorContextService.buildUserAndAgentActorContext(
+        userWorkspaceId,
+        workspace.id,
+      );
+
+    return this.toolRegistryService.resolveAndExecute(
+      toolName,
+      { ...toolArguments, __confirmed: true },
+      {
+        workspaceId: workspace.id,
+        roleId,
+        userId,
+        userWorkspaceId,
+      },
+      { compactOutput: true },
+    );
   }
 
   @Query(() => AiSystemPromptPreviewDTO)

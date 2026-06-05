@@ -44,7 +44,7 @@ import {
   extractCacheCreationTokens,
   extractCacheCreationTokensFromSteps,
 } from 'src/engine/metadata-modules/ai/ai-billing/utils/extract-cache-creation-tokens.util';
-import { AI_CHAT_TOOL_NAMES_TO_PRELOAD } from 'src/engine/metadata-modules/ai/ai-chat/constants/ai-chat-tool-names-to-preload.const';
+import { AiChatPreloadToolsResolverService } from 'src/engine/metadata-modules/ai/ai-chat/services/ai-chat-preload-tools-resolver.service';
 import { MessagePruningService } from 'src/engine/metadata-modules/ai/ai-chat/services/message-pruning.service';
 import { SystemPromptBuilderService } from 'src/engine/metadata-modules/ai/ai-chat/services/system-prompt-builder.service';
 import {
@@ -60,6 +60,10 @@ import { AI_TELEMETRY_CONFIG } from 'src/engine/metadata-modules/ai/ai-models/co
 import { AiModelRegistryService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-registry.service';
 import { type AiModelConfig } from 'src/engine/metadata-modules/ai/ai-models/types/ai-model-config.type';
 import { SkillService } from 'src/engine/metadata-modules/skill/skill.service';
+import {
+  buildAutoLoadedSkillsSection,
+  resolveSkillsForUserMessage,
+} from 'src/engine/metadata-modules/ai/ai-chat/utils/resolve-skills-for-user-message.util';
 
 export type ChatExecutionOptions = {
   workspace: WorkspaceEntity;
@@ -95,6 +99,7 @@ export class ChatExecutionService {
     private readonly exceptionHandlerService: ExceptionHandlerService,
     private readonly nativeToolBinder: NativeToolBinderService,
     private readonly messagePruningService: MessagePruningService,
+    private readonly aiChatPreloadToolsResolverService: AiChatPreloadToolsResolverService,
   ) {}
 
   async streamChat({
@@ -141,8 +146,19 @@ export class ChatExecutionService {
       `Built tool catalog with ${toolCatalog.length} tools, ${skillCatalog.length} skills available`,
     );
 
+    const preloadToolNames =
+      await this.aiChatPreloadToolsResolverService.resolveToolNames({
+        workspaceId: workspace.id,
+        roleId,
+        browsingContext,
+      });
+
+    this.logger.log(
+      `Resolved ${preloadToolNames.length} preload tools for workspace=${workspace.id}`,
+    );
+
     const preloadedTools = await this.toolRegistry.getToolsByName(
-      AI_CHAT_TOOL_NAMES_TO_PRELOAD,
+      preloadToolNames,
       toolContext,
       { compactOutput: true },
     );
@@ -227,6 +243,22 @@ export class ChatExecutionService {
       }
     }
 
+    const lastUserMessageText = this.extractLastUserMessageText(messages);
+    const matchedSkillNames = resolveSkillsForUserMessage(lastUserMessageText);
+    const autoLoadedSkills =
+      matchedSkillNames.length > 0
+        ? await this.skillService.findFlatSkillsByNames(
+            matchedSkillNames,
+            workspace.id,
+          )
+        : [];
+    const autoLoadedSkillsSection = buildAutoLoadedSkillsSection(
+      autoLoadedSkills.map((skill) => ({
+        name: skill.name,
+        content: skill.content,
+      })),
+    );
+
     const systemPrompt = this.systemPromptBuilder.buildFullPrompt(
       toolCatalog,
       skillCatalog,
@@ -235,6 +267,7 @@ export class ChatExecutionService {
       storedFiles,
       workspace.aiAdditionalInstructions ?? undefined,
       userContext,
+      autoLoadedSkillsSection,
     );
 
     this.logger.log(
@@ -486,6 +519,30 @@ export class ChatExecutionService {
     context += `\nUse get_view_query_parameters tool with this viewId to get the exact filter/sort parameters for querying records.`;
 
     return context;
+  }
+
+  private extractLastUserMessageText(
+    messages: UIMessage<unknown, UIDataTypes, UITools>[],
+  ): string {
+    for (let index = messages.length - 1; index >= 0; index -= 1) {
+      const message = messages[index];
+
+      if (message.role !== 'user') {
+        continue;
+      }
+
+      const textParts = message.parts
+        .filter((part) => part.type === 'text')
+        .map((part) => (part.type === 'text' ? part.text : ''))
+        .join('\n')
+        .trim();
+
+      if (textParts !== '') {
+        return textParts;
+      }
+    }
+
+    return '';
   }
 
   private async storeExtractedFiles(

@@ -103,7 +103,7 @@ export const SettingsAiMoreTab = () => {
       <Section>
         <H2Title
           title={t`Instruksi Ruang Kerja`}
-          description={t`Tambahkan instruksi khusus untuk ruang kerja Anda (disisipkan ke prompt sistem)`}
+          description={t`Tambahkan instruksi khusus untuk ruang kerja Anda (disisipkan ke prompt sistem). Kosong = default platform tetap berjalan.`}
         />
         <StyledFormContainer>
           <FormAdvancedTextFieldInput
@@ -122,7 +122,7 @@ export const SettingsAiMoreTab = () => {
                 children: t`Instruksi Ruang Kerja`,
               },
             ]}
-            placeholder={t`Mis., "Kami adalah pemerintah desa. Selalu gunakan bahasa formal..."`}
+            placeholder={t`Contoh: istilah lokal, SOP privasi, objek prioritas. Kosongkan bila default platform sudah cukup.`}
             minHeight={150}
             maxWidth={700}
           />

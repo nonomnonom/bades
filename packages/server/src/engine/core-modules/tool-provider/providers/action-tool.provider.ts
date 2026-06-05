@@ -16,6 +16,10 @@ import { DraftEmailTool } from 'src/engine/core-modules/tool/tools/email-tool/dr
 import { SendEmailTool } from 'src/engine/core-modules/tool/tools/email-tool/send-email-tool';
 import { HttpTool } from 'src/engine/core-modules/tool/tools/http-tool/http-tool';
 import { NavigateAppTool } from 'src/engine/core-modules/tool/tools/navigate-tool/navigate-app-tool';
+import {
+  EXA_WEB_SEARCH_TOOL_NAME,
+  ExaWebSearchTool,
+} from 'src/engine/core-modules/tool/tools/exa-web-search-tool/exa-web-search-tool';
 import { SearchHelpCenterTool } from 'src/engine/core-modules/tool/tools/search-help-center-tool/search-help-center-tool';
 import { type ToolOutput } from 'src/engine/core-modules/tool/types/tool-output.type';
 import { type Tool } from 'src/engine/core-modules/tool/types/tool.type';
@@ -32,6 +36,7 @@ export class ActionToolProvider implements ToolProvider {
     private readonly sendEmailTool: SendEmailTool,
     private readonly draftEmailTool: DraftEmailTool,
     private readonly searchHelpCenterTool: SearchHelpCenterTool,
+    private readonly exaWebSearchTool: ExaWebSearchTool,
     private readonly codeInterpreterTool: CodeInterpreterTool,
     private readonly navigateAppTool: NavigateAppTool,
     private readonly codeInterpreterService: CodeInterpreterService,
@@ -42,6 +47,7 @@ export class ActionToolProvider implements ToolProvider {
       ['send_email', this.sendEmailTool],
       ['draft_email', this.draftEmailTool],
       ['search_help_center', this.searchHelpCenterTool],
+      [EXA_WEB_SEARCH_TOOL_NAME, this.exaWebSearchTool],
       ['code_interpreter', this.codeInterpreterTool],
       ['navigate_app', this.navigateAppTool],
     ]);
@@ -96,6 +102,16 @@ export class ActionToolProvider implements ToolProvider {
         includeSchemas,
       ),
     );
+
+    if (this.exaWebSearchTool.isEnabled()) {
+      descriptors.push(
+        this.buildDescriptor(
+          EXA_WEB_SEARCH_TOOL_NAME,
+          this.exaWebSearchTool,
+          includeSchemas,
+        ),
+      );
+    }
 
     descriptors.push(
       this.buildDescriptor(

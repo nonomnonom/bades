@@ -1602,7 +1602,7 @@ export class ConfigVariables {
     group: ConfigVariablesGroup.SERVER_CONFIG,
     isSensitive: true,
     description:
-      'Mapbox public access token (pk.*) untuk tampilan peta. Dikirim ke client via /client-config saat runtime — tidak perlu di-build ke frontend.',
+      'Mapbox public access token (pk.*) untuk tampilan peta dan autocomplete/geocoding alamat. Dikirim ke client via /client-config saat runtime — tidak perlu di-build ke frontend.',
     type: ConfigVariableType.STRING,
   })
   @IsOptional()
@@ -1666,7 +1666,8 @@ export class ConfigVariables {
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
-    description: 'Enable or disable google map api usage',
+    description:
+      'Legacy: flag Google Places (tidak dipakai). Autocomplete alamat memakai MAPBOX_ACCESS_TOKEN.',
     type: ConfigVariableType.BOOLEAN,
   })
   @IsOptional()
@@ -1675,7 +1676,8 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.ADVANCED_SETTINGS,
     isSensitive: true,
-    description: 'Google map api key for places and map',
+    description:
+      'Legacy: Google Places API key (tidak dipakai). Autocomplete alamat memakai MAPBOX_ACCESS_TOKEN.',
     type: ConfigVariableType.STRING,
   })
   @ValidateIf((env) => env.IS_MAPS_AND_ADDRESS_AUTOCOMPLETE_ENABLED)
@@ -1702,6 +1704,17 @@ export class ConfigVariables {
   })
   @IsOptional()
   MINTLIFY_SUBDOMAIN: string;
+
+  @ConfigVariablesMetadata({
+    group: ConfigVariablesGroup.ADVANCED_SETTINGS,
+    isSensitive: true,
+    description: 'Exa API key for AI agent web search (app_exa_web_search)',
+    isEnvOnly: true,
+    isHiddenInAdminPanel: true,
+    type: ConfigVariableType.STRING,
+  })
+  @IsOptional()
+  EXA_API_KEY: string;
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.AWS_SES_SETTINGS,

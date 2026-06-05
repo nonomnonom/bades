@@ -1,10 +1,28 @@
 import { type ToolUIPart } from 'ai';
 import { isExtendedFileUIPart, type ExtendedUIMessagePart } from 'shared/ai';
+import { isDefined } from 'shared/utils';
 
 import { type AgentMessagePartEntity } from 'src/engine/metadata-modules/ai/ai-agent-execution/entities/agent-message-part.entity';
 
 const isToolPart = (part: ExtendedUIMessagePart): part is ToolUIPart => {
   return part.type.includes('tool-') && 'toolCallId' in part;
+};
+
+const mapToolPartToDBPart = (
+  part: ToolUIPart,
+  basePart: Partial<AgentMessagePartEntity>,
+): Partial<AgentMessagePartEntity> => {
+  const { toolCallId, input, output, errorText, state } = part;
+
+  return {
+    ...basePart,
+    toolCallId,
+    toolInput: input,
+    toolOutput: output,
+    errorMessage: errorText,
+    state,
+    providerExecuted: part.providerExecuted ?? null,
+  };
 };
 
 export const mapUIMessagePartsToDBParts = (
@@ -80,23 +98,19 @@ export const mapUIMessagePartsToDBParts = (
         case 'tool-call':
         case 'tool-result':
         case 'dynamic-tool':
-          {
-            if (isToolPart(part)) {
-              const { toolCallId, input, output, errorText, state } = part;
-
-              return {
-                ...basePart,
-                toolCallId: toolCallId,
-                toolInput: input,
-                toolOutput: output,
-                errorMessage: errorText,
-                state,
-                providerExecuted: part.providerExecuted ?? null,
-              };
-            }
+          if (isToolPart(part)) {
+            return mapToolPartToDBPart(part, basePart);
           }
           throw new Error(`Unsupported part type: ${part.type}`);
+        default:
+          if (isToolPart(part as ExtendedUIMessagePart)) {
+            // AI SDK memakai tipe dinamis seperti tool-find_daftar_wilayah.
+            return mapToolPartToDBPart(part as ToolUIPart, basePart);
+          }
+          throw new Error(
+            `Unsupported part type: ${(part as ExtendedUIMessagePart).type}`,
+          );
       }
     })
-    .filter((part): part is Partial<AgentMessagePartEntity> => part !== null);
+    .filter((part): part is Partial<AgentMessagePartEntity> => isDefined(part));
 };

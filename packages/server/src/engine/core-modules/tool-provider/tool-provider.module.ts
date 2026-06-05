@@ -15,6 +15,7 @@ import { WorkflowToolProvider } from 'src/engine/core-modules/tool-provider/prov
 import { ToolExecutorService } from 'src/engine/core-modules/tool-provider/services/tool-executor.service';
 import { ToolModule } from 'src/engine/core-modules/tool/tool.module';
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
+import { WorkspaceEntity } from 'src/engine/core-modules/workspace/workspace.entity';
 import { AiAgentExecutionModule } from 'src/engine/metadata-modules/ai/ai-agent-execution/ai-agent-execution.module';
 import { AiModelsModule } from 'src/engine/metadata-modules/ai/ai-models/ai-models.module';
 import { FieldMetadataModule } from 'src/engine/metadata-modules/field-metadata/field-metadata.module';
@@ -54,7 +55,7 @@ import { ToolRegistryService } from './services/tool-registry.service';
     WorkspaceManyOrAllFlatEntityMapsCacheModule,
     LogicFunctionModule,
     UserRoleModule,
-    TypeOrmModule.forFeature([UserEntity]),
+    TypeOrmModule.forFeature([UserEntity, WorkspaceEntity]),
   ],
   providers: [
     ToolIndexResolver,

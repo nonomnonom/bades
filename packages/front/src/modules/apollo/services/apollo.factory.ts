@@ -271,8 +271,7 @@ export class ApolloFactory implements ApolloManager {
           onErrorCb?.(error.errors);
           for (const graphQLError of error.errors) {
             if (graphQLError.message === 'Unauthorized') {
-              // oxlint-disable-next-line no-console
-              console.log('Unauthorized, triggering token renewal');
+              logDebug('Unauthorized, triggering token renewal');
               return handleTokenRenewal(operation, forward);
             }
 
@@ -285,8 +284,7 @@ export class ApolloFactory implements ApolloManager {
                 return;
               }
               case 'UNAUTHENTICATED': {
-                // oxlint-disable-next-line no-console
-                console.log('UNAUTHENTICATED, triggering token renewal');
+                logDebug('UNAUTHENTICATED, triggering token renewal');
                 return handleTokenRenewal(operation, forward);
               }
               case 'NOT_FOUND':

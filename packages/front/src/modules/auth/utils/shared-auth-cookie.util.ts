@@ -1,4 +1,4 @@
-import { type CookieAttributes } from 'js-cookie';
+import type Cookies from 'js-cookie';
 
 import { type AuthTokenPair } from '~/generated-metadata/graphql';
 import { cookieStorage } from '~/utils/cookie-storage';
@@ -6,14 +6,24 @@ import { cookieStorage } from '~/utils/cookie-storage';
 const TOKEN_PAIR_COOKIE_KEY = 'tokenPair';
 
 type TokenPairWithCookieAttributes = AuthTokenPair & {
-  cookieAttributes?: CookieAttributes;
+  cookieAttributes?: Cookies.CookieAttributes;
 };
+
+// Browser menolak cookie dengan Domain=.localhost; pakai host-only cookie per subdomain.
+export const isLocalDevelopmentFrontDomain = (frontDomain: string): boolean =>
+  frontDomain === 'localhost' ||
+  frontDomain === '127.0.0.1' ||
+  frontDomain.endsWith('.localhost');
 
 export const getSharedAuthCookieAttributes = (
   frontDomain: string | undefined,
   isMultiWorkspaceEnabled: boolean,
-): CookieAttributes | undefined => {
+): Cookies.CookieAttributes | undefined => {
   if (!isMultiWorkspaceEnabled || !frontDomain) {
+    return undefined;
+  }
+
+  if (isLocalDevelopmentFrontDomain(frontDomain)) {
     return undefined;
   }
 

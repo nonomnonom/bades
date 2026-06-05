@@ -94,7 +94,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[1/6] Objek: ${objectResult.createdObjects} objek baru, ${objectResult.createdFields} field baru`,
+      `[1/7] Objek: ${objectResult.createdObjects} objek baru, ${objectResult.createdFields} field baru`,
     );
 
     const relationResult =
@@ -103,7 +103,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[2/6] Relasi: ${relationResult.createdRelations} relation baru, ${relationResult.failedRelations} gagal`,
+      `[2/7] Relasi: ${relationResult.createdRelations} relation baru, ${relationResult.failedRelations} gagal`,
     );
 
     let insertedRecords: number;
@@ -118,7 +118,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       insertedRecords = refreshResult.insertedRecords;
 
       this.logger.log(
-        `[3/6] Data: ${refreshResult.deletedRecords} dihapus, ${refreshResult.insertedRecords} disisipkan`,
+        `[3/7] Data: ${refreshResult.deletedRecords} dihapus, ${refreshResult.insertedRecords} disisipkan`,
       );
     } else {
       const seedResult = await this.sidStandardSeedService.seedSidStandardData({
@@ -129,7 +129,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       insertedRecords = seedResult.insertedRecords;
 
       this.logger.log(
-        `[3/6] Data: ${seedResult.insertedRecords} record disisipkan`,
+        `[3/7] Data: ${seedResult.insertedRecords} record disisipkan`,
       );
     }
 
@@ -139,7 +139,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[4/6] View: ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi`,
+      `[4/7] View: ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi`,
     );
 
     const dashboardResult =
@@ -149,7 +149,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[5/6] Dashboard: ${dashboardResult.insertedDashboards} dashboard disisipkan`,
+      `[5/7] Dashboard: ${dashboardResult.insertedDashboards} dashboard disisipkan`,
     );
 
     const workflowResult =
@@ -159,11 +159,20 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[6/6] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
+      `[6/7] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
+    );
+
+    const mapViewResult =
+      await this.sidStandardSeedService.seedSidStandardMapViews({
+        workspaceId,
+      });
+
+    this.logger.log(
+      `[7/7] View MAP: ${mapViewResult.createdMapViews} view peta disisipkan`,
     );
 
     this.logger.log(
-      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow`,
+      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow, ${mapViewResult.createdMapViews} view peta`,
     );
   }
 }

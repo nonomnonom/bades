@@ -9,6 +9,6 @@ import { WorkspaceCacheStorageModule } from 'src/engine/workspace-cache-storage/
 @Module({
   imports: [WorkspaceCacheStorageModule, TokenModule, SecureHttpClientModule],
   providers: [GeoMapService, GeoMapResolver],
-  exports: [],
+  exports: [GeoMapService],
 })
 export class GeoMapModule {}

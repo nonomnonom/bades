@@ -143,6 +143,7 @@ export class SystemPromptBuilderService {
     }>,
     workspaceInstructions?: string,
     userContext?: UserContext,
+    autoLoadedSkillsSection?: string,
   ): string {
     const parts: string[] = [
       CHAT_SYSTEM_PROMPTS.BASE,
@@ -159,6 +160,10 @@ export class SystemPromptBuilderService {
 
     parts.push(this.buildToolCatalogSection(toolCatalog, preloadedTools));
     parts.push(this.buildSkillCatalogSection(skillCatalog));
+
+    if (autoLoadedSkillsSection) {
+      parts.push(autoLoadedSkillsSection);
+    }
 
     if (storedFiles && storedFiles.length > 0) {
       parts.push(this.buildUploadedFilesSection(storedFiles));
