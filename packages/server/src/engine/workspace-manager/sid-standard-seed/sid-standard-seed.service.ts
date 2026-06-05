@@ -1005,7 +1005,6 @@ export class SidStandardSeedService {
           AND "objectMetadataId" = $2
           AND name = $3
           AND type = $4
-          AND "deletedAt" IS NULL
         LIMIT 1
       `,
       [
