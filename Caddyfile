@@ -1,16 +1,25 @@
 # Reverse proxy Bades — TLS via Cloudflare DNS challenge (wildcard).
 # Butuh CLOUDFLARE_API_TOKEN di environment service caddy.
-# Ganti domain di bawah sesuai produksi.
 
 {
-	email {$ACME_EMAIL:admin@bades.id}
+	email admin@bades.id
 }
 
-{$SERVER_HOSTNAME:app.bades.id} {
-	reverse_proxy server:3000
-}
-
-# Subdomain workspace (multi-tenant): *.bades.id
-*.{$SERVER_HOSTNAME:app.bades.id} {
-	reverse_proxy server:3000
+# Apex + wildcard subdomain workspace (multi-tenant): sukamaju.bades.id, app.bades.id, dst.
+bades.id, *.bades.id, www.bades.id {
+	encode zstd gzip
+	reverse_proxy server:3000 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up Host {host}
+	}
+	tls {
+		dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	log {
+		output stdout
+		format console
+	}
 }
