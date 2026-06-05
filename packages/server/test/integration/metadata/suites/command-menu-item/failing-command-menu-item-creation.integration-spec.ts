@@ -111,7 +111,7 @@ const failingCommandMenuItemCreationTestCases: EachTestingContext<TestContext>[]
       context: {
         input: {
           workflowVersionId: faker.string.uuid(),
-          engineComponentKey: EngineComponentKey.GO_TO_PEOPLE,
+          engineComponentKey: EngineComponentKey.CREATE_NEW_RECORD,
           label: 'Test Label',
         },
       },
@@ -121,7 +121,7 @@ const failingCommandMenuItemCreationTestCases: EachTestingContext<TestContext>[]
       context: {
         input: {
           frontComponentId: faker.string.uuid(),
-          engineComponentKey: EngineComponentKey.GO_TO_PEOPLE,
+          engineComponentKey: EngineComponentKey.CREATE_NEW_RECORD,
           label: 'Test Label',
         },
       },

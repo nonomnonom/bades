@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useApolloCoreClient } from '@/object-metadata/hooks/useApolloCoreClient';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { useGenerateDepthRecordGqlFieldsFromObject } from '@/object-record/graphql/record-gql-fields/hooks/useGenerateDepthRecordGqlFieldsFromObject';
@@ -30,7 +32,8 @@ export const useOpenObjectRecordsSpreadsheetImportDialog = (
     spreadsheetImportCreatedRecordsProgressState,
   );
 
-  const abortController = new AbortController();
+  const [abortController, setAbortController] =
+    useState<AbortController | null>(null);
 
   const { recordGqlFields } = useGenerateDepthRecordGqlFieldsFromObject({
     objectNameSingular,
@@ -42,7 +45,7 @@ export const useOpenObjectRecordsSpreadsheetImportDialog = (
     recordGqlFields,
     mutationBatchSize: SPREADSHEET_IMPORT_CREATE_RECORDS_BATCH_SIZE,
     setBatchedRecordsCount: setSpreadsheetImportCreatedRecordsProgress,
-    abortController,
+    abortController: abortController ?? undefined,
   });
 
   const openObjectRecordsSpreadsheetImportDialog = (
@@ -51,6 +54,12 @@ export const useOpenObjectRecordsSpreadsheetImportDialog = (
       'fields' | 'isOpen' | 'onClose'
     >,
   ) => {
+    // Buat AbortController baru setiap kali dialog dibuka
+    // agar controller yang sudah di-abort pada sesi sebelumnya
+    // tidak digunakan kembali.
+    const sessionAbortController = new AbortController();
+    setAbortController(sessionAbortController);
+
     const availableFieldMetadataItemsToImport =
       spreadsheetImportFilterAvailableFieldMetadataItems(
         objectMetadataItem.updatableFields,
@@ -96,7 +105,7 @@ export const useOpenObjectRecordsSpreadsheetImportDialog = (
       spreadsheetImportFields,
       availableFieldMetadataItems: availableFieldMetadataItemsToImport,
       onAbortSubmit: () => {
-        abortController.abort();
+        sessionAbortController.abort();
       },
       tableHook: spreadsheetImportGetUnicityTableHook(objectMetadataItem),
     });

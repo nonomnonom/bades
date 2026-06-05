@@ -3,7 +3,9 @@ import { createContext } from 'react';
 import { type SpreadsheetImportDialogOptions } from '@/spreadsheet-import/types';
 import { isUndefinedOrNull } from '~/utils/isUndefinedOrNull';
 
-export const RsiContext = createContext({} as any);
+export const RsiContext = createContext<SpreadsheetImportDialogOptions>(
+  {} as SpreadsheetImportDialogOptions,
+);
 
 type ReactSpreadsheetImportContextProviderProps = {
   children: React.ReactNode;

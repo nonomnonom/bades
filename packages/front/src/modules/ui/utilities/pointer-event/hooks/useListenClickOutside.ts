@@ -4,9 +4,8 @@ import { clickOutsideListenerIsActivatedComponentState } from '@/ui/utilities/po
 import { clickOutsideListenerIsMouseDownInsideComponentState } from '@/ui/utilities/pointer-event/states/clickOutsideListenerIsMouseDownInsideComponentState';
 import { clickOutsideListenerMouseDownHappenedComponentState } from '@/ui/utilities/pointer-event/states/clickOutsideListenerMouseDownHappenedComponentState';
 import { useStore } from 'jotai';
+import { logDebug } from '~/utils/logDebug';
 import { isDefined } from 'shared/utils';
-
-const CLICK_OUTSIDE_DEBUG_MODE = false;
 
 export type ClickOutsideListenerProps<T extends Element> = {
   refs: Array<RefObject<T>>;
@@ -117,9 +116,8 @@ export const useListenClickOutside = <T extends Element>({
         !isMouseDownInside &&
         !isClickedOnExcluded;
 
-      if (CLICK_OUTSIDE_DEBUG_MODE) {
-        // oxlint-disable-next-line no-console
-        console.log('click outside compare ref', {
+      if (process.env.IS_DEBUG_MODE === 'true') {
+        logDebug('click outside compare ref', {
           listenerId,
           shouldTrigger,
           clickedOnAtLeastOneRef,

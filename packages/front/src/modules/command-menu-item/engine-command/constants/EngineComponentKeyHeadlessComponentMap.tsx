@@ -1,5 +1,4 @@
 import { HeadlessFrontComponentRendererEngineCommand } from '@/command-menu-item/engine-command/components/HeadlessFrontComponentRendererEngineCommand';
-import { HeadlessNavigateEngineCommand } from '@/command-menu-item/engine-command/components/HeadlessNavigateEngineCommand';
 import { HeadlessOpenSidePanelPageEngineCommand } from '@/command-menu-item/engine-command/components/HeadlessOpenSidePanelPageEngineCommand';
 import { NavigationEngineCommand } from '@/command-menu-item/engine-command/components/NavigationEngineCommand';
 import { ComposeEmailCommand } from '@/command-menu-item/engine-command/global/components/ComposeEmailCommand';
@@ -43,9 +42,8 @@ import { SeeRunsWorkflowSingleRecordCommand } from '@/command-menu-item/engine-c
 import { SeeVersionsWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/SeeVersionsWorkflowSingleRecordCommand';
 import { TestWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/TestWorkflowSingleRecordCommand';
 import { TidyUpWorkflowSingleRecordCommand } from '@/command-menu-item/engine-command/record/single-record/workflow/components/TidyUpWorkflowSingleRecordCommand';
-import { CoreObjectNamePlural } from '@/object-metadata/types/CoreObjectNamePlural';
 import { msg } from '~/utils/i18n/badesI18n';
-import { AppPath, SettingsPath, SidePanelPages } from 'shared/types';
+import { SidePanelPages } from 'shared/types';
 import { IconHistory, IconSearch, IconSparkles } from 'ui/display';
 import { EngineComponentKey } from '~/generated-metadata/graphql';
 
@@ -124,64 +122,7 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
     <CancelDashboardSingleRecordCommand />
   ),
   [EngineComponentKey.NAVIGATION]: <NavigationEngineCommand />,
-  // TODO: Remove these keys once we have ran the migration command `upgrade:1-21:refactor-navigation-commands`
-  // These keys are kept for backward compatibility during migration
-  [EngineComponentKey.GO_TO_PEOPLE]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Penduduk }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_COMPANIES]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Keluarga }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_DASHBOARDS]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Dashboard }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_OPPORTUNITIES]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Dashboard }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_SETTINGS]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.SettingsCatchAll}
-      params={{
-        '*': SettingsPath.ProfilePage,
-      }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_TASKS]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Task }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_NOTES]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Note }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_WORKFLOWS]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.Workflow }}
-    />
-  ),
-  [EngineComponentKey.GO_TO_RUNS]: (
-    <HeadlessNavigateEngineCommand
-      to={AppPath.RecordIndexPage}
-      params={{ objectNamePlural: CoreObjectNamePlural.WorkflowRun }}
-    />
-  ),
+
   [EngineComponentKey.SEARCH_RECORDS]: (
     <HeadlessOpenSidePanelPageEngineCommand
       page={SidePanelPages.SearchRecords}
@@ -246,15 +187,4 @@ export const ENGINE_COMPONENT_KEY_COMPONENT_MAP: Record<
   ),
   [EngineComponentKey.REPLY_TO_EMAIL_THREAD]: <ReplyToEmailThreadCommand />,
   [EngineComponentKey.COMPOSE_EMAIL]: <ComposeEmailCommand />,
-
-  // Deprecated keys kept for backward compatibility until migration runs
-  [EngineComponentKey.DELETE_SINGLE_RECORD]: <DeleteRecordsCommand />,
-  [EngineComponentKey.DELETE_MULTIPLE_RECORDS]: <DeleteRecordsCommand />,
-  [EngineComponentKey.RESTORE_SINGLE_RECORD]: <RestoreRecordsCommand />,
-  [EngineComponentKey.RESTORE_MULTIPLE_RECORDS]: <RestoreRecordsCommand />,
-  [EngineComponentKey.DESTROY_SINGLE_RECORD]: <DestroyRecordsCommand />,
-  [EngineComponentKey.DESTROY_MULTIPLE_RECORDS]: <DestroyRecordsCommand />,
-  [EngineComponentKey.EXPORT_FROM_RECORD_INDEX]: <ExportRecordsCommand />,
-  [EngineComponentKey.EXPORT_FROM_RECORD_SHOW]: <ExportRecordsCommand />,
-  [EngineComponentKey.EXPORT_MULTIPLE_RECORDS]: <ExportRecordsCommand />,
 };

@@ -60,8 +60,7 @@ export const getTokenPair = (): AuthTokenPair | undefined => {
     return tokenPairFromAtom;
   }
 
-  // oxlint-disable-next-line no-console
-  console.log('tokenPair is undefined');
+  // tokenPair tidak tersedia di cookie maupun atom — normal saat user belum login
 
   return undefined;
 };

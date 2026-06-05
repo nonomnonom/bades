@@ -99,7 +99,7 @@ describe('CommandMenuItem update should fail', () => {
         context: {
           input: (testSetup) => ({
             id: testSetup.testCommandMenuItemId,
-            engineComponentKey: EngineComponentKey.GO_TO_PEOPLE,
+            engineComponentKey: EngineComponentKey.CREATE_NEW_RECORD,
           }),
         },
       },

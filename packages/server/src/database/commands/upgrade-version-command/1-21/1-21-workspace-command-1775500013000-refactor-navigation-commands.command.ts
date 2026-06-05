@@ -30,6 +30,9 @@ import { STANDARD_COMMAND_MENU_ITEMS } from 'src/engine/workspace-manager/bades-
 import { BADES_STANDARD_APPLICATION } from 'src/engine/workspace-manager/bades-standard-application/constants/bades-standard-applications';
 import { WorkspaceMigrationValidateBuildAndRunService } from 'src/engine/workspace-manager/workspace-migration/services/workspace-migration-validate-build-and-run-service';
 
+// NOTE: These keys have been removed from the EngineComponentKey enum.
+// Migration already completed on all workspaces; this array is kept for
+// reference and for the runOnWorkspace no-op logic.
 const GO_TO_ENGINE_KEYS = [
   'GO_TO_PEOPLE',
   'GO_TO_COMPANIES',

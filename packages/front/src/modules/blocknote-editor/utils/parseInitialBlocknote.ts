@@ -1,5 +1,6 @@
 import type { PartialBlock } from '@blocknote/core';
 import { isArray, isNonEmptyString } from '@sniptt/guards';
+import { logDebug } from '~/utils/logDebug';
 
 export const parseInitialBlocknote = (
   blocknote?: string | null,
@@ -12,10 +13,7 @@ export const parseInitialBlocknote = (
     try {
       parsedBody = JSON.parse(blocknote);
     } catch {
-      // oxlint-disable-next-line no-console
-      console.warn(logContext ?? `Failed to parse blocknote body`);
-      // oxlint-disable-next-line no-console
-      console.warn(blocknote);
+      logDebug(logContext ?? 'Failed to parse blocknote body', blocknote);
     }
 
     if (!isArray(parsedBody) || parsedBody.length === 0) {

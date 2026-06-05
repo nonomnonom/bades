@@ -145,8 +145,7 @@ export class ApolloFactory implements ApolloManager {
         attempts: {
           max: 2,
           retryIf: (error) => {
-            // oxlint-disable-next-line no-console
-            console.log('retryIf error from retryLink', error);
+            logDebug('retryIf error from retryLink', error);
             if (this.isAuthenticationError(error)) {
               return false;
             }
@@ -190,8 +189,7 @@ export class ApolloFactory implements ApolloManager {
           renewalPromise = attemptTokenRenewal()
             .then(() => true)
             .catch(() => {
-              // oxlint-disable-next-line no-console
-              console.log(
+              logDebug(
                 'Failed to renew token after retries, triggering unauthenticated error',
               );
               onUnauthenticatedError?.();
@@ -313,8 +311,7 @@ export class ApolloFactory implements ApolloManager {
             this.isRestOperation(operation) &&
             this.isAuthenticationError(error)
           ) {
-            // oxlint-disable-next-line no-console
-            console.log(
+            logDebug(
               'Authentication error, triggering token renewal from errorLink',
             );
             return handleTokenRenewal(operation, forward);
