@@ -95,12 +95,9 @@ export class AppModule {
       modules.push(
         ServeStaticModule.forRoot({
           rootPath: frontPath,
-          // Hindari SPA fallback ke index.html untuk asset statis yang hilang
-          // (mis. chunk Vite lama setelah redeploy) — mencegah reload loop di browser.
-          exclude: [
-            '/assets/(.*)',
-            '/(.*).(js|css|mjs|map|woff2|woff|ttf|eot|gif|ico|png|svg|jpg|jpeg|webp)',
-          ],
+          // SPA fallback hanya untuk route aplikasi, bukan asset statis yang hilang.
+          renderPath:
+            /^(?!\/assets\/)(?!\/images\/)(?!.*\.(?:js|css|mjs|map|woff2?|ttf|eot|gif|ico|png|svg|jpe?g|webp)$).*/,
           serveStaticOptions: {
             setHeaders: (res, filePath) => {
               if (filePath.endsWith('index.html')) {
