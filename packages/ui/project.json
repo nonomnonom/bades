@@ -55,7 +55,7 @@
         "{projectRoot}/src/**/*/index.ts",
         "{projectRoot}/package.json"
       ],
-      "options": { "command": "bun {projectRoot}/scripts/generateBarrels.ts" }
+      "options": { "command": "tsx {projectRoot}/scripts/generateBarrels.ts" }
     },
     "build:individual": {
       "executor": "nx:run-commands",
@@ -65,7 +65,7 @@
       "outputs": ["{projectRoot}/dist/individual"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "bunx vite build -c vite.config.individual.ts"
+        "command": "npx vite build -c vite.config.individual.ts"
       }
     },
     "clean": {

@@ -1,9 +1,8 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
+import bcrypt from 'bcrypt';
 import { type Repository } from 'typeorm';
-
-import { verifyPassword } from 'src/engine/core-modules/auth/password.util';
 
 import { AppTokenEntity } from 'src/engine/core-modules/app-token/app-token.entity';
 import { AuditService } from 'src/engine/core-modules/audit/services/audit.service';
@@ -37,11 +36,7 @@ import { PermissionsService } from 'src/engine/metadata-modules/permissions/perm
 
 import { AuthService } from './auth.service';
 
-jest.mock('src/engine/core-modules/auth/password.util', () => ({
-  BCRYPT_COST: 10,
-  hashPassword: jest.fn(),
-  verifyPassword: jest.fn(),
-}));
+jest.mock('bcrypt');
 
 const badesConfigServiceGetMock = jest.fn();
 
@@ -235,7 +230,7 @@ describe('AuthService', () => {
       captchaToken: 'captchaToken',
     };
 
-    (verifyPassword as jest.Mock).mockResolvedValueOnce(true);
+    (bcrypt.compare as jest.Mock).mockReturnValueOnce(true);
 
     jest.spyOn(userRepository, 'findOne').mockReturnValueOnce({
       email: user.email,
@@ -282,7 +277,7 @@ describe('AuthService', () => {
       ],
     } as unknown as UserEntity;
 
-    (verifyPassword as jest.Mock).mockResolvedValue(true);
+    (bcrypt.compare as jest.Mock).mockResolvedValue(true);
 
     jest.spyOn(userRepository, 'findOne').mockResolvedValueOnce(userEntity);
     jest
@@ -364,7 +359,10 @@ describe('AuthService', () => {
         captchaToken: user.captchaToken,
       } as unknown as Promise<UserEntity>);
 
-    (verifyPassword as jest.Mock).mockResolvedValueOnce(true);
+    (bcrypt.compare as jest.Mock).mockReturnValueOnce(true);
+    jest
+      .spyOn(userWorkspaceService, 'checkUserWorkspaceExists')
+      .mockReturnValueOnce(null as any);
 
     const getOneWorkspaceInvitationSpy = jest
       .spyOn(workspaceInvitationService, 'getOneWorkspaceInvitation')

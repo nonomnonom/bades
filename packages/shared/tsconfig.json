@@ -8,7 +8,7 @@
     "noImplicitAny": true,
     "strictBindCallApply": false,
     "noEmit": true,
-    "types": ["bun", "jest"],
+    "types": ["jest", "node"],
     "paths": {
       "@/*": ["./src/*"]
     }

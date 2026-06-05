@@ -2,73 +2,39 @@
 # Dependency stages
 # ===========================================================================
 
-FROM oven/bun:1.3.9-alpine AS bun-base
-
-# Bun sudah include runtime + package manager. Node.js tidak diperlukan lagi.
-RUN apk add --no-cache curl bash libstdc++ \
- && bun --version
-
-
-FROM bun-base AS front-deps
+FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS front-deps
 
 WORKDIR /app
 
-COPY ./package.json ./bun.lock ./bunfig.toml ./tsconfig.base.json ./nx.json /app/
-COPY ./patches /app/patches
+COPY ./package.json ./yarn.lock ./.yarnrc.yml ./tsconfig.base.json ./nx.json /app/
+COPY ./.yarn/releases /app/.yarn/releases
+COPY ./.yarn/patches /app/.yarn/patches
 
-COPY ./packages/front/package.json /app/packages/front/
-COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
 COPY ./packages/ui/package.json /app/packages/ui/
 COPY ./packages/shared/package.json /app/packages/shared/
+COPY ./packages/front/package.json /app/packages/front/
+COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
 COPY ./packages/sdk/package.json /app/packages/sdk/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
-COPY ./packages/emails/package.json /app/packages/emails/
-COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
-COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
-COPY ./packages/utils/package.json /app/packages/utils/
-COPY ./packages/server/package.json /app/packages/server/
 
-RUN bun install \
-      --filter bades \
-      --filter front \
-      --filter front-component-renderer \
-      --filter ui \
-      --filter shared \
-      --filter sdk \
-      --filter client-sdk \
-      --filter emails \
- && bunx nx reset
+RUN yarn workspaces focus bades front front-component-renderer ui shared sdk client-sdk && yarn cache clean && npx nx reset
 
 
-FROM bun-base AS server-deps
+FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS server-deps
 
 WORKDIR /app
 
-COPY ./package.json ./bun.lock ./bunfig.toml ./tsconfig.base.json ./nx.json /app/
-COPY ./patches /app/patches
+COPY ./package.json ./yarn.lock ./.yarnrc.yml ./tsconfig.base.json ./nx.json /app/
+COPY ./.yarn/releases /app/.yarn/releases
+COPY ./.yarn/patches /app/.yarn/patches
 
-COPY ./packages/server/package.json /app/packages/server/
 COPY ./packages/emails/package.json /app/packages/emails/
+COPY ./packages/server/package.json /app/packages/server/
+COPY ./packages/server/patches /app/packages/server/patches
 COPY ./packages/shared/package.json /app/packages/shared/
 COPY ./packages/client-sdk/package.json /app/packages/client-sdk/
-COPY ./packages/ui/package.json /app/packages/ui/
-COPY ./packages/front/package.json /app/packages/front/
-COPY ./packages/sdk/package.json /app/packages/sdk/
-COPY ./packages/front-component-renderer/package.json /app/packages/front-component-renderer/
-COPY ./packages/oxlint-rules/package.json /app/packages/oxlint-rules/
-COPY ./packages/claude-skills/package.json /app/packages/claude-skills/
-COPY ./packages/utils/package.json /app/packages/utils/
 
-RUN bun install \
-      --filter bades \
-      --filter server \
-      --filter emails \
-      --filter shared \
-      --filter client-sdk \
-      --filter ui \
-      --filter sdk \
-      --filter front-component-renderer \
- && bunx nx reset
+RUN yarn workspaces focus bades server emails shared client-sdk && yarn cache clean && npx nx reset
 
 
 FROM server-deps AS bades-server-build
@@ -76,21 +42,16 @@ FROM server-deps AS bades-server-build
 COPY ./packages/emails /app/packages/emails
 COPY ./packages/shared /app/packages/shared
 COPY ./packages/client-sdk /app/packages/client-sdk
-COPY ./packages/ui /app/packages/ui
-COPY ./packages/sdk /app/packages/sdk
-COPY ./packages/front-component-renderer /app/packages/front-component-renderer
 COPY ./packages/server /app/packages/server
 
-# Build all packages that server depends on (matches CI "Build all" job)
-RUN bunx nx run-many -t build -p shared emails ui sdk server client-sdk front-component-renderer
+RUN npx nx run server:build
 
 # Clean server build output (type declarations and compiled tests are not needed at runtime;
 # source maps are kept because bades-infra extracts them from the image for Sentry uploads)
 RUN find /app/packages/server/dist -name '*.d.ts' -delete \
- && rm -rf /app/packages/server/dist/src/test
+ && rm -rf /app/packages/server/dist/packages/server/test
 
-# Dev deps pruning step removed - it can cause issues with lockfile.
-# The image is lean enough without it for most deployments.
+RUN yarn workspaces focus --production emails shared client-sdk server
 
 
 FROM front-deps AS bades-front-build
@@ -101,15 +62,13 @@ COPY ./packages/ui /app/packages/ui
 COPY ./packages/shared /app/packages/shared
 COPY ./packages/sdk /app/packages/sdk
 COPY ./packages/client-sdk /app/packages/client-sdk
-ARG REACT_APP_MAPBOX_ACCESS_TOKEN
-ENV REACT_APP_MAPBOX_ACCESS_TOKEN=${REACT_APP_MAPBOX_ACCESS_TOKEN}
 # To skip the memory-intensive frontend build, pre-build on the host:
-#   bunx nx build front
+#   npx nx build front
 # The check below will use packages/front/build/ if it already exists.
 RUN if [ -d /app/packages/front/build ]; then \
       echo "Using pre-built frontend from host"; \
     else \
-      bunx nx build front; \
+      NODE_OPTIONS="--max-old-space-size=8192" npx nx build front; \
     fi
 
 
@@ -118,7 +77,7 @@ RUN if [ -d /app/packages/front/build ]; then \
 #   docker build --target bades-server -f Dockerfile .
 # ===========================================================================
 
-FROM oven/bun:1.3.9-alpine AS bades-server
+FROM node:24.15.0-alpine3.23@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS bades-server
 
 RUN apk add --no-cache curl jq postgresql-client
 
@@ -130,14 +89,15 @@ ARG APP_VERSION
 ENV APP_VERSION=$APP_VERSION
 
 # Workspace root config
-COPY --chown=1000 --from=bades-server-build /app/package.json /app/bun.lock /app/bunfig.toml /app/
+COPY --chown=1000 --from=bades-server-build /app/package.json /app/yarn.lock /app/.yarnrc.yml /app/
 COPY --chown=1000 --from=bades-server-build /app/tsconfig.base.json /app/nx.json /app/
-COPY --chown=1000 --from=bades-server-build /app/patches /app/patches
+COPY --chown=1000 --from=bades-server-build /app/.yarn /app/.yarn
 COPY --chown=1000 --from=bades-server-build /app/node_modules /app/node_modules
 
 # Server package (compiled dist + package.json only, no src/)
 COPY --chown=1000 --from=bades-server-build /app/packages/server/package.json /app/packages/server/
 COPY --chown=1000 --from=bades-server-build /app/packages/server/dist /app/packages/server/dist
+COPY --chown=1000 --from=bades-server-build /app/packages/server/patches /app/packages/server/patches
 
 # Workspace packages (dist + package.json; node_modules symlinks resolve to these)
 COPY --chown=1000 --from=bades-server-build /app/packages/shared/package.json /app/packages/shared/
@@ -155,7 +115,7 @@ RUN mkdir -p /app/.local-storage /app/packages/server/.local-storage && \
 
 USER 1000
 
-CMD ["bun", "dist/src/main"]
+CMD ["node", "dist/main"]
 ENTRYPOINT ["/app/entrypoint.sh"]
 
 
@@ -188,16 +148,9 @@ COPY ./packages/client-sdk /app/packages/client-sdk
 WORKDIR /app
 
 # Install all dependencies for hot-reload development
-RUN bun install \
-      --filter bades \
-      --filter front \
-      --filter front-component-renderer \
-      --filter ui \
-      --filter shared \
-      --filter sdk \
-      --filter client-sdk
+RUN yarn workspaces focus bades front front-component-renderer ui shared sdk client-sdk
 
-CMD ["bunx", "nx", "run", "front:start"]
+CMD ["npx", "nx", "run", "front:start"]
 
 
 # ===========================================================================
@@ -207,7 +160,7 @@ CMD ["bunx", "nx", "run", "front:start"]
 
 FROM bades-server AS bades
 
-COPY --chown=1000 --from=bades-front-build /app/packages/front/build /app/packages/server/dist/src/front
+COPY --chown=1000 --from=bades-front-build /app/packages/front/build /app/packages/server/dist/front
 
 LABEL org.opencontainers.image.description="Bades image with backend and frontend."
 

@@ -12,43 +12,43 @@ Bahasa default proyek adalah **Bahasa Indonesia native** untuk produk, dokumenta
 
 ```bash
 # Start all (frontend + backend + worker)
-bun start
+yarn start
 
 # Start individual apps
-bunx nx start front
-bunx nx start server
-bunx nx run server:worker
+npx nx start front
+npx nx start server
+npx nx run server:worker
 
 # Build
-bunx nx build shared && bunx nx build front && bunx nx build server
+npx nx build shared && npx nx build front && npx nx build server
 
 # Testing
-bunx jest packages/front/src/path/to/file.test.tsx --config=packages/front/jest.config.mjs
-bunx jest packages/server/src/path/to/file.spec.ts --config=packages/server/jest.config.mjs
-cd packages/server && bunx jest test/integration/path/to/file.integration-spec.ts --config=./jest-integration.config.ts
-bunx nx test front
-bunx nx test server
-bunx nx run server:test:integration:with-db-reset
+npx jest packages/front/src/path/to/file.test.tsx --config=packages/front/jest.config.mjs
+npx jest packages/server/src/path/to/file.spec.ts --config=packages/server/jest.config.mjs
+cd packages/server && npx jest test/integration/path/to/file.integration-spec.ts --config=./jest-integration.config.ts
+npx nx test front
+npx nx test server
+npx nx run server:test:integration:with-db-reset
 
 # Code quality
-bunx nx lint:diff-with-main front --configuration=fix
-bunx nx lint:diff-with-main server --configuration=fix
-bunx nx lint:diff-with-main front
-bunx nx lint:diff-with-main server
-bunx nx typecheck front
-bunx nx typecheck server
-bunx nx fmt front
-bunx nx fmt server
+npx nx lint:diff-with-main front --configuration=fix
+npx nx lint:diff-with-main server --configuration=fix
+npx nx lint:diff-with-main front
+npx nx lint:diff-with-main server
+npx nx typecheck front
+npx nx typecheck server
+npx nx fmt front
+npx nx fmt server
 
 # Database
-bunx nx run server:database:reset
-bunx nx run server:database:init
-bunx nx run server:database:migrate
-bunx nx run server:database:migrate:generate --name <name> --type <fast|slow>
+npx nx run server:database:reset
+npx nx run server:database:init
+npx nx run server:database:migrate
+npx nx run server:database:migrate:generate --name <name> --type <fast|slow>
 
 # GraphQL (front only, regenerate when schema changes)
-bunx nx run front:graphql:generate
-bunx nx run front:graphql:generate --configuration=metadata
+npx nx run front:graphql:generate
+npx nx run front:graphql:generate --configuration=metadata
 ```
 
 ## Architecture
@@ -57,7 +57,7 @@ bunx nx run front:graphql:generate --configuration=metadata
 
 - Frontend: React 18, TypeScript, Jotai, Linaria, Vite, Apollo Client
 - Backend: NestJS, TypeORM, PostgreSQL, Redis, GraphQL Yoga
-- Monorepo: Nx workspace with Bun 1.3+
+- Monorepo: Nx workspace with Yarn 4.13+
 
 ### Core Packages
 

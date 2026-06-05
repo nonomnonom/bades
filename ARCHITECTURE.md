@@ -35,14 +35,14 @@
 
 ```bash
 # Build semua packages
-bunx nx run-many -t build -p shared emails ui sdk server front client-sdk front-component-renderer
+npx nx run-many -t build -p shared emails ui sdk server front client-sdk front-component-renderer
 
 # Build per package
-bunx nx build shared
-bunx nx build ui
-bunx nx build sdk
-bunx nx build server
-bunx nx build front
+npx nx build shared
+npx nx build ui
+npx nx build sdk
+npx nx build server
+npx nx build front
 ```
 
 ### 1.3 Build Optimization Strategies
@@ -344,21 +344,21 @@ cp packages/server/.env.example packages/server/.env
 # 4. Start development
 bun start              # Start semua (frontend + backend + worker)
 # atau
-bunx nx start front    # Frontend only
-bunx nx start server  # Backend only
+npx nx start front    # Frontend only
+npx nx start server  # Backend only
 ```
 
 ### 5.2 Hot Reload Development
 
 ```bash
 # Frontend dengan HMR (hot module replacement)
-bunx nx start front
+npx nx start front
 
 # Backend dengan watch mode
-bunx nx start server
+npx nx start server
 
 # Queue worker dengan watch mode
-bunx nx run server:worker
+npx nx run server:worker
 ```
 
 ### 5.3 Docker Development
@@ -382,42 +382,42 @@ docker run -v $(pwd)/packages/front:/app/packages/front bades:dev
 
 ```bash
 # Initialize database
-bunx nx run server:database:init
+npx nx run server:database:init
 
 # Run migrations
-bunx nx run server:database:migrate
+npx nx run server:database:migrate
 
 # Reset database (with seed)
-bunx nx run server:database:reset
+npx nx run server:database:reset
 
 # Reset database (no seed)
-bunx nx run server:database:reset --configuration=no-seed
+npx nx run server:database:reset --configuration=no-seed
 
 # Generate migration
-bunx nx run server:database:migrate:generate --name <name>
+npx nx run server:database:migrate:generate --name <name>
 ```
 
 ### 5.5 Code Quality
 
 ```bash
 # Lint changed files dari main branch
-bunx nx lint:diff-with-main front --configuration=fix
-bunx nx lint:diff-with-main server --configuration=fix
+npx nx lint:diff-with-main front --configuration=fix
+npx nx lint:diff-with-main server --configuration=fix
 
 # Full lint
-bunx nx lint front
-bunx nx lint server
+npx nx lint front
+npx nx lint server
 
 # Typecheck
-bunx nx typecheck front
-bunx nx typecheck server
+npx nx typecheck front
+npx nx typecheck server
 
 # Tests
-bunx nx test front
-bunx nx test server
+npx nx test front
+npx nx test server
 
 # Integration tests (with DB reset)
-bunx nx run server:test:integration:with-db-reset
+npx nx run server:test:integration:with-db-reset
 ```
 
 ---
@@ -545,21 +545,21 @@ Nx `dependsOn: ["^build"]` secara otomatis menghitung urutan ini.
 ```bash
 # Development
 bun start                          # Start semua services
-bunx nx start front                # Frontend only
-bunx nx start server              # Backend only
+npx nx start front                # Frontend only
+npx nx start server              # Backend only
 
 # Build
-bunx nx build front
-bunx nx build server
+npx nx build front
+npx nx build server
 
 # Tests
-bunx nx test front
-bunx nx test server
-bunx nx run server:test:integration:with-db-reset
+npx nx test front
+npx nx test server
+npx nx run server:test:integration:with-db-reset
 
 # Code Quality
-bunx nx lint:diff-with-main front --configuration=fix
-bunx nx lint:diff-with-main server --configuration=fix
+npx nx lint:diff-with-main front --configuration=fix
+npx nx lint:diff-with-main server --configuration=fix
 
 # Docker
 docker build --target bades -f Dockerfile .

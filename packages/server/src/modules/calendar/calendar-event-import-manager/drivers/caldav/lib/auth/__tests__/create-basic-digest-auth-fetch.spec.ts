@@ -1,16 +1,14 @@
 import { createBasicDigestAuthFetch } from 'src/modules/calendar/calendar-event-import-manager/drivers/caldav/lib/auth/create-basic-digest-auth-fetch';
-import { asFetchWithPreconnect } from 'src/utils/fetch/asFetchWithPreconnect';
 
 const mockFetch = (handle: (init?: RequestInit) => Response) => {
   const calls: (RequestInit | undefined)[] = [];
-
-  const fn = asFetchWithPreconnect(async (_input, init) => {
+  const fn = jest.fn(async (_input, init) => {
     calls.push(init);
 
     return handle(init);
   });
 
-  return { calls, fn };
+  return { calls, fn: fn as unknown as typeof fetch };
 };
 
 const digest401 = () =>
@@ -44,7 +42,7 @@ describe('createBasicDigestAuthFetch', () => {
     });
     const original = globalThis.fetch;
 
-    globalThis.fetch = asFetchWithPreconnect(forbiddenGlobal);
+    globalThis.fetch = forbiddenGlobal as unknown as typeof fetch;
 
     try {
       const { calls, fn } = mockFetch((init) =>

@@ -5,13 +5,13 @@ Library komponen UI internal Bades (Nx workspace).
 ## Build
 
 ```
-bunx nx build ui
+npx nx build ui
 ```
 
 ## Storybook
 
 ```
-bunx nx start ui
+npx nx start ui
 ```
 
 Buka `localhost:6006` setelah server jalan.
@@ -19,5 +19,5 @@ Buka `localhost:6006` setelah server jalan.
 ## Unit test
 
 ```
-bunx nx test ui
+npx nx test ui
 ```

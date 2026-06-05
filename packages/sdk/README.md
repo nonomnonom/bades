@@ -19,7 +19,7 @@ A CLI and SDK to develop, build, and publish applications that extend [Bades.id]
 The recommended way to start is with [create-bades-app](https://www.npmjs.com/package/create-bades-app):
 
 ```bash
-bunx create-bades-app@latest my-bades-app
+npx create-bades-app@latest my-bades-app
 cd my-bades-app
 bun bades dev
 ```
@@ -75,19 +75,19 @@ bun install
 ### Development mode
 
 ```bash
-bunx nx run bades-sdk:dev
+npx nx run bades-sdk:dev
 ```
 
 ### Production build
 
 ```bash
-bunx nx run bades-sdk:build
+npx nx run bades-sdk:build
 ```
 
 ### Running the CLI locally
 
 ```bash
-bunx nx run bades-sdk:start -- <command>
+npx nx run bades-sdk:start -- <command>
 ```
 
 ### Resources

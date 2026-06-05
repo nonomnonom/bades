@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
-    "moduleDetection": "force",
+    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -24,7 +24,7 @@
       "@/*": ["./src/modules/*"],
       "~/*": ["./src/*"]
     },
-    "types": ["bun", "jest"],
+    "types": ["node", "jest"],
     "plugins": [
       {
         "name": "@styled/typescript-styled-plugin",

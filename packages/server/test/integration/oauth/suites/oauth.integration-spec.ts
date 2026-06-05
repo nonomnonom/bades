@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-import { hashPassword } from 'src/engine/core-modules/auth/password.util';
+import bcrypt from 'bcrypt';
 import request from 'supertest';
 import { base64UrlEncode } from 'shared/utils';
 import { type DataSource } from 'typeorm';
@@ -140,7 +140,7 @@ describe('OAuth (integration)', () => {
     ds = global.testDataSource;
 
     testClientSecret = crypto.randomBytes(32).toString('hex');
-    const clientSecretHash = await hashPassword(testClientSecret, 10);
+    const clientSecretHash = await bcrypt.hash(testClientSecret, 10);
 
     testRegistration = await insertRegistration(ds, {
       name: 'OAuth Integration Test App',
@@ -158,7 +158,7 @@ describe('OAuth (integration)', () => {
     });
 
     autoInstallClientSecret = crypto.randomBytes(32).toString('hex');
-    const autoInstallSecretHash = await hashPassword(
+    const autoInstallSecretHash = await bcrypt.hash(
       autoInstallClientSecret,
       10,
     );
@@ -611,7 +611,7 @@ describe('OAuth (integration)', () => {
 
     it('should fail client credentials when app is not installed in any workspace', async () => {
       const noInstallSecret = crypto.randomBytes(32).toString('hex');
-      const noInstallHash = await hashPassword(noInstallSecret, 10);
+      const noInstallHash = await bcrypt.hash(noInstallSecret, 10);
 
       const noInstallRegistration = await insertRegistration(ds, {
         name: 'No Install Test App',

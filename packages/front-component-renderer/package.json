@@ -9,7 +9,7 @@
     "package.json"
   ],
   "scripts": {
-    "build": "bunx rimraf dist && bunx vite build"
+    "build": "npx rimraf dist && npx vite build"
   },
   "exports": {
     ".": {
@@ -54,6 +54,6 @@
   },
   "engines": {
     "node": "^24.5.0",
-    "bun": ">=1.2.0"
+    "yarn": "^4.0.2"
   }
 }

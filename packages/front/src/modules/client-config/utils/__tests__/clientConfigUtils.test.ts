@@ -1,12 +1,7 @@
 import { REACT_APP_SERVER_BASE_URL } from '~/config';
 import { getClientConfig } from '@/client-config/utils/getClientConfig';
-import {
-  getGlobalFetchMock,
-  mockGlobalFetch,
-  partialFetchResponse,
-} from '~/testing/utils/mockGlobalFetch';
 
-mockGlobalFetch();
+global.fetch = jest.fn();
 
 const mockClientConfig = {
   billing: {
@@ -59,12 +54,10 @@ describe('getClientConfig', () => {
   });
 
   it('should fetch client config from API', async () => {
-    getGlobalFetchMock().mockResolvedValueOnce(
-      partialFetchResponse({
-        ok: true,
-        json: async () => mockClientConfig,
-      }),
-    );
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockClientConfig,
+    });
 
     const result = await getClientConfig();
 
@@ -81,13 +74,11 @@ describe('getClientConfig', () => {
   });
 
   it('should handle fetch errors', async () => {
-    getGlobalFetchMock().mockResolvedValueOnce(
-      partialFetchResponse({
-        ok: false,
-        status: 500,
-        statusText: 'Internal Server Error',
-      }),
-    );
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: false,
+      status: 500,
+      statusText: 'Internal Server Error',
+    });
 
     await expect(getClientConfig()).rejects.toThrow(
       'Failed to fetch client config: 500 Internal Server Error',
@@ -95,7 +86,7 @@ describe('getClientConfig', () => {
   });
 
   it('should handle network errors', async () => {
-    getGlobalFetchMock().mockRejectedValueOnce(new Error('Network error'));
+    (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
 
     await expect(getClientConfig()).rejects.toThrow('Network error');
   });

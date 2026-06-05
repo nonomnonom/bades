@@ -1,4 +1,6 @@
-export type FetchWithPreconnect = typeof globalThis.fetch;
+export type FetchWithPreconnect = typeof globalThis.fetch & {
+  preconnect?: (url: string | URL) => Promise<void>;
+};
 
 type FetchImplementation = (
   input: RequestInfo | URL,
@@ -7,7 +9,7 @@ type FetchImplementation = (
 
 export const asFetchWithPreconnect = (
   fetchFn: FetchImplementation,
-  preconnect?: typeof globalThis.fetch.preconnect,
+  preconnect?: (url: string | URL) => Promise<void>,
 ): FetchWithPreconnect => {
   return Object.assign(fetchFn, {
     preconnect:
