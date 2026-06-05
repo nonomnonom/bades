@@ -54,8 +54,16 @@ export const clearTokenPairCookie = (
   frontDomain: string | undefined,
   isMultiWorkspaceEnabled: boolean,
 ): void => {
-  cookieStorage.removeItem(
-    TOKEN_PAIR_COOKIE_KEY,
-    getSharedAuthCookieAttributes(frontDomain, isMultiWorkspaceEnabled),
+  // Hapus cookie host-only dan varian domain bersama agar tidak tersisa
+  // setelah logout / token invalid (mis. setelah reset DB).
+  cookieStorage.removeItem(TOKEN_PAIR_COOKIE_KEY);
+
+  const sharedAttributes = getSharedAuthCookieAttributes(
+    frontDomain,
+    isMultiWorkspaceEnabled,
   );
+
+  if (sharedAttributes) {
+    cookieStorage.removeItem(TOKEN_PAIR_COOKIE_KEY, sharedAttributes);
+  }
 };

@@ -138,6 +138,15 @@ export type AgentTurnEvaluation = {
   turnId: Scalars['UUID'];
 };
 
+export type AgentTurnMetrics = {
+  __typename?: 'AgentTurnMetrics';
+  toolSuccessRate: Scalars['Float'];
+  totalTurns: Scalars['Int'];
+  turnSuccessRate: Scalars['Float'];
+  turnsWithSuccessfulTool: Scalars['Int'];
+  turnsWithToolError: Scalars['Int'];
+};
+
 export type AggregateChartConfiguration = {
   __typename?: 'AggregateChartConfiguration';
   aggregateFieldMetadataId: Scalars['UUID'];
@@ -1218,6 +1227,7 @@ export type CreateViewInput = {
   kanbanAggregateOperationFieldMetadataId?: InputMaybe<Scalars['UUID']>;
   key?: InputMaybe<ViewKey>;
   mainGroupByFieldMetadataId?: InputMaybe<Scalars['UUID']>;
+  mapFieldMetadataId?: InputMaybe<Scalars['UUID']>;
   name: Scalars['String'];
   objectMetadataId: Scalars['UUID'];
   openRecordIn?: InputMaybe<ViewOpenRecordIn>;
@@ -2336,6 +2346,7 @@ export type Mutation = {
   checkCustomDomainValidRecords?: Maybe<DomainValidRecords>;
   checkPublicDomainValidRecords?: Maybe<DomainValidRecords>;
   checkoutSession: BillingSession;
+  confirmAiWriteTool: Scalars['JSON'];
   createApiKey: ApiKey;
   createApplicationRegistration: CreateApplicationRegistration;
   createApplicationRegistrationVariable: ApplicationRegistrationVariable;
@@ -2585,6 +2596,12 @@ export type MutationCheckoutSessionArgs = {
   recurringInterval: SubscriptionInterval;
   requirePaymentMethod?: Scalars['Boolean'];
   successUrlPath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MutationConfirmAiWriteToolArgs = {
+  arguments: Scalars['JSON'];
+  toolName: Scalars['String'];
 };
 
 
@@ -4049,6 +4066,7 @@ export type PublicWorkspaceDataSummary = {
 
 export type Query = {
   __typename?: 'Query';
+  agentTurnMetrics: AgentTurnMetrics;
   agentTurns: Array<AgentTurn>;
   apiKey?: Maybe<ApiKey>;
   apiKeys: Array<ApiKey>;
@@ -4145,6 +4163,11 @@ export type Query = {
   validatePasswordResetToken: ValidatePasswordResetToken;
   webhook?: Maybe<Webhook>;
   webhooks: Array<Webhook>;
+};
+
+
+export type QueryAgentTurnMetricsArgs = {
+  days?: InputMaybe<Scalars['Float']>;
 };
 
 
@@ -5257,6 +5280,7 @@ export type UpdateViewInput = {
   kanbanAggregateOperation?: InputMaybe<AggregateOperations>;
   kanbanAggregateOperationFieldMetadataId?: InputMaybe<Scalars['UUID']>;
   mainGroupByFieldMetadataId?: InputMaybe<Scalars['UUID']>;
+  mapFieldMetadataId?: InputMaybe<Scalars['UUID']>;
   name?: InputMaybe<Scalars['String']>;
   openRecordIn?: InputMaybe<ViewOpenRecordIn>;
   position?: InputMaybe<Scalars['Float']>;
@@ -5293,6 +5317,7 @@ export type UpdateWebhookInputUpdates = {
 
 export type UpdateWorkspaceInput = {
   aiAdditionalInstructions?: InputMaybe<Scalars['String']>;
+  aiWriteConfirmationMode?: InputMaybe<Scalars['String']>;
   allowImpersonation?: InputMaybe<Scalars['Boolean']>;
   customDomain?: InputMaybe<Scalars['String']>;
   defaultRoleId?: InputMaybe<Scalars['UUID']>;
@@ -5563,6 +5588,7 @@ export type View = {
   kanbanAggregateOperationFieldMetadataId?: Maybe<Scalars['UUID']>;
   key?: Maybe<ViewKey>;
   mainGroupByFieldMetadataId?: Maybe<Scalars['UUID']>;
+  mapFieldMetadataId?: Maybe<Scalars['UUID']>;
   name: Scalars['String'];
   objectMetadataId: Scalars['UUID'];
   openRecordIn: ViewOpenRecordIn;
@@ -5818,6 +5844,7 @@ export type Workspace = {
   __typename?: 'Workspace';
   activationStatus: WorkspaceActivationStatus;
   aiAdditionalInstructions?: Maybe<Scalars['String']>;
+  aiWriteConfirmationMode: Scalars['String'];
   allowImpersonation: Scalars['Boolean'];
   billingEntitlements: Array<BillingEntitlement>;
   billingSubscriptions: Array<BillingSubscription>;
@@ -6002,6 +6029,14 @@ export type AssignRoleToAgentMutationVariables = Exact<{
 
 
 export type AssignRoleToAgentMutation = { __typename?: 'Mutation', assignRoleToAgent: boolean };
+
+export type ConfirmAiWriteToolMutationVariables = Exact<{
+  toolName: Scalars['String'];
+  arguments: Scalars['JSON'];
+}>;
+
+
+export type ConfirmAiWriteToolMutation = { __typename?: 'Mutation', confirmAiWriteTool: any };
 
 export type CreateChatThreadMutationVariables = Exact<{ [key: string]: never; }>;
 
@@ -7830,6 +7865,7 @@ export const SendEmailDocument = {"kind":"Document","definitions":[{"kind":"Oper
 export const ActivateSkillDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ActivateSkill"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UUID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"activateSkill"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SkillFields"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SkillFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Skill"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"isCustom"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]} as unknown as DocumentNode<ActivateSkillMutation, ActivateSkillMutationVariables>;
 export const ArchiveChatThreadDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ArchiveChatThread"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UUID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"archiveChatThread"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"deletedAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<ArchiveChatThreadMutation, ArchiveChatThreadMutationVariables>;
 export const AssignRoleToAgentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AssignRoleToAgent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"agentId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UUID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"roleId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UUID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"assignRoleToAgent"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"agentId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"agentId"}}},{"kind":"Argument","name":{"kind":"Name","value":"roleId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"roleId"}}}]}]}}]} as unknown as DocumentNode<AssignRoleToAgentMutation, AssignRoleToAgentMutationVariables>;
+export const ConfirmAiWriteToolDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ConfirmAiWriteTool"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"toolName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"arguments"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"JSON"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"confirmAiWriteTool"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"toolName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"toolName"}}},{"kind":"Argument","name":{"kind":"Name","value":"arguments"},"value":{"kind":"Variable","name":{"kind":"Name","value":"arguments"}}}]}]}}]} as unknown as DocumentNode<ConfirmAiWriteToolMutation, ConfirmAiWriteToolMutationVariables>;
 export const CreateChatThreadDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateChatThread"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createChatThread"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<CreateChatThreadMutation, CreateChatThreadMutationVariables>;
 export const CreateOneAgentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateOneAgent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateAgentInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createOneAgent"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AgentFields"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AgentFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Agent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"prompt"}},{"kind":"Field","name":{"kind":"Name","value":"responseFormat"}},{"kind":"Field","name":{"kind":"Name","value":"roleId"}},{"kind":"Field","name":{"kind":"Name","value":"isCustom"}},{"kind":"Field","name":{"kind":"Name","value":"evaluationInputs"}},{"kind":"Field","name":{"kind":"Name","value":"applicationId"}},{"kind":"Field","name":{"kind":"Name","value":"modelId"}},{"kind":"Field","name":{"kind":"Name","value":"modelConfiguration"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]} as unknown as DocumentNode<CreateOneAgentMutation, CreateOneAgentMutationVariables>;
 export const CreateSkillDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateSkill"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateSkillInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createSkill"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SkillFields"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SkillFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Skill"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"isCustom"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]} as unknown as DocumentNode<CreateSkillMutation, CreateSkillMutationVariables>;

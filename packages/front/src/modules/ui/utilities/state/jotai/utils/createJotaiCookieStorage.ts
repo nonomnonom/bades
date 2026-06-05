@@ -77,6 +77,7 @@ export const createJotaiCookieStorage = <ValueType>({
           Object.keys(valueToStore as object).length === 0)
       ) {
         cookieStorage.removeItem(cookieKey, cookieAttrs);
+        cookieStorage.removeItem(cookieKey);
         return;
       }
 
@@ -88,6 +89,7 @@ export const createJotaiCookieStorage = <ValueType>({
     },
     removeItem: (_key: string): void => {
       cookieStorage.removeItem(cookieKey, defaultAttributes);
+      cookieStorage.removeItem(cookieKey);
     },
   };
 };
