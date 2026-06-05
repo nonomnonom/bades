@@ -4,7 +4,7 @@ set -e
 # Runtime container hanya punya Node (tidak ada Bun) — semua script dijalankan
 # langsung via `node` ke `dist/...` agar tidak butuh package manager di image.
 SERVER_DIR="/app/packages/server"
-COMMAND="node ${SERVER_DIR}/dist/src/command/command"
+COMMAND="node ${SERVER_DIR}/dist/command/command"
 
 setup_and_migrate_db() {
     if [ "${DISABLE_DB_MIGRATIONS}" = "true" ]; then
@@ -18,7 +18,7 @@ setup_and_migrate_db() {
     has_schema=$(psql -tAc "SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'core')" ${PG_DATABASE_URL})
     if [ "$has_schema" = "f" ]; then
         echo "Database appears to be empty, running migrations."
-        node ${SERVER_DIR}/dist/src/database/scripts/setup-db.js
+        node ${SERVER_DIR}/dist/database/scripts/setup-db.js
         ${COMMAND} run-instance-commands --force --include-slow
     fi
 
@@ -49,7 +49,7 @@ setup_and_migrate_clickhouse() {
     fi
 
     echo "Running ClickHouse migrations..."
-    node ${SERVER_DIR}/dist/src/database/clickHouse/migrations/run-migrations.js
+    node ${SERVER_DIR}/dist/database/clickHouse/migrations/run-migrations.js
     echo "ClickHouse migrations complete."
 }
 
