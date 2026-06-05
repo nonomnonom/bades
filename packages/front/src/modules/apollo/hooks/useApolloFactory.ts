@@ -10,6 +10,12 @@ import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { returnToPathState } from '@/auth/states/returnToPathState';
 import { isValidReturnToPath } from '@/auth/utils/isValidReturnToPath';
 import { tokenPairState } from '@/auth/states/tokenPairState';
+import {
+  clearTokenPairCookie,
+  withSharedAuthCookieAttributes,
+} from '@/auth/utils/shared-auth-cookie.util';
+import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
+import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWorkspaceEnabledState';
 import { appVersionState } from '@/client-config/states/appVersionState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
@@ -38,6 +44,10 @@ export const useApolloFactory = (options: Partial<Options> = {}) => {
   const setCurrentUserWorkspace = useSetAtomState(currentUserWorkspaceState);
 
   const setReturnToPath = useSetAtomState(returnToPathState);
+  const domainConfiguration = useAtomStateValue(domainConfigurationState);
+  const isMultiWorkspaceEnabled = useAtomStateValue(
+    isMultiWorkspaceEnabledState,
+  );
   const location = useLocation();
 
   const { enqueueErrorSnackBar } = useSnackBar();
@@ -63,9 +73,19 @@ export const useApolloFactory = (options: Partial<Options> = {}) => {
       currentWorkspace: currentWorkspace,
       appVersion,
       onTokenPairChange: (tokenPair) => {
-        setTokenPair(tokenPair);
+        setTokenPair(
+          withSharedAuthCookieAttributes(
+            tokenPair,
+            domainConfiguration.frontDomain,
+            isMultiWorkspaceEnabled,
+          ),
+        );
       },
       onUnauthenticatedError: () => {
+        clearTokenPairCookie(
+          domainConfiguration.frontDomain,
+          isMultiWorkspaceEnabled,
+        );
         setTokenPair(null);
         setCurrentUser(null);
         setCurrentWorkspaceMember(null);

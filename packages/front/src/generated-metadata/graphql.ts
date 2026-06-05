@@ -802,11 +802,6 @@ export type Captcha = {
   siteKey?: Maybe<Scalars['String']>;
 };
 
-export type Mapbox = {
-  __typename?: 'Mapbox';
-  accessToken?: Maybe<Scalars['String']>;
-};
-
 export enum CaptchaDriverType {
   GOOGLE_RECAPTCHA = 'GOOGLE_RECAPTCHA',
   TURNSTILE = 'TURNSTILE'
@@ -841,7 +836,6 @@ export type ClientConfig = {
   calendarBookingPageId?: Maybe<Scalars['String']>;
   canManageFeatureFlags: Scalars['Boolean'];
   captcha: Captcha;
-  mapbox: Mapbox;
   defaultSubdomain?: Maybe<Scalars['String']>;
   frontDomain: Scalars['String'];
   isAttachmentPreviewEnabled: Scalars['Boolean'];
@@ -858,6 +852,7 @@ export type ClientConfig = {
   isMultiWorkspaceEnabled: Scalars['Boolean'];
   isWorkspaceSchemaDDLLocked: Scalars['Boolean'];
   maintenance?: Maybe<ClientConfigMaintenanceMode>;
+  mapbox: Mapbox;
   publicFeatureFlags: Array<PublicFeatureFlag>;
   sentry: Sentry;
   signInPrefilled: Scalars['Boolean'];
@@ -2156,6 +2151,11 @@ export type LogicFunctionLogsInput = {
 export type LoginToken = {
   __typename?: 'LoginToken';
   loginToken: AuthToken;
+};
+
+export type Mapbox = {
+  __typename?: 'Mapbox';
+  accessToken?: Maybe<Scalars['String']>;
 };
 
 export type MarketplaceApp = {

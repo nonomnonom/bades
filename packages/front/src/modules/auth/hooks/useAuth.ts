@@ -20,6 +20,11 @@ import {
 import { returnToPathState } from '@/auth/states/returnToPathState';
 import { tokenPairState } from '@/auth/states/tokenPairState';
 import { clearSessionLocalStorageKeys } from '@/auth/utils/clearSessionLocalStorageKeys';
+import {
+  clearTokenPairCookie,
+  withSharedAuthCookieAttributes,
+} from '@/auth/utils/shared-auth-cookie.util';
+import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { broadcastSignOutToOtherTabs } from '@/auth/utils/crossTabSignOut';
 import { isValidReturnToPath } from '@/auth/utils/isValidReturnToPath';
 import { isNonEmptyString } from '@sniptt/guards';
@@ -63,6 +68,7 @@ export const useAuth = () => {
   );
 
   const { origin } = useOrigin();
+  const domainConfiguration = useAtomStateValue(domainConfigurationState);
   const isMultiWorkspaceEnabled = useAtomStateValue(
     isMultiWorkspaceEnabledState,
   );
@@ -109,16 +115,31 @@ export const useAuth = () => {
   const clearSession = useCallback(() => {
     sessionStorage.clear();
     clearSessionLocalStorageKeys();
+    clearTokenPairCookie(
+      domainConfiguration.frontDomain,
+      isMultiWorkspaceEnabled,
+    );
     store.set(tokenPairState.atom, null);
     setLastAuthenticateWorkspaceDomain(null);
     window.location.assign(AppPath.SignInUp);
-  }, [store, setLastAuthenticateWorkspaceDomain]);
+  }, [
+    store,
+    setLastAuthenticateWorkspaceDomain,
+    domainConfiguration.frontDomain,
+    isMultiWorkspaceEnabled,
+  ]);
 
   const handleSetAuthTokens = useCallback(
     (tokens: AuthTokenPair) => {
-      setTokenPair(tokens);
+      setTokenPair(
+        withSharedAuthCookieAttributes(
+          tokens,
+          domainConfiguration.frontDomain,
+          isMultiWorkspaceEnabled,
+        ),
+      );
     },
-    [setTokenPair],
+    [setTokenPair, domainConfiguration.frontDomain, isMultiWorkspaceEnabled],
   );
 
   const handleGetLoginTokenFromCredentials = useCallback(
