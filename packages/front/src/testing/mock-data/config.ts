@@ -42,6 +42,9 @@ export const mockedClientConfig: ClientConfig = {
     provider: CaptchaDriverType.GOOGLE_RECAPTCHA,
     siteKey: 'MOCKED_SITE_KEY',
   },
+  mapbox: {
+    accessToken: 'pk.mocked-mapbox-token',
+  },
   api: { mutationMaximumAffectedRecords: 100 },
   canManageFeatureFlags: true,
   publicFeatureFlags: [],

@@ -1601,6 +1601,16 @@ export class ConfigVariables {
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.SERVER_CONFIG,
     isSensitive: true,
+    description:
+      'Mapbox public access token (pk.*) untuk tampilan peta. Dikirim ke client via /client-config saat runtime — tidak perlu di-build ke frontend.',
+    type: ConfigVariableType.STRING,
+  })
+  @IsOptional()
+  MAPBOX_ACCESS_TOKEN?: string;
+
+  @ConfigVariablesMetadata({
+    group: ConfigVariablesGroup.SERVER_CONFIG,
+    isSensitive: true,
     description: 'License key for the Enterprise version',
     type: ConfigVariableType.STRING,
   })

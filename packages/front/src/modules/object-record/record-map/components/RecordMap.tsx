@@ -13,10 +13,7 @@ import {
   useMapboxPopup,
   useMapboxSource,
 } from '@/object-record/record-map/tools/mapbox-tools.constant';
-import {
-  getMapboxAccessToken,
-  hasValidMapboxAccessToken,
-} from '@/object-record/record-map/utils/getMapboxAccessToken';
+import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapboxAccessToken';
 
 const StyledMapContainer = styled.div`
   height: 100%;
@@ -274,9 +271,8 @@ const StyledSearchResultCount = styled.div`
 
 export const RecordMap = () => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  // Baca token saat render supaya test jsdom yang mock module
-  // `getMapboxAccessToken` tidak crash.
-  const [hasToken] = useState(() => hasValidMapboxAccessToken());
+  const { accessToken, hasValidAccessToken, isClientConfigLoaded } =
+    useMapboxAccessToken();
   // Search filter — in-memory sederhana, tidak menambah dependency
   // eksternal. Match case-insensitive terhadap nama record.
   const [searchQuery, setSearchQuery] = useState('');
@@ -364,7 +360,7 @@ export const RecordMap = () => {
   // Hook tools — lifecycle map, source data, popup, geolocate.
   const { map, isReady } = useMapboxMap({
     containerRef: mapContainerRef,
-    accessToken: getMapboxAccessToken(),
+    accessToken,
     style: 'mapbox://styles/mapbox/light-v11',
     center: getStoredCenter(),
     zoom: DEFAULT_ZOOM,
@@ -545,13 +541,24 @@ export const RecordMap = () => {
     [showPopup],
   );
 
-  if (!hasToken) {
+  if (!isClientConfigLoaded) {
+    return (
+      <StyledMapContainer>
+        <StyledLoadingOverlay>
+          <StyledLoadingSpinner />
+          <span>Memuat konfigurasi peta…</span>
+        </StyledLoadingOverlay>
+      </StyledMapContainer>
+    );
+  }
+
+  if (!hasValidAccessToken) {
     return (
       <StyledEmptyState>
         <StyledEmptyTitle>Tidak ada token Mapbox</StyledEmptyTitle>
         <StyledEmptyDescription>
-          Atur <code>REACT_APP_MAPBOX_ACCESS_TOKEN</code> di environment
-          variable untuk mengaktifkan tampilan peta.
+          Atur <code>MAPBOX_ACCESS_TOKEN</code> di konfigurasi server
+          (environment variable) untuk mengaktifkan tampilan peta.
         </StyledEmptyDescription>
       </StyledEmptyState>
     );

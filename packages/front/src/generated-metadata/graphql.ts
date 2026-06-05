@@ -802,6 +802,11 @@ export type Captcha = {
   siteKey?: Maybe<Scalars['String']>;
 };
 
+export type Mapbox = {
+  __typename?: 'Mapbox';
+  accessToken?: Maybe<Scalars['String']>;
+};
+
 export enum CaptchaDriverType {
   GOOGLE_RECAPTCHA = 'GOOGLE_RECAPTCHA',
   TURNSTILE = 'TURNSTILE'
@@ -836,6 +841,7 @@ export type ClientConfig = {
   calendarBookingPageId?: Maybe<Scalars['String']>;
   canManageFeatureFlags: Scalars['Boolean'];
   captcha: Captcha;
+  mapbox: Mapbox;
   defaultSubdomain?: Maybe<Scalars['String']>;
   frontDomain: Scalars['String'];
   isAttachmentPreviewEnabled: Scalars['Boolean'];

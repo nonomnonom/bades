@@ -3,27 +3,22 @@ import { render, screen } from '@testing-library/react';
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
 import { RecordMap } from '@/object-record/record-map/components/RecordMap';
 import { RecordMapContextProvider } from '@/object-record/record-map/contexts/RecordMapContext';
+import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapboxAccessToken';
 import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states/recordMapFieldMetadataIdState';
-import {
-  getMapboxAccessToken,
-  hasValidMapboxAccessToken,
-} from '@/object-record/record-map/utils/getMapboxAccessToken';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 
 jest.mock('@/object-record/hooks/useFindManyRecords', () => ({
   useFindManyRecords: jest.fn(),
 }));
 
-jest.mock('mapbox-gl');
-
-jest.mock('@/object-record/record-map/utils/getMapboxAccessToken', () => ({
-  getMapboxAccessToken: jest.fn(),
-  hasValidMapboxAccessToken: jest.fn(),
+jest.mock('@/object-record/record-map/hooks/useMapboxAccessToken', () => ({
+  useMapboxAccessToken: jest.fn(),
 }));
 
+jest.mock('mapbox-gl');
+
 const mockUseFindManyRecords = useFindManyRecords as jest.Mock;
-const mockGetMapboxAccessToken = getMapboxAccessToken as jest.Mock;
-const mockHasValidMapboxAccessToken = hasValidMapboxAccessToken as jest.Mock;
+const mockUseMapboxAccessToken = useMapboxAccessToken as jest.Mock;
 
 const MOCK_LABEL_FIELD_ID = 'field-label-1';
 const MOCK_ADDRESS_FIELD_ID = 'field-address-1';
@@ -86,28 +81,53 @@ const renderRecordMap = (overrides: ObjectMetadataOverrides = {}) =>
     </RecordMapContextProvider>,
   );
 
+const setMapboxAccessTokenMock = ({
+  accessToken = '',
+  hasValidAccessToken = false,
+  isClientConfigLoaded = true,
+}: {
+  accessToken?: string;
+  hasValidAccessToken?: boolean;
+  isClientConfigLoaded?: boolean;
+}) => {
+  mockUseMapboxAccessToken.mockReturnValue({
+    accessToken,
+    hasValidAccessToken,
+    isClientConfigLoaded,
+  });
+};
+
 describe('RecordMap', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jotaiStore.set(recordMapFieldMetadataIdState.atom, null);
+    setMapboxAccessTokenMock({ accessToken: '', hasValidAccessToken: false });
+  });
+
+  it('should show loading state while client config is not loaded', () => {
+    setMapboxAccessTokenMock({ isClientConfigLoaded: false });
+    mockUseFindManyRecords.mockReturnValue({ records: [], loading: false });
+
+    renderRecordMap();
+
+    expect(screen.getByText('Memuat konfigurasi peta…')).toBeInTheDocument();
   });
 
   it('should show empty state when Mapbox token is not set', () => {
-    mockGetMapboxAccessToken.mockReturnValue('');
-    mockHasValidMapboxAccessToken.mockReturnValue(false);
+    setMapboxAccessTokenMock({ accessToken: '', hasValidAccessToken: false });
     mockUseFindManyRecords.mockReturnValue({ records: [], loading: false });
 
     renderRecordMap();
 
     expect(screen.getByText('Tidak ada token Mapbox')).toBeInTheDocument();
-    expect(
-      screen.getByText(/REACT_APP_MAPBOX_ACCESS_TOKEN/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/MAPBOX_ACCESS_TOKEN/i)).toBeInTheDocument();
   });
 
   it('should show empty state when object has no ADDRESS field', () => {
-    mockGetMapboxAccessToken.mockReturnValue('pk.test-token');
-    mockHasValidMapboxAccessToken.mockReturnValue(true);
+    setMapboxAccessTokenMock({
+      accessToken: 'pk.test-token',
+      hasValidAccessToken: true,
+    });
     mockUseFindManyRecords.mockReturnValue({ records: [], loading: false });
 
     renderRecordMap({
@@ -125,8 +145,10 @@ describe('RecordMap', () => {
   });
 
   it('should show empty state when records exist but no coordinates', () => {
-    mockGetMapboxAccessToken.mockReturnValue('pk.test-token');
-    mockHasValidMapboxAccessToken.mockReturnValue(true);
+    setMapboxAccessTokenMock({
+      accessToken: 'pk.test-token',
+      hasValidAccessToken: true,
+    });
     mockUseFindManyRecords.mockReturnValue({
       records: [
         { id: 'r1', address: null },
@@ -141,8 +163,10 @@ describe('RecordMap', () => {
   });
 
   it('should show loading overlay when records are being fetched', () => {
-    mockGetMapboxAccessToken.mockReturnValue('pk.test-token');
-    mockHasValidMapboxAccessToken.mockReturnValue(true);
+    setMapboxAccessTokenMock({
+      accessToken: 'pk.test-token',
+      hasValidAccessToken: true,
+    });
     mockUseFindManyRecords.mockReturnValue({ records: [], loading: true });
 
     renderRecordMap();

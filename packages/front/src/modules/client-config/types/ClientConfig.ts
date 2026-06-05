@@ -3,6 +3,7 @@ import {
   type AuthProviders,
   type Billing,
   type Captcha,
+  type Mapbox,
   type ClientConfigMaintenanceMode,
   type PublicFeatureFlag,
   type Sentry,
@@ -18,6 +19,7 @@ export type ClientConfig = {
   calendarBookingPageId?: string;
   canManageFeatureFlags: boolean;
   captcha: Captcha;
+  mapbox: Mapbox;
   defaultSubdomain?: string;
   frontDomain: string;
   isAttachmentPreviewEnabled: boolean;

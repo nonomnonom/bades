@@ -5,6 +5,7 @@ import { billingState } from '@/client-config/states/billingState';
 import { calendarBookingPageIdState } from '@/client-config/states/calendarBookingPageIdState';
 import { canManageFeatureFlagsState } from '@/client-config/states/canManageFeatureFlagsState';
 import { captchaState } from '@/client-config/states/captchaState';
+import { mapboxState } from '@/client-config/states/mapboxState';
 import { isAnalyticsEnabledState } from '@/client-config/states/isAnalyticsEnabledState';
 import { isAttachmentPreviewEnabledState } from '@/client-config/states/isAttachmentPreviewEnabledState';
 import { isConfigVariablesInDbEnabledState } from '@/client-config/states/isConfigVariablesInDbEnabledState';
@@ -66,6 +67,7 @@ export const useClientConfig = (): UseClientConfigResult => {
   );
 
   const setCaptcha = useSetAtomState(captchaState);
+  const setMapbox = useSetAtomState(mapboxState);
 
   const setApiConfig = useSetAtomState(apiConfigState);
 
@@ -174,6 +176,10 @@ export const useClientConfig = (): UseClientConfigResult => {
         siteKey: clientConfig?.captcha?.siteKey,
       });
 
+      setMapbox({
+        accessToken: clientConfig?.mapbox?.accessToken,
+      });
+
       setApiConfig(clientConfig?.api);
       setDomainConfiguration({
         defaultSubdomain: clientConfig?.defaultSubdomain,
@@ -226,6 +232,7 @@ export const useClientConfig = (): UseClientConfigResult => {
     setCalendarBookingPageId,
     setCanManageFeatureFlags,
     setCaptcha,
+    setMapbox,
     setClientConfigApiStatus,
     setDomainConfiguration,
     setIsGoogleCalendarEnabled,

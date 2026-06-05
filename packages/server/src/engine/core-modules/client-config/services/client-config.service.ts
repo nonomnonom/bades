@@ -90,6 +90,9 @@ export class ClientConfigService {
         provider: captchaProvider ? captchaProvider : undefined,
         siteKey: this.badesConfigService.get('CAPTCHA_SITE_KEY'),
       },
+      mapbox: {
+        accessToken: this.badesConfigService.get('MAPBOX_ACCESS_TOKEN'),
+      },
       api: {
         mutationMaximumAffectedRecords: this.badesConfigService.get(
           'MUTATION_MAXIMUM_AFFECTED_RECORDS',

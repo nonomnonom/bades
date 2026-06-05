@@ -146,6 +146,12 @@ export class Captcha {
 }
 
 @ObjectType()
+export class Mapbox {
+  @Field(() => String, { nullable: true })
+  accessToken?: string;
+}
+
+@ObjectType()
 export class ApiConfig {
   @Field(() => Number, { nullable: false })
   mutationMaximumAffectedRecords: number;
@@ -224,6 +230,9 @@ export class ClientConfig {
 
   @Field(() => Captcha)
   captcha: Captcha;
+
+  @Field(() => Mapbox)
+  mapbox: Mapbox;
 
   @Field(() => ApiConfig)
   api: ApiConfig;

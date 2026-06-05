@@ -77,6 +77,7 @@ describe('ClientConfigService', () => {
             SENTRY_FRONT_DSN: 'https://sentry.example.com',
             CAPTCHA_DRIVER: CaptchaDriverType.GOOGLE_RECAPTCHA,
             CAPTCHA_SITE_KEY: 'site-key-123',
+            MAPBOX_ACCESS_TOKEN: 'pk.test-mapbox-token',
             MUTATION_MAXIMUM_AFFECTED_RECORDS: 1000,
             IS_ATTACHMENT_PREVIEW_ENABLED: true,
             ANALYTICS_ENABLED: true,
@@ -144,6 +145,9 @@ describe('ClientConfigService', () => {
         captcha: {
           provider: 'GOOGLE_RECAPTCHA',
           siteKey: 'site-key-123',
+        },
+        mapbox: {
+          accessToken: 'pk.test-mapbox-token',
         },
         api: {
           mutationMaximumAffectedRecords: 1000,

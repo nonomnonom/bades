@@ -29,7 +29,7 @@ docker build --target bades -f Dockerfile --tag bades:latest .
 ```
 
 Image yang sama dipakai oleh service `server` dan `worker` di Docker
-Compose — bedanya hanya command (`worker` pakai `bun run worker:prod`).
+Compose — bedanya hanya command (`worker` pakai `node dist/src/queue-worker/queue-worker`).
 
 ## Jalankan stack lewat Docker Compose
 
@@ -53,7 +53,7 @@ Untuk kerja dari source, hidupkan service infra saja:
 
 ```bash
 docker compose up -d db redis
-bun start
+yarn start
 ```
 
 ## Deploy ke Railway (atau platform serupa)
@@ -70,8 +70,8 @@ bun start
    - `ENCRYPTION_KEY`, `APP_SECRET` -> hasil `openssl rand -base64 32`
    - `STORAGE_TYPE=local` untuk awal, atau `s3` + kredensial S3
 5. Tambah service `worker` dari **image yang sama**
-   (`ghcr.io/<owner>/bades:latest`), override command jadi
-   `bun run worker:prod`, dan set `DISABLE_DB_MIGRATIONS=true` +
+   (   `ghcr.io/<owner>/bades:latest`), override command jadi
+   `node dist/src/queue-worker/queue-worker`, dan set `DISABLE_DB_MIGRATIONS=true` +
    `DISABLE_CRON_JOBS_REGISTRATION=true`.
 6. Expose service server di port 3000.
 
@@ -94,13 +94,13 @@ TAG=v1.0.1 docker compose up -d
 Server menjalankan migrasi otomatis saat startup. Manual override:
 
 ```bash
-docker compose exec server bun run database:migrate
+docker compose exec server node dist/src/command/command database:migrate
 ```
 
 Reset DB (destruktif, dev only):
 
 ```bash
-docker compose exec server bun run database:reset
+docker compose exec server node dist/src/command/command database:reset
 ```
 
 ## Backup database
@@ -128,14 +128,14 @@ menghapus data yang sudah ada.
 
 ```bash
 # Satu workspace (paling umum untuk recovery)
-docker compose exec server bun run command:prod workspace:reseed:sid-standard \
+docker compose exec server node dist/src/command/command workspace:reseed:sid-standard \
   --workspace-id <UUID>
 
 # Semua workspace aktif/suspended sekaligus
 docker compose exec server bun run command:prod workspace:reseed:sid-standard
 
 # Cek dulu tanpa eksekusi (dry run)
-docker compose exec server bun run command:prod workspace:reseed:sid-standard \
+docker compose exec server node dist/src/command/command workspace:reseed:sid-standard \
   --workspace-id <UUID> --dry-run
 ```
 

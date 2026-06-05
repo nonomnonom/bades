@@ -34,6 +34,9 @@ const mockClientConfig = {
     provider: undefined,
     siteKey: undefined,
   },
+  mapbox: {
+    accessToken: undefined,
+  },
   api: {
     mutationMaximumAffectedRecords: 100,
   },

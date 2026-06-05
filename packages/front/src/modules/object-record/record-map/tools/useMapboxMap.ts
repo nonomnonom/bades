@@ -43,7 +43,7 @@ export type UseMapboxMapOptions = {
 //   const containerRef = useRef<HTMLDivElement>(null);
 //   const { map, isReady } = useMapboxMap({
 //     containerRef,
-//     accessToken: getMapboxAccessToken(),
+//     accessToken: mapboxAccessToken,
 //     style: 'mapbox://styles/mapbox/light-v11',
 //     center: [110.61, -7.41],
 //     zoom: 13,
@@ -118,9 +118,9 @@ export const useMapboxMap = (options: UseMapboxMapOptions): MapboxMapHandle => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const { warnIfMapboxTokenLooksInvalid } =
         require('@/object-record/record-map/utils/getMapboxAccessToken') as {
-          warnIfMapboxTokenLooksInvalid: () => void;
+          warnIfMapboxTokenLooksInvalid: (token: string) => void;
         };
-      warnIfMapboxTokenLooksInvalid();
+      warnIfMapboxTokenLooksInvalid(accessToken);
 
       const map = new mapboxgl.Map({
         center,

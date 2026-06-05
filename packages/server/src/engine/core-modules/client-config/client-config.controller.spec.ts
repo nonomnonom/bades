@@ -69,6 +69,9 @@ describe('ClientConfigController', () => {
           provider: undefined,
           siteKey: undefined,
         },
+        mapbox: {
+          accessToken: undefined,
+        },
         api: {
           mutationMaximumAffectedRecords: 100,
         },
