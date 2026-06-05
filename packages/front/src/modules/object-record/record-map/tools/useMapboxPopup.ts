@@ -39,6 +39,8 @@ export const useMapboxPopup = (
   const mapboxglRef = useRef<typeof mapboxgl | null>(null);
 
   // Preload mapbox-gl saat map ready agar showPopup() synchronous.
+  // Cleanup popup saat map berubah atau unmount — cegah memory leak
+  // dari DOM remnants Mapbox popup.
   useEffect(() => {
     if (!map) return;
     let cancelled = false;
@@ -49,6 +51,10 @@ export const useMapboxPopup = (
     })();
     return () => {
       cancelled = true;
+      if (popupRef.current) {
+        popupRef.current.remove();
+        popupRef.current = null;
+      }
     };
   }, [map]);
 
@@ -58,19 +64,24 @@ export const useMapboxPopup = (
     }
   }, []);
 
+  // showPopup — reuse satu Popup instance (create sekali, update selanjutnya).
+  // Mapbox best practice: `remove()` lalu `setLngLat` + `setHTML` + `addTo`
+  // lebih efisien daripada `new Popup()` per interaksi. Menghindari alokasi
+  // DOM tiap klik dan GC pressure, serta transisi popup tetap halus.
   const showPopup = useCallback(
     (coords: [number, number], html: string) => {
       if (!map || !mapboxglRef.current) return;
 
-      // Reuse instance yang sama — Mapbox best practice untuk hemat
-      // alokasi memory dan agar transisi animasi tetap halus.
+      const MapboxPopup = mapboxglRef.current.Popup;
+
       if (popupRef.current) {
-        popupRef.current.remove();
+        popupRef.current.remove().setLngLat(coords).setHTML(html).addTo(map);
+      } else {
+        popupRef.current = new MapboxPopup({ offset, closeOnClick })
+          .setLngLat(coords)
+          .setHTML(html)
+          .addTo(map);
       }
-      popupRef.current = new mapboxglRef.current.Popup({ offset, closeOnClick })
-        .setLngLat(coords)
-        .setHTML(html)
-        .addTo(map);
     },
     [map, offset, closeOnClick],
   );

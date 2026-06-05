@@ -15,12 +15,8 @@ import {
 } from '@/object-record/record-map/tools/mapbox-tools.constant';
 import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapboxAccessToken';
 import { loadMapboxGl } from '@/object-record/record-map/tools/loadMapboxGl';
-import {
-  MAPBOX_CATEGORY_COLORS,
-  MAPBOX_CLUSTER_COLOR,
-  MAPBOX_CLUSTER_TEXT_COLOR,
-  MAPBOX_DEFAULT_MARKER_COLOR,
-} from '@/object-record/record-map/constants/recordMapMapboxColors.constant';
+import { MAPBOX_MAP_COLORS } from '@/object-record/record-map/constants/recordMapboxMapColors.constant';
+import { MAPBOX_CATEGORY_COLORS } from '@/object-record/record-map/constants/recordMapboxCategoryColors.constant';
 
 const StyledMapContainer = styled.div`
   height: 100%;
@@ -107,8 +103,8 @@ const MOVE_END_THROTTLE_MS = 500;
 // interaksi cluster dalam pixel.
 const CLUSTER_MAX_ZOOM = 14;
 const CLUSTER_RADIUS = 50;
-const CLUSTER_COLOR = MAPBOX_CLUSTER_COLOR;
-const CLUSTER_TEXT_COLOR = MAPBOX_CLUSTER_TEXT_COLOR;
+const CLUSTER_COLOR = MAPBOX_MAP_COLORS.cluster;
+const CLUSTER_TEXT_COLOR = MAPBOX_MAP_COLORS.clusterText;
 
 // Nama layer Mapbox yang digunakan untuk clustering.
 const SOURCE_ID = 'record-map-records';
@@ -119,7 +115,7 @@ const LAYER_UNCLUSTERED_POINT = 'record-map-unclustered-point';
 const CATEGORY_COLORS = MAPBOX_CATEGORY_COLORS;
 
 // Warna default untuk kategori yang tidak dikenal
-const DEFAULT_MARKER_COLOR = MAPBOX_DEFAULT_MARKER_COLOR;
+const DEFAULT_MARKER_COLOR = MAPBOX_MAP_COLORS.defaultMarker;
 
 // Bangun Mapbox `match` expression untuk warna marker dari CATEGORY_COLORS.
 // Single source of truth: tambah/ubah kategori hanya di satu tempat
@@ -254,6 +250,11 @@ export const RecordMap = () => {
   // eksternal. Match case-insensitive terhadap nama record.
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Track feature ID yang sedang di-hover untuk reset di mouseleave.
+  // Digunakan oleh `setFeatureState` untuk highlight visual marker.
+  // oxlint-disable-next-line bades/no-state-useref
+  const hoveredFeatureIdRef = useRef<string | number | null>(null);
+
   const {
     mapMarkers,
     loading,
@@ -282,6 +283,7 @@ export const RecordMap = () => {
       features: filteredMarkers.map(({ id, name, lat, lng, category }) => ({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [lng, lat] },
+        id, // Root-level id untuk Mapbox setFeatureState
         properties: { id, name, category: category ?? '' },
       })),
     }),
@@ -363,11 +365,14 @@ export const RecordMap = () => {
     clusterRadius: CLUSTER_RADIUS,
     onSourceReady: (mapInstance) => {
       // Layer lingkaran cluster — ukuran proporsional berdasarkan jumlah titik.
+      // maxzoom: cluster tidak perlu di-render di zoom >= CLUSTER_MAX_ZOOM
+      // karena pada level itu semua titik sudah unclustered.
       mapInstance.addLayer({
         id: LAYER_CLUSTER_CIRCLE,
         type: 'circle',
         source: SOURCE_ID,
         filter: ['has', 'point_count'],
+        maxzoom: CLUSTER_MAX_ZOOM,
         paint: {
           'circle-color': CLUSTER_COLOR,
           'circle-opacity': 0.3,
@@ -379,11 +384,13 @@ export const RecordMap = () => {
       });
 
       // Layer teks jumlah titik di tengah cluster.
+      // Sama seperti cluster circle — sembunyikan di zoom >= CLUSTER_MAX_ZOOM.
       mapInstance.addLayer({
         id: LAYER_CLUSTER_COUNT,
         type: 'symbol',
         source: SOURCE_ID,
         filter: ['has', 'point_count'],
+        maxzoom: CLUSTER_MAX_ZOOM,
         layout: {
           'text-field': ['get', 'point_count_abbreviated'],
           'text-font': ['Open Sans Bold', 'Noto Sans Bold'],
@@ -399,11 +406,14 @@ export const RecordMap = () => {
       // Layer titik individu dengan data-driven styling via
       // CATEGORY_COLOR_EXPRESSION (single source of truth dari
       // CATEGORY_COLORS).
+      // minzoom: sembunyikan di bawah CLUSTER_MAX_ZOOM - 1 (zoom 13)
+      // agar tidak tumpang tindih dengan cluster circles.
       mapInstance.addLayer({
         id: LAYER_UNCLUSTERED_POINT,
         type: 'circle',
         source: SOURCE_ID,
         filter: ['!', ['has', 'point_count']],
+        minzoom: CLUSTER_MAX_ZOOM - 1,
         paint: {
           'circle-color': [
             'case',
@@ -411,10 +421,30 @@ export const RecordMap = () => {
             CATEGORY_COLOR_EXPRESSION,
             DEFAULT_MARKER_COLOR,
           ],
-          'circle-radius': 7,
-          'circle-stroke-color': 'white',
-          'circle-stroke-width': 2,
-          'circle-opacity': 0.9,
+          'circle-radius': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            11,
+            7,
+          ],
+          'circle-stroke-color': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            'white',
+            'white',
+          ],
+          'circle-stroke-width': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            3,
+            2,
+          ],
+          'circle-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            1,
+            0.9,
+          ],
         },
       });
 
@@ -503,19 +533,63 @@ export const RecordMap = () => {
         );
       };
 
-      const handleMouseEnter = () => {
+      // Hover highlight via Mapbox feature-state — lebih efisien daripada
+      // ganti paint property secara imperatif. Nilai `hover` di-set via
+      // `setFeatureState` di mouseenter/mouseleave, dan paint expression
+      // `['feature-state', 'hover']` membaca nilai itu per-feature.
+      const handleClusterMouseEnter = () => {
         mapInstance.getCanvas().style.cursor = 'pointer';
       };
-      const handleMouseLeave = () => {
+      const handleClusterMouseLeave = () => {
         mapInstance.getCanvas().style.cursor = '';
+      };
+
+      const handlePointMouseEnter = (e: mapboxgl.MapMouseEvent) => {
+        mapInstance.getCanvas().style.cursor = 'pointer';
+        const feature = e.features?.[0];
+        const featureId = feature?.id;
+        if (featureId !== undefined && featureId !== null) {
+          mapInstance.setFeatureState(
+            { source: SOURCE_ID, id: featureId },
+            { hover: true },
+          );
+          hoveredFeatureIdRef.current = featureId;
+        }
+      };
+
+      const handlePointMouseLeave = () => {
+        mapInstance.getCanvas().style.cursor = '';
+        if (hoveredFeatureIdRef.current !== null) {
+          mapInstance.setFeatureState(
+            { source: SOURCE_ID, id: hoveredFeatureIdRef.current },
+            { hover: false },
+          );
+          hoveredFeatureIdRef.current = null;
+        }
       };
 
       mapInstance.on('click', LAYER_CLUSTER_CIRCLE, handleClusterClick);
       mapInstance.on('click', LAYER_UNCLUSTERED_POINT, handlePointClick);
-      mapInstance.on('mouseenter', LAYER_CLUSTER_CIRCLE, handleMouseEnter);
-      mapInstance.on('mouseleave', LAYER_CLUSTER_CIRCLE, handleMouseLeave);
-      mapInstance.on('mouseenter', LAYER_UNCLUSTERED_POINT, handleMouseEnter);
-      mapInstance.on('mouseleave', LAYER_UNCLUSTERED_POINT, handleMouseLeave);
+      mapInstance.on(
+        'mouseenter',
+        LAYER_CLUSTER_CIRCLE,
+        handleClusterMouseEnter,
+      );
+      mapInstance.on(
+        'mouseleave',
+        LAYER_CLUSTER_CIRCLE,
+        handleClusterMouseLeave,
+      );
+      mapInstance.on(
+        'mouseenter',
+        LAYER_UNCLUSTERED_POINT,
+        handlePointMouseEnter,
+      );
+      mapInstance.on(
+        'mouseleave',
+        LAYER_UNCLUSTERED_POINT,
+        handlePointMouseLeave,
+      );
     },
     [showPopup],
   );

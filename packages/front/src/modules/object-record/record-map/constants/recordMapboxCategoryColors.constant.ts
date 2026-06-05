@@ -1,25 +1,7 @@
-/* oxlint-disable bades/no-hardcoded-colors, bades/max-consts-per-file */
-//
-// Warna hex untuk layer paint Mapbox GL — Mapbox tidak mem-parse CSS
-// `var(--t-*)`. Nilai di sini selaras dengan palet semantic Bades (light).
-//
-// Multiple consts dalam satu file karena semua konstanta ini saling
-// referensi (MAPBOX_CATEGORY_COLORS menggunakan MAPBOX_MAP_COLORS).
-export const MAPBOX_MAP_COLORS = {
-  blue: '#4673E8',
-  green: '#30A46C',
-  orange: '#F76808',
-  red: '#E5484D',
-  purple: '#8E4EC6',
-  gray: '#8B8D98',
-  white: '#FFFFFF',
-} as const;
-
-export const MAPBOX_CLUSTER_COLOR = MAPBOX_MAP_COLORS.blue;
-export const MAPBOX_CLUSTER_TEXT_COLOR = MAPBOX_MAP_COLORS.white;
-export const MAPBOX_DEFAULT_MARKER_COLOR = MAPBOX_MAP_COLORS.blue;
+import { MAPBOX_MAP_COLORS } from './recordMapboxMapColors.constant';
 
 // Warna marker berdasarkan kategori — palet aksesibel untuk operator desa.
+// Dipisah dari cluster colors agar tiap file hanya 1 const (max-consts-per-file).
 export const MAPBOX_CATEGORY_COLORS: Record<string, string> = {
   KS1: MAPBOX_MAP_COLORS.green,
   KS2: MAPBOX_MAP_COLORS.orange,
