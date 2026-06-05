@@ -42,6 +42,7 @@ describe('addFlatEntityToFlatEntityAndRelatedEntityMapsThroughMutationOrThrow', 
       viewFieldIds: [],
       viewFilterIds: [],
       calendarViewIds: [],
+      mapViewIds: [],
       mainGroupByFieldMetadataViewIds: [],
     });
 
@@ -102,6 +103,7 @@ describe('addFlatEntityToFlatEntityAndRelatedEntityMapsThroughMutationOrThrow', 
       }),
     ).toMatchObject<Partial<FlatFieldMetadata>>({
       calendarViewIds: [mockView.id],
+      mapViewIds: [],
       calendarViewUniversalIdentifiers: [viewUniversalIdentifier],
     });
   });

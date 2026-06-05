@@ -44,6 +44,7 @@ import { SyncableEntity } from 'src/engine/workspace-manager/types/syncable-enti
   'kanbanAggregateOperationFieldMetadataId',
 ])
 @Index('IDX_VIEW_MAIN_GROUP_BY_FIELD_METADATA', ['mainGroupByFieldMetadataId'])
+@Index('IDX_VIEW_MAP_FIELD_METADATA', ['mapFieldMetadataId'])
 @Index('IDX_VIEW_CREATED_BY_USER_WORKSPACE', ['createdByUserWorkspaceId'])
 @Check(
   'CHK_VIEW_CALENDAR_INTEGRITY',
@@ -144,6 +145,20 @@ export class ViewEntity extends SyncableEntity implements Required<ViewEntity> {
   )
   @JoinColumn({ name: 'calendarFieldMetadataId' })
   calendarFieldMetadata: Relation<FieldMetadataEntity> | null;
+
+  @Column({ nullable: true, type: 'uuid' })
+  mapFieldMetadataId: string | null;
+
+  @ManyToOne(
+    () => FieldMetadataEntity,
+    (fieldMetadata) => fieldMetadata.mapViews,
+    {
+      onDelete: 'CASCADE',
+      nullable: true,
+    },
+  )
+  @JoinColumn({ name: 'mapFieldMetadataId' })
+  mapFieldMetadata: Relation<FieldMetadataEntity> | null;
 
   @Column({ nullable: true, type: 'uuid' })
   mainGroupByFieldMetadataId: string | null;

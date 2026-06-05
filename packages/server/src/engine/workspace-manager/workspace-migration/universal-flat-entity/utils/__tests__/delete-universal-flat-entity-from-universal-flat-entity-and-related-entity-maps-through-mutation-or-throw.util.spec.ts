@@ -187,6 +187,7 @@ describe('deleteUniversalFlatEntityFromUniversalFlatEntityAndRelatedEntityMapsTh
 
     expect(updatedFieldMetadata).toMatchObject({
       calendarViewUniversalIdentifiers: [],
+      mapViewUniversalIdentifiers: [],
     });
   });
 });

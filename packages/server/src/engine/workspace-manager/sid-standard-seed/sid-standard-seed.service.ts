@@ -9,9 +9,14 @@ import { isDefined } from 'shared/utils';
 import { ApplicationService } from 'src/engine/core-modules/application/application.service';
 import { FieldMetadataService } from 'src/engine/metadata-modules/field-metadata/services/field-metadata.service';
 import { ObjectMetadataService } from 'src/engine/metadata-modules/object-metadata/object-metadata.service';
-import { FieldMetadataType, RelationType } from 'shared/types';
+import {
+  FieldMetadataType,
+  NavigationMenuItemType,
+  RelationType,
+} from 'shared/types';
 
 import { SID_STANDARD_DATA_SEEDS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-data.constant';
+import { SID_STANDARD_MAP_NAVIGATION_ITEMS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-map-navigation.constant';
 import { SID_STANDARD_VIEW_CONFIGS } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed-view.constant';
 import {
   SID_STANDARD_OBJECT_SEEDS,
@@ -19,6 +24,7 @@ import {
 } from 'src/engine/workspace-manager/sid-standard-seed/sid-standard-seed.config';
 
 const SID_STANDARD_MAP_VIEW_NAMESPACE = '30303030-000a-4000-8000-000000000000';
+const SID_STANDARD_MAP_NAV_NAMESPACE = '30303030-000c-4000-8000-000000000000';
 
 const resolveSidStandardMapViewIds = ({
   workspaceId,
@@ -757,26 +763,31 @@ export class SidStandardSeedService {
       objectNameSingular: string;
       viewName: string;
       mapViewKey: string;
+      addressFieldName: string;
     }> = [
       {
         objectNameSingular: 'keluarga',
         viewName: 'Peta Keluarga',
         mapViewKey: 'keluarga',
+        addressFieldName: 'alamat',
       },
       {
         objectNameSingular: 'penerimaBantuan',
         viewName: 'Peta Penerima Bantuan',
         mapViewKey: 'penerima-bantuan',
+        addressFieldName: 'alamat',
       },
       {
         objectNameSingular: 'penduduk',
         viewName: 'Peta Penduduk',
         mapViewKey: 'penduduk',
+        addressFieldName: 'alamat',
       },
       {
         objectNameSingular: 'asetDesa',
         viewName: 'Peta Aset Desa',
         mapViewKey: 'aset-desa',
+        addressFieldName: 'lokasi',
       },
     ];
 
@@ -820,12 +831,22 @@ export class SidStandardSeedService {
       const resolvedViewId =
         existingViewRows.length > 0 ? existingViewRows[0].id : viewId;
 
+      const mapFieldMetadataId = await this.resolveAddressFieldMetadataId({
+        workspaceId,
+        objectMetadataId,
+        addressFieldName: def.addressFieldName,
+      });
+
       if (existingViewRows.length > 0) {
         await this.ensureMapViewFieldsForMapView({
           workspaceId,
           viewId: resolvedViewId,
           applicationId: workspaceCustomFlatApplication.id,
           objectMetadataId,
+        });
+        await this.ensureMapFieldMetadataIdForMapView({
+          viewId: resolvedViewId,
+          mapFieldMetadataId,
         });
         continue;
       }
@@ -836,12 +857,14 @@ export class SidStandardSeedService {
            name, "objectMetadataId", type, icon,
            position, "isCompact", "isCustom",
            "openRecordIn", "shouldHideEmptyGroups", visibility,
+           "mapFieldMetadataId",
            "createdAt", "updatedAt")
         VALUES
           ($1, $2, $3, $4,
            $5, $6, 'MAP', 'IconMap',
            1, false, false,
            'SIDE_PANEL', false, 'WORKSPACE',
+           $7,
            NOW(), NOW())
         ON CONFLICT (id) DO NOTHING
         RETURNING id
@@ -855,6 +878,7 @@ export class SidStandardSeedService {
           workspaceCustomFlatApplication.id,
           def.viewName,
           objectMetadataId,
+          mapFieldMetadataId,
         ]);
         const affected = Array.isArray(result) ? result.length : 0;
 
@@ -872,6 +896,10 @@ export class SidStandardSeedService {
           applicationId: workspaceCustomFlatApplication.id,
           objectMetadataId,
         });
+        await this.ensureMapFieldMetadataIdForMapView({
+          viewId: resolvedViewId,
+          mapFieldMetadataId,
+        });
       } catch (error) {
         this.logger.warn(
           `Gagal seed MAP view '${def.viewName}' (workspace ${workspaceId}): ${
@@ -884,6 +912,133 @@ export class SidStandardSeedService {
     await this.repositionLabelIdentifierViewFieldsInWorkspace({ workspaceId });
 
     return { createdMapViews };
+  }
+
+  async seedSidStandardMapViewNavigationMenuItems({
+    workspaceId,
+  }: {
+    workspaceId: string;
+  }): Promise<{ createdNavigationItems: number }> {
+    const { workspaceCustomFlatApplication } =
+      await this.applicationService.findWorkspaceBadesStandardAndCustomApplicationOrThrow(
+        {
+          workspaceId,
+        },
+      );
+
+    let createdNavigationItems = 0;
+
+    for (const navigationItem of SID_STANDARD_MAP_NAVIGATION_ITEMS) {
+      const { viewId } = resolveSidStandardMapViewIds({
+        workspaceId,
+        mapViewKey: navigationItem.mapViewKey,
+      });
+
+      const navigationMenuItemId = uuidv5(
+        `${workspaceId}:sid-standard-map-nav:${navigationItem.mapViewKey}:id`,
+        SID_STANDARD_MAP_NAV_NAMESPACE,
+      );
+      const navigationMenuItemUniversalIdentifier = uuidv5(
+        `${workspaceId}:sid-standard-map-nav:${navigationItem.mapViewKey}:universal`,
+        SID_STANDARD_MAP_NAV_NAMESPACE,
+      );
+
+      const existingViewRows: { id: string }[] =
+        await this.coreDataSource.query(
+          `
+          SELECT id FROM core."view"
+          WHERE "workspaceId" = $1
+            AND id = $2
+            AND type = 'MAP'
+          LIMIT 1
+        `,
+          [workspaceId, viewId],
+        );
+
+      if (existingViewRows.length === 0) {
+        continue;
+      }
+
+      const sql = `
+        INSERT INTO core."navigationMenuItem"
+          (id, "workspaceId", "universalIdentifier", "applicationId",
+           type, "viewId", name, icon, position,
+           "createdAt", "updatedAt")
+        VALUES
+          ($1, $2, $3, $4,
+           $5, $6, $7, 'IconMap', $8,
+           NOW(), NOW())
+        ON CONFLICT (id) DO NOTHING
+        RETURNING id
+      `;
+
+      const result = await this.coreDataSource.query(sql, [
+        navigationMenuItemId,
+        workspaceId,
+        navigationMenuItemUniversalIdentifier,
+        workspaceCustomFlatApplication.id,
+        NavigationMenuItemType.VIEW,
+        viewId,
+        navigationItem.name,
+        navigationItem.position,
+      ]);
+
+      createdNavigationItems += Array.isArray(result) ? result.length : 0;
+    }
+
+    return { createdNavigationItems };
+  }
+
+  private async resolveAddressFieldMetadataId({
+    workspaceId,
+    objectMetadataId,
+    addressFieldName,
+  }: {
+    workspaceId: string;
+    objectMetadataId: string;
+    addressFieldName: string;
+  }): Promise<string | null> {
+    const rows: { id: string }[] = await this.coreDataSource.query(
+      `
+        SELECT id FROM core."fieldMetadata"
+        WHERE "workspaceId" = $1
+          AND "objectMetadataId" = $2
+          AND name = $3
+          AND type = $4
+          AND "deletedAt" IS NULL
+        LIMIT 1
+      `,
+      [
+        workspaceId,
+        objectMetadataId,
+        addressFieldName,
+        FieldMetadataType.ADDRESS,
+      ],
+    );
+
+    return rows.length > 0 ? rows[0].id : null;
+  }
+
+  private async ensureMapFieldMetadataIdForMapView({
+    viewId,
+    mapFieldMetadataId,
+  }: {
+    viewId: string;
+    mapFieldMetadataId: string | null;
+  }): Promise<void> {
+    if (!isDefined(mapFieldMetadataId)) {
+      return;
+    }
+
+    await this.coreDataSource.query(
+      `
+        UPDATE core."view"
+        SET "mapFieldMetadataId" = $1, "updatedAt" = NOW()
+        WHERE id = $2
+          AND ("mapFieldMetadataId" IS NULL OR "mapFieldMetadataId" <> $1)
+      `,
+      [mapFieldMetadataId, viewId],
+    );
   }
 
   // Tanam 3 dashboard contoh ke workspace baru. Dashboard menggunakan

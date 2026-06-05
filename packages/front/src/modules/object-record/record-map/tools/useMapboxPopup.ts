@@ -11,6 +11,10 @@ export type UseMapboxPopupOptions = {
 
 export type UseMapboxPopupResult = {
   showPopup: (coords: [number, number], html: string) => void;
+  showTextPopup: (
+    coords: [number, number],
+    content: { title: string; subtitle?: string },
+  ) => void;
   closePopup: () => void;
 };
 
@@ -86,5 +90,47 @@ export const useMapboxPopup = (
     [map, offset, closeOnClick],
   );
 
-  return { showPopup, closePopup };
+  const showTextPopup = useCallback(
+    (
+      coords: [number, number],
+      content: { title: string; subtitle?: string },
+    ) => {
+      if (!map || !mapboxglRef.current) return;
+
+      const MapboxPopup = mapboxglRef.current.Popup;
+      const container = document.createElement('div');
+      container.style.padding = '2px 0';
+
+      const titleElement = document.createElement('div');
+      titleElement.style.fontSize = '13px';
+      titleElement.style.fontWeight = '600';
+      titleElement.textContent = content.title;
+      container.appendChild(titleElement);
+
+      if (content.subtitle) {
+        const subtitleElement = document.createElement('div');
+        subtitleElement.style.fontSize = '11px';
+        subtitleElement.style.color = 'gray';
+        subtitleElement.style.marginTop = '2px';
+        subtitleElement.textContent = content.subtitle;
+        container.appendChild(subtitleElement);
+      }
+
+      if (popupRef.current) {
+        popupRef.current
+          .remove()
+          .setLngLat(coords)
+          .setDOMContent(container)
+          .addTo(map);
+      } else {
+        popupRef.current = new MapboxPopup({ offset, closeOnClick })
+          .setLngLat(coords)
+          .setDOMContent(container)
+          .addTo(map);
+      }
+    },
+    [map, offset, closeOnClick],
+  );
+
+  return { showPopup, showTextPopup, closePopup };
 };

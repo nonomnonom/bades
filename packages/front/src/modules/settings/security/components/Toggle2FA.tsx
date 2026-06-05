@@ -37,16 +37,19 @@ export const Toggle2FA = () => {
           },
         },
       });
-    } catch (err: any) {
+    } catch (err) {
       // Rollback optimistic update if error
       setCurrentWorkspace({
         ...currentWorkspace,
         isTwoFactorAuthenticationEnforced: !newEnforceValue,
       });
-      enqueueErrorSnackBar({
-        apolloError: CombinedGraphQLErrors.is(err) ? err : undefined,
-        message: err?.message,
-      });
+      if (CombinedGraphQLErrors.is(err)) {
+        enqueueErrorSnackBar({ apolloError: err });
+      } else {
+        enqueueErrorSnackBar({
+          message: err instanceof Error ? err.message : undefined,
+        });
+      }
     }
   };
 

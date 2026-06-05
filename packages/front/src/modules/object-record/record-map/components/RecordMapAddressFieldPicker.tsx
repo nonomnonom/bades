@@ -2,14 +2,15 @@ import { styled } from '@linaria/react';
 import { useMemo } from 'react';
 
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
-import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states/recordMapFieldMetadataIdState';
+import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
+import { recordMapFieldMetadataIdComponentState } from '@/object-record/record-map/states/recordMapFieldMetadataIdComponentState';
 import { Dropdown } from '@/ui/layout/dropdown/components/Dropdown';
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { MenuItemSelect } from 'ui/navigation';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
-import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
+import { useAtomComponentState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentState';
 import { themeCssVariables } from 'ui/theme-constants';
 
 const StyledPickerBar = styled.div`
@@ -50,9 +51,13 @@ type RecordMapAddressFieldPickerProps = {
 export const RecordMapAddressFieldPicker = ({
   addressFields,
 }: RecordMapAddressFieldPickerProps) => {
-  const [recordMapFieldMetadataId, setRecordMapFieldMetadataId] = useAtomState(
-    recordMapFieldMetadataIdState,
-  );
+  const { recordIndexId } = useRecordIndexContextOrThrow();
+
+  const [recordMapFieldMetadataId, setRecordMapFieldMetadataId] =
+    useAtomComponentState(
+      recordMapFieldMetadataIdComponentState,
+      recordIndexId,
+    );
 
   const { closeDropdown } = useCloseDropdown();
 

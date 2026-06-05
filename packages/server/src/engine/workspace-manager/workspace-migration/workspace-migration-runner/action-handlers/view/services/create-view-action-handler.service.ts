@@ -34,6 +34,7 @@ export class CreateViewActionHandlerService extends WorkspaceMigrationRunnerActi
       calendarFieldMetadataId,
       kanbanAggregateOperationFieldMetadataId,
       mainGroupByFieldMetadataId,
+      mapFieldMetadataId,
       objectMetadataId,
     } = resolveUniversalRelationIdentifiersToIds({
       flatEntityMaps: allFlatEntityMaps,
@@ -53,6 +54,7 @@ export class CreateViewActionHandlerService extends WorkspaceMigrationRunnerActi
         calendarFieldMetadataId,
         kanbanAggregateOperationFieldMetadataId,
         mainGroupByFieldMetadataId,
+        mapFieldMetadataId,
         objectMetadataId,
         id: action.id ?? v4(),
         applicationId: flatApplication.id,

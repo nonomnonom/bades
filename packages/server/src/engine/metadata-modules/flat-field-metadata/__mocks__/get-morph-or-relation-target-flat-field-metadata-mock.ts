@@ -30,6 +30,7 @@ export const getRelationTargetFlatFieldMetadataMock = ({
 
   return {
     calendarViewIds: [],
+    mapViewIds: [],
     mainGroupByFieldMetadataViewIds: [],
     viewFilterIds: [],
     viewFieldIds: [],
@@ -71,6 +72,7 @@ export const getRelationTargetFlatFieldMetadataMock = ({
     viewFieldUniversalIdentifiers: [],
     kanbanAggregateOperationViewUniversalIdentifiers: [],
     calendarViewUniversalIdentifiers: [],
+    mapViewUniversalIdentifiers: [],
     mainGroupByFieldMetadataViewUniversalIdentifiers: [],
     viewSortIds: [],
     viewSortUniversalIdentifiers: [],

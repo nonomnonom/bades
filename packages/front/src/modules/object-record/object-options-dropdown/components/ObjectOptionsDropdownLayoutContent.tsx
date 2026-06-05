@@ -122,7 +122,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
   };
 
   const handleSelectMapViewType = async () => {
-    if (isDefaultView || !hasAddressField) {
+    if (!hasAddressField) {
       return;
     }
     if (currentView?.type !== ViewType.MAP) {
@@ -137,7 +137,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
     ViewType.TABLE,
     ...(isDefaultView ? [] : [ViewType.KANBAN]),
     ...(!isDefaultView ? [ViewType.CALENDAR] : []),
-    ...(!isDefaultView ? [ViewType.MAP] : []),
+    ...(hasAddressField ? [ViewType.MAP] : []),
     ViewOpenRecordIn.SIDE_PANEL,
     ...(currentView?.type === ViewType.KANBAN ? ['Kelompok'] : []),
     ...(currentView?.type === ViewType.CALENDAR
@@ -234,7 +234,7 @@ export const ObjectOptionsDropdownLayoutContent = () => {
             <SelectableListItem
               itemId={ViewType.MAP}
               onEnter={() => {
-                if (!isDefaultView && hasAddressField) {
+                if (hasAddressField) {
                   setAndPersistViewType(ViewType.MAP);
                 }
               }}
@@ -242,17 +242,10 @@ export const ObjectOptionsDropdownLayoutContent = () => {
               <MenuItemSelect
                 LeftIcon={viewTypeIconMapping(ViewType.MAP)}
                 text={t`Peta`}
-                disabled={isDefaultView || !hasAddressField}
+                disabled={!hasAddressField}
                 focused={selectedItemId === ViewType.MAP}
                 contextualText={
-                  isDefaultView ? (
-                    <>
-                      {nbsp}·{nbsp}
-                      <OverflowingTextWithTooltip
-                        text={t`Tidak tersedia untuk tampilan bawaan`}
-                      />
-                    </>
-                  ) : !hasAddressField ? (
+                  !hasAddressField ? (
                     <>
                       {nbsp}·{nbsp}
                       <OverflowingTextWithTooltip

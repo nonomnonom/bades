@@ -34,7 +34,7 @@ export const ToggleImpersonate = () => {
         ...currentWorkspace,
         allowImpersonation: value,
       });
-    } catch (err: any) {
+    } catch (err) {
       enqueueErrorSnackBar({
         apolloError: CombinedGraphQLErrors.is(err) ? err : undefined,
       });

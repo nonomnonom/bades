@@ -159,7 +159,7 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[6/7] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
+      `[6/8] Workflow: ${workflowResult.insertedWorkflows} workflow disisipkan`,
     );
 
     const mapViewResult =
@@ -168,11 +168,22 @@ export class WorkspaceReseedSidStandardCommand extends ActiveOrSuspendedWorkspac
       });
 
     this.logger.log(
-      `[7/7] View MAP: ${mapViewResult.createdMapViews} view peta disisipkan`,
+      `[7/8] View MAP: ${mapViewResult.createdMapViews} view peta disisipkan`,
+    );
+
+    const mapNavResult =
+      await this.sidStandardSeedService.seedSidStandardMapViewNavigationMenuItems(
+        {
+          workspaceId,
+        },
+      );
+
+    this.logger.log(
+      `[8/8] Navigasi Peta: ${mapNavResult.createdNavigationItems} item sidebar disisipkan`,
     );
 
     this.logger.log(
-      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow, ${mapViewResult.createdMapViews} view peta`,
+      `Re-seed selesai untuk workspace ${workspaceId}: ${objectResult.createdObjects} objek baru, ${insertedRecords} record, ${viewResult.visibleFields} field visible, ${viewResult.hiddenFields} field tersembunyi, ${dashboardResult.insertedDashboards} dashboard, ${workflowResult.insertedWorkflows} workflow, ${mapViewResult.createdMapViews} view peta, ${mapNavResult.createdNavigationItems} navigasi peta`,
     );
   }
 }

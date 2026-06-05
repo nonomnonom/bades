@@ -84,9 +84,12 @@ export const useOpenObjectRecordsSpreadsheetImportDialog = (
               cache.evict({ fieldName: objectMetadataItem.namePlural });
             },
           });
-        } catch (error: any) {
+        } catch (error) {
           enqueueErrorSnackBar({
-            apolloError: error,
+            apolloError:
+              error instanceof Error
+                ? error
+                : new Error('Terjadi kesalahan saat impor spreadsheet'),
           });
         }
       },

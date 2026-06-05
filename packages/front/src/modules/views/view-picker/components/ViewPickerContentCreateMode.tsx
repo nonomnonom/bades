@@ -27,6 +27,7 @@ import { VIEW_PICKER_TYPE_SELECT_OPTIONS } from '@/views/view-picker/constants/V
 import { VIEW_PICKER_VIEW_TYPE_DROPDOWN_ID } from '@/views/view-picker/constants/ViewPickerViewTypeDropdownId';
 import { useCreateViewFromCurrentState } from '@/views/view-picker/hooks/useCreateViewFromCurrentState';
 import { useGetAvailableFieldsForCalendar } from '@/views/view-picker/hooks/useGetAvailableFieldsForCalendar';
+import { useGetAvailableFieldsForMap } from '@/views/view-picker/hooks/useGetAvailableFieldsForMap';
 import { useGetAvailableFieldsToGroupRecordsBy } from '@/views/view-picker/hooks/useGetAvailableFieldsToGroupRecordsBy';
 import { useViewPickerMode } from '@/views/view-picker/hooks/useViewPickerMode';
 import { viewPickerCalendarFieldMetadataIdComponentState } from '@/views/view-picker/states/viewPickerCalendarFieldMetadataIdComponentState';
@@ -95,6 +96,7 @@ export const ViewPickerContentCreateMode = () => {
     useGetAvailableFieldsToGroupRecordsBy();
 
   const { availableFieldsForCalendar } = useGetAvailableFieldsForCalendar();
+  const { availableFieldsForMap } = useGetAvailableFieldsForMap();
 
   useHotkeysOnFocusedElement({
     keys: [Key.Enter],
@@ -110,6 +112,13 @@ export const ViewPickerContentCreateMode = () => {
         return;
       }
 
+      if (
+        viewPickerType === ViewType.MAP &&
+        availableFieldsForMap.length === 0
+      ) {
+        return;
+      }
+
       await createViewFromCurrentState();
     },
     focusId: VIEW_PICKER_DROPDOWN_ID,
@@ -119,6 +128,7 @@ export const ViewPickerContentCreateMode = () => {
       viewPickerType,
       availableFieldsForGrouping,
       availableFieldsForCalendar,
+      availableFieldsForMap,
     ],
   });
 
@@ -252,6 +262,15 @@ export const ViewPickerContentCreateMode = () => {
             )}
           </>
         )}
+        {viewPickerType === ViewType.MAP &&
+          availableFieldsForMap.length === 0 && (
+            <StyledFieldAvailableContainer>
+              <Trans>
+                Tambahkan kolom Alamat pada {objectLabel} untuk membuat tampilan
+                Peta
+              </Trans>
+            </StyledFieldAvailableContainer>
+          )}
       </DropdownMenuItemsContainer>
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer scrollable={false}>

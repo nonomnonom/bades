@@ -138,7 +138,7 @@ export const CreateProfile = () => {
         });
 
         setNextOnboardingStatus();
-      } catch (error: any) {
+      } catch (error) {
         enqueueErrorSnackBar({
           apolloError: CombinedGraphQLErrors.is(error) ? error : undefined,
         });

@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { WorkspaceIteratorModule } from 'src/database/commands/command-runners/workspace-iterator.module';
 import { BackfillWorkflowAutomatedTriggerCommand } from 'src/database/commands/upgrade-version-command/2-7/2-7-workspace-command-1798000040000-backfill-workflow-automated-trigger.command';
 import { DropFavoriteObjectsCommand } from 'src/database/commands/upgrade-version-command/2-7/2-7-workspace-command-1798000030000-drop-favorite-objects.command';
+import { SeedSidStandardMapNavigationCommand } from 'src/database/commands/upgrade-version-command/2-7/2-7-workspace-command-1798000060000-seed-sid-standard-map-navigation.command';
 import { SeedSidStandardMapViewsCommand } from 'src/database/commands/upgrade-version-command/2-7/2-7-workspace-command-1798000050000-seed-sid-standard-map-views.command';
 import { SyncCommandMenuItemAvailabilityExpressionsCommand } from 'src/database/commands/upgrade-version-command/2-7/2-7-workspace-command-1798000020000-sync-command-menu-item-availability-expressions.command';
 import { ApplicationModule } from 'src/engine/core-modules/application/application.module';
@@ -28,6 +29,7 @@ import { WorkspaceMigrationModule } from 'src/engine/workspace-manager/workspace
     BackfillWorkflowAutomatedTriggerCommand,
     DropFavoriteObjectsCommand,
     SeedSidStandardMapViewsCommand,
+    SeedSidStandardMapNavigationCommand,
     SyncCommandMenuItemAvailabilityExpressionsCommand,
   ],
 })

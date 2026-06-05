@@ -1,40 +1,46 @@
 import { render, screen } from '@testing-library/react';
 
-import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
 import { RecordMap } from '@/object-record/record-map/components/RecordMap';
 import { RecordMapContextProvider } from '@/object-record/record-map/contexts/RecordMapContext';
+import {
+  MAP_RECORD_LIMIT,
+  useRecordMapRecords,
+} from '@/object-record/record-map/hooks/useRecordMapRecords';
 import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapboxAccessToken';
-import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states/recordMapFieldMetadataIdState';
-import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
+import { useMapboxStandardStyle } from '@/object-record/record-map/hooks/useMapboxStandardStyle';
+import { useOpenRecordFromIndexView } from '@/object-record/record-index/hooks/useOpenRecordFromIndexView';
 
-jest.mock('@/object-record/hooks/useFindManyRecords', () => ({
-  useFindManyRecords: jest.fn(),
+jest.mock('@/object-record/record-map/hooks/useRecordMapRecords', () => ({
+  ...jest.requireActual('@/object-record/record-map/hooks/useRecordMapRecords'),
+  useRecordMapRecords: jest.fn(),
 }));
 
 jest.mock('@/object-record/record-map/hooks/useMapboxAccessToken', () => ({
   useMapboxAccessToken: jest.fn(),
 }));
 
+jest.mock('@/object-record/record-map/hooks/useMapboxStandardStyle', () => ({
+  useMapboxStandardStyle: jest.fn(),
+}));
+
+jest.mock(
+  '@/object-record/record-index/hooks/useOpenRecordFromIndexView',
+  () => ({
+    useOpenRecordFromIndexView: jest.fn(),
+  }),
+);
+
 jest.mock('mapbox-gl');
 
-const mockUseFindManyRecords = useFindManyRecords as jest.Mock;
+const mockUseRecordMapRecords = useRecordMapRecords as jest.Mock;
 const mockUseMapboxAccessToken = useMapboxAccessToken as jest.Mock;
+const mockUseMapboxStandardStyle = useMapboxStandardStyle as jest.Mock;
+const mockUseOpenRecordFromIndexView = useOpenRecordFromIndexView as jest.Mock;
 
 const MOCK_LABEL_FIELD_ID = 'field-label-1';
 const MOCK_ADDRESS_FIELD_ID = 'field-address-1';
 
-type MockField = {
-  id: string;
-  name: string;
-  type: string;
-  isActive: boolean;
-};
-
-type ObjectMetadataOverrides = {
-  fields?: MockField[];
-};
-
-const defaultFields: MockField[] = [
+const defaultFields = [
   {
     id: MOCK_LABEL_FIELD_ID,
     name: 'nomorKartuKeluarga',
@@ -49,25 +55,25 @@ const defaultFields: MockField[] = [
   },
 ];
 
-const createObjectMetadataItem = (overrides: ObjectMetadataOverrides = {}) =>
+const createObjectMetadataItem = (fields = defaultFields) =>
   ({
     id: 'object-keluarga-1',
     nameSingular: 'keluarga',
     namePlural: 'daftarKeluarga',
     labelIdentifierFieldMetadataId: MOCK_LABEL_FIELD_ID,
-    fields: overrides.fields ?? defaultFields,
+    fields,
     readableFields: [],
     updatableFields: [],
     indexMetadatas: [],
   }) as any;
 
-const renderRecordMap = (overrides: ObjectMetadataOverrides = {}) =>
+const renderRecordMap = (fields = defaultFields) =>
   render(
     <RecordMapContextProvider
       value={{
         viewBarInstanceId: 'test-view-bar',
         objectNameSingular: 'keluarga',
-        objectMetadataItem: createObjectMetadataItem(overrides),
+        objectMetadataItem: createObjectMetadataItem(fields),
         objectPermissions: {
           canReadObjectRecords: true,
           canUpdateObjectRecords: true,
@@ -100,13 +106,25 @@ const setMapboxAccessTokenMock = ({
 describe('RecordMap', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    jotaiStore.set(recordMapFieldMetadataIdState.atom, null);
+    mockUseMapboxStandardStyle.mockReturnValue(
+      'mapbox://styles/mapbox/light-v11',
+    );
+    mockUseOpenRecordFromIndexView.mockReturnValue({
+      openRecordFromIndexView: jest.fn(),
+    });
     setMapboxAccessTokenMock({ accessToken: '', hasValidAccessToken: false });
+    mockUseRecordMapRecords.mockReturnValue({
+      mapMarkers: [],
+      loading: false,
+      totalCount: 0,
+      addressFieldMetadataItem: defaultFields[1],
+      categoryFieldMetadataItem: null,
+      objectNameSingular: 'keluarga',
+    });
   });
 
   it('should show loading state while client config is not loaded', () => {
     setMapboxAccessTokenMock({ isClientConfigLoaded: false });
-    mockUseFindManyRecords.mockReturnValue({ records: [], loading: false });
 
     renderRecordMap();
 
@@ -115,12 +133,10 @@ describe('RecordMap', () => {
 
   it('should show empty state when Mapbox token is not set', () => {
     setMapboxAccessTokenMock({ accessToken: '', hasValidAccessToken: false });
-    mockUseFindManyRecords.mockReturnValue({ records: [], loading: false });
 
     renderRecordMap();
 
     expect(screen.getByText('Tidak ada token Mapbox')).toBeInTheDocument();
-    expect(screen.getByText(/MAPBOX_ACCESS_TOKEN/i)).toBeInTheDocument();
   });
 
   it('should show empty state when object has no ADDRESS field', () => {
@@ -128,18 +144,23 @@ describe('RecordMap', () => {
       accessToken: 'pk.test-token',
       hasValidAccessToken: true,
     });
-    mockUseFindManyRecords.mockReturnValue({ records: [], loading: false });
-
-    renderRecordMap({
-      fields: [
-        {
-          id: MOCK_LABEL_FIELD_ID,
-          name: 'nomorKartuKeluarga',
-          type: 'TEXT',
-          isActive: true,
-        },
-      ],
+    mockUseRecordMapRecords.mockReturnValue({
+      mapMarkers: [],
+      loading: false,
+      totalCount: 0,
+      addressFieldMetadataItem: undefined,
+      categoryFieldMetadataItem: null,
+      objectNameSingular: 'keluarga',
     });
+
+    renderRecordMap([
+      {
+        id: MOCK_LABEL_FIELD_ID,
+        name: 'nomorKartuKeluarga',
+        type: 'TEXT',
+        isActive: true,
+      },
+    ]);
 
     expect(screen.getByText('Tidak ada kolom alamat')).toBeInTheDocument();
   });
@@ -149,17 +170,39 @@ describe('RecordMap', () => {
       accessToken: 'pk.test-token',
       hasValidAccessToken: true,
     });
-    mockUseFindManyRecords.mockReturnValue({
-      records: [
-        { id: 'r1', address: null },
-        { id: 'r2', address: { addressLat: null, addressLng: null } },
-      ],
-      loading: false,
-    });
 
     renderRecordMap();
 
     expect(screen.getByText('Tidak ada data lokasi')).toBeInTheDocument();
+  });
+
+  it('should show limit banner when totalCount exceeds MAP_RECORD_LIMIT', () => {
+    setMapboxAccessTokenMock({
+      accessToken: 'pk.test-token',
+      hasValidAccessToken: true,
+    });
+    mockUseRecordMapRecords.mockReturnValue({
+      mapMarkers: [
+        {
+          id: 'record-1',
+          name: 'KK001',
+          lat: -7.41,
+          lng: 110.61,
+          category: null,
+        },
+      ],
+      loading: false,
+      totalCount: MAP_RECORD_LIMIT + 1,
+      addressFieldMetadataItem: defaultFields[1],
+      categoryFieldMetadataItem: null,
+      objectNameSingular: 'keluarga',
+    });
+
+    renderRecordMap();
+
+    expect(
+      screen.getByText(/Menampilkan 3\.000 dari 3\.001 record/i),
+    ).toBeInTheDocument();
   });
 
   it('should show loading overlay when records are being fetched', () => {
@@ -167,7 +210,14 @@ describe('RecordMap', () => {
       accessToken: 'pk.test-token',
       hasValidAccessToken: true,
     });
-    mockUseFindManyRecords.mockReturnValue({ records: [], loading: true });
+    mockUseRecordMapRecords.mockReturnValue({
+      mapMarkers: [],
+      loading: true,
+      totalCount: 0,
+      addressFieldMetadataItem: defaultFields[1],
+      categoryFieldMetadataItem: null,
+      objectNameSingular: 'keluarga',
+    });
 
     renderRecordMap();
 

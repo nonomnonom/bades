@@ -1,46 +1,33 @@
 import { getLabelIdentifierFieldMetadataItem } from '@/object-metadata/utils/getLabelIdentifierFieldMetadataItem';
 import { getLabelIdentifierFieldValue } from '@/object-metadata/utils/getLabelIdentifierFieldValue';
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
+import { useRelevantRecordsGqlFields } from '@/object-record/record-field/hooks/useRelevantRecordsGqlFields';
+import { useFindManyRecordIndexTableParams } from '@/object-record/record-index/hooks/useFindManyRecordIndexTableParams';
+import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
 import { type ObjectRecord } from '@/object-record/types/ObjectRecord';
 import { useRecordMapContextOrThrow } from '@/object-record/record-map/contexts/RecordMapContext';
-import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states/recordMapFieldMetadataIdState';
-import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
+import { recordMapFieldMetadataIdComponentState } from '@/object-record/record-map/states/recordMapFieldMetadataIdComponentState';
+import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
+import { useGetCurrentViewOnly } from '@/views/hooks/useGetCurrentViewOnly';
 import { useMemo } from 'react';
 import { isDefined } from 'shared/utils';
 import { canBeCastAsNumberOrNull } from '~/utils/cast-as-number-or-null';
 
-// Limit jumlah record yang di-fetch untuk MAP view. Dataset desa rata-rata
-// memiliki 100-500 KK dan 500-2000 penduduk. Limit 3000 cukup untuk
-// mayoritas desa tanpa membebani memory browser.
-const MAP_RECORD_LIMIT = 3000;
+export const MAP_RECORD_LIMIT = 3000;
 
 export type MapMarkerRecord = {
   id: string;
   name: string;
   lat: number;
   lng: number;
-  // Kategori/klasifikasi untuk data-driven styling marker.
-  // Diisi dari field SELECT pertama pada object (mis. klasifikasiKeluarga,
-  // statusPenerimaan). Null jika tidak ada field SELECT yang cocok.
   category: string | null;
 };
 
-// Default: skip record dengan koordinat persis (0, 0) — disebut "Null
-// Island" di tengah Samudra Atlantik. Hampir selalu placeholder error
-// atau seed yang belum diisi, bukan alamat valid. Beberapa desa sangat
-// langka berada di Greenwich (lng=0), dan itu pun biasanya tidak di
-// Indonesia. Set ke `false` jika deployment Bades dipakai di area
-// Greenwich (tidak umum untuk SID Indonesia).
 const SKIP_NULL_ISLAND = true;
 
 const isNullIsland = (lat: number, lng: number): boolean =>
   lat === 0 && lng === 0;
 
-// Lat/lng harus berupa finite number dalam range WGS84. Filter out baris
-// yang punya koordinat out-of-range (mis. seed dengan placeholder 0,0 atau
-// data corrupt dari import) supaya tidak ada marker nyasar di tengah laut.
-// Return sebagai tuple ketik `number | number` (atau false) supaya caller
-// tidak perlu type-cast manual.
 const coerceCoordinate = (value: unknown): number | null => {
   if (!canBeCastAsNumberOrNull(value as string | number | null | undefined)) {
     return null;
@@ -85,10 +72,16 @@ const isValidCoordinate = (
 export const useRecordMapRecords = () => {
   const { objectNameSingular, objectMetadataItem } =
     useRecordMapContextOrThrow();
+  const { recordIndexId } = useRecordIndexContextOrThrow();
+  const { currentView } = useGetCurrentViewOnly();
 
-  const recordMapFieldMetadataId = useAtomStateValue(
-    recordMapFieldMetadataIdState,
+  const recordMapFieldMetadataId = useAtomComponentStateValue(
+    recordMapFieldMetadataIdComponentState,
+    recordIndexId,
   );
+
+  const viewMapFieldMetadataId =
+    currentView?.type === 'MAP' ? currentView.mapFieldMetadataId : null;
 
   const addressFieldMetadataItem = useMemo(() => {
     if (isDefined(recordMapFieldMetadataId)) {
@@ -96,15 +89,20 @@ export const useRecordMapRecords = () => {
         (field) => field.id === recordMapFieldMetadataId,
       );
     }
+    if (isDefined(viewMapFieldMetadataId)) {
+      return objectMetadataItem.fields.find(
+        (field) => field.id === viewMapFieldMetadataId,
+      );
+    }
     return objectMetadataItem.fields.find(
       (field) => field.type === 'ADDRESS' && field.isActive,
     );
-  }, [objectMetadataItem.fields, recordMapFieldMetadataId]);
+  }, [
+    objectMetadataItem.fields,
+    recordMapFieldMetadataId,
+    viewMapFieldMetadataId,
+  ]);
 
-  // Cari field SELECT/OPTION pertama pada object sebagai sumber kategori
-  // untuk data-driven styling marker. Contoh: `klasifikasiKeluarga` pada
-  // object keluarga, `statusPenerimaan` pada penerima-bantuan. Fallback
-  // ke null jika tidak ada — marker akan pakai warna default.
   const categoryFieldMetadataItem = useMemo(() => {
     return (
       objectMetadataItem.fields.find(
@@ -117,13 +115,22 @@ export const useRecordMapRecords = () => {
     );
   }, [objectMetadataItem.fields]);
 
-  const { records, loading } = useFindManyRecords({
+  const tableParams = useFindManyRecordIndexTableParams(
+    objectNameSingular,
+    recordIndexId,
+  );
+
+  const recordGqlFields = useRelevantRecordsGqlFields({
+    objectMetadataItem,
+    additionalFieldMetadataId: addressFieldMetadataItem?.id ?? null,
+  });
+
+  const { records, loading, totalCount } = useFindManyRecords({
+    ...tableParams,
     objectNameSingular,
     skip: !isDefined(addressFieldMetadataItem),
-    // Batasi jumlah record yang di-fetch agar tidak membebani memory
-    // browser saat dataset besar (ribuan records). Mapbox clustering
-    // menangani visualisasi marker >3000 dengan performa baik.
     limit: MAP_RECORD_LIMIT,
+    recordGqlFields,
   });
 
   const labelIdentifierFieldMetadataItem = useMemo(
@@ -164,8 +171,6 @@ export const useRecordMapRecords = () => {
             labelIdentifierFieldMetadataItem,
           ).trim() || String(record.id);
 
-        // Baca nilai kategori untuk data-driven styling. Category value
-        // diambil dari field SELECT (mis. 'KS1', 'TERVERIFIKASI', dll.)
         const category =
           categoryFieldName !== null
             ? ((record[categoryFieldName] as string | null) ?? null)
@@ -190,6 +195,7 @@ export const useRecordMapRecords = () => {
   return {
     mapMarkers,
     loading,
+    totalCount,
     addressFieldMetadataItem,
     categoryFieldMetadataItem,
     objectNameSingular,

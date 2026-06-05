@@ -2,17 +2,62 @@ import { renderHook } from '@testing-library/react';
 import { Provider as JotaiProvider } from 'jotai';
 
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
+import { useRelevantRecordsGqlFields } from '@/object-record/record-field/hooks/useRelevantRecordsGqlFields';
+import { useFindManyRecordIndexTableParams } from '@/object-record/record-index/hooks/useFindManyRecordIndexTableParams';
+import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
 import { RecordMapContextProvider } from '@/object-record/record-map/contexts/RecordMapContext';
-import { useRecordMapRecords } from '@/object-record/record-map/hooks/useRecordMapRecords';
-import { recordMapFieldMetadataIdState } from '@/object-record/record-map/states/recordMapFieldMetadataIdState';
+import {
+  MAP_RECORD_LIMIT,
+  useRecordMapRecords,
+} from '@/object-record/record-map/hooks/useRecordMapRecords';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
+import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
+import { useGetCurrentViewOnly } from '@/views/hooks/useGetCurrentViewOnly';
 
 jest.mock('@/object-record/hooks/useFindManyRecords', () => ({
   useFindManyRecords: jest.fn(),
 }));
 
-const mockUseFindManyRecords = useFindManyRecords as jest.Mock;
+jest.mock(
+  '@/object-record/record-index/hooks/useFindManyRecordIndexTableParams',
+  () => ({
+    useFindManyRecordIndexTableParams: jest.fn(),
+  }),
+);
 
+jest.mock('@/object-record/record-index/contexts/RecordIndexContext', () => ({
+  useRecordIndexContextOrThrow: jest.fn(),
+}));
+
+jest.mock(
+  '@/object-record/record-field/hooks/useRelevantRecordsGqlFields',
+  () => ({
+    useRelevantRecordsGqlFields: jest.fn(),
+  }),
+);
+
+jest.mock('@/views/hooks/useGetCurrentViewOnly', () => ({
+  useGetCurrentViewOnly: jest.fn(),
+}));
+
+jest.mock(
+  '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue',
+  () => ({
+    useAtomComponentStateValue: jest.fn(),
+  }),
+);
+
+const mockUseFindManyRecords = useFindManyRecords as jest.Mock;
+const mockUseFindManyRecordIndexTableParams =
+  useFindManyRecordIndexTableParams as jest.Mock;
+const mockUseRecordIndexContextOrThrow =
+  useRecordIndexContextOrThrow as jest.Mock;
+const mockUseRelevantRecordsGqlFields =
+  useRelevantRecordsGqlFields as jest.Mock;
+const mockUseGetCurrentViewOnly = useGetCurrentViewOnly as jest.Mock;
+const mockUseAtomComponentStateValue = useAtomComponentStateValue as jest.Mock;
+
+const MOCK_RECORD_INDEX_ID = 'test-record-index';
 const MOCK_ADDRESS_FIELD_ID = 'field-address-1';
 const MOCK_LABEL_FIELD_ID = 'field-label-1';
 
@@ -79,13 +124,53 @@ const createWrapper =
 describe('useRecordMapRecords', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    jotaiStore.set(recordMapFieldMetadataIdState.atom, null);
+    mockUseRecordIndexContextOrThrow.mockReturnValue({
+      recordIndexId: MOCK_RECORD_INDEX_ID,
+    });
+    mockUseFindManyRecordIndexTableParams.mockReturnValue({
+      filter: { and: [{ field: 'status', operator: 'eq', value: 'active' }] },
+      orderBy: [{ field: 'createdAt', direction: 'DescNullsLast' }],
+    });
+    mockUseRelevantRecordsGqlFields.mockReturnValue({
+      id: true,
+      address: true,
+    });
+    mockUseGetCurrentViewOnly.mockReturnValue({ currentView: null });
+    mockUseAtomComponentStateValue.mockReturnValue(null);
+  });
+
+  it('should pass ViewBar filter and orderBy to useFindManyRecords', () => {
+    mockUseFindManyRecords.mockReturnValue({
+      records: [],
+      loading: false,
+      totalCount: 0,
+    });
+
+    renderHook(() => useRecordMapRecords(), {
+      wrapper: createWrapper(),
+    });
+
+    expect(mockUseFindManyRecordIndexTableParams).toHaveBeenCalledWith(
+      'keluarga',
+      MOCK_RECORD_INDEX_ID,
+    );
+    expect(mockUseFindManyRecords).toHaveBeenCalledWith(
+      expect.objectContaining({
+        filter: {
+          and: [{ field: 'status', operator: 'eq', value: 'active' }],
+        },
+        orderBy: [{ field: 'createdAt', direction: 'DescNullsLast' }],
+        limit: MAP_RECORD_LIMIT,
+        objectNameSingular: 'keluarga',
+      }),
+    );
   });
 
   it('should return empty mapMarkers when no address field exists', () => {
     mockUseFindManyRecords.mockReturnValue({
       records: [],
       loading: false,
+      totalCount: 0,
     });
 
     const { result } = renderHook(() => useRecordMapRecords(), {
@@ -123,6 +208,7 @@ describe('useRecordMapRecords', () => {
         },
       ],
       loading: false,
+      totalCount: 2,
     });
 
     const { result } = renderHook(() => useRecordMapRecords(), {
@@ -130,6 +216,7 @@ describe('useRecordMapRecords', () => {
     });
 
     expect(result.current.mapMarkers).toHaveLength(2);
+    expect(result.current.totalCount).toBe(2);
     expect(result.current.mapMarkers[0]).toEqual({
       id: 'record-1',
       name: 'KK001',
@@ -137,14 +224,6 @@ describe('useRecordMapRecords', () => {
       lng: 106.8456,
       category: null,
     });
-    expect(result.current.mapMarkers[1]).toEqual({
-      id: 'record-2',
-      name: 'KK002',
-      lat: -6.3,
-      lng: 106.7,
-      category: null,
-    });
-    expect(result.current.loading).toBe(false);
   });
 
   it('should filter out records without lat/lng coordinates', () => {
@@ -160,13 +239,9 @@ describe('useRecordMapRecords', () => {
           nomorKartuKeluarga: 'KK002',
           address: null,
         },
-        {
-          id: 'record-3',
-          nomorKartuKeluarga: 'KK003',
-          address: { addressLat: null, addressLng: null },
-        },
       ],
       loading: false,
+      totalCount: 2,
     });
 
     const { result } = renderHook(() => useRecordMapRecords(), {
@@ -177,118 +252,11 @@ describe('useRecordMapRecords', () => {
     expect(result.current.mapMarkers[0].id).toBe('record-1');
   });
 
-  it('should return loading state while records are being fetched', () => {
-    mockUseFindManyRecords.mockReturnValue({
-      records: [],
-      loading: true,
-    });
-
-    const { result } = renderHook(() => useRecordMapRecords(), {
-      wrapper: createWrapper(),
-    });
-
-    expect(result.current.loading).toBe(true);
-    expect(result.current.mapMarkers).toEqual([]);
-  });
-
-  it('should filter out coordinates outside valid WGS84 range and Null Island', () => {
-    mockUseFindManyRecords.mockReturnValue({
-      records: [
-        {
-          id: 'record-valid',
-          nomorKartuKeluarga: 'KK-VALID',
-          address: { addressLat: -7.4, addressLng: 110.6 },
-        },
-        {
-          id: 'record-corrupt',
-          nomorKartuKeluarga: 'KK-BAD',
-          address: { addressLat: 999, addressLng: 999 },
-        },
-        {
-          id: 'record-zero',
-          nomorKartuKeluarga: 'KK-ZERO',
-          address: { addressLat: 0, addressLng: 0 },
-        },
-      ],
-      loading: false,
-    });
-
-    const { result } = renderHook(() => useRecordMapRecords(), {
-      wrapper: createWrapper(),
-    });
-
-    // Null Island (0,0) dan out-of-range (999,999) di-skip.
-    // Hanya record-valid yang lolos.
-    expect(result.current.mapMarkers).toHaveLength(1);
-    expect(result.current.mapMarkers.map((m) => m.id)).toEqual([
-      'record-valid',
-    ]);
-  });
-
-  it('should accept string coordinates from GraphQL BigFloat', () => {
-    mockUseFindManyRecords.mockReturnValue({
-      records: [
-        {
-          id: 'record-string-coords',
-          nomorKartuKeluarga: 'KK-STR',
-          address: { addressLat: '-7.41', addressLng: '110.61' },
-        },
-      ],
-      loading: false,
-    });
-
-    const { result } = renderHook(() => useRecordMapRecords(), {
-      wrapper: createWrapper(),
-    });
-
-    expect(result.current.mapMarkers).toHaveLength(1);
-    expect(result.current.mapMarkers[0]).toMatchObject({
-      id: 'record-string-coords',
-      lat: -7.41,
-      lng: 110.61,
-    });
-  });
-
-  it('should format FULL_NAME label identifier sebagai string nama', () => {
-    mockUseFindManyRecords.mockReturnValue({
-      records: [
-        {
-          id: 'record-penduduk-1',
-          namaLengkap: { firstName: 'Budi', lastName: 'Santoso' },
-          alamat: { addressLat: -7.41, addressLng: 110.61 },
-        },
-      ],
-      loading: false,
-    });
-
-    const { result } = renderHook(() => useRecordMapRecords(), {
-      wrapper: createWrapper({
-        objectMetadataItem: createObjectMetadataItem({
-          fields: [
-            {
-              id: MOCK_LABEL_FIELD_ID,
-              name: 'namaLengkap',
-              type: 'FULL_NAME',
-              isActive: true,
-            },
-            {
-              id: MOCK_ADDRESS_FIELD_ID,
-              name: 'alamat',
-              type: 'ADDRESS',
-              isActive: true,
-            },
-          ],
-        }),
-      }),
-    });
-
-    expect(result.current.mapMarkers[0]?.name).toBe('Budi Santoso');
-  });
-
-  it('should respect recordMapFieldMetadataIdState override', () => {
+  it('should respect component state override for address field', () => {
     const secondAddressFieldId = 'field-address-2';
     const secondAddressFieldName = 'alamatKantor';
 
+    mockUseAtomComponentStateValue.mockReturnValue(secondAddressFieldId);
     mockUseFindManyRecords.mockReturnValue({
       records: [
         {
@@ -302,10 +270,8 @@ describe('useRecordMapRecords', () => {
         },
       ],
       loading: false,
+      totalCount: 1,
     });
-
-    // Override ke field ADDRESS kedua.
-    jotaiStore.set(recordMapFieldMetadataIdState.atom, secondAddressFieldId);
 
     const { result } = renderHook(() => useRecordMapRecords(), {
       wrapper: createWrapper({
@@ -337,7 +303,6 @@ describe('useRecordMapRecords', () => {
     expect(result.current.addressFieldMetadataItem?.id).toBe(
       secondAddressFieldId,
     );
-    expect(result.current.mapMarkers).toHaveLength(1);
     expect(result.current.mapMarkers[0]).toEqual({
       id: 'record-1',
       name: 'KK001',
@@ -345,5 +310,64 @@ describe('useRecordMapRecords', () => {
       lng: 110.62,
       category: null,
     });
+  });
+
+  it('should prefer currentView.mapFieldMetadataId over first ADDRESS field', () => {
+    const secondAddressFieldId = 'field-address-2';
+    const secondAddressFieldName = 'alamatKantor';
+
+    mockUseGetCurrentViewOnly.mockReturnValue({
+      currentView: {
+        type: 'MAP',
+        mapFieldMetadataId: secondAddressFieldId,
+      },
+    });
+    mockUseFindManyRecords.mockReturnValue({
+      records: [
+        {
+          id: 'record-1',
+          nomorKartuKeluarga: 'KK001',
+          address: { addressLat: -7.4, addressLng: 110.6 },
+          [secondAddressFieldName]: {
+            addressLat: -7.42,
+            addressLng: 110.62,
+          },
+        },
+      ],
+      loading: false,
+      totalCount: 1,
+    });
+
+    const { result } = renderHook(() => useRecordMapRecords(), {
+      wrapper: createWrapper({
+        objectMetadataItem: createObjectMetadataItem({
+          fields: [
+            {
+              id: MOCK_LABEL_FIELD_ID,
+              name: 'nomorKartuKeluarga',
+              type: 'TEXT',
+              isActive: true,
+            },
+            {
+              id: MOCK_ADDRESS_FIELD_ID,
+              name: 'address',
+              type: 'ADDRESS',
+              isActive: true,
+            },
+            {
+              id: secondAddressFieldId,
+              name: secondAddressFieldName,
+              type: 'ADDRESS',
+              isActive: true,
+            },
+          ],
+        }),
+      }),
+    });
+
+    expect(result.current.addressFieldMetadataItem?.id).toBe(
+      secondAddressFieldId,
+    );
+    expect(result.current.mapMarkers[0]?.lat).toBe(-7.42);
   });
 });

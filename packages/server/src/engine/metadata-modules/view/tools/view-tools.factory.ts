@@ -398,6 +398,7 @@ export class ViewToolsFactory {
             let mainGroupByFieldMetadataId: string | undefined;
             let kanbanAggregateOperationFieldMetadataId: string | undefined;
             let calendarFieldMetadataId: string | undefined;
+            let mapFieldMetadataId: string | undefined;
 
             if (parameters.mainGroupByFieldName) {
               mainGroupByFieldMetadataId =
@@ -426,6 +427,14 @@ export class ViewToolsFactory {
                 );
             }
 
+            if (parameters.mapFieldName) {
+              mapFieldMetadataId = await this.resolveFieldMetadataId(
+                workspaceId,
+                objectMetadataId,
+                parameters.mapFieldName,
+              );
+            }
+
             const view = await this.viewService.createOne({
               createViewInput: {
                 name: parameters.name,
@@ -439,6 +448,7 @@ export class ViewToolsFactory {
                 kanbanAggregateOperationFieldMetadataId,
                 calendarLayout: parameters.calendarLayout,
                 calendarFieldMetadataId,
+                mapFieldMetadataId,
               },
               workspaceId,
               createdByUserWorkspaceId: userWorkspaceId,

@@ -123,7 +123,7 @@ export const CreateWorkspace = () => {
 
         await loadCurrentUser();
         setNextOnboardingStatus();
-      } catch (error: any) {
+      } catch (error) {
         setPendingCreationLoaderStep(PendingCreationLoaderStep.None);
 
         enqueueErrorSnackBar({

@@ -1,12 +1,15 @@
 import type mapboxgl from 'mapbox-gl';
 import { styled } from '@linaria/react';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { themeCssVariables } from 'ui/theme-constants';
 
 import {
   type MapMarkerRecord,
+  MAP_RECORD_LIMIT,
   useRecordMapRecords,
 } from '@/object-record/record-map/hooks/useRecordMapRecords';
+import { useMapboxStandardStyle } from '@/object-record/record-map/hooks/useMapboxStandardStyle';
+import { useOpenRecordFromIndexView } from '@/object-record/record-index/hooks/useOpenRecordFromIndexView';
 import {
   useMapboxGeolocate,
   useMapboxMap,
@@ -17,6 +20,7 @@ import { useMapboxAccessToken } from '@/object-record/record-map/hooks/useMapbox
 import { loadMapboxGl } from '@/object-record/record-map/tools/loadMapboxGl';
 import { MAPBOX_MAP_COLORS } from '@/object-record/record-map/constants/recordMapboxMapColors.constant';
 import { MAPBOX_CATEGORY_COLORS } from '@/object-record/record-map/constants/recordMapboxCategoryColors.constant';
+import { isDefined } from 'shared/utils';
 
 const StyledMapContainer = styled.div`
   height: 100%;
@@ -179,6 +183,19 @@ const StyledLegendLabel = styled.span`
   line-height: 1.3;
 `;
 
+const StyledLimitBanner = styled.div`
+  background: ${themeCssVariables.background.secondary};
+  border-bottom: 1px solid ${themeCssVariables.border.color.light};
+  color: ${themeCssVariables.font.color.secondary};
+  font-size: ${themeCssVariables.font.size.sm};
+  left: 0;
+  padding: ${themeCssVariables.spacing[2]} ${themeCssVariables.spacing[3]};
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+`;
+
 const getStorageKey = (objectNameSingular: string) =>
   `${STORAGE_KEY_PREFIX}${objectNameSingular}`;
 
@@ -206,88 +223,67 @@ const getLegendItems = (
   return items;
 };
 
-// Style untuk search box overlay — search by nama record untuk filter
-// marker di peta. Bades tidak butuh geocoder Mapbox (memerlukan token
-// berbayar untuk fitur production) — cukup filter in-memory sederhana.
-const StyledSearchBar = styled.div`
-  background: ${themeCssVariables.font.color.inverted};
-  border-radius: ${themeCssVariables.border.radius.md};
-  box-shadow: 0 2px 8px ${themeCssVariables.boxShadow.color};
-  left: ${themeCssVariables.spacing[2]};
-  padding: ${themeCssVariables.spacing[2]} ${themeCssVariables.spacing[3]};
-  position: absolute;
-  top: ${themeCssVariables.spacing[2]};
-  width: 280px;
-  z-index: 2;
-`;
-
-const StyledSearchInput = styled.input`
-  background: ${themeCssVariables.background.secondary};
-  border: 1px solid ${themeCssVariables.border.color.medium};
-  border-radius: ${themeCssVariables.border.radius.sm};
-  color: ${themeCssVariables.font.color.primary};
-  font-size: ${themeCssVariables.font.size.sm};
-  padding: ${themeCssVariables.spacing[1]} ${themeCssVariables.spacing[2]};
-  width: 100%;
-
-  &:focus {
-    border-color: ${themeCssVariables.color.blue};
-    outline: none;
+const fitMapToGeoJsonData = (
+  mapInstance: mapboxgl.Map,
+  geoJsonData: GeoJSON.FeatureCollection,
+) => {
+  if (geoJsonData.features.length === 0) {
+    return;
   }
-`;
 
-const StyledSearchResultCount = styled.div`
-  color: ${themeCssVariables.font.color.secondary};
-  font-size: 11px;
-  margin-top: ${themeCssVariables.spacing[1]};
-`;
+  void loadMapboxGl().then((mapboxglModule) => {
+    if (geoJsonData.features.length > 1) {
+      const bounds = new mapboxglModule.LngLatBounds();
+      geoJsonData.features.forEach((feature: GeoJSON.Feature) => {
+        const coords = (feature.geometry as GeoJSON.Point).coordinates;
+        bounds.extend(coords as [number, number]);
+      });
+      mapInstance.fitBounds(bounds, {
+        padding: MAP_PADDING_FOR_BOUNDS,
+        maxZoom: MAP_MAX_ZOOM_AFTER_FIT,
+      });
+      return;
+    }
+
+    const coords = (geoJsonData.features[0].geometry as GeoJSON.Point)
+      .coordinates;
+    mapInstance.flyTo({
+      center: coords as [number, number],
+      zoom: MAP_SINGLE_MARKER_ZOOM,
+    });
+  });
+};
 
 export const RecordMap = () => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapboxStyle = useMapboxStandardStyle();
+  const { openRecordFromIndexView } = useOpenRecordFromIndexView();
   const { accessToken, hasValidAccessToken, isClientConfigLoaded } =
     useMapboxAccessToken();
-  // Search filter — in-memory sederhana, tidak menambah dependency
-  // eksternal. Match case-insensitive terhadap nama record.
-  const [searchQuery, setSearchQuery] = useState('');
 
-  // Track feature ID yang sedang di-hover untuk reset di mouseleave.
-  // Digunakan oleh `setFeatureState` untuk highlight visual marker.
   // oxlint-disable-next-line bades/no-state-useref
   const hoveredFeatureIdRef = useRef<string | number | null>(null);
 
   const {
     mapMarkers,
     loading,
+    totalCount,
     addressFieldMetadataItem,
     categoryFieldMetadataItem,
     objectNameSingular,
   } = useRecordMapRecords();
 
-  // Filter marker berdasarkan search query (case-insensitive substring).
-  // Empty query → tampilkan semua. Kosongkan hasil 0 untuk konsistensi
-  // dengan empty state existing.
-  const filteredMarkers = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    if (query.length === 0) return mapMarkers;
-    return mapMarkers.filter((marker) =>
-      String(marker.name).toLowerCase().includes(query),
-    );
-  }, [mapMarkers, searchQuery]);
-
-  // Konversi marker ke GeoJSON FeatureCollection untuk Mapbox source.
-  // properties.category dipakai untuk data-driven styling warna marker,
-  // properties.searchName dipakai untuk highlight saat ada search aktif.
   const geoJsonData = useMemo(
     (): GeoJSON.FeatureCollection => ({
       type: 'FeatureCollection',
-      features: filteredMarkers.map(({ id, name, lat, lng, category }) => ({
+      features: mapMarkers.map(({ id, name, lat, lng, category }) => ({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [lng, lat] },
-        id, // Root-level id untuk Mapbox setFeatureState
+        id,
         properties: { id, name, category: category ?? '' },
       })),
     }),
-    [filteredMarkers],
+    [mapMarkers],
   );
 
   // Kumpulkan item legenda dari marker yang memiliki kategori
@@ -340,7 +336,7 @@ export const RecordMap = () => {
   const { map, isReady } = useMapboxMap({
     containerRef: mapContainerRef,
     accessToken,
-    style: 'mapbox://styles/mapbox/light-v11',
+    style: mapboxStyle,
     center: getStoredCenter(),
     zoom: DEFAULT_ZOOM,
     moveEndThrottleMs: MOVE_END_THROTTLE_MS,
@@ -448,37 +444,25 @@ export const RecordMap = () => {
         },
       });
 
-      // Fit bounds ke data yang baru dimuat.
-      void loadMapboxGl().then((mapboxglModule) => {
-        const bounds = new mapboxglModule.LngLatBounds();
-        geoJsonData.features.forEach((feature: GeoJSON.Feature) => {
-          const coords = (feature.geometry as GeoJSON.Point).coordinates;
-          bounds.extend(coords as [number, number]);
-        });
+      fitMapToGeoJsonData(mapInstance, geoJsonData);
 
-        if (geoJsonData.features.length > 1) {
-          mapInstance.fitBounds(bounds, {
-            padding: MAP_PADDING_FOR_BOUNDS,
-            maxZoom: MAP_MAX_ZOOM_AFTER_FIT,
-          });
-        } else if (geoJsonData.features.length === 1) {
-          const coords = (geoJsonData.features[0].geometry as GeoJSON.Point)
-            .coordinates;
-          mapInstance.flyTo({
-            center: coords as [number, number],
-            zoom: MAP_SINGLE_MARKER_ZOOM,
-          });
-        }
-      });
-
-      // Pasang click handler: cluster → zoom in, titik → popup.
       attachClickHandlers(mapInstance);
     },
   });
 
+  useEffect(() => {
+    if (!map || !isReady || geoJsonData.features.length === 0) {
+      return;
+    }
+    fitMapToGeoJsonData(map, geoJsonData);
+  }, [map, isReady, geoJsonData]);
+
   useMapboxGeolocate({ map, position: 'top-right' });
 
-  const { showPopup } = useMapboxPopup({ map, offset: MAP_POPUP_OFFSET });
+  const { showTextPopup, closePopup } = useMapboxPopup({
+    map,
+    offset: MAP_POPUP_OFFSET,
+  });
 
   // Pasang event handler cluster + point click ke peta.
   // Dipisah dari `onSourceReady` agar tidak terjadi double-attach.
@@ -513,24 +497,10 @@ export const RecordMap = () => {
         });
         if (!features.length) return;
         const props = features[0].properties;
-        const name = (props?.name as string | undefined) ?? '';
-        const category = props?.category as string | undefined;
-        const geometry = features[0].geometry as GeoJSON.Point;
-
-        // Format label kategori: ganti underscore dengan spasi dan kapitalisasi.
-        const categoryHtml = category
-          ? `<div style="font-size:11px;color:gray;margin-top:2px;">${category
-              .replace(/_/g, ' ')
-              .replace(/\b\w/g, (c: string) => c.toUpperCase())}</div>`
-          : '';
-
-        showPopup(
-          geometry.coordinates as [number, number],
-          `<div style="padding:2px 0;">
-            <div style="font-size:13px;font-weight:600;">${name}</div>
-            ${categoryHtml}
-          </div>`,
-        );
+        const recordId = props?.id as string | undefined;
+        if (!recordId) return;
+        closePopup();
+        openRecordFromIndexView({ recordId });
       };
 
       // Hover highlight via Mapbox feature-state — lebih efisien daripada
@@ -555,10 +525,29 @@ export const RecordMap = () => {
           );
           hoveredFeatureIdRef.current = featureId;
         }
+
+        const props = feature?.properties;
+        const name = (props?.name as string | undefined) ?? '';
+        const category = props?.category as string | undefined;
+        const geometry = feature?.geometry as GeoJSON.Point | undefined;
+        if (geometry && name.length > 0) {
+          const subtitle = category
+            ? category
+                .replace(/_/g, ' ')
+                .replace(/\b\w/g, (character: string) =>
+                  character.toUpperCase(),
+                )
+            : undefined;
+          showTextPopup(geometry.coordinates as [number, number], {
+            title: name,
+            subtitle,
+          });
+        }
       };
 
       const handlePointMouseLeave = () => {
         mapInstance.getCanvas().style.cursor = '';
+        closePopup();
         if (hoveredFeatureIdRef.current !== null) {
           mapInstance.setFeatureState(
             { source: SOURCE_ID, id: hoveredFeatureIdRef.current },
@@ -591,8 +580,11 @@ export const RecordMap = () => {
         handlePointMouseLeave,
       );
     },
-    [showPopup],
+    [closePopup, openRecordFromIndexView, showTextPopup],
   );
+
+  const showLimitBanner =
+    isDefined(totalCount) && totalCount > MAP_RECORD_LIMIT;
 
   if (!isClientConfigLoaded) {
     return (
@@ -630,12 +622,20 @@ export const RecordMap = () => {
   }
 
   if (!loading && mapMarkers.length === 0) {
+    const hasFilteredRecordsWithoutCoords =
+      isDefined(totalCount) && totalCount > 0;
+
     return (
       <StyledEmptyState>
-        <StyledEmptyTitle>Tidak ada data lokasi</StyledEmptyTitle>
+        <StyledEmptyTitle>
+          {hasFilteredRecordsWithoutCoords
+            ? 'Tidak ada lokasi untuk filter ini'
+            : 'Tidak ada data lokasi'}
+        </StyledEmptyTitle>
         <StyledEmptyDescription>
-          Data yang ada belum memiliki koordinat lokasi. Isi alamat dengan
-          lengkap untuk melihatnya di peta.
+          {hasFilteredRecordsWithoutCoords
+            ? 'Record yang cocok dengan filter belum memiliki koordinat valid. Periksa kolom alamat atau persempit filter.'
+            : 'Data yang ada belum memiliki koordinat lokasi. Isi alamat dengan lengkap untuk melihatnya di peta.'}
         </StyledEmptyDescription>
       </StyledEmptyState>
     );
@@ -644,21 +644,12 @@ export const RecordMap = () => {
   return (
     <StyledMapContainer>
       <div ref={mapContainerRef} style={{ height: '100%', width: '100%' }} />
-      {mapMarkers.length > 0 && (
-        <StyledSearchBar>
-          <StyledSearchInput
-            type="search"
-            placeholder="Cari nama KK atau penduduk..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label="Cari record di peta"
-          />
-          {searchQuery.trim().length > 0 && (
-            <StyledSearchResultCount>
-              {filteredMarkers.length} dari {mapMarkers.length} record
-            </StyledSearchResultCount>
-          )}
-        </StyledSearchBar>
+      {showLimitBanner && (
+        <StyledLimitBanner>
+          Menampilkan {MAP_RECORD_LIMIT.toLocaleString('id-ID')} dari{' '}
+          {totalCount.toLocaleString('id-ID')} record. Persempit filter untuk
+          melihat semua.
+        </StyledLimitBanner>
       )}
       {loading && (
         <StyledLoadingOverlay>

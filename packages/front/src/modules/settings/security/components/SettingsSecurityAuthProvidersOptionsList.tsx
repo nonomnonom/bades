@@ -116,7 +116,7 @@ export const SettingsSecurityAuthProvidersOptionsList = () => {
         ...currentWorkspace,
         isPublicInviteLinkEnabled: value,
       });
-    } catch (err: any) {
+    } catch (err) {
       enqueueErrorSnackBar({
         apolloError: CombinedGraphQLErrors.is(err) ? err : undefined,
       });

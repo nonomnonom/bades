@@ -33,7 +33,7 @@ export const copyYarnEngineAndBuildDependencies = async (
       },
     );
     // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-  } catch (error: any) {
+  } catch (error) {
     const errorMessage =
       [error?.stdout, error?.stderr].filter(Boolean).join('\n') ||
       'Failed to install logic function executor dependencies';

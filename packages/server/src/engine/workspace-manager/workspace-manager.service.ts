@@ -135,6 +135,17 @@ export class WorkspaceManagerService {
         `Seed MAP view SID untuk workspace ${workspaceId}: ${sidMapViewResult.createdMapViews} view`,
       );
 
+      const sidMapNavResult =
+        await this.sidStandardSeedService.seedSidStandardMapViewNavigationMenuItems(
+          {
+            workspaceId,
+          },
+        );
+
+      this.logger.log(
+        `Seed navigasi Peta SID untuk workspace ${workspaceId}: ${sidMapNavResult.createdNavigationItems} item`,
+      );
+
       // Tanam 3 dashboard contoh + 2 workflow contoh agar halaman Dashboard
       // dan Alur Kerja tidak kosong saat operator desa pertama kali login.
       const sidDashboardResult =
