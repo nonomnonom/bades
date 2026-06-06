@@ -105,7 +105,14 @@ const bootstrap = async () => {
           defaultSrc: ["'self'"],
           // 'unsafe-eval' diperlukan untuk Monaco editor (CodeMirror).
           // 'unsafe-inline' diperlukan untuk dynamic script loading di workflow engine.
-          scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+          scriptSrc: [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",
+            'https://challenges.cloudflare.com',
+            'https://www.google.com',
+            'https://www.gstatic.com',
+          ],
           // 'unsafe-inline' diperlukan karena Linaria meng-generate inline <style>.
           styleSrc: ["'self'", "'unsafe-inline'"],
           imgSrc: ["'self'", 'data:', 'blob:', 'https:'],
@@ -115,9 +122,11 @@ const bootstrap = async () => {
             'https://api.mapbox.com',
             'https://events.mapbox.com',
             'https://*.ingest.sentry.io',
+            'https://challenges.cloudflare.com',
+            'https://www.google.com',
           ],
           fontSrc: ["'self'", 'data:'],
-          frameSrc: ["'self'"],
+          frameSrc: ["'self'", 'https://challenges.cloudflare.com', 'https://www.google.com'],
           frameAncestors: ["'self'"],
           workerSrc: ["'self'", 'blob:'],
           mediaSrc: ["'self'"],
