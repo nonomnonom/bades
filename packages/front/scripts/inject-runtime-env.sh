@@ -1,17 +1,13 @@
 #!/bin/sh
 
-if [ -z "$REACT_APP_SERVER_BASE_URL" ]; then
-  echo "Error: REACT_APP_SERVER_BASE_URL is not set."
-  exit 1
-fi
+# Production multi-workspace memakai same-origin API (window.location.origin).
+# Lihat packages/front/src/config/index.ts — jangan inject SERVER_URL ke browser.
 
-echo "Injecting runtime environment variables into index.html..."
+echo "Injecting runtime environment config into index.html..."
 
 CONFIG_BLOCK=$(cat << EOF
     <script id="bades-env-config">
-      window._env_ = {
-        REACT_APP_SERVER_BASE_URL: "$REACT_APP_SERVER_BASE_URL"
-      };
+      window._env_ = {};
     </script>
     <!-- END: Bades Config -->
 EOF

@@ -7,22 +7,18 @@ config({
   override: true,
 });
 
-export function generateFrontConfig(): void {
-  const configObject = {
-    window: {
-      _env_: {
-        REACT_APP_SERVER_BASE_URL: process.env.SERVER_URL,
-      },
-    },
-  };
-
-  const configString = `<!-- BEGIN: Bades Config -->
+export function getFrontConfigScriptBlock(): string {
+  return `<!-- BEGIN: Bades Config -->
     <script id="bades-env-config">
-      window._env_ = ${JSON.stringify(configObject.window._env_, null, 2)};
+      window._env_ = {};
     </script>
     <!-- END: Bades Config -->`;
+}
 
-  const distPath = path.join(__dirname, '..', 'front');
+export function generateFrontConfig(options?: { frontDistPath?: string }): void {
+  const configString = getFrontConfigScriptBlock();
+
+  const distPath = options?.frontDistPath ?? path.join(__dirname, '..', 'front');
   const indexPath = path.join(distPath, 'index.html');
 
   try {
