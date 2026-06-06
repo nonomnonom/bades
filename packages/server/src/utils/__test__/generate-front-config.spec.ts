@@ -16,7 +16,9 @@ describe('generateFrontConfig', () => {
   });
 
   it('generateFrontConfig menulis config kosong ke index.html', () => {
-    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bades-front-config-'));
+    const tempDir = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'bades-front-config-'),
+    );
     const indexPath = path.join(tempDir, 'index.html');
 
     fs.writeFileSync(

@@ -29,7 +29,10 @@ export class UnhandledExceptionFilter implements ExceptionFilter {
 
     // Set CORS headers with restricted origin for exception responses
     if (FRONTEND_URL || SERVER_URL) {
-      response.header('Access-Control-Allow-Origin', FRONTEND_URL ?? SERVER_URL);
+      response.header(
+        'Access-Control-Allow-Origin',
+        FRONTEND_URL ?? SERVER_URL,
+      );
     }
 
     response.header(

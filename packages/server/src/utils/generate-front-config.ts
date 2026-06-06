@@ -15,10 +15,13 @@ export function getFrontConfigScriptBlock(): string {
     <!-- END: Bades Config -->`;
 }
 
-export function generateFrontConfig(options?: { frontDistPath?: string }): void {
+export function generateFrontConfig(options?: {
+  frontDistPath?: string;
+}): void {
   const configString = getFrontConfigScriptBlock();
 
-  const distPath = options?.frontDistPath ?? path.join(__dirname, '..', 'front');
+  const distPath =
+    options?.frontDistPath ?? path.join(__dirname, '..', 'front');
   const indexPath = path.join(distPath, 'index.html');
 
   try {
