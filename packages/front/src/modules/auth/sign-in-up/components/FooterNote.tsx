@@ -65,7 +65,7 @@ export const FooterNote = () => {
       <StyledCopyContainer>
         <Trans>Dengan menggunakan Bades.id, Anda menyetujui</Trans>{' '}
         <a
-          href="https://bades.id/kebijakan"
+          href="https://bades.id/ketentuan"
           target="_blank"
           rel="noopener noreferrer"
         >
