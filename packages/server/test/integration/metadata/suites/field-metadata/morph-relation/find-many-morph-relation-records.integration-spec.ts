@@ -10,8 +10,8 @@ import { FieldMetadataType } from 'shared/types';
 
 import { RelationType } from 'src/engine/metadata-modules/field-metadata/interfaces/relation-type.interface';
 
-// todo @guillim : make ths test work to cover morph CORE api
-xdescribe('findMany morph relation records', () => {
+// NOTE: Re-enabled after audit — morph CORE API should be covered. Monitor for failures.
+describe('findMany morph relation records', () => {
   let createdObjectMetadataPersonId = '';
   let createdObjectMetadataOpportunityId = '';
   let createdObjectMetadataCompanyId = '';

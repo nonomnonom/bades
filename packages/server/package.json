@@ -120,6 +120,7 @@
     "graphql-type-json": "0.3.2",
     "graphql-upload": "16.0.2",
     "graphql-yoga": "4.0.5",
+    "helmet": "^8.2.0",
     "html-to-text": "^9.0.5",
     "imapflow": "1.2.1",
     "ioredis": "5.6.0",

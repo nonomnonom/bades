@@ -5,6 +5,7 @@ import fs from 'fs';
 
 import bytes from 'bytes';
 import { useContainer } from 'class-validator';
+import helmet from 'helmet';
 import session from 'express-session';
 import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.mjs';
 
@@ -52,6 +53,16 @@ const bootstrap = async () => {
     : (configTransformers.boolean(trustProxyRaw) ?? trustProxyRaw);
 
   app.set('trust proxy', trustProxy);
+
+  // HTTP security headers — relaxed CSP karena app serve React frontend.
+  app.use(
+    helmet({
+      // CSP dimatikan dulu karena inline styles dari Linaria + dynamic script loading.
+      contentSecurityPolicy: false,
+      // Izinkan cross-origin embedding untuk integrasi pihak ketiga.
+      crossOriginEmbedderPolicy: false,
+    }),
+  );
 
   app.use(session(getSessionStorageOptions(badesConfigService)));
 

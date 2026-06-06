@@ -77,6 +77,13 @@ export class WorkspaceRepository<
       throw new Error('Izin rekaman objek diperlukan');
     }
 
+    // authContext wajib ada kecuali sedang bypass permission (internal ops)
+    if (!this.shouldBypassPermissionChecks && !this.authContext) {
+      throw new Error(
+        'WorkspaceAuthContext diperlukan — pastikan repository dibuat melalui getRepository() bukan langsung',
+      );
+    }
+
     return new WorkspaceSelectQueryBuilder(
       queryBuilder,
       this.objectRecordsPermissions,

@@ -62,6 +62,7 @@ import { WorkspaceRepository } from 'src/engine/sid-orm/repository/workspace.rep
 import { getWorkspaceContext } from 'src/engine/sid-orm/storage/orm-workspace-context.storage';
 import { type RolePermissionConfig } from 'src/engine/sid-orm/types/role-permission-config';
 import { computePermissionIntersection } from 'src/engine/sid-orm/utils/compute-permission-intersection.util';
+import { computePermissionUnion } from 'src/engine/sid-orm/utils/compute-permission-union.util';
 import { formatData } from 'src/engine/sid-orm/utils/format-data.util';
 import { formatResult } from 'src/engine/sid-orm/utils/format-result.util';
 import { formatTwentyOrmEventToDatabaseBatchEvent } from 'src/engine/sid-orm/utils/format-sid-orm-event-to-database-batch-event.util';
@@ -154,17 +155,12 @@ export class WorkspaceEntityManager extends EntityManager {
     }
 
     if (rolePermissionConfig && 'unionOf' in rolePermissionConfig) {
-      if (rolePermissionConfig.unionOf.length === 1) {
-        objectPermissions = this.getPermissionsForRole(
-          rolePermissionConfig.unionOf[0],
-          objectPermissionsByRoleId,
-        );
-      } else {
-        // TODO: Implement union logic for combining permissions across multiple roles
-        throw new Error(
-          'Union permission logic for multiple roles not yet implemented',
-        );
-      }
+      const allRolePermissions = rolePermissionConfig.unionOf.map(
+        (roleId: string) =>
+          this.getPermissionsForRole(roleId, objectPermissionsByRoleId),
+      );
+
+      objectPermissions = computePermissionUnion(allRolePermissions);
     }
 
     if (rolePermissionConfig && 'intersectionOf' in rolePermissionConfig) {
@@ -249,7 +245,9 @@ export class WorkspaceEntityManager extends EntityManager {
       permissionOptions,
     )
       .insert()
-      .setWorkspaceAuthContext(authContext ?? ({} as WorkspaceAuthContext))
+      .setWorkspaceAuthContext(
+        authContext ?? ({} as WorkspaceAuthContext),
+      )
       .values(entity)
       .returning(selectedColumns)
       .execute();
