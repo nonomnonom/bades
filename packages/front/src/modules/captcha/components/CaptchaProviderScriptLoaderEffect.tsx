@@ -35,15 +35,30 @@ export const CaptchaProviderScriptLoaderEffect = () => {
       return;
     }
 
-    let scriptElement: HTMLScriptElement | null = document.querySelector(
-      `script[src="${scriptUrl}"]`,
-    );
+    const scriptSelector =
+      captcha.provider === CaptchaDriverType.TURNSTILE
+        ? 'script[src*="challenges.cloudflare.com/turnstile/v0/api.js"]'
+        : `script[src="${scriptUrl}"]`;
+
+    let scriptElement: HTMLScriptElement | null =
+      document.querySelector(scriptSelector);
+
+    if (scriptElement !== null && scriptElement.src !== scriptUrl) {
+      scriptElement.remove();
+      scriptElement = null;
+      setIsCaptchaScriptLoaded(false);
+    }
+
     if (!scriptElement) {
       scriptElement = document.createElement('script');
       scriptElement.src = scriptUrl;
       scriptElement.onload = () => {
         if (captcha.provider === CaptchaDriverType.GOOGLE_RECAPTCHA) {
           window.grecaptcha?.ready(() => {
+            setIsCaptchaScriptLoaded(true);
+          });
+        } else if (captcha.provider === CaptchaDriverType.TURNSTILE) {
+          window.turnstile?.ready(() => {
             setIsCaptchaScriptLoaded(true);
           });
         } else {

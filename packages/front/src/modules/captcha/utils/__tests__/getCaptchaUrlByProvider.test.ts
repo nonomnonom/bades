@@ -24,7 +24,7 @@ describe('getCaptchaUrlByProvider', () => {
     const captchaUrl = getCaptchaUrlByProvider(CaptchaDriverType.TURNSTILE, '');
 
     expect(captchaUrl).toEqual(
-      'https://challenges.cloudflare.com/turnstile/v0/api.js',
+      'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit',
     );
   });
 

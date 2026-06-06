@@ -5,6 +5,7 @@ import { Provider as JotaiProvider } from 'jotai';
 import { useRequestFreshCaptchaToken } from '@/captcha/hooks/useRequestFreshCaptchaToken';
 import { isRequestingCaptchaTokenState } from '@/captcha/states/isRequestingCaptchaTokenState';
 import { isCaptchaRequiredForPath } from '@/captcha/utils/isCaptchaRequiredForPath';
+import { resetTurnstileWidgetIdForTests } from '@/captcha/utils/turnstileWidgetId';
 import { captchaState } from '@/client-config/states/captchaState';
 import { jotaiStore } from '@/ui/utilities/state/jotai/jotaiStore';
 import { type Captcha, CaptchaDriverType } from '~/generated-metadata/graphql';
@@ -19,17 +20,26 @@ describe('useRequestFreshCaptchaToken', () => {
   const mockGrecaptchaExecute = jest.fn();
   const mockTurnstileRender = jest.fn();
   const mockTurnstileExecute = jest.fn();
+  const mockTurnstileReset = jest.fn();
+  const mockTurnstileReady = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
+    resetTurnstileWidgetIdForTests();
 
     window.grecaptcha = {
       execute: mockGrecaptchaExecute,
     };
 
+    mockTurnstileReady.mockImplementation((callback: () => void) => {
+      callback();
+    });
+
     window.turnstile = {
+      ready: mockTurnstileReady,
       render: mockTurnstileRender,
       execute: mockTurnstileExecute,
+      reset: mockTurnstileReset,
     };
 
     (isCaptchaRequiredForPath as jest.Mock).mockReturnValue(true);
@@ -38,14 +48,9 @@ describe('useRequestFreshCaptchaToken', () => {
       return Promise.resolve('google-recaptcha-token');
     });
 
-    mockTurnstileRender.mockImplementation((_selector, _options) => {
+    mockTurnstileRender.mockImplementation((_selector, options) => {
+      options?.callback?.('turnstile-token');
       return 'turnstile-widget-id';
-    });
-
-    mockTurnstileExecute.mockImplementation((widgetId, options) => {
-      if (options !== undefined && typeof options.callback === 'function') {
-        options.callback('turnstile-token');
-      }
     });
   });
 
@@ -103,7 +108,7 @@ describe('useRequestFreshCaptchaToken', () => {
     });
   });
 
-  it('should request a token from Turnstile when provider is TURNSTILE', async () => {
+  it('should render Turnstile once on first token request', async () => {
     jotaiStore.set(isRequestingCaptchaTokenState.atom, false);
     jotaiStore.set(captchaState.atom, {
       provider: CaptchaDriverType.TURNSTILE,
@@ -118,11 +123,36 @@ describe('useRequestFreshCaptchaToken', () => {
       await result.current.requestFreshCaptchaToken();
     });
 
+    expect(mockTurnstileReady).toHaveBeenCalled();
     expect(mockTurnstileRender).toHaveBeenCalledWith('#captcha-widget', {
       sitekey: 'turnstile-site-key',
-    });
-    expect(mockTurnstileExecute).toHaveBeenCalledWith('turnstile-widget-id', {
+      size: 'invisible',
       callback: expect.any(Function),
+      'error-callback': expect.any(Function),
+      'expired-callback': expect.any(Function),
     });
+    expect(mockTurnstileExecute).not.toHaveBeenCalled();
+    expect(mockTurnstileReset).not.toHaveBeenCalled();
+  });
+
+  it('should reset and execute Turnstile on subsequent token requests', async () => {
+    jotaiStore.set(isRequestingCaptchaTokenState.atom, false);
+    jotaiStore.set(captchaState.atom, {
+      provider: CaptchaDriverType.TURNSTILE,
+      siteKey: 'turnstile-site-key',
+    } as Captcha);
+
+    const { result } = renderHook(() => useRequestFreshCaptchaToken(), {
+      wrapper: createWrapper,
+    });
+
+    await act(async () => {
+      await result.current.requestFreshCaptchaToken();
+      await result.current.requestFreshCaptchaToken();
+    });
+
+    expect(mockTurnstileRender).toHaveBeenCalledTimes(1);
+    expect(mockTurnstileReset).toHaveBeenCalledWith('turnstile-widget-id');
+    expect(mockTurnstileExecute).toHaveBeenCalledWith('turnstile-widget-id');
   });
 });
