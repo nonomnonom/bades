@@ -3,7 +3,7 @@ import { DEFAULT_WORKSPACE_LOGO } from '@/ui/navigation/navigation-drawer/consta
 import { useAuth } from '@/auth/hooks/useAuth';
 import { availableWorkspacesState } from '@/auth/states/availableWorkspacesState';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
-import { countAvailableWorkspaces } from '@/auth/utils/availableWorkspacesUtils';
+import { countAvailableWorkspaces, getAvailableWorkspacePathAndSearchParams } from '@/auth/utils/availableWorkspacesUtils';
 import { supportChatState } from '@/client-config/states/supportChatState';
 import { useBuildWorkspaceUrl } from '@/domain-manager/hooks/useBuildWorkspaceUrl';
 import { useRedirectToWorkspaceDomain } from '@/domain-manager/hooks/useRedirectToWorkspaceDomain';
@@ -85,8 +85,13 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
   };
 
   const handleChange = async (availableWorkspace: AvailableWorkspace) => {
-    redirectToWorkspaceDomain(
+    const { pathname, searchParams } =
+      getAvailableWorkspacePathAndSearchParams(availableWorkspace);
+
+    await redirectToWorkspaceDomain(
       getWorkspaceUrl(availableWorkspace.workspaceUrls),
+      pathname,
+      searchParams,
     );
   };
 
@@ -163,11 +168,17 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
             ]
               .filter(({ id }) => id !== currentWorkspace?.id)
               .slice(0, 3)
-              .map((availableWorkspace) => (
+              .map((availableWorkspace) => {
+                const { pathname, searchParams } =
+                  getAvailableWorkspacePathAndSearchParams(availableWorkspace);
+
+                return (
                 <UndecoratedLink
                   key={availableWorkspace.id}
                   to={buildWorkspaceUrl(
                     getWorkspaceUrl(availableWorkspace.workspaceUrls),
+                    pathname,
+                    searchParams,
                   )}
                   onClick={(event) => {
                     event?.preventDefault();
@@ -187,7 +198,8 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                     selected={false}
                   />
                 </UndecoratedLink>
-              ))}
+                );
+              })}
             {availableWorkspacesCount > 4 && (
               <MenuItem
                 LeftIcon={IconSwitchHorizontal}
