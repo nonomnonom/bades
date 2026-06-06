@@ -245,9 +245,7 @@ export class WorkspaceEntityManager extends EntityManager {
       permissionOptions,
     )
       .insert()
-      .setWorkspaceAuthContext(
-        authContext ?? ({} as WorkspaceAuthContext),
-      )
+      .setWorkspaceAuthContext(authContext ?? ({} as WorkspaceAuthContext))
       .values(entity)
       .returning(selectedColumns)
       .execute();

@@ -7,8 +7,7 @@ const assertIsFeatureFlagKey = (
   featureFlagKey: string,
   exceptionToThrow: CustomException,
 ): asserts featureFlagKey is FeatureFlagKey => {
-  // @ts-expect-error legacy noImplicitAny
-  if (isDefined(FeatureFlagKey[featureFlagKey])) return;
+  if (isDefined(FeatureFlagKey[featureFlagKey as FeatureFlagKey])) return;
   throw exceptionToThrow;
 };
 

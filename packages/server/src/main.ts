@@ -31,7 +31,50 @@ const bootstrap = async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     // Expose WWW-Authenticate so browser-based MCP clients can read the
     // resource_metadata pointer on 401. Required by MCP authorization spec.
-    cors: { exposedHeaders: ['WWW-Authenticate'] },
+    cors: {
+      origin: (origin, callback) => {
+        const FRONTEND_URL = process.env.FRONTEND_URL;
+        const SERVER_URL = process.env.SERVER_URL;
+        const allowedUrls: string[] = [FRONTEND_URL, SERVER_URL].filter(
+          (url): url is string => url != null,
+        );
+
+        // Fallback development: izinkan localhost
+        if (allowedUrls.length === 0) {
+          return callback(null, true);
+        }
+
+        // Izinkan request tanpa origin (server-to-server, mobile apps, Postman)
+        if (!origin) {
+          return callback(null, true);
+        }
+
+        const originHostname = new URL(origin).hostname;
+
+        // Cocokkan hostname secara eksplisit untuk mencegah subdomain spoofing
+        for (const allowed of allowedUrls) {
+          const allowedHostname = new URL(allowed).hostname;
+
+          if (originHostname === allowedHostname) {
+            return callback(null, true);
+          }
+
+          // Dukungan multi-tenant: izinkan subdomain dari domain utama
+          const allowedDomainParts = allowedHostname.split('.');
+
+          if (allowedDomainParts.length >= 3) {
+            const baseDomain = allowedDomainParts.slice(-2).join('.');
+
+            if (originHostname.endsWith('.' + baseDomain)) {
+              return callback(null, true);
+            }
+          }
+        }
+
+        callback(null, false);
+      },
+      exposedHeaders: ['WWW-Authenticate'],
+    },
     bufferLogs: process.env.LOGGER_IS_BUFFER_ENABLED === 'true',
     rawBody: true,
     snapshot: process.env.NODE_ENV === NodeEnvironment.DEVELOPMENT,
@@ -54,12 +97,35 @@ const bootstrap = async () => {
 
   app.set('trust proxy', trustProxy);
 
-  // HTTP security headers — relaxed CSP karena app serve React frontend.
+  // HTTP security headers — CSP untuk production hardening.
   app.use(
     helmet({
-      // CSP dimatikan dulu karena inline styles dari Linaria + dynamic script loading.
-      contentSecurityPolicy: false,
-      // Izinkan cross-origin embedding untuk integrasi pihak ketiga.
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          // 'unsafe-eval' diperlukan untuk Monaco editor (CodeMirror).
+          // 'unsafe-inline' diperlukan untuk dynamic script loading di workflow engine.
+          scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+          // 'unsafe-inline' diperlukan karena Linaria meng-generate inline <style>.
+          styleSrc: ["'self'", "'unsafe-inline'"],
+          imgSrc: ["'self'", 'data:', 'blob:', 'https:'],
+          connectSrc: [
+            "'self'",
+            'https://*.tiles.mapbox.com',
+            'https://api.mapbox.com',
+            'https://events.mapbox.com',
+            'https://*.ingest.sentry.io',
+          ],
+          fontSrc: ["'self'", 'data:'],
+          frameSrc: ["'self'"],
+          frameAncestors: ["'self'"],
+          workerSrc: ["'self'", 'blob:'],
+          mediaSrc: ["'self'"],
+          objectSrc: ["'none'"],
+          baseUri: ["'self'"],
+          formAction: ["'self'"],
+        },
+      },
       crossOriginEmbedderPolicy: false,
     }),
   );

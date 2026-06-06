@@ -75,8 +75,14 @@ export const useGetPublicWorkspaceDataByDomain = () => {
           return;
         }
       }
+
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown error';
+
       // oxlint-disable-next-line no-console
-      console.error(error);
+      console.error(
+        `[useGetPublicWorkspaceDataByDomain] Gagal mengambil data workspace: ${errorMessage}`,
+      );
     }
   }, [error, redirectToDefaultDomain]);
 

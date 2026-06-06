@@ -97,10 +97,8 @@ export const computePermissionUnion = (
 
     for (const [fieldName, stats] of Object.entries(fieldStats)) {
       restrictedFields[fieldName] = {
-        canRead:
-          stats.canReadFalseCount === stats.roleCount ? false : null,
-        canUpdate:
-          stats.canUpdateFalseCount === stats.roleCount ? false : null,
+        canRead: stats.canReadFalseCount === stats.roleCount ? false : null,
+        canUpdate: stats.canUpdateFalseCount === stats.roleCount ? false : null,
       };
     }
 

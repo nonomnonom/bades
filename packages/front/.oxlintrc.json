@@ -21,7 +21,7 @@
   ],
   "rules": {
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
-    "no-console": ["warn", { "allow": ["group", "groupCollapsed", "groupEnd"] }],
+    "no-console": ["error", { "allow": ["group", "groupCollapsed", "groupEnd"] }],
     "no-script-url": "error",
     "no-control-regex": "off",
     "no-debugger": "error",

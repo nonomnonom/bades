@@ -27,15 +27,15 @@ export const unserializeDefaultValue = (
   }
 
   if (typeof serializedDefaultValue === 'object') {
-    return Object.entries(serializedDefaultValue).reduce(
-      (acc, [key, value]) => {
-        // @ts-expect-error legacy noImplicitAny
-        acc[key] = unserializeDefaultValue(value);
+    return Object.entries(serializedDefaultValue).reduce<
+      Record<string, unknown>
+    >((acc, [key, value]) => {
+      acc[key] = unserializeDefaultValue(
+        value as FieldMetadataDefaultValueForAnyType,
+      );
 
-        return acc;
-      },
-      {},
-    );
+      return acc;
+    }, {});
   }
 
   throw new Error(

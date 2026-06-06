@@ -16,29 +16,35 @@ import { convertClassNameToObjectMetadataName } from 'src/engine/workspace-manag
 @Global()
 @Module({})
 export class ObjectMetadataRepositoryModule {
-  // @ts-expect-error legacy noImplicitAny
-  static forFeature(objectMetadatas): DynamicModule {
-    // @ts-expect-error legacy noImplicitAny
-    const providers: Provider[] = objectMetadatas.map((objectMetadata) => {
-      // @ts-expect-error legacy noImplicitAny
-      const repositoryClass = metadataToRepositoryMapping[objectMetadata.name];
+  static forFeature(objectMetadatas: { name: string }[]): DynamicModule {
+    const providers: Provider[] = objectMetadatas.map(
+      (objectMetadata: { name: string }) => {
+        const repositoryClass = (
+          metadataToRepositoryMapping as Record<
+            string,
+            new (manager: GlobalWorkspaceOrmManager) => object
+          >
+        )[objectMetadata.name];
 
-      if (!repositoryClass) {
-        throw new Error(
-          `Repository tidak ditemukan untuk ${objectMetadata.name}`,
-        );
-      }
+        if (!repositoryClass) {
+          throw new Error(
+            `Repository tidak ditemukan untuk ${objectMetadata.name}`,
+          );
+        }
 
-      return {
-        provide: `${capitalize(
-          convertClassNameToObjectMetadataName(objectMetadata.name),
-        )}Repository`,
-        useFactory: (globalWorkspaceOrmManager: GlobalWorkspaceOrmManager) => {
-          return new repositoryClass(globalWorkspaceOrmManager);
-        },
-        inject: [GlobalWorkspaceOrmManager],
-      };
-    });
+        return {
+          provide: `${capitalize(
+            convertClassNameToObjectMetadataName(objectMetadata.name),
+          )}Repository`,
+          useFactory: (
+            globalWorkspaceOrmManager: GlobalWorkspaceOrmManager,
+          ) => {
+            return new repositoryClass(globalWorkspaceOrmManager);
+          },
+          inject: [GlobalWorkspaceOrmManager],
+        };
+      },
+    );
 
     return {
       module: ObjectMetadataRepositoryModule,

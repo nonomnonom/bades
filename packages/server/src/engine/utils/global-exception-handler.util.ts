@@ -127,11 +127,21 @@ const convertHttpExceptionToGraphql = (exception: HttpException) => {
   let error: BaseGraphQLError;
 
   if (status in graphQLPredefinedExceptions) {
-    // @ts-expect-error legacy noImplicitAny
-    const message = exception.getResponse()['message'] ?? exception.message;
+    const message =
+      (exception.getResponse() as Record<string, string>)['message'] ??
+      exception.message;
 
-    // @ts-expect-error legacy noImplicitAny
-    error = new graphQLPredefinedExceptions[exception.getStatus()](message);
+    const PredefinedError =
+      graphQLPredefinedExceptions[
+        exception.getStatus() as keyof typeof graphQLPredefinedExceptions
+      ];
+
+    error = PredefinedError
+      ? new PredefinedError(message)
+      : new BaseGraphQLError(
+          'Internal Server Error',
+          exception.getStatus().toString(),
+        );
   } else {
     error = new BaseGraphQLError(
       'Internal Server Error',

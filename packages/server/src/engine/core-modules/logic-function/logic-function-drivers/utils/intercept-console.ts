@@ -13,11 +13,11 @@ export class ConsoleListener {
   }
 
   // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-  intercept(callback: (type: string, message: any[]) => void) {
+  intercept(callback: (type: string, message: unknown[]) => void) {
     Object.keys(this.originalConsole).forEach((method) => {
-      // @ts-expect-error legacy noImplicitAny
-      // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-      console[method] = (...args: any[]) => {
+      (console as unknown as Record<string, unknown>)[method] = (
+        ...args: unknown[]
+      ) => {
         callback(method, args);
       };
     });
@@ -25,11 +25,12 @@ export class ConsoleListener {
 
   release() {
     Object.keys(this.originalConsole).forEach((method) => {
-      // @ts-expect-error legacy noImplicitAny
-      // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-      console[method] = (...args: any[]) => {
-        // @ts-expect-error legacy noImplicitAny
-        this.originalConsole[method](...args);
+      (console as unknown as Record<string, unknown>)[method] = (
+        ...args: unknown[]
+      ) => {
+        (this.originalConsole as Record<string, (...a: unknown[]) => void>)[
+          method
+        ](...args);
       };
     });
   }

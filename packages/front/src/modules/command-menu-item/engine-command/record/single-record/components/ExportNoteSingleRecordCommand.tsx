@@ -29,8 +29,6 @@ export const ExportNoteSingleRecordCommand = () => {
       console.warn(
         `Failed to parse body for record ${recordId}, for rich text version 'v2'`,
       );
-      // oxlint-disable-next-line no-console
-      console.warn(initialBody);
     }
 
     const { exportBlockNoteEditorToPdf } = await import(
