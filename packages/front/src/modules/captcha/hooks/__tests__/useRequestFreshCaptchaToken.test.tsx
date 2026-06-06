@@ -21,7 +21,6 @@ describe('useRequestFreshCaptchaToken', () => {
   const mockTurnstileRender = jest.fn();
   const mockTurnstileExecute = jest.fn();
   const mockTurnstileReset = jest.fn();
-  const mockTurnstileReady = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -31,12 +30,7 @@ describe('useRequestFreshCaptchaToken', () => {
       execute: mockGrecaptchaExecute,
     };
 
-    mockTurnstileReady.mockImplementation((callback: () => void) => {
-      callback();
-    });
-
     window.turnstile = {
-      ready: mockTurnstileReady,
       render: mockTurnstileRender,
       execute: mockTurnstileExecute,
       reset: mockTurnstileReset,
@@ -123,7 +117,6 @@ describe('useRequestFreshCaptchaToken', () => {
       await result.current.requestFreshCaptchaToken();
     });
 
-    expect(mockTurnstileReady).toHaveBeenCalled();
     expect(mockTurnstileRender).toHaveBeenCalledWith('#captcha-widget', {
       sitekey: 'turnstile-site-key',
       size: 'invisible',

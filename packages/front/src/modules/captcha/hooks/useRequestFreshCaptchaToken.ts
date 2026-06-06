@@ -45,34 +45,33 @@ export const useRequestFreshCaptchaToken = () => {
             setIsRequestingCaptchaToken(false);
           });
         break;
-      case CaptchaDriverType.TURNSTILE:
-        window.turnstile.ready(() => {
-          const existingWidgetId = getTurnstileWidgetId();
+      case CaptchaDriverType.TURNSTILE: {
+        const existingWidgetId = getTurnstileWidgetId();
 
-          if (existingWidgetId === undefined) {
-            const widgetId = window.turnstile.render('#captcha-widget', {
-              sitekey: captcha.siteKey,
-              size: 'invisible',
-              callback: (token: string) => {
-                setCaptchaToken(token);
-                setIsRequestingCaptchaToken(false);
-              },
-              'error-callback': () => {
-                setIsRequestingCaptchaToken(false);
-              },
-              'expired-callback': () => {
-                setCaptchaToken(undefined);
-              },
-            });
+        if (existingWidgetId === undefined) {
+          const widgetId = window.turnstile.render('#captcha-widget', {
+            sitekey: captcha.siteKey,
+            size: 'invisible',
+            callback: (token: string) => {
+              setCaptchaToken(token);
+              setIsRequestingCaptchaToken(false);
+            },
+            'error-callback': () => {
+              setIsRequestingCaptchaToken(false);
+            },
+            'expired-callback': () => {
+              setCaptchaToken(undefined);
+            },
+          });
 
-            setTurnstileWidgetId(widgetId);
-            return;
-          }
+          setTurnstileWidgetId(widgetId);
+          break;
+        }
 
-          window.turnstile.reset(existingWidgetId);
-          window.turnstile.execute(existingWidgetId);
-        });
+        window.turnstile.reset(existingWidgetId);
+        window.turnstile.execute(existingWidgetId);
         break;
+      }
     }
   }, [setCaptchaToken, setIsRequestingCaptchaToken, store]);
 

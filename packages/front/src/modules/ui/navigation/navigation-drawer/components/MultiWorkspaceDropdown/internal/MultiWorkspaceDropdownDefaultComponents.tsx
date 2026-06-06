@@ -3,7 +3,10 @@ import { DEFAULT_WORKSPACE_LOGO } from '@/ui/navigation/navigation-drawer/consta
 import { useAuth } from '@/auth/hooks/useAuth';
 import { availableWorkspacesState } from '@/auth/states/availableWorkspacesState';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
-import { countAvailableWorkspaces, getAvailableWorkspacePathAndSearchParams } from '@/auth/utils/availableWorkspacesUtils';
+import {
+  countAvailableWorkspaces,
+  getAvailableWorkspacePathAndSearchParams,
+} from '@/auth/utils/availableWorkspacesUtils';
 import { supportChatState } from '@/client-config/states/supportChatState';
 import { useBuildWorkspaceUrl } from '@/domain-manager/hooks/useBuildWorkspaceUrl';
 import { useRedirectToWorkspaceDomain } from '@/domain-manager/hooks/useRedirectToWorkspaceDomain';
@@ -173,31 +176,31 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
                   getAvailableWorkspacePathAndSearchParams(availableWorkspace);
 
                 return (
-                <UndecoratedLink
-                  key={availableWorkspace.id}
-                  to={buildWorkspaceUrl(
-                    getWorkspaceUrl(availableWorkspace.workspaceUrls),
-                    pathname,
-                    searchParams,
-                  )}
-                  onClick={(event) => {
-                    event?.preventDefault();
-                    handleChange(availableWorkspace);
-                  }}
-                >
-                  <MenuItemSelectAvatar
-                    text={availableWorkspace.displayName ?? t`(Tanpa nama)`}
-                    avatar={
-                      <Avatar
-                        placeholder={availableWorkspace.displayName || ''}
-                        avatarUrl={
-                          availableWorkspace.logo ?? DEFAULT_WORKSPACE_LOGO
-                        }
-                      />
-                    }
-                    selected={false}
-                  />
-                </UndecoratedLink>
+                  <UndecoratedLink
+                    key={availableWorkspace.id}
+                    to={buildWorkspaceUrl(
+                      getWorkspaceUrl(availableWorkspace.workspaceUrls),
+                      pathname,
+                      searchParams,
+                    )}
+                    onClick={(event) => {
+                      event?.preventDefault();
+                      handleChange(availableWorkspace);
+                    }}
+                  >
+                    <MenuItemSelectAvatar
+                      text={availableWorkspace.displayName ?? t`(Tanpa nama)`}
+                      avatar={
+                        <Avatar
+                          placeholder={availableWorkspace.displayName || ''}
+                          avatarUrl={
+                            availableWorkspace.logo ?? DEFAULT_WORKSPACE_LOGO
+                          }
+                        />
+                      }
+                      selected={false}
+                    />
+                  </UndecoratedLink>
                 );
               })}
             {availableWorkspacesCount > 4 && (

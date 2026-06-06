@@ -126,7 +126,11 @@ const bootstrap = async () => {
             'https://www.google.com',
           ],
           fontSrc: ["'self'", 'data:'],
-          frameSrc: ["'self'", 'https://challenges.cloudflare.com', 'https://www.google.com'],
+          frameSrc: [
+            "'self'",
+            'https://challenges.cloudflare.com',
+            'https://www.google.com',
+          ],
           frameAncestors: ["'self'"],
           workerSrc: ["'self'", 'blob:'],
           mediaSrc: ["'self'"],

@@ -8,7 +8,7 @@ import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomState
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { assertIsDefinedOrThrow } from 'shared/utils';
+import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 import { CaptchaDriverType } from '~/generated-metadata/graphql';
 
 export const CaptchaProviderScriptLoaderEffect = () => {
@@ -52,13 +52,13 @@ export const CaptchaProviderScriptLoaderEffect = () => {
     if (!scriptElement) {
       scriptElement = document.createElement('script');
       scriptElement.src = scriptUrl;
+      if (captcha.provider === CaptchaDriverType.TURNSTILE) {
+        // Script dinamis default-nya async; Turnstile explicit mode tidak boleh async/defer.
+        scriptElement.async = false;
+      }
       scriptElement.onload = () => {
         if (captcha.provider === CaptchaDriverType.GOOGLE_RECAPTCHA) {
           window.grecaptcha?.ready(() => {
-            setIsCaptchaScriptLoaded(true);
-          });
-        } else if (captcha.provider === CaptchaDriverType.TURNSTILE) {
-          window.turnstile?.ready(() => {
             setIsCaptchaScriptLoaded(true);
           });
         } else {
@@ -66,6 +66,18 @@ export const CaptchaProviderScriptLoaderEffect = () => {
         }
       };
       document.body.appendChild(scriptElement);
+    } else if (
+      captcha.provider === CaptchaDriverType.TURNSTILE &&
+      isDefined(window.turnstile)
+    ) {
+      setIsCaptchaScriptLoaded(true);
+    } else if (
+      captcha.provider === CaptchaDriverType.GOOGLE_RECAPTCHA &&
+      isDefined(window.grecaptcha)
+    ) {
+      window.grecaptcha.ready(() => {
+        setIsCaptchaScriptLoaded(true);
+      });
     }
   }, [
     captcha?.provider,
