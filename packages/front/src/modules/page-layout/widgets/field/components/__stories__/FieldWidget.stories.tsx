@@ -38,74 +38,74 @@ import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMet
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
+const keluargaObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 
-const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('person');
+const pendudukObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
 
-const opportunityObjectMetadataItem =
-  getMockObjectMetadataItemOrThrow('opportunity');
+const programBantuanObjectMetadataItem =
+  getMockObjectMetadataItemOrThrow('programBantuan');
 
 const timelineActivityObjectMetadataItem = getMockObjectMetadataItemOrThrow(
   CoreObjectNameSingular.TimelineActivity,
 );
 
 const nameField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'name',
 });
 
 const addressField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'address',
 });
 
 const employeesField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'employees',
 });
 
 const linkedinField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'linkedinLink',
 });
 
 const accountOwnerField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'accountOwner',
 });
 
 const idealCustomerProfileField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'idealCustomerProfile',
 });
 
 const annualRecurringRevenueField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'annualRecurringRevenue',
 });
 
 const personEmailsField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: personObjectMetadataItem,
+  objectMetadataItem: pendudukObjectMetadataItem,
   fieldName: 'emails',
 });
 
 const personPhonesField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: personObjectMetadataItem,
+  objectMetadataItem: pendudukObjectMetadataItem,
   fieldName: 'phones',
 });
 
 const opportunityStageField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: opportunityObjectMetadataItem,
+  objectMetadataItem: programBantuanObjectMetadataItem,
   fieldName: 'stage',
 });
 
 const companyWorkPolicyField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'workPolicy',
 });
 
 const companyPeopleField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'daftarPenduduk',
 });
 
@@ -335,7 +335,7 @@ export const TextFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Nama Keluarga',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -361,7 +361,7 @@ export const TextFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -389,7 +389,7 @@ export const TextFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -430,7 +430,7 @@ export const AddressFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Alamat',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 1,
@@ -456,7 +456,7 @@ export const AddressFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -484,7 +484,7 @@ export const AddressFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -528,7 +528,7 @@ export const NumberFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Jumlah Anggota',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 2,
@@ -554,7 +554,7 @@ export const NumberFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -582,7 +582,7 @@ export const NumberFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -623,7 +623,7 @@ export const LinkFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Tautan LinkedIn',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 3,
@@ -649,7 +649,7 @@ export const LinkFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -677,7 +677,7 @@ export const LinkFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -718,7 +718,7 @@ export const ManyToOneRelationFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Pengelola Akun',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 4,
@@ -744,7 +744,7 @@ export const ManyToOneRelationFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -782,7 +782,7 @@ export const ManyToOneRelationFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -823,7 +823,7 @@ export const OneToManyRelationFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Daftar Anggota',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 11,
@@ -849,7 +849,7 @@ export const OneToManyRelationFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -879,7 +879,7 @@ export const OneToManyRelationFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -920,7 +920,7 @@ export const BooleanFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Profil Pelanggan Ideal',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 5,
@@ -946,7 +946,7 @@ export const BooleanFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -974,7 +974,7 @@ export const BooleanFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1014,7 +1014,7 @@ export const CurrencyFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Pendapatan Tahunan Berulang',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 6,
@@ -1040,7 +1040,7 @@ export const CurrencyFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1068,7 +1068,7 @@ export const CurrencyFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1108,7 +1108,7 @@ export const EmailsFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Surel',
-      objectMetadataId: personObjectMetadataItem.id,
+      objectMetadataId: pendudukObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 7,
@@ -1134,7 +1134,7 @@ export const EmailsFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      personObjectMetadataItem.id,
+      pendudukObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1162,7 +1162,7 @@ export const EmailsFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_PERSON_RECORD_ID,
                     targetObjectNameSingular:
-                      personObjectMetadataItem.nameSingular,
+                      pendudukObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1203,7 +1203,7 @@ export const PhonesFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Nomor Telepon',
-      objectMetadataId: personObjectMetadataItem.id,
+      objectMetadataId: pendudukObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 8,
@@ -1229,7 +1229,7 @@ export const PhonesFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      personObjectMetadataItem.id,
+      pendudukObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1257,7 +1257,7 @@ export const PhonesFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_PERSON_RECORD_ID,
                     targetObjectNameSingular:
-                      personObjectMetadataItem.nameSingular,
+                      pendudukObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1298,7 +1298,7 @@ export const SelectFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Tahap',
-      objectMetadataId: opportunityObjectMetadataItem.id,
+      objectMetadataId: programBantuanObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 9,
@@ -1324,7 +1324,7 @@ export const SelectFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      opportunityObjectMetadataItem.id,
+      programBantuanObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1352,7 +1352,7 @@ export const SelectFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_OPPORTUNITY_RECORD_ID,
                     targetObjectNameSingular:
-                      opportunityObjectMetadataItem.nameSingular,
+                      programBantuanObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1394,7 +1394,7 @@ export const MultiSelectFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Kebijakan Kerja',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 10,
@@ -1420,7 +1420,7 @@ export const MultiSelectFieldWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1448,7 +1448,7 @@ export const MultiSelectFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1593,7 +1593,7 @@ export const ManyToOneRelationCardWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Pengelola Akun',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 4,
@@ -1619,7 +1619,7 @@ export const ManyToOneRelationCardWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1656,7 +1656,7 @@ export const ManyToOneRelationCardWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1706,7 +1706,7 @@ export const OneToManyRelationCardWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Daftar Anggota',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 11,
@@ -1732,7 +1732,7 @@ export const OneToManyRelationCardWidget: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -1761,7 +1761,7 @@ export const OneToManyRelationCardWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1964,7 +1964,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Daftar Anggota',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 11,
@@ -1990,7 +1990,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
     jotaiStore.set(isMinimalMetadataReadyState.atom, true);
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
     jotaiStore.set(
       pageLayoutPersistedComponentState.atomFamily({
@@ -2022,7 +2022,7 @@ export const OneToManyRelationCardWidgetWithProgressiveLoading: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >

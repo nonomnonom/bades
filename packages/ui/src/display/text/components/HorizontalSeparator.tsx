@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { type JSX } from 'react';
+import { type ReactNode } from 'react';
 import { Label } from '@ui/display';
 import { themeCssVariables } from '@ui/theme-constants';
 
@@ -53,7 +53,7 @@ export const HorizontalSeparator = ({
   text = '',
   noMargin = false,
   color,
-}: HorizontalSeparatorProps): JSX.Element => {
+}: HorizontalSeparatorProps): ReactNode => {
   const borderColor = color ?? themeCssVariables.border.color.medium;
 
   return (

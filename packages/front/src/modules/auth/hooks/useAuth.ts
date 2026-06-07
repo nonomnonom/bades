@@ -293,6 +293,7 @@ export const useAuth = () => {
           handleSetLoginToken(loginToken);
           navigate(AppPath.SignInUp);
           setSignInUpStep(SignInUpStep.TwoFactorAuthenticationProvision);
+          return;
         }
 
         if (
@@ -304,7 +305,12 @@ export const useAuth = () => {
           handleSetLoginToken(loginToken);
           navigate(AppPath.SignInUp);
           setSignInUpStep(SignInUpStep.TwoFactorAuthenticationVerification);
+          return;
         }
+
+        // Re-throw errors yang belum ditangani (mis. EMAIL_NOT_VERIFIED)
+        // agar caller seperti useVerifyLogin bisa menanganinya.
+        throw error;
       }
     },
     [

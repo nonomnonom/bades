@@ -8,9 +8,9 @@ import {
 
 import {
   AppTooltip as Tooltip,
-  TooltipDelay,
-  TooltipPosition,
 } from '../AppTooltip';
+import { TooltipDelay } from '../AppTooltip.types';
+import { TooltipPosition } from '../AppTooltip.types';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'UI/Display/Tooltip',

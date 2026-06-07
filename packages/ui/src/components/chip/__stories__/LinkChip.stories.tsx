@@ -8,7 +8,8 @@ import {
 } from '@ui/testing';
 import { MemoryRouter } from 'react-router-dom';
 
-import { ChipAccent, ChipSize, ChipVariant } from '../Chip';
+import { ChipAccent } from '../Chip.types';
+import { ChipSize, ChipVariant } from '../Chip.types';
 import { LinkChip } from '../LinkChip';
 
 const meta: Meta<typeof LinkChip> = {

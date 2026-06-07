@@ -2,11 +2,12 @@ import { mapObjectMetadataToGraphQLQuery } from '@/object-metadata/utils/mapObje
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { normalizeGQLQuery } from '~/utils/normalizeGQLQuery';
 
-const personObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
-  (item) => item.nameSingular === 'penduduk',
-);
+const pendudukObjectMetadataItem =
+  getTestEnrichedObjectMetadataItemsMock().find(
+    (item) => item.nameSingular === 'penduduk',
+  );
 
-if (!personObjectMetadataItem) {
+if (!pendudukObjectMetadataItem) {
   throw new Error('Metadata objek tidak ditemukan');
 }
 
@@ -14,7 +15,7 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
   it('should query only specified recordGqlFields', async () => {
     const res = mapObjectMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordGqlFields: {
         keluarga: true,
         xLink: true,
@@ -31,12 +32,12 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
         keluargaId: true,
       },
       objectPermissionsByObjectMetadataId: {
-        [personObjectMetadataItem.id]: {
+        [pendudukObjectMetadataItem.id]: {
           canReadObjectRecords: true,
           canUpdateObjectRecords: true,
           canSoftDeleteObjectRecords: true,
           canDestroyObjectRecords: true,
-          objectMetadataId: personObjectMetadataItem.id,
+          objectMetadataId: pendudukObjectMetadataItem.id,
           restrictedFields: {},
           rowLevelPermissionPredicates: [],
           rowLevelPermissionPredicateGroups: [],
@@ -134,15 +135,15 @@ describe('mapObjectMetadataToGraphQLQuery', () => {
   it('should load only specified operation fields nested', async () => {
     const res = mapObjectMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordGqlFields: { keluarga: { id: true }, id: true, name: true },
       objectPermissionsByObjectMetadataId: {
-        [personObjectMetadataItem.id]: {
+        [pendudukObjectMetadataItem.id]: {
           canReadObjectRecords: true,
           canUpdateObjectRecords: true,
           canSoftDeleteObjectRecords: true,
           canDestroyObjectRecords: true,
-          objectMetadataId: personObjectMetadataItem.id,
+          objectMetadataId: pendudukObjectMetadataItem.id,
           restrictedFields: {},
           rowLevelPermissionPredicates: [],
           rowLevelPermissionPredicateGroups: [],

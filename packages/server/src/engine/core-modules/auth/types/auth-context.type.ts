@@ -1,4 +1,4 @@
-import { type ApplicationEntity } from 'src/engine/core-modules/application/application.entity';
+import { type FlatApplication } from 'src/engine/core-modules/application/types/flat-application.type';
 import { type AuthProviderEnum } from 'src/engine/core-modules/workspace/types/workspace.type';
 import { type FlatApiKey } from 'src/engine/core-modules/api-key/types/flat-api-key.type';
 import { type FlatAuthContextUser } from 'src/engine/core-modules/auth/types/flat-auth-context-user.type';
@@ -15,7 +15,7 @@ export type RawAuthContext = {
   workspaceMemberId?: string;
   workspaceMember?: WorkspaceMemberWorkspaceEntity;
   workspace?: FlatWorkspace;
-  application?: ApplicationEntity | null | undefined;
+  application?: FlatApplication | null | undefined;
   userWorkspaceId?: string;
   userWorkspace?: FlatUserWorkspace;
   authProvider?: AuthProviderEnum;

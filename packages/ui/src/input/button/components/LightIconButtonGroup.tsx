@@ -34,30 +34,30 @@ export const LightIconButtonGroup = ({
   className,
 }: LightIconButtonGroupProps) => (
   <StyledLightIconButtonGroupContainer className={className}>
-    {iconButtons.map(
-      ({ Wrapper, Icon, accent, onClick, ariaLabel, dataTestId }, index) => {
-        const iconButton = (
-          <LightIconButton
-            key={`light-icon-button-${index}`}
-            Icon={Icon}
-            accent={accent}
-            disabled={!onClick}
-            onClick={onClick}
-            size={size}
-            aria-label={ariaLabel}
-            testId={dataTestId}
-          />
-        );
+    {iconButtons.map((iconButtonItem, index) => {
+      const { Wrapper, Icon, accent, onClick, ariaLabel, dataTestId } = iconButtonItem;
+      const iconButtonKey = Icon.displayName || Icon.name || `light-icon-${index}`;
+      const iconButton = (
+        <LightIconButton
+          key={iconButtonKey}
+          Icon={Icon}
+          accent={accent}
+          disabled={!onClick}
+          onClick={onClick}
+          size={size}
+          aria-label={ariaLabel}
+          testId={dataTestId}
+        />
+      );
 
-        return Wrapper ? (
-          <Wrapper
-            key={`light-icon-button-wrapper-${index}`}
-            iconButton={iconButton}
-          />
-        ) : (
-          iconButton
-        );
-      },
-    )}
+      return Wrapper ? (
+        <Wrapper
+          key={`wrapper-${iconButtonKey}`}
+          iconButton={iconButton}
+        />
+      ) : (
+        iconButton
+      );
+    })}
   </StyledLightIconButtonGroupContainer>
 );

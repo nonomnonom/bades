@@ -52,7 +52,7 @@ describe('isFieldOrNestedFieldDateKind', () => {
       ],
     } as EnrichedObjectMetadataItem;
 
-    const companyObjectMetadataItem = {
+    const keluargaObjectMetadataItem = {
       id: 'keluarga-id',
       nameSingular: 'keluarga',
       fields: [
@@ -67,7 +67,7 @@ describe('isFieldOrNestedFieldDateKind', () => {
       fieldId: 'relation-field-id',
       subFieldName: 'createdAt',
       objectMetadataItem,
-      objectMetadataItems: [companyObjectMetadataItem],
+      objectMetadataItems: [keluargaObjectMetadataItem],
     });
 
     expect(result).toBe(true);

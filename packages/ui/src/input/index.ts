@@ -88,6 +88,7 @@ export { ColorSchemeCard } from './color-scheme/components/ColorSchemeCard';
 export type { ColorSchemePickerProps } from './color-scheme/components/ColorSchemePicker';
 export { ColorSchemePicker } from './color-scheme/components/ColorSchemePicker';
 export { CardPicker } from './components/CardPicker';
+export type { CheckboxProps } from './components/Checkbox';
 export {
   CheckboxVariant,
   CheckboxShape,
@@ -95,6 +96,7 @@ export {
   CheckboxAccent,
   Checkbox,
 } from './components/Checkbox';
+export type { InputProps } from './components/Checkbox.types';
 export { IconListViewGrip } from './components/IconListViewGrip';
 export type { RadioProps } from './components/Radio';
 export { RadioSize, LabelPosition, Radio } from './components/Radio';

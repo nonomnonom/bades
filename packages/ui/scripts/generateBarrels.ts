@@ -98,11 +98,19 @@ const partitionFileExportsByType = (declarations: DeclarationOccurrence[]) => {
 const generateModuleIndexFiles = (exportByBarrel: ExportByBarrel[]) => {
   return exportByBarrel.map<createTypeScriptFileArgs>(
     ({ barrel: { moduleDirectory }, allFileExports }) => {
+      const seenNames = new Set<string>();
+
       const content = allFileExports
         .sort((a, b) => a.file.localeCompare(b.file))
         .map(({ exports, file }) => {
+          const uniqueExports = exports.filter(({ name }) => {
+            if (seenNames.has(name)) return false;
+            seenNames.add(name);
+            return true;
+          });
+
           const { otherDeclarations, typeAndInterfaceDeclarations } =
-            partitionFileExportsByType(exports);
+            partitionFileExportsByType(uniqueExports);
 
           const fileWithoutExtension = path.parse(file).name;
           const pathToImport = slash(
@@ -390,11 +398,13 @@ function extractExportsFromSourceFile(sourceFile: ts.SourceFile) {
           node.exportClause.elements.forEach((element) => {
             const exportName = element.name.text;
 
-            // Check both the declaration and the individual specifier for type-only exports
+            // Check both the declaration-level and per-element type-only flags.
+            // e.g. `export { type Foo }` sets element.isTypeOnly; `export type { Foo }` sets node.isTypeOnly.
             const isTypeExport =
-              node.isTypeOnly || ts.isTypeOnlyExportDeclaration(node);
+              node.isTypeOnly ||
+              element.isTypeOnly ||
+              ts.isTypeOnlyExportDeclaration(node);
             if (isTypeExport) {
-              // should handle kind
               exports.push({
                 kind: 'type',
                 name: exportName,

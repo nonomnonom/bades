@@ -34,18 +34,18 @@ const meta: Meta<typeof RecordCalendarMonth> = {
   component: RecordCalendarMonth,
   decorators: [
     (Story) => {
-      const companyObjectMetadataItem =
+      const keluargaObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === 'company',
+          (item) => item.nameSingular === 'keluarga',
         )!;
-      const instanceId = companyObjectMetadataItem.id;
+      const instanceId = keluargaObjectMetadataItem.id;
 
       const setCurrentRecordFields = useSetAtomComponentState(
         currentRecordFieldsComponentState,
         instanceId,
       );
 
-      const mockView = mockedViews.find((v) => v.name === 'All Companies')!;
+      const mockView = mockedViews.find((v) => v.name === 'Semua Keluarga')!;
 
       const setContextStoreCurrentViewId = useSetAtomComponentState(
         contextStoreCurrentViewIdComponentState,
@@ -54,7 +54,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
 
       const columns = useMemo(
         () =>
-          companyObjectMetadataItem.fields.map(
+          keluargaObjectMetadataItem.fields.map(
             (fieldMetadataItem, index) =>
               ({
                 id: fieldMetadataItem.id,
@@ -64,7 +64,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
                 size: 100,
               }) satisfies RecordField,
           ),
-        [companyObjectMetadataItem.fields],
+        [keluargaObjectMetadataItem.fields],
       );
 
       const [isLoaded, setIsLoaded] = useState(false);
@@ -87,7 +87,7 @@ const meta: Meta<typeof RecordCalendarMonth> = {
         labelIdentifierFieldMetadataItem,
         recordFieldByFieldMetadataItemId,
       } = useRecordIndexFieldMetadataDerivedStates(
-        companyObjectMetadataItem,
+        keluargaObjectMetadataItem,
         instanceId,
       );
 
@@ -102,8 +102,8 @@ const meta: Meta<typeof RecordCalendarMonth> = {
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
             objectNamePlural: CoreObjectNamePlural.Keluarga,
-            objectNameSingular: 'company',
-            objectMetadataItem: companyObjectMetadataItem,
+            objectNameSingular: 'keluarga',
+            objectMetadataItem: keluargaObjectMetadataItem,
             recordIndexId: instanceId,
             viewBarInstanceId: instanceId,
             labelIdentifierFieldMetadataItem,
@@ -127,11 +127,11 @@ const meta: Meta<typeof RecordCalendarMonth> = {
                   <RecordCalendarContextProvider
                     value={{
                       viewBarInstanceId: instanceId,
-                      objectNameSingular: 'company',
+                      objectNameSingular: 'keluarga',
                       visibleRecordFields: [],
-                      objectMetadataItem: companyObjectMetadataItem,
+                      objectMetadataItem: keluargaObjectMetadataItem,
                       objectPermissions: {
-                        objectMetadataId: companyObjectMetadataItem.id,
+                        objectMetadataId: keluargaObjectMetadataItem.id,
                         canReadObjectRecords: true,
                         canUpdateObjectRecords: true,
                         canSoftDeleteObjectRecords: true,

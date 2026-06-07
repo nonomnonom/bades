@@ -39,18 +39,18 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
   component: ViewBarFilterDropdown,
   decorators: [
     (Story) => {
-      const companyObjectMetadataItem =
+      const keluargaObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === 'company',
+          (item) => item.nameSingular === 'keluarga',
         )!;
-      const instanceId = companyObjectMetadataItem.id;
+      const instanceId = keluargaObjectMetadataItem.id;
 
       const setCurrentRecordFields = useSetAtomComponentState(
         currentRecordFieldsComponentState,
         instanceId,
       );
 
-      const mockView = mockedViews.find((v) => v.name === 'All Companies')!;
+      const mockView = mockedViews.find((v) => v.name === 'Semua Keluarga')!;
 
       const setContextStoreCurrentViewId = useSetAtomComponentState(
         contextStoreCurrentViewIdComponentState,
@@ -59,7 +59,7 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
 
       const columns = useMemo(
         () =>
-          companyObjectMetadataItem.fields.map(
+          keluargaObjectMetadataItem.fields.map(
             (fieldMetadataItem, index) =>
               ({
                 id: fieldMetadataItem.id,
@@ -69,7 +69,7 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
                 size: 100,
               }) satisfies RecordField,
           ),
-        [companyObjectMetadataItem.fields],
+        [keluargaObjectMetadataItem.fields],
       );
 
       const [isLoaded, setIsLoaded] = useState(false);
@@ -92,7 +92,7 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
         labelIdentifierFieldMetadataItem,
         recordFieldByFieldMetadataItemId,
       } = useRecordIndexFieldMetadataDerivedStates(
-        companyObjectMetadataItem,
+        keluargaObjectMetadataItem,
         instanceId,
       );
 
@@ -107,8 +107,8 @@ const meta: Meta<typeof ViewBarFilterDropdown> = {
             indexIdentifierUrl: () => '',
             onIndexRecordsLoaded: () => {},
             objectNamePlural: CoreObjectNamePlural.Keluarga,
-            objectNameSingular: 'company',
-            objectMetadataItem: companyObjectMetadataItem,
+            objectNameSingular: 'keluarga',
+            objectMetadataItem: keluargaObjectMetadataItem,
             recordIndexId: instanceId,
             viewBarInstanceId: instanceId,
             labelIdentifierFieldMetadataItem,
@@ -203,11 +203,11 @@ const MOCK_ROOT_FILTER_GROUP_ID = 'test-root-filter-group-id';
 export const AdvancedFilterCountBadge: Story = {
   decorators: [
     (Story) => {
-      const companyObjectMetadataItem =
+      const keluargaObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === 'company',
+          (item) => item.nameSingular === 'keluarga',
         )!;
-      const instanceId = companyObjectMetadataItem.id;
+      const instanceId = keluargaObjectMetadataItem.id;
 
       const setCurrentRecordFilterGroups = useSetAtomComponentState(
         currentRecordFilterGroupsComponentState,
@@ -219,7 +219,7 @@ export const AdvancedFilterCountBadge: Story = {
         instanceId,
       );
 
-      const firstFieldMetadataItem = companyObjectMetadataItem.fields[0];
+      const firstFieldMetadataItem = keluargaObjectMetadataItem.fields[0];
 
       useEffect(() => {
         setCurrentRecordFilterGroups([

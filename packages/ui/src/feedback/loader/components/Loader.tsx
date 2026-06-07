@@ -47,8 +47,8 @@ export const Loader = ({ color }: LoaderProps) => {
         color={color}
         animate={{
           x: [-16, 0, 16],
-          width: [8, 12, 8],
-          height: [8, 2, 8],
+          scaleX: [1, 1.5, 1],
+          scaleY: [1, 0.25, 1],
         }}
         transition={{
           duration: 0.8,

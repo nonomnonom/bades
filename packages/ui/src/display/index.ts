@@ -528,12 +528,9 @@ export type { TintedIconTileProps } from './tinted-icon-tile/components/TintedIc
 export { TintedIconTile } from './tinted-icon-tile/components/TintedIconTile';
 export type { IconTileColorShades } from './tinted-icon-tile/utils/getIconTileColorShades';
 export { getIconTileColorShades } from './tinted-icon-tile/utils/getIconTileColorShades';
-export type { AppTooltipProps } from './tooltip/AppTooltip';
-export {
-  TooltipPosition,
-  TooltipDelay,
-  AppTooltip,
-} from './tooltip/AppTooltip';
+export { AppTooltip } from './tooltip/AppTooltip';
+export type { AppTooltipProps } from './tooltip/AppTooltip.types';
+export { TooltipPosition, TooltipDelay } from './tooltip/AppTooltip.types';
 export { OverflowingTextWithTooltip } from './tooltip/OverflowingTextWithTooltip';
 export { H1TitleFontColor, H1Title } from './typography/components/H1Title';
 export { H2Title } from './typography/components/H2Title';

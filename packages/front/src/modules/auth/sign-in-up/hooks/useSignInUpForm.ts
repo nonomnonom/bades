@@ -30,7 +30,6 @@ const makeValidationSchema = (signInUpStep: SignInUpStep) =>
                 `Kata sandi harus antara 8 dan 50 karakter`,
               )
           : z.string().optional(),
-      captchaToken: z.string().default(''),
     })
     .required();
 
@@ -52,7 +51,6 @@ export const useSignInUpForm = () => {
       exist: false,
       email: '',
       password: '',
-      captchaToken: '',
     },
     resolver: zodResolver(validationSchema),
   });

@@ -1,12 +1,12 @@
 import { styled } from '@linaria/react';
+import { Chip } from './Chip';
 import {
-  Chip,
   ChipAccent,
   type ChipProps,
   ChipSize,
   ChipVariant,
-} from '@ui/components/chip/Chip';
-import { LINK_CHIP_CLICK_OUTSIDE_ID } from '@ui/components/chip/constants/LinkChipClickOutsideId';
+} from './Chip.types';
+import { LINK_CHIP_CLICK_OUTSIDE_ID } from './constants/LinkChipClickOutsideId';
 import { type TriggerEventType, useMouseDownNavigation } from '@ui/utilities';
 import { type MouseEvent } from 'react';
 import { Link } from 'react-router-dom';

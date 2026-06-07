@@ -72,7 +72,7 @@ type Story = StoryObj<typeof ObjectOptionsDropdownContent>;
 const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
   decorators: [
     (Story) => {
-      const companyObjectMetadataItem =
+      const keluargaObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
           (item) => item.nameSingular === 'keluarga',
         )!;
@@ -83,7 +83,7 @@ const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
         labelIdentifierFieldMetadataItem,
         recordFieldByFieldMetadataItemId,
       } = useRecordIndexFieldMetadataDerivedStates(
-        companyObjectMetadataItem,
+        keluargaObjectMetadataItem,
         instanceId,
       );
 
@@ -95,7 +95,7 @@ const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
             onIndexRecordsLoaded: () => {},
             objectNamePlural: 'daftarKeluarga',
             objectNameSingular: 'keluarga',
-            objectMetadataItem: companyObjectMetadataItem,
+            objectMetadataItem: keluargaObjectMetadataItem,
             recordIndexId: instanceId,
             viewBarInstanceId: instanceId,
             fieldDefinitionByFieldMetadataItemId,
@@ -110,7 +110,7 @@ const createStory = (contentId: ObjectOptionsContentId | null): Story => ({
             <ObjectOptionsDropdownContext.Provider
               value={{
                 viewType: ViewType.TABLE,
-                objectMetadataItem: companyObjectMetadataItem,
+                objectMetadataItem: keluargaObjectMetadataItem,
                 recordIndexId: instanceId,
                 currentContentId: contentId,
                 onContentChange: () => {},

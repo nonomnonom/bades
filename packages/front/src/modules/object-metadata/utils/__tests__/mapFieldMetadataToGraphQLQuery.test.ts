@@ -2,11 +2,12 @@ import { mapFieldMetadataToGraphQLQuery } from '@/object-metadata/utils/mapField
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 import { normalizeGQLField } from '~/utils/normalizeGQLField';
 
-const personObjectMetadataItem = getTestEnrichedObjectMetadataItemsMock().find(
-  (item) => item.nameSingular === 'penduduk',
-);
+const pendudukObjectMetadataItem =
+  getTestEnrichedObjectMetadataItemsMock().find(
+    (item) => item.nameSingular === 'penduduk',
+  );
 
-if (!personObjectMetadataItem) {
+if (!pendudukObjectMetadataItem) {
   throw new Error('Metadata objek tidak ditemukan');
 }
 
@@ -15,7 +16,7 @@ describe('mapFieldMetadataToGraphQLQuery', () => {
     const res = mapFieldMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       gqlField: 'id',
-      fieldMetadata: personObjectMetadataItem.fields.find(
+      fieldMetadata: pendudukObjectMetadataItem.fields.find(
         (field) => field.name === 'id',
       )!,
       objectPermissionsByObjectMetadataId: {},
@@ -26,7 +27,7 @@ describe('mapFieldMetadataToGraphQLQuery', () => {
     const res = mapFieldMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       gqlField: 'name',
-      fieldMetadata: personObjectMetadataItem.fields.find(
+      fieldMetadata: pendudukObjectMetadataItem.fields.find(
         (field) => field.name === 'name',
       )!,
       objectPermissionsByObjectMetadataId: {},
@@ -44,7 +45,7 @@ describe('mapFieldMetadataToGraphQLQuery', () => {
     const res = mapFieldMetadataToGraphQLQuery({
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
       gqlField: 'keluarga',
-      fieldMetadata: personObjectMetadataItem.fields.find(
+      fieldMetadata: pendudukObjectMetadataItem.fields.find(
         (field) => field.name === 'keluarga',
       )!,
       objectPermissionsByObjectMetadataId: {},
@@ -122,7 +123,7 @@ idealCustomerProfile
         idealCustomerProfile: true,
       },
       gqlField: 'keluarga',
-      fieldMetadata: personObjectMetadataItem.fields.find(
+      fieldMetadata: pendudukObjectMetadataItem.fields.find(
         (field) => field.name === 'keluarga',
       )!,
       objectPermissionsByObjectMetadataId: {},

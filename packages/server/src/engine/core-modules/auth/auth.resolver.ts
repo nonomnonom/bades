@@ -702,6 +702,15 @@ export class AuthResolver {
       );
     }
 
+    if (
+      impersonatorUserWorkspace.userId === toImpersonateUserWorkspace.userId
+    ) {
+      throw new AuthException(
+        'User cannot impersonate themselves',
+        AuthExceptionCode.FORBIDDEN_EXCEPTION,
+      );
+    }
+
     const isServerLevelImpersonation =
       toImpersonateUserWorkspace.workspace.id !==
       impersonatorUserWorkspace.workspace.id;

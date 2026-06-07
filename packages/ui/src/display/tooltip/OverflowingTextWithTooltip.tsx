@@ -6,7 +6,8 @@ import { isNonEmptyString } from '@sniptt/guards';
 import { LinkifiedText } from '@ui/display/components/LinkifiedText';
 import { themeCssVariables } from '@ui/theme-constants';
 import { isDefined } from 'shared/utils';
-import { AppTooltip, TooltipDelay } from './AppTooltip';
+import { AppTooltip } from './AppTooltip';
+import { TooltipDelay } from './AppTooltip.types';
 
 const spacing4 = themeCssVariables.spacing[4];
 
@@ -109,9 +110,16 @@ export const OverflowingTextWithTooltip = ({
     setShouldRenderTooltip(false);
   };
 
-  const handleTooltipClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleTooltipClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     event.preventDefault();
+  };
+
+  const handleTooltipKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.stopPropagation();
+      event.preventDefault();
+    }
   };
 
   const tooltipText = isNonEmptyString(tooltipContent)
@@ -153,7 +161,12 @@ export const OverflowingTextWithTooltip = ({
         (isTitleOverflowing || alwaysShowTooltip) &&
         isDefined(tooltipText) &&
         createPortal(
-          <div onClick={handleTooltipClick}>
+          <button
+            type="button"
+            onClick={handleTooltipClick}
+            onKeyDown={handleTooltipKeyDown}
+            style={{ all: 'unset', cursor: 'pointer' }}
+          >
             <AppTooltip
               anchorSelect={`#${textElementId}`}
               offset={5}
@@ -169,7 +182,7 @@ export const OverflowingTextWithTooltip = ({
                 tooltipText
               )}
             </AppTooltip>
-          </div>,
+          </button>,
           document.body,
         )}
     </>

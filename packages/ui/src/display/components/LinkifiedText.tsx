@@ -27,7 +27,7 @@ export const LinkifiedText = ({ text }: LinkifiedTextProps) => {
       {linkifyText(text).map((part, index) =>
         part.type === 'link' ? (
           <StyledLink
-            key={index}
+            key={`${part.type}-${part.content}`}
             href={part.content}
             target="_blank"
             rel="noopener noreferrer"
@@ -36,7 +36,7 @@ export const LinkifiedText = ({ text }: LinkifiedTextProps) => {
             {part.content}
           </StyledLink>
         ) : (
-          part.content
+          <span key={`${part.type}-${index}`}>{part.content}</span>
         ),
       )}
     </>

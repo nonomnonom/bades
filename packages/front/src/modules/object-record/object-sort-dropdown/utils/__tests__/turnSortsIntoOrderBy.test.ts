@@ -173,7 +173,7 @@ describe('turnSortsIntoOrderBy', () => {
   );
 
   describe('relation field sorting', () => {
-    const companyObjectMetadataItem: EnrichedObjectMetadataItem = {
+    const keluargaObjectMetadataItem: EnrichedObjectMetadataItem = {
       id: 'keluarga-object-id',
       universalIdentifier: 'keluarga-object-id',
       fields: [
@@ -208,7 +208,7 @@ describe('turnSortsIntoOrderBy', () => {
       isLabelSyncedWithName: true,
     };
 
-    const personObjectMetadataItem: EnrichedObjectMetadataItem = {
+    const pendudukObjectMetadataItem: EnrichedObjectMetadataItem = {
       id: 'penduduk-object-id',
       universalIdentifier: 'penduduk-object-id',
       fields: [
@@ -267,8 +267,8 @@ describe('turnSortsIntoOrderBy', () => {
         },
       ];
 
-      const result = turnSortsIntoOrderBy(personObjectMetadataItem, sorts, [
-        companyObjectMetadataItem,
+      const result = turnSortsIntoOrderBy(pendudukObjectMetadataItem, sorts, [
+        keluargaObjectMetadataItem,
       ]);
 
       // Should produce nested structure for GraphQL: { keluarga: { name: 'AscNullsFirst' } }
@@ -287,8 +287,8 @@ describe('turnSortsIntoOrderBy', () => {
         },
       ];
 
-      const result = turnSortsIntoOrderBy(personObjectMetadataItem, sorts, [
-        companyObjectMetadataItem,
+      const result = turnSortsIntoOrderBy(pendudukObjectMetadataItem, sorts, [
+        keluargaObjectMetadataItem,
       ]);
 
       // Should produce nested structure for GraphQL: { keluarga: { name: 'DescNullsLast' } }
@@ -308,7 +308,11 @@ describe('turnSortsIntoOrderBy', () => {
       ];
 
       // Pass empty objectMetadataItems array - related object not found
-      const result = turnSortsIntoOrderBy(personObjectMetadataItem, sorts, []);
+      const result = turnSortsIntoOrderBy(
+        pendudukObjectMetadataItem,
+        sorts,
+        [],
+      );
 
       expect(result).toEqual([
         { keluargaId: 'AscNullsFirst' },

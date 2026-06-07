@@ -6,43 +6,16 @@ import { OverflowingTextWithTooltip } from '@ui/display/tooltip/OverflowingTextW
 import { themeCssVariables } from '@ui/theme-constants';
 import { isDefined } from 'shared/utils';
 
-export enum ChipSize {
-  Large = 'large',
-  Small = 'small',
-}
+import {
+  ChipAccent,
+  type ChipProps,
+  ChipSize,
+  ChipVariant,
+} from './Chip.types';
 
-export enum ChipAccent {
-  TextPrimary = 'text-primary',
-  TextSecondary = 'text-secondary',
-}
-
-export enum ChipVariant {
-  Highlighted = 'highlighted',
-  Regular = 'regular',
-  Transparent = 'transparent',
-  Rounded = 'rounded',
-  Static = 'static',
-}
-
-export type ChipProps = {
-  size?: ChipSize;
-  disabled?: boolean;
-  clickable?: boolean;
-  label: string;
-  tooltipLabel?: string;
-  alwaysShowTooltip?: boolean;
-  isLabelHidden?: boolean;
-  isBold?: boolean;
-  maxWidth?: number;
-  variant?: ChipVariant;
-  accent?: ChipAccent;
-  leftComponent?: ReactNode | null;
-  rightComponent?: (() => ReactNode) | ReactNode | null;
-  rightComponentDivider?: boolean;
-  className?: string;
-  forceEmptyText?: boolean;
-  emptyLabel?: string;
-};
+// Re-export types for backwards compatibility
+export { ChipSize, ChipAccent, ChipVariant };
+export type { ChipProps };
 
 const StyledDiv = styled.div`
   color: ${themeCssVariables.font.color.tertiary};
@@ -148,10 +121,15 @@ const StyledRightComponentDivider = styled.div`
   border-left: 1px solid ${themeCssVariables.border.color.light};
 `;
 
-const renderRightComponent = (
-  rightComponent: (() => ReactNode) | ReactNode | null,
-  rightComponentDivider?: boolean,
-) => {
+type RightComponentRendererProps = {
+  rightComponent: (() => ReactNode) | ReactNode | null;
+  rightComponentDivider?: boolean;
+};
+
+const RightComponentRenderer = ({
+  rightComponent,
+  rightComponentDivider,
+}: RightComponentRendererProps) => {
   if (!rightComponent) {
     return null;
   }
@@ -168,7 +146,7 @@ const renderRightComponent = (
     );
   }
 
-  return rendered;
+  return <>{rendered}</>;
 };
 
 export const Chip = ({
@@ -215,7 +193,9 @@ export const Chip = ({
       ) : (
         ''
       )}
-      {renderRightComponent(rightComponent, rightComponentDivider)}
-    </StyledContainer>
+      <RightComponentRenderer
+        rightComponent={rightComponent}
+        rightComponentDivider={rightComponentDivider}
+      /></StyledContainer>
   );
 };

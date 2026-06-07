@@ -1,54 +1,19 @@
 import { styled } from '@linaria/react';
+import * as React from 'react';
 
 import { IconCheck, IconMinus } from '@ui/display/icon/components/TablerIcons';
 import { themeCssVariables } from '@ui/theme-constants';
-import * as React from 'react';
+import {
+  CheckboxAccent,
+  type CheckboxProps,
+  CheckboxShape,
+  CheckboxSize,
+  CheckboxVariant,
+  type InputProps,
+} from './Checkbox.types';
 
-export enum CheckboxVariant {
-  Primary = 'primary',
-  Secondary = 'secondary',
-  Tertiary = 'tertiary',
-}
-
-export enum CheckboxShape {
-  Squared = 'squared',
-  Rounded = 'rounded',
-}
-
-export enum CheckboxSize {
-  Large = 'large',
-  Small = 'small',
-}
-
-export enum CheckboxAccent {
-  Blue = 'blue',
-  Orange = 'orange',
-}
-
-type CheckboxProps = {
-  checked: boolean;
-  indeterminate?: boolean;
-  hoverable?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onCheckedChange?: (value: boolean) => void;
-  variant?: CheckboxVariant;
-  size?: CheckboxSize;
-  shape?: CheckboxShape;
-  className?: string;
-  disabled?: boolean;
-  accent?: CheckboxAccent;
-};
-
-type InputProps = {
-  checkboxSize: CheckboxSize;
-  variant: CheckboxVariant;
-  accent?: CheckboxAccent;
-  indeterminate?: boolean;
-  hoverable?: boolean;
-  shape?: CheckboxShape;
-  isChecked?: boolean;
-  disabled?: boolean;
-};
+// Re-export types for backwards compatibility
+export { CheckboxVariant, CheckboxShape, CheckboxSize, CheckboxAccent, type CheckboxProps };
 
 const StyledCheckboxContainer = styled.div<InputProps>`
   --checkbox-outer-size: ${({ checkboxSize, hoverable }) => {
@@ -197,17 +162,9 @@ export const Checkbox = ({
   disabled = false,
   accent = CheckboxAccent.Blue,
 }: CheckboxProps) => {
-  const [isInternalChecked, setIsInternalChecked] =
-    React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setIsInternalChecked(checked ?? false);
-  }, [checked]);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(event);
     onCheckedChange?.(event.target.checked);
-    setIsInternalChecked(event.target.checked ?? false);
   };
 
   const checkboxId = React.useId();
@@ -217,7 +174,7 @@ export const Checkbox = ({
       checkboxSize={size}
       variant={variant}
       shape={shape}
-      isChecked={isInternalChecked}
+      isChecked={checked}
       hoverable={hoverable}
       indeterminate={indeterminate}
       className={className}
@@ -230,14 +187,14 @@ export const Checkbox = ({
         id={checkboxId}
         name="styled-checkbox"
         data-testid="input-checkbox"
-        checked={isInternalChecked}
+        checked={checked}
         onChange={handleChange}
         disabled={disabled}
       />
       <label htmlFor={checkboxId}>
         {indeterminate ? (
           <IconMinus />
-        ) : isInternalChecked ? (
+        ) : checked ? (
           <IconCheck />
         ) : (
           <></>

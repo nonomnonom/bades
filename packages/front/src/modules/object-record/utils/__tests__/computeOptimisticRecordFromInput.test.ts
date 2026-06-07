@@ -32,13 +32,13 @@ describe('computeOptimisticRecordFromInput', () => {
   const currentWorkspaceMemberFullname = `${currentWorkspaceMember.name.firstName} ${currentWorkspaceMember.name.lastName}`;
   it('should generate correct optimistic record if no relation field is present', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
 
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         city: 'Paris',
       },
@@ -53,7 +53,7 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record with actor field', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
     const actorFieldValueForInput: FieldActorForInputValue = {
       context: {},
@@ -62,7 +62,7 @@ describe('computeOptimisticRecordFromInput', () => {
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         city: 'Paris',
         createdBy: actorFieldValueForInput,
@@ -84,12 +84,12 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record createdBy when recordInput contains id', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         id: '20202020-058c-4591-a7d7-50a75af6d1e6',
         createdBy: {
@@ -114,13 +114,13 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record if relation field is present but cache is empty', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
 
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         keluargaId: '123',
       },
@@ -135,9 +135,9 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record even if recordInput contains field __typename', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
-    const companyObjectMetadataItem =
+    const keluargaObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('keluarga');
 
     const companyRecord = {
@@ -146,8 +146,8 @@ describe('computeOptimisticRecordFromInput', () => {
     };
 
     const objectMetadataItem: EnrichedObjectMetadataItem = {
-      ...companyObjectMetadataItem,
-      fields: companyObjectMetadataItem.fields.filter(
+      ...keluargaObjectMetadataItem,
+      fields: keluargaObjectMetadataItem.fields.filter(
         (field) => field.name === 'id',
       ),
     };
@@ -169,7 +169,7 @@ describe('computeOptimisticRecordFromInput', () => {
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         keluargaId: '123',
         __typename: 'test',
@@ -186,9 +186,9 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record if relation field is present and cache is not empty', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
-    const companyObjectMetadataItem =
+    const keluargaObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('keluarga');
 
     const companyRecord = {
@@ -197,10 +197,10 @@ describe('computeOptimisticRecordFromInput', () => {
     };
 
     const objectMetadataItem: EnrichedObjectMetadataItem = {
-      ...companyObjectMetadataItem,
+      ...keluargaObjectMetadataItem,
       fields: [
         getMockFieldMetadataItemOrThrow({
-          objectMetadataItem: companyObjectMetadataItem,
+          objectMetadataItem: keluargaObjectMetadataItem,
           fieldName: 'id',
         }),
       ],
@@ -223,7 +223,7 @@ describe('computeOptimisticRecordFromInput', () => {
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         keluargaId: '123',
       },
@@ -239,13 +239,13 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should generate correct optimistic record if relation field is null and cache is empty', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
 
     const result = computeOptimisticRecordFromInput({
       currentWorkspaceMember,
       objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-      objectMetadataItem: personObjectMetadataItem,
+      objectMetadataItem: pendudukObjectMetadataItem,
       recordInput: {
         keluargaId: null,
       },
@@ -261,14 +261,14 @@ describe('computeOptimisticRecordFromInput', () => {
 
   it('should throw an error if recordInput contains fields unrelated to the current objectMetadata', () => {
     const cache = new InMemoryCache();
-    const personObjectMetadataItem =
+    const pendudukObjectMetadataItem =
       getMockObjectMetadataItemOrThrow('penduduk');
 
     expect(() =>
       computeOptimisticRecordFromInput({
         currentWorkspaceMember,
         objectMetadataItems: getTestEnrichedObjectMetadataItemsMock(),
-        objectMetadataItem: personObjectMetadataItem,
+        objectMetadataItem: pendudukObjectMetadataItem,
         recordInput: {
           unknwon: 'unknown',
           foo: 'foo',

@@ -1,20 +1,25 @@
 import { css } from '@linaria/core';
-import { type PlacesType, type PositionStrategy, Tooltip } from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { themeCssVariables } from '@ui/theme-constants';
 
-export enum TooltipPosition {
-  Top = 'top',
-  Left = 'left',
-  Right = 'right',
-  Bottom = 'bottom',
-}
+import {
+  TooltipDelay,
+  TooltipPosition,
+  type AppTooltipProps,
+} from './AppTooltip.types';
 
-export enum TooltipDelay {
-  noDelay = '0ms',
-  shortDelay = '300ms',
-  mediumDelay = '500ms',
-  longDelay = '1000ms',
-}
+const getDelayInMis = (delay: TooltipDelay) => {
+  switch (delay) {
+    case TooltipDelay.noDelay:
+      return 0;
+    case TooltipDelay.shortDelay:
+      return 300;
+    case TooltipDelay.mediumDelay:
+      return 500;
+    case TooltipDelay.longDelay:
+      return 1000;
+  }
+};
 
 const appTooltipClass = css`
   backdrop-filter: ${themeCssVariables.blur.strong};
@@ -29,22 +34,6 @@ const appTooltipClass = css`
   word-break: break-word;
   z-index: ${themeCssVariables.lastLayerZIndex};
 `;
-
-export type AppTooltipProps = {
-  className?: string;
-  anchorSelect?: string;
-  content?: string;
-  children?: React.ReactNode;
-  offset?: number;
-  noArrow?: boolean;
-  hidden?: boolean;
-  place?: PlacesType;
-  delay?: TooltipDelay;
-  positionStrategy?: PositionStrategy;
-  clickable?: boolean;
-  width?: string;
-  isOpen?: boolean;
-};
 
 export const AppTooltip = ({
   anchorSelect,
@@ -61,19 +50,6 @@ export const AppTooltip = ({
   width,
   isOpen,
 }: AppTooltipProps) => {
-  const getDelayInMis = (delay: TooltipDelay) => {
-    switch (delay) {
-      case TooltipDelay.noDelay:
-        return 0;
-      case TooltipDelay.shortDelay:
-        return 300;
-      case TooltipDelay.mediumDelay:
-        return 500;
-      case TooltipDelay.longDelay:
-        return 1000;
-    }
-  };
-
   return (
     <Tooltip
       anchorSelect={anchorSelect}

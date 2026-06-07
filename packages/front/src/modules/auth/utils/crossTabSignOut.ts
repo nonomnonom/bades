@@ -45,14 +45,16 @@ export const subscribeToSignOutFromOtherTabs = (
     return () => {};
   }
 
-  channel.onmessage = (event: MessageEvent) => {
+  const handler = (event: MessageEvent) => {
     if (event.data?.type === 'sign-out') {
       callback();
     }
   };
 
+  channel.addEventListener('message', handler);
+
   return () => {
-    channel.onmessage = null;
+    channel.removeEventListener('message', handler);
   };
 };
 
@@ -96,7 +98,7 @@ export const subscribeToRefreshFromOtherTabs = (
     return () => {};
   }
 
-  channel.onmessage = (event: MessageEvent) => {
+  const handler = (event: MessageEvent) => {
     if (event.data?.type === 'REFRESH_START') {
       onRefreshStart();
     } else if (event.data?.type === 'REFRESH_COMPLETE') {
@@ -104,7 +106,9 @@ export const subscribeToRefreshFromOtherTabs = (
     }
   };
 
+  channel.addEventListener('message', handler);
+
   return () => {
-    channel.onmessage = null;
+    channel.removeEventListener('message', handler);
   };
 };

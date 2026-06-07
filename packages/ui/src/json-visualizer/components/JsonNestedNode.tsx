@@ -111,6 +111,9 @@ export const JsonNestedNode = ({
     setIsOpen(!isOpen);
   };
 
+  const elementsCountText =
+    renderElementsCount && renderElementsCount(elements.length);
+
   if (hideRoot) {
     return (
       <StyledContainer>
@@ -140,11 +143,11 @@ export const JsonNestedNode = ({
           highlighting={highlighting === 'red' ? highlighting : undefined}
         />
 
-        {renderElementsCount && (
+        {elementsCountText && (
           <StyledElementsCount
             variant={highlighting === 'red' ? 'red' : undefined}
           >
-            {renderElementsCount(elements.length)}
+            {elementsCountText}
           </StyledElementsCount>
         )}
       </StyledLabelContainer>

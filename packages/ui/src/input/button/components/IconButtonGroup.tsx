@@ -39,16 +39,14 @@ export const IconButtonGroup = ({
 }: IconButtonGroupProps) => {
   return (
     <StyledIconButtonGroupContainer className={className} disabled={disabled}>
-      {iconButtons.map(({ Icon, onClick }, index) => {
-        return (
-          <InsideButton
-            key={index}
-            Icon={Icon}
-            onClick={onClick}
-            disabled={disabled}
-          />
-        );
-      })}
+      {iconButtons.map(({ Icon, onClick }) => (
+        <InsideButton
+          key={Icon.displayName || 'icon-button'}
+          Icon={Icon}
+          onClick={onClick}
+          disabled={disabled}
+        />
+      ))}
     </StyledIconButtonGroupContainer>
   );
 };

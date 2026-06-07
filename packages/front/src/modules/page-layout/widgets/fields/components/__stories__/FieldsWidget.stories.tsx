@@ -42,35 +42,35 @@ import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectM
 import { setTestViewsInMetadataStore } from '~/testing/utils/setTestViewsInMetadataStore';
 import { setTestObjectMetadataItemsInMetadataStore } from '~/testing/utils/setTestObjectMetadataItemsInMetadataStore';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
+const keluargaObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 
 const nameField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'name',
 });
 
 const addressField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'address',
 });
 
 const employeesField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'employees',
 });
 
 const annualRecurringRevenueField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'annualRecurringRevenue',
 });
 
 const linkedinField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'linkedinLink',
 });
 
 const idealCustomerProfileField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'idealCustomerProfile',
 });
 
@@ -165,7 +165,7 @@ const createFieldsWidget = (viewId: string | null): PageLayoutWidget => ({
   pageLayoutTabId: TAB_ID_OVERVIEW,
   type: WidgetType.FIELDS,
   title: 'Ringkasan',
-  objectMetadataId: companyObjectMetadataItem.id,
+  objectMetadataId: keluargaObjectMetadataItem.id,
   gridPosition: {
     __typename: 'GridPosition',
     row: 0,
@@ -188,7 +188,7 @@ const createView = (
 ): ViewWithRelations => ({
   id: FIELDS_VIEW_ID,
   name: 'Kolom Keluarga',
-  objectMetadataId: companyObjectMetadataItem.id,
+  objectMetadataId: keluargaObjectMetadataItem.id,
   type: ViewType.FIELDS_WIDGET,
   icon: 'IconList',
   key: null,
@@ -300,7 +300,7 @@ export const WithViewFieldGroups: Story = {
 
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
 
     setTestObjectMetadataItemsInMetadataStore(
@@ -335,7 +335,7 @@ export const WithViewFieldGroups: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -380,7 +380,7 @@ export const WithDefaultGroups: Story = {
 
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
 
     setTestObjectMetadataItemsInMetadataStore(
@@ -415,7 +415,7 @@ export const WithDefaultGroups: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -463,7 +463,7 @@ export const Empty: Story = {
 
     const pageLayoutData = createPageLayoutWithWidget(
       widget,
-      companyObjectMetadataItem.id,
+      keluargaObjectMetadataItem.id,
     );
 
     setTestObjectMetadataItemsInMetadataStore(
@@ -498,7 +498,7 @@ export const Empty: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >

@@ -70,8 +70,8 @@ export const AnimatedPlaceholder = ({ type }: AnimatedPlaceholderProps) => {
       });
     };
 
-    window.addEventListener('mousemove', handleMove);
-    window.addEventListener('touchmove', handleMove);
+    window.addEventListener('mousemove', handleMove, { passive: true });
+    window.addEventListener('touchmove', handleMove, { passive: true });
     window.document.addEventListener('mouseleave', handleLeave);
 
     return () => {

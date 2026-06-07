@@ -20,6 +20,7 @@ import { isErrorLike } from '@apollo/client/errors';
 import { AppPath } from 'shared/types';
 import { isDefined } from 'shared/utils';
 import { buildAppPathWithQueryParams } from '~/utils/buildAppPathWithQueryParams';
+import { isGraphqlErrorOfType } from '~/utils/is-graphql-error-of-type.util';
 import { isMatchingLocation } from '~/utils/isMatchingLocation';
 import { useAuth } from '@/auth/hooks/useAuth';
 import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
@@ -63,7 +64,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
     setSignInUpStep(SignInUpStep.Email);
   }, [setSignInUpStep]);
 
-  const errorMsgUserAlreadyExist = `Terjadi kesalahan saat memeriksa akun`;
+  const errorMsgCheckUser = `Terjadi kesalahan saat memeriksa akun`;
   const continueWithCredentials = useCallback(async () => {
     if (!form.getValues('email')) {
       return enqueueErrorSnackBar({
@@ -96,7 +97,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
       );
       setSignInUpStep(SignInUpStep.Password);
     } catch {
-      enqueueErrorSnackBar({ message: errorMsgUserAlreadyExist });
+      enqueueErrorSnackBar({ message: errorMsgCheckUser });
     }
   }, [
     readCaptchaToken,
@@ -106,7 +107,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
     checkUserExistsQuery,
     setSignInUpMode,
     setSignInUpStep,
-    errorMsgUserAlreadyExist,
+    errorMsgCheckUser,
   ]);
 
   const submitCredentials: SubmitHandler<Form> = useCallback(
@@ -175,6 +176,15 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
           verifyEmailRedirectPath,
         });
       } catch (error: unknown) {
+        // EMAIL_NOT_VERIFIED sudah ditangani oleh onError handler di useAuth
+        // (redirect ke EmailVerification step), jangan tampilkan snackbar lagi.
+        if (
+          isErrorLike(error) &&
+          isGraphqlErrorOfType(error, 'EMAIL_NOT_VERIFIED')
+        ) {
+          return;
+        }
+
         enqueueErrorSnackBar({
           ...(isErrorLike(error) ? { apolloError: error } : {}),
         });

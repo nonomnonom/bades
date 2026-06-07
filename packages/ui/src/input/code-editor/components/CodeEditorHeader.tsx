@@ -36,17 +36,15 @@ export const CoreEditorHeader = ({
   return (
     <StyledEditorHeader>
       <StyledElementContainer>
-        {leftNodes &&
-          leftNodes.map((leftButton, index) => {
-            return <div key={`left-${index}`}>{leftButton}</div>;
-          })}
+        {leftNodes?.map((leftButton, index) => (
+          <div key={`left-node-${index}`}>{leftButton}</div>
+        ))}
         {title}
       </StyledElementContainer>
       <StyledElementContainer>
-        {rightNodes &&
-          rightNodes.map((rightButton, index) => {
-            return <div key={`right-${index}`}>{rightButton}</div>;
-          })}
+        {rightNodes?.map((rightButton, index) => (
+          <div key={`right-node-${index}`}>{rightButton}</div>
+        ))}
       </StyledElementContainer>
     </StyledEditorHeader>
   );

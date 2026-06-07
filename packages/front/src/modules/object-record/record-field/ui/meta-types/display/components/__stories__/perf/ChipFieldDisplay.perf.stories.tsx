@@ -21,9 +21,9 @@ const meta: Meta = {
     (Story) => {
       const instanceId = 'child-field-display-scope';
 
-      const companyObjectMetadataItem =
+      const keluargaObjectMetadataItem =
         getTestEnrichedObjectMetadataItemsMock().find(
-          (item) => item.nameSingular === 'company',
+          (item) => item.nameSingular === 'keluarga',
         )!;
 
       const {
@@ -32,7 +32,7 @@ const meta: Meta = {
         labelIdentifierFieldMetadataItem,
         recordFieldByFieldMetadataItemId,
       } = useRecordIndexFieldMetadataDerivedStates(
-        companyObjectMetadataItem,
+        keluargaObjectMetadataItem,
         instanceId,
       );
 
@@ -48,8 +48,8 @@ const meta: Meta = {
               indexIdentifierUrl: () => '',
               onIndexRecordsLoaded: () => {},
               objectNamePlural: CoreObjectNamePlural.Keluarga,
-              objectNameSingular: 'company',
-              objectMetadataItem: companyObjectMetadataItem,
+              objectNameSingular: 'keluarga',
+              objectMetadataItem: keluargaObjectMetadataItem,
               recordIndexId: instanceId,
               viewBarInstanceId: instanceId,
               fieldDefinitionByFieldMetadataItemId,

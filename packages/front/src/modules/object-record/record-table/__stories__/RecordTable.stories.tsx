@@ -15,7 +15,7 @@ import { mockedKeluargaRecords } from '~/testing/mock-data/generated/data/keluar
 import { mockedViews } from '~/testing/mock-data/generated/metadata/views/mock-views-data';
 import { sleep } from '~/utils/sleep';
 
-const companyView = mockedViews.find((v) => v.name === 'All Companies')!;
+const keluargaView = mockedViews.find((v) => v.name === 'All Companies')!;
 
 const meta: Meta = {
   title: 'Modules/ObjectRecord/RecordTable/RecordTable',
@@ -30,7 +30,7 @@ const meta: Meta = {
     ObjectMetadataItemsDecorator,
   ],
   args: {
-    recordTableId: `companies-${companyView.id}`,
+    recordTableId: `keluarga-${keluargaView.id}`,
     viewBarId: 'view-bar',
     objectNameSingular: 'keluarga',
   },

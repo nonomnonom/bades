@@ -7,6 +7,10 @@
 # utama) — file ini HANYA untuk local.
 
 services:
+  db:
+    ports:
+      - '5432:5432'
+
   server:
     environment:
       PG_DATABASE_URL: postgres://postgres:postgres@db:5432/default?sslmode=disable

@@ -13,13 +13,13 @@ import { ObjectMetadataItemsDecorator } from '~/testing/decorators/ObjectMetadat
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
+const keluargaObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 const idField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'id',
 });
 
-const mockObjectMetadataItemId = companyObjectMetadataItem.id;
+const mockObjectMetadataItemId = keluargaObjectMetadataItem.id;
 const mockConfiguration: PieChartConfiguration = {
   aggregateFieldMetadataId: idField.id,
   aggregateOperation: AggregateOperations.COUNT,

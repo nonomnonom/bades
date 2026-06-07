@@ -35,19 +35,19 @@ export const useProgressAnimation = ({
         ...options,
         duration,
         onUpdate: (nextValue) => {
-          if (value === nextValue) return;
           setValue(nextValue);
           options?.onUpdate?.(nextValue);
         },
       }),
     );
-  }, [animation, finalValue, initialValue, options, value]);
+  }, [animation, finalValue, initialValue, options]);
 
+  // Auto-start animation on mount if autoPlay is true
   useEffect(() => {
-    if (autoPlay && !animation) {
+    if (autoPlay && isDefined(initialValue) && isDefined(finalValue)) {
       startAnimation();
     }
-  }, [animation, autoPlay, startAnimation]);
+  }, [autoPlay, initialValue, finalValue, startAnimation]);
 
   return {
     animation,

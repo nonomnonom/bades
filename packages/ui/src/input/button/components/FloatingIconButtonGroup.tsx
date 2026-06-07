@@ -49,9 +49,11 @@ export const FloatingIconButtonGroup = ({
                 ? 'right'
                 : 'middle';
 
+        const key = Icon.displayName || Icon.name || `floating-icon-${index}`;
+
         return (
           <FloatingIconButton
-            key={`floating-icon-button-${index}`}
+            key={key}
             applyBlur={false}
             applyShadow={false}
             Icon={Icon}

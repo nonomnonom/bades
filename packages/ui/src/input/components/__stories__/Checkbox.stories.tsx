@@ -5,13 +5,14 @@ import {
   ComponentDecorator,
 } from '@ui/testing';
 
+import { Checkbox } from '../Checkbox';
 import {
-  Checkbox,
   CheckboxAccent,
   CheckboxShape,
   CheckboxSize,
   CheckboxVariant,
-} from '../Checkbox';
+} from '../Checkbox.types';
+import type { CheckboxProps } from '../Checkbox.types';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'UI/Input/Checkbox/Checkbox',

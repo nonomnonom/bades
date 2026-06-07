@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
+import { type ReactNode, useContext } from 'react';
 import { type HTMLMotionProps, motion } from 'framer-motion';
 import { type AnimationDuration } from '@ui/theme';
 import { ThemeContext } from '@ui/theme-constants';
-import { useContext } from 'react';
 
 type AnimatedRotateProps = Omit<
   HTMLMotionProps<'div'>,
@@ -22,7 +22,7 @@ export const AnimatedRotate = ({
   children,
   duration = 'fast',
   animateOnHover,
-}: AnimatedRotateProps): JSX.Element => {
+}: AnimatedRotateProps): ReactNode => {
   const { theme } = useContext(ThemeContext);
 
   const initial = { opacity: 0, rotate: -90 };

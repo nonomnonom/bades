@@ -24,7 +24,7 @@ const meta: Meta<typeof TimelineCard> = {
           value={{
             targetRecordIdentifier: {
               id: '1',
-              targetObjectNameSingular: 'company',
+              targetObjectNameSingular: 'keluarga',
             },
             layoutType: PageLayoutType.RECORD_PAGE,
             isInSidePanel: false,

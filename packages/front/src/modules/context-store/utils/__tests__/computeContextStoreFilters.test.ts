@@ -8,7 +8,7 @@ import {
 import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestEnrichedObjectMetadataItemsMock';
 
 describe('computeContextStoreFilters', () => {
-  const personObjectMetadataItem =
+  const pendudukObjectMetadataItem =
     getTestEnrichedObjectMetadataItemsMock().find(
       (item) => item.nameSingular === 'penduduk',
     )!;
@@ -28,8 +28,8 @@ describe('computeContextStoreFilters', () => {
       contextStoreTargetedRecordsRule,
       contextStoreFilters: [],
       contextStoreFilterGroups: [],
-      objectMetadataItem: personObjectMetadataItem,
-      fieldMetadataItems: personObjectMetadataItem.fields,
+      objectMetadataItem: pendudukObjectMetadataItem,
+      fieldMetadataItems: pendudukObjectMetadataItem.fields,
       filterValueDependencies: mockFilterValueDependencies,
       contextStoreAnyFieldFilterValue: '',
     });
@@ -57,7 +57,7 @@ describe('computeContextStoreFilters', () => {
     const contextStoreFilters: RecordFilter[] = [
       {
         id: 'name-filter',
-        fieldMetadataId: personObjectMetadataItem.fields.find(
+        fieldMetadataId: pendudukObjectMetadataItem.fields.find(
           (field) => field.name === 'name',
         )!.id,
         value: 'John',
@@ -73,8 +73,8 @@ describe('computeContextStoreFilters', () => {
       contextStoreTargetedRecordsRule,
       contextStoreFilters,
       contextStoreFilterGroups: [],
-      objectMetadataItem: personObjectMetadataItem,
-      fieldMetadataItems: personObjectMetadataItem.fields,
+      objectMetadataItem: pendudukObjectMetadataItem,
+      fieldMetadataItems: pendudukObjectMetadataItem.fields,
       filterValueDependencies: mockFilterValueDependencies,
       contextStoreAnyFieldFilterValue: '',
     });

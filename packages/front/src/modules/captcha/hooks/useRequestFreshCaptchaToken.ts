@@ -61,6 +61,7 @@ export const useRequestFreshCaptchaToken = () => {
             },
             'expired-callback': () => {
               setCaptchaToken(undefined);
+              setIsRequestingCaptchaToken(false);
             },
           });
 

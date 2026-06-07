@@ -51,21 +51,21 @@ import { getTestEnrichedObjectMetadataItemsMock } from '~/testing/utils/getTestE
 import { getMockFieldMetadataItemOrThrow } from '~/testing/utils/getMockFieldMetadataItemOrThrow';
 import { getMockObjectMetadataItemOrThrow } from '~/testing/utils/getMockObjectMetadataItemOrThrow';
 
-const companyObjectMetadataItem = getMockObjectMetadataItemOrThrow('company');
+const keluargaObjectMetadataItem = getMockObjectMetadataItemOrThrow('keluarga');
 const idField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'id',
 });
 const createdAtField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'createdAt',
 });
 const accountOwnerField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'accountOwner',
 });
 const companyPeopleField = getMockFieldMetadataItemOrThrow({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   fieldName: 'daftarPenduduk',
 });
 
@@ -137,7 +137,7 @@ const createPageLayoutWithWidget = (
   id: PAGE_LAYOUT_TEST_INSTANCE_ID,
   name: 'Mock Page Layout',
   type: pageLayoutType,
-  objectMetadataId: companyObjectMetadataItem.id,
+  objectMetadataId: keluargaObjectMetadataItem.id,
   universalIdentifier: '20202020-0000-0000-0000-000000000001',
   tabs: [
     {
@@ -160,7 +160,7 @@ const createPageLayoutWithWidget = (
 });
 
 const barChartGroupByQuery = generateGroupByAggregateQuery({
-  objectMetadataItem: companyObjectMetadataItem,
+  objectMetadataItem: keluargaObjectMetadataItem,
   aggregateOperationGqlFields: ['totalCount'],
 });
 
@@ -258,7 +258,7 @@ export const WithNumberChart: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Program Bantuan Desa',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -307,9 +307,9 @@ export const WithNumberChart: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -346,7 +346,7 @@ export const WithGaugeChart: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Tingkat Konversi',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -395,9 +395,9 @@ export const WithGaugeChart: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -434,7 +434,7 @@ export const WithBarChart: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Tren Bulanan',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -487,9 +487,9 @@ export const WithBarChart: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -533,7 +533,7 @@ export const SmallWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Kecil (grid 2x2)',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -582,9 +582,9 @@ export const SmallWidget: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -628,7 +628,7 @@ export const MediumWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Sedang (grid 4x3)',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -681,9 +681,9 @@ export const MediumWidget: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -727,7 +727,7 @@ export const LargeWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Besar (grid 6x4)',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -780,9 +780,9 @@ export const LargeWidget: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -826,7 +826,7 @@ export const WideWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Lebar (grid 8x2)',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -875,9 +875,9 @@ export const WideWidget: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -921,7 +921,7 @@ export const TallWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Tinggi (grid 3x6)',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -974,9 +974,9 @@ export const TallWidget: Story = {
                   isInSidePanel: false,
                   layoutType: PageLayoutType.DASHBOARD,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1021,7 +1021,7 @@ export const WithManyToOneRelationFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Pengelola Akun',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -1096,7 +1096,7 @@ export const WithManyToOneRelationFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1141,7 +1141,7 @@ export const WithOneToManyRelationFieldWidget: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Daftar Anggota',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -1208,7 +1208,7 @@ export const WithOneToManyRelationFieldWidget: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1253,7 +1253,7 @@ export const OneToManyRelationFieldWidgetWithSeeAllButton: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.FIELD,
       title: 'Daftar Anggota',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -1328,7 +1328,7 @@ export const OneToManyRelationFieldWidgetWithSeeAllButton: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1391,7 +1391,7 @@ export const OnMobile: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Seluler',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -1445,7 +1445,7 @@ export const OnMobile: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1490,7 +1490,7 @@ export const InSidePanel: Story = {
       pageLayoutTabId: TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Widget Panel Samping',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -1544,7 +1544,7 @@ export const InSidePanel: Story = {
                   targetRecordIdentifier: {
                     id: TEST_RECORD_ID,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >
@@ -1650,7 +1650,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
         variant === 'side-column' ? 'pinned-tab' : TAB_ID_OVERVIEW,
       type: WidgetType.GRAPH,
       title: 'Nama Widget',
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       gridPosition: {
         __typename: 'GridPosition',
         row: 0,
@@ -1711,7 +1711,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
         twoFactorAuthenticationMethodSummary: null,
         objectsPermissions: [
           {
-            objectMetadataId: companyObjectMetadataItem.id,
+            objectMetadataId: keluargaObjectMetadataItem.id,
             canReadObjectRecords: false,
             canUpdateObjectRecords: false,
             canSoftDeleteObjectRecords: false,
@@ -1728,7 +1728,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
         twoFactorAuthenticationMethodSummary: null,
         objectsPermissions: [
           {
-            objectMetadataId: companyObjectMetadataItem.id,
+            objectMetadataId: keluargaObjectMetadataItem.id,
             canReadObjectRecords: true,
             canUpdateObjectRecords: true,
             canSoftDeleteObjectRecords: true,
@@ -1745,7 +1745,7 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
       id: PAGE_LAYOUT_TEST_INSTANCE_ID,
       name: 'Mock Page Layout',
       type: pageLayoutType,
-      objectMetadataId: companyObjectMetadataItem.id,
+      objectMetadataId: keluargaObjectMetadataItem.id,
       universalIdentifier: '20202020-0000-0000-0000-000000000001',
       tabs:
         variant === 'side-column'
@@ -1831,9 +1831,9 @@ export const Catalog: CatalogStory<Story, typeof WidgetRenderer> = {
                   isInSidePanel: false,
                   layoutType: pageLayoutType,
                   targetRecordIdentifier: {
-                    id: companyObjectMetadataItem.id,
+                    id: keluargaObjectMetadataItem.id,
                     targetObjectNameSingular:
-                      companyObjectMetadataItem.nameSingular,
+                      keluargaObjectMetadataItem.nameSingular,
                   },
                 }}
               >

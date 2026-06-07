@@ -37,8 +37,9 @@ describe('useDeleteOneRecord', () => {
     kartuKeluarga: { ...flatKeluargaRecords[0] },
   };
   const relatedKeluargaRecord = flatKeluargaRecords[0];
-  const personObjectMetadataItem = getMockObjectMetadataItemOrThrow('penduduk');
-  const companyObjectMetadataItem =
+  const pendudukObjectMetadataItem =
+    getMockObjectMetadataItemOrThrow('penduduk');
+  const keluargaObjectMetadataItem =
     getMockObjectMetadataItemOrThrow('keluarga');
   const objectMetadataItems = getTestEnrichedObjectMetadataItemsMock();
 
@@ -87,7 +88,7 @@ describe('useDeleteOneRecord', () => {
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
-            objectNameSingular: personObjectMetadataItem.nameSingular,
+            objectNameSingular: pendudukObjectMetadataItem.nameSingular,
           }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
@@ -108,13 +109,13 @@ describe('useDeleteOneRecord', () => {
         });
         assertCachedRecordMatchSnapshot({
           recordId: personRecord.id,
-          objectMetadataItem: personObjectMetadataItem,
+          objectMetadataItem: pendudukObjectMetadataItem,
           matchObject: {
             deletedAt: expect.any(String),
           },
         });
         assertCachedRecordIsNull({
-          objectMetadataItem: companyObjectMetadataItem,
+          objectMetadataItem: keluargaObjectMetadataItem,
           recordId: personRecord.kartuKeluarga.id,
         });
       });
@@ -131,7 +132,7 @@ describe('useDeleteOneRecord', () => {
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
-            objectNameSingular: personObjectMetadataItem.nameSingular,
+            objectNameSingular: pendudukObjectMetadataItem.nameSingular,
           }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
@@ -146,11 +147,11 @@ describe('useDeleteOneRecord', () => {
         await waitFor(() => {
           assertCachedRecordIsNull({
             recordId: personRecord.id,
-            objectMetadataItem: personObjectMetadataItem,
+            objectMetadataItem: pendudukObjectMetadataItem,
           });
           assertCachedRecordIsNull({
             recordId: personRecord.kartuKeluarga.id,
-            objectMetadataItem: companyObjectMetadataItem,
+            objectMetadataItem: keluargaObjectMetadataItem,
           });
         });
       });
@@ -166,7 +167,7 @@ describe('useDeleteOneRecord', () => {
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
-            objectNameSingular: personObjectMetadataItem.nameSingular,
+            objectNameSingular: pendudukObjectMetadataItem.nameSingular,
           }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
@@ -183,11 +184,11 @@ describe('useDeleteOneRecord', () => {
         } catch {
           assertCachedRecordIsNull({
             recordId: personRecord.id,
-            objectMetadataItem: personObjectMetadataItem,
+            objectMetadataItem: pendudukObjectMetadataItem,
           });
           assertCachedRecordIsNull({
             recordId: relatedKeluargaRecord.id,
-            objectMetadataItem: companyObjectMetadataItem,
+            objectMetadataItem: keluargaObjectMetadataItem,
           });
         }
       });
@@ -203,11 +204,11 @@ describe('useDeleteOneRecord', () => {
       objectMetadataItems,
       initialRecordsInCache: [
         {
-          objectMetadataItem: companyObjectMetadataItem,
+          objectMetadataItem: keluargaObjectMetadataItem,
           records: flatKeluargaRecords,
         },
         {
-          objectMetadataItem: personObjectMetadataItem,
+          objectMetadataItem: pendudukObjectMetadataItem,
           records: flatPendudukRecords,
         },
       ],
@@ -221,7 +222,7 @@ describe('useDeleteOneRecord', () => {
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
-            objectNameSingular: personObjectMetadataItem.nameSingular,
+            objectNameSingular: pendudukObjectMetadataItem.nameSingular,
           }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
@@ -241,13 +242,13 @@ describe('useDeleteOneRecord', () => {
 
         assertCachedRecordMatchSnapshot({
           recordId: personRecord.id,
-          objectMetadataItem: personObjectMetadataItem,
+          objectMetadataItem: pendudukObjectMetadataItem,
           matchObject: {
             deletedAt: expect.any(String),
           },
         });
         assertCachedRecordMatchSnapshot({
-          objectMetadataItem: companyObjectMetadataItem,
+          objectMetadataItem: keluargaObjectMetadataItem,
           recordId: personRecord.kartuKeluarga.id,
         });
       });
@@ -264,7 +265,7 @@ describe('useDeleteOneRecord', () => {
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
-            objectNameSingular: personObjectMetadataItem.nameSingular,
+            objectNameSingular: pendudukObjectMetadataItem.nameSingular,
           }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
@@ -279,7 +280,7 @@ describe('useDeleteOneRecord', () => {
         await waitFor(() => {
           assertCachedRecordMatchSnapshot({
             recordId: personRecord.id,
-            objectMetadataItem: personObjectMetadataItem,
+            objectMetadataItem: pendudukObjectMetadataItem,
             snapshotPropertyMatchers: {
               // Request is paused then the cached get filled with optmistic deletedAt
               deletedAt: expect.any(String),
@@ -289,7 +290,7 @@ describe('useDeleteOneRecord', () => {
             },
           });
           assertCachedRecordMatchSnapshot({
-            objectMetadataItem: companyObjectMetadataItem,
+            objectMetadataItem: keluargaObjectMetadataItem,
             recordId: personRecord.kartuKeluarga.id,
           });
         });
@@ -306,7 +307,7 @@ describe('useDeleteOneRecord', () => {
       const { result } = renderHook(
         () =>
           useDeleteOneRecord({
-            objectNameSingular: personObjectMetadataItem.nameSingular,
+            objectNameSingular: pendudukObjectMetadataItem.nameSingular,
           }),
         {
           wrapper: getJestMetadataAndApolloMocksWrapper({
@@ -323,13 +324,13 @@ describe('useDeleteOneRecord', () => {
         } catch {
           assertCachedRecordMatchSnapshot({
             recordId: personRecord.id,
-            objectMetadataItem: personObjectMetadataItem,
+            objectMetadataItem: pendudukObjectMetadataItem,
             matchObject: {
               deletedAt: null,
             },
           });
           assertCachedRecordMatchSnapshot({
-            objectMetadataItem: companyObjectMetadataItem,
+            objectMetadataItem: keluargaObjectMetadataItem,
             recordId: personRecord.kartuKeluarga.id,
           });
         }

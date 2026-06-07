@@ -41,8 +41,8 @@ export const CommandBlock = ({ commands, button }: CommandBlockProps) => {
     <StyledContainer>
       <StyledCommandContain>
         <>
-          {commands.map((line, i) => (
-            <StyledLineContainer key={i}>
+          {commands.map((line) => (
+            <StyledLineContainer key={line}>
               <StyledLineStartSpan>{'> '}</StyledLineStartSpan>
               <StyledLineSpan>{line}</StyledLineSpan>
             </StyledLineContainer>

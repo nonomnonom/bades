@@ -8,7 +8,9 @@ import {
   ComponentDecorator,
 } from '@ui/testing';
 
-import { Chip, ChipAccent, ChipSize, ChipVariant } from '../Chip';
+import { Chip } from '../Chip';
+import { ChipAccent } from '../Chip.types';
+import { ChipSize, ChipVariant } from '../Chip.types';
 
 const meta: Meta<typeof Chip> = {
   title: 'UI/Components/Chip/Chip',

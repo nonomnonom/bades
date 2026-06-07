@@ -480,7 +480,7 @@ export const Button = ({
 }: ButtonProps) => {
   const isMobile = useIsMobile();
 
-  const [isFocused, setIsFocused] = useState(propFocus);
+  const [isFocused, setIsFocused] = useState(false);
   const isDisabled = soon || disabled;
 
   const dynamicStyles = useMemo(() => {
@@ -521,7 +521,7 @@ export const Button = ({
         position={position}
         disabled={isDisabled}
         hasIcon={!!Icon}
-        focus={isFocused}
+        focus={isFocused || propFocus}
         justify={justify}
         className={className}
         onClick={onClick}

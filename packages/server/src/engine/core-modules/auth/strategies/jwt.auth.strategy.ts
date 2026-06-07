@@ -9,7 +9,6 @@ import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 import { WorkspaceActivationStatus } from 'shared/workspace';
 import { Repository } from 'typeorm';
 
-import { ApplicationEntity } from 'src/engine/core-modules/application/application.entity';
 import {
   AuthException,
   AuthExceptionCode,
@@ -17,7 +16,7 @@ import {
 import {
   type AccessTokenJwtPayload,
   type ApiKeyTokenJwtPayload,
-  ApplicationAccessTokenJwtPayload,
+  type ApplicationAccessTokenJwtPayload,
   type AuthContext,
   type AuthContextUser,
   type JwtPayload,
@@ -36,8 +35,6 @@ import { WorkspaceCacheService } from 'src/engine/workspace-cache/services/works
 export class JwtAuthStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(
     private readonly jwtWrapperService: JwtWrapperService,
-    @InjectRepository(ApplicationEntity)
-    private readonly applicationRepository: Repository<ApplicationEntity>,
     @InjectRepository(UserWorkspaceEntity)
     private readonly userWorkspaceRepository: Repository<UserWorkspaceEntity>,
     private readonly permissionsService: PermissionsService,
@@ -375,9 +372,12 @@ export class JwtAuthStrategy extends PassportStrategy(Strategy, 'jwt') {
 
     const applicationId = payload.sub ?? payload.applicationId;
 
-    const application = await this.applicationRepository.findOne({
-      where: { id: applicationId },
-    });
+    const { flatApplicationMaps } =
+      await this.workspaceCacheService.getOrRecompute(workspace.id, [
+        'flatApplicationMaps',
+      ]);
+
+    const application = flatApplicationMaps.byId[applicationId];
 
     if (!isDefined(application)) {
       throw new AuthException(

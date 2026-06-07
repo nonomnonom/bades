@@ -26,7 +26,7 @@ export const AvatarGroup = ({ avatars }: AvatarGroupProps) => {
   return (
     <StyledContainer>
       {avatars.slice(0, MAX_AVATARS_NB).map((avatar, index) => (
-        <StyledItemContainer key={index}>{avatar}</StyledItemContainer>
+        <StyledItemContainer key={`avatar-${index}`}>{avatar}</StyledItemContainer>
       ))}
     </StyledContainer>
   );
