@@ -16,6 +16,10 @@ class ComponentInstanceContextMap {
   public set(key: string, context: ComponentInstanceStateContext<any>) {
     window.componentComponentStateContextMap.set(key, context);
   }
+
+  public delete(key: string): boolean {
+    return window.componentComponentStateContextMap.delete(key);
+  }
 }
 
 export const globalComponentInstanceContextMap =

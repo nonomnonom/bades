@@ -49,9 +49,21 @@ export const createAtomComponentFamilyState = <ValueType, FamilyKey>({
     return baseAtom;
   };
 
+  const removeAtom = (key: ComponentFamilyStateKey<FamilyKey>): void => {
+    const familyKeyStr =
+      typeof key.familyKey === 'string'
+        ? key.familyKey
+        : JSON.stringify(key.familyKey);
+
+    const cacheKey = `${key.instanceId}__${familyKeyStr}`;
+
+    atomCache.delete(cacheKey);
+  };
+
   return {
     type: 'ComponentFamilyState',
     key,
     atomFamily: familyFunction,
+    removeAtom,
   };
 };

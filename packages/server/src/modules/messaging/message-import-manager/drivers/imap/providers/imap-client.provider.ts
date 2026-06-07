@@ -88,11 +88,16 @@ export class ImapClientProvider {
     });
 
     // ImapFlow is long-lived EventEmitter — missing 'error' listener crashes process on socket timeout.
-    client.on('error', (error) => {
+    const onError = (error: Error) => {
       this.logger.error(
         `IMAP client error for ${connectedAccount.handle}: ${error.message}`,
         error.stack,
       );
+    };
+
+    client.on('error', onError);
+    client.once('close', () => {
+      client.removeListener('error', onError);
     });
 
     try {

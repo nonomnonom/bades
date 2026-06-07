@@ -24,6 +24,8 @@ import { currentAiChatThreadState } from '@/ai/states/currentAiChatThreadState';
 import { AiChatErrorCode } from '@/ai/utils/aiChatErrorCode';
 import { dispatchBrowserEvent } from '@/browser-event/utils/dispatchBrowserEvent';
 import { sseClientState } from '@/sse-db-event/states/sseClientState';
+import { globalComponentInstanceContextMap } from '@/ui/utilities/state/component-state/utils/globalComponentInstanceContextMap';
+import { useAvailableComponentInstanceIdOrThrow } from '@/ui/utilities/state/component-state/hooks/useAvailableComponentInstanceIdOrThrow';
 import { useAtomComponentFamilyStateCallbackState } from '@/ui/utilities/state/jotai/hooks/useAtomComponentFamilyStateCallbackState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
@@ -98,6 +100,18 @@ type AgentChatEventPayload = {
 export const useAgentChatSubscription = (threadId: string | null) => {
   const store = useStore();
   const sseClient = useAtomStateValue(sseClientState);
+
+  const componentContext = globalComponentInstanceContextMap.get(
+    agentChatMessagesComponentFamilyState.key,
+  );
+
+  if (!isDefined(componentContext)) {
+    throw new Error(
+      `Instance context for key "${agentChatMessagesComponentFamilyState.key}" is not defined`,
+    );
+  }
+
+  const instanceId = useAvailableComponentInstanceIdOrThrow(componentContext);
 
   const errorFamilyCallback = useAtomComponentFamilyStateCallbackState(
     agentChatErrorComponentFamilyState,
@@ -380,11 +394,25 @@ export const useAgentChatSubscription = (threadId: string | null) => {
       }
       cleanupStream();
       dispose();
+
+      const familyKey = {
+        instanceId,
+        familyKey: { threadId },
+      };
+
+      agentChatMessagesComponentFamilyState.removeAtom(familyKey);
+      agentChatErrorComponentFamilyState.removeAtom(familyKey);
+      agentChatIsStreamingComponentFamilyState.removeAtom(familyKey);
+      agentChatFirstLiveSeqComponentFamilyState.removeAtom(familyKey);
+      agentChatHandleEventCallbackComponentFamilyState.removeAtom(familyKey);
+      currentAiChatThreadTitleComponentFamilyState.removeAtom(familyKey);
+      agentChatUsageComponentFamilyState.removeAtom(familyKey);
     };
   }, [
     threadId,
     sseClient,
     store,
+    instanceId,
     errorFamilyCallback,
     isStreamingFamilyCallback,
     firstLiveSeqFamilyCallback,

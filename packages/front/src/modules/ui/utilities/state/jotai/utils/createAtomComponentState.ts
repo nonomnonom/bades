@@ -42,9 +42,14 @@ export const createAtomComponentState = <ValueType>({
     return baseAtom;
   };
 
+  const removeAtom = (key: ComponentStateKey): void => {
+    atomCache.delete(key.instanceId);
+  };
+
   return {
     type: 'ComponentState',
     key,
     atomFamily: familyFunction,
+    removeAtom,
   };
 };

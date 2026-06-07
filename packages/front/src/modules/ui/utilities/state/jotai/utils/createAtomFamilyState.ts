@@ -46,9 +46,27 @@ export const createAtomFamilyState = <ValueType, FamilyKey>({
     return baseAtom;
   };
 
+  const removeAtom = (familyKey: FamilyKey): void => {
+    const cacheKey =
+      typeof familyKey === 'string' ? familyKey : JSON.stringify(familyKey);
+
+    atomCache.delete(cacheKey);
+
+    if (useLocalStorage) {
+      const atomKey = `${key}__${cacheKey}`;
+
+      try {
+        localStorage.removeItem(atomKey);
+      } catch {
+        // Ignore localStorage errors (e.g., quota exceeded, private browsing)
+      }
+    }
+  };
+
   return Object.assign(familyFunction, {
     type: 'FamilyState' as const,
     key,
     atomFamily: familyFunction,
+    removeAtom,
   });
 };

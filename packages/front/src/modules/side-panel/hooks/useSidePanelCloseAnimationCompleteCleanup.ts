@@ -66,6 +66,10 @@ export const useSidePanelCloseAnimationCompleteCleanup = () => {
           const recordId = targetedRecordsRule.selectedRecordIds[0];
           const record = store.get(recordStoreFamilyState.atomFamily(recordId));
 
+          if (isDefined(record)) {
+            recordStoreFamilyState.removeAtom(recordId);
+          }
+
           if (isDefined(record) && isDefined(record.pageLayoutId)) {
             store.set(
               pageLayoutEditingWidgetIdComponentState.atomFamily({

@@ -191,109 +191,132 @@ export class WorkspaceMigrationRunnerService {
 
     const queryRunner = this.coreDataSource.createQueryRunner();
 
-    const actionMetadataNames = [
-      ...new Set(actions.flatMap((action) => action.metadataName)),
-    ];
-    const actionsMetadataAndRelatedMetadataNames: AllMetadataName[] = [
-      ...new Set([
-        ...actionMetadataNames,
-        ...actionMetadataNames.flatMap(getMetadataRelatedMetadataNames),
-        ...actionMetadataNames.flatMap(getMetadataSerializedRelationNames),
-        ...actionMetadataNames.flatMap(
-          getMetadataRelatedMetadataNamesForValidation,
-        ),
-      ]),
-    ];
-    const allFlatEntityMapsKeys = actionsMetadataAndRelatedMetadataNames.map(
-      getMetadataFlatEntityMapsKey,
-    );
-
-    let allFlatEntityMaps =
-      await this.flatEntityMapsCacheService.getOrRecomputeManyOrAllFlatEntityMaps<
-        typeof allFlatEntityMapsKeys
-      >({
-        workspaceId,
-        flatMapsKeys: allFlatEntityMapsKeys,
-      });
-
-    this.logger.timeEnd('Runner', 'Initial cache retrieval');
-
-    const { flatApplicationMaps } =
-      await this.workspaceCacheService.getOrRecompute(workspaceId, [
-        'flatApplicationMaps',
-      ]);
-
-    const applicationId =
-      flatApplicationMaps.idByUniversalIdentifier[
-        applicationUniversalIdentifier
-      ];
-    const flatApplication = isDefined(applicationId)
-      ? flatApplicationMaps.byId[applicationId]
-      : undefined;
-
-    if (!isDefined(applicationId) || !isDefined(flatApplication)) {
-      throw new WorkspaceMigrationRunnerException({
-        message: `Could not find application for application with universal identifier: ${applicationUniversalIdentifier}`,
-        code: WorkspaceMigrationRunnerExceptionCode.APPLICATION_NOT_FOUND,
-      });
-    }
-
-    this.logger.time('Runner', 'Transaction execution');
-
-    await queryRunner.connect();
-    await queryRunner.startTransaction();
-
-    const allMetadataEvents: MetadataEvent[] = [];
-
     try {
-      for (const action of actions) {
-        const { partialOptimisticCache, metadataEvents } =
-          await this.workspaceMigrationRunnerActionHandlerRegistry.executeActionHandler(
+      const actionMetadataNames = [
+        ...new Set(actions.flatMap((action) => action.metadataName)),
+      ];
+      const actionsMetadataAndRelatedMetadataNames: AllMetadataName[] = [
+        ...new Set([
+          ...actionMetadataNames,
+          ...actionMetadataNames.flatMap(getMetadataRelatedMetadataNames),
+          ...actionMetadataNames.flatMap(getMetadataSerializedRelationNames),
+          ...actionMetadataNames.flatMap(
+            getMetadataRelatedMetadataNamesForValidation,
+          ),
+        ]),
+      ];
+      const allFlatEntityMapsKeys = actionsMetadataAndRelatedMetadataNames.map(
+        getMetadataFlatEntityMapsKey,
+      );
+
+      let allFlatEntityMaps =
+        await this.flatEntityMapsCacheService.getOrRecomputeManyOrAllFlatEntityMaps<
+          typeof allFlatEntityMapsKeys
+        >({
+          workspaceId,
+          flatMapsKeys: allFlatEntityMapsKeys,
+        });
+
+      this.logger.timeEnd('Runner', 'Initial cache retrieval');
+
+      const { flatApplicationMaps } =
+        await this.workspaceCacheService.getOrRecompute(workspaceId, [
+          'flatApplicationMaps',
+        ]);
+
+      const applicationId =
+        flatApplicationMaps.idByUniversalIdentifier[
+          applicationUniversalIdentifier
+        ];
+      const flatApplication = isDefined(applicationId)
+        ? flatApplicationMaps.byId[applicationId]
+        : undefined;
+
+      if (!isDefined(applicationId) || !isDefined(flatApplication)) {
+        throw new WorkspaceMigrationRunnerException({
+          message: `Could not find application for application with universal identifier: ${applicationUniversalIdentifier}`,
+          code: WorkspaceMigrationRunnerExceptionCode.APPLICATION_NOT_FOUND,
+        });
+      }
+
+      this.logger.time('Runner', 'Transaction execution');
+
+      await queryRunner.connect();
+      await queryRunner.startTransaction();
+
+      const allMetadataEvents: MetadataEvent[] = [];
+
+      try {
+        for (const action of actions) {
+          const { partialOptimisticCache, metadataEvents } =
+            await this.workspaceMigrationRunnerActionHandlerRegistry.executeActionHandler(
+              {
+                action,
+                context: {
+                  flatApplication,
+                  action,
+                  allFlatEntityMaps,
+                  queryRunner,
+                  workspaceId,
+                },
+              },
+            );
+
+          allFlatEntityMaps = {
+            ...allFlatEntityMaps,
+            ...partialOptimisticCache,
+          } as typeof allFlatEntityMaps;
+
+          allMetadataEvents.push(...metadataEvents);
+        }
+
+        await queryRunner.commitTransaction();
+
+        this.logger.timeEnd('Runner', 'Transaction execution');
+      } catch (error) {
+        await queryRunner.rollbackTransaction().catch((rollbackError) =>
+          // oxlint-disable-next-line no-console
+          console.trace(
+            `Failed to rollback transaction: ${rollbackError.message}`,
+          ),
+        );
+
+        const invertedActions = [...actions].reverse();
+
+        for (const invertedAction of invertedActions) {
+          await this.workspaceMigrationRunnerActionHandlerRegistry.executeActionRollbackHandler(
             {
-              action,
+              action: invertedAction,
               context: {
                 flatApplication,
-                action,
+                action: invertedAction,
                 allFlatEntityMaps,
-                queryRunner,
                 workspaceId,
               },
             },
           );
+        }
 
-        allFlatEntityMaps = {
-          ...allFlatEntityMaps,
-          ...partialOptimisticCache,
-        } as typeof allFlatEntityMaps;
+        try {
+          await this.invalidateCache({
+            allFlatEntityMapsKeys,
+            workspaceId,
+          });
+        } catch (cacheError) {
+          this.logger.error(
+            `Cache invalidation failed after rollback: ${cacheError}`,
+            'Runner',
+          );
+        }
 
-        allMetadataEvents.push(...metadataEvents);
-      }
+        if (error instanceof WorkspaceMigrationRunnerException) {
+          throw error;
+        }
 
-      await queryRunner.commitTransaction();
-
-      this.logger.timeEnd('Runner', 'Transaction execution');
-    } catch (error) {
-      await queryRunner.rollbackTransaction().catch((rollbackError) =>
-        // oxlint-disable-next-line no-console
-        console.trace(
-          `Failed to rollback transaction: ${rollbackError.message}`,
-        ),
-      );
-
-      const invertedActions = [...actions].reverse();
-
-      for (const invertedAction of invertedActions) {
-        await this.workspaceMigrationRunnerActionHandlerRegistry.executeActionRollbackHandler(
-          {
-            action: invertedAction,
-            context: {
-              flatApplication,
-              action: invertedAction,
-              allFlatEntityMaps,
-              workspaceId,
-            },
-          },
-        );
+        throw new WorkspaceMigrationRunnerException({
+          message: error.message,
+          code: WorkspaceMigrationRunnerExceptionCode.INTERNAL_SERVER_ERROR,
+        });
       }
 
       try {
@@ -303,45 +326,24 @@ export class WorkspaceMigrationRunnerService {
         });
       } catch (cacheError) {
         this.logger.error(
-          `Cache invalidation failed after rollback: ${cacheError}`,
+          `Cache invalidation failed after committed transaction: ${cacheError}`,
           'Runner',
         );
       }
 
-      if (error instanceof WorkspaceMigrationRunnerException) {
-        throw error;
-      }
+      const hasSchemaMetadataChanged =
+        allFlatEntityMapsKeys.includes('flatObjectMetadataMaps') ||
+        allFlatEntityMapsKeys.includes('flatFieldMetadataMaps');
 
-      throw new WorkspaceMigrationRunnerException({
-        message: error.message,
-        code: WorkspaceMigrationRunnerExceptionCode.INTERNAL_SERVER_ERROR,
-      });
+      this.logger.timeEnd('Runner', 'Total execution');
+
+      return {
+        allFlatEntityMaps,
+        metadataEvents: allMetadataEvents,
+        hasSchemaMetadataChanged,
+      };
     } finally {
       await queryRunner.release();
     }
-
-    try {
-      await this.invalidateCache({
-        allFlatEntityMapsKeys,
-        workspaceId,
-      });
-    } catch (cacheError) {
-      this.logger.error(
-        `Cache invalidation failed after committed transaction: ${cacheError}`,
-        'Runner',
-      );
-    }
-
-    const hasSchemaMetadataChanged =
-      allFlatEntityMapsKeys.includes('flatObjectMetadataMaps') ||
-      allFlatEntityMapsKeys.includes('flatFieldMetadataMaps');
-
-    this.logger.timeEnd('Runner', 'Total execution');
-
-    return {
-      allFlatEntityMaps,
-      metadataEvents: allMetadataEvents,
-      hasSchemaMetadataChanged,
-    };
   };
 }

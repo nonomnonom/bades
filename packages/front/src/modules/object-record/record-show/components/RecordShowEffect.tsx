@@ -54,5 +54,11 @@ export const RecordShowEffect = ({
     }
   }, [record, setRecordStore, loading]);
 
+  useEffect(() => {
+    return () => {
+      recordStoreFamilyState.removeAtom(recordId);
+    };
+  }, [recordId]);
+
   return <></>;
 };
