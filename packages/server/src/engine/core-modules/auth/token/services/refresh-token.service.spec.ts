@@ -115,6 +115,66 @@ describe('RefreshTokenService', () => {
         AuthException,
       );
     });
+
+    it('mengizinkan token yang dicabut dalam grace period', async () => {
+      const mockToken = 'revoked-recently';
+      const mockJwtPayload = {
+        jti: 'token-id',
+        sub: 'user-id',
+        type: JwtTokenTypeEnum.REFRESH,
+      };
+      const mockAppToken = {
+        id: 'token-id',
+        workspaceId: 'workspace-id',
+        revokedAt: new Date(Date.now() - 30_000),
+      } as AppTokenEntity;
+      const mockUser = { id: 'user-id' } as UserEntity;
+
+      jest
+        .spyOn(jwtWrapperService, 'verifyJwtToken')
+        .mockResolvedValue(undefined);
+      jest.spyOn(jwtWrapperService, 'decode').mockReturnValue(mockJwtPayload);
+      jest
+        .spyOn(appTokenRepository, 'findOneBy')
+        .mockResolvedValue(mockAppToken);
+      jest.spyOn(userRepository, 'findOneBy').mockResolvedValue(mockUser);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1m');
+
+      await expect(service.verifyRefreshToken(mockToken)).resolves.toEqual({
+        user: mockUser,
+        token: mockAppToken,
+      });
+    });
+
+    it('menolak token yang dicabut di luar grace period', async () => {
+      const mockToken = 'revoked-long-ago';
+      const mockJwtPayload = {
+        jti: 'token-id',
+        sub: 'user-id',
+        type: JwtTokenTypeEnum.REFRESH,
+      };
+      const mockAppToken = {
+        id: 'token-id',
+        workspaceId: 'workspace-id',
+        revokedAt: new Date(Date.now() - 120_000),
+      } as AppTokenEntity;
+
+      jest
+        .spyOn(jwtWrapperService, 'verifyJwtToken')
+        .mockResolvedValue(undefined);
+      jest.spyOn(jwtWrapperService, 'decode').mockReturnValue(mockJwtPayload);
+      jest
+        .spyOn(appTokenRepository, 'findOneBy')
+        .mockResolvedValue(mockAppToken);
+      jest
+        .spyOn(userRepository, 'findOneBy')
+        .mockResolvedValue({ id: 'user-id' } as UserEntity);
+      jest.spyOn(badesConfigService, 'get').mockReturnValue('1m');
+
+      await expect(service.verifyRefreshToken(mockToken)).rejects.toThrow(
+        AuthException,
+      );
+    });
   });
 
   describe('generateRefreshToken', () => {

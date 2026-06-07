@@ -1,12 +1,16 @@
 name: bades
 
-# Env bersama server + worker — selaras pola produksi (.env.production.example)
+# Full stack GHCR (server + worker + Postgres + Redis).
+# Jalankan dari repo root:
+#   cp packages/bades-docker/.env.example .env
+#   docker compose -f packages/bades-docker/docker-compose.yml up -d
+
 x-bades-app-env: &bades-app-env
   NODE_ENV: ${NODE_ENV:-production}
   NODE_PORT: 3000
   PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@${PG_DATABASE_HOST:-db}:${PG_DATABASE_PORT:-5432}/${PG_DATABASE_NAME:-default}
   SERVER_URL: ${SERVER_URL}
-  REDIS_URL: ${REDIS_URL}
+  REDIS_URL: ${REDIS_URL:-redis://redis:6379}
   REDIS_PASSWORD: ${REDIS_PASSWORD:-}
 
   STORAGE_TYPE: ${STORAGE_TYPE:-local}
@@ -42,36 +46,12 @@ services:
     image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
-      # Override AI provider config tanpa rebuild image (dev local).
-      # Hapus block ini begitu image GHCR sudah berisi model terbaru.
-      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
     ports:
       - "${SERVER_PORT:-3000}:3000"
     environment:
       <<: *bades-app-env
       DISABLE_DB_MIGRATIONS: ${DISABLE_DB_MIGRATIONS:-}
       DISABLE_CRON_JOBS_REGISTRATION: ${DISABLE_CRON_JOBS_REGISTRATION:-}
-      # CALENDAR_PROVIDER_GOOGLE_ENABLED: ${CALENDAR_PROVIDER_GOOGLE_ENABLED}
-      # AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}
-      # AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET}
-      # AUTH_GOOGLE_CALLBACK_URL: ${AUTH_GOOGLE_CALLBACK_URL}
-      # AUTH_GOOGLE_APIS_CALLBACK_URL: ${AUTH_GOOGLE_APIS_CALLBACK_URL}
-
-      # CALENDAR_PROVIDER_MICROSOFT_ENABLED: ${CALENDAR_PROVIDER_MICROSOFT_ENABLED}
-      # MESSAGING_PROVIDER_MICROSOFT_ENABLED: ${MESSAGING_PROVIDER_MICROSOFT_ENABLED}
-      # AUTH_MICROSOFT_ENABLED: ${AUTH_MICROSOFT_ENABLED}
-      # AUTH_MICROSOFT_CLIENT_ID: ${AUTH_MICROSOFT_CLIENT_ID}
-      # AUTH_MICROSOFT_CLIENT_SECRET: ${AUTH_MICROSOFT_CLIENT_SECRET}
-      # AUTH_MICROSOFT_CALLBACK_URL: ${AUTH_MICROSOFT_CALLBACK_URL}
-      # AUTH_MICROSOFT_APIS_CALLBACK_URL: ${AUTH_MICROSOFT_APIS_CALLBACK_URL}
-
-      # EMAIL_FROM_ADDRESS: ${EMAIL_FROM_ADDRESS:-contact@yourdomain.com}
-      # EMAIL_FROM_NAME: ${EMAIL_FROM_NAME:-"John from YourDomain"}
-      # EMAIL_DRIVER: ${EMAIL_DRIVER:-smtp}
-      # EMAIL_SMTP_HOST: ${EMAIL_SMTP_HOST:-smtp.gmail.com}
-      # EMAIL_SMTP_PORT: ${EMAIL_SMTP_PORT:-465}
-      # EMAIL_SMTP_USER: ${EMAIL_SMTP_USER:-}
-      # EMAIL_SMTP_PASSWORD: ${EMAIL_SMTP_PASSWORD:-}
 
     depends_on:
       db:
@@ -89,39 +69,27 @@ services:
     image: ${BADES_IMAGE:-ghcr.io/nonomnonom/bades}:${TAG:-latest}
     volumes:
       - server-local-data:/app/packages/server/.local-storage
-      - ./packages/server/src/engine/metadata-modules/ai/ai-models/ai-providers.json:/app/packages/server/dist/engine/metadata-modules/ai/ai-models/ai-providers.json:ro
-    command: ["node", "dist/queue-worker/queue-worker"]
+    command: ["yarn", "worker:prod"]
     environment:
       <<: *bades-app-env
       DISABLE_DB_MIGRATIONS: "true"
       DISABLE_CRON_JOBS_REGISTRATION: "true"
-      # CALENDAR_PROVIDER_GOOGLE_ENABLED: ${CALENDAR_PROVIDER_GOOGLE_ENABLED}
-      # AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}
-      # AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET}
-      # AUTH_GOOGLE_CALLBACK_URL: ${AUTH_GOOGLE_CALLBACK_URL}
-      # AUTH_GOOGLE_APIS_CALLBACK_URL: ${AUTH_GOOGLE_APIS_CALLBACK_URL}
-
-      # CALENDAR_PROVIDER_MICROSOFT_ENABLED: ${CALENDAR_PROVIDER_MICROSOFT_ENABLED}
-      # MESSAGING_PROVIDER_MICROSOFT_ENABLED: ${MESSAGING_PROVIDER_MICROSOFT_ENABLED}
-      # AUTH_MICROSOFT_ENABLED: ${AUTH_MICROSOFT_ENABLED}
-      # AUTH_MICROSOFT_CLIENT_ID: ${AUTH_MICROSOFT_CLIENT_ID}
-      # AUTH_MICROSOFT_CLIENT_SECRET: ${AUTH_MICROSOFT_CLIENT_SECRET}
-      # AUTH_MICROSOFT_CALLBACK_URL: ${AUTH_MICROSOFT_CALLBACK_URL}
-      # AUTH_MICROSOFT_APIS_CALLBACK_URL: ${AUTH_MICROSOFT_APIS_CALLBACK_URL}
-
-      # EMAIL_FROM_ADDRESS: ${EMAIL_FROM_ADDRESS:-contact@yourdomain.com}
-      # EMAIL_FROM_NAME: ${EMAIL_FROM_NAME:-"John from YourDomain"}
-      # EMAIL_DRIVER: ${EMAIL_DRIVER:-smtp}
-      # EMAIL_SMTP_HOST: ${EMAIL_SMTP_HOST:-smtp.gmail.com}
-      # EMAIL_SMTP_PORT: ${EMAIL_SMTP_PORT:-465}
-      # EMAIL_SMTP_USER: ${EMAIL_SMTP_USER:-}
-      # EMAIL_SMTP_PASSWORD: ${EMAIL_SMTP_PASSWORD:-}
 
     depends_on:
       db:
         condition: service_healthy
       server:
         condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pgrep -f 'dist/queue-worker/queue-worker' > /dev/null || exit 1",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
     restart: always
 
   db:
@@ -140,7 +108,7 @@ services:
     restart: always
 
   redis:
-    image: redis
+    image: redis:7-bookworm
     restart: always
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD:-}

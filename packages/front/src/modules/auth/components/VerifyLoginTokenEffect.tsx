@@ -27,13 +27,20 @@ export const VerifyLoginTokenEffect = () => {
     }
 
     if (isDefined(loginToken)) {
-      verifyLoginToken(loginToken);
-    } else if (!hasAccessTokenPair) {
+      void verifyLoginToken(loginToken);
+      return;
+    }
+
+    if (!hasAccessTokenPair) {
       navigate(AppPath.SignInUp);
     }
-    // Verify only needs to run once at mount
-    // oxlint-disable-next-line react-hooks/exhaustive-deps
-  }, [clientConfigLoaded]);
+  }, [
+    clientConfigLoaded,
+    loginToken,
+    hasAccessTokenPair,
+    navigate,
+    verifyLoginToken,
+  ]);
 
   return <></>;
 };

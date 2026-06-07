@@ -1,7 +1,5 @@
-import { useMemo } from 'react';
+export const getCurrentOrigin = (): string => window.location.origin;
 
-export const useOrigin = () => {
-  const origin = useMemo(() => window.location.origin, []);
-
-  return { origin };
-};
+export const useOrigin = () => ({
+  origin: getCurrentOrigin(),
+});

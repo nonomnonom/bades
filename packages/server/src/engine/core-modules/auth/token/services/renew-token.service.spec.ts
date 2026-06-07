@@ -19,6 +19,7 @@ describe('RenewTokenService', () => {
   let appTokenRepository: Repository<AppTokenEntity>;
   let accessTokenService: AccessTokenService;
   let refreshTokenService: RefreshTokenService;
+  let workspaceAgnosticTokenService: WorkspaceAgnosticTokenService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -56,6 +57,9 @@ describe('RenewTokenService', () => {
     );
     accessTokenService = module.get<AccessTokenService>(AccessTokenService);
     refreshTokenService = module.get<RefreshTokenService>(RefreshTokenService);
+    workspaceAgnosticTokenService = module.get<WorkspaceAgnosticTokenService>(
+      WorkspaceAgnosticTokenService,
+    );
   });
 
   it('should be defined', () => {
@@ -188,6 +192,74 @@ describe('RenewTokenService', () => {
       await expect(service.generateTokensFromRefreshToken('')).rejects.toThrow(
         AuthException,
       );
+    });
+
+    it('should generate workspace-agnostic token when targeted type is WORKSPACE_AGNOSTIC', async () => {
+      const mockUser = { id: 'user-id' } as UserEntity;
+      const mockTokenId = 'token-id';
+      const mockAppToken = {
+        id: mockTokenId,
+      } as AppTokenEntity;
+      const mockWorkspaceAgnosticToken = {
+        token: 'new-workspace-agnostic-token',
+        expiresAt: new Date(),
+      };
+      const mockNewRefreshToken = {
+        token: 'new-refresh-token',
+        expiresAt: new Date(),
+      };
+      const workspaceAgnosticTokenServiceSpy = jest
+        .spyOn(workspaceAgnosticTokenService, 'generateWorkspaceAgnosticToken')
+        .mockResolvedValue(mockWorkspaceAgnosticToken);
+      jest.spyOn(refreshTokenService, 'verifyRefreshToken').mockResolvedValue({
+        user: mockUser,
+        token: mockAppToken,
+        authProvider: AuthProviderEnum.Password,
+        targetedTokenType: JwtTokenTypeEnum.WORKSPACE_AGNOSTIC,
+        isImpersonating: false,
+        impersonatorUserWorkspaceId: undefined,
+        impersonatedUserWorkspaceId: undefined,
+      });
+      jest.spyOn(appTokenRepository, 'update').mockResolvedValue({} as any);
+      jest
+        .spyOn(refreshTokenService, 'generateRefreshToken')
+        .mockResolvedValue(mockNewRefreshToken);
+
+      const result = await service.generateTokensFromRefreshToken(
+        'valid-refresh-token',
+      );
+
+      expect(result.accessOrWorkspaceAgnosticToken).toEqual(
+        mockWorkspaceAgnosticToken,
+      );
+      expect(workspaceAgnosticTokenServiceSpy).toHaveBeenCalledWith({
+        userId: mockUser.id,
+        authProvider: AuthProviderEnum.Password,
+      });
+    });
+
+    it('should throw when legacy ACCESS refresh token has no workspaceId', async () => {
+      const mockUser = { id: 'user-id' } as UserEntity;
+      const mockAppToken = {
+        id: 'token-id',
+      } as AppTokenEntity;
+
+      jest.spyOn(refreshTokenService, 'verifyRefreshToken').mockResolvedValue({
+        user: mockUser,
+        token: mockAppToken,
+        authProvider: AuthProviderEnum.Password,
+        targetedTokenType: undefined,
+        isImpersonating: false,
+        impersonatorUserWorkspaceId: undefined,
+        impersonatedUserWorkspaceId: undefined,
+      } as unknown as Awaited<
+        ReturnType<RefreshTokenService['verifyRefreshToken']>
+      >);
+      jest.spyOn(appTokenRepository, 'update').mockResolvedValue({} as any);
+
+      await expect(
+        service.generateTokensFromRefreshToken('legacy-refresh-token'),
+      ).rejects.toThrow(AuthException);
     });
   });
 });

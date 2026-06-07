@@ -1,7 +1,10 @@
+import { hasTokenPair } from '@/apollo/utils/hasTokenPair';
 import { tokenPairState } from '@/auth/states/tokenPairState';
-import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
+import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 
 export const useHasAccessTokenPair = (): boolean => {
-  const [tokenPair] = useAtomState(tokenPairState);
-  return !!tokenPair;
+  // Subscribe to atom changes while reading cookie-first canonical source.
+  useAtomStateValue(tokenPairState);
+
+  return hasTokenPair();
 };

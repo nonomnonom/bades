@@ -99,11 +99,20 @@ export const MultiWorkspaceDropdownDefaultComponents = () => {
   const createWorkspace = () => {
     signUpInNewWorkspaceMutation({
       onCompleted: async (data) => {
+        const dataSignUp = data.signUpInNewWorkspace;
+        const loginToken = dataSignUp.loginToken;
+
+        if (!loginToken) {
+          enqueueErrorSnackBar({ message: 'Login token tidak tersedia' });
+
+          return;
+        }
+
         return await redirectToWorkspaceDomain(
-          getWorkspaceUrl(data.signUpInNewWorkspace.workspace.workspaceUrls),
+          getWorkspaceUrl(dataSignUp.workspace.workspaceUrls),
           AppPath.Verify,
           {
-            loginToken: data.signUpInNewWorkspace.loginToken.token,
+            loginToken: loginToken.token,
           },
           '_blank',
         );

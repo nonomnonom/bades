@@ -2,9 +2,23 @@ import { getDefaultStore } from 'jotai';
 import omit from 'lodash.omit';
 import { isDefined } from 'shared/utils';
 import { tokenPairState } from '@/auth/states/tokenPairState';
+import { clearTokenPairCookie } from '@/auth/utils/sharedAuthCookieUtil';
+import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWorkspaceEnabledState';
+import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { type AuthTokenPair } from '~/generated-metadata/graphql';
 import { cookieStorage } from '~/utils/cookie-storage';
 import { isValidAuthTokenPair } from './isValidAuthTokenPair';
+
+const clearInvalidTokenPairCookie = (): void => {
+  const store = getDefaultStore();
+  const domainConfiguration = store.get(domainConfigurationState.atom);
+  const isMultiWorkspaceEnabled = store.get(isMultiWorkspaceEnabledState.atom);
+
+  clearTokenPairCookie(
+    domainConfiguration.frontDomain,
+    isMultiWorkspaceEnabled,
+  );
+};
 
 const parseStoredTokenPair = (
   stringTokenPair: string,
@@ -13,13 +27,13 @@ const parseStoredTokenPair = (
     const parsedTokenPair = JSON.parse(stringTokenPair);
 
     if (!isValidAuthTokenPair(parsedTokenPair)) {
-      cookieStorage.removeItem('tokenPair');
+      clearInvalidTokenPairCookie();
       return undefined;
     }
 
     return parsedTokenPair;
   } catch {
-    cookieStorage.removeItem('tokenPair');
+    clearInvalidTokenPairCookie();
     return undefined;
   }
 };

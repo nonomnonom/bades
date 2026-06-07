@@ -17,6 +17,7 @@ import { getSessionStorageOptions } from 'src/engine/core-modules/session-storag
 import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { configTransformers } from 'src/engine/core-modules/bades-config/utils/config-transformers.util';
 import { UnhandledExceptionFilter } from 'src/filters/unhandled-exception.filter';
+import { corsOriginCallback } from 'src/utils/cors-origin.util';
 
 import { AppModule } from './app.module';
 import './instrument';
@@ -32,47 +33,7 @@ const bootstrap = async () => {
     // Expose WWW-Authenticate so browser-based MCP clients can read the
     // resource_metadata pointer on 401. Required by MCP authorization spec.
     cors: {
-      origin: (origin, callback) => {
-        const FRONTEND_URL = process.env.FRONTEND_URL;
-        const SERVER_URL = process.env.SERVER_URL;
-        const allowedUrls: string[] = [FRONTEND_URL, SERVER_URL].filter(
-          (url): url is string => url != null,
-        );
-
-        // Fallback development: izinkan localhost
-        if (allowedUrls.length === 0) {
-          return callback(null, true);
-        }
-
-        // Izinkan request tanpa origin (server-to-server, mobile apps, Postman)
-        if (!origin) {
-          return callback(null, true);
-        }
-
-        const originHostname = new URL(origin).hostname;
-
-        // Cocokkan hostname secara eksplisit untuk mencegah subdomain spoofing
-        for (const allowed of allowedUrls) {
-          const allowedHostname = new URL(allowed).hostname;
-
-          if (originHostname === allowedHostname) {
-            return callback(null, true);
-          }
-
-          // Dukungan multi-tenant: izinkan subdomain dari domain utama
-          const allowedDomainParts = allowedHostname.split('.');
-
-          if (allowedDomainParts.length >= 3) {
-            const baseDomain = allowedDomainParts.slice(-2).join('.');
-
-            if (originHostname.endsWith('.' + baseDomain)) {
-              return callback(null, true);
-            }
-          }
-        }
-
-        callback(null, false);
-      },
+      origin: corsOriginCallback,
       exposedHeaders: ['WWW-Authenticate'],
     },
     bufferLogs: process.env.LOGGER_IS_BUFFER_ENABLED === 'true',

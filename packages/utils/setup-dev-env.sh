@@ -19,7 +19,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-COMPOSE_FILE="$REPO_ROOT/docker-compose.yml"
+COMPOSE_FILE="$REPO_ROOT/packages/bades-docker/docker-compose.dev.yml"
 
 info()  { echo "=> $*"; }
 ok()    { echo "   done: $*"; }
@@ -191,8 +191,8 @@ start_redis() {
 }
 
 if [ "$USE_DOCKER" = true ]; then
-  info "Starting services via Docker Compose (db + redis saja)..."
-  docker compose -f "$COMPOSE_FILE" up -d db redis
+  info "Starting services via Docker Compose..."
+  docker compose -f "$COMPOSE_FILE" up -d
   wait_for_pg
   wait_for_redis
 else
@@ -228,8 +228,8 @@ info "Setting up .env files..."
 cd "$REPO_ROOT"
 
 if command -v npx &>/dev/null && [ -d node_modules ]; then
-  npx nx run front:reset:env
-  npx nx run server:reset:env
+  npx nx reset:env front
+  npx nx reset:env server
 else
   for pkg in front server; do
     src="packages/$pkg/.env.example"

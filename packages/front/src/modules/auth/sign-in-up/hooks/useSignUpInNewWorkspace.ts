@@ -5,7 +5,7 @@ import { AppPath } from 'shared/types';
 import { useMutation } from '@apollo/client/react';
 import { SignUpInNewWorkspaceDocument } from '~/generated-metadata/graphql';
 import { getWorkspaceUrl } from '~/utils/getWorkspaceUrl';
-import { assertIsDefinedOrThrow } from 'shared/utils';
+import { assertIsDefinedOrThrow, isDefined } from 'shared/utils';
 export const useSignUpInNewWorkspace = () => {
   const { redirectToWorkspaceDomain } = useRedirectToWorkspaceDomain();
   const { enqueueErrorSnackBar } = useSnackBar();
@@ -16,12 +16,21 @@ export const useSignUpInNewWorkspace = () => {
   const createWorkspace = async ({ newTab } = { newTab: true }) => {
     try {
       const { data } = await signUpInNewWorkspaceMutation();
-      assertIsDefinedOrThrow(data?.signUpInNewWorkspace);
+      const signUpInNewWorkspaceData = data?.signUpInNewWorkspace;
+
+      assertIsDefinedOrThrow(signUpInNewWorkspaceData?.workspace);
+
+      if (!isDefined(signUpInNewWorkspaceData.loginToken)) {
+        throw new Error(
+          'Login token tidak tersedia di hasil signUpInNewWorkspace',
+        );
+      }
+
       return await redirectToWorkspaceDomain(
-        getWorkspaceUrl(data.signUpInNewWorkspace.workspace.workspaceUrls),
+        getWorkspaceUrl(signUpInNewWorkspaceData.workspace.workspaceUrls),
         AppPath.Verify,
         {
-          loginToken: data.signUpInNewWorkspace.loginToken.token,
+          loginToken: signUpInNewWorkspaceData.loginToken.token,
         },
         newTab ? '_blank' : '_self',
       );

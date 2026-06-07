@@ -52,8 +52,14 @@ describe('JWT Legacy HS256 no-kid fallback (integration)', () => {
       expectToFail: false,
     });
 
+    const signUpTokens = signUpData.signUp.tokens;
+
+    if (!signUpTokens) {
+      throw new Error('signUp tokens is null');
+    }
+
     const workspaceAgnosticToken =
-      signUpData.signUp.tokens.accessOrWorkspaceAgnosticToken.token;
+      signUpTokens.accessOrWorkspaceAgnosticToken.token;
 
     sharedWorkspaceAgnosticPayload = jwt.decode(
       workspaceAgnosticToken,
@@ -72,7 +78,13 @@ describe('JWT Legacy HS256 no-kid fallback (integration)', () => {
     sharedSubdomainUrl =
       workspaceData.signUpInNewWorkspace.workspace.workspaceUrls.subdomainUrl;
 
-    const loginToken = workspaceData.signUpInNewWorkspace.loginToken.token;
+    const loginTokenFromWs = workspaceData.signUpInNewWorkspace.loginToken;
+
+    if (!loginTokenFromWs) {
+      throw new Error('loginToken is null');
+    }
+
+    const loginToken = loginTokenFromWs.token;
 
     sharedLoginPayload = jwt.decode(loginToken) as LoginTokenJwtPayload;
 

@@ -32,13 +32,19 @@ describe('Successful User Sign Up (integration)', () => {
       expectToFail: false,
     });
 
-    createdUserAccessToken =
-      firstSignUpData.signUp.tokens.accessOrWorkspaceAgnosticToken.token;
+    const firstSignUpTokens = firstSignUpData.signUp.tokens;
 
-    expect(
-      firstSignUpData.signUp.tokens.accessOrWorkspaceAgnosticToken.token,
-    ).toBeDefined();
-    expect(firstSignUpData.signUp.tokens.refreshToken.token).toBeDefined();
+    expect(firstSignUpTokens).toBeDefined();
+
+    if (!firstSignUpTokens) {
+      throw new Error('firstSignUpData.signUp.tokens is null');
+    }
+
+    createdUserAccessToken =
+      firstSignUpTokens.accessOrWorkspaceAgnosticToken.token;
+
+    expect(createdUserAccessToken).toBeDefined();
+    expect(firstSignUpTokens.refreshToken.token).toBeDefined();
     expect(
       firstSignUpData.signUp.availableWorkspaces.availableWorkspacesForSignIn,
     ).toEqual([]);
@@ -77,8 +83,14 @@ describe('Successful User Sign Up (integration)', () => {
       expectToFail: false,
     });
 
+    const secondSignUpTokens = secondSignUpData.signUp.tokens;
+
+    if (!secondSignUpTokens) {
+      throw new Error('secondSignUpData.signUp.tokens is null');
+    }
+
     createdUserAccessToken =
-      secondSignUpData.signUp.tokens.accessOrWorkspaceAgnosticToken.token;
+      secondSignUpTokens.accessOrWorkspaceAgnosticToken.token;
 
     const {
       data: { currentUser: currentUserAfterSecondSignUp },

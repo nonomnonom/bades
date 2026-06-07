@@ -67,24 +67,35 @@ export class RenewTokenService {
 
     const resolvedAuthProvider = authProvider ?? AuthProviderEnum.Password;
 
-    const accessToken =
-      isDefined(authProvider) &&
-      targetedTokenType === JwtTokenTypeEnum.WORKSPACE_AGNOSTIC &&
+    const shouldGenerateWorkspaceAgnosticToken =
+      targetedTokenType === JwtTokenTypeEnum.WORKSPACE_AGNOSTIC ||
+      !isDefined(workspaceId);
+
+    if (
+      targetedTokenType === JwtTokenTypeEnum.ACCESS &&
       !isDefined(workspaceId)
-        ? await this.workspaceAgnosticTokenService.generateWorkspaceAgnosticToken(
-            {
-              userId: user.id,
-              authProvider,
-            },
-          )
-        : await this.accessTokenService.generateAccessToken({
+    ) {
+      throw new AuthException(
+        'Refresh token is missing workspace context. Please sign in again.',
+        AuthExceptionCode.INVALID_INPUT,
+      );
+    }
+
+    const accessToken = shouldGenerateWorkspaceAgnosticToken
+      ? await this.workspaceAgnosticTokenService.generateWorkspaceAgnosticToken(
+          {
             userId: user.id,
-            workspaceId: workspaceId as string,
             authProvider: resolvedAuthProvider,
-            isImpersonating,
-            impersonatorUserWorkspaceId,
-            impersonatedUserWorkspaceId,
-          });
+          },
+        )
+      : await this.accessTokenService.generateAccessToken({
+          userId: user.id,
+          workspaceId: workspaceId as string,
+          authProvider: resolvedAuthProvider,
+          isImpersonating,
+          impersonatorUserWorkspaceId,
+          impersonatedUserWorkspaceId,
+        });
 
     const refreshToken = await this.refreshTokenService.generateRefreshToken({
       userId: user.id,

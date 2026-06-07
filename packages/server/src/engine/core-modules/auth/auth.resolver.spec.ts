@@ -21,6 +21,9 @@ import { UserService } from 'src/engine/core-modules/user/services/user.service'
 import { UserEntity } from 'src/engine/core-modules/user/user.entity';
 import { PermissionsService } from 'src/engine/metadata-modules/permissions/permissions.service';
 
+import { EmailVerificationTrigger } from 'src/engine/core-modules/email-verification/email-verification.constants';
+import { SOURCE_LOCALE } from 'shared/translations';
+
 import { AuthResolver } from './auth.resolver';
 
 import { AuthService } from './services/auth.service';
@@ -32,9 +35,32 @@ import { TransientTokenService } from './token/services/transient-token.service'
 
 describe('AuthResolver', () => {
   let resolver: AuthResolver;
+  let badesConfigService: { get: jest.Mock };
+  let signInUpService: { signUpWithoutWorkspace: jest.Mock };
+  let userWorkspaceService: {
+    findAvailableWorkspacesByEmail: jest.Mock;
+    setLoginTokenToAvailableWorkspacesWhenAuthProviderMatch: jest.Mock;
+  };
+  let emailVerificationService: { sendVerificationEmail: jest.Mock };
+  let workspaceAgnosticTokenService: {
+    generateWorkspaceAgnosticToken: jest.Mock;
+  };
+  let refreshTokenService: { generateRefreshToken: jest.Mock };
   const mock_CaptchaGuard: CanActivate = { canActivate: jest.fn(() => true) };
 
   beforeEach(async () => {
+    badesConfigService = { get: jest.fn() };
+    signInUpService = { signUpWithoutWorkspace: jest.fn() };
+    userWorkspaceService = {
+      findAvailableWorkspacesByEmail: jest.fn(),
+      setLoginTokenToAvailableWorkspacesWhenAuthProviderMatch: jest.fn(),
+    };
+    emailVerificationService = { sendVerificationEmail: jest.fn() };
+    workspaceAgnosticTokenService = {
+      generateWorkspaceAgnosticToken: jest.fn(),
+    };
+    refreshTokenService = { generateRefreshToken: jest.fn() };
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         AuthResolver,
@@ -56,7 +82,7 @@ describe('AuthResolver', () => {
         },
         {
           provide: RefreshTokenService,
-          useValue: {},
+          useValue: refreshTokenService,
         },
         {
           provide: UserService,
@@ -72,7 +98,7 @@ describe('AuthResolver', () => {
         },
         {
           provide: UserWorkspaceService,
-          useValue: {},
+          useValue: userWorkspaceService,
         },
         {
           provide: RenewTokenService,
@@ -80,7 +106,7 @@ describe('AuthResolver', () => {
         },
         {
           provide: SignInUpService,
-          useValue: {},
+          useValue: signInUpService,
         },
         {
           provide: ApiKeyService,
@@ -96,7 +122,7 @@ describe('AuthResolver', () => {
         },
         {
           provide: WorkspaceAgnosticTokenService,
-          useValue: {},
+          useValue: workspaceAgnosticTokenService,
         },
         {
           provide: TransientTokenService,
@@ -104,7 +130,7 @@ describe('AuthResolver', () => {
         },
         {
           provide: EmailVerificationService,
-          useValue: {},
+          useValue: emailVerificationService,
         },
         {
           provide: EmailVerificationTokenService,
@@ -128,7 +154,7 @@ describe('AuthResolver', () => {
         },
         {
           provide: BadesConfigService,
-          useValue: {},
+          useValue: badesConfigService,
         },
         {
           provide: AuditService,
@@ -149,5 +175,41 @@ describe('AuthResolver', () => {
 
   it('should be defined', () => {
     expect(resolver).toBeDefined();
+  });
+
+  describe('signUp', () => {
+    it('mengembalikan tokens null saat verifikasi email wajib', async () => {
+      const user = {
+        id: 'user-id',
+        email: 'budi@bades.id',
+      };
+
+      signInUpService.signUpWithoutWorkspace.mockResolvedValue(user);
+      userWorkspaceService.findAvailableWorkspacesByEmail.mockResolvedValue([]);
+      userWorkspaceService.setLoginTokenToAvailableWorkspacesWhenAuthProviderMatch.mockResolvedValue(
+        [],
+      );
+      badesConfigService.get.mockReturnValue(true);
+
+      const result = await resolver.signUp({
+        email: user.email,
+        password: 'password123',
+        locale: SOURCE_LOCALE,
+      });
+
+      expect(
+        emailVerificationService.sendVerificationEmail,
+      ).toHaveBeenCalledWith(
+        expect.objectContaining({
+          userId: user.id,
+          verificationTrigger: EmailVerificationTrigger.SIGN_UP,
+        }),
+      );
+      expect(result.tokens).toBeNull();
+      expect(
+        workspaceAgnosticTokenService.generateWorkspaceAgnosticToken,
+      ).not.toHaveBeenCalled();
+      expect(refreshTokenService.generateRefreshToken).not.toHaveBeenCalled();
+    });
   });
 });

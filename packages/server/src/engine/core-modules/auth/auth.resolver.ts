@@ -13,6 +13,7 @@ import { MetadataResolver } from 'src/engine/api/graphql/graphql-config/decorato
 import { ApiKeyService } from 'src/engine/core-modules/api-key/services/api-key.service';
 import { AppTokenEntity } from 'src/engine/core-modules/app-token/app-token.entity';
 import { AuditService } from 'src/engine/core-modules/audit/services/audit.service';
+import { BadesConfigService } from 'src/engine/core-modules/bades-config/bades-config.service';
 import { MONITORING_EVENT } from 'src/engine/core-modules/audit/utils/events/workspace-event/monitoring/monitoring';
 import {
   AuthException,
@@ -125,6 +126,7 @@ export class AuthResolver {
     private ssoService: SSOService,
     private readonly auditService: AuditService,
     private readonly permissionsService: PermissionsService,
+    private readonly badesConfigService: BadesConfigService,
   ) {}
 
   @UseGuards(CaptchaGuard, PublicEndpointGuard, NoPermissionGuard)
@@ -408,13 +410,26 @@ export class AuthResolver {
       verificationTrigger: EmailVerificationTrigger.SIGN_UP,
     });
 
+    const isEmailVerificationRequired = this.badesConfigService.get(
+      'IS_EMAIL_VERIFICATION_REQUIRED',
+    );
+
+    const availableWorkspacesWithLoginTokens =
+      await this.userWorkspaceService.setLoginTokenToAvailableWorkspacesWhenAuthProviderMatch(
+        availableWorkspaces,
+        user,
+        AuthProviderEnum.Password,
+      );
+
+    if (isEmailVerificationRequired) {
+      return {
+        availableWorkspaces: availableWorkspacesWithLoginTokens,
+        tokens: null,
+      };
+    }
+
     return {
-      availableWorkspaces:
-        await this.userWorkspaceService.setLoginTokenToAvailableWorkspacesWhenAuthProviderMatch(
-          availableWorkspaces,
-          user,
-          AuthProviderEnum.Password,
-        ),
+      availableWorkspaces: availableWorkspacesWithLoginTokens,
       tokens: {
         accessOrWorkspaceAgnosticToken:
           await this.workspaceAgnosticTokenService.generateWorkspaceAgnosticToken(
@@ -491,11 +506,17 @@ export class AuthResolver {
       verificationTrigger: EmailVerificationTrigger.SIGN_UP,
     });
 
-    const loginToken = await this.loginTokenService.generateLoginToken(
-      user.email,
-      workspace.id,
-      authProvider,
+    const isEmailVerificationRequired = this.badesConfigService.get(
+      'IS_EMAIL_VERIFICATION_REQUIRED',
     );
+
+    const loginToken = isEmailVerificationRequired
+      ? null
+      : await this.loginTokenService.generateLoginToken(
+          user.email,
+          workspace.id,
+          authProvider,
+        );
 
     return {
       loginToken,
@@ -770,6 +791,26 @@ export class AuthResolver {
       });
       throw new AuthException(
         'Impersonation not allowed',
+        AuthExceptionCode.FORBIDDEN_EXCEPTION,
+      );
+    }
+
+    const targetHasAdminPrivileges =
+      toImpersonateUserWorkspace.user.canImpersonate === true ||
+      toImpersonateUserWorkspace.user.canAccessFullAdminPanel === true;
+
+    const impersonatorHasAdminPrivileges =
+      impersonatorUserWorkspace.user.canImpersonate === true ||
+      impersonatorUserWorkspace.user.canAccessFullAdminPanel === true;
+
+    if (targetHasAdminPrivileges && !impersonatorHasAdminPrivileges) {
+      await auditService.insertWorkspaceEvent(MONITORING_EVENT, {
+        eventName: 'workspace.impersonation.token_exchange_failed',
+        message: `Cannot impersonate admin user ${targetUserEmail} by userId ${impersonatorUserWorkspace.user.id}`,
+      });
+
+      throw new AuthException(
+        'Cannot impersonate a user with admin privileges',
         AuthExceptionCode.FORBIDDEN_EXCEPTION,
       );
     }

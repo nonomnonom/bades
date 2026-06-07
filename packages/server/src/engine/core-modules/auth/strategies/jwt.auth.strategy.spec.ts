@@ -941,4 +941,65 @@ describe('JwtAuthStrategy', () => {
       );
     });
   });
+
+  describe('WORKSPACE_AGNOSTIC validation', () => {
+    it('should return user context for valid workspace-agnostic token', async () => {
+      const validUserId = 'valid-user-id';
+      const mockUser = { id: validUserId, lastName: 'lastNameDefault' };
+
+      userStore[validUserId] = mockUser;
+
+      coreEntityCacheService.get.mockImplementation(
+        async (keyName: string, entityId: string) => {
+          if (keyName === 'user') {
+            return userStore[entityId] ?? null;
+          }
+
+          return null;
+        },
+      );
+
+      strategy = createStrategy();
+
+      const result = await strategy.validate({
+        sub: validUserId,
+        type: JwtTokenTypeEnum.WORKSPACE_AGNOSTIC,
+        authProvider: 'password',
+      } as JwtPayload);
+
+      expect(result.user?.id).toBe(validUserId);
+      expect(result.authProvider).toBe('password');
+    });
+
+    it('should throw when user is not found for workspace-agnostic token', async () => {
+      strategy = createStrategy();
+
+      await expect(
+        strategy.validate({
+          sub: 'missing-user-id',
+          type: JwtTokenTypeEnum.WORKSPACE_AGNOSTIC,
+        } as JwtPayload),
+      ).rejects.toThrow(
+        new AuthException('User not found', AuthExceptionCode.USER_NOT_FOUND),
+      );
+    });
+  });
+
+  describe('invalid token types', () => {
+    it('should reject REFRESH token type as Bearer', async () => {
+      strategy = createStrategy();
+
+      await expect(
+        strategy.validate({
+          sub: 'user-id',
+          type: JwtTokenTypeEnum.REFRESH,
+        } as JwtPayload),
+      ).rejects.toThrow(
+        new AuthException(
+          'Invalid token',
+          AuthExceptionCode.INVALID_JWT_TOKEN_TYPE,
+        ),
+      );
+    });
+  });
 });

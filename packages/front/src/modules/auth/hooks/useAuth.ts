@@ -47,7 +47,7 @@ import {
 import { isEmailVerificationRequiredState } from '@/client-config/states/isEmailVerificationRequiredState';
 import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWorkspaceEnabledState';
 import { useLastAuthenticatedWorkspaceDomain } from '@/domain-manager/hooks/useLastAuthenticatedWorkspaceDomain';
-import { useOrigin } from '@/domain-manager/hooks/useOrigin';
+import { getCurrentOrigin } from '@/domain-manager/hooks/useOrigin';
 import { useRedirect } from '@/domain-manager/hooks/useRedirect';
 import { useRedirectToWorkspaceDomain } from '@/domain-manager/hooks/useRedirectToWorkspaceDomain';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
@@ -67,7 +67,6 @@ export const useAuth = () => {
     isAppEffectRedirectEnabledState,
   );
 
-  const { origin } = useOrigin();
   const domainConfiguration = useAtomStateValue(domainConfigurationState);
   const isMultiWorkspaceEnabled = useAtomStateValue(
     isMultiWorkspaceEnabledState,
@@ -150,7 +149,7 @@ export const useAuth = () => {
             email,
             password,
             captchaToken,
-            origin,
+            origin: getCurrentOrigin(),
           },
         });
         if (isDefined(getLoginTokenResult.error)) {
@@ -171,7 +170,7 @@ export const useAuth = () => {
         throw error;
       }
     },
-    [getLoginTokenFromCredentials, setSearchParams, setSignInUpStep, origin],
+    [getLoginTokenFromCredentials, setSearchParams, setSignInUpStep],
   );
 
   const handleverifyEmailAndGetLoginToken = useCallback(
@@ -185,7 +184,7 @@ export const useAuth = () => {
           email,
           emailVerificationToken,
           captchaToken,
-          origin,
+          origin: getCurrentOrigin(),
         },
       });
 
@@ -199,7 +198,7 @@ export const useAuth = () => {
 
       return loginTokenResult.data.verifyEmailAndGetLoginToken;
     },
-    [verifyEmailAndGetLoginToken, origin],
+    [verifyEmailAndGetLoginToken],
   );
 
   const handleverifyEmailAndGetWorkspaceAgnosticToken = useCallback(
@@ -224,7 +223,16 @@ export const useAuth = () => {
         throw new Error('Token workspace-agnostic tidak ada di hasil');
       }
 
-      handleSetAuthTokens(data.verifyEmailAndGetWorkspaceAgnosticToken.tokens);
+      const workspaceAgnosticTokens =
+        data.verifyEmailAndGetWorkspaceAgnosticToken.tokens;
+
+      if (!isDefined(workspaceAgnosticTokens)) {
+        throw new Error(
+          'Token workspace-agnostic tidak tersedia di hasil verifikasi',
+        );
+      }
+
+      handleSetAuthTokens(workspaceAgnosticTokens);
 
       const { user } = await loadCurrentUser();
 
@@ -268,7 +276,7 @@ export const useAuth = () => {
         const getAuthTokensResult = await getAuthTokensFromLoginToken({
           variables: {
             loginToken: loginToken,
-            origin,
+            origin: getCurrentOrigin(),
           },
         });
 
@@ -316,7 +324,6 @@ export const useAuth = () => {
     [
       handleSetLoginToken,
       getAuthTokensFromLoginToken,
-      origin,
       handleLoadWorkspaceAfterAuthentication,
       setSignInUpStep,
       navigate,
@@ -325,47 +332,61 @@ export const useAuth = () => {
 
   const handleCredentialsSignIn = useCallback(
     async (email: string, password: string, captchaToken?: string) => {
-      await signIn({
+      const signInResult = await signIn({
         variables: { email, password, captchaToken },
-        onCompleted: async (data) => {
-          handleSetAuthTokens(data.signIn.tokens);
-          const { user } = await loadCurrentUser();
-
-          const availableWorkspacesCount = countAvailableWorkspaces(
-            user.availableWorkspaces,
-          );
-
-          if (availableWorkspacesCount === 0) {
-            return createWorkspace();
-          }
-
-          if (availableWorkspacesCount === 1) {
-            const targetWorkspace = getFirstAvailableWorkspaces(
-              user.availableWorkspaces,
-            );
-            return await redirectToWorkspaceDomain(
-              getWorkspaceUrl(targetWorkspace.workspaceUrls),
-              targetWorkspace.loginToken ? AppPath.Verify : AppPath.SignInUp,
-              {
-                ...(targetWorkspace.loginToken && {
-                  loginToken: targetWorkspace.loginToken,
-                }),
-                email: user.email,
-              },
-            );
-          }
-
-          setSignInUpStep(SignInUpStep.WorkspaceSelection);
-        },
-        onError: (error) => {
-          if (isGraphqlErrorOfType(error, 'EMAIL_NOT_VERIFIED')) {
-            setSearchParams({ email });
-            setSignInUpStep(SignInUpStep.EmailVerification);
-            throw error;
-          }
-          throw error;
-        },
       });
+
+      if (isDefined(signInResult.error)) {
+        if (isGraphqlErrorOfType(signInResult.error, 'EMAIL_NOT_VERIFIED')) {
+          setSearchParams({ email });
+          setSignInUpStep(SignInUpStep.EmailVerification);
+        }
+
+        throw signInResult.error;
+      }
+
+      if (!signInResult.data?.signIn) {
+        throw new Error('Tidak ada hasil signIn');
+      }
+
+      const { tokens } = signInResult.data.signIn;
+
+      if (!isDefined(tokens)) {
+        throw new Error(
+          'Token tidak tersedia — mungkin perlu verifikasi email',
+        );
+      }
+
+      handleSetAuthTokens(tokens);
+
+      const { user } = await loadCurrentUser();
+
+      const availableWorkspacesCount = countAvailableWorkspaces(
+        user.availableWorkspaces,
+      );
+
+      if (availableWorkspacesCount === 0) {
+        return createWorkspace();
+      }
+
+      if (availableWorkspacesCount === 1) {
+        const targetWorkspace = getFirstAvailableWorkspaces(
+          user.availableWorkspaces,
+        );
+
+        return await redirectToWorkspaceDomain(
+          getWorkspaceUrl(targetWorkspace.workspaceUrls),
+          targetWorkspace.loginToken ? AppPath.Verify : AppPath.SignInUp,
+          {
+            ...(targetWorkspace.loginToken && {
+              loginToken: targetWorkspace.loginToken,
+            }),
+            email: user.email,
+          },
+        );
+      }
+
+      setSignInUpStep(SignInUpStep.WorkspaceSelection);
     },
     [
       handleSetAuthTokens,
@@ -403,7 +424,13 @@ export const useAuth = () => {
         throw new Error('Tidak ada hasil signUp');
       }
 
-      handleSetAuthTokens(signUpResult.data.signUp.tokens);
+      const signUpTokens = signUpResult.data.signUp.tokens;
+
+      if (!isDefined(signUpTokens)) {
+        throw new Error('Token tidak tersedia di hasil signUp');
+      }
+
+      handleSetAuthTokens(signUpTokens);
 
       const { user } = await loadCurrentUser();
 
@@ -487,25 +514,40 @@ export const useAuth = () => {
       }
 
       if (isMultiWorkspaceEnabled) {
+        const signUpLoginToken =
+          signUpInWorkspaceResult.data.signUpInWorkspace.loginToken;
+
+        // loginToken bisa null hanya saat email verification required,
+        // yang sudah di-return null di atas — jadi seharusnya selalu ada.
+        if (!isDefined(signUpLoginToken)) {
+          throw new Error(
+            'Login token tidak tersedia untuk redirect ke workspace',
+          );
+        }
+
         return await redirectToWorkspaceDomain(
           getWorkspaceUrl(
             signUpInWorkspaceResult.data.signUpInWorkspace.workspace
               .workspaceUrls,
           ),
-          isEmailVerificationRequired ? AppPath.SignInUp : AppPath.Verify,
+          AppPath.Verify,
           {
-            ...(!isEmailVerificationRequired && {
-              loginToken:
-                signUpInWorkspaceResult.data.signUpInWorkspace.loginToken.token,
-            }),
+            loginToken: signUpLoginToken.token,
             email,
           },
         );
       }
 
-      await handleGetAuthTokensFromLoginToken(
-        signUpInWorkspaceResult.data?.signUpInWorkspace.loginToken.token,
-      );
+      const loginTokenFromSignUp =
+        signUpInWorkspaceResult.data.signUpInWorkspace.loginToken;
+
+      if (!isDefined(loginTokenFromSignUp)) {
+        throw new Error(
+          'Login token tidak tersedia di hasil signUpInWorkspace',
+        );
+      }
+
+      await handleGetAuthTokensFromLoginToken(loginTokenFromSignUp.token);
     },
     [
       signUpInWorkspace,
@@ -594,7 +636,7 @@ export const useAuth = () => {
       const getAuthTokensFromOtpResult = await getAuthTokensFromOtp({
         variables: {
           captchaToken,
-          origin,
+          origin: getCurrentOrigin(),
           otp,
           loginToken,
         },
@@ -612,7 +654,7 @@ export const useAuth = () => {
         getAuthTokensFromOtpResult.data.getAuthTokensFromOTP.tokens,
       );
     },
-    [getAuthTokensFromOtp, origin, handleLoadWorkspaceAfterAuthentication],
+    [getAuthTokensFromOtp, handleLoadWorkspaceAfterAuthentication],
   );
 
   return {

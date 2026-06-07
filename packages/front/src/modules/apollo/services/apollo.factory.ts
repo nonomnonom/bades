@@ -12,6 +12,11 @@ import { RestLink } from 'apollo-link-rest';
 import UploadHttpLink from 'apollo-upload-client/UploadHttpLink.mjs';
 
 import { renewToken } from '@/auth/services/AuthService';
+import {
+  broadcastRefreshComplete,
+  broadcastRefreshStart,
+  waitForRefreshComplete,
+} from '@/auth/utils/crossTabSignOut';
 import { type CurrentWorkspaceMember } from '@/auth/states/currentWorkspaceMemberState';
 import { type CurrentWorkspace } from '@/auth/states/currentWorkspaceState';
 import { type AuthTokenPair } from '~/generated-metadata/graphql';
@@ -41,6 +46,12 @@ const logger = loggerLink(() => 'Bades');
 // UNAUTHENTICATED errors from /graphql and /metadata clients
 // deduplicate into a single renewal request.
 let renewalPromise: Promise<boolean> | null = null;
+
+// Guard untuk mencegah loop UNAUTHENTICATED — setelah `onUnauthenticatedError`
+// dipanggil, semua error UNAUTHENTICATED berikutnya dalam window ini
+// akan diabaikan agar tidak memicu redirect/infinite loop.
+let lastUnauthenticatedErrorAt: number | null = null;
+const UNAUTHENTICATED_COOLDOWN_MS = 10_000;
 
 const TOKEN_RENEWAL_MAX_RETRIES = 3;
 const TOKEN_RENEWAL_RETRY_DELAY_MS = 1000;
@@ -158,21 +169,49 @@ export class ApolloFactory implements ApolloManager {
       });
 
       const attemptTokenRenewal = async (): Promise<void> => {
-        const graphqlUri = `${REACT_APP_SERVER_BASE_URL}/metadata`;
+        await waitForRefreshComplete();
+        broadcastRefreshStart();
 
-        const tokens = await retryWithBackoff(
-          () => renewToken(graphqlUri, getTokenPair()),
-          {
-            maxRetries: TOKEN_RENEWAL_MAX_RETRIES,
-            baseDelayMs: TOKEN_RENEWAL_RETRY_DELAY_MS,
-            shouldRetry: (error) =>
-              !CombinedGraphQLErrors.is(error) && isDefined(getTokenPair()),
-          },
-        );
+        try {
+          const graphqlUri = `${REACT_APP_SERVER_BASE_URL}/metadata`;
 
-        if (isDefined(tokens)) {
-          onTokenPairChange?.(tokens);
+          const tokens = await retryWithBackoff(
+            () => renewToken(graphqlUri, getTokenPair()),
+            {
+              maxRetries: TOKEN_RENEWAL_MAX_RETRIES,
+              baseDelayMs: TOKEN_RENEWAL_RETRY_DELAY_MS,
+              shouldRetry: (error) =>
+                !CombinedGraphQLErrors.is(error) && isDefined(getTokenPair()),
+            },
+          );
+
+          if (isDefined(tokens)) {
+            onTokenPairChange?.(tokens);
+          }
+        } finally {
+          broadcastRefreshComplete();
         }
+      };
+
+      const triggerUnauthenticatedError = () => {
+        const now = Date.now();
+
+        // Cegah panggilan berulang dalam waktu cooldown — ini mencegah
+        // redirect/infinite loop saat banyak query gagal bersamaan setelah
+        // sesi kadaluarsa.
+        if (
+          lastUnauthenticatedErrorAt !== null &&
+          now - lastUnauthenticatedErrorAt < UNAUTHENTICATED_COOLDOWN_MS
+        ) {
+          logDebug(
+            'UNAUTHENTICATED cooldown active, skipping onUnauthenticatedError',
+          );
+
+          return;
+        }
+
+        lastUnauthenticatedErrorAt = now;
+        onUnauthenticatedError?.();
       };
 
       const handleTokenRenewal = (
@@ -180,7 +219,7 @@ export class ApolloFactory implements ApolloManager {
         forward: ApolloLink.ForwardFunction,
       ) => {
         if (!getTokenPair()) {
-          onUnauthenticatedError?.();
+          triggerUnauthenticatedError();
 
           return EMPTY;
         }
@@ -192,7 +231,7 @@ export class ApolloFactory implements ApolloManager {
               logDebug(
                 'Failed to renew token after retries, triggering unauthenticated error',
               );
-              onUnauthenticatedError?.();
+              triggerUnauthenticatedError();
 
               return false;
             })

@@ -6,8 +6,8 @@ import { AuthTokenPair } from './auth-token-pair.dto';
 
 @ObjectType('AvailableWorkspacesAndAccessTokens')
 export class AvailableWorkspacesAndAccessTokensDTO {
-  @Field(() => AuthTokenPair)
-  tokens: AuthTokenPair;
+  @Field(() => AuthTokenPair, { nullable: true })
+  tokens: AuthTokenPair | null;
 
   @Field(() => AvailableWorkspaces)
   availableWorkspaces: AvailableWorkspaces;

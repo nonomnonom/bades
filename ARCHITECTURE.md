@@ -132,7 +132,7 @@ npx nx build front
 │   ┌──────────┐                                                      │
 │   │  worker  │                                                      │
 │   │ (queue)  │──── Depends on: server, redis, db                    │
-│   └──────────┘     Command: node dist/src/queue-worker/queue-worker│
+│   └──────────┘     Command: yarn worker:prod                       │
 │                                                                      │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -149,14 +149,16 @@ npx nx build front
 | **AI**           | `OPENROUTER_API_KEY`, `AI_MODEL_PREFERENCES`                                  |
 | **Multi-tenant** | `IS_MULTIWORKSPACE_ENABLED`, `IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS` |
 | **Frontend**     | `FRONTEND_URL`, `DEFAULT_SUBDOMAIN`                                           |
+| **Reverse proxy**  | `TRUST_PROXY` (wajib `true` di belakang Caddy)                                |
 
 ### 2.5 Security Hardening
 
 - **Non-root user**: Container runs as `USER 1000`
 - **No secrets in image**: Passwords from env vars or secrets files
-- **Minimal base image**: Alpine Linux (~150MB vs ~900MB Debian)
-- **Healthchecks**: Automatic service monitoring
-- **ENTRYPOINT wrapper**: `/app/entrypoint.sh` script
+- **Base image**: Node 24 on Debian bookworm-slim
+- **Healthchecks**: Server (`/healthz`), worker (`pgrep`), db, redis, caddy (prod)
+- **Resource limits**: Prod compose — server 2G/2 CPU, worker 1.5G/1.5 CPU
+- **ENTRYPOINT wrapper**: `packages/bades-docker/bades/entrypoint.sh` → `/app/entrypoint.sh`
 
 ---
 
@@ -297,13 +299,13 @@ packages/
 
 ```bash
 # Build target standard (server + frontend)
-docker build --target bades -f Dockerfile .
+docker build --target bades -f packages/bades-docker/bades/Dockerfile .
 
 # Build target server-only (API)
-docker build --target bades-server -f Dockerfile .
+docker build --target bades-server -f packages/bades-docker/bades/Dockerfile .
 
 # Build dengan custom tag
-docker build --target bades -f Dockerfile -t my-registry/bades:custom-tag .
+docker build --target bades -f packages/bades-docker/bades/Dockerfile -t my-registry/bades:custom-tag .
 ```
 
 ### 4.4 GitHub Actions Cache
@@ -334,18 +336,17 @@ docker build --target bades -f Dockerfile -t my-registry/bades:custom-tag .
 git clone https://github.com/nonomnonom/bades.git
 cd bades
 
-# 2. Install dependencies (Bun)
-bun install
+# 2. Install dependencies
+yarn install
 
-# 3. Setup environment
-# Salin .env.example ke .env dan isi variabel yang diperlukan
-cp packages/server/.env.example packages/server/.env
+# 3. Bootstrap infra + env
+bash packages/utils/setup-dev-env.sh
 
 # 4. Start development
-bun start              # Start semua (frontend + backend + worker)
+yarn start              # server + frontend + worker
 # atau
-npx nx start front    # Frontend only
-npx nx start server  # Backend only
+npx nx start front      # Frontend only (:3001)
+npx nx start server     # Backend only (:3000)
 ```
 
 ### 5.2 Hot Reload Development
@@ -365,16 +366,16 @@ npx nx run server:worker
 
 ```bash
 # Start semua services via Docker Compose
-docker-compose up
+docker compose -f packages/bades-docker/docker-compose.yml up
 
 # Start dengan custom image
-BADES_IMAGE=ghcr.io/nonomnonom/bades:latest docker-compose up
+BADES_IMAGE=ghcr.io/nonomnonom/bades:latest docker compose -f packages/bades-docker/docker-compose.yml up
 
 # Start server-only (API)
-docker-compose up server
+docker compose -f packages/bades-docker/docker-compose.yml up server
 
 # Development dengan hot-reload container
-docker build --target bades-front-dev -f Dockerfile -t bades:dev .
+docker build --target bades-front-dev -f packages/bades-docker/bades/Dockerfile -t bades:dev .
 docker run -v $(pwd)/packages/front:/app/packages/front bades:dev
 ```
 
@@ -544,7 +545,7 @@ Nx `dependsOn: ["^build"]` secara otomatis menghitung urutan ini.
 
 ```bash
 # Development
-bun start                          # Start semua services
+yarn start                         # Start semua services
 npx nx start front                # Frontend only
 npx nx start server              # Backend only
 
@@ -562,9 +563,9 @@ npx nx lint:diff-with-main front --configuration=fix
 npx nx lint:diff-with-main server --configuration=fix
 
 # Docker
-docker build --target bades -f Dockerfile .
-docker-compose up
-docker-compose up server worker
+docker build --target bades -f packages/bades-docker/bades/Dockerfile .
+docker compose -f packages/bades-docker/docker-compose.yml up
+docker compose -f packages/bades-docker/docker-compose.yml up server worker
 ```
 
 ### 8.2 Environment Variables (.env)

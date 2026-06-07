@@ -36,8 +36,11 @@ export const createJotaiCookieStorage = <ValueType>({
 }): JotaiSyncStorage<ValueType> => {
   const defaultAttributes = {
     expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 180),
+    path: '/',
     ...(attributes ?? {}),
   };
+
+  let lastCookieAttributes = defaultAttributes;
 
   return {
     getItem: (key: string, initialValue: ValueType): ValueType => {
@@ -67,6 +70,8 @@ export const createJotaiCookieStorage = <ValueType>({
           : {}),
       };
 
+      lastCookieAttributes = cookieAttrs;
+
       const valueToStore = hasCustomCookieAttributes(newValue)
         ? omit(newValue, ['cookieAttributes'])
         : newValue;
@@ -88,6 +93,7 @@ export const createJotaiCookieStorage = <ValueType>({
       );
     },
     removeItem: (_key: string): void => {
+      cookieStorage.removeItem(cookieKey, lastCookieAttributes);
       cookieStorage.removeItem(cookieKey, defaultAttributes);
       cookieStorage.removeItem(cookieKey);
     },

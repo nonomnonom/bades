@@ -1,6 +1,8 @@
 const SIGN_OUT_CHANNEL_NAME = 'bades-sign-out';
 const REFRESH_CHANNEL_NAME = 'bades-token-refresh';
 
+export const REFRESH_WAIT_TIMEOUT_MS = 15_000;
+
 let sharedSignOutChannel: BroadcastChannel | null = null;
 let sharedRefreshChannel: BroadcastChannel | null = null;
 
@@ -36,6 +38,10 @@ export const broadcastSignOutToOtherTabs = () => {
   getSharedSignOutChannel()?.postMessage({ type: 'sign-out' });
 };
 
+export const broadcastSessionInvalidatedToOtherTabs = () => {
+  getSharedSignOutChannel()?.postMessage({ type: 'session-invalidated' });
+};
+
 export const subscribeToSignOutFromOtherTabs = (
   callback: () => void,
 ): (() => void) => {
@@ -58,13 +64,68 @@ export const subscribeToSignOutFromOtherTabs = (
   };
 };
 
+export const subscribeToSessionInvalidatedFromOtherTabs = (
+  callback: () => void,
+): (() => void) => {
+  const channel = getSharedSignOutChannel();
+
+  if (!channel) {
+    return () => {};
+  }
+
+  const handler = (event: MessageEvent) => {
+    if (event.data?.type === 'session-invalidated') {
+      callback();
+    }
+  };
+
+  channel.addEventListener('message', handler);
+
+  return () => {
+    channel.removeEventListener('message', handler);
+  };
+};
+
 /**
  * Token refresh coordination across tabs.
  * When one tab is refreshing, other tabs wait for it to complete.
  */
 
 let isRefreshing = false;
-let refreshSubscribers: (() => void)[] = [];
+let remoteTabIsRefreshing = false;
+let refreshWaiters: (() => void)[] = [];
+
+const resetRefreshFlags = () => {
+  isRefreshing = false;
+  remoteTabIsRefreshing = false;
+};
+
+export const resolveRefreshWaiters = () => {
+  refreshWaiters.forEach((resolve) => resolve());
+  refreshWaiters = [];
+};
+
+const initCrossTabRefreshListener = (): void => {
+  const channel = getSharedRefreshChannel();
+
+  if (!channel) {
+    return;
+  }
+
+  channel.addEventListener('message', (event: MessageEvent) => {
+    if (event.data?.type === 'REFRESH_START') {
+      remoteTabIsRefreshing = true;
+    } else if (event.data?.type === 'REFRESH_COMPLETE') {
+      remoteTabIsRefreshing = false;
+      resolveRefreshWaiters();
+    }
+  });
+};
+
+initCrossTabRefreshListener();
+
+export const isAnyTabRefreshing = (): boolean =>
+  isRefreshing || remoteTabIsRefreshing;
 
 export const broadcastRefreshStart = () => {
   isRefreshing = true;
@@ -72,20 +133,28 @@ export const broadcastRefreshStart = () => {
 };
 
 export const broadcastRefreshComplete = () => {
-  isRefreshing = false;
+  resetRefreshFlags();
   getSharedRefreshChannel()?.postMessage({ type: 'REFRESH_COMPLETE' });
-  refreshSubscribers.forEach((callback) => callback());
-  refreshSubscribers = [];
+  resolveRefreshWaiters();
 };
 
 export const waitForRefreshComplete = (): Promise<void> => {
-  if (!isRefreshing) {
+  if (!isAnyTabRefreshing()) {
     return Promise.resolve();
   }
 
-  return new Promise((resolve) => {
-    refreshSubscribers.push(resolve);
-  });
+  return Promise.race([
+    new Promise<void>((resolve) => {
+      refreshWaiters.push(resolve);
+    }),
+    new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resetRefreshFlags();
+        resolveRefreshWaiters();
+        resolve();
+      }, REFRESH_WAIT_TIMEOUT_MS);
+    }),
+  ]);
 };
 
 export const subscribeToRefreshFromOtherTabs = (
@@ -111,4 +180,10 @@ export const subscribeToRefreshFromOtherTabs = (
   return () => {
     channel.removeEventListener('message', handler);
   };
+};
+
+/** Hanya untuk test — reset state modul antar-tab. */
+export const resetCrossTabAuthStateForTesting = () => {
+  resetRefreshFlags();
+  resolveRefreshWaiters();
 };

@@ -25,43 +25,67 @@ menjalankan image yang sama lewat Docker Compose atau platform setara.
 ```bash
 make prod-build
 # atau langsung
-docker build --target bades -f Dockerfile --tag bades:latest .
+docker build --target bades -f packages/bades-docker/bades/Dockerfile --tag bades:latest .
 ```
 
 Image yang sama dipakai oleh service `server` dan `worker` di Docker
-Compose — bedanya hanya command (`worker` pakai `node dist/src/queue-worker/queue-worker`).
+Compose — bedanya hanya command (`worker` pakai `yarn worker:prod`).
 
 ## Jalankan stack lewat Docker Compose
 
 ```bash
-cp .env.example .env
-# Isi minimal:
-#   ENCRYPTION_KEY    (openssl rand -base64 32)
-#   APP_SECRET        (openssl rand -base64 32)
-#   SERVER_URL        (URL publik instance, atau http://localhost:3000)
+cp packages/bades-docker/.env.example .env
+# Isi minimal: ENCRYPTION_KEY, APP_SECRET, SERVER_URL
 
-docker compose up -d
-docker compose ps
-curl http://localhost:3000/healthz   # ekspektasi: {"status":"ok"}
+docker compose -f packages/bades-docker/docker-compose.yml up -d
+docker compose -f packages/bades-docker/docker-compose.yml ps
+curl http://localhost:3000/healthz
 ```
 
 Service yang jalan: `server`, `worker`, `db` (Postgres 16), `redis`.
 
 ### Dev — hanya Postgres + Redis
 
-Untuk kerja dari source, hidupkan service infra saja:
+Untuk kerja dari source:
 
 ```bash
-docker compose up -d db redis
+bash packages/utils/setup-dev-env.sh
 yarn start
 ```
+
+Alternatif manual: `docker compose -f packages/bades-docker/docker-compose.dev.yml up -d`
+
+## Deploy VPS produksi (EC2 + Caddy)
+
+Stack penuh dengan TLS wildcard Cloudflare:
+
+```bash
+cp packages/bades-docker/.env.production.vps.example .env
+# Isi: ENCRYPTION_KEY, APP_SECRET, PG_DATABASE_PASSWORD, CLOUDFLARE_API_TOKEN, BADES_IMAGE
+
+docker compose -f packages/bades-docker/docker-compose.prod.yml --env-file .env -p bades-prod up -d
+```
+
+Variabel penting di belakang Caddy:
+
+- `TRUST_PROXY=true` — wajib agar IP/cookie benar (bukan `TRUST_PROXY_ENABLED`)
+- `SERVER_URL` / `FRONTEND_URL` = URL publik HTTPS
+- `REDIS_PASSWORD` — disarankan di produksi
+
+Rolling update (server + worker saja):
+
+```bash
+bash scripts/deploy-ec2-prod.sh ghcr.io/<owner>/bades:v1.0.0
+```
+
+Script akan **gagal** jika healthcheck server tidak OK dalam 240 detik.
 
 ## Deploy ke Railway (atau platform serupa)
 
 1. Buat project baru di Railway.
 2. Tambah service Postgres dan Redis dari plugin Railway.
 3. Tambah service aplikasi `server` dari image
-   `ghcr.io/<owner>/bades:latest` (atau build dari Dockerfile repo dengan
+   `ghcr.io/<owner>/bades:latest` (atau build dari `packages/bades-docker/bades/Dockerfile` dengan
    target `bades`).
 4. Set environment variable mengikuti `.env.example`:
    - `PG_DATABASE_URL` -> URL Postgres dari plugin Railway
@@ -70,8 +94,8 @@ yarn start
    - `ENCRYPTION_KEY`, `APP_SECRET` -> hasil `openssl rand -base64 32`
    - `STORAGE_TYPE=local` untuk awal, atau `s3` + kredensial S3
 5. Tambah service `worker` dari **image yang sama**
-   (   `ghcr.io/<owner>/bades:latest`), override command jadi
-   `node dist/src/queue-worker/queue-worker`, dan set `DISABLE_DB_MIGRATIONS=true` +
+   (`ghcr.io/<owner>/bades:latest`), override command jadi
+   `yarn worker:prod`, dan set `DISABLE_DB_MIGRATIONS=true` +
    `DISABLE_CRON_JOBS_REGISTRATION=true`.
 6. Expose service server di port 3000.
 
@@ -94,13 +118,13 @@ TAG=v1.0.1 docker compose up -d
 Server menjalankan migrasi otomatis saat startup. Manual override:
 
 ```bash
-docker compose exec server node dist/src/command/command database:migrate
+docker compose exec server node dist/command/command database:migrate
 ```
 
 Reset DB (destruktif, dev only):
 
 ```bash
-docker compose exec server node dist/src/command/command database:reset
+docker compose exec server node dist/command/command database:reset
 ```
 
 ## Backup database
@@ -128,14 +152,14 @@ menghapus data yang sudah ada.
 
 ```bash
 # Satu workspace (paling umum untuk recovery)
-docker compose exec server node dist/src/command/command workspace:reseed:sid-standard \
+docker compose exec server node dist/command/command workspace:reseed:sid-standard \
   --workspace-id <UUID>
 
 # Semua workspace aktif/suspended sekaligus
-docker compose exec server bun run command:prod workspace:reseed:sid-standard
+docker compose exec server node dist/command/command workspace:reseed:sid-standard
 
 # Cek dulu tanpa eksekusi (dry run)
-docker compose exec server node dist/src/command/command workspace:reseed:sid-standard \
+docker compose exec server node dist/command/command workspace:reseed:sid-standard \
   --workspace-id <UUID> --dry-run
 ```
 

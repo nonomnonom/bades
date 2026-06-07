@@ -6,8 +6,8 @@ import { AuthToken } from './auth-token.dto';
 
 @ObjectType('SignUp')
 export class SignUpDTO {
-  @Field(() => AuthToken)
-  loginToken: AuthToken;
+  @Field(() => AuthToken, { nullable: true })
+  loginToken: AuthToken | null;
 
   @Field(() => WorkspaceUrlsAndIdDTO)
   workspace: WorkspaceUrlsAndIdDTO;

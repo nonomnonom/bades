@@ -11,6 +11,10 @@ Bahasa default proyek adalah **Bahasa Indonesia native** untuk produk, dokumenta
 ## Key Commands
 
 ```bash
+# Bootstrap dev (Postgres + Redis + .env front/server)
+yarn dev:bootstrap
+# atau: bash packages/utils/setup-dev-env.sh
+
 # Start all (frontend + backend + worker)
 yarn start
 
@@ -46,10 +50,40 @@ npx nx run server:database:init
 npx nx run server:database:migrate
 npx nx run server:database:migrate:generate --name <name> --type <fast|slow>
 
-# GraphQL (front only, regenerate when schema changes)
+# GraphQL (front only, regenerate when schema changes — server harus jalan dulu)
 npx nx run front:graphql:generate
 npx nx run front:graphql:generate --configuration=metadata
 ```
+
+## Dev Environment Setup
+
+Struktur mengikuti Twenty (`packages/twenty-docker/` + `packages/twenty-utils/setup-dev-env.sh`). Semua artefak Docker (Dockerfile, compose, entrypoint, Caddy) ada di **`packages/bades-docker/`** — repo root hanya `.dockerignore`.
+
+Semua environment dev memakai satu script:
+
+```bash
+bash packages/utils/setup-dev-env.sh
+# atau: yarn dev:bootstrap
+```
+
+Script ini: hidupkan Postgres + Redis (deteksi lokal vs Docker), buat database `default`/`test`, salin `.env` dari example. Idempotent.
+
+- `--docker` — paksa Docker (`packages/bades-docker/docker-compose.dev.yml`)
+- `--down` — stop service
+- `--reset` — wipe data + restart
+
+Setelah bootstrap: `yarn start` → server `:3000`, front `:3001`, worker.
+
+| Jalur | Infra | Env aplikasi |
+|-------|--------|----------------|
+| **Native dev** | `setup-dev-env.sh` | `packages/server/.env`, `packages/front/.env` |
+| **Docker GHCR** | `docker compose -f packages/bades-docker/docker-compose.yml` | `cp packages/bades-docker/.env.example .env` |
+
+`nx start server` = `rimraf dist && nest start --watch` dengan `NODE_ENV=development` (sama Twenty; env lewat Nx agar jalan di Windows).
+
+### Database Inspection (Postgres MCP)
+
+Postgres MCP read-only dikonfigurasi di `.mcp.json` (sama Twenty). Butuh `PG_DATABASE_URL` di `packages/server/.env`. Untuk write (reset, migrate), pakai perintah CLI database di atas.
 
 ## Architecture
 

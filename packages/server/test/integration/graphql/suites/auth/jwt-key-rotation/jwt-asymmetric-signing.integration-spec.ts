@@ -55,8 +55,14 @@ describe('JWT Asymmetric Signing - new ES256 + kid implementation (integration)'
       expectToFail: false,
     });
 
+    const signUpTokens = signUpData.signUp.tokens;
+
+    if (!signUpTokens) {
+      throw new Error('signUp tokens is null');
+    }
+
     const workspaceAgnosticToken =
-      signUpData.signUp.tokens.accessOrWorkspaceAgnosticToken.token;
+      signUpTokens.accessOrWorkspaceAgnosticToken.token;
 
     await global.testDataSource.query(
       'UPDATE core."user" SET "isEmailVerified" = true WHERE email = $1',
@@ -71,7 +77,13 @@ describe('JWT Asymmetric Signing - new ES256 + kid implementation (integration)'
     const subdomainUrl =
       workspaceData.signUpInNewWorkspace.workspace.workspaceUrls.subdomainUrl;
 
-    const loginToken = workspaceData.signUpInNewWorkspace.loginToken.token;
+    const loginTokenFromWs = workspaceData.signUpInNewWorkspace.loginToken;
+
+    if (!loginTokenFromWs) {
+      throw new Error('loginToken is null');
+    }
+
+    const loginToken = loginTokenFromWs.token;
 
     const { data: tokensData } = await getAuthTokensFromLoginToken({
       loginToken,

@@ -46,6 +46,7 @@
   "version": "0.2.1",
   "nx": {},
   "scripts": {
+    "dev:bootstrap": "bash packages/utils/setup-dev-env.sh",
     "start": "npx concurrently --kill-others 'npx nx run-many -t start -p server front' 'npx wait-on tcp:3000 && npx nx run server:worker'",
     "doctor": "npx react-doctor@latest"
   },

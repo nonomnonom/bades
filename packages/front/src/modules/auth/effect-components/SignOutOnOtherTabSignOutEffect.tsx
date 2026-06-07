@@ -1,16 +1,28 @@
 import { useAuth } from '@/auth/hooks/useAuth';
-import { subscribeToSignOutFromOtherTabs } from '@/auth/utils/crossTabSignOut';
+import { clearLocalAuthSessionState } from '@/auth/utils/clearLocalAuthSessionState';
+import {
+  subscribeToSessionInvalidatedFromOtherTabs,
+  subscribeToSignOutFromOtherTabs,
+} from '@/auth/utils/crossTabSignOut';
 import { useEffect } from 'react';
 
 export const SignOutOnOtherTabSignOutEffect = () => {
   const { clearSession } = useAuth();
 
   useEffect(() => {
-    const unsubscribe = subscribeToSignOutFromOtherTabs(() => {
+    const unsubscribeSignOut = subscribeToSignOutFromOtherTabs(() => {
       clearSession();
     });
 
-    return unsubscribe;
+    const unsubscribeSessionInvalidated =
+      subscribeToSessionInvalidatedFromOtherTabs(() => {
+        clearLocalAuthSessionState();
+      });
+
+    return () => {
+      unsubscribeSignOut();
+      unsubscribeSessionInvalidated();
+    };
   }, [clearSession]);
 
   return null;

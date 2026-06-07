@@ -57,17 +57,17 @@ Audit keamanan komprehensif Bades untuk kesiapan production SaaS deployment.
 ### Docker Security
 | Control | Status | Notes |
 |---------|--------|-------|
-| Non-root user | ✅ | `USER 1000` di Dockerfile |
-| Healthchecks | ✅ | Server, worker, db, redis healthchecks |
-| Resource limits | ✅ | CPU/memory limits di compose |
+| Non-root user | ✅ | `USER 1000` di `packages/bades-docker/bades/Dockerfile` |
+| Healthchecks | ✅ | Server, worker (pgrep), db, redis, caddy |
+| Resource limits | ✅ | `mem_limit` / `cpus` di prod compose (server + worker) |
 | Redis password | ✅ | `REDIS_PASSWORD` support |
-| Prometheus port | ✅ | 9464 exposed untuk monitoring |
+| Metrics (Prometheus) | ✅ | Via `METER_DRIVER` di app; expose port 9464 manual jika perlu |
 
 ### Observability
 | Control | Status | Notes |
 |---------|--------|-------|
 | Error tracking | ✅ | Sentry integration |
-| Metrics | ✅ | Prometheus exporter on 9464 |
+| Metrics | ✅ | Prometheus exporter (port 9464, aktifkan via config app) |
 | Tracing | ✅ | OpenTelemetry setup |
 | Structured logging | ✅ | Pino via NestJS Logger |
 | Health checks | ✅ | Database + Redis indicators |
@@ -110,7 +110,7 @@ Audit keamanan komprehensif Bades untuk kesiapan production SaaS deployment.
 2. **Resource limits** - CPU/memory untuk semua services
 3. **Redis authentication** - password support
 4. **Health endpoint** - enhanced dengan DB + Redis checks
-5. **Prometheus metrics** - port 9464 exposed
+5. **Prometheus metrics** - aktifkan `METER_DRIVER`; expose port 9464 di compose/load balancer jika scrape eksternal
 
 ### Phase 2: Security
 1. **Secrets management** - `.env.production.example` template
@@ -158,9 +158,10 @@ Audit keamanan komprehensif Bades untuk kesiapan production SaaS deployment.
 
 ```
 .env.example                        - REDIS_PASSWORD variable
-Dockerfile                         - Bun 1.3.9 + optimizations
-docker-compose.yml                 - Health checks, resource limits, Redis auth
-entrypoint.sh                     - ClickHouse migrations, worker health
+packages/bades-docker/bades/Dockerfile  - Image runtime (Node 24, multi-stage)
+packages/bades-docker/bades/entrypoint.sh - ClickHouse migrations, DB upgrade, cron
+packages/bades-docker/docker-compose.yml      - Health checks, Redis auth, worker pgrep healthcheck
+packages/bades-docker/docker-compose.prod.yml - Resource limits, Caddy TLS, TRUST_PROXY
 packages/server/src/engine/circuit-breaker/     - NEW: CircuitBreakerService
 packages/server/src/instrument.ts             - OTLP tracing
 packages/server/src/health/controller.ts       - Enhanced checks
@@ -178,7 +179,7 @@ packages/front/src/auth/utils/                  - Token refresh coordination
 
 ```bash
 # Test Redis auth
-docker-compose exec redis redis-cli -a testpassword ping
+docker compose -f packages/bades-docker/docker-compose.yml exec redis redis-cli -a testpassword ping
 
 # Test health endpoint
 curl http://localhost:3000/healthz

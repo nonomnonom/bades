@@ -20,6 +20,7 @@ import {
   handleExceptionAndConvertToGraphQLError,
 } from 'src/engine/utils/global-exception-handler.util';
 import { WorkspaceCacheStorageService } from 'src/engine/workspace-cache-storage/workspace-cache-storage.service';
+import { getAllowedCorsOriginHeader } from 'src/utils/cors-origin.util';
 import { type CustomException } from 'src/utils/custom-exception';
 
 @Injectable()
@@ -39,7 +40,11 @@ export class MiddlewareService {
   }
 
   // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-  public writeRestResponseOnExceptionCaught(res: Response, error: any) {
+  public writeRestResponseOnExceptionCaught(
+    req: Request,
+    res: Response,
+    error: any,
+  ) {
     const statusCode = this.getStatus(error);
 
     // capture and handle custom exceptions
@@ -49,7 +54,18 @@ export class MiddlewareService {
       statusCode,
     });
 
-    res.writeHead(statusCode, { 'Content-Type': 'application/json' });
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    const allowedOrigin = getAllowedCorsOriginHeader(
+      req.headers.origin as string | undefined,
+    );
+
+    if (allowedOrigin) {
+      headers['Access-Control-Allow-Origin'] = allowedOrigin;
+    }
+
+    res.writeHead(statusCode, headers);
     res.write(
       JSON.stringify({
         statusCode,
@@ -62,7 +78,11 @@ export class MiddlewareService {
   }
 
   // oxlint-disable-next-line @typescripttypescript/no-explicit-any
-  public writeGraphqlResponseOnExceptionCaught(res: Response, error: any) {
+  public writeGraphqlResponseOnExceptionCaught(
+    req: Request,
+    res: Response,
+    error: any,
+  ) {
     let errors;
 
     if (error instanceof AuthException) {
@@ -84,9 +104,18 @@ export class MiddlewareService {
 
     const statusCode = 200;
 
-    res.writeHead(statusCode, {
+    const headers: Record<string, string> = {
       'Content-Type': 'application/json',
-    });
+    };
+    const allowedOrigin = getAllowedCorsOriginHeader(
+      req.headers.origin as string | undefined,
+    );
+
+    if (allowedOrigin) {
+      headers['Access-Control-Allow-Origin'] = allowedOrigin;
+    }
+
+    res.writeHead(statusCode, headers);
 
     res.write(
       JSON.stringify({

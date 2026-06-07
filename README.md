@@ -77,38 +77,28 @@ open-source atau proyek komunitas. Kontribusi dari luar tim tidak dibuka.
 
 ## Deploy via Docker
 
-Semua artefak Docker tinggal di root repo: `Dockerfile`,
-`docker-compose.yml` (server + worker + Postgres + Redis), `Makefile`,
-`entrypoint.sh`, dan `.env.example`.
-
-### Lokal — build & run image produksi
+Semua artefak Docker ada di **`packages/bades-docker/`** (selaras `packages/twenty-docker/`). Repo root hanya `.dockerignore` untuk build context.
 
 ```bash
-# Bangun image
-make prod-build
+make -C packages/bades-docker prod-build
 
-# Run stack lengkap (server + worker + db + redis)
-cp packages/server/.env.example packages/server/.env  # isi APP_SECRET, ENCRYPTION_KEY, dll
-docker compose up -d
+cp packages/bades-docker/.env.example .env
+docker compose -f packages/bades-docker/docker-compose.yml up -d
 
-# Cek health
 curl http://localhost:3000/healthz
 ```
 
-### Lokal — hanya Postgres + Redis (development against source)
+### Lokal — dev native (source)
 
 ```bash
-# Hidupkan hanya service db + redis dari compose root
-docker compose up -d db redis
-# lalu jalankan server + front dari source seperti biasa:
-bun start
+bash packages/utils/setup-dev-env.sh
+yarn start
 ```
 
 ### Production deploy
 
 Workflow `.github/workflows/build-image.yaml` build satu image dan push ke
-GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakaioleh service `server` (server + frontend) dan service `worker` (override command jadi
-`node dist/src/queue-worker/queue-worker`). Pola: satu image runtime + Postgres + Redis. Cocok
+GHCR (`ghcr.io/<owner>/bades`). Image yang sama dipakai oleh service `server` (server + frontend) dan service `worker` (command `yarn worker:prod`). Pola: satu image runtime + Postgres + Redis. Cocok
 untuk platform managed (Railway, Render) maupun host Docker mandiri.
 
 Repo ini tidak memaketkan workflow deploy ke server tertentu; operator

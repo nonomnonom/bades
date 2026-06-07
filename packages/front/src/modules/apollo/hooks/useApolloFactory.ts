@@ -3,22 +3,18 @@ import { useMemo, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ApolloFactory, type Options } from '@/apollo/services/apollo.factory';
-import { currentUserState } from '@/auth/states/currentUserState';
-import { currentUserWorkspaceState } from '@/auth/states/currentUserWorkspaceState';
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { returnToPathState } from '@/auth/states/returnToPathState';
 import { isValidReturnToPath } from '@/auth/utils/isValidReturnToPath';
 import { tokenPairState } from '@/auth/states/tokenPairState';
-import {
-  clearTokenPairCookie,
-  withSharedAuthCookieAttributes,
-} from '@/auth/utils/sharedAuthCookieUtil';
+import { broadcastSessionInvalidatedToOtherTabs } from '@/auth/utils/crossTabSignOut';
+import { clearLocalAuthSessionState } from '@/auth/utils/clearLocalAuthSessionState';
+import { withSharedAuthCookieAttributes } from '@/auth/utils/sharedAuthCookieUtil';
 import { domainConfigurationState } from '@/domain-manager/states/domainConfigurationState';
 import { isMultiWorkspaceEnabledState } from '@/client-config/states/isMultiWorkspaceEnabledState';
 import { appVersionState } from '@/client-config/states/appVersionState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
-import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { AppPath } from 'shared/types';
@@ -33,15 +29,9 @@ export const useApolloFactory = (options: Partial<Options> = {}) => {
 
   const navigate = useNavigate();
   const setTokenPair = useSetAtomState(tokenPairState);
-  const [currentWorkspace, setCurrentWorkspace] = useAtomState(
-    currentWorkspaceState,
-  );
+  const currentWorkspace = useAtomStateValue(currentWorkspaceState);
   const appVersion = useAtomStateValue(appVersionState);
-  const [currentWorkspaceMember, setCurrentWorkspaceMember] = useAtomState(
-    currentWorkspaceMemberState,
-  );
-  const setCurrentUser = useSetAtomState(currentUserState);
-  const setCurrentUserWorkspace = useSetAtomState(currentUserWorkspaceState);
+  const currentWorkspaceMember = useAtomStateValue(currentWorkspaceMemberState);
 
   const setReturnToPath = useSetAtomState(returnToPathState);
   const domainConfiguration = useAtomStateValue(domainConfigurationState);
@@ -49,6 +39,20 @@ export const useApolloFactory = (options: Partial<Options> = {}) => {
     isMultiWorkspaceEnabledState,
   );
   const location = useLocation();
+
+  // oxlint-disable-next-line bades/no-state-useref
+  const authCookieConfigRef = useRef({
+    frontDomain: domainConfiguration.frontDomain,
+    isMultiWorkspaceEnabled,
+  });
+  authCookieConfigRef.current = {
+    frontDomain: domainConfiguration.frontDomain,
+    isMultiWorkspaceEnabled,
+  };
+
+  // oxlint-disable-next-line bades/no-state-useref
+  const locationRef = useRef(location);
+  locationRef.current = location;
 
   const { enqueueErrorSnackBar } = useSnackBar();
 
@@ -73,31 +77,30 @@ export const useApolloFactory = (options: Partial<Options> = {}) => {
       currentWorkspace: currentWorkspace,
       appVersion,
       onTokenPairChange: (tokenPair) => {
+        const { frontDomain, isMultiWorkspaceEnabled: isMultiWorkspace } =
+          authCookieConfigRef.current;
+
         setTokenPair(
           withSharedAuthCookieAttributes(
             tokenPair,
-            domainConfiguration.frontDomain,
-            isMultiWorkspaceEnabled,
+            frontDomain,
+            isMultiWorkspace,
           ),
         );
       },
       onUnauthenticatedError: () => {
-        clearTokenPairCookie(
-          domainConfiguration.frontDomain,
-          isMultiWorkspaceEnabled,
-        );
-        setTokenPair(null);
-        setCurrentUser(null);
-        setCurrentWorkspaceMember(null);
-        setCurrentWorkspace(null);
-        setCurrentUserWorkspace(null);
+        clearLocalAuthSessionState();
+        broadcastSessionInvalidatedToOtherTabs();
+
+        const currentLocation = locationRef.current;
+
         if (
-          !isMatchingLocation(location, AppPath.Verify) &&
-          !isMatchingLocation(location, AppPath.SignInUp) &&
-          !isMatchingLocation(location, AppPath.Invite) &&
-          !isMatchingLocation(location, AppPath.ResetPassword)
+          !isMatchingLocation(currentLocation, AppPath.Verify) &&
+          !isMatchingLocation(currentLocation, AppPath.SignInUp) &&
+          !isMatchingLocation(currentLocation, AppPath.Invite) &&
+          !isMatchingLocation(currentLocation, AppPath.ResetPassword)
         ) {
-          const path = `${location.pathname}${location.search}${location.hash}`;
+          const path = `${currentLocation.pathname}${currentLocation.search}${currentLocation.hash}`;
 
           if (isValidReturnToPath(path)) {
             setReturnToPath(path);
@@ -131,11 +134,12 @@ export const useApolloFactory = (options: Partial<Options> = {}) => {
     // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [
     setTokenPair,
-    setCurrentUser,
-    setCurrentWorkspaceMember,
-    setCurrentWorkspace,
+    currentWorkspaceMember,
+    currentWorkspace,
+    appVersion,
     setReturnToPath,
     enqueueErrorSnackBar,
+    navigate,
   ]);
 
   useUpdateEffect(() => {

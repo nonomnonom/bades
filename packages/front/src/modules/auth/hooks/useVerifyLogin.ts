@@ -1,4 +1,8 @@
+import { useCallback } from 'react';
+
 import { useAuth } from '@/auth/hooks/useAuth';
+import { broadcastSessionInvalidatedToOtherTabs } from '@/auth/utils/crossTabSignOut';
+import { clearLocalAuthSessionState } from '@/auth/utils/clearLocalAuthSessionState';
 import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { AppPath } from 'shared/types';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
@@ -8,23 +12,39 @@ export const useVerifyLogin = () => {
   const { enqueueErrorSnackBar } = useSnackBar();
   const navigate = useNavigateApp();
   const { getAuthTokensFromLoginToken } = useAuth();
-  const verifyLoginToken = async (loginToken: string) => {
-    try {
-      await getAuthTokensFromLoginToken(loginToken);
-    } catch (error) {
-      if (isGraphqlErrorOfType(error, 'EMAIL_NOT_VERIFIED')) {
-        enqueueErrorSnackBar({
-          message: `Email belum diverifikasi. Silakan periksa kotak masuk Anda.`,
-        });
-        navigate(AppPath.SignInUp);
-      } else {
-        enqueueErrorSnackBar({
-          message: `Autentikasi gagal`,
-        });
-        navigate(AppPath.SignInUp);
+
+  const clearStaleAuthSession = useCallback(() => {
+    clearLocalAuthSessionState();
+    broadcastSessionInvalidatedToOtherTabs();
+  }, []);
+
+  const verifyLoginToken = useCallback(
+    async (loginToken: string) => {
+      try {
+        await getAuthTokensFromLoginToken(loginToken);
+      } catch (error) {
+        clearStaleAuthSession();
+
+        if (isGraphqlErrorOfType(error, 'EMAIL_NOT_VERIFIED')) {
+          enqueueErrorSnackBar({
+            message: `Email belum diverifikasi. Silakan periksa kotak masuk Anda.`,
+          });
+          navigate(AppPath.SignInUp);
+        } else {
+          enqueueErrorSnackBar({
+            message: `Autentikasi gagal`,
+          });
+          navigate(AppPath.SignInUp);
+        }
       }
-    }
-  };
+    },
+    [
+      clearStaleAuthSession,
+      enqueueErrorSnackBar,
+      getAuthTokensFromLoginToken,
+      navigate,
+    ],
+  );
 
   return { verifyLoginToken };
 };

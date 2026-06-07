@@ -1,0 +1,105 @@
+name: CI Docker Compose
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths:
+      - 'packages/bades-docker/**'
+      - '.github/workflows/ci-test-docker-compose.yaml'
+  merge_group:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  test-compose:
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Create frontend placeholder
+        run: |
+          mkdir -p packages/front/build
+          echo '<html><body>CI placeholder</body></html>' > packages/front/build/index.html
+
+      - name: Patch compose to build from source
+        run: |
+          COMPOSE=packages/bades-docker/docker-compose.yml
+          cp packages/bades-docker/.env.example .env.ci
+          {
+            echo ""
+            echo "# === CI generated secrets ==="
+            echo "APP_SECRET=$(openssl rand -base64 32)"
+            echo "ENCRYPTION_KEY=$(openssl rand -base64 32)"
+            echo "SERVER_URL=http://localhost:3000"
+          } >> .env.ci
+
+          yq eval 'del(.services.server.image)' -i "${COMPOSE}"
+          yq eval '.services.server.build.context = "."' -i "${COMPOSE}"
+          yq eval '.services.server.build.dockerfile = "packages/bades-docker/bades/Dockerfile"' -i "${COMPOSE}"
+          yq eval '.services.server.build.target = "bades"' -i "${COMPOSE}"
+          yq eval '.services.server.restart = "no"' -i "${COMPOSE}"
+
+          yq eval 'del(.services.worker.image)' -i "${COMPOSE}"
+          yq eval '.services.worker.build.context = "."' -i "${COMPOSE}"
+          yq eval '.services.worker.build.dockerfile = "packages/bades-docker/bades/Dockerfile"' -i "${COMPOSE}"
+          yq eval '.services.worker.build.target = "bades"' -i "${COMPOSE}"
+          yq eval '.services.worker.restart = "no"' -i "${COMPOSE}"
+
+      - name: Docker compose up
+        run: |
+          docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci up -d --build db redis server || {
+            docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci logs
+            exit 1
+          }
+          docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci logs db server -f &
+          log_pid=$!
+
+          echo "Waiting for database..."
+          count=0
+          while [ "$(docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci ps -q db | xargs docker inspect --format='{{.State.Health.Status}}' 2>/dev/null || echo starting)" != "healthy" ]; do
+            count=$((count + 1))
+            if [ "$count" -gt 300 ]; then
+              docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci logs db
+              kill "${log_pid}" 2>/dev/null || true
+              exit 1
+            fi
+            sleep 1
+          done
+
+          echo "Waiting for server..."
+          count=0
+          while [ "$(docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci ps -q server | xargs docker inspect --format='{{.State.Health.Status}}' 2>/dev/null || echo starting)" != "healthy" ]; do
+            count=$((count + 1))
+            status=$(docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci ps -q server | xargs docker inspect --format='{{.State.Status}}' 2>/dev/null || echo missing)
+            if [ "$status" = "exited" ]; then
+              docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci logs server
+              kill "${log_pid}" 2>/dev/null || true
+              exit 1
+            fi
+            if [ "$count" -gt 600 ]; then
+              docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci logs server
+              kill "${log_pid}" 2>/dev/null || true
+              exit 1
+            fi
+            sleep 1
+          done
+
+          kill "${log_pid}" 2>/dev/null || true
+          curl -fsS http://localhost:3000/healthz
+
+      - name: Teardown
+        if: always()
+        run: |
+          docker compose -f packages/bades-docker/docker-compose.yml --env-file .env.ci down -v --remove-orphans || true
+          git checkout -- packages/bades-docker/docker-compose.yml || true

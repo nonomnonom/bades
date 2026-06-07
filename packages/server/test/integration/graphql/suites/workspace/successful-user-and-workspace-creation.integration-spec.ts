@@ -41,8 +41,14 @@ describe('Successful user and workspace creation', () => {
       expectToFail: false,
     });
 
+    const firstSignUpTokens = data.signUp.tokens;
+
+    if (!firstSignUpTokens) {
+      throw new Error('signUp tokens is null');
+    }
+
     createdUserAccessToken =
-      data.signUp.tokens.accessOrWorkspaceAgnosticToken.token;
+      firstSignUpTokens.accessOrWorkspaceAgnosticToken.token;
 
     // Mark email as verified to bypass email verification requirement
     await testDataSource.query(
@@ -57,11 +63,17 @@ describe('Successful user and workspace creation', () => {
       expectToFail: false,
     });
 
+    const signUpLoginToken = signUpInNewWorkspaceData.loginToken;
+
+    if (!signUpLoginToken) {
+      throw new Error('signUpInNewWorkspace loginToken is null');
+    }
+
     const {
       data: { getAuthTokensFromLoginToken: authTokensData },
     } = await getAuthTokensFromLoginToken({
       origin: signUpInNewWorkspaceData.workspace.workspaceUrls.subdomainUrl,
-      loginToken: signUpInNewWorkspaceData.loginToken.token,
+      loginToken: signUpLoginToken.token,
       expectToFail: false,
     });
 
@@ -142,8 +154,14 @@ describe('Successful user and workspace creation', () => {
       expectToFail: false,
     });
 
+    const signUpTokens = data.signUp.tokens;
+
+    if (!signUpTokens) {
+      throw new Error('signUp tokens is null');
+    }
+
     createdUserAccessToken =
-      data.signUp.tokens.accessOrWorkspaceAgnosticToken.token;
+      signUpTokens.accessOrWorkspaceAgnosticToken.token;
 
     // Mark email as verified to bypass email verification requirement
     await testDataSource.query(
@@ -158,13 +176,19 @@ describe('Successful user and workspace creation', () => {
       expectToFail: false,
     });
 
+    const wsLoginToken = signUpInNewWorkspaceData.loginToken;
+
+    if (!wsLoginToken) {
+      throw new Error('signUpInNewWorkspace loginToken is null');
+    }
+
     const workspaceId = signUpInNewWorkspaceData.workspace.id;
 
     const {
       data: { getAuthTokensFromLoginToken: authTokensData },
     } = await getAuthTokensFromLoginToken({
       origin: signUpInNewWorkspaceData.workspace.workspaceUrls.subdomainUrl,
-      loginToken: signUpInNewWorkspaceData.loginToken.token,
+      loginToken: wsLoginToken.token,
       expectToFail: false,
     });
 

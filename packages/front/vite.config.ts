@@ -127,6 +127,11 @@ export default defineConfig(({ mode }) => {
     ],
 
     optimizeDeps: {
+      include: [
+        'react/jsx-dev-runtime',
+        'react/jsx-runtime',
+        '@radix-ui/colors',
+      ],
       exclude: [
         '../../node_modules/.vite',
         '../../node_modules/.cache',

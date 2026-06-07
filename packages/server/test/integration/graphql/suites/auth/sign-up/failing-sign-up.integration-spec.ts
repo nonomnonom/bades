@@ -27,8 +27,14 @@ describe('Successful User Sign Up (integration)', () => {
       expectToFail: false,
     });
 
+    const firstSignUpTokens = firstSignUp.signUp.tokens;
+
+    if (!firstSignUpTokens) {
+      throw new Error('firstSignUp.signUp.tokens is null');
+    }
+
     expect(
-      firstSignUp.signUp.tokens.accessOrWorkspaceAgnosticToken.token,
+      firstSignUpTokens.accessOrWorkspaceAgnosticToken.token,
     ).toBeDefined();
 
     const { errors } = await signUp({

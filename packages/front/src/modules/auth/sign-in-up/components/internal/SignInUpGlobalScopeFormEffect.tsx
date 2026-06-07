@@ -4,12 +4,15 @@ import {
   SignInUpStep,
   signInUpStepState,
 } from '@/auth/states/signInUpStepState';
+import { useSnackBar } from '@/ui/feedback/snack-bar-manager/hooks/useSnackBar';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 import { useLoadCurrentUser } from '@/users/hooks/useLoadCurrentUser';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { isDefined } from 'shared/utils';
+import { type AuthTokenPair } from '~/generated-metadata/graphql';
+import { isValidAuthTokenPair } from '@/apollo/utils/isValidAuthTokenPair';
 
 export const SignInUpGlobalScopeFormEffect = () => {
   const setSignInUpStep = useSetAtomState(signInUpStepState);
@@ -18,17 +21,41 @@ export const SignInUpGlobalScopeFormEffect = () => {
   const { setAuthTokens } = useAuth();
   const { loadCurrentUser } = useLoadCurrentUser();
   const hasAccessTokenPair = useHasAccessTokenPair();
+  const { enqueueErrorSnackBar } = useSnackBar();
 
   useEffect(() => {
     // Path 1: user just bounced back from social SSO with a workspace-agnostic
     // tokenPair in the URL. Honor it unconditionally.
     const tokenPairFromUrl = searchParams.get('tokenPair');
     if (isDefined(tokenPairFromUrl)) {
-      setAuthTokens(JSON.parse(tokenPairFromUrl));
       searchParams.delete('tokenPair');
       setSearchParams(searchParams);
-      loadCurrentUser();
-      setSignInUpStep(SignInUpStep.WorkspaceSelection);
+
+      try {
+        const parsedTokenPair = JSON.parse(tokenPairFromUrl);
+
+        if (!isValidAuthTokenPair(parsedTokenPair)) {
+          enqueueErrorSnackBar({
+            message: 'Token autentikasi tidak valid. Silakan masuk kembali.',
+          });
+          return;
+        }
+
+        setAuthTokens(parsedTokenPair as AuthTokenPair);
+        void loadCurrentUser()
+          .then(() => {
+            setSignInUpStep(SignInUpStep.WorkspaceSelection);
+          })
+          .catch(() => {
+            // loadCurrentUser gagal (cookie stale) — Apollo onUnauthenticatedError
+            // sudah membersihkan sesi dan mengarahkan ke form masuk.
+          });
+      } catch {
+        enqueueErrorSnackBar({
+          message: 'Token autentikasi tidak valid. Silakan masuk kembali.',
+        });
+      }
+
       return;
     }
 
@@ -41,8 +68,13 @@ export const SignInUpGlobalScopeFormEffect = () => {
     if (signInUpStep !== SignInUpStep.Init) return;
     if (!hasAccessTokenPair) return;
 
-    loadCurrentUser();
-    setSignInUpStep(SignInUpStep.WorkspaceSelection);
+    void loadCurrentUser()
+      .then(() => {
+        setSignInUpStep(SignInUpStep.WorkspaceSelection);
+      })
+      .catch(() => {
+        // Cookie stale — biarkan alur unauthenticated menangani redirect.
+      });
   }, [
     searchParams,
     setSearchParams,
@@ -51,6 +83,7 @@ export const SignInUpGlobalScopeFormEffect = () => {
     setAuthTokens,
     signInUpStep,
     hasAccessTokenPair,
+    enqueueErrorSnackBar,
   ]);
 
   return <></>;

@@ -1,3 +1,7 @@
+# Build context: repo root
+#   docker build --target bades -f packages/bades-docker/bades/Dockerfile .
+#   make -C packages/bades-docker prod-build
+
 # ===========================================================================
 # Dependency stages
 # ===========================================================================
@@ -74,14 +78,13 @@ RUN if [ -d /app/packages/front/build ]; then \
 
 # ===========================================================================
 # Target: bades-server (server only, no frontend)
-#   docker build --target bades-server -f Dockerfile .
 # ===========================================================================
 
 FROM node:24.15.0-bookworm-slim AS bades-server
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl jq postgresql-client && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends curl jq postgresql-client procps && rm -rf /var/lib/apt/lists/*
 
-COPY ./entrypoint.sh /app/entrypoint.sh
+COPY ./packages/bades-docker/bades/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 WORKDIR /app/packages/server
 
@@ -121,7 +124,6 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 
 # ===========================================================================
 # Target: bades-server-aws (server only + aws-cli, no frontend)
-#   docker build --target bades-server-aws -f Dockerfile .
 # ===========================================================================
 
 FROM bades-server AS bades-server-aws
@@ -133,7 +135,6 @@ USER 1000
 
 # ===========================================================================
 # Target: bades-front-dev (frontend dengan hot-reload untuk development)
-#   docker build --target bades-front-dev -f Dockerfile .
 # ===========================================================================
 
 FROM front-deps AS bades-front-dev
@@ -147,7 +148,6 @@ COPY ./packages/client-sdk /app/packages/client-sdk
 
 WORKDIR /app
 
-# Install all dependencies for hot-reload development
 RUN yarn workspaces focus bades front front-component-renderer ui shared sdk client-sdk
 
 CMD ["npx", "nx", "run", "front:start"]
@@ -155,7 +155,6 @@ CMD ["npx", "nx", "run", "front:start"]
 
 # ===========================================================================
 # Target: bades (server + frontend)
-#   docker build --target bades -f Dockerfile .
 # ===========================================================================
 
 FROM bades-server AS bades
@@ -167,7 +166,6 @@ LABEL org.opencontainers.image.description="Bades image with backend and fronten
 
 # ===========================================================================
 # Target: bades-aws (server + frontend + aws-cli)
-#   docker build --target bades-aws -f Dockerfile .
 # ===========================================================================
 
 FROM bades AS bades-aws

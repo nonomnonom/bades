@@ -5,34 +5,29 @@ import {
   HttpException,
 } from '@nestjs/common';
 
-import { type Response } from 'express';
+import { type Request, type Response } from 'express';
+
+import { getAllowedCorsOriginHeader } from 'src/utils/cors-origin.util';
 
 // In case of exception in middleware run before the CORS middleware (eg: JSON Middleware that checks the request body),
 // the CORS headers are missing in the response.
 // This class add CORS headers to exception response to avoid misleading CORS error.
-// Note: CORS origin is restricted to FRONTEND_URL and SERVER_URL for security.
 @Catch()
 export class UnhandledExceptionFilter implements ExceptionFilter {
   // oxlint-disable-next-line @typescripttypescript/no-explicit-any
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
+    const request = ctx.getRequest<Request>();
 
     if (!response.header || response.headersSent) {
       return;
     }
 
-    // Restrict CORS origin to allowed URLs (FRONTEND_URL, SERVER_URL) instead of wildcard
-    // This prevents CORS bypass security issues while still allowing legitimate requests
-    const FRONTEND_URL = process.env.FRONTEND_URL;
-    const SERVER_URL = process.env.SERVER_URL;
+    const allowedOrigin = getAllowedCorsOriginHeader(request.headers.origin);
 
-    // Set CORS headers with restricted origin for exception responses
-    if (FRONTEND_URL || SERVER_URL) {
-      response.header(
-        'Access-Control-Allow-Origin',
-        FRONTEND_URL ?? SERVER_URL,
-      );
+    if (allowedOrigin) {
+      response.header('Access-Control-Allow-Origin', allowedOrigin);
     }
 
     response.header(

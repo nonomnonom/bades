@@ -12,7 +12,11 @@ export class RestCoreMiddleware implements NestMiddleware {
     try {
       await this.middlewareService.hydrateRestRequest(req);
     } catch (error) {
-      this.middlewareService.writeRestResponseOnExceptionCaught(res, error);
+      this.middlewareService.writeRestResponseOnExceptionCaught(
+        req,
+        res,
+        error,
+      );
 
       return;
     }
